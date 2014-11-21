@@ -5,10 +5,12 @@ Chitter Challenge
 * Feel free to use google, your notes, books, etc but work on your own
 
 Challenge:
+-------
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
+-------
 
 * In order to use chitter as a maker I want to sign up to the service
 * In order to user chitter as a maker I want to log in
@@ -17,6 +19,7 @@ Features:
 * In order to see what people have to say as a maker I want to see all peeps in chronological order
 
 Notes:
+------
 
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku)
 * The username and email are unique
@@ -27,6 +30,7 @@ Notes:
 * You only can peep if you are logged in.
 
 Bonus:
+-----
 
 If you have time you can implement the following:
 
