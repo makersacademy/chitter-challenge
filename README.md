@@ -28,6 +28,7 @@ Notes:
 * Use data mapper and postgres to save the data
 * You don't have to be logged in to see the peeps
 * You only can peep if you are logged in.
+* ***Please ensure that you put all your work in at Github Repository called "Chitter"***
 
 Bonus:
 -----
@@ -36,7 +37,7 @@ If you have time you can implement the following:
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-Or / and:
+And/Or:
 
 * Work on the css to make it look good (we all like beautiful things).
 
