@@ -3,9 +3,15 @@ Chitter Challenge
 
 * Challenge time: Friday afternoon (+ weekend if you need it)
 * Feel free to use google, your notes, books, etc but work on your own
+* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
 -------
+
+As usual please start by 
+
+* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
+* Forking this repo
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
@@ -28,7 +34,7 @@ Notes:
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* ***Please ensure that you put all your work in at Github Repository called "Chitter"***
+* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
 Bonus:
 -----
