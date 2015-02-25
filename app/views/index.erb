@@ -1,0 +1,20 @@
+<div id="new-link">
+  <form action="/links" method="post">
+    Url: <input type="text" name="url">
+    Title: <input type="text" name="title">
+    tags: <input type="text" name="tags">
+    <input type="submit" value="Add link">
+  </form>
+</div>
+
+<!--   <form action="/tags/search" method="get">
+    search: <input type="text" name"search"> 
+    <input type="submit" value="search">
+  </form>
+ -->
+  <ul>
+    <% @links.each do |link| %>
+      <li><a href="<%= link.url %>"><%= link.title %></a></li>
+    <% end %>
+  </ul>
+
