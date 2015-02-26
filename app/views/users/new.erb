@@ -6,3 +6,9 @@
   And again: <input name="password_confirmation" type="password">
   <input type="submit" value="Sign up">
 </form>
+
+Forgot your password?
+<form method="get" action="/users/reset_password/:token">
+  Email: <input type="text" name='email'>
+  <input type="submit" value="New password">
+</form>
