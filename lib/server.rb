@@ -13,7 +13,8 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    @peeps = Peep.all
+    erb :index
   end
 
   # start the server if ruby file executed directly
