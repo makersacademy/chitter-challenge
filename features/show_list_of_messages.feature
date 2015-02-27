@@ -5,4 +5,4 @@ Feature: Show a list of messages in chronological order
 
   Scenario: displaying a list
     Given I am on the homepage
-    Then I should be able to see a list of messages
+    Then I should be able to see a chronological list of messages

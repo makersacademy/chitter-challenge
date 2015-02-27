@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do 
+    erb :index
+  end
+
   get '/user' do 
     erb :user
   end
@@ -30,7 +34,7 @@ class Chitter < Sinatra::Base
   post '/messages' do 
     content = params[:content]
     Message.create(:content => content)
-    redirect to '/user'
+    redirect to '/'
   end
 
   # start the server if ruby file executed directly

@@ -1,1 +1,6 @@
-<%= @messages %>
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message.content %></li>
+  <%end%>
+</ul>
+

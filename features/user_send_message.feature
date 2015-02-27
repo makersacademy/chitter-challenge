@@ -7,4 +7,4 @@ Feature: Send a message
     Given I am on the user page
     And I fill the message space
     When I click on "submit message"
-    Then I should see "message sent"
+    Then I should see "Hello, World!"
