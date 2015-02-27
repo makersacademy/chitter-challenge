@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 
   post '/' do
     @message = params[:message]
-    User = User.new(@message) #name, email
+    @user = User.new(@message) #name, email
     erb :index
   end
 
