@@ -1,9 +1,5 @@
 <h2>Awesome Twitter</h2>
 
-<% if current_user %>
-  Welcome, <%= current_user.email %>
-<% end %>
-
 Some awesome tweets:
 <ul>
   <% @tweets.each do |tweet| %>
@@ -13,7 +9,7 @@ Some awesome tweets:
 
 <div id="new-tweet">
   <form action="/tweets" method="post">
-    User: <input type="text" name="user">
+    Name: <input type="text" name="user">
     Message: <input type="text" name="message">
     <input type="submit" value="Add tweet">
   </form>
