@@ -1,5 +1,5 @@
-Given(/^I am on the homepage$/) do
-  visit '/'
+Given(/^I am on the user page$/) do
+  visit '/user'
 end
 
 And(/^I fill the message space$/) do
@@ -11,5 +11,5 @@ When(/^I click on "(.*?)"$/) do |arg1|
 end
 
 Then(/^I should see "(.*?)"$/) do |arg1|
-  expect(page).to have_content("message sent")
+  expect(page).to have_content("Hello, World!")
 end

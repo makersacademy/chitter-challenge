@@ -1,17 +1,10 @@
 class User
 
-  attr_reader :message
+  include DataMapper::Resource
 
-  # TODO
-  # include DataMapper::Resource
-  # property :id
-  # property :name 
-  # property :email
-  # property :password
-  # property :password_confirmation
-
-  def initialize(message)
-    @message = message
-  end
+  property :id,       Serial
+  property :name,     String 
+  property :email,    String
   
+  # has n, :messages, :through => :message 
 end
