@@ -1,6 +1,10 @@
-<h1>Welcome to Awesome Twitter</h1>
+<h2>Awesome Twitter</h2>
 
-Current tweets:
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+<% end %>
+
+Some awesome tweets:
 <ul>
   <% @tweets.each do |tweet| %>
     <li><p><%=tweet.user%>: <%=tweet.message%></p></li>
