@@ -7,6 +7,7 @@ env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 require_relative '../app/models/peep' # this needs to be done after datamapper is initialised
+require_relative '../app/models/user'
 
 # After declaring your models, you should finalise them
 DataMapper.finalize
@@ -24,6 +25,17 @@ class Chitter < Sinatra::Base
     Peep.create(:message => "Hello there!")
     @peeps = Peep.all
     erb :index
+  end
+
+  get '/users/new' do
+    erb :new_user
+  end
+
+  post '/users/welcome' do
+    @username = params[:username]
+    @password = params[:password]
+    User.create(:username => @username,
+                :password => @password)
   end
 
   #start the server if ruby file executed directly
