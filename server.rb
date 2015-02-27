@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'data_mapper'
 
 env = ENV['RACK_ENV'] || 'development'
@@ -9,3 +10,8 @@ require './lib/tweet'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+get '/' do
+  @tweets = Tweet.all
+  erb :index
+end

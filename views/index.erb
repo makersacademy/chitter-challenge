@@ -1,0 +1,8 @@
+<h1>Welcome to Awesome Twitter</h1>
+
+Current tweets:
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li><a href="<%= tweet.message %>"><%= tweet.user %></a></li>
+  <% end %>
+</ul>
