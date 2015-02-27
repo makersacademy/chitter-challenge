@@ -3,7 +3,7 @@
 Current tweets:
 <ul>
   <% @tweets.each do |tweet| %>
-    <li><a href="<%= tweet.message %>"><%= tweet.user %></a></li>
+    <li><p><%=tweet.user%>: <%=tweet.message%></p></li>
   <% end %>
 </ul>
 
