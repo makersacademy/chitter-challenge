@@ -1,6 +1,10 @@
 <div>
-  <form action="/" method="post">
+  <form action="/user" method="post">
     <input type="text" name="content">
     <input type="submit" value="submit message">
   </form>
 </div>
+
+<% if @messages %>
+	<%= @messages %>
+<% end %>

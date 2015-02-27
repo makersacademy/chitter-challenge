@@ -15,18 +15,22 @@ DataMapper.auto_upgrade!
 class Chitter < Sinatra::Base
 
   get '/' do
+    @messages = Message.all
     erb :index
   end
 
-  post '/' do
-    @messages = Message.all
-    erb :home
+  get '/user' do 
+    erb :user
   end
 
+  post '/user' do
+    erb :user
+  end
+  
   post '/messages' do 
     content = params[:content]
     Message.create(:content => content)
-    redirect to '/'
+    redirect to '/user'
   end
 
   # start the server if ruby file executed directly

@@ -3,7 +3,7 @@ Given(/^I am on the user page$/) do
 end
 
 And(/^I fill the message space$/) do
-  fill_in :message, :with => "Hello, World!"
+  fill_in 'content', :with => "Hello, World!"
 end
 
 When(/^I click on "(.*?)"$/) do |arg1|
