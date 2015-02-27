@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Tweet do
 
   context 'Demonstration of how datamapper works' do
