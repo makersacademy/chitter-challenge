@@ -19,8 +19,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
   message = params["message"]
-  tag = params["tag"]
-  Peep.create(:message => message, :tag => tag)
+  Peep.create(:message => message)
   redirect to('/')
 end
 
