@@ -17,6 +17,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.15)
       addressable (~> 2.1)
+    diff-lcs (1.2.5)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -60,6 +61,19 @@ GEM
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.1)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -74,4 +88,5 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-postgres-adapter
+  rspec
   sinatra
