@@ -1,0 +1,11 @@
+<div>
+  <form action="/" method="post">
+    <input type="text" name="message">
+    <input type="submit" value="submit message">
+  </form>
+</div>
+
+<% if @message %>
+<%= @message %>
+<p>message sent</p>
+<% end %>
