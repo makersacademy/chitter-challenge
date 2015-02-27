@@ -15,7 +15,7 @@ feature "User adds a new tweet" do
     within('#new-tweet') do
       fill_in 'message', :with => message
       fill_in 'user', :with => user
-      click_button 'Add tweet'
+      click_button 'Send tweet'
     end
   end
 end
