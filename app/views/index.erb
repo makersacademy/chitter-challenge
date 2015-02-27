@@ -1,0 +1,14 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><p href="<%= peep.message %>"><%= peep.user %>: "<%= peep.message %>"</p></li>
+  <% end %>
+</ul>
+
+<div id="new-peep">
+  <form action="/peeps" method="post">
+    Message: <input type="text" name="message">
+    Hashtag: <input type="text" name="hashtags">
+    User: <input type="text" name="user">
+    <input type="submit" value="Add peep">
+  </form>
+</div>
