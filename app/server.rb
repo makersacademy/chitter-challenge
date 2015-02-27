@@ -4,13 +4,7 @@ require 'rack-flash'
 require './app/lib/tweet'
 require './app/lib/user'
 require_relative 'helpers/application'
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'super awesome secret password'
@@ -46,4 +40,20 @@ post '/users' do
       flash.now[:errors] = @user.errors.full_messages
       erb :"users/new"
     end
+end
+
+get '/sessions/new' do
+  erb :"sessions/new"
+end
+
+post '/sessions' do
+  email, password = params[:email], params[:password]
+  user = User.authenticate(email, password)
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else
+    flash[:errors] = ["The email or password is incorrect"]
+    erb :"sessions/new"
+  end
 end
