@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'sinatra'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -12,3 +13,19 @@ DataMapper.finalize
 
 # However, the database tables don't exist yet. Let's tell datamapper to create them
 DataMapper.auto_upgrade!
+
+
+
+class Chitter < Sinatra::Base
+
+  enable :sessions
+
+  get '/' do 
+    Peep.create(:message => "Hello there!")
+    @peeps = Peep.all
+    erb :index
+  end
+
+  #start the server if ruby file executed directly
+  run! if app_file == $0
+end
