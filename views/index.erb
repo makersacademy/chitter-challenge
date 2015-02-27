@@ -6,3 +6,11 @@ Current tweets:
     <li><a href="<%= tweet.message %>"><%= tweet.user %></a></li>
   <% end %>
 </ul>
+
+<div id="new-tweet">
+  <form action="/tweets" method="post">
+    User: <input type="text" name="user">
+    Message: <input type="text" name="message">
+    <input type="submit" value="Add tweet">
+  </form>
+</div>

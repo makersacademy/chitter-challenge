@@ -15,3 +15,10 @@ get '/' do
   @tweets = Tweet.all
   erb :index
 end
+
+post '/tweets' do
+  message = params["message"]
+  user = params["user"]
+  Tweet.create(:message => message, :user => user)
+  redirect to('/')
+end
