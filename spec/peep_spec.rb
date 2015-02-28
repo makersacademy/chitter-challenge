@@ -4,18 +4,13 @@ describe Peep do
 
   context 'Checking Datamapper is working' do
 
-    time = DateTime.now
-    date = Date.today
+    date= DateTime.now
 
-    it 'should be created and then retrieved from the db' do
-      #expect(Peep.count).to eq(0)
+    it 'should be created and then retrieved from the database' do
       Peep.create(content: "This is the first chitter peep",
-                  created_at: time,
-                  created_on: date)
-      #expect(Peep.count).to eq(1)
+                  created_at: date)
       peep = Peep.first
-      expect(peep.created_at).to eq(time)
-      expect(peep.created_on).to eq(date)
+      expect(peep.content).to eq "This is the first chitter peep"
       peep.destroy
       expect(Peep.count).to eq(0)
     end

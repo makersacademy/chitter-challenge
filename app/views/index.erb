@@ -1,0 +1,5 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %> written on <%= peep.created_at %></li>
+  <% end %>
+</ul>
