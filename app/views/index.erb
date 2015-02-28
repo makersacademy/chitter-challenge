@@ -3,3 +3,11 @@
     <li><%= peep.content %> written on <%= peep.created_at %></li>
   <% end %>
 </ul>
+
+<section id="new-peep">
+  <h2>Please submit a new peep</h2>
+  <form action="/peeps" method="post">
+    Message<input type="text" name="content">
+    <input type="submit" value="Peep!">
+  </form>
+</section>
