@@ -1,0 +1,16 @@
+<h1>Please sign up</h1>
+
+<form action="/users" method="post">    
+  <p>
+    <input type="text" name="email" placeholder="Email" value="<%= @user.email %>">
+  </p>
+  <p>
+    <input type="text" name="password" placeholder="Password">  
+  </p>
+  <p>
+    <input type="text" name="password_confirmation" placeholder="Password confirmation"> 
+  </p>
+  <p>
+    <input type="submit" value="Sign up" class='button'>  
+  </p>    
+</form>

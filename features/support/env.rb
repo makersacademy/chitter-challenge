@@ -8,14 +8,14 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = chitter_challenge
+Capybara.app = Sinatra::Application
 
-class chitter_challengeWorld
-  include Capybara::DSL
-  include RSpec::Expectations
-  include RSpec::Matchers
-end
+# class chitter_challengeWorld
+#   include Capybara::DSL
+#   include RSpec::Expectations
+#   include RSpec::Matchers
+# end
 
-World do
-  chitter_challengeWorld.new
-end
+# World do
+#   chitter_challengeWorld.new
+# end
