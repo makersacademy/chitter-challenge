@@ -1,7 +1,20 @@
 require 'spec_helper'
+require './app/helpers/sessions'
 
-feature "User adds a new tweet" do
-  scenario "when browsing the homepage" do
+include SessionHelpers
+
+feature 'User can only send a tweet when signed in' do
+
+  before(:each) do
+    User.create(:email => "test@test.com",
+                :password => 'test',
+                :password_confirmation => 'test')
+  end
+
+  scenario "with correct credentials" do
+    visit '/'
+    sign_in('test@test.com', 'test')
+    expect(page).to have_content("Message:")
     expect(Tweet.count).to eq(0)
     visit '/'
     add_tweet("Hello, this is my first tweet", "Sebastien")
@@ -10,6 +23,8 @@ feature "User adds a new tweet" do
     expect(tweet.message).to eq("Hello, this is my first tweet")
     expect(tweet.user).to eq("Sebastien")
   end
+end
+
 
   def add_tweet(message, user)
     within('#new-tweet') do
@@ -18,4 +33,3 @@ feature "User adds a new tweet" do
       click_button 'Send tweet'
     end
   end
-end

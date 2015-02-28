@@ -5,10 +5,6 @@
   <link rel="stylesheet" type="text/css" href="/css/application.css">
 </head>
 <body>
-
-  <% if current_user %>
-    Welcome, <%= current_user.name %>
-  <% end %>
   <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with the form.
     <ul id="errors">
@@ -19,17 +15,23 @@
 <% end %>
 
     <% if current_user %>
+      Welcome, <%= current_user.name %>
   <form method="post" action="/sessions">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign out">
   </form>
+     <% else %>
+    <a href="/sessions/new">Sign in</a>
+    <a href="/users/new">Sign up</a>
+
   <% if flash[:notice] %>
     <div id="notice">
       <%= flash[:notice] %>
     </div>
   <% end %>
-<% end %>
+ <% end %>
 
   <%= yield %>
+
 </body>
 </html>
