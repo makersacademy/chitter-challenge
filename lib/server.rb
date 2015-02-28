@@ -3,6 +3,7 @@ require 'data_mapper'
 require './lib/peep.rb'
 require './lib/tag.rb'
 require './lib/user.rb'
+require 'rack-flash'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -23,6 +24,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :super_sessions, 'super secret'
+  use Rack::Flash
   
   get '/' do
     @peeps = Peep.all
@@ -36,17 +38,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :"users/new"
   end
 
   post '/users' do
-    user = User.create(:email => params["email"],
+    @user = User.new(:email => params["email"],
                 :password => params["password"],
                 :password_confirmation => params["password_confirmation"],
                 :name => params["name"],
                 :username => params["username"])
-    session[:user_id] = user.id
-    redirect to('/')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash[:notice] = "Passwords don't match"
+      erb :"users/new"
+    end
   end
 
   # start the server if ruby file executed directly

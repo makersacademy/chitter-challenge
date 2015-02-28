@@ -1,10 +1,13 @@
 <h1>Please sign up</h1>
 
 <form action='/users' method='post'>
-	Email:<input name='email' type='text'>
+	Email:<input name='email' type='text' value='<%= @user.email%>'>
 	Password:<input name='password' type='text'>
 	Password Confirmation:<input name='password_confirmation' type='text'>
 	Name:<input name= 'name' type='text'>
 	Username:<input name='username' type='text'>
 	<input type='submit' value='Sign up'>
 </form>
+<% if flash[:notice] %>
+	<div id="notice"><%= flash[:notice] %></div>
+<% end %>
