@@ -9,13 +9,15 @@ feature "User signs up" do
   end
 
   def sign_up(email = "kate@kate.com",
-              password = "kate")
+              password = "kate",
+              name = "kate beavis",
+              username = "kittykat")
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :email, :with => email
     fill_in :password, :with => password
-    # fill_in :name, :with => name
-    # fill_in :username, :with => username
+    fill_in :name, :with => name
+    fill_in :username, :with => username
     click_button 'Sign up'
   end
 
