@@ -11,7 +11,7 @@ DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
 
 DataMapper.finalize
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 class Chitter < Sinatra::Base
 
@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :super_sessions, 'super secret'
   use Rack::Flash
+  use Rack::MethodOverride
   
   get '/' do
     @peeps = Peep.all
@@ -55,6 +56,28 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :"users/new"
     end
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash[:errors] = ["The email or password is incorrect"]
+      erb :"sessions/new"
+    end
+  end
+
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = "Goodbye!"
+    redirect to ('/')
   end
 
   # start the server if ruby file executed directly
