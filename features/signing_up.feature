@@ -3,9 +3,9 @@ Feature: Signing up to Chitter
   As someone who would like to post Cheets
   I want to create a Chitter account
 
-#  Scenario: Before anyone is signed in
-#    Given I am on the homepage
-#    Then I should not see "You're now signed in"
+  Scenario: Before anyone is signed in
+    Given I am on the homepage
+    Then I should not see "You're now signed in"
 
   Scenario: Accessing the sign up/sign in page
     Given I am on the homepage
