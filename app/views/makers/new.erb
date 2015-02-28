@@ -1,9 +1,10 @@
 <h1>Please sign up</h1>
 
-<form action="/makers" method="post">
+<form method="post" action="/makers">
   Name: <input name="name" type="text">
-  Username: <input name="username" type="text">
+  Username: <input name="username" type="text" value="<%= @maker.username %>">
   Email: <input name="email" type="text">
   Password: <input name="password" type="password">
+  Confirmation: <input name="password_confirmation" type="password">
   <input type="submit" value="Sign up">
 </form>

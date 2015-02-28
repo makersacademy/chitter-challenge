@@ -1,20 +1,15 @@
 require 'data_mapper'
 require 'sinatra'
+require 'rack-flash'
 require './app/models/peep'
 require './app/models/hashtag'
 require './app/models/maker'
 require_relative 'helpers/application'
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
+require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'top secret'
+use Rack::Flash
 
 get '/' do
   @peeps = Peep.all
@@ -36,16 +31,23 @@ get '/hashtags/:text' do
 end
 
 get '/makers/new' do
+  @maker = Maker.new
   erb :"makers/new"
 end
 
 post '/makers' do
-  maker = Maker.create(:name => params[:name],
+  @maker = Maker.create(:name => params[:name],
                        :username => params[:username],
                        :email => params[:email],
-                       :password => params[:password])
-  session[:maker_id] = maker.id
-  redirect to ('/')
+                       :password => params[:password],
+                       :password_confirmation => params[:password_confirmation])
+  if @maker.save
+    session[:maker_id] = @maker.id
+    redirect to ('/')
+  else
+    flash[:notice] = "Sorry, your passwords don't match"
+    erb :"makers/new"
+  end
 end
 
 

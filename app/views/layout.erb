@@ -6,6 +6,11 @@
   <% if current_maker %>
     Welcome, <%= current_maker.username %>
   <% end %>
+
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+
   <%=yield %>
 
 </body>
