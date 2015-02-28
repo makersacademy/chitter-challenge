@@ -1,5 +1,16 @@
 <ul>
   <% @cheets.each do |cheet| %>
-  <li><%= cheet.message %><p> </p><%= cheet.created_at %></li>
+  <li><%= cheet.message %><%= cheet.created_at %></li>
   <% end %>
 </ul>
+
+<div id="post-cheet">
+  <form action="/cheets" method="post">
+    Message: <input type="text" name="message">
+  <br>
+  <br>
+    Posted on: <input type="date" name="date">
+    <input type="hidden" name="user_id" value="1">
+    <input type="submit" value="Post Cheet">
+  </form>
+</div>

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-  feature "User can browses the list of cheets" do
+  feature "User can browse the list of cheets" do
 
     before(:each){
       Cheet.create(message: "Bonjour",
@@ -8,11 +8,9 @@ require 'spec_helper'
                    user_id: 1)
     }
 
-    scenario "when opening the home page" do
+    scenario "user can browse all the cheets when opening the home page" do
       visit '/'
       expect(page).to have_content("Bonjour")
     end
-
-
 
   end

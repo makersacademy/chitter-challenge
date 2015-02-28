@@ -22,6 +22,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/cheets' do
+    message = params["message"]
+    created_at = params["date"]
+    user_id = params["user_id"]
+    Cheet.create(:message => message, :created_at => created_at, :user_id => user_id)
+    redirect('/')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
