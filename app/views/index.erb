@@ -1,1 +1,6 @@
-<h1>Welcome to Chitter</h1>
+<% if @current_user %>
+  Welcome, <%= @current_user.name %>
+  <% else %>
+   <h1>Welcome to Chitter!</h1>
+  <a href='/users/new' id='sign-up' class='button'>Join Chitter</a>
+<% end %>
