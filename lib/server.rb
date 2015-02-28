@@ -11,8 +11,6 @@ DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
-
 class Chitter < Sinatra::Base
 
   helpers do
