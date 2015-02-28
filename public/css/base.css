@@ -1,0 +1,121 @@
+<style class="cp-pen-styles">
+body {
+  background-color: #f7f7f7;
+}
+
+#navbar {
+  width: auto;
+  background-color: #05B9DF;
+  margin-bottom: 30px;
+}
+#navbar #brand {
+  text-align: center;
+  font-family: "Timmana";
+  color: white;
+  padding-top: 26px;
+  font-size: 22px;
+  color: white;
+  background-color: #F5766E;
+  padding-bottom: 10px;
+}
+#navbar .items {
+  padding-right: 15px;
+  list-style-type: none;
+  padding-top: 26px;
+  text-align: right;
+}
+#navbar .items .item {
+  font-family: "Timmana";
+  font-size: 22px;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline;
+  color: white;
+}
+#navbar .items .link {
+  font-family: "Timmana";
+  font-size: 22px;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline;
+  color: white;
+  border:none;
+  background:none;
+}
+
+
+.hidden-lg {
+  text-align: right;
+  padding: 20px;
+}
+.hidden-lg .toggle-nav {
+  padding-right: 15px;
+  color: white;
+}
+
+#page-content {
+  text-align: center;
+}
+#page-content h3 {
+  font-family: "Timmana";
+}
+
+#site-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#site-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.show-nav #site-canvas {
+  -webkit-transform: translateX(-200px);
+  transform: translateX(-200px);
+  -webkit-transform: translate3d(-200px, 0, 0);
+  transform: translate3d(-200px, 0, 0);
+}
+
+#site-menu {
+  width: 200px;
+  height: 1000px;
+  position: absolute;
+  top: 0;
+  right: -200px;
+  background: #F5766E;
+  padding-top: 28px;
+  color: white;
+  text-align: center;
+}
+#site-menu ul {
+  text-align: center;
+  list-style-type: none;
+  display: inline-block;
+  font-family: "Timmana";
+  font-size: 20px;
+}
+#site-menu ul li {
+  padding: 5px;
+}
+
+.red {
+  color: #F5766E;
+}
+
+.green {
+  color: #05B9DF;
+}
+</style>
