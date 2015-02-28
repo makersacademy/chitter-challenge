@@ -6,6 +6,10 @@ When(/^I click "(.*?)"$/) do |link|
   click_link(link)
 end
 
+Then(/^I should be at the "(.*?)" page$/) do |page|
+  expect(current_path).to eq('/')
+end
+
 Then(/^I should see "(.*?)"$/) do |content|
   expect(page).to have_content(content)
 end

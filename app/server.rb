@@ -5,43 +5,25 @@ require './app/data_mapper_setup'
 
 require './app/helpers/current_user'
 
+require './app/controllers/users_controller.rb'
+
 class Chitter < Sinatra::Base
+  set :views, Proc.new { File.join("./app/views") }
   enable :sessions
 
   include CurrentUser
 
   get '/' do
+    @all_cheeps = Cheep.all
     erb :index
   end
 
-  get '/users/sign_up' do
-    erb :"users/sign_up"
+  get '/cheeps/new' do
+    erb :"cheeps/new"
   end
 
-  post '/users/sign_up' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect to '/'
-  end
-
-  get '/users/sign_in' do
-    erb :"users/sign_in"
-  end
-
-  post '/users/sign_in' do
-    email = params[:email]
-    password = params[:password]
-    user = User.authenticate(email, password)
-    if user
-      session[:user_id] = user.id
-      redirect to '/'
-    else 
-      "Those login details are incorrect."
-    end
-  end
-
-  get '/users/sign_out' do
-    session[:user_id] = nil
+  post '/cheeps/new' do
+    current_user.cheeps.create(content: params[:content])
     redirect to '/'
   end
 
