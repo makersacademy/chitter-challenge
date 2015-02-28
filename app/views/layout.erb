@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+  <% if current_maker %>
+    Welcome, <%= current_maker.email %>
+  <% end %>
+  <%=yield %>
+
+</body>
+</html>

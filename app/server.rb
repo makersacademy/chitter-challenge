@@ -1,17 +1,20 @@
 require 'data_mapper'
 require 'sinatra'
+require './app/models/peep'
+require './app/models/hashtag'
+require './app/models/maker'
+require_relative 'helpers/application'
 
 env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
-require './app/models/peep'
-require './app/models/hashtag'
-
-
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+enable :sessions
+set :session_secret, 'top secret'
 
 get '/' do
   @peeps = Peep.all
@@ -31,3 +34,19 @@ get '/hashtags/:text' do
   @peeps = hashtag ? hashtag.peeps : []
   erb :index
 end
+
+get '/makers/new' do
+  erb :"makers/new"
+end
+
+post '/makers' do
+  maker = Maker.create(:email => params[:email],
+               :password => params[:password])
+  session[:maker_id] = maker.id
+  redirect to ('/')
+end
+
+
+
+
+
