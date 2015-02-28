@@ -8,7 +8,18 @@ Feature: Signing in and out of Chitter
     When I click "Sign Out"
     Then I should see "Sign In"
 
-#  Scenario: Signing in to an existing account
-#    Given I have previously created an account
-#    And I am on the homepage
-#    When I click "Sign Up"
+  Scenario: Signing in to an existing account
+    Given I have previously created an account
+    And I am on the homepage
+    When I click "Sign In"
+    And I enter "tomcoakes@gmail.com" into the "email" field
+    And I enter "password100" into the "password" field
+    And I press "Sign In"
+    Then I should see "You're signed in, Tom!"
+
+  Scenario: Signing in with incorrect details
+    Given I am on the sign in page
+    And I enter "incorrect@email.com" into the "email" field
+    And I enter "wrongpassword" into the "password" field
+    And I press "Sign In"
+    Then I should see "Those login details are incorrect."

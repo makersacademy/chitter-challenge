@@ -6,4 +6,13 @@ class User
   property :email,    String
   property :password, String
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user
+      user.password == password ? user : false
+    else
+      nil
+    end
+  end
+
 end

@@ -18,12 +18,25 @@ Given(/^I am on the Sign Up page$/) do
   visit '/users/sign_up'
 end
 
+Given(/^I am on the sign in page$/) do
+  visit '/users/sign_in'
+end
+
 Given(/^I am logged in with a current user account$/) do
   visit '/users/sign_up'
   fill_in "name", with: "Tom"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
   click_button("Create Account")
+end
+
+Given(/^I have previously created an account$/) do
+  visit '/users/sign_up'
+  fill_in "name", with: "Tom"
+  fill_in "email", with: "tomcoakes@gmail.com"
+  fill_in "password", with: "password100"
+  click_button("Create Account")
+  click_link("Sign Out")
 end
 
 When(/^I enter "(.*?)" into the "(.*?)" field$/) do |content, field|
