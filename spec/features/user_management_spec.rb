@@ -1,4 +1,7 @@
 require 'spec_helper'
+require './app/helpers/session'
+
+include SessionHelpers
 
 feature "User signs up" do
 
@@ -29,30 +32,13 @@ feature "User signs up" do
     expect(User.first.username).to eq("superkev")
     expect(User.first.name).to eq("Kev")
   end
-
-  def sign_up(name = "Kev",
-              username = "superkev",
-              email = "kevinlanzon@gmail.com",
-              password = "chitbags",
-              password_confirmation = "chitbags")
-
-    visit '/users/new'
-    fill_in :name, :with => name
-    fill_in :username, :with => username
-    fill_in :email, :with => email
-    fill_in :password, :with => password
-    fill_in :password_confirmation, :with => password_confirmation
-    click_button "Join Chitter"
-  end
 end
 
-  feature "User signs in" do
+feature "User signs in" do
 
-    before(:each) do
-    User.create(:username => "superkev",
-                :password => "chitbags",
-                :password_confirmation => "chitbags")
-  end
+  before(:each) do
+  User.create(:username => "superkev", :password => "chitbags", :password_confirmation => "chitbags")
+end
 
   scenario "with correct credentials" do
     visit '/'
@@ -67,12 +53,19 @@ end
     sign_in("superkev", 'wrong')
     expect(page).not_to have_content("Welcome, superkev")
   end
+end
 
-  def sign_in(username, password)
-    visit '/sessions/new'
-    fill_in 'username', :with => username
-    fill_in 'password', :with => password
-    click_button 'Sign in'
+feature "User signs out" do
+
+  before(:each) do
+    User.create(:username => "superkev", :password => "chitbags", :password_confirmation => "chitbags")
+  end
+
+  scenario "while being signed in" do
+    sign_in("superkev", "chitbags")
+    click_button "Sign out"
+    expect(page).to have_content("Good bye!")
+    expect(page).not_to have_content("Welcome, superkev")
   end
 
 end
