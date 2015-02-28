@@ -3,17 +3,31 @@ require 'spec_helper'
 feature "Maker posts a peep" do
 
   scenario "when browsing the homepage" do
+    visit '/'
+    expect{add_peep("Hello Chitter!", "Snow White", "seven_dwarfs")}.to change{Peep.count}.by 1
   end
 
-  scenario "only when logged in" do
   end
 
-end
-
-feature "Maker replies to a peep" do
-
-  scenario "when on the homepage" do
+  def add_peep(message, name, username)
+    within('#new-peep') do
+      fill_in 'message', :with => message
+      fill_in 'name', :with => name
+      fill_in 'username', :with => username
+      click_button 'Peep!'
+    end
   end
 
-end
+  # scenario "only when logged in" do
+  # end
+
+
+
+
+# feature "Maker replies to a peep" do
+
+#   scenario "when on the homepage" do
+#   end
+
+# end
 
