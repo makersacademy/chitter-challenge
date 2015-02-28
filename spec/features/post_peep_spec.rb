@@ -3,8 +3,8 @@ require 'spec_helper'
 feature "User adds a new peep" do
   scenario "add a new peep" do
     visit '/'
-    # fill_in 'peep', :with => "this is a short peep"
-    # click_button 'Add peep'
+    fill_in 'peep', :with => "this is a short peep"
+    click_button 'Add peep'
     add_peep("this is a short peep")
     expect(Peeps.count).to eq(1)
     peep = Peeps.first

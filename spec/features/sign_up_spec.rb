@@ -2,21 +2,21 @@ require 'spec_helper'
 
 
 
-  # feature 'In order to use chitter as a maker I want to sign up to the service' do
+  feature 'In order to use chitter as a maker I want to sign up to the service' do
 
-  #   scenario "when being a new user visiting the site" do
-  #   expect{ sign_up }.to change(User, :count).by(1)
-  #   expect(page).to have_content("Welcome, alice@example.com")
-  #   expect(User.first.email).to eq("alice@example.com")
-  #   end
+    scenario "when being a new user visiting the site" do
+    expect{ sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content("Welcome, alice@example.com")
+    expect(User.first.email).to eq("alice@example.com")
+    end
 
-  #   def sign_up(email = "alice@example.com",
-  #             password = "oranges!")
-  #     visit '/users/new'
-  #     expect(page.status_code).to eq(200)
-  #     fill_in :email, :with => email
-  #     fill_in :password, :with => password
-  #     click_button "Sign Up"
-  #   end
+    def sign_up(email = "alice@example.com",
+              password = "oranges!")
+      visit '/user/new'
+      expect(page.status_code).to eq(200)
+      fill_in :email, :with => email
+      fill_in :password, :with => password
+      click_button "Sign Up"
+    end
 
-  # end
+  end

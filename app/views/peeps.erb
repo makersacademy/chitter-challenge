@@ -1,5 +1,18 @@
-<ul>
-  <% @peep.each do |peep| %>
-    <li><a href="<%= peep.peep %>"><%= peep.entry_time%></a></li>
-  <% end %>
-</ul>
+<main>
+
+<div id="new-peep">
+  <form action="/peeps" method="post">
+    Peep: <input type="text" name="peep">
+    <input type="submit" value="Add peep">
+  </form>
+</div>
+
+
+  <ol>
+    <% @peep.each do |peep| %>
+      <li>
+        <a><%= peep.peep %><%= peep.entry_time%></a>
+      </li>
+    <% end %>
+  </ol>
+</main>

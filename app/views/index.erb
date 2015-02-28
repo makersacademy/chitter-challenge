@@ -2,11 +2,17 @@
   Chitter
 </h>
 
+<form action='/users' method="post">
+  <h2>Email:</h2>
+    <input type="text" name="email" value="Enter your email">
+  <h2>Password:</h2>
+    <input type="password" name="password">
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+<p>
+  <a href='/users/new'>Create a New User</a>
+</p>
 
 
-<div id="new-peep">
-  <form action="/peeps" method="post">
-    Peep: <input type="text" name="peep">
-    <input type="submit" value="Add peep">
-  </form>
-</div>
+
