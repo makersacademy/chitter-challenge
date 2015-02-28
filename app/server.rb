@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra/base'
 require 'data_mapper'
+require './app/data_mapper_setup'
 
 require './app/helpers/current_user'
 
@@ -8,12 +9,6 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   include CurrentUser
-
-  env = ENV['RACK_ENV'] || 'development'
-  DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-  require './app/models/user'
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
 
   get '/' do
     erb :index
