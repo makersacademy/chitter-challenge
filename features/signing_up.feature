@@ -9,14 +9,14 @@ Feature: Signing up to Chitter
 
   Scenario: Accessing the sign up/sign in page
     Given I am on the homepage
-    When I click "Sign Up/Sign In"
+    When I click "Sign Up"
     Then I should see "Enter your details to create an account"
 
   Scenario: Entering new account details
-    Given I am on the sign up/sign in page
+    Given I am on the Sign Up page
     When I enter "Tom" into the "name" field
     And I enter "tomcoakes@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
     And I press "Create Account"
     Then I should see "You're signed in, Tom!"
-    And I should not see "Sign Up/Sign In"
+    And I should not see "Sign Up" or "Sign In"

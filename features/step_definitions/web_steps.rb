@@ -14,12 +14,12 @@ Then(/^I should not see "(.*?)"$/) do |content|
   expect(page).not_to have_content(content)
 end
 
-Given(/^I am on the sign up\/sign in page$/) do
-  visit '/users/sign_in'
+Given(/^I am on the Sign Up page$/) do
+  visit '/users/sign_up'
 end
 
 Given(/^I am logged in with a current user account$/) do
-  visit '/users/sign_in'
+  visit '/users/sign_up'
   fill_in "name", with: "Tom"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
