@@ -5,7 +5,7 @@ Feature: Signing up to Chitter
 
   Scenario: Before anyone is signed in
     Given I am on the homepage
-    Then I should not see "You're now signed in"
+    Then I should not see "You're signed in"
 
   Scenario: Accessing the sign up/sign in page
     Given I am on the homepage
@@ -18,5 +18,5 @@ Feature: Signing up to Chitter
     And I enter "tomcoakes@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
     And I press "Create Account"
-    Then I should see "You're now signed in, Tom!"
-#   And I should not see "Sign Up/Sign In"
+    Then I should see "You're signed in, Tom!"
+    And I should not see "Sign Up/Sign In"

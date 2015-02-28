@@ -1,6 +1,7 @@
 <% if current_user %>
-  You're now signed in, <%= current_user.name %>!
+  You're signed in, <%= current_user.name %>!
 <% end %>
 
-
-<a href="/users/sign_in">Sign Up/Sign In</a>
+<% if !current_user %>
+  <a href="/users/sign_in">Sign Up/Sign In</a>
+<% end %>
