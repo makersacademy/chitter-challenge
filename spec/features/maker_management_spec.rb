@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "Maker signs up" do
 
@@ -21,18 +24,45 @@ feature "Maker signs up" do
     expect(page).to have_content("This username is already taken")
   end
 
-  def sign_up(name = "Loris Fochesato",
-              username = "Lorisfo",
-              email = "loris@example.com",
-              password = "Ruby!",
-              password_confirmation = "Ruby!")
-    visit '/makers/new'
-    fill_in :name, :with => name
-    fill_in :username, :with => username
-    fill_in :email, :with => email
-    fill_in :password, :with => password
-    fill_in :password_confirmation, :with => password_confirmation
-    click_button "Sign up"
+end
+
+  feature "Maker signs in" do
+
+  before(:each) do
+    Maker.create(:username => "Lorisfo",
+                 :password => "Ruby!",
+                 :password_confirmation => "Ruby!")
+  end
+
+  scenario "with correct infos" do
+    visit '/'
+    expect(page).not_to have_content("Welcome, Lorisfo")
+    sign_in("Lorisfo", "Ruby!")
+    expect(page).to have_content("Welcome, Lorisfo")
+  end
+
+  scenario "with incorrect infos" do
+    visit '/'
+    expect(page).not_to have_content("Welcome, Lorisfo")
+    sign_in("Lorisfo", "Python!")
+    expect(page).not_to have_content("Welcome, Lorisfo")
+  end
+
+end
+
+feature "Maker signs out" do
+
+  before(:each) do
+    Maker.create(:username => "Lorisfo",
+                 :password => "Ruby!",
+                 :password_confirmation => "Ruby!")
+  end
+
+  scenario 'While being signed in' do
+    sign_in('Lorisfo', 'Ruby!')
+    click_button "Sign out"
+    expect(page).to have_content("Good bye!")
+    expect(page).not_to have_content("Welcome, Lorisfo")
   end
 
 end

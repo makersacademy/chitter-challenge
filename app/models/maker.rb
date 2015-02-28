@@ -13,8 +13,8 @@ class Maker
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
-  # validates_uniqueness_of :username
-  # validates_uniqueness_of :email
+  validates_uniqueness_of :username
+  validates_uniqueness_of :email
 
 
   def password=(password)
@@ -22,4 +22,14 @@ class Maker
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(username, password)
+
+    maker = first(:username => username)
+
+    if maker && BCrypt::Password.new(maker.password_digest) == password
+      maker
+    else
+      nil
+    end
+  end
 end
