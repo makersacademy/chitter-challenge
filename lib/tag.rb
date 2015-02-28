@@ -1,8 +1,8 @@
-class Peep
+class Tag
 
   include DataMapper::Resource
 
   property :id, Serial
-  property :message, Text
-
+  property :text, String
+  
 end
