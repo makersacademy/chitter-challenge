@@ -1,23 +1,19 @@
 require 'sinatra'
 require 'data_mapper'
+require 'rack-flash'
 require './app/model/peeps'
 require './app/model/user'
+require_relative 'data_mapper_setup'
 
 
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
-  set :views, Proc.new { File.join(root, "views") }
-
-
-DataMapper.finalize
-DataMapper.auto_migrate!#upgrade!
 
 class ChitterApp < Sinatra::Base
+  set :views, Proc.new { File.join(root, "views") }
+  set :root, File.dirname(__FILE__)
 
   enable :sessions
   set :session_secret, 'my unique encryption key!'
+  use Rack::Flash
 
   get '/' do
     erb :index
@@ -35,6 +31,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/user/new' do
+    @user = User.new
     erb :new_user
   end
 
@@ -46,6 +43,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
+      flash.now[:errors] = @user.errors.full_messages
       erb :new_user
     end
   end

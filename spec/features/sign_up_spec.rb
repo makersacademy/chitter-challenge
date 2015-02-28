@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-
-
   feature 'In order to use chitter as a user I want to sign up to the service' do
 
     scenario "adding a new user increases the number of users by 1" do
@@ -25,6 +23,17 @@ require 'spec_helper'
     scenario "unmatched password confirmation will redirect back to sign up page" do
       sign_up('a@a.com', 'pass', 'wrong')
       expect(current_path).to eq'/user/new'
+    end
+
+    scenario "return a message if email is already taken" do
+      sign_up
+      sign_up
+      expect(page).to have_content "This email is already taken"
+    end
+
+    scenario "will prevent the User table from being updated with duplicate emails" do
+      sign_up
+      expect{ sign_up }.to change(User, :count).by 0
     end
 
     def sign_up(email = "alice@example.com",
