@@ -1,0 +1,5 @@
+<ul>
+  <% @peep.each do |peep| %>
+    <li><a href="<%= peep.peep %>"><%= peep.entry_time%></a></li>
+  <% end %>
+</ul>
