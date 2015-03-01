@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/sessions'
+
+include SessionHelpers
 
   feature "User sign up" do
 
@@ -21,15 +24,6 @@ require 'spec_helper'
       expect(page).to have_content("Username is already taken")
     end
 
-    def sign_up(email = "johndoe@test.com",
-                password = "qwerty",
-                username = "jdoe")
-      visit '/users/new'
-      fill_in :email, :with => email
-      fill_in :password, :with => password
-      fill_in :username, :with => username
-      click_button "Sign up"
-    end
   end
 
 
@@ -54,12 +48,22 @@ require 'spec_helper'
       expect(page).not_to have_content("Welcome hellokitty!")
     end
 
+  end
 
-    def sign_in(email,password)
-      visit '/sessions/new'
-      fill_in "email", :with => email
-      fill_in "password", :with => password
-      click_button "Sign in"
+
+  feature "User signs out" do
+
+    before (:each) do
+      User.create(:email => "hello@hello.com",
+                  :password => "qwerty",
+                  :username => "hellokitty")
+    end
+
+    scenario "when user signs out of the service" do
+      sign_in("hello@hello.com", "qwerty")
+      click_button "Sign out"
+      expect(page).to have_content("Goodbye!")
+      expect(page).not_to have_content("Welcome hellokitty!")
     end
 
   end
