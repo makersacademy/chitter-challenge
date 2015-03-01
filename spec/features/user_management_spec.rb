@@ -38,3 +38,35 @@ feature "User signs up" do
   end
 
 end
+
+feature "User signs in" do
+
+  before(:each) do
+    User.create(:username => "Chris",
+                :email => "chris@chris.com",
+                :password => 'password',
+                :password_confirmation => 'password')
+  end
+
+  scenario "with correct credentials" do
+    visit '/'
+    expect(page).not_to have_content("Welcome, Chris")
+    sign_in('chris@chris.com', 'password')
+    expect(page).to have_content("Welcome, Chris")
+  end
+
+  scenario "with incorrect credentials" do
+    visit '/'
+    expect(page).not_to have_content("Welcome, Chris")
+    sign_in('chris@chris.com', 'wrong')
+    expect(page).not_to have_content("Welcome, Chris")
+  end
+
+  def sign_in(email, password)
+    visit '/sessions/new'
+    fill_in 'email', :with => email
+    fill_in 'password', :with => password
+    click_button 'Sign in'
+  end
+
+end
