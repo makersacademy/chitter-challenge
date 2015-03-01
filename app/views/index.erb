@@ -1,14 +1,3 @@
-<% if current_user %>
-  You're signed in, <%= current_user.name %>!
-  <a href="/users/sign_out">Sign Out</a>
-  <a href="/cheeps/new">Post a new Cheep</a>
-<% end %>
-
-<% if !current_user %>
-  <a href="/users/sign_up">Sign Up</a>
-  <a href="/users/sign_in">Sign In</a>
-<% end %>
-
 <ul>
     <% @all_cheeps.each do |cheep| %>
     
