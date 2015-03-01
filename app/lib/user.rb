@@ -11,11 +11,23 @@ class User
 
   has n, :cheets
 
+  attr_reader :password
+
   validates_uniqueness_of :email
   validates_uniqueness_of :username
 
-  def password= (password)
+  def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email,password)
+    user = first(:email => email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
   end
 
 

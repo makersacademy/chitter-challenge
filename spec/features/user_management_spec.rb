@@ -30,6 +30,45 @@ require 'spec_helper'
       fill_in :username, :with => username
       click_button "Sign up"
     end
+  end
 
+
+  feature "User signs in" do
+    before (:each) do
+      User.create(:email => "hello@hello.com",
+                  :password => "qwerty",
+                  :username => "hellokitty")
+    end
+
+    scenario "correct credentials" do
+      visit '/'
+      expect(page).not_to have_content("Welcome hellokitty!")
+      sign_in("hello@hello.com", "qwerty")
+      expect(page).to have_content("Welcome hellokitty!")
+    end
+
+    scenario "with the incorrect credentials" do
+      visit '/'
+      expect(page).not_to have_content("Welcome hellokitty!")
+      sign_in("hello@hello.com", "wrong")
+      expect(page).not_to have_content("Welcome hellokitty!")
+    end
+
+
+    def sign_in(email,password)
+      visit '/sessions/new'
+      fill_in "email", :with => email
+      fill_in "password", :with => password
+      click_button "Sign in"
+    end
 
   end
+
+
+
+
+
+
+
+
+
