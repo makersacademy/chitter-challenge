@@ -3,6 +3,23 @@ body {
   background-color: #f7f7f7;
 }
 
+/* telugu */
+@font-face {
+  font-family: 'Timmana';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Timmana'), url(http://fonts.gstatic.com/s/timmana/v1/t8f_V4Odp1KPF_RUFcyF1wLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0951-0952, U+0964-0965, U+0C00-0C7F, U+1CDA, U+200C-200D, U+25CC;
+}
+/* latin */
+@font-face {
+  font-family: 'Timmana';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Timmana'), url(http://fonts.gstatic.com/s/timmana/v1/EEHM8vunf2nPJbhpIdXwNQLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 #navbar {
   width: auto;
   background-color: #05B9DF;
@@ -56,7 +73,7 @@ body {
 }
 
 #page-content {
-  text-align: center;
+  text-align: left;
 }
 #page-content h3 {
   font-family: "Timmana";
@@ -121,15 +138,12 @@ body {
 
 hr {
 width: 60%;
-margin-left: auto;
-margin-right: auto;
+margin-left: 0px;
 }
 
 input[type="submit"]{
   font-family: "Timmana";
   background: #05B9DF;
-/*  -webkit-border-radius: 28;
-  -moz-border-radius: 28;*/
   border: solid 0px;
   border-radius: 28px;
   color: #ffffff;
@@ -149,5 +163,9 @@ footer {
   height: 20px;
 }
 
+textarea {
+   resize: none;
+   padding: 10px;
+}
 
 </style>

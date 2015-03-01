@@ -7,7 +7,7 @@ feature "User signs up" do
 
   scenario "when being a new user visiting the site" do
     expect{sign_up}.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, Sebastien")
+    expect(page).to have_content("Welcome back Sebastien")
     expect(User.first.email).to eq("contact@sebastienpires.com")
   end
 
@@ -35,7 +35,7 @@ feature "User signs in" do
   scenario "with correct credentials" do
     visit '/'
     sign_in('test@test.com', 'test')
-    expect(page).to have_content("Welcome,")
+    expect(page).to have_content("Welcome back ,")
   end
 
   scenario "with incorrect credentials" do
@@ -56,8 +56,8 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     sign_in('test@test.com', 'test')
     click_button "Sign out"
-    expect(page).to have_content("Good bye!")
-    expect(page).not_to have_content("Welcome, bambino")
+    expect(page).to have_content("Welcome stranger!")
+    expect(page).not_to have_content("Welcome back Sebastien")
   end
 
 end

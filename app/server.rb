@@ -63,5 +63,6 @@ end
 
 delete '/sessions' do
   session.clear
-  flash.now[:notice] = "Good bye!"
+  redirect "/"
+  flash.now[:notice] = "You've been log-out!"
 end

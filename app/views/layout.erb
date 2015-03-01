@@ -3,9 +3,8 @@
 <meta charset="UTF-8"><meta name="robots" content="noindex">
 <head>
   <title>Awesome Twitter</title>
-  <link href="/css/base.css" rel="stylesheet prefetch" type="text/css">
+  <link rel="stylesheet prefetch" href="/css/base.css" type="text/css">
   <link rel="stylesheet prefetch" href="/css/bootstrap.min.css">
-  <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Timmana' rel='stylesheet' type='text/css'>
 
 
@@ -56,12 +55,14 @@
 
            <h3> <span class="red">
            <% if current_user %>
-            Welcome <span class="blue"><%= current_user.name %>,</span> very nice to see you!
+            Welcome back <span class="blue"><%= current_user.name %>,</span> very nice to see you!
+            <% else %>
+            Welcome <span class="blue">stranger!</span> Why not sign-in to post tweets?
             <% end %>
       </span> </h3>
       <h3>
       <br>
-
+<img align="right" width="300" src="/img/robot.png">
       <%= yield %>
 
      <div>
@@ -87,11 +88,6 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
-<!-- <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Proudly made by Sebastien Pires.</p>
-      </div>
-    </footer> -->
 </body>
 
 </html>
