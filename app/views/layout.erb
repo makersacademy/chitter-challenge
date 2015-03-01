@@ -6,6 +6,8 @@
   <link href="/styles/normalize.css" rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link href="/styles/main.css" rel='stylesheet' type='text/css'>
+  <link href="/styles/responsive.css" rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="initial-scale=1">
 </head>
 
 <body>
@@ -16,7 +18,7 @@
       
       <div id="sign_in_links">
         <% if current_user %>
-          <span>You're signed in, <%= current_user.name %>!</span>
+          <span id="welcome_message">You're signed in, <%= current_user.name %>!</span>
           <a class="buttons" href="/users/sign_out">Sign Out</a>
           <a class="buttons" href="/cheeps/new">Post a new Cheep</a>
         <% end %>
@@ -33,6 +35,9 @@
     <%= yield %>
   </section>
 
+  <footer>
+    <p><a href="https://github.com/tomcoakes/chitter-challenge">Check out the source code on my GitHub page</a></p>
+  </footer>
 
 </body>
 </html>

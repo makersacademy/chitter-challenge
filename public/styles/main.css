@@ -12,19 +12,20 @@ header {
   border-bottom: solid #bec3c7 3px;
 }
 
-header #sign_in_links {
-  float: right;
-  margin-top: 30px;
-  margin-right: 20%;
-}
-
 header img {
   float: left;
   margin-top: 7px;
   margin-left: 20%;
 }
 
+header #sign_in_links {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20%;
+}
+
 header .buttons {
+  text-decoration: none;
   background-color: #0078E7;
   border-radius: 6px;
   padding: 8px;
@@ -94,4 +95,16 @@ date {
   margin-top: 10px;
   width: 500px;
   height: 100px;
+}
+
+footer {
+  background-color: #0078E7;
+  padding: 10px;
+  margin-top: 30px;
+  height: 100%;
+  overflow: scroll;
+}
+
+footer a {
+  color: #FFFFFF;
 }
