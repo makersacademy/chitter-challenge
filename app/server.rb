@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require_relative 'helper'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -13,6 +14,9 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'secret'
 
   get '/' do
     @messages = Message.all
@@ -29,9 +33,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do 
-    @user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
+    @user = User.create(:name => params[:name], :email => params[:email], :password => params[:password])
+    session[:user_id] = @user.id
     @user.save
-    erb :user
+    redirect to '/'
   end
   
   post '/messages' do 

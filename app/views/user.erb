@@ -1,19 +1,9 @@
-<% if !@user.name.nil? %>
-What's on your mind, <%= @user.name %>?
-  <form action="/messages" method="post">
-  <input type="text" name="content">
-  <input type="submit" value="submit message">
-  </form> 
-<% else %> 
+
 Fill the spaces to sign up and post messages today
   <form action="/user" method="post">
-  <input type="text" name="email" value=<% @user.email %>>
-  <input type="text" name="name" value=<% @user.name %>>
-  <input type="password" name="password">
+  Email:<input type="text" name="email" value=<% @user.email %>>
+  Name:<input type="text" name="name" value=<% @user.name %>>
+  Password:<input type="password" name="password">
   <input type="submit" value="sign up">
   </form>
-<% end %>
 
-<% if @messages %>
-	<%= @messages %>
-<% end %>

@@ -1,7 +1,12 @@
-<% if @user %>
-  Welcome, <%= @user.name %>!
-  <% else %>
+<% if current_user %>
+  What's on your mind, <%= @current_user.name %>?
+  <form action="/messages" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="submit message">
+  </form> 
+<% else %>
   Please sign up to post messages
+  <a href="/user">sign up</a>
 <% end %>
 
 <ul>
