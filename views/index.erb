@@ -1,0 +1,11 @@
+<ul>
+  <% @cheets.each do |cheet| %>
+    <li><%= cheet.text %> at <%= cheet.time %></li>
+  <% end %>
+</ul>
+
+
+<form action="/cheets" method="post">
+    Your Cheet: <input type="text" name="content">
+    <input type="submit" value="Cheet!">
+</form>
