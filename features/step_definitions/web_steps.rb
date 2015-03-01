@@ -55,3 +55,16 @@ end
 When(/^I press "(.*?)"$/) do |button|
   click_button(button)
 end
+
+Given(/^cheets have already been posted$/) do
+  visit '/users/sign_up'
+  fill_in "name", with: "Tom"
+  fill_in "username", with: "cheep-boy"
+  fill_in "email", with: "tomcoakes@gmail.com"
+  fill_in "password", with: "password100"
+  click_button("Create Account")
+  click_link("Post a new Cheep")
+  fill_in "content", with: "Hello World!"
+  click_button("Post")
+  click_link("Sign Out")
+end
