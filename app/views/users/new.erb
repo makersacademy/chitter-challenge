@@ -1,10 +1,13 @@
-<h1>Sign up to Chitter today!</h1>
+Sign up to Chitter today!
+
+<a href='/' id='sign-in' class='button'>Home</a>
+<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
 
 <form action="/users" method="post">
-  Name: <input name="name" type="text" value="<%= @user.name %>">
-  Username: <input name="username" type="text" value="<%= @user.username %>">
-  Email: <input name="email" type="text" value="<%= @user.email %>">
-  Password: <input name="password" type="password" value="<%= @user.password %>">
-  Confirm Password: <input name="password_confirmation" type="password" value="<%= @user.password_confirmation %>">
+  <p>Name: <input name="name" type="text" value="<%= @user.name %>"></p>
+  <p>Username: <input name="username" type="text" value="<%= @user.username %>"></p>
+  <p>Email: <input name="email" type="text" value="<%= @user.email %>"></p>
+  <p>Password: <input name="password" type="password" value="<%= @user.password %>"></p>
+  <p>Confirm Password: <input name="password_confirmation" type="password" value="<%= @user.password_confirmation %>"></p>
   <input type="submit" value="Join Chitter" class="button">
 </form>
