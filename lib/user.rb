@@ -10,3 +10,4 @@ class User
   has n, :peeps, :through => Resource
 
 end
+
