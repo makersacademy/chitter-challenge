@@ -2,5 +2,8 @@
   <% if current_user %>
     Welcome, <%= current_user.email %>
   <% end %>
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
   <%= yield %>
 </body>

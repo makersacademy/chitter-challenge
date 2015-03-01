@@ -9,6 +9,7 @@ gem 'sinatra'
 gem 'cucumber-sinatra'
 gem 'cucumber'
 gem 'bcrypt-ruby'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'
