@@ -32,13 +32,13 @@ feature "User adds a new peep" do
   scenario "peep shows the 'user name' that submitted it" do
     sign_up
     add_peep "this is a short peep"
-    expect(page).to have_css('.user_entry', :text => "SuperMan")
+    expect(page).to have_css('.user_details', :text => "SuperMan")
   end
 
   scenario "peep shows date time peep was sent" do
     sign_up
     add_peep "this is a short peep"
-    expect(page).to have_css('.user_entry', :text => "Jimbo Jones")
+    expect(page).to have_css('.user_details', :text => "Jimbo Jones")
   end
 
 

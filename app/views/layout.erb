@@ -3,9 +3,20 @@
 
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
   </head>
 
   <body>
+    <div class='sign_out'>
+      <% if current_user %>
+          Welcome, <%= current_user.email %>
+        <form method="post" action="/sessions">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+        </form>
+      <% end %>
+    </div>
 
     <%= yield %>
 
@@ -18,19 +29,12 @@
       </ul>
     <% end %>
 
-    <% if current_user %>
-        Welcome, <%= current_user.email %>
-  <form method="post" action="/sessions">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out">
-  </form>
-    <% end %>
-
     <% if flash[:notice] %>
       <div id="notice">
         <%= flash[:notice] %>
       </div>
     <% end %>
+
 
   </body>
 
