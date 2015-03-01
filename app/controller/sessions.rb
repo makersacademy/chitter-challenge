@@ -5,13 +5,13 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sessions' do
-    email, password = params[:email], params[:password]
-    user = User.authenticate(email, password)
+    user_name, password = params[:user_name], params[:password]
+    user = User.authenticate(user_name, password)
     if user
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash[:errors] = ["The email or password is incorrect"]
+      flash[:errors] = ["The user name or password is incorrect"]
       erb :"sessions/new"
     end
   end

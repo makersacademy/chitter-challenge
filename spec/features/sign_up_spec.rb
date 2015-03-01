@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative './helpers/sign_up.rb'
 
   feature 'In order to use chitter as a user I want to sign up to the service' do
 
@@ -11,24 +12,31 @@ require 'spec_helper'
       expect(User.first.email).to eq("alice@example.com")
     end
 
-    scenario "will show a welcome messages after creating a user" do
+    scenario "welcome messages is shown after creating a user" do
       sign_up
       expect(page).to have_content("Welcome, alice@example.com")
     end
 
-    scenario "no creation of new user if password confirmation does not match" do
-      expect{ sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    scenario "mismatching password/password confirmation will not create a user" do
+      expect{ sign_up('a@a.com','Bobby1','Bob Smith' 'pass', 'wrong')}.to change(User, :count).by(0)
     end
 
-    scenario "unmatched password confirmation will redirect back to sign up page" do
-      sign_up('a@a.com', 'pass', 'wrong')
+    scenario "mismatcing password confirmation will redirect user back to sign up page" do
+      sign_up('a@a.com','Bobby1','Bob Smith' 'pass', 'wrong')
       expect(current_path).to eq'/user/new'
     end
 
     scenario "return a message if email is already taken" do
       sign_up
-      sign_up
+      sign_up('alice@example.com','Bobby1','Bob Smith' 'pass', 'pass')
       expect(page).to have_content "This email is already taken"
+    end
+
+
+    scenario "return a message if username is already taken" do
+      sign_up
+      sign_up
+      expect(page).to have_content "This user is already taken"
     end
 
     scenario "will prevent the User table from being updated with duplicate emails" do
@@ -36,15 +44,7 @@ require 'spec_helper'
       expect{ sign_up }.to change(User, :count).by 0
     end
 
-    def sign_up(email = "alice@example.com",
-              password = "oranges!",
-              password_confirmation = "oranges!")
-      visit '/user/new'
-      fill_in :email, :with => email
-      fill_in :password, :with => password
-      fill_in :password_confirmation, :with => password_confirmation
-      click_button "Sign up"
-    end
+
 
 
   end

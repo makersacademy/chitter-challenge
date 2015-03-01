@@ -1,12 +1,12 @@
 <% if current_user %>
-<div id="new-peep">
+
+
   <form action="/peeps" method="post">
-    Peep: <input type="text" name="peep">
+    Enter Peep: <input type="text" name="peep">
     <input type="submit" value="Add peep">
   </form>
-</div>
-<%=else%>
-  <p><a href='/sessions/new'>Return Home</a></p>
+<%else%>
+  <p><a href='/'>Return Home</a></p>
 <% end %>
 
 <main>
@@ -15,10 +15,9 @@
       <li>
         <a class="peep"><%= peep.peep %>
           <br>
-          <%t = peep.entry_time%>
           <div class="user_entry">
-            By: <%= peep.user.email%>
-            At: <%= t.strftime "%Y-%m-%d %H:%M:%S" %>
+            By: <%= peep.user.name%>
+            User Id: <%= peep.user.user_name %>
           </div>
         </a>
       </li>

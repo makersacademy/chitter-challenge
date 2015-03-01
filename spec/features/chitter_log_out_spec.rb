@@ -4,17 +4,26 @@ feature "User log out" do
 
   include SignIn
 
+  before(:each) do
+    User.create(:email => "mrTex@test.com",
+                 :user_name => "SuperMan",
+                 :name => "Jimbo Jones",
+                 :password => 'TedTex',
+                 :password_confirmation => 'TedTex')
+  end
+
   scenario "a logged in user can completely log out" do
-    sign_in('test@test.com', 'test')
-    click_button "Log out"
+    sign_in
+    expect(page).to have_content  "Enter Peep:"
+    click_button "Sign out"
     expect(page).to have_content "You are signed out"
   end
 
-  scenario "once signed out you must sign in again" do
-    sign_in('test@test.com', 'test')
-    click_button "Log out"
+  scenario "logged out users cannot post peeps" do
+    sign_in
+    click_button "Sign out"
     visit '/peeps'
-    expect(page).to have_content "Please sign in"
+    expect(page).to have_content "Enter Peep"
   end
 
 

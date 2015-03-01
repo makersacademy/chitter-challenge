@@ -9,6 +9,8 @@ class ChitterApp < Sinatra::Base
 
   post '/user/new' do
     @user = User.create(:email => params[:email],
+              :user_name => params[:user_name],
+              :name => params[:name],
               :password => params[:password],
               :password_confirmation => params[:password_confirmation])
     if @user.save
