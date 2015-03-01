@@ -12,6 +12,12 @@ feature "User signs up" do
     expect{ sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
   end
 
+  scenario "with a password that doesn't match" do
+    expect{ sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content("Sorry, your passwords don't match")
+  end
+
   def sign_up(username = "Chris",
               email = "chris@hello.com",
               password = "password",

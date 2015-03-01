@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Chitter</title>
-</head>
-<body>
+  <head>
 
-<body>
-  <% if current_user %>
-    Welcome, <%= current_user.username %>
-  <% end %>
-  <%= yield %>
-</body>
+    <title>Chitter</title>
 
-</body>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>
