@@ -1,0 +1,21 @@
+
+Peeps:
+  <ul>
+    <div id='peeps-container'>
+      <% @peeps.each do |peep| %>
+        <li class='peep'> 
+          <ul>
+            <span class='author'>
+              <p><%= peep.user.username%>
+            </span>
+            <span class='date'>
+              <%= peep.timestamp.strftime("%d %b %l:%M %p")if peep.timestamp != nil%>
+            </span>
+            <p>
+            <span class='text'>
+               Peep: <%= peep.text%> 
+            </span>
+            </p>
+          </ul>
+        </li>
+      <% end %>

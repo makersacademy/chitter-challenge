@@ -1,0 +1,14 @@
+<li class='peep'> 
+    <span class='author'>
+      <p><%= peep.user.username%>
+    </span>
+    <span class='date'>
+      <%= peep.timestamp.strftime("%d %b %l:%M %p")if peep.timestamp != nil%>
+    </span>
+    <p>
+    <span class='text'>
+       Peep: <%= peep.text%> 
+    </span>
+    </p>
+  </ul>
+</li>

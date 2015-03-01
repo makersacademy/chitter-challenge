@@ -1,0 +1,10 @@
+<h1>Please sign up</h1>
+
+<form action="/users" method="post">
+  Username: <input name="username" type="text" value="<%=@user.username%>">
+  Name: <input name="name" type="text" value="<%=@user.name%>">
+  Email: <input name="email" type="text" value="<%=@user.email%>">
+  Password: <input name="password" type="password">
+  Password Confirmation: <input name="password_confirmation" type="password">
+  <input type="submit" value="Sign up">
+</form>
