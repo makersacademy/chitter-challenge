@@ -2,7 +2,7 @@
   <div id="new-link">
     <form action="/peeps" method="post">
          
-      <input type="text" value="content">
+      <input type="text" name="content">
       <input type="submit" value="Peep!">
     </form>
   </div>
@@ -14,7 +14,7 @@
     <% if @peeps %>
       <% @peeps.each do |peep| %>
         <li><%= peep.content %></li>
-        <li>Posted by: <%= peep.user %></li>
+        <li>Posted by: <%= peep.user.name %></li>
       <% end %>
     <% end %>  
 </ul>
