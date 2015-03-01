@@ -16,6 +16,7 @@ DataMapper.auto_upgrade!
 class ChitterChallenge < Sinatra::Base
 
   use Rack::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -69,5 +70,11 @@ class ChitterChallenge < Sinatra::Base
       flash[:errors] = ["The email or password is incorrect"]
       erb :"sessions/new"
     end
+  end
+
+  delete '/sessions' do
+    flash[:notice] = "Goodbye!"
+    session[:user_id] = nil
+    redirect to('/')
   end
 end

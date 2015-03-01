@@ -26,5 +26,4 @@ feature "User signs in" do
     fill_in 'password', :with => password
     click_button 'Sign in'
   end
-end
-    
+end    
