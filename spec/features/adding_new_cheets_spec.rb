@@ -15,8 +15,8 @@ feature "user can add new cheets" do
   def add_cheet(message,created_at,user_id)
     within("#post-cheet") do
       fill_in 'message', :with => message
-      fill_in 'created_at', :with => created_at
-      fill_in 'user_id', :with => user_id
+      fill_in 'date', :with => created_at
+      page.all("input[name=user_id]", :visible => false).first.set(1)
       click_button 'Post Cheet'
     end
   end
