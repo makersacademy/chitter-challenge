@@ -8,20 +8,13 @@
   </form>
 </div>
 
-<% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
 
 <ul>
   <% @cheets.each do |cheet| %>
   <% @users.each do |user| %>
-  <li><%= user.name %> - <%= user.username%>
+  <li><%= user.name %> - <%= user.username%> - Posted on <%= cheet.created_at %>
   </br>
-  <%= cheet.message %>
-</br>
-  Posted on <%= cheet.created_at %></br></br></li>
+  <%= cheet.message %></br></br></li>
   <% end %>
   <% end %>
 </ul>

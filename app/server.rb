@@ -36,12 +36,11 @@ class Chitter < Sinatra::Base
     user_id = params["user_id"]
     email, password = params[:email], params[:password]
     user = User.authenticate(email, password)
-    if user
-      session[:user_id] = user.id
+    if session[:user_id] != nil
       Cheet.create(:message => message, :created_at => created_at, :user_id => user_id)
       redirect to('/')
     else
-      flash[:notice] = ["You need to log in before posting a cheet"]
+      flash[:notice] = "You need to log in to post a cheet"
       redirect to('/')
     end
   end

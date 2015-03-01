@@ -28,7 +28,7 @@ feature "user can add new cheets" do
       scenario "adding a new cheet from the homepage when not logged in" do
         visit '/'
         expect(page).not_to have_content("Welcome hellokitty!")
-        add_cheet("Hello world", "2015-02-27", null)
+        add_cheet("Hello world", "2015-02-27", 1)
         expect(page).to have_content("You need to log in to post a cheet")
       end
     end

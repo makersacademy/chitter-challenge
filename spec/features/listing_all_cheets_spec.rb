@@ -11,8 +11,15 @@ require 'spec_helper'
                   user_id: 1)
     }
 
+    before (:each) do
+        User.create(:email => "hello@hello.com",
+                    :password => "qwerty",
+                    :username => "hellokitty")
+      end
+
     scenario "user can browse all the cheets when opening the home page" do
       visit '/'
+      sign_in("hello@hello.com", "qwerty")
       expect(page).to have_content("Bonjour")
       expect(page).to have_content("Au revoir")
     end
