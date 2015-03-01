@@ -6,15 +6,12 @@
   <link rel="stylesheet prefetch" href="/css/base.css" type="text/css">
   <link rel="stylesheet prefetch" href="/css/bootstrap.min.css">
   <link href='http://fonts.googleapis.com/css?family=Timmana' rel='stylesheet' type='text/css'>
-
-
- </head>
+</head>
 
 <body>
 
 <div id="site-wrapper">
    <div id="site-canvas">
-
      <div id="site-menu">
        <ul class="menu-items">
          <li>Home</li>
@@ -22,13 +19,10 @@
          <li>Contact</li>
        </ul>
      </div>
-
         <div class="row" id="navbar">
           <div class="col-xs-12">
-
             <div  class="col-xs-2 col-md-2" id="brand">Awesome twitter
             </div>
-
               <div class="col-md-10">
               <% if current_user %>
                 <ul class="items">
@@ -45,15 +39,12 @@
               </ul>
 
               <% end %>
-
-</div>
+              </div>
           </div>
        </div>
-
-     <div class="container" id="page-content">
+       <div class="container" id="page-content">
        <div class="row">
-
-           <h3> <span class="red">
+        <h3> <span class="red">
            <% if current_user %>
             Welcome back <span class="blue"><%= current_user.name %>,</span> very nice to see you!
             <% else %>
@@ -62,13 +53,9 @@
       </span> </h3>
       <h3>
       <br>
-<img align="right" width="300" src="/img/robot.png">
+      <img align="right" width="300" src="/img/robot.png">
       <%= yield %>
-
-     <div>
-
-     </div>
-  </div>
+      </div>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with the form.
@@ -77,17 +64,15 @@
       <li><%= error %></li>
       <% end %>
     </ul>
-<% end %>
-
-<br>
-<br>
-<br>
-<br>
-  <% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+       <% if flash[:notice] %>
+        <div id="notice">
+       <%= flash[:notice] %>
+        </div>
+      <% end %>
 </body>
-
 </html>
