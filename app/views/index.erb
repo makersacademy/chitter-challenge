@@ -1,18 +1,25 @@
 <h1>Welcome to Parliament</h1>
+<h2>A Social Network</h2>
 
-Current hoots:
+<form action="/users/new" method="get">
+    <input type="submit" value="Whoooo's New?">
+  </form>
+
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Whoooo's There?">
+  </form>
+
+  <%= partial :hoots %>
+
+<h3>Current hoots:</h3>
+
 <ul>
   <% @hoots.each do |hoot| %>
-    <li><%= hoot.username %>
-    <%= hoot.message %></li>
+    <p>
+    <%= hoot.name %>
+    <%= hoot.username %>
+    <%= hoot.message %>
+    </p>
   <% end %>
 </ul>
-
-<div id="new-hoot">
-  <form action="/hoots" method="post">
-    Username: <input type="text" name="username">
-    Message: <input type="text" name="message">
-    <input type="submit" value="Hoot to your Parliament">
-  </form>
-</div>
 

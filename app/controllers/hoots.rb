@@ -1,7 +1,8 @@
 post'/hoots' do 
-  username = params["username"]
+  name = current_user.name
+  username = current_user.username
   message = params["message"]
 
-  Hoot.create(:username => username, :message => message)
+  Hoot.create(:name => name, :username => username, :message => message)
   redirect to('/')
 end

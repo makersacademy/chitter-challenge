@@ -17,5 +17,5 @@
 
   delete '/sessions' do 
     session.clear
-    flash.now[:notice] = "Goodbye!"
+    flash.now[:notice] = "We'll miss you! Come back soon!"
   end

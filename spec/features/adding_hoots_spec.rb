@@ -1,22 +1,24 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "User adds a new hoot" do 
 
-  scenario "When browsing the homepage" do 
-    expect(Hoot.count).to eq(0)
-    visit '/'
-    add_hoot("Carrie123", "Hoot Hoot!")
-    expect(Hoot.count).to eq(1)
-    hoot = Hoot.first
-    expect(hoot.username).to eq("Carrie123")
-    expect(hoot.message).to eq("Hoot Hoot!")
+  before(:each) do
+    User.create(:name => 'Test', :username => 'Test123', :email => "test@test.com", :password => 'test', :password_confirmation => 'test')
   end
 
-  def add_hoot(username, message)
-    within('#new-hoot') do 
-      fill_in 'username', :with => username
-      fill_in 'message', :with => message
-      click_button 'Join Parliament!'
-    end
+  scenario "Once they have logged in" do 
+    visit '/'
+    sign_in('test@test.com', 'test')
+    expect(page).to have_content("Welcome to your Parliament, Test123")
+    add_hoot
+    expect{ add_hoot }.to change(Hoot, :count).by(1)
+  end
+
+  def add_hoot(message = "Hoot Hoot!")
+      fill_in "message", :with => message
+      click_button 'Hoot to your Parliament'
   end
 end
