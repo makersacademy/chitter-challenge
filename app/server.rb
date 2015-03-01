@@ -1,19 +1,14 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'data_mapper'
 
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
 require_relative 'models/peep'
+require_relative 'models/user'
+require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
 
-DataMapper.finalize
-DataMapper.auto_upgrade!
+enable :sessions
+set :session_secret, 'super secret'
 
-
-
-class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all
@@ -24,7 +19,18 @@ class Chitter < Sinatra::Base
     content = params["content"]
     user = params["user"]
     Peep.create(:content => content, :user => user)
+    redirect to '/'
   end
 
+  get '/users/new' do
+    erb :"users/new"
+  end
 
-end
+  post '/users' do
+    user = User.create(:username => params["username"],
+                :email => params["email"],
+                :password => params["password"])
+    session[:user_id] = user.id
+    redirect to '/'
+  end
+

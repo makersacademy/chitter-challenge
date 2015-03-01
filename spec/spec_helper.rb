@@ -4,7 +4,7 @@ require './app/server'
 require 'capybara/rspec'
 require 'database_cleaner'
 
-Capybara.app = Chitter
+Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
 
