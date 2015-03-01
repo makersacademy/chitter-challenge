@@ -27,7 +27,7 @@ include SessionHelpers
   end
 
 
-  feature "User signs in" do
+  feature "User logs in" do
     before (:each) do
       User.create(:email => "hello@hello.com",
                   :password => "qwerty",
@@ -51,7 +51,7 @@ include SessionHelpers
   end
 
 
-  feature "User signs out" do
+  feature "User logs out" do
 
     before (:each) do
       User.create(:email => "hello@hello.com",
@@ -61,7 +61,7 @@ include SessionHelpers
 
     scenario "when user signs out of the service" do
       sign_in("hello@hello.com", "qwerty")
-      click_button "Sign out"
+      click_button "Log out"
       expect(page).to have_content("Goodbye!")
       expect(page).not_to have_content("Welcome hellokitty!")
     end

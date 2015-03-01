@@ -7,6 +7,7 @@ class User
   property :id, Serial
   property :email, String, :unique => true
   property :password_digest, Text
+  property :name, Text
   property :username, Text, :unique => true
 
   has n, :cheets

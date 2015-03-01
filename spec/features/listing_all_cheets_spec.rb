@@ -30,5 +30,12 @@ require 'spec_helper'
     #   sorting.sort
     # end
 
+    # I had trouble understanding how that the cheets would appear chronologically
+    # with Capybara i.e test that the cheet posted on 27-02-2015 should appear
+    # before the one posted on 28-02-2015.
+    # Also I had trouble finding how to extract only the created_at dates to
+    # sort out the cheets by date. The Cheet.all fields:[:created_at] works in IRB
+    # but doesn't work here (at least it gives me an array of data on IRB but here, nothing)
+
 
   end

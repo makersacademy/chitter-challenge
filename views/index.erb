@@ -1,8 +1,3 @@
-<ul>
-  <% @cheets.each do |cheet| %>
-  <li><%= cheet.message %><%= cheet.created_at %></li>
-  <% end %>
-</ul>
 
 <div id="post-cheet">
   <form action="/cheets" method="post">
@@ -13,3 +8,20 @@
   </form>
 </div>
 
+<% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+<ul>
+  <% @cheets.each do |cheet| %>
+  <% @users.each do |user| %>
+  <li><%= user.name %> - <%= user.username%>
+  </br>
+  <%= cheet.message %>
+</br>
+  Posted on <%= cheet.created_at %></br></br></li>
+  <% end %>
+  <% end %>
+</ul>

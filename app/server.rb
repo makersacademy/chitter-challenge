@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @cheets = Cheet.all
+    @users = User.all
     erb :index
   end
 
@@ -33,8 +34,16 @@ class Chitter < Sinatra::Base
     message = params["message"]
     created_at = params["date"]
     user_id = params["user_id"]
-    Cheet.create(:message => message, :created_at => created_at, :user_id => user_id)
-    redirect to('/')
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
+    if user
+      session[:user_id] = user.id
+      Cheet.create(:message => message, :created_at => created_at, :user_id => user_id)
+      redirect to('/')
+    else
+      flash[:notice] = ["You need to log in before posting a cheet"]
+      redirect to('/')
+    end
   end
 
 
