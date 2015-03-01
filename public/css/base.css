@@ -115,7 +115,39 @@ body {
   color: #F5766E;
 }
 
-.green {
+.blue {
   color: #05B9DF;
 }
+
+hr {
+width: 60%;
+margin-left: auto;
+margin-right: auto;
+}
+
+input[type="submit"]{
+  font-family: "Timmana";
+  background: #05B9DF;
+/*  -webkit-border-radius: 28;
+  -moz-border-radius: 28;*/
+  border: solid 0px;
+  border-radius: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 0px 20px;
+}
+
+#awesomebutton:hover {
+  background-color: #F5766E;
+}
+
+
+footer {
+  background-color: #F5766E;
+  width: 100%;
+  padding: 35px 0;
+  height: 20px;
+}
+
+
 </style>

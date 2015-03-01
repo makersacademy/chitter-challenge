@@ -1,16 +1,15 @@
-<!-- <h2>Some of the latest tweets:</h2> -->
 <ul>
   <% @tweets.each do |tweet| %>
-    <li><p><%=tweet.user%>: <%=tweet.message%></p></li>
+    <p><span class="red">@<%= tweet.user%>:</span><br><%= tweet.message%></p>
+    <hr>
   <% end %>
 </ul>
-
+<br><br>
 <% if current_user %>
 <div id="new-tweet">
   <form action="/tweets" method="post">
-    Name: <input type="text" name="user">
-    Message: <input type="text" name="message">
-    <input type="submit" value="Send tweet">
+    Message: <input type="text" name="message" maxlength="50" required><br><br>
+    <input id="awesomebutton" type="submit" value="Send tweet!">
   </form>
 </div>
 <% end %>

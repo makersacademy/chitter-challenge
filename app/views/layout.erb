@@ -4,9 +4,10 @@
 <head>
   <title>Awesome Twitter</title>
   <link href="/css/base.css" rel="stylesheet prefetch" type="text/css">
-  <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet prefetch" href="/css/bootstrap.min.css">
   <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Timmana' rel='stylesheet' type='text/css'>
+
 
  </head>
 
@@ -55,17 +56,14 @@
 
            <h3> <span class="red">
            <% if current_user %>
-            Welcome, <%= current_user.name %>!
+            Welcome <span class="blue"><%= current_user.name %>,</span> very nice to see you!
             <% end %>
       </span> </h3>
-      <h3> <span class="red">@Sebastien:</span> This website is awesome! Way better than twitter.</h3>
-      ______________________________________________________________________________________________________________
-      <br><br><h3> <span class="red">@Sam:</span> Wow! Very impressive, can't believe you coded this website in 2 days!</h3>
-      ______________________________________________________________________________________________________________
+      <h3>
+      <br>
 
+      <%= yield %>
 
-<!--            <h3>Some sweet tweets texts to be placed here, with a maximum of 140 characters.</h3>
- -->
      <div>
 
      </div>
@@ -89,12 +87,11 @@
       <%= flash[:notice] %>
     </div>
   <% end %>
-   <%= yield %>
-
-
-
-
-
-
+<!-- <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Proudly made by Sebastien Pires.</p>
+      </div>
+    </footer> -->
 </body>
+
 </html>
