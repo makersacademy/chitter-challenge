@@ -6,7 +6,11 @@ class Chitter < Sinatra::Base
 
   env = ENV['RACK_ENV'] || 'development'
 
+  enable :sessions
+
   set :views, Proc.new {File.join(root, "..", "views")}
+  set :session_secret, 'secret session'
+
 
   DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
@@ -35,10 +39,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(:email => params[:email],
-                :password => params[:password],
-                :username => params[:username])
+    user = User.create(:email => params[:email],
+                      :password => params[:password],
+                      :username => params[:username])
+    session[:user_id] = user.id
     redirect('/')
+  end
+
+  helpers do
+    def current_user
+      @current_user ||=User.get(session[:user_id]) if session[:user_id]
+    end
   end
 
   # start the server if ruby file executed directly

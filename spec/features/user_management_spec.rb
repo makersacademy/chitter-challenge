@@ -5,7 +5,7 @@ require 'spec_helper'
     scenario "new user sign up" do
       visit '/'
       expect{sign_up}.to change(User,:count).by(1)
-      expect(page).to have_content("Welcome, jdoe")
+      expect(page).to have_content("Welcome jdoe!")
       expect(User.first.username).to eq("jdoe")
     end
 

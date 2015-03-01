@@ -3,7 +3,9 @@
 <head></head>
 <body>
 
-Welcome, <%= @username %>
+  <% if current_user %>
+   <h3> Welcome <%= current_user.username %>! </h3>
+  <% end %>
 
 
 
@@ -11,7 +13,7 @@ Welcome, <%= @username %>
 
 
 
- <%= yield %>
+  <%= yield %>
 
   <br>
   <br>
