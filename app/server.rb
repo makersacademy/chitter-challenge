@@ -8,7 +8,7 @@ require './app/data_mapper_setup'
 enable :sessions
 set :session_secret, 'super secret'
 
-
+use Rack::MethodOverride
 use Rack::Flash
 
 
@@ -67,6 +67,12 @@ post '/sessions' do
     erb :"sessions/new"
   end
 end
+
+delete '/sessions' do
+      flash[:notice] = "Good bye!"
+      session[:user_id] = nil
+      erb :"sessions/new"
+  end
 
 
 
