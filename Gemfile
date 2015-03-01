@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'sinatra'
 gem 'cucumber-sinatra'
 gem 'cucumber'
+gem 'bcrypt-ruby'
 
 group :test do
   gem 'rspec'
