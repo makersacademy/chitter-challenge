@@ -1,14 +1,20 @@
 <h1>Welcome to Chitter!</h1>
 
+<div id="new-chit">
+  <form action="/chits" method="post">
+    Username: <input type="text" name="username">
+    Text: <input type="text" name="text">
+    <input type="submit" value="Add new Chit!'">
+  </form>
+</div>
+
 Current Chits
 <ul>
   <% @chit.each do |chit| %>
-    <li><a href="<%= chit.username %>"><%= chit.username %></a></li>
+    <li><a href="<%= chit.username %>"><%= chit.username %></a>
+  <% end %>
+    <% @chit.each do |chit| %>
+    <a href="<%= chit.text %>"><%= chit.text %></a></li>
   <% end %>
 </ul>
 
-<ul>
-  <% @chit.each do |chit| %>
-    <li><a href="<%= chit.text %>"><%= chit.text %></a></li>
-  <% end %>
-</ul>
