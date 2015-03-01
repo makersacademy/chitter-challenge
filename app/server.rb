@@ -7,6 +7,8 @@ class Chitter < Sinatra::Base
   env = ENV['RACK_ENV'] || 'development'
 
   enable :sessions
+  use Rack::Flash
+  use Rack::MethodOverride
 
   set :views, Proc.new {File.join(root, "..", "views")}
   set :session_secret, 'secret session'
@@ -31,7 +33,7 @@ class Chitter < Sinatra::Base
     created_at = params["date"]
     user_id = params["user_id"]
     Cheet.create(:message => message, :created_at => created_at, :user_id => user_id)
-    redirect('/')
+    redirect to('/')
   end
 
   get '/users/new' do
@@ -39,12 +41,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(:email => params[:email],
+    @user = User.create(:email => params[:email],
                       :password => params[:password],
                       :username => params[:username])
-    session[:user_id] = user.id
-    redirect('/')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :"users/new"
+    end
   end
+
 
   helpers do
     def current_user

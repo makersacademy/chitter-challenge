@@ -5,8 +5,21 @@
 
   <% if current_user %>
    <h3> Welcome <%= current_user.username %>! </h3>
+
+   <form id="sign-out" method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out" class="button">
+    </form>
   <% end %>
 
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Sorry, there were the following problems with your registration:
+    <ul id="errors">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
 
 

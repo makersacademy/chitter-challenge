@@ -9,6 +9,18 @@ require 'spec_helper'
       expect(User.first.username).to eq("jdoe")
     end
 
+    scenario "with an email that already exists in the DB" do
+      expect{sign_up}.to change(User,:count).by(1)
+      expect{sign_up}.to change(User,:count).by (0)
+      expect(page).to have_content("Email is already taken")
+    end
+
+    scenario "with a username that alredy exists in the DB" do
+      expect{sign_up}.to change(User,:count).by(1)
+      expect{sign_up}.to change(User,:count).by (0)
+      expect(page).to have_content("Username is already taken")
+    end
+
     def sign_up(email = "johndoe@test.com",
                 password = "qwerty",
                 username = "jdoe")

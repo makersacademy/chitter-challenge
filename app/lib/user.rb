@@ -11,6 +11,9 @@ class User
 
   has n, :cheets
 
+  validates_uniqueness_of :email
+  validates_uniqueness_of :username
+
   def password= (password)
     self.password_digest = BCrypt::Password.create(password)
   end
