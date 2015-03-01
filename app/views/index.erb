@@ -1,1 +1,20 @@
-index.erb
+<% if current_user %>
+  <div id="new-link">
+    <form action="/peeps" method="post">
+         
+      <input type="text" value="content">
+      <input type="submit" value="Peep!">
+    </form>
+  </div>
+<% end %>  
+
+<h2>Peep feed!</h2>
+
+<ul>
+    <% if @peeps %>
+      <% @peeps.each do |peep| %>
+        <li><%= peep.content %></li>
+        <li>Posted by: <%= peep.user %></li>
+      <% end %>
+    <% end %>  
+</ul>

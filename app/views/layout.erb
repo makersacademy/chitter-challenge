@@ -1,1 +1,51 @@
-layout.erb
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="" href="">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="../public/css/normalize.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+
+  </head>
+  <body>
+    <h1>This is Chitter!</h1>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Sorry, there were the following problems with the form.
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if !current_user %>
+
+      <a href="/sessions/new">Sign in</a>
+      <a href="/users/new">Sign up</a>
+
+    <% else current_user %>
+      Welcome, <%= current_user.uname %>
+      <form method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

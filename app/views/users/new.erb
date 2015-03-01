@@ -1,1 +1,10 @@
-new.erb
+<h2>Please sign up.</h2>
+
+<form action="/users" method="post">
+  Name: <input name="name" type="text" value="<% @user.name %>">
+  User name: <input name="uname" type="text" value="<% @user.uname %>">
+  Email: <input name="email" type="text" value="<%= @user.email %>">
+  Password: <input name="password" type="password">
+  Confirm Password: <input name="password_confirmation" type="password_confirmation">
+  <input type="submit" value="Sign up">
+</form>
