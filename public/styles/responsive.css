@@ -1,4 +1,4 @@
-@media all and (max-width: 1000px) {
+@media all and (max-width: 700px) {
 
 #welcome_message {
   display: none;
@@ -6,7 +6,7 @@
 
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 1250px) {
 
 header img {
   margin-left: 5%;
