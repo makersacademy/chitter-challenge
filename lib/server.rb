@@ -20,6 +20,8 @@ class Chitter < Sinatra::Base
     end
   end
 
+  set :public_folder, Proc.new { File.join(root, '..', "public") }
+
   enable :sessions
   set :super_sessions, 'super secret'
   use Rack::Flash
