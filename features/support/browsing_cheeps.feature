@@ -7,3 +7,9 @@ Feature: Viewing Cheeps
     Given cheets have already been posted
     When I am on the homepage
     Then I should see "Hello World!"
+
+  Scenario: Displaying the author of each cheep
+    Given cheets have already been posted
+    When I am on the homepage
+    Then I should see "cheep-boy"
+    And I should see "Tom"

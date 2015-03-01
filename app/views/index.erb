@@ -11,6 +11,11 @@
 
 <ul>
     <% @all_cheeps.reverse.each do |cheep| %>
-      <li><%= cheep.content %></li>
+    
+      <li>
+        <header><%= cheep.user.name %> - <%= cheep.user.username %></header>
+        <body><%= cheep.content %></body>
+      </li>
+    
     <% end %>
   </ul>
