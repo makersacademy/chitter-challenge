@@ -1,5 +1,5 @@
 Given(/^I visit the sign\-up page$/) do
-  visit '/user'
+  visit '/users/new'
 end
 
 And(/^I type my email adress, name and password$/) do
@@ -13,5 +13,5 @@ When(/^I click on sign up$/) do
 end
 
 Then(/^I should see my name on the page$/) do
-  expect(page).to have_content('What\'s on your mind, John117?')
+  expect(page).to have_content('Welcome John117')
 end

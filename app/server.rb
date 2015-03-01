@@ -27,22 +27,46 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/user' do 
+  get '/users/new' do 
     @user = User.new
-    erb :user
+    erb :"/users/new"
   end
 
-  post '/user' do 
+  post '/users/new' do 
     @user = User.create(:name => params[:name], :email => params[:email], :password => params[:password])
     session[:user_id] = @user.id
     @user.save
     redirect to '/'
   end
-  
+
   post '/messages' do 
     content = params[:content]
     Message.create(:content => content)
+    redirect to '/users/home'
+  end
+
+  get '/login' do 
+    erb :login
+  end
+
+  post '/login' do 
+    name, password = params[:name], params[:password]
+    user = User.authenticate(name, password)
+    if user
+      session[:user_id] = user.id
+      redirect to '/users/home'
+    else
+      erb :login  
+    end
+  end
+
+  delete '/login' do
+    session[:user_id] = nil
     redirect to '/'
+  end
+
+  get '/users/home' do 
+    erb :"/users/home"
   end
 
   # start the server if ruby file executed directly
