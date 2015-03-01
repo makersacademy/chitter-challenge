@@ -1,3 +1,9 @@
+<% if @user %>
+  Welcome, <%= @user.name %>!
+  <% else %>
+  Please sign up to post messages
+<% end %>
+
 <ul>
   <% @messages.each do |message| %>
     <li><%= message.content %></li>

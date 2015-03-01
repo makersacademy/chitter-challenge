@@ -1,12 +1,12 @@
 require 'sinatra/base'
 require 'data_mapper'
-require_relative 'models/user'
 
 env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 require_relative 'models/message'
+require_relative 'models/user'
 
 DataMapper.finalize
 
@@ -24,10 +24,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/user' do 
+    @user = User.new
     erb :user
   end
 
-  post '/user' do
+  post '/user' do 
+    @user = User.new(:name => params[:name], :email => params[:email], :password => params[:password])
+    @user.save
     erb :user
   end
   
