@@ -13,7 +13,7 @@ require_relative './views/helpers/application'
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
-# use Rack::MethodOverride
+use Rack::MethodOverride
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
