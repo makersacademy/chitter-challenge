@@ -1,0 +1,38 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+header {
+  height: 45px;
+  background-color: orange;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+}
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+
+a.button {
+  display:inline-block; /* diplay inline but have dimensions */
+  width: 80px;
+  background-color: whitesmoke;
+  border: 3px solid black;
+  color: black; /* text colour */
+  text-decoration: none; /* no underlining */
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 4px; /* rounded corners */
+  margin: 5px 5px;
+  text-shadow: 0 0 0px rgba(0,0,0, 0.4); /* for readability */
+}
+
+header #user-links{
+  flex: 1;
+  -webkit-flex: 1; /* http://learnlayout.com/flexbox.html */
+  text-align: right;
+}
