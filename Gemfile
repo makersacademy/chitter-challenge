@@ -9,4 +9,5 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'capybara/cucumber'
+  gem 'database_cleaner'
 end

@@ -28,7 +28,7 @@ require './app/data_mapper_setup'
     :password => params[:password],
     :password_confirmation => params[:password_confirmation]
     )
-
+    @user.save
 
     erb :index
   end
