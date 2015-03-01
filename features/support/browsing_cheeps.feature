@@ -13,3 +13,8 @@ Feature: Viewing Cheeps
     When I am on the homepage
     Then I should see "cheep-boy"
     And I should see "Tom"
+
+  Scenario: Displaying the date and time when a cheep was posted
+    Given cheets have already been posted
+    When I am on the homepage
+    Then I should see "2015"

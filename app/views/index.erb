@@ -10,11 +10,12 @@
 <% end %>
 
 <ul>
-    <% @all_cheeps.reverse.each do |cheep| %>
+    <% @all_cheeps.each do |cheep| %>
     
       <li>
         <header><%= cheep.user.name %> - <%= cheep.user.username %></header>
         <body><%= cheep.content %></body>
+        <footer><%= date_format(cheep.created_at) %></footer>
       </li>
     
     <% end %>

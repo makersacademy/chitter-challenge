@@ -4,6 +4,7 @@ require 'data_mapper'
 require './app/data_mapper_setup'
 
 require './app/helpers/current_user'
+require './app/helpers/date_format'
 
 require './app/controllers/users_controller.rb'
 
@@ -12,9 +13,10 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   include CurrentUser
+  include DateFormat
 
   get '/' do
-    @all_cheeps = Cheep.all
+    @all_cheeps = Cheep.all.reverse
     erb :index
   end
 
