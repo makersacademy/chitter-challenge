@@ -2,8 +2,6 @@ require_relative './helpers/sign_in.rb'
 
 feature "Existing user can log into Chitter" do
 
-  include SignIn
-
   before(:each) do
     User.create(:email => "mrTex@test.com",
                  :user_name => "SuperMan",

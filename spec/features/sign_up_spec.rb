@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative './helpers/sign_up.rb'
 
-  feature 'In order to use chitter as a user I want to sign up to the service' do
+  feature 'In order to use Chitter as a user I want to sign up to the service' do
 
     scenario "adding a new user increases the number of users by 1" do
       expect{ sign_up }.to change(User, :count).by(1)
@@ -21,7 +21,7 @@ require_relative './helpers/sign_up.rb'
       expect{ sign_up('a@a.com','Bobby1','Bob Smith' 'pass', 'wrong')}.to change(User, :count).by(0)
     end
 
-    scenario "mismatcing password confirmation will redirect user back to sign up page" do
+    scenario "mismatching password confirmation will redirect user back to sign up page" do
       sign_up('a@a.com','Bobby1','Bob Smith' 'pass', 'wrong')
       expect(current_path).to eq'/user/new'
     end
@@ -33,7 +33,7 @@ require_relative './helpers/sign_up.rb'
     end
 
 
-    scenario "return a message if username is already taken" do
+    scenario "return a message if 'user name' is already taken" do
       sign_up
       sign_up
       expect(page).to have_content "This user is already taken"
