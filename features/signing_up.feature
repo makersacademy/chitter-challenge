@@ -15,8 +15,29 @@ Feature: Signing up to Chitter
   Scenario: Entering new account details
     Given I am on the Sign Up page
     When I enter "Tom" into the "name" field
+    And I enter "cheep-boy" into the "username" field
     And I enter "tomcoakes@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
     And I press "Create Account"
     Then I should see "You're signed in, Tom!"
     And I should not see "Sign Up" or "Sign In"
+
+  Scenario: Signing up with a username that has previously been used
+    Given I have previously created an account
+    When I visit the "/users/sign_up" page
+    And I enter "Jimmy" into the "name" field
+    And I enter "cheep-boy" into the "username" field
+    And I enter "jimmy@gmail.com" into the "email" field
+    And I enter "password100" into the "password" field
+    And I press "Create Account"
+    And I should be at the "/users/sign_up" page
+
+  Scenario: Signing up with an email address that has previously been used
+    Given I have previously created an account
+    When I visit the "/users/sign_up" page
+    And I enter "Jimmy" into the "name" field
+    And I enter "new-user" into the "username" field
+    And I enter "tomcoakes@gmail.com" into the "email" field
+    And I enter "password100" into the "password" field
+    And I press "Create Account"
+    And I should be at the "/users/sign_up" page

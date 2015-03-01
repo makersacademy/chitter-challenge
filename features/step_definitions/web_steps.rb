@@ -41,6 +41,7 @@ end
 Given(/^I have previously created an account$/) do
   visit '/users/sign_up'
   fill_in "name", with: "Tom"
+  fill_in "username", with: "cheep-boy"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
   click_button("Create Account")
