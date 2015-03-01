@@ -2,7 +2,7 @@ require_relative './helpers/sign_in.rb'
 
 feature "Existing user can log into Chitter" do
 
-  extend SignIn
+  include SignIn
 
   before(:each) do
     User.create(:email => "mrTex@test.com",
@@ -11,12 +11,13 @@ feature "Existing user can log into Chitter" do
   end
 
   scenario 'after new user creation user is not signed in' do
+    visit '/'
     expect(page).not_to have_content('Welcome mrTex@test.com')
   end
 
   scenario 'with correct credentials' do
-    sign_in("mrTex@test.com", "TedTex")
-    expect(page).to have_content('Welcome mrTex@test.com')
+    sign_in('mrTex@test.com', 'TedTex')
+    expect(page).to have_content('Welcome, mrTex@test.com')
   end
 
   scenario 'with the wrong credentials' do
