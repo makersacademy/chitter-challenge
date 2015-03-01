@@ -6,7 +6,7 @@ class User
   property :id,                 Serial
   property :name,               String
   property :username,           String, unique: true, message: "That username is already taken"
-  property :email,              String, unique: true
+  property :email,              String, unique: true, message: "That email address has already been used to sign up"
   property :password_digest,    Text
 
   has n, :cheeps

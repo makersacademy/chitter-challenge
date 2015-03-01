@@ -55,4 +55,5 @@ Feature: Signing up to Chitter
     And I enter "password100" into the "password" field
     And I enter "password100" into the "password_confirmation" field
     And I press "Create Account"
+    Then I should see "That email address has already been used to sign up"
     And I should be at the "/users/sign_up" page
