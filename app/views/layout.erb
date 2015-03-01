@@ -10,33 +10,46 @@
 
     <link rel="" href="">
     <!-- Place favicon.ico in the root directory -->
+    <script src="//use.typekit.net/bum4umx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
-    <link rel="stylesheet" href="../public/css/normalize.css">
-    <link rel="stylesheet" href="../public/css/main.css">
+    
+
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/grid.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 
   </head>
-  <body>
-    <h1>This is Chitter!</h1>
+  <body class="clearfix">
+    
+    <header class="clearfix">
+      <h1 class="float-left"><a href="/">ChitterBug!</a></h1>
+      <nav class="float-right">
+        <% if !current_user %>
+          <a href="/sessions/new">Sign in</a>
+          <a href="/users/new">Sign up</a>
+        <% else current_user %>
+          <h2>Welcome, <%= current_user.uname %></h2>
+          <form method="post" action="/sessions">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Sign out">
+          </form>
+        <% end %>
+      </nav>
+    </header>
+
+
+    <img class="float-right" src="/images/bug.png"/>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
-      Sorry, there were the following problems with the form.
+      <p>Sorry, there were the following problems with the form.</p>
       <ul id="errors">
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
         <% end %>
       </ul>
-    <% end %>
-
-    <% if !current_user %>
-
-      <a href="/sessions/new">Sign in</a>
-      <a href="/users/new">Sign up</a>
-
-    <% else current_user %>
-      Welcome, <%= current_user.uname %>
-      <form method="post" action="/sessions">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
-      </form>
     <% end %>
 
     <% if flash[:notice] %>

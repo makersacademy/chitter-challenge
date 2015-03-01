@@ -15,6 +15,8 @@ require_relative 'controllers/peeps'
 require_relative 'helpers/application'
 require_relative 'data_mapper_setup'
 
+set :public_folder, Proc.new { File.join(root, "..", "public") }
+
 enable :sessions
 set :session_secret, 'my unique encryption key!'
 set :partial_template_engine, :erb

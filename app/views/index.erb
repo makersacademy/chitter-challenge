@@ -1,7 +1,7 @@
 <% if current_user %>
   <div id="new-link">
     <form action="/peeps" method="post">
-         
+      <h3>Write your peep here...</h3>   
       <input type="text" name="content">
       <input type="submit" value="Peep!">
     </form>
@@ -14,7 +14,7 @@
     <% if @peeps %>
       <% @peeps.each do |peep| %>
         <li><%= peep.content %></li>
-        <li>Posted by: <%= peep.user.name %></li>
+        <li>Posted by: @<%= peep.user.uname %></li>
       <% end %>
     <% end %>  
 </ul>
