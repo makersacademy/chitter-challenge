@@ -13,22 +13,22 @@
 <body>
 
   <header>
+      <div id="header_content">
+        <a href="/"><img src="/images/chitter_logo.png" height="60px" alt="chitter logo"></a>
+        
+        <div id="sign_in_links">
+          <% if current_user %>
+            <span id="welcome_message">You're signed in, <%= current_user.name %>!</span>
+            <a class="buttons" href="/users/sign_out">Sign Out</a>
+            <a class="buttons" href="/cheeps/new">Post a new Cheep</a>
+          <% end %>
 
-      <a href="/"><img src="/images/chitter_logo.png" height="60px" alt="chitter logo"></a>
-      
-      <div id="sign_in_links">
-        <% if current_user %>
-          <span id="welcome_message">You're signed in, <%= current_user.name %>!</span>
-          <a class="buttons" href="/users/sign_out">Sign Out</a>
-          <a class="buttons" href="/cheeps/new">Post a new Cheep</a>
-        <% end %>
-
-        <% if !current_user %>
-          <a class="buttons" href="/users/sign_up">Sign Up</a>
-          <a class="buttons" href="/users/sign_in">Sign In</a>
-        <% end %>
+          <% if !current_user %>
+            <a class="buttons" href="/users/sign_up">Sign Up</a>
+            <a class="buttons" href="/users/sign_in">Sign In</a>
+          <% end %>
+        </div>
       </div>
-
   </header>
 
   <section>
