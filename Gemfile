@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'datamapper'
 gem 'bcryp'
 gem 'dm-validations'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'
