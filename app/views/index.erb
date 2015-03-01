@@ -1,6 +1,6 @@
 <ul>
   <% @tweets.each do |tweet| %>
-    <li><a href="<%= tweet.user %>"><%= tweet.post %></a></li>
+    <li><%= tweet.user %>:<%= tweet.post %></a></li>
   <% end %>
 </ul>
 
