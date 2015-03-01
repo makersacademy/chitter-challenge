@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'sinatra/base'
+require 'rack-flash'
+require 'sinatra/flash'
 require 'data_mapper'
 require './app/data_mapper_setup'
 
@@ -11,6 +13,8 @@ require './app/controllers/users_controller.rb'
 class Chitter < Sinatra::Base
   set :views, Proc.new { File.join("./app/views") }
   enable :sessions
+  use Rack::Flash
+  # use Rack::MethodOverride
 
   include CurrentUser
   include DateFormat

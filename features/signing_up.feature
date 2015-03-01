@@ -32,6 +32,7 @@ Feature: Signing up to Chitter
     And I enter "100password" into the "password_confirmation" field
     And I press "Create Account"
     Then I should not see "You're signed in, Tom!"
+    And I should see "Your passwords didn't match. Try again."
 
   Scenario: Signing up with a username that has previously been used
     Given I have previously created an account

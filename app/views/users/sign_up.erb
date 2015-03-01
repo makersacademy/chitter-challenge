@@ -1,5 +1,9 @@
 Enter your details to create an account.
 
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <form action="/users/sign_up" method="post">
   Name: <input type="text" name="name"><br/>
   Username: <input type="text" name="username"><br/>
