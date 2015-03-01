@@ -12,6 +12,6 @@ When(/^I click on sign up$/) do
   click_on 'sign up'
 end
 
-Then(/^I should see my name on the page$/) do 
+Then(/^I should see my name on the page$/) do
   expect(page).to have_content('What\'s on your mind, John117?')
 end
