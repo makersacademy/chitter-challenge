@@ -1,5 +1,5 @@
 <ul>
   <% @sheets.reverse.each do |sheet| %>
-    <li><%= sheet.text %> <%= sheet.created_at %></li>
+    <li class='sheet'><%= sheet.text %> <%= sheet.created_at %></li>
   <% end %>
 </ul>

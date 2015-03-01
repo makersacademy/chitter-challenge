@@ -17,6 +17,8 @@ set :session_secret, 'super secret'
 use Rack::Flash
 use Rack::MethodOverride
 
+set :public_folder, Proc.new { File.join(root, '..', "public") }
+
 get '/' do
   @sheets = Sheet.all#(:order => :created_at.desc)
   erb :index
