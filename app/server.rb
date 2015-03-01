@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
   set :views, Proc.new { File.join("./app/views") }
   enable :sessions
   use Rack::Flash
-  # use Rack::MethodOverride
 
   include CurrentUser
   include DateFormat

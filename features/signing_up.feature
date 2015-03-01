@@ -41,7 +41,9 @@ Feature: Signing up to Chitter
     And I enter "cheep-boy" into the "username" field
     And I enter "jimmy@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
+    And I enter "password100" into the "password_confirmation" field
     And I press "Create Account"
+    Then I should see "That username is already taken"
     And I should be at the "/users/sign_up" page
 
   Scenario: Signing up with an email address that has previously been used
@@ -51,5 +53,6 @@ Feature: Signing up to Chitter
     And I enter "new-user" into the "username" field
     And I enter "tomcoakes@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
+    And I enter "password100" into the "password_confirmation" field
     And I press "Create Account"
     And I should be at the "/users/sign_up" page

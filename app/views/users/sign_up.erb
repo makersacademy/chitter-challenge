@@ -1,8 +1,13 @@
-Enter your details to create an account.
-
-<% if flash[:error] %>
-  <%= flash[:error] %>
+<% if flash[:errors] %>
+  There were the following errors:
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+Enter your details to create an account.
 
 <form action="/users/sign_up" method="post">
   Name: <input type="text" name="name"><br/>

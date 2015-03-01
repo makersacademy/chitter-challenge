@@ -6,7 +6,8 @@ get '/users/sign_up' do
 
   post '/users/sign_up' do
     if params[:password] != params[:password_confirmation]
-      flash[:error] = "Your passwords didn't match. Try again."
+      flash.now[:errors] = []
+      flash.now[:errors] << "Your passwords didn't match. Try again."
       erb :"users/sign_up"
     else
       user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
@@ -14,6 +15,7 @@ get '/users/sign_up' do
         session[:user_id] = user.id
         redirect to '/'
       else
+        flash.now[:errors] = user.errors.full_messages
         erb :"users/sign_up"
       end
     end
