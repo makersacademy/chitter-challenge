@@ -1,3 +1,96 @@
-body{
-	background-color: red;
+body {
+	font-family: 'Lato', sans-serif;
 }
+
+a{
+	text-decoration: none;
+}
+
+nav {
+    height: 50px;
+    background-color: rgb(104,112,236);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    background-color: rgb(104,112,236);
+    color: #ffffff;
+    padding: 15px 20px 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+}
+
+h1 {
+	font-size: 90px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 50px;
+}
+
+p.tagline {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	border-style: solid;
+	border-color: black;
+	font-size: 20px;
+}
+
+main {
+	width: 500px;
+	margin: auto;
+}
+
+main li {
+	display: inline;
+}
+
+.name{
+	color: #000000;
+	font-weight: bold;
+}
+
+.username{
+	color: rgb(160,160,160);
+}
+
+article {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.peep{
+	border-style: solid;
+	border-color: rgb(160,160,160);
+	border-width: 1px;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+
+#new-peep{
+	width: 475px;
+	margin: auto;
+	background-color: rgba(104,112,236,.7);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
+

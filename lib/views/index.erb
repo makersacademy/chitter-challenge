@@ -1,15 +1,18 @@
-<a href='/users/new'>Sign Up</a>
-<a href='/sessions/new'>Log In</a>
 <% if current_user %>
 <div id='new-peep'>
   <form action='/peeps' method='post'>
-    Message:<input type='text' name='message'>
+    <input type='text' placeholder="What's going on?" size="45" style="font-size: 14px" name='message'>
     <input type='submit' value='Peep'>
   </form>
 </div>
 <% end %>
+<main>
 <ul>
-  <% @peeps.each do |peep| %>
-    <li>@<%= peep.username %> <%= peep.name %> <%= peep.message %>
+	<% @peeps.each do |peep| %>
+	<div class="peep">
+    <li class="name"><%= peep.name %></li> <li class="username">@<%= peep.username %></li>
+    <article><%= peep.message %></article>
+    </div>
   <% end %>
 </ul>
+</main>
