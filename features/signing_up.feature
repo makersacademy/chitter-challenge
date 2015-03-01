@@ -1,6 +1,6 @@
 Feature: Signing up to Chitter
   To use Chitter
-  As someone who would like to post Cheets
+  As someone who would like to post Cheeps
   I want to create a Chitter account
 
   Scenario: Before anyone is signed in

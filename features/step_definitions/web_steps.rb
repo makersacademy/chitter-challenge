@@ -56,7 +56,7 @@ When(/^I press "(.*?)"$/) do |button|
   click_button(button)
 end
 
-Given(/^cheets have already been posted$/) do
+Given(/^cheeps have already been posted$/) do
   visit '/users/sign_up'
   fill_in "name", with: "Tom"
   fill_in "username", with: "cheep-boy"
