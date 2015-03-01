@@ -5,10 +5,12 @@ require 'rack-flash'
 require 'sinatra/partial'
 require_relative 'models/user'
 require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
+require_relative 'controllers/users'
+require_relative 'controllers/sessions'
+require_relative 'controllers/application'
 
 class Chitter < Sinatra::Base
-
-require_relative 'data_mapper_setup'
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -21,7 +23,3 @@ require_relative 'data_mapper_setup'
   run! if app_file == $0
 
 end
-
-require_relative 'controllers/users'
-require_relative 'controllers/sessions'
-require_relative 'controllers/application'
