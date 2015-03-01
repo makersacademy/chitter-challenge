@@ -111,6 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   cucumber
   data_mapper
