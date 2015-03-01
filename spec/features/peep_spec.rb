@@ -12,8 +12,6 @@ feature "Maker posts a peep" do
   def add_peep(message, name, username)
     within('#new-peep') do
       fill_in 'message', :with => message
-      fill_in 'name', :with => name
-      fill_in 'username', :with => username
       click_button 'Peep!'
     end
   end

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 feature "Maker browses a list of peeps" do
 
   before(:each){

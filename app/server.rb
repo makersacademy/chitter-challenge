@@ -1,16 +1,13 @@
 require 'sinatra'
 require 'data_mapper'
 
-env = ENV['RACK_ENV'] || 'development'
+require_relative 'models/peep'
+require_relative 'models/maker'
+require_relative 'data_mapper_setup'
+require_relative 'helpers/application'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
-require './app/models/peep'
-require './app/models/maker'
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
+enable :sessions
+set :session_secret, 'super secret'
 
   get '/' do
     @peeps = Peep.all
@@ -24,3 +21,17 @@ DataMapper.auto_upgrade!
     Peep.create(:message => message, :name => name, :username => username)
     redirect to ('/')
   end
+
+  get '/makers/new' do
+    erb :'makers/new'
+  end
+
+  post '/makers' do
+    maker = Maker.create(:name => params[:name],
+                         :username => params[:username],
+                         :email => params[:email],
+                         :password => params[:password])
+    session[:maker_id] = maker.id
+    redirect to('/')
+  end
+

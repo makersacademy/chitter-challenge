@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmark Manager</title>
+
+<!--       <link rel="stylesheet" type="text/css" href="/css/reset.css">
+      <link rel="stylesheet" type="text/css" href="/css/application.css"> -->
+  </head>
+
+  <body>
+
+    <% if current_maker %>
+      Welcome, <%= current_maker.name %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+
+</html>
