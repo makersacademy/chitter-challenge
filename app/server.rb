@@ -13,6 +13,7 @@ require_relative './views/helpers/application'
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
+# use Rack::MethodOverride
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -57,7 +58,7 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect to('/')
   else
-    flash[:errors] = ["The email or password is incorrect"]
+    flash[:errors] = ["The email or password are incorrect"]
     erb :"sessions/new"
   end
 end
