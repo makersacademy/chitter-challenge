@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+
+<body>
+  <% if current_user %>
+    Welcome, <%= current_user.username %>
+  <% end %>
+  <%= yield %>
+</body>
+
+</body>
+</html>
