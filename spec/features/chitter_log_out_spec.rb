@@ -6,7 +6,7 @@ feature "User log out" do
 
   scenario "a logged in user can completely log out" do
     sign_in('test@test.com', 'test')
-    click_link "Log out"
+    click_button "Log out"
     expect(page).to have_content "You are signed out"
   end
 
@@ -16,5 +16,7 @@ feature "User log out" do
     visit '/peeps'
     expect(page).to have_content "Please sign in"
   end
+
+
 
 end

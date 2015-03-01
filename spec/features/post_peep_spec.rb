@@ -1,6 +1,20 @@
 require 'spec_helper'
 
 feature "User adds a new peep" do
+
+  scenario "must be logged in send a peep" do
+    visit
+  end
+
+  scenario "peeps are ordered chronologically" do
+  end
+
+  scenario "peep shows user that submitted it" do
+  end
+
+  scenario "peep shows date time peep was sent" do
+  end
+
   scenario "add a new peep" do
     visit '/'
     fill_in 'peep', :with => "this is a short peep"

@@ -1,6 +1,8 @@
 class ChitterApp < Sinatra::Base
 
   get '/user/new' do
+    flash[:notice] = nil
+    flash[:errors] = nil
     @user = User.new
     erb :new_user
   end
@@ -11,7 +13,7 @@ class ChitterApp < Sinatra::Base
               :password_confirmation => params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :new_user
