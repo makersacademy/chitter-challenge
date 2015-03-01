@@ -24,14 +24,36 @@ ENV['RACK_ENV'] = 'test'
   end
 
 
+  Given(/^I have an account already$/) do
+    sign_up
+  end
+
+  When(/^I log in with username and password$/) do
+    sign_in("thomas@strothjohann.net", "test")
+  end
+
+  Then(/^I should see the Chitter\-editor on frontpage$/) do
+    expect(page).to have_content('form#chitter')
+  end
 
 
-  def sign_in(email, password)
+
+
+  def sign_in(username, password)
     visit '/sessions/new'
-    fill_in 'email', :with => email
+    fill_in 'auth', :with => username
     fill_in 'password', :with => password
     click_button 'Sign in'
   end
+
+
+  def sign_in2(email, password)
+    visit '/sessions/new'
+    fill_in 'auth', :with => email
+    fill_in 'password', :with => password
+    click_button 'Sign in'
+  end
+
 
   def sign_up
     visit '/users/new'

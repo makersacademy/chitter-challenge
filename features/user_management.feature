@@ -8,3 +8,8 @@ I want to sign up for chitter, log in and log out
     When I click on Sign up
     Then I can enter "name", "username", "email" and "password"
     And I can see "Welcome TStrothjohann"
+
+  Scenario: Sign in
+    Given I have an account already
+    When I log in with username and password
+    Then I should see the Chitter-editor on frontpage

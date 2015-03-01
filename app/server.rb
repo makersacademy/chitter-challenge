@@ -7,6 +7,7 @@ require './app/data_mapper_setup'
 require 'rack-flash'
   
 
+
   class Chitter < Sinatra::Base
     enable :sessions
     use Rack::Flash
@@ -24,6 +25,10 @@ require 'rack-flash'
     erb :'users/new'
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
   post '/users/new' do
     @user = User.new(
     :username => params[:username],
@@ -32,10 +37,51 @@ require 'rack-flash'
     :password => params[:password],
     :password_confirmation => params[:password_confirmation]
     )
-    flash[:notice] = "Welcome, #{@user.username}!" if @user.save
+    
+    if @user.save
+      flash[:notice] = "Welcome, #{@user.username}!" 
+      session[:user_id] = @user.id
+      redirect('/')
+    else
+      flash[:errors]
+      erb :'/users/new'
+    end
+  end
 
+ 
+
+  post '/sessions' do
+
+    user = User.authenticate(
+    :password => params[:password],
+    :username => params[:auth],
+    :email => params[:auth])
+
+    if user
+      session[:user_id] = user.id
+      erb :index
+    else
+      flash[:errors] = ["ups"]
+      redirect('/sessions/new')
+    end
+  end
+
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = "bis bald!"
     erb :index
   end
+
+  helpers do
+    def current_user
+      if session[:user_id]
+        @current_user = User.get(session[:user_id]).username
+      
+      end
+    end
+  end
+
+
 
 
 end

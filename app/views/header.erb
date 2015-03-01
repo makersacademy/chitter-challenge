@@ -1,3 +1,12 @@
 <header>
-      <a href="/users/new">Signup</a>
+      <a class="btn" href="/users/new">Signup</a>
+      <a class="btn" href="/sessions/new">Sign in</a>
+      <form id="sign-out" method="post" action="/sessions">
+          <input type="hidden" name="_method" value="delete">
+          <input class="btn" type="submit" value="Sign out">
+      </form>
+      <% if current_user %>
+      <h3>Hey <%= current_user %> </h3>
+      <% end %>
+      
 </header>
