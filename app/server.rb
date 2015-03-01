@@ -19,7 +19,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/cheeps/new' do
-    erb :"cheeps/new"
+    if current_user
+      erb :"cheeps/new"
+    else
+      redirect to '/users/sign_in'
+    end
   end
 
   post '/cheeps/new' do

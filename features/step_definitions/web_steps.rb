@@ -2,12 +2,16 @@ Given(/^I am on the homepage$/) do
   visit '/'
 end
 
+When(/^I visit the "(.*?)" page$/) do |page|
+  visit page
+end
+
 When(/^I click "(.*?)"$/) do |link|
   click_link(link)
 end
 
 Then(/^I should be at the "(.*?)" page$/) do |page|
-  expect(current_path).to eq('/')
+  expect(current_path).to eq(page)
 end
 
 Then(/^I should see "(.*?)"$/) do |content|
