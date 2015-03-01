@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/partial'
 require 'data_mapper'
 require 'rack-flash'
+require 'date'
 
 
 require_relative 'helpers/application'

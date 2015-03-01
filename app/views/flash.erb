@@ -1,12 +1,13 @@
 <% if flash[:notice] %>
-    <div id="notice"><%= flash[:notice] %></div>
-  <% end %>
-
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    Please try again, your passwords don't match
-    <ul id="errors">
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
+  <div class='flash notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>  
+  Please try again, the below error occured:
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li class='flash error'><%= error %></li>
     <% end %>
   </ul>
 <% end %>

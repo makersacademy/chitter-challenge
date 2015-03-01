@@ -15,13 +15,19 @@ feature "User signs up" do
   scenario "with a password that doesn't match" do
     expect{ sign_up('Test', 'Test123', 'a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
     expect(current_path).to eq('/users')
-    expect(page).to have_content("Please try again, your passwords don't match")
+    expect(page).to have_content("Please try again, the below error occured:")
   end
 
   scenario "with an email that is already registered" do
     expect{ sign_up }.to change(User, :count).by(1)
     expect{ sign_up }.to change(User, :count).by(0)
-    expect(page).to have_content("This email is already taken")
+    expect(page).to have_content("Email is already taken")
+  end
+
+    scenario "with a username that is already registered" do
+    expect{ sign_up }.to change(User, :count).by(1)
+    expect{ sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content("Username is already taken")
   end
 
 end

@@ -6,5 +6,6 @@ class Hoot
   property :name, String
   property :username, String
   property :message, String
+  property :created_at, String
 
 end
