@@ -1,3 +1,7 @@
+<% if flash[:loginerror] %>
+  <%= flash[:loginerror] %>
+<% end %>
+
 Please Sign In
 
 <form action="/users/sign_in" method="post">

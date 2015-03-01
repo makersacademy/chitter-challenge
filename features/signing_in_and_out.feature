@@ -23,3 +23,4 @@ Feature: Signing in and out of Chitter
     And I enter "wrongpassword" into the "password" field
     And I press "Sign In"
     Then I should see "Those login details are incorrect."
+    And I should see "Please Sign In"

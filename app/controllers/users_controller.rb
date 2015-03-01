@@ -33,7 +33,8 @@ get '/users/sign_up' do
       session[:user_id] = user.id
       redirect to '/'
     else 
-      "Those login details are incorrect."
+      flash.now[:loginerror] = "Those login details are incorrect."
+      erb :"users/sign_in"
     end
   end
 
