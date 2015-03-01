@@ -10,7 +10,7 @@
 <% end %>
 
 <ul>
-    <% @all_cheeps.each do |cheep| %>
+    <% @all_cheeps.reverse.each do |cheep| %>
       <li><%= cheep.content %></li>
     <% end %>
   </ul>
