@@ -1,11 +1,15 @@
+<% if @all_cheeps.empty? %>
+  <p>Nobody's Cheeped yet... You could be the first!</p>
+<% end %>
+
 <ul>
-    <% @all_cheeps.each do |cheep| %>
-    
-      <li>
-        <header><%= cheep.user.name %> - <%= cheep.user.username %></header>
-        <body><%= cheep.content %></body>
-        <footer><%= date_format(cheep.created_at) %></footer>
-      </li>
-    
-    <% end %>
-  </ul>
+  <% @all_cheeps.each do |cheep| %>
+  
+    <li>
+      <author><p><%= cheep.user.name %> <span id="username">(<%= cheep.user.username %>)</span></p></author>
+      <content><p><%= cheep.content %></p></content>
+      <date><p>Posted at: <%= date_format(cheep.created_at) %></p></date>
+    </li>
+  
+  <% end %>
+</ul>

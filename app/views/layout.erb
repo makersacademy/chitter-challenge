@@ -3,21 +3,30 @@
 
 <head>
   <title>Chitter - A Twitter Clone</title>
+  <link href="/styles/normalize.css" rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link href="/styles/main.css" rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 
   <header>
-    <% if current_user %>
-      You're signed in, <%= current_user.name %>!
-      <a href="/users/sign_out">Sign Out</a>
-      <a href="/cheeps/new">Post a new Cheep</a>
-    <% end %>
 
-    <% if !current_user %>
-      <a href="/users/sign_up">Sign Up</a>
-      <a href="/users/sign_in">Sign In</a>
-    <% end %>
+      <a href="/"><img src="/images/chitter_logo.png" height="60px" alt="chitter logo"></a>
+      
+      <div id="sign_in_links">
+        <% if current_user %>
+          <span>You're signed in, <%= current_user.name %>!</span>
+          <a class="buttons" href="/users/sign_out">Sign Out</a>
+          <a class="buttons" href="/cheeps/new">Post a new Cheep</a>
+        <% end %>
+
+        <% if !current_user %>
+          <a class="buttons" href="/users/sign_up">Sign Up</a>
+          <a class="buttons" href="/users/sign_in">Sign In</a>
+        <% end %>
+      </div>
+
   </header>
 
   <section>

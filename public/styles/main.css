@@ -1,0 +1,97 @@
+body {
+  background-color: #EEEEEE;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  background-color: #FFFFFF;
+  height: 75px;
+  display: block;
+  border-bottom: solid #bec3c7 3px;
+}
+
+header #sign_in_links {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20%;
+}
+
+header img {
+  float: left;
+  margin-top: 7px;
+  margin-left: 20%;
+}
+
+header .buttons {
+  background-color: #0078E7;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 0 5px;
+  color: #FFFFFF;
+}
+
+
+input {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+li {
+  list-style-type: none;
+  background-color: #FFFFFF;
+  border: solid #bec3c7 2px;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 10px;
+}
+
+#error {
+  background-color: #0078E7;
+  color: #FFFFFF;
+}
+
+author {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 20px;
+  text-align: left;
+}
+
+author #username {
+  color: #0078E7;
+  font-weight: normal;
+  font-size: 0.7em;
+  font-style: italic
+}
+
+content {
+  text-align: left;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+date {
+  display: block;
+  margin-right: 20px;
+  text-align: right;
+  font-size: 0.8em;
+  color: #0078E7;
+}
+
+#new_cheep_box {
+  margin-top: 10px;
+  width: 500px;
+  height: 100px;
+}

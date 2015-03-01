@@ -14,4 +14,3 @@ Feature: Posting a Cheep
     And I press "Post"
     Then I should be at the "/" page
     And I should see "Hello World"
-

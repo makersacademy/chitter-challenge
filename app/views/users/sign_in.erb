@@ -1,13 +1,13 @@
 <% if flash[:loginerror] %>
-  <%= flash[:loginerror] %>
+  <li id="error"><%= flash[:loginerror] %></li>
 <% end %>
 
-Please Sign In
+<h2>Please Sign In</h2>
 
-<form action="/users/sign_in" method="post">
-  Email: <input type="text" name="email">
-  Password: <input type="password" name="password">
-  <input type="submit" value="Sign In">
+<form action="/users/sign_in" method="post" class="pure-form">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign In" class="pure-button pure-button-primary">
 </form>
 
-<p>Don't have an account yet?</p> <a href="/users/sign_up">Sign up here</a>
+<p>Don't have an account yet? <a href="/users/sign_up">Sign up here</a></p>

@@ -12,6 +12,7 @@ require './app/controllers/users_controller.rb'
 
 class Chitter < Sinatra::Base
   set :views, Proc.new { File.join("./app/views") }
+  set :public_folder, Proc.new { File.join("./public") }
   enable :sessions
   use Rack::Flash
 
