@@ -4,20 +4,20 @@
 	</head>
 	<body>
 		<% if current_user %>
-			Welcome, <%= current_user.email %>
+			Welcome <%= current_user.username %>
 			<form action='/sessions', method='post'>
 				<input type='hidden' name='_method' value='delete'>
 				<input type='submit' value='Sign out'>
 			</form>
 		<% end %>
 		<% if flash[:notice] %>
-		<div id="notice">
+		<div id='notice'>
 			<%= flash[:notice] %>
 		</div>
 	<% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
   Sorry, there were the following problems with the form.
-  <ul id="errors">
+  <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>

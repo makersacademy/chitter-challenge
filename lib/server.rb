@@ -31,8 +31,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    message = params["message"]
-    Peep.create(:message => message)
+    message = params['message']
+    user = params['user']
+    Peep.create(:message => message, :name => current_user.name, :username => current_user.username)
     redirect to('/')
   end
 
@@ -42,11 +43,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(:email => params["email"],
-                :password => params["password"],
-                :password_confirmation => params["password_confirmation"],
-                :name => params["name"],
-                :username => params["username"])
+    @user = User.new(:email => params['email'],
+                :password => params['password'],
+                :password_confirmation => params['password_confirmation'],
+                :name => params['name'],
+                :username => params['username'])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -67,14 +68,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/')
     else
-      flash[:errors] = ["The email or password is incorrect"]
+      flash[:errors] = ['The email or password is incorrect']
       erb :"sessions/new"
     end
   end
 
   delete '/sessions' do
     session.clear
-    flash[:notice] = "Goodbye!"
+    flash[:notice] = 'Goodbye!'
     redirect to ('/')
   end
 
