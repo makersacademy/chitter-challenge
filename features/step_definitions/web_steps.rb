@@ -35,6 +35,7 @@ Given(/^I am logged in with a current user account$/) do
   fill_in "name", with: "Tom"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
+  fill_in "password_confirmation", with: "password100"
   click_button("Create Account")
 end
 
@@ -44,6 +45,7 @@ Given(/^I have previously created an account$/) do
   fill_in "username", with: "cheep-boy"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
+  fill_in "password_confirmation", with: "password100"
   click_button("Create Account")
   click_link("Sign Out")
 end
@@ -62,6 +64,7 @@ Given(/^cheeps have already been posted$/) do
   fill_in "username", with: "cheep-boy"
   fill_in "email", with: "tomcoakes@gmail.com"
   fill_in "password", with: "password100"
+  fill_in "password_confirmation", with: "password100"  
   click_button("Create Account")
   click_link("Post a new Cheep")
   fill_in "content", with: "Hello World!"

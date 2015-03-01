@@ -5,13 +5,13 @@ get '/users/sign_up' do
   end
 
   post '/users/sign_up' do
-    user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    if user.save
-      session[:user_id] = user.id
-      redirect to '/'
-    else
-      erb :"users/sign_up"
-    end
+      user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      if user.save && params[:password] == params[:password_confirmation]
+        session[:user_id] = user.id
+        redirect to '/'
+      else
+        erb :"users/sign_up"
+      end
   end
 
   get '/users/sign_in' do

@@ -18,9 +18,20 @@ Feature: Signing up to Chitter
     And I enter "cheep-boy" into the "username" field
     And I enter "tomcoakes@gmail.com" into the "email" field
     And I enter "password100" into the "password" field
+    And I enter "password100" into the "password_confirmation" field
     And I press "Create Account"
     Then I should see "You're signed in, Tom!"
     And I should not see "Sign Up" or "Sign In"
+
+  Scenario: Entering an incorrect password confirmation
+    Given I am on the Sign Up page
+    When I enter "Tom" into the "name" field
+    And I enter "cheep-boy" into the "username" field
+    And I enter "tomcoakes@gmail.com" into the "email" field
+    And I enter "password100" into the "password" field
+    And I enter "100password" into the "password_confirmation" field
+    And I press "Create Account"
+    Then I should not see "You're signed in, Tom!"
 
   Scenario: Signing up with a username that has previously been used
     Given I have previously created an account
