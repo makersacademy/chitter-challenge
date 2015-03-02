@@ -59,6 +59,20 @@ a {
   vertical-align: center;
   background-color: rgb(63, 118, 183);
 }
+
+.button.response {
+  width: 70px;
+  height: 20px;
+  font-size: 10px;
+  padding: 3px 10px;
+  line-height: 150%;
+  width:90px;
+  position: relative;
+  top: 5px;
+  overflow: hidden;
+  display: block;
+  background-color: rgb(63, 118, 183);
+}
 .button.highlighted:hover {
 -webkit-transition: All 0.5s ease;
 width: 200px;
@@ -129,7 +143,7 @@ header {
   100% { -webkit-transform: scale(1); }
 }
 
-.peep:hover{
+.button.response:hover{
   -webkit-animation-name: thumb;
   -webkit-animation-duration: 300ms;
   -webkit-transform-origin:10% 10%;

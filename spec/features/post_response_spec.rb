@@ -2,7 +2,7 @@ require 'spec_helper'
 
 require_relative 'helpers/session'
 
-feature "User adds a new peep" do
+feature "User responds to a peep" do
 
   include SessionHelpers
 
@@ -16,12 +16,14 @@ feature "User adds a new peep" do
 
   scenario "when logged in and browsing the homepage" do
     sign_in('test@test.com', 'test')
-    expect(Peep.count).to eq(0)
     visit '/peeps/new'
     fill_in :text, :with => "This is my second peep"
     click_button 'Peep'
-    expect(Peep.count).to eq(1)
-    expect(Peep.first.text).to eq("This is my second peep")
+    click_button 'Respond'
+    fill_in :response, :with => "This is my response"
+    expect(Peep.response.count).to eq(1)
+    expect(Peep.response.first.text).to eq("This is my second peep")
   end
+
 
 end

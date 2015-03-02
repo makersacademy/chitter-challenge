@@ -6,6 +6,7 @@ require 'sinatra/partial'
 
 require './app/models/peep' 
 require './app/models/user'
+require './app/models/response'
 
 require_relative './data_mapper_setup'
 require_relative './helpers/application'
@@ -32,7 +33,7 @@ use Rack::MethodOverride
  
 
 get '/' do
-  @peeps = Peep.all_in_chron
+  @peeps = Peep.all(:order => [ :timestamp.desc ])
   erb :index
 end
 
@@ -82,6 +83,18 @@ post '/peeps' do
   text = params["text"]
   @username = current_user.username if current_user
   Peep.create(:user_id => user_id, :text => text, :timestamp => Time.now)
+  redirect to('/')
+end
+
+get '/responses/new' do
+  erb :"responses/new"
+end
+
+post '/reponses' do
+  user_id = session[:user_id]
+  text = params["response"]
+  @username = current_user.username if current_user
+  Response.create(:user_id => user_id, :text => text, :timestamp => Time.now)
   redirect to('/')
 end
 

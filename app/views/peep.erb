@@ -4,15 +4,21 @@
       At <%= peep.timestamp.strftime("%d %b %l:%M %p")if peep.timestamp != nil%>
     </span>
     <span class='author'>
-      <%= peep.user.username.capitalize%> said:
+      <%= peep.user.username%> said:
     </span>
     </b>
     </p>
     <br>
     <p>
-    <span class='text'>
-      <%= peep.text%> 
-    </span>
+      <span class='text'>
+        <%= peep.text%> 
+      </span>
+    </p>
+    <p>
+    </p>
+
+    <p>
+      <a href="/responses/new" class="button response">Respond</a>  
     </p>
   
 </li>
