@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   helpers ApplicationHelpers
 
   set :public_folder, Proc.new { File.join(root, '..', '..', "public") }
-  set :views, Proc.new { File.join(root, "..", "views")
+  set :views, Proc.new { File.join(root, "..", "views") }
 
   enable :sessions
   set :super_sessions, 'super secret'
