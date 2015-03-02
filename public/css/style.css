@@ -1,0 +1,198 @@
+html, body {
+margin: 0;
+padding: 0;
+}
+
+body{
+  background-color:white;
+}
+
+header {
+  min-width:100%;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  height: 80px;
+  }
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: 'Bangers', cursive;
+  color: silver;
+  font-size: 55px;
+  left: 20px;
+  top: 10px;
+  position: relative;
+  text-shadow: 2px 2px grey;
+}
+
+h1{
+  position: relative;
+  font-family: 'Chewy', cursive;
+  font-size: 32px;
+  left: 35px;
+}
+
+header #welcome-message{
+  font-family: 'Chewy', cursive;
+  float: right;
+  position: relative;
+  bottom: 60px;
+  float: right;
+  color: silver;
+}
+
+#button1
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:15px;
+  float: right;
+  position: relative;
+  bottom: 30px;
+  left: 80px;
+}
+
+#button1:hover
+{
+  background-color: silver;
+}
+
+#button2
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:16px;
+  position: relative;
+}
+
+#button2:hover
+{
+  background-color: silver;
+}
+
+#cheet-box{
+  position: relative;
+  left: 500px;
+  top: 10px;
+}
+
+#new-cheet{
+  position: fixed;
+  top: 110px;
+  left: 20px;
+  font-family: 'Arvo', serif;
+}
+
+#text-box{
+  font-family: 'Arvo', serif;
+}
+
+li{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+  list-style-type: none;
+
+}
+
+#first{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+#second{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+#time{
+  color: silver;
+}
+
+#email{
+  position: relative;
+  left: 475px;
+  color: white;
+}
+
+#sign{
+  position:relative;
+  left:455px;
+}
+
+#password{
+  position: relative;
+  top: 10px;
+  left: 475px;
+}
+
+#button3
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:16px;
+  position: relative;
+  left: 545px;
+  top: 20px;
+}
+
+#button4
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:16px;
+  position: relative;
+  border-radius: 100px;
+}
+
+
+#signup_button{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:15px;
+  position: relative;
+  float: right;
+  bottom: 25px;
+}
+
+
+#login_button{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: black;
+  font-size:15px;
+  position: relative;
+  float: right;
+  bottom: 25px;
+}
+
+#password_box{
+  border-radius: 100px;
+  font-size: 18px;
+  background-color: black;
+  font-family: 'Chewy', cursive;
+  color: white
+}
+
+#details{
+  position: relative;
+  right: 35px;
+  background-color: grey;
+  /*padding: 15px 10px;*/
+  margin: 10px 25px;
+  width: 250px;
+}
+
+
