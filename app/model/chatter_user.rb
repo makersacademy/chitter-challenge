@@ -4,6 +4,11 @@ class ChatterUser
 
   include DataMapper::Resource
 
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
+
 
   property :id, Serial
   property :name, String
@@ -14,6 +19,7 @@ class ChatterUser
 
 
   def password=(input)
+    @password = input
     self.password_hash = BCrypt::Password.create(input)
   end
 

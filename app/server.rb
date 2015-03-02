@@ -22,7 +22,7 @@ class Server < Hobbit::Base
   end
 
   post '/users' do
-    me = ChatterUser.create(name: params[:name], email: params[:email], creation_date: Time.now)
+    me = ChatterUser.create(name: params[:name], email: params[:email], creation_date: Time.now, password: params[:password], password_confirmation: params[:password_confirmation])
     session[:user_id] = me.id
     redirect '/'
   end
