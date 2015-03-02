@@ -1,10 +1,13 @@
 require 'data_mapper'
 require 'sinatra'
+require './lib/helpers/application'
+require 'rack-flash'
+
 require_relative 'user'
 require_relative 'peep'
-require './lib/helpers/application'
 
 
+use Rack::Flash
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -31,21 +34,22 @@ post '/peeps' do
 end
 
 get '/users/new' do
+  @user = User.new
   erb :'/users/new'
 end
 
 post '/users' do
   @user = User.new(:name => params[:name],
-                      :user_name => params[:user_name],
-                      :email => params[:email],
-                      :password => params[:password],
-                      :password_confirmation => params[:password_confirmation])
+                   :user_name => params[:user_name],
+                   :email => params[:email],
+                   :password => params[:password],
+                   :password_confirmation => params[:password_confirmation])
   if @user.save
-  session[:user_id] = @user.id
-  redirect to('/')
-  else
-    "we are here"
+    session[:user_id] = @user.id
     redirect to('/')
+  else
+    flash[:notice] = "Sorry, your password don't match"
+    erb :"users/new"
   end
 
 end

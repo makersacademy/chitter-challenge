@@ -1,7 +1,11 @@
 require 'bcrypt'
+
 class User
 
   include DataMapper::Resource
+
+  attr_reader :password
+  attr_accessor :password_confirmation
 
   property :id, Serial
   property :email, String
@@ -12,10 +16,8 @@ class User
   has n, :peeps, :through => Resource
 
 
-  attr_reader :password
-  attr_accessor :password_confirmation
 
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :message => "Sorry, your password don't match"
 
 
   def password=(password)
