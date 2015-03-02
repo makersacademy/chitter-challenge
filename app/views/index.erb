@@ -4,7 +4,7 @@
     <form class="clearfix" action="/peeps" method="post">
       <label>Write your peep here...</label>   
       <input type="text" name="content">
-      <input class="inline-button" type="submit" value="Peep!">
+      <input class="inline-button hvr-buzz-out" type="submit" value="Peep!">
     </form>
   </div>
 <% end %>
@@ -13,9 +13,13 @@
 
 <ul>
     <% if @peeps %>
-      <% @peeps.reverse.each do |peep| %>
-        <li><%= peep.content %></li>
-        <li>Posted by: @<%= peep.user.uname %></li>
-      <% end %>
+      <li>
+          <% @peeps.reverse.each do |peep| %>
+          <ul class="peep-list">
+            <li><%= peep.content %></li>
+            <li>Posted by: @<%= peep.user.uname %> on <%= peep.created_at %></li>
+          </ul>    
+        <% end %>
+      </li>    
     <% end %>  
 </ul>

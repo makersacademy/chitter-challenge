@@ -1,4 +1,5 @@
 require 'data_mapper'
+require './app/server'
 
 task :auto_upgrade do
   # auto_upgrade makes non-destructive changes.
