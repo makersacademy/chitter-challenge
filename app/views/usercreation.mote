@@ -1,7 +1,7 @@
 <form action="/users" method="post">
     <ul>
-        <li>Name: <input name="name" type="text"></li>
-        <li>Email: <input name ="email" type="text"></li>
+        <li>Name: <input name="name" type="text" value="{{user.name}}"></li>
+        <li>Email: <input name ="email" type="text" value="{{user.email}}"></li>
         <li>Password: <input name="password" type="password"></li>
         <li>Confirm Password: <input name="password_confirmation" type="password"></li>
         <li><input value="Sign Up" type="submit"></li>

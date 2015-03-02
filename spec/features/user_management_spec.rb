@@ -10,7 +10,12 @@ feature 'User signs up' do
 
   scenario 'The passwords dont match' do
     expect{sign_up("pass","mismatch")}.to change(ChatterUser, :count).by 0
+    expect(current_path).to eq '/users'
+    expect(page).to have_content "Passwords did not match."
   end
+
+
+
 
   def sign_up(password="QWERTY!1759", confirmation="QWERTY!1759")
     visit '/users/new'
@@ -24,12 +29,3 @@ feature 'User signs up' do
 
 end
 
-feature 'User signs out' do
-
-  xscenario 'After having made an account, can sign out' do
-    visit '/'
-    click_link('Sign Out')
-  end
-
-
-end
