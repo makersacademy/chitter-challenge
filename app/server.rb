@@ -25,4 +25,41 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/users/reset_password' do
+    erb :"users/reset_password"
+  end
+
+  post '/users/reset_password' do
+    token = (1..64).map{('A'..'Z').to_a.sample}.join
+    user = User.first(email: params[:email])
+    user.password_token = token
+    user.password_token_timestamp = Time.now
+    user.save
+  end
+
+  get '/users/reset_password/:token' do
+    @token = params[:token]
+    user = User.first(password_token: params[:token])
+    if DateTime.now < (user.password_token_timestamp + Rational(1, 24))
+      erb :"users/new_password"
+    else
+      "Your reset password link has expired."
+    end
+  end
+
+  post '/users/new_password' do
+    if params[:password] != params[:password_confirmation]
+      flash.now[:errors] = []
+      flash.now[:errors] << "Your passwords didn't match. Try again."
+      erb :"users/new_password"
+    else
+      user = User.first(password_token: params[:token])
+      user.password = params[:password]
+      user.save
+      user.update(password_token: nil)
+      user.update(password_token_timestamp: nil)
+      redirect to('/')
+    end
+  end
+
 end
