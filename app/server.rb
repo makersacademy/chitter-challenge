@@ -6,6 +6,7 @@ require 'sinatra/partial'
 require './app/lib/tweet'
 require './app/lib/user'
 require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -13,10 +14,6 @@ include SessionHelpers
 
 set :partial_template_engine => :erb
 register Sinatra::Partial
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super secret'
