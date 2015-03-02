@@ -15,7 +15,7 @@ feature 'User adds a new peep only when signed in' do
     expect(Peep.count).to eq(0)
     visit '/'
     sign_in('test@test.com', 'test')
-    expect(page).to have_content('Welcome test')
+    expect(page).to have_content("What's happening @test?")
     visit '/'
     add_peep('Hello')
     expect(Peep.count).to eq(1)
@@ -27,7 +27,7 @@ feature 'User adds a new peep only when signed in' do
     expect(Peep.count).to eq(0)
     visit '/'
     sign_in('test@test.com', 'test')
-    expect(page).to have_content('Welcome test')
+    expect(page).to have_content("What's happening @test?")
     visit '/'
     add_peep('Hello')
     expect(Peep.count).to eq(1)

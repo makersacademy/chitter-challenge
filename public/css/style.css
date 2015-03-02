@@ -7,7 +7,7 @@ a{
 }
 
 nav {
-    height: 50px;
+    height: 60px;
     background-color: rgb(104,112,236);
 }
 
@@ -19,8 +19,8 @@ nav ul li a {
     display: block;
     background-color: rgb(104,112,236);
     color: #ffffff;
-    padding: 15px 20px 10px 10px;
-    font-size: 14px;
+    padding: 20px 15px 10px 5px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: capitalize;
     text-align: center;
@@ -32,21 +32,27 @@ h1 {
 	font-size: 90px;
 	font-weight: bold;
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 30px;
 }
 
 p.tagline {
 	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	border-style: solid;
 	border-color: black;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 main {
 	width: 500px;
 	margin: auto;
+	background-color: #ffffff;
+	border-radius: 10px;
+}
+
+main ul {
+	padding: 5px;
 }
 
 main li {
@@ -64,7 +70,7 @@ main li {
 
 article {
 	padding-top: 5px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 
 .peep{
@@ -73,13 +79,12 @@ article {
 	border-width: 1px;
 	border-radius: 5px;
 	padding: 5px;
-	margin: 5px;
+	margin: 10px;
 }
 
 #new-peep{
 	width: 475px;
 	margin: auto;
-	background-color: rgba(104,112,236,.7);
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-right: 5px;
@@ -87,6 +92,62 @@ article {
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
+
+p.welcome {
+	text-align: center;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+img.logo{
+ 	display: block;
+	margin: auto;
+}
+
+.signout{
+	display: block;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.signup{
+	text-align: center;
+	display: block;
+	margin: auto;
+	width: 350px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.signupbox{
+	background-color: rgba(104,112,236,.7);
+	padding-top: 30px;
+	padding-bottom: 120px;
+}
+
+.signupline{
+	padding-bottom: 5px;
+	border-bottom-color: rgb(224,224,224);
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 16px;
+}
+
+ input[type=submit] {
+ 	font-size: 14px;
+ 	background-color: white;
+    border-color: rgba(0,0,0,0.5);
+    border-width: 1px;
+  }
+
+  #notice{
+  	text-align: center;
+  	padding-bottom: 10px;
+  	font-size: 20px;
+  }
 
 
 

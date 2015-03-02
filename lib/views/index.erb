@@ -1,11 +1,13 @@
 <% if current_user %>
+
 <div id='new-peep'>
   <form action='/peeps' method='post'>
-    <input type='text' placeholder="What's going on?" size="45" style="font-size: 14px" name='message'>
+    <input type='text' size="40" style="font-size: 16px" name='message'>
     <input type='submit' value='Peep'>
   </form>
 </div>
 <% end %>
+<section class="signupbox">
 <main>
 <ul>
 	<% @peeps.each do |peep| %>
@@ -16,3 +18,4 @@
   <% end %>
 </ul>
 </main>
+</section>

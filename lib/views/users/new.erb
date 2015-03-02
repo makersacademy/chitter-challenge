@@ -1,10 +1,13 @@
-<h1>Please sign up</h1>
-
+<section class="signupbox">
+<section class="signup">
+<p class="signupline">Sign up to Chitter!</p>
 <form action='/users' method='post'>
-	Email:<input name='email' type='text' value='<%= @user.email%>'>
-	Password:<input name='password' type='password'>
-	Password Confirmation:<input name='password_confirmation' type='password'>
-	Name:<input name= 'name' type='text'>
-	Username:<input name='username' type='text'>
+	<input name='email' placeholder="Email" size="40" style="font-size: 14px" type='text' value='<%= @user.email%>'><br>
+	<input name='password' placeholder="Password" size="40" style="font-size: 14px" type='password'><br>
+	<input name='password_confirmation' placeholder="Password Confirmation" size="40" style="font-size: 14px" type='password'><br>
+	<input name= 'name' placeholder="Full Name" size="40" style="font-size: 14px" type='text'><br>
+	<input name='username' placeholder="Username" size="40" style="font-size: 14px" type='text'><br>
 	<input type='submit' value='Sign up'>
 </form>
+</section>
+</section>

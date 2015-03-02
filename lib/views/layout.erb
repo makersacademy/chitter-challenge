@@ -13,30 +13,17 @@
 				<li><a href='/'>Home</a></li>	
 			</ul>
 		</nav>
-
-
-
-		<h1>
-			Chitter
-		</h1>
+		<h1>Chitter</h1>
 
 
 		<p class="tagline">Where Makers chatter!</p>
-
-
-
-
-
-
-
-
-
+		<img src="/images/teaching.png" class="logo">
 
 		<% if current_user %>
-			Welcome <%= current_user.username %>
+			<p class="welcome">What's happening @<%= current_user.username %>?</p>
 			<form action='/sessions', method='post'>
 				<input type='hidden' name='_method' value='delete'>
-				<input type='submit' value='Sign out'>
+				<input type='submit' value='Sign out' class="signout">
 			</form>
 		<% end %>
 		<% if flash[:notice] %>
