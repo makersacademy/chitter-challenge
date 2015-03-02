@@ -10,11 +10,9 @@
 
 <br>
 
-<% if current_maker %>
-  <peep id="new-peep">
-    <form action="/peeps" method="post">
+  <% if current_maker %>
+    <form action="/peeps" method="post" class="new-peep">
       What's Peepin'?: <input type="text" name="message">
       <input type="submit" value="Peep!">
     </form>
-  </peep>
-<% end %>
+  <% end %>
