@@ -1,14 +1,16 @@
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.content %> written on <%= peep.created_at %></li>
+    <li><%= peep.content %> : <%= peep.author %> on <%= peep.display_date_and_time %></li>
   <% end %>
 </ul>
 
-<section id="new-peep">
-  <h2>Please submit a new peep</h2>
-  <form action="/peeps" method="post">
-    Message<input type="text" name="content">
-    User<input type="text" name="author">
-    <input type="submit" value="Peep!">
-  </form>
-</section>
+<% if current_user %>
+  <section id="new-peep">
+    <h2>Please submit a new peep</h2>
+    <form action="/peeps" method="post">
+      Message<input type="textbox" name="content">
+      <input type="hidden" name="author" value="<%= current_user.username %>">
+      <input type="submit" value="Peep!">
+    </form>
+  </section>
+<% end %>
