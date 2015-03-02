@@ -14,7 +14,7 @@ feature "User log's in" do
 
   scenario "user log's in with correct credentials" do
     visit '/'
-    expect(page).not_to have_content("Welcome, username_test")
+    expect(page).not_to have_content("Welcome")
     sign_in('test@test.com', 'test')
     expect(page).to have_content("Welcome, username_test")
   end

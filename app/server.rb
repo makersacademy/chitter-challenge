@@ -7,8 +7,8 @@ require 'sinatra/partial'
 require './app/models/peep' 
 require './app/models/user'
 
-require_relative 'data_mapper_setup'
-require_relative 'helpers/application'
+require_relative './data_mapper_setup'
+require_relative './helpers/application'
 
 class Chitter < Sinatra::Base
 
@@ -16,7 +16,13 @@ include Helpers
 
 enable :sessions
 
-set :partial_template_engine, :erb
+configure do
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+end
+
+
+
 set :public_folder, Proc.new { File.join(root, "..", "/public") }
 set :session_secret, 'super secret'
 
@@ -65,6 +71,10 @@ post '/sessions' do
     flash[:errors] = ["The email or password is incorrect"]
     erb :"sessions/new"
   end
+end
+
+get '/peeps/new' do
+  erb :"peeps/new"
 end
 
 post '/peeps' do

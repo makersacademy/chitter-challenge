@@ -67,17 +67,17 @@ header {
     color: white;
   }
 
-  header #user-links {
+  header #user-peeps {
     flex: 1; /* http://learnlayout.com/flexbox.html */
     -webkit-flex: 1;
     text-align: right;  
   }
 
-  header #user-links > * {
+  header #user-peeps > * {
     display: inline-block;
   }
 
-  header #user-links #welcome-message {
+  header #user-peeps #welcome-message {
     font-size: 14px;
   }
 
@@ -88,26 +88,17 @@ header {
   padding: 10px;
 }
 
-.link {
+.peep {
   background-color: #EEE;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 15px 10px;
 }
 
-  .link a.title {
+  .peep a.title {
     letter-spacing: 1px;    
   }
 
-  .link .description {
-    margin: 10px inherit;
-  }
-
-  .link .source {
-    /* http://learnlayout.com/float.html and the next 4 sections */
-    float: right; 
-    font-size: 12px;
-  }
 
 .flash {
   text-align: center;
@@ -142,34 +133,4 @@ form {
     border: 1px solid black;
     font-size: 16px;
     width: 400px;
-  }
-
-footer {
-  display: flex;
-  background-color: rgba(0,0,0,0.2);
-  height: 70px; /* because of the sticky footer */
-}
-
-  footer > * {
-    margin: auto inherit;
-  }
-
-  footer img {
-    /* http://stackoverflow.com/questions/10658475/3px-extra-height-on-a-div-with-an-image-inside-it */
-    vertical-align: top;
-  }
-
-  footer #technologies {
-    -webkit-flex: 1;
-    flex: 1;
-    font-size: 12px;
-  }
-
-  footer p {
-    padding: 5px 25px;
-  }
-
-  /* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
-  .footer, .push {
-    height: 70px;
   }
