@@ -7,7 +7,7 @@ feature "User signs up" do
 
   scenario "when being a new user visiting the site" do
     expect{ sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, Chris")
+    expect(page).to have_content("Signed in as Chris")
     expect(User.first.email).to eq("chris@hello.com")
   end
 
@@ -43,16 +43,16 @@ feature "User signs in" do
 
   scenario "with correct credentials" do
     visit '/'
-    expect(page).not_to have_content("Welcome, Chris")
+    expect(page).not_to have_content("Signed in as Chris")
     sign_in('chris@chris.com', 'password')
-    expect(page).to have_content("Welcome, Chris")
+    expect(page).to have_content("Signed in as Chris")
   end
 
   scenario "with incorrect credentials" do
     visit '/'
-    expect(page).not_to have_content("Welcome, Chris")
+    expect(page).not_to have_content("Signed in as Chris")
     sign_in('chris@chris.com', 'wrong')
-    expect(page).not_to have_content("Welcome, Chris")
+    expect(page).not_to have_content("Signed in as Chris")
   end
 
 end
@@ -72,7 +72,7 @@ feature 'User signs out' do
     sign_in('chris@chris.com', 'password')
     click_button "Sign out"
     expect(page).to have_content("Good bye!")
-    expect(page).not_to have_content("Welcome, Chris")
+    expect(page).not_to have_content("Signed in as Chris")
   end
 
 end
@@ -91,7 +91,7 @@ include SessionHelpers
   scenario 'while being signed in try to visit sign in page' do
     sign_in('chris@chris.com', 'password')
     visit '/sessions/new'
-    expect(page).to have_content("Welcome, Chris")
+    expect(page).to have_content("Signed in as Chris")
   end
 
 end

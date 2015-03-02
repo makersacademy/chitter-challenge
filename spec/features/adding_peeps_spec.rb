@@ -4,7 +4,14 @@ require_relative 'helpers/session'
 
 feature 'user adds a new peep' do
 
-    include SessionHelpers
+  include SessionHelpers
+
+  before(:each) do
+    User.create(:username => "Chris",
+                :email => "chris@chris.com",
+                :password => 'password',
+                :password_confirmation => 'password')
+  end
 
   scenario "adding a new peep" do
     sign_in('chris@chris.com', 'password')

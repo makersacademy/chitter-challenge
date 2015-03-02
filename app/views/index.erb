@@ -1,16 +1,21 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.content %> : <%= peep.author %> on <%= peep.display_date_and_time %></li>
-  <% end %>
-</ul>
+<h1>CHITTER</h1>
+
+<section id="peeps-holder">
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.content %> : <%= peep.author %> on <%= peep.display_date_and_time %></li>
+    <% end %>
+  </ul>
+ </section>
 
 <% if current_user %>
   <section id="new-peep">
     <h2>Please submit a new peep</h2>
     <form action="/peeps" method="post">
-      Message<input type="textbox" name="content">
+      Message<input type="textarea" name="content">
       <input type="hidden" name="author" value="<%= current_user.username %>">
       <input type="submit" value="Peep!">
     </form>
   </section>
 <% end %>
+
