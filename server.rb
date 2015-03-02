@@ -4,20 +4,11 @@ require 'rack-flash'
 require './lib/chit'
 require './lib/user'
 require './helpers/application'
+require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chitter#{env}")
-
-
-DataMapper.finalize 
-
-DataMapper.auto_upgrade!
-
 
 get '/' do
   @chit = Chit.all
@@ -44,7 +35,7 @@ post '/users' do
     session[:user_id] = @user.id
     redirect to('/')
   else
-    flash[:notice] = "Sorry, your passwords don't match"
+    flash.now[:errors] = @user.errors.full_messages
     erb :"users/new"
   end
 end
