@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head></head>
-<body>
+  <head>
+      <title>Chitter</title>
+      <link rel="stylesheet" type="text/css" href="/css/reset.css">
+      <link rel="stylesheet" type="text/css" href="/css/header.css">
+  </head>
 
-  <% if current_user %>
-   <h3> Welcome <%= current_user.username %>! </h3>
+  <body>
+    <%= erb :_header %>
 
-   <form id="sign-out" method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Log out" class="button">
-    </form>
-  <% end %>
+
 
   <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with your registration:
@@ -32,11 +31,11 @@
 
 
 
-  <%= yield %>
+    <%= yield %>
 
-  <br>
-  <br>
-  <a href="http://localhost:9292">RACKUP</a>
+    <br>
+    <br>
+    <a href="http://localhost:9292">RACKUP</a>
 
-</body>
+  </body>
 </html>

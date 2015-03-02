@@ -37,7 +37,7 @@ require 'spec_helper'
     #   sorting.sort
     # end
 
-    # I had trouble understanding how that the cheets would appear chronologically
+    # I had trouble understanding how to make the cheets appear chronologically
     # with Capybara i.e test that the cheet posted on 27-02-2015 should appear
     # before the one posted on 28-02-2015.
     # Also I had trouble finding how to extract only the created_at dates to
