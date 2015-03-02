@@ -61,10 +61,6 @@ a {
 }
 .button.highlighted:hover {
 -webkit-transition: All 0.5s ease;
--moz-transition: All 0.5s ease;
--o-transition: All 0.5s ease;
--ms-transition: All 0.5s ease;
-transition: All 0.5s ease;
 width: 200px;
 }
 
