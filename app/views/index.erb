@@ -1,0 +1,21 @@
+<section id="peeps-holder">
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.content %> : @<%= peep.author %> on <%= peep.display_date_and_time %></li>
+    <% end %>
+  </ul>
+ </section>
+
+<% if current_user %>
+  <section id="new-peep">
+   <form action="/peeps" method="post">
+    <fieldset>
+      <legend>Please submit a new peep</legend>
+      <p><label>Message: </label><textarea rows="3" name="content"></textarea></p>
+      <input type="hidden" name="author" value="<%= current_user.username %>">
+      <input type="submit" value="Peep!">
+      </fieldset>
+    </form>
+  </section>
+<% end %>
+

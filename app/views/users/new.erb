@@ -1,0 +1,12 @@
+<h1>Please sign up</h1>
+
+<form action="/users" method="post">
+  <fieldset>
+    <legend>Please enter your details</legend>
+    <p><label>Username:</label><input name="username" type="text" value="<% @user.username %>"></p>
+    <p><label>Email:</label><input name="email" type="email" value="<%= @user.email %>"></p>
+    <p><label>Password:</label><input name="password" type="password"></p>
+    <p><label>Confirm Password:</label><input name="password_confirmation" type="password"></p>
+    <input type="submit" value="Sign up">
+  </fieldset>
+</form>
