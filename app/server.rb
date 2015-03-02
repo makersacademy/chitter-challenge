@@ -4,21 +4,15 @@ require 'rack-flash'
 require './app/models/peep'
 require './app/models/user'
 require './app/data_mapper_setup'
+require_relative 'helpers/current_user'
 
 enable :sessions
 set :session_secret, 'super secret'
-
+set :root, File.dirname(__FILE__)
+set :views, Proc.new { File.join(root, '/views')}
 use Rack::MethodOverride
 use Rack::Flash
-
-
-helpers do
-
-  def current_user
-    @current_user ||=User.get(session[:user_id]) if session[:user_id]
-  end
-
-end
+helpers CurrentUser
 
 get '/' do
   @peeps = Peep.all
