@@ -15,6 +15,7 @@ DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super secret'
+use Rack::Flash
 
 get '/' do 
   @tweets = Tweet.all
@@ -23,17 +24,23 @@ end
 
 post '/tweets' do
   post = params["post"]
-  user = params["user"]
-  Tweet.create(:post => post, :user => user)
+  @user = params["user"]
+  Tweet.create(:post => post, :user => @user)
   redirect to('/')
 end
 
-get 'users/new' do 
+get '/users/new' do
+  @user = User.new
   erb :"users/new"
 end
 
 post '/users' do
-  user = User.create(:email => params[:email], :password => params[:password], :name => params[:name], :username => params[:username])
-  session[:user_id] = user.id
-  redirect to('/')
+  @user = User.new(:email => params[:email], :password => params[:password], :name => params[:name], :username => params[:username], :password_confirmation => params[:password_confirmation])
+  if @user.save
+    session[:user_id] = @user.id
+    redirect to('/')
+  else
+    flash.now[:errors] = @user.errors.full_messages
+    erb :"users/new"
+  end
 end

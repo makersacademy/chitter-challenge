@@ -1,7 +1,3 @@
-<% if current_user %>
-  Welcome, <%= current_user.name %>
-<% end %>
-
 <div id="new-tweet">
   <form action="/tweets" method="post">
     User: <input type="text" name="user">
