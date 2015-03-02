@@ -15,6 +15,13 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
+  helpers do
+
+    def current_user
+      @current_user ||=User.get(session[:user_id]) if session[:user_id]
+    end
+  end
+
   set :public_folder, Proc.new { File.join(root, '..', "public") }
 
   enable :sessions
@@ -29,7 +36,7 @@ class Chitter < Sinatra::Base
 
   post('/cheets') do
     text = params["text"]
-    Cheet.create(:text=> text, :time => Time.now)
+    Cheet.create(:text=> text, :name => current_user.name, :username => current_user.username, :time => Time.now)
     redirect to('/')
   end
 
@@ -74,12 +81,6 @@ end
   end
 end
 
-  helpers do
-
-    def current_user
-      @current_user ||=User.get(session[:user_id]) if session[:user_id]
-    end
-  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

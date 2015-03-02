@@ -4,20 +4,24 @@
     <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   </head>
+
   <body>
-    <div id="new-cheet">
-      <form action="/cheets" method="post" id="first">
-        <textarea type="text" id="text-box" name="text" placeholder="Cheet..." rows="5" cols="40"></textarea>
-      <input type="submit" value="Add cheet" id="button2">
-    </form>
-    </div>
+    <% if current_user %>
+      <div id="new-cheet">
+        <form action="/cheets" method="post" id="first">
+            <textarea type="text" id="text-box" name="text" placeholder="Cheet..." rows="5" cols="40"></textarea>
+          <input type="submit" value="Add cheet" id="button2">
+        </form>
+      </div>
+    <% end %>
+
     <div id="cheet-box">
       <h1>Cheets</h1>
-    <ul>
-      <% @cheets.each do |cheet| %>
-        <li><%= cheet.time %> <%= cheet.text %></li>
-      <% end %>
-    </ul>
+        <ul>
+          <% @cheets.each do |cheet| %>
+            <li><%= cheet.time %><%= cheet.text %><%= cheet.name %><%= cheet.username %></li>
+          <% end %>
+        </ul>
     </div>
   </body>
 </html>
