@@ -62,6 +62,10 @@ GEM
     do_postgres (0.10.15)
       data_objects (= 0.10.15)
     fastercsv (1.5.5)
+    heroku (1.6.3)
+      json (>= 1.1.0)
+      launchy (>= 0.3.2)
+      rest-client (>= 1.2.0, < 2.0.0)
     json (1.8.2)
     json_pure (1.8.2)
     launchy (2.4.3)
@@ -72,9 +76,10 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     multi_json (1.10.1)
-    netrc (0.7.9)
+    netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    pg (0.18.1)
     rack (1.6.0)
     rack-flash3 (1.0.5)
       rack
@@ -85,8 +90,6 @@ GEM
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rest_client (1.8.3)
-      netrc (~> 0.7.7)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -121,10 +124,11 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  heroku
   launchy
   mailgun-ruby
+  pg
   rack-flash3
-  rest_client
   rspec
   sinatra
   sinatra-partial

@@ -7,7 +7,9 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 gem 'mailgun-ruby'
-gem 'rest_client'
+gem 'heroku'
+gem 'pg'
+
 
 #Testing
 gem 'rspec'

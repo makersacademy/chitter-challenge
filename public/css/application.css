@@ -4,8 +4,8 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background-image: url(/images/extra_clean_paper.png);
-  color: #333;  
+  background-image: url(/images/clouds.jpg);
+  color: rgb(0,80,126);  
 }
 
 html, body {
@@ -28,28 +28,50 @@ a {
 .button {
   display: inline-block; /* display inline but have dimensions */
   width: 110px;
+  height: 30px;
   cursor: pointer;
   font-size: 16px;
-  background-color: #82B743;
-  border: 2px solid white;
+  background-color: rgb(37,58,123);
   color: white; /*text colour*/
   padding: 5px 10px;
+  vertical-align: center;
   text-align: center;
   border-radius: 4px; /*rounded corners*/
-  margin-left: 5px;
+  margin-left: 0px;
   margin-right: 5px;
-  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+  border: 1px white;
+
+}
+
+.button:hover {
+  -webkit-transition: All 0.5s ease;
+  background-color: rgb(63, 118, 183);
+
 }
 
 /* a link that has both classes. Overrides the previous declaration */
 .button.highlighted {
-  background-color: #b77843;
+  padding: 3px 10px;
+  line-height: 150%;
+  width:110;
+  overflow: hidden;
+  display: block;
+  vertical-align: center;
+  background-color: rgb(63, 118, 183);
+}
+.button.highlighted:hover {
+-webkit-transition: All 0.5s ease;
+-moz-transition: All 0.5s ease;
+-o-transition: All 0.5s ease;
+-ms-transition: All 0.5s ease;
+transition: All 0.5s ease;
+width: 200px;
 }
 
 header {  
-  height: 40px;
-  background-color: black;
-  color: white;
+  height: 60px;
+  background-color: white;
+  color: dark blue;
   display: flex; /* http://learnlayout.com/flexbox.html */
   padding: 0 20px;
 }
@@ -58,13 +80,19 @@ header {
   header > * {
     margin: auto 0;
   }
-  header #logo {    
-    display: flex;   
+  header #logo {
+    -webkit-animation-name: bounce;
+    -webkit-transform-origin: center bottom; 
+    font-size: 30px;   
+    color: red;
     margin-right: 20px;   
   }
 
+
   header a {
-    color: white;
+    font-family: centurygothic;
+    font-size: 20;
+    color: rgba(0,90,157,1);
   }
 
   header #user-peeps {
@@ -79,17 +107,19 @@ header {
 
   header #user-peeps #welcome-message {
     font-size: 14px;
+    margin-right: 4px;
   }
 
 #container {
-  background-color: white;
+  background-color: rgba(255,255,255,0.5);
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding: 10px;
+  color: rgb(63, 118, 183);
 }
 
 .peep {
-  background-color: #EEE;
+  background-color: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 15px 10px;
@@ -100,7 +130,7 @@ header {
   }
 
   .peep b {
-    color: grey;
+    color: rgb(63, 118, 183);
 
   }
 
@@ -126,15 +156,23 @@ h1 {
 }
 
 form {
+  color: rgb(0,80,126);
   text-align: left;
 }
 
   form p {
+    color: rgb(0,80,126);
     margin: 10px 0;
   }
 
   form input[type="text"], form input[type="password"] {
-    border: 1px solid black;
+    border: 1px solid white;
     font-size: 16px;
-    width: 400px;
+    color: rgb(0,80,126);
+    width: 200px;
   }
+
+  ::-webkit-input-placeholder {
+  font-size: 12px;
+   color: rgba(152, 195, 234, 0.5);
+}
