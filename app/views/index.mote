@@ -1,3 +1,5 @@
+<a href="/users/new">Sign Up</a>
+
 <ul>
     % peeps.each do |peep|
     <li>{{peep.content}}</li>

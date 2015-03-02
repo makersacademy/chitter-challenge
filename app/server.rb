@@ -10,16 +10,16 @@ class Server < Hobbit::Base
   include Hobbit::Session
 
 
-
-
-
-  # # # # # # # # # # # # # # # #
-  # Server                      #
-  # # # # # # # # # # # # # # # #
-
-
   get '/' do
     render 'index', peeps: Peep.all
+  end
+
+  get '/users/new' do
+    render 'usercreation'
+  end
+
+  post '/users' do
+
   end
 
 
