@@ -77,13 +77,15 @@ header {
     margin: auto 0;
   }
   header #logo {
-    -webkit-animation-name: bounce;
-    -webkit-transform-origin: center bottom; 
+    -webkit-animation-name: thumb;
+    -webkit-animation-duration: 300ms;
+    -webkit-transform-origin:20% 20%;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
     font-size: 30px;   
-    color: red;
+    color: black;
     margin-right: 20px;   
   }
-
 
   header a {
     font-family: centurygothic;
@@ -119,6 +121,20 @@ header {
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 15px 10px;
+}
+
+@-webkit-keyframes thumb {
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1); }
+}
+
+.peep:hover{
+  -webkit-animation-name: thumb;
+  -webkit-animation-duration: 300ms;
+  -webkit-transform-origin:10% 10%;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-timing-function: linear;
 }
 
   .peep a.title {
@@ -171,4 +187,12 @@ form {
   ::-webkit-input-placeholder {
   font-size: 12px;
    color: rgba(152, 195, 234, 0.5);
+}
+
+input, select, textarea{
+    color: rgb(0,80,126);
+}
+
+textarea:focus, input:focus {
+    color: rgb(0,80,126);
 }
