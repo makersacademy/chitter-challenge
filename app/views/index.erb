@@ -1,12 +1,13 @@
+
 <% if current_user %>
-  <div id="new-link">
-    <form action="/peeps" method="post">
-      <h3>Write your peep here...</h3>   
+  <div id="new-peep" class="clearfix">
+    <form class="clearfix" action="/peeps" method="post">
+      <label>Write your peep here...</label>   
       <input type="text" name="content">
-      <input type="submit" value="Peep!">
+      <input class="inline-button" type="submit" value="Peep!">
     </form>
   </div>
-<% end %>  
+<% end %>
 
 <h2>Peep feed!</h2>
 

@@ -26,10 +26,10 @@
     
     <header class="clearfix">
       <div class="row">  
-        <h1 class="col-sm-12"><a href="/">ChitterBug!</a></h1>
+        <h1 class="col-sm-12 col-md-6"><a href="/">ChitterBug!</a></h1>
       </div>
       <div class="row">
-        <nav class="col-sm-12">
+        <nav class="col-sm-12 col-md-6 clearfix">
           <% if !current_user %>
             <a href="/sessions/new">Sign in</a>
             <a href="/users/new">Sign up</a>
@@ -40,6 +40,14 @@
               <input type="submit" value="Sign out">
             </form>
           <% end %>
+        </nav>
+      </div>  
+    </header>
+
+    <section class="row">
+      <div class="col-sm-12">
+        <% if !current_user %>
+          <h2>Welcome, peeper. You need to login to peep!</h2>
           <% if flash[:errors] && !flash[:errors].empty? %>
             <p>Sorry, there were the following problems with the form.</p>
             <ul id="errors">
@@ -54,18 +62,18 @@
               <%= flash[:notice] %>
             </div>
           <% end %>
-        </nav>
+        <% end %>  
       </div>  
-    </header>
+    </section>
 
     <section class="row">
       
       <main class="col-sm-12 col-md-6">
         <%= yield %>
       </main> 
-      
+
       <aside class="col-sm-12 col-md-6">
-        <img class="float-right" src="/images/bug.png"/>
+        <img src="/images/bug.png"/>
       </aside>
        
     </section>  

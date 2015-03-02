@@ -13,7 +13,7 @@ body{
   color: #1D345C;
 }
 body.container{
-  width: 70%;
+  width: 80%;
 }
 img{
   max-width: 100%;
@@ -46,26 +46,42 @@ header{
   font-family: "ff-cocon-web-pro";
   letter-spacing: initial;
   width: 100%;
-  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 nav{
-  width: 100%;
+  width: 50%;
   vertical-align: middle;
   text-align: center;
 }
 nav a{
-  padding: 20px;
+  padding: 7px 10px;
   vertical-align: bottom;
   display: inline-block;
   font-size: 175%;
   color: #7D3177;
   text-align: center;
+  background-color: #1D345C;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+nav a:nth-child(2){
+  margin-left: 40px;
 }
 nav a:visited, nav a:link, nav a:hover{
   color: #7D3177;
 }
+nav h2{
+  width: 50%;
+  float: left;
+}
 
-img{
+nav form{
+  width: 50%;
+  float: right;
+}
+
+img{  
   padding: 20px;
   display: block;
   text-align: center;
@@ -83,13 +99,40 @@ input[type=submit]{
   background-color: #1D345C;
   border: none;
   padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input[type=submit].inline-button{
+  display: inline-block;
+  margin: 0 0 0 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
 }
 
 form#sign-out{
   width: 50%;
   display: inline-block;
+  margin-top: 10px;
+  text-align: center;
 }
 
 aside{
   text-align: center;
+}
+
+#new-peep{
+  width: 100%;
+  margin: 0 auto;
+}
+#new-peep label{
+  display: block;
+  margin-bottom: 10px;
+}
+
+#new-peep input{
+  float: left;
+} 
+#new-peep input[type=text]{
+  vertical-align: middle;
 }
