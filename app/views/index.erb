@@ -1,0 +1,35 @@
+<h1>Welcome to Parliament</h1>
+
+<img src="/images/parliament_logo.jpg">
+
+<h2>A Social Network</h2>
+
+<form action="/users/new" method="get">
+    <input type="submit" value="Whoooo's New?" class="button">
+  </form>
+
+  <form action="/sessions/new" method="get">
+    <input type="submit" value="Whoooo's There?" class="button">
+  </form>
+
+  <%= partial :hoots %>
+
+<h3>Current hoots:</h3>
+
+<ul>
+  <% @hoots.each do |hoot| %>
+    <p> 
+    <header>
+      <%= hoot.name %>
+      <%= hoot.username %>
+    </header>
+    <body>
+      <%= hoot.message %>
+    </body>
+    <footer>
+      <%= hoot.created_at %>
+    </footer>
+    </p>
+  <% end %>
+</ul>
+

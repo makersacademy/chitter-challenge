@@ -1,0 +1,6 @@
+<% if current_user %>
+  <form action="/hoots" method="post">
+    <input type="text" name="message">
+    <input type="submit" value="Hoot to your Parliament" class="button">
+  </form>  
+<% end %>
