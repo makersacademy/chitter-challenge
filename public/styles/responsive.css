@@ -6,6 +6,16 @@
 
 }
 
+
+@media all and (max-width: 845px) {
+
+#title {
+  display: none;
+}
+
+}
+
+
 @media all and (max-width: 1250px) {
 
 header img {
@@ -16,9 +26,8 @@ header #sign_in_links {
   margin-right: 5%;
 }
 
-h1 {
+#timeline_title {
   font-size: 25px;
 }
 
 }
-

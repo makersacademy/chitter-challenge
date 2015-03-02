@@ -18,6 +18,13 @@ header img {
   margin-left: 15%;
 }
 
+header #title {
+  float: left;
+  margin-top: 19px;
+  margin-left: 10px;
+  color: #0078E7;
+}
+
 header #sign_in_links {
   float: right;
   margin-top: 30px;
