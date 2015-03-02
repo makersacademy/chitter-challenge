@@ -6,9 +6,7 @@ require 'rack-flash'
 require_relative 'user'
 require_relative 'peep'
 
-
 use Rack::Flash
-
 env = ENV['RACK_ENV'] || 'development'
 
 # DataMapper::Logger.new($stdout, :debug)
@@ -51,17 +49,8 @@ post '/users' do
     flash.now[:errors] = @user.errors.full_messages
     erb :"users/new"
   end
-
 end
 
-
-# post '/users/signin' do
-#     @user = User.create(:email => params[:email],
-#                     :password => params[:password])
-
-
-
-# end
 post '/sessions/new' do
   erb :"sessions/new"
 end
