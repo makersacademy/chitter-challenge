@@ -4,6 +4,8 @@ require_relative 'user'
 require_relative 'peep'
 require './lib/helpers/application'
 
+
+
 env = ENV['RACK_ENV'] || 'development'
 
 # DataMapper::Logger.new($stdout, :debug)
@@ -17,7 +19,6 @@ DataMapper.auto_upgrade!
 enable :sessions
 set :session_secret, 'super secret'
 
-
 get '/' do
   @peeps = Peep.all
   erb :index
@@ -30,14 +31,45 @@ post '/peeps' do
 end
 
 get '/users/new' do
-  erb :"users/new"
+  erb :'/users/new'
 end
 
 post '/users' do
-  @user = User.create(:email => params[:email],
-              :password => params[:password])
+  @user = User.new(:name => params[:name],
+                      :user_name => params[:user_name],
+                      :email => params[:email],
+                      :password => params[:password],
+                      :password_confirmation => params[:password_confirmation])
+  if @user.save
   session[:user_id] = @user.id
   redirect to('/')
+  else
+    "we are here"
+    redirect to('/')
+  end
+
 end
+
+
+# post '/users/signin' do
+#     @user = User.create(:email => params[:email],
+#                     :password => params[:password])
+
+
+
+# end
+post '/sessions/new' do
+  erb :"sessions/new"
+end
+
+
+get '/signup' do
+  erb :signup
+end
+
+
+
+
+
 
 
