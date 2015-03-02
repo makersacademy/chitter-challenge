@@ -1,0 +1,22 @@
+#navigation-menu {
+  width :100%;
+  height: 50px;
+  background-color: #0000FF;
+}
+
+#navigation-menu ul li a  {
+  color: #FFFFCC;
+  font-family: 'Bitter', serif;
+  text-decoration: none;
+}
+
+#navigation-menu ul {
+  list-style-type: none;
+  padding: 10px;
+}
+
+#navigation-menu li {
+  float: right;
+  display: inline;
+  margin: 10px 30px;
+}

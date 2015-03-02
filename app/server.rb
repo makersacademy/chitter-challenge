@@ -14,6 +14,7 @@ enable :sessions
 set :session_secret, 'super secret'
 set :root, File.dirname(__FILE__)
 set :views, Proc.new { File.join(root, '/views')}
+set :public_folder, Proc.new { File.join(root, "../public") }
 use Rack::MethodOverride
 use Rack::Flash
 helpers CurrentUser
