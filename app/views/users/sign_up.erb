@@ -1,0 +1,21 @@
+<% if flash[:errors] %>
+  There were the following errors:
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li id="error"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Enter your details to create an account.</h1>
+
+<form action="/users/sign_up" method="post" class="pure-form">
+  <input type="text" name="name" placeholder="Name"><br/>
+  <input type="text" name="username" placeholder="Username"><br/>
+  <input type="text" name="email" placeholder="Email"><br/>
+  <input type="password" name="password" placeholder="Password"><br/>
+  <input type="password" name="password_confirmation" placeholder="Confirm Password"><br/>
+  <input type="submit" value="Create Account" class="pure-button pure-button-primary">
+</form>
+
+<p>Already have an account? <a href="/users/sign_in">Sign in here</a></p>

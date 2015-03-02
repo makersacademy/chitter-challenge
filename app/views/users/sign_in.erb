@@ -1,0 +1,15 @@
+<% if flash[:loginerror] %>
+  <li id="error"><%= flash[:loginerror] %></li>
+<% end %>
+
+<h2>Please Sign In</h2>
+
+<form action="/users/sign_in" method="post" class="pure-form">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign In" class="pure-button pure-button-primary">
+</form>
+
+<p>Don't have an account yet? <a href="/users/sign_up">Sign up here</a></p>
+
+<p>Can't remember your password? <a href="/users/reset_password">Reset it here</a></p>
