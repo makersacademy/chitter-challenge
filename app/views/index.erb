@@ -14,7 +14,7 @@
 </div>
 
 <ul id="peep-list" style="border: 2px solid black">
-  <% @peeps.each do |peep| %>
+  <% @peeps.sort{|a,b|b.created_at <=> a.created_at}.each do |peep| %>
     <li>
       <p id="peep-text"><%= peep.content %></p>
       <p id="author-date"><%= peep.user %> <%= peep.created_at %></p>
