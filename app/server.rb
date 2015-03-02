@@ -33,7 +33,8 @@ class Server < Hobbit::Base
 
 
   get '/' do
-    render 'index'
+    peeps = Peep.all
+    render 'index', peeps: peeps
   end
 
 
