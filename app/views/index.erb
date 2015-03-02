@@ -1,5 +1,9 @@
 <h1>This is Chitter!</h1>
-
+<br>
+<html>
+<head>
+</head>
+<body align="center">
 <div id="new-chit">
   <form action="/chits" method="post">
     Username: <input type="text" name="username">
@@ -8,13 +12,25 @@
   </form>
 </div>
 
+<br>
 Current Chits
-<ul>
+<br>
+<div align="center">
+  <tr>
   <% @chit.each do |chit| %>
-    <li><a href="<%= chit.username %>"><%= chit.username %></a>
+    
+    <tr>
+      <td><h3><a href="<%= chit.username %>"><%= chit.username %></h3></a>
+    
+      <p><a href="<%= chit.text %>"><%= chit.text %></a></p></td>  
+    </tr></div>
+  
   <% end %>
-    <% @chit.each do |chit| %>
+  
+  <!--   <% @chit.each do |chit| %>
     <a href="<%= chit.text %>"><%= chit.text %></a></li>
-  <% end %>
-</ul>
+  <% end %> -->
+<!-- </ul> -->
 
+</body>
+</html>
