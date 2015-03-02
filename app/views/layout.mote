@@ -7,8 +7,9 @@
 
         {{content}}
 
-
-
-
+        <p># # # Dev Tools # # #</p>
+        <a href="http://localhost:9292">Rackup</a>
+        ......
+        <a href="http://localhost:9393">Shotgun</a>
     </body>
 </html>
