@@ -1,9 +1,9 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
-require './models/chit'
-require './models/user'
-require './helpers/application'
+require_relative 'models/chit.rb'
+require_relative 'models/user.rb'
+require_relative 'helpers/application.rb'
 require_relative 'data_mapper_setup'
 
 require_relative 'controllers/chits_controller'

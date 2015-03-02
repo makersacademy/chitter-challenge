@@ -1,5 +1,5 @@
 require 'data_mapper'
-require_relative 'data_mapper_setup'
+require './app/data_mapper_setup'
 
 task :auto_upgrade do
   # auto_upgrade makes non-destructive changes.
