@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-  <title>CHITTER</title>
+    <title>CHITTER</title>
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/application.css">
 
-</head>
-<body>
+  </head>
+  <body>
 
-<!--   <% if current_maker %>
-    Welcome, <%= current_maker.username %>
-    <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
-    </form>
-  <% end %> -->
 
-  <%= partial :header %>
-  <%= partial :flash %>
-  <%=yield %>
-</body>
+    <%= partial :header %>
+    <%= partial :flash %>
+    <%=yield %>
+
+  </body>
 </html>
