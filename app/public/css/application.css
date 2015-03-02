@@ -1,0 +1,97 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: white
+  position: absolute;
+  left: 30px;
+}
+
+header {
+  height: 45px;
+  background-color: orange;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+}
+
+a.logo {
+  display:inline-block; /* diplay inline but have dimensions */
+  width: 180px;
+  background-color: black;
+  border: 10px solid black;
+  color: white; /* text colour */
+  font-size: 22px;
+  text-decoration: none; /* no underlining */
+  padding: 6px 10px;
+  text-align: center;
+  text-shadow: 0 0 0px rgba(0,0,0, 0.4); /* for readability */
+}
+
+a.button {
+  display:inline-block; /* diplay inline but have dimensions */
+  width: 80px;
+  background-color: whitesmoke;
+  border: 3px solid black;
+  color: black; /* text colour */
+  text-decoration: none; /* no underlining */
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 4px; /* rounded corners */
+  margin: 5px 5px;
+  text-shadow: 0 0 0px rgba(0,0,0, 0.4); /* for readability */
+}
+
+header #user-links{
+  flex: 1;
+  -webkit-flex: 1; /* http://learnlayout.com/flexbox.html */
+  text-align: right;
+}
+
+body #peep-text {
+  width: 300px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: whitesmoke;
+}
+
+body #author-date {
+  font-size: 10px;
+}
+
+body #new-peep {
+    position: absolute;
+    left: 65px;
+    top: 190px;
+}
+
+body #image {
+    position: absolute;
+    left: 50px;
+    z-index: -1;
+}
+
+body #peep-list {
+    position: absolute;
+    left: 50px;
+    top: 380px;
+}
+
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}

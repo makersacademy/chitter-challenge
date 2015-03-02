@@ -1,0 +1,24 @@
+<div id="new-peep">
+  <% if current_user %>
+  <form action="/peeps" method="post">
+    Peep: <input type="text" name="content">
+    <input type="submit" value="Post Peep">
+  </form>
+  <% end %>
+  <br>
+  <br>
+</div>
+
+<div id="image" class="hvr-bounce-in">
+  <img src='/images/orange_speech_bubble.jpg' style="width:55%; height: 55%">
+</div>
+
+<ul id="peep-list" style="border: 2px solid black">
+  <% @peeps.sort{|a,b|b.created_at <=> a.created_at}.each do |peep| %>
+    <li>
+      <p id="peep-text"><%= peep.content %></p>
+      <p id="author-date"><%= peep.user %> <%= peep.created_at %></p>
+      <br>
+    </li>
+  <% end %>
+</ul>
