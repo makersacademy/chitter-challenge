@@ -1,7 +1,7 @@
 <section id="peeps-holder">
   <ul>
     <% @peeps.each do |peep| %>
-      <li><%= peep.content %> : <%= peep.author %> on <%= peep.display_date_and_time %></li>
+      <li><%= peep.content %> : @<%= peep.author %> on <%= peep.display_date_and_time %></li>
     <% end %>
   </ul>
  </section>
