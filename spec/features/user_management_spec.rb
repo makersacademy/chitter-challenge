@@ -61,7 +61,7 @@ feature 'User signs out' do
 
   include SessionHelpers
 
-  before(:each) do
+  before do
     User.create(:username => "Chris",
                 :email => "chris@chris.com",
                 :password => 'password',
@@ -81,7 +81,7 @@ feature "other URI's redirect to home if user is signed in" do
 
 include SessionHelpers
 
-  before(:each) do
+  before do
     User.create(:username => "Chris",
                 :email => "chris@chris.com",
                 :password => 'password',

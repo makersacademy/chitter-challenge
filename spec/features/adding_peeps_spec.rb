@@ -1,12 +1,10 @@
 require 'spec_helper'
 require_relative 'helpers/session'
 
-
 feature 'user adds a new peep' do
 
   include SessionHelpers
-
-  before(:each) do
+    before do
     User.create(:username => "Chris",
                 :email => "chris@chris.com",
                 :password => 'password',
