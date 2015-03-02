@@ -13,7 +13,7 @@ require './lib/helpers/application'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_challenge_#{env}")
 
 DataMapper.finalize
 
@@ -21,10 +21,8 @@ class Chitter < Sinatra::Base
 
   helpers ApplicationHelpers
 
-   set :public_folder, Proc.new { 
-    File.join(root, '..', '..', "public")
-  }
-  set :views, Proc.new { File.join(root, "..", "views") }
+  set :public_folder, Proc.new { File.join(root, '..', '..', "public") }
+  set :views, Proc.new { File.join(root, "..", "views")
 
   enable :sessions
   set :super_sessions, 'super secret'
