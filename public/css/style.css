@@ -1,0 +1,111 @@
+html, body {
+margin: 0;
+padding: 0;
+}
+
+body{
+  background-color:white;
+}
+
+header {
+  min-width:100%;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  height: 60px;
+  }
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: 'Chewy', cursive;
+  font-size: 32px;
+  left: 20px;
+  position: relative;
+}
+
+h1{
+  position: relative;
+  font-family: 'Chewy', cursive;
+  font-size: 32px;
+  left: 35px;
+}
+
+header #welcome-message{
+  font-family: 'Chewy', cursive;
+  float: right;
+  position: relative;
+  bottom: 50px;
+  right: 20px;
+}
+
+#button1
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: white;
+  background-color: black;
+  font-size:15px;
+  float: right;
+  position: relative;
+  bottom: 25px;
+  left: 80px;
+}
+
+#button1:hover
+{
+  background-color: silver;
+}
+
+#button2
+{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: white;
+  background-color: black;
+  font-size:12px;
+  position: relative;
+}
+
+#button2:hover
+{
+  background-color: silver;
+}
+
+#cheet-box{
+  position: relative;
+  left: 500px;
+  bottom: 70px;
+}
+
+#new-cheet{
+  position: relative;
+  top: 20px;
+  left: 20px;
+  font-family: 'Arvo', serif;
+}
+
+#text-box{
+  font-family: 'Arvo', serif;
+}
+
+li{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+  list-style-type: none;
+  line-height: 200%;
+}
+
+#first{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+#second{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+
+
+
