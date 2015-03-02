@@ -1,5 +1,8 @@
 body {
   font-family: Helvetica, Arial, Sans-serif;
+  background-color: white
+  position: absolute;
+  left: 30px;
 }
 
 header {
@@ -10,11 +13,17 @@ header {
   display: flex;
 }
 
-header #logo {
-  margin: auto 0;
-  display: flex;
-  text-decoration: none;
-  color: white;
+a.logo {
+  display:inline-block; /* diplay inline but have dimensions */
+  width: 180px;
+  background-color: black;
+  border: 10px solid black;
+  color: white; /* text colour */
+  font-size: 22px;
+  text-decoration: none; /* no underlining */
+  padding: 6px 10px;
+  text-align: center;
+  text-shadow: 0 0 0px rgba(0,0,0, 0.4); /* for readability */
 }
 
 a.button {
@@ -35,4 +44,24 @@ header #user-links{
   flex: 1;
   -webkit-flex: 1; /* http://learnlayout.com/flexbox.html */
   text-align: right;
+}
+
+
+
+body #new-peep {
+    position: absolute;
+    left: 65px;
+    top: 190px;
+}
+
+body #image {
+    position: absolute;
+    left: 50px;
+    z-index: -1;
+}
+
+body #peep-list {
+    position: absolute;
+    left: 50px;
+    top: 380px;
 }

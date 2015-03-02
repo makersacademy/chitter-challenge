@@ -1,6 +1,6 @@
 post '/peeps' do
   content = params["content"]
-  user = params["user"]
-  Peep.create(:content => content, :user => user)
+  user = current_user.username
+  Peep.create(:content => content, :user => user, :created_at => Time.now)
   redirect to '/'
 end
