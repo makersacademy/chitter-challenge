@@ -30,6 +30,9 @@ class Server < Hobbit::Base
 
   post '/users' do
     me = ChatterUser.create(name: params[:name], email: params[:email], creation_date: Time.now)
+    #session[:user_id] = me.id
+    puts "!!!!"
+    p session
     render 'index', user: me, peeps: Peep.all
     # Eventually will be using
     # redirect '/'
