@@ -1,5 +1,3 @@
-<br><h1>Hey, What's Peepin'?</h1><br>
-
 <ul>
   <% @peeps.each do |peep| %>
     <li>
@@ -12,9 +10,11 @@
 
 <br>
 
-<peep id="new-peep">
-  <form action="/peeps" method="post">
-    What's Peepin'?: <input type="text" name="message">
-    <input type="submit" value="Peep!">
-  </form>
-</peep>
+<% if current_maker %>
+  <peep id="new-peep">
+    <form action="/peeps" method="post">
+      What's Peepin'?: <input type="text" name="message">
+      <input type="submit" value="Peep!">
+    </form>
+  </peep>
+<% end %>
