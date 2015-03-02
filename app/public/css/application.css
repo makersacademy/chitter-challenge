@@ -46,7 +46,15 @@ header #user-links{
   text-align: right;
 }
 
+body #peep-text {
+  width: 300px;
+  font-size: 30px;
+  background-color: whitesmoke;
+}
 
+body #author-date {
+  font-size: 10px;
+}
 
 body #new-peep {
     position: absolute;
