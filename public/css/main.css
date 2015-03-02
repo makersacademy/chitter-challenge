@@ -91,15 +91,19 @@ img{
   padding: 20px;
   display: block;
   text-align: center;
-  -moz-transition: all ease-in-out .5s;
+  -webkit-transition: all ease-in-out .2s;
+  -moz-transition: all ease-in-out .2s;
   position: relative;
   top: 50px;
 }
 
 img:hover{
-  transform:  scale(1.2,1.2)
+  -webkit-transform:  scale(1.2,1.2)
               rotate(720deg);
-  filter:     invert(100%);
+  -webkit-filter:     invert(100%);
+  -moz-webkit-transform:  scale(1.2,1.2)
+              rotate(720deg);
+  -moz-filter:     invert(100%);
 }
 
 input{
