@@ -1,16 +1,23 @@
 require 'bcrypt'
+require 'dm-validations'
+
 class User
 
   include DataMapper::Resource
 
-  property :id, Serial
+  property :id, Serial 
+  property :first_name, String 
+  property :last_name, String
+  property :username, String, :unique => true, :message => "This username is already taken"
   property :email, String, :unique => true, :message => "This email is already taken"
   property :password_digest, Text
 
-  attr_reader :password
+  attr_reader :password 
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
+
+  has n, :peeps
 
   def password=(password)
     @password = password
@@ -25,5 +32,5 @@ class User
       nil
     end
   end
-  
+
 end

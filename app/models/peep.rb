@@ -1,10 +1,11 @@
 class Peep
 
-  include DataMapper::Resource
+include DataMapper::Resource
 
-  property :id,       Serial
-  property :content,  String
-  #property :poster,    String
-  #property :name,    String
+  property :id,             Serial
+  property :content,        String
+  property :created_at,     DateTime
+
+  belongs_to :user
 
 end

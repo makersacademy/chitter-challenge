@@ -3,8 +3,7 @@
     <%= peep.content %>
   </div>
   <span class='source'>
-    added yesterday by 
-    <a href="#">jj_newman@hotmail.com</a>
+    peeped at <%= peep.created_at.to_datetime.strftime("%l:%M%p %A %e %B") %> by <%= User.get(peep.user_id).username %>
   </span>
 </li>
 
