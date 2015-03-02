@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<head><title>Chitter</title>
+	<head>
+	<title>Chitter</title>
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -29,10 +30,10 @@
 			</div>
 		<% end %>
 		<% if flash[:errors] && !flash[:errors].empty? %>
-  			Sorry, there were the following problems with the form.
+  			<p class="errors">Sorry, there were the following problems with the form:<p>
   			<ul id='errors'>
     			<% flash[:errors].each do |error| %>
-     				<li><%= error %></li>
+     				<li class="errors"><%= error %></li>
     			<% end %>
   			</ul>
 		<% end %>

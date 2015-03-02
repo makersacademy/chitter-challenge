@@ -5,10 +5,10 @@ class User
 
   property :id, Serial
   property :email, String,:unique => true
-  property :password_digest, Text
-  property :password_confirmation, Text
-  property :name, String
-  property :username, String
+  property :password_digest, Text, :required => true, :message => "You must enter a password"
+  property :password_confirmation, Text, :required => true, :message => "You must enter a password confirmation"
+  property :name, String, :required => true
+  property :username, String,:unique => true
 
   attr_reader :password
   attr_accessor :password_confirmation

@@ -75,7 +75,7 @@ main li {
 
 .time{
 	color: rgb(160,160,160);
-	padding-left: 210px;
+	float: right;
 	font-size: 14px;
 }
 
@@ -158,6 +158,20 @@ img.logo{
   	text-align: center;
   	padding-bottom: 10px;
   	font-size: 20px;
+  }
+
+ p.errors{
+ 	padding-top: 10px;
+  	text-align: center;
+  	font-weight: bold;
+  	font-size: 18px;
+  }
+
+   li.errors{
+  	text-align: center;
+  	font-size: 18px;
+  	padding-top: 10px;
+  	padding-bottom: 15px;
   }
 
   footer {
