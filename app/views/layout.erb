@@ -6,6 +6,8 @@
   </head>
 
   <body>
+
+    <h1>5hitter</h1>
   
     <% if flash[:notice] %>
       <div id='notice'>
@@ -25,7 +27,7 @@
     <% if current_user %>
       Welcome, <%= current_user.username %>
       <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value=' delete'>
+        <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
       <form method='post' action='/sheets/new'>
@@ -34,6 +36,10 @@
       <form method='post' action='/user/profile'>
         <input type='submit' value='Profile'>
       </form>
+
+    <% else %>
+      <a href='/users/new' id='sign_up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign_in' class='button'>Sign in</a>
     <% end %>
   
     <%= yield %>

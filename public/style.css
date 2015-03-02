@@ -1,6 +1,7 @@
 body
 {
   background-color: #606060;
+  text-align: center;
 }
 
 .sheet
@@ -16,4 +17,14 @@ body
 .sheet:hover
 {
   background-color: white;
+}
+
+ul
+{
+  -webkit-padding-start: 0px;
+}
+
+h1
+{
+
 }
