@@ -1,8 +1,6 @@
-<ul>
-  <% @tweets.each do |tweet| %>
-    <li><%= tweet.user %>:<%= tweet.post %></a></li>
-  <% end %>
-</ul>
+<% if current_user %>
+  Welcome, <%= current_user.name %>
+<% end %>
 
 <div id="new-tweet">
   <form action="/tweets" method="post">
@@ -11,3 +9,11 @@
     <input type="submit" value="Add tweet">
   </form>
 </div>
+
+<h4>Here's what people are saying</h4>
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li><%= tweet.user %>:<br>
+        <%= tweet.post %></li>
+  <% end %>
+</ul>
