@@ -1,7 +1,9 @@
 <a href="/users/new">Sign Up</a>
 
 <ul>
-    % peeps.each do |peep|
-    <li>{{peep.content}}</li>
-    %end
+    % if peeps
+      % peeps.each do |peep|
+      <li>{{peep.content}}</li>
+      %end
+    % end
 </ul>

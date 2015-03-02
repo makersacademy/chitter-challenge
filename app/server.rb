@@ -20,6 +20,9 @@ class Server < Hobbit::Base
 
   post '/users' do
 
+
+    #ChatterUser.create(name: params[:name], email: params[:email], creation_date: Time.now)
+    render 'index'
   end
 
 
