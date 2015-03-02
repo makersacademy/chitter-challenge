@@ -43,27 +43,29 @@ a:link,a:visited,a:hover,a:focus{
 header{
   font-family: "ff-cocon-web-pro";
   letter-spacing: initial;
+  width: 100%;
+  text-align: center;
 }
 nav{
-  width: 50%;
-  text-align: right;
+  width: 100%;
   vertical-align: middle;
   height: 80px;
+  text-align: center;
 }
 nav a{
   padding: 20px;
   vertical-align: bottom;
-  margin-top: 20px;
   display: inline-block;
   font-size: 175%;
   color: #7D3177;
+  text-align: center;
 }
 nav a:visited{
   color: #7D3177;
 }
 
 img{
-  padding: 50px;
+  padding: 20px;
 }
 input{
   display: block;
@@ -77,6 +79,10 @@ input[type=submit]{
   color: #7D3177;
   background-color: #1D345C;
   border: none;
-  padding: 20px;
+  padding: 10px;
 }
 
+form#sign-out{
+  width: 50%;
+  display: inline-block;
+}
