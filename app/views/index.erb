@@ -5,12 +5,10 @@
 </ul>
 
 <% if current_maker %>
-<div id="new-peep">
-  <form action="/peeps" method="post">
+  <form id="new-peep" action="/peeps" method="post">
     Message: <input type="text" name="message">
     Hashtag: <input type="text" name="hashtags">
     User: <input type="text" name="user">
     <input type="submit" value="Add peep">
   </form>
-</div>
 <% end %>

@@ -1,10 +1,17 @@
 require 'spec_helper'
+require_relative  'helpers/session'
 
 feature "User adds a new peep" do
 
+before(:each) do
+    Maker.create(:username => "Lorisfo",
+                 :password => "Ruby!",
+                 :password_confirmation => "Ruby!")
+  end
+
   scenario "when browsing the homepage" do
     expect(Peep.count).to eq(0)
-    visit '/'
+    sign_in('Lorisfo', 'Ruby!')
     add_peep("This is a peep", "Lorisfo")
     expect(Peep.count).to eq(1)
     peep = Peep.first
@@ -13,7 +20,7 @@ feature "User adds a new peep" do
   end
 
   scenario "with a few hashtags" do
-    visit "/"
+    sign_in('Lorisfo', 'Ruby!')
     add_peep("This is a peep", "Lorisfo", ['information', 'new'])
     peep = Peep.first
     expect(peep.hashtags.map(&:text)).to include('information')

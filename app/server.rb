@@ -18,7 +18,7 @@ require_relative 'controllers/application'
 enable :sessions
 set :session_secret, 'top secret'
 use Rack::Flash
-
+set :partial_template_engine, :erb
 
 
 
