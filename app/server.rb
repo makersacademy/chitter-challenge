@@ -13,14 +13,6 @@ class Server < Hobbit::Base
   use Rack::Session::Cookie, secret: SecureRandom.hex(64)
   use Rack::Protection
 
-  # Currently having a problem, curious how .erb is different.
-  # In my index file, if I haven't passed in the param of a
-  # variable I'm using, it throws an undefined local variable message,
-  # instead of that variable just being nil.
-  # ERB will just treat those undeclared variables as nil
-  # Current workaround means that for every page render, I have to
-  # pass in all used local variables, and give them a nil value if unused.
-
   get '/' do
     render 'index', peeps: Peep.all, user: current_user
   end
@@ -34,7 +26,6 @@ class Server < Hobbit::Base
     session[:user_id] = me.id
     redirect '/'
   end
-
 
   def current_user
     @current_user ||= ChatterUser.get(session[:user_id]) if session[:user_id]

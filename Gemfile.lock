@@ -115,7 +115,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt-ruby
   capybara
   cucumber
   data_mapper
