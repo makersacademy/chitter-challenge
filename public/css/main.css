@@ -56,15 +56,15 @@ nav{
   text-align: center;
 }
 nav a{
-  padding: 7px 10px;
-  vertical-align: bottom;
+  padding: 10px 10px;
+  vertical-align: middle;
   display: inline-block;
   font-size: 175%;
   color: #7D3177;
   text-align: center;
   background-color: #1D345C;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: 20px;
   -webkit-box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
   -moz-box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
   box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
@@ -99,11 +99,11 @@ img{
 
 img:hover{
   -webkit-transform:  scale(1.2,1.2)
-              rotate(720deg);
+                      rotate(720deg);
   -webkit-filter:     invert(100%);
-  -moz-webkit-transform:  scale(1.2,1.2)
-              rotate(720deg);
-  -moz-filter:     invert(100%);
+  -moz-transform:     scale(1.2,1.2)
+                      rotate(720deg);
+  filter:        invert(100%);
 }
 
 input{
@@ -169,6 +169,7 @@ ul{
   border: solid 2px;
   border-radius: 5px;
   font-family: serif;
+  color: #000;
 
 }
 ul.peep-list{
@@ -186,6 +187,7 @@ ul.peep-list li:nth-child(2){
   padding: 15px;
   font-family: sans-serif;
   text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+  letter-spacing: initial;
 }
 
 .box-shadow{
@@ -194,47 +196,7 @@ ul.peep-list li:nth-child(2){
 box-shadow: 9px 9px 5px -2px rgba(109,115,173,1);
 }
 
-/* Buzz */
-@-webkit-keyframes hvr-buzz {
-50% {
--webkit-transform: translateX(3px) rotate(2deg);
-transform: translateX(3px) rotate(2deg);
-}
-100% {
--webkit-transform: translateX(-3px) rotate(-2deg);
-transform: translateX(-3px) rotate(-2deg);
-}
-}
-@keyframes hvr-buzz {
-50% {
--webkit-transform: translateX(3px) rotate(2deg);
-transform: translateX(3px) rotate(2deg);
-}
-100% {
--webkit-transform: translateX(-3px) rotate(-2deg);
-transform: translateX(-3px) rotate(-2deg);
-}
-}
-.hvr-buzz {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-}
-.hvr-buzz:hover, .hvr-buzz:focus, .hvr-buzz:active {
-  -webkit-animation-name: hvr-buzz;
-  animation-name: hvr-buzz;
-  -webkit-animation-duration: 0.15s;
-  animation-duration: 0.15s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
+
 
 
 /* Buzz Out */
