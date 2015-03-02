@@ -8,9 +8,9 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :email, String
+  property :email, String, :unique => true, :message => "This email is already taken"
   property :name,  String
-  property :user_name, String
+  property :user_name, String, :unique => true, :message => "This username is already taken"
   property :password_digest, Text
 
   has n, :peeps, :through => Resource

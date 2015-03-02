@@ -23,6 +23,10 @@ feature "User signs up" do
     expect(page).to have_content("Sorry, your password don't match")
   end
 
+  scenario "with an email that is already registered" do
+
+
+  end
 
   def sign_up(name = "riz",
               user_name = "riz",
