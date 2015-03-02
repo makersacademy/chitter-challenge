@@ -10,13 +10,17 @@
   <body>
 
     <% if current_maker %>
-      Welcome, <%= current_maker.name %>
+      Welcome, <%= current_maker.name %>.
     <% end %>
 
-    <% if flash[:notice] %>
-      <div id="notice"><%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <br><br>Sorry, there were the following problems with the form:
+      <ul = id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
-
 
     <%= yield %>
 

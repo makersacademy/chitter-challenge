@@ -13,7 +13,7 @@ class Maker
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
-  validates_uniqueness_of :email
+  validates_uniqueness_of :username, :email
 
   def password=(password)
     @password = password

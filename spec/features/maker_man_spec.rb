@@ -18,6 +18,12 @@ feature "Maker signs up" do
     expect(page).to have_content("Sorry, your passwords don't match")
   end
 
+  scenario "with an email and/or username that is already registered" do
+    expect{ sign_up }.to change(Maker, :count).by(1)
+    expect{ sign_up }.to change(Maker, :count).by(0)
+    expect(page).to have_content("Email is already taken" || "Username is already taken")
+  end
+
   def sign_up(name = "Snow White",
               username = "red_apple",
               email = "snow_white@example.com",
@@ -28,7 +34,7 @@ feature "Maker signs up" do
     fill_in :username, :with => username
     fill_in :email, :with => email
     fill_in :password, :with => password
-    fill_in :password_confirmation, :with => password
+    fill_in :password_confirmation, :with => password_confirmation
     click_button "Sign up"
   end
 
@@ -40,7 +46,7 @@ end
 #   scenario "with correct credentials" do
 #   end
 
-#   xscenario "with incorrect credentials" do
+#   scenario "with incorrect credentials" do
 #   end
 
 # end
