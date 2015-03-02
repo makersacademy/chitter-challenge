@@ -16,7 +16,7 @@ feature "Maker posts a peep" do
     expect{add_peep("Hello Chitter!", "Snow White", "seven_dwarfs")}.to change{Peep.count}.by(1)
   end
 
-  scenario "only when signed in with correct credentials" do
+  scenario "only when signed in" do
     visit ('/')
     expect(page).not_to have_content("What's Peepin'?:")
     sign_in('red_apple', 'seven_dwarfs')

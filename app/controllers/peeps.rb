@@ -1,7 +1,7 @@
 post '/peeps' do
+  puts "post peeps"
   message = params[:message]
-  name = params[:name]
-  username = params[:username]
-  Peep.create(:message => message, :name => name, :username => username)
+  Peep.create(:message => message,
+              :maker_id => session[:maker_id])
   redirect to ('/')
 end

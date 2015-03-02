@@ -4,8 +4,7 @@ class Peep
 
   property :id,         Serial
   property :message,    String
-  property :name,       String
-  property :username,   String
 
+  belongs_to :maker
 
 end

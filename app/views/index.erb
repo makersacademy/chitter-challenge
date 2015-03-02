@@ -1,12 +1,6 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li>
-    <%= peep.message %>
-    <a href="<%= peep.username %>"></a>
-    <a href="<%= peep.name %>"></a>
-    </li>
-  <% end %>
-</ul>
+<center>
+
+<h1>Welcome to Chitter</h1>
 
 <br>
 
@@ -16,3 +10,17 @@
       <input type="submit" value="Peep!">
     </form>
   <% end %>
+
+  <br>
+
+  <ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+    <%= get_peep_user(peep, peep.maker_id) %> peeps: <%= peep.message %>
+  <% end %>
+    </li>
+
+  </ul>
+
+
+</center>
