@@ -12,6 +12,8 @@ class User
   property :email, String, :unique => true, :message => "This email is already taken"
   property :password_digest, Text
 
+
+
   validates_confirmation_of :password
   validates_uniqueness_of :email
   validates_uniqueness_of :username
