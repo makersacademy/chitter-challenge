@@ -79,7 +79,7 @@ end
 
 feature "other URI's redirect to home if user is signed in" do
 
-include SessionHelpers
+  include SessionHelpers
 
   before do
     User.create(:username => "Chris",
