@@ -9,6 +9,8 @@ require_relative 'helpers/application'
 
 env = ENV['RACK_ENV'] || 'development'
 
+include SessionHelpers
+
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -16,6 +18,7 @@ DataMapper.auto_upgrade!
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
+use Rack::MethodOverride
 
 get '/' do 
   @tweets = Tweet.all
@@ -59,4 +62,9 @@ post '/sessions' do
     flash[:errors] = ["The email or password is incorrect"]
     erb :"sessions/new"
   end
+end
+
+delete '/sessions' do 
+  session.clear
+  flash.now[:notice] = "Good bye!"
 end
