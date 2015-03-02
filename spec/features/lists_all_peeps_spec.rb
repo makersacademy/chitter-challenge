@@ -6,6 +6,12 @@ feature "User sees the list of peeps" do
     Peep.create(content: 'Peep Peep', creation_date: Time.now)
   end
 
+  test = Peep.create(content: 'Peep', creation_date: Time.now)
+
+  test.errors.each do |error|
+    puts "*** #{error}"
+  end
+
   scenario "When visiting the home page" do
     visit('/')
     expect(page).to have_content('Peep Peep')

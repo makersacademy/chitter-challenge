@@ -1,7 +1,9 @@
 require 'hobbit'
 require 'hobbit/contrib'
-require_relative 'custom-hobbit'
 require 'data_mapper'
+
+require_relative 'custom-hobbit'
+require_relative 'data_mapper_setup'
 
 class Server < Hobbit::Base
   include Hobbit::Mote
@@ -9,23 +11,7 @@ class Server < Hobbit::Base
 
 
 
-  # # # # # # # # # # # # # # # #
-  # DataMapper setup            #
-  # # # # # # # # # # # # # # # #
 
-  #DataMapper::Logger.new($stdout, :debug)
-
-  environment = ENV['RACK_ENV'] || 'development'
-
-  # Read into what this line does, ways of setting up multiple environments
-
-  DataMapper.setup(:default, "postgres://localhost/chatter_#{environment}")
-
-  require './app/model/chatter_user'
-  require './app/model/peep'
-
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
 
   # # # # # # # # # # # # # # # #
   # Server                      #
@@ -33,8 +19,7 @@ class Server < Hobbit::Base
 
 
   get '/' do
-    peeps = Peep.all
-    render 'index', peeps: peeps
+    render 'index', peeps: Peep.all
   end
 
 
