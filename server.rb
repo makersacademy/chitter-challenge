@@ -1,8 +1,8 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
-require './lib/chit'
-require './lib/user'
+require './models/chit'
+require './models/user'
 require './helpers/application'
 require_relative 'data_mapper_setup'
 
