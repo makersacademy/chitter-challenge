@@ -3,12 +3,13 @@
 <h1>Please sign up</h1>
 
 <form action="/makers" method="post">
-  Name: <input name="name" type="text"><br><br>
-  Username: <input name="username" type="text"><br><br>
-  Email: <input name="email" type="text"><br><br>
+  Name: <input name="name" type="text" value="<%= @maker.name %>"><br><br>
+  Username: <input name="username" type="text" value="<%= @maker.username %>>"<br><br>
+  Email: <input name="email" type="text" value="<%= @maker.email %>"><br><br>
   Password: <input name="password" type="password"><br><br>
   Confirm Password: <input name="password_confirmation" type="password">
   <input type="submit" value="Sign up">
 </form>
 
 </center>
+
