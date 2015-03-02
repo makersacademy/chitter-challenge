@@ -1,6 +1,6 @@
 #navigation-menu {
   width :100%;
-  height: 50px;
+  height: 90px;
   background-color: #0000FF;
 }
 
@@ -11,12 +11,20 @@
 }
 
 #navigation-menu ul {
+  display: inline-block;
+  float: right;
   list-style-type: none;
   padding: 10px;
 }
 
 #navigation-menu li {
-  float: right;
   display: inline;
   margin: 10px 30px;
+}
+
+#navigation-menu h1 {
+  display: inline-block;
+  color: #FFFFCC;
+  font-family: 'Bitter', serif;
+  margin-left: 60px;
 }
