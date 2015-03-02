@@ -4,7 +4,7 @@ require 'rack-flash'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
+DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
 
 require './lib/peep'
 require './lib/user'
@@ -73,7 +73,6 @@ class ChitterChallenge < Sinatra::Base
   end
 
   delete '/sessions' do
-    flash[:notice] = "Goodbye!"
     session[:user_id] = nil
     redirect to('/')
   end
