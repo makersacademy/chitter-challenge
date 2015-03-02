@@ -24,3 +24,8 @@ Feature: Signing in and out of Chitter
     And I press "Sign In"
     Then I should see "Those login details are incorrect."
     And I should see "Please Sign In"
+
+#  Scenario: Resetting a password
+#    Given I have previously created an account
+#    And I click "Sign In"
+#    When I click 
