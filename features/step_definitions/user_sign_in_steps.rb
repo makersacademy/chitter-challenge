@@ -12,12 +12,3 @@ end
 Then(/^I should be able to see my username on screen$/) do
   expect(page).to have_content("John117")
 end
-
-When(/^I click "(.*?)"$/) do |arg1|
-  visit '/'
-  click_on 'sign out'
-end
-
-Then(/^I should be logged out$/) do
-  expect(page).to have_content("Please sign up")
-end

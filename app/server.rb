@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
   post '/messages' do 
     content = params[:content]
     Message.create(:content => content)
-    redirect to '/users/home'
+    redirect to '/'
   end
 
   get '/login' do 
@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/users/home'
     else
-      erb :login  
+      redirect to '/' 
     end
   end
 
@@ -67,6 +67,11 @@ class Chitter < Sinatra::Base
 
   get '/users/home' do 
     erb :"/users/home"
+  end
+
+  post '/users/home' do 
+    @messages = Message.current_user
+    redirect to '/users/home'
   end
 
   # start the server if ruby file executed directly

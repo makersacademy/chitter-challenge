@@ -7,9 +7,10 @@ feature 'User send message' do
   end
 
   scenario "sending a message" do 
-    visit '/'
+    visit '/users/home'
     fill_in 'content', :with => "Hello, World!"
     click_on("submit message")
+    expect(current_path).to eq '/'
     expect(page).to have_content("Hello, World!")
   end
 end
