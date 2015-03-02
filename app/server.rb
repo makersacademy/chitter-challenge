@@ -66,5 +66,6 @@ end
 
 delete '/sessions' do 
   session.clear
-  flash.now[:notice] = "Good bye!"
+  redirect to('/')
+  erb :index
 end
