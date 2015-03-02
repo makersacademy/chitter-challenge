@@ -1,6 +1,9 @@
+html {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 body {
   background-color: #EEEEEE;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   margin: 0 auto;
   text-align: center;
 }
@@ -99,6 +102,9 @@ date {
 }
 
 #new_cheep_box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 10px;
   width: 500px;
   height: 100px;
