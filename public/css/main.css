@@ -47,8 +47,9 @@ header{
   font-family: "ff-cocon-web-pro";
   letter-spacing: initial;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 10px;
   margin-bottom: 20px;
+  height: 90px;
 }
 nav{
   width: 50%;
@@ -56,15 +57,14 @@ nav{
   text-align: center;
 }
 nav a{
-  padding: 10px 10px;
-  vertical-align: middle;
+  padding: 12px;
   display: inline-block;
   font-size: 175%;
   color: #7D3177;
   text-align: center;
   background-color: #1D345C;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   -webkit-box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
   -moz-box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
   box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
@@ -79,29 +79,31 @@ nav a:visited, nav a:link, nav a:hover{
 nav h2{
   width: 50%;
   float: left;
+  margin-top: 40px;
 }
 
 nav form{
   width: 50%;
   float: right;
 }
-
+.uname-span{
+  color: #7D3177;
+  font-size: 120%;
+}
 img{  
   max-width: 100%;
-  padding: 20px;
+  padding: 50px 20px;
   display: block;
   text-align: center;
-  -webkit-transition: all ease-in-out .2s;
-  -moz-transition: all ease-in-out .2s;
-  position: relative;
-  top: 50px;
+  -webkit-transition: all ease-in-out .15s;
+  -moz-transition: all ease-in-out .15s;
 }
 
 img:hover{
-  -webkit-transform:  scale(1.2,1.2)
+  -webkit-transform:  scale(1.1,1.1)
                       rotate(720deg);
   -webkit-filter:     invert(100%);
-  -moz-transform:     scale(1.2,1.2)
+  -moz-transform:     scale(1.1,1.1)
                       rotate(720deg);
   filter:        invert(100%);
 }
@@ -139,7 +141,7 @@ box-shadow: 3px 3px 5px -2px rgba(109,115,173,1);
 form#sign-out{
   width: 50%;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 30px;
   text-align: center;
 
 }
@@ -196,8 +198,17 @@ ul.peep-list li:nth-child(2){
 box-shadow: 9px 9px 5px -2px rgba(109,115,173,1);
 }
 
+section#welcome-peep{
+  height: 90px;
+}
 
-
+.container{
+  margin-left: auto;
+  margin-right: auto;
+}
+.row{
+  padding: 0;
+}
 
 /* Buzz Out */
 @-webkit-keyframes hvr-buzz-out {
