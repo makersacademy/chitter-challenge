@@ -4,8 +4,8 @@ Chitter Challenge
 Challenge:
 -------
 
-Create a fully working clone of Twitter
-You can view a live website of my working app at: [http://awesome-chitter.herokuapp.com/](http://awesome-chitter.herokuapp.com/)
+* Create a fully working clone of Twitter
+* You can view a live website of my working app at: [http://awesome-chitter.herokuapp.com/](http://awesome-chitter.herokuapp.com/)
 
 Features:
 -------
