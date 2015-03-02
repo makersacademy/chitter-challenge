@@ -1,0 +1,21 @@
+
+<p align="right"><a href="/users/new">Sign up </a><a href="/sessions/new">Log in</a></p>
+
+<div id="post-cheet">
+  <form action="/cheets" method="post">
+    Message: <input type="text" name="message">
+    Posted on: <input type="date" name="date">
+    <input type="hidden" name="user_id" id="user_id"value="1">
+    <input type="submit" value="Post Cheet">
+  </form>
+</div>
+
+<ul>
+  <% @cheets.each do |cheet| %>
+  <% @users.each do |user| %>
+  <li><%= user.name %> - <%= user.username%> - Posted on <%= cheet.created_at %>
+  </br>
+  <%= cheet.message %></br></br></li>
+  <% end %>
+  <% end %>
+</ul>

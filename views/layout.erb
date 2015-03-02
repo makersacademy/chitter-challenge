@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Chitter</title>
+      <link rel="stylesheet" type="text/css" href="/css/reset.css">
+      <link rel="stylesheet" type="text/css" href="/css/header.css">
+  </head>
+
+  <body>
+    <%= erb :_header %>
+
+
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Sorry, there were the following problems with your registration:
+    <ul id="errors">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+
+
+
+
+
+    <%= yield %>
+
+    <br>
+    <br>
+    <a href="http://localhost:9292">RACKUP</a>
+
+  </body>
+</html>
