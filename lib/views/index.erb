@@ -1,7 +1,7 @@
 <% if current_user %>
 	<div id='new-peep'>
   		<form action='/peeps' method='post'>
-    		<input type='text' size="40" style="font-size: 16px" name='message'>
+    		<input type='text' size="40" style="font-size: 16px" maxlength="140" name='message'>
    			<input type='submit' value='Peep'>
   		</form>
 	</div>
