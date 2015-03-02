@@ -1,0 +1,35 @@
+@import url("reset.css");
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/images/body-background.jpg)
+}
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#header {
+    float: left;
+    height: 75px;
+    width: 1000px;
+    background: #FF6633;
+}
+
+#navigation {
+    float: left;
+    height: 40px;
+    width: 1000px;
+    background: #FFCC33;
+}
+
+#content {
+    float: left;
+    background: #FFFFFF;
+    width: 1000;
+}

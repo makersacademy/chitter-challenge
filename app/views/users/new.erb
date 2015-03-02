@@ -1,9 +1,3 @@
-<center>
-Sign up to Chitter today!
-
-<a href='/' id='sign-in' class='button'>Home</a>
-<a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
-
 <form action="/users" method="post">
   <p>Name: <input name="name" type="text" value="<%= @user.name %>"></p>
   <p>Username: <input name="username" type="text" value="<%= @user.username %>"></p>
@@ -12,4 +6,3 @@ Sign up to Chitter today!
   <p>Confirm Password: <input name="password_confirmation" type="password" value="<%= @user.password_confirmation %>"></p>
   <input type="submit" value="Join Chitter" class="button">
 </form>
-</center>

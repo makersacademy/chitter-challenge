@@ -2,11 +2,13 @@
 <html>
 <head>
   <title>Chitter</title>
-  <link rel="stylesheet" type="text/css" href="/css/application.css">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="application.css">
 </head>
 <body>
-  <%= partial :welcome_message %>
+  <%= partial :header %>
   <%= partial :flash %>
   <%= yield %>
+  <%= partial :footer %>
 </body>
 </html>

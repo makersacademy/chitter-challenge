@@ -1,24 +1,10 @@
-<center>
- <h1>Chitter</h1>
-<% if @current_user %>
-  Welcome, <%= @current_user.username %>
-  <% else %>
-  <a href='/users/new' id='sign-up' class='button'>Join Chitter</a>
-  <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
-  <% end %>
-<ul>
-<% if @peeps %>
-  <% @peeps.each do |peep| %>
-    <% @peeps %>
-    <li><%= peep.post%></li>
-  <% end %>
-</ul>
-<% end %>
-<div id="new-peep">
+<% @peeps.each do |peep| %>
+  <p><span><%= peep.post%><%= current_user%></p></span>
+ <% end %>
+
+ <div id="new-peep">
   <form action="/peeps" method="post">
-    <li><p>Create Peep: <input type="text" size="50" name="post"></p></li>
-    <li><p>Username: <input type="text" name="user_name"></p></li>
+    <p>Add peep: <input type="text" size="50" name="post"></p>
     <p><input type="submit" value="Add peep"></p>
   </form>
 </div>
-</center>
