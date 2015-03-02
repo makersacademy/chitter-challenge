@@ -3,6 +3,7 @@
         <li>Name: <input name="name" type="text"></li>
         <li>Email: <input name ="email" type="text"></li>
         <li>Password: <input name="password" type="password"></li>
+        <li>Confirm Password: <input name="password_confirmation" type="password"></li>
         <li><input value="Sign Up" type="submit"></li>
     </ul>
 </form>
