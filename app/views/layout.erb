@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+
+  <title>CHITTER</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
+
+</head>
 <body>
 
   <% if current_maker %>
@@ -25,6 +31,7 @@
       <% end %>
     </ul>
   <% end %>
+
   <%=yield %>
 </body>
 </html>

@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
+require 'sinatra/partial'
 require './app/models/peep'
 require './app/models/hashtag'
 require './app/models/maker'
