@@ -17,7 +17,6 @@ ENV['RACK_ENV'] = 'test'
 
 
   Then(/^I can see "(.*?)"$/) do |arg1|
-    sign_up
     expect{ sign_up }.to change(User, :count).by(1)
     expect(User.first.email).to eq("thomas@strothjohann.net")
     expect(page).to have_content("Welcome, TStrothjohann!")
@@ -33,7 +32,9 @@ ENV['RACK_ENV'] = 'test'
   end
 
   Then(/^I should see the Chitter\-editor on frontpage$/) do
-    expect(page).to have_content('form#chitter')
+    visit('/messages/new') 
+    expect(page).to have_content('Write a message')
+
   end
 
 
@@ -43,7 +44,7 @@ ENV['RACK_ENV'] = 'test'
     visit '/sessions/new'
     fill_in 'auth', :with => username
     fill_in 'password', :with => password
-    click_button 'Sign in'
+    click_button 'log in'
   end
 
 
@@ -51,7 +52,7 @@ ENV['RACK_ENV'] = 'test'
     visit '/sessions/new'
     fill_in 'auth', :with => email
     fill_in 'password', :with => password
-    click_button 'Sign in'
+    click_button 'log in'
   end
 
 

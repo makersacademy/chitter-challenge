@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  
+  <body>
+
+    <header>
+  
+    <form id="sign-out" method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <input class="btn" type="submit" value="Sign out">
+    </form>
+    <a class="btn" href="/messages/new">Create message</a>
+  
+
+  
+    <h3>Hey TStrothjohann </h3>
+  
+</header>
+      
+
+
+
+
+    <form action="/messages/new" method="post" id="create-message">
+  <fieldset>
+    <legend>Write a message</legend>
+    <p>
+      <label>140 characters of text:</label>
+      <input type="text" name="text">
+    </p>
+    <input type="submit" name="publish" value="publish">
+  </fieldset> 
+</form>
+
+    <footer>
+</footer>
+  
+    
+  </body>
+</html>

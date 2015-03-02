@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/partial'
 require './app/models/user'
+require './app/models/message'
 require 'data_mapper'
 require 'dm-validations'
 require './app/data_mapper_setup'
@@ -71,6 +72,20 @@ require 'rack-flash'
     flash[:notice] = "bis bald!"
     erb :index
   end
+
+  get '/messages/new' do
+    erb :'/messages/new'
+  end
+
+  post '/messages/new' do
+    user = User.get(session[:user_id])
+    message = Message.new(:user => user)
+    #Maybe the key is user_id...
+    message.text = params[:text]
+    message.save
+    erb :index
+  end
+
 
   helpers do
     def current_user

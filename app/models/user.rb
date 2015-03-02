@@ -9,6 +9,7 @@ class User
   property :name, Text
   property :email, Text
   property :password_digest, Text
+  has n, :messages, :through => Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
