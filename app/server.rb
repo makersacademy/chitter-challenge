@@ -16,7 +16,7 @@ class Server < Hobbit::Base
 
   DataMapper.setup(:default, "postgres://localhost/chatter_#{environment}")
 
-    require './app/model/chatter-user'
+    require './app/model/chatter_user'
     require './app/model/peep'
 
     DataMapper.finalize
