@@ -1,0 +1,14 @@
+<% if current_user %>
+Welcome <%= current_user.name %> <br>
+<% end %>
+
+  What's on your mind?
+  <form action="/messages" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="submit message">
+  </form> 
+
+  <form action="/login" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="sign out">
+  </form>
