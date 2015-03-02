@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Chitter</title>
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href='/sessions/new'>Log In</a></li>
+				<li><a href='/users/new'>Sign Up</a>
+				<li><a href='/'>Home</a></li>	
+			</ul>
+		</nav>
+		<h1>Chitter</h1>
+		<p class="tagline">Where Makers chatter!</p>
+		<img src="/images/teaching.png" class="logo">
+		<% if current_user %>
+			<p class="welcome">What's happening @<%= current_user.username %>?</p>
+				<form action='/sessions', method='post'>
+					<input type='hidden' name='_method' value='delete'>
+					<input type='submit' value='Sign out' class="signout">
+				</form>
+		<% end %>
+		<% if flash[:notice] %>
+			<div id='notice'>
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		<% if flash[:errors] && !flash[:errors].empty? %>
+  			Sorry, there were the following problems with the form.
+  			<ul id='errors'>
+    			<% flash[:errors].each do |error| %>
+     				<li><%= error %></li>
+    			<% end %>
+  			</ul>
+		<% end %>
+		<%= yield %>
+		<footer>&copy;2015 Kate Beavis</footer>
+	</body>
+</html>
