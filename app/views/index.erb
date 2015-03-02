@@ -1,8 +1,10 @@
+<div id='links-container'>
+<ul id='links'>
 <% @peeps.each do |peep| %>
-  <p><span><%= peep.post%><%= current_user%></p></span>
+  <p><span><%= peep.post%><%= current_user%></span></p>
  <% end %>
-
- <div id="new-peep">
+ </ul>
+ <div id="new-link">
   <form action="/peeps" method="post">
     <p>Add peep: <input type="text" size="50" name="post"></p>
     <p><input type="submit" value="Add peep"></p>

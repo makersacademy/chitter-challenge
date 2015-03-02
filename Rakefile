@@ -1,5 +1,8 @@
 require 'data_mapper'
 require './app/data_mapper_setup'
+require './models/peep'
+require './models/user'
+require 'server'
 
 task :auto_upgrade do
   DataMapper.auto_upgrade!
