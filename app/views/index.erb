@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<header>
+  <div id="logo">Welcome to Chitter!</div>
+  <div id="user-links">
+    <% if current_user %>
+      <span id="welcome-message">
+        Welcome, <%= current_user.email %>  
+      </span>
+    
+      <form id="sign-out" method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    <% else %>
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>      
+    <% end %>
+  </div>
+</header>
+<br>
+<br>
+<body align="center">
+<div id="new-chit">
+  <form action="/chits" method="post">
+    Username: <input type="text" name="username">
+    Text: <input type="text" name="text">
+    <input type="submit" value="Add new Chit!'">
+  </form>
+</div>
+
+<br>
+Current Chits
+<br>
+<div align="center">
+  <tr>
+  <% @chit.each do |chit| %>
+    
+    <tr>
+      <td><h3><a href="<%= chit.username %>"><%= chit.username %></h3></a>
+    
+      <p><a href="<%= chit.text %>"><%= chit.text %></a></p></td>  
+    </tr></div>
+  
+  <% end %>
+  
+
+</body>
+</html>
