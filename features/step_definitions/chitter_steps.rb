@@ -34,9 +34,13 @@ ENV['RACK_ENV'] = 'test'
   Then(/^I should see the Chitter\-editor on frontpage$/) do
     visit('/messages/new') 
     expect(page).to have_content('Write a message')
-
   end
 
+  Then(/^I can read messages in chronological order$/) do
+    publish_message
+    visit('/')
+    expect(page).to have_content("Oh, hello! This is a test tweet")
+  end
 
 
 
@@ -66,3 +70,9 @@ ENV['RACK_ENV'] = 'test'
     click_button "signup"
   end
 
+  def publish_message
+    sign_up
+    click_link('Create message')
+    fill_in 'text', :with => "Oh, hello! This is a test tweet"
+    click_button 'publish'
+  end
