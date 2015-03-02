@@ -1,9 +1,13 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Working on cleaning up and finishing the challenge.
+
+-------
+Notes on Hobbit and Mote:
+* Currently having a slight issue with mote. In any file, if I haven't passed in the param of a variable I'm using, it throws an undefined local variable message, instead of that variable just being nil. ERB will just treat those undeclared variables as nil. Current workaround means that for every page render I have to pass in all used local variables, and give them a nil value if unused.
+* Hobbit does not inherently support the shorthand `params[:key]`. I have extended the Mote extension to support this.
+
 
 Challenge:
 -------
