@@ -1,15 +1,27 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <h1> Chitter </h1>
-  <h3> <a href="/sessions/new">Sign in</a> <a href="/users/new">Sign up</a> <a href="/">Home</a> </h3>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+  <title>Chitter</title>
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <header>
+    <div class="link">
+    <a href="/"><img src="images/chitter.png"></a>
+  </div>
   <% if current_user %>
-    Welcome, <%= current_user.email %>
+    Hello, <%= current_user.username %>
     <form method="post" action="/sessions">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Sign out">
     </form>
+    <% else %>
+    <div class="pages">
+    <a href="/sessions/new">Sign in</a> <a href="/users/new">Sign up</a> <a href="/">Home</a>
+  </div>
   <% end %>
+</header>
   <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with the form:
     <ul id="errors">
@@ -18,5 +30,8 @@
         <% end %>
       </ul>
       <% end %>
+      <footer>
+      </footer>
   <%= yield %>
 </body>
+</html>

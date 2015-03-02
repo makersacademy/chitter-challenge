@@ -1,0 +1,56 @@
+body {
+  margin: 0 auto;
+  background: -webkit-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #D3959B 10%, #BFE6BA 90%); /* W3C */
+  text-align: center;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h4 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+div.link {
+  text-align: left;
+}
+
+div.pages{
+  font-family: 'PT Sans', sans-serif;
+}
+
+li {
+  font-family: 'PT Sans', sans-serif;
+  max-width: 700px;
+  list-style-type: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+  border: solid #BDC3C7 2px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px auto;
+}
+
+header {
+  height: 150px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+#new-peep {
+  margin-top: 10px;
+}
+
+textarea {
+  width: 665px;
+  height: 40px;
+}

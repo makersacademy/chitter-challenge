@@ -1,11 +1,13 @@
-<ul>
-  <% @peeps.each do |peep| %>
-    <li><%= peep.text %></li>
-  <% end %>
-</ul>
+<h4>Post a new peep:</h4>
 <div id="new-peep">
   <form action="/peeps" method="post">
-    Peep: <input type="text" name="text">
-    <input type="submit" value="Post">
+    <textarea type="text" name="text"></textarea>
+    <input type="submit" value="post">
   </form>
 </div>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li><%= peep.text %>
+    <p>Posted by: @<%= peep.user.username %></p></li>
+  <% end %>
+</ul>

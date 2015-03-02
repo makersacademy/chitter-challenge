@@ -4,16 +4,18 @@ feature "User signs up" do
 
   scenario "when being a new user visiting the site" do
     expect{ sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, aporkinson@gmail.com")
+    expect(page).to have_content("Hello, Alex")
     expect(User.first.email).to eq("aporkinson@gmail.com")
   end
 
   def sign_up(email = "aporkinson@gmail.com",
+              username = "Alex",
               password = "letmein",
               password_confirmation = 'letmein')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :email, :with => email
+    fill_in :username, :with => username
     fill_in :password, :with => password
     fill_in :password_confirmation, :with => password_confirmation
     click_button "Sign up"

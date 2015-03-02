@@ -26,6 +26,8 @@ class ChitterChallenge < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  set :root, File.dirname(__FILE__)
+  set :public_folder, Proc.new {File.join(root, '../public')}
 
   get '/' do
     @peeps = Peep.all
@@ -33,9 +35,13 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    text = params["text"]
-    Peep.create(:text => text)
-    redirect to('/')
+    if current_user
+      text = params["text"]
+      current_user.peeps.create(:text => text)
+      redirect to('/')
+    else
+      redirect to('/sessions/new')
+    end
   end
 
   get '/users/new' do
@@ -46,7 +52,8 @@ class ChitterChallenge < Sinatra::Base
   post '/users' do
     @user = User.create(:email => params[:email],
                 :password => params[:password],
-                :password_confirmation => params[:password_confirmation])
+                :password_confirmation => params[:password_confirmation],
+                :username => params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -61,13 +68,13 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/sessions' do
-    email, password = params[:email], params[:password]
-    user = User.authenticate(email, password)
+    email, username, password = params[:email], params[:username], params[:password]
+    user = User.authenticate(email, username, password)
     if user
       session[:user_id] = user.id
       redirect to('/')
     else
-      flash[:errors] = ["The email or password is incorrect"]
+      flash.now[:errors] = ["The email or password is incorrect"]
       erb :"sessions/new"
     end
   end
