@@ -1,5 +1,5 @@
 <ul>
-  <% @tweets.each do |tweet| %>
+  <% @tweets.reverse.each do |tweet| %>
     <p><span class="red">@<%= tweet.user%>:</span><br><%= tweet.message%></p>
     <hr>
   <% end %>
