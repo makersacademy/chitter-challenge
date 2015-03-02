@@ -20,6 +20,10 @@ module Hobbit
       Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
     end
 
+    def redirect(path)
+      response.redirect(path)
+    end
+
     def default_layout
       "#{layouts_path}/layout.mote"
     end

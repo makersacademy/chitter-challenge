@@ -1,5 +1,8 @@
-<a href="/users/new">Sign Up</a>
-
+% if user
+  Welcome, {{user.name}}.
+% else
+  <a href="/users/new">Sign Up</a>
+% end
 <ul>
     % if peeps
       % peeps.each do |peep|
