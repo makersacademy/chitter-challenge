@@ -11,5 +11,8 @@ class Peep
 
   belongs_to  :user
 
+  def self.all_in_chron
+    self.all.sort {|a,b|b.timestamp <=> a.timestamp}
+  end
 
 end

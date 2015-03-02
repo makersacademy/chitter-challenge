@@ -32,7 +32,7 @@ use Rack::MethodOverride
  
 
 get '/' do
-  @peeps = Peep.all
+  @peeps = Peep.all_in_chron
   erb :index
 end
 
