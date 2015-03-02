@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='/style.css'>
   </head>
 <header>
   <div id="logo">CHITTER</div>
@@ -14,6 +14,9 @@
         <input type="submit" value="Sign out" id="button1">
       </form>
   </div>
+    <% else %>
+      <a href='/sessions/new'><button type="button" id="login_button">Log In</button></a>
+      <a href='/users/new'><button type="button" id="signup_button">Sign Up</button></a>
    <% end %>
 </header>
 

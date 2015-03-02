@@ -30,13 +30,15 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    @cheets = Cheet.all
+    flash[:notice] = nil
+    flash[:errors] = nil
+    @cheets = Cheet.all(:order =>[:time.desc])
     erb :index
   end
 
   post('/cheets') do
     text = params["text"]
-    Cheet.create(:text=> text, :name => current_user.name, :username => current_user.username, :time => Time.now)
+    Cheet.create(:text=> text, :user_id => session[:user_id], :time => Time.now)
     redirect to('/')
   end
 
@@ -61,6 +63,8 @@ class Chitter < Sinatra::Base
 end
 
   get '/sessions/new' do
+    flash[:notice] = nil
+
     erb :"sessions/new"
   end
 

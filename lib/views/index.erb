@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   </head>
@@ -19,7 +20,11 @@
       <h1>Cheets</h1>
         <ul>
           <% @cheets.each do |cheet| %>
-            <li><%= cheet.time %><%= cheet.text %><%= cheet.name %><%= cheet.username %></li>
+            <li id="details">
+              <div id="time"><%= cheet.time %></div>
+              @<%= cheet.user.username %>
+              <%= cheet.text %>
+              </li>
           <% end %>
         </ul>
     </div>
