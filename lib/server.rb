@@ -11,7 +11,7 @@ require_relative './controllers/users'
 require_relative './controllers/sessions'
 require './lib/helpers/application'
 
-env = ENV['RACK_ENV'] || 'development'
+env = 'development'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_challenge_#{env}")
 

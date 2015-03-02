@@ -6,6 +6,6 @@ class Peep
   property :name, String
   property :username, String
   property :message, Text
-  property :time, Date
+  property :time, Time
 
 end
