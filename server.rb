@@ -1,21 +1,18 @@
 require 'sinatra'
 require 'data_mapper'
+require 'rack-flash'
 require './lib/chit'
 require './lib/user'
+require './helpers/application'
 
-
+enable :sessions
+set :session_secret, 'super secret'
+use Rack::Flash
 
 env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/chitter#{env}")
 
-attr_reader :password
-attr_accessor :password_confirmation
-
-validates_confirmation_of :password
-
-enable :sessions
-set :session_secret, 'super secret'
 
 DataMapper.finalize 
 
@@ -35,22 +32,19 @@ post '/chits' do
 end
 
 get '/users/new' do
+  @user = User.new
   erb :"users/new"
 end
 
 post '/users' do
-  user = User.create(:email => params[:email], 
-              :password => params[:password]),
+  @user = User.new(:email => params[:email], 
+              :password => params[:password],
               :password_confirmation => params[:password_confirmation])  
-  session[:user_id] = user.id
-  redirect to('/')
-end
-
-helpers do
-
-  def current_user
-    @current_user ||=User.get(session[:user_id]) if session[:user_id]
+  if @user.save
+    session[:user_id] = @user.id
+    redirect to('/')
+  else
+    flash[:notice] = "Sorry, your passwords don't match"
+    erb :"users/new"
   end
-
 end
-

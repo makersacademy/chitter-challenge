@@ -1,6 +1,21 @@
+<!DOCTYPE html>
+<html>
 <body>
+
+<head>
+  <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/reset.css">
+</head>
+
+
   <% if current_user %>
     Welcome, <%= current_user.email %>
   <% end %>
+
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+
   <%= yield %>
 </body>
+</html>

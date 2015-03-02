@@ -2,23 +2,16 @@ require 'spec_helper'
 
 feature "User signs up" do
 
-scenario "when being a new user visiting the site" do
-  expect{ sign_up }.to change(User, :count).by(1)
-  expect(page).to have_content("Welcome, diego@example.com")
-  expect(User.first.email).to eq("diego@example.com")
-  end
+  scenario "when being logged out" do    
+    lambda { sign_up }.should change(User, :count).by(1)    
+    expect(page).to have_content("Welcome, diego@example.com")
+    expect(User.first.email).to eq("diego@example.com")        
+  end  
 
-  def sign_up(email ="diego@example.com", password = "test")
-    visit '/users/new'
-    fill_in :email, :with => email
-    fill_in :password, :with => password
-  
-    click_button "Sign up"
-  end
-  
-
-  scenario "with a password that doesn't match" do
+  scenario "with a password that doesn't match, dont let sign in" do
     expect{ sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content("Sorry, your passwords don't match")
   end
 
   def sign_up(email ="diego@example.com", password = "test",
