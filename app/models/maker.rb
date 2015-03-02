@@ -1,4 +1,5 @@
 require 'bcrypt'
+
 class Maker
 
   include DataMapper::Resource
@@ -20,10 +21,10 @@ class Maker
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(email, password)
-    user = first(:email => email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
+  def self.authenticate(username, password)
+    maker = first(:username => username)
+    if maker && BCrypt::Password.new(maker.password_digest) == password
+      maker
     else
       nil
     end

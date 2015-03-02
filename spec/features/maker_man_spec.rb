@@ -41,15 +41,37 @@ feature "Maker signs up" do
 end
 
 
-# feature "Maker logs in" do
+feature "Maker signs in" do
 
-#   scenario "with correct credentials" do
-#   end
+  before(:each) do
+    Maker.create( :name => "Snow White",
+                  :username => "red_apple",
+                  :password => "seven_dwarfs",
+                  :password_confirmation => "seven_dwarfs")
+  end
 
-#   scenario "with incorrect credentials" do
-#   end
+  scenario "with correct credentials" do
+    visit ('/')
+    expect(page).not_to have_content("Welcome, Snow White")
+    sign_in('red_apple', 'seven_dwarfs')
+    expect(page).to have_content("Welcome, Snow White")
+  end
 
-# end
+  scenario "with incorrect credentials" do
+    visit ('/')
+    expect(page).not_to have_content("Welcome, Snow White")
+    sign_in('red_apple', 'wrong')
+    expect(page).not_to have_content("Welcome, Snow White")
+  end
+
+def sign_in(username, password)
+  visit '/sessions/new'
+  fill_in 'username', :with => username
+  fill_in 'password', :with => password
+  click_button 'Sign in'
+end
+
+end
 
 # feature "Maker logs out" do
 
