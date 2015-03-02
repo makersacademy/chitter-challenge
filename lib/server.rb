@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
 require './lib/peep.rb'
-require './lib/tag.rb'
 require './lib/user.rb'
 require 'rack-flash'
 
@@ -46,10 +45,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.new(:email => params['email'],
-                :password => params['password'],
-                :password_confirmation => params['password_confirmation'],
-                :name => params['name'],
-                :username => params['username'])
+                     :password => params['password'],
+                     :password_confirmation => params['password_confirmation'],
+                     :name => params['name'],
+                     :username => params['username'])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')

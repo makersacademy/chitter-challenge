@@ -3,13 +3,13 @@ require './lib/server'
 
 feature 'User adds a new peep only when signed in' do
 
-    before(:each) do
+  before(:each) do
     User.create(:email => 'test@test.com',
                 :password => 'test',
                 :password_confirmation => 'test',
                 :name => 'test',
                 :username => 'test')
-  end
+    end
   
   scenario 'when browsing the homepage' do
     expect(Peep.count).to eq(0)
@@ -47,5 +47,5 @@ feature 'User adds a new peep only when signed in' do
     fill_in 'message', :with => message
     click_button 'Peep'
   end
-  end
+end
 end
