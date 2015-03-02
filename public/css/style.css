@@ -73,6 +73,12 @@ main li {
 	color: rgb(160,160,160);
 }
 
+.time{
+	color: rgb(160,160,160);
+	padding-left: 210px;
+	font-size: 14px;
+}
+
 article {
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -102,7 +108,7 @@ p.welcome {
 	text-align: center;
 	font-size: 20px;
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 img.logo{

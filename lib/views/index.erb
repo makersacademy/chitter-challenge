@@ -2,7 +2,7 @@
 	<div id='new-peep'>
   		<form action='/peeps' method='post'>
     		<input type='text' size="40" style="font-size: 16px" name='message'>
-   			 <input type='submit' value='Peep'>
+   			<input type='submit' value='Peep'>
   		</form>
 	</div>
 <% end %>
@@ -11,7 +11,7 @@
 		<ul>
 			<% @peeps.each do |peep| %>
 				<div class="peep">
-    				<li class="name"><%= peep.name %></li> <li class="username">@<%= peep.username %></li>
+    				<li class="name"><%= peep.name %></li> <li class="username">@<%= peep.username %></li> <li class="time"><%= peep.time %></li>
     				<article><%= peep.message %></article>
     			</div>
   			<% end %>
