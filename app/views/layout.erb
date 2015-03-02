@@ -40,29 +40,34 @@
               <input type="submit" value="Sign out">
             </form>
           <% end %>
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            <p>Sorry, there were the following problems with the form.</p>
+            <ul id="errors">
+              <% flash[:errors].each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if flash[:notice] %>
+            <div id="notice">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
         </nav>
       </div>  
     </header>
 
-
-    <img class="float-right" src="/images/bug.png"/>
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <p>Sorry, there were the following problems with the form.</p>
-      <ul id="errors">
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
-    <%= yield %>
-
+    <section class="row">
+      
+      <main class="col-sm-12 col-md-6">
+        <%= yield %>
+      </main> 
+      
+      <aside class="col-sm-12 col-md-6">
+        <img class="float-right" src="/images/bug.png"/>
+      </aside>
+       
+    </section>  
   </body>
 </html>
