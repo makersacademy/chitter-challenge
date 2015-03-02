@@ -7,8 +7,8 @@ class Server < Hobbit::Base
   include Hobbit::Mote
   include Hobbit::Session
 
+ # DataMapper::Logger.new($stdout, :debug)
 
-  # For hobbit did I see somewhere this should be :development ?
 
   environment = ENV['RACK_ENV'] || 'development'
 

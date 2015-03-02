@@ -6,7 +6,7 @@ class ChatterUser
   property :id, Serial
   property :name, String
   property :creation_date, DateTime
-  has n, :peeps
+  #has n, :peeps
 
 
 

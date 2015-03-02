@@ -2,26 +2,14 @@ require 'spec_helper'
 
 describe Peep do
 
-  #Peep.raise_on_save_failure = true
+ # peep = Peep.create(content: 'Chirp Chirp', creation_date: Time.now)
 
-  # The peep is not being saved to the databse.
-  # Not sure how to start debuggin this.
+  let(:peep) {Peep.create(content: 'Chirp Chirp', creation_date: Time.now)}
 
-  puts "!!!!! #{Peep.count}"
-
-  peep = Peep.create(content: 'Chirp Chirp', creation_date: Time.now)
-
-  puts "!!!!! #{Peep.count}"
-
-
-  puts peep.saved? ? "SAVED" : "NOOOO"
-
-
-  it 'exists' do
-
+  it 'Has textual content' do
     expect(peep.content).to eq 'Chirp Chirp'
-
   end
+
 
 
 end
