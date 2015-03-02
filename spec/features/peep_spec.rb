@@ -4,7 +4,7 @@ feature "Maker posts a peep" do
 
   scenario "when browsing the homepage" do
     visit '/'
-    expect{add_peep("Hello Chitter!", "Snow White", "seven_dwarfs")}.to change{Peep.count}.by 1
+    expect{add_peep("Hello Chitter!", "Snow White", "seven_dwarfs")}.to change{Peep.count}.by(1)
   end
 
   end
@@ -18,8 +18,6 @@ feature "Maker posts a peep" do
 
   # scenario "only when logged in" do
   # end
-
-
 
 
 # feature "Maker replies to a peep" do

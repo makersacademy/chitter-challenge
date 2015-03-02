@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
+    <title>Chitter!</title>
 
-<!--       <link rel="stylesheet" type="text/css" href="/css/reset.css">
+      <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css">
       <link rel="stylesheet" type="text/css" href="/css/application.css"> -->
   </head>
 
@@ -11,17 +11,14 @@
 
     <% if current_maker %>
       Welcome, <%= current_maker.name %>.
+
+      <form method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
     <% end %>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <br><br>Sorry, there were the following problems with the form:
-      <ul = id="errors">
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
+    <%= partial :flash %>
     <%= yield %>
 
   </body>
