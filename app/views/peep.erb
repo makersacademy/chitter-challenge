@@ -1,10 +1,12 @@
 <li class='peep'> 
-    <span class='author'>
-      <p><%= peep.user.username%>
-    </span>
+    <b> 
     <span class='date'>
-      <%= peep.timestamp.strftime("%d %b %l:%M %p")if peep.timestamp != nil%>
+      At <%= peep.timestamp.strftime("%d %b %l:%M %p")if peep.timestamp != nil%>
     </span>
+    <span class='author'>
+      <%= peep.user.username.capitalize%> said:
+    </span>
+    </b>
     </p>
     <br>
     <p>

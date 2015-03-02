@@ -69,7 +69,7 @@ header {
 
   header #user-peeps {
     flex: 1; /* http://learnlayout.com/flexbox.html */
-    -webkit-flex: 1;
+    -webkit-flex: 2;
     text-align: right;  
   }
 
@@ -99,6 +99,10 @@ header {
     letter-spacing: 1px;    
   }
 
+  .peep b {
+    color: grey;
+
+  }
 
 .flash {
   text-align: center;
