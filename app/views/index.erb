@@ -1,8 +1,26 @@
-<h1>This is Chitter!</h1>
-<br>
 <html>
 <head>
 </head>
+<header>
+  <div id="logo">Welcome to Chitter!</div>
+  <div id="user-links">
+    <% if current_user %>
+      <span id="welcome-message">
+        Welcome, <%= current_user.email %>  
+      </span>
+    
+      <form id="sign-out" method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    <% else %>
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>      
+    <% end %>
+  </div>
+</header>
+<br>
+<br>
 <body align="center">
 <div id="new-chit">
   <form action="/chits" method="post">
@@ -27,10 +45,6 @@ Current Chits
   
   <% end %>
   
-  <!--   <% @chit.each do |chit| %>
-    <a href="<%= chit.text %>"><%= chit.text %></a></li>
-  <% end %> -->
-<!-- </ul> -->
 
 </body>
 </html>
