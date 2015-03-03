@@ -1,0 +1,19 @@
+/*body {
+  background-color: gray;
+}*/
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  color: white;
+  display: ;
+  padding: 0 5px;
+}
+
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: Helvetica, Arial, Sans-serif;
+ }

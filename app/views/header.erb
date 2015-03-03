@@ -1,0 +1,11 @@
+<header>
+  <br></br>
+  <center><h1>CHITTER</h1></center>
+    <% if current_maker %>
+        Welcome, <%= current_maker.username %>
+      <form id="sign-up" method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    <% end %>
+</header>

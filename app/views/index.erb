@@ -1,0 +1,19 @@
+<center>
+<% if current_maker %>
+  <form id="new-peep" action="/peeps" method="post">
+    Message: <input type="text" name="message">
+    Hashtag: <input type="text" name="hashtags">
+    <input type="submit" value="Add peep">
+  </form>
+<% end %>
+
+<br></rb>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= get_peep_maker(peep, peep.maker_id) %>: <%= peep.message %></p>
+    </li>
+  <% end %>
+</ul>
+</center>
