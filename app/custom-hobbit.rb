@@ -6,6 +6,10 @@ module Hobbit
       @params ||= create_proper_hash(request.params)
     end
 
+    def flash
+      env['x-rack.flash']
+    end
+
     # This is from Sinatra. I'm not exactly sure what is happening,
     # but it allows symbols to be passed as keys even though
     # all the keys are strings.

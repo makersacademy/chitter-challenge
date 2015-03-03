@@ -3,6 +3,9 @@
     <head></head>
     <body>
 
+        % p flash
+        % puts "!! !! #{env['rack.session']['session_id'].inspect}"
+
         % if flash[:notice]
           <div id="notice">{{flash[:notice]}}</div>
         % end

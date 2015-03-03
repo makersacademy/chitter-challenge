@@ -15,6 +15,7 @@ class Server < Hobbit::Base
   use Rack::Protection
   use Rack::Flash
 
+
   get '/' do
     render 'index', peeps: Peep.all, user: current_user
   end
@@ -24,13 +25,18 @@ class Server < Hobbit::Base
     render 'usercreation', user: temp
   end
 
+  # WHY is the session changing for this post?? !! ** !!
+
   post '/users' do
+    puts "** ** #{env['rack.session']['session_id'].inspect}"
     me = ChatterUser.new(name: params[:name], email: params[:email], creation_date: Time.now, password: params[:password], password_confirmation: params[:password_confirmation])
     if me.save
       session[:user_id] = me.id
       redirect '/'
     else
       flash[:notice] = "Passwords did not match."
+      p flash
+      #puts "** ** #{env['rack.session']['session_id'].inspect}"
       render 'usercreation', user: me
     end
   end
