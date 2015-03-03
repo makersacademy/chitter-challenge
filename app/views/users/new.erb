@@ -1,0 +1,15 @@
+<h2>Please sign up.</h2>
+
+<form action="/users" method="post">
+  <label>Name:</label> 
+  <input name="name" type="text" value="<% @user.name %>">
+  <label>User name:</label> 
+  <input name="uname" type="text" value="<% @user.uname %>">
+  <label>Email:</label> 
+  <input name="email" type="text" value="<%= @user.email %>">
+  <label>Password:</label> 
+  <input name="password" type="password">
+  <label>Confirm Password:</label> 
+  <input name="password_confirmation" type="password">
+  <input class="hvr-buzz-out" type="submit" value="Sign up">
+</form>

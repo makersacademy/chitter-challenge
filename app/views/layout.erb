@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="" href="">
+    <!-- Place favicon.ico in the root directory -->
+    <script src="//use.typekit.net/bum4umx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    
+
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/grid.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  </head>
+  <body class="clearfix container">
+    
+    <header class="clearfix row">
+        <h1 class="col-sm-12 col-md-6"><a class="hvr-wobble-top" href="/">ChitterBug!</a></h1>
+        <nav class="col-sm-12 col-md-6 clearfix">
+          <% if current_user %>
+            <h2>Welcome, <%= current_user.uname %></h2>
+            <form id="sign-out" method="post" action="/sessions">
+              <input type="hidden" name="_method" value="delete">
+              <input class="hvr-buzz-out" type="submit" value="Sign out">
+            </form>
+          <% else %>
+            <a class="hvr-buzz-out" href="/sessions/new">sign in</a>
+            <a class="hvr-buzz-out" href="/users/new">sign up</a>
+          <% end %>
+        </nav>
+    </header>
+
+    <section id="welcome-peep" class="row clearfix">
+      <div class="col-sm-12">
+        <% if current_user %>
+          <div id="new-peep" class="clearfix">
+            <form class="clearfix" action="/peeps" method="post">
+              <label>Write your peep here...</label>   
+              <input type="text" name="content">
+              <input class="inline-button hvr-buzz-out" type="submit" value="Peep!">
+            </form>
+          </div>
+        <% else %>
+          <h2>Welcome, peeper. You need to login to peep!</h2>
+         
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            <p>Sorry, there were the following problems with the form.</p>
+            <ul id="errors">
+              <% flash[:errors].each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          <% end %>        
+        <% end %>  
+      </div>  
+    </section>
+    
+    <section class="row clearfix">
+      
+      <main class="col-sm-12 col-md-6">
+        <%= yield %>
+      </main> 
+
+      <aside class="col-sm-12 col-md-6">
+        <img src="/images/bug.png"/>
+      </aside>
+       
+    </section>  
+  </body>
+</html>

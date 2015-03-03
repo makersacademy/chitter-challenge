@@ -1,0 +1,14 @@
+<h2>Peep feed!</h2>
+
+<ul>
+    <% if @peeps %>
+      <li>
+          <% @peeps.reverse.each do |peep| %>
+          <ul class="peep-list">
+            <li><%= peep.content %></li>
+            <li>Posted by: <span class="uname-span">@<%= peep.user.uname %></span> on:<br><%= peep.created_at %></li>
+          </ul>    
+        <% end %>
+      </li>    
+    <% end %>  
+</ul>
