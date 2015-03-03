@@ -1,0 +1,7 @@
+<h1>Chitter!</h1>
+
+<% if !@peeps.empty? %>
+  <% @peeps.each do |peep| %>
+    <l><%= peep.message %></l>
+  <% end %>
+<% end %>
