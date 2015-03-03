@@ -1,8 +1,5 @@
 get '/' do
-  @peeps = Peep.all
+  @peeps = Peep.all(:order => [:time.desc])
   erb :index
 end
 
-def get_peep_user(id)
-  Maker.get(id).username
-end

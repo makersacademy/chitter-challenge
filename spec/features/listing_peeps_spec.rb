@@ -1,28 +1,31 @@
 require 'spec_helper'
 
+require_relative 'helpers/session'
+include SessionHelpers
+
 feature "Maker browses a list of peeps" do
 
-  before(:each){
-    Peep.create(:message => "Hello Chitter!",
-                :name => "Snow White",
-                :username => "red_apple")
+  before(:each) do
 
-    Peep.create(:message => "Hola Chitter! Cómo estás?",
-                :name => "Cinderella Relli",
-                :username => "magic_slipper")
+    Maker.create( :name => "Snow White",
+                  :username => "red_apple",
+                  :email => "snow_white@example.com",
+                  :password => "seven_dwarfs",
+                  :password_confirmation => "seven_dwarfs")
 
-    Peep.create(:message => "Bonjour Chitter! Comment allez-vous?",
-                :name => "Princess Aurora",
-                :username => "sleeping_beauty")
-  }
+    sign_in('red_apple', 'seven_dwarfs')
+    add_peep(:message => "Hello Chitter!")
+    add_peep(:message => "Hola Chitter!")
+    add_peep(:message => "Bonjour Chitter!")
+    sign_out
+  end
 
   scenario "when opening the homepage" do
     visit '/'
-    expect(page).to have_content("Hello Chitter!")
+    expect(page).to have_content("Hello Chitter!" && "Hola Chitter!" && "Bonjour Chitter!")
   end
 
   # scenario "displayed in chronological order" do
   # end
-
 
 end

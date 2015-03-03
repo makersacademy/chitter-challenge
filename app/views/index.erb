@@ -14,13 +14,16 @@
   <br>
 
   <ul>
-  <% @peeps.reverse.each do |peep| %>
+  <% @peeps.each do |peep| %>
     <li>
-    <%= get_peep_user(peep, peep.maker_id) %> peeps: <%= peep.message %>
+    <%= peep_maker_name(peep, peep.maker_id) %>
+    @<%= peep_maker_username(peep, peep.maker_id) %>
+    <%= peep.time %>
+    <br>
+    <%= peep.message %>
   <% end %>
     </li>
 
   </ul>
-
 
 </center>
