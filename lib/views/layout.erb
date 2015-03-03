@@ -8,7 +8,7 @@
 <body>
   <header>
     <div class="link">
-    <a href="/"><img src="images/chitter.png"></a>
+    <a href="/"><img src="/images/chitter.png"></a>
   </div>
   <% if current_user %>
     Hello, <%= current_user.username %>
@@ -18,7 +18,7 @@
     </form>
     <% else %>
     <div class="pages">
-    <a href="/sessions/new">Sign in</a> <a href="/users/new">Sign up</a> <a href="/">Home</a>
+    <a href="/sessions/new">Sign in</a> <a href="/users/new">Sign up</a>
   </div>
   <% end %>
 </header>

@@ -26,6 +26,9 @@ div.link {
 
 div.pages{
   font-family: 'PT Sans', sans-serif;
+  border: solid #BDC3C7 2px;
+  border-radius: 10px;
+  max-width: 200px; 
 }
 
 li {
