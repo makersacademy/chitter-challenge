@@ -135,7 +135,7 @@ input.signout{
 	margin: auto;
 	width: 350px;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	background-color: white;
 	border-radius: 5px;
 }
@@ -185,6 +185,26 @@ input.peeper{
   }
 
   input.subpeep:hover {
+    background-color: rgb(130,112,245);
+}
+
+.subsignin{
+	font-size: 14px;
+ 	font-weight: bold;
+ 	color: #ffffff;
+    background-color: rgba(104,112,236,.8);
+ 	display: inline-block;
+    border-color: rgba(0,0,0,0.5);
+    border-width: 1px;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+  input.subsignin:hover {
     background-color: rgb(130,112,245);
 }
 
