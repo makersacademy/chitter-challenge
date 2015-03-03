@@ -34,9 +34,8 @@ class Server < Hobbit::Base
       session[:user_id] = me.id
       redirect '/'
     else
-      flash[:notice] = "Passwords did not match."
+      flash.now[:notice] = "Passwords did not match."
       p flash
-      #puts "** ** #{env['rack.session']['session_id'].inspect}"
       render 'usercreation', user: me
     end
   end

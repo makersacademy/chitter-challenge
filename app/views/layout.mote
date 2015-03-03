@@ -3,8 +3,8 @@
     <head></head>
     <body>
 
-        % p flash
-        % puts "!! !! #{env['rack.session']['session_id'].inspect}"
+        % puts "!!**!! #{env['rack.session']['session_id'].inspect}"
+        % puts "**!!** #{env['x-rack.flash']}"
 
         % if flash[:notice]
           <div id="notice">{{flash[:notice]}}</div>
