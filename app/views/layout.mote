@@ -4,7 +4,8 @@
     <body>
 
         % puts "!!**!! #{env['rack.session']['session_id'].inspect}"
-        % puts "**!!** #{env['x-rack.flash']}"
+        % puts "**env** #{env['x-rack.flash'].inspect}"
+        % puts "--fl-- #{flash.inspect}"
 
         % if flash[:notice]
           <div id="notice">{{flash[:notice]}}</div>

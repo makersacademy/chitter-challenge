@@ -9,7 +9,8 @@ feature 'User signs up' do
   end
 
   scenario 'The passwords dont match' do
-    expect{sign_up("pass","mismatch")}.to change(ChatterUser, :count).by 0
+    sign_up("pass","mismatch")
+    #save_and_open_page
     expect(current_path).to eq '/users'
     expect(page).to have_content "Passwords did not match."
   end

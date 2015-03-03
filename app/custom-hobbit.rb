@@ -21,7 +21,7 @@ module Hobbit
     end
 
     def symbol_indifferent_hash
-      Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+      Hash.new {|value,key| value[key.to_s] if Symbol === key }
     end
 
     def redirect(path)
