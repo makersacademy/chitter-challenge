@@ -1,0 +1,22 @@
+<h1>Welcome to the Chitter</h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <% @peeps %>
+    <li><%= peep.message %></li>
+  <% end %>
+</ul>
+<br>
+<div id="new-peep">
+  <form action="/peeps" method="post">
+    message: <input type="text" name="message">
+    <input type="submit" value="Add peep">
+  </form>
+</div>
+
+
+<a href="/users/new">Sign up</a>
+
+
+
+
