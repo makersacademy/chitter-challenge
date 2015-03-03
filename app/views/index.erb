@@ -1,9 +1,9 @@
 <center>
 
-<br>
+<br><br>
 <h1>Welcome to Chitter</h1>
 <br>
-What's peepin' right now:
+
   <% if current_maker %>
     <form action="/peeps" method="post" class="new-peep">
       What's Peepin'?: <input type="text" name="message">
@@ -11,8 +11,10 @@ What's peepin' right now:
     </form>
   <% end %>
 
+  <hr>
   <br>
-
+  The peep on the street:
+  <br><br>
   <ul>
   <% @peeps.each do |peep| %>
     <li>
@@ -21,6 +23,7 @@ What's peepin' right now:
     <%= peep.time %>
     <br>
     <%= peep.message %>
+    <br><br>
   <% end %>
     </li>
 

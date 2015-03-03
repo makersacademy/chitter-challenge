@@ -14,9 +14,9 @@ feature "Maker browses a list of peeps" do
                   :password_confirmation => "seven_dwarfs")
 
     sign_in('red_apple', 'seven_dwarfs')
-    add_peep(:message => "Hello Chitter!")
-    add_peep(:message => "Hola Chitter!")
-    add_peep(:message => "Bonjour Chitter!")
+      add_peep( :message => "Hello Chitter!")
+      add_peep( :message => "Hola Chitter!")
+      add_peep( :message => "Bonjour Chitter!")
     sign_out
   end
 
