@@ -1,0 +1,27 @@
+<center>
+
+<br>
+<h1>Welcome to Chitter</h1>
+<br>
+What's peepin' right now:
+  <% if current_maker %>
+    <form action="/peeps" method="post" class="new-peep">
+      What's Peepin'?: <input type="text" name="message">
+      <input type="submit" value="Peep!">
+    </form>
+  <% end %>
+
+  <br>
+
+  <ul>
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= peep_maker_name(peep, peep.maker_id) %>
+    @<%= peep_maker_username(peep, peep.maker_id) %>
+    <%= peep.time %>
+    <br>
+    <%= peep.message %>
+  <% end %>
+    </li>
+
+  </ul>
