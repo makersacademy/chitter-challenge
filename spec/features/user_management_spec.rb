@@ -85,7 +85,6 @@ feature 'User signs out' do
     expect(page).not_to have_content("What's happening @test?")
   end
 
-
   def sign_in(email, password)
     visit('/sessions/new')
     fill_in 'email', :with => email
@@ -94,12 +93,3 @@ feature 'User signs out' do
   end
 end
 end
-
-
-
-
-
-
-
-
-

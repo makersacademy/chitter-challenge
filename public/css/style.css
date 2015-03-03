@@ -94,13 +94,15 @@ article {
 }
 
 #new-peep{
-	width: 475px;
+	width: 500px;
+	border-width: 1px;
+	border-color: rgba(0,0,0,0.5);
+	border-style: solid;
+	background-color: rgba(104,112,236,.2);
 	margin: auto;
 	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 5px;
-	padding-left: 5px;
-	border-radius: 5px;
+	padding-bottom: 40px;
+	border-radius: 3px;
 	margin-bottom: 10px;
 }
 
@@ -116,10 +118,15 @@ img.logo{
 	margin: auto;
 }
 
-.signout{
+input.signout{
 	display: block;
 	margin: auto;
 	margin-bottom: 20px;
+	font-size: 20px;
+	padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .signup{
@@ -147,12 +154,39 @@ img.logo{
 	font-size: 16px;
 }
 
- input[type=submit] {
- 	font-size: 14px;
- 	background-color: white;
+input.peeper{
+	font-size: 14px;
+	height: 30px;
+	width: 475px;
+	margin: auto;
+	margin-left: 10px;
+	display: inline;
     border-color: rgba(0,0,0,0.5);
     border-width: 1px;
+    border-radius: 5px;
+}
+
+ input.subpeep {
+ 	font-size: 14px;
+ 	font-weight: bold;
+ 	color: #ffffff;
+    background-color: rgba(104,112,236,.8);
+ 	display: inline-block;
+ 	float: right;
+    border-color: rgba(0,0,0,0.5);
+    border-width: 1px;
+    border-radius: 5px;
+    margin-top: 7px;
+    margin-right: 12px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
+
+  input.subpeep:hover {
+    background-color: rgb(130,112,245);
+}
 
   #notice{
   	text-align: center;
@@ -187,10 +221,3 @@ img.logo{
     text-transform: capitalize;
     color: #ffffff;
 }
-
-
-
-
-
-
-
