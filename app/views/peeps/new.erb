@@ -1,0 +1,16 @@
+
+ <% if current_user %>
+  <h1>What do you feel like saying?</h1>
+  <div id="new-peep">
+    <form action="/peeps" method="post">
+    <p>
+      <input type="text" name="text">
+    </p>
+    <p>
+      <input type="submit" value="Peep" class="button">
+    </p>
+     </form>
+   </div>
+    <% else %>
+      Sorry, you need to be signed in to Peep
+ <% end %>

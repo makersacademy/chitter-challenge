@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/images/clouds.jpg);
+  color: rgb(0,80,126);  
+}
+
+html, body {
+  height: 100%;
+}
+/* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: rgb(37,58,123);
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  vertical-align: center;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 0px;
+  margin-right: 5px;
+  border: 1px white;
+
+}
+
+.button:hover {
+  -webkit-transition: All 0.5s ease;
+  background-color: rgb(63, 118, 183);
+
+}
+
+/* a link that has both classes. Overrides the previous declaration */
+.button.highlighted {
+  padding: 3px 10px;
+  line-height: 150%;
+  width:110;
+  overflow: hidden;
+  display: block;
+  vertical-align: center;
+  background-color: rgb(63, 118, 183);
+}
+
+.button.response {
+  width: 70px;
+  height: 20px;
+  font-size: 10px;
+  padding: 3px 10px;
+  line-height: 150%;
+  width:90px;
+  position: relative;
+  top: 5px;
+  overflow: hidden;
+  display: block;
+  background-color: rgb(63, 118, 183);
+}
+.button.highlighted:hover {
+-webkit-transition: All 0.5s ease;
+width: 200px;
+}
+
+header {  
+  height: 60px;
+  background-color: white;
+  color: dark blue;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  padding: 0 20px;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    -webkit-animation-name: thumb;
+    -webkit-animation-duration: 300ms;
+    -webkit-transform-origin:20% 20%;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+    font-size: 30px;   
+    color: black;
+    margin-right: 20px;   
+  }
+
+  header a {
+    font-family: centurygothic;
+    font-size: 20;
+    color: rgba(0,90,157,1);
+  }
+
+  header #user-peeps {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 2;
+    text-align: right;  
+  }
+
+  header #user-peeps > * {
+    display: inline-block;
+  }
+
+  header #user-peeps #welcome-message {
+    font-size: 14px;
+    margin-right: 4px;
+  }
+
+#container {
+  background-color: rgba(255,255,255,0.5);
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+  color: rgb(63, 118, 183);
+}
+
+.peep {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+@-webkit-keyframes thumb {
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1); }
+}
+
+.button.response:hover{
+  -webkit-animation-name: thumb;
+  -webkit-animation-duration: 300ms;
+  -webkit-transform-origin:10% 10%;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-timing-function: linear;
+}
+
+  .peep a.title {
+    letter-spacing: 1px;    
+  }
+
+  .peep b {
+    color: rgb(63, 118, 183);
+
+  }
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;  
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75); 
+  }
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  color: rgb(0,80,126);
+  text-align: left;
+}
+
+  form p {
+    color: rgb(0,80,126);
+    margin: 10px 0;
+  }
+
+  form input[type="text"], form input[type="password"] {
+    border: 1px solid white;
+    font-size: 16px;
+    color: rgb(0,80,126);
+    width: 200px;
+  }
+
+  ::-webkit-input-placeholder {
+  font-size: 12px;
+   color: rgba(152, 195, 234, 0.5);
+}
+
+input, select, textarea{
+    color: rgb(0,80,126);
+}
+
+textarea:focus, input:focus {
+    color: rgb(0,80,126);
+}

@@ -1,0 +1,9 @@
+Current peeps:
+<div id='links-container'>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <%= partial :peep, :locals => {:peep => peep}  %>
+    <% end %>
+  </ul>
+</div>
+
