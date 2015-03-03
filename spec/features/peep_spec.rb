@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'helpers/session'
 
 require_relative 'helpers/session'
 include SessionHelpers
@@ -16,11 +15,7 @@ feature "Maker posts a peep" do
 
   scenario "when browsing the homepage" do
     sign_in('red_apple', 'seven_dwarfs')
-<<<<<<< HEAD
     expect{add_peep("Hello Chitter!")}.to change{Peep.count}.by(1)
-=======
-    expect{add_peep("Hello Chitter!", "Snow White", "seven_dwarfs")}.to change{Peep.count}.by(1)
->>>>>>> 5bdcd6673094af0dc6db659170887ed1cd1518ea
   end
 
   scenario "only when signed in" do
@@ -29,16 +24,6 @@ feature "Maker posts a peep" do
     sign_in('red_apple', 'seven_dwarfs')
     expect(page).to have_content("What's Peepin'?:")
   end
-
-<<<<<<< HEAD
-=======
-  def add_peep(message, name, username)
-      within('.new-peep') do
-      fill_in 'message', :with => message
-      click_button 'Peep!'
-    end
-  end
->>>>>>> 5bdcd6673094af0dc6db659170887ed1cd1518ea
 
 
 end
@@ -50,4 +35,3 @@ end
 #   end
 
 # end
-
