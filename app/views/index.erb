@@ -20,9 +20,8 @@
     <li>
     <%= peep_maker_name(peep, peep.maker_id) %>
     @<%= peep_maker_username(peep, peep.maker_id) %>
-    <%= peep.time %>
-    <br>
-    <%= peep.message %>
+    <br> <%= peep.message %>
+    <br>Peeped at <%= peep.nice_time %>
     <br><br>
   <% end %>
     </li>
