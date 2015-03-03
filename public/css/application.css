@@ -1,0 +1,48 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-color: #CCE3B1;
+  color: #030303;
+}
+
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+title {
+  align-items: center;
+  font-size: 250%;
+}
+
+.peeps-container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.peep {
+  background-color: #EEE; /* same as #EEEEEE */
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px 250px inherit;
+  padding: 15px 10px;
+}
+
+.peep .entry {
+  margin: 10px inherit;
+}
+
+.peep .user_details {
+  font-size: 12px;
+}
+
+.welcome {
+  float: right;
+}
+
+.peep_input . {
+
+
+}
+
+

@@ -1,0 +1,22 @@
+<% if current_user %>
+  <form class='peep_input' action="/peeps" method="post">
+    Enter Peep: <input type="text" name="peep">
+    <input type="submit" value="Add peep">
+  </form>
+<%else%>
+  <p><a href='/'><button type="button">Return Home</button></a></p>
+<% end %>
+
+
+<a class='entry'>
+  <% @peep.each do |peep| %>
+  <li class='peep'>
+    <%= peep.peep %>
+      <div class='user_details'>
+        By: <%= peep.user.name%>
+        User Id: <%= peep.user.user_name %>
+      </div>
+    <% end %>
+  </li>
+</a>
+
