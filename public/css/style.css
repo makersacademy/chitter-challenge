@@ -4,89 +4,64 @@ padding: 0;
 }
 
 body{
-  background-color:white;
+  background-color:0066FF;
 }
 
 header {
   min-width:100%;
-  background-color: black;
+  background-color: white;
   color: white;
   display: inline-block;
-  height: 80px;
+  height: 15%;
   }
 
 header #logo {
   margin: auto 0;
   display: flex;
   font-family: 'Bangers', cursive;
-  color: silver;
+  color: 0066FF;
   font-size: 55px;
-  left: 20px;
-  top: 10px;
   position: relative;
   text-shadow: 2px 2px grey;
 }
 
 h1{
-  position: relative;
-  font-family: 'Chewy', cursive;
-  font-size: 32px;
-  left: 35px;
+  font-family: 'Bangers', cursive;
+  color:white;
+  font-size: 50px;
+  text-shadow: 2px 2px grey;
 }
 
 header #welcome-message{
-  font-family: 'Chewy', cursive;
-  float: right;
-  position: relative;
-  bottom: 60px;
-  float: right;
-  color: silver;
-}
-
-#button1
-{
-  border-radius: 100px;
-  font-family: 'Chewy', cursive;
-  color: silver;
-  background-color: black;
-  font-size:15px;
-  float: right;
-  position: relative;
   bottom: 30px;
-  left: 80px;
+  font-family: 'Bangers', cursive;
+  color: 0066FF;
+  position: relative;
+  float: right;
 }
 
-#button1:hover
-{
-  background-color: silver;
+#names{
+  float: left;
+  color:black;
 }
 
-#button2
-{
+#addcheet_button{
   border-radius: 100px;
   font-family: 'Chewy', cursive;
-  color: silver;
-  background-color: black;
+  color: 0066FF;
   font-size:16px;
   position: relative;
 }
 
-#button2:hover
-{
-  background-color: silver;
-}
-
-#cheet-box{
-  position: relative;
-  left: 500px;
-  top: 10px;
-}
-
 #new-cheet{
-  position: fixed;
-  top: 110px;
-  left: 20px;
-  font-family: 'Arvo', serif;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10%;
+}
+
+#input_cheet{
+  font-size: 14px;
+  font-family: 'Chewy', cursive;
 }
 
 #text-box{
@@ -97,7 +72,6 @@ li{
   font-family: 'Arvo', serif;
   color: #0F2B33;
   list-style-type: none;
-
 }
 
 #first{
@@ -111,88 +85,104 @@ li{
 }
 
 #time{
-  color: silver;
+  color: #000080;
+  float: right;
+  font-size: 12px;
 }
 
 #email{
   position: relative;
-  left: 475px;
   color: white;
 }
 
 #sign{
-  position:relative;
-  left:455px;
+  text-align: center;
 }
 
 #password{
   position: relative;
-  top: 10px;
-  left: 475px;
 }
 
-#button3
-{
+#signin_button{
   border-radius: 100px;
   font-family: 'Chewy', cursive;
   color: silver;
-  background-color: black;
+  background-color: 0066FF;
   font-size:16px;
   position: relative;
-  left: 545px;
-  top: 20px;
 }
 
-#button4
-{
+#sign_up_button{
   border-radius: 100px;
   font-family: 'Chewy', cursive;
   color: silver;
-  background-color: black;
+  background-color:0066FF;
   font-size:16px;
   position: relative;
   border-radius: 100px;
 }
-
 
 #signup_button{
+  bottom: 40px;
   border-radius: 100px;
   font-family: 'Chewy', cursive;
-  color: silver;
-  background-color: black;
+  color: white;
+  background-color: 0066FF;
   font-size:15px;
   position: relative;
   float: right;
-  bottom: 25px;
+}
+
+#sign_up_page{
+  text-align: center;
 }
 
 
 #login_button{
+  bottom: 40px;
   border-radius: 100px;
   font-family: 'Chewy', cursive;
-  color: silver;
-  background-color: black;
+  color: white;
+  background-color: 0066FF;
   font-size:15px;
   position: relative;
   float: right;
-  bottom: 25px;
+}
+
+#signout_button{
+  bottom: 40px;
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: 0066FF;
+  font-size:15px;
+  float: right;
+  position: relative;
 }
 
 #password_box{
   border-radius: 100px;
   font-size: 18px;
-  background-color: black;
+  background-color:white;
   font-family: 'Chewy', cursive;
-  color: white
+  color: silver;
 }
 
 #details{
-  position: relative;
-  right: 35px;
-  background-color: grey;
-  /*padding: 15px 10px;*/
-  margin: 10px 25px;
-  width: 250px;
+  background-color:white;
+  margin: 25px 450px;
+  padding: 30px;
+  /*color: 0066FF;*/
 }
+
+
+#cheets-header{
+  text-align: center;
+}
+
+#username{
+  font-size: 20px;
+  color: 0066FF;
+}
+
 
 

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <% if current_user %>
+      <div id="new-cheet">
+        <form action="/cheets" method="post">
+            <textarea type="text" name="text" placeholder="Cheet..." rows="5" cols="40" id="input_cheet"></textarea>
+          <input type="submit" value="Add cheet" id="addcheet_button">
+        </form>
+      </div>
+    <% end %>
+
+    <div id="cheet-box">
+      <h1 id="cheets-header">
+        Cheets
+      </h1>
+        <ul>
+          <% @cheets.each do |cheet| %>
+            <li id="details">
+              <div id="username">
+                @<%= cheet.user.username %>
+              </div>
+              <div id="cheet-text">
+                <%= cheet.text %>
+              </div>
+              <div id="time">
+                <%= cheet.time.strftime("%B") %> <%= cheet.time.day %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+  </body>
+</html>
+
+
+
+
+

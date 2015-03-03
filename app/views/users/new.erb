@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
+  </head>
+    <div id="sign_up_page">
+    <h1>Please sign up</h1>
+    <form action="/users" method="post">
+    <div><input name="name" type="text" placeholder="Name..." id="password_box"></div>
+    <div><input name="password" type="password" placeholder="Password..."id="password_box"></div>
+    <div><input name="password_confirmation" type="password" placeholder="Password..." id="password_box"></div>
+    <div><input name="username" type="text"  id="password_box" placeholder="Username..."></div>
+    <div><input name="email" type="text" value="<%= @user.email %>" id="password_box" placeholder="Email..."></div>
+    <input type="submit" value="Sign up" id="sign_up_button">
+    </div>
+  </form>
+</html>
