@@ -1,0 +1,188 @@
+html, body {
+margin: 0;
+padding: 0;
+}
+
+body{
+  background-color:0066FF;
+}
+
+header {
+  min-width:100%;
+  background-color: white;
+  color: white;
+  display: inline-block;
+  height: 15%;
+  }
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: 'Bangers', cursive;
+  color: 0066FF;
+  font-size: 55px;
+  position: relative;
+  text-shadow: 2px 2px grey;
+}
+
+h1{
+  font-family: 'Bangers', cursive;
+  color:white;
+  font-size: 50px;
+  text-shadow: 2px 2px grey;
+}
+
+header #welcome-message{
+  bottom: 30px;
+  font-family: 'Bangers', cursive;
+  color: 0066FF;
+  position: relative;
+  float: right;
+}
+
+#names{
+  float: left;
+  color:black;
+}
+
+#addcheet_button{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: 0066FF;
+  font-size:16px;
+  position: relative;
+}
+
+#new-cheet{
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10%;
+}
+
+#input_cheet{
+  font-size: 14px;
+  font-family: 'Chewy', cursive;
+}
+
+#text-box{
+  font-family: 'Arvo', serif;
+}
+
+li{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+  list-style-type: none;
+}
+
+#first{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+#second{
+  font-family: 'Arvo', serif;
+  color: #0F2B33;
+}
+
+#time{
+  color: #000080;
+  float: right;
+  font-size: 12px;
+}
+
+#email{
+  position: relative;
+  color: white;
+}
+
+#sign{
+  text-align: center;
+}
+
+#password{
+  position: relative;
+}
+
+#signin_button{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color: 0066FF;
+  font-size:16px;
+  position: relative;
+}
+
+#sign_up_button{
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: silver;
+  background-color:0066FF;
+  font-size:16px;
+  position: relative;
+  border-radius: 100px;
+}
+
+#signup_button{
+  bottom: 40px;
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: white;
+  background-color: 0066FF;
+  font-size:15px;
+  position: relative;
+  float: right;
+}
+
+#sign_up_page{
+  text-align: center;
+}
+
+
+#login_button{
+  bottom: 40px;
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: white;
+  background-color: 0066FF;
+  font-size:15px;
+  position: relative;
+  float: right;
+}
+
+#signout_button{
+  bottom: 40px;
+  border-radius: 100px;
+  font-family: 'Chewy', cursive;
+  color: 0066FF;
+  font-size:15px;
+  float: right;
+  position: relative;
+}
+
+#password_box{
+  border-radius: 100px;
+  font-size: 18px;
+  background-color:white;
+  font-family: 'Chewy', cursive;
+  color: silver;
+}
+
+#details{
+  background-color:white;
+  margin: 25px 450px;
+  padding: 30px;
+  /*color: 0066FF;*/
+}
+
+
+#cheets-header{
+  text-align: center;
+}
+
+#username{
+  font-size: 20px;
+  color: 0066FF;
+}
+
+
+
