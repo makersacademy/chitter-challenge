@@ -1,0 +1,9 @@
+<li class='peep'>
+  <div class='content'>
+    <%= peep.content %>
+  </div>
+  <span class='source'>
+    peeped at <%= peep.created_at.to_datetime.strftime("%l:%M%p %A %e %B") %> by <%= User.get(peep.user_id).username %>
+  </span>
+</li>
+

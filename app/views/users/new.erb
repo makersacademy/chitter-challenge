@@ -1,0 +1,27 @@
+<div id="register_container">
+<form action="/users" method="post">    
+Please complete all details
+  <p>
+  <p>
+    <input type="text" placeholder="First name" value="<%= @user.first_name %>" name="first_name" required>
+  </p>
+  <p>
+    <input type="text" name="last_name" placeholder="Last name" value="<%= @user.last_name %>" required>
+  </p>
+  <p>
+    <input type="text" name="email" placeholder="Email" value="<%= @user.email %>" required>
+  </p>
+    <p>
+    <input type="text" name="username" placeholder="Username" value="<%= @user.username %>" required>
+  </p>
+  <p>
+    <input type="text" name="password" placeholder="Password" required>  
+  </p>
+  <p>
+    <input type="text" name="password_confirmation" placeholder="Password confirmation" required> 
+  </p>
+  <p>
+    <input type="submit" value="Sign up" class='button'>  
+  </p>    
+</form>
+</div>

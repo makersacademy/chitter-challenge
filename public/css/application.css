@@ -1,0 +1,185 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-color: #99CCFF;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+.button {
+  display: inline-block;
+  width: 80px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: green;
+  border: 1px solid white;
+  color: white; 
+  padding: 5px 10px;
+  text-align: center; 
+  border-radius: 4px; 
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4); 
+}
+
+.button.highlighted {
+  background-color: red;
+  width: 200px;
+}
+
+header {  
+  height: 50px;
+  background-color: black;
+  color: white;
+  display: flex;
+  display: -webkit-flex;
+  padding: 0 20px;
+}
+
+header > * {
+  margin: auto 0;
+}
+
+header #logo {    
+  color: red;
+  display: flex; 
+  font-size: 35px;
+  margin-right: 20px;  
+}
+
+header a {
+  color: white;
+}
+
+header #user-peeps {
+  flex: 1; 
+  -webkit-flex: 1;
+  text-align: right;  
+}
+
+header #user-peeps > * {
+  display: inline-block;
+}
+
+header #user-peeps #welcome-message {
+  font-size: 14px;
+}
+
+#register_container {
+  background-color: #EEE;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+#peeps_container {
+  background-color: #EEE;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.peep {
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+.peep .content {
+  margin: 10px inherit;
+}
+
+.peep .source {
+  float: right;
+  font-size: 12px;
+}
+
+.peep .new {
+  font-size: 25px; 
+  width: 100%;
+  word-wrap: break-word
+}
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;  
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.flash.notice {
+  background-color: rgba(67,183,120,0.75);
+}
+
+.flash.error {
+  background-color: rgba(169,29,42,0.75); 
+}
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  text-align: left;
+  background-color: #EEE;
+}
+
+form p {
+  margin: 10px 0;
+}
+
+form input[type="text"], form input[type="password"] {
+  border: 1px solid black;
+  font-size: 16px;
+  width: 400px;
+}
+
+footer {
+  display: flex;
+  display: -webkit-flex;
+  background-color: rgba(0,0,0,0.2);  
+  height: 70px;
+}
+
+footer > * {
+  margin: auto inherit;
+}
+
+footer img {
+  vertical-align: top;
+}
+
+footer #technologies {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 12px;
+  text-align: right;
+}
+
+footer p {
+  padding: 5px 25px;
+}
+
+.footer, .push {
+  height: 70px;
+}
