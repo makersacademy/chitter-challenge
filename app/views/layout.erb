@@ -1,0 +1,49 @@
+<html>
+
+  <head>
+    <title>5hitter</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+  </head>
+
+  <body>
+
+    <h1>5hitter</h1>
+  
+    <% if flash[:notice] %>
+      <div id='notice'>
+      <%= flash[:notice] %>
+      </div>
+    <% end %>
+  
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Sorry, there were the following problems with   the form.
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+      <form method='post' action='/sheets/new'>
+        <input type='submit' value='New Sheet'>
+      </form>
+      <form method='post' action='/user/profile'>
+        <input type='submit' value='Profile'>
+      </form>
+
+    <% else %>
+      <a href='/users/new' id='sign_up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign_in' class='button'>Sign in</a>
+    <% end %>
+  
+    <%= yield %>
+    
+  </body>
+
+</html>
