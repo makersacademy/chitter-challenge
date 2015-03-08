@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        % puts "!!**!! #{env['rack.session']['session_id'].inspect}"
+        % puts "**env** #{env['x-rack.flash'].inspect}"
+        % puts "--fl-- #{flash.inspect}"
+
+        % if flash[:notice]
+          <div id="notice">{{flash[:notice]}}</div>
+        % end
+
+        {{content}}
+
+        <p># # # Dev Tools # # #</p>
+        <a href="http://localhost:9292">Rackup</a>
+        ......
+        <a href="http://localhost:9393">Shotgun</a>
+
+    </body>
+</html>
