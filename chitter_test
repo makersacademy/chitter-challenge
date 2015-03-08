@@ -1,0 +1,109 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: tweets; Type: TABLE; Schema: public; Owner: Sebastien; Tablespace: 
+--
+
+CREATE TABLE tweets (
+    id integer NOT NULL,
+    "user" character varying(50),
+    message character varying(50)
+);
+
+
+ALTER TABLE tweets OWNER TO "Sebastien";
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE; Schema: public; Owner: Sebastien
+--
+
+CREATE SEQUENCE tweets_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE tweets_id_seq OWNER TO "Sebastien";
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Sebastien
+--
+
+ALTER SEQUENCE tweets_id_seq OWNED BY tweets.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Sebastien
+--
+
+ALTER TABLE ONLY tweets ALTER COLUMN id SET DEFAULT nextval('tweets_id_seq'::regclass);
+
+
+--
+-- Data for Name: tweets; Type: TABLE DATA; Schema: public; Owner: Sebastien
+--
+
+COPY tweets (id, "user", message) FROM stdin;
+\.
+
+
+--
+-- Name: tweets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Sebastien
+--
+
+SELECT pg_catalog.setval('tweets_id_seq', 2, true);
+
+
+--
+-- Name: tweets_pkey; Type: CONSTRAINT; Schema: public; Owner: Sebastien; Tablespace: 
+--
+
+ALTER TABLE ONLY tweets
+    ADD CONSTRAINT tweets_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: Sebastien
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM "Sebastien";
+GRANT ALL ON SCHEMA public TO "Sebastien";
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

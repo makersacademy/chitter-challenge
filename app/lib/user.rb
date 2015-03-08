@@ -27,4 +27,5 @@ include DataMapper::Resource
       nil
     end
   end
+
 end

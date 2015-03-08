@@ -22,5 +22,4 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-
 end

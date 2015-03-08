@@ -24,7 +24,6 @@ feature 'User can only send a tweet when signed in' do
   end
 end
 
-
   def add_tweet(message, user)
     within('#new-tweet') do
       fill_in 'message', :with => message
