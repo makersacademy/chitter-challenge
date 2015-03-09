@@ -1,0 +1,9 @@
+<main>
+  <% if @messages %>
+    <ul id="stream">
+    <% @messages.each do |message|%>
+      <li class="message"><%= message.text %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</main>

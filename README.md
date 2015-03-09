@@ -1,28 +1,23 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
-* In order to use chitter as a maker I want to sign up to the service
-* In order to user chitter as a maker I want to log in
-* In order to avoid others using my account as a maker I want to log out
-* In order to let people know what I am doing as a maker I want to post a message (peep) to chitter
+* In order to use chitter as a maker I want to sign up to the service | done
+* In order to use chitter as a maker I want to log in | done
+* In order to avoid others using my account as a maker I want to log out | done
+* In order to let people know what I am doing as a maker I want to post a message (peep) to chitter | done
 * In order to see what people have to say as a maker I want to see all peeps in chronological order
+
+
+ToDo>
+- Presentation of tweets (creation into db works fine)
+- layout
+- Error when peep is too long
+- rack-messages
 
 Notes:
 ------
