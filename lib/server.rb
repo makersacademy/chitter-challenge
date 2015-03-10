@@ -37,7 +37,8 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.new(:name => params[:name],
+  puts params[:password]
+  @user = User.create(:name => params[:name],
                    :user_name => params[:user_name],
                    :email => params[:email],
                    :password => params[:password],
@@ -51,14 +52,48 @@ post '/users' do
   end
 end
 
-post '/sessions/new' do
-  erb :"sessions/new"
-end
 
 
 get '/signup' do
   erb :signup
 end
+
+get '/signout' do
+  erb :index
+end
+
+get '/sessions/new' do
+  erb :"sessions/new"
+end
+
+
+post '/sessions' do
+  email, password = params[:email], params[:password]
+  user = User.authenticate(email, password)
+  if user
+    session[:user_id] = user.id
+    redirect to ('/')
+  else
+    flash[:errors] = ["The email or password is incorrect"]
+    erb :"sessions/new"
+  end
+end
+
+
+
+delete '/sessions' do
+ flash[:notice] = "Good bye!"
+ session[:user_id] = nil
+ redirect to('/')
+end
+
+
+
+
+
+
+
+
 
 
 

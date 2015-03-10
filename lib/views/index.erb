@@ -14,9 +14,19 @@
   </form>
 </div>
 
+ <% if current_user %>
+   Welcome, <%= current_user.name %>
 
+
+   <form id="sign-out" method="post" action="/sessions">
+     <input type="hidden" name="_method" value="delete">
+     <input type="submit" value="Sign out">
+   </form>
+
+
+ <% else %>
 <a href="/users/new">Sign up</a>
-
-
-
-
+<br>
+<a href="/sessions/new">Sign in</a>
+<br>
+ <% end %>
