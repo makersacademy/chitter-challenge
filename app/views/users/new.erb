@@ -1,0 +1,8 @@
+ <form action="/users" method="post">
+  Name: <input name="name" type="text" required>
+  Username: <input name="username" type="text" required ><br><br>
+  Email: <input name="email" type="email" value="<%= @user.email %>" required>
+  Password: <input name="password" type="password" required><br><br>
+  Password confirmation: <input name="password_confirmation" type="password" required><br><br>
+  <input  id="awesomebutton" type="submit" value="Sign up">
+</form>

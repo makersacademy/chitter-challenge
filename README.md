@@ -1,19 +1,11 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+* Create a fully working clone of Twitter over one weekend
+* You can view my working app at: [http://awesome-chitter.herokuapp.com/](http://awesome-chitter.herokuapp.com/)
 
 Features:
 -------
@@ -42,10 +34,4 @@ Bonus:
 
 If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
 * Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
