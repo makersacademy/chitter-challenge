@@ -1,0 +1,14 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text %>
+    <%= peep.time %></li>
+  <% end %>
+</ul>
+
+
+<div id="new-peep">
+  <form action="/peeps" method="post">
+    Text: <input type="text" name="text">
+    <input type="submit" value="Add peep">
+  </form>
+</div>
