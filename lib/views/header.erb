@@ -1,0 +1,12 @@
+<header>
+
+<% if current_user %>
+
+Welcome, <%= current_user.email %>
+  <form id="sing out" method="post" actions="/sessions">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign out">
+  </form>
+
+
+</header>
