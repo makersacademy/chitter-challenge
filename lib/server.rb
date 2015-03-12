@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'sinatra'
 require './lib/helpers/application'
 require 'rack-flash'
+require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
 
@@ -19,25 +20,4 @@ enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
 use Rack::MethodOverride
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+set :partial_template_engine, :erb

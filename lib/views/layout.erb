@@ -1,21 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter! </title>
+      <link rel="stylesheet" type="text/css" href="/css/application.css">
+      <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    </head>
 <body>
-  <% if current_user %>
-    <h1> Welcome, <%= current_user.email %> </h1>
-  <% end %>
 
-  <% if flash[:errors] && !flash[:errors].empty? %>
-  Sorry, there were the following problems with the form.
-    <ul id="errors">
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-<%= yield %>
-
-
-
-
+      <%= partial :flash %>
+      <%= partial :header %>
+      <%= yield %>
 
 </body>
+</html>

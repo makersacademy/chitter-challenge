@@ -1,11 +1,12 @@
+
+
 <% if flash[:notice] %>
-  <center>
-  <br>
   <div id="notice">
     <%= flash[:notice] %>
   </div>
   </center>
 <% end %>
+
 
 <% if flash[:errors] && !flash[:errors].empty? %>
   <br>
@@ -17,3 +18,9 @@
   <% end %>
   </ul>
 <% end %>
+
+
+
+
+
+

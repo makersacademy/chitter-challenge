@@ -7,6 +7,8 @@ gem 'capybara'
 gem 'launchy'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
+gem 'sinatra-partial'
+
 
 
 

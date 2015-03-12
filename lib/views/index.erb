@@ -1,5 +1,12 @@
-<h1>Welcome to the Chitter</h1>
+<center>
 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<br>
+<h1 class="title">Welcome to the Chitter</h1>
+<br>
+<h2 class="currentPeeps">current peeps:</h2>
+<br>
 <ul>
   <% @peeps.each do |peep| %>
     <% @peeps %>
@@ -7,26 +14,10 @@
   <% end %>
 </ul>
 <br>
-<div id="new-peep">
-  <form action="/peeps" method="post">
-    message: <input type="text" name="message">
+
+  <form id='new-peep' action="/peeps" method="post">
+    Peep here: <input type="text" name="message">
     <input type="submit" value="Add peep">
   </form>
-</div>
 
- <% if current_user %>
-   Welcome, <%= current_user.name %>
-
-
-   <form id="sign-out" method="post" action="/sessions">
-     <input type="hidden" name="_method" value="delete">
-     <input type="submit" value="Sign out">
-   </form>
-
-
- <% else %>
-<a href="/users/new">Sign up</a>
-<br>
-<a href="/sessions/new">Sign in</a>
-<br>
- <% end %>
+</center>

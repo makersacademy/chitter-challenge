@@ -1,12 +1,24 @@
 <header>
 
-<% if current_user %>
+  <div id="logo"><a href='/' id='logo'>Chitter</a></div>
 
-Welcome, <%= current_user.email %>
-  <form id="sing out" method="post" actions="/sessions">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out">
+  <div id="user-peeps">
+
+  <span id="welcome-message">
+    <% if current_user %>
+     Welcome, <%= current_user.name %>
+  </span>
+
+  <form id="sign-out" method="post" action="/sessions">
+   <input type="hidden" name="_method" value="delete">
+   <input type="submit" value="Sign out">
   </form>
 
+  <% else %>
+    <a href="/users/new">Sign up</a>
+    <br>
+    <a href="/sessions/new">Sign in</a>
+    <br>
+  <% end %>
 
 </header>

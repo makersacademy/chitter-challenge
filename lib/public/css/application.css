@@ -1,0 +1,52 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-color:0066FF;
+}
+
+.currentPeeps{
+  font-size: 20px;
+}
+
+#new-peep {
+  width:200px;
+}
+
+
+a.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 80px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  text-decoration: none; /*no underlining*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+}
+
+header {
+  height: 40px;
+  background-color: black;
+  color: white;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  padding: 0 20px;
+}
+
+* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+    margin-right: 20px;
+
+  }
+  header #logo {
+    display: flex;
+  }
+
+  header #user-links {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }

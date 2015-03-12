@@ -4,7 +4,7 @@ feature "User signs up and" do
 
   scenario "when being a new user visiting the site" do
     expect{ sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, alice@example.com")
+    expect(page).to have_content("Chitter Welcome, riz")
   end
 
   scenario "with a password that doesn't match" do
@@ -46,14 +46,14 @@ feature "User signs in" do
 
   scenario "with correct credentials" do
     visit '/'
-    expect(page).not_to have_content("Welcome, test@test.com")
+    expect(page).not_to have_content("Chitter Welcome, Rizwan")
     sign_in('test@test.com', 'test')
-    expect(page).to have_content("Welcome, test@test.com")
+    expect(page).to have_content("Chitter Welcome, Rizwan")
   end
 
   scenario "with incorrect credentials" do
     visit '/'
-    expect(page).not_to have_content("Welcome, test@test.com")
+    expect(page).not_to have_content("Chitter Welcome, Rizwan")
     sign_in('test@test.com', 'wrong')
 
   #   expect(page).not_to have_content("Welcome, test@test.com")
