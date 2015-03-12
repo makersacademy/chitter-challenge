@@ -1,26 +1,23 @@
 <div class="container">
 
-
-<h1 class="title">Please sign up</h1>
+<br>
+<h1 class="title">Please sign up</h1><br>
 
 <form method="post" action='/users'>
 
 <div id="form">
-  <p>Name</p>
-  <input type="text" name='name' placeholder="enter name">
-  <p>User Name</p>
-  <input type="text" name='user_name' placeholder="enter user name">
-  <p>Email</p>
-  <input name="email" type="text" value="<%= @user.email %>" placeholder= "enter email">
 
-  <p>Password</p>
-  <input type="password" name='password' placeholder="enter password">
-  <p>Confirm Password</p>
-  <input name="password_confirmation" type="password" placeholder= "confirm password">
+  Name: <input type="text" name='name' placeholder="enter name"><br><br>
+  User Name: <input type="text" name='user_name' placeholder="enter user name"><br><br>
+  email:<input name="email" type="text" value="<%= @user.email %>" placeholder= "enter email"><br><br>
+  Password: <input type="password" name='password' placeholder="enter password"><br><br>
+  Confirm Password: <input name="password_confirmation" type="password" placeholder= "confirm password"><br>
+  <br>
+  <p><input type="submit" value="Sign up" class="button"></p>
+
+
 </div>
 
-  <p></p>
-  <input type="submit" value="Sign up">
 </form>
 
 

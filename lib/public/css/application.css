@@ -3,16 +3,24 @@ body {
   background-color:0066FF;
 }
 
-.currentPeeps{
+
+.title{
+  text-align: center;
   font-size: 20px;
+  color: rgb(144,178,71);
+}
+
+.currentPeeps{
+  font-size: 2;
 }
 
 #new-peep {
-  width:200px;
+  width:150px;
+  font-style: italic;
+  border: 2px solid white;
 }
 
-
-a.button {
+#sign-out{
   display: inline-block; /* display inline but have dimensions */
   width: 80px;
   background-color: #82B743;
@@ -25,6 +33,33 @@ a.button {
   margin-left: 5px;
   margin-right: 5px;
   text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+}
+
+
+#form{
+  text-align: center;
+}
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 80px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  text-decoration: none; /*no underlining*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+}
+
+#welcome-message{
+  color: rgb(144,178,71);
+  font-size: 20px;
+  font-style: italic;
+  float: center;
 }
 
 header {
@@ -42,7 +77,11 @@ header {
 
   }
   header #logo {
+    font-style: italic;
+    color: rgb(240,239,136);
+    font-size: 30px;
     display: flex;
+    padding: 10 20px;
   }
 
   header #user-links {

@@ -85,10 +85,9 @@ def sign_in(email, password)
     click_button 'Sign in'
 end
 
-
   def sign_out
-  click_button "Sign out"
-end
+    click_button "Sign out"
+  end
 
 
 

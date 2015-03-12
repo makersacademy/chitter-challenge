@@ -1,13 +1,14 @@
 <header>
 
-  <div id="logo"><a href='/' id='logo'>Chitter</a></div>
+  <div id="logo">Chitter</div>
 
   <div id="user-peeps">
 
-  <span id="welcome-message">
+  <span id="welcome-message"><br>
     <% if current_user %>
      Welcome, <%= current_user.name %>
   </span>
+
 
   <form id="sign-out" method="post" action="/sessions">
    <input type="hidden" name="_method" value="delete">

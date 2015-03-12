@@ -1,23 +1,28 @@
 <center>
-
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
 <br>
 <h1 class="title">Welcome to the Chitter</h1>
 <br>
 <h2 class="currentPeeps">current peeps:</h2>
 <br>
 <ul>
-  <% @peeps.each do |peep| %>
-    <% @peeps %>
+
+  <% if current_user %>
+    <form id='new-peep' action="/peeps" method="post">
+    Peep here: <input type="text" name="message">
+    <input type="submit" value="Add peep">
+  </form>
+  <% end %>
+
+  <% @peeps.reverse.each do |peep| %>
+    <% @peeps %> <br>
     <li><%= peep.message %></li>
+    <%= peep.created_at.strftime("%I:%M %p") %><br>
+
+
   <% end %>
 </ul>
 <br>
 
-  <form id='new-peep' action="/peeps" method="post">
-    Peep here: <input type="text" name="message">
-    <input type="submit" value="Add peep">
-  </form>
+
 
 </center>
