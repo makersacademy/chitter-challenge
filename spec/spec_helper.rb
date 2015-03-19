@@ -3,6 +3,8 @@ ENV['RACK_ENV'] = 'test'
 require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 
 Capybara.app = Sinatra::Application
 
