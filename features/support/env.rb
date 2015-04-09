@@ -1,4 +1,3 @@
-require 'capybara'
 require 'capybara/cucumber'
 
 require './server'
