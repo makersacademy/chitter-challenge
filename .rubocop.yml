@@ -1,0 +1,70 @@
+require: rubocop-rspec
+
+EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Description: Keeps track of empty lines around class bodies.
+  Enabled: true
+  EnforcedStyle: empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+Style/EmptyLinesAroundModuleBody:
+  Description: Keeps track of empty lines around module bodies.
+  Enabled: true
+  EnforcedStyle: empty_lines
+  SupportedStyles:
+  - empty_lines
+  - no_empty_lines
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Description: Document classes and non-namespace modules.
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Description: Checks if the method definitions have or don't have parentheses.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#method-parens
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Description: Enforces the names of some block params.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#reduce-blocks
+  Enabled: false
+  Methods:
+  - reduce:
+    - a
+    - e
+  - inject:
+    - a
+    - e
+
+Lint/UselessAssignment:
+  Description: Checks for useless assignment to a local variable.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Description: Checks trailing blank lines and final newline.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#newline-eof
+  Enabled: false
+  EnforcedStyle: final_newline
+  SupportedStyles:
+  - final_newline
+  - final_blank_line
+
+
+Style/RedundantSelf:
+  Description: Don't use self where it's not needed.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-self-unless-required
+  Enabled: false
+
+Style/Semicolon:
+  Description: Don't use semicolons to terminate expressions.
+  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
+  Enabled: false
+  AllowAsExpressionSeparator: false
