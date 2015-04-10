@@ -32,6 +32,18 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/login/process/' do
+    user = User.first(email: params[:email])
+    if user
+      if user.password == params[:password]
+        session[:user_id] = user.id
+        redirect('/')
+      end
+    end
+    session[:correct_log_in_details] = false
+    redirect('/welcome/')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
