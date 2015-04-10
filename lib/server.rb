@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   enable :sessions
-  use Rack::Flash
+  # use Rack::Flash
 
   get '/' do
     erb :index
@@ -37,6 +37,17 @@ class Chitter < Sinatra::Base
     @users = User.all
     erb :'users/all'
   end
+
+  # Hmm, perhaps it doesn't wipe the session properly
+  # Definitely does not wipe it, username still visible
+  def sign_out
+    @current_user = nil
+    session[:user_id] = nil
+    redirect to('/')
+  end
+  # For html
+  # <button type="button" onclick="<% sign_out %>">Log Out</button>
+  # Inserting this html somehow breaks the whole website
 
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
