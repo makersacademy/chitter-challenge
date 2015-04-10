@@ -4,7 +4,7 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/blabber_#{env}")
 
-require '/models/blabbs'
+require_relative 'models/blabbs'
 
 DataMapper.finalize
 
