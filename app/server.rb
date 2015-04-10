@@ -1,4 +1,6 @@
 require 'data_mapper'
+require 'tilt/erb'
+require './app/peep'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -16,6 +18,12 @@ class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.all
     erb :index
+  end
+
+  post '/peeps' do
+    message = params['message']
+    Peep.create message: message
+    redirect to '/'
   end
 
   run! if app_file == $PROGRAM_NAME

@@ -3,3 +3,10 @@
     <li><%= peep.message %><%= peep.user_name %><%= peep.user_handle %></li>
   <% end %>
 </ul>
+
+<div id='new-peep'>
+  <form action='/peeps' method='post'>
+    Your Peep: <input type='text' name='message'>
+    <input type='submit' value='Peep!'>
+  </form>
+</div>

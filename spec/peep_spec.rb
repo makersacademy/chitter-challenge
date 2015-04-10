@@ -1,6 +1,7 @@
 require './app/peep'
 
 describe Peep do
+
   let(:peep) { described_class.first }
 
   it 'database is empty' do
@@ -32,4 +33,5 @@ describe Peep do
     peep.destroy
     expect(described_class.count).to eq 0
   end
+
 end
