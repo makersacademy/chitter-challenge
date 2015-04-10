@@ -1,10 +1,9 @@
 <h1>Please sign up in order to publish your first blabb!<h1>
 
 <form action='/users' method='post'>
-  
-  <input name='name' type='text' placeholder='Name'>
-  <input name='username' type='text' placeholder='Username'>
-  <input name='email' type='text' placeholder='Email'>
+  <input name='name' type='text' value='<%= @user.name %>' placeholder='Name'>
+  <input name='username' type='text' value='<%= @user.username %>' placeholder='Username'>
+  <input name='email' type='text' value='<%= @user.email %>' placeholder='Email'>
   <input name='password' type='password' placeholder='Password'>
   <input name='password_confirmation' type='password' placeholder='Confirm password'>
   <input type='submit' value='Sign up'>

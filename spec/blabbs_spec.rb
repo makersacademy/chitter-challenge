@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Blabbs do
 
   context 'Demonstration of how datamapper works' do

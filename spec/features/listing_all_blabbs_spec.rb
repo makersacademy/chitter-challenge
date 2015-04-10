@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'User browses the list of blabbs' do
 
   before(:each) do
