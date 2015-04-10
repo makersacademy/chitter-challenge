@@ -5,4 +5,11 @@
  <li><%= post.username %><%= post.message %><</li>
 <% end %>
 </ul>
+<div id='new-post'>
+  <form action='/posting' method='post'>
+    Username: <input type='text' name='username'>
+    Message: <input type='text' name='message'>
+    <input type='submit' value='Post'>
+  </form>
+</div>
 </html>
