@@ -35,6 +35,16 @@ When(/^I enter Dans details to login$/) do
   fill_in('returning_password', with: 'batman')
 end
 
+When(/^I enter Dans email incorrectly$/) do
+  fill_in('returning_email', with: 'tesdt@test.com')
+  fill_in('returning_password', with: 'batman')
+end
+
+When(/^I enter Dans password incorrectly$/) do
+  fill_in('returning_email', with: 'test@test.com')
+  fill_in('returning_password', with: 'satman')
+end
+
 
 Given(/^I have previously signed up as Samuel$/) do
   User.create(name: "Samuel Russell Hampden Joseph",

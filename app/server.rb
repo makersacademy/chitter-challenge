@@ -21,8 +21,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions/new' do
     user = User.first(email: params[:returning_email])
-    session[:name] = user.name.split(' ').first
-    "Welcome #{session[:name]}!"
+    if user && user.password == params[:returning_password]
+      session[:name] = user.name.split(' ').first
+      "Welcome #{session[:name]}!"
+    else
+      "No user with those details!"
+    end
   end
 
   # start the server if ruby file executed directly

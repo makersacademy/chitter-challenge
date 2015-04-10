@@ -32,4 +32,26 @@ Scenario: Log In as a different user
           Given I visit the homepage
           Then I should see "Welcome Dan!"
 
+Scenario: Cannot Login With Incorrect Email
+          Given I visit the homepage
+          And I cannot see "Welcome Dan!"
+          And I have previously signed up as Dan
+          When I enter Dans email incorrectly
+          And I click "Log In!"
+          Then I cannot see "Welcome Dan!"
+          And I should see "No user with those details!"
+          Given I visit the homepage
+          Then I cannot see "Welcome Dan!"
+
+Scenario: Cannot Login With Incorrect Password
+          Given I visit the homepage
+          And I cannot see "Welcome Dan!"
+          And I have previously signed up as Dan
+          When I enter Dans password incorrectly
+          And I click "Log In!"
+          Then I cannot see "Welcome Dan!"
+          And I should see "No user with those details!"
+          Given I visit the homepage
+          Then I cannot see "Welcome Dan!"
+
 
