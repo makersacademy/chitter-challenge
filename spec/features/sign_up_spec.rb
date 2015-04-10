@@ -50,11 +50,7 @@ feature 'Signing up' do
                    'same name') } .to change(User, :count).by(0)
     expect(page).to have_content('This name has be taken')
   end
-  # scenario 'with a password that does not match' do
-  # end
 
-  # scenario 'with an email that is already registered' do
-  # end
 end
 
 def sign_up(email = 'test@test.com',
