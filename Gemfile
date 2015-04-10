@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'sinatra'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
+gem 'rack-flash3'
 
 group :test do
   gem 'rspec'

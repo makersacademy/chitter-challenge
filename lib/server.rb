@@ -1,19 +1,29 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'rack-flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
   set :views, proc { File.join(root, "..", "views") }
 
+  enable :sessions
+  use Rack::Flash
+
   get '/' do
-    @current_user = User.get(1)
     erb :index
   end
 
-  post '/users' do
-    User.create(name: params['Name'], email: params['Email'],
-                username: params['Username'])
+  post '/users/new' do
+    user = User.create(name: params['Name'], email: params['Email'],
+                       username: params['Username'])
+    if user.save
+      session[:user_id] = user.id
+      @current_user = User.get(session[:user_id])
+    end
+    # else
+    #   flash.now[:errors] = user.errors.full_messages
+    # end
     erb :'users/new'
   end
 

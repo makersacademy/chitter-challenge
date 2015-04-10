@@ -1,3 +1,8 @@
-Hello, <%= params[:Name] %>
+<% if @current_user %>
+  Hello <%= @current_user.name %>,
+<% else %>
+  That email is already taken, click <a href='/'>here</a> to try again.
+<% end %>
 
-Here is a list of all our users<br><a href='/users/new'>Here</a>
+<br>
+There is a list of all our users <a href='/users/all'>here</a>
