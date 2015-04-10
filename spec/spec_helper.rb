@@ -6,6 +6,8 @@ require_relative '../app/server.rb'
 
 Capybara.app = Chitter
 
+ENV['RACK_ENV'] = 'test'
+
 RSpec.configure do |config|
 
   config.before :suite do

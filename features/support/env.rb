@@ -3,12 +3,25 @@
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', '..', 'app/server.rb')
-
+require 'database_cleaner'
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
 Capybara.app = Chitter
+
+ENV['RACK_ENV'] = 'test'
+
+DatabaseCleaner.clean_with :truncation
+DatabaseCleaner.strategy = :transaction
+
+Before do
+  DatabaseCleaner.start
+end
+
+After do
+  DatabaseCleaner.clean
+end
 
 class ChitterWorld
   include Capybara::DSL

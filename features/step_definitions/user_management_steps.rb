@@ -14,7 +14,7 @@ Then(/^I should see "([^"]*)"$/) do |arg1|
 end
 
 Then(/^the number of users in the database should increase by (\d+)$/) do |arg1|
-  expect(User).count to eq(arg1)
+  expect(User.count).to eq(arg1.to_i)
 end
 
 When(/^I click "([^"]*)"$/) do |arg1|

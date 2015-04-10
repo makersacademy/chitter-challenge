@@ -16,7 +16,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    "Welcome #{params[:name].split(" ").first}!"
+    User.create(email: params[:email],
+                name: params[:name],
+                password: params[:password],
+                username: params[:username])
+    "Welcome #{params[:name].split(' ').first}!"
   end
 
   # start the server if ruby file executed directly
