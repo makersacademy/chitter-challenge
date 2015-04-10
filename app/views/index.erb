@@ -1,7 +1,14 @@
-<h1> Welcome to blabber! blabb! blabb!! blabb!!!<h1>
+<h1>Welcome to blabber! Are you ready to blabb?!!!<h1>
 
 <ul>
   <% @blabbs.each do |blabbs| %>
   <li><%= blabbs.message %></li>
   <% end %>
 </ul>
+
+<div id='new-blabb'>
+  <form action='/blabbs' method='post'>
+    <input type='text' name='message' placeholder='blabbs'>
+    <input type='submit' value='Add blabb'>
+  </form>
+</div>
