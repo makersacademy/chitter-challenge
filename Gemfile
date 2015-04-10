@@ -14,5 +14,6 @@ group :test do
   gem 'coveralls', require: false
   gem 'cucumber-sinatra'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
