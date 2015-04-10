@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'rack-flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user'
 
@@ -6,20 +7,22 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'superbly secret'
+  use Rack::Flash
 
   get '/' do
     erb :index
   end
 
   post '/users' do
-    if User.first(email: params[:email])
-      return "There is already a user with this email!"
+    user = User.new(email: params[:email],
+                name: params[:name],
+                password: params[:password],
+                username: params[:username])
+    if user.save
+      "Welcome #{params[:name].split(' ').first}!"
     else
-      User.create(email: params[:email],
-                  name: params[:name],
-                  password: params[:password],
-                  username: params[:username])
-      return "Welcome #{params[:name].split(' ').first}!"
+      flash.now[:errors] = user.errors
+      erb :index
     end
   end
 

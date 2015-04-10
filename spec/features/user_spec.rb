@@ -18,7 +18,7 @@ feature 'user signs up' do
     sign_up
     expect(User.first.password_digest).not_to eq('test')
   end
-  scenario "tries to sign up with duplicate email" do
+  scenario "fails with duplicate email" do
     expect(User.count).to eq(0)
     sign_up
     user = User.new(name: "thomas",
@@ -29,7 +29,7 @@ feature 'user signs up' do
     expect(user.errors[:email].first).to eq "There is already a user with this email!"
     expect(User.count).to eq(1)
   end
-  scenario "tries to sign up with duplicate username" do
+  scenario "fails with duplicate username" do
     expect(User.count).to eq(0)
     sign_up
     user = User.new(name: "thomas",
