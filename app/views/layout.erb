@@ -1,6 +1,16 @@
 <body>
   <header>
-    <%= "Happy Chitting, #{@user.username}" if @user %>
+    <% if @user %>
+      <%= "Happy Chitting, #{@user.username}" %>
+      <form action='/users/sign-out' method='post'>
+        <button>Sign out</button>
+      </form>
+    <% end %>
   </header>
+  <% if flash[:notice]%>
+    <div class="flash notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
