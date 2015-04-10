@@ -1,8 +1,10 @@
+ENV['RACK_ENV'] = 'test'
+require './server.rb'
+require 'database_cleaner'
+require 'capybara/rspec'
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+Capybara.app = ChitterChatter
+
+SimpleCov.start
