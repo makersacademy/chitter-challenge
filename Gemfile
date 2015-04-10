@@ -7,6 +7,6 @@ group :test do
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'coveralls', require: false
 end
 
-gem 'coveralls', require: false
