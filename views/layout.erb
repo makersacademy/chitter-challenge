@@ -1,1 +1,14 @@
+<style>
+span {
+  float: right;
+  font-size: 200%;
+}
+body {
+  color: orange;
+  background-color: teal;
+}
+</style>
+<% if current_user %>
+  <span><%= current_user.username %></span>
+<% end %>
 <%= yield %>

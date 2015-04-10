@@ -14,12 +14,13 @@ feature 'User can sign up' do
     expect(page).to have_content('bat')
   end
 
-  xscenario 'once signed up, their username is displayed on every page' do
+  scenario 'once signed up, their username is displayed on every page' do
     sign_up
     visit '/'
     expect(page).to have_content 'cat'
   end
 
+  # This could be done better using flash
   scenario 'error will be raised when their email is already registered' do
     sign_up
     sign_up
