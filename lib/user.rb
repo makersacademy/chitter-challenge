@@ -9,7 +9,7 @@ class User
   has n, :posts, through: Resource
   
   property :id,              Serial
-  property :email,           String
+  property :email,           String, unique: true
   property :password,        Text
   property :name,            String
   property :username,        String

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'Signing up' do
+  # break these up into seperate tests
   scenario 'as a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, test_name')
@@ -20,6 +21,22 @@ feature 'Signing up' do
       expect(current_path).to eq('/users')
       expect(page).to have_content('Password does not match the confirmation')
     end
+  end
+
+  scenario 'with an email that is already taken' do
+    sign_up('test@test.com',
+                   '12345',
+                   '12345',
+                   'test_name',
+                   'unique_un_1')
+    expect { sign_up('test@test.com',
+                   '12345',
+                   '12345',
+                   'test_name',
+                   'unique_un_2') } .to change(User, :count).by(0)
+  end
+
+  scenario 'with a username that is already taken' do
   end
   # scenario 'with a password that does not match' do
   # end
