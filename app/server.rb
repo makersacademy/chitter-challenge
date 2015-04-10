@@ -40,7 +40,11 @@ class Chitter < Sinatra::Base
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
-    redirect to('/')
+    redirect to('/welcome_message')
+  end
+
+  get '/welcome_message' do
+    erb :welcome_message
   end
 
   helpers do
