@@ -20,3 +20,35 @@ end
 When(/^I click "([^"]*)"$/) do |arg1|
   click_button(arg1)
 end
+
+Given(/^I cannot see "([^"]*)"$/) do |arg1|
+  expect(page).not_to have_content(arg1)
+end
+
+When(/^I enter Sams details to login$/) do
+  fill_in('returning_email', with: 'sam@makersacademy.com')
+  fill_in('returning_password', with: 's3cret')
+end
+
+When(/^I enter Dans details to login$/) do
+  fill_in('returning_email', with: 'test@test.com')
+  fill_in('returning_password', with: 'batman')
+end
+
+
+Given(/^I have previously signed up as Samuel$/) do
+  User.create(name: "Samuel Russell Hampden Joseph",
+              email: "sam@makersacademy.com",
+              username: 'tansaku',
+              password: 's3cret')
+end
+
+Given(/^I have previously signed up as Dan$/) do
+  User.create(name: "Dan",
+              email: "test@test.com",
+              username: 'tester_dan',
+              password: 'batman')
+end
+
+
+

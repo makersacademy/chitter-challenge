@@ -7,6 +7,7 @@ require_relative '../app/server.rb'
 Capybara.app = Chitter
 
 ENV['RACK_ENV'] = 'test'
+DataMapper.auto_migrate!
 
 RSpec.configure do |config|
 

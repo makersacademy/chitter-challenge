@@ -4,6 +4,9 @@ require_relative './models/user'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'superbly secret'
+
   get '/' do
     erb :index
   end
@@ -14,6 +17,12 @@ class Chitter < Sinatra::Base
                 password: params[:password],
                 username: params[:username])
     "Welcome #{params[:name].split(' ').first}!"
+  end
+
+  post '/sessions/new' do
+    user = User.first(email: params[:returning_email])
+    session[:name] = user.name.split(' ').first
+    "Welcome #{session[:name]}!"
   end
 
   # start the server if ruby file executed directly

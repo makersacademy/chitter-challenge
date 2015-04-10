@@ -9,6 +9,7 @@ require 'capybara/cucumber'
 require 'rspec'
 
 Capybara.app = Chitter
+DataMapper.auto_migrate!
 
 DatabaseCleaner.clean_with :truncation
 DatabaseCleaner.strategy = :transaction
