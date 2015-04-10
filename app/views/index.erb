@@ -1,14 +1,7 @@
 <h1>Welcome to blabber! Are you ready to blabb?!!!</h1>
 
-<ul>
+<ul> id='blabbs'>
   <% @blabbs.each do |blabbs| %>
-  <li><%= blabbs.message %></li>
+ <%= partial :blabbs, locals: {blabbs: blabbs} %>
   <% end %>
 </ul>
-
-<div id='new-blabb'>
-  <form action='/blabbs' method='post'>
-    <input type='text' name='message' placeholder='blabbs'>
-    <input type='submit' value='Add blabb'>
-  </form>
-</div>
