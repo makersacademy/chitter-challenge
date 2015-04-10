@@ -12,5 +12,3 @@ group :test do
   gem 'capybara'
   gem 'coveralls', require: false
 end
-
-
