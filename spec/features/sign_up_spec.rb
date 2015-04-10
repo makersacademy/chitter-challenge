@@ -4,15 +4,13 @@ feature 'Signing up' do
   scenario 'as a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, test_name')
+    expect(page).not_to have_content('Password does not match the confirmation')
     expect(User.first.email).to eq('test@test.com')
     expect(User.first.name).to eq('test_name')
     expect(User.first.username).to eq('user_numero_uno')
   end
 
   context 'with a password that does not match' do
-    # before(:each) do
-    #   let(:faulty_sign_up) 
-    # end
     scenario 'doesnt add the user to the database' do
       expect { sign_up('test@test.com', '12345', '12346') }.to change(User, :count).by(0)
     end
