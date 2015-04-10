@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'Feature - Chitter Homepage' do
 
   before(:each) do
