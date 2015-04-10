@@ -3,7 +3,10 @@ require 'spec_helper'
 feature 'Signing up' do
   scenario 'as a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
-
+    expect(page).to have_content('Welcome, test_name')
+    expect(User.first.email).to eq('test@test.com')
+    expect(User.first.name).to eq('test_name')
+    expect(User.first.username).to eq('user_numero_uno')
   end
 
   # scenario 'with a password that does not match' do

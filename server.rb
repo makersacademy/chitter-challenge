@@ -25,6 +25,7 @@ class Chittter < Sinatra::Base
                 password: params[:password],
                 name: params[:name],
                 username: params[:username])
+    erb :index
   end
 
   # start the server if ruby file executed directly
