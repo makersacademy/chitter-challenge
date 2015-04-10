@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'sinatra'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -9,3 +10,8 @@ require_relative 'models/blabbs'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+get '/' do
+  @blabbs = Blabbs.all
+  erb :index
+end
