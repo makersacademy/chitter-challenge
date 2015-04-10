@@ -45,7 +45,6 @@ When(/^I enter Dans password incorrectly$/) do
   fill_in('returning_password', with: 'satman')
 end
 
-
 Given(/^I have previously signed up as Samuel$/) do
   User.create(name: "Samuel Russell Hampden Joseph",
               email: "sam@makersacademy.com",
@@ -60,5 +59,7 @@ Given(/^I have previously signed up as Dan$/) do
               password: 'batman')
 end
 
-
+Then(/^the number of users in the database should be (\d+)$/) do |arg1|
+  expect(User.count).to be arg1.to_i
+end
 

@@ -54,4 +54,13 @@ Scenario: Cannot Login With Incorrect Password
           Given I visit the homepage
           Then I cannot see "Welcome Dan!"
 
+Scenario: Cannot Signup Twice
+          Given I have previously signed up as Samuel
+          Given I visit the homepage
+          And I cannot see "Welcome Samuel!"
+          When I enter my details to signup
+          And I click "Join In!"
+          Then I should see "There is already a user with this email!"
+          And the number of users in the database should be 1
+
 

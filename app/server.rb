@@ -12,11 +12,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email],
-                name: params[:name],
-                password: params[:password],
-                username: params[:username])
-    "Welcome #{params[:name].split(' ').first}!"
+    if User.first(email: params[:email])
+      return "There is already a user with this email!"
+    else
+      User.create(email: params[:email],
+                  name: params[:name],
+                  password: params[:password],
+                  username: params[:username])
+      return "Welcome #{params[:name].split(' ').first}!"
+    end
   end
 
   post '/sessions/new' do
