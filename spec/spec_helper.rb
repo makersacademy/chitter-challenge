@@ -5,6 +5,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
 
+require 'helpers/sessions.rb'
 require './server.rb'
 
 Capybara.app = Chitter
