@@ -17,6 +17,7 @@ class Chittter < Sinatra::Base
   use Rack::Flash
 
   get '/' do
+    @who_to_welcome = session[:username] # if session[:user_name]
     erb :index
   end
 
@@ -31,15 +32,29 @@ class Chittter < Sinatra::Base
                 name: params[:name],
                 username: params[:username])
     if user.save
+      session[:username] = params[:name]
       redirect to('/')
     else
       flash[:errors] = user.errors.full_messages
+     # flash[:message] = 'email or password is incorrect'
       erb :'users/new'
     end
   end
 
   get '/sessions/new' do
     erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
+    if user
+      session[:username] = user.username
+      redirect('/')
+    else
+      flash[:message] = 'email or password is incorrect'
+      redirect('/sessions/new')
+    end
   end
 
   # start the server if ruby file executed directly
