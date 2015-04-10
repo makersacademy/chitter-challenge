@@ -15,6 +15,7 @@ DataMapper.auto_upgrade!
 class Chittter < Sinatra::Base
   enable :sessions
   use Rack::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @who_to_welcome = session[:username] # if session[:user_name]
@@ -55,6 +56,13 @@ class Chittter < Sinatra::Base
       flash[:message] = 'email or password is incorrect'
       redirect('/sessions/new')
     end
+  end
+
+  delete '/sessions' do
+    p session
+    session[:username] = nil
+    flash[:notice] = 'Good bye!'
+    redirect('/')
   end
 
   # start the server if ruby file executed directly

@@ -38,6 +38,8 @@ feature 'Logging in' do
   end
 end
 
+# would we want to remember our email in this form or not?
+
 def sign_in(email = 'test@test.com', password='12345')
   visit '/sessions/new'
   fill_in :email, with: email
