@@ -1,0 +1,14 @@
+<ol reversed>
+  <% @convos.each do |convo| %>
+    <li><a><%= convo.message %><br>
+      Tags: <%= convo.tags.map{|i| i.text}.join(", ") %></li>
+  <% end %>
+</ol>
+
+<div id="new-message">
+  <form action="/message" method="post">
+    Message: <input type="text" name="message">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Post Message">
+  </form>
+</div>
