@@ -1,0 +1,5 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %><%= peep.user_name %><%= peep.user_handle %></li>
+  <% end %>
+</ul>
