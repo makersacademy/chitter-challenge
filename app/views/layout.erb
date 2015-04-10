@@ -1,0 +1,6 @@
+<body>
+  <header>
+    <%= "Happy Chitting, #{@user.username}" if @user %>
+  </header>
+  <%= yield %>
+</body>

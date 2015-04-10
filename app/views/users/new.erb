@@ -1,5 +1,8 @@
+<%= flash[:errors] %>
 <form action='/users/new' method='post'>
   <input type='email' name='email' placeholder='Email'>
-  <input type='username' name='username' placeholder='Username'>
+  <input type='text' name='username' placeholder='Username'>
+  <input type='password' name='password' placeholder='Password'>
+  <input type='password' name='password_confirm' placeholder='Confirm Password'>
   <button>Sign up</button>
 </form>
