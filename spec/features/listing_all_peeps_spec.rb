@@ -1,4 +1,4 @@
-feature 'Chitter homepage' do
+feature 'Feature - Chitter Homepage' do
 
   before(:each) do
     Peep.create message: 'My first peep',
