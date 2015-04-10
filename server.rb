@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'rack-flash'
 
 env = ENV['RACK_ENV'] || 'development'
 
@@ -12,21 +13,29 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chittter < Sinatra::Base
+  enable :sessions
+  use Rack::Flash
+
   get '/' do
-    'Hello Chittter!'
+    erb :index
   end
 
   get '/users/new' do
     erb :'users/new'
   end
 
-  post '/new_user' do
-    User.create(email: params[:email],
+  post '/users' do
+    user = User.create(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation],
                 name: params[:name],
                 username: params[:username])
-    erb :index
+    if user.save
+      redirect to('/')
+    else
+      flash[:errors] = user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   # start the server if ruby file executed directly

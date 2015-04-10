@@ -17,10 +17,11 @@ feature 'Signing up' do
       expect { sign_up('test@test.com', '12345', '12346') }.to change(User, :count).by(0)
     end
 
-    # scenario 'redirects the user back to the sign up form' do
-    #   sign_up('test@test.com', '12345', '12346')
-    #   expect(current_path).to eq('/users')
-    # end
+    scenario 'redirects the user back to the sign up form and displays an error' do
+      sign_up('test@test.com', '12345', '12346')
+      expect(current_path).to eq('/users')
+      expect(page).to have_content('Password does not match the confirmation')
+    end
   end
   # scenario 'with a password that does not match' do
   # end

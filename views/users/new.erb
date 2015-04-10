@@ -1,6 +1,8 @@
 <h1>Please sign up</h1>
-
-<form action='/new_user' method='post'>
+<% if flash[:errors] %>
+  <%= flash[:errors].last %>
+<% end %>
+<form action='/users' method='post'>
   Email:                 <input type='text'     name='email'>
   Password:              <input type='password' name='password'>
   Password Confirmation: <input type='password' name='password_confirmation'>
