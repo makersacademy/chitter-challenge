@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rerun'
+gem 'bcrypt'
 
 group :test do
   gem 'database_cleaner'

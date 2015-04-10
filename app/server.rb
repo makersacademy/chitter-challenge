@@ -1,16 +1,14 @@
 require 'data_mapper'
 require 'sinatra'
 
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/blabber_#{env}")
-
 require_relative 'models/blabbs'
 require_relative 'models/user'
 
-DataMapper.finalize
+require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
 
-DataMapper.auto_upgrade!
+enable :sessions
+set :session_secret, 'super secret'
 
 get '/' do
   @blabbs = Blabbs.all
@@ -28,9 +26,11 @@ get '/users/new' do
 end
 
 post '/users' do
-  User.create(name: params[:name],
-              username: params[:username],
-              email: params[:email],
-              password: params[:password])
+  user = User.create(name: params[:name],
+                     username: params[:username],
+                     email: params[:email],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
+  session[:user_id] = user.id
   redirect to('/')
 end
