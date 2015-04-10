@@ -1,4 +1,6 @@
 require 'data_mapper'
+require 'sinatra/base'
+require 'rack-flash'
 require 'tilt/erb'
 require './app/peep'
 require './app/user'
@@ -18,6 +20,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::Flash
 
   get '/' do
     @peeps = Peep.all
@@ -31,17 +34,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create email: params[:email],
+    @user = User.new email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation],
                        user_name: params[:user_name],
                        user_handle: params[:user_handle]
-    session[:user_id] = user.id
-    redirect to('/')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash[:notice] = 'Sorry, your passwords don\'t match'
+      erb :'users/new'
+    end
   end
 
   helpers do

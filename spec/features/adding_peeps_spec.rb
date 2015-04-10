@@ -1,8 +1,8 @@
 # require './spec/spec_helper'
 
-feature 'User adds a new peep' do
+feature 'Feature - Peeps Database' do
 
-  scenario 'when browsing the homepage' do
+  scenario 'Peep can be added to the database' do
     expect(Peep.count).to eq 0
     visit '/'
     add_peep 'My first peep'#, 'Sanjay Purswani', 'sanjsanj'
