@@ -34,6 +34,7 @@ feature 'Signing up' do
                    '12345',
                    'test_name',
                    'unique_un_2') } .to change(User, :count).by(0)
+    expect(page).to have_content('This email address has be taken')
   end
 
   scenario 'with a username that is already taken' do
