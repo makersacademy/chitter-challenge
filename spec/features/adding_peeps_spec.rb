@@ -7,8 +7,8 @@ feature 'User adds a new peep' do
     visit '/'
     add_peep 'My first peep'#, 'Sanjay Purswani', 'sanjsanj'
     expect(Peep.count).to eq 1
-    peep = Peep.first
-    expect(peep.message).to eq 'My first peep'
+    # peep = Peep.first
+    expect(Peep.first.message).to eq 'My first peep'
     # expect(peep.user_name).to eq 'Sanjay Purswani'
     # expect(peep.user_handle).to eq 'sanjsanj'
   end
