@@ -19,7 +19,7 @@ def sign_up(email = 'test@test.com',
             name = 'test_name',
             username = 'user_numero_uno')
   visit '/users/new'
-  fill_in :email, with: eamil
+  fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
   fill_in :name, with: name

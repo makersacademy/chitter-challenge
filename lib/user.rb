@@ -5,7 +5,7 @@ class User
   
   property :id,              Serial
   property :email,           String
-  property :password_digest, Text
+  property :password,        Text
   property :name,            String
-  property :user_name,       String
+  property :username,        String
 end
