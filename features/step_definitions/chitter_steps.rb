@@ -27,5 +27,10 @@ Then(/^I do not see '(.*)'$/) do |content|
 end
 
 Given(/^no users are signed up$/) do
-  Chitter::USERS = []
+  Chitter::USERS.clear
+end
+
+Given(/^the server has restarted$/) do
+  load './server.rb'
+  Capybara.app = Chitter
 end

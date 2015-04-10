@@ -14,3 +14,10 @@ Feature: As a Maker
     When I sign in as 'tansaku'
     Then I see 'Sorry, you have not signed up'
 
+  Scenario: Sign In Even With Server Restart
+    Given I have signed up as 'tansaku'
+    And I am on the homepage
+    And the server has restarted
+    When I sign in as 'tansaku'
+    Then I see 'welcome tansaku'
+

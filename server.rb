@@ -1,6 +1,8 @@
 require 'byebug'
 require 'sinatra'
 
+require 'data_mapper'
+
 class Chitter < Sinatra::Application
 
   USERS = []
@@ -10,16 +12,16 @@ class Chitter < Sinatra::Application
   end
 
   post '/signup' do
-    if params[:signup]
-      USERS << params[:email]
-      "welcome #{params['email']}"
-    else
-      if USERS.include? params[:email]
-        "welcome #{params['email']}"
-      else
-        'Sorry, you have not signed up'
-      end
-    end
+    # if params[:signup]
+    # User.create email: params[:email]
+    "welcome #{params['email']}"
+    # else
+    #   if User.find params[:email]
+    #     "welcome #{params['email']}"
+    #   else
+    #     'Sorry, you have not signed up'
+    #   end
+    # end
   end
 
 end

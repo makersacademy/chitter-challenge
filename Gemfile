@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 gem 'sinatra'
+gem 'data_mapper'
 
 group :test do
   gem 'byebug'
