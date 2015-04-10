@@ -1,9 +1,10 @@
 ENV["RACK_ENV"] = 'test'
 
 require 'capybara/rspec'
-require './lib/server.rb'
+require './server'
 
-Capybara.app = Sinatra::Application
+
+Capybara.app = Chitter
 
 # SimpleCov.formatters = [
 #   SimpleCov::Formatter::HTMLFormatter,
