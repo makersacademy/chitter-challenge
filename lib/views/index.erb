@@ -1,0 +1,8 @@
+<html>
+<h1> Welcome to Chitter </h1>
+<ul>
+<% @posts.each do |post| %>
+ <li><%= post.username %><%= post.message %></a></li>
+<% end %>
+</ul>
+</html>
