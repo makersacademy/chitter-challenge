@@ -7,6 +7,11 @@ group :test do
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
   gem 'coveralls', require: false
+  
+  group :development, :test do
+  gem 'rspec'
 end
 

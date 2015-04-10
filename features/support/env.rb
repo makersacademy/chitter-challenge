@@ -10,7 +10,7 @@ require 'rspec'
 
 Capybara.app = chitter
 
-class chitterWorld
+class ChitterWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
