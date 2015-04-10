@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     redirect('/welcome/') if !session[:user_id]
-    'Welcome, ' + User.first(id: session[:user_id]).email
+    erb :logged_in_homepage
   end
 
   get '/welcome/' do
@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
     if params[:password] == params[:password_confirmation]
       user = User.create(email: params[:email], password: params[:password])
       session[:user_id] = user.id
+      # puts 'signed in as' + user.email
       redirect('/')
     else
       session[:passwords_match] = false
@@ -42,6 +43,11 @@ class Chitter < Sinatra::Base
     end
     session[:correct_log_in_details] = false
     redirect('/welcome/')
+  end
+
+  get '/logout/process/' do
+    session[:user_id] = nil
+    redirect('/')
   end
 
   # start the server if ruby file executed directly
