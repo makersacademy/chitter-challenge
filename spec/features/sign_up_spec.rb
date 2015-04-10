@@ -33,11 +33,22 @@ feature 'Signing up' do
                    '12345',
                    '12345',
                    'test_name',
-                   'unique_un_2') } .to change(User, :count).by(0)
+                   'same name') } .to change(User, :count).by(0)
     expect(page).to have_content('This email address has be taken')
   end
 
   scenario 'with a username that is already taken' do
+    sign_up('test@test.com',
+                   '12345',
+                   '12345',
+                   'test_name',
+                   'unique_un_1')
+    expect { sign_up('unique_email@test.com',
+                   '12345',
+                   '12345',
+                   'test_name',
+                   'same name') } .to change(User, :count).by(0)
+    # expect(page).to have_content('This email address has be taken')
   end
   # scenario 'with a password that does not match' do
   # end

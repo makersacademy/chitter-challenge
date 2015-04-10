@@ -1,6 +1,9 @@
 <h1>Please sign up</h1>
 <% if flash[:errors] %>
-  <%= flash[:errors].last %>
+  <% flash[:errors].each do |error| %>
+  <%= error %>
+  <% #style this block %>
+  <% end %>
 <% end %>
 <form action='/users' method='post'>
   Email:                 <input type='text'     name='email'>
