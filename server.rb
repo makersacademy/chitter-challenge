@@ -23,6 +23,7 @@ class Chittter < Sinatra::Base
   post '/new_user' do
     User.create(email: params[:email],
                 password: params[:password],
+                password_confirmation: params[:password_confirmation],
                 name: params[:name],
                 username: params[:username])
     erb :index

@@ -9,6 +9,19 @@ feature 'Signing up' do
     expect(User.first.username).to eq('user_numero_uno')
   end
 
+  context 'with a password that does not match' do
+    # before(:each) do
+    #   let(:faulty_sign_up) 
+    # end
+    scenario 'doesnt add the user to the database' do
+      expect { sign_up('test@test.com', '12345', '12346') }.to change(User, :count).by(0)
+    end
+
+    # scenario 'redirects the user back to the sign up form' do
+    #   sign_up('test@test.com', '12345', '12346')
+    #   expect(current_path).to eq('/users')
+    # end
+  end
   # scenario 'with a password that does not match' do
   # end
 
