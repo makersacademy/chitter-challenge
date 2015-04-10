@@ -20,8 +20,7 @@ feature 'User adds a new message' do
   end
   scenario 'adds tags to the message' do
     visit '/'
-    add_message('Hello',
-              ['greeting', 'friendly'])
+    add_message('Hello', %w(greeting friendly))
     convo = Convo.first
     expect(convo.tags.map(&:text)).to include('greeting', 'friendly')
     expect(page).to have_content('greeting')

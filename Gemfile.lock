@@ -157,6 +157,8 @@ GEM
       ruby-progressbar (~> 1.4)
     rubocop-rspec (1.2.2)
     ruby-progressbar (1.7.5)
+    shotgun (0.9.1)
+      rack (>= 1.0)
     simplecov (0.9.2)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -206,5 +208,7 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-rspec
+  shotgun
   sinatra
   sinatra-partial
+  tilt
