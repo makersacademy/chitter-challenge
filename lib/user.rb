@@ -11,6 +11,6 @@ class User
   property :id,              Serial
   property :email,           String, unique: true, message: 'This email address has be taken'
   property :password,        Text
-  property :name,            String, unique: true
+  property :name,            String, unique: true, message: 'This name has be taken'
   property :username,        String
 end

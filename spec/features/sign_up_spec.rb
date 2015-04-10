@@ -48,7 +48,7 @@ feature 'Signing up' do
                    '12345',
                    'test_name',
                    'same name') } .to change(User, :count).by(0)
-    # expect(page).to have_content('This email address has be taken')
+    expect(page).to have_content('This name has be taken')
   end
   # scenario 'with a password that does not match' do
   # end
