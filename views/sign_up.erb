@@ -1,6 +1,10 @@
 <div>
+  <% if session[:passwords_match] == false %>
+    <p>Passwords do not match</p>
+  <% end %>
   <form action='/signup/process/' method='post'>
-    <input type='text' name='email'>
+    <input type='text' name='email' value='<%= session[:email_provided_upon_sign_up] %>'>
+    <% session[:email_provided_upon_sign_up] = nil %>
     <input type='password' name='password'>
     <input type='password' name='password_confirmation'>
     <input type='submit' value='Sign Up'>

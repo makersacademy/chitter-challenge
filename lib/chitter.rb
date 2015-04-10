@@ -26,7 +26,9 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect('/')
     else
-      # Redirect to sign up page and say passwords don't match
+      session[:passwords_match] = false
+      session[:email_provided_upon_sign_up] = params[:email]
+      redirect('/signup/')
     end
   end
 
