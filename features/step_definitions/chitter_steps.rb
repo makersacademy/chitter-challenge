@@ -25,3 +25,7 @@ end
 Then(/^I do not see '(.*)'$/) do |content|
   expect(page).not_to have_content content
 end
+
+Given(/^no users are signed up$/) do
+  Chitter::USERS = []
+end

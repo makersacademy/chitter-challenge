@@ -5,6 +5,7 @@ ruby '2.2.1'
 gem 'sinatra'
 
 group :test do
+  gem 'byebug'
   gem 'rspec'
   gem 'cucumber'
   gem 'rubocop-rspec'
