@@ -3,7 +3,11 @@ require 'sinatra'
 class Chitter < Sinatra::Application
 
   get '/' do
-    "<input type='text' name='email'> welcome tansaku"
+    erb :index
+  end
+
+  post '/signup' do
+    "welcome #{params['email']}"
   end
 
 end
