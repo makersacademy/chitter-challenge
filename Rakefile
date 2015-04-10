@@ -7,3 +7,5 @@ RSpec::Core::RakeTask.new :spec
 Cucumber::Rake::Task.new :cuke
 
 task default: [:cop, :spec, :cuke]
+
+tast

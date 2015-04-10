@@ -10,8 +10,6 @@ require 'rspec'
 
 Capybara.app = Chitter
 
-ENV['RACK_ENV'] = 'test'
-
 DatabaseCleaner.clean_with :truncation
 DatabaseCleaner.strategy = :transaction
 
