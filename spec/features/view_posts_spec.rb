@@ -2,7 +2,7 @@ feature 'User can view posts' do
 
   before(:each) do
     Post.create(username: 'Caron',
-               post: 'Hello there Chitterers')
+               message: 'Hello there Chitterers')
   end
 
   scenario 'when opening homepage' do
