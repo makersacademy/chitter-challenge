@@ -8,5 +8,8 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'sinatra'
+  gem 'cucumber-sinatra'
+  gem 'capybara'
 end
 
