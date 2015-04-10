@@ -9,7 +9,7 @@ feature 'User can view posts' do
   end
 
   scenario 'when opening homepage' do
-    visit '/test'
+    visit '/'
     expect(page).to have_content('Hello there Chitterers')
   end
 end 

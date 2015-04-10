@@ -10,7 +10,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
-  get '/test' do
+  get '/' do
    @posts = Post.all
    erb :index
   end
