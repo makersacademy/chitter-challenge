@@ -10,6 +10,7 @@ group :test do
   gem 'capybara'
   gem 'sinatra'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 
   group :development, :test do
   gem 'rspec'

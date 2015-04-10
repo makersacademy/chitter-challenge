@@ -9,11 +9,11 @@ feature 'User adds a new post' do
     expect(post.message).to eq('Hello! out there') 
   end
 
-  def add_post(message)
-    within('#new-link') do
-      puts @username # will give this more though later
+  def add_post(username, message)
+    within('#new-post') do
+      puts "username" # will give this more though later
       fill_in 'message', with: message
-      click_button 'Add link'
+      click_button 'Post'
     end
   end
 end
