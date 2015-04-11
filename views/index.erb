@@ -1,11 +1,10 @@
 <div class='peeplist'>
     <ul>
     <% @sorted.each do |peep| %>
-      <li><%=peep.user%> peeps: "<%= peep.content %>"<li>
+      <li><%=peep.user%> peeps: "<%= peep.content %>" <a href="/reply/<%=peep.id%>">reply</a></li>
           <% peep.replys.each do |reply| %>
-            <%= reply.reply %>
+            <li><%= reply.reply %></li>
           <% end %>
-         <a href="/reply/<%=peep.id%>">reply</a>
     <% end %>
   <ul>
 </div>
