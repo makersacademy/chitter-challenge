@@ -6,6 +6,11 @@ Then(/^I see "([^"]*)"$/) do |string|
   expect(page).to have_content string
 end
 
+When(/^I see "([^"]*)", followed by "([^"]*)"$/) do |first, second|
+  expect(page).to have_selector "div:nth-child(1)", text: first
+  expect(page).to have_selector "div:nth-child(2)", text: second
+end
+
 Given(/^I sign up with mismatched passwords$/) do
   sign_up('joejknowles@gmail.com', 'joejknowles', 'secret', 'incorrect')
 end
