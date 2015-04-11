@@ -1,3 +1,7 @@
 Add unit test for user class
 test unit test that password is bcrypted
-Make sure to add Bcrypt
+
+add view a users peeps
+the peep should contain the users name, with a hyper link to a page of all that users,
+peeps
+ # has n, :peeps, through: Resource

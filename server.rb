@@ -74,6 +74,17 @@ class Chittter < Sinatra::Base
     redirect('/')
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    if session[:username]
+      Peep.create(content: params[:peep], time: Time.new)
+    end
+    redirect('/')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -17,8 +17,6 @@ feature 'Viewing peeps' do
     expect(page).not_to have_content('test')
   end
 
-  # 'be able to see all peeps on the homepage'
-  # 'peeps should be in reverse cronological order'
 end
 
 def add_peep content = 'test'
