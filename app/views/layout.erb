@@ -7,13 +7,12 @@
 </head>
 
 <body>
-  <div id="wrap"
-    <%= partial :header %>
-    <%= partial :flash %>
+    <% if current_user %>
+    <h1>Welcome, <%= current_user.name %></h1>
+    <% end %>
     <div id="container">
       <%= yield %>
     </div>
-    <%= partial :footer %>
-  </div>
+
 </body>
 </html>
