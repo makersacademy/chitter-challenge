@@ -5,7 +5,7 @@ body {
 
 a.button {
   display: inline-block;
-  width: 60px;
+  width: 80px;
   background-color: firebrick;
   color: white;
   text-decoration: none;
@@ -20,7 +20,7 @@ a.button {
 
 .button {
   display: inline-block;
-  width: 60px;
+  width: 80px;
   background-color: firebrick;
   color: white;
   text-decoration: none;
