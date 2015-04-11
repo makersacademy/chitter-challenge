@@ -81,7 +81,7 @@ header #logo {
   margin-right: 30px;
 }
 
-header #user-links {
+header #user-blabbs {
   flex: 1;
   -webkit-flex: 1;
   text-align: right;
@@ -116,18 +116,14 @@ body #blabbs-container {
   padding: 15px 10px;
 }
 
-.blabbs a.title {
-  letter-spacing: 1px;
-}
-/*
-.blabbs .description {
+.blabbs .message {
   margin: 10px inherit;
 }
 
 .blabbs .source {
   float: right;
   font-size: 12px;
-}*/
+}
 
 footer {
   display: flex;
@@ -188,6 +184,6 @@ html, body {
   color: white;
 }
 
-#new-blabbs {
+#new-blabb {
   clear: left;
 }

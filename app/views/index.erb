@@ -1,7 +1,7 @@
 <h1>Welcome to blabber! Are you ready to blabb?!!!</h1>
 
-<ul> id='blabbs'>
+<ul id='blabbs'>
   <% @blabbs.each do |blabbs| %>
- <%= partial :blabbs, locals: {blabbs: blabbs} %>
+    <%= partial :blabbs, locals: {blabbs: blabbs} %>
   <% end %>
 </ul>

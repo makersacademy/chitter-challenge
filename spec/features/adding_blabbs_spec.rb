@@ -4,7 +4,7 @@ feature 'User adds a new blabb' do
 
   scenario 'when browsing the homepage' do
     expect(Blabbs.count).to eq(0)
-    visit '/'
+    visit '/blabbs/new'
     add_blabbs('Sample blabb message here')
     expect(Blabbs.count).to eq(1)
     blabbs = Blabbs.first

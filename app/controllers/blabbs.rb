@@ -5,5 +5,5 @@ post '/blabbs' do
 end
 
 get '/blabbs/new' do
-  erb :'links/new'
+  erb :'blabbs/new'
 end
