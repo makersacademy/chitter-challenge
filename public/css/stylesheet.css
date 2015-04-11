@@ -4,6 +4,7 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
+  background-color: grey;
   background-image: url(/images/extra_clean_paper.png);
   color: #333;
 }
@@ -31,11 +32,10 @@ a {
   cursor: pointer;
   font-size: 16px;
   background-color: #82B743;
-  border: 2px solid white;
   color: white; /*text colour*/
   padding: 5px 10px;
   text-align: center;
-  border-radius: 4px; /*rounded corners*/
+  border-radius: 2px; /*rounded corners*/
   margin-left: 5px;
   margin-right: 5px;
   text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
@@ -47,7 +47,7 @@ a {
 }
 
 header {
-  height: 40px;
+  height: 80px;
   background-color: black;
   color: white;
   display: flex; /* http://learnlayout.com/flexbox.html */
@@ -89,11 +89,14 @@ header {
 }
 
 .peep {
-  background-color: #EEE;
+  position: relative;
+  width: 90%;
+  background-color: #eee;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
-  margin: 10px inherit;
-  padding: 15px 10px;
-}
+  margin: 50px inherit;
+  padding: 20px 20px;
+  border-radius: 0 0 120px 120px / 0 0 6px 6px;
+  }
 
   .peep a.title {
     letter-spacing: 1px;
@@ -106,7 +109,27 @@ header {
   .peep .source {
     /* http://learnlayout.com/float.html and the next 4 sections */
     float: right;
-    font-size: 12px;
+    font-size: 18px;
+  }
+
+  .peep:before,
+  .peep:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    height: 20%;
+    max-width: 300px;
+    box-shadow :0 15px 10px rgba(0, 0, 0, 0.7);
+    transform: rotate(-3deg);
+  }
+
+  .peep:after{
+    right: 10px;
+    left: auto;
+    transform: rotate(3deg);
   }
 
 .flash {
@@ -131,7 +154,7 @@ h1 {
 }
 
 form {
-  text-align: left;
+  text-align: center;
 }
 
   form p {
