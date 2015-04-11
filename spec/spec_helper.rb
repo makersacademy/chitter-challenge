@@ -31,7 +31,7 @@ end
     within('#new-post') do
       fill_in 'username', with: username
       fill_in 'message', with: message
-      fill_in 'hashtag', with: hashtag.join(' ')
+      fill_in 'hashtag', with: hashtags.join(' ')
       click_button 'Post'
   end
 end

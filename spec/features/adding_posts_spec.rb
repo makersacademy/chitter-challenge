@@ -17,7 +17,7 @@ feature 'User adds a new post' do
             'Hello! out there',
              %w(#testing #123))
     post = Post.first
-    expect(post.hashtag).to include('#testing')
-    expect(post.hashtag).to include('#123')
+     expect(post.hashtags.map(&:text)).to include('#testing')
+     expect(post.hashtags.map(&:text)).to include('#123')
   end
 end
