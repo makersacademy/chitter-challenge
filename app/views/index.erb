@@ -55,7 +55,10 @@ Welcome To Chitter!
 <% if Peep.count > 0 %>
   <% peeps = Peep.all(order: [:id.desc]) %>
   <% peeps.each do |peep| %>
-  <div id='peep'><%= peep.peep %></div><br>
+  <div id='peep'>
+  <%= peep.peep %><br>
+  Posted by User: <%= peep.user.username %> Real name: <%= peep.user.name %>
+  </div><br>
   <% end %>
 <% end %>
 
