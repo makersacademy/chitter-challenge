@@ -25,3 +25,10 @@ post has many replys?
 
 
 refactor!!
+
+log out shouldn't be displayed if not logged in/ toggle between the 2 depending if 
+logged in or not
+
+if theres time work out why in replying spec it has to be expect path to eq
+/reply/2 and not /reply/1, i think some where theres a lingering peep, maybe
+database didnt get properly cleaned

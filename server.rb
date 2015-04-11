@@ -8,6 +8,7 @@ DataMapper.setup(:default, "postgres://localhost/chittter_#{env}")
 
 require './lib/user'
 require './lib/peep'
+require './lib/reply'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -83,6 +84,17 @@ class Chittter < Sinatra::Base
       Peep.create(content: params[:peep], time: Time.new, user: session[:username])
     end
     redirect('/')
+  end
+
+  get '/reply/:id' do
+    @logged_in = session[:username]
+    session[:reply_id] = params[:id]
+    erb :reply
+  end
+
+  post '/reply' do
+    Reply.create(reply: params[:reply])
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
