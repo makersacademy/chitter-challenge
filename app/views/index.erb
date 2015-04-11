@@ -14,9 +14,10 @@
 <% end %>
 Welcome To Chitter!
 
-<% unless session[:name] %>
-  Join In?
 
+<% unless session[:name] %>
+
+  Join In?
   <form action='/users' method='post'>
     Name: <input type='text' name='name'><br>
     Username: <input type='text' name='username'><br>
@@ -25,18 +26,30 @@ Welcome To Chitter!
     <input type='submit' value='Join In!'>
   </form>
 
-Log In?
-<form action='/sessions/new' method='post'>
-  Email: <input type='text' name='returning_email'><br>
-  Password: <input type='password' name='returning_password'><br>
-  <input type='submit' value='Log In!'>
-</form>
+  Log In?
+  <form action='/sessions/new' method='post'>
+    Email: <input type='text' name='returning_email'><br>
+    Password: <input type='password' name='returning_password'><br>
+    <input type='submit' value='Log In!'>
+  </form>
 
 <% else %>
-<div id='logged_in'>
-You're Logged In As: <%= session[:name] %>!
-<form action='/sessions/<%= session[:user] %>' method='post'>
-<input type='hidden' name='_method' value='delete'>
-<input type='submit' value='Log Out!'>
-</form>
+
+  <div id='logged_in'>
+    You're Logged In As: <%= session[:name] %>!
+    <form action='/sessions/<%= session[:user] %>' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log Out!'>
+    </form>
+
+
+  <div id='post_peep'>
+    Post a peep!
+    <form action='/peep/new' method='post'>
+    <textarea name='post_peep'>What are you thinking?</textarea>
+    <input type='submit' value='Peep!'>
+    </form>
+  </div>
+
 <% end %>
+<%= @peep if @peep %>

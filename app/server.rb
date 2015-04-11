@@ -50,6 +50,12 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/peep/new' do
+    @peep = "#{params[:post_peep]}"
+    Peep.create(peep: params[:post_tweep], user: User.first(id: session[:user]))
+    erb :index
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 
