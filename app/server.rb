@@ -4,16 +4,11 @@ require 'rack-flash'
 require 'tilt/erb'
 require './app/peep'
 require './app/user'
-
 env = ENV['RACK_ENV'] || 'development'
-
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
 require './app/peep'
-
 DataMapper.finalize
 DataMapper.auto_upgrade!
-
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
@@ -21,6 +16,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   use Rack::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @peeps = Peep.all
@@ -40,10 +36,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.new email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation],
-                       user_name: params[:user_name],
-                       user_handle: params[:user_handle]
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation],
+                     user_name: params[:user_name],
+                     user_handle: params[:user_handle]
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -67,6 +63,11 @@ class Chitter < Sinatra::Base
       flash[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    erb :'sessions/goodbye'
   end
 
   helpers do

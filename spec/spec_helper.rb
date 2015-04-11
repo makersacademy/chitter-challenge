@@ -1,9 +1,9 @@
 ENV['RACK_ENV'] = 'test'
-
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
+# require 'data_mapper_setup'
 require './app/server'
 
 Coveralls.wear!

@@ -1,13 +1,22 @@
 <body>
   <% if current_user %>
     Welcome, <%= current_user.email %>
+    <form method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
   <% end %>
   <%= yield %>
 </body>
 
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
   Sorry, there were the following problems with the form.
-  <ul id='errors'>
+  <ul id="errors">
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>

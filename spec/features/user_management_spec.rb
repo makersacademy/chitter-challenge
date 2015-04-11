@@ -1,19 +1,9 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature 'Feature - User Sign Up' do
-
-  def sign_up email = 'sanjsanj@hotmail.com',
-              password = 'password', password_confirmation = 'password',
-              user_name = 'Sanjay Purswani', user_handle = 'sanjsanj'
-    visit '/users/new'
-    expect(page.status_code).to eq 200
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    fill_in :user_name, with: user_name
-    fill_in :user_handle, with: user_handle
-    click_button 'Sign up'
-  end
 
   scenario 'succeeds with required details' do
     expect { sign_up }.to change(User, :count).by 1
@@ -39,13 +29,6 @@ feature 'Feature - User Signs In' do
                 user_name: 'Sanjay Purswani', user_handle: 'sanjsanj'
   end
 
-  def sign_in email, password
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
-  end
-
   scenario 'succeeds with correct credentials' do
     visit '/'
     expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
@@ -55,10 +38,26 @@ feature 'Feature - User Signs In' do
 
   scenario 'fails without correct credentials' do
     visit '/'
-    expect(page).not_to have_content('Welcome, sanjsanj@hotmail.com')
-    sign_in('sanjsanj@hotmail.com', 'wrong')
-    expect(page).not_to have_content('Welcome, sanjsanj@hotmail.com')
+    expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
+    sign_in 'sanjsanj@hotmail.com', 'wrong'
+    expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
   end
 
+end
+
+feature 'Feature - User Sign Out' do
+
+  before(:each) do
+    User.create email: 'sanjsanj@hotmail.com',
+                password: 'password', password_confirmation: 'password',
+                user_name: 'Sanjay Purswani', user_handle: 'sanjsanj'
+  end
+
+  scenario 'succeeds while being signed in' do
+    sign_in 'sanjsanj@hotmail.com', 'password'
+    click_button 'Sign out'
+    expect(page).to have_content('Good bye!')
+    expect(page).not_to have_content('Welcome, sanjsanj@hotmail.com')
+  end
 
 end
