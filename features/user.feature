@@ -15,8 +15,9 @@ Feature: signing up a user
   
   Scenario: sign in
     Given the user "saramoohead" exists
+    And I am on the homepage
     When I fill in "username" with "saramoohead"
     And I fill in "password" with "password"
-    And I click "Sign in"
+    And I click "Register"
     And the system correctly authenticates me
     Then I see "Welcome back, saramoohead. You are signed in."
