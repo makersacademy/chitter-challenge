@@ -19,9 +19,10 @@ end
 # Sign in
 
 Given(/^the user "([^"]*)" exists$/) do |username|
-  expect(User.get(username)).to eq true
+  user_test = User.all(username: username).count
+  expect(user_test).to be(1)
 end
 
 When(/^the system correctly authenticates me$/) do
-  expect(User.authenticate). to eq true
+  expect(User.authenticate).to eq true
 end
