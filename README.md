@@ -1,6 +1,10 @@
 Chitter Challenge
 =================
 
+Tools:
+------
+This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
+
 Brief:
 -----
 To write a Twitter clone called Chitter, that allows users to post Peeps, available for viewing to the public via a web application.  The user stories must be satisfied.

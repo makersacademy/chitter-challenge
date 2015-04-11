@@ -88,22 +88,22 @@ header {
   padding: 10px;
 }
 
-.link {
+.peep {
   background-color: #EEE;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 15px 10px;
 }
 
-  .link a.title {
+  .peep a.title {
     letter-spacing: 1px;
   }
 
-  .link .description {
+  .peep .description {
     margin: 10px inherit;
   }
 
-  .link .source {
+  .peep .source {
     /* http://learnlayout.com/float.html and the next 4 sections */
     float: right;
     font-size: 12px;
