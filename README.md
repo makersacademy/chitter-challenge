@@ -81,5 +81,5 @@ User
 
 18 examples, 0 failures
 
-Coverage report generated for RSpec to /Users/sanjsanj/Desktop/Projects/chitter-challenge/coverage. 142 / 142 LOC (100.0%) covered.
+Coverage report generated for RSpec. 142/142 LOC (100.0%) covered.
 ```

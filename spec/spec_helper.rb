@@ -8,6 +8,11 @@ require './app/server'
 require './app/models/peep'
 require './app/models/user'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+
 Coveralls.wear!
 Capybara.app = Chitter
 
