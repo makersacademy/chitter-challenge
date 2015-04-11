@@ -5,6 +5,13 @@
       <form action='/users/sign-out' method='post'>
         <button>Sign out</button>
       </form>
+    <% else %>
+      <form action='/users/new' method='get'>
+        <button>Register</button>
+      </form>
+      <form action='/sessions/new' method='get'>
+        <button>Login</button>
+      </form>
     <% end %>
   </header>
   <% if flash[:notice]%>

@@ -1,5 +1,6 @@
 require 'cucumber/rspec/doubles'
 Given(/^I sign up$/) do
+  visit '/users/new'
   sign_up
 end
 
@@ -13,6 +14,7 @@ When(/^I see "([^"]*)", followed by "([^"]*)"$/) do |first, second|
 end
 
 Given(/^I sign up with mismatched passwords$/) do
+  visit '/users/new'
   sign_up('joejknowles@gmail.com', 'joejknowles', 'secret', 'incorrect')
 end
 
@@ -25,6 +27,7 @@ Then(/^I don't see "([^"]*)"$/) do |string|
 end
 
 Then(/^I sign in$/) do
+  visit '/sessions/new'
   sign_in
 end
 
@@ -41,9 +44,21 @@ When(/^I set the time to "([^"]*)" minutes ago$/) do |minutes|
   allow_any_instance_of(Cheep).to receive(:time_stamp) { fake_time }
 end
 
+Given(/^I'm on the "([^"]*)" page$/) do |page|
+  page = '' if page == 'home'
+  visit "/#{page}"
+end
+
+Then(/^I sign up from this page$/) do
+  sign_up
+end
+
+Then(/^I log in from this page$/) do
+  sign_in
+end
+
 def sign_in(username = 'joejknowles',
             password = 'secret')
-  visit '/sessions/new'
   fill_in 'username', with: username
   fill_in 'password', with: password
   click_button 'Sign in'
@@ -53,7 +68,6 @@ def sign_up(email = 'joejknowles@gmail.com',
             username = 'joejknowles',
             password = 'secret',
             password_confirm = 'secret')
-  visit '/users/new'
   fill_in 'email', with: email
   fill_in 'username', with: username
   fill_in 'password', with: password

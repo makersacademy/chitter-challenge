@@ -30,3 +30,17 @@ Feature: Manage accounts
     Then I don't see "Happy Chitting, joejknowles"
     And I sign in
     Then I see "Happy Chitting, joejknowles"
+
+  Scenario: New user signs up from homepage
+    Given I'm on the "home" page
+    And I press the "Register" button
+    Then I sign up from this page
+    Then I see "Happy Chitting, joejknowles"
+
+  Scenario: User signs in from homepage
+    Given I sign up
+    And I sign out
+    And I'm on the "home" page
+    And I press the "Login" button
+    Then I log in from this page
+    Then I see "Happy Chitting, joejknowles"
