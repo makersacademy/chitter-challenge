@@ -9,23 +9,29 @@ DataMapper.setup(:default, "postgres://localhost/chittter_#{env}")
 require './lib/user'
 require './lib/peep'
 require './lib/reply'
+require './helpers'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+# require_relative 'controllers/app'
 
 class Chittter < Sinatra::Base
   enable :sessions
   use Rack::Flash
   use Rack::MethodOverride
 
-  def welcome
-    @who_to_welcome = "Welcome, #{session[:username]}" if session[:username]
-  end
+  include Helpers
 
-  def get_and_sort_peeps
-    @peeps = Peep.all
-    @sorted = @peeps.each.sort{|a, b| b.time <=> a.time}
-  end
+  # dont want free floating methods
+  # def welcome
+  #   @who_to_welcome = "Welcome, #{session[:username]}" if session[:username]
+  # end
+
+  # def get_and_sort_peeps
+  #   @peeps = Peep.all
+  #   @sorted = @peeps.each.sort{|a, b| b.time <=> a.time}
+  # end
 
   get '/' do
     get_and_sort_peeps
