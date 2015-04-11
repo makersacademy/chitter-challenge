@@ -20,7 +20,6 @@ class User
 
   validates_confirmation_of :password
   validates_uniqueness_of :email
-  validates_uniqueness_of :user_name
   validates_uniqueness_of :user_handle
 
   def self.authenticate email, password

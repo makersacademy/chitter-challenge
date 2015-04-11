@@ -19,6 +19,20 @@ feature 'Feature - User Sign Up On Website' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
+  scenario 'fails if email is already registered' do
+    sign_up
+    sign_out
+    sign_up 'sanjsanj@hotmail.com', 'newpassw', 'newpassw', 'Tom Jones', '@tom'
+    expect(page).to have_content 'Email taken'
+  end
+
+  scenario 'fails if user handle is already registered' do
+    sign_up
+    sign_out
+    sign_up 'tom@tomjones.com', 'newpassw', 'newpassw', 'Tom Jones', 'sanjsanj'
+    expect(page).to have_content 'Handle taken'
+  end
+
 end
 
 feature 'Feature - User Sign In On Website' do
@@ -28,8 +42,7 @@ feature 'Feature - User Sign In On Website' do
   end
 
   scenario 'succeeds with correct credentials' do
-    visit '/'
-    click_button 'Sign out'
+    sign_out
     expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
     sign_in 'sanjsanj@hotmail.com', 'password'
     expect(page).to have_content 'Welcome, sanjsanj@hotmail.com'

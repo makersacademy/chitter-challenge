@@ -19,4 +19,9 @@ module UserHelpers
     click_button 'Sign in'
   end
 
+  def sign_out
+    visit '/'
+    click_button 'Sign out'
+  end
+
 end

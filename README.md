@@ -1,14 +1,13 @@
 Chitter Challenge
 =================
 
-Task:
+Brief:
 -----
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+To write a Twitter clone called Chitter, that allows users to post Peeps, available for viewing to the public via a web application.  The user stories must be satisfied.
 
 User Stories:
 -------
-
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -30,16 +29,57 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 
-Notes on functionality:
-------
+How To Run:
+-----------
+- To view the website online please follow the 'Heroku' link at the top of this README.
+- To run the tests please type 'rake' in the application's root folder.
+- To launch a local version of the website in your browser please type 'rackup' in the application's root folder and then follow the onscreen instructions.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Testing:
+--------
+Rspec was used to write all the unit and feature tests for this application.
+All tests pass and coverage is 100%.
+
+The tests are as follows:
+```
+Running RuboCop...
+19 files inspected, no offenses detected
+
+Feature - Peeps Database
+  lists all peeps
+
+Feature - User Database
+  lists all users
+
+Feature - Peeps On Website
+  Peep can be added on the website
+
+Feature - User Sign Up On Website
+  succeeds with required details
+  fails without password confirmation
+  fails if email is already registered
+  fails if user handle is already registered
+
+Feature - User Sign In On Website
+  succeeds with correct credentials
+  fails without correct credentials
+
+Feature - User Sign Out On Website
+  succeeds while being signed in
+
+Peep
+  database is empty
+  can be created in the database
+  can be retrieved from the database
+  can be deleted from the database
+
+User
+  database is empty
+  can be created in the database
+  can be retrieved from the database
+  can be deleted from the database
+
+18 examples, 0 failures
+
+Coverage report generated for RSpec to /Users/sanjsanj/Desktop/Projects/chitter-challenge/coverage. 142 / 142 LOC (100.0%) covered.
+```
