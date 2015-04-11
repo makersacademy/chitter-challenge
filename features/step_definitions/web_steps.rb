@@ -73,6 +73,10 @@ Given(/^I block mailgun$/) do
   allow(RestClient).to receive(:post).and_return('test')
 end
 
+Then(/^I don't see the "([^"]*)" button$/) do |button|
+  expect(page).to have_button button, disabled: true
+end
+
 def sign_in(username = 'joejknowles',
             password = 'secret')
   fill_in 'username', with: username

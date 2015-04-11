@@ -18,6 +18,12 @@
       <div class='time'>
         <%= ((Time.now - cheep.time_stamp) / 60).floor %> minutes ago.
       </div>
+      <div class='applause'>
+        <%= cheep.applause %> applause
+        <form action='/cheeps/applaud' method='post'>
+          <button onclick="this.disabled = true" name='cheepid'value="<%= cheep.id %>">Applaud</button>
+        </form>
+      </div>
     </div>
   <% end %>
 </div>

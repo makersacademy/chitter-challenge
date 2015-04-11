@@ -19,3 +19,4 @@ end
 
 require_relative 'controllers/user_management'
 require_relative 'controllers/send_cheep'
+require_relative 'controllers/social'

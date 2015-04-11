@@ -6,6 +6,6 @@ require_relative 'user'
 require_relative 'cheep'
 DataMapper.finalize
 # require 'database_cleaner'
-# DataMapper.auto_migrate!
+DataMapper.auto_migrate!
 # DatabaseCleaner.strategy = :transaction
 # DatabaseCleaner.clean
