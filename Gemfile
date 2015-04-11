@@ -2,18 +2,23 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'sinatra'
 gem 'pg'
+gem 'sinatra'
 
 group :test do
-  gem 'rspec'
+  gem 'bcrypt'
+  gem 'byebug'
+  gem 'capybara'
+  gem 'coveralls', require: false
   gem 'cucumber'
   gem 'data_mapper'
-  gem 'dm-postgres-adapter'
   gem 'database_cleaner'
+  gem 'dm-postgres-adapter'
+  gem 'rack-flash3'
   gem 'rerun'
+  gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'sinatra-partial'
 end
 

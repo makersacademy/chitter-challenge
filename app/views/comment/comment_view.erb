@@ -1,0 +1,8 @@
+<% @comments = Comment.all peep: peep, order: [:date_time.desc] %>
+<% @comments.each do |comment| %>
+  <ul>
+    <li>
+      <%= comment.user.username %><br><%= comment.text %>
+    </li>
+  </ul>
+<%end%>

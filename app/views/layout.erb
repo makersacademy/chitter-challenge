@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <section class="top-bar">
+    <%= partial :welcome_message %>
+    <a href="/">Home</a>
+  </section>
+  <%= partial :"peep/peep" %>
+  <%= partial :flash %>
+  <%= yield %>
+</body>
+</html>

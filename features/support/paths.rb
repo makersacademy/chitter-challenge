@@ -1,5 +1,7 @@
 # Taken from the cucumber-rails project.
 
+# rubocop:disable all
+
 module NavigationHelpers
   # Maps a name to a path. Used by the
   #

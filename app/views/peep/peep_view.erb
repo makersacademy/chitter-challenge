@@ -1,0 +1,9 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user.username %><br><%= peep.text %><br>
+      <%= partial :"comment/comment_post", locals: { peep: peep } %>
+      <%= partial :"comment/comment_view", locals: { peep: peep } %>
+    </li>
+  <% end %>
+</ul>
