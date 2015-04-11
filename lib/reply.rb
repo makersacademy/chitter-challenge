@@ -3,6 +3,6 @@ class Reply
   has 1, :peep, :through=>DataMapper::Resource
 
   property :id, Serial
-  property :reply, Text
+  property :reply, String
   
 end

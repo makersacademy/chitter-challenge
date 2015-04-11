@@ -2,7 +2,9 @@
     <ul>
     <% @sorted.each do |peep| %>
       <li><%=peep.user%> peeps: "<%= peep.content %>"<li>
-          <% p peep.replys.last %>
+          <% peep.replys.each do |reply| %>
+            <%= reply.reply %>
+          <% end %>
          <a href="/reply/<%=peep.id%>">reply</a>
     <% end %>
   <ul>
