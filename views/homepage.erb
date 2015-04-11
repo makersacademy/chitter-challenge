@@ -1,5 +1,9 @@
 <% if @username %>
 <h2>Welcome <%=@username%>.</h2>
+<form action='/sessions' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Sign out'>
+</form>
 <% end %>
 
 <% if !@username %>

@@ -12,6 +12,7 @@ class ChitterChatter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     erb :homepage
@@ -44,6 +45,11 @@ class ChitterChatter < Sinatra::Base
     else
       erb :homepage
     end
+  end
+
+  delete '/sessions' do
+    session[:username] = nil
+    erb :homepage
   end
 
   helpers do
