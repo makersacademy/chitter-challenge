@@ -4,3 +4,4 @@ local = "postgres://localhost/chitter_#{env}"
 DataMapper.setup(:default, local)
 require_relative 'user'
 DataMapper.finalize
+DataMapper.upgrade!
