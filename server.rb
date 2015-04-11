@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'tilt/erb'
 
 env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/chitter_chatter_#{env}")
@@ -17,9 +18,11 @@ class ChitterChatter < Sinatra::Base
     @username = params[:username]
     @real_name = params[:real_name]
     @email = params[:email]
+    @password = params[:password]
     @user = User.create(username: @username,
                         real_name: @real_name,
-                        email: @email)
+                        email: @email,
+                        password: @password)
     erb :homepage
   end
 

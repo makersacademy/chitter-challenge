@@ -9,7 +9,6 @@ Feature: signing up a user
     And I fill in "real_name" with "Sara OC"
     And I fill in "email" with "saramoo@hotmail.com"
     And I fill in "password" with "password"
-    And I fill in "password_confirm" with "password"
     And I click "Register"
     Then I see "Welcome to Chitter, saramoohead. You have signed up."
   
@@ -19,5 +18,5 @@ Feature: signing up a user
     When I fill in "username" with "saramoohead"
     And I fill in "password" with "password"
     And I click "Register"
-    And the system correctly authenticates me
+    And the system correctly authenticates my "username" and "password"
     Then I see "Welcome back, saramoohead. You are signed in."
