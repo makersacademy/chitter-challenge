@@ -26,7 +26,7 @@ feature 'user signs up' do
              username: 'bad_tester',
              password: 'test')
     user.save
-    expect(user.errors[:email].first).to eq "There is already a user with this email!"
+    expect(user.errors[:email].first).to eq "Email is already taken"
     expect(User.count).to eq(1)
   end
   scenario "fails with duplicate username" do
@@ -37,7 +37,37 @@ feature 'user signs up' do
              username: 'super_tester',
              password: 'test')
     user.save
-    expect(user.errors[:username].first).to eq "There is already a user with this username!"
+    expect(user.errors[:username].first).to eq "Username is already taken"
     expect(User.count).to eq(1)
+  end
+
+  scenario "fails if username is blank" do
+    expect(User.count).to eq(0)
+    user = User.new(name: "thomas",
+                    email: "testerfan@lovintest.com",
+                    password: 'test')
+    user.save
+    expect(user.errors[:username].first).to eq "Username must not be blank"
+    expect(User.count).to eq(0)
+  end
+
+   scenario "fails if email is blank" do
+    expect(User.count).to eq(0)
+    user = User.new(name: "thomas",
+                    username: "testerfan",
+                    password: 'test')
+    user.save
+    expect(user.errors[:email].first).to eq "Email must not be blank"
+    expect(User.count).to eq(0)
+  end
+  scenario "fails if name is blank" do
+    expect(User.count).to eq(0)
+    user = User.new(name: "",
+                    email: "Dan@Test.com",
+                    username: "testerfan",
+                    password: 'test')
+    user.save
+    expect(user.errors[:name].first).to eq "Name must not be blank"
+    expect(User.count).to eq(0)
   end
 end
