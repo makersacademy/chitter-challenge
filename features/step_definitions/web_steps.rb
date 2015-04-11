@@ -32,3 +32,15 @@ When(/^the system correctly authenticates my "([^"]*)" and "([^"]*)"$/) do |user
   password = 'password'
   expect(User.authenticate(username, password)).not_to be nil
 end
+
+# Sign out
+
+Given(/^the session username is "([^"]*)"$/) do |username|
+  p '*' * 20
+  p session.inspect
+  expect(session.inspect).to_include username
+end
+
+Then(/^I do not see "([^"]*)"$/) do |message|
+  expect(page).not_to have_content(message)
+end

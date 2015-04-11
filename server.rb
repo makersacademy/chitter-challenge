@@ -10,6 +10,9 @@ DataMapper.auto_upgrade!
 
 class ChitterChatter < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     erb :homepage
   end
@@ -23,16 +26,30 @@ class ChitterChatter < Sinatra::Base
     @real_name = params[:real_name]
     @email = params[:email]
     @password = params[:password]
-    @user = User.create(username: @username,
-                        real_name: @real_name,
-                        email: @email,
-                        password: @password)
+    user = User.create(username: @username,
+                       real_name: @real_name,
+                       email: @email,
+                       password: @password)
+    session[:username] = @username
     erb :homepage
   end
 
   post '/sessions' do
     @username = params[:username]
-    erb :homepage
+    @password = params[:password]
+    user = User.authenticate(@username, @password)
+    if user
+      session[:username] = @username
+      erb :homepage
+    else
+      erb :homepage
+    end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:username]) if session[:username]
+    end
   end
 
   # start the server if ruby file executed directly

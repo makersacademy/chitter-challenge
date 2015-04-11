@@ -20,3 +20,8 @@ Feature: signing up a user
     And I click "Sign in"
     And the system correctly authenticates my "username" and "password"
     Then I see "Welcome saramoohead."
+
+  Scenario: sign out
+    Given the session username is "saramoohead"
+    When I click "Sign out"
+    Then I do not see "Welcome saramoohead."
