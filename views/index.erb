@@ -1,6 +1,8 @@
-<ul>
-<% @sorted.each do |peep| %>
-<li><%= peep.content %><li>
-<% end %>
-<ul>
-
+<div class='peeplist'>
+    <ul>
+    <% @sorted.each do |peep| %>
+    <% p peep.user %>
+      <li><%=peep.user%> peeps: "<%= peep.content %>"<li>
+    <% end %>
+  <ul>
+</div>

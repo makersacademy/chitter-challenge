@@ -16,16 +16,23 @@ feature 'adding peeps' do
     peep
     expect(current_path).to eq '/'
     expect(page).not_to have_content('new peep!')
+    # expect page not to have content username
     # expect please log into post a peep
   end
 
   scenario 'is possible when logged in' do
     sign_in
     peep
-    p current_path
     expect(page).to have_content('new peep!')
     # expect not to have please log in to post a peep
   end
+
+  # scenario 'creates a peep with the users name attached' do
+  #   sign_in
+  #   peep
+  #   expect(page).to have_css('feedback')
+  #     # expect(page).to have_content('user_numero_uno')
+  # end
 
 end
 

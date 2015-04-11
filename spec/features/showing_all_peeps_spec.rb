@@ -13,7 +13,7 @@ feature 'Viewing peeps' do
     sleep 1.0
     add_peep '3rd'
     visit '/'
-    expect(page).to have_content('3rd 2nd 1st')
+    expect(page).to have_content('peeps: "3rd" peeps: "2nd" peeps: "1st"')
     expect(page).not_to have_content('test')
   end
 
@@ -21,5 +21,4 @@ end
 
 def add_peep content = 'test'
   post = Peep.create(content: content, time: Time.new)
-  p post.saved?
 end

@@ -5,3 +5,23 @@ add view a users peeps
 the peep should contain the users name, with a hyper link to a page of all that users,
 peeps
  # has n, :peeps, through: Resource
+
+
+maybe need a peep string to database text converter
+
+
+do I have name and user name backwards?
+eg it doesnt matter if the un i taken but it does if their real name is taken
+
+Learn how to check css element with capy and or how to add css element to html
+
+
+replying to a peep,
+each peep would need a reply button attached
+clicking reply should then take the user to a new page with a form
+where they can post a reply (maybe also show the conversation)
+the post should then hold it's reply
+post has many replys?
+
+
+refactor!!
