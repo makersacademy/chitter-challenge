@@ -6,24 +6,4 @@
     </form>
   </div>
 <% end %>
-<div id='cheeps'>
-  <% @cheeps.reverse_each do |cheep| %>
-    <div class='cheep'>
-      <div class='author'>
-        <%= "#{cheep.user.username} cheeped:" %>
-      </div>
-      <div class='message'>
-        <%= cheep.message %>
-      </div>
-      <div class='time'>
-        <%= ((Time.now - cheep.time_stamp) / 60).floor %> minutes ago.
-      </div>
-      <div class='applause'>
-        <%= cheep.applause %> applause
-        <form action='/cheeps/applaud' method='post'>
-          <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
-        </form>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= erb :cheeps %>
