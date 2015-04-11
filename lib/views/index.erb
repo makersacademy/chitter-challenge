@@ -1,14 +1,18 @@
-<ol>
-  <% @posts.each do |post| %>
-    <li><%= post.peep %><%= post.user %></li>
-  <% end %>
-</ol>
+<h1>Welcome to Chitter!</h1>
 
-<div id='new-post'>
-  <form action='/posts' method='post'>
-    Peep: <input type='text' name='peep'>
-    User: <input type='text' name='user'>
-    Tags: <input type='text' name='tags'>
-    <input type='submit' value='Add Peep'>
+Current Peeps:
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.peep %></li>
+    <li><%= post.user %></li>
+  <% end %>
+</ul>
+
+<div id="new-post">
+  <form action="/posts" method="post">
+    Peep: <input type="text" name="peep">
+    User: <input type="text" name="user">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add Peep">
   </form>
 </div>
