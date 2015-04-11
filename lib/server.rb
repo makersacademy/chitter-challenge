@@ -2,8 +2,24 @@ require 'sinatra/base'
 
 class ChitterChallenge < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
-    'Hello ChitterChallenge!'
+    erb :index
+  end
+
+  get '/sign-up' do
+    erb :'sign-up'
+  end
+
+  post '/sign-up' do
+    session[:username] = params[:username]
+    redirect to '/signed-in'
+  end
+
+  get '/signed-in' do
+    @username = session[:username]
+    erb :'signed-in'
   end
 
   # start the server if ruby file executed directly
