@@ -7,6 +7,7 @@ class User
   property :email, String, unique: true
   property :username, String, unique: true
   property :password_digest, Text
+  has n, :cheeps, through: Resource
   validates_confirmation_of :password, message: "Those passwords don't match"
   def password=(password)
     @password = password
