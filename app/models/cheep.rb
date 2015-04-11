@@ -1,4 +1,3 @@
-require 'dm-timestamps'
 class Cheep
   include DataMapper::Resource
   property :id, Serial

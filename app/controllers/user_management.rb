@@ -13,8 +13,9 @@ class Chitter < Sinatra::Base
                      password: password,
                      password_confirmation: password_confirm)
     if @user.save
+      SendMail.send_welcome(@user.email, @user.username)
       session[:user_id] = @user.id
-      redirect '/'
+      redirect to '/'
     else
       flash.now[:errors] = @user.errors.full_messages
       @user = nil
@@ -27,7 +28,7 @@ class Chitter < Sinatra::Base
     flash[:notice] = "Goodbye, #{user.username}"
     session[:user_id] = nil
     @user = nil
-    redirect '/'
+    redirect to '/'
   end
 
   get '/sessions/new' do
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
                               password)
     if @user
       session[:user_id] = @user.id
-      redirect '/'
+      redirect to '/'
     else
       flash.now[:errors] = ['Username or Password incorrect']
       erb :'/sessions/new'

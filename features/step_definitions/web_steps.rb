@@ -1,4 +1,5 @@
 require 'cucumber/rspec/doubles'
+
 Given(/^I sign up$/) do
   visit '/users/new'
   sign_up
@@ -55,6 +56,21 @@ end
 
 Then(/^I log in from this page$/) do
   sign_in
+end
+
+Given(/^I sign up with short password$/) do
+  visit '/users/new'
+  sign_up('joejknowles@gmail.com', 'joejknowles', 'short', 'short')
+end
+
+Then(/^I receive welcome email on sign up$/) do
+  expect(SendMail).to receive(:send_welcome).and_return('test')
+  visit '/users/new'
+  sign_up
+end
+
+Given(/^I block mailgun$/) do
+  allow(RestClient).to receive(:post).and_return('test')
 end
 
 def sign_in(username = 'joejknowles',

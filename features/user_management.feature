@@ -3,6 +3,9 @@ Feature: Manage accounts
   As a maker
   I would like to manage my account on Chitter
 
+  Background:
+    Given I block mailgun
+
   Scenario: Signing up
     Given I sign up
     Then I see "Happy Chitting, joejknowles"
@@ -44,3 +47,10 @@ Feature: Manage accounts
     And I press the "Login" button
     Then I log in from this page
     Then I see "Happy Chitting, joejknowles"
+
+  Scenario: User signs up with password that's too short
+    Given I sign up with short password
+    Then I see "Password confirmation must be at least 6 characters long"
+
+  Scenario: Sends welcome email on sign up
+    Then I receive welcome email on sign up

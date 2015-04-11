@@ -4,7 +4,8 @@ Feature: Cheeping
   I would like to post cheeps
 
   Background:
-    Given I sign up
+    Given I block mailgun
+    And I sign up
 
   Scenario: User cheeps a cheep
     When I fill in "cheep" with "Hello, world!"
