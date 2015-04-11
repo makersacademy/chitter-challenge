@@ -5,6 +5,8 @@ require 'capybara/rspec'
 require 'database_cleaner'
 # require 'data_mapper_setup'
 require './app/server'
+require './app/models/peep'
+require './app/models/user'
 
 Coveralls.wear!
 Capybara.app = Chitter

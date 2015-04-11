@@ -144,6 +144,8 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-partial (0.4.0)
+      sinatra
     stringex (1.5.1)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
@@ -174,3 +176,4 @@ DEPENDENCIES
   rubocop-rspec
   shotgun
   sinatra
+  sinatra-partial
