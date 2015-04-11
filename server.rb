@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require 'data_mapper'
-require_relative 'lib/post'
+# require_relative 'lib/hashtag'
+# require_relative 'lib/post'
 
 env = ENV["RACK_ENV"] || "development"
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-require './lib/post'
+require_relative 'lib/post'
+require_relative 'lib/hashtag'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 

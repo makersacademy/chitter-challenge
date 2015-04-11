@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'User adds a new post' do
   scenario 'when on homepage' do
     expect(Post.count).to eq (0)
@@ -9,11 +11,13 @@ feature 'User adds a new post' do
     expect(post.message).to eq('Hello! out there') 
   end
 
-  def add_post(username, message)
-    within('#new-post') do
-      fill_in 'username', with: username
-      fill_in 'message', with: message
-      click_button 'Post'
-    end
+  scenario 'add hashtags to posts' do
+    visit '/'
+    add_post('Caron', 
+            'Hello! out there',
+             %w(#testing #123))
+    post = Post.first
+    expect(post.hashtag).to include('#testing')
+    expect(post.hashtag).to include('#123')
   end
 end

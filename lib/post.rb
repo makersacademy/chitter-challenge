@@ -4,4 +4,6 @@ class Post
   property :id, Serial
   property :username, String
   property :message, String
+
+  has n, :hashtags, through: Resource
 end
