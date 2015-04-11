@@ -1,20 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'rack-flash'
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, "postgres://localhost/chittter_#{env}")
-
-require './lib/user'
-require './lib/peep'
-require './lib/reply'
-require './helpers'
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
-
-# require_relative 'controllers/app'
+require './data_mapper_set_up'
 
 class Chittter < Sinatra::Base
   enable :sessions
