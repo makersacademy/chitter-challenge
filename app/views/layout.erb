@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css"
+</head>
+
+<body>
+  <div id="wrap"
+    <%= partial :header %>
+    <%= partial :flash %>
+    <div id="container">
+      <%= yield %>
+    </div>
+    <%= partial :footer %>
+  </div>
+</body>
+</html>
