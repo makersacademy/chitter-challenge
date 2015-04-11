@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   enable :sessions
   get '/' do
+    @cheeps = Cheep.all
     @user = User.first(id: session[:user_id])
     erb :index
   end
