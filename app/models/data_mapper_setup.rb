@@ -4,7 +4,6 @@ local = "postgres://localhost/chitter_#{env}"
 DataMapper.setup(:default, heroku || local)
 require_relative 'user'
 require_relative 'cheep'
-# require_relative 'applaud'
 DataMapper.finalize
 # require 'database_cleaner'
 DataMapper.auto_migrate!

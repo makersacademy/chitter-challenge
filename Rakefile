@@ -8,7 +8,7 @@ Cucumber::Rake::Task.new(:cuke) do |t|
   t.cucumber_opts = "features --format pretty"
 end
 
-task default: [:cop, :auto_upgrade, :spec, :cuke]
+task default: [:cop, :spec, :cuke]
 
 task :auto_upgrade do
   require_relative 'app/models/data_mapper_setup'
@@ -17,6 +17,13 @@ task :auto_upgrade do
 end
 
 task :auto_migrate do
+  require_relative 'app/models/data_mapper_setup'
+  DataMapper.auto_migrate!
+  puts "DB migrated, may have lost data"
+end
+
+task :auto_migrate_test do
+  ENV['RACK_ENV'] = 'test'
   require_relative 'app/models/data_mapper_setup'
   DataMapper.auto_migrate!
   puts "DB migrated, may have lost data"

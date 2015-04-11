@@ -9,6 +9,7 @@ class User
   property :username, String, unique: true
   property :password_digest, BCryptHash
   has n, :cheeps, through: Resource
+  property :applauses, Object, default: []
   validates_confirmation_of :password,
                             message: "Those passwords don't match"
   validates_length_of :password_confirmation, min: 6
