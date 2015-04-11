@@ -11,8 +11,8 @@
         <%= ((Time.now - cheep.time_stamp) / 60).floor %> minutes ago.
       </div>
       <div class='applause'>
-        <%= cheep.applause %> applause
-        <% if @user %>
+        <%= cheep.applause.length %> applause
+        <% if @user && !@user.applause.any? { |ap| ap.cheep_id == cheep.id } %>
           <form action='./cheeps/applaud' method='post'>
             <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
           </form>

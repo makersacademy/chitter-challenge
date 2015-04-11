@@ -3,7 +3,7 @@ class Chitter < Sinatra::Base
     @user = User.first(id: session[:user_id])
     cheepid = params[:cheepid]
     cheep = Cheep.first(id: cheepid)
-    cheep.update(applause: cheep.applause + 1)
+    Applause.create(user_id: session[:user_id], cheep_id: cheepid)
     refresh = request.fullpath[0..-15] << "#{session[:profile]}"
     redirect refresh
   end
