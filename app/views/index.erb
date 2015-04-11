@@ -1,65 +1,52 @@
-<% if flash[:errors] %>
-    <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li> <%= error.first %> </li>
-    <% end %>
-  </ul>
-<% end %>
-<% if flash[:announcement] %>
-    <ul id='announcement'>
-    <% flash[:announcement].each do |message| %>
-      <li> <%= message %> </li>
-    <% end %>
-  </ul>
-<% end %>
-Welcome To Chitter!
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-<% unless session[:name] %>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-  Join In?
-  <form action='/users' method='post'>
-    Name: <input type='text' name='name'><br>
-    Username: <input type='text' name='username'><br>
-    Email: <input type='text' name='email'><br>
-    Password: <input type='password' name='password'><br>
-    <input type='submit' value='Join In!'>
-  </form>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-  Log In?
-  <form action='/sessions/new' method='post'>
-    Email: <input type='text' name='returning_email'><br>
-    Password: <input type='password' name='returning_password'><br>
-    <input type='submit' value='Log In!'>
-  </form>
+<%= erb :flash %>
 
-<% else %>
-
-  <div id='logged_in'>
-    You're Logged In As: <%= session[:name] %>!
-    <form action='/sessions/<%= session[:user] %>' method='post'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Log Out!'>
-    </form>
-
-
-  <div id='post_peep'>
-    Post a peep!
-    <form action='/peep/new' method='post'>
-    <textarea name='post_peep'>What are you thinking?</textarea>
-    <input type='submit' value='Peep!'>
-    </form>
+<div class="jumbotron">
+  <div class="container">
+    <h1> Welcome To Chitter! </h1>
+    <h4> The Grown Ups Social Network </h4>
   </div>
+</div>
 
-<% end %>
-<% if Peep.count > 0 %>
-  <% peeps = Peep.all(order: [:id.desc]) %>
-  <% peeps.each do |peep| %>
-  <div id='peep'>
-  <%= peep.peep %><br>
-  Posted by User: <%= peep.user.username %> Real name: <%= peep.user.name %>
-  </div><br>
-  <% end %>
-<% end %>
+<div class='container'>
 
+    <div class="row">
+      <div class="col-md-6">
+        <% if Peep.count > 0 %>
+          <% peeps = Peep.all(order: [:id.desc]) %>
+          <% peeps.each do |peep| %>
+            <div id='peep'>
+            <%= peep.peep %><br>
+            Posted by User: <%= peep.user.username %> Real name: <%= peep.user.name %>
+          </div><br>
+          <% end %>
+        <% end %>
+      </div>
 
+      <% unless session[:name] %>
+        <div class="col-md-6">
+          <%= erb :logged_out %>
+        </div>
+      <% else %>
+        <div class="col-md-6">
+          <%= erb :logged_in %>
+        </div>
+      <% end %>
+
+    </div>
+</div>

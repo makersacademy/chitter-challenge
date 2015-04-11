@@ -1,0 +1,14 @@
+<% if flash[:errors] %>
+    <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li> <%= error.first %> </li>
+    <% end %>
+  </ul>
+<% end %>
+<% if flash[:announcement] %>
+    <ul id='announcement'>
+    <% flash[:announcement].each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
