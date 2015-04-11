@@ -23,10 +23,12 @@ feature 'User signs up' do
     expect(page).to have_content('Passwords do not match')
   end
 
-
-  scenario 'can not log in with email that has been taken' do
+  scenario 'can not sign up with email that has been taken' do
     sign_up
     sign_out
     expect{ sign_up }.to raise_error 'Email already taken'
   end
+
+  # User regexp
+  xcsenario 'can not sign up with something that is not an email'
 end

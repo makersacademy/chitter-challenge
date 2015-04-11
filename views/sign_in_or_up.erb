@@ -1,7 +1,7 @@
 <div>
-  <% if session[:correct_log_in_details] == false %>
+  <% if session[:log_in_details] == 'incorrect' %>
     <p>Incorrect log in details</p>
-    <% session[:correct_log_in_details] == nil %>
+    <% session[:log_in_details] == 'na' %>
   <% end %>
   <form action='/login/process/' method=post>
     <input type='text' name='email'>

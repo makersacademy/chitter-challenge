@@ -40,11 +40,12 @@ class Chitter < Sinatra::Base
     user = User.first(email: params[:email])
     if user
       if user.password == params[:password]
+        session[:log_in_details] == 'correct'
         session[:user_id] = user.id
         redirect('/')
       end
     end
-    session[:correct_log_in_details] = false
+    session[:log_in_details] = 'incorrect'
     redirect('/welcome/')
   end
 
