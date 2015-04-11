@@ -52,4 +52,11 @@ Welcome To Chitter!
   </div>
 
 <% end %>
-<%= @peep if @peep %>
+<% if Peep.count > 0 %>
+  <% peeps = Peep.all(order: [:id.desc]) %>
+  <% peeps.each do |peep| %>
+  <div id='peep'><%= peep.peep %></div><br>
+  <% end %>
+<% end %>
+
+

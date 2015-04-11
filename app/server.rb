@@ -51,8 +51,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    @peep = "#{params[:post_peep]}"
-    Peep.create(peep: params[:post_tweep], user: User.first(id: session[:user]))
+    Peep.create(peep: params[:post_peep], user: User.first(id: session[:user]))
     erb :index
   end
 

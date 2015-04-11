@@ -7,6 +7,7 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'orderly'
 
 Capybara.app = Chitter
 DataMapper.auto_migrate!
