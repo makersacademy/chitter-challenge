@@ -16,3 +16,4 @@ class Chitter < Sinatra::Base
 end
 
 require_relative 'controllers/user_management'
+require_relative 'controllers/send_cheep'

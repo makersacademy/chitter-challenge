@@ -22,6 +22,14 @@ Then(/^I sign in$/) do
   sign_in
 end
 
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, text|
+  fill_in field, with: text
+end
+
+When(/^I press the "([^"]*)" button$/) do |button|
+  click_button(button)
+end
+
 def sign_in(username = 'joejknowles',
             password = 'secret')
   visit '/sessions/new'

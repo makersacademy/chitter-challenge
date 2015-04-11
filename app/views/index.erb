@@ -1,0 +1,15 @@
+<% if @user %>
+  <div id='send-cheep'>
+    <form action='/cheeps/new' method='post'>
+      <input name='cheep' placeholder="What's chappening?">
+      <button>Cheep</button>
+    </form>
+  </div>
+<% end %>
+<div id='cheeps'>
+  <% Cheep.all.each do |cheep| %>
+    <div class='cheep'>
+      <%= cheep.message %>
+    </div>
+  <% end %>
+</div>
