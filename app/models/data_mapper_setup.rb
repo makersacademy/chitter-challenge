@@ -4,4 +4,3 @@ local = "postgres://localhost/chitter_#{env}"
 DataMapper.setup(:default, heroku || local)
 require_relative 'user'
 DataMapper.finalize
-DataMapper.auto_upgrade!
