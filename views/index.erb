@@ -1,2 +1,5 @@
-<!--   Welcome, <%= @who_to_welcome %> -->
-test
+<ul>
+<% @sorted.each do |peep| %>
+<li><%= peep.content %><li>
+<% end %>
+<ul>
