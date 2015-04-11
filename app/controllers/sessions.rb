@@ -5,8 +5,7 @@ class Chitter
   end
 
   post '/sessions' do
-    email, password = params[:email], params[:password]
-    user = User.authenticate(email, password)
+    user = User.authenticate params[:email], params[:password]
     if user
       session[:user_id] = user.id
       session[:user_name] = user.user_name

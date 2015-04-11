@@ -3,7 +3,7 @@ require_relative 'helpers/user'
 
 include UserHelpers
 
-feature 'Feature - User Sign Up' do
+feature 'Feature - User Sign Up On Website' do
 
   scenario 'succeeds with required details' do
     expect { sign_up }.to change(User, :count).by 1
@@ -21,7 +21,7 @@ feature 'Feature - User Sign Up' do
 
 end
 
-feature 'Feature - User Sign In' do
+feature 'Feature - User Sign In On Website' do
 
   before(:each) do
     sign_up
@@ -45,7 +45,7 @@ feature 'Feature - User Sign In' do
 
 end
 
-feature 'Feature - User Sign Out' do
+feature 'Feature - User Sign Out On Website' do
 
   before(:each) do
     sign_up
@@ -53,7 +53,7 @@ feature 'Feature - User Sign Out' do
   end
 
   scenario 'succeeds while being signed in' do
-    sign_in 'sanjsanj@hotmail.com', 'password'
+    visit '/'
     click_button 'Sign out'
     expect(page).to have_content('Good bye!')
     expect(page).not_to have_content('Welcome, sanjsanj@hotmail.com')

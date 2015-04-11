@@ -1,10 +1,10 @@
 class Chitter
 
   post '/peeps' do
-    if @user
+    if current_user
       Peep.create message: params['message'],
-                  user_name: params[:user_name],
-                  user_handle: params[:user_handle]
+                  user_name: current_user.user_name,
+                  user_handle: current_user.user_handle
       redirect to '/'
     else
       redirect to '/users/new'

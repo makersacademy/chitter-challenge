@@ -1,17 +1,15 @@
 require 'spec_helper'
 require_relative 'helpers/peeps'
+require_relative 'helpers/user'
 
 include PeepsHelpers
 
-feature 'Feature - Peeps Database' do
+feature 'Feature - Peeps On Website' do
 
-  scenario 'Peep can be added to the database' do
+  scenario 'Peep can be added on the website' do
     expect(Peep.count).to eq 0
-    visit '/'
-    p '---' * 10
-    p Peep.first
+    sign_up
     add_peep 'My first peep'
-    p Peep.first
     expect(Peep.count).to eq 1
     expect(Peep.first.message).to eq 'My first peep'
     expect(Peep.first.user_name).to eq 'Sanjay Purswani'

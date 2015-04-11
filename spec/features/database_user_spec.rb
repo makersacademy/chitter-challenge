@@ -4,8 +4,12 @@ require_relative 'helpers/user'
 feature 'Feature - User Database' do
 
   before(:each) do
-    sign_up
-    sign_up 'bob@bob.com', 'passw', 'passw', 'Bob Smith', 'bob'
+    User.create email: 'sanjsanj@hotmail.com',
+                user_name: 'Sanjay Purswani',
+                user_handle: 'sanjsanj'
+    User.create email: 'bob@bob.com',
+                user_name: 'Bob Smith',
+                user_handle: 'bob'
   end
 
   after(:each) do
