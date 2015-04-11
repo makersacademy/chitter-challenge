@@ -3,15 +3,17 @@ Feature: Users can interact
   As a maker
   I want to follow other users and be followed
 
+  Background:
+    Given I block mailgun
+    And I sign up
+
   Scenario: See specified user's posts on their profile
-    Given I sign up
     When I fill in "cheep" with "Hello, world!"
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page
     Then I see "Hello, world"
 
   Scenario: I do not see other user's posts
-    Given I sign up
     When I fill in "cheep" with "Hello, world!"
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page
@@ -22,3 +24,9 @@ Feature: Users can interact
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page
     Then I don't see "Hello, me"
+
+  Scenario: See specified user's posts on their profile
+    When I fill in "cheep" with "Hello, world!"
+    And I press the "Cheep" button
+    When I'm on the "users/profiles/joejknowles" page
+    Then I see element "h1" with text "joejknowles"

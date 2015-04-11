@@ -74,7 +74,19 @@ Given(/^I block mailgun$/) do
 end
 
 Then(/^I don't see the "([^"]*)" button$/) do |_button|
-  pending # expect(page).to have_button button, disabled: true
+  expect(page).to have_button button, disabled: true
+end
+
+Given(/^Fred signs up$/) do
+  visit '/users/new'
+  sign_up('joejknowles@example.com',
+          'fred',
+          'secret',
+          'secret')
+end
+
+Then(/^I see element "([^"]*)" with text "([^"]*)"$/) do |selector, text|
+  expect(page).to have_selector selector, text: text
 end
 
 def sign_in(username = 'joejknowles',

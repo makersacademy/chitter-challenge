@@ -1,10 +1,10 @@
 class Chitter < Sinatra::Base
-  post '/cheeps/applaud' do
+  post '*/cheeps/applaud' do
     cheepid = params[:cheepid]
     cheep = Cheep.first(id: cheepid)
     cheep.update(applause: cheep.applause + 1)
-    redirect '/'
-    # request.fullpath
+    refresh = request.fullpath[0..-15]
+    redirect refresh
   end
   get '/users/profiles/:profile' do
     @profile = params[:profile]
@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
     @cheeps = Cheep.all.select do |cheep|
       cheep.user.username == @profile.username
     end
+    @user = User.first(id: session[:user_id])
     erb :'users/profile'
   end
 end
