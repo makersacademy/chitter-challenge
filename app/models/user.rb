@@ -8,8 +8,8 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String, unique: true, message: 'email taken'
-  property :user_name, String, unique: true, message: 'Real name taken'
+  property :email, String, unique: true, message: 'Email taken'
+  property :user_name, String
   property :user_handle, String, unique: true, message: 'Handle taken'
   property :password_digest, Text
 

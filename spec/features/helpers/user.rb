@@ -1,4 +1,4 @@
-module SessionHelpers
+module UserHelpers
 
   def sign_up email = 'sanjsanj@hotmail.com',
               password = 'password', password_confirmation = 'password',

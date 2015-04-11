@@ -1,7 +1,7 @@
 require 'spec_helper'
-require_relative 'helpers/session'
+require_relative 'helpers/user'
 
-include SessionHelpers
+include UserHelpers
 
 feature 'Feature - User Sign Up' do
 
