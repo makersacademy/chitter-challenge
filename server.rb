@@ -7,7 +7,7 @@ env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/chittter_#{env}")
 
 require './lib/user'
-require './lib/post'
+require './lib/peep'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -63,7 +63,6 @@ class Chittter < Sinatra::Base
   end
 
   delete '/sessions' do
-    puts 'here'
     session[:username] = nil
     flash[:notice] = 'you have logged out successfully'
     redirect('/')

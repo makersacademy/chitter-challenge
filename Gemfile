@@ -6,6 +6,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'capybara'
 gem 'rack-flash3'
+gem 'rake'
 
 group :test do
   gem 'rspec'
