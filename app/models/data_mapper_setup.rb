@@ -5,3 +5,7 @@ DataMapper.setup(:default, heroku || local)
 require_relative 'user'
 require_relative 'cheep'
 DataMapper.finalize
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean
