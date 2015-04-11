@@ -14,5 +14,6 @@ feature 'User signs out' do
     expect(current_path).to eq('/welcome/')
   end
 
+  # Struggled to find capybara query for not finding a button
   xscenario 'there is no log out button when no one is logged in'
 end

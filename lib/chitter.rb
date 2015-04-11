@@ -22,10 +22,13 @@ class Chitter < Sinatra::Base
 
   post '/signup/process/' do
     if params[:password] == params[:password_confirmation]
-      user = User.create(email: params[:email], password: params[:password])
-      session[:user_id] = user.id
-      # puts 'signed in as' + user.email
-      redirect('/')
+      if User.first(email: params[:email])
+        raise 'Email already taken'
+      else
+        user = User.create(email: params[:email], password: params[:password])
+        session[:user_id] = user.id
+        redirect('/')
+      end
     else
       session[:passwords_match] = false
       session[:email_provided_upon_sign_up] = params[:email]
