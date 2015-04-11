@@ -5,13 +5,11 @@ class User
 
   include DataMapper::Resource
 
-  property :id, Serial
-  property :email, String, unique: true,
-                           message: "There is already a user with this email!"
-  property :name, String
+  property :id, Serial, required: true
+  property :email, String, required: true, unique: true
+  property :name, String, required: true
   property :password_digest, Text
-  property :username, String, unique: true,
-                              message: "There is already a user with this username!"
+  property :username, String, required: true, unique: true
 
   def password
     @password ||= BCrypt::Password.new(password_digest)

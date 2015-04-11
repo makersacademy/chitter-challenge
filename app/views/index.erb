@@ -1,7 +1,7 @@
 <% if flash[:errors] %>
     <ul id='errors'>
     <% flash[:errors].each do |error| %>
-      <li> <%= error %> </li>
+      <li> <%= error.first %> </li>
     <% end %>
   </ul>
 <% end %>
@@ -11,17 +11,17 @@ Welcome To Chitter!
   Join In?
 
   <form action='/users' method='post'>
-    <input type='text' name='name'>
-    <input type='text' name='username'>
-    <input type='text' name='email'>
-    <input type='password' name='password'>
+    Name: <input type='text' name='name'><br>
+    Username: <input type='text' name='username'><br>
+    Email: <input type='text' name='email'><br>
+    Password: <input type='password' name='password'><br>
     <input type='submit' value='Join In!'>
   </form>
 
 Log In?
 <form action='/sessions/new' method='post'>
-  <input type='text' name='returning_email'>
-  <input type='password' name='returning_password'>
+  Email: <input type='text' name='returning_email'><br>
+  Password: <input type='password' name='returning_password'><br>
   <input type='submit' value='Log In!'>
 </form>
 

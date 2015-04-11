@@ -21,6 +21,7 @@ Scenario: Log In
           Then I should see "Welcome Samuel!"
           And I cannot see "Join In?"
           And I cannot see "Log In?"
+          Given I visit the homepage
 
 Scenario: Log In as a different user
           Given I visit the homepage
@@ -60,7 +61,7 @@ Scenario: Cannot Signup If Email Registered
           And I cannot see "Welcome Samuel!"
           When I enter my details to signup
           And I click "Join In!"
-          Then I should see "There is already a user with this email!"
+          Then I should see "Email is already taken"
           And the number of users in the database should be 1
 
 Scenario: Cannot Signup If Username Registered
@@ -69,7 +70,31 @@ Scenario: Cannot Signup If Username Registered
           And I cannot see "Welcome Samuel!"
           When I enter my details to signup
           And I click "Join In!"
-          Then I should see "There is already a user with this username!"
+          Then I should see "Username is already taken"
           And the number of users in the database should be 1
+
+Scenario: Cannot Signup If Email Registered
+          Given I have previously signed up as Samuel
+          Given I visit the homepage
+          And I cannot see "Welcome Samuel!"
+          When I enter my details to signup
+          And I click "Join In!"
+          Then I should see "Email is already taken"
+          And the number of users in the database should be 1
+
+Scenario: Alerted as to which errors are     raised when signup fails
+          Given I have previously signed up as Samuel
+          Given I visit the homepage
+          When I enter my details to signup
+          And I click "Join In!"
+          Then I should see "Email is already taken"
+          And I should see "Username is already taken"
+
+Scenario: Cannot signup with blank information
+          Given I visit the homepage
+          And I click "Join In!"
+          Then I should see "Email must not be blank"
+          And I should see "Name must not be blank"
+          And I should see "Username must not be blank"
 
 

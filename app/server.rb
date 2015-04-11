@@ -32,7 +32,8 @@ class Chitter < Sinatra::Base
       session[:name] = user.name.split(' ').first
       "Welcome #{session[:name]}!"
     else
-      "No user with those details!"
+      flash.now[:errors] = [["No user with those details!"]]
+      erb :index
     end
   end
 
