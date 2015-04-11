@@ -23,3 +23,9 @@ Feature: Cheeping
     When I fill in "cheep" with "Hello, again!"
     And I press the "Cheep" button
     And I see "Hello, again!", followed by "Hello, world!"
+
+  Scenario: Cheeps show time cheeped
+    When I set the time to "5" minutes ago
+    And I fill in "cheep" with "Hello, world!"
+    And I press the "Cheep" button
+    Then I see "5 minutes ago"

@@ -1,3 +1,4 @@
+require 'cucumber/rspec/doubles'
 Given(/^I sign up$/) do
   sign_up
 end
@@ -33,6 +34,11 @@ end
 
 When(/^I press the "([^"]*)" button$/) do |button|
   click_button(button)
+end
+
+When(/^I set the time to "([^"]*)" minutes ago$/) do |minutes|
+  fake_time = Time.now - (minutes.to_i * 60)
+  allow_any_instance_of(Cheep).to receive(:time_stamp) { fake_time }
 end
 
 def sign_in(username = 'joejknowles',

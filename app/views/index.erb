@@ -15,6 +15,9 @@
       <div class='message'>
         <%= cheep.message %>
       </div>
+      <div class='time'>
+        <%= ((Time.now - cheep.time_stamp) / 60).floor %> minutes ago.
+      </div>
     </div>
   <% end %>
 </div>
