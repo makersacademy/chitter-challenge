@@ -22,6 +22,7 @@ Feature: signing up a user
     Then I see "Welcome saramoohead."
 
   Scenario: sign out
-    Given the session username is "saramoohead"
+    Given I am logged in
+    And I see "Welcome saramoohead"
     When I click "Sign out"
     Then I do not see "Welcome saramoohead."

@@ -34,13 +34,29 @@ When(/^the system correctly authenticates my "([^"]*)" and "([^"]*)"$/) do |user
 end
 
 # Sign out
-
-Given(/^the session username is "([^"]*)"$/) do |username|
-  p '*' * 20
-  p session.inspect
-  expect(session.inspect).to_include username
+Given(/^I am logged in$/) do
+  log_in
 end
 
 Then(/^I do not see "([^"]*)"$/) do |message|
   expect(page).not_to have_content(message)
 end
+
+def register
+  step "I am in the sign up section"
+  step "I fill in \"username\" with \"saramoohead\""
+  step "I fill in \"real_name\" with \"Sara OC\""
+  step "I fill in \"email\" with \"saramoo@hotmail.com\""
+  step "I fill in \"password\" with \"password\""
+  step "I click \"Register\""
+end
+
+def log_in
+  step "the user \"saramoohead\" exists"
+  step "I am on the homepage"
+  step "I fill in \"username\" with \"saramoohead\""
+  step "I fill in \"password\" with \"password\""
+  step "I click \"Sign in\""
+  step "the system correctly authenticates my \"username\" and \"password\""
+end
+
