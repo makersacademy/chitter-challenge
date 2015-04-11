@@ -1,7 +1,7 @@
 # Sign up
 
-Given(/^I am on the homepage$/) do
-  visit '/'
+Given(/^I am in the sign up section$/) do
+  visit '/users/new'
 end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
@@ -21,6 +21,10 @@ end
 Given(/^the user "([^"]*)" exists$/) do |username|
   user_test = User.all(username: username).count
   expect(user_test).to be(1)
+end
+
+Given(/^I am on the homepage$/) do
+  visit '/'
 end
 
 When(/^the system correctly authenticates my "([^"]*)" and "([^"]*)"$/) do |username, password|

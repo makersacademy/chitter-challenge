@@ -1,10 +1,14 @@
-<h1>Sign up to post your Peep!</h1>
-<form action='/' method='post'>
-  Choose a username: <input type='text' name='username'>
-  Enter your real name: <input type='text' name='real_name'>
-  Please give us your email: <input type='email' name='email'>
-  And a password: <input type='password' name='password'>
-  <input type='submit' value='Register'>
+<% if @username %>
+<h2>Welcome <%=@username%>.</h2>
+<% end %>
+
+<% if !@username %>
+<h3>Sign in to post a Peep</h3>
+<form action='/sessions' method='post'>
+  Enter your username: <input type='text' name='username'>
+  And your password: <input type='password' name='password'>
+  <input type='submit' value='Sign in'>
 </form>
 
-<h2>Welcome to Chitter, <%=@username%>. You have signed up.</h2>
+<h3>Or <a href="/users/new">click here</a> to register</h3>
+<% end %>

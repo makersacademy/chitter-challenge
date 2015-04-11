@@ -14,7 +14,11 @@ class ChitterChatter < Sinatra::Base
     erb :homepage
   end
 
-  post '/' do
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
     @username = params[:username]
     @real_name = params[:real_name]
     @email = params[:email]
@@ -23,6 +27,11 @@ class ChitterChatter < Sinatra::Base
                         real_name: @real_name,
                         email: @email,
                         password: @password)
+    erb :homepage
+  end
+
+  post '/sessions' do
+    @username = params[:username]
     erb :homepage
   end
 
