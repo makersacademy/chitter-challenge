@@ -12,9 +12,11 @@
       </div>
       <div class='applause'>
         <%= cheep.applause %> applause
-        <form action='./cheeps/applaud' method='post'>
-          <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
-        </form>
+        <% if @user %>
+          <form action='./cheeps/applaud' method='post'>
+            <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
+          </form>
+        <% end %>
       </div>
     </div>
   <% end %>

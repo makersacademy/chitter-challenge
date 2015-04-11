@@ -73,8 +73,8 @@ Given(/^I block mailgun$/) do
   allow(RestClient).to receive(:post).and_return('test')
 end
 
-Then(/^I don't see the "([^"]*)" button$/) do |_button|
-  expect(page).to have_button button, disabled: true
+Then(/^I don't see the "([^"]*)" button$/) do |button|
+  expect(page).not_to have_button button
 end
 
 Given(/^Fred signs up$/) do

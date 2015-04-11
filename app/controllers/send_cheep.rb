@@ -3,6 +3,7 @@ class Chitter < Sinatra::Base
     cheep = params[:cheep]
     @user = User.first(id: session[:user_id])
     Cheep.create!(message: cheep, user: @user, time_stamp: Time.now)
+    @user.save
     redirect '/'
   end
 end

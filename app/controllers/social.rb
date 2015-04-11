@@ -3,14 +3,13 @@ class Chitter < Sinatra::Base
     @user = User.first(id: session[:user_id])
     cheepid = params[:cheepid]
     cheep = Cheep.first(id: cheepid)
-    # @user.update!(applause: (@user.applause << cheepid))
-    puts @user
     cheep.update(applause: cheep.applause + 1)
-    refresh = request.fullpath[0..-15]
+    refresh = request.fullpath[0..-15] << "#{session[:profile]}"
     redirect refresh
   end
   get '/users/profiles/:profile' do
     @profile = params[:profile]
+    session[:profile] = @profile
     @profile = User.first(username: @profile)
     @cheeps = Cheep.all.select do |cheep|
       cheep.user.username == @profile.username
