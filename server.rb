@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'rack-flash'
 require './data_mapper_set_up'
+require './helpers'
 
 class Chittter < Sinatra::Base
   enable :sessions
