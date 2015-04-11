@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Feature - Chitter Homepage' do
+feature 'Feature - Peeps Database' do
 
   before(:each) do
     Peep.create message: 'My first peep',

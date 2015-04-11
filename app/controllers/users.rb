@@ -13,9 +13,6 @@ class Chitter
                      user_handle: params[:user_handle]
     if @user.save
       session[:user_id] = @user.id
-      p '---' * 10
-      p @user.id
-      p @user
       redirect to('/')
     else
       flash.now[:errors] = @user.errors.full_messages

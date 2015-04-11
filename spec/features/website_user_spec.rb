@@ -21,16 +21,15 @@ feature 'Feature - User Sign Up' do
 
 end
 
-feature 'Feature - User Signs In' do
+feature 'Feature - User Sign In' do
 
   before(:each) do
-    User.create email: 'sanjsanj@hotmail.com',
-                password: 'password', password_confirmation: 'password',
-                user_name: 'Sanjay Purswani', user_handle: 'sanjsanj'
+    sign_up
   end
 
   scenario 'succeeds with correct credentials' do
     visit '/'
+    click_button 'Sign out'
     expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
     sign_in 'sanjsanj@hotmail.com', 'password'
     expect(page).to have_content 'Welcome, sanjsanj@hotmail.com'
@@ -38,6 +37,7 @@ feature 'Feature - User Signs In' do
 
   scenario 'fails without correct credentials' do
     visit '/'
+    click_button 'Sign out'
     expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
     sign_in 'sanjsanj@hotmail.com', 'wrong'
     expect(page).not_to have_content 'Welcome, sanjsanj@hotmail.com'
@@ -48,9 +48,8 @@ end
 feature 'Feature - User Sign Out' do
 
   before(:each) do
-    User.create email: 'sanjsanj@hotmail.com',
-                password: 'password', password_confirmation: 'password',
-                user_name: 'Sanjay Purswani', user_handle: 'sanjsanj'
+    sign_up
+    sign_in
   end
 
   scenario 'succeeds while being signed in' do

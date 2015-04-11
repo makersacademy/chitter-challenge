@@ -4,7 +4,6 @@ module UserHelpers
               password = 'password', password_confirmation = 'password',
               user_name = 'Sanjay Purswani', user_handle = 'sanjsanj'
     visit '/users/new'
-    expect(page.status_code).to eq 200
     fill_in :email, with: email
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
@@ -13,7 +12,7 @@ module UserHelpers
     click_button 'Sign up'
   end
 
-  def sign_in email, password
+  def sign_in email = 'sanjsanj@hotmail.com', password = 'password'
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password
