@@ -11,7 +11,7 @@ class Chitter
       session[:user_id] = user.id
       session[:user_name] = user.user_name
       session[:user_handle] = user.user_handle
-      redirect to('/')
+      redirect to '/'
     else
       flash[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'

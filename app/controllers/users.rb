@@ -20,4 +20,9 @@ class Chitter
     end
   end
 
+  get '/users/list' do
+    @users = User.all
+    erb :'users/list'
+  end
+
 end
