@@ -4,6 +4,9 @@ require 'server'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
+require 'capybara/rspec'
+
+Capybara.app = Chitter
 
 RSpec.configure do |config|
 

@@ -1,0 +1,13 @@
+<ol>
+  <% @posts.each do |post| %>
+    <li><%= post.peep %><%= post.user %></li>
+  <% end %>
+</ol>
+
+<div id='new-post'>
+  <form action='/posts' method='post'>
+    Peep: <input type='text' name='peep'>
+    User: <input type='text' name='user'>
+    <input type='submit' value='Add Peep'>
+  </form>
+</div>

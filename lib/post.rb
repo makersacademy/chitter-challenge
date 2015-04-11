@@ -1,4 +1,4 @@
-class Link
+class Post
 
   include DataMapper::Resource
 
