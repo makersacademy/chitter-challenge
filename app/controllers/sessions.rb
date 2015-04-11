@@ -18,6 +18,7 @@ class Chitter
 
   delete '/sessions' do
     session[:user_id] = nil
+    flash.now[:notice] = 'You have signed out'
     erb :'sessions/goodbye'
   end
 

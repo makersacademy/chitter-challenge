@@ -1,5 +1,7 @@
-def current_user
+module Helpers
 
-  @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  def current_user
+    @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  end
 
 end

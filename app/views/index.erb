@@ -7,6 +7,6 @@
 
 <ul>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep.message %><%= @user.user_name %><%= @user.user_handle %></li>
+    <li><%= peep.message %> by @<%= peep.user_handle %> (<%= peep.user_name %>)</li>
   <% end %>
 </ul>

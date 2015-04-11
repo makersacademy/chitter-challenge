@@ -18,8 +18,8 @@ feature 'Feature - Chitter Homepage' do
 
   scenario 'lists all peeps' do
     visit '/'
-    expect(page).to have_content "My first peep", "Sanjay Purswani", "sanjsanj"
-    expect(page).to have_content "Bob's first peep", "Bob Smith", "bob"
+    expect(page).to have_content "My first peep by @sanjsanj (Sanjay Purswani)"
+    expect(page).to have_content "Bob's first peep by @bob (Bob Smith)"
   end
 
 end

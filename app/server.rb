@@ -16,6 +16,8 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
+  set :public_folder, proc { File.join(root, "..", "public") }
+
   configure do
     register Sinatra::Partial
     set :partial_template_engine, :erb
@@ -27,57 +29,7 @@ class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
-  # get '/' do
-  #   @peeps = Peep.all
-  #   erb :index
-  # end
-
-  # post '/peeps' do
-  #   message = params['message']
-  #   Peep.create message: message
-  #   redirect to '/'
-  # end
-
-  # get '/users/new' do
-  #   @user = User.new
-  #   erb :'users/new'
-  # end
-  #
-  # post '/users' do
-  #   @user = User.new email: params[:email],
-  #                    password: params[:password],
-  #                    password_confirmation: params[:password_confirmation],
-  #                    user_name: params[:user_name],
-  #                    user_handle: params[:user_handle]
-  #   if @user.save
-  #     session[:user_id] = @user.id
-  #     redirect to('/')
-  #   else
-  #     flash.now[:errors] = @user.errors.full_messages
-  #     erb :'users/new'
-  #   end
-  # end
-
-  # get '/sessions/new' do
-  #   erb :'sessions/new'
-  # end
-  #
-  # post '/sessions' do
-  #   email, password = params[:email], params[:password]
-  #   user = User.authenticate(email, password)
-  #   if user
-  #     session[:user_id] = user.id
-  #     redirect to('/')
-  #   else
-  #     flash[:errors] = ['The email or password is incorrect']
-  #     erb :'sessions/new'
-  #   end
-  # end
-  #
-  # delete '/sessions' do
-  #   session[:user_id] = nil
-  #   erb :'sessions/goodbye'
-  # end
+  include Helpers
 
   run! if app_file == $PROGRAM_NAME
 
