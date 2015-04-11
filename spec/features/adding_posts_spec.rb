@@ -11,7 +11,7 @@ feature 'User adds a new post' do
 
   def add_post(username, message)
     within('#new-post') do
-      puts "username" # will give this more though later
+      fill_in 'username', with: username
       fill_in 'message', with: message
       click_button 'Post'
     end
