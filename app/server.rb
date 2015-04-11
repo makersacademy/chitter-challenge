@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'superbly secret'
   use Rack::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -19,7 +20,10 @@ class Chitter < Sinatra::Base
                 password: params[:password],
                 username: params[:username])
     if user.save
-      "Welcome #{params[:name].split(' ').first}!"
+      flash.now[:announcement] = ["Welcome #{params[:name].split(' ').first}!"]
+      session[:user] = user.id
+      session[:name] = user.name.split(' ').first
+      erb :index
     else
       flash.now[:errors] = user.errors
       erb :index
@@ -29,12 +33,21 @@ class Chitter < Sinatra::Base
   post '/sessions/new' do
     user = User.first(email: params[:returning_email])
     if user && user.password == params[:returning_password]
+      session[:user] = user.id
       session[:name] = user.name.split(' ').first
-      "Welcome #{session[:name]}!"
+      flash[:announcement] = ["Welcome #{session[:name]}!"]
+      erb :index
     else
       flash.now[:errors] = [["No user with those details!"]]
       erb :index
     end
+  end
+
+  delete '/sessions/:id' do
+    session[:user] = nil
+    session[:name] = nil
+    flash.now[:announcement] = ["You have logged out!"]
+    erb :index
   end
 
   # start the server if ruby file executed directly

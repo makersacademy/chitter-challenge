@@ -5,6 +5,13 @@
     <% end %>
   </ul>
 <% end %>
+<% if flash[:announcement] %>
+    <ul id='announcement'>
+    <% flash[:announcement].each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
 Welcome To Chitter!
 
 <% unless session[:name] %>
@@ -26,5 +33,10 @@ Log In?
 </form>
 
 <% else %>
-Welcome <%= session[:name] %>!
+<div id='logged_in'>
+You're Logged In As: <%= session[:name] %>!
+<form action='/sessions/<%= session[:user] %>' method='post'>
+<input type='hidden' name='_method' value='delete'>
+<input type='submit' value='Log Out!'>
+</form>
 <% end %>

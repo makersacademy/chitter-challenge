@@ -8,6 +8,8 @@ Scenario: Sign Up
           When I enter my details to signup
           And I click "Join In!"
           Then I should see "Welcome Samuel!"
+          And I cannot see "Join In?"
+          And I cannot see "Log In?"
           And the number of users in the database should increase by 1
 
 Scenario: Log In
@@ -97,4 +99,16 @@ Scenario: Cannot signup with blank information
           And I should see "Name must not be blank"
           And I should see "Username must not be blank"
 
+Scenario: Can Log Out
+          Given I visit the homepage
+          And I have previously signed up as Samuel
+          When I enter Sams details to login
+          And I click "Log In!"
+          Then I should see "Welcome Samuel!"
+          Given I visit the homepage
+          Then I should see "You're Logged In As: Samuel!"
+          Given I click "Log Out!"
+          Then I should see "You have logged out!"
+          And I should see "Join In?"
+          And I cannot see "Welcome Samuel!"
 
