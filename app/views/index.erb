@@ -5,8 +5,8 @@
   </form>
 </div>
 
-<ul>
+<ul id='peeps'>
   <% @peeps.reverse_each do |peep| %>
-    <li><%= peep.message %> by @<%= peep.user_handle %> (<%= peep.user_name %>)</li>
+    <%= partial :peep, :locals => {:peep => peep} %>
   <% end %>
 </ul>

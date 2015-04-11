@@ -1,10 +1,22 @@
 <h1>Please sign up</h1>
 
 <form action='/users' method='post'>
-  Email: <input name='email' type='text' value='<%= @user.email %>'><br>
-  Real Full Name: <input name='user_name' type='text' value='<%= @user.user_name %>'><br>
-  Chitter Name: <input name='user_handle' type='text' value='<%= @user.user_handle %>'><br>
-  Password: <input name='password' type='password'><br>
-  Password Confirmation: <input name='password_confirmation' type='password'><br>
-  <input type='submit' value='Sign up'>
+  <p>
+    Email: <input name='email' type='text' value='<%= @user.email %>'>
+  </p>
+  <p>
+    Real Full Name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
+  </p>
+  <p>
+    Chitter Name: <input name='user_handle' type='text' value='<%= @user.user_handle %>'>
+  </p>
+  <p>
+    Password: <input name='password' type='password'>
+  </p>
+  <p>
+    Password Confirmation: <input name='password_confirmation' type='password'>
+  </p>
+  <p>
+    <input type='submit' value='Sign up'>
+  </p>
 </form>

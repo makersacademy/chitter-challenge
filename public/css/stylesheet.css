@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/images/extra_clean_paper.png);
+  color: #333;
+}
+
+html, body {
+  height: 100%;
+}
+/* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+}
+
+/* a link that has both classes. Overrides the previous declaration */
+.button.highlighted {
+  background-color: #b77843;
+}
+
+header {
+  height: 40px;
+  background-color: black;
+  color: white;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  padding: 0 20px;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  header a {
+    color: white;
+  }
+
+  header #user-links {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }
+
+  header #user-links > * {
+    display: inline-block;
+  }
+
+  header #user-links #welcome-message {
+    font-size: 14px;
+  }
+
+#container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.link {
+  background-color: #EEE;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+  .link a.title {
+    letter-spacing: 1px;
+  }
+
+  .link .description {
+    margin: 10px inherit;
+  }
+
+  .link .source {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right;
+    font-size: 12px;
+  }
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75);
+  }
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  text-align: left;
+}
+
+  form p {
+    margin: 10px 0;
+  }
+
+  form input[type="text"], form input[type="password"] {
+    border: 1px solid black;
+    font-size: 16px;
+    width: 400px;
+  }
+
+footer {
+  display: flex;
+  background-color: rgba(0,0,0,0.2);
+  height: 70px; /* because of the sticky footer */
+}
+
+  footer > * {
+    margin: auto inherit;
+  }
+
+  footer img {
+    /* http://stackoverflow.com/questions/10658475/3px-extra-height-on-a-div-with-an-image-inside-it */
+    vertical-align: top;
+  }
+
+  footer #technologies {
+    -webkit-flex: 1;
+    flex: 1;
+    font-size: 12px;
+  }
+
+  footer p {
+    padding: 5px 25px;
+  }
+
+  /* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+  .footer, .push {
+    height: 70px;
+  }

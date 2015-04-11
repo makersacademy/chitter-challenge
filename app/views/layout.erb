@@ -1,25 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+</head>
 <body>
-  <% if current_user %>
-    Welcome, <%= current_user.email %>
-    <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
-    </form>
-  <% end %>
-  <%= yield %>
-</body>
-
-<% if flash[:notice] %>
-  <div id="notice">
-    <%= flash[:notice] %>
+  <div class="wrapper">
+    <%= partial :header %>
+    <%= partial :flash %>
+    <div id='container'>
+      <%= yield %>
+    </div>
+    <div class="push"></div>
   </div>
-<% end %>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Sorry, there were the following problems with the form.
-  <ul id="errors">
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <div class="footer">
+    <%= partial :footer %>
+  </div>
+</body>
+</html>
