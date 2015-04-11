@@ -1,4 +1,8 @@
 <body>
+  <% if flash[:notice] %>
+    <%=flash[:notice] %>
+  <% end %>
+    <%= @who_to_welcome %>
   <form action='/sessions' method='post'> 
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log out'>

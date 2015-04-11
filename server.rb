@@ -17,8 +17,12 @@ class Chittter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
+  def welcome
+    @who_to_welcome = "Welcome, #{session[:username]}" if session[:username]
+  end
+
   get '/' do
-    @who_to_welcome = session[:username] # if session[:user_name]
+    welcome
     erb :index
   end
 
@@ -59,9 +63,9 @@ class Chittter < Sinatra::Base
   end
 
   delete '/sessions' do
-    p session
+    puts 'here'
     session[:username] = nil
-    flash[:notice] = 'Good bye!'
+    flash[:notice] = 'you have logged out successfully'
     redirect('/')
   end
 

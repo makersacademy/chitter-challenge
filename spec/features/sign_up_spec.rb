@@ -33,7 +33,7 @@ feature 'Signing up' do
                    '12345',
                    '12345',
                    'test_name',
-                   'same name') } .to change(User, :count).by(0)
+                   'some name') } .to change(User, :count).by(0)
     expect(page).to have_content('This email address has be taken')
   end
 
@@ -47,7 +47,7 @@ feature 'Signing up' do
                    '12345',
                    '12345',
                    'test_name',
-                   'same name') } .to change(User, :count).by(0)
+                   'unique_un_1') } .to change(User, :count).by(0)
     expect(page).to have_content('This name has be taken')
   end
 
