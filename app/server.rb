@@ -11,6 +11,10 @@ set :session_secret, 'super secret'
 use Rack::Flash
 use Rack::MethodOverride
 
+ get '/forgot/password' do    
+    erb :'forgot/password'
+  end
+
 get '/' do
   @peeps = Peep.all
   erb :index
