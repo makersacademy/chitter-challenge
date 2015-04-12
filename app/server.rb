@@ -1,13 +1,18 @@
 require 'sinatra/base'
 require './app/data_mapper_setup'
-
 require 'byebug'
+require 'rack-flash'
 require 'tilt/erb'
+require_relative 'models/convo'
+require_relative 'models/user'
+require_relative 'models/tag'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+
+  use Rack::Flash
 
   get '/' do
     @convos = Convo.all
@@ -31,16 +36,22 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do
+    @user = User.new
     erb :'user/new'
   end
 
   post '/user' do
-    user = User.create(user_name: params[:user_name],
-                       email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/welcome_message')
+    @user = User.create(user_name: params[:user_name],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/welcome_message')
+    else
+      flash[:notice] = 'Sorry, your passwords don\'t match'
+      erb :'user/new'
+    end
   end
 
   get '/welcome_message' do

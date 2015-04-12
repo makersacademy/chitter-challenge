@@ -7,6 +7,12 @@ feature 'signing in' do
     expect(User.first.user_name).to eq('Ed')
   end
 
+  scenario 'with a password that does not match' do
+    expect { sign_up('a', 'a@a.com', 'p', 'w') }.to change(User, :count).by 0
+    expect(current_path).to eq('/user')
+    expect(page).to have_content('Sorry, your passwords don\'t match')
+  end
+
   def sign_up(user_name = 'Ed', email = 'ed@ed.com',
               password = '123', password_confirmation = '123')
     visit '/user/new'
@@ -18,14 +24,12 @@ feature 'signing in' do
     click_button 'Register'
   end
 
-  xscenario 'can sign up' do
+  xscenario 'can sign in' do
     visit '/'
-    click_button 'Sign up now'
+    click_button 'Sign in'
     fill_in 'Username', with: user_name
-    fill_in 'Email', with: email
     fill_in 'password', with: password
-    fill_in 'Confirm Password', with: confirm_password
-    click_button 'Register'
+    click_button 'Sign in'
     expect(page).to have_content('Welcome to Chitter')
   end
   xscenario 'can sign in' do

@@ -1,10 +1,13 @@
-<h1>
+
 <body>
-  <form action="/views/user/new">
+<form action="/user/new">
   <input type="submit" value="Sign up now">
-</body></h1>
-<ol reversed>
-  <% @convos.each do |convo| %>
+</form>
+<!-- <form action="/user/new">
+  <input type="submit" value="Sign in">
+</form> -->
+<ol>
+  <% @convos.reverse_each do |convo| %>
     <li><a><%= convo.message %><br>
       Tags: <%= convo.tags.map{|i| i.text}.join(", ") %></li>
   <% end %>
@@ -17,3 +20,4 @@
     <input type="submit" value="Post Message">
   </form>
 </div>
+</body>
