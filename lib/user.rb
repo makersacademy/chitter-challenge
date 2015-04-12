@@ -1,5 +1,4 @@
 require 'bcrypt'
-require 'data_mapper'
 
 class User
 
@@ -8,7 +7,7 @@ class User
   attr_accessor :password
 
   property :user_id, Serial
-  property :username, String
+  property :username, String, unique: true, message: 'Sorry, that username is already taken.'
   property :real_name, String
   property :email, String
   property :password_digest, Text

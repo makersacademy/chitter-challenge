@@ -16,7 +16,7 @@ Then(/^I see "([^"]*)"$/) do |message|
   expect(page).to have_content(message)
 end
 
-Then(/^the registration of "([^"]*)" is not entered into the database$/) do |username|
+Then(/^"([^"]*)" is not entered into the database$/) do |username|
   user_test = User.all(username: username).count
   expect(user_test).to eq(1)
 end
@@ -32,7 +32,7 @@ Given(/^I am on the homepage$/) do
   visit '/'
 end
 
-When(/^the system correctly authenticates my "([^"]*)" and "([^"]*)"$/) do |username, password|
+When(/^my "([^"]*)" and "([^"]*)" are authenticated$/) do |username, password|
   username = 'saramoohead'
   password = 'password'
   expect(User.authenticate(username, password)).not_to be nil
@@ -50,15 +50,18 @@ Then(/^I do not see "([^"]*)"$/) do |message|
 end
 
 # Peep
-
-def register
-  step "I am in the sign up section"
-  step "I fill in \"username\" with \"saramoohead\""
-  step "I fill in \"real_name\" with \"Sara OC\""
-  step "I fill in \"email\" with \"saramoo@hotmail.com\""
-  step "I fill in \"password\" with \"password\""
-  step "I click \"Register\""
+Then(/^I create a new Peep$/) do
+  expect(Peep.all.count).to eq(1)
 end
+
+# def register
+#   step "I am in the sign up section"
+#   step "I fill in \"username\" with \"saramoohead\""
+#   step "I fill in \"real_name\" with \"Sara OC\""
+#   step "I fill in \"email\" with \"saramoo@hotmail.com\""
+#   step "I fill in \"password\" with \"password\""
+#   step "I click \"Register\""
+# end
 
 def log_in
   step "the user \"saramoohead\" exists"
@@ -66,7 +69,7 @@ def log_in
   step "I fill in \"username\" with \"saramoohead\""
   step "I fill in \"password\" with \"password\""
   step "I click \"Sign in\""
-  step "the system correctly authenticates my \"username\" and \"password\""
+  step "my \"username\" and \"password\" are authenticated"
 end
 
 

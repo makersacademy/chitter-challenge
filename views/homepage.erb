@@ -1,10 +1,3 @@
-<% if @username %>
-<h2>Welcome <%=@username%>.</h2>
-<form action='/sessions' method='post'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Sign out'>
-</form>
-<% end %>
 
 <% if !@username %>
 <h3>Sign in to post a Peep</h3>
@@ -15,4 +8,8 @@
 </form>
 
 <h3>Or <a href="/users/new">click here</a> to register</h3>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
 <% end %>

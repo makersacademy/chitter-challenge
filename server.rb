@@ -6,6 +6,7 @@ require 'tilt/erb'
 env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/chitter_chatter_#{env}")
 require './lib/user'
+require './lib/peep'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
@@ -27,18 +28,24 @@ class ChitterChatter < Sinatra::Base
   post '/users' do
     @username = params[:username]
     @password = params[:password]
-    user = User.new(username: params[:username],
-                    real_name: params[:real_name],
-                    email: params[:email],
-                    password: params[:password])
+    @user = User.new(username: params[:username],
+                     real_name: params[:real_name],
+                     email: params[:email],
+                     password: params[:password])
     if User.all(username: @username).count == 0
-      user.save
+      @user.save
       session[:username] = @username
       erb :homepage
     else
-      flash[:notice] = "Sorry, that username is already taken."
+      flash[:notice] = 'Sorry, that username is already taken.'
       erb :'users/new'
     end
+  end
+
+  post '/peeps/new' do
+    @peep = Peep.create(peep: params[:peep])
+    flash[:notice] = 'Peep has been posted!'
+    redirect('/')
   end
 
   post '/sessions' do

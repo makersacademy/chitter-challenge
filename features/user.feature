@@ -18,7 +18,7 @@ Feature: user management
     When I fill in "username" with "saramoohead"
     And I fill in "password" with "password"
     And I click "Sign in"
-    And the system correctly authenticates my "username" and "password"
+    And my "username" and "password" are authenticated
     Then I see "Welcome saramoohead."
 
   Scenario: sign out
@@ -33,4 +33,11 @@ Feature: user management
     When I fill in "username" with "saramoohead"
     And I click "Register"
     Then I see "Sorry, that username is already taken."
-    And the registration of "saramoohead" is not entered into the database
+    And "saramoohead" is not entered into the database
+
+  Scenario: post peep
+    Given I log in
+    When I fill in "peep" with "Today is good"
+    And I click "Peep"
+    Then I create a new Peep
+    And I see "Peep has been posted!"
