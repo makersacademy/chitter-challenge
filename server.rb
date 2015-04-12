@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
     hashtag = params['hashtag'].split(' ').map do |hashtag|
     Hashtag.first_or_create(text: hashtag)
     end
+    
     Post.create(username: username, message: message, hashtag: hashtag)
     redirect to ('/')
   end
