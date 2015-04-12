@@ -5,6 +5,8 @@ h1 {
 button, form {
   font-size: 0.8em;
   display:inline;
+  margin: 4px;
+  margin-bottom: 10px;
 }
 .time {
   font-size: 0.6em;
@@ -44,9 +46,23 @@ input #send-cheep {
   text-align: left;
   display: block;
 }
+.message {
+  font-size: 1.5em;
+}
 a {
   color:#007;
 }
 body {
   background-color: #EEE;
+}
+li {
+  margin: 5px;
+}
+input {
+  width: 30em;
+  font-size: 0.8em;
+}
+.applause * {
+  font-size: 0.7em;
+  margin: 0;
 }
