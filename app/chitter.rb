@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
     @user = User.new(name: params[:name],
                      username: params[:handle],
                      password: params[:password],
+                     password_confirmation: params[:password_confirmation],
                      email: params[:email])
     if @user.save
       session[:user_id] = @user.id
@@ -32,7 +33,7 @@ class Chitter < Sinatra::Base
       redirect to('/')
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'./views/users/new'
+      erb :'/users/new'
     end
   end
 
