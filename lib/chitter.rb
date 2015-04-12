@@ -20,6 +20,10 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
+  get '/mypeeps/' do
+    erb :my_peeps
+  end
+
   get '/welcome/' do
     erb :sign_in_or_up
   end

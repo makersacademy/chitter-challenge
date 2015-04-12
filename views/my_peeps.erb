@@ -1,0 +1,5 @@
+<div>
+  <% User.first(id: session[:user_id]).peeps.each do |peep| %>
+    <%= peep.text %>
+  <% end %>
+</div>

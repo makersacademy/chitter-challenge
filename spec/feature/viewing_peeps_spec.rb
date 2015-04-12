@@ -15,5 +15,19 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Hola!')
   end
 
-  xscenario 'peep is visible under "My Peeps" after submission'
+  scenario 'user peeps are visible under "My Peeps" after submission' do
+    sign_up
+    post_peep('Hiya!')
+    post_peep('Howdy!')
+    sign_out
+    sign_up('b@b.com', 'hello', 'hello')
+    post_peep('Cheerio!')
+    post_peep('Hola!')
+    find_button('My Peeps').click
+    expect(current_path).to eq('/mypeeps/')
+    expect(page).to have_no_content('Hiya!')
+    expect(page).to have_no_content('Howdy!')
+    expect(page).to have_content('Cheerio!')
+    expect(page).to have_content('Hola!')
+  end
 end
