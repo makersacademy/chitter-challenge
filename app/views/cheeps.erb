@@ -13,7 +13,7 @@
       </div>
       <div class='applause'>
         <%= cheep.applause.length %> applause
-        <% if @user && @user.applause.none? { |ap| ap.cheep_id == cheep.id } %>
+        <% if @user && @user.applause.none? { |ap| ap.cheep_id == cheep.id } && @user != cheep.user%>
           <form action='./cheeps/applaud' method='post'>
             <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
           </form>
