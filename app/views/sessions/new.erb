@@ -1,0 +1,9 @@
+<% if flash[:errors] %>
+  <%= flash[:errors].each { |error| "#{error}" } %>
+<% end %>
+
+<form action="/sessions/new" method="post">
+  <input type="text" name="username" placeholder="Log in">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign in">
+</form>

@@ -1,0 +1,16 @@
+<header>
+
+<h1>fridgedoor</h1>
+
+<% if current_user %>
+  <h3>Hello, <%= "#{current_user.first_name}" %></h3>
+    <form method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
+<% else %>
+  <a href="/sessions/new" id="sign-in">Sign in</a>
+  <a href="/users/new" id="sign-up">Sign up</a>
+<% end %>
+
+</header>

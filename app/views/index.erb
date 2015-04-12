@@ -1,0 +1,22 @@
+<% if current_user %>
+
+  <h2>Add a note</h2>
+
+  <form id="new-note" action="/notes/add" method="post">
+    <input type="text" name="note" placeholder="Post a note">
+    <input type="submit" value="Post">
+  </form>
+
+<% else %>
+
+  Please log in to post a note.
+
+<% end %>
+
+<% Note.sort { |note1, note2| note2.created_at <=> note1.created_at }.each do |note| %>
+  <article>
+    <h4><%= User.get(note.user_id).full_name %></h4>
+    <%= note.content %>
+    <sub>Posted at <%= note.created_at %></sub>
+  </article>
+<% end %>

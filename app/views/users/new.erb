@@ -1,0 +1,14 @@
+<% if flash[:errors] %>
+  <%= flash[:errors].each { |error| "#{error}" } %>
+<% end %>
+
+<form id="sign-up" action="/users/new" method="post">
+  <input type="text" name="first_name" placeholder="First name">
+  <input type="text" name="last_name" placeholder="Last name">
+  <input type="text" name="email" placeholder="Email address">
+  <input type="password" name="password" placeholder="Password">
+  <input type="password" name="confirm_password" placeholder="Confirm password">
+  Create your doorhandle: <input type="text" name="username">
+  <input type="submit" value="Sign up">
+
+</form>
