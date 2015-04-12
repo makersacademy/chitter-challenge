@@ -1,13 +1,15 @@
-<p>Please sign up:</p>
-<form action='/users/new' method='post'>
-  Name:<br>
-  <input type='text' name='Name'><br>
-  Email:<br>
-  <input type='text' name="Email"><br>
-  Username:<br>
-  <input type='text' name='Username'><br>
-  Password:<br>
-  <input type='password' name='Password'><br>
-  <br>
-  <input type='submit' value='Sign Up'>
-</form>
+<% unless current_user %>
+  <p>Please sign up:</p>
+  <form action='/users/new' method='post'>
+    Name:<br>
+    <input type='text' name='Name'><br>
+    Email:<br>
+    <input type='text' name="Email"><br>
+    Username:<br>
+    <input type='text' name='Username'><br>
+    Password:<br>
+    <input type='password' name='Password'><br>
+    <br>
+    <input type='submit' value='Sign Up'>
+  </form>
+<% end %>

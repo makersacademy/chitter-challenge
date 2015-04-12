@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'rack-flash'
+require 'bcrypt'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -10,6 +11,10 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    end
+
+    def authenticate(user, password)
+      user && BCrypt::Password.new(user.password) == password
     end
   end
 
@@ -25,7 +30,8 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     user = User.create(name: params['Name'], email: params['Email'],
-                       username: params['Username'])
+                       username: params['Username'],
+                       password: BCrypt::Password.create(params['Password']))
     if user.save
       session[:user_id] = user.id
       @current_user = User.get(session[:user_id])
@@ -47,9 +53,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/login' do
-    session[:user_id] = User.first(username: params['Login_username']).id
-    @current_user = User.get(session[:user_id])
-    redirect to('/')
+    user = User.first(username: params['Login_username'])
+    if authenticate(user, params['Login_password'])
+      session[:user_id] = user.id
+      @current_user = User.get(session[:user_id])
+      redirect to('/')
+    else
+      erb :'users/invalid'
+    end
   end
 
   # start the server if ruby file executed directly

@@ -8,6 +8,7 @@ feature 'User can sign up' do
 
   scenario 'there is a list of all users' do
     sign_up
+    sign_out
     sign_up('Ryan', 'me@ryan.com', 'bat')
     visit '/users/all'
     expect(page).to have_content('cat')
@@ -23,8 +24,18 @@ feature 'User can sign up' do
   # This could be done better using flash or something, but fine for now
   scenario 'error will be raised when their email is already registered' do
     sign_up
+    sign_out
     sign_up
-    expect(page).to have_content('That email is already taken')
+    expect(page).to have_content('That username or email is already taken')
+  end
+
+  scenario 'error will be raised when their username is already registered' do
+    sign_up(name = 'George', email = 'me@blah.com',
+            username = 'cat', password = '12345')
+    sign_out
+    sign_up(name = 'George', email = 'me@georgemcgowan.com',
+            username = 'cat', password = '12345')
+    expect(page).to have_content('That username or email is already taken')
   end
 
   xscenario 'error will be raised when their username is already registered' do
@@ -46,11 +57,16 @@ feature 'User can log out' do
     end.to raise_error 'Unable to find button "Log Out"'
   end
 
-  xscenario 'previously signed up user can log out' do
+  scenario 'previously signed up user can log out' do
+    sign_up
+    sign_out
+    log_in
+    sign_out
+    expect(page).not_to have_content('cat')
   end
 end
 
-feature 'User can log in' do
+feature 'Users can log in' do
 
   scenario 'user logs in with correct details' do
     sign_up
@@ -59,10 +75,10 @@ feature 'User can log in' do
     expect(page).to have_content('cat')
   end
 
-  xscenario 'error someone logs in with the wrong details' do
+  scenario 'error someone logs in with the wrong details' do
     sign_up
     sign_out
-    log_in('dog')
+    log_in('dog', 'blah')
     expect(page).to have_content('Invalid username or password')
   end
 
