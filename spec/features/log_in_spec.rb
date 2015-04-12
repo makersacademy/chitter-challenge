@@ -1,3 +1,5 @@
+require_relative '../helper_methods.rb'
+
 feature 'Logging in' do
 
   before(:each) do
@@ -45,13 +47,4 @@ feature 'Logging in' do
       expect(page).to have_content('email or password is incorrect')
     end
   end
-end
-
-# would we want to remember our email in this form or not?
-
-def sign_in(email = 'test@test.com', password='12345')
-  visit '/sessions/new'
-  fill_in :email, with: email
-  fill_in :password, with: password
-  click_button 'log in'
 end

@@ -1,7 +1,4 @@
-# cant add a peep if logged out
-# can add a peep when logged in
-# peeps have the users name attached
-
+require_relative '../helper_methods.rb'
 feature 'adding peeps' do
 
   before(:each) do
@@ -41,11 +38,4 @@ def peep content = 'new peep!'
   visit '/peeps/new'
   fill_in :peep, with: content
   click_button 'peep'
-end
-
-def sign_in(email = 'test@test.com', password='12345')
-  visit '/sessions/new'
-  fill_in :email, with: email
-  fill_in :password, with: password
-  click_button 'log in'
 end

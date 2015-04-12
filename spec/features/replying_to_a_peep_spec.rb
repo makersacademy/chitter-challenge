@@ -1,3 +1,5 @@
+require_relative '../helper_methods.rb'
+
 feature 'replying to a peep' do
    before(:each) do
     User.create(email:'test@test.com',
@@ -36,10 +38,11 @@ feature 'replying to a peep' do
 
 end
 
+# extracting this doesnt seem to work
 def add_peep content = 'test'
   post = Peep.create(content: content, time: Time.new)
 end
-
+# neither does extracting this
 def sign_in(email = 'test@test.com', password='12345')
   visit '/sessions/new'
   fill_in :email, with: email

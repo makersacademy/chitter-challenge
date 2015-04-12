@@ -17,5 +17,21 @@ if theres time work out why in replying spec it has to be expect path to eq
 /reply/2 and not /reply/1, i think some where theres a lingering peep, maybe
 database didnt get properly cleaned
 
-add username of who replied to the reply page
-user_name: replys
+
+spec refactoring
+
+def add_peep content = 'test'
+  post = Peep.create(content: content, time: Time.now)
+end
+
+replying_to_a_peep * extracting breaks this
+
+def sign_in(email = 'test@test.com', password='12345')
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'log in'
+end
+
+replying_to_a_peep
+

@@ -1,3 +1,4 @@
+require_relative '../helper_methods.rb'
 feature 'Viewing peeps' do
 
   scenario 'on the homepage' do
@@ -17,8 +18,4 @@ feature 'Viewing peeps' do
     expect(page).not_to have_content('test')
   end
 
-end
-
-def add_peep content = 'test'
-  post = Peep.create(content: content, time: Time.new)
 end
