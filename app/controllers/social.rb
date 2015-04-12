@@ -21,14 +21,14 @@ class Chitter < Sinatra::Base
   post '/users/profiles/follow' do
     @user = User.first(id: session[:user_id])
     profile = params[:profile]
-    session[:following] ||= []
-    session[:following] << profile
+
     refresh = request.fullpath[0..-7]
     refresh << profile
     redirect refresh
   end
   get '*/following' do
-    @following = session[:following]
+
+    @following = []
     erb :'users/following'
   end
 end
