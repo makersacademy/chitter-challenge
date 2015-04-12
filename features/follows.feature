@@ -27,6 +27,12 @@ Feature: Users can follow other users
     And I'm on the "users/profiles/Fred" page
     Then I don't see the "Follow" button
 
+  Scenario: Don't see follow button when already following
+    When I click link "joejknowles"
+    And I press the "Follow" button
+    Then I don't see the "Follow" button
+
+
   Scenario: Sees cheeps of followed people
     When I click link "joejknowles"
     And I press the "Follow" button

@@ -43,3 +43,6 @@ input #send-cheep {
   text-align: left;
   display: block;
 }
+a {
+  color:#007;
+}
