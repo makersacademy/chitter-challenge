@@ -29,4 +29,5 @@ class User
       return nil
     end
   end
+
 end

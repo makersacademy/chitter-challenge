@@ -7,6 +7,7 @@ Current tweets:
   <% end %>
 </ul>
 
+<% if current_user %>
 <div id='new-tweet'>
   <form action='/tweets' method='post'>
     Name: <input type='text' name='user'>
@@ -14,3 +15,4 @@ Current tweets:
     <input type='submit' value='Send tweet'>
   </form>
 </div>
+<% end %>
