@@ -3,4 +3,12 @@
   <form action='/peep/new/process/' method='post'>
     <input type='text' name='peep_text'>
     <input type='submit' value='Post'>
+  </form>
+
+  <div>
+    <% Peep.all.each do |peep| %>
+      <%= peep.text %>
+      <!-- Consider showing who posted (usernames!) -->
+    <% end %>
+  </div>
 </div>

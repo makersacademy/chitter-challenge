@@ -17,6 +17,4 @@ feature 'Creating a new peep' do
     post_peep
     expect(User.first.peeps.count).to eq 1
   end
-
-  xscenario 'peep is visible under "My Peeps" after submission'
 end
