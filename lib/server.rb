@@ -79,11 +79,12 @@ end
     redirect '/'
   end
 
-#   # get '/tags/:text' do
-#   #   tag = Tag.first(text: params[:text])
-#   #   @peep = tag ? tag.peeps : []
-#   #   erb :index
-#   # end
+# will carry on recover password, CSS and everything on Monday
+# get '/tags/:text' do
+#   tag = Tag.first(text: params[:text])
+#   @peep = tag ? tag.peeps : []
+#   erb :index
+# end
 
 #   get '/sessions/recover_password' do
 #     erb :"sessions/recover_password"

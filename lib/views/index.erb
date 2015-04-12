@@ -5,10 +5,21 @@
     <li><%= peep.content %></li>
   <% end %>
 </ul>
-
+<br><br>
+Actually I have to remove the below. Shouldnt be on the index page. It shouldnt only appear when a user is signed in. I'm planning to re-work that tutorial.<br>
+----------------------------------------------------------
 <div id='new-peep'>
   <form action='/peeps' method='post'>
     Message: <input type='text' name='content'>
     <input type='submit' value='Add peep'>
   </form>
 </div>
+----------------------------------------------------------
+<br>If user not signed in, need to refactor
+<BR><BR>
+<form method='get' action='/sessions/new'>
+    <button type="submit">SIGN IN</button>
+</form><BR>
+<form method='get' action='/users/new'>
+    <button type="submit">SIGN UP</button>
+</form>
