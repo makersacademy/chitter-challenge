@@ -9,6 +9,7 @@ before_script:
 
 script:
   - RACK_ENV=test bundle exec rake auto_upgrade
-  - bundle exec rspec spec
   - bundle exec cucumber
+  - bundle exec rspec spec
+
 
