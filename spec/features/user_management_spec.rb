@@ -10,7 +10,19 @@ feature 'signing in' do
   scenario 'with a password that does not match' do
     expect { sign_up('a', 'a@a.com', 'p', 'w') }.to change(User, :count).by 0
     expect(current_path).to eq('/user')
-    expect(page).to have_content('Sorry, your passwords don\'t match')
+    expect(page).to have_content('Sorry, your password does not match the confirmation')
+  end
+
+  scenario 'with an email that is already registered' do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect { sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content('This Email is already taken')
+  end
+
+  scenario 'with an username that is already registered' do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect { sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content('This Username is already taken')
   end
 
   def sign_up(user_name = 'Ed', email = 'ed@ed.com',
@@ -24,17 +36,33 @@ feature 'signing in' do
     click_button 'Register'
   end
 
-  xscenario 'can sign in' do
-    visit '/'
-    click_button 'Sign in'
-    fill_in 'Username', with: user_name
-    fill_in 'password', with: password
-    click_button 'Sign in'
-    expect(page).to have_content('Welcome to Chitter')
-  end
-  xscenario 'can sign in' do
-  end
-  xscenario 'can sign out' do
+end
+
+feature 'User signs in' do
+
+  before(:each) do
+    User.create(user_name: 'Ed', email: 'ed@ed.com',
+                password: '123', password_confirmation: '123')
   end
 
+  scenario 'with the right information' do
+    visit '/'
+    expect(page).not_to have_content('welcome, Ed')
+    sign_in('Ed', '123')
+    expect(page).to have_content('Welcome, Ed')
+  end
+
+  scenario 'with wrong information' do
+    visit '/'
+    expect(page).not_to have_content('Welcome, Ed')
+    sign_in('Ed', '321')
+    expect(page).not_to have_content('Welcome, Ed')
+  end
+
+  def sign_in(user_name, password)
+    visit '/sessions/new'
+    fill_in 'Username', with: user_name
+    fill_in 'Password', with: password
+    click_button 'Sign in'
+  end
 end
