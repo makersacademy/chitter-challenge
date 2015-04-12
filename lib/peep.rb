@@ -1,3 +1,6 @@
+require 'data_mapper'
+require_relative 'user'
+
 class Peep
 
   include DataMapper::Resource
