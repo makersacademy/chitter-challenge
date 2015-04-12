@@ -16,11 +16,16 @@ Then(/^I see "([^"]*)"$/) do |message|
   expect(page).to have_content(message)
 end
 
+Then(/^the registration of "([^"]*)" is not entered into the database$/) do |username|
+  user_test = User.all(username: username).count
+  expect(user_test).to eq(1)
+end
+
 # Sign in
 
 Given(/^the user "([^"]*)" exists$/) do |username|
   user_test = User.all(username: username).count
-  expect(user_test).to be(1)
+  expect(user_test).to eq(1)
 end
 
 Given(/^I am on the homepage$/) do
@@ -34,13 +39,17 @@ When(/^the system correctly authenticates my "([^"]*)" and "([^"]*)"$/) do |user
 end
 
 # Sign out
-Given(/^I am logged in$/) do
+Given(/^I log in$/) do
+  p '*' * 20
+  p User.all
   log_in
 end
 
 Then(/^I do not see "([^"]*)"$/) do |message|
   expect(page).not_to have_content(message)
 end
+
+# Peep
 
 def register
   step "I am in the sign up section"
@@ -59,4 +68,5 @@ def log_in
   step "I click \"Sign in\""
   step "the system correctly authenticates my \"username\" and \"password\""
 end
+
 

@@ -18,7 +18,7 @@ We are going to write a little Twitter clone that will allow the users to post m
 Features:
 -------
 
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter

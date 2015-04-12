@@ -6,3 +6,7 @@
   And a password: <input type='password' name='password'>
   <input type='submit' value='Register'>
 </form>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>

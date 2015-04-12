@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'rack-flash'
 require 'tilt/erb'
 
 env = ENV['RACK_ENV'] || 'development'
@@ -13,6 +14,7 @@ class ChitterChatter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   use Rack::MethodOverride
+  use Rack::Flash, sweep: true
 
   get '/' do
     erb :homepage
@@ -24,15 +26,19 @@ class ChitterChatter < Sinatra::Base
 
   post '/users' do
     @username = params[:username]
-    @real_name = params[:real_name]
-    @email = params[:email]
     @password = params[:password]
-    user = User.create(username: @username,
-                       real_name: @real_name,
-                       email: @email,
-                       password: @password)
-    session[:username] = @username
-    erb :homepage
+    user = User.new(username: params[:username],
+                    real_name: params[:real_name],
+                    email: params[:email],
+                    password: params[:password])
+    if User.all(username: @username).count == 0
+      user.save
+      session[:username] = @username
+      erb :homepage
+    else
+      flash[:notice] = "Sorry, that username is already taken."
+      erb :'users/new'
+    end
   end
 
   post '/sessions' do
