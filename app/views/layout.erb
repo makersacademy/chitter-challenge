@@ -1,5 +1,6 @@
 <body>
   <header>
+    <h1 id='logo'><a href='/'>TheChitter</a></h1>
     <% if @user %>
       <%= "Happy Chitting, #{@user.username}" %>
       <form action='/users/sign-out' method='post'>

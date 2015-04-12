@@ -40,3 +40,8 @@ Feature: Users can interact
   Scenario: Click on profile link to go to own profile
     When I click link "Profile"
     Then I see element "h1" with text "joejknowles"
+
+  Scenario: Click on sit name to go to home page
+    When I click link "Profile"
+    And I click link "TheChitter"
+    Then I see "All Cheeps"
