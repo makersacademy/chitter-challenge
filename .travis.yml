@@ -1,4 +1,7 @@
 rvm: '2.2.1'
-script: 
+script:
   - bundle exec rspec spec
   - bundle exec cucumber
+
+before_script:
+  - psql -c 'create database chitter_test;' -U postgres

@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
     refresh << "#{session[:profile]}" if refresh == '/users/profiles/'
     redirect refresh
   end
+
   get '/users/profiles/:profile' do
     @profile = params[:profile]
     session[:profile] = @profile
@@ -20,11 +21,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/profiles/follow' do
-    puts @user = User.first(id: session[:user_id])
-    puts profile = params[:profile]
-    puts @profile = User.first(username: profile)
-    puts @user.follow(@profile)
-    puts session[:user_id]
+    @user = User.first(id: session[:user_id])
+    profile = params[:profile]
+    @profile = User.first(username: profile)
+    @user.follow(@profile)
     refresh = request.fullpath[0..-7]
     refresh << profile
     redirect refresh
