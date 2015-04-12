@@ -32,6 +32,12 @@ class Chitter < Sinatra::Base
     erb :'/new'
   end
 
+  post '/users' do
+  User.create(email: params[:email],
+              password: params[:password])
+  redirect to('/')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end
