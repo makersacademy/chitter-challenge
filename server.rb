@@ -13,6 +13,15 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+enable :sessions
+set :session_secret, 'super secret'
+
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  end
+end
+
   get '/' do
    @posts = Post.all
    erb :index
@@ -29,13 +38,14 @@ class Chitter < Sinatra::Base
     redirect to ('/')
   end
 
-  get '/new' do
+  get '/signup' do
     erb :new
   end
 
-  post '/new' do
-  User.create(email: params[:email],
+  post '/signup' do
+  @User = User.create(email: params[:email],
               password: params[:password])
+  session[:user_id] = user.id
   redirect to('/')
   end
 
