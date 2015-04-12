@@ -7,7 +7,7 @@
     <h1 id='logo'><a href='/'>TheChitter</a></h1>
     <% if @user %>
       <%= "Happy Chitting, #{@user.username}" %>
-      <%= "<a href='/users/profiles/#{@user.username}'>My Profile</a>" %>
+      <%= "<a id='profile' href='/users/profiles/#{@user.username}'>My Profile</a>" %>
       <a href='/users/profiles/<%= @user.username %>/following'>Following</a>
       <form action='/users/sign-out' method='post'>
         <button>Sign out</button>
