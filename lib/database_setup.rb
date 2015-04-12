@@ -8,5 +8,3 @@ require './lib/peep'
 require './lib/user'
 
 DataMapper.finalize
-
-DataMapper.auto_upgrade!
