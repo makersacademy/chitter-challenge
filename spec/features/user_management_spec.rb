@@ -64,3 +64,26 @@ feature 'User signs in' do
     click_button 'sign in'
   end
 end
+
+feature 'User signs out' do
+  before(:each) do
+    User.create(email: 'test@test.com',
+                handle: 'grandma',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
+  scenario 'while being signed in' do
+    sign_in('test@test.com', 'test')
+    click_button 'sign out'
+    expect(page).to have_content('later, man')
+    expect(page).not_to have_content('Welcome, grandma')
+  end
+
+  def sign_in(email, password)
+    visit '/sessions/new'
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    click_button 'sign in'
+  end
+end
