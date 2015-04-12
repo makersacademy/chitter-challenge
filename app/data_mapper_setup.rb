@@ -11,6 +11,8 @@ end
 
 require './app/models/note'
 require './app/models/user'
+require './app/models/reply'
+require './app/models/tag'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!

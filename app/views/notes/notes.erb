@@ -1,0 +1,41 @@
+<section id="note-container">
+
+  <% @notes_to_show.sort { |note1, note2| note2.updated_at <=> note1.updated_at }.each do |note| %>
+    <article class="individual-note">
+
+      <section class="note-main">
+        <span class="note-header">
+          <h4 id="note-author"><a href="/search/users?user=<%= User.first(id: note.user_id).username %>"><%= User.first(id: note.user_id).full_name %></a>
+          <sub id="datetime"><%= note.created_at.strftime("%d %b %Y %H:%M") %></sub></h4>
+        </span>
+        <span class="note-content">
+          <%= note.content_with_tags %>
+        </span>
+      </section>
+
+      <section class="note-reply">
+        <% if note.replies? %>
+          <% note.replies.each do |reply| %>
+            <h4 id="note-author"><a href="/search/users?user=<%= User.first(id: reply.user_id).username %>"><%= User.first(id: reply.user_id).full_name %></a>
+            <sub id="datetime"><%= reply.created_at.strftime("%d %b %Y %H:%M") %></sub></h4>
+            <span class="note-content">
+              <%= reply.content_with_tags %>
+            </span>
+          <% end %>
+        <% end %>
+      </section>
+
+      <section class="note-reply-box">
+        <% if current_user %>
+          <form action="/notes/reply" method="post">
+            <input type="text" name="reply" placeholder="Reply">
+            <input type="hidden" name="reply-to" value=<%= note.id %>>
+            <input type="submit" value="Reply">
+          </form>
+        <% end %>
+      </section>
+
+    </article>
+  <% end %>
+
+</section>

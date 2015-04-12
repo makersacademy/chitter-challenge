@@ -1,11 +1,11 @@
+ENV['RACK_ENV'] = 'test'
+
 require './app/server'
 
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
-
-ENV['RACK_ENV'] = 'test'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

@@ -1,0 +1,41 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: LightSkyBlue;
+}
+
+#logo {
+  float: left;
+}
+
+#welcome-message {
+  float: right;
+  margin: 17px;
+}
+
+#user-links {
+  float: right;
+  margin: 17px
+}
+
+a.nav-link {
+  text-decoration: none;
+  color: white;
+  padding-right: 20px;
+}
+
+.nav-link {
+  display: inline;
+  background-color: LightSkyBlue;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: 0px;
+  font-size: 15px;
+  cursor: pointer;
+  height: 15px;
+}

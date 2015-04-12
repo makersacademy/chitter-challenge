@@ -1,16 +1,37 @@
 <header>
 
-<h1>fridgedoor</h1>
+<h1><a href="/"><img id="logo" src="/images/logo.png"></a></h1>
 
 <% if current_user %>
-  <h3>Hello, <%= "#{current_user.first_name}" %></h3>
+  <section id="welcome-message">
     <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
-    </form>
+      Hello, <%= "#{current_user.first_name}" %>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="nav-link" value="Sign out">
+      </form>
+  </section>
 <% else %>
-  <a href="/sessions/new" id="sign-in">Sign in</a>
-  <a href="/users/new" id="sign-up">Sign up</a>
+  <nav id="user-links">
+    <a href="/sessions/new" class="nav-link" id="sign-in">Sign in</a>
+    <a href="/users/new" class="nav-link" id="sign-up">Sign up</a>
+  </nav>
 <% end %>
 
 </header>
+
+<% if flash[:errors] %>
+  <section class="flash error">
+      <% flash[:errors].each do |error| %>
+        <p>
+          <%= error %>
+        </p>
+      <% end %>
+  </section>
+<% end %>
+
+
+<% if flash[:notice] %>
+  <section class="flash notice">
+    <%= flash[:notice] %>
+  </section>
+<% end %>

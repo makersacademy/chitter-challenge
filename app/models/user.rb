@@ -5,18 +5,21 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String, unique: true
+  property :username, String, unique: true, message: ""
   property :first_name, String
   property :last_name, String
-  property :email, String, unique: true
+  property :email, String, unique: true, message: ""
   property :password_digest, Text
 
   attr_reader :password
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password, message: 'Passwords do not match'
-  validates_uniqueness_of :email
-  validates_uniqueness_of :username
+  validates_confirmation_of :password, message:
+                        'Sorry, your passwords do not match'
+  validates_uniqueness_of :email, message:
+                        'Sorry, that email is already taken'
+  validates_uniqueness_of :username, message:
+                        'Sorry, that username is already taken'
 
   def password=(password)
     @password = password
