@@ -1,16 +1,9 @@
-<h1>Welcome to Chitter</h1>
+Current Peeps:
 
+<div id='peeps_list'>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><a href='<%= peep.url %>'><%= peep.title %></a></li>
+    <li><a href='<%= peep.id %>'><%= peep.text %></a></li>
   <% end %>
 </ul>
-
-<div id="new-peep">
-  <form action="/peeps" method="post">
-    Name: <input type="text" name="name" placeholder="Full name"><br>
-    Email: <input type="email" name="email" placeholder="Email"><br>
-    Password: <input type="password" name="password" placeholder="Password"><br>
-    <input type="submit" value="Sign up for Chitter">
-  </form>
 </div>

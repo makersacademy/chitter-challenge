@@ -14,6 +14,8 @@ describe Peep do
       expect(Peep.count).to eq(1)
       peep = Peep.first
       expect(peep.text).to eq('This is my first Peep')
+      peep.destroy
+      expect(Peep.count).to eq(0)
     end
 
   end

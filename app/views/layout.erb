@@ -5,6 +5,9 @@
   <link rel="stylesheet" type="text/css" href="/css/application.css">  
 </head>
 <body>
+  <% if current_user %>
+  Welcome, <%= current_user.username %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
