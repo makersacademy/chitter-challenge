@@ -37,9 +37,6 @@ feature 'User can sign up' do
             username = 'cat', password = '12345')
     expect(page).to have_content('That username or email is already taken')
   end
-
-  xscenario 'error will be raised when their username is already registered' do
-  end
 end
 
 feature 'User can log out' do

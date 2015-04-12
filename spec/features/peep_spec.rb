@@ -28,9 +28,6 @@ feature 'user can view all peeps in reverse chronological order' do
     visit '/peeps/all'
     expect(page).to have_content('This is a new peep')
   end
-
-  xscenario 'they view 3 peeps, in reverse chronological order' do
-  end
 end
 
 def sign_up(name = 'George', email = 'me@georgemcgowan.com',
