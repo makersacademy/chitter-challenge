@@ -7,6 +7,7 @@ This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and
 
 Development Blog:
 -----------------
+- [Day 0](http://sanjsanj.github.io/Week%204,%20Day%205/)
 - [Day 1](http://sanjsanj.github.io/Week%204,%20Day%206/)
 - [Day 2](http://sanjsanj.github.io/Week%204,%20Day%207/)
 
@@ -48,6 +49,9 @@ Testing:
 --------
 Rspec was used to write all the unit and feature tests for this application.
 All tests pass and coverage is 100%.
+
+![travis-CI](http://sanjsanj.github.io/images/chitterTravisCI.png)
+
 
 The tests are as follows:
 ```
