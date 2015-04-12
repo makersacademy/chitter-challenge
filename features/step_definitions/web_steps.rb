@@ -77,10 +77,10 @@ Then(/^I don't see the "([^"]*)" button$/) do |button|
   expect(page).not_to have_button button
 end
 
-Given(/^Fred signs up$/) do
+Given(/^"([^"]*)" signs up$/) do |name|
   visit '/users/new'
-  sign_up('joejknowles@example.com',
-          'fred',
+  sign_up("#{name}@example.com",
+          name,
           'secret',
           'secret')
 end

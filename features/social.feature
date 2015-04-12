@@ -19,7 +19,7 @@ Feature: Users can interact
     When I'm on the "users/profiles/joejknowles" page
     Then I see "Hello, world"
     When I sign out
-    Given Fred signs up
+    Given "Fred" signs up
     When I fill in "cheep" with "Hello, me!"
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page

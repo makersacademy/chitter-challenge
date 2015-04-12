@@ -12,13 +12,13 @@ Feature: Applaud posts
   Scenario: Applaud other person's post
     Then I see "0 applause"
     When I sign out
-    And Fred signs up
+    And "Fred" signs up
     When I press the "Applaud" button
     Then I see "1 applause"
 
   Scenario: Cannot applaud post twice
     When I sign out
-    And Fred signs up
+    And "Fred" signs up
     When I press the "Applaud" button
     Then I don't see the "Applaud" button
 

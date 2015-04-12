@@ -8,7 +8,7 @@ Feature: Users can follow other users
     And I sign up
     And I cheep "Follow me!"
     And I sign out
-    And Fred signs up
+    And "Fred" signs up
 
   Scenario: Sees 'following' list
     When I click link "joejknowles"
@@ -18,10 +18,10 @@ Feature: Users can follow other users
     And I see "joejknowles"
 
   Scenario: Don't see follow button on own profile
-    When I'm on the "users/profiles/fred" page
+    When I'm on the "users/profiles/Fred" page
     Then I don't see the "Follow" button
 
   Scenario: Don't see follow button when signed out
     When I sign out
-    And I'm on the "users/profiles/fred" page
+    And I'm on the "users/profiles/Fred" page
     Then I don't see the "Follow" button
