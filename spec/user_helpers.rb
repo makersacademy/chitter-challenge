@@ -19,4 +19,10 @@ module User_Helpers
     visit('/')
     click_button('Log Out')
   end
+
+  def post_peep(text='Hello!')
+    visit('/')
+    fill_in :peep_text, with: text
+    click_button('Post')
+  end
 end

@@ -1,5 +1,3 @@
-require 'capybara/rspec'
-
 feature 'User signs out' do
   scenario 'Can find and click log out button when user is logged in' do
     sign_up

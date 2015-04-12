@@ -1,6 +1,3 @@
-require 'user'
-require 'byebug'
-
 feature 'User signs up' do
   scenario 'can find and click sign up button on welcome page' do
     visit('/')
@@ -30,5 +27,5 @@ feature 'User signs up' do
   end
 
   # User regexp
-  xcsenario 'can not sign up with something that is not an email'
+  xscenario 'can not sign up with something that is not an email'
 end

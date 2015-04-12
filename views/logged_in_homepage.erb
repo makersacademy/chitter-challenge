@@ -1,3 +1,6 @@
 <div>
   <p>Welcome, <%= User.first(id: session[:user_id]).email %></p>
+  <form action='/peep/new/process/' method='post'>
+    <input type='text' name='peep_text'>
+    <input type='submit' value='Post'>
 </div>

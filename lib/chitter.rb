@@ -12,6 +12,14 @@ class Chitter < Sinatra::Base
     erb :logged_in_homepage
   end
 
+  post '/peep/new/process/' do
+    user = User.first(id: session[:user_id])
+    new_peep = Peep.create(text: params[:peep_text], user: user)
+    user.peeps << new_peep
+    user.save
+    redirect('/')
+  end
+
   get '/welcome/' do
     erb :sign_in_or_up
   end

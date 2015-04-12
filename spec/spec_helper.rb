@@ -6,6 +6,8 @@ require 'simplecov'
 require 'capybara/rspec'
 require './lib/chitter'
 require 'user_helpers'
+require 'user'
+require 'peep'
 include User_Helpers
 
 

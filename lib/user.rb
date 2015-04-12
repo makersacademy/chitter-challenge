@@ -8,6 +8,8 @@ class User
   property :email, String, unique: true
   property :password_digest, Text
 
+  has n, :peeps, :through => Resource
+
   # Bcrypt has good documentation on password recovery as well
 
   def password

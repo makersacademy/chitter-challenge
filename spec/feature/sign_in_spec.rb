@@ -1,5 +1,3 @@
-require 'capybara/rspec'
-
 feature 'User signs in' do
   scenario 'Can find and click log in button on welcome page' do
     visit('/')
