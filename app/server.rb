@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'bcrypt'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
-require './lib/link'
+require './app/lib/user'
+require './app/lib/peep'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -15,10 +17,8 @@ class Chitter < Sinatra::Base
     set :views, proc { File.join(root, '..', 'views') }
   
   get '/' do
-    @links = Link.all
-    erb :index
-  end
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+    "Hello, Chitter!"
+ end
+ 
+  run! if app_file == Chitter
 end

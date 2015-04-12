@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require 'server'
+require './app/server'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
