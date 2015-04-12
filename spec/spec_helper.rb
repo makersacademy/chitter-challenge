@@ -3,7 +3,6 @@ ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
 require './server'
-require 'sinatra'
 require 'database_cleaner'
 require 'capybara/rspec'
 

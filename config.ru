@@ -1,3 +1,3 @@
-require 'server'
+require './server'
 
 run Sinatra::Application
