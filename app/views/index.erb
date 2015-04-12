@@ -6,5 +6,5 @@
     </form>
   </div>
 <% end %>
-<h3><a href='/'>All Cheeps</a> / <a href='/following-cheeps'>Following Cheeps</a></h3>
+<h3><a href='/'>All Cheeps</a><% if @user %> / <a href='/following-cheeps'>Following Cheeps</a><% end %></h3>
 <%= erb :cheeps %>

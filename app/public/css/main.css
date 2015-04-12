@@ -14,9 +14,10 @@ button, form {
   display: inline-block;
 }
 .cheep {
+  background-color: white;
   text-align: left;
   width: 50%;
-  box-shadow: 0px 0px 5px #BBB;
+  box-shadow: 0px 0px 5px #999;
   margin: 24%;
   margin-bottom: 0.5em;
   margin-top: 5px;
@@ -45,4 +46,7 @@ input #send-cheep {
 }
 a {
   color:#007;
+}
+body {
+  background-color: #EEE;
 }
