@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
-# require_relative 'lib/hashtag'
-# require_relative 'lib/post'
+require_relative 'lib/hashtag'
+require_relative 'lib/post'
 
 env = ENV["RACK_ENV"] || "development"
 
@@ -20,7 +20,10 @@ class Chitter < Sinatra::Base
   post '/posting' do
     username = params['username']
     message = params['message']
-    Post.create(username: username, message: message)
+    hashtag = params['hashtag'].split(' ').map do |hashtag|
+    Hashtag.first_or_create(text: hashtag)
+    end
+    Post.create(username: username, message: message, hashtag: hashtag)
     redirect to ('/')
   end
 

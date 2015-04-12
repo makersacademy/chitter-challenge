@@ -13,11 +13,11 @@ feature 'User adds a new post' do
 
   scenario 'add hashtags to posts' do
     visit '/'
-    add_post('Caron', 
+    add_post('Stace', 
             'Hello! out there',
-             %w(#testing #123))
+             %w('#testing #123'))
     post = Post.first
-     expect(post.hashtags.map(&:text)).to include('#testing')
-     expect(post.hashtags.map(&:text)).to include('#123')
+     expect(post.hashtag.map(&:text)).to include('#testing')
+     expect(post.hashtag.map(&:text)).to include('#123')
   end
 end

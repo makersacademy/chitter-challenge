@@ -5,5 +5,5 @@ class Post
   property :username, String
   property :message, String
 
-  has n, :hashtags, through: Resource
+  has n, :hashtag, through: Resource
 end
