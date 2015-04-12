@@ -24,5 +24,15 @@ describe User do
                              password_confirmation: 'goodbye')
       expect(described_class.count).to eq(0)
     end
+
+    it 'can authenticate a password' do
+      described_class.create(name: 'Rob',
+                             handle: '@rbgeorob',
+                             email: 'rob@test.com',
+                             password: 'hello',
+                             password_confirmation: 'hello')
+      expect(described_class.authenticate('rob@test.com', 'hello')).to be_a described_class
+      expect(described_class.authenticate('rob@test.com', 'x')).to be nil
+    end
   end
 end

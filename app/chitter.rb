@@ -38,6 +38,23 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/chit/new' do
+    erb :'chit/new'
+  end
+
+  post '/chit' do
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
+    if user
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome #{user.name}, your account #{user.handle} is ready to send a Peep!"
+      redirect to('/')
+    else
+      flash[:errors] = ['The email or password is incorrect, no peeps for you!']
+      erb :'chit/new'
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 
