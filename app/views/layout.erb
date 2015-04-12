@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%= partial :header %>
+      <%= partial :flash %>
+      <div id='container'>
+        <%= yield %>
+      </div>
+    </div>
+    <div class="footer">
+      <%= partial :footer %>
+    </div>
+  </body>
+</html>
