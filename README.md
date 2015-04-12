@@ -3,7 +3,7 @@ Chitter Challenge
 
 ##[Heroku App coming soon]()
 
-![screenshot]({{ site.base_url }}/public/images/chitter_screenshot_01.png)
+![screenshot](https://github.com/sanjsanj/chitter-challenge/blob/master/public/images/chitter_screenshot_01.png?raw=true)
 
 Tools:
 ------
