@@ -11,7 +11,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   use Rack::Flash
 #   use Rack::MethodOverride
-#   set :session_secret, 'super secret'
 
 #   post '/set-flash' do
 #     flash[:notice] = 'Thanks for signing up!'
@@ -45,12 +44,11 @@ class Chitter < Sinatra::Base
     #   redirect to('/')
     # else
 
-    if user.save
-      session[:user_id] = user.id
+    if @user.save
+      session[:user_id] = @user.id
       redirect to('/')
     else
-      # flash.now[:errors] = @user.errors.full_messages
-      flash[:notice] = 'Sorry, your passwords do not match'
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end

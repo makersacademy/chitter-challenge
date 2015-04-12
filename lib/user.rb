@@ -9,10 +9,9 @@ class User
   validates_uniqueness_of :email, :username
 
   property :id, Serial
-  property :email, String, unique: true
-  property :username, String, unique: true
+  property :email, String, unique: true, message: 'This email is already registered'
+  property :username, String, unique: true, message: 'This username is already taken'
   property :name, String
-  # property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
 
   def password=(password)
