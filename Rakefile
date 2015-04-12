@@ -8,7 +8,7 @@ Cucumber::Rake::Task.new(:cuke) do |t|
   t.cucumber_opts = "features --format pretty"
 end
 
-task default: [:cop, :spec, :cuke]
+task default: [:auto_upgrade, :cop, :spec, :cuke]
 
 task :auto_upgrade do
   require_relative 'app/models/data_mapper_setup'
