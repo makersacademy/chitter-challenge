@@ -1,10 +1,12 @@
-module Helpers  
+module Helpers
+
   def welcome
     @who_to_welcome = "Welcome, #{session[:username]}" if session[:username]
   end
 
-  def get_and_sort_peeps
+  def grab_and_sort_peeps
     @peeps = Peep.all
-    @sorted = @peeps.each.sort{|a, b| b.time <=> a.time}
+    @sorted = @peeps.each.sort { |a, b| b.time <=> a.time }
   end
+
 end

@@ -5,13 +5,15 @@ require './data_mapper_set_up'
 require './helpers'
 
 class Chittter < Sinatra::Base
+
   enable :sessions
   use Rack::Flash
   use Rack::MethodOverride
 
   include Helpers
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
+
 end
 
 require './controllers/app'

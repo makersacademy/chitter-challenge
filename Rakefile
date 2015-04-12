@@ -10,7 +10,6 @@ Cucumber::Rake::Task.new :cuke
 # task default: [:cop, :spec, :cuke]
 task default: [:spec, :cuke]
 
-
 task :auto_upgrade do
   DataMapper.auto_upgrade!
   puts 'auto_upgrade complete (no data loss)'

@@ -1,4 +1,5 @@
-class Chittter < Sinatra::Base  
+class Chittter < Sinatra::Base
+
   post '/sessions' do
     email, password = params[:email], params[:password]
     user = User.authenticate(email, password)
@@ -10,4 +11,5 @@ class Chittter < Sinatra::Base
       redirect('/sessions/new')
     end
   end
+
 end
