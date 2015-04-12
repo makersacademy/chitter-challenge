@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://travis-ci.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travis CI - Test and Deploy Your Code with Confidence</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!--<base href="/">--><base href=".">
+<meta name="travis/config/environment" content="%7B%22modulePrefix%22:%22travis%22,%22environment%22:%22production%22,%22baseURL%22:%22/%22,%22locationType%22:%22auto%22,%22defaultTitle%22:%22Travis%20CI%20-%20Test%20and%20Deploy%20Your%20Code%20with%20Confidence%22,%22EmberENV%22:%7B%22FEATURES%22:%7B%7D%7D,%22APP%22:%7B%7D,%22apiEndpoint%22:%22https://api.travis-ci.org%22,%22sourceEndpoint%22:%22https://github.com%22,%22pusher%22:%7B%22key%22:%225df8ac576dcccf4fd076%22,%22host%22:%22ws.pusherapp.com%22%7D,%22pro%22:false,%22enterprise%22:false,%22endpoints%22:%7B%22sshKey%22:null,%22caches%22:%22true%22%7D,%22intervals%22:%7B%22updateTimes%22:1000%7D,%22statusPageStatusUrl%22:%22https://pnpcptp8xh9k.statuspage.io/api/v2/status.json%22,%22githubOrgsOauthAccessSettingsUrl%22:%22https://github.com/settings/connections/applications/f244293c729d5066cf27%22,%22contentSecurityPolicy%22:%7B%22default-src%22:%22&#39;none&#39;%22,%22script-src%22:%22&#39;self&#39;%22,%22font-src%22:%22&#39;self&#39;%20https://fonts.googleapis.com/css%20https://fonts.gstatic.com%22,%22connect-src%22:%22&#39;self&#39;%20https://api.travis-ci.org%20ws://ws.pusherapp.com%20wss://ws.pusherapp.com%20http://sockjs.pusher.com%20https://s3.amazonaws.com/archive.travis-ci.com/%20https://s3.amazonaws.com/archive.travis-ci.org/%22,%22img-src%22:%22&#39;self&#39;%20data:%20https://www.gravatar.com%20http://www.gravatar.com%22,%22style-src%22:%22&#39;self&#39;%20https://fonts.googleapis.com%22,%22media-src%22:%22&#39;self&#39;%22,%22frame-src%22:%22&#39;self&#39;%20https://api.travis-ci.org%22%7D,%22contentSecurityPolicyHeader%22:%22Content-Security-Policy-Report-Only%22,%22exportApplicationGlobal%22:false,%22gaCode%22:%22UA-24868285-1%22%7D">
+
+    <link href="./Travis CI - Test and Deploy Your Code with Confidence_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://travis-ci-org.global.ssl.fastly.net/assets/vendor-d41d8cd98f00b204e9800998ecf8427e.css">
+    <link rel="stylesheet" href="https://travis-ci-org.global.ssl.fastly.net/assets/travis-2ec5e3ff2d5717c7e337d37904ca4159.css">
+
+    
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAClFBMVEUAAACysrKgoKCLjIywsLCqqqqPkJCPj4+rra0AAACipKSjo6OfoKCen5+pqamoqKikpKR9fn6srKyioqKhoaGHiIiGh4d/f3+nqamNjo61tbW0tLSxsbGysrKpqamenp6PkJCrq6uzs7OsrKyqqqqxsbGEhYWBg4OTlJShoaGysrKEhYWPkJCkpKSoqKi2tra5ubmzs7ONjo6cnZ2Tk5OJioqwsrK0tLSAgoKbnJywsrKtr6+qrKyoqKiVlpaqqqqysrKho6OEhYV+f3+PkJCssbGrra2VlpZ8fX1+f3+Vlparra16e3t3eHiEhIS3uLjZ2dnk5OTj4+PV1taxsrJ9fn54eXmUlJTq6ur4+Pjl5ub09PTi4uKJiYnKy8v///+foKCPkJD+/v65urrX19eZmZmMjY2en5+mp6etra2RkZGIiIjDw8O4uLh/gICSk5OgoaF8fX38/Pz19fXt7u68vLyQkZGAgYGrrKzp6en39/eYmZmRkpKWl5fExcV5enqam5vJysqJioqZmprMzc3n5+eIiYmTlJTa2trIycmoqand3d2ysrLU1dX5+fnU1NSdnZ3Y2Njy8vLh4eHJycnAwcHIyMh7fHzz8/PV1dXNzc2rq6uFhoaLjIyur6/T09Pl5eXe3t6YmJisra3DxMTS09Pv7+/29/f9/f3Ozs6/v7+Vlpbw8PC9vb22t7fo6Oj7+/vc3d2Ki4vQ0NCDhITs7Oy0tLTOz8/6+vqvsLC+v7+ioqKkpKTKysqpqqqlpqaEhYWXmJjLy8uHiIjt7e24ubmkpaWSkpK8vb3Gx8fR0dHFxsaNjo61travr6/AwMDe39+6u7vm5+e6urrMzMzu7+/b3NzT1NShoaGjo6O7u7ujpKSMl7MMAAAATHRSTlMAYM/2YV3y8mEBubzK0JqeH/4iubr29wSp9D49UhSh1fCbSpMMOPv87Mk8+ui0pCMWVPnY7f5nQf7XYYOWp92ZP8T8/O4xf+b+/uN3+IRV7gAAAAFiS0dEX3PRUS0AAAAHdElNRQffAhcKBwjUv6M/AAACcklEQVQ4y62T+V/LcRzHU67cuaopd8iVW+773ssm9q1ZefPtWi2xTWMy6xRN0VILOVqpiEwHFVKpiFy5+Wd8953mW/jB4+H1y+fz/ryeP7yPz9vF5R/Ux9VNDIjdXPv+0e7XHzsl0l1Bu/fIMGDgb7b7ICY4RL6XlyI0jBns3gsYwuwj2g9eB4gNx9Ce/jBEEFFkVLQyJjJWxV3jMFzoj/A4SHYgHqpDkNkBOuwxUgCMUmuI1R5J0B1V6WS6Y/rjLGkxWgCMSYw7AcSzpFTpDHQSMCYlp4ztdj29vMGkpunlROk4lYHTxMrTzwQD3l6ePCBiMk0a4mWC8iyyHPfsc+cxjgd8EqlbQfYqc5yh2McB6PiIlZv1uRfy8vJzQ8zZLP8EByCyFFy8dLkQQjFXrl67XgQRD/gygNpaXHLDVFpWTlReVnrzVkmMVcZhvo4yxk+AlEgTW6Gg23cq75ItMiyUSG6cOKm70MnIJ7rHVFXbaoAaTS0QTlSEKc4+TWXuE6Vx+Wch+QFy6jKq6rXUAL9fnZz2kCikQE6PZHXZ6ky+ApthuqDVMyyPSRshsRobiZ6gqbkxoSUF/gJg5iw85YqLKm4lam1rfxbPBbN7/Ic5CJZEaKufd7x4mdmpVJC2GnNFAU57nt98NBD7iu+RrIKp6ZC+xgIsdAL+WLS46Y0V7YraUD1Lb1Mc7VziBJYG2uPCd+zPIdm6pC3vsUyQwnI1wrt4z5z6wX5ocqMCA4RJrmAMNm6gHz+1A9GfK5u5BVrZ81uvguFLJ/eMr9+M3HatXrO29+asY9ZvgLi5vu27BRs3/WU5N2/ZCmzbvsPlv+oHYHb7zasuyY0AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMDItMjVUMTI6MzQ6NTUrMDE6MDAkHzfPAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTAyLTIzVDEwOjA3OjA4KzAxOjAwPW3hegAAAABJRU5ErkJggg=="></head>
+  <body class="ember-application" id="home">
+    
+
+    <script type="text/javascript" async="" src="./Travis CI - Test and Deploy Your Code with Confidence_files/ga.js"></script><script src="./Travis CI - Test and Deploy Your Code with Confidence_files/vendor-203bc1bf399e89b6815a49be7adde6a7.js"></script>
+    <script src="./Travis CI - Test and Deploy Your Code with Confidence_files/travis-025fb1d91eb5c278a726809c8fc9f337.js"></script>
+
+    
+  
+
+<div id="ember445" class="ember-view application"><div id="ember481" class="ember-view main"><div class="wrapper non-centered" data-bindattr-556="556">
+
+  <header id="top" class="top">
+    <div id="ember565" class="ember-view"><div class="row topbar">
+  <h1 id="logo" class="logo"><a id="ember624" class="ember-view active" href="./Travis CI - Test and Deploy Your Code with Confidence_files/Travis CI - Test and Deploy Your Code with Confidence.html">Travis</a></h1>
+  <div class="burger">
+    <button type="button" id="burger" class="burger-btn" data-ember-action="625">≡</button>
+  </div>
+
+  <ul id="navigation" class="navigation" data-bindattr-626="626">
+    <li><a href="http://blog.travis-ci.com/">Blog</a></li>
+    <li><a href="http://www.traviscistatus.com/">Status</a></li>
+
+    <li class="navigation-sub navigation--community">
+      <p class="handle navigation-handle">
+        <a href="https://travis-ci.org/#">Help</a>
+      </p>
+      <ul class="navigation-nested">
+        <li><a href="http://docs.travis-ci.com/">Docs</a></li>
+        <li><a href="http://stackoverflow.com/questions/ask?tags=travis-ci">Ask a Question</a></li>
+        <li><a href="irc://irc.freenode.net/#travis">IRC</a></li>
+        <li><a href="mailto:support@travis-ci.com">E-Mail us</a></li>
+        <li><a href="http://docs.travis-ci.com/imprint.html" alt="Imprint">Imprint</a></li>
+      </ul>
+    </li>
+
+
+    <li class="navigation-sub navigation--profile profile menu signed-in" data-bindattr-629="629">
+      <p class="handle navigation-handle">
+          <a id="ember638" class="ember-view signed-in" href="https://travis-ci.org/profile">joejknowles<img src="./Travis CI - Test and Deploy Your Code with Confidence_files/18ba68d3a93fff592ea1c3d77bb532d3" data-bindattr-680="680"></a>
+      </p>
+        <ul class="navigation-nested">
+          <li>
+            <a id="ember681" class="ember-view signed-in" href="https://travis-ci.org/profile">Accounts</a>
+          </li>
+          <li>
+            <a href="./Travis CI - Test and Deploy Your Code with Confidence_files/Travis CI - Test and Deploy Your Code with Confidence.html" data-ember-action="682">Sign Out</a>
+          </li>
+        </ul>
+    </li>
+  </ul>
+</div>
+
+</div>
+  </header>
+
+  <ul id="ember582" class="ember-view flash"></ul>
+
+  <div class="wrapper-main">
+    <div id="main" role="main">
+      <div id="ember529" class="ember-view"><div id="repo" class="repo" data-bindattr-687="687">
+
+
+      <article id="repo-header" class="repo-header passed" data-bindattr-803="803">
+        <header>
+          <h1 class="repo-header-title"><a id="ember804" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge">joejknowles/chitter-challenge</a></h1>
+          <div class="repo-header-icons">
+            <a href="https://github.com/joejknowles/chitter-challenge" data-bindattr-805="805"><span class="icon icon--github-circle"></span></a>
+            <a href="https://travis-ci.org/#" id="status-image-popup" name="status-images" class="open-popup" data-ember-action="806">
+              <img src="./Travis CI - Test and Deploy Your Code with Confidence_files/chitter-challenge.svg" data-bindattr-807="807" title="Build Status Images">
+            </a>
+          </div>
+          <p class="description"></p>
+        </header>
+        <div class="repo-menus">
+          <div class="repo-menu-header">
+            <div id="ember817" class="ember-view"><div class="dropdown dropdown--classic" id="tools">
+  <a href="https://travis-ci.org/#" data-ember-action="836" class="menu-popup-button dropdown-button btn" type=""><span class="icon icon-cog-light"></span> Settings <span class="icon icon-arrow-down"></span></a>
+  <ul class="dropdown-menu menu">
+      <li>
+        <a id="ember1024" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/settings">Settings</a>
+      </li>
+    <li>
+      <a id="ember837" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/requests">Requests</a>
+    </li>
+      <li>
+        <a id="ember1025" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/caches">Caches</a>
+      </li>
+  </ul>
+</div>
+
+<div id="regenerate-key" class="popup">
+  <a href="https://travis-ci.org/#" class="close" data-ember-action="838"></a>
+  <p>
+    Do you really want to regenerate ssl keys for this repository? Please note that
+    any data, which is encrypted, such as notification services credentials or secure
+    environment variables will not be accessible during the builds until you re-encrypt
+    it with the new key.
+  </p>
+
+  <p>
+    <a class="sync_now button" data-ember-action="839">Yes, do it!</a>
+    <span class="or">or</span>
+    <a href="https://travis-ci.org/#" class="cancel" data-ember-action="840">Cancel</a>
+  </p>
+</div>
+
+<div id="regeneration-success" class="popup">
+  <a href="https://travis-ci.org/#" class="close" data-ember-action="841"></a>
+  <p>
+    Key for this repository has been regenerated. If you used previous key
+    for encryption, you will need encrypt your data again with the new key.
+  </p>
+
+  <p>
+    You can read more about encryption keys <a href="http://about.travis-ci.org/docs/user/encryption-keys/">in Travis documentation</a>
+  </p>
+</div>
+</div>
+            
+            <div id="ember826" class="ember-view"><div class="tabnav" role="tablist">
+  <ul class="tab tabs--main">
+    <li id="tab_current" class="active" data-bindattr-858="858">
+<a id="ember873" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge">          Current
+</a>    </li>
+    <li id="tab_branches" class="" data-bindattr-859="859">
+<a id="ember874" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/branches">          Branches
+</a>    </li>
+    <li id="tab_builds" class="" data-bindattr-860="860">
+<a id="ember887" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/builds">          Build History
+</a>    </li>
+    <li id="tab_pull_requests" class="" data-bindattr-861="861">
+<a id="ember904" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/pull_requests">          Pull Requests
+</a>    </li>
+    <li id="tab_build" class="" data-bindattr-862="862">
+<a id="ember913" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/builds/58161237">            Build #1
+</a>    </li>
+    <li id="tab_job" class="" data-bindattr-863="863">
+    </li>
+    <li id="tab_settings" class="" data-bindattr-864="864">
+<a id="ember923" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/settings">          Settings
+</a>    </li>
+    <li id="tab_requests" class="" data-bindattr-865="865">
+<a id="ember948" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/requests">          Requests
+</a>    </li>
+
+    <li id="tab_request" class="" data-bindattr-866="866">
+    </li>
+  </ul>
+</div>
+</div>
+          </div>
+          <div class="tabbody repo-main">
+            <div id="ember552" class="ember-view gray">  <section class="tile tile--pass row errored" data-bindattr-1108="1108">
+    <div class="tile-status">
+      <span class="icon icon-status errored" data-bindattr-1109="1109"></span>
+      <span class="request-kind icon push" data-bindattr-1110="1110"></span>
+    </div>
+
+    <div class="tile-main medium-8 columns">
+      <h2 class="repo-main-commit">
+        <small class="repo-main-branch" title="master" data-bindattr-1127="1127">master</small>
+        removed debug lines
+      </h2>
+      <div class="repo-main-description">
+        <pre class="body"></pre>
+      </div>
+      <div class="tile-author">
+         <img src="./Travis CI - Test and Deploy Your Code with Confidence_files/18ba68d3a93fff592ea1c3d77bb532d3(1)" data-bindattr-1130="1130">Joseph Knowles authored and committed
+      </div>
+    </div>
+
+    <div class="tile-additional medium-4 columns end">
+      <ul class="repo-main-info">
+        <li class="repo-build-status"><a id="ember1112" class="ember-view" href="https://travis-ci.org/joejknowles/chitter-challenge/builds/58161237">
+          <span class="icon icon--hash"></span>
+          1 errored</a>
+        </li>
+        <li>
+          <a class="commit" href="https://github.com/joejknowles/chitter-challenge/commit/82b6d815aa32c5c443998684b3e4f2094df72808" data-bindattr-1113="1113">
+            <span class="icon icon--github"></span>
+            Commit 82b6d81
+          </a>
+        </li>
+        <li>
+              <a class="compare" href="https://github.com/joejknowles/chitter-challenge/compare/5319d8f92608...82b6d815aa32" data-bindattr-1134="1134">
+              <span class="icon icon--github"></span>
+              Compare 5319d8f..82b6d81</a>
+        </li>
+        <li>
+          <span class="icon icon--clock"></span>
+          ran for 1 min 47 sec
+        </li><li data-bindattr-1116="1116" title="2015-04-12T14:39:37Z">
+          <span class="icon icon--cal"></span>
+          less than a minute ago
+        </li>
+      </ul>
+
+      <div id="ember1126" class="ember-view"><div id="actions" class="repo-main-tools">
+
+    <div id="ember1155" class="ember-view">
+    <a href="https://travis-ci.org/#" data-ember-action="1230" class="button-circle" title="Restart Build">
+      <span class="icon icon--trigger">
+    </span></a>
+</div>
+
+    <a href="https://travis-ci.org/#" name="code-climate" data-ember-action="1161" class="button-circle open-popup" data-bindattr-1162="1162" title="Test Coverage with Code Climate">
+      <span class="icon icon--codeclimate"></span>
+    </a>
+
+</div>
+
+<div id="ember1144" class="ember-view"><div id="code-climate" class="popup">
+  <img src="./Travis CI - Test and Deploy Your Code with Confidence_files/code-climate-logo-43f47da95d0c379b52b55f804a233ca3.svg" id="code-climate-logo">
+  <a href="https://travis-ci.org/#" class="close" data-ember-action="1163"></a>
+  <p>
+    <b>Want test coverage for your tests?</b>
+  </p>
+  <p>
+    Integrating <a href="https://codeclimate.com/">Code Climate's test coverage</a> reporting with your test
+    suite on Travis CI allows to track changes in coverage over time. If you haven't tried it out already, <a data-bindattr-1164="1164" "="" target="_blank">sign
+    up today</a> to improve your code's quality. New customers get 20% off for the first three months!
+  </p>
+
+  <p>
+    It only takes a few steps, once you've set up your project:
+  </p>
+
+  <ol>
+    <li>
+      Add the `code-climate-reporter` gem to your Gemfile:<br>
+
+<pre>gem "codeclimate-test-reporter", group: :test, require: nil
+</pre>
+    </li>
+    <li>
+      Load the reporter in your `test_helper` or `spec_helper`, putting it at the very top:
+
+<pre>require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+</pre>
+    </li>
+    <li>
+      Add the Code Climate token to your .travis.yml:
+
+<pre>addons:
+  code_climate:
+    repo_token: adf08323...
+</pre>
+    </li>
+  </ol>
+</div>
+</div>
+</div>
+    </div>
+  </section>
+
+    <div id="ember1172" class="ember-view"></div>
+
+    <div id="ember1183" class="ember-view">  <div id="ember1197" class="ember-view"><div id="ember1206" class="ember-view"><div id="remove-log-popup" class="popup">
+  <a href="https://travis-ci.org/#" class="close" data-ember-action="1209"></a>
+  <p><strong>This action will remove the log permanently!</strong></p>
+  <p>Do you want to continue?</p>
+  <p>
+    <a class="sync_now button" data-ember-action="1210">Yes, please!</a>
+    <span class="or">or</span>
+    <a href="https://travis-ci.org/#" class="cancel" data-ember-action="1211">Cancel</a>
+  </p>
+</div>
+</div>
+
+<section id="log-container" class="log">
+  <div class="" data-bindattr-1207="1207">
+    <menu class="log-header">
+        <a href="https://travis-ci.org/#" class="button button--grey open-popup" data-ember-action="1212"><span class="icon icon--removeLog"></span> Remove Log</a>
+      <a class="button button--grey" href="https://api.travis-ci.org/jobs/58161238/log.txt?deansi=true" data-bindattr-1208="1208"><span class="icon icon--downloadLog"></span> Download Log</a>
+    </menu>
+    <div class="log-body">
+        <a href="https://travis-ci.org/#" id="tail" class="log-tail" data-ember-action="1213" style="top: 2011.21875px;">
+          <span class="tail-status"></span>
+          <span class="tail-label button button--grey"><span class="icon icon--down"></span>
+              Scroll to End of Log
+          </span>
+        </a>
+
+      <pre id="log" class="ansi"><p><a></a><span id="1-0">Using worker: worker-linux-docker-2ea78b01.prod.travis-ci.org:travis-linux-5</span></p><p><a></a><span id="1-1"></span></p><div id="fold-start-system_info" class="fold-start fold active"><span class="fold-name">system_info</span><p><a></a><span id="2-1" class="yellow bold">Build system information</span><span id="2-2"></span></p><p><a></a><span id="2-3">Build language: ruby</span></p><p><a></a><span id="2-4" class="blue bold">Build image provisioning date and time</span><span id="2-5"></span></p><p><a></a><span id="2-6">Thu Feb  5 15:09:33 UTC 2015</span></p><p><a></a><span id="2-7" class="blue bold">Operating System Details</span><span id="2-8"></span></p><p><a></a><span id="2-9">Distributor ID:	Ubuntu</span></p><p><a></a><span id="2-10">Description:	Ubuntu 12.04.5 LTS</span></p><p><a></a><span id="2-11">Release:	12.04</span></p><p><a></a><span id="2-12">Codename:	precise</span></p><p><a></a><span id="2-13" class="blue bold">Linux Version</span><span id="2-14"></span></p><p><a></a><span id="2-15">3.13.0-29-generic</span></p><p><a></a><span id="2-16" class="blue bold">Cookbooks Version</span><span id="2-17"></span></p><p><a></a><span id="2-18">a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e</span></p><p><a></a><span id="2-19" class="blue bold">GCC version</span><span id="2-20"></span></p><p><a></a><span id="2-21">gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3</span></p><p><a></a><span id="2-22">Copyright (C) 2011 Free Software Foundation, Inc.</span></p><p><a></a><span id="2-23">This is free software; see the source for copying conditions.  There is NO</span></p><p><a></a><span id="2-24">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></p><p><a></a><span id="2-25"></span></p><p><a></a><span id="2-26" class="blue bold">LLVM version</span><span id="2-27"></span></p><p><a></a><span id="2-28">clang version 3.4 (tags/RELEASE_34/final)</span></p><p><a></a><span id="2-29">Target: x86_64-unknown-linux-gnu</span></p><p><a></a><span id="2-30">Thread model: posix</span></p><p><a></a><span id="2-31" class="blue bold">Pre-installed Ruby versions</span><span id="2-32"></span></p><p><a></a><span id="2-33">ruby-1.9.3-p551</span></p><p><a></a><span id="2-34" class="blue bold">Pre-installed Node.js versions</span><span id="2-35"></span></p><p><a></a><span id="2-36">v0.10.36</span></p><p><a></a><span id="2-37" class="blue bold">Pre-installed Go versions</span><span id="2-38"></span></p><p><a></a><span id="2-39">1.4.1</span></p><p><a></a><span id="2-40" class="blue bold">Redis version</span><span id="2-41"></span></p><p><a></a><span id="2-42">redis-server 2.8.19</span></p><p><a></a><span id="2-43" class="blue bold">riak version</span><span id="2-44"></span></p><p><a></a><span id="2-45">2.0.2</span></p><p><a></a><span id="2-46" class="blue bold">MongoDB version</span><span id="2-47"></span></p><p><a></a><span id="2-48">MongoDB 2.4.12</span></p><p><a></a><span id="2-49" class="blue bold">CouchDB version</span><span id="2-50"></span></p><p><a></a><span id="2-51">couchdb 1.6.1</span></p><p><a></a><span id="2-52" class="blue bold">Neo4j version</span><span id="2-53"></span></p><p><a></a><span id="2-54">1.9.4</span></p><p><a></a><span id="2-55" class="blue bold">RabbitMQ Version</span><span id="2-56"></span></p><p><a></a><span id="2-57">3.4.3</span></p><p><a></a><span id="2-58" class="blue bold">ElasticSearch version</span><span id="2-59"></span></p><p><a></a><span id="2-60">1.4.0</span></p><p><a></a><span id="2-61" class="blue bold">Installed Sphinx versions</span><span id="2-62"></span></p><p><a></a><span id="2-63">2.0.10</span></p><p><a></a><span id="2-64">2.1.9</span></p><p><a></a><span id="2-65">2.2.6</span></p><p><a></a><span id="2-66" class="blue bold">Default Sphinx version</span><span id="2-67"></span></p><p><a></a><span id="2-68">2.2.6</span></p><p><a></a><span id="2-69" class="blue bold">Installed Firefox version</span><span id="2-70"></span></p><p><a></a><span id="2-71">firefox 31.0esr</span></p><p><a></a><span id="2-72" class="blue bold">PhantomJS version</span><span id="2-73"></span></p><p><a></a><span id="2-74">1.9.8</span></p><p><a></a><span id="2-75" class="blue bold">ant -version</span><span id="2-76"></span></p><p><a></a><span id="2-77">Apache Ant(TM) version 1.8.2 compiled on December 3 2011</span></p><p><a></a><span id="2-78" class="blue bold">mvn -version</span><span id="2-79"></span></p><p><a></a><span id="2-80">Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)</span></p><p><a></a><span id="2-81">Maven home: /usr/local/maven</span></p><p><a></a><span id="2-82">Java version: 1.7.0_76, vendor: Oracle Corporation</span></p><p><a></a><span id="2-83">Java home: /usr/lib/jvm/java-7-oracle/jre</span></p><p><a></a><span id="2-84">Default locale: en_US, platform encoding: ANSI_X3.4-1968</span></p><p><a></a><span id="2-85">OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"</span></p></div><div id="fold-end-system_info" class="fold-end"></div><p><a></a><span id="2-87"></span></p><div id="fold-start-git.checkout" class="fold-start fold active"><span class="fold-name">git.checkout</span><p><a></a><span id="2-89" class="duration" title="This command finished after 0.14 seconds.">0.14s</span><span id="2-90">$ git clone --depth=50 --branch=master git://github.com/joejknowles/chitter-challenge.git joejknowles/chitter-challenge</span></p><p><a></a><span id="2-91">Cloning into 'joejknowles/chitter-challenge'...</span></p><p><a></a><span id="2-92">remote: Counting objects: 419, done.</span></p><p><a></a><span id="2-193" class="clears"></span><span id="2-194">remote: Compressing objects: 100% (211/211), done.</span></p><p><a></a><span id="3-12" class="clears"></span><span id="3-13">remote: Total 419 (delta 186), reused 407 (delta 174), pack-reused 0</span></p><p><a></a><span id="3-101" class="clears"></span><span id="3-102">Receiving objects: 100% (419/419), 57.63 KiB | 0 bytes/s, done.</span></p><p><a></a><span id="3-139" class="clears"></span><span id="3-140">Resolving deltas: 100% (186/186), done.</span></p><p><a></a><span id="3-141">Checking connectivity... done.</span><span id="3-142"></span></p><p><a></a><span id="3-143">$ cd joejknowles/chitter-challenge</span></p><p><a></a><span id="3-144">$ git checkout -qf 82b6d815aa32c5c443998684b3e4f2094df72808</span></p></div><div id="fold-end-git.checkout" class="fold-end"></div><p><a></a><span id="3-146"></span></p><p><a></a><span id="3-147" class="yellow bold">This job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.</span><span id="3-148"></span></p><p><a></a><span id="3-149" class="yellow bold">If you require sudo, add 'sudo: required' to your .travis.yml</span><span id="3-150"></span></p><p><a></a><span id="3-151" class="yellow bold">See http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.</span><span id="3-152"></span></p><div id="fold-start-rvm" class="fold-start fold active"><span class="fold-name">rvm</span><p><a></a><span id="4-1" class="duration" title="This command finished after 16.77 seconds.">16.77s</span><span id="4-2">$ rvm use 2.2.1 --install --binary --fuzzy</span></p><p><a></a><span id="5-0" class="yellow">ruby-2.2.1 is not installed - installing.</span><span id="5-1"></span></p><p><a></a><span id="6-0" class="green">Searching for binary rubies, this might take some time.</span><span id="6-1"></span></p><p><a></a><span id="6-2" class="green">Found remote file https://rvm_io.global.ssl.fastly.net/binaries/ubuntu/12.04/x86_64/ruby-2.2.1.tar.bz2</span><span id="6-3"></span></p><p><a></a><span id="6-4" class="green">Checking requirements for ubuntu.</span><span id="6-5"></span></p><p><a></a><span id="7-0" class="green">Requirements installation successful.</span><span id="7-1"></span></p><p><a></a><span id="8-0" class="green">ruby-2.2.1 - #configure</span><span id="8-1"></span></p><p><a></a><span id="8-2" class="green">ruby-2.2.1 - #download</span><span id="8-3"></span></p><p><a></a><span id="8-4">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span></p><p><a></a><span id="8-5">                                 Dload  Upload   Total   Spent    Left  Speed</span></p><p><a></a><span id="8-7" class="clears"></span><span id="8-8">100 21.5M  100 21.5M    0     0  82.2M      0 --:--:-- --:--:-- --:--:-- 83.1M</span></p><p><a></a><span id="8-9" class="yellow">No checksum for downloaded archive, recording checksum in user configuration.</span><span id="8-10"></span></p><p><a></a><span id="9-0" class="green">ruby-2.2.1 - #validate archive</span><span id="9-1"></span></p><p><a></a><span id="10-0" class="green">ruby-2.2.1 - #extract</span><span id="10-1"></span></p><p><a></a><span id="11-0" class="green">ruby-2.2.1 - #validate binary</span><span id="11-1"></span></p><p><a></a><span id="11-2" class="green">ruby-2.2.1 - #setup</span><span id="11-3"></span></p><p><a></a><span id="12-0" class="green">ruby-2.2.1 - #gemset created /home/travis/.rvm/gems/ruby-2.2.1@global</span><span id="12-1"></span></p><p><a></a><span id="12-2" class="green">ruby-2.2.1 - #importing gemset /home/travis/.rvm/gemsets/global.gems</span><span id="12-3">....................................</span></p><p><a></a><span id="12-4" class="green">ruby-2.2.1 - #generating global wrappers</span><span id="12-5">........</span></p><p><a></a><span id="13-0" class="green">ruby-2.2.1 - #uninstalling gem rubygems-bundler-1.4.4</span><span id="13-1">.</span></p><p><a></a><span id="13-2" class="green">ruby-2.2.1 - #gemset created /home/travis/.rvm/gems/ruby-2.2.1</span><span id="13-3"></span></p><p><a></a><span id="13-4" class="green">ruby-2.2.1 - #importing gemset /home/travis/.rvm/gemsets/default.gems</span><span id="13-5">.........</span><span id="14-0">..........</span><span id="15-0">.</span></p><p><a></a><span id="15-1" class="green">ruby-2.2.1 - #generating default wrappers</span><span id="15-2">........</span></p><p><a></a><span id="15-3">chown: changing ownership of `/home/travis/.rvm/user/installs': Operation not permitted</span></p><p><a></a><span id="16-0" class="green">Using /home/travis/.rvm/gems/ruby-2.2.1</span><span id="16-1"></span><span id="16-2"></span></p></div><div id="fold-end-rvm" class="fold-end"></div><p><a></a><span id="16-4">$ export BUNDLE_GEMFILE=$PWD/Gemfile</span></p><p><a></a><span id="16-5">$ ruby --version</span></p><p><a></a><span id="16-6">ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-linux]</span></p><p><a></a><span id="16-7">$ rvm --version</span></p><p><a></a><span id="16-8">rvm 1.26.10 (latest-minor) by Wayne E. Seguin &lt;wayneeseguin@gmail.com&gt;, Michal Papis &lt;mpapis@gmail.com&gt; [https://rvm.io/]</span></p><p><a></a><span id="16-9">$ bundle --version</span></p><p><a></a><span id="16-10">Bundler version 1.8.4</span></p><p><a></a><span id="16-11">$ gem --version</span></p><p><a></a><span id="16-12">2.4.6</span></p><div id="fold-start-install.bundler" class="fold-start"><span class="fold-name">install.bundler</span></div><p><a></a><span id="16-14" class="duration" title="This command finished after 85.63 seconds.">85.63s</span><span id="16-15">$ bundle install --jobs=3 --retry=3 --deployment</span></p><p><a></a><span id="17-0">Fetching gem metadata from https://rubygems.org/.</span><span id="18-0">........</span><span id="19-0"></span></p><p><a></a><span id="19-1">Fetching version metadata from https://rubygems.org/..</span></p><p><a></a><span id="20-0">Installing addressable 2.3.8</span></p><p><a></a><span id="20-1">Installing ast 2.0.0</span></p><p><a></a><span id="21-0">Installing builder 3.2.2</span></p><p><a></a><span id="22-0">Installing mime-types 2.4.3</span></p><p><a></a><span id="23-0">Installing mini_portile 0.6.2</span></p><p><a></a><span id="23-1">Installing bcrypt 3.1.10</span></p><p><a></a><span id="24-0">Installing rack 1.6.0</span></p><p><a></a><span id="24-1">Installing multi_json 1.11.0</span></p><p><a></a><span id="25-0">Installing netrc 0.10.3</span></p><p><a></a><span id="26-0">Installing docile 1.1.5</span></p><p><a></a><span id="27-0">Installing simplecov-html 0.9.0</span></p><p><a></a><span id="27-1">Installing unf_ext 0.0.6</span></p><p><a></a><span id="28-0">Installing thor 0.19.1</span></p><p><a></a><span id="28-1">Installing tins 1.3.5</span></p><p><a></a><span id="29-0">Installing diff-lcs 1.2.5</span></p><p><a></a><span id="29-1">Installing multi_test 0.1.2</span></p><p><a></a><span id="29-2">Installing fastercsv 1.5.5</span></p><p><a></a><span id="30-0">Installing json_pure 1.8.2</span></p><p><a></a><span id="31-0">Installing stringex 1.5.1</span></p><p><a></a><span id="32-0">Installing uuidtools 2.1.5</span></p><p><a></a><span id="32-1">Installing json 1.8.2</span></p><p><a></a><span id="33-0">Installing database_cleaner 1.4.1</span></p><p><a></a><span id="34-0">Installing powerpack 0.1.0</span></p><p><a></a><span id="35-0">Installing rainbow 2.0.0</span></p><p><a></a><span id="35-1">Installing rspec-support 3.2.2</span></p><p><a></a><span id="36-0">Installing ruby-progressbar 1.7.5</span></p><p><a></a><span id="37-0">Installing rubocop-rspec 1.2.2</span></p><p><a></a><span id="38-0">Installing tilt 2.0.1</span></p><p><a></a><span id="38-1">Using bundler 1.8.4</span></p><p><a></a><span id="39-0">Installing dm-core 1.2.1</span></p><p><a></a><span id="40-0">Installing data_objects 0.10.15</span></p><p><a></a><span id="41-0">Installing parser 2.2.0.3</span></p><p><a></a><span id="42-0">Installing pg 0.18.1</span></p><p><a></a><span id="42-1">Installing bcrypt-ruby 3.1.5</span></p><p><a></a><span id="43-0">Installing rack-test 0.6.3</span></p><p><a></a><span id="44-0">Installing rack-flash3 1.0.5</span></p><p><a></a><span id="45-0">Installing rack-protection 1.5.3</span></p><p><a></a><span id="46-0">Installing nokogiri 1.6.6.2</span></p><p><a></a><span id="47-0">Installing simplecov 0.9.2</span></p><p><a></a><span id="48-0">Installing unf 0.1.4</span></p><p><a></a><span id="49-0">Installing term-ansicolor 1.3.0</span></p><p><a></a><span id="50-0">Installing rspec-core 3.2.2</span></p><p><a></a><span id="51-0">Installing rspec-expectations 3.2.0</span></p><p><a></a><span id="52-0">Installing rspec-mocks 3.2.1</span></p><p><a></a><span id="53-0">Installing dm-aggregates 1.2.0</span></p><p><a></a><span id="53-1">Installing dm-constraints 1.2.0</span></p><p><a></a><span id="54-0">Installing dm-migrations 1.2.0</span></p><p><a></a><span id="55-0">Installing dm-serializer 1.2.2</span></p><p><a></a><span id="56-0">Installing dm-timestamps 1.2.0</span></p><p><a></a><span id="57-0">Installing dm-transactions 1.2.0</span></p><p><a></a><span id="58-0">Installing dm-validations 1.2.0</span></p><p><a></a><span id="59-0">Installing dm-do-adapter 1.2.0</span></p><p><a></a><span id="60-0"></span></p><p><a></a><span id="60-1">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.</span></p><p><a></a><span id="60-2"></span></p><p><a></a><span id="60-3">    /home/travis/.rvm/rubies/ruby-2.2.1/bin/ruby -r ./siteconf20150412-3570-1mptdmj.rb extconf.rb </span></p><p><a></a><span id="60-4">checking for main() in -lpq... yes</span></p><p><a></a><span id="60-5">checking for libpq-fe.h... yes</span></p><p><a></a><span id="60-6">checking for libpq/libpq-fs.h... yes</span></p><p><a></a><span id="60-7">checking for postgres.h... no</span></p><p><a></a><span id="60-8">*** extconf.rb failed ***</span></p><p><a></a><span id="60-9">Could not create Makefile due to some reason, probably lack of necessary</span></p><p><a></a><span id="60-10">libraries and/or headers.  Check the mkmf.log file for more details.  You may</span></p><p><a></a><span id="60-11">need configuration options.</span></p><p><a></a><span id="60-12"></span></p><p><a></a><span id="60-13">Provided configuration options:</span></p><p><a></a><span id="60-14">	--with-opt-dir</span></p><p><a></a><span id="60-15">	--without-opt-dir</span></p><p><a></a><span id="60-16">	--with-opt-include</span></p><p><a></a><span id="60-17">	--without-opt-include=${opt-dir}/include</span></p><p><a></a><span id="60-18">	--with-opt-lib</span></p><p><a></a><span id="60-19">	--without-opt-lib=${opt-dir}/lib</span></p><p><a></a><span id="60-20">	--with-make-prog</span></p><p><a></a><span id="60-21">	--without-make-prog</span></p><p><a></a><span id="60-22">	--srcdir=.</span></p><p><a></a><span id="60-23">	--curdir</span></p><p><a></a><span id="60-24">	--ruby=/home/travis/.rvm/rubies/ruby-2.2.1/bin/$(RUBY_BASE_NAME)</span></p><p><a></a><span id="60-25">	--with-pgsql-server-dir</span></p><p><a></a><span id="60-26">	--without-pgsql-server-dir</span></p><p><a></a><span id="60-27">	--with-pgsql-server-include</span></p><p><a></a><span id="60-28">	--without-pgsql-server-include=${pgsql-server-dir}/include</span></p><p><a></a><span id="60-29">	--with-pgsql-server-lib</span></p><p><a></a><span id="60-30">	--without-pgsql-server-lib=${pgsql-server-dir}/lib</span></p><p><a></a><span id="60-31">	--with-pgsql-client-dir</span></p><p><a></a><span id="60-32">	--without-pgsql-client-dir</span></p><p><a></a><span id="60-33">	--with-pgsql-client-include</span></p><p><a></a><span id="60-34">	--without-pgsql-client-include=${pgsql-client-dir}/include</span></p><p><a></a><span id="60-35">	--with-pgsql-client-lib</span></p><p><a></a><span id="60-36">	--without-pgsql-client-lib=${pgsql-client-dir}/lib</span></p><p><a></a><span id="60-37">	--with-pqlib</span></p><p><a></a><span id="60-38">	--without-pqlib</span></p><p><a></a><span id="60-39">Could not find PostgreSQL build environment (libraries &amp; headers): Makefile not created</span></p><p><a></a><span id="60-40"></span></p><p><a></a><span id="60-41">extconf failed, exit code 1</span></p><p><a></a><span id="60-42"></span></p><p><a></a><span id="60-43">Gem files will remain installed in /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/gems/do_postgres-0.10.15 for inspection.</span></p><p><a></a><span id="60-44">Results logged to /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/extensions/x86_64-linux/2.2.0/do_postgres-0.10.15/gem_make.out</span></p><p><a></a><span id="61-0">Installing astrolabe 1.3.0</span></p><p><a></a><span id="62-0">Installing dm-types 1.2.2</span></p><p><a></a><span id="63-0">Installing sinatra 1.4.6</span></p><p><a></a><span id="64-0">Installing xpath 2.0.0</span></p><p><a></a><span id="65-0">Installing domain_name 0.5.23</span></p><p><a></a><span id="65-1">Installing rspec 3.2.0</span></p><p><a></a><span id="66-0">Installing gherkin 2.12.2</span></p><p><a></a><span id="66-1" class="red">An error occurred while installing do_postgres (0.10.15), and Bundler cannot</span></p><p><a></a><span id="66-2">continue.</span></p><p><a></a><span id="66-3">Make sure that `gem install do_postgres -v '0.10.15'` succeeds before bundling.</span><span id="66-4"></span></p><p><a></a><span id="67-0"></span></p><p><a></a><span id="67-1" class="red bold">The command "eval bundle install --jobs=3 --retry=3 --deployment" failed. Retrying, 2 of 3.</span><span id="67-2"></span></p><p><a></a><span id="67-3"></span></p><p><a></a><span id="68-0">Fetching gem metadata from https://rubygems.org/...</span><span id="69-0">......</span></p><p><a></a><span id="69-1">Fetching version metadata from https://rubygems.org/.</span><span id="70-0">.</span></p><p><a></a><span id="70-1">Using ast 2.0.0</span></p><p><a></a><span id="70-2">Using addressable 2.3.8</span></p><p><a></a><span id="70-3">Using bcrypt 3.1.10</span></p><p><a></a><span id="70-4">Using mime-types 2.4.3</span></p><p><a></a><span id="70-5">Using mini_portile 0.6.2</span></p><p><a></a><span id="70-6">Using rack 1.6.0</span></p><p><a></a><span id="70-7">Using multi_json 1.11.0</span></p><p><a></a><span id="70-8">Using unf_ext 0.0.6</span></p><p><a></a><span id="70-9">Using builder 3.2.2</span></p><p><a></a><span id="70-10">Using netrc 0.10.3</span></p><p><a></a><span id="70-11">Using simplecov-html 0.9.0</span></p><p><a></a><span id="70-12">Using docile 1.1.5</span></p><p><a></a><span id="70-13">Using tins 1.3.5</span></p><p><a></a><span id="70-14">Using thor 0.19.1</span></p><p><a></a><span id="70-15">Using multi_test 0.1.2</span></p><p><a></a><span id="70-16">Using diff-lcs 1.2.5</span></p><p><a></a><span id="70-17">Using fastercsv 1.5.5</span></p><p><a></a><span id="70-18">Using json 1.8.2</span></p><p><a></a><span id="70-19">Using json_pure 1.8.2</span></p><p><a></a><span id="70-20">Using uuidtools 2.1.5</span></p><p><a></a><span id="70-21">Using database_cleaner 1.4.1</span></p><p><a></a><span id="70-22">Using pg 0.18.1</span></p><p><a></a><span id="70-23">Using powerpack 0.1.0</span></p><p><a></a><span id="70-24">Using rainbow 2.0.0</span></p><p><a></a><span id="70-25">Using rspec-support 3.2.2</span></p><p><a></a><span id="70-26">Using ruby-progressbar 1.7.5</span></p><p><a></a><span id="70-27">Using rubocop-rspec 1.2.2</span></p><p><a></a><span id="70-28">Using tilt 2.0.1</span></p><p><a></a><span id="70-29">Using bundler 1.8.4</span></p><p><a></a><span id="70-30">Using parser 2.2.0.3</span></p><p><a></a><span id="70-31">Using stringex 1.5.1</span></p><p><a></a><span id="70-32">Using data_objects 0.10.15</span></p><p><a></a><span id="70-33">Using bcrypt-ruby 3.1.5</span></p><p><a></a><span id="70-34">Using nokogiri 1.6.6.2</span></p><p><a></a><span id="70-35">Using rack-test 0.6.3</span></p><p><a></a><span id="70-36">Using rack-flash3 1.0.5</span></p><p><a></a><span id="70-37">Using rack-protection 1.5.3</span></p><p><a></a><span id="70-38">Using gherkin 2.12.2</span></p><p><a></a><span id="70-39">Using unf 0.1.4</span></p><p><a></a><span id="70-40">Using simplecov 0.9.2</span></p><p><a></a><span id="70-41">Using term-ansicolor 1.3.0</span></p><p><a></a><span id="70-42">Using rspec-core 3.2.2</span></p><p><a></a><span id="70-43">Using rspec-expectations 3.2.0</span></p><p><a></a><span id="70-44">Using rspec-mocks 3.2.1</span></p><p><a></a><span id="70-45">Using astrolabe 1.3.0</span></p><p><a></a><span id="70-46">Using dm-core 1.2.1</span></p><p><a></a><span id="70-47">Using xpath 2.0.0</span></p><p><a></a><span id="70-48">Using sinatra 1.4.6</span></p><p><a></a><span id="71-0"></span></p><p><a></a><span id="71-1">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.</span></p><p><a></a><span id="71-2"></span></p><p><a></a><span id="71-3">    /home/travis/.rvm/rubies/ruby-2.2.1/bin/ruby -r ./siteconf20150412-24719-16cywhp.rb extconf.rb </span></p><p><a></a><span id="71-4">checking for main() in -lpq... yes</span></p><p><a></a><span id="71-5">checking for libpq-fe.h... yes</span></p><p><a></a><span id="71-6">checking for libpq/libpq-fs.h... yes</span></p><p><a></a><span id="71-7">checking for postgres.h... no</span></p><p><a></a><span id="71-8">*** extconf.rb failed ***</span></p><p><a></a><span id="71-9">Could not create Makefile due to some reason, probably lack of necessary</span></p><p><a></a><span id="71-10">libraries and/or headers.  Check the mkmf.log file for more details.  You may</span></p><p><a></a><span id="71-11">need configuration options.</span></p><p><a></a><span id="71-12"></span></p><p><a></a><span id="71-13">Provided configuration options:</span></p><p><a></a><span id="71-14">	--with-opt-dir</span></p><p><a></a><span id="71-15">	--without-opt-dir</span></p><p><a></a><span id="71-16">	--with-opt-include</span></p><p><a></a><span id="71-17">	--without-opt-include=${opt-dir}/include</span></p><p><a></a><span id="71-18">	--with-opt-lib</span></p><p><a></a><span id="71-19">	--without-opt-lib=${opt-dir}/lib</span></p><p><a></a><span id="71-20">	--with-make-prog</span></p><p><a></a><span id="71-21">	--without-make-prog</span></p><p><a></a><span id="71-22">	--srcdir=.</span></p><p><a></a><span id="71-23">	--curdir</span></p><p><a></a><span id="71-24">	--ruby=/home/travis/.rvm/rubies/ruby-2.2.1/bin/$(RUBY_BASE_NAME)</span></p><p><a></a><span id="71-25">	--with-pgsql-server-dir</span></p><p><a></a><span id="71-26">	--without-pgsql-server-dir</span></p><p><a></a><span id="71-27">	--with-pgsql-server-include</span></p><p><a></a><span id="71-28">	--without-pgsql-server-include=${pgsql-server-dir}/include</span></p><p><a></a><span id="71-29">	--with-pgsql-server-lib</span></p><p><a></a><span id="71-30">	--without-pgsql-server-lib=${pgsql-server-dir}/lib</span></p><p><a></a><span id="71-31">	--with-pgsql-client-dir</span></p><p><a></a><span id="71-32">	--without-pgsql-client-dir</span></p><p><a></a><span id="71-33">	--with-pgsql-client-include</span></p><p><a></a><span id="71-34">	--without-pgsql-client-include=${pgsql-client-dir}/include</span></p><p><a></a><span id="71-35">	--with-pgsql-client-lib</span></p><p><a></a><span id="71-36">	--without-pgsql-client-lib=${pgsql-client-dir}/lib</span></p><p><a></a><span id="71-37">	--with-pqlib</span></p><p><a></a><span id="71-38">	--without-pqlib</span></p><p><a></a><span id="71-39">Could not find PostgreSQL build environment (libraries &amp; headers): Makefile not created</span></p><p><a></a><span id="71-40"></span></p><p><a></a><span id="71-41">extconf failed, exit code 1</span></p><p><a></a><span id="71-42"></span></p><p><a></a><span id="71-43">Gem files will remain installed in /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/gems/do_postgres-0.10.15 for inspection.</span></p><p><a></a><span id="71-44">Results logged to /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/extensions/x86_64-linux/2.2.0/do_postgres-0.10.15/gem_make.out</span></p><p><a></a><span id="71-45">Using domain_name 0.5.23</span></p><p><a></a><span id="71-46">Using rspec 3.2.0</span></p><p><a></a><span id="71-47">Installing cucumber-core 1.1.3</span></p><p><a></a><span id="71-48">Using dm-aggregates 1.2.0</span></p><p><a></a><span id="71-49">Using dm-constraints 1.2.0</span></p><p><a></a><span id="71-50">Using dm-migrations 1.2.0</span></p><p><a></a><span id="71-51">Using dm-serializer 1.2.2</span></p><p><a></a><span id="71-52">Using dm-timestamps 1.2.0</span></p><p><a></a><span id="71-53">Using dm-transactions 1.2.0</span></p><p><a></a><span id="71-54">Using dm-types 1.2.2</span></p><p><a></a><span id="71-55">Using dm-validations 1.2.0</span></p><p><a></a><span id="71-56">Using dm-do-adapter 1.2.0</span></p><p><a></a><span id="72-0">Installing rubocop 0.29.1</span></p><p><a></a><span id="72-1">Installing capybara 2.4.4</span></p><p><a></a><span id="72-2" class="red">An error occurred while installing do_postgres (0.10.15), and Bundler cannot</span></p><p><a></a><span id="72-3">continue.</span></p><p><a></a><span id="72-4">Make sure that `gem install do_postgres -v '0.10.15'` succeeds before bundling.</span><span id="72-5"></span></p><p><a></a><span id="73-0"></span></p><p><a></a><span id="73-1" class="red bold">The command "eval bundle install --jobs=3 --retry=3 --deployment" failed. Retrying, 3 of 3.</span><span id="73-2"></span></p><p><a></a><span id="73-3"></span></p><p><a></a><span id="74-0">Fetching gem metadata from https://rubygems.org/.</span><span id="75-0">......</span><span id="76-0">..</span></p><p><a></a><span id="76-1">Fetching version metadata from https://rubygems.org/..</span></p><p><a></a><span id="77-0">Using addressable 2.3.8</span></p><p><a></a><span id="77-1">Using ast 2.0.0</span></p><p><a></a><span id="77-2">Using builder 3.2.2</span></p><p><a></a><span id="77-3">Using mime-types 2.4.3</span></p><p><a></a><span id="77-4">Using mini_portile 0.6.2</span></p><p><a></a><span id="77-5">Using rack 1.6.0</span></p><p><a></a><span id="77-6">Using multi_json 1.11.0</span></p><p><a></a><span id="77-7">Using unf_ext 0.0.6</span></p><p><a></a><span id="77-8">Using netrc 0.10.3</span></p><p><a></a><span id="77-9">Using docile 1.1.5</span></p><p><a></a><span id="77-10">Using simplecov-html 0.9.0</span></p><p><a></a><span id="77-11">Using tins 1.3.5</span></p><p><a></a><span id="77-12">Using thor 0.19.1</span></p><p><a></a><span id="77-13">Using diff-lcs 1.2.5</span></p><p><a></a><span id="77-14">Using multi_test 0.1.2</span></p><p><a></a><span id="77-15">Using fastercsv 1.5.5</span></p><p><a></a><span id="77-16">Using json 1.8.2</span></p><p><a></a><span id="77-17">Using json_pure 1.8.2</span></p><p><a></a><span id="77-18">Using stringex 1.5.1</span></p><p><a></a><span id="77-19">Using uuidtools 2.1.5</span></p><p><a></a><span id="77-20">Using database_cleaner 1.4.1</span></p><p><a></a><span id="77-21">Using pg 0.18.1</span></p><p><a></a><span id="77-22">Using powerpack 0.1.0</span></p><p><a></a><span id="77-23">Using rainbow 2.0.0</span></p><p><a></a><span id="77-24">Using rspec-support 3.2.2</span></p><p><a></a><span id="77-25">Using ruby-progressbar 1.7.5</span></p><p><a></a><span id="77-26">Using rubocop-rspec 1.2.2</span></p><p><a></a><span id="77-27">Using tilt 2.0.1</span></p><p><a></a><span id="77-28">Using bundler 1.8.4</span></p><p><a></a><span id="77-29">Using bcrypt 3.1.10</span></p><p><a></a><span id="77-30">Using dm-core 1.2.1</span></p><p><a></a><span id="77-31">Using parser 2.2.0.3</span></p><p><a></a><span id="77-32">Using nokogiri 1.6.6.2</span></p><p><a></a><span id="77-33">Using rack-test 0.6.3</span></p><p><a></a><span id="77-34">Using rack-flash3 1.0.5</span></p><p><a></a><span id="77-35">Using rack-protection 1.5.3</span></p><p><a></a><span id="77-36">Using gherkin 2.12.2</span></p><p><a></a><span id="77-37">Using unf 0.1.4</span></p><p><a></a><span id="77-38">Using simplecov 0.9.2</span></p><p><a></a><span id="77-39">Using term-ansicolor 1.3.0</span></p><p><a></a><span id="77-40">Using rspec-core 3.2.2</span></p><p><a></a><span id="77-41">Using rspec-expectations 3.2.0</span></p><p><a></a><span id="77-42">Using rspec-mocks 3.2.1</span></p><p><a></a><span id="77-43">Using data_objects 0.10.15</span></p><p><a></a><span id="77-44">Using bcrypt-ruby 3.1.5</span></p><p><a></a><span id="77-45">Using dm-aggregates 1.2.0</span></p><p><a></a><span id="77-46">Using dm-constraints 1.2.0</span></p><p><a></a><span id="77-47">Using dm-migrations 1.2.0</span></p><p><a></a><span id="77-48">Using dm-serializer 1.2.2</span></p><p><a></a><span id="77-49">Using dm-timestamps 1.2.0</span></p><p><a></a><span id="77-50">Using dm-transactions 1.2.0</span></p><p><a></a><span id="77-51">Using dm-validations 1.2.0</span></p><p><a></a><span id="77-52">Using astrolabe 1.3.0</span></p><p><a></a><span id="77-53">Using xpath 2.0.0</span></p><p><a></a><span id="77-54">Using sinatra 1.4.6</span></p><p><a></a><span id="77-55">Using cucumber-core 1.1.3</span></p><p><a></a><span id="77-56">Using domain_name 0.5.23</span></p><p><a></a><span id="77-57">Using rspec 3.2.0</span></p><p><a></a><span id="77-58">Using dm-do-adapter 1.2.0</span></p><p><a></a><span id="77-59">Using dm-types 1.2.2</span></p><p><a></a><span id="77-60">Using rubocop 0.29.1</span></p><p><a></a><span id="77-61">Using capybara 2.4.4</span></p><p><a></a><span id="77-62"></span></p><p><a></a><span id="77-63">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.</span></p><p><a></a><span id="77-64"></span></p><p><a></a><span id="77-65">    /home/travis/.rvm/rubies/ruby-2.2.1/bin/ruby -r ./siteconf20150412-24763-14uzqtg.rb extconf.rb </span></p><p><a></a><span id="77-66">checking for main() in -lpq... yes</span></p><p><a></a><span id="77-67">checking for libpq-fe.h... yes</span></p><p><a></a><span id="77-68">checking for libpq/libpq-fs.h... yes</span></p><p><a></a><span id="77-69">checking for postgres.h... no</span></p><p><a></a><span id="77-70">*** extconf.rb failed ***</span></p><p><a></a><span id="77-71">Could not create Makefile due to some reason, probably lack of necessary</span></p><p><a></a><span id="77-72">libraries and/or headers.  Check the mkmf.log file for more details.  You may</span></p><p><a></a><span id="77-73">need configuration options.</span></p><p><a></a><span id="77-74"></span></p><p><a></a><span id="77-75">Provided configuration options:</span></p><p><a></a><span id="77-76">	--with-opt-dir</span></p><p><a></a><span id="77-77">	--without-opt-dir</span></p><p><a></a><span id="77-78">	--with-opt-include</span></p><p><a></a><span id="77-79">	--without-opt-include=${opt-dir}/include</span></p><p><a></a><span id="77-80">	--with-opt-lib</span></p><p><a></a><span id="77-81">	--without-opt-lib=${opt-dir}/lib</span></p><p><a></a><span id="77-82">	--with-make-prog</span></p><p><a></a><span id="77-83">	--without-make-prog</span></p><p><a></a><span id="77-84">	--srcdir=.</span></p><p><a></a><span id="77-85">	--curdir</span></p><p><a></a><span id="77-86">	--ruby=/home/travis/.rvm/rubies/ruby-2.2.1/bin/$(RUBY_BASE_NAME)</span></p><p><a></a><span id="77-87">	--with-pgsql-server-dir</span></p><p><a></a><span id="77-88">	--without-pgsql-server-dir</span></p><p><a></a><span id="77-89">	--with-pgsql-server-include</span></p><p><a></a><span id="77-90">	--without-pgsql-server-include=${pgsql-server-dir}/include</span></p><p><a></a><span id="77-91">	--with-pgsql-server-lib</span></p><p><a></a><span id="77-92">	--without-pgsql-server-lib=${pgsql-server-dir}/lib</span></p><p><a></a><span id="77-93">	--with-pgsql-client-dir</span></p><p><a></a><span id="77-94">	--without-pgsql-client-dir</span></p><p><a></a><span id="77-95">	--with-pgsql-client-include</span></p><p><a></a><span id="77-96">	--without-pgsql-client-include=${pgsql-client-dir}/include</span></p><p><a></a><span id="77-97">	--with-pgsql-client-lib</span></p><p><a></a><span id="77-98">	--without-pgsql-client-lib=${pgsql-client-dir}/lib</span></p><p><a></a><span id="77-99">	--with-pqlib</span></p><p><a></a><span id="77-100">	--without-pqlib</span></p><p><a></a><span id="77-101">Could not find PostgreSQL build environment (libraries &amp; headers): Makefile not created</span></p><p><a></a><span id="77-102"></span></p><p><a></a><span id="77-103">extconf failed, exit code 1</span></p><p><a></a><span id="77-104"></span></p><p><a></a><span id="77-105">Gem files will remain installed in /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/gems/do_postgres-0.10.15 for inspection.</span></p><p><a></a><span id="77-106">Results logged to /home/travis/build/joejknowles/chitter-challenge/vendor/bundle/ruby/2.2.0/extensions/x86_64-linux/2.2.0/do_postgres-0.10.15/gem_make.out</span></p><p><a></a><span id="78-0">Installing cucumber 2.0.0</span></p><p><a></a><span id="78-1">Installing http-cookie 1.0.2</span></p><p><a></a><span id="78-2">Installing data_mapper 1.2.0</span></p><p><a></a><span id="78-3" class="red">An error occurred while installing do_postgres (0.10.15), and Bundler cannot</span></p><p><a></a><span id="78-4">continue.</span></p><p><a></a><span id="78-5">Make sure that `gem install do_postgres -v '0.10.15'` succeeds before bundling.</span><span id="78-6"></span></p><p><a></a><span id="79-0"></span></p><p><a></a><span id="79-1" class="red bold">The command "eval bundle install --jobs=3 --retry=3 --deployment" failed 3 times.</span><span id="79-2"></span></p><p><a></a><span id="79-3"></span><span id="81-0"></span></p><p><a></a><span id="81-1"></span></p><p><a></a><span id="81-2" class="red bold">The command "bundle install --jobs=3 --retry=3 --deployment" failed and exited with 5 during .</span><span id="81-3"></span></p><p><a></a><span id="81-4"></span></p><p><a></a><span id="81-5">Your build has been stopped.</span></p></pre>
+
+        <a href="https://travis-ci.org/#" class="to-top" data-ember-action="1214" style="bottom: 2px;">Top</a>
+
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+</div>
+          </div>
+      </div></article>
+
+
+</div>
+</div>
+
+    </div>
+  </div>
+
+  <aside id="left" class="" data-bindattr-603="603">
+    <div class="search search--sidebar">
+  <div class="search-inner">
+    <input id="ember692" class="ember-view ember-text-field" placeholder="Search all repositories" type="text">
+  </div>
+</div>
+
+<div id="ember701" class="ember-view"><div class="tabnav tabnav--sidebar" role="tablist">
+  <ul class="tab tabs--sidebar">
+    <li id="tab_owned" class="active display-inline" data-bindattr-702="702">
+      <a href="https://travis-ci.org/#" data-ember-action="703">My Repositories</a>
+    </li>
+
+
+    <li id="tab_new" class="display-inline" data-bindattr-704="704">
+<a id="ember705" class="ember-view" href="https://travis-ci.org/profile" title="Add New Repository">        <span class="icon icon--plus"></span>
+</a>    </li>
+  </ul>
+</div>
+</div>
+
+  <div class="tabbody sidebar-list">
+<ul id="ember963" class="ember-view"><li id="ember966" class="ember-view repo selected gray">
+          <div class="tile tile--sidebar errored" data-bindattr-973="973">
+            <h2 class="tile-title">
+                <span class="icon icon--job errored" data-bindattr-978="978"></span>
+                <a id="ember979" class="ember-view slug" href="https://travis-ci.org/joejknowles/chitter-challenge">joejknowles/chitter-challenge</a>
+            </h2>
+                <p class="tile-title float-right">
+                  <span class="icon icon--hash"></span>
+                  <a id="ember1231" class="ember-view last_build" href="https://travis-ci.org/joejknowles/chitter-challenge/builds/58161237">1</a>
+                </p>
+
+            <p>
+              <span class="icon icon--clock"></span>
+              Duration: 
+              <abbr class="duration" title="2015-04-12T14:37:50Z" data-bindattr-974="974">
+                1 min 47 sec
+              </abbr>
+            </p>
+
+            <p>
+              <span class="icon icon--cal"></span>
+              Finished: 
+              <abbr class="finished_at timeago" data-bindattr-976="976" title="2015-04-12T14:39:37Z">
+                less than a minute ago
+              </abbr>
+            </p>
+          </div>
+
+</li><li id="ember967" class="ember-view repo green">
+          <div class="tile tile--sidebar passed" data-bindattr-983="983">
+            <h2 class="tile-title">
+                <span class="icon icon--job passed" data-bindattr-988="988"></span>
+                <a id="ember989" class="ember-view slug" href="https://travis-ci.org/joejknowles/rps-challenge">joejknowles/rps-challenge</a>
+            </h2>
+                <p class="tile-title float-right">
+                  <span class="icon icon--hash"></span>
+                  <a id="ember991" class="ember-view last_build" href="https://travis-ci.org/joejknowles/rps-challenge/builds/57275213">29</a>
+                </p>
+
+            <p>
+              <span class="icon icon--clock"></span>
+              Duration: 
+              <abbr class="duration" title="2015-04-05T21:00:43Z" data-bindattr-984="984">
+                1 min 46 sec
+              </abbr>
+            </p>
+
+            <p>
+              <span class="icon icon--cal"></span>
+              Finished: 
+              <abbr class="finished_at timeago" title="2015-04-05T21:02:29Z" data-bindattr-986="986">
+                7 days ago
+              </abbr>
+            </p>
+          </div>
+
+</li><li id="ember968" class="ember-view repo green">
+          <div class="tile tile--sidebar passed" data-bindattr-993="993">
+            <h2 class="tile-title">
+                <span class="icon icon--job passed" data-bindattr-998="998"></span>
+                <a id="ember999" class="ember-view slug" href="https://travis-ci.org/joejknowles/inject-challenge">joejknowles/inject-challenge</a>
+            </h2>
+                <p class="tile-title float-right">
+                  <span class="icon icon--hash"></span>
+                  <a id="ember1001" class="ember-view last_build" href="https://travis-ci.org/joejknowles/inject-challenge/builds/56314221">2</a>
+                </p>
+
+            <p>
+              <span class="icon icon--clock"></span>
+              Duration: 
+              <abbr class="duration" title="2015-03-29T16:54:42Z" data-bindattr-994="994">
+                47 sec
+              </abbr>
+            </p>
+
+            <p>
+              <span class="icon icon--cal"></span>
+              Finished: 
+              <abbr class="finished_at timeago" title="2015-03-29T16:55:29Z" data-bindattr-996="996">
+                14 days ago
+              </abbr>
+            </p>
+          </div>
+
+</li><li id="ember969" class="ember-view repo green">
+          <div class="tile tile--sidebar passed" data-bindattr-1003="1003">
+            <h2 class="tile-title">
+                <span class="icon icon--job passed" data-bindattr-1008="1008"></span>
+                <a id="ember1009" class="ember-view slug" href="https://travis-ci.org/joejknowles/takeaway-challenge">joejknowles/takeaway-challenge</a>
+            </h2>
+                <p class="tile-title float-right">
+                  <span class="icon icon--hash"></span>
+                  <a id="ember1011" class="ember-view last_build" href="https://travis-ci.org/joejknowles/takeaway-challenge/builds/56243202">10</a>
+                </p>
+
+            <p>
+              <span class="icon icon--clock"></span>
+              Duration: 
+              <abbr class="duration" title="2015-03-28T20:22:19Z" data-bindattr-1004="1004">
+                1 min 32 sec
+              </abbr>
+            </p>
+
+            <p>
+              <span class="icon icon--cal"></span>
+              Finished: 
+              <abbr class="finished_at timeago" title="2015-03-28T20:23:51Z" data-bindattr-1006="1006">
+                15 days ago
+              </abbr>
+            </p>
+          </div>
+
+</li><li id="ember970" class="ember-view repo green">
+          <div class="tile tile--sidebar passed" data-bindattr-1013="1013">
+            <h2 class="tile-title">
+                <span class="icon icon--job passed" data-bindattr-1018="1018"></span>
+                <a id="ember1019" class="ember-view slug" href="https://travis-ci.org/joejknowles/airport_challenge">joejknowles/airport_challenge</a>
+            </h2>
+                <p class="tile-title float-right">
+                  <span class="icon icon--hash"></span>
+                  <a id="ember1021" class="ember-view last_build" href="https://travis-ci.org/joejknowles/airport_challenge/builds/55408009">10</a>
+                </p>
+
+            <p>
+              <span class="icon icon--clock"></span>
+              Duration: 
+              <abbr class="duration" title="2015-03-22T21:06:23Z" data-bindattr-1014="1014">
+                2 min 1 sec
+              </abbr>
+            </p>
+
+            <p>
+              <span class="icon icon--cal"></span>
+              Finished: 
+              <abbr class="finished_at timeago" title="2015-03-22T21:08:24Z" data-bindattr-1016="1016">
+                21 days ago
+              </abbr>
+            </p>
+          </div>
+
+</li></ul>
+  </div>
+
+
+  </aside>
+</div>
+
+<footer class="hidden" data-bindattr-605="605">
+  <div class="row">
+  <div class="small-6 medium-6 large-6 columns">
+    <img src="./Travis CI - Test and Deploy Your Code with Confidence_files/footer-logo-53fdfcfedc0cc9d0985d85f273579f40.svg">
+  </div>
+  <div class="small-6 medium-2 large-2 columns">
+    <h3>©Travis CI, GmbH</h3>
+    <p>Rigaer Straße 8<br>10247 Berlin, Germany</p>
+  </div>
+
+  <div class="small-6 medium-2 large-2 columns">
+    <h3>Help</h3>
+    <ul>
+      <li><a href="http://docs.travis-ci.com/">Documentation</a></li>
+      <li><a href="http://blog.travis-ci.com/">Blog</a></li>
+      <li><a href="mailto:support@travis-ci.com">Email</a></li>
+      <li><a href="https://chat.travis-ci.com/">Live Chat</a></li>
+      <li><a href="https://twitter.com/travisci">Twitter</a></li>
+    </ul>
+  </div>
+  <div class="small-6 medium-2 large-2 columns">
+    <div id="ember720" class="ember-view">  <h3>Travis CI Status</h3>
+  <ul>
+    <li><div class="status-circle none" data-bindattr-721="721">Status:</div>
+        <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+
+</footer>
+</div>
+</div></body></html>
