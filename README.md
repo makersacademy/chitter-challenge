@@ -1,5 +1,7 @@
 #Chitter Challenge#
 
+[![Coverage Status](https://coveralls.io/repos/RBGeomaticsRob/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/r/RBGeomaticsRob/chitter-challenge?branch=master) [![Build Status](https://travis-ci.org/RBGeomaticsRob/chitter-challenge.svg?branch=master)](https://travis-ci.org/RBGeomaticsRob/chitter-challenge)
+
 This is the challenge from the end of the 4th week at Makers Academy. The challenge is to make a 'chitter' application, allowing makers to post short messages to a message board.
 
 ```sh
