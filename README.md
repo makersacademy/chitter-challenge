@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-##[Heroku App coming soon]()
+##[Chitter App available on Heroku](https://infinite-reef-3972.herokuapp.com)
 
 ![screenshot](https://github.com/sanjsanj/chitter-challenge/blob/master/public/images/chitter_screenshot_01.png?raw=true)
 
