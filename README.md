@@ -12,7 +12,7 @@ Instructions
 To run tests clone repo, navigate to directory. Run command `bundle install`, then run `rake`. App can be found on Heroku at: http://thechitter.herokuapp.com
 Features
 --------
-Want to see exclusive updates from the likes of Barrack Obama and Kim Kardashian? They've been cheeping HOURLY, so join us quick before all the usernames run out.
+Want to see exclusive updates from the likes of Barack Obama and Kim Kardashian? They've been cheeping HOURLY, so join us quick before all the usernames run out.
 
 Sign up and send a 'cheep' out into the world. Click any username to go to their profile. Follow other users to see their cheeps without the noise of the enormous global user base. Want to show your appreciation of a post? Show it some 'applause', that's what the 'applaud' button is for.
 
