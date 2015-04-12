@@ -6,6 +6,12 @@ require 'database_cleaner'
 ENV['RACK_ENV'] = 'test'
 require_relative '../app/server.rb'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 Capybara.app = Chitter
 
 DataMapper.auto_migrate!
@@ -26,9 +32,3 @@ RSpec.configure do |config|
   end
 
 end
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
