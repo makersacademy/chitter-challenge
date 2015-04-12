@@ -9,6 +9,7 @@ require_relative 'data_mapper_setup'
 enable :sessions
 set :session_secret, 'secret password'
 use Rack::Flash
+use Rack::MethodOverride
 
 get '/' do
   @tweets = Tweet.all
@@ -56,4 +57,9 @@ post '/sessions' do
     flash[:errors] = ["The email or password is incorrect"]
     erb :'sessions/new'
   end
+end
+
+delete '/sessions' do
+  session.clear
+  flash.now[:notice] = 'Cya next time!'
 end

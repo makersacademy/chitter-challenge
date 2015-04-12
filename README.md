@@ -1,8 +1,7 @@
 TO-DO:
 
-* Refactor user_management_spec method
 * Sort out double tests
-* Refactor file structure + helper method in server.rb
+* Failing test in user_management_spec.rb
 
 Chitter Challenge
 =================
