@@ -1,6 +1,7 @@
 require 'bcrypt'
 class User
-  # include DataMapper::Resourc
+
+  include DataMapper::Resource
 
   # attr_accessor :password_confirmation
   # attr_reader :password
@@ -23,4 +24,5 @@ class User
   #     user
   #   end
   # end
+
 end

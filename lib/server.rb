@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'rack-flash'
+require './lib/database_setup'
 # require './lib/SessionHelpers'
-# require './lib/database_setup'
 
 # require_relative 'application_helpers'
 

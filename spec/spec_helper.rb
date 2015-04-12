@@ -1,8 +1,13 @@
 require 'capybara/rspec'
 require 'coveralls'
+require 'data_mapper'
 require 'database_cleaner'
 require 'server'
 require 'simplecov'
+
+ENV['RACK_ENV'] = 'test'
+
+# Capybara.app = Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -19,17 +24,16 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-# need a database before getting into this
-#   config.before(:suite) do
-#     DatabaseCleaner.strategy = :transaction
-#     DatabaseCleaner.clean_with(:truncation)
-#   end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-#   config.before(:each) do
-#     DatabaseCleaner.start
-#   end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-#   config.after(:each) do
-#     DatabaseCleaner.clean
-#   end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

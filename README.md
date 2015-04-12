@@ -1,3 +1,7 @@
+This is my first attempt at the Chitter challenge.
+I wouldn't say that Im about to re-invent the wheel: I'm following the tutorial we did on Bookmark Manager and trying to recreate the same with Chitter. At this point, there are still some points which are unclear so I'm spending time understanding what I'm doing, while following the tutorial.
+
+
 Chitter Challenge
 =================
 
