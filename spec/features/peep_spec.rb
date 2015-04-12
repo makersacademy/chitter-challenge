@@ -34,7 +34,7 @@ feature "Peep Management" do
     peep = Peep.create(peep: "hello", user: dan)
     expect(peep.user.name).to eq "dan"
     expect(peep.user.username).to eq "super_tester"
-        peep2 = Peep.create(peep: "hello", user: sam)
+    peep2 = Peep.create(peep: "hello", user: sam)
     expect(peep2.user.name).to eq "sam"
     expect(peep2.user.username).to eq "bad_tester"
     expect(peep.user.name).to eq "dan"
