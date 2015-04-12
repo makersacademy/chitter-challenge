@@ -1,0 +1,5 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><a href='<%= peep.message %>'><%= peep.created_at %></a></li>
+  <% end %>
+</ul>

@@ -9,6 +9,12 @@ require_relative 'data_mapper_setup'
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
+use Rack::MethodOverride
+
+get '/' do
+  @peeps = Peep.all
+  erb :index
+end
 
 get '/users/new' do
   @user = User.new
@@ -25,5 +31,21 @@ post '/users' do
   else
     flash.now[:errors] = @user.errors.full_messages
     erb :'users/new'
+  end
+end
+
+get '/sessions/new' do
+  erb :'sessions/new'
+end
+
+post '/sessions' do
+  email, password = params[:email], params[:password]
+  user = User.authenticate(email, password)
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else
+    flash[:errors] = ['The email or password is incorrect']
+    erb :'sessions/new'
   end
 end
