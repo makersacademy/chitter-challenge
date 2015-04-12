@@ -181,4 +181,5 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-rspec
+  sinatra
   sinatra-partial
