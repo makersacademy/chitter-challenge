@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'capybara'
 gem 'rack-flash3'
 gem 'rake'
+gem 'do_postgres'
 
 group :test do
   gem 'rspec'
