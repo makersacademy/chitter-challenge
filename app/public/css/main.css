@@ -66,3 +66,6 @@ input {
   font-size: 0.7em;
   margin: 0;
 }
+button {
+  margin-bottom: 10px;
+}
