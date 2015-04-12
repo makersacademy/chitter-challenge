@@ -56,7 +56,7 @@ All tests pass and coverage is 100%.
 The tests are as follows:
 ```
 Running RuboCop...
-19 files inspected, no offenses detected
+20 files inspected, no offenses detected
 
 Feature - Peeps Database
   lists all peeps
