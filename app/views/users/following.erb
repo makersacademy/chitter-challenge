@@ -1,6 +1,6 @@
 <h1>You are following:</h1>
 <ul id='following'>
   <% @following.each do |person| %>
-    <li>User known as <%= "<a href='/users/profiles/#{person}'>#{person}</a>" %></li>
+    <li>User known as <%= "<a href='/users/profiles/#{person.username}'>#{person.username}</a>" %></li>
   <% end %>
 </ul>
