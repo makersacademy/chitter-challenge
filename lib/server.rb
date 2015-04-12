@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   use Rack::Flash
-#   use Rack::MethodOverride
+  use Rack::MethodOverride
 
 #   post '/set-flash' do
 #     flash[:notice] = 'Thanks for signing up!'
@@ -73,11 +73,11 @@ end
     end
   end
 
-#   delete '/sessions' do
-#     session.clear
-#     flash[:notice] = 'Good bye!'
-#     redirect '/'
-#   end
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = 'Good bye!'
+    redirect '/'
+  end
 
 #   # get '/tags/:text' do
 #   #   tag = Tag.first(text: params[:text])

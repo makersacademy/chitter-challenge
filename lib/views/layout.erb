@@ -1,10 +1,26 @@
 <body>
   <% if current_user %>
     Hello <%= current_user.username %>
+    <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+    </form>
   <% end %>
-  <%= yield %>
-</body>
 
-<% if flash[:notice] %>
-  <div id='notice'><%= flash[:notice] %></div>
-<% end %>
+  <%= yield %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Sorry, there were the following problems with your registration:
+    <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+</body>

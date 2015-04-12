@@ -1,4 +1,5 @@
-# require 'spec_helper'
+require './lib/SessionHelpers'
+include SessionHelpers
 
 feature 'User signs up' do
   scenario 'when being a new user visiting Chitter' do
@@ -26,21 +27,6 @@ feature 'User signs up' do
   end
 end
 
-  def sign_up(email = 'Guillaume@chittest.com',
-              username = 'Sexy_frenchman',
-              name = 'Guillaume Bouffard',
-              password = 'helloworld',
-              password_confirmation = 'helloworld')
-    visit '/users/new'
-    expect(page.status_code).to eq(200)
-    fill_in :email, with: email
-    fill_in :username, with: username
-    fill_in :name, with: name
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
-  end
-
 feature 'User signs in' do
   before(:each) do
     User.create(email: 'test@test.com',
@@ -63,22 +49,22 @@ feature 'User signs in' do
     sign_in('Mister_Test', 'wrongpass')
     expect(page).not_to have_content('Hello Mister_Test')
   end
-
-  def sign_in(username, password)
-    visit '/sessions/new'
-    fill_in 'username', with: username
-    fill_in 'password', with: password
-    click_button 'Sign in'
-  end
-
 end
 
-# feature 'User signs out' do
-#   scenario 'while being signed in' do
-#   end
-# end
+feature 'User signs out' do
 
-# feature 'User forgot his/her password' do
-#   scenario 'while knowing his email' do
-#   end
-# end
+  before(:each) do
+    User.create(email: 'test@test.com',
+                username: 'Mister_Test',
+                name: 'Tasty Tester',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
+  scenario 'while being signed in' do
+    sign_in('Mister_Test', 'test')
+    click_button 'Sign out'
+    expect(page).to have_content('Good bye!') # where does this message go?
+    expect(page).not_to have_content('Hello Mister_Test')
+  end
+end
