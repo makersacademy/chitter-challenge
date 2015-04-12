@@ -1,10 +1,13 @@
 <h1>Welcome to Chitter.</h1>
 
+ <% if !@username %>
+
 <h2><small><small><small>Sign in to post a Peep!</h2>
-<form action='/sessions' method='post'>
+<form action='/sessions/new' method='post'>
   <input type='text' name='username' placeholder='Username'>
   <input type='password' name='password' placeholder='Password'>
   <input type='submit' value='Log in'>
 </form> <br><br>
 
 <h3>New to Chitter? <a href="users/new">Sign up</a> </h3>
+<% end %>
