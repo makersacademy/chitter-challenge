@@ -22,4 +22,5 @@ group :test do
   gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
   gem 'shotgun'
   gem 'tilt'
+  gem 'bootstrap-sass', '~> 3.3.4.1'
 end

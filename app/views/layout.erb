@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>Chitter</title>
-<!--   <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <% if current_user %>
+  <IMG STYLE="position:absolute; TOP:35px; LEFT:170px; HEIGHT:50px" SRC="images/Fotor041218404.jpg">
+ <div class="background"> <% if current_user %>
   Welcome, <%= current_user.user_name %>
   <form method="post" action="/sessions">
     <input type="hidden" name="_method" value="delete">
@@ -25,7 +26,7 @@
   <% flash[:errors].each do |error| %>
     <li><%= error %></li>
 <% end %>
-
+</div>
 </ul>
 <% end %>
   <%= yield %>

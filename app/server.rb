@@ -21,13 +21,39 @@ class Chitter < Sinatra::Base
   end
 
   post '/message' do
-    title = params['title']
-    message = params['message']
+    time = Time.now
+      message = params['message']
     tags = params['tags'].split(' ').map do |tag|
       Tag.first_or_create(text: tag)
     end
-    Convo.create(message: message, tags: tags)
+    Convo.create(time: time, message: message, tags: tags)
     redirect to '/'
+  end
+
+  get '/welcome_message' do
+    erb :welcome_message
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user_name, password = params[:user_name], params[:password]
+    user = User.authenticate(user_name, password)
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    flash[:notice] = 'Good Bye!'
+    session[:user_id] = nil
+    redirect to ('/')
   end
 
   get '/tags/:text' do
@@ -53,32 +79,6 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
     end
-  end
-
-  get '/sessions/new' do
-    erb :'sessions/new'
-  end
-
-  post '/sessions' do
-    user_name, password = params[:user_name], params[:password]
-    user = User.authenticate(user_name, password)
-    if user
-      session[:user_id] = user.id
-      redirect to('/')
-    else
-      flash[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    flash[:notice] = 'Good Bye!'
-    session[:user_id] = nil
-    redirect to ('/')
-  end
-
-  get '/welcome_message' do
-    erb :welcome_message
   end
 
   helpers do

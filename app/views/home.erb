@@ -1,15 +1,23 @@
 
 <body>
-<form action="/user/new">
-  <input type="submit" value="Sign up now">
-</form>
+  <h1>
+  <form action="/user/new">
+    <input class='button' type="submit" value="Sign up now">
+  </form>
+
+  <form action="/sessions/new">
+    <input class='button' type="submit" value="Sign In">
+  </form>
+ </h1>
+
+
 <!-- <form action="/user/new">
   <input type="submit" value="Sign in">
 </form> -->
 <ol>
   <% @convos.reverse_each do |convo| %>
-    <li><a><%= convo.message %><br>
-      Tags: <%= convo.tags.map{|i| i.text}.join(", ") %></li>
+    <li class="comment"><a><div class="time"><%= convo.time %></div><%= convo.message %><br>
+     <div class="tags"> Tags: <%= convo.tags.map{|i| i.text}.join(", ") %></div></li>
   <% end %>
 </ol>
 
@@ -17,7 +25,7 @@
   <form action="/message" method="post">
     Message: <input type="text" name="message">
     Tags: <input type="text" name="tags">
-    <input type="submit" value="Post Message">
+    <input class='button' type="submit" value="Post Message">
   </form>
 </div>
 </body>
