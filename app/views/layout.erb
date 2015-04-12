@@ -5,6 +5,7 @@
       <form action='/users/sign-out' method='post'>
         <button>Sign out</button>
       </form>
+      <%= "<a href='/users/profiles/#{@user.username}'>Profile</a>" %>
     <% else %>
       <form action='/users/new' method='get'>
         <button>Register</button>

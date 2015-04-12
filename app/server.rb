@@ -3,7 +3,7 @@ require 'data_mapper'
 require 'rack-flash'
 require_relative 'models/data_mapper_setup'
 require_relative 'models/send_mail'
-DataMapper.auto_upgrade!
+
 class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride

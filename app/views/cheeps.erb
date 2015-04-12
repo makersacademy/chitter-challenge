@@ -2,7 +2,8 @@
   <% @cheeps.reverse_each do |cheep| %>
     <div class='cheep'>
       <div class='author'>
-        <%= "#{cheep.user.username} cheeped:" %>
+        <% author = cheep.user.username %>
+        <%= "<a href='/users/profiles/#{author}'>#{author}</a> cheeped:" %>
       </div>
       <div class='message'>
         <%= cheep.message %>
@@ -12,7 +13,7 @@
       </div>
       <div class='applause'>
         <%= cheep.applause.length %> applause
-        <% if @user && !@user.applause.any? { |ap| ap.cheep_id == cheep.id } %>
+        <% if @user && @user.applause.none? { |ap| ap.cheep_id == cheep.id } %>
           <form action='./cheeps/applaud' method='post'>
             <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
           </form>

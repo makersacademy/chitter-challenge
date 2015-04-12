@@ -89,6 +89,10 @@ Then(/^I see element "([^"]*)" with text "([^"]*)"$/) do |selector, text|
   expect(page).to have_selector selector, text: text
 end
 
+When(/^I click link "([^"]*)"$/) do |link|
+  click_link link
+end
+
 def sign_in(username = 'joejknowles',
             password = 'secret')
   fill_in 'username', with: username

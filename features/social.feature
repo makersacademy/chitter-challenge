@@ -13,7 +13,7 @@ Feature: Users can interact
     When I'm on the "users/profiles/joejknowles" page
     Then I see "Hello, world"
 
-  Scenario: I do not see other user's posts
+  Scenario: I do not see other user's posts on a profile
     When I fill in "cheep" with "Hello, world!"
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page
@@ -29,4 +29,14 @@ Feature: Users can interact
     When I fill in "cheep" with "Hello, world!"
     And I press the "Cheep" button
     When I'm on the "users/profiles/joejknowles" page
+    Then I see element "h1" with text "joejknowles"
+
+  Scenario: Click on user name to go to profile
+    When I fill in "cheep" with "Hello, world!"
+    And I press the "Cheep" button
+    When I click link "joejknowles"
+    Then I see element "h1" with text "joejknowles"
+
+  Scenario: Click on profile link to go to own profile
+    When I click link "Profile"
     Then I see element "h1" with text "joejknowles"
