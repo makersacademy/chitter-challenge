@@ -8,18 +8,24 @@
 <body>
   <% if current_user %>
   Welcome, <%= current_user.user_name %>
-<!--   <form method="post" action="/sessions">
+  <form method="post" action="/sessions">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign out">
-  </form> -->
+  </form>
 <% end %>
 
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    Sorry, there were the following problems with the form.
-    <ul id="errors">
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-  <% end %>
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Sorry, there were the following problems with the form.
+  <ul id="errors">
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+<% end %>
+
 </ul>
 <% end %>
   <%= yield %>
