@@ -4,5 +4,6 @@ class Reply
 
   property :id, Serial
   property :reply, String
+  property :user, String
   
 end

@@ -10,7 +10,6 @@ class Chittter < Sinatra::Base
       redirect to('/')
     else
       flash[:errors] = user.errors.full_messages
-     # flash[:message] = 'email or password is incorrect'
       erb :'users/new'
     end
   end

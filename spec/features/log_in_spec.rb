@@ -12,10 +12,16 @@ feature 'Logging in' do
     scenario 'we are not logged in' do
       visit '/'
       expect(page).not_to have_content('Welcome, user_numero_uno')
+      expect(page).not_to have_selector(:link_or_button, 'Log out')
+      expect(page).to have_selector(:link_or_button, 'log in')
     end
     scenario 'we are presented a log in form' do
       visit '/sessions/new'
       expect(page).to have_content('log in')
+    end
+    scenario 'we are presented a link to sign up' do
+      visit '/'
+      expect(page).to have_selector(:link_or_button, 'sign up')
     end
   end
   context 'with correct details' do
@@ -23,6 +29,9 @@ feature 'Logging in' do
       sign_in
       expect(current_path).to eq '/'
       expect(page).to have_content('Welcome, user_numero_uno')
+      expect(page).to have_selector(:link_or_button, 'Log out')
+      expect(page).not_to have_selector(:link_or_button, 'log in')
+      expect(page).not_to have_selector(:link_or_button, 'sign up')
     end
   end
 

@@ -31,6 +31,7 @@ feature 'replying to a peep' do
     click_button 'reply'
     expect(current_path).to eq '/'
     expect(page).to have_content 'interesting'
+    expect(page).to have_css('.replys', :text => 'user_numero_uno')
   end
 
 end

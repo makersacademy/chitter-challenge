@@ -9,9 +9,14 @@
     <%=flash[:notice] %>
   <% end %>
     <%= @who_to_welcome %>
+  <% if session[:username] %>
   <form action='/sessions' method='post'> 
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log out'>
   </form>
+  <% else %>
+    <a href="/sessions/new">log in </a> 
+    <a href = "/users/new">sign up</a>
+  <% end %>
   <%= yield %>
 </body>
