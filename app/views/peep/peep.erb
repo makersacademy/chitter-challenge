@@ -1,0 +1,11 @@
+<div class="post-peep">
+  <% if current_user %>
+    <form action="/insert_peep" method="post">
+      <input type="text" name="peep">
+      <input type="submit" class="btn btn-warning" value="Peep">
+    </form>
+    <%= partial :flash %>
+  <% else %>
+    <h3>Chitter</h3>
+  <% end %>
+</div>

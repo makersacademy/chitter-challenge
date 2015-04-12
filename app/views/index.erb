@@ -1,0 +1,8 @@
+<% if current_user %>  
+  <ol class="breadcrumb">
+    <li class="active">All </li>
+    <li>/ <a href="/followed">Followed</a></li>
+  </ol>
+<% end %>
+
+<%= partial :"peep/peep_view" %>

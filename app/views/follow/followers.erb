@@ -1,0 +1,20 @@
+<div class="breadcrumb">
+  <em>Followers</em>
+</div>
+
+<div class="peep-container">
+<ul class="list-none">
+<% @followers.each do |follower| %>
+  <% user = User.first(id: follower.follower_id) %>
+  <li class="peep-box">
+    <div class="peep-follow">
+    <form action="/user/<%= user.username %>">
+      <button type="submit" class="btn btn-follow">
+          <span class="icon-user" aria-hidden="true"></span>
+      </button>
+    </form>
+    </div>
+    <em><%= user.username %></em></li>
+<% end %>
+</ul>
+</div>

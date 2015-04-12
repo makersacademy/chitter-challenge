@@ -1,0 +1,9 @@
+<% @comments = Comment.all peep: peep, order: [:date_time.desc] %>
+<%= partial :"comment/comment_post", locals: { peep: peep } %>
+<% @comments.each do |comment| %>
+  <ul class="list-none">
+    <li class="comment">
+      <em><%= comment.user.username %>:     </em><%= comment.text %>
+    </li>
+  </ul>
+<%end%>

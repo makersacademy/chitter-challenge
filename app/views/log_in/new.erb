@@ -1,0 +1,16 @@
+<div class="log-forms peep-container">
+  <h1>Log-In</h1>
+  <br>
+  <%= partial :flash %>
+  <form action="/log_in" method="post">
+    Username:<br>
+    <input type="text" name="username"><br>
+    Password:<br>
+    <input type="password" name="password"><br>
+    <br>
+    <a href="/reset_password">Password forgot?</a><br><br>
+    <button type="submit" class="btn">
+      Log in
+    </button>
+  </form>
+</div>

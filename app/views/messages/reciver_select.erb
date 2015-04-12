@@ -1,0 +1,5 @@
+<% @friends.each do |friend| %>
+  <option value="<%= friend.follower.id %>">
+    <%= friend.follower.username %>
+  </option>
+<% end %> 

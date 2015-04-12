@@ -1,0 +1,6 @@
+<% if current_user %>
+  <% follower = Follow.all followed: current_user %>
+  <% following = Follow.all follower: current_user %>
+  <li><a href="/view/followers">Followers <%= follower.count %></a></li>
+  <li><a href="/view/following">Following <%= following.count %></a></li>
+<% end %>

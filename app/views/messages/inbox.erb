@@ -1,0 +1,10 @@
+<% if current_user %>  
+  <ol class="breadcrumb">
+    <li class="active">Inbox </li>
+    <li>/ <a href="/send">Send Message</a></li>
+  </ol>
+
+  <div class="peep-container">
+    <%= partial :"messages/message_view" %>
+  </div>
+<% end %>

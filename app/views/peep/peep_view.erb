@@ -1,0 +1,17 @@
+<ul class="list-none peep-container">
+  <% @peeps.each do |peep| %>
+    <% user = User.first(id: peep.user.id) %>
+    <li class="peep-box">
+      <div class="peep-follow">
+        <%= partial :"follow/follow", locals: { peep: peep, user: user } %>
+      </div>
+      <div class="peep-content">
+        <em><%= peep.user.name %></em> 
+        @<%= peep.user.username %><br><%= peep.text %><br>
+      </div>
+      <div class="comment-container">
+        <%= partial :"comment/comment_view", locals: { peep: peep } %>
+      </div>
+    </li>
+  <% end %>
+</ul>
