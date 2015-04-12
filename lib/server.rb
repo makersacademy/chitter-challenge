@@ -20,10 +20,6 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
-  # Can use for refactoring, but isn't the most simple stuff.
-  # use Rack::MethodOverride
-  # use Rack::Flash
-
   get '/' do
     erb :index
   end
@@ -36,9 +32,6 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       @current_user = User.get(session[:user_id])
     end
-    # else
-    #   flash.now[:errors] = user.errors.full_messages
-    # end
     erb :'users/new'
   end
 
@@ -61,6 +54,25 @@ class Chitter < Sinatra::Base
     else
       erb :'users/invalid'
     end
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/create' do
+    peep = Peep.create(title: params['Title'], body: params['Body'],
+                       user_id: current_user.id)
+    if peep.save
+      redirect('/peeps/all')
+    else
+      redirect('/peeps/new')
+    end
+  end
+
+  get '/peeps/all' do
+    @peeps = Peep.all(order: [:created_at.desc])
+    erb :'peeps/all'
   end
 
   # start the server if ruby file executed directly

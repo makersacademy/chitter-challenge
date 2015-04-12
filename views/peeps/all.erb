@@ -1,0 +1,9 @@
+<ul>
+<% @peeps.each do |peeps| %>
+  <br>
+  <% peeps.user_id %>
+  <li><%= peeps.title %>
+  <li><%= peeps.body %>
+  <br>
+<% end %>
+<ul>

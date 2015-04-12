@@ -1,0 +1,11 @@
+<% if current_user %>
+  <form action='/peeps/create' method='post'>
+      Title:<br>
+      <input type='text' name='Title'><br>
+      Body:<br>
+      <input type='text' name="Body"><br>
+      <input type='submit' value='Make Peep'>
+  </form>
+<% else %>
+  Sorry, you cannot make a new peep, as you are not a user. Please sign up or log in.
+<% end %>

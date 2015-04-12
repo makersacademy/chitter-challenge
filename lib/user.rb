@@ -8,9 +8,6 @@ class User
   property :username, String, unique: true, message: "That UN is already taken"
   property :password, Text
 
-  # def password=(password)
-  #   @password = password
-  #   self.password_digest = @password
-  # end
+  has n, :peeps
 
 end
