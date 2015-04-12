@@ -8,12 +8,14 @@ Chitter - The Social Network Solely For Charming Cheeky Chit Chat
 Screenshot:
 -------
 
-[![Chitter Challenge](./app/public/images/screenshot.png)
+![Chitter Challenge](./app/public/images/screenshot.png)
 
 About:
 -------
 
 A fully TDD'd Twitter clone including secure signin/signout (made in just one weekend)!
+
+Lovingly made in monochrome, to elicit feelings of charming 50's chitter chatter in New York bars.
 
 User stories:
 -------
