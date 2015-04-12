@@ -7,8 +7,9 @@ feature 'User signs up' do
     expect(User.first.email).to eq('Guillaume@chittest.com')
   end
 
-#   scenario 'with a password that doesn\'t match' do
-#   end
+  scenario 'with a password that doesn\'t match' do
+    expect { sign_up('a@bc.com', 'abc', 'pass', 'wrong') }.to change(User, :count).by(0)
+  end
 
 #   scenario 'with an email that is already registered' do
 #   end
@@ -19,12 +20,14 @@ end
 
   def sign_up(email = 'Guillaume@chittest.com',
               username = 'Sexy_frenchman',
-              password = 'helloworld')
+              password = 'helloworld',
+              password_confirmation = 'helloworld')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :email, with: email
     fill_in :username, with: username
     fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
   end
 

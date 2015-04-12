@@ -38,7 +38,8 @@ class Chitter < Sinatra::Base
 post '/users' do
   user = User.create(email: params[:email],
                      username: params[:username],
-                     password: params[:password])
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
   session[:user_id] = user.id
   redirect to('/')
 end
@@ -56,6 +57,7 @@ end
 #     end
 #   end
 
+# ??? I still don't fully understand what Helpers really are, or work.
 helpers do
 
   def current_user
