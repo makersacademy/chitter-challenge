@@ -2,12 +2,12 @@ require 'capybara/rspec'
 require 'coveralls'
 require 'data_mapper'
 require 'database_cleaner'
-require 'server'
+require './lib/server'
 require 'simplecov'
 
 ENV['RACK_ENV'] = 'test'
 
-# Capybara.app = Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

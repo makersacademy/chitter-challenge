@@ -1,4 +1,2 @@
-require 'rubygems'
-require File.join(File.dirname(__FILE__), 'lib.chitter.rb')
-
-run chitter-challenge
+require './lib/server'
+run Chitter

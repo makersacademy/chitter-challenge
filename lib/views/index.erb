@@ -1,13 +1,14 @@
-<!-- <ul>
+<h1><center>Chitter</center></h1>
+
+<ul>
   <% @peeps.each do |peep| %>
-    <li><a href='<%= peep.message %>'><%= peep.message %></a></li>
+    <li><%= peep.content %></li>
   <% end %>
 </ul>
 
 <div id='new-peep'>
   <form action='/peeps' method='post'>
-    Message: <input type='text' name='message'>
+    Message: <input type='text' name='content'>
     <input type='submit' value='Add peep'>
   </form>
 </div>
- -->

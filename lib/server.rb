@@ -5,10 +5,10 @@ require './lib/database_setup'
 
 # require_relative 'application_helpers'
 
-# class Chitter < Sinatra::Base
+class Chitter < Sinatra::Base
 #   include ApplicationHelpers
 
-#   enable :sessions
+  enable :sessions
 #   use Rack::Flash
 #   use Rack::MethodOverride
 #   set :session_secret, 'super secret'
@@ -19,9 +19,16 @@ require './lib/database_setup'
 #     flash.now[:notice] = 'Thanks for signing up!'
 #   end
 
-#   get '/' do
-#     erb :index
-#   end
+  get '/' do
+    @peeps = Peep.all
+    erb :index
+  end
+
+  post '/peeps' do
+    message = params['content']
+    Peep.create(content: message)
+    redirect to('/')
+  end
 
 #   get '/users/new' do
 #     @user = User.new
@@ -63,15 +70,6 @@ require './lib/database_setup'
 #     redirect '/'
 #   end
 
-#   # post '/peep' do
-#   #   message = params['message']
-#   #   tags = params['tags'].split(' ').map do |tag|
-#   #     Tag.first_or_create(text: tag)
-#   #   end
-#   #   Peep.create(message: message, tags: tags)
-#   #   redirect to('/')
-#   # end
-
 #   # get '/tags/:text' do
 #   #   tag = Tag.first(text: params[:text])
 #   #   @peep = tag ? tag.peeps : []
@@ -89,4 +87,4 @@ require './lib/database_setup'
 #   get 'users/recover_password/:token' do
 #     User.first(password_token: token)
 #   end
-# end
+end
