@@ -4,34 +4,34 @@
 
   <div class="jumbotron">
     <div class="container">
-      <h1> Welcome To Chitter! </h1>
-      <h4> The Grown Ups Social Network </h4>
+      <a href='/'>
+        <h1> Welcome To Chitter! </h1>
+        <h4> The Social Network Soley For Charming Cheeky Chit Chat </h4>
+      </a>
     </div>
   </div>
 
   <div class='container'>
     <%= erb :flash %>
 
+    <% if session[:name] %>
+      <%= erb :logged_in %>
+    <%end %>
+
     <div class="row">
-      <div class="col-md-6">
-        <% if Peep.count > 0 %>
-          <% peeps = Peep.all(order: [:id.desc]) %>
-          <% peeps.each do |peep| %>
-            <div id='peep'>
-            <%= peep.peep %><br>
-            Posted by User: <%= peep.user.username %> Real name: <%= peep.user.name %>
-          </div><br>
-          <% end %>
+
+      <div class="col-md-9">
+        <%= erb :peeps %>
+      </div>
+
+      <div class="col-md-3">
+        <% unless session[:name] %>
+            <%= erb :logged_out %>
         <% end %>
       </div>
 
-      <div class="col-md-6">
-        <% unless session[:name] %>
-            <%= erb :logged_out %>
-        <% else %>
-            <%= erb :logged_in %>
-        <% end %>
-      </div>
     </div>
+
   </div>
+
 </html>

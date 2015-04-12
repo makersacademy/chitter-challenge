@@ -1,0 +1,64 @@
+.logged_out input {
+  width: 80%;
+  margin: 5%;
+}
+
+form {
+  text-align: center;
+  line-height: 2em;
+}
+
+#post_peep textarea {
+  width: 70%;
+}
+
+#post_peep input {
+  display: inline-block;
+  vertical-align: text-bottom;
+  height: 3em;
+  font-weight: bold;
+  font-size: 1.5em;
+  }
+
+.jumbotron a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.jumbotron {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+/*  background-image: url("/images/new_york.jpg");
+  background-position: bottom;
+  background-size: 20%;*/
+}
+
+.jumbotron h1 {
+  font-size: 7em;
+  font-weight: bold;
+}
+
+.jumbotron h4 {
+  font-size: 2.5em;
+}
+
+.panel-heading {
+  background-color: grey;
+  color: white;
+}
+
+.panel {
+  border-color: grey;
+}
+
+.peep {
+  background-color: #ececec;
+}
+
+.peep:nth-of-type(odd) {
+    background: white;
+}
+
+.peeped_by {
+  color: grey;
+  margin-top: 2%;
+}

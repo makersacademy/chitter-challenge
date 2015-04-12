@@ -1,16 +1,24 @@
+<div class="panel">
+  <div class="panel-heading">
+    <h2 class="panel-title" >Join In?</h2>
+  </div>
+    <form action='/users' method='post' class='logged_out'>
+      <input type='text' name='name' placeholder='Name'><br>
+      <input type='text' name='username' placeholder='Username'><br>
+      <input type='text' name='email' placeholder='Email'><br>
+      <input type='password' name='password' placeholder='Password'><br>
+      <input type='submit' value='Join In!' class="btn" >
+    </form>
+</div>
 
-Join In?
-  <form action='/users' method='post'>
-    Name: <input type='text' name='name'><br>
-    Username: <input type='text' name='username'><br>
-    Email: <input type='text' name='email'><br>
-    Password: <input type='password' name='password'><br>
-    <input type='submit' value='Join In!'>
+<div class="panel">
+  <div class="panel-heading">
+    <h3 class="panel-title">Log In?</h3>
+  </div>
+  <form action='/sessions/new' method='post' class='logged_out'>
+    <input type='text' name='returning_email' placeholder='Email'><br>
+    <input type='password' name='returning_password' placeholder='Password'>
+    <br>
+    <input type='submit' value='Log In!' class="btn">
   </form>
-
-  Log In?
-  <form action='/sessions/new' method='post'>
-    Email: <input type='text' name='returning_email'><br>
-    Password: <input type='password' name='returning_password'><br>
-    <input type='submit' value='Log In!'>
-  </form>
+</div>

@@ -1,17 +1,23 @@
+<div class="row">
+  <div class="col-md-9">
+    <div id='post_peep'>
+      <form action='/peep/new' method='post'>
+        <h3> Post a peep! </h3>
+        <textarea name='post_peep' placeholder='What are you thinking?'></textarea>
+        <input type='submit' value='Peep!' class="btn">
+        </form>
+    </div>
+  </div>
 
-<div id='logged_in'>
-  You're Logged In As: <%= session[:name] %>!
-  <form action='/sessions/<%= session[:user] %>' method='post'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out!'>
-  </form>
-
-
-<div id='post_peep'>
-  Post a peep!
-  <form action='/peep/new' method='post'>
-  <textarea name='post_peep'>What are you thinking?</textarea>
-  <br>
-  <input type='submit' value='Peep!'>
-  </form>
+  <div class="col-md-3">
+    <span id='logged_in'>
+      <form action='/sessions/<%= session[:user] %>' method='post'>
+        <b>You're Logged In As: <%= session[:name] %>!</b>
+        <br>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log Out!' class="btn">
+      </form>
+    </span>
+  </div>
 </div>
+

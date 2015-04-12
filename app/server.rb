@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
     if user && user.password == params[:returning_password]
       session[:user] = user.id
       session[:name] = user.name.split(' ').first
-      flash[:announcement] = ["Welcome #{session[:name]}!"]
+      flash.now[:announcement] = ["Welcome #{session[:name]}!"]
       erb :index
     else
       flash.now[:errors] = [["No user with those details!"]]
