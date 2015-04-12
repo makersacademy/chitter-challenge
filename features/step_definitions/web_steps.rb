@@ -40,8 +40,6 @@ end
 
 # Sign out
 Given(/^I log in$/) do
-  p '*' * 20
-  p User.all
   log_in
 end
 

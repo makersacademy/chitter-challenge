@@ -37,7 +37,7 @@ Feature: user management
 
   Scenario: post peep
     Given I log in
-    When I fill in "peep" with "Today is good"
+    When I fill in "peep_content" with "Today is good"
     And I click "Peep"
     Then I create a new Peep
     And I see "Peep has been posted!"

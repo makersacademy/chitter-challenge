@@ -3,6 +3,6 @@ class Peep
   include DataMapper::Resource
 
   property :peep_id, Serial
-  property :peep, String
+  property :peep_content, String
 
 end

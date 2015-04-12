@@ -43,7 +43,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @peep = Peep.create(peep: params[:peep])
+    @peep = Peep.create(peep_content: params[:peep_content])
     flash[:notice] = 'Peep has been posted!'
     redirect('/')
   end
