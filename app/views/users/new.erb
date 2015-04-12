@@ -1,10 +1,7 @@
-
-<section>
-  <h1> Please sign up</h1>
-  <% puts 'here in new '%>
-  <form action='/users' method='post'>
-    Email:    <input name='email' type='text'>
-    Password: <input name='password' type='password'>
-              <input type='submit' value='sign up'>
-  </form>
-</section>s
+<h1> Please sign up</h1>
+  <form action='/users/new' method='post'>
+    Email:      <input name='email' type='text' value='<%= @user.email %>'>
+    Password:   <input name='password' type='password'>
+    Once more:  <input name='password_confirmation' type='password'>
+                <input type='submit' value='sign up'>
+</form>
