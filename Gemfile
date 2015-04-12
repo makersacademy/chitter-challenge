@@ -14,7 +14,6 @@ group :test do
   gem 'capybara'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'byebug'
   gem 'coveralls', require: false
 end
 
