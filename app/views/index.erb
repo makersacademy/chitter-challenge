@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= erb :header %>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-<%= erb :flash %>
-
-<div class="jumbotron">
-  <div class="container">
-    <h1> Welcome To Chitter! </h1>
-    <h4> The Grown Ups Social Network </h4>
+  <div class="jumbotron">
+    <div class="container">
+      <h1> Welcome To Chitter! </h1>
+      <h4> The Grown Ups Social Network </h4>
+    </div>
   </div>
-</div>
 
-<div class='container'>
+  <div class='container'>
+    <%= erb :flash %>
 
     <div class="row">
       <div class="col-md-6">
@@ -38,15 +25,13 @@
         <% end %>
       </div>
 
-      <% unless session[:name] %>
-        <div class="col-md-6">
-          <%= erb :logged_out %>
-        </div>
-      <% else %>
-        <div class="col-md-6">
-          <%= erb :logged_in %>
-        </div>
-      <% end %>
-
+      <div class="col-md-6">
+        <% unless session[:name] %>
+            <%= erb :logged_out %>
+        <% else %>
+            <%= erb :logged_in %>
+        <% end %>
+      </div>
     </div>
-</div>
+  </div>
+</html>

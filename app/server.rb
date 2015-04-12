@@ -46,8 +46,8 @@ class Chitter < Sinatra::Base
   delete '/sessions/:id' do
     session[:user] = nil
     session[:name] = nil
-    flash.now[:announcement] = ["You have logged out!"]
-    erb :index
+    flash[:announcement] = ["You have logged out!"]
+    redirect '/'
   end
 
   post '/peep/new' do
