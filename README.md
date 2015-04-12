@@ -9,7 +9,7 @@ Ruby, HTML, CSS, Cucumber, Sinatra, Postgres, DataMapper.
 
 Instructions
 ------------
-To run tests clone repo, navigate to directory. Run command `bundle install`, then run `rake`. App can be found on Heroku at:
+To run tests clone repo, navigate to directory. Run command `bundle install`, then run `rake`. App can be found on Heroku at: thechitter.herokuapp.com
 
 
 
