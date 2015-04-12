@@ -52,12 +52,18 @@ end
 
 feature 'User can log in' do
 
-  xscenario 'user logs in with correct details' do
+  scenario 'user logs in with correct details' do
+    sign_up
+    sign_out
     log_in
     expect(page).to have_content('cat')
   end
 
   xscenario 'error someone logs in with the wrong details' do
+    sign_up
+    sign_out
+    log_in('dog')
+    expect(page).to have_content('Invalid username or password')
   end
 
 end
@@ -66,7 +72,7 @@ def log_in(username = 'cat', password = '12345')
   visit '/'
   fill_in('Login_username', with: username)
   fill_in('Login_password', with: password)
-  click_button('Submit')
+  click_button('Log In')
 end
 
 def sign_up(name = 'George', email = 'me@georgemcgowan.com',
@@ -76,5 +82,10 @@ def sign_up(name = 'George', email = 'me@georgemcgowan.com',
   fill_in('Email', with: email)
   fill_in('Username', with: username)
   fill_in('Password', with: password)
-  click_button('Submit')
+  click_button('Sign Up')
+end
+
+def sign_out
+  visit('/')
+  click_button('Log Out')
 end

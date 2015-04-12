@@ -46,6 +46,12 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
+  post '/users/login' do
+    session[:user_id] = User.first(username: params['Login_username']).id
+    @current_user = User.get(session[:user_id])
+    redirect to('/')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 
