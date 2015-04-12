@@ -15,7 +15,7 @@ feature 'Not being logged' do
     log_in("bob89", "password")
     peep("this is a peep")
     comment("and this is a comment")
-    click_button "Log out"
+    click_link "Log out"
   end
 
   scenario 'nobody can peep' do

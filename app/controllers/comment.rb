@@ -9,7 +9,7 @@ class Chitter
                           text: text,
                           user: user,
                           peep: peep)
-    redirect to '/'
+    redirect back
   end
 
 end

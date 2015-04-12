@@ -15,16 +15,16 @@ feature 'when a user is visiting the site' do
     log_in("bob89", "password")
     peep("this is a peep")
     comment("and this is a comment")
-    click_button "Log out"
+    click_link "Log out"
   end
 
   scenario 'he can go on the profile page of any user' do
-    visit '/bob89'
+    visit '/user/bob89'
     expect(page).to have_content "this is a peep"
   end
 
   scenario 'he got error page when visits a profile that doesn\'t exist' do
-    visit '/john89'
+    visit '/user/john89'
     expect(page).to have_content "Error"
   end
 

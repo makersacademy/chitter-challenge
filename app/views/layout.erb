@@ -2,16 +2,24 @@
 <html>
 <head>
   <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-  <section class="top-bar">
-    <%= partial :welcome_message %>
-    <a href="/">Home</a>
-  </section>
-  <%= partial :"peep/peep" %>
-  <%= partial :flash %>
-  <%= yield %>
+  <%= partial :"elements/navbar" %>
+  <div class="container">
+    <div class="row">
+      <div class="span8 offset2 main">
+        <%= partial :"peep/peep" %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery.js">asd</script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/animations.js"></script>
 </body>
 </html>

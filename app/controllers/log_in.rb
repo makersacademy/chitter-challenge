@@ -17,9 +17,8 @@ class Chitter
     erb :"log_in/new"
   end
 
-  delete '/' do
+  get '/log_out' do
     user = User.first(id: session[:user_id])
-    flash[:notice] = "Goodbye #{user.name}!"
     session[:user_id] = nil
     redirect '/'
   end

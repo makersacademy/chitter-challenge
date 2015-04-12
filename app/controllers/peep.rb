@@ -7,7 +7,7 @@ class Chitter
     peep = Peep.create(date_time: date_time,
                        text: text,
                        user: user)
-    redirect to '/'
+    redirect back
   end
 
 end

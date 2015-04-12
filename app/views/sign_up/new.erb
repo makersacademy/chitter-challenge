@@ -1,5 +1,7 @@
+<div class="peep-container log-forms">
 <h1>Sign up!</h1>
-
+<br>
+<%= partial :flash %>
 <form action="/sign_up" method="post">
   Name:<br>
   <input type="text" name="name"><br>
@@ -12,5 +14,8 @@
   Password Confirmation:<br>
   <input type="password" name="confirmation"><br>
   <br>
-  <input type="submit" value="Sign up">
+  <button type="submit" class="btn">
+    Sign up
+  </button>
 </form>
+</div>

@@ -1,0 +1,24 @@
+<% if current_user %>
+  <% follow = Follow.first(follower: current_user, followed: user) %>
+  <% if current_user == user %>
+    <form action="/user/<%= current_user.username %>">
+      <button type="submit" class="btn btn-follow">
+          <span class="icon-user" aria-hidden="true"></span>
+      </button>
+    </form>
+  <% elsif follow %>
+    <form action="/unfollow" method="post">
+      <input type="hidden" name="followed" value="<%= user.id %>">
+      <button type="submit" class="btn btn-unfollow">
+        <span class="icon-ok-sign" aria-hidden="true"></span>
+      </button>
+    </form>
+  <% else %>
+    <form action="/follow" method="post">
+      <input type="hidden" name="followed" value="<%= user.id %>">
+      <button type="submit" class="btn btn-follow">
+        <span class="icon-remove-sign" aria-hidden="true"></span>
+      </button>
+    </form>
+  <%end%>
+<% end %>

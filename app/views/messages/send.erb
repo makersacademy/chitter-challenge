@@ -1,0 +1,22 @@
+<% if current_user %>  
+  <ol class="breadcrumb">
+    <li><a href="/inbox">Inbox</a> /</li>
+    <li class="active">Send Message</li>
+  </ol>
+
+  <div class="peep-container">
+    <div class="mail-form peep-box" style="cursor:none">
+      <form action="/send_message" method="post">
+        <select name="reciver">
+          <option selected disabled>Choose a friend!</option>
+          <%= partial :"messages/reciver_select" %>
+        </select><br><br>
+        <input type="text" name="title" placeholder="Title"><br>
+        <textarea name="text"></textarea>
+        <button class="btn" type="submit">
+          Send
+        </send>
+      </form>
+    </div>
+  </div>
+<% end %>

@@ -1,10 +1,15 @@
-<h1>Log-In</h1>
-
-<form action="/log_in" method="post">
-  Username:<br>
-  <input type="text" name="username"><br>
-  Password:<br>
-  <input type="password" name="password"><br>
+<div class="log-forms peep-container">
+  <h1>Log-In</h1>
   <br>
-  <input type="submit" value="Log in">
-</form>
+  <%= partial :flash %>
+  <form action="/log_in" method="post">
+    Username:<br>
+    <input type="text" name="username"><br>
+    Password:<br>
+    <input type="password" name="password"><br>
+    <br>
+    <button type="submit" class="btn">
+      Log in
+    </button>
+  </form>
+</div>

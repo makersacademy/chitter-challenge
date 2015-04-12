@@ -1,0 +1,15 @@
+<div class="breadcrumb">
+  <em>Following</em>
+</div>
+
+<div class="peep-container">
+<ul class="list-none">
+<% @following.each do |followed| %>
+  <% user = User.first(id: followed.followed_id) %>
+  <li class="peep-box"><div class="peep-follow">
+     <%= partial :"follow/follow", locals: { user: user } %>
+    </div>
+    <em><%= user.username %></em></li>
+<% end %>
+</ul>
+</div>

@@ -1,0 +1,12 @@
+<% if current_user %>
+  <li><a href="/user/<%= current_user.username %>">
+    <%= current_user.username %>
+  </a></li>
+  <li><a href="/inbox" class="mail">
+    <span class="icon-envelope" aria-hidden="true"></span>
+  </a></li>
+  <li><a href="/log_out">Log out</a></li>
+<% else %>
+  <li><a href="/log_in/new">Log in</a></li>
+  <li><a href="/sign_up/new">Sign up</a></li>
+<% end %>

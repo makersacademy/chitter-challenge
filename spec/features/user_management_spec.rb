@@ -6,7 +6,7 @@ include SessionHelpers
 feature 'User signs up' do
   scenario 'when being a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by 1
-    expect(page).to have_content('Welcome Bob!')
+    expect(page.find(".navbar")).to have_content("bob89")
     expect(User.first.email).to eq('bob@email.com')
   end
 
@@ -60,7 +60,7 @@ feature 'User signs in' do
   end
   scenario 'with correct credentials' do
     log_in("bob89", "password")
-    expect(page).to have_content("Welcome Bob!")
+    expect(page.find(".navbar")).to have_content("bob89")
   end
 
   scenario 'with incorrect credentials' do
@@ -79,7 +79,7 @@ feature 'User sign out' do
   end
   scenario 'while signed in' do
     log_in("bob89", "password")
-    click_button "Log out"
+    click_link "Log out"
     expect(page).to have_content "Log in"
   end
 end
