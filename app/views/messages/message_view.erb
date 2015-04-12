@@ -1,0 +1,21 @@
+<% if @messages.count > 0 %>
+  <ul class="list-none">
+  <% @messages.each do |message| %>
+    <li class="peep-box">
+    <div class="peep-content">
+    From: <em>@<%= message.sender.username %></em><br>
+    <%= message.date_time.strftime("%d %b %Y, %I:%M %p") %><br>
+    <em><%= message.title %></em>
+    </div>
+    <div class="comment-container">
+    <%= message.text %>
+    </div></li>
+  <% end %>
+  </ul>
+<% else %>
+  <div class="peep-box">
+    <div class="peep-content">
+      <h1>Inbox empty!</h1>
+    </div>
+  </div>
+<% end %>

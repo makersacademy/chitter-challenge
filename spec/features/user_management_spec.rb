@@ -11,8 +11,8 @@ feature 'User signs up' do
   end
 
   scenario 'with a password that doesn\'t match' do
-    expect { sign_up(password: "psw",
-                     confirmation: "wrong") }.to change(User, :count).by 0
+    block = sign_up(password: "psw", confirmation: "wrong")
+    expect { block }.to change(User, :count).by 0
     expect(page).to have_content('Password doesn\'t match')
   end
 
@@ -29,8 +29,8 @@ feature 'User signs up' do
 
   scenario 'with an email that is already registered' do
     expect { sign_up }.to change(User, :count).by 1
-    expect { sign_up(username: "john89",
-                     email: "bob@email.com") }.to change(User, :count).by 0
+    block = sign_up(username: "john89", email: "bob@email.com")
+    expect { block }.to change(User, :count).by 0
     expect(page).to have_content('Email is already registered')
   end
 

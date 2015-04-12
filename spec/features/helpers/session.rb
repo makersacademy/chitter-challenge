@@ -12,6 +12,12 @@ module SessionHelpers
     click_button 'Sign up'
   end
 
+  def john_signs_up
+    sign_up(username: "john89",
+            name: "John",
+            email: "john@email.com")
+  end
+
   def log_in(username, password)
     visit '/log_in/new'
     fill_in 'username', with: username

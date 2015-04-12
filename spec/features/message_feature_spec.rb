@@ -52,4 +52,10 @@ feature 'A user that recives a private message' do
     find('.peep-box').click
     expect(page).to have_content('Text')
   end
+
+  scenario 'views empty inbox' do
+    log_in("bob89", "password")
+    click_mail
+    expect(page).to have_content('Inbox empty')
+  end
 end
