@@ -30,7 +30,15 @@ module SessionHelpers
                 )
   end
 
+  def post_message(text)
+    within('#new-message') do
+      fill_in 'text', with: text
+      click_button 'Post Message'
+    end
+  end
+
 end
+
 
 
 

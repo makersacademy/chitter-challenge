@@ -4,6 +4,7 @@ require 'bcrypt'
 require 'sinatra/partial'
 require 'rack-flash'
 require_relative 'lib/user'
+require_relative 'lib/message'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
@@ -23,29 +24,15 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @messages = Message.all
     erb :homepage
   end
 
-  get '/sessions/new' do
-    erb :'sessions/new'
-  end
-
-  post '/sessions' do
-    email, password = params[:email], params[:password]
-    user = User.authenticate(email, password)
-    if user
-      flash[:errors] = nil
-      session[:user_id] = user.id
-      redirect to('/')
-    else
-      flash[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    flash[:notice] = "Good bye!"
-    session[:user_id] = nil
+  post '/messages' do
+    text = params['text']
+    author = User.first(id: session[:user_id]).email
+    p author
+    Message.create(text: text, author: author, time_stamp: Time.now)
     redirect to('/')
   end
 
