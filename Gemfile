@@ -10,6 +10,7 @@ gem 'rack-flash3'
 gem 'sinatra-partial'
 
 group :test do
+  gem 'rake'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'cucumber'
