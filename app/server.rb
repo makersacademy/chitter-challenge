@@ -58,4 +58,10 @@ post '/sessions' do
     flash[:errors] = ['The email or password is incorrect']
     erb :'sessions/new'
   end
+
+ delete '/sessions' do
+    session[:user_id] = nil
+    flash[:errors] = ['Good bye!']
+    redirect to('/sessions/new')
+  end
 end
