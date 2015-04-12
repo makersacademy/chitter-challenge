@@ -4,7 +4,8 @@ class Chitter < Sinatra::Base
     cheepid = params[:cheepid]
     cheep = Cheep.first(id: cheepid)
     Applause.create(user_id: session[:user_id], cheep_id: cheepid)
-    refresh = request.fullpath[0..-15] << "#{session[:profile]}"
+    refresh = request.fullpath[0..-15]
+    refresh << "#{session[:profile]}" if refresh == '/users/profiles/'
     redirect refresh
   end
   get '/users/profiles/:profile' do
