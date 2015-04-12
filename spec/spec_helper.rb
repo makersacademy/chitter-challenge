@@ -1,9 +1,12 @@
 ENV['RACK_ENV'] = 'test'
 
-require 'coveralls'
+require './app/server'
 require 'database_cleaner'
+require 'capybara/rspec'
+require 'coveralls'
 require 'simplecov'
-require './server'
+
+Capybara.app = Sinatra::Application
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -25,5 +28,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
+
+
