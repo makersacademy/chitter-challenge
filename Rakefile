@@ -9,12 +9,12 @@ Cucumber::Rake::Task.new :cuke
 
 task default: [:cop, :spec, :cuke]
 
-task :auto_upgrade do
-  DataMapper.auto_upgrade!
-  puts 'auto_upgrade complete (no data loss)'
-end
+# task :auto_upgrade do
+#   DataMapper.auto_upgrade!
+#   puts 'auto_upgrade complete (no data loss)'
+# end
 
-task :auto_migrate do
-  DataMapper.auto_migrate!
-  puts 'auto_migrate complete (data could have been lost)'
-end
+# task :auto_migrate do
+#   DataMapper.auto_migrate!
+#   puts 'auto_migrate complete (data could have been lost)'
+# end
