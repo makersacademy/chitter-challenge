@@ -10,8 +10,9 @@ require_relative 'models/peep'
 require_relative 'models/user'
 
 env = ENV['RACK_ENV'] || 'development'
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+postvar = "postgres://localhost/chitter_#{env}"
 DataMapper.finalize
+DataMapper.setup(:default, ENV['DATABASE_URL'] || postvar)
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
