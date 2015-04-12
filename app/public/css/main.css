@@ -15,10 +15,10 @@ button, form {
 }
 .cheep {
   text-align: left;
-  width: 60%;
+  width: 50%;
   box-shadow: 0px 0px 5px #BBB;
-  margin: 18%;
-  margin-bottom: 5px;
+  margin: 24%;
+  margin-bottom: 0.5em;
   margin-top: 5px;
 }
 .message {
@@ -36,6 +36,10 @@ form {
 input #send-cheep {
   font-size: 2em;
 }
-.author, .message, .time, .applause {
+.message, .time, .applause {
   display: inline-block;
+}
+.author {
+  text-align: left;
+  display: block;
 }
