@@ -177,7 +177,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
-  do_postgres
+  do_postgres (= 0.10.15)
   launchy
   rack-flash3
   rake
