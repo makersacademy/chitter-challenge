@@ -14,7 +14,8 @@ class Chitter < Sinatra::Base
 
   post '/peep/new/process/' do
     user = User.first(id: session[:user_id])
-    new_peep = Peep.create(text: params[:peep_text], user: user)
+    new_peep = Peep.create(text: params[:peep_text], time: Time.now,
+                           user: user)
     user.peeps << new_peep
     user.save
     redirect('/')

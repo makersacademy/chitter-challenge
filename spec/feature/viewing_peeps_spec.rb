@@ -17,6 +17,13 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Hola!')
   end
 
+  scenario '...in reverse chronological order' do
+    expect(find("ol#peeps li:nth-child(1)").text).to eq 'Hola!'
+    expect(find("ol#peeps li:nth-child(2)").text).to eq 'Cheerio!'
+    expect(find("ol#peeps li:nth-child(3)").text).to eq 'Howdy!'
+    expect(find("ol#peeps li:nth-child(4)").text).to eq 'Hiya!'
+  end
+
   scenario 'user peeps are visible under "My Peeps" after submission' do
     find_button('My Peeps').click
     expect(current_path).to eq('/mypeeps/')
@@ -24,5 +31,11 @@ feature 'Viewing peeps' do
     expect(page).to have_no_content('Howdy!')
     expect(page).to have_content('Cheerio!')
     expect(page).to have_content('Hola!')
+  end
+
+  scenario '...in reverse chronological order' do
+    find_button('My Peeps').click
+    expect(find("ol#peeps li:nth-child(1)").text).to eq 'Hola!'
+    expect(find("ol#peeps li:nth-child(2)").text).to eq 'Cheerio!'
   end
 end

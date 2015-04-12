@@ -1,5 +1,10 @@
 <div>
-  <% User.first(id: session[:user_id]).peeps.each do |peep| %>
-    <%= peep.text %>
+  <ol id="peeps">
+    <% user = User.first(id: session[:user_id]) %>
+  <% user.peeps(order: :time.desc).each do |peep| %>
+    <!-- The value below is for my tests, is it bad practice to alter code
+      purely for sake of one's tests? -->
+    <li><%= peep.text %></li>
   <% end %>
+  </ol>
 </div>

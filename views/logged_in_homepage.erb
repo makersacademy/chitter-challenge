@@ -9,10 +9,10 @@
     <input type='submit' value='My Peeps'>
   </form>
 
-  <div>
-    <% Peep.all.each do |peep| %>
-      <%= peep.text %>
+  <ol id="peeps">
+    <% Peep.all(order: :time.desc).each do |peep| %>
+      <li><%= peep.text %></li>
       <!-- Consider showing who posted (usernames!) -->
     <% end %>
-  </div>
+  </ol>
 </div>
