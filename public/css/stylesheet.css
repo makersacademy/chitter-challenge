@@ -50,10 +50,9 @@ a {
 
 /* welcome text HEADER BG */
 header {
-  height: 80px;
+  height: 130px;
   background-color: rgba(253,226,115,0.8);
   color: white;
-  display: flex; /* http://learnlayout.com/flexbox.html */
   padding: 0 20px;
 }
 
@@ -63,18 +62,20 @@ header {
     border: 50px;
   }
   header #logo {
-    display: flex;
     margin: 20px;
+    font-size: 36px;
   }
 
 /* Chitter logo text */
   header a {
-    color: white;
+    color: #5496FD;
+    font-size: 40px;
   }
 
 #welcome-message {
-    font-size: 24px;
-    text-align: right;
+    color: grey;
+    font-size: 20px;
+    padding: 20px;
   }
 
 /* peeps container bg */
@@ -143,7 +144,7 @@ form {
 }
 
   form p {
-    margin: 30px 0;
+    margin: 10px 0;
   }
 
   form input[type="text"], form input[type="password"] {

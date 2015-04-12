@@ -1,6 +1,10 @@
 Chitter Challenge
 =================
 
+##[Heroku App coming soon]()
+
+![screenshot]({{ site.base_url }}/public/images/chitter_screenshot_01.png)
+
 Tools:
 ------
 This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
