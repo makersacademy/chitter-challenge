@@ -1,9 +1,10 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
-require './lib/tweet'
-require './lib/user'
-require './data_mapper_setup'
+require './app/lib/tweet'
+require './app/lib/user'
+require_relative 'helpers/application'
+require_relative 'data_mapper_setup'
 
 enable :sessions
 set :session_secret, 'secret password'
@@ -52,13 +53,7 @@ post '/sessions' do
     session[:user_id] = User.id
     redirect to('/')
   else
-    flash[:errors] = ["The email or password you entered is incorrect"]
+    flash[:errors] = ["The email or password is incorrect"]
     erb :'sessions/new'
-  end
-end
-
-helpers do
-  def current_user
-    @current_user ||= User.get(session[:user_id]) if session[:user_id]
   end
 end

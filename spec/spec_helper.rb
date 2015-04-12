@@ -2,7 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'coveralls'
 require 'simplecov'
-require './server'
+require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
 
@@ -33,7 +33,6 @@ RSpec.configure do |config|
   end
 
   config.mock_with :rspec do |mocks|
-
     mocks.verify_partial_doubles = true
   end
 end
