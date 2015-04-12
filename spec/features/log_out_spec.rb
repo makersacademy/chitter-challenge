@@ -14,6 +14,5 @@ feature 'Logging out' do
     expect(page).to have_content('you have logged out successfully')
     expect(page).not_to have_content('Welcome, user_numero_uno')
   end
-# visit home page and not have a welcome message
 
 end

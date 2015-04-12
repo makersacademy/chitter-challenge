@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature 'Signing up' do
-  # break these up into seperate tests
   scenario 'as a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, test_name')
@@ -13,51 +12,56 @@ feature 'Signing up' do
 
   context 'with a password that does not match' do
     scenario 'doesnt add the user to the database' do
-      expect { sign_up('test@test.com', '12345', '12346') }.to change(User, :count).by(0)
+      expect do
+        sign_up('test@test.com', '12345', '12346')
+      end.to change(User, :count).by(0)
     end
 
-    scenario 'redirects the user back to the sign up form and displays an error' do
+    scenario 'redirects the user to the sign up form and displays an error' do
       sign_up('test@test.com', '12345', '12346')
       expect(current_path).to eq('/users')
       expect(page).to have_content('Password does not match the confirmation')
     end
   end
+  context 'is not possible' do
+    scenario 'with an email that is already taken' do
+      sign_up('test@test.com',
+              '12345',
+              '12345',
+              'test_name',
+              'unique_un_1')
+      expect do
+        sign_up('test@test.com',
+                '12345',
+                '12345',
+                'test_name',
+                'some name')
+      end .to change(User, :count).by(0)
+      expect(page).to have_content('This email address has be taken')
+    end
 
-  scenario 'with an email that is already taken' do
-    sign_up('test@test.com',
-                   '12345',
-                   '12345',
-                   'test_name',
-                   'unique_un_1')
-    expect { sign_up('test@test.com',
-                   '12345',
-                   '12345',
-                   'test_name',
-                   'some name') } .to change(User, :count).by(0)
-    expect(page).to have_content('This email address has be taken')
-  end
-
-  scenario 'with a username that is already taken' do
-    sign_up('test@test.com',
-                   '12345',
-                   '12345',
-                   'test_name',
-                   'unique_un_1')
-    expect { sign_up('unique_email@test.com',
-                   '12345',
-                   '12345',
-                   'test_name',
-                   'unique_un_1') } .to change(User, :count).by(0)
-    expect(page).to have_content('This name has be taken')
+    scenario 'with a username that is already taken' do
+      sign_up('test@test.com',
+              '12345',
+              '12345',
+              'test_name',
+              'unique_un_1')
+      expect do
+        sign_up('unique_email@test.com',
+                '12345',
+                '12345',
+                'test_name',
+                'unique_un_1')
+      end .to change(User, :count).by(0)
+      expect(page).to have_content('This name has be taken')
+    end
   end
 
 end
 
-def sign_up(email = 'test@test.com',
-            password = '12345',
+def sign_up(email = 'test@test.com', password = '12345',
             password_confirmation = '12345',
-            name = 'test_name',
-            username = 'user_numero_uno')
+            name = 'test_name', username = 'user_numero_uno')
   visit '/users/new'
   fill_in :email, with: email
   fill_in :password, with: password

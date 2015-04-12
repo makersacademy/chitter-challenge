@@ -25,12 +25,11 @@ feature 'adding peeps' do
     # expect not to have please log in to post a peep
   end
 
-  # scenario 'creates a peep with the users name attached' do
-  #   sign_in
-  #   peep
-  #   expect(page).to have_css('.peeplist')
-  #     # expect(page).to have_content('user_numero_uno')
-  # end
+  scenario 'creates a peep with the users name attached' do
+    sign_in
+    peep
+    expect(page).to have_css('.peeplist', :text => 'user_numero_uno')
+  end
 
 end
 

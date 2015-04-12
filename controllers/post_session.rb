@@ -3,7 +3,6 @@ class Chittter < Sinatra::Base
     email, password = params[:email], params[:password]
     user = User.authenticate(email, password)
     if user
-      puts "here"
       session[:username] = user.username
       redirect('/')
     else

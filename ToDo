@@ -1,15 +1,8 @@
 Add unit test for user class
 
-maybe need a peep string to database text converter
-
-
 do I have name and user name backwards?
 eg it doesnt matter if the un i taken but it does if their real name is taken
 
-Learn how to check css element with capy and or how to add css element to html
- need to put .class_name to find it with capybara/ or outside the page
- # is for the ID
- Id is unique in the page
 
 refactor!!
 

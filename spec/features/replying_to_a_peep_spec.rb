@@ -13,7 +13,7 @@ feature 'replying to a peep' do
     add_peep
     visit '/'
     click_link 'reply'
-    expect(current_path).to eq '/reply/2'
+    expect(current_path).to eq '/reply/3'
   end
 
   scenario 'if we are not logged in we cant reply' do
