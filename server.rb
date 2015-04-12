@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require_relative 'lib/hashtag'
 require_relative 'lib/post'
+require_relative 'lib/user'
 
 env = ENV["RACK_ENV"] || "development"
 
@@ -25,6 +26,10 @@ class Chitter < Sinatra::Base
     end
     Post.create(username: username, message: message, hashtag: hashtag)
     redirect to ('/')
+  end
+
+  get '/new' do
+    erb :'/new'
   end
 
   # start the server if ruby file executed directly
