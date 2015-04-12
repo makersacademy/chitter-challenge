@@ -15,9 +15,8 @@ feature 'User adds a new post' do
     visit '/'
     add_post('Stace', 
             'Hello! out there',
-             %w('#testing #123'))
+             %w(#testing))
     post = Post.first
-     expect(post.hashtag.map(&:text)).to include('#testing')
-     expect(post.hashtag.map(&:text)).to include('#123')
+     expect(post.hashtag.map(&:text)).to include '#testing'
   end
 end
