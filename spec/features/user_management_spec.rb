@@ -41,16 +41,37 @@ end
     click_button 'Sign up'
   end
 
-# feature 'User signs in' do
-#   scenario 'with correct username and password' do
-#   end
+feature 'User signs in' do
+  before(:each) do
+    User.create(email: 'test@test.com',
+                username: 'Mister_Test',
+                name: 'Tasty Tester',
+                password: 'test',
+                password_confirmation: 'test')
+  end
 
-#   scenario 'with an incorrect username' do
-#   end
+  scenario 'with correct credentials' do
+    visit '/'
+    expect(page).not_to have_content('Hello Mister_Test')
+    sign_in('Mister_Test', 'test')
+    expect(page).to have_content('Hello Mister_Test')
+  end
 
-#   scenario 'with an incorrect password' do
-#   end
-# end
+  scenario 'with incorrect credentials' do
+    visit '/'
+    expect(page).not_to have_content('Hello Mister_Test')
+    sign_in('Mister_Test', 'wrongpass')
+    expect(page).not_to have_content('Hello Mister_Test')
+  end
+
+  def sign_in(username, password)
+    visit '/sessions/new'
+    fill_in 'username', with: username
+    fill_in 'password', with: password
+    click_button 'Sign in'
+  end
+
+end
 
 # feature 'User signs out' do
 #   scenario 'while being signed in' do
