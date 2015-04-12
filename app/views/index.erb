@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%= erb :header %>
-
-  <div class="jumbotron">
-    <div class="container">
-      <a href='/'>
-        <h1> Welcome To Chitter! </h1>
-        <h4> The Social Network Soley For Charming Cheeky Chit Chat </h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='container'>
-    <%= erb :flash %>
-
-    <% if session[:name] %>
-      <%= erb :logged_in %>
-    <%end %>
-
-    <div class="row">
-
-      <div class="col-md-9">
-        <%= erb :peeps %>
-      </div>
-
-      <div class="col-md-3">
-        <% unless session[:name] %>
-            <%= erb :logged_out %>
-        <% end %>
-      </div>
-
-    </div>
-
-  </div>
-
-</html>
+<% if session[:name] %>
+    <%= erb :post_peep %>
+<%end %>
+<%= erb :peeps %>

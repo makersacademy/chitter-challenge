@@ -16,9 +16,9 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.new(email: params[:email],
-                name: params[:name],
-                password: params[:password],
-                username: params[:username])
+                    name: params[:name],
+                    password: params[:password],
+                    username: params[:username])
     if user.save
       flash.now[:announcement] = ["Welcome #{params[:name].split(' ').first}!"]
       session[:user] = user.id
@@ -28,6 +28,11 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = user.errors
       erb :index
     end
+  end
+
+  get '/users/:id' do
+    @profile = params[:id]
+    erb :profile_page
   end
 
   post '/sessions/new' do

@@ -22,9 +22,9 @@ feature 'user signs up' do
     expect(User.count).to eq(0)
     sign_up
     user = User.new(name: "thomas",
-             email: "test@test.com",
-             username: 'bad_tester',
-             password: 'test')
+                    email: "test@test.com",
+                    username: 'bad_tester',
+                    password: 'test')
     user.save
     expect(user.errors[:email].first).to eq "Email is already taken"
     expect(User.count).to eq(1)
@@ -51,7 +51,7 @@ feature 'user signs up' do
     expect(User.count).to eq(0)
   end
 
-   scenario "fails if email is blank" do
+  scenario "fails if email is blank" do
     expect(User.count).to eq(0)
     user = User.new(name: "thomas",
                     username: "testerfan",
@@ -60,6 +60,7 @@ feature 'user signs up' do
     expect(user.errors[:email].first).to eq "Email must not be blank"
     expect(User.count).to eq(0)
   end
+
   scenario "fails if name is blank" do
     expect(User.count).to eq(0)
     user = User.new(name: "",

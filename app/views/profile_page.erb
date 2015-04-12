@@ -1,0 +1,5 @@
+<div class="well">
+  <h3><%= User.first(id: @profile).username %></h3>
+  <h4> <em>Real Name: <%= User.first(id: @profile).name %></em></h4>
+</div>
+<%= erb :users_peeps %>

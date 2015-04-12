@@ -3,7 +3,7 @@
     <% peeps.each do |peep| %>
       <div class='peep'>
         <%= peep.peep %><br>
-        <div class='peeped_by'> <em> Posted by User: <%= peep.user.username %> Real name: <%= peep.user.name %> </em> </div>
+        <div class='peeped_by'> <em> Posted by User: <a href='/users/<%= peep.user.id %>'><%= peep.user.username %></a> Real name: <%= peep.user.name %> </a></em> </div>
       </div><br>
   <% end %>
 <% end %>

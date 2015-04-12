@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= erb :header %>
+  <%= erb :jumbotron %>
+  <div class='container'>
+    <%= erb :flash %>
+
+    <div class="row">
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+
+        <div class="col-md-3">
+          <% if session[:name] %>
+            <%= erb :logged_in %>
+          <% else %>
+            <%= erb :logged_out %>
+          <%end %>
+        </div>
+    </div>
+
+  </div>
+
+</html>

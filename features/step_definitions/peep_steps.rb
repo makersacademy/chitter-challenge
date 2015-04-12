@@ -30,4 +30,10 @@ When /^I am in (.*) browser$/ do |name|
   Capybara.session_name = name
 end
 
+When(/^I click on "([^"]*)"$/) do |arg1|
+  click_link(arg1)
+end
+
+
+
 
