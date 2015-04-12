@@ -30,10 +30,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/new' do
-    erb :'/new'
+    erb :new
   end
 
-  post '/users' do
+  post '/new' do
   User.create(email: params[:email],
               password: params[:password])
   redirect to('/')
