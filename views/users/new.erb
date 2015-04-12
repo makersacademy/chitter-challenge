@@ -1,8 +1,7 @@
 <h1>Please sign up</h1>
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
-  <%= error %>
-  <% #style this block %>
+    <em class="flashnotice"><%= error %></em>
   <% end %>
 <% end %>
 <form action='/users' method='post'>

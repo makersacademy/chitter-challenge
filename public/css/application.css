@@ -1,0 +1,58 @@
+body {
+  background-color: #77befc
+}
+
+a {
+  font-family: "Courier New" ;
+}
+
+.peeplist {
+  background-color: #c2e2fe;
+  text-align: justify;
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.replys {
+  background-color: #f4faff;
+  text-align: justify;
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.userp {
+  color: #f97e13;
+}
+
+.userr {
+  color: #fa8c2c;
+}
+
+.peep_box{
+  font-family: "Courier New" ;
+  margin-right: 250px;
+  margin-left: 250px;
+}
+
+.tobold{
+  font-weight: bold;
+}
+
+.pageheader{
+  font-family: "Courier New" ;
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  margin-right: 250px;
+  margin-left: 250px;
+}
+
+.flashnotice{
+  font-family: "Courier New" ;
+  font-weight: bold;
+  text-align: center;
+}
+
+.layout{
+  font-family: "Courier New" ;
+}
