@@ -1,0 +1,41 @@
+h1 {
+  font-size: 3em;
+  margin: 0.2em;
+}
+button, form {
+  font-size: 0.8em;
+  display:inline;
+}
+.time {
+  font-size: 0.6em;
+  color: #999;
+}
+.cheeps {
+  display: inline-block;
+}
+.cheep {
+  text-align: left;
+  width: 60%;
+  box-shadow: 0px 0px 5px #BBB;
+  margin: 18%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.message {
+  text-align: left;
+}
+div {
+  padding: 0.3em;
+}
+h3 {
+  font-size: 1.5em;
+}
+form {
+  font-size: 1.2em;
+}
+input #send-cheep {
+  font-size: 2em;
+}
+.author, .message, .time, .applause {
+  display: inline-block;
+}

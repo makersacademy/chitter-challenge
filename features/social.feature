@@ -38,7 +38,7 @@ Feature: Users can interact
     Then I see element "h1" with text "joejknowles"
 
   Scenario: Click on profile link to go to own profile
-    When I click link "Profile"
+    When I click link "My Profile"
     Then I see element "h1" with text "joejknowles"
 
   Scenario: Click on sit name to go to home page
