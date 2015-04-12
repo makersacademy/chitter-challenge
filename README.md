@@ -9,3 +9,5 @@ continue.
 Make sure that `gem install do_postgres -v '0.10.15'` succeeds before bundling."
 
 the gem install succeeds but the gemfile lock contains do_postgres (~> 0.10.6)
+
+requireing the specific version of do_postgres in the gemfile and bundling it didn't resolve the problem either :-/
