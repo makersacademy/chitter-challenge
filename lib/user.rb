@@ -6,6 +6,7 @@ class User
   property :id, Serial
   property :email, String
   property :password_digest, Text
+  validates_uniqueness_of :email, message: 'This email is already taken'
 
   attr_reader :password
   attr_accessor :password_confirmation
