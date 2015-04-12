@@ -12,6 +12,7 @@ group :test do
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'rack-flash3'
   gem 'sinatra'
   gem 'coveralls', require: false
 end
