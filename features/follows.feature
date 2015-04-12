@@ -18,7 +18,10 @@ Feature: Users can follow other users
     And I see "joejknowles"
 
   Scenario: Don't see follow button on own profile
-    When I'm on page ""
-
+    When I'm on the "users/profiles/fred" page
+    Then I don't see the "Follow" button
 
   Scenario: Don't see follow button when signed out
+    When I sign out
+    And I'm on the "users/profiles/fred" page
+    Then I don't see the "Follow" button

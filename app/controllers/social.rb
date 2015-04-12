@@ -31,9 +31,8 @@ class Chitter < Sinatra::Base
   end
 
   get '*/following' do
-    puts session[:user_id]
-    puts @user = User.first(id: session[:user_id])
-    puts @following = @user.followed_people
+    @user = User.first(id: session[:user_id])
+    @following = @user.followed_people
     erb :'users/following'
   end
 end
