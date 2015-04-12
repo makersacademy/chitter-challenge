@@ -9,6 +9,7 @@ Feature: Users can follow other users
     And I cheep "Follow me!"
     And I sign out
     And "Fred" signs up
+    And I cheep "Cheep cheep!"
 
   Scenario: Sees 'following' list
     When I click link "joejknowles"
@@ -25,3 +26,11 @@ Feature: Users can follow other users
     When I sign out
     And I'm on the "users/profiles/Fred" page
     Then I don't see the "Follow" button
+
+  Scenario: Sees cheeps of followed people
+    When I click link "joejknowles"
+    And I press the "Follow" button
+    And I'm on the "home" page
+    And I click link "Following Cheeps"
+    Then I see "Follow me!"
+    And I don't see "Cheep cheep!"

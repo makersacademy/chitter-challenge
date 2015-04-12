@@ -35,4 +35,16 @@ class Chitter < Sinatra::Base
     @following = @user.followed_people
     erb :'users/following'
   end
+
+  get '/following-cheeps' do
+    @user = User.first(id: session[:user_id])
+    @cheeps = Cheep.select do |cheep|
+      @user.followed_people.include?(cheep.user)
+    end
+    erb :index
+  end
 end
+
+
+
+
