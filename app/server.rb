@@ -31,7 +31,6 @@ class Chitter < Sinatra::Base
   post '/messages' do
     text = params['text']
     author = User.first(id: session[:user_id]).email
-    p author
     Message.create(text: text, author: author, time_stamp: Time.now)
     redirect to('/')
   end
