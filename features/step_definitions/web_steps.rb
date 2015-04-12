@@ -93,6 +93,11 @@ When(/^I click link "([^"]*)"$/) do |link|
   click_link link
 end
 
+Given(/^I cheep "([^"]*)"$/) do |text|
+  step "I fill in \"cheep\" with \"#{text}\""
+  step 'I press the "Cheep" button'
+end
+
 def sign_in(username = 'joejknowles',
             password = 'secret')
   fill_in 'username', with: username

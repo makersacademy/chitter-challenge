@@ -1,2 +1,5 @@
 <h1><%= @profile.username %></h1>
+<form action="/users/profiles/follow" method="post" >
+  <button name='profile' value="<%= @profile.username %>">Follow</button>
+</form>
 <%= erb :cheeps %>
