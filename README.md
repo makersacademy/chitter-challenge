@@ -1,3 +1,9 @@
+TO-DO:
+
+* Refactor user_management_spec method
+* Sort out double tests
+* Refactor file structure + helper method in server.rb
+
 Chitter Challenge
 =================
 
@@ -8,7 +14,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
