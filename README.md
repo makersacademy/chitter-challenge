@@ -5,6 +5,11 @@ Tools:
 ------
 This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
 
+Development Blog:
+-----------------
+- [Day 1](http://sanjsanj.github.io/Week%204,%20Day%206/)
+- [Day 2](http://sanjsanj.github.io/Week%204,%20Day%207/)
+
 Brief:
 -----
 To write a Twitter clone called Chitter, that allows users to post Peeps, available for viewing to the public via a web application.  The user stories must be satisfied.

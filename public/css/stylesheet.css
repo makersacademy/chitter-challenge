@@ -4,9 +4,9 @@
 
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background-color: grey;
+  background-color: #70B0A2;
   background-image: url(/images/extra_clean_paper.png);
-  color: #333;
+  color: #fff;
 }
 
 html, body {
@@ -23,7 +23,7 @@ html, body {
 /* no links should be underlined */
 a {
   text-decoration: none;
-  color: #b77843;
+  color: #111;
 }
 
 .button {
@@ -35,10 +35,9 @@ a {
   color: white; /*text colour*/
   padding: 5px 10px;
   text-align: center;
-  border-radius: 2px; /*rounded corners*/
+  border-radius: 4px; /*rounded corners*/
   margin-left: 5px;
   margin-right: 5px;
-  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
 }
 
 /* a link that has both classes. Overrides the previous declaration */
@@ -46,9 +45,10 @@ a {
   background-color: #b77843;
 }
 
+/* welcome text */
 header {
   height: 80px;
-  background-color: black;
+  background-color: #FDCF3D;
   color: white;
   display: flex; /* http://learnlayout.com/flexbox.html */
   padding: 0 20px;
@@ -60,9 +60,10 @@ header {
   }
   header #logo {
     display: flex;
-    margin-right: 20px;
+    margin: 20px;
   }
 
+/* Chitter logo text */
   header a {
     color: white;
   }
@@ -78,11 +79,11 @@ header {
   }
 
   header #user-links #welcome-message {
-    font-size: 14px;
+    font-size: 30px;
   }
 
 #container {
-  background-color: white;
+  background-color: #AA4FB0;
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding: 10px;
@@ -90,12 +91,10 @@ header {
 
 .peep {
   position: relative;
-  width: 90%;
-  background-color: #eee;
+  background-color: #F47AFC;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 50px inherit;
   padding: 20px 20px;
-  border-radius: 0 0 120px 120px / 0 0 6px 6px;
   }
 
   .peep a.title {
@@ -110,26 +109,6 @@ header {
     /* http://learnlayout.com/float.html and the next 4 sections */
     float: right;
     font-size: 18px;
-  }
-
-  .peep:before,
-  .peep:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    height: 20%;
-    max-width: 300px;
-    box-shadow :0 15px 10px rgba(0, 0, 0, 0.7);
-    transform: rotate(-3deg);
-  }
-
-  .peep:after{
-    right: 10px;
-    left: auto;
-    transform: rotate(3deg);
   }
 
 .flash {
