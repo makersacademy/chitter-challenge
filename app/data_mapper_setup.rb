@@ -1,5 +1,4 @@
 require 'data_mapper'
-require 'byebug'
 
 env = ENV['RACK_ENV'] || 'development'
 
