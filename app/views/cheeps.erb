@@ -1,0 +1,25 @@
+<div id='cheeps'>
+  <% @cheeps.reverse_each do |cheep| %>
+    <div class='cheep'>
+      <img src='/images/default-photo.png'>
+      <div class='author'>
+        <% author = cheep.user.username %>
+        <%= "<a href='/users/profiles/#{author}'>#{author}</a> cheeped:" %>
+      </div>
+      <div class='message'>
+        <%= escape_html cheep.message %>
+      </div>
+      <div class='applause'>
+        <%= cheep.applause.length %> applause
+        <% if @user && @user.applause.none? { |ap| ap.cheep_id == cheep.id } && @user != cheep.user%>
+          <form action='./cheeps/applaud' method='post'>
+            <button name='cheepid'value="<%= cheep.id %>">Applaud</button>
+          </form>
+        <% end %>
+      </div>
+      <div class='time'>
+        <%= ((Time.now - cheep.time_stamp) / 60).floor %> minutes ago.
+      </div>
+    </div>
+  <% end %>
+</div>

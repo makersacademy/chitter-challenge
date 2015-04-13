@@ -1,0 +1,6 @@
+<h1><%= @profile.username << @sentence %></h1>
+<ul id='following'>
+  <% @people.each do |person| %>
+    <li>User known as <%= "<a href='/users/profiles/#{person.username}'>#{person.username}</a>" %></li>
+  <% end %>
+</ul>

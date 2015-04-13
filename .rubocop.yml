@@ -5,7 +5,7 @@ EmptyLinesAroundBlockBody:
 
 Style/EmptyLinesAroundClassBody:
   Description: Keeps track of empty lines around class bodies.
-  Enabled: true
+  Enabled: false
   EnforcedStyle: empty_lines
   SupportedStyles:
   - empty_lines
@@ -13,7 +13,7 @@ Style/EmptyLinesAroundClassBody:
 
 Style/EmptyLinesAroundModuleBody:
   Description: Keeps track of empty lines around module bodies.
-  Enabled: true
+  Enabled: false
   EnforcedStyle: empty_lines
   SupportedStyles:
   - empty_lines
@@ -68,3 +68,7 @@ Style/Semicolon:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
   Enabled: false
   AllowAsExpressionSeparator: false
+
+RSpec/DescribedClass:
+  Description: 'Use `described_class` for tested class / module'
+  Enabled: false

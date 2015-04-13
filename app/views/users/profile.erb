@@ -1,0 +1,14 @@
+<h1><%= @profile.username %></h1>
+<% if @user && @user != @profile %>
+  <% if @user.followed_people.include?(@profile) %>
+    <p>Following</p>
+  <% else %>
+    <form action="/users/profiles/follow" method="post" >
+      <button name='profile' value="<%= @profile.username %>">Follow</button>
+    </form>
+  <% end %>
+<% end %>
+<% @profile.followers.length == 1 ? plural = '' : plural = 's' %>
+<p> <a href='/users/profiles/<%= @profile.username %>/followers'><%= @profile.followers.length %> Followers<%= plural %></a> / <a href='/users/profiles/<%= @profile.username %>/following'>Following</a></p>
+
+<%= erb :cheeps %>

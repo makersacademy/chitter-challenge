@@ -1,0 +1,14 @@
+<% if flash[:errors] %>
+  <div class='flash errors'>
+    <% flash[:errors].each do |error| %>
+      <div class='error'>
+        <%= error %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<form action='/sessions/new' method='post'>
+  <input type='text' name='username' placeholder='Username'>
+  <input type='password' name='password' placeholder='Password'>
+  <button>Sign in</button>
+</form>

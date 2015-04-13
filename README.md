@@ -1,14 +1,30 @@
+[![Build Status](https://travis-ci.org/joejknowles/chitter-challenge.svg?branch=master)](https://travis-ci.org/joejknowles/chitter-challenge)
+
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Technologies
+------------
+Ruby, HTML, CSS, Cucumber, Sinatra, Postgres, DataMapper.
+
+Instructions
+------------
+To run tests clone repo, navigate to directory. Run command `bundle install`, then run `rake`. App can be found on Heroku at: http://thechitter.herokuapp.com
+Features
+--------
+Want to see exclusive updates from the likes of Barack Obama and Kim Kardashian? They've been cheeping HOURLY, so join us quick before all the usernames run out.
+
+Sign up and send a 'cheep' out into the world. Click any username to go to their profile. Follow other users to see their cheeps without the noise of the enormous global user base. Want to show your appreciation of a post? Show it some 'applause', that's what the 'applaud' button is for. Now with exclusive trending feature. See what's most important to our vast user base thanks to our unique sorting algorithm; you'll only see what really matters.
+
+
+<br>
+<br>
+<br>
 
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
@@ -32,11 +48,11 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 

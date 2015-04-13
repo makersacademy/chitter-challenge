@@ -1,0 +1,34 @@
+<head>
+  <link rel="stylesheet" type="text/css" href='/css/reset.css'>
+  <link rel="stylesheet" type="text/css" href='/css/main.css'>
+</head>
+<body>
+  <header>
+    <h1 id='logo'><a href='/'>TheChitter</a></h1>
+    <% if @user %>
+      <%= "Happy Chitting, #{@user.username}" %>
+      <%= "<a id='profile' href='/users/profiles/#{@user.username}'>My Profile</a>" %>
+      <a href='/users/profiles/<%= @user.username %>/following'>Following</a>
+      <a href='/users/profiles/<%= @user.username %>/followers'>My followers</a>
+      <form action='/users/sign-out' method='post'>
+        <button>Sign out</button>
+      </form>
+    <% else %>
+      <form action='/users/new' method='get'>
+        <button>Register</button>
+      </form>
+      <form action='/sessions/new' method='get'>
+        <button>Login</button>
+      </form>
+    <% end %>
+  </header>
+  <% if flash[:notice]%>
+    <div class="flash notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= yield %>
+  <footer>
+    <p>This website has no privacy policy and a flagrant disregard for moral responsibility to match. Sign up at your own risk.</p>
+  </footer>
+</body>

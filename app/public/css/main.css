@@ -1,0 +1,97 @@
+h1 {
+  font-size: 3em;
+  margin: 0.2em;
+}
+button, form {
+  font-size: 0.8em;
+  display:inline;
+  margin: 4px;
+  margin-bottom: 10px;
+}
+.time {
+  font-size: 0.6em;
+  color: #999;
+}
+.cheeps {
+  display: inline-block;
+}
+.cheep {
+  background-color: white;
+  text-align: left;
+  width: 50%;
+  box-shadow: 0px 0px 5px #999;
+  margin: 24%;
+  margin-bottom: 0.5em;
+  margin-top: 5px;
+}
+.message {
+  text-align: left;
+}
+div {
+  padding: 0.3em;
+}
+h3 {
+  font-size: 1.5em;
+}
+form {
+  font-size: 1.2em;
+}
+input #send-cheep {
+  font-size: 2em;
+}
+.time, .applause, .author  {
+  display: inline-block;
+}
+.message{
+  text-align: left;
+  display: block;
+}
+.message {
+  font-size: 1.5em;
+}
+a {
+  color:#007;
+}
+body {
+  background-color: #EEE;
+}
+li {
+  margin: 5px;
+}
+input {
+  width: 30em;
+  font-size: 0.8em;
+}
+.applause * {
+  font-size: 0.7em;
+  margin: 0;
+}
+button {
+  margin-bottom: 10px;
+}
+img {
+  height: 25px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+header * {
+  display: inline-block;
+  text-align: right;
+  margin-left: 10px;
+}
+#logo {
+  font-weight: heavy;
+}
+header {
+  background-color: white;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px #999;
+}
+#profile {
+  margin-left: 50px;
+}
+footer {
+  padding-top: 20px;
+  height: 50px;
+}

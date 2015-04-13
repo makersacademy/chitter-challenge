@@ -1,0 +1,10 @@
+<% if @user %>
+  <div id='send-cheep'>
+    <form action='/cheeps/new' method='post'>
+      <input name='cheep' placeholder="What's chappening?">
+      <button>Cheep</button>
+    </form>
+  </div>
+<% end %>
+<h3><a href='/'>All Cheeps</a><% if @user %> / <a href='/following-cheeps'>Following Cheeps</a><% end %> / <a href='/trending'>Trending</a></h3>
+<%= erb :cheeps %>
