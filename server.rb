@@ -46,7 +46,6 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    session[:username] = @username
     Peep.create(peep_content: params[:peep_content])
     flash[:notice] = 'Peep has been posted!'
     puts "*" * 20 + 'peeps/new'
