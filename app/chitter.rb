@@ -14,7 +14,19 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all
     erb :index
+  end
+
+  post '/' do
+    @peep = Peep.new(content: params[:msg],
+                     user: User.first(id: session[:user_id]))
+    if @peep.save
+      redirect to('/')
+    else
+      flash.now[:errors] = ['Sorry! Please sign in to Peep!']
+      erb :index
+    end
   end
 
   get '/users/new' do

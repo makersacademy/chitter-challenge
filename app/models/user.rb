@@ -8,6 +8,8 @@ class User
 
   validates_confirmation_of :password
 
+  has n, :peeps
+
   property :id, Serial
   property :name, String
   property :handle, String, unique: true, message: 'This username is already taken'

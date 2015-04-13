@@ -17,7 +17,14 @@ Scenario: A user can sign in with the correct credentials and post a peep
           And I fill in "password" with "hello"
           And I click the "Sign in" button
           Then I should see "Welcome Rob, your account @rbgeorob is ready to send a Peep!"
-          When I fill in "peep" with "A test peep"
+          When I fill in "msg" with "A test peep"
           And I click the "Peep" button
           Then I should see "A test peep"
           And the peep count should be 1
+
+Scenario: A peep cannot be sent if a user is not logged in
+          Given I am on the homepage
+          When I fill in "msg" with "A test peep"
+          And I click the "Peep" button
+          Then I should see "Sorry! Please sign in to Peep!"
+          And the peep count should be 0

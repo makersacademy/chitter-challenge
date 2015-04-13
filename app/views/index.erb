@@ -1,4 +1,14 @@
-<form method='post' action='/'
-  <input type='text' name='peep' placeholder="Enter your 'Peep' here">
-  <input type='submit' value='Peep!'>
+<form method='post' action='/'>
+  <input type='text' name='msg' placeholder:'Enter your Peep here'>
+  <input type='submit' value='Peep'>
 </form>
+
+<ul id= 'peeps'>
+  <% if @peeps.nil? %>
+    <li>No Peeps</li>
+  <% else %>
+    <% @peeps.each do |peep| %>
+      <li><%= "#{peep.content} from #{peep.user.name} at #{peep.created_at}" %></li>
+    <% end %>
+  <% end %>
+</ul>
