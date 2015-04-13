@@ -6,9 +6,8 @@ require_relative './app/models/peep'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
-Cucumber::Rake::Task.new :cuke
 
-task default: [:cop, :spec, :cuke]
+task default: [:cop, :spec]
 
 task :auto_upgrade do
   DataMapper.setup(:default, "postgres://localhost/chitter_test")
