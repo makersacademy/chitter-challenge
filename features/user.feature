@@ -41,3 +41,7 @@ Feature: user management
     And I click "Peep"
     Then I create a new Peep
     And I see "Peep has been posted!"
+
+  Scenario: see peep
+    Given I am on the homepage
+    Then I see "Today is good"

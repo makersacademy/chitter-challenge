@@ -18,6 +18,9 @@ class ChitterChatter < Sinatra::Base
   use Rack::Flash, sweep: true
 
   get '/' do
+    puts "*" * 20 + 'get /'
+    puts Peep.all.inspect
+    @peeps = Peep.all
     erb :homepage
   end
 
@@ -43,8 +46,11 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @peep = Peep.create(peep_content: params[:peep_content])
+    session[:username] = @username
+    Peep.create(peep_content: params[:peep_content])
     flash[:notice] = 'Peep has been posted!'
+    puts "*" * 20 + 'peeps/new'
+    puts Peep.all
     redirect('/')
   end
 
