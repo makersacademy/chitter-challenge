@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <IMG STYLE="position:absolute; TOP:35px; LEFT:170px; HEIGHT:50px" SRC="images/Fotor041218404.jpg">
+ <div class="background"> <% if current_user %>
+  Welcome, <%= current_user.user_name %>
+  <form method="post" action="/sessions">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign out">
+  </form>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Sorry, there were the following problems with the form.
+  <ul id="errors">
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+<% end %>
+</div>
+</ul>
+<% end %>
+  <%= yield %>
+</body>
+</html>
