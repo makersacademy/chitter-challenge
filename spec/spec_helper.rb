@@ -1,18 +1,13 @@
 ENV['RACK_ENV'] = 'test'
 
-require 'coveralls'
-require 'simplecov'
 require './app/server'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'data_mapper'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+Capybara.app = Chitter
 
-Rspec.configure do
+RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
