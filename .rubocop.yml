@@ -3,6 +3,9 @@ require: rubocop-rspec
 EmptyLinesAroundBlockBody:
   Enabled: false
 
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+
 Style/EmptyLinesAroundClassBody:
   Description: Keeps track of empty lines around class bodies.
   Enabled: true
@@ -43,6 +46,12 @@ Style/SingleLineBlockParams:
     - a
     - e
 
+Lint/AmbiguousRegexpLiteral:
+  Description: >-
+                 Checks for ambiguous regexp literals in the first argument of
+                 a method invocation without parenthesis.
+  Enabled: false
+
 Lint/UselessAssignment:
   Description: Checks for useless assignment to a local variable.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars
@@ -68,3 +77,12 @@ Style/Semicolon:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
   Enabled: false
   AllowAsExpressionSeparator: false
+
+Metrics/LineLength:
+  Max: 120
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # contaning a URI to be longer than Max.
+  AllowURI: true
+  URISchemes:
+    - http
+    - https

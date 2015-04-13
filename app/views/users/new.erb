@@ -1,0 +1,10 @@
+<h1>Please sign up</h1>
+
+<form action="/users" method="post">
+  <p><input name="name" type="text" value='<%= @user.name %>' placeholder="Name"></p>
+  <p><input name="email" type="text" value='<%= @user.email %>' placeholder="Email address"></p>
+  <p><input name="handle" type="text" value='<%= @user.handle %>' placeholder="Username"></p>
+  <p><input name="password" type="password" placeholder="Password"></p>
+  <p><input name="password_confirmation" type="password" placeholder="Password confirmation"></p>
+  <p><input type="submit" value="Sign up"></p>
+</form>

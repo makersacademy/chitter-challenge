@@ -1,0 +1,19 @@
+<header>
+  <div id="logo">
+    <a href="/">Chitter - 50 character peeps for the non-verbose</a>
+  </div>
+  <div id="maker-bar">
+    <% if maker %>
+    <span id="welcome-message">
+      Logged in as <%= maker.handle %>
+    </span>
+      <form id="sign-out" method='post' action='/chit'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <a href='users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='chit/new' id='sign-in' class='button'>Sign in</a>
+    <% end %>
+  </div>
+</header>
