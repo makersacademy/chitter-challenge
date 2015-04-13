@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User
+
   include DataMapper::Resource
 
   attr_reader :password
@@ -16,15 +17,12 @@ class User
 
   def password= password
     @password = password
-    self.password_digest = BCrypt::Password.create password
+    self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate email, password
+  def self.authenticate(email, password)
     user = first(email: email)
-    if user && BCrypt::Password.new(user.password_diggest) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
+
 end

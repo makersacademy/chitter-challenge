@@ -1,5 +1,12 @@
+<div id="new-peep">
+  <form action="/peeps" method="post">
+    Content: <input type="text" name="content">
+    <input type="submit" value="Chit">
+  </form>
+</div>
+
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep.content %></li>
   <% end %>
 </ul>
