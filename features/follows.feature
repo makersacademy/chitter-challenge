@@ -15,7 +15,7 @@ Feature: Users can follow other users
     When I click link "joejknowles"
     And I press the "Follow" button
     And I click link "Following"
-    Then I see "You are following:"
+    Then I see "Fred is following:"
     And I see "joejknowles"
 
   Scenario: Don't see follow button on own profile
@@ -32,7 +32,6 @@ Feature: Users can follow other users
     And I press the "Follow" button
     Then I don't see the "Follow" button
 
-
   Scenario: Sees cheeps of followed people
     When I click link "joejknowles"
     And I press the "Follow" button
@@ -40,3 +39,31 @@ Feature: Users can follow other users
     And I click link "Following Cheeps"
     Then I see "Follow me!"
     And I don't see "Cheep cheep!"
+
+  Scenario: Sees number of followers
+    When I click link "joejknowles"
+    Then I see "0 Followers"
+    When I press the "Follow" button
+    Then I see "1 Follower"
+    When I sign out
+    And "bob" signs up
+    And I click link "joejknowles"
+    And I press the "Follow" button
+    Then I see "2 Followers"
+
+  Scenario: See follows on other profiles
+    When I click link "joejknowles"
+    And I press the "Follow" button
+    And I'm on the "users/profiles/joejknowles/following" page
+    Then I see "joejknowles is following"
+
+  Scenario: See followers on other profiles
+    When I click link "joejknowles"
+    And I press the "Follow" button
+    And I click link "Followers"
+    Then I see "User known as Fred"
+    And I see "joejknowles is followed by"
+
+
+
+

@@ -90,7 +90,7 @@ Then(/^I see element "([^"]*)" with text "([^"]*)"$/) do |selector, text|
 end
 
 When(/^I click link "([^"]*)"$/) do |link|
-  click_link link
+  first(:link, link).click
 end
 
 Given(/^I cheep "([^"]*)"$/) do |text|

@@ -31,9 +31,21 @@ class Chitter < Sinatra::Base
   end
 
   get '*/following' do
+    @profile = request.fullpath[16..-11]
+    @profile = User.first(username: @profile)
     @user = User.first(id: session[:user_id])
-    @following = @user.followed_people
-    erb :'users/following'
+    @people = @profile.followed_people
+    @sentence = " is following:"
+    erb :'users/follows'
+  end
+
+  get '*/followers' do
+    @profile = request.fullpath[16..-11]
+    @profile = User.first(username: @profile)
+    @user = User.first(id: session[:user_id])
+    @people = @profile.followers
+    @sentence = " is followed by:"
+    erb :'users/follows'
   end
 
   get '/following-cheeps' do
@@ -44,7 +56,3 @@ class Chitter < Sinatra::Base
     erb :index
   end
 end
-
-
-
-

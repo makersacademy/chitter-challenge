@@ -8,5 +8,7 @@
     </form>
   <% end %>
 <% end %>
-<p> <%= @profile.followers.length %> followers</p>
+<% @profile.followers.length == 1 ? plural = '' : plural = 's' %>
+<p> <a href='/users/profiles/<%= @profile.username %>/followers'><%= @profile.followers.length %> Followers<%= plural %></a> / <a href='/users/profiles/<%= @profile.username %>/following'>Following</a></p>
+
 <%= erb :cheeps %>

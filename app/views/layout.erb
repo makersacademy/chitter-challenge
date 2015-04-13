@@ -9,6 +9,7 @@
       <%= "Happy Chitting, #{@user.username}" %>
       <%= "<a id='profile' href='/users/profiles/#{@user.username}'>My Profile</a>" %>
       <a href='/users/profiles/<%= @user.username %>/following'>Following</a>
+      <a href='/users/profiles/<%= @user.username %>/followers'>My followers</a>
       <form action='/users/sign-out' method='post'>
         <button>Sign out</button>
       </form>
