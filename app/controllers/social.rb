@@ -7,7 +7,11 @@ class Chitter < Sinatra::Base
     cheep = Cheep.first(id: cheepid)
     Applause.create(user_id: session[:user_id], cheep_id: cheepid)
     puts refresh = request.fullpath[0..-15]
-    refresh << "#{session[:profile]}" if refresh == '/users/profiles/'
+    if refresh == '/users/profiles/'
+      refresh << "#{session[:profile]}"
+    else
+      refresh = session[:page]
+    end
     redirect refresh
   end
 
@@ -51,6 +55,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/following-cheeps' do
+    session[:page] = '/following-cheeps'
     @user = User.first(id: session[:user_id])
     @cheeps = Cheep.select do |cheep|
       @user.followed_people.include?(cheep.user)
@@ -59,6 +64,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/trending' do
+    session[:page] = '/trending'
     @user = User.first(id: session[:user_id])
     @cheeps = Cheep.all
     @cheeps = Ranker.rank(@cheeps)
