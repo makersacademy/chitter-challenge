@@ -1,68 +1,76 @@
-Chitter Challenge
-=================
+Fridgedoor
+==========
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Fridgedoor is an online messaging site which allows users to post messages for others to see - just how you would use your fridge door in the real world.
 
-Challenge:
--------
+[![Build Status](https://travis-ci.org/james-miller/chitter-challenge.svg)](https://travis-ci.org/james-miller/chitter-challenge)
 
-As usual please start by 
+Url for this site: [https://fridgedoor.herokuapp.com](https://fridgedoor.herokuapp.com)
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+User stories - base requirements
+--------------------------------
 
 ```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+As a user
+So that I can post messages on Fridgedoor as me
+I want to sign up for Fridgedoor
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+As a user
+So that I can post messages on Fridgedoor as me
+I want to log in to Fridgedoor
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+As a user
+So that I can avoid others posting messages on Fridgedoor as me
+I want to log out of Fridgedoor
 
-As a maker
+As a user
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (note) to Fridgedoor
 
-As a maker
+As a user
 So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+I want to see all notes in reverse chronological order
 ```
 
-Notes on functionality:
-------
+User stories - desirable objectives
+-----------------------------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+```sh
+As a user
+So that I can have conversations with people
+I want to be able to reply to a note from someone else
 
-Bonus:
------
+As a user
+So that I can add my voice to a certain topic
+I want to be able to add tags to my notes
+```
 
-If you have time you can implement the following:
+Further spec
+------------
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Users can sign up once with their email
+* Users have a unique handle
+* Notes include their author's name and handle
+* Notes can be seen when not logged in
+* You cannot post a note if not logged in
+* Site should look awesome
 
-And/Or:
+Potential future updates
+------------------------
 
-* Work on the css to make it look good (we all like beautiful things).
+* Forgotten password resets
+* Real-time updating
+* User profiles / images
+* Email / text notifications
 
-Good luck and let the chitter begin!
+Technologies to implement
+-------------------------
+
+Testing
+* RSpec, Capybara
+
+User accounts
+* BCrypt
+
+Data management
+* DataMapper

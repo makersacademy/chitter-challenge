@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:9292/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Fridgedoor</title>
+  <link rel="stylesheet" type="text/css" href="./Fridgedoor_files/reset.css">
+  <link rel="stylesheet" type="text/css" href="./Fridgedoor_files/application.css">
+</head>
+
+<body>
+  <header>
+
+<h1><a href="./Fridgedoor_files/Fridgedoor.html"><img id="logo" src="./Fridgedoor_files/logo.png"></a></h1>
+
+  <section id="welcome-message">
+    <form method="post" action="http://localhost:9292/sessions">
+      Hello, 
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="nav-link" value="Sign out">
+      </form>
+  </section>
+
+</header>
+
+<section id="flash">
+  
+  
+</section>
+
+  
+  <h2>Add a note</h2>
+
+  <form id="new-note" action="http://localhost:9292/notes/add" method="post">
+    <input type="text" name="note" placeholder="Post a note">
+    <input type="submit" value="Post">
+  </form>
+
+
+<section id="note-container">
+
+  
+
+</section>
+
+
+</body></html>

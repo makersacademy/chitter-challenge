@@ -1,0 +1,13 @@
+<section class="form-container">
+
+  <form id="sign-up" action="/users/new" method="post">
+    <input type="text" name="first_name" value="<%= @user.first_name %>" placeholder="First name" required>
+    <input type="text" name="last_name" value="<%= @user.last_name %>" placeholder="Last name" required>
+    <input type="text" name="email" value="<%= @user.email %>" placeholder="Email address" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+    <br><input type="text" name="username" value="<%= @user.username %>" placeholder="Create your doorhandle" required>
+    <input type="submit" value="Sign up">
+  </form>
+
+</section>

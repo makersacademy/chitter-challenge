@@ -1,0 +1,20 @@
+<section id="new-note-container">
+
+<% if current_user %>
+
+  <h2>What would you like to say?</h2>
+
+  <form id="new-note" action="/notes/add" method="post">
+    <input type="text" class="note-input" name="note" placeholder="Post a note">
+    <input type="submit" value="Post">
+  </form>
+
+<% else %>
+
+  Please log in to post or reply to a note.
+
+<% end %>
+
+</section>
+
+<%= erb :'notes/notes' %>
