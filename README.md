@@ -35,16 +35,19 @@ MVP1 - Fully functioning chitter web app, allowing sign-up, sign-in, peep postin
 
 MVP2 - MVP1 + Styling and structure addressed.
 
-MVP3 - MVP2 + adjust suitablility for mobile browsers.
-
-MVP4 - MVP3 + Functionality to send a reply to a peep.
-
 ##Technologies##
 
 Testing - Cucumber / Rspec / Capybara
 Server - Sinatra
-Interface Structure - HTML
+Interface Structure - HTML through ERB
 Interface Styling - CSS
 Password Security - BCrypt
 Database - Postgres / Datamapper
 Business Logic - Ruby
+
+##Setup##
+
+The app runs on a Postgres database, you will need to create two databases `chitter_test` & `chitter_development`.
+
+You will also need to `bundle install` to obtain all the necessary gems.
+
