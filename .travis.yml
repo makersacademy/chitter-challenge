@@ -4,4 +4,7 @@ script:
   - bundle exec cucumber
 
 before_install:
- - sudo apt-get install -y postgresql-server-dev-9.2
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql
+  - sudo apt-get install -qq postgresql-server-dev-9.3
+  - sudo apt-get install -qq libpq-dev
