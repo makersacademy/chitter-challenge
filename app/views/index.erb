@@ -5,10 +5,13 @@
 
 <ul id= 'peeps'>
   <% if @peeps.nil? %>
-    <li>No Peeps</li>
+    <li class='empty peep'>No Peeps</li>
   <% else %>
     <% @peeps.each do |peep| %>
-      <li><%= "#{peep.content} from #{peep.user.name} at #{peep.created_at}" %></li>
+      <li class='peep'>
+        <div class='content'><%= "#{peep.content}" %></div>
+        <span class='peep meta'><%= "#{peep.user.name} at #{peep.created_at}" %></span>
+      </li>
     <% end %>
   <% end %>
 </ul>
