@@ -10,11 +10,8 @@ gem 'bcrypt'
 gem 'rack-flash3'
 gem 'do_postgres'
 
-group :test do
-  gem 'rspec'
-  gem 'capybara'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
-  gem 'coveralls', require: false
-end
-
+gem 'rspec'
+gem 'capybara'
+gem 'rubocop-rspec'
+gem 'rubocop'
+gem 'coveralls', require: false
