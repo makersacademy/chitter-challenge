@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'rack-flash3'
+gem 'do_postgres'
 
 group :test do
   gem 'rspec'

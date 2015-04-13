@@ -152,6 +152,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  do_postgres
   rack-flash3
   rspec
   rubocop
