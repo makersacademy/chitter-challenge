@@ -35,6 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+  # if @user= doesnt crash in localhost. Else, crashes in rspec
   user = User.create(email: params[:email],
                      username: params[:username],
                      password: params[:password],

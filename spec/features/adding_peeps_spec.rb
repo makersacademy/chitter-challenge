@@ -1,5 +1,14 @@
+require './lib/SessionHelpers'
+include SessionHelpers
+
 feature 'User adds a new peep' do
-  scenario 'when browsing the homepage' do
+  scenario 'when being signed in and browsing the homepage' do
+    User.create(email: 'test@test.com',
+                username: 'Mister_Test',
+                name: 'Tasty Tester',
+                password: 'test',
+                password_confirmation: 'test')
+    sign_in('Mister_Test', 'test')
     expect(Peep.count).to eq(0)
     visit '/'
     add_peep('peep peep!')
