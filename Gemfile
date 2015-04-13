@@ -11,6 +11,7 @@ gem 'rack-flash3'
 gem 'do_postgres'
 
 gem 'rspec'
+gem 'cucumber'
 gem 'capybara'
 gem 'rubocop-rspec'
 gem 'rubocop'
