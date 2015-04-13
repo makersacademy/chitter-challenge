@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   include Rack::Utils
   enable :sessions
   get '/' do
+    session[:page] = '/'
     @cheeps = Cheep.all
     @user = User.first(id: session[:user_id])
     erb :index
