@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css"
+</head>
+
+<body>
+  <% if current_user %>
+    <h1>Welcome, <%= current_user.name %></h1>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign Out">
+    </form>
+  <% else %>
+    <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+    <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <div id="container">
+    <%= yield %>
+  </div>
+</body>
+</html>
