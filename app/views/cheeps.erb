@@ -7,7 +7,7 @@
         <%= "<a href='/users/profiles/#{author}'>#{author}</a> cheeped:" %>
       </div>
       <div class='message'>
-        <%= cheep.message %>
+        <%= escape_html cheep.message %>
       </div>
       <div class='applause'>
         <%= cheep.applause.length %> applause

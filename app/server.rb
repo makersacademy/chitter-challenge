@@ -7,6 +7,7 @@ require_relative 'models/send_mail'
 class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
+  include Rack::Utils
   enable :sessions
   get '/' do
     @cheeps = Cheep.all
