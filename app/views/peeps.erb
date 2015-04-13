@@ -1,0 +1,9 @@
+<% if Peep.count > 0 %>
+  <% peeps = @users_peeps || Peep.all(order: [:id.desc]) %>
+    <% peeps.each do |peep| %>
+      <div class='peep'>
+        <%= peep.peep %><br>
+        <div class='peeped_by'> <em> Posted by: <a href='/users/<%= peep.user.id %>'><%= peep.user.username %></a> (<%= peep.user.name %>) </a></em> </div>
+      </div><br>
+  <% end %>
+<% end %>
