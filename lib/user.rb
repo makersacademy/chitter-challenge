@@ -7,10 +7,12 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
+  property :email, String, unique: true, message: 'This email is already taken'
   property :username, String
   property :password_digest, Text
   property :password_confirmation, Text
+
+  validates_uniqueness_of :email
 
   def password=(password)
     @password = password
@@ -22,11 +24,9 @@ class User
 
   validates_confirmation_of :password
 
-  def self.authenticate(email, password)
-    user = first(email: email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    end
+  def self.authenticate(username, password)
+    user = first(username: username)
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
 
 end
