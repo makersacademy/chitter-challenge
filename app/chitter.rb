@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
                      password_confirmation: params[:password_confirmation],
                      email: params[:email])
     if @user.save
-      session[:user_id] = @user.id
+      # session[:user_id] = @user.id
       flash[:notice] = "Welcome #{@user.name}, your account #{@user.handle} has been created"
       redirect to('/')
     else
@@ -54,6 +54,13 @@ class Chitter < Sinatra::Base
     erb :'chit/new'
   end
 
+  delete '/chit' do
+    @user = session[:user_id]
+    session[:user_id] = nil
+    flash[:notice] = "#{User.first(id: @user).handle} is now logged out"
+    redirect '/'
+  end
+
   post '/chit' do
     email, password = params[:email], params[:password]
     user = User.authenticate(email, password)
@@ -64,6 +71,12 @@ class Chitter < Sinatra::Base
     else
       flash[:errors] = ['The email or password is incorrect, no peeps for you!']
       erb :'chit/new'
+    end
+  end
+
+  helpers do
+    def maker
+      @maker ||= User.get(session[:user_id]) if session[:user_id]
     end
   end
 
