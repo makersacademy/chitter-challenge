@@ -9,6 +9,10 @@ Then(/^I see "([^"]*)"$/) do |string|
   expect(page).to have_content string
 end
 
+When(/^I sleep for (\d+) seconds$/) do |seconds|
+  sleep(seconds.to_i)
+end
+
 When(/^I see "([^"]*)", followed by "([^"]*)"$/) do |first, second|
   expect(page).to have_selector "div:nth-child(1)", text: first
   expect(page).to have_selector "div:nth-child(2)", text: second
@@ -96,6 +100,10 @@ end
 Given(/^I cheep "([^"]*)"$/) do |text|
   step "I fill in \"cheep\" with \"#{text}\""
   step 'I press the "Cheep" button'
+end
+
+When(/^I press the "([^"]*)"th "([^"]*)" button$/) do |nth, button|
+  page.all(:button, button)[nth.to_i - 1].click
 end
 
 def sign_in(username = 'joejknowles',

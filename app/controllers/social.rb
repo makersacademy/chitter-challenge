@@ -1,10 +1,12 @@
+require_relative '../models/ranker'
+
 class Chitter < Sinatra::Base
   post '*/cheeps/applaud' do
     @user = User.first(id: session[:user_id])
     cheepid = params[:cheepid]
     cheep = Cheep.first(id: cheepid)
     Applause.create(user_id: session[:user_id], cheep_id: cheepid)
-    refresh = request.fullpath[0..-15]
+    puts refresh = request.fullpath[0..-15]
     refresh << "#{session[:profile]}" if refresh == '/users/profiles/'
     redirect refresh
   end
@@ -53,6 +55,13 @@ class Chitter < Sinatra::Base
     @cheeps = Cheep.select do |cheep|
       @user.followed_people.include?(cheep.user)
     end
+    erb :index
+  end
+
+  get '/trending' do
+    @user = User.first(id: session[:user_id])
+    @cheeps = Cheep.all
+    @cheeps = Ranker.rank(@cheeps)
     erb :index
   end
 end
