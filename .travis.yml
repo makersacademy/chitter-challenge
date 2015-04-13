@@ -9,3 +9,4 @@ before_install:
 
 script: 
   - bundle exec rspec spec
+  - bundle exec cucumber
