@@ -71,11 +71,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/all' do
-    @peeps = Peep.all(order: [:created_at.desc])
-    @peep_ids = []
-    @peeps.each do |peep|
-      @peep_ids << peep.id
-    end
+    @peeps = Peep.reverse_chronological
     @users = User.all
     erb :'peeps/all'
   end

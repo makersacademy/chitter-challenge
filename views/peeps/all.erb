@@ -1,7 +1,7 @@
 <ul>
 <% @peeps.each do |peeps| %>
   <br>
-  The id number of the user who submitted this is: <%= peeps.user_id %>
+  By <%= peeps.user.name %>, username <%= peeps.user.username %>
   <li><%= peeps.title %>
   <li><%= peeps.body %>
   <br>

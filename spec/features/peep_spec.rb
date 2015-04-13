@@ -27,6 +27,7 @@ feature 'user can view all peeps in reverse chronological order' do
     click_button('Make Peep')
     visit '/peeps/all'
     expect(page).to have_content('This is a new peep')
+    expect(page).to have_content('By George, username cat')
   end
 end
 
