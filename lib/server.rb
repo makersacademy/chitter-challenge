@@ -27,6 +27,15 @@ class ChitterChallenge < Sinatra::Base
     erb :'signed-out'
   end
 
+  get '/sign-in' do
+    erb :'sign-in'
+  end
+
+  post '/sign-in' do
+    session[:username] = params[:username]
+    redirect to '/signed-in'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 
