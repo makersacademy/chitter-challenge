@@ -1,16 +1,18 @@
+<div id="posting">
 <form method='post' action='/'>
-  <input type='text' name='msg' placeholder:'Enter your Peep here'>
+  <input type='text' name='msg' placeholder='Enter your Peep here'>
   <input type='submit' value='Peep'>
 </form>
-
+</div>
 <ul id= 'peeps'>
   <% if @peeps.nil? %>
     <li class='empty peep'>No Peeps</li>
   <% else %>
     <% @peeps.each do |peep| %>
       <li class='peep'>
-        <div class='content'><%= "#{peep.content}" %></div>
-        <span class='peep meta'><%= "#{peep.user.name} at #{peep.created_at}" %></span>
+        <div class='content'><%= "#{peep.content}" %>
+        <span class='peepmeta'><%= "#{peep.user.handle} at #{peep.created_at.strftime("%H:%M %F")}" %></span>
+        </div>
       </li>
     <% end %>
   <% end %>

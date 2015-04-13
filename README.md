@@ -35,15 +35,18 @@ MVP1 - Fully functioning chitter web app, allowing sign-up, sign-in, peep postin
 
 MVP2 - MVP1 + Styling and structure addressed.
 
+##Design##
+This project is being developed in a BDD style using Cucumber to drive feature tests and RSpec for unit testing of the models.
+
 ##Technologies##
 
 Testing - Cucumber / Rspec / Capybara
 Server - Sinatra
-Interface Structure - HTML through ERB
+Interface Structure - HTML templated with ERB
 Interface Styling - CSS
 Password Security - BCrypt
-Database - Postgres / Datamapper
-Business Logic - Ruby
+Database - Postgres / Datamapper as ORM
+Programming Language - Ruby
 
 ##Setup##
 
@@ -51,3 +54,8 @@ The app runs on a Postgres database, you will need to create two databases `chit
 
 You will also need to `bundle install` to obtain all the necessary gems.
 
+##Contribution##
+
+This is a challenge set to identify progress in Wk3 at Makers Academy, therefore is designed to be tackled individually.
+
+However comment on the quality of the code and it's implementation would be very welcome.
