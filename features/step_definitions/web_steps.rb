@@ -52,14 +52,12 @@ Then(/^I create a new Peep$/) do
   expect(Peep.all.count).to eq(1)
 end
 
-# def register
-#   step "I am in the sign up section"
-#   step "I fill in \"username\" with \"saramoohead\""
-#   step "I fill in \"real_name\" with \"Sara OC\""
-#   step "I fill in \"email\" with \"saramoo@hotmail.com\""
-#   step "I fill in \"password\" with \"password\""
-#   step "I click \"Register\""
-# end
+Then(/^I see peeps in reverse chronological order$/) do
+  Peep.create(peep_content: "Sanjay is awesome.")
+  Peep.create(peep_content: "I am sleepy.")
+  expect(page).to have_content("I am sleepy.")
+  expect(page).to have_content("Sanjay is awesome.")
+end
 
 def log_in
   step "the user \"saramoohead\" exists"
@@ -69,5 +67,3 @@ def log_in
   step "I click \"Sign in\""
   step "my \"username\" and \"password\" are authenticated"
 end
-
-

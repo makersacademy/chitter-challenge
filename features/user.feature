@@ -45,3 +45,7 @@ Feature: user management
   Scenario: see peep
     Given I am on the homepage
     Then I see "Today is good"
+
+  Scenario: see all peeps in reverse order
+      Given I am on the homepage
+      Then I see peeps in reverse chronological order

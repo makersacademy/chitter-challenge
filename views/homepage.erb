@@ -14,7 +14,7 @@
   <div id='notice'><%= flash[:notice] %></div>
 <% end %>
 
-<% Peep.each do |peep| %>
+<% Peep.reverse_each do |peep| %>
   <ul>
     <li><%= peep.peep_content %></li>
   </ul>
