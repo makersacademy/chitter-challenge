@@ -1,0 +1,47 @@
+require 'sinatra/base'
+require_relative '../lib/user'
+require 'data_mapper'
+require 'rack-flash'
+require_relative './helpers/application'
+
+env = ENV['RACK_ENV'] || 'development'
+
+DataMapper.setup(:default, "postgres://localhost/bookmark_manager_#{env}")
+
+DataMapper.finalize
+
+DataMapper.auto_upgrade!
+
+class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
+  use Rack::Flash
+
+  get '/' do
+    erb :index
+  end
+
+  get '/users/new' do
+    @user = User.new
+    erb :'users/new'
+  end
+
+  post '/users' do
+    @user = User.create(
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash[:notice] = 'Sorry, your passwords do not match'
+      erb :'users/new'
+    end
+  end
+
+  run! if app_file == $PROGRAM_NAME
+
+end
