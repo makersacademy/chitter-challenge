@@ -13,8 +13,7 @@ feature 'User signs up' do
   end
 
   scenario 'when a user password does not match' do
-    expect { sign_up('a@a.com', 'pass', 'wrong') }.should
-    change(User, :count).by(0)
+    sign_up('a@a.com', 'blah', 'blah', 'pass', 'another pass')
     expect(current_path).to eq('/users')
     expect(page).to have_content('Your passwords do not match')
   end
@@ -37,8 +36,6 @@ feature 'User signs in' do
   end
 
   scenario 'with correct credentials' do
-    visit '/'
-    expect(page).not_to have_content('Welcome, test@test.com')
     sign_in('test@test.com', 'test')
     expect(page).to have_content('Welcome, test@test.com')
   end
@@ -64,7 +61,7 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     sign_in('test@test.com', 'test')
     click_button 'Sign out'
-    expect(page).to have content('Good bye! :(')
+    expect(page).to have_content('Good bye! :(')
     expect(page).not_to have_content('Welcome, test@test.com')
   end
 end
