@@ -3,6 +3,10 @@ Fridgedoor
 
 Fridgedoor is an online messaging site which allows users to post messages for others to see - just how you would use your fridge door in the real world.
 
+[![Build Status](https://travis-ci.org/james-miller/chitter-challenge.svg)](https://travis-ci.org/james-miller/chitter-challenge)
+
+Url for this site: [](https://fridgedoor.herokuapp.com)
+
 User stories - base requirements
 --------------------------------
 
