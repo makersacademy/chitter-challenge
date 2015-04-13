@@ -2,3 +2,6 @@ rvm: '2.2.1'
 script: 
   - bundle exec rspec spec
   - bundle exec cucumber
+
+before_install:
+ - sudo apt-get install -y postgresql-server-dev-9.2
