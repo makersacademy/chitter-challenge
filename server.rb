@@ -14,7 +14,7 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 enable :sessions
-set :session_secret, 'super secret'
+set :session_secret, 'user sign up'
 
 helpers do
   def current_user
@@ -38,16 +38,28 @@ end
     redirect to ('/')
   end
 
-  get '/signup' do
+get '/hashtags/:text' do
+  hashtag = Hashtag.first(:text => params[:text])
+  @posts = hashtag ? hashtag.posts : []
+  erb :index
+end
+
+  get '/users/new' do
+    @user = User.new
     erb :new
   end
 
-  post '/signup' do
-  @User = User.create(email: params[:email],
+  post '/users' do
+  @user = User.create(email: params[:email],
               password: params[:password])
   session[:user_id] = user.id
   redirect to('/')
   end
+
+  get '/sessions/new' do
+  erb :'sessions/new'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
