@@ -1,12 +1,12 @@
 <h1>Welcome to Chitter!</h1>
 
 Current Peeps:
-<ul>
+<ol reversed>
   <% @posts.each do |post| %>
     <li><%= post.peep %></li>
     <li><%= post.user %></li>
   <% end %>
-</ul>
+</ol>
 
 <div id="new-post">
   <form action="/posts" method="post">
