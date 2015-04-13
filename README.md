@@ -5,7 +5,7 @@ Fridgedoor is an online messaging site which allows users to post messages for o
 
 [![Build Status](https://travis-ci.org/james-miller/chitter-challenge.svg)](https://travis-ci.org/james-miller/chitter-challenge)
 
-Url for this site: [](https://fridgedoor.herokuapp.com)
+Url for this site: [https://fridgedoor.herokuapp.com](https://fridgedoor.herokuapp.com)
 
 User stories - base requirements
 --------------------------------
