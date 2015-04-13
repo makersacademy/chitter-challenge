@@ -14,7 +14,7 @@ Features
 --------
 Want to see exclusive updates from the likes of Barrack Obama and Kim Kardashian? They've been cheeping HOURLY, so join us quick before all the usernames run out.
 
-Sign up and send a 'cheep' out into the world. Click any username to go to their profile. Follow other users to see their cheeps without the noise of the enormous global user base. Want to show your appreciation of a post? Show it some 'applause', that's what the 'applaud' button is for.
+Sign up and send a 'cheep' out into the world. Click any username to go to their profile. Follow other users to see their cheeps without the noise of the enormous global user base. Want to show your appreciation of a post? Show it some 'applause', that's what the 'applaud' button is for. Now with exclusive trending feature. See what's most important to our vast user base thanks to our unique sorting algorithm; you'll only see what really matters.
 
 
 <br>

@@ -7,6 +7,6 @@ require_relative 'cheep'
 require_relative 'applause'
 DataMapper.finalize
 # require 'database_cleaner'
-# DataMapper.auto_upgrade!
+DataMapper.auto_upgrade!
 # DatabaseCleaner.strategy = :transaction
 # DatabaseCleaner.clean
