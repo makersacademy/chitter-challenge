@@ -55,6 +55,14 @@ Further spec
 * You cannot post a note if not logged in
 * Site should look awesome
 
+Potential future updates
+------------------------
+
+* Forgotten password resets
+* Real-time updating
+* User profiles / images
+* Email / text notifications
+
 Technologies to implement
 -------------------------
 
