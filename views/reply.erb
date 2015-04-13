@@ -1,0 +1,8 @@
+<% if @logged_in %>
+    <form action='/reply' method='post'>
+      reply: <input type='text' name='reply'>
+             <input type='submit' value='reply'>
+    </form>
+  <% else %>
+    you need to be logged in to reply
+<% end %>

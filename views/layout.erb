@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title> Chittter! </title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
+  </head>
+<body>
+  <div class="layout" >
+    <% if flash[:notice] %>
+      <em class="flashnotice"><%=flash[:notice] %> </em>
+      <br>
+    <% end %>
+      <%= @who_to_welcome %>
+    <% if session[:username] %>
+      <form action='/sessions' method='post'> 
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+    <% else %>
+      <a href="/sessions/new">log in</a> 
+      <br>
+      <a href = "/users/new">sign up</a>
+    <% end %>
+    <h1><div class="pageheader"><a href="/">Chittter</a> </div></h1>
+    <div class="underheader">the not very well styled social network </div>
+    <%= yield %>
+</div>
+</body>

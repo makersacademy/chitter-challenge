@@ -1,0 +1,13 @@
+<div class='peep_box'>
+  <br><em class='tobold'><a href="/peeps/new">New Peep!</a></em>
+      <ul>
+        <% @sorted.each do |peep| %>
+          <div class='peeplist'><li><em class='tobold'><em class='userp'><%=peep.user%></em></em> peeps: <em class='tobold'>"<%= peep.content %>"</em> <a href="/reply/<%=peep.id%>">reply</a></li> </div>
+              <% peep.replys.each do |reply| %>
+              <div class='replys'>
+                <li><em class='tobold'><em class='userr'><%=reply.user %></em></em> replys: <em class='tobold'><%= reply.reply %></li></em>
+                </div>
+              <% end %>
+        <% end %>
+    <ul>
+</div>
