@@ -69,3 +69,40 @@ feature 'User signs out' do
   end
 
 end
+
+feature 'Users lost his password' do
+  before(:each) do
+    User.create(user_name: 'Ed',
+                email: 'ed@ed.com',
+                password: '123',
+                password_confirmation: '123')
+  end
+
+  scenario 'he wants to reset it' do
+    reset_form('ed@ed.com')
+    token = User.first.password_token
+    visit "/reset_password/#{token}"
+    old_password = User.first.password_digest
+    change_form('new_password', 'new_password')
+    expect(User.first.password_digest).not_to eq old_password
+    expect(User.first.password_token).to be_nil
+  end
+
+  scenario 'he wants to reset it but he puts wrong password confirmation' do
+    reset_form('ed@ed.com')
+    token = User.first.password_token
+    visit "/reset_password/#{token}"
+    change_form('new_password', 'new_wrong_password')
+    expect(page).to have_content('Sorry, your password does
+                                  not match the confirmation')
+  end
+
+  scenario 'he cannot reset if the token is older than one hour' do
+    user = User.first
+    user.password_token = "abcd"
+    user.password_token_timestamp = Time.new(2015, 4, 9, 12, 0, 0)
+    user.save
+    visit "/reset_password/#{user.password_token}"
+    expect(page).to have_content('Token time has expired!')
+  end
+end

@@ -3,11 +3,14 @@ require './app/data_mapper_setup'
 require 'byebug'
 require 'rack-flash'
 require 'tilt/erb'
+require_relative 'helpers/application'
 require_relative 'models/convo'
 require_relative 'models/user'
 require_relative 'models/tag'
 
 class Chitter < Sinatra::Base
+
+  include Helpers
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -22,7 +25,7 @@ class Chitter < Sinatra::Base
 
   post '/message' do
     time = Time.now
-      message = params['message']
+    message = params['message']
     tags = params['tags'].split(' ').map do |tag|
       Tag.first_or_create(text: tag)
     end
@@ -53,7 +56,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     flash[:notice] = 'Good Bye!'
     session[:user_id] = nil
-    redirect to ('/')
+    redirect to '/'
   end
 
   get '/tags/:text' do
@@ -81,12 +84,39 @@ class Chitter < Sinatra::Base
     end
   end
 
-  helpers do
-
-    def current_user
-      @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  get '/reset_password' do
+    if params['email']
+      user = User.first(email: params['email'])
+      user.password_token = (1..64).map { ('A'..'Z').to_a.sample }.join
+      user.password_token_timestamp = Time.now
+      user.save
+      erb :"/reset_password/confirmation"
+    else
+      erb :'/reset_password/request'
     end
+  end
 
+  get '/reset_password/:token' do
+    user = User.first(password_token: params[:token])
+    if Time.now > user.password_token_timestamp + (60 * 60)
+      flash[:notice] = "Token time has expired!"
+    else
+      if params[:password]
+        user.password = params[:password]
+        user.password_confirmation = params[:password_confirmation]
+        user.password_token = nil
+        user.password_token_timestamp = nil
+        if user.save
+          flash[:notice] = "Password changed!"
+          redirect to('/user/new')
+        else
+          flash.now[:errors] = user.errors.full_messages
+        end
+      else
+        @token = params[:token]
+        erb :'/reset_password/change_password'
+      end
+    end
   end
 
   # start the server if ruby file executed directly
