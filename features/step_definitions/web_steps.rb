@@ -53,6 +53,7 @@ Then(/^I create a new Peep$/) do
 end
 
 Then(/^I see peeps in reverse chronological order$/) do
+  log_in
   Peep.create(peep_content: "Sanjay is awesome.")
   Peep.create(peep_content: "I am sleepy.")
   expect(page).to have_content("I am sleepy.")

@@ -19,7 +19,7 @@ class ChitterChatter < Sinatra::Base
 
   get '/' do
     puts "*" * 20 + 'get /'
-    puts Peep.all.inspect
+    puts session.inspect
     @peeps = Peep.all
     erb :homepage
   end
@@ -37,6 +37,8 @@ class ChitterChatter < Sinatra::Base
                      password: params[:password])
     if User.all(username: @username).count == 0
       @user.save
+      puts "*" * 20 + 'users'
+      puts session.inspect
       session[:username] = @username
       erb :homepage
     else
@@ -49,7 +51,7 @@ class ChitterChatter < Sinatra::Base
     Peep.create(peep_content: params[:peep_content])
     flash[:notice] = 'Peep has been posted!'
     puts "*" * 20 + 'peeps/new'
-    puts Peep.all
+    puts session.inspect
     redirect('/')
   end
 
@@ -59,6 +61,8 @@ class ChitterChatter < Sinatra::Base
     user = User.authenticate(@username, @password)
     if user
       session[:username] = @username
+      puts "*" * 20 + 'sessions'
+      puts session.inspect
       erb :homepage
     else
       erb :homepage
