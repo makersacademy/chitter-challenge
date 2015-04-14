@@ -1,7 +1,15 @@
 <h1> Welcome to blabber! Are you ready to blabb?!!!</h1>
 
 <ul id='blabbs'>
-  <% @blabbs.each do |blabbs| %>
-    <%= partial :blabbs, locals: {blabbs: blabbs} %>
+  <% @blabbs.each do |banana| %>
+    <li class='blabbs'>
+  <div class='message'>
+    <%= banana.message %>
+  </div>
+  <span class='source'>
+    added <%= Time.now %> by
+    <a href="/users/<%= banana.user.id %>"><%= banana.user.name %></a>
+  </span>
+</li>
   <% end %>
 </ul>

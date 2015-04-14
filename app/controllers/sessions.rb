@@ -16,6 +16,6 @@ end
 
 delete '/sessions' do
   session.clear
-  flash[:notice] = 'Good bye! :('
+  flash[:notice] = ['Good bye! :(']
   redirect to('/')
 end

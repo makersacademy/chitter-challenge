@@ -1,5 +1,5 @@
 get '/' do
-  @blabbs = Blabbs.all
+  @blabbs = Blabb.all
   puts flash[:notice] .inspect
   erb :index
 end

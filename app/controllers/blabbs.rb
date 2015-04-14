@@ -1,6 +1,7 @@
 post '/blabbs' do
   message = params['message']
-  Blabbs.create(message: message)
+  Blabb.create(message: message, user_id: current_user.id)
+  # current_user.blabbs.create(message: message)
   redirect to('/')
 end
 
