@@ -1,0 +1,30 @@
+<style>
+span {
+  float: right;
+}
+body {
+  color: orange;
+  background-color: teal;
+}
+</style>
+<% if current_user %>
+  <span>
+    <%= current_user.username %>
+    <form method='post' action='/users/logout'>
+    <input type="submit" value="Log Out">
+    </form>
+  </span>
+<% else %>
+  <span>
+    <p>If you already have an account, log in:</p>
+    <form action='/users/login' method='post'>
+    Username:<br>
+    <input type='text' name='Login_username'><br>
+    Password:<br>
+    <input type='password' name='Login_password'><br>
+    <input type='submit' value='Log In'>
+    </form>
+    Or click <a href='/'>here</a> to sign up
+  </span>
+<% end %>
+<%= yield %>

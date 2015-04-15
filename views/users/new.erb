@@ -1,0 +1,9 @@
+<% if @current_user %>
+  Hello <%= current_user.name %>,
+<% else %>
+  That username or email is already taken, click <a href='/'>here</a> to try again.
+<% end %>
+
+<br>
+Here is a list of all our users <a href='/users/all'>here</a>
+Go <a href='../peeps/new'>here</a> to make a peep!

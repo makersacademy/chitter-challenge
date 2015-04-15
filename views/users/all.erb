@@ -1,0 +1,9 @@
+<p>Here is a list of all our users:</p>
+
+<ul>
+<% @users.each do |users| %>
+  <li><%= users.username %></li>
+<% end %>
+</ul>
+
+Click <a href='/'>here</a> to return to the homepage.

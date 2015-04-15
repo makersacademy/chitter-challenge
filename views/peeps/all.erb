@@ -1,0 +1,11 @@
+<ul>
+<% @peeps.each do |peeps| %>
+  <br>
+  By <%= peeps.user.name %>, username <%= peeps.user.username %>
+  <li><%= peeps.title %>
+  <li><%= peeps.body %>
+  <br>
+<% end %>
+<ul>
+
+Click <a href='/peeps/new'>here</a> to make a new peep!
