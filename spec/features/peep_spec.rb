@@ -30,13 +30,3 @@ feature 'user can view all peeps in reverse chronological order' do
     expect(page).to have_content('By George, username cat')
   end
 end
-
-def sign_up(name = 'George', email = 'me@georgemcgowan.com',
-            username = 'cat', password = '12345')
-  visit '/'
-  fill_in('Name', with: name)
-  fill_in('Email', with: email)
-  fill_in('Username', with: username)
-  fill_in('Password', with: password)
-  click_button('Sign Up')
-end
