@@ -23,7 +23,7 @@ helpers do
 end
 
   get '/' do
-   @posts = Post.all
+   @posts = Post.all(:order => :time.desc)
    erb :index
   end
 
@@ -33,8 +33,10 @@ end
     hashtag = params['hashtag'].split(' ').map do |hashtag|
     Hashtag.first_or_create(text: hashtag)
     end
-    
-    Post.create(username: username, message: message, hashtag: hashtag)
+    Post.create(username: username, message: message, hashtag: hashtag, time: Time.now)
+
+    # //todo
+    # Post.create(user: current_user, message: message, hashtag: hashtag, time: Time.now)
     redirect to ('/')
   end
 
@@ -44,20 +46,34 @@ get '/hashtags/:text' do
   erb :index
 end
 
+post '/sessions' do
+  @user = User.authenticate(params[:email], params[:password])
+  if @user 
+    redirect '/'
+  else
+    erb :"sessions/new"
+  end
+end
+
   get '/users/new' do
     @user = User.new
-    erb :new
+    erb :"users/new"
   end
 
   post '/users' do
   @user = User.create(email: params[:email],
               password: params[:password])
-  session[:user_id] = user.id
+  session[:user_id] = @user.id
   redirect to('/')
   end
 
   get '/sessions/new' do
-  erb :'sessions/new'
+    erb :'sessions/new'
+  end
+
+  post '/sessions/sign_out' do
+    session[:user_id] = "";
+    redirect '/'
   end
 
 
