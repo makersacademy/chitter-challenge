@@ -12,12 +12,6 @@ class Chitter < Sinatra::Base
   use Rack::Flash
   use Rack::MethodOverride
 
-#   post '/set-flash' do
-#     flash[:notice] = 'Thanks for signing up!'
-#     flash[:notice]
-#     flash.now[:notice] = 'Thanks for signing up!'
-#   end
-
   get '/' do
     @peeps = Peep.all
     erb :index
@@ -25,7 +19,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     message = params['content']
-    Peep.create(content: message)
+    Peep.create(content: message,
+                user_id: User.first.id)
     redirect to('/')
   end
 
@@ -40,8 +35,8 @@ class Chitter < Sinatra::Base
                      username: params[:username],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
-    if @user.save
-      session[:user_id] = @user.id
+    if user.save
+      session[:user_id] = user.id
       redirect to('/')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -49,7 +44,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-# ??? I still don't fully understand what Helpers really are, or work.
 helpers do
 
   def current_user

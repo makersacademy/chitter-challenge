@@ -2,7 +2,7 @@
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.content %></li>
+    <li><%= peep.content %> created by <%= peep.user.username %></li>
   <% end %>
 </ul>
 <br>

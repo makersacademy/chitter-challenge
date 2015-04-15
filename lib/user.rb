@@ -2,10 +2,11 @@ require 'bcrypt'
 class User
 
   include DataMapper::Resource
+
   attr_reader :password
   attr_accessor :password_confirmation
-  validates_confirmation_of :password
 
+  validates_confirmation_of :password
   validates_uniqueness_of :email, :username
 
   property :id, Serial
@@ -13,6 +14,8 @@ class User
   property :username, String, unique: true, message: 'This username is already taken'
   property :name, String
   property :password_digest, Text
+
+  has n, :peeps
 
   def password=(password)
     @password = password
