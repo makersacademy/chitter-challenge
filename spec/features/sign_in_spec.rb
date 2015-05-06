@@ -7,6 +7,7 @@ feature 'User logs in' do
                 password_confirmation: 'applecider')
   end
 
+  
   scenario 'with correct credentials' do
     visit '/'
     expect(page).not_to have_content('Welcome, ilya.faybisovich@gmail.com')
