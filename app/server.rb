@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
+require 'tilt/erb'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'

@@ -11,7 +11,7 @@ post '/users/new' do
 
   if @user.save
     session[:user_id] = @user.id
-    flash[:notice] = 'Welcome to chitter!'
+    flash[:notice] = 'Welcome ' + @user.username
     redirect to('/')
   else
     flash[:errors] = @user.errors.full_messages

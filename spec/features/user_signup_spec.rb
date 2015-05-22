@@ -5,7 +5,8 @@ feature 'User' do
     click_link('Sign up')
     fill_in('username', with: 'rodcul')
     fill_in('email', with: 'rodcul@gmail.com')
-    click_link('Sign up')
+    fill_in('password', with: '1234')
+    click_button('Sign up')
     expect(page).to have_content('Welcome, rodcul')
   end
 end
