@@ -1,8 +1,8 @@
 # Chitter Challenge
 
 * [x] README
-* [ ] Sinatra init
-* [ ] Bootrap
+* [x] Sinatra init
+* [x] Bootrap
 * [ ] Heroku
 * [ ] Rspec/Capybara/Cucumber (websteps!)
 * [ ] Datamapper
