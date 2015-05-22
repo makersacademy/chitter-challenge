@@ -9,6 +9,7 @@ I would like to sign up
     And I fill in "email" with "peter@test"
     And I fill in "name" with "Peter Smith"
     And I fill in "password" with "test"
+    And I fill in "password_confirmation" with "test"
     And I fill in "username" with "Peter"
     And I press "Sign up"
     Then I should see "Welcome, Peter"
@@ -19,12 +20,27 @@ I would like to sign up
     And I fill in "email" with "peter@test"
     And I fill in "name" with "Peter Smith"
     And I fill in "password" with "test"
+    And I fill in "password_confirmation" with "test"
     And I fill in "username" with "Peter"
     And I press "Sign up"
     When I follow "Sign up"
     And I fill in "email" with "peter@test"
+    And I fill in "username" with "Peter"
     And I fill in "name" with "Peter Smith"
     And I fill in "password" with "test"
-    And I fill in "username" with "Peter"
+    And I fill in "password_confirmation" with "test"
     And I press "Sign up"
-    Then I should see "Email already signed up"
+    Then I should see "Email is already taken"
+
+  Scenario: with non matching passwords
+    Given I am on the homepage
+    When I follow "Sign up"
+    And I fill in "email" with "peter@test"
+    And I fill in "name" with "Peter Smith"
+    And I fill in "username" with "Peter"
+    And I fill in "password" with "test"
+    And I fill in "password_confirmation" with "wrong"
+    And I press "Sign up"
+    Then I should see "Password does not match the confirmation"
+
+

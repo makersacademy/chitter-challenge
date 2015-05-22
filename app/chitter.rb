@@ -27,12 +27,13 @@ class ChitterChatter < Sinatra::Base
     @user = User.create(email: params[:email],
                       name: params[:name],
                       username: params[:username],
-                      password: params[:password] )
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation] )
     if @user.save
       session[:name] = @user.username
       redirect to('/')
     else
-      flash[:errors] = "Email already signed up"
+      flash[:errors] = @user.errors.full_messages
       redirect to('users/new')
     end
   end

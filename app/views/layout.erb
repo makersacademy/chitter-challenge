@@ -5,7 +5,9 @@
 
   <% if flash[:errors] %>
     <ul id='errors'>
-      <li><%= flash[:errors] %></li>
+       <%flash[:errors].each do |error|%>
+        <li><%= error %></li>
+    <% end %>
     </ul>
     <% end %>
   <%=yield%>
