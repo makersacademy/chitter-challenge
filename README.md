@@ -1,6 +1,47 @@
 Chitter Challenge
 =================
 
+## Completion notes
+
+The approach I'm taking is TDD with
+
+1) Capybara feature tests
+2) UI code (MVC)
+3) RSpec unit tests
+4) Backend code (lib)
+
+I'm still pretty wobbly on the way to marry TDD with frontend and backend dev.
+
+## Domain model
+
+The two db tables and classes I'm using are Users and Peeps.
+
+These will also form part of the URLs for the relevant sections.
+
+I'm developing the domain modelling for each story as follows:
+
+### As a Maker. So that I can post messages on Chitter as me. I want to sign up for Chitter
+
+Users:
+
+* new - GET '/users/new' producing POST to '/users'
+
+### As a Maker. So that I can post messages on Chitter as me. I want to log in to Chitter
+
+Users:
+
+* login - GET '/' producing POST to '/sessions'
+
+### As a Maker. So that I can avoid others posting messages on Chitter as me. I want to log out of Chitter
+
+Users:
+
+* logout - GET '/' producing DELETE to '/sessions'
+
+
+
+# Original challenge Readme
+
 * Challenge time: Friday afternoon (+ weekend if you need it)
 * Feel free to use google, your notes, books, etc but work on your own
 * You must submit a pull request to this repo with your code by 9am Monday morning
@@ -8,7 +49,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
