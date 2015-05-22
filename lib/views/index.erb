@@ -1,0 +1,18 @@
+<h1>Welcome to Chitter!</h1>
+
+Current Peeps:
+<ol reversed>
+  <% @posts.each do |post| %>
+    <li><%= post.peep %></li>
+    <li><%= post.user %></li>
+  <% end %>
+</ol>
+
+<div id="new-post">
+  <form action="/posts" method="post">
+    Peep: <input type="text" name="peep">
+    User: <input type="text" name="user">
+    Tags: <input type="text" name="tags">
+    <input type="submit" value="Add Peep">
+  </form>
+</div>
