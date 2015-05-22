@@ -13,6 +13,9 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+	enable :sessions
+
+	set :session_secret, 'extremely secret stuff'
   get '/' do
     'Hello Chitter!'
   end
