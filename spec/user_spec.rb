@@ -2,7 +2,7 @@ describe User do
 
   context 'Checking DataMapper can create and delete entries' do
 
-    it 'should be created and retrieved from the db' do
+    it 'Should be created and retrieved from the db' do
       expect(User.count).to eq(0)
       User.create(username: 'Big G',
                   name: 'Andy Gout',

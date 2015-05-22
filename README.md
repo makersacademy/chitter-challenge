@@ -1,5 +1,14 @@
+[![Build Status](https://travis-ci.org/andygout/chitter-challenge.png)](https://travis-ci.org/andygout/chitter-challenge)
+
+[![Coverage Status](https://coveralls.io/repos/andygout/chitter-challenge/badge.png)](https://coveralls.io/r/andygout/chitter-challenge)
+
 Chitter Challenge
 =================
+
+Next Steps
+-------
+
+Run adding peeps test - allow add_peep function to successfully enter peep to DB.
 
 Challenge:
 -------
