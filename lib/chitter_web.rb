@@ -39,5 +39,9 @@ class Chitter < Sinatra::Base
   	redirect '/'
   end
 
+  get '/sessions/new' do
+  	erb :'sessions/new'
+  end
+
   run! if app_file == $0
 end
