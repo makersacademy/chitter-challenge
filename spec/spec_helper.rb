@@ -1,8 +1,12 @@
+ENV['RACK_ENV'] = 'test'
+
 require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'coveralls'
 require 'simplecov'
+
+Capybara.app = Sinatra::Application
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

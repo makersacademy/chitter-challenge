@@ -4,7 +4,7 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 
-# require_relative models
+require './app/models/user'
 
 # After declaring your models, you should finalise them
 DataMapper.finalize
