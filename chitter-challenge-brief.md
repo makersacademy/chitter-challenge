@@ -1,12 +1,21 @@
 Chitter Challenge
 =================
 
-Brief
-------
+* Challenge time: Friday afternoon (+ weekend if you need it)
+* Feel free to use google, your notes, books, etc but work on your own
+* You must submit a pull request to this repo with your code by 9am Monday morning
 
-To write a clone of Twitter that will allow users to post messages to a public stream
+Challenge:
+-------
 
-User Stories:
+As usual please start by 
+
+* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
+* Forking this repo
+
+We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+
+Features:
 -------
 
 ```sh
@@ -34,26 +43,6 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-
-Testing:
---------
-
-Will be done with RSpec and Capybara
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Notes on functionality:
 ------
