@@ -1,9 +1,11 @@
 # Chitter Challenge
 
+DEMO: https://chitter-rodcul.herokuapp.com/
+
 * [x] README
 * [x] Sinatra init
 * [x] Bootrap
-* [ ] Heroku
+* [x] Heroku
 * [ ] Rspec/Capybara/Cucumber (websteps!)
 * [ ] Datamapper
 * [ ] Sign up
