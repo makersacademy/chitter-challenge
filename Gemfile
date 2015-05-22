@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 group :development, :test do
+  gem 'bcrypt-ruby'
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'cucumber'
