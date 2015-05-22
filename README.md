@@ -46,6 +46,10 @@ Feature Tests:
 	
 	* As new user visiting site
 
+	* As long as they give a password and password confirmation that match
+
+	* But not with an email already registered as a user
+
 * User can sign in
 
 	* With correct log in details
