@@ -1,0 +1,14 @@
+<div>
+  <% if session[:log_in_details] == 'incorrect' %>
+    <p>Incorrect log in details</p>
+    <% session[:log_in_details] == 'na' %>
+  <% end %>
+  <form action='/login/process/' method=post>
+    <input type='text' name='email'>
+    <input type='password' name='password'>
+    <input type='submit' value='Log In'>
+  </form>
+  <form action='/signup/'>
+    <input type='submit' value='Sign Up'>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <p>Welcome, <%= User.first(id: session[:user_id]).email %></p>
+  <form action='/peep/new/process/' method='post'>
+    <input type='text' name='peep_text'>
+    <input type='submit' value='Post'>
+  </form>
+
+  <form action='/mypeeps/'>
+    <input type='submit' value='My Peeps'>
+  </form>
+
+  <ol id="peeps">
+    <% Peep.all(order: :time.desc).each do |peep| %>
+      <li><%= peep.text %></li>
+      <!-- Consider showing who posted (usernames!) -->
+    <% end %>
+  </ol>
+</div>

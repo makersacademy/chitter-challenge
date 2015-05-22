@@ -1,0 +1,1 @@
+Bug: Incorrect log in details sticks around
