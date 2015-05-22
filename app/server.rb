@@ -13,7 +13,7 @@ use Rack::Flash
 helpers do
 
   def current_user
-    @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    @current_user ||= User.get(session[:id]) if session[:id]
   end
 
 end
@@ -35,9 +35,9 @@ post '/signup' do
               username: params[:username])
   if @user.save
     session[:id] = @user.id
-    "Welcome #{@user.email}!"
+    redirect '/'
   else
-    flash.now[:notice] = 'This email is already taken'
+    flash.now[:notice] = @user.errors.full_messages
     erb :signup
   end
 end

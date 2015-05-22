@@ -3,7 +3,7 @@ require 'spec_helper'
 def sign_up(email = 'test@test.com',
             password = 'test123',
             password_confirmation = 'test123',
-            name = 'Test Smith',
+            name = 'John Smith',
             username = 'test_user1')
   visit '/signup'
   fill_in 'email', with: email
@@ -13,7 +13,6 @@ def sign_up(email = 'test@test.com',
   fill_in 'username', with: username
   click_button 'Submit'
 end
-
 
 feature 'A new user wants to sign up' do
   scenario 'for the first time' do
@@ -29,23 +28,31 @@ feature 'A new user wants to sign up' do
 
   scenario 'with an email that is already taken' do
     sign_up
-    expect(current_path).to eq '/signup'
     expect(User.count).to eq 1
     expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content 'This email is already taken'
   end
 
+  scenario 'with a username that is already taken' do
+    sign_up
+    expect(User.count).to eq 1
+    expect { sign_up('newperson@test.com',
+                      'test123,
+                      test123,
+                      John Jones
+                      test_user1')
+     }.to change(User, :count).by(0)
+    expect(page).to have_content 'This username is already taken'
+  end
+
   scenario 'with a password that does not match' do
     expect(User.count).to eq 0
-    visit '/signup'
-    fill_in 'email', with: 'test@test.com'
-    fill_in 'password', with: 'test123'
-    fill_in 'password_confirmation', with: 'test'
-    fill_in 'name', with: 'Test Smith'
-    fill_in 'username', with: 'test_user1'
-    click_button 'Submit'
-    expect(User.count).to eq 0
-    expect(page).to have_content 'Passwords do not match'
-    expect(current_path).to eq '/newuser'
+    expect { sign_up('test@test.com',
+                      'test',
+                      'fail',
+                      'John Smith',
+                      'test_user1') }.to change(User, :count).by 0
+    expect(current_path).to eq '/signup'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 end
