@@ -9,6 +9,7 @@ require_relative 'data_mapper_setup'
 
 require_relative 'controllers/base'
 require_relative 'controllers/users'
+require_relative 'controllers/sessions'
 
 
 module Chitter
@@ -20,6 +21,7 @@ module Chitter
     use Rack::MethodOverride # What does this do?
 
     use Routes::Users
+    use Routes::Sessions
 
     set :partial_template_engine, :erb
     set :views, Proc.new { File.join('app', 'views') }
