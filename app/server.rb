@@ -41,3 +41,29 @@ post '/signup' do
     erb :signup
   end
 end
+
+post '/login' do
+  username = params[:username]
+  password = params[:password]
+  user = User.authenticate(username, password)
+  if user
+    session[:id] = user.id
+    redirect to '/main'
+  else
+    flash[:errors] = 'The email or password is incorrect'
+    erb :index
+  end
+end
+
+get '/main' do
+  id = session[:id]
+  user = User.first(:id, id)
+  @name = user.name
+  erb :mainpage
+end
+
+delete '/session' do
+  flash[:notice] = 'Goodbye!'
+  session[:id] = nil
+  redirect to '/'
+end
