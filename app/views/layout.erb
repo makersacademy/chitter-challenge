@@ -2,7 +2,18 @@
 
 </head>
 
+<header>
+  <div> <a href='/users/new'>Sign Up</a> </div>
+
+  <div> <a href='/sessions/new'>Log In</a> </div>
+
+</header>
 <body>
+    <div>
+    <% if flash[:notice] %>
+      Welcome, <%=flash[:notice]%>
+    <%end%>
+    </div>
 
   <%=yield%>
 

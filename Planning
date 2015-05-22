@@ -30,7 +30,7 @@ Models required
 1. User properties :id, :name, :username, :email, :password_digest, :password_confirmation
 2. Peep properties :id, :message, :user_id
 
-Controller clusters required
+Controller clusters required >> Remember to keep thin on logic
  1. Index >> / loads up key models
  2. Users >> to manage sign-up process
  3. Peeps (or sessions) >> to manage adding new message
@@ -42,8 +42,8 @@ Views required
  4. Sign-in view
 
 Plan (Friday)
-- Set-up >> full file layout, set-up databases, config.ru, Gemfiles, public files and post a simple webpage to check working
-- Sign-up tests and user journey
+- Set-up >> full file layout, set-up databases, config.ru, Gemfiles, public files and post a simple webpage to check working (DONE)
+- Sign-up tests and user journey (DONE)
 - Log-in tests and user journey
 - GOAL >> can put on a basic 'Peep' onto home-page with attributes
 
