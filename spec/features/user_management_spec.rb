@@ -10,4 +10,8 @@ feature 'User signs up' do
     expect(User.first.email).to eq('example@test.com')
   end
 
+  scenario 'with a password that does not match' do
+    expect { sign_up('Big G', 'Andy Gout', 'example@test.com', 'pass', 'no_match') }.to change(User, :count).by(0)
+  end
+
 end

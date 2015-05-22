@@ -1,6 +1,6 @@
 feature 'User adds a new peep' do
 
-  scenario 'When browsing the homepage' do
+  scenario 'when browsing the homepage' do
     expect(Peep.count).to eq(0)
     visit '/'
     add_peep('Look at my breakfast, lolz')
