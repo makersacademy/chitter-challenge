@@ -12,7 +12,7 @@ feature 'User signs up' do
   end
 
   scenario 'with a password that does not match' do
-    expect { sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    expect { sign_up('a@a.com', 'handle', 'pass', 'wrong') }.to change(User, :count).by(0)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Sorry, there were the following problems with the form.')
   end
@@ -28,6 +28,7 @@ feature 'User logs in' do
 
   before(:each) do
     User.create(email: 'uhoh@danieljohnston.co.uk',
+                handle: 'uhoh',
                 password: 'testpassword',
                 password_confirmation: 'testpassword')
   end

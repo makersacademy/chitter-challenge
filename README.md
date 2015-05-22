@@ -34,13 +34,15 @@ Users:
 
 * login - GET '/sessions/new' producing POST to '/sessions'
 
-Status: completed with commit
+Status: completed with commit a834899. A *lot* of the code was reused from BookmarkManager.
 
 ### As a Maker. So that I can avoid others posting messages on Chitter as me. I want to log out of Chitter
 
 Users:
 
 * logout - GET '/' producing DELETE to '/sessions'
+
+Status: 
 
 
 
