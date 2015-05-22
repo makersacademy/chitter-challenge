@@ -1,19 +1,21 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
 
-As usual please start by
+A Twitter clone that will allow the users to post messages to a public stream.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+Technologies Used
+-------
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+- Ruby (language) on Sinatra (Web Application Framework)
+- PostgreSQL Database (using DataMapper (Object Relational Mapper written in Ruby))
+- Tested using RSpec (behaviour-driven development framework)
+
+Links:
+-------
+[Makers Academy Bookmark Manager tutorial](https://github.com/makersacademy/course/blob/master/bookmark_manager/bookmark_manager.md)
 
 Features:
 -------

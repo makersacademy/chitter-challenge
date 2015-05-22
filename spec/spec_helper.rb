@@ -4,6 +4,9 @@ require './app/server'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
+require 'capybara/rspec'
+
+Capybara.app = Sinatra::Application
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
