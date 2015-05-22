@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #70B0A2;
+  background-image: url(/images/farmField.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+html, body {
+  height: 100%;
+}
+/* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+}
+
+/* buttons */
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #5496FD;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* a link that has both classes. Overrides the previous declaration */
+.button.highlighted {
+  background-color: #b77843;
+}
+
+/* welcome text HEADER BG */
+header {
+  height: 130px;
+  background-color: rgba(253,226,115,0.8);
+  color: white;
+  padding: 0 20px;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+    border: 50px;
+  }
+  header #logo {
+    margin: 20px;
+    font-size: 36px;
+  }
+
+/* Chitter logo text */
+  header a {
+    color: #5496FD;
+    font-size: 40px;
+  }
+
+#welcome-message {
+    color: grey;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+/* peeps container bg */
+#container {
+  background-color: rgba(49,143,253,0.5);
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* peep message bg */
+.peep {
+  position: relative;
+  background-color: rgba(240,240,253,0.9);
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 50px inherit;
+  padding: 20px 20px;
+  border-radius: 5px;
+  }
+
+  /* peep message text */
+  .peep a.title {
+    font-size: 24px;
+    padding: 20px;
+    letter-spacing: 1px;
+    color: black;
+  }
+
+  .peep .description {
+    margin: 10px inherit;
+  }
+
+  /* by @name */
+  .peep .source {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    font-size: 20px;
+    padding: 20px;
+    color: rgba(79,136,253,0.85);
+  }
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75);
+  }
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  text-align: center;
+  padding: 30px;
+}
+
+  form p {
+    margin: 10px 0;
+  }
+
+  form input[type="text"], form input[type="password"] {
+    border: 1px solid black;
+    font-size: 16px;
+    width: 400px;
+  }
+
+footer {
+  display: flex;
+  background-color: rgba(0,0,0,0.2);
+  height: 70px; /* because of the sticky footer */
+}
+
+  footer > * {
+    margin: auto inherit;
+  }
+
+  footer img {
+    /* http://stackoverflow.com/questions/10658475/3px-extra-height-on-a-div-with-an-image-inside-it */
+    vertical-align: top;
+  }
+
+  footer #technologies {
+    -webkit-flex: 1;
+    flex: 1;
+    font-size: 12px;
+  }
+
+  footer p {
+    padding: 5px 25px;
+  }
+
+  /* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */
+  .footer, .push {
+    height: 70px;
+  }

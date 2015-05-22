@@ -1,0 +1,12 @@
+<div id='new-peep'>
+  <form action='/peeps' method='post'>
+    Your Peep: <input type='text' name='message'>
+    <input type='submit' value='Peep!'>
+  </form>
+</div>
+
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <%= partial :peep, :locals => {:peep => peep} %>
+  <% end %>
+</ul>

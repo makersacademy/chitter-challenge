@@ -1,24 +1,27 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+##[Chitter App available on Heroku](https://infinite-reef-3972.herokuapp.com)
 
-Challenge:
+![screenshot](https://github.com/sanjsanj/chitter-challenge/blob/master/public/images/chitter_screenshot_01.png?raw=true)
+
+Tools:
+------
+This website is built using Ruby, Sinatra, PostgreSQL, RSpec, Capybara, HTML and CSS.
+
+Development Blog:
+-----------------
+- [Day 0](http://sanjsanj.github.io/Week%204,%20Day%205/)
+- [Day 1](http://sanjsanj.github.io/Week%204,%20Day%206/)
+- [Day 2](http://sanjsanj.github.io/Week%204,%20Day%207/)
+
+Brief:
+-----
+To write a Twitter clone called Chitter, that allows users to post Peeps, available for viewing to the public via a web application.  The user stories must be satisfied.
+
+User Stories:
 -------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -40,29 +43,60 @@ So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 
-Notes on functionality:
-------
+How To Run:
+-----------
+- To view the website online please follow the 'Heroku' link at the top of this README.
+- To run the tests please type 'rake' in the application's root folder.
+- To launch a local version of the website in your browser please type 'rackup' in the application's root folder and then follow the onscreen instructions.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Testing:
+--------
+Rspec was used to write all the unit and feature tests for this application.
+All tests pass and coverage is 100%.
 
-Bonus:
------
+![travis-CI](http://sanjsanj.github.io/images/chitterTravisCI.png)
 
-If you have time you can implement the following:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+The tests are as follows:
+```
+Running RuboCop...
+20 files inspected, no offenses detected
 
-And/Or:
+Feature - Peeps Database
+  lists all peeps
 
-* Work on the css to make it look good (we all like beautiful things).
+Feature - User Database
+  lists all users
 
-Good luck and let the chitter begin!
+Feature - Peeps On Website
+  Peep can be added on the website
+
+Feature - User Sign Up On Website
+  succeeds with required details
+  fails without password confirmation
+  fails if email is already registered
+  fails if user handle is already registered
+
+Feature - User Sign In On Website
+  succeeds with correct credentials
+  fails without correct credentials
+
+Feature - User Sign Out On Website
+  succeeds while being signed in
+
+Peep
+  database is empty
+  can be created in the database
+  can be retrieved from the database
+  can be deleted from the database
+
+User
+  database is empty
+  can be created in the database
+  can be retrieved from the database
+  can be deleted from the database
+
+18 examples, 0 failures
+
+Coverage report generated for RSpec. 142/142 LOC (100.0%) covered.
+```
