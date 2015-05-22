@@ -13,7 +13,7 @@ class User
   property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
   property :name, String
-  property :username, String, unique: true, message: 'This username is already tkane'
+  property :username, String, unique: true, message: 'This username is already taken'
 
   def password=(password)
     @password = password
