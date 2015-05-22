@@ -10,6 +10,7 @@ gem 'bcrypt'
 group :test do
   gem 'rspec'
   gem 'cucumber'
+  gem 'capybara'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
