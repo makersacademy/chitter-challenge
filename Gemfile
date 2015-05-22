@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 
 group :development, :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop-rspec'

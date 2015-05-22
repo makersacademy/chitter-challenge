@@ -6,10 +6,10 @@ class User
 
 	property :id, Serial
   property :email, String, unique: true
-  property :encrypted_password, Text
+  property :password_digest, Text
 
   def password=(password)
-  	self.encrypted_password = BCrypt::Password.create(password) #encrypts the user's password
+  	self.password_digest = BCrypt::Password.create(password) #encrypts the user's password
   end
 
 end
