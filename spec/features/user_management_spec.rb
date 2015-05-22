@@ -29,7 +29,7 @@ feature 'A new user wants to sign up' do
 
   scenario 'with an email that is already taken' do
     sign_up
-    expect(current_path).to eq '/newuser'
+    expect(current_path).to eq '/signup'
     expect(User.count).to eq 1
     expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content 'This email is already taken'
