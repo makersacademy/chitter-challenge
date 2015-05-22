@@ -1,0 +1,9 @@
+<body>
+  <% if current_user %>
+    Hey <%= @current_user.username %>, Welcome to Chitter
+  <% else %>
+    Welcome to Chitter
+  <% end %>
+
+  <%= yield %>
+</body>
