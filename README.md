@@ -40,8 +40,14 @@ Testing:
 
 Will be done with RSpec and Capybara
 
+General Structure:
+------------------
 
+Currently planning on having the following classes:
 
+* Peep - the posts that users create
+
+* User - stores the user's information
 
 
 
