@@ -13,4 +13,12 @@ feature 'User can sign up' do
     expect(User.first.email).to eq 'ash@ash.com'
   end
 
+  def sign_up(email='ash@ash.com', password='pass', password_confirmation='pass')
+    visit '/users/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
+    click_button 'Sign Up'
+  end
+
 end
