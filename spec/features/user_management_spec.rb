@@ -13,6 +13,10 @@ feature 'User can sign up' do
     expect(User.first.email).to eq 'ash@ash.com'
   end
 
+  scenario 'But not with a password that doesn\'t match' do
+    expect{ sign_up 'ash@ash.com', 'pass', 'wrong' }.to change(User, :count).by 0
+  end
+
   def sign_up(email='ash@ash.com', password='pass')
     visit '/users/new'
     expect(page.status_code).to eq 200
@@ -36,14 +40,14 @@ feature 'User can sign in' do
     click_button 'Sign In'
   end
 
-  scenario 'As a registered user' do
+  scenario 'With correct log in details' do
     visit '/'
     expect(page).not_to have_content 'Welcome, ash@ash.com'
     sign_in 'ash@ash.com', 'pass'
     expect(page).to have_content 'Welcome, ash@ash.com'
   end
 
-  scenario 'With incorrect log in details' do
+  scenario 'But not with incorrect log in details' do
     visit '/'
     expect(page).not_to have_content 'Welcome, ash@ash.com'
     sign_in 'ash@ash.com', 'wrong'
