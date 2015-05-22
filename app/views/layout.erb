@@ -9,6 +9,16 @@
 
 </header>
 <body>
+    <div id='errors'>
+        <%if flash[:errors] && !flash[:errors].empty? %>
+          Sorry, you have the following errors to address:
+           <ul>
+              <%flash[:errors].each do |error| %>
+                <li> <%=error%> </li>
+              <%end%>
+           </ul>
+        <%end%>
+    </div>
     <div>
     <% if flash[:notice] %>
       Welcome, <%=flash[:notice]%>

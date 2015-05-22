@@ -3,14 +3,14 @@ get '/users/new' do
 end
 
 post '/users' do
-  name = params[:name]
-  username = params[:name]
-  email = params[:email]
-  password = params[:password_digest]
-  @user = User.first_or_create(name: name, username: username, email: email, password_digest: password)
+  name, username, email, password, password_confirmation = params[:name], params[:username],params[:email], params[:password], params[:password_confirmation]
+  @user = User.create(name: name, username: username, email: email, password: password, password_confirmation: password_confirmation)
 
   if @user.save
     flash[:notice] = @user.name #consider adding current_user helper if required
     redirect to('/')
+  else
+    flash[:errors] = @user.errors.full_messages
+    redirect to('/users/new')
   end
 end

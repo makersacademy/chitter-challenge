@@ -16,12 +16,16 @@ feature 'User signs up' do
     expect(page).to have_content("Welcome, Alex")
   end
 
-  scenario 'and must provide a unique username and email' do
-
+  scenario 'and must provide a unique username and email or get an error message' do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect { sign_up("Alex", "AlexHandy1", "ah2.com", "test") }.to change(User, :count).by(0)
+    expect(current_path).to eq('/users/new')
+    expect(page).to have_content("Username is already taken")
+    # expect(page).to have_content("This email is already taken")  #double check test validity because works on page but fails when add duplicate email
   end
 
   scenario 'and must have a matching, validated password' do
-
+    expect { sign_up("Alex", "AlexHandy1", "ah2.com", "test", "fail")}.to change(User, :count).by(0)
   end
 
 end
