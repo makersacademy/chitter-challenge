@@ -18,8 +18,32 @@ feature 'User can sign up' do
     expect(page.status_code).to eq 200
     fill_in :email, with: email
     fill_in :password, with: password
-    
     click_button 'Sign Up'
+  end
+
+end
+
+feature 'User can sign in' do
+
+  before(:each) do
+    User.create(email: 'ash@ash.com', password: 'pass')
+  end
+
+  def sign_in(email, password)
+    visit '/sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button 'Sign In'
+  end
+
+  scenario 'As a registered user' do
+    visit '/'
+    expect(page).not_to have_content 'Welcome, ash@ash.com'
+    sign_in 'ash@ash.com', 'pass'
+    expect(page).to have_content 'Welcome, ash@ash.com'
+  end
+
+  scenario 'With incorrect log in details' do
   end
 
 end
