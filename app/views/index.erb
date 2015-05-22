@@ -1,0 +1,9 @@
+<div>
+  <% if @peeps %>
+    <ul>
+    <% @peeps.each do |peep| %>
+      <li> <%=peep.message%> </li>
+    <%end%>
+    </ul>
+  <%end%>
+</div>
