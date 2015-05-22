@@ -14,8 +14,14 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 	enable :sessions
-
 	set :session_secret, 'extremely secret stuff'
+
+	helpers do
+		def current_user
+			@current_user ||= User.get(session[:user_id]) if session[:user_id] #either @current_user or @current_user = User's session user_id
+		end
+	end
+
   get '/' do
     'Hello Chitter!'
   end
