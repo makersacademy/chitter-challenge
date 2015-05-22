@@ -10,6 +10,7 @@ require_relative 'database_setup' #at end, after load models
 #CONTROLLER SET-UP
 require_relative 'controllers/application'
 require_relative 'controllers/users'
+require_relative 'controllers/sessions'
 
 #SINATRA CONFIG
 enable :sessions

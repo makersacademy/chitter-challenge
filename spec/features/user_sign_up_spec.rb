@@ -27,5 +27,4 @@ feature 'User signs up' do
   scenario 'and must have a matching, validated password' do
     expect { sign_up("Alex", "AlexHandy1", "ah2.com", "test", "fail")}.to change(User, :count).by(0)
   end
-
 end

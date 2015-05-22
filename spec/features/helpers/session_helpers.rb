@@ -12,4 +12,11 @@ module SessionHelper
     end
   end
 
+  def sign_in(email='ah.com', password='test')
+    visit ('/sessions/new')
+      fill_in :email, with: email
+      fill_in :password, with: password
+    click_button "Sign in"
+  end
+
 end
