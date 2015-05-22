@@ -6,8 +6,8 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Sinatra init
 * [x] Bootrap
 * [x] Heroku
-* [ ] Rspec/Capybara/Cucumber (websteps!)
 * [ ] Datamapper
+* [ ] Rspec/Capybara/Cucumber (websteps!)
 * [ ] Sign up
 * [ ] Log in
 * [ ] Log out
