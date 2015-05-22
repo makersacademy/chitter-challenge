@@ -1,0 +1,23 @@
+<body>
+  <% if current_user %>
+  Welcome, <%= current_user.handle %>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='sign out'>
+    </form>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id='notice'>
+    <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul id='errors'
+          <%flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+  <%= yield %>
+</body>

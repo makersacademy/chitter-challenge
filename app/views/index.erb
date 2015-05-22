@@ -1,0 +1,11 @@
+<ul>
+  <% @messages.each do |message| %>
+  <% end %>
+</ul>
+
+<section id='new-message'>
+  <form action='/messages' method='post'>
+    Memo: <input type='text' name='memo'>
+          <input type='submit' value='chat!'>
+  </form>
+</section>
