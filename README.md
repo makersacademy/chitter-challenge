@@ -1,3 +1,9 @@
+This is my first attempt at the Chitter challenge.
+I followed the tutorial we did on Bookmark Manager and tried to recreate the same with Chitter. 
+At this point, there are still some aspects which are unclear so I'm spending time understanding what I'm doing, while following the tutorial.
+I have not finished the challenge and plan to carry on, on Monday. I also plan to redo it in revision week.
+
+
 Chitter Challenge
 =================
 

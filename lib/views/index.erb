@@ -1,0 +1,18 @@
+<h1><center><img src='http://www.getchitter.com/images/chitter_logo.svg'></center></h1>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %> created by <%= peep.user.username %></li>
+  <% end %>
+</ul>
+<br>
+----------------------------------------------------------
+<br>You need to sign in or sign up to post peeps
+<BR><BR>
+----------------------------------------------------------
+<form method='get' action='/sessions/new'>
+    <button type="submit">SIGN IN</button>
+</form><BR>
+<form method='get' action='/users/new'>
+    <button type="submit">SIGN UP</button>
+</form>

@@ -1,0 +1,95 @@
+require 'sinatra/base'
+require 'rack-flash'
+require './lib/database_setup'
+# require './lib/SessionHelpers'
+
+# require_relative 'application_helpers'
+
+class Chitter < Sinatra::Base
+#   include ApplicationHelpers
+
+  enable :sessions
+  use Rack::Flash
+  use Rack::MethodOverride
+
+  get '/' do
+    @peeps = Peep.all
+    erb :index
+  end
+
+  post '/peeps' do
+    message = params['content']
+    Peep.create(content: message,
+                user_id: User.first.id)
+    redirect to('/')
+  end
+
+  get '/users/new' do
+    @user = User.new
+    erb :'users/new'
+  end
+
+  post '/users' do
+  # if @user= doesnt crash in localhost. Else, crashes in rspec
+  user = User.create(email: params[:email],
+                     username: params[:username],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
+  end
+
+helpers do
+
+  def current_user
+    @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  end
+
+end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    username, password = params[:username], params[:password]
+    user = User.authenticate(username, password)
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash[:errors] = ['The username or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = 'Good bye!'
+    redirect '/'
+  end
+
+# will carry on recover password, CSS and everything on Monday
+# get '/tags/:text' do
+#   tag = Tag.first(text: params[:text])
+#   @peep = tag ? tag.peeps : []
+#   erb :index
+# end
+
+#   get '/sessions/recover_password' do
+#     erb :"sessions/recover_password"
+#   end
+
+#   post '/sessions/recover_password' do
+#     User.recover_password(params[:email])
+#   end
+
+#   get 'users/recover_password/:token' do
+#     User.first(password_token: token)
+#   end
+end
