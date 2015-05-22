@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'byebug'
   gem 'database_cleaner'
   gem 'coveralls', require: false
 end

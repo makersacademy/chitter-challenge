@@ -11,6 +11,7 @@ class ChitterChatter < Sinatra::Base
 set :views, Proc.new {File.join(root, "views")}
 
   get '/' do
+    @name = session[:name]
     erb :index
   end
 
@@ -19,13 +20,12 @@ set :views, Proc.new {File.join(root, "views")}
   end
 
   post '/users' do
-    email = params[:email]
-    name = params[:name]
-    username = params[:username]
-    password = params[:password]
-    user = User.create(email: email, name: name, username:username, password: password )
-    user.save
-    name = user.username
+    @user = User.create(email: params[:email],
+                      name: params[:name],
+                      username: params[:username],
+                      password: params[:password] )
+    @user.save
+    session[:name] = @user.username
     redirect to('/')
   end
 
