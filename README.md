@@ -7,8 +7,8 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Bootrap
 * [x] Heroku
 * [ ] Datamapper
-* [ ] Rspec/Capybara/Cucumber (websteps!)
-* [ ] Sign up
+* [x] Rspec/Capybara/Cucumber (websteps!)
+* [x] Sign up
 * [ ] Log in
 * [ ] Log out
 * [ ] Post message

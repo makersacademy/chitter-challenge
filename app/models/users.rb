@@ -11,8 +11,7 @@ class User
   attr_reader :password
 
   def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password) unless password.empty?
   end
 
 end

@@ -17,4 +17,5 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'byebug'
 end

@@ -17,7 +17,8 @@
     <div class="container">
       <div class="container">
         <!-- Static navbar -->
-        <nav class="navbar navbar-inverse" role="navigation">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -29,15 +30,14 @@
           </div>
           <div class="navbar-collapse collapse">
             <% if current_user %>
-              <ul class="nav navbar-nav navbar-right">
-                <li>Welcome, <%= current_user.email %></li>
-              </ul>
+            <p class="navbar-text navbar-right">Welcome, <%= @current_user.username %></p>
             <% else %>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="/users/new">Sign up</a></li>
               </ul>
             <% end %>
           </div>
+        </div>
           <!--/.nav-collapse -->
         </nav>
         <% if flash[:notice] %>

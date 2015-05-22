@@ -5,6 +5,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require './app/server'
 require 'database_cleaner'
+require 'byebug'
 
 Capybara.app = Sinatra::Application
 
