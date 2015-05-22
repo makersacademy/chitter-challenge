@@ -46,6 +46,14 @@ Feature Tests:
 	
 	* As new user visiting site
 
+* User can sign in
+
+	* With correct log in details
+
+	* But not with incorrect log in details
+
+* User can sign out
+
 Unit Tests:
 
 * 
