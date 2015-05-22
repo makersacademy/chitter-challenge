@@ -12,8 +12,8 @@ use Rack::Flash
 
 helpers do
 
-  def current_user
-    @current_user ||= User.get(session[:id]) if session[:id]
+  def register_user
+    @registered_user ||= User.get(session[:id]) if session[:id]
   end
 
 end
@@ -50,8 +50,8 @@ post '/login' do
     session[:id] = user.id
     redirect to '/main'
   else
-    flash[:errors] = 'The email or password is incorrect'
-    erb :index
+    flash[:notice] = 'The username or password was incorrect'
+    redirect to '/'
   end
 end
 

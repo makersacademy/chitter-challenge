@@ -12,9 +12,9 @@ def sign_up(email = 'test@test.com',
   click_button 'Submit'
 end
 
-def login
+def login(username, password)
   visit '/'
-  fill_in 'username', with: 'test_user1'
-  fill_in 'password', with: '123'
+  fill_in 'username', with: username
+  fill_in 'password', with: password
   click_button 'Login'
 end

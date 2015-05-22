@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'helpers/user_helpers'
 
-feature 'A registered user' do
+feature 'A logged in user' do
 
   before(:each) do
     User.create(email: 'test@test.com',
@@ -9,7 +9,7 @@ feature 'A registered user' do
                 password_confirmation: '123',
                 name: 'John Smith',
                 username: 'test_user1')
-    login
+    login('test_user1', '123')
   end
 
   scenario 'wants to logout' do

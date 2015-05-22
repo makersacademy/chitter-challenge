@@ -9,7 +9,7 @@ feature 'A new user wants to sign up' do
     click_link 'Sign up'
     expect(page).to have_content 'Please enter your details'
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content 'Welcome test@test.com!'
+    expect(page).to have_content 'Registration confirmed'
     expect(User.first.email).to eq 'test@test.com'
   end
 
@@ -41,5 +41,13 @@ feature 'A new user wants to sign up' do
                       'test_user1') }.to change(User, :count).by 0
     expect(current_path).to eq '/signup'
     expect(page).to have_content 'Password does not match the confirmation'
+  end
+
+  scenario 'a newly registered user will only see the confirmation message once' do
+    sign_up
+    expect(page).to have_content 'Registration confirmed'
+    # Logins incorrectly
+    login('wrong_username', 'wrong_password')
+    expect(page).not_to have_content 'Registration confirmed'
   end
 end
