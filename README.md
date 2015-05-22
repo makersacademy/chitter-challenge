@@ -40,6 +40,16 @@ Testing:
 
 Will be done with RSpec and Capybara
 
+Feature Tests:
+
+* User can sign up
+	
+	* As new user visiting site
+
+Unit Tests:
+
+* 
+
 General Structure:
 ------------------
 
