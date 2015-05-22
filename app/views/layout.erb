@@ -1,7 +1,15 @@
 <body>
-  <% if @name != nil %>
-    Welcome, <%=@name%>
-  <%end%>
+    <% if current_user %>
+    Welcome, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+
+    <% if !current_user %>
+    <a href='/sessions/new'>Log in</a>
+    <% end %>
 
   <% if flash[:errors] %>
     <ul id='errors'>
