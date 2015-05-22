@@ -1,0 +1,14 @@
+<% if current_user %>
+  <div id='new-message'>
+    <form action='/messages' method='post'>
+      Message: <input type='text' name='text'>
+      <input type='submit' value='Post Message'>
+    </form>
+  </div> 
+<% end %>
+
+<ul>
+  <% @messages.reverse.each do |message| %>
+    <li><%=message.text%><%="  by @#{message.author} at #{message.time_stamp}"%></li>
+  <%end%>
+</ul>

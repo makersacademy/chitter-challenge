@@ -1,0 +1,10 @@
+Please sign up. 
+
+<form action='/users' method='post'>
+      Email:<input type='text' name='email' value='<%=@user.email%>'>
+      Name:<input type='text' name='name' value='<%=@user.name%>'>
+      User Name:<input type='text' name='user_name'value='<%=@user.user_name%>'>
+      Password:<input type='password' name='password'>
+      Confirm Password:<input type='password' name='password_confirmation'>
+      <input type='submit' value='Sign Up'>
+</form>
