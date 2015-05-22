@@ -1,9 +1,9 @@
 <div>
   <% if @peeps %>
-    <ul>
     <% @peeps.each do |peep| %>
       <li> <%=peep.message%> </li>
+      <li> <%=peep.user.name%> <li>
+      <li> <%=peep.user.username%> <li>
     <%end%>
-    </ul>
   <%end%>
 </div>
