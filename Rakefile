@@ -1,4 +1,4 @@
-require './server'
+require './app/server'
 
 task :before do
   raise "RAKE_ENV has not been specified" unless ENV.has_key?('RACK_ENV')
@@ -45,3 +45,5 @@ end
 task :default do
 
 end
+
+rake test: [:test]
