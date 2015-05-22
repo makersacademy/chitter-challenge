@@ -1,6 +1,5 @@
 ENV['RACK_ENV'] = 'test' # because we need to know what database to work with
 
-
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
@@ -15,7 +14,6 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-
 Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
@@ -25,7 +23,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -39,6 +36,5 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 
 end

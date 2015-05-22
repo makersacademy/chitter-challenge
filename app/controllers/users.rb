@@ -3,7 +3,6 @@ get '/users/new' do
   erb :'users/new'
 end
 
-
 post '/users/new' do
   @user = User.create(email: params[:email],
                       username: params[:username],

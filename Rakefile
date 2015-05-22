@@ -1,7 +1,7 @@
 require './app/server'
 
 task :before do
-  raise "RAKE_ENV has not been specified" unless ENV.has_key?('RACK_ENV')
+  fail "RAKE_ENV has not been specified" unless ENV.key?('RACK_ENV')
 end
 
 task :test do
@@ -15,7 +15,7 @@ task :test do
 end
 
 desc "Non destructive upgrade"
-task :auto_upgrade => [:before] do
+task auto_upgrade: [:before] do
   # auto_upgrade makes non-destructive changes.
   # If your tables don't exist, they will be created
   # but if they do and you changed your schema
@@ -27,9 +27,8 @@ task :auto_upgrade => [:before] do
   puts "Auto-upgrade complete (no data loss)"
 end
 
-
 desc "Destructive upgrade"
-task :auto_migrate => [:before] do
+task auto_migrate: [:before] do
   # To force the creation of all tables as they are
   # described in your models, even if this
   # leads to data loss, use auto_migrate:
@@ -41,9 +40,6 @@ end
 # Finally, don't forget that before you do any of that stuff,
 # you need to create a database first.
 
-
 task :default do
 
 end
-
-rake test: [:test]
