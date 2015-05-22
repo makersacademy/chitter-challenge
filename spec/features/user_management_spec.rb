@@ -2,7 +2,7 @@
 
 # As a Maker
 # So that I can post messages on Chitter as me
-# I want to sign up for Chitter
+# I want to log in to Chitter
 
 feature 'User can sign up' do
 
@@ -44,6 +44,10 @@ feature 'User can sign in' do
   end
 
   scenario 'With incorrect log in details' do
+    visit '/'
+    expect(page).not_to have_content 'Welcome, ash@ash.com'
+    sign_in 'ash@ash.com', 'wrong'
+    expect(page).not_to have_content 'Welcome, ash@ash.com'
   end
 
 end
