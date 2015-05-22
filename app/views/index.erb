@@ -1,0 +1,18 @@
+<h1>Welcome to Chitter</h1>
+
+Current tweets:
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li><p><%= tweet.user %>: <%= tweet.message %></p></li>
+  <% end %>
+</ul>
+
+<% if current_user %>
+<div id='new-tweet'>
+  <form action='/tweets' method='post'>
+    Name: <input type='text' name='user'>
+    Message: <input type='text' name='message'>
+    <input type='submit' value='Send tweet'>
+  </form>
+</div>
+<% end %>
