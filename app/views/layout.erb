@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<div class="page-wrap">
+<head>
+<head>
+    <title>Blabber</title>
+  <link rel='stylesheet' type='text/css' href='/css/reset.css'>
+  <link rel='stylesheet' type='text/css' href='/css/application.css'>
+</head>
+<body>
+
+  <div>
+    <%= partial :header %>
+    <%= partial :flash %>
+
+  <div id='blabbs-container'>
+    <%= yield %>
+  </div>
+  </div>
+
+</body>
+</div>
+
+<footer class='site-footer'>
+  <%= partial :footer %>
+</footer>
+</html>

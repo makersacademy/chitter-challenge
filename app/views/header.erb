@@ -1,0 +1,14 @@
+<header>
+  <div id ='logo'><a href="/">Blabber</a></div>
+  <a href="/blabbs/new" class="button highlighted">Add blabb</a>
+  <div id='user-blabbs'>
+    <% if current_user %>
+      <span id="welcome-message">
+        <%= partial :welcome_message %>
+      </span>
+    <% else %>
+      <a href="/sessions/new" id='sign-in' class='button'>Sign in</a>
+      <a href="/users/new" id='sign-up' class='button'>Sign up</a>
+    <% end %>
+  </div>
+</header>
