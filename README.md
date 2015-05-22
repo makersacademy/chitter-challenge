@@ -26,11 +26,15 @@ Users:
 
 * new - GET '/users/new' producing POST to '/users'
 
+Status: completed with commit 36e75. A *lot* of the code was reused from BookmarkManager as we haven't covered the underlying tools in detail.
+
 ### As a Maker. So that I can post messages on Chitter as me. I want to log in to Chitter
 
 Users:
 
-* login - GET '/' producing POST to '/sessions'
+* login - GET '/sessions/new' producing POST to '/sessions'
+
+Status: completed with commit
 
 ### As a Maker. So that I can avoid others posting messages on Chitter as me. I want to log out of Chitter
 

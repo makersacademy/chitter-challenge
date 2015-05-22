@@ -23,3 +23,27 @@ feature 'User signs up' do
     expect(page).to have_content('Sorry, there were the following problems with the form.')
   end
 end
+
+feature 'User logs in' do
+
+  before(:each) do
+    User.create(email: 'uhoh@danieljohnston.co.uk',
+                password: 'testpassword',
+                password_confirmation: 'testpassword')
+  end
+
+  scenario 'when starting at the login page' do
+    visit '/'
+    expect(page).not_to have_content('Welcome, uhoh@danieljohnston.co.uk')
+    sign_in('uhoh@danieljohnston.co.uk', 'testpassword')
+    expect(page).to have_content('Welcome, uhoh@danieljohnston.co.uk')
+  end
+
+  scenario 'with incorrect credentials' do
+    visit '/'
+    expect(page).not_to have_content('Welcome, uhoh@danieljohnston.co.uk')
+    sign_in('uhoh@danieljohnston.co.uk', 'wrong')
+    expect(page).not_to have_content('Welcome, uhoh@danieljohnston.co.uk')
+  end
+
+end
