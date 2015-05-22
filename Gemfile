@@ -16,4 +16,5 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'capybara'
+  gem 'database_cleaner'
 end

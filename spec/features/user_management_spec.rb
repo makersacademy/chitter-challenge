@@ -7,8 +7,8 @@ feature 'User signs up' do
 
   scenario 'when being the user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, alice@example.com')
-    expect(User.first.email).to eq('alice@example.com')
+    expect(page).to have_content('Welcome, uhoh@danieljohnston.co.uk')
+    expect(User.first.email).to eq('uhoh@danieljohnston.co.uk')
   end
 
   scenario 'with a password that does not match' do
