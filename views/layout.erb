@@ -1,0 +1,16 @@
+<body>
+  <% if @username %>
+  <h2>Welcome <%=@username%>.</h2>
+  <form action='/sessions/end' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+
+  <form action='/peeps/new' method='post'>
+    <input type='text' name='peep_content'>
+    <input type='submit' value='Peep'>
+  </form>
+  <% end %>
+
+  <%= yield %>
+</body>

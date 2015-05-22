@@ -1,4 +1,26 @@
-Chitter Challenge
+
+SOC pull request comments
+=================
+
+I'm really proud of myself this weekend. I made an MVP, which is the first time I've been able to do that.
+
+Unfortunately, I cannot make the final test pass. Though I can see from my session inspects that the sessions to persist, when I click "Peep" it resets the session somehow.
+
+I suspect the same or a similar problem is preventing me from splitting my user.feature into more than one .feature.
+
+For future development, I would like to include partials and add styling.
+
+
+Technologies Used
+=================
+
+Ruby, Sinatra, DataMapper, Cucumber, Capybara, RSpec, RackFlash
+
+
+
+
+
+Chitter Challenge Instructions
 =================
 
 * Challenge time: Friday afternoon (+ weekend if you need it)
@@ -18,7 +40,7 @@ We are going to write a little Twitter clone that will allow the users to post m
 Features:
 -------
 
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter

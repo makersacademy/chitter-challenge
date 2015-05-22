@@ -1,0 +1,21 @@
+
+<% if !@username %>
+<h3>Sign in to post a Peep</h3>
+<form action='/sessions' method='post'>
+  Enter your username: <input type='text' name='username'>
+  And your password: <input type='password' name='password'>
+  <input type='submit' value='Sign in'>
+</form>
+
+<h3>Or <a href="/users/new">click here</a> to register</h3>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
+<% Peep.reverse_each do |peep| %>
+  <ul>
+    <li><%= peep.peep_content %></li>
+  </ul>
+<% end %>

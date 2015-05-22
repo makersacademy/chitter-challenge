@@ -68,3 +68,6 @@ Style/Semicolon:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
   Enabled: false
   AllowAsExpressionSeparator: false
+
+Metrics/LineLength:
+  Max: 110
