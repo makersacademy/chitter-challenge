@@ -1,0 +1,9 @@
+Current Peeps:
+
+<div id='peeps_list'>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><a href='<%= peep.id %>'><%= peep.text %></a></li>
+  <% end %>
+</ul>
+</div>
