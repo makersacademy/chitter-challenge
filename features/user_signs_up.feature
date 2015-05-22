@@ -15,14 +15,8 @@ I would like to sign up
     Then I should see "Welcome, Peter"
 
   Scenario: with an email already signed up
-    Given I am on the homepage
-    When I follow "Sign up"
-    And I fill in "email" with "peter@test"
-    And I fill in "name" with "Peter Smith"
-    And I fill in "password" with "test"
-    And I fill in "password_confirmation" with "test"
-    And I fill in "username" with "Peter"
-    And I press "Sign up"
+    Given I have a Chitter profile
+    When I am on the homepage
     When I follow "Sign up"
     And I fill in "email" with "peter@test"
     And I fill in "username" with "Peter123"
@@ -33,14 +27,8 @@ I would like to sign up
     Then I should see "Email is already taken"
 
     Scenario: with a username already taken
-    Given I am on the homepage
-    When I follow "Sign up"
-    And I fill in "email" with "peter@test"
-    And I fill in "name" with "Peter Smith"
-    And I fill in "password" with "test"
-    And I fill in "password_confirmation" with "test"
-    And I fill in "username" with "Peter"
-    And I press "Sign up"
+    Given I have a Chitter profile
+    When I am on the homepage
     When I follow "Sign up"
     And I fill in "email" with "peter@123"
     And I fill in "username" with "Peter"

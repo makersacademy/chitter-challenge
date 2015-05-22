@@ -6,3 +6,7 @@ Given(/^I have a Chitter profile$/) do
               password_confirmation: "test"
                     )
 end
+
+Given(/^I have a Chitter Profile$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end

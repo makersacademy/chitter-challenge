@@ -1,5 +1,5 @@
 <body>
-    <% if current_user %>
+  <% if current_user %>
     Welcome, <%= current_user.username %>
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
@@ -7,9 +7,16 @@
     </form>
   <% end %>
 
-    <% if !current_user %>
-    <a href='/sessions/new'>Log in</a>
-    <% end %>
+  <% if !current_user %>
+    <a href='/sessions/new'>Log in</a><br>
+    <a href='/users/new'>Sign up</a><br>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <% if flash[:errors] %>
     <ul id='errors'>

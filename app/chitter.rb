@@ -12,6 +12,7 @@ class ChitterChatter < Sinatra::Base
   set :views, Proc.new {File.join(root, "views")}
 
   use Rack::Flash
+  use Rack::MethodOverride
 
    helpers do
       def current_user
@@ -25,7 +26,7 @@ class ChitterChatter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb :newuser
+    erb :'users/new'
   end
 
   post '/users' do
@@ -43,6 +44,10 @@ class ChitterChatter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
   post '/sessions' do
     email, password = params[:email], params[:password]
     user = User.authenticate(email, password)
@@ -51,19 +56,14 @@ class ChitterChatter < Sinatra::Base
       redirect to('/')
     else
       flash[:errors] = ['The email or password is incorrect']
-      erb :signin
+      erb :'sessions/new'
     end
   end
 
   delete '/sessions' do
-    session[:name] = nil
+    session[:user_id] = nil
     flash[:notice] = "Goodbye!"
     redirect to('/')
-  end
-
-
-  get '/sessions/new' do
-    erb :signin
   end
 
   # start the server if ruby file executed directly
