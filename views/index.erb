@@ -1,0 +1,17 @@
+<html>
+<h1> Welcome to Chitter </h1>
+<ul>
+<% @posts.each do |post| %>
+ <li><%= post.username %>  --  <%= post.time.strftime("%H:%M %d/%m/%Y") %><br></li>
+ <%= post.message %>
+<% end %>
+</ul>
+<div id='new-post'>
+  <form action='/posting' method='post'>
+    Username: <input type='text' name='username'>
+    Message: <input type='text' name='message'>
+    Hashtags: <input type='text' name='hashtag'>
+    <input type='submit' value='Post'>
+  </form>
+</div>
+</html>

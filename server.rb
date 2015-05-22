@@ -1,0 +1,82 @@
+require 'sinatra/base'
+require 'data_mapper'
+require_relative 'lib/hashtag'
+require_relative 'lib/post'
+require_relative 'lib/user'
+
+env = ENV["RACK_ENV"] || "development"
+
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+require_relative 'lib/post'
+require_relative 'lib/hashtag'
+DataMapper.finalize
+DataMapper.auto_upgrade!
+
+class Chitter < Sinatra::Base
+enable :sessions
+set :session_secret, 'user sign up'
+
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id]) if session[:user_id]
+  end
+end
+
+  get '/' do
+   @posts = Post.all(:order => :time.desc)
+   erb :index
+  end
+
+  post '/posting' do
+    username = params['username']
+    message = params['message']
+    hashtag = params['hashtag'].split(' ').map do |hashtag|
+    Hashtag.first_or_create(text: hashtag)
+    end
+    Post.create(username: username, message: message, hashtag: hashtag, time: Time.now)
+
+    # //todo
+    # Post.create(user: current_user, message: message, hashtag: hashtag, time: Time.now)
+    redirect to ('/')
+  end
+
+get '/hashtags/:text' do
+  hashtag = Hashtag.first(:text => params[:text])
+  @posts = hashtag ? hashtag.posts : []
+  erb :index
+end
+
+post '/sessions' do
+  @user = User.authenticate(params[:email], params[:password])
+  if @user 
+    redirect '/'
+  else
+    erb :"sessions/new"
+  end
+end
+
+  get '/users/new' do
+    @user = User.new
+    erb :"users/new"
+  end
+
+  post '/users' do
+  @user = User.create(email: params[:email],
+              password: params[:password])
+  session[:user_id] = @user.id
+  redirect to('/')
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions/sign_out' do
+    session[:user_id] = "";
+    redirect '/'
+  end
+
+
+  # start the server if ruby file executed directly
+  run! if app_file == $PROGRAM_NAME
+end
