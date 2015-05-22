@@ -1,0 +1,6 @@
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.body %></li>
+    <li><%= peep.created_at.strftime("%m/%d/%y - %I:%M%p")%></li>
+  <% end %>
+</ul>
