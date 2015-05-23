@@ -1,0 +1,15 @@
+Current messages with <%= @receiver %>
+
+<% if @all_peeps %>
+  <% @all_peeps.each do |peep| %>
+      <%= @sender %> said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
+      <br>
+  <% end %>
+<% end %>
+
+Write a private peep to <%= @name %> here
+<form method='post' action='/main/private'>
+  <input type='hidden' value= <%= @name %> name='receiver' >
+  <input type='text' placeholder='Write your peep here...' name='message'>
+  <input type='submit' value='Peep' name='peep'>
+</form>
