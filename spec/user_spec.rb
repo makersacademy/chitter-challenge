@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe User do
 
   context 'Checking DataMapper can create and delete entries' do
