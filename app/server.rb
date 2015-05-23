@@ -7,8 +7,10 @@ require_relative 'datamapper_setup'
 
 require_relative 'controllers/base'
 require_relative 'controllers/peeps'
+require_relative 'controllers/users'
 
 require_relative 'models/peep'
+require_relative 'models/user'
 
 module Chitter
   class Application < Sinatra::Application
@@ -19,6 +21,7 @@ module Chitter
 
     use Routes::Base
     use Routes::Peeps
+    use Routes::Users
 
     set :partial_template_engine, :erb
     set :views, Proc.new { File.join('app', 'views') }
