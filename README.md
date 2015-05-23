@@ -9,8 +9,8 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Datamapper
 * [x] Rspec/Capybara/Cucumber (websteps!)
 * [x] Sign up
-* [x] Log in
-* [ ] Log out
+* [x] Login
+* [x] Logout
 * [ ] Post message
 * [ ] See messages
 * [ ] See time

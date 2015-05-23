@@ -19,26 +19,41 @@
         <!-- Static navbar -->
         <nav class="navbar navbar-default">
           <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Chitter Challenge by @rodcul</a>
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Chitter Challenge by @rodcul</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <% if current_user %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <a href="#"><%= @current_user.username %></a>
+                  </li>
+                  <li>
+                    <form method='post' action='/sessions' class="navbar-form navbar-right">
+                      <input type='hidden' name='_method' value='delete'>
+                      <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                  </li>
+                </ul>
+              <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/users/new">Sign up</a></li>
+                  <li>
+                    <form method='post' action='/sessions/new' class="navbar-form navbar-right">
+                      <input type='hidden' name='_method' value='get'>
+                      <button type="submit" class="btn btn-danger" id = "login">Login</button>
+                    </form>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
           </div>
-          <div class="navbar-collapse collapse">
-            <% if current_user %>
-            <p class="navbar-text navbar-right">Welcome, <%= @current_user.username %></p>
-            <% else %>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="/users/new">Sign up</a></li>
-                <li><a href="/sessions/new">Log in</a></li>
-              </ul>
-            <% end %>
-          </div>
-        </div>
           <!--/.nav-collapse -->
         </nav>
         <% if flash[:notice] %>
@@ -49,7 +64,7 @@
         <% end %>
         <% if flash[:errors] && !flash[:errors].empty? %>
           <div class="alert alert-danger" role="alert">
-          <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
             <ul id = 'errors'>
               <% flash[:errors].each do |error| %>
                 <li><%= error %></li>
