@@ -58,6 +58,8 @@ Feature Tests:
 
 * User can sign out
 
+	* After having been signed in
+
 Unit Tests:
 
 * 
