@@ -1,6 +1,10 @@
 # Chitter Challenge
 
-DEMO: https://chitter-rodcul.herokuapp.com/
+## Demo
+
+https://chitter-rodcul.herokuapp.com/
+
+## Project Roadmap
 
 * [x] README
 * [x] Sinatra init
@@ -15,6 +19,16 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] See messages
 * [x] See time
 * [x] Reply message (optional)
+* [ ] Reply > Login > Reply directly to original peep
+* [ ] User profile page with list of peeps
+* [ ] #hashtag page with list of peeps
+* [ ] Clickable usernames & hashtags
+* [ ] Breakout templates into partials
+* [ ] Allow posting of html tags (currently renders them)
+* [ ] Forgotten password
+* [ ] Logout inactive session
+
+## Screenshot
 
 ![Screenshot](/public/img/screenshot.png)
 
@@ -52,16 +66,3 @@ Notes on implementation:
 * Using rspec & capybara
 * Did not include name, we prefer to remain anonymous
 * Bootstrap for styling
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
