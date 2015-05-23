@@ -1,0 +1,6 @@
+Reply to a peep!
+<form action='/peeps/getreply' method='post'>
+  <input type='text' name='message'>
+  <input type='hidden' name='original_id' value='<%=@original_id%>'>
+  <input type='submit' value ='Peep it'>
+</form>
