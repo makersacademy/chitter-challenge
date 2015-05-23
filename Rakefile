@@ -2,6 +2,8 @@ require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'data_mapper'
+require 'database_cleaner'
+require './app/server'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
@@ -25,4 +27,11 @@ task :auto_migrate do
   # may lead to data loss, use auto_migrate:
   DataMapper.auto_migrate!
   puts 'Auto-migrate complete (data could have been lost)'
+end
+
+task :database_cleaner do
+  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.clean_with(:truncation)
+  DatabaseCleaner.start
+  puts 'Database cleaned'
 end
