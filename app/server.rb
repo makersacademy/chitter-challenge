@@ -7,6 +7,7 @@ require_relative 'datamapper_setup'
 
 require_relative 'controllers/base'
 require_relative 'controllers/peeps'
+require_relative 'controllers/sessions'
 require_relative 'controllers/users'
 
 require_relative 'models/peep'
@@ -21,6 +22,7 @@ module Chitter
 
     use Routes::Base
     use Routes::Peeps
+    use Routes::Sessions 
     use Routes::Users
 
     set :partial_template_engine, :erb

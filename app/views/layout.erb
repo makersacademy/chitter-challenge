@@ -1,7 +1,8 @@
 <body>
   <% if current_user %>
-    Welcome, <%= current_user.name %>
+    Welcome, <%= current_user.email %>
   <% end %>
+  <%= partial :header %>
   <%= partial :flash %>
   <%= yield %>
 </body>
