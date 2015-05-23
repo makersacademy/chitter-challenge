@@ -28,7 +28,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made >> DONE
 
 EXTRA
->> I want to reply to a peep from another maker.
+>> I want to reply to a peep from another maker. >> DONE
 
 Models required
 1. User properties :id, :name, :username, :email, :password_digest, :password_confirmation
@@ -58,8 +58,11 @@ To-do
 - Add >> add a peep
 - Add log-out functionality and ensure sessions working properly (only add peep button after a session log-in, how remove when log-out?) >> if session_id then show this button on layout, otherwise don't
 - Push a basic working version to heroku
-- Think through reply functionality
+- Think through reply functionality + build test
 - Full mock of desired layout/ CSS plan
+- Complete CSS
+- Consider trying to add some JS/ jQuery
+- README
 
 
 

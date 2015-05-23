@@ -5,10 +5,14 @@
       <li> User: <%=peep.user.name%> </li>
       <li> Handle: <%=peep.user.username%> </li>
       <li> Time Posted: <%=peep.created_at.strftime('%F %H:%M:%S')%> </li>
-      <li> <form action='peeps/makereply' method='post'>
-            <input type='hidden' name='original_id' value='<%=peep.id%>'>
-            <input type='submit' value='Reply?'>
-            </form>
+      <%if session["user_id"] %>
+        <li id='reply'>
+             <form action='peeps/makereply' method='post'>
+                <input type='hidden' name='original_id' value='<%=peep.id%>'>
+                <input type='submit' value='Reply?'>
+              </form>
+        </li>
+      <%end%>
     <%end%>
   <%end%>
 </div>

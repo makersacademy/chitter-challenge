@@ -24,4 +24,10 @@ module SessionHelper
     fill_in :message, with: message
     click_button "Peep it"
   end
+
+  def reply(message="Tester")
+    click_on "Reply?" #do you have to specify which one?
+    fill_in :message, with: message
+    click_on "Peep it"
+  end
 end
