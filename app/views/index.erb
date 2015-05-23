@@ -1,0 +1,8 @@
+<h1>Welcome to Chitter</h1>
+
+Current peeps:
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message %></a></li>
+  <% end %>
+</ul>

@@ -1,7 +1,9 @@
+require 'spec_helper'
+
 feature 'User browses all current peeps' do 
 
   before(:each) do 
-    Peeps.create(message: 'peep peep!')
+    Peep.create(message: 'peep peep!')
   end
 
   scenario 'when opening the home page' do 
