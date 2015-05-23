@@ -64,6 +64,18 @@ To-do
 - Consider trying to add some JS/ jQuery
 - README
 
+CSS key features/ steps
+  >> Minimalitter
+  >> Soft black background
+  >> White text (get a good font)
+  >> Header that scrolls down and has white bottom border
+  >> Click to Peep image
+  >> Slim line containers (bottom white line each with container)
+  >> Reformat the time
+
+Nice to have
+  >> CSS style switcher
+  >> Bring peep onto front page
 
 
 
