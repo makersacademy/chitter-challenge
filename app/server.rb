@@ -8,6 +8,7 @@ require_relative 'helpers/application'
 require_relative 'models/users'
 
 require_relative 'controllers/users'
+require_relative 'controllers/sessions'
 
 enable :sessions
 set :session_secret, 'hidunLian'

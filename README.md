@@ -6,10 +6,10 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Sinatra init
 * [x] Bootrap
 * [x] Heroku
-* [ ] Datamapper
+* [x] Datamapper
 * [x] Rspec/Capybara/Cucumber (websteps!)
 * [x] Sign up
-* [ ] Log in
+* [x] Log in
 * [ ] Log out
 * [ ] Post message
 * [ ] See messages

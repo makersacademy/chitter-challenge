@@ -26,7 +26,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Sinatra + Twitter Bootstrap</a>
+            <a class="navbar-brand" href="/">Chitter Challenge by @rodcul</a>
           </div>
           <div class="navbar-collapse collapse">
             <% if current_user %>
@@ -34,6 +34,7 @@
             <% else %>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="/users/new">Sign up</a></li>
+                <li><a href="/sessions/new">Log in</a></li>
               </ul>
             <% end %>
           </div>
@@ -42,11 +43,13 @@
         </nav>
         <% if flash[:notice] %>
           <div class="alert alert-info" role="alert">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
             <%= flash[:notice] %>
           </div>
         <% end %>
         <% if flash[:errors] && !flash[:errors].empty? %>
           <div class="alert alert-danger" role="alert">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
             <ul id = 'errors'>
               <% flash[:errors].each do |error| %>
                 <li><%= error %></li>
