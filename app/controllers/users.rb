@@ -9,6 +9,7 @@ post '/users' do
 
   if @user.save
     flash[:notice] = "Welcome, #{@user.name}"
+    flash[:errors] = nil
     redirect to('/')
   else
     flash[:errors] = @user.errors.full_messages

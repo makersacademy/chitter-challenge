@@ -10,6 +10,7 @@ post '/sessions' do
   if @user
     session["user_id"] = @user.id
     flash[:notice] = "Welcome, #{@user.name}"
+    flash[:errors] = nil
     redirect to('/')
   else
     flash[:errors] = ['The email or password is incorrect']
