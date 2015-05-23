@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'rack-flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 
@@ -21,6 +22,7 @@ class ChitterChatter < Sinatra::Base
     end
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -65,6 +67,18 @@ class ChitterChatter < Sinatra::Base
     flash[:notice] = "Goodbye!"
     redirect to('/')
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    @peep = Peep.create(text: params[:peep], user_id: session[:user_id])
+    @peep.save
+    @user = User.first(id: @peep.user_id)
+    redirect to('/')
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

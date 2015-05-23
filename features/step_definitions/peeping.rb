@@ -7,6 +7,9 @@ Given(/^I have a Chitter profile$/) do
                     )
 end
 
-Given(/^I have a Chitter Profile$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I am logged in$/) do
+  visit('/sessions/new')
+  fill_in('email', :with => 'peter@test')
+  fill_in('password', :with => 'test')
+  click_button('Submit')
 end
