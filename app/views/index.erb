@@ -13,4 +13,14 @@ Welcome to Chitter
     <input type='submit' name='Login' value='Login'>
   </form>
   <a href='/signup'><button>Sign up</button></a>
+
+Past peeps:
+<br>
+<% if @all_peeps %>
+  <% @all_peeps.each do |peep| %>
+    <% @user = @all_users.get(peep.user_id) %>
+    <%= @user.username %> said: <%= peep.message %> at <%= peep.time %>
+    <br>
+  <% end %>
+<% end %>
 </body

@@ -18,3 +18,8 @@ def login(username, password)
   fill_in 'password', with: password
   click_button 'Login'
 end
+
+def create_peep(peep)
+  fill_in 'message', with: peep
+  click_button 'Peep'
+end

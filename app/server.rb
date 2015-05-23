@@ -20,6 +20,9 @@ helpers do
 end
 
 get '/' do
+  @all_peeps = Peep.all
+  @all_peeps.reverse!
+  @all_users = User.all
   erb :index
 end
 
@@ -74,6 +77,8 @@ post '/main' do
               time: time,
               user_id: id)
   @all_peeps = Peep.all
+  @all_peeps.reverse!
+  @all_users = User.all
   erb :mainpage
 end
 
