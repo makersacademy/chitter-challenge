@@ -18,5 +18,6 @@ group :test do
   gem 'byebug'
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'orderly'
 end
 

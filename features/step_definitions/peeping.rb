@@ -1,3 +1,5 @@
+require 'orderly'
+
 Given(/^I have a Chitter profile$/) do
   User.create(email: "peter@test",
               name: "Peter Smith",
@@ -16,4 +18,9 @@ end
 
 Then(/^I should see time of post/) do
   page.should have_content(Time.now)
+end
+
+Then(/^I should see "([^"]*)" before "([^"]*)"$/) do |newpeep, oldpeep|
+  newpeep.should appear_before(oldpeep)
+  oldpeep.should_not appear_before(newpeep)
 end
