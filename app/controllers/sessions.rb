@@ -1,4 +1,5 @@
 get '/sessions/new' do
+  @replies_to_id = params[:reply]
   erb :'sessions/new'
 end
 

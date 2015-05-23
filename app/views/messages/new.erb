@@ -1,0 +1,12 @@
+<%= current_user.username %>
+  <div class="col-md-10 col-md-offset-1">
+    <form class="form" method = "post" action="/messages">
+      <div class="form-group">
+        <label for="exampleInputFile">Write your peep here (140 chars max):</label>
+        <textarea class="form-control" rows="3" name="message"></textarea>
+      </div>
+      <input type="hidden" name="reply" value="<%= @reply_to_id %>">
+      <button type="submit" class="btn btn-primary btn pull-right">
+        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Reply to peep!</button>
+    </form>
+  </div>

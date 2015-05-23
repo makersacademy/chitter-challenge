@@ -14,7 +14,7 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Post message
 * [x] See messages
 * [x] See time
-* [ ] Reply message (optional)
+* [x] Reply message (optional)
 
 ![Screenshot](/public/img/screenshot.png)
 
