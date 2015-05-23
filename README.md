@@ -33,10 +33,13 @@ Links:
 Images:
 -------
 
+- Sign Up
 ![Screenshot Sign Up](/public/git_img/sign_up.png)
 
+- Home Page
 ![Screenshot Home Page](/public/git_img/home_page.png)
 
+- User Feed
 ![Screenshot User Feed](/public/git_img/user_feed.png)
 
 Features:
