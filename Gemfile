@@ -8,7 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'rack-flash3'
 gem 'bcrypt-ruby'
 
-group :test do
+group :development, :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'cucumber-sinatra'
