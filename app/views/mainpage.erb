@@ -11,6 +11,9 @@ Post a peep here
 
 Past peeps:
 <br>
-<% if @peep %>
-  <%= @peep.message %> at <%= @peep.time %>
+<% if @all_peeps %>
+  <% @all_peeps.each do |peep| %>
+    <%= peep.message %> at <%= peep.time %>
+    <br>
+  <% end %>
 <% end %>

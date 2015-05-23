@@ -70,9 +70,10 @@ post '/main' do
   @name = user.name
   message = params[:message]
   session[:peep] = message
-  @peep = Peep.create(message: message,
-                      time: time,
-                      user_id: id)
+  Peep.create(message: message,
+              time: time,
+              user_id: id)
+  @all_peeps = Peep.all
   erb :mainpage
 end
 
