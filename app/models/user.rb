@@ -7,6 +7,8 @@ class User
   property :id, Serial
   property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
+  property :password_token, Text
+  property :password_token_timestamp, Time
   property :name, String
   property :username, String
 
@@ -29,4 +31,9 @@ class User
       nil
     end
   end
+
+  def receive_password_token_email
+    Chitter::Application.email_handler.send_email_to self
+  end
+
 end

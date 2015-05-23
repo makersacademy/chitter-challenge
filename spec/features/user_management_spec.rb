@@ -85,7 +85,7 @@ feature 'User forgets password' do
       fill_in :email, with: user.email
     end
 
-    expect(BookmarkManager::Application.email_handler).to receive(:send_email_to).with(anything)
+    expect(Chitter::Application.email_handler).to receive(:send_email_to).with(anything)
 
     click_button 'Request new password'
     expect(page).to have_content('Password recovery e-mail sent!')
