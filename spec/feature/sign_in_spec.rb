@@ -11,7 +11,7 @@ feature "Session management" do
 
     expect(page).not_to have_content("Welcome Chidu")
     sign_in("chidu@chidu.com", "12345")
-    expect(page).not_to have_content("Sorry")
+    expect(page).not_to have_content("Sorry ")
   end
 
   def sign_in email, password
