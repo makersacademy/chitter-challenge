@@ -23,5 +23,6 @@ set :public_folder, 'public'
 DataMapper.auto_upgrade!
 
 get '/' do
+  @messages = Message.all(:order => [ :id.desc ])
   erb :index
 end

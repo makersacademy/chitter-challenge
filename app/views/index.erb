@@ -1,12 +1,31 @@
-<% if current_user %>
-<div class="col-md-6 col-md-offset-3">
-  <form class="form" method = "post" action="/messages">
-    <div class="form-group">
-      <label for="exampleInputFile">Write your peep here (140 chars max):</label>
-      <textarea class="form-control" rows="3" name="message"></textarea>
+<div class="container">
+  <div class="row">
+    <% if current_user %>
+      <div class="col-md-6 col-md-offset-3">
+        <form class="form" method = "post" action="/messages">
+          <div class="form-group">
+            <label for="exampleInputFile">Write your peep here (140 chars max):</label>
+            <textarea class="form-control" rows="3" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn pull-right">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Peep!</button>
+        </form>
+      </div>
+    <% end %>
+  </div>
+  ...
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <% @messages.each do |message| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= message.user.username %></h3>
+          </div>
+          <div class="panel-body">
+            <%= message.message %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <button type="submit" class="btn btn-primary btn pull-right">
-      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Peep!</button>
-  </form>
+  </div>
 </div>
-<% end %>
