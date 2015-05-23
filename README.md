@@ -11,7 +11,7 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Sign up
 * [x] Login
 * [x] Logout
-* [ ] Post message
+* [x] Post message
 * [ ] See messages
 * [ ] See time
 * [ ] Reply message (optional)

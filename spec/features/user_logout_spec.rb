@@ -1,7 +1,7 @@
 require_relative 'helpers'
 
 feature 'User logs out' do
-  before (:each) do
+  before(:each) do
     User.create(username: 'user01',
                 email: 'user01@test.com',
                 password: 'test1234')
