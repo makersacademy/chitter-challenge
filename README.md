@@ -1,22 +1,38 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Demo
 
-Challenge:
--------
+https://chitter-rodcul.herokuapp.com/
 
-As usual please start by 
+## Project Roadmap
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+* [x] README
+* [x] Sinatra init
+* [x] Bootrap
+* [x] Heroku
+* [x] Datamapper
+* [x] Rspec/Capybara/Cucumber (websteps!)
+* [x] Sign up
+* [x] Login
+* [x] Logout
+* [x] Post message
+* [x] See messages
+* [x] See time
+* [x] Reply message (optional)
+* [ ] Reply > Login > Reply directly to original peep
+* [ ] User profile page with list of peeps
+* [ ] #hashtag page with list of peeps
+* [ ] Clickable usernames & hashtags
+* [ ] Breakout templates into partials
+* [ ] Allow posting of html tags (currently renders them)
+* [ ] Forgotten password
+* [ ] Logout inactive session
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+## Screenshot
 
-Features:
--------
+![Screenshot](/public/img/screenshot.png)
+
+## Features
 
 ```sh
 As a Maker
@@ -44,29 +60,9 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+Notes on implementation:
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
+* Using rspec & capybara
+* Did not include name, we prefer to remain anonymous
+* Bootstrap for styling
