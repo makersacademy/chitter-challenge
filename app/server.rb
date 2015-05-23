@@ -18,6 +18,8 @@ set :session_secret, 'hidunLian'
 use Rack::Flash
 use Rack::MethodOverride
 
+set :public_folder, 'public'
+
 DataMapper.auto_upgrade!
 
 get '/' do
