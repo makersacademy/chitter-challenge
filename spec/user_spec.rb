@@ -7,8 +7,8 @@ describe User do
       User.create(username: 'Big G',
                   name: 'Andy Gout',
                   email: 'example@test.com',
-                  password: 'P0tat0M0nkey123',
-                  password_confirmation: 'P0tat0M0nkey123')
+                  password: 'P0tat0M0nkey123!',
+                  password_confirmation: 'P0tat0M0nkey123!')
       expect(User.count).to eq(1)
       user = User.first
       expect(user.username).to eq('Big G')

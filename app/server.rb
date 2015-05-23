@@ -10,6 +10,7 @@ require_relative 'models/user'
 
 require_relative 'controllers/application'
 require_relative 'controllers/peeps'
+require_relative 'controllers/sessions'
 require_relative 'controllers/users'
 
 DataMapper.auto_upgrade!
@@ -23,3 +24,5 @@ post '/set-flash' do
   flash[:notice] # => "Thanks for signing up!"
   flash.now[:notice] = "Thanks for signing up!"
 end
+
+use Rack::MethodOverride
