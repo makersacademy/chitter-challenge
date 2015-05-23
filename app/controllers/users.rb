@@ -4,7 +4,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.create( username: params[:username],
+  username = params[:username]
+  username.gsub!(/\s/, '_')
+  @user = User.create(username: username,
                       name: params[:name],
                       email: params[:email],
                       password: params[:password],
@@ -16,4 +18,10 @@ post '/users' do
     flash.now[:errors] = @user.errors.full_messages
     erb :'users/new'
   end
+end
+
+get '/users' do
+  username = params[:username]
+  @user  = User.first(username: username)
+  erb :'users/username'
 end

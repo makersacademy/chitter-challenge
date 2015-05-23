@@ -16,7 +16,7 @@ feature 'User views all peeps' do
   end
 
   scenario 'with username and name for each peep' do
-    expect(page).to have_content('Posted by Andy Gout (aka Big G)')
+    expect(page).to have_content('Posted by Andy Gout (aka Big_G)')
   end
 
   scenario 'with timestamp of when each peep was posted' do

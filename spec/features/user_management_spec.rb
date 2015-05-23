@@ -7,7 +7,7 @@ feature 'User signs up' do
 
   scenario 'when being a new user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, Andy Gout (aka Big G)')
+    expect(page).to have_content('Welcome, Andy Gout (aka Big_G)')
     expect(User.first.email).to eq('example@test.com')
   end
 
@@ -29,12 +29,17 @@ feature 'User signs up' do
     expect(page).to have_content('Username is already taken')
   end
 
+  scenario 'and has username converted to usable URL' do
+    sign_up
+    expect(page).to have_content('Welcome, Andy Gout (aka Big_G)')
+  end
+
 end
 
 feature 'User signs in' do
 
   before(:each) do
-    User.create(username: 'Big G',
+    User.create(username: 'Big_G',
                 name: 'Andy Gout',
                 email: 'example@test.com',
                 password: 'P0tat0M0nkey123!',
@@ -43,16 +48,16 @@ feature 'User signs in' do
 
   scenario 'with correct credentials' do
     visit '/'
-    expect(page).not_to have_content('Welcome, Andy Gout (aka Big G)')
+    expect(page).not_to have_content('Welcome, Andy Gout (aka Big_G)')
     sign_in('example@test.com', 'P0tat0M0nkey123!')
-    expect(page).to have_content('Welcome, Andy Gout (aka Big G)')
+    expect(page).to have_content('Welcome, Andy Gout (aka Big_G)')
   end
 
   scenario 'with incorrect credentials' do
     visit '/'
-    expect(page).not_to have_content('Welcome, Andy Gout (aka Big G)')
+    expect(page).not_to have_content('Welcome, Andy Gout (aka Big_G)')
     sign_in('example@test.com', 'non_match')
-    expect(page).not_to have_content(('Welcome, Andy Gout (aka Big G)'))
+    expect(page).not_to have_content(('Welcome, Andy Gout (aka Big_G)'))
   end
 
 end

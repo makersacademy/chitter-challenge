@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'tilt/erb'
 require_relative 'helpers/session'
 
 include SessionHelpers

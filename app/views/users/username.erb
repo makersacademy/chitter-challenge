@@ -1,0 +1,8 @@
+<h1><%= @user.name %> (aka <%= @user.username %>)</h1>
+
+<Peeps>
+<ul>
+  <% @user.peeps.reverse.each do |peep| %>
+    <li><%= peep.text %> (Posted by on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</li>
+  <% end %>
+</ul>
