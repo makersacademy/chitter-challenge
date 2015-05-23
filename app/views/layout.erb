@@ -1,40 +1,61 @@
-<head>
+<html>
 
-</head>
+  <head>
+    <link href='/css/bootstrap.css' rel='stylesheet'>
+    <link href='/css/bootstrap-responsive.css' rel='stylesheet'>
+    <link href='/css/style.css' rel='stylesheet'>
+  </head>
 
-<header>
-  <div> <a href='/users/new'>Sign Up</a> </div>
+ <body>
+ <div class='container'>
+   <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Minimalitter Chitter</a>
+      </div>
 
-  <div> <a href='/sessions/new'>Log In</a> </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/sessions/new">Log In</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-  <%if session["user_id"] %>
-    <div>
-    <form action='/sessions' method='post'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-    </div>
-    <div id='peep_button'> <a href='/peeps/new'>Peep!</a> </div>
-  <%end%>
-
-</header>
-<body>
+  <div class='row'> <!-- needs styling as an alert -->
     <div id='errors'>
-        <%if flash[:errors] && !flash[:errors].empty? %>
-          Sorry, you have the following errors to address:
-           <ul>
-              <%flash[:errors].each do |error| %>
-                <li> <%=error%> </li>
-              <%end%>
-           </ul>
-        <%end%>
+      <%if flash[:errors] && !flash[:errors].empty? %>
+        Sorry, you have the following errors to address:
+         <ul>
+            <%flash[:errors].each do |error| %>
+              <li> <%=error%> </li>
+            <%end%>
+         </ul>
+      <%end%>
     </div>
+  </div>
+
+  <br>
+
+  <div class='row'> <!-- needs styling as an alert -->
     <div>
-    <% if flash[:notice] %>
-      <%=flash[:notice]%>
-    <%end%>
+      <% if flash[:notice] %>
+        <%=flash[:notice]%>
+      <%end%>
     </div>
+  </div>
 
-  <%=yield%>
+        <%=yield%>
 
-</body>
+    </div> <!-- end of container -->
+  </body>
+</html>

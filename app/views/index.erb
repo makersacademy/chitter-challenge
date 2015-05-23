@@ -1,3 +1,15 @@
+<div>
+  <%if session["user_id"] %>
+    <div>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    </div>
+    <div id='peep_button'> <a href='/peeps/new'>Peep!</a> </div>
+  <%end%>
+</div>
+
 <div id='peeps'>
   <% if @peeps %>
     <% @peeps.reverse.each do |peep| %>
