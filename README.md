@@ -8,7 +8,9 @@ Chitter Challenge
 Next Steps
 -------
 
-Run adding peeps test - allow add_peep function to successfully enter peep to DB.
+- Allow users to reply to other users' peeps.
+- CSS styling (poss. w/ Bootstrap?).
+- Password recovery functionality.
 
 Challenge:
 -------
@@ -21,10 +23,21 @@ Technologies Used
 - Ruby (language) on Sinatra (Web Application Framework)
 - PostgreSQL Database (using DataMapper (Object Relational Mapper written in Ruby))
 - Tested using RSpec (behaviour-driven development framework)
+- Rake gem (*While much of your application is built to (swiftly) respond to a web request, there are many scenarios where you would like to access and run pieces of your application outside of that request/response cycle. You may want to run maintenance tasks, periodic calculations, or reporting in your production environment, while in development, you may want to trigger your full test suite to run. The rake gem is Ruby’s most widely accepted solution for performing these types of tasks.*)
 
 Links:
 -------
+
 [Makers Academy Bookmark Manager tutorial](https://github.com/makersacademy/course/blob/master/bookmark_manager/bookmark_manager.md)
+
+Images:
+-------
+
+![Screenshot Sign Up](/public/git_img/sign_up.png)
+
+![Screenshot Home Page](/public/git_img/home_page.png)
+
+![Screenshot User Feed](/public/git_img/user_feed.png)
 
 Features:
 -------
