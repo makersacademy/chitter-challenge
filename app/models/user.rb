@@ -1,9 +1,10 @@
 require 'bcrypt'
-require 'rest-client'
 
 class User
 
   include DataMapper::Resource
+
+  has n, :peeps
 
   property :id, Serial
   property :username, String, unique: true

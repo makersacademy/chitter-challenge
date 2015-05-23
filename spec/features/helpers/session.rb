@@ -22,4 +22,11 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def add_peep(text)
+    within('#new-peep') do
+      fill_in 'text', with: text
+      click_button 'Peep!'
+    end
+  end
+
 end
