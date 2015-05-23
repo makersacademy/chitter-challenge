@@ -107,6 +107,7 @@ GEM
     orderly (0.0.2)
     parser (2.2.0.3)
       ast (>= 1.1, < 3.0)
+    pg (0.18.2)
     powerpack (0.1.0)
     rack (1.6.1)
     rack-flash3 (1.0.5)
@@ -181,6 +182,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   orderly
+  pg
   rack
   rack-flash3
   rspec

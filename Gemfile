@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'rack-flash3'
 gem 'bcrypt-ruby'
 gem 'rack'
+gem 'pg'
 
 group :development, :test do
   gem 'rspec'
