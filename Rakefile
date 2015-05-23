@@ -35,7 +35,7 @@ task auto_migrate: [:before] do
 
   require './app/data_mapper_setup'
   DataMapper.auto_migrate!
-  puts "Auto-migrate complete (data was lost)"
+  puts "Auto-migrate complete (data may have been lost)"
 end
 # Finally, don't forget that before you do any of that stuff,
 # you need to create a database first.

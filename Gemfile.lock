@@ -181,6 +181,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   orderly
+  rack
   rack-flash3
   rspec
   rubocop
