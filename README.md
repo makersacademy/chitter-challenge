@@ -3,7 +3,7 @@ Chitter Challenge
 
 Brief:
 
-To write a Twitter clone, Chitter, that allows registered, signed in users to post messages ('Peeps'). These can be viewed by the public via a web application. The following user stories will be satisfied.
+To write a Twitter clone, Chitter, that allows registered, signed in users to post messages ('peeps'). These can be viewed by the public via a web application. The following user stories will be satisfied.
 
 User Stories:
 -------
