@@ -5,6 +5,7 @@ require 'rack-flash'
 require_relative 'data_mapper_setup'
 
 require './app/models/user'
+require './app/models/peep'
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -57,8 +58,21 @@ end
 
 get '/main' do
   id = session[:id]
-  user = User.first(:id, id)
+  user = User.get(id)
   @name = user.name
+  erb :mainpage
+end
+
+post '/main' do
+  id = session[:id]
+  time = Time.now
+  user = User.get(id)
+  @name = user.name
+  message = params[:message]
+  session[:peep] = message
+  @peep = Peep.create(message: message,
+                      time: time,
+                      user_id: id)
   erb :mainpage
 end
 

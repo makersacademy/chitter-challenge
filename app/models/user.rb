@@ -14,6 +14,9 @@ class User
   property :name, String
   property :username, String, unique: true, message: 'This username is already taken'
 
+  has n, :peeps, through: Resource
+
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

@@ -3,3 +3,14 @@ Welcome back <%= @name %>
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Logout">
   </form>
+Post a peep here
+  <form method="post" action="/main">
+    <input type="text" name="message" placeholder="What's on your mind...?">
+    <input type="submit" value="Peep">
+  </form>
+
+Past peeps:
+<br>
+<% if @peep %>
+  <%= @peep.message %> at <%= @peep.time %>
+<% end %>
