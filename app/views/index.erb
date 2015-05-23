@@ -1,12 +1,13 @@
 <div>
-  Welcome to ChitterChatter!
+  Welcome to ChitterChatter!<br>
   <a href="/peeps/new">New peep</a>
 
 
 <ul>
   <% @peeps.each do |peep| %>
-    <%=peep.text %>
-    Posted by: <%=(User.first(id: peep.user_id)).username%>,
+    <%=peep.text %><br>
+    Posted by: <%=(User.first(id: peep.user_id)).username%>,<br>
     <%=(User.first(id: peep.user_id)).name%>
+    at <%=peep.timestamp%><br>
   <% end %>
 </ul>

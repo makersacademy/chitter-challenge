@@ -13,3 +13,7 @@ Given(/^I am logged in$/) do
   fill_in('password', :with => 'test')
   click_button('Submit')
 end
+
+Then(/^I should see time of post/) do
+  page.should have_content(Time.now)
+end

@@ -69,11 +69,16 @@ class ChitterChatter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    if session[:user_id] != nil
+      erb :'peeps/new'
+    else
+      flash[:notice] = "Please log in or sign up to post a peep"
+      redirect to('/')
+    end
   end
 
   post '/peeps' do
-    @peep = Peep.create(text: params[:peep], user_id: session[:user_id])
+    @peep = Peep.create(text: params[:peep], user_id: session[:user_id], timestamp: Time.now)
     @peep.save
     @user = User.first(id: @peep.user_id)
     redirect to('/')

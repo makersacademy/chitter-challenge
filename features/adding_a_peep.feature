@@ -11,3 +11,9 @@ Feature: a User can add a peep
   When I fill in "peep" with "This is my first peep."
   And I press "submit"
   Then I should see "This is my first peep. Posted by: Peter, Peter Smith"
+  Then I should see time of post
+
+  Scenario: when not logged in
+  When I am on the homepage
+  And I follow "New peep"
+  Then I should see "Please log in or sign up to post a peep"
