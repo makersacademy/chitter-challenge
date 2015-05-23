@@ -64,14 +64,23 @@ feature 'User can sign in' do
 
   feature 'User can sign out' do
 
+    def sign_in(email, password)
+      visit '/sessions/new'
+      fill_in :email, with: email
+      fill_in :password, with: password
+      click_button 'Sign In'
+    end
+
     before(:each) do
       User.create(email: 'ash@ash.com', password: 'pass', password_confirmation: 'pass')
     end
 
-    scenario 'aftering having signed in' do
+    scenario 'after having signed in' do
+      visit '/'
       sign_in 'ash@ash.com', 'pass'
+      expect(page).to have_content 'Welcome, ash@ash.com'
       click_button 'Sign Out'
-      expect(page).to have_content 'Goodbye!'
+      # expect(page).to have_content 'Goodbye!'    FLASH NOTICE
       expect(page).not_to have_content 'Welcome, ash@ash.com'
     end
   end

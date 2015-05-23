@@ -14,6 +14,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+	use Rack::MethodOverride
 	enable :sessions
 	set :session_secret, 'extremely secret stuff'
 
@@ -51,6 +52,12 @@ class Chitter < Sinatra::Base
   	else
   		erb :'sessions/new'
   	end
+  end
+
+  delete '/sessions' do
+  	# INCLUDE FLASH NOTICE?
+  	session[:user_id] = nil
+  	redirect '/'
   end
 
   run! if app_file == $0
