@@ -1,7 +1,5 @@
 get '/messages/new' do
-
   erb :'messages/new'
-
 end
 
 post '/messages' do

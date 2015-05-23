@@ -1,7 +1,6 @@
 require 'bcrypt'
 
 class User
-
   include DataMapper::Resource
   property :id,         Serial    # An auto-increment integer key
   property :username,   String,  required: true, unique: true
@@ -32,5 +31,4 @@ class User
       user
     end
   end
-
 end
