@@ -32,7 +32,7 @@ EXTRA
 
 Models required
 1. User properties :id, :name, :username, :email, :password_digest, :password_confirmation
-2. Peep properties :id, :message, :user_id
+2. Peep properties :id, :message, :user_id, :created_at (timestamp)
 
 Controller clusters required >> Remember to keep thin on logic
  1. Index >> / loads up key models
@@ -50,6 +50,17 @@ Plan (Friday)
 - Sign-up tests and user journey (DONE)
 - Log-in tests and user journey
 - GOAL >> can put on a basic 'Peep' onto home-page with attributes
+
+To-do
+- Add test for displaying peep.user.name
+- Make reverse order chronologically (.reverse on array?)
+- Add time
+- Add >> add a peep
+- Add log-out functionality and ensure sessions working properly
+- Push a basic working version to heroku
+- Think through reply functionality
+- Full mock of desired layout/ CSS plan
+
 
 
 

@@ -1,9 +1,10 @@
-<div>
+<div id='peeps'>
   <% if @peeps %>
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
       <li> <%=peep.message%> </li>
-      <li> <%=peep.user.name%> <li>
-      <li> <%=peep.user.username%> <li>
+      <li> <%=peep.user.name%> </li>
+      <li> <%=peep.user.username%> </li>
+      <li> <%=peep.created_at.strftime('%F %H:%M:%S')%> </li>
     <%end%>
   <%end%>
 </div>

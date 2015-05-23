@@ -22,8 +22,20 @@ feature 'See all peeps' do
     expect(page).to have_content("Hello world 3")
   end
 
-  xscenario 'user can see name and username of the user who posted peep' do
+  scenario 'user can see name and username of the user who posted peep' do
+    visit ('/')
+    expect(page).to have_selector('div#peeps', text: "Alex")
+    expect(page).to have_selector('div#peeps', text: "AlexHandy1")
+  end
 
+  scenario 'user can see latest peeps first' do
+    visit ('/')
+    expect(page).to have_selector('li:nth-child(1)', text: "Hello world 3")
+  end
 
+  scenario 'peeps should have a timestamp' do
+    visit ('/')
+    t = Time.now
+    expect(page).to have_selector('div#peeps', text: "#{t.strftime('%F %H:%M:%S')}")
   end
 end
