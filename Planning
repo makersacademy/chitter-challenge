@@ -10,22 +10,22 @@ I want to log in to Chitter >> DONE
 
 As a Maker
 So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+I want to log out of Chitter >> DONE
 
 As a maker
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 (Peeps (posts to chitter) have the name of the maker and their user handle.)
-(You only can peep if you are logged in.)
+(You only can peep if you are logged in.) >> DONE
 
 As a maker
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
-(You don't have to be logged in to see the peeps.)
+(You don't have to be logged in to see the peeps.) >> DONE
 
 As a maker
 So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+I want to see the time at which it was made >> DONE
 
 EXTRA
 >> I want to reply to a peep from another maker.
@@ -56,7 +56,7 @@ To-do
 - Make reverse order chronologically (.reverse on array?)
 - Add time
 - Add >> add a peep
-- Add log-out functionality and ensure sessions working properly
+- Add log-out functionality and ensure sessions working properly (only add peep button after a session log-in, how remove when log-out?) >> if session_id then show this button on layout, otherwise don't
 - Push a basic working version to heroku
 - Think through reply functionality
 - Full mock of desired layout/ CSS plan

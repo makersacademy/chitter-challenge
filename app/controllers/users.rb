@@ -8,7 +8,7 @@ post '/users' do
   @user = User.create(name: name, username: username, email: email, password: password, password_confirmation: password_confirmation)
 
   if @user.save
-    flash[:notice] = @user.name #consider adding current_user helper if required
+    flash[:notice] = "Welcome, #{@user.name}"
     redirect to('/')
   else
     flash[:errors] = @user.errors.full_messages

@@ -7,7 +7,7 @@ feature 'User signs-in' do
               username: "AlexHandy1",
               email: "ah.com",
               password: "test",
-              password_confirmation: "test") #how do you test password_digest creation?
+              password_confirmation: "test")
   end
 
   scenario 'and as an existing user I can log-in' do

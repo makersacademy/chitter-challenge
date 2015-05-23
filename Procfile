@@ -1,0 +1,1 @@
+web: bundle exec ruby ./app/chitter.rb -p $PORT
