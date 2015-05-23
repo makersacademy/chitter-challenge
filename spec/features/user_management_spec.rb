@@ -48,8 +48,9 @@ feature 'User signs in' do
     sign_in('test@test.com', 'wrong')
     expect(page).not_to have_content('Welcome, test@test.com')
   end
+end
 
-  feature 'User signs out' do
+feature 'User signs out' do
 
   before(:each) do
     User.create(email: 'test@test.com',
@@ -68,4 +69,25 @@ feature 'User signs in' do
 
 end
 
+feature 'User forgets password' do
+
+  let(:user) { User.create(email: 'test@test.com', password: 'test', 
+    password_confirmation: 'test', name: 'Testname', username: 'Testusername') }
+
+  before do
+    user
+  end
+
+  scenario 'User requests replacement password' do
+    visit '/sessions/new'
+    expect(page).to have_content('Forgot password?')
+    within '#forgot' do
+      fill_in :email, with: user.email
+    end
+
+    expect(BookmarkManager::Application.email_handler).to receive(:send_email_to).with(anything)
+
+    click_button 'Request new password'
+    expect(page).to have_content('Password recovery e-mail sent!')
+  end
 end
