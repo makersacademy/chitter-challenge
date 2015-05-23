@@ -13,7 +13,7 @@ DEMO: https://chitter-rodcul.herokuapp.com/
 * [x] Logout
 * [x] Post message
 * [x] See messages
-* [ ] See time
+* [x] See time
 * [ ] Reply message (optional)
 
 ## Features
