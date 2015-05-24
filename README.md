@@ -11,3 +11,5 @@ This is my submission for the chitter challenge. User can signup, log in and out
 - HTML, Bootstrap CSS
 - Sinatra
 - RSpec and Capybara
+
+Is available on heroku https://shrouded-mountain-4694.herokuapp.com/
