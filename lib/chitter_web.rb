@@ -14,6 +14,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+	
 	use Rack::Flash
 	use Rack::MethodOverride
 	enable :sessions
@@ -40,7 +41,7 @@ class Chitter < Sinatra::Base
   		session[:user_id] = @user.id
   		redirect '/'
   	else
-  		flash[:notice] = @user.errors.full_messages
+  		flash.now[:errors] = @user.errors.full_messages
   		erb :'users/new'
   	end
   end

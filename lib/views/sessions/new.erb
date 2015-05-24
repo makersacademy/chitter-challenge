@@ -1,7 +1,7 @@
 <h1>Please sign in!</h1>
 
 <form action="/sessions" method="post">
-	Email: <input type="text" name="email">
+	Email: <input type="text" name="email" value='<%= @user.email %>'>
 	Password: <input type="password" name="password">
 	<input type="submit" value="Sign In">
 </form>
