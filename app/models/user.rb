@@ -10,7 +10,7 @@ class User
   property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
   validates_uniqueness_of :email
-  validates_confirmation_of :password, message: "Sorry, your passwords do not match"
+  validates_confirmation_of :password, message: 'Sorry, your passwords do not match'
 
 
   def password=(password)

@@ -1,3 +1,6 @@
+require_relative '../helpers/session'
+include SessionHelpers
+
 feature 'user signs out' do
   before(:each) do
     User.create(email: 'test@test.com',

@@ -1,4 +1,4 @@
-require_relative 'helpers/session'
+require_relative '../helpers/session'
 include SessionHelpers
 
 
