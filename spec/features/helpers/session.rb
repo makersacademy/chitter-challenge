@@ -23,11 +23,9 @@ module SessionHelpers
     click_button "Sign up"
   end
 
-  def add_peep(message, user_id)
-      find('#peep') do
-      fill_in 'user_id', :with => current_user.id
+  def add_peep(message)
+      visit '/peeps/new'
       fill_in 'message', :with => message
       click_button 'Add peep'
-    end
   end
 end
