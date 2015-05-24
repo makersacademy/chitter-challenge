@@ -4,3 +4,13 @@ body{
   font-family: sans-serif;
   letter-spacing: 2px;
 }
+
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#peep{
+  color: white;
+  text-decoration: none;
+}

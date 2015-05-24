@@ -63,15 +63,18 @@ To-do
 - Complete CSS
 - Consider trying to add some JS/ jQuery
 - README
+- Change heroku name
+- Add build status
 
 CSS key features/ steps
   >> Minimalitter
   >> Soft black background
   >> White text (get a good font)
-  >> Header that scrolls down and has white bottom border
+  >> Header that scrolls down and has white bottom border (Moving navbar)
   >> Click to Peep image (use glycphicons)
   >> Slim line containers (bottom white line each with container)
   >> Reformat the time
+  >> Fix form text input style
 
 Nice to have
   >> CSS style switcher

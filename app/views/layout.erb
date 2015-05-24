@@ -31,8 +31,23 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+  <div class='row'>
+    <div class="col-md-11"> </div>
+    <!-- get working properly - learn offsets! -->
+    <div class="col-md-offset-1">
+      <%if session["user_id"] %>
+        <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      <%end%>
+    </div>
+  </div>
+
+  <br>
+
   <div class='row'> <!-- needs styling as an alert -->
-    <div id='errors'>
+    <div id='errors' class="col-md-6 col-md-offset-3">
       <%if flash[:errors] && !flash[:errors].empty? %>
         Sorry, you have the following errors to address:
          <ul>
@@ -44,10 +59,8 @@
     </div>
   </div>
 
-  <br>
-
-  <div class='row'> <!-- needs styling as an alert -->
-    <div>
+   <div class='row'> <!-- needs styling as an alert -->
+    <div class="col-md-2 col-md-offset-5"> <!-- centres -->
       <% if flash[:notice] %>
         <%=flash[:notice]%>
       <%end%>
