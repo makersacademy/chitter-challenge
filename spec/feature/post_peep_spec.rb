@@ -14,6 +14,7 @@ feature "Posting peeps" do
     expect(Peep.count).to eq(1)
 
     peep = Peep.get(1)
+
     expect(peep.message).to eq("this is a test peep")
     expect(page).to have_content("this is a test peep")
   end
