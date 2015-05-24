@@ -4,8 +4,7 @@ describe Peep do
   context 'Demonstration of how datamapper works' do
 
     before(:each) do
-    @user = User.create(:firstname => "Anna",
-              :surname => "Klimas",
+    @user = User.create(:name => "Anna Klimas",
               :username => "ania2ab",
               :email => "anna@klimas.com",
               :password => "apple",

@@ -7,15 +7,13 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-  def sign_up(firstname = "Anna",
-              surname = "Klimas",
+  def sign_up(name = "Anna Klimas",
               username = "ania2ab",
               email = "anna@klimas.com",
               password = "apple",
               password_confirmation = 'apple')
     visit '/users/new'
-    fill_in :firstname, :with => firstname
-    fill_in :surname, :with => surname
+    fill_in :name, :with => name
     fill_in :username, :with => username
     fill_in :email, :with => email
     fill_in :password, :with => password

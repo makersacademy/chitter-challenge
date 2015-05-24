@@ -17,8 +17,7 @@ class User
 
 
   property :id, Serial
-  property :firstname, Text
-  property :surname, Text
+  property :name, Text
   property :username, String, unique: true, message: 'This username already exists'
   property :email, String, unique: true, message: 'This email already exists'
   property :password_digest, Text
