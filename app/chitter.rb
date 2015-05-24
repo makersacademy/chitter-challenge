@@ -23,9 +23,13 @@ class ChitterChatter < Sinatra::Base
     end
 
   get '/' do
-    # @peeps = Peep.all
-    # @peeps.reverse!
     erb :practice, :layout => false
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    @peeps.reverse!
+    erb :index
   end
 
   get '/users/new' do
@@ -41,7 +45,7 @@ class ChitterChatter < Sinatra::Base
                       password_confirmation: params[:password_confirmation] )
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash[:errors] = @user.errors.full_messages
       redirect to('users/new')
@@ -57,7 +61,7 @@ class ChitterChatter < Sinatra::Base
     user = User.authenticate(email, password)
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -67,7 +71,7 @@ class ChitterChatter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash[:notice] = "Goodbye!"
-    redirect to('/')
+    redirect to('/peeps')
   end
 
   get '/peeps/new' do
@@ -75,7 +79,7 @@ class ChitterChatter < Sinatra::Base
       erb :'peeps/new'
     else
       flash[:notice] = "Please log in or sign up to post a peep"
-      redirect to('/')
+      redirect to('/peeps')
     end
   end
 
@@ -83,7 +87,7 @@ class ChitterChatter < Sinatra::Base
     @peep = Peep.create(text: params[:peep], user_id: session[:user_id], timestamp: Time.now)
     @peep.save
     @user = User.first(id: @peep.user_id)
-    redirect to('/')
+    redirect to('/peeps')
   end
 
   get '/users/:username' do
