@@ -1,2 +1,15 @@
 <a href="/users/new">Sign Up</a>
 <a href="/sessions/new">Sign In</a>
+
+<% @peeps.each do |peep| %>
+  <li><%= peep.message %></li>
+<% end %>
+
+<% if session[:user_id] %>
+  <div id="post_peep">
+    <form action='/' method="post">
+      <input type="textarea" name="peep_message">
+      <button> Peep! </button>
+    </form>
+  </div>
+<% end %>

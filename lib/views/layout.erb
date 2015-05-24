@@ -6,8 +6,22 @@
 
   <body>
 
-      <h1> Chitter </h1>
-      <%= yield %>
+    <% if session[:user_id] %>
+      Welcome <%= User.get(session[:user_id]).username %>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+
+     <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <h1> Chitter </h1>
+    <%= yield %>
 
   </body>
 
