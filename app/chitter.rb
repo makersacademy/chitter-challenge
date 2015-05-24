@@ -11,6 +11,7 @@ class ChitterChatter < Sinatra::Base
   enable :sessions
   set :session_secret, "verysecret"
   set :views, Proc.new {File.join(root, "views")}
+  set :public_folder, 'public'
 
   use Rack::Flash
   use Rack::MethodOverride
