@@ -11,14 +11,6 @@ enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
 
-helpers do
-
-  def register_user
-    @registered_user ||= User.get(session[:id]) if session[:id]
-  end
-
-end
-
 get '/' do
   @all_peeps = Peep.all
   @all_peeps.reverse!
@@ -33,10 +25,10 @@ end
 
 post '/signup' do
   @user = User.create(email: params[:email],
-              password: params[:password],
-              password_confirmation: params[:password_confirmation],
-              name: params[:name],
-              username: params[:username])
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation],
+                      name: params[:name],
+                      username: params[:username])
   if @user.save
     session[:id] = @user.id
     flash[:notice] = 'Registration confirmed'
@@ -76,7 +68,10 @@ post '/main' do
   user = User.get(id)
   @name = user.name
   message = params[:message]
-  session[:peep] = message
+  if message.length > 140
+    flash[:notice] = 'Peeps must be less than 140 characters'
+    redirect to '/main'
+  end
   Peep.create(message: message,
               time: time,
               user_id: id,

@@ -43,7 +43,7 @@ feature 'A new user wants to sign up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'a newly registered user will only see the confirmation message once' do
+  scenario 'and will only see the confirmation message once' do
     sign_up
     expect(page).to have_content 'Registration confirmed'
     # Logins incorrectly
