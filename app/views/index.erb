@@ -1,0 +1,14 @@
+<h2> Current messages </h2>
+<ul>
+<% @peeps.each do |peep| %>
+  <li>"<%= peep.message%>"     <%=peep.user.username %>  <%=peep.created_at.strftime('%F %H:%M:%S')%></li>
+<% end %>
+  </ul>
+ <% if current_user %>
+  <div id='peep'>
+  <form action='/peeps' method='post'>
+  Message: <input type='text' name='message'>
+  <input type='submit' value='Add peep'>
+  </form>
+  </div>
+  <% end %>

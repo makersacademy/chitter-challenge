@@ -1,0 +1,10 @@
+<% if current_user %>
+   Welcome, <%= current_user.email %>
+   <form method='post' action='/sessions'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value="Sign out">
+   </form>
+  <% else %>
+    <a href="/users/new" id="sign-up">Sign Up</a>
+    <a href="/sessions/new" id="sign-in">Sign In</a>
+  <% end %>
