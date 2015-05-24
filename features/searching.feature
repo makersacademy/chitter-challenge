@@ -9,3 +9,5 @@ I want to visit my user page
   When I am on the homepage
   When I follow "Peter"
   Then I should see "Peter Name: Peter Smith"
+
+  Scenario:

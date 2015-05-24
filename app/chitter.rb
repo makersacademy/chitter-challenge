@@ -90,6 +90,7 @@ class ChitterChatter < Sinatra::Base
     @username = params[:username]
     @name = @user.name
     @peeps = Peep.all(user_id: @user.id)
+    @peeps.reverse!
     erb :"/users/profile"
   end
 

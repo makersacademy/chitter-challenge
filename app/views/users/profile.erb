@@ -8,7 +8,7 @@
     Posted by: <a href=/users/<%=@username %>><%= @username %></a>,
     <br>
     <%=@name%>
-    at <%=peep.timestamp%><br><br>
+    at <%=peep.timestamp.hour%>:<%=peep.timestamp.min %> on <%=peep.timestamp.day%>/<%=peep.timestamp.month%>/<%=peep.timestamp.year%><br><br>
   <% end %>
   <ul>
 

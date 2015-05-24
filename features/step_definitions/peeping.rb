@@ -17,7 +17,7 @@ Given(/^I am logged in$/) do
 end
 
 Then(/^I should see time of post/) do
-  page.should have_content(Time.now)
+  page.should have_content(Time.now.min)
 end
 
 Then(/^I should see "([^"]*)" before "([^"]*)"$/) do |newpeep, oldpeep|
