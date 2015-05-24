@@ -14,7 +14,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
-	
+
 	use Rack::Flash
 	use Rack::MethodOverride
 	enable :sessions
@@ -58,6 +58,7 @@ class Chitter < Sinatra::Base
   		redirect '/'
   	else
   		erb :'sessions/new'
+  		flash[:errors] = ['The email or password is incorrect']
   	end
   end
 
