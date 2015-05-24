@@ -7,12 +7,12 @@ post '/peeps' do
 end
 
 get '/peeps/reply' do
-  unless params[:peep_id].nil?
-    peep_id = params[:peep_id]
-    @peep  = Peep.first(id: peep_id)
-    erb :'peeps/reply'
-  else
+  if params[:peep_id].nil?
     redirect to('/')
+  else
+    peep_id = params[:peep_id]
+    @peep = Peep.first(id: peep_id)
+    erb :'peeps/reply'
   end
 end
 
