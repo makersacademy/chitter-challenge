@@ -7,11 +7,12 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
-require './lib/user' # this needs to be done after datamapper is initialised
+require './lib/user'
+require './lib/peep' # this needs to be done after datamapper is initialised
 
 DataMapper.finalize
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 class Chitter < Sinatra::Base
 
@@ -68,5 +69,10 @@ class Chitter < Sinatra::Base
   	redirect '/'
   end
 
+  get '/peeps/new' do
+  	erb :'peeps/new'
+  end
+
   run! if app_file == $0
+
 end
