@@ -26,7 +26,7 @@ feature 'A new user wants to sign up' do
     expect { sign_up('newperson@test.com',
                       'test123,
                       test123,
-                      John Jones
+                      Jack
                       test_user1')
      }.to change(User, :count).by(0)
     expect(page).to have_content 'This username is already taken'
@@ -37,7 +37,7 @@ feature 'A new user wants to sign up' do
     expect { sign_up('test@test.com',
                       'test',
                       'fail',
-                      'John Smith',
+                      'John',
                       'test_user1') }.to change(User, :count).by 0
     expect(current_path).to eq '/signup'
     expect(page).to have_content 'Password does not match the confirmation'

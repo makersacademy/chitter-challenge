@@ -7,12 +7,12 @@ feature 'The user wants to see all public peeps' do
     User.create(email: 'test@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'John Smith',
+                name: 'John',
                 username: 'test_user1')
     User.create(email: 'newtest@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'Jack Jones',
+                name: 'Jack',
                 username: 'new_user1')
     login('test_user1', '123')
   end
@@ -20,25 +20,25 @@ feature 'The user wants to see all public peeps' do
   scenario 'whilst logged in' do
     create_peep "Hello world!"
     create_peep "It's me again!"
-    expect(page).to have_content "John Smith (test_user1) said: Hello world!"
-    expect(page).to have_content "John Smith (test_user1) said: It's me again!"
+    expect(page).to have_content "John (test_user1) said: Hello world!"
+    expect(page).to have_content "John (test_user1) said: It's me again!"
   end
 
   scenario 'from all users whilst logged in' do
-    create_peep 'Hello this is John Smith!'
+    create_peep 'Hello this is John!'
     click_button 'Logout'
     login 'new_user1', '123'
-    create_peep "Hello this is Jack Jones!"
-    expect(page).to have_content "John Smith (test_user1) said: Hello this is John Smith!"
-    expect(page).to have_content "Jack Jones (new_user1) said: Hello this is Jack Jones!"
+    create_peep "Hello this is Jack!"
+    expect(page).to have_content "John (test_user1) said: Hello this is John!"
+    expect(page).to have_content "Jack (new_user1) said: Hello this is Jack!"
   end
 
   scenario 'when not logged in' do
     create_peep "Hello world!"
     create_peep "It's me again!"
     click_button 'Logout'
-    expect(page).to have_content "John Smith (test_user1) said: Hello world!"
-    expect(page).to have_content "John Smith (test_user1) said: It's me again!"
+    expect(page).to have_content "John (test_user1) said: Hello world!"
+    expect(page).to have_content "John (test_user1) said: It's me again!"
     expect(page).to have_content "Please login here"
   end
 end
@@ -48,21 +48,27 @@ feature 'A user wants to read a private peep' do
     User.create(email: 'test@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'John Smith',
+                name: 'John',
                 username: 'test_user1')
     User.create(email: 'newtest@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'Jack Jones',
+                name: 'Jack',
                 username: 'new_user1')
     login('test_user1', '123')
   end
 
-  xscenario 'from another user whilst logged in' do
+  scenario 'from another user whilst logged in' do
+    select 'Jack', from: 'maker'
+    click_button 'Go'
+    expect(current_path).to eq '/main/private/person'
+    create_peep 'Hi Jack!'
+    click_button 'Logout'
     login('new_user1', '123')
     expect(page).not_to have_content 'Hi Jack!'
-    click_button 'Private Peeps'
-    expect(current_path).to eq '/main/private'
-    expect(page).to have_content 'Hi Jack! from test_user1 (John Smith)'
+    select 'John', from: 'maker'
+    click_button 'Go'
+    expect(page).to have_content 'Current messages with John'
+    expect(page).to have_content 'John said: Hi Jack!'
   end
 end

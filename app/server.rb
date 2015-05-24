@@ -78,7 +78,8 @@ post '/main' do
   session[:peep] = message
   Peep.create(message: message,
               time: time,
-              user_id: id)
+              user_id: id,
+              personal_message_to: 'public')
   @all_peeps = Peep.all
   @all_peeps.reverse!
   @all_users = User.all
@@ -86,24 +87,38 @@ post '/main' do
 end
 
 get '/main/private' do
-  @name = params[:makers]
+  user = User.get(session[:id])
+  @sender = user.name
+  @all_peeps = Peep.all(personal_message_from: @sender)
+  @all_peeps.reverse!
+  @all_users = User.all
+  erb :private_peep
+end
+
+post '/main/private/person' do
+  user = User.get(session[:id])
+  @sender = user.name
+  @receiver = params[:maker]
+  @all_peeps = Peep.all
+  @all_peeps.reverse!
+  @all_users = User.all
   erb :private_peep
 end
 
 post '/main/private' do
-  id = session[:id]
   time = Time.now
-  user = User.get(id)
+  user = User.get(session[:id])
   @sender = user.name
   message = params[:message]
   @receiver = params[:receiver]
-  session[:peep] = message
   Peep.create(message: message,
               time: time,
-              user_id: id,
-              personal_message_to: @receiver)
+              user_id: session[:id],
+              personal_message_to: @receiver,
+              personal_message_from: @sender)
   @all_peeps = Peep.all(personal_message_to: @receiver)
   @all_peeps.reverse!
+  @all_users = User.all
   erb :private_peep
 end
 

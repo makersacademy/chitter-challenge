@@ -7,16 +7,16 @@ feature 'A logged in user' do
     User.create(email: 'test@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'John Smith',
+                name: 'John',
                 username: 'test_user1')
     login('test_user1', '123')
   end
 
   scenario 'wants to logout' do
     visit '/main'
-    expect(page).to have_content 'Welcome back John Smith'
+    expect(page).to have_content 'Welcome back John'
     click_button 'Logout'
     expect(page).to have_content 'Goodbye!'
-    expect(page).to_not have_content 'Welcome John Smith'
+    expect(page).to_not have_content 'Welcome John'
   end
 end

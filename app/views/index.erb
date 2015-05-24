@@ -18,7 +18,7 @@ Past peeps:
 <br>
 <% if @all_peeps %>
   <% @all_peeps.each do |peep| %>
-    <% if peep.personal_message_to == nil %>
+    <% if peep.personal_message_to == 'public' %>
       <% user = @all_users.get(peep.user_id) %>
       <%= user.name %> (<%= user.username %>) said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
       <br>

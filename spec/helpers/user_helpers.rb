@@ -1,7 +1,7 @@
 def sign_up(email = 'test@test.com',
             password = 'test123',
             password_confirmation = 'test123',
-            name = 'John Smith',
+            name = 'John',
             username = 'test_user1')
   visit '/signup'
   fill_in 'email', with: email

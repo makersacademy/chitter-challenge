@@ -7,12 +7,12 @@ feature 'A logged in user wants to write' do
     User.create(email: 'test@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'John Smith',
+                name: 'John',
                 username: 'test_user1')
     User.create(email: 'newtest@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'Jack Jones',
+                name: 'Jack',
                 username: 'new_user1')
     login('test_user1', '123')
   end
@@ -26,12 +26,12 @@ feature 'A logged in user wants to write' do
 
   scenario 'a private peep to another user' do
     expect(current_path).to eq '/main'
-    select 'Jack Jones', from: 'makers'
-    click_button 'Private Peeps'
-    expect(current_path).to eq '/main/private'
-    expect(page).to have_content 'Write a private peep to Jack here'
+    select 'Jack', from: 'maker'
+    click_button 'Go'
+    expect(current_path).to eq '/main/private/person'
+    expect(page).to have_content 'Write a new private peep here'
     create_peep 'Hi Jack!'
-    expect(page).to have_content 'John Smith said: Hi Jack!'
+    expect(page).to have_content 'John said: Hi Jack!'
   end
 
 end

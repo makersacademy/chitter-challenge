@@ -1,15 +1,22 @@
-Current messages with <%= @receiver %>
-
+Current messages with <%= @receiver %>:
+<br>
 <% if @all_peeps %>
   <% @all_peeps.each do |peep| %>
-      <%= @sender %> said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
+    <% if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver) %>
+      <%= peep.personal_message_from %> said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
       <br>
+      <% end %>
   <% end %>
 <% end %>
+Write a new private peep here
 
-Write a private peep to <%= @name %> here
 <form method='post' action='/main/private'>
-  <input type='hidden' value= <%= @name %> name='receiver' >
   <input type='text' placeholder='Write your peep here...' name='message'>
+  <input type="hidden" name="receiver" value= <%= @receiver %> >
   <input type='submit' value='Peep' name='peep'>
+</form>
+<br>
+<form method="post" action="/session">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Logout">
 </form>

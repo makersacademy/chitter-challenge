@@ -7,7 +7,7 @@ feature 'A user tries to login' do
     User.create(email: 'test@test.com',
                 password: '123',
                 password_confirmation: '123',
-                name: 'John Smith',
+                name: 'John',
                 username: 'test_user1')
   end
 
@@ -16,7 +16,7 @@ feature 'A user tries to login' do
     expect(page).to have_content 'Please login here'
     login('test_user1', '123')
     expect(current_path).to eq '/main'
-    expect(page).to have_content 'Welcome back John Smith'
+    expect(page).to have_content 'Welcome back John'
   end
 
   scenario 'with incorrect password and encounters an error' do
@@ -25,7 +25,7 @@ feature 'A user tries to login' do
     login('test_user1', 'wrong')
     expect(current_path).to eq '/'
     expect(page).to have_content 'The username or password was incorrect'
-    expect(page).not_to have_content 'Welcome back John Smith'
+    expect(page).not_to have_content 'Welcome back John'
   end
 
   scenario 'with incorrect username and encounters an error' do
@@ -34,6 +34,6 @@ feature 'A user tries to login' do
     login('wrong', '123')
     expect(current_path).to eq '/'
     expect(page).to have_content 'The username or password was incorrect'
-    expect(page).not_to have_content 'Welcome back John Smith'
+    expect(page).not_to have_content 'Welcome back John'
   end
 end
