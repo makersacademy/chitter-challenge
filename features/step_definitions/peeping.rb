@@ -24,3 +24,9 @@ Then(/^I should see "([^"]*)" before "([^"]*)"$/) do |newpeep, oldpeep|
   newpeep.should appear_before(oldpeep)
   oldpeep.should_not appear_before(newpeep)
 end
+
+Given(/^have made a post$/) do
+  visit('peeps/new')
+  fill_in('peep', :with => 'This is a peep')
+  click_button('submit')
+end

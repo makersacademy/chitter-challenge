@@ -85,6 +85,14 @@ class ChitterChatter < Sinatra::Base
     redirect to('/')
   end
 
+  get '/users/:username' do
+    @user = User.first(username: params[:username])
+    @username = params[:username]
+    @name = @user.name
+    @peeps = Peep.all(user_id: @user.id)
+    erb :"/users/profile"
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -1,0 +1,15 @@
+<div>
+  User Profile for:
+  <%=@username%><br>
+  Name: <%=@name %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <%=peep.text %><br>
+    Posted by: <a href=/users/<%=@username %>><%= @username %></a>,
+    <br>
+    <%=@name%>
+    at <%=peep.timestamp%><br><br>
+  <% end %>
+  <ul>
+
+</div>

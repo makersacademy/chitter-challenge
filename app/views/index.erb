@@ -5,8 +5,10 @@
 <ul>
   <% @peeps.each do |peep| %>
     <%=peep.text %><br>
-    Posted by: <%=(User.first(id: peep.user_id)).username%>,<br>
+    Posted by: <a href=/users/<%=(User.first(id: peep.user_id)).username %>><%= (User.first(id: peep.user_id)).username %></a>,
+    <br>
     <%=(User.first(id: peep.user_id)).name%>
-    at <%=peep.timestamp%><br>
+    at <%=peep.timestamp%><br><br>
   <% end %>
 </ul>
+
