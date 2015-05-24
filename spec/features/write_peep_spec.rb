@@ -28,7 +28,7 @@ feature 'A logged in user wants to write' do
     expect(current_path).to eq '/main'
     select 'Jack', from: 'maker'
     click_button 'Go'
-    expect(current_path).to eq '/main/private/person'
+    expect(current_path).to eq '/main/private/message'
     expect(page).to have_content 'Write a new private peep here'
     create_peep 'Hi Jack!'
     expect(page).to have_content 'Hi Jack!'

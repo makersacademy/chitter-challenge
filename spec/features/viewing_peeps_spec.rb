@@ -63,7 +63,7 @@ feature 'A user wants to read a private peep' do
   scenario 'from another user whilst logged in' do
     select 'Jack', from: 'maker'
     click_button 'Go'
-    expect(current_path).to eq '/main/private/person'
+    expect(current_path).to eq '/main/private/message'
     create_peep 'Hi Jack!'
     click_button 'Logout'
     login('new_user1', '123')

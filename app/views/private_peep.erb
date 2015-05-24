@@ -11,8 +11,9 @@
   <br>
   <% if @private_feed %>
     <% @private_feed.each do |peep| %>
+    <% user = @all_users.get(peep.user_id) %>
       <dl>
-        <dt><%= peep.personal_message_from %> at <%= peep.time.strftime('%r')%>:</dt>
+        <dt><%= peep.sender %> (<%= user.username %>) at <%= peep.time.strftime('%r')%>:</dt>
         <dt> <%= peep.message %> </dt>
       </dl>
       <br>

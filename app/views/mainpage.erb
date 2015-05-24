@@ -1,49 +1,41 @@
 <body>
-
   <h3>Welcome back <%= @name %></h3>
   <br>
 <div class='container-fluid'>
   <form method="post" action="/main" class="form-inline">
-    <fieldset>
-      <legend>Post a peep here</legend>
-      <div class="form-group">
-        <div class="col-lg-10">
-          <textarea class="form-control" rows="3" name="message" placeholder="What's on your mind..."></textarea>
-        </div>
+    <legend>Post a peep here</legend>
+    <div class="form-group">
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" name="message" placeholder="What's on your mind..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
-        </div>
-      </fieldset>
-    </form>
+    </div>
+    <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+  </form>
   <br>
-  <form method='post' class='form-inline' action='/main/private/person'>
-    <fieldset class='scheduler-border'>
-      <legend>Send a private peep</legend>
-      <div class="form-group">
-        <select class='form-control' name='maker'>
-          <% @all_users.each do |user| %>
-            <% if user.name != @name %>
-              <option value=<%= user.name %>><%= user.name %></option>
-            <% end %>
+  <form method='post' class='form-inline' action='/main/private/message'>
+    <legend>Send a private peep</legend>
+    <div class="form-group">
+      <select class='form-control' name='maker'>
+        <% @all_users.each do |user| %>
+          <% if user.name != @name %>
+            <option value=<%= user.name %>><%= user.name %></option>
           <% end %>
-        </select>
-        <button type="submit" class="btn btn-primary" name='Go'>Go</button>
-      </div>
-    </fieldset>
+        <% end %>
+      </select>
+      <button type="submit" class="btn btn-primary" name='Go'>Go</button>
+    </div>
   </form>
   <br>
   <h2>Past peeps:</h2>
   <br>
   <br>
-  <% if @all_peeps %>
-    <% @all_peeps.each do |peep| %>
-      <% if peep.personal_message_to == 'public' %>
-        <% user = @all_users.get(peep.user_id) %>
-        <dl>
-          <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
-          <dd><%= peep.message %></dd>
-        </dl>
-      <% end %>
+  <% if @public_feed %>
+    <% @public_feed.each do |peep| %>
+      <% user = @all_users.get(peep.user_id) %>
+      <dl>
+        <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
+        <dd><%= peep.message %></dd>
+      </dl>
     <% end %>
   <% end %>
 </body>
