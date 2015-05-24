@@ -22,6 +22,9 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+
+
+
 As a maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -48,7 +51,7 @@ Feature Tests:
 
 	* As long as they give a password and password confirmation that match
 
-	* But not with an email already registered as a user
+	* But not with an email or username already registered
 
 * User can sign in
 
