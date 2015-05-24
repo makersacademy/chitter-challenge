@@ -22,15 +22,13 @@ describe Reply do
                   user_id: user1.id)
       peep = Peep.first
       expect(Reply.count).to eq(0)
-      time = Time.now
       Reply.create(text: 'Reply #1',
-                   time: time,
+                   time: Time.now,
                    user_id: user2.id,
                    peep_id: peep.id)
       expect(Reply.count).to eq(1)
       reply = Reply.first
       expect(reply.text).to eq('Reply #1')
-      expect(reply.time).to eq(time)
       expect(reply.user_id).to eq(user2.id)
       expect(reply.peep_id).to eq(peep.id)
       reply.destroy

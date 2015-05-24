@@ -12,14 +12,12 @@ describe Peep do
                   password_confirmation: 'P0tat0M0nkey123!')
       user = User.first
       expect(Peep.count).to eq(0)
-      time = Time.now
       Peep.create(text: 'Peep #1',
-                  time: time,
+                  time: Time.now,
                   user_id: user.id)
       expect(Peep.count).to eq(1)
       peep = Peep.first
       expect(peep.text).to eq('Peep #1')
-      expect(peep.time).to eq(time)
       expect(peep.user_id).to eq(user.id)
       peep.destroy
       expect(Peep.count).to eq(0)
