@@ -1,19 +1,11 @@
+
 Chitter Challenge
 =================
-
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
 -------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+A chitter (inspired by Twitter) that allows user to post messages(peeps).
 
 Features:
 -------
@@ -32,37 +24,43 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
 
-Notes on functionality:
-------
+Implemented functionalities:
+------------------------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Sign up
+* Sign in
+* Logout
+* Error messages displayed when email or username are not unique
+* Error message displayed when password do not match password confirmation
+* Post messages only when user is logged
+* See messages on the homepage when user is not logged
+* Messages have name, username and current time attached
+* Messages are displayed in reverse chronological order.
 
-Bonus:
------
 
-If you have time you can implement the following:
+Technologies:
+----------
+* Ruby
+* Sinatra (web application library and domain-specific language written in Ruby)
+* PostgreSQL (open source object-relational database system)
+* DataMapper (Object Relational Mapper written in Ruby)
+* RSpec and Capybara (used for testing)
+* HTML
+* CSS
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+How to run:
+----------
+* To install run bundle install in the application directory
+* To run the test type 'rspec'in the application directory
+* To launch the local version type 'rackup' in the application directory and type 'http://localhost:9292/' in the browser.
 
-* Work on the css to make it look good (we all like beautiful things).
 
-Good luck and let the chitter begin!
