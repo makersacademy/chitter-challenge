@@ -3,40 +3,11 @@ Chitter Challenge, by Daryl Watson
 
 ## Synopsis
 
-This is my submission for the chitter challenge
-
-![NAME_OF_IMAGE](http://ENTER_URL)
+This is my submission for the chitter challenge. User can signup, log in and out. Anybody can see all public peeps on the index page. Only logged in users can post peeps. Also, users can send private peeps to other users, and these won't be visible on the main feed.
 
 ## Technologies Used
 
-- LANGUAGE_ONE
-- LANGUAGE_TWO
-- FRAMEWORK
-- TESTING SUITES
-
-## Job List
-
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-
-## Favourite Code Snippet
-
-~~~
- TODO: paste code here
-~~~
-
-## Collaborators
-
-- NAME_ONE (http://www.github.com/USERNAME)
-- NAME_TWO (http://www.github.com/USERNAME)
-
-## Still to complete/refactor
-
-- [ ]
-- [ ]
-
-## Takeaway
-
-TODO: Enter a personal reflection and/or things you learnt
+- Ruby
+- HTML, Bootstrap CSS
+- Sinatra
+- RSpec and Capybara

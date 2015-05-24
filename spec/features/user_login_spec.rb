@@ -19,7 +19,7 @@ feature 'A user tries to login' do
     expect(page).to have_content 'Welcome back John'
   end
 
-  scenario 'with incorrect password and encounters an error' do
+  scenario 'with an incorrect password and encounters an error' do
     visit '/'
     expect(page).to have_content 'Please login here'
     login('test_user1', 'wrong')
@@ -28,7 +28,7 @@ feature 'A user tries to login' do
     expect(page).not_to have_content 'Welcome back John'
   end
 
-  scenario 'with incorrect username and encounters an error' do
+  scenario 'with an incorrect username and encounters an error' do
     visit '/'
     expect(page).to have_content 'Please login here'
     login('wrong', '123')

@@ -1,36 +1,41 @@
-Welcome back <%= @name %>
+<body>
+  <h3>Welcome back <%= @name %></h3>
+  <br>
+  Post a peep here
+    <form method="post" action="/main">
+      <input type="text" name="message" placeholder="What's on your mind...">
+      <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+    </form>
+  <br>
+  Or for a private peep
+  <form method='post' action='/main/private/person'>
+    <select name='maker'>
+      <% @all_users.each do |user| %>
+        <% if user.name != @name %>
+          <option value=<%= user.name %>><%= user.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+      <button type="submit" class="btn btn-primary" name='Go'>Go</button>
+  </form>
+  <br>
   <form method="post" action="/session">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Logout">
+    <button type="submit" class="btn btn-primary" name='Logout'>Logout</button>
   </form>
-<br>
-Post a peep here
-  <form method="post" action="/main">
-    <input type="text" name="message" placeholder="What's on your mind...?">
-    <input type="submit" value="Peep">
-  </form>
-<br>
-Or for a private peep
-<form method='post' action='/main/private/person'>
-  <select name='maker'>
-    <% @all_users.each do |user| %>
-      <% if user.name != @name %>
-        <option value=<%= user.name %>><%= user.name %></option>
+  <br>
+  <h2>Past peeps:</h2>
+  <br>
+  <br>
+  <% if @all_peeps %>
+    <% @all_peeps.each do |peep| %>
+      <% if peep.personal_message_to == 'public' %>
+        <% user = @all_users.get(peep.user_id) %>
+        <dl>
+          <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
+          <dd><%= peep.message %></dd>
+        </dl>
       <% end %>
     <% end %>
-  </select>
-  <input type="submit" value="Go">
-</form>
-
-<br>
-Past peeps:
-<br>
-<% if @all_peeps %>
-  <% @all_peeps.each do |peep| %>
-    <% if peep.personal_message_to == 'public' %>
-      <% user = @all_users.get(peep.user_id) %>
-      <%= user.name %> (<%= user.username %>) said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
-      <br>
-    <% end %>
   <% end %>
-<% end %>
+</body>

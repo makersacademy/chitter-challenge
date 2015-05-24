@@ -39,6 +39,7 @@ post '/signup' do
               username: params[:username])
   if @user.save
     session[:id] = @user.id
+    flash[:notice] = 'Registration confirmed'
     redirect '/'
   else
     flash.now[:notice] = @user.errors.full_messages
@@ -89,7 +90,7 @@ end
 get '/main/private' do
   user = User.get(session[:id])
   @sender = user.name
-  @all_peeps = Peep.all(personal_message_from: @sender)
+  @all_peeps = Peep.all
   @all_peeps.reverse!
   @all_users = User.all
   erb :private_peep
@@ -116,7 +117,7 @@ post '/main/private' do
               user_id: session[:id],
               personal_message_to: @receiver,
               personal_message_from: @sender)
-  @all_peeps = Peep.all(personal_message_to: @receiver)
+  @all_peeps = Peep.all
   @all_peeps.reverse!
   @all_users = User.all
   erb :private_peep

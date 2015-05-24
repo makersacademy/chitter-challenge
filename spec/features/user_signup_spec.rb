@@ -7,7 +7,7 @@ feature 'A new user wants to sign up' do
     expect(User.count).to eq 0
     expect(page).to have_content 'Welcome to Chitter'
     click_link 'Sign up'
-    expect(page).to have_content 'Please enter your details'
+    expect(page).to have_content 'Please fill in your details'
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content 'Registration confirmed'
     expect(User.first.email).to eq 'test@test.com'

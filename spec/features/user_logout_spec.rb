@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'helpers/user_helpers'
 
-feature 'A logged in user' do
+feature 'A logged in user wants to logout' do
 
   before(:each) do
     User.create(email: 'test@test.com',
@@ -12,7 +12,7 @@ feature 'A logged in user' do
     login('test_user1', '123')
   end
 
-  scenario 'wants to logout' do
+  scenario 'from the main page' do
     visit '/main'
     expect(page).to have_content 'Welcome back John'
     click_button 'Logout'

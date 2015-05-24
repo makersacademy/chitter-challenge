@@ -1,28 +1,36 @@
-<% if register_user %>
-  Registration confirmed
-  <% session[:id] = nil %>
-<% end %>
-
-Welcome to Chitter
-<br>
 <body>
-  Please login here
-  <form method='post' action='/login'>
-    <input type='text' name='username' placeholder='Enter your username'>
-    <input type='password' name='password' placeholder='Enter your password'>
-    <input type='submit' name='Login' value='Login'>
+  <br>
+  <h1>Welcome to Chitter<small><br>Please login here</small></h1>
+  <br>
+  <br>
+  <form class="form-inline" method='post' action='/login'>
+    <div class="form-group">
+      <label for="inputUsername">Username: </label>
+      <input type='text' name='username' class="form-control" placeholder='Enter your username'>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword"> Password: </label>
+      <input type='password' class="form-control" name='password' placeholder='Enter your password'>
+    </div>
+      <button type="submit" class="btn btn-primary" name='Login'>Login</button>
   </form>
-  <a href='/signup'><button>Sign up</button></a>
-
-Past peeps:
-<br>
-<% if @all_peeps %>
-  <% @all_peeps.each do |peep| %>
-    <% if peep.personal_message_to == 'public' %>
-      <% user = @all_users.get(peep.user_id) %>
-      <%= user.name %> (<%= user.username %>) said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
-      <br>
+  <br>
+  <br>
+  <a href='/signup'><button type="button" class="btn btn-primary">Sign up</button></a>
+  <br>
+  <br>
+  <h3>Past peeps: </h3>
+  <br>
+  <br>
+  <% if @all_peeps %>
+    <% @all_peeps.each do |peep| %>
+      <% if peep.personal_message_to == 'public' %>
+        <% user = @all_users.get(peep.user_id) %>
+        <dl>
+          <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
+          <dd><%= peep.message %></dd>
+        </dl>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-</body
+</body>

@@ -1,22 +1,31 @@
-Current messages with <%= @receiver %>:
-<br>
-<% if @all_peeps %>
-  <% @all_peeps.each do |peep| %>
-    <% if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver) %>
-      <%= peep.personal_message_from %> said: <%= peep.message %> at <%= peep.time.strftime('%r') %>
-      <br>
-      <% end %>
+<body>
+  <h3>Current messages with <%= @receiver %>:</h3>
+  <form method='post' class="form-horizontal" action='/main/private'>
+    <div class="form-group">
+      <label for="inputPeep">Write a new private peep here: </label>
+      <input type='text' placeholder='Write your peep here...' name='message'>
+      <input type="hidden" name="receiver" value= <%= @receiver %> >
+      <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+    </div>
+  </form>
+  <br>
+  <% if @all_peeps %>
+    <% @all_peeps.each do |peep| %>
+      <% if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver) %>
+        <dl>
+          <dt><%= peep.personal_message_from %> at <%= peep.time.strftime('%r')%>:</dt>
+          <dt> <%= peep.message %> </dt>
+        </dl>
+        <br>
+        <% end %>
+    <% end %>
   <% end %>
-<% end %>
-Write a new private peep here
-
-<form method='post' action='/main/private'>
-  <input type='text' placeholder='Write your peep here...' name='message'>
-  <input type="hidden" name="receiver" value= <%= @receiver %> >
-  <input type='submit' value='Peep' name='peep'>
-</form>
-<br>
-<form method="post" action="/session">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Logout">
-</form>
+  <form method="get" action="/main">
+    <button type="submit" class="btn btn-primary" name='Back'>Back</button>
+  </form>
+  <br>
+  <form method="post" action="/session">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-primary" name='Logout'>Logout</button>
+  </form>
+</body>
