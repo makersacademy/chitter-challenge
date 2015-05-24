@@ -40,7 +40,6 @@ feature 'User can' do
 
   scenario 'can see the time when peep was posted' do
    visit('/')
-   @time = Time.new.strftime('%F %H:%M')
    expect(@peep.created_at).to eq("#{"Time.new.strftime('%F %H:%M')"}")
   end
 end
