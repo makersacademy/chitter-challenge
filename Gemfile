@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
+gem 'rack-flash3'
 
 group :development, :test do
   gem 'byebug'
@@ -16,4 +17,3 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
 end
-
