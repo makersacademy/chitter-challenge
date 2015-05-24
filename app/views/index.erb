@@ -3,7 +3,12 @@
 <Peeps>
 <ul>
   <% @peeps.reverse.each do |peep| %>
-    <li><%= peep.text %> (Posted by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</li>
+    <li><%= peep.text %> (Peeped by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>) (<a href="/peeps/reply?peep_id=<%= peep.id %>">Reply</a>)</br>
+    <% @replies = Reply.all(peep_id: peep.id) %>
+    <% @replies.each do |reply| %>
+    * <%= reply.text %> (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</br>
+    <% end %>
+    </li>
   <% end %>
 </ul>
 

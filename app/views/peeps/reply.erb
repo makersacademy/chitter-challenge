@@ -1,0 +1,7 @@
+<h1><%= @peep.text %> (Posted by <%= @peep.user.name %> (aka <a href="/users?username=<%= @peep.user.username %>"><%= @peep.user.username %></a>) on <%= @peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</h1>
+
+<form action='/peeps/reply' method='post'>
+  Reply: <input name='text' type='text'>
+  <input type='hidden' name='peep_id' value='<%= @peep.id %>'>
+  <input type='submit' value='Reply!'>
+</form>

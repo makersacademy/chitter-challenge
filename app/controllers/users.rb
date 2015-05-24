@@ -21,7 +21,11 @@ post '/users' do
 end
 
 get '/users' do
-  username = params[:username]
-  @user  = User.first(username: username)
-  erb :'users/username'
+  unless params[:username].nil?
+    username = params[:username]
+    @user  = User.first(username: username)
+    erb :'users/username'
+  else
+    redirect to('/')
+  end
 end
