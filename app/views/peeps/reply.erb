@@ -1,4 +1,13 @@
-<h1><%= @peep.text %> (Posted by <%= @peep.user.name %> (aka <a href="/users?username=<%= @peep.user.username %>"><%= @peep.user.username %></a>) on <%= @peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</h1>
+<h1><%= @peep.text %></h1>
+<h2>(Posted by <%= @peep.user.name %> (aka <a href="/users?username=<%= @peep.user.username %>"><%= @peep.user.username %></a>) on <%= @peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</h2>
+
+<h2>Existing replies to this peep</h2>
+<ul style="list-style-type:circle">
+  <% Reply.all(peep_id: @peep.id, order: [:time.asc]).each do |reply| %>
+    <li><%= reply.text %> (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+    </li>
+  <% end %>
+</ul>
 
 <form action='/peeps/reply' method='post'>
   Reply: <input name='text' type='text'>

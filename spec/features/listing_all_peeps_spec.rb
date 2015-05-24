@@ -23,8 +23,10 @@ feature 'User views all peeps' do
     expect(page).to have_content(/[A-Z][a-z]{5,8} [123]*[0-9] [A-Z][a-z]{2,8} [0-9]{4} at [1]*[0-9]:[0-5][0-9](A|P)M \([0-5][0-9] secs\)/)
   end
 
-  scenario 'in reverse chronology' do
+  scenario 'in reverse chronological order' do
     expect(page).to have_selector('li:nth-child(1)', text: 'Peep #2')
+    expect(page).to have_selector('li:nth-child(2)', text: 'Peep #1')
+
   end
 
 end

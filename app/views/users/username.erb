@@ -2,7 +2,14 @@
 
 <Peeps>
 <ul>
-  <% @user.peeps.reverse.each do |peep| %>
-    <li><%= peep.text %> (Posted by on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)</li>
+  <% @user.peeps(order: [:time.desc]).each do |peep| %>
+    <li><%= peep.text %> (Posted by on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+      <ul style="list-style-type:circle">
+        <% Reply.all(peep_id: peep.id, order: [:time.asc]).each do |reply| %>
+          <li><%= reply.text %> (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+          </li>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
 </ul>

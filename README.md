@@ -5,17 +5,20 @@
 Chitter Challenge
 =================
 
-Next Steps
--------
-
-- Allow users to reply to other users' peeps.
-- CSS styling (poss. w/ Bootstrap?).
-- Password recovery functionality.
-
 Challenge:
 -------
 
 A Twitter clone that will allow the users to post messages to a public stream.
+
+Next Steps
+-------
+
+- Raise error if user tries to respond to own peep (can this also be enforced at DB level?).
+- Additional tests to ensure user feed page includes no other user's peeps.
+- Additional tests to ensure no blank entries for: username/name/email/pword/pwrod confirmation; peeps; replies (again, can this be enforced at DB level?).
+- Password recovery functionality.
+- CSS styling (poss. w/ Bootstrap?).
+- Partials.
 
 Technologies Used
 -------
@@ -30,6 +33,29 @@ Links:
 
 [Makers Academy Bookmark Manager tutorial](https://github.com/makersacademy/course/blob/master/bookmark_manager/bookmark_manager.md)
 
+Database layout:
+-------
+
+- users
+| id | username | name           | email            | password_digest |
+| ---|:--------:| --------------:|-----------------:|----------------:|
+| 1  | Big_G    | Andy Gout      | example@test.com | $5f$96$Gcja...  |
+| 2  | Robbo    | Robert Bentley | sample@test.com  | $4w$00$Wdic...  |
+
+- peeps
+| id | text                         | time                       | user_id |
+| ---|:----------------------------:| --------------------------:|--------:|
+| 1  | Now poured milk on OJ on...  | 2015-05-24 11:01:04.090368 | 1       |
+| 2  | Feeling a bit sick now...    | 2015-05-24 11:14:13.069034 | 1       |
+| 3  | At the airport - SFO here... | 2015-05-24 11:37:32.564842 | 2       |
+
+- replies
+| id | text                         | time                       | user_id | peep_id |
+| ---|:----------------------------:| --------------------------:|--------:|--------:|
+| 1  | OMG, well jealous...         | 2015-05-24 11:49:41.668771 | 1       | 3       |
+| 2  | Never mix OJ and milk...     | 2015-05-24 11:50:14.144025 | 2       | 2       |
+| 3  | Take some painkillers...     | 2015-05-24 11:53:31.80567  | 2       | 2       |
+
 Images:
 -------
 
@@ -38,6 +64,9 @@ Images:
 
 - Home Page
 ![Screenshot Home Page](/public/git_img/home_page.png)
+
+- Add Reply
+![Screenshot Add Reply](/public/git_img/add_reply.png)
 
 - User Feed
 ![Screenshot User Feed](/public/git_img/user_feed.png)
