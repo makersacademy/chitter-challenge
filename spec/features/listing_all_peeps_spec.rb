@@ -24,9 +24,8 @@ feature 'User views all peeps' do
   end
 
   scenario 'in reverse chronological order' do
-    expect(page).to have_selector('li:nth-child(1)', text: 'Peep #2')
-    expect(page).to have_selector('li:nth-child(2)', text: 'Peep #1')
-
+    expect(page.first('li:nth-child(1)')).to have_content('Peep #2')
+    expect(page.first('li:nth-child(2)')).to have_content('Peep #1')
   end
 
 end
