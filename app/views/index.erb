@@ -25,15 +25,13 @@
   <h3>Past peeps: </h3>
   <br>
   <br>
-  <% if @all_peeps %>
-    <% @all_peeps.each do |peep| %>
-      <% if peep.personal_message_to == 'public' %>
-        <% user = @all_users.get(peep.user_id) %>
-        <dl>
-          <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
-          <dd><%= peep.message %></dd>
-        </dl>
-      <% end %>
+  <% if @public_feed %>
+    <% @public_feed.each do |peep| %>
+      <% user = @all_users.get(peep.user_id) %>
+      <dl>
+        <dt><%= user.name %> (<%= user.username %>) at <%= peep.time.strftime('%r') %>:</dt>
+        <dd><%= peep.message %></dd>
+      </dl>
     <% end %>
   <% end %>
 </body>

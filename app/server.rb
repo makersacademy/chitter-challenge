@@ -13,17 +13,27 @@ use Rack::Flash
 
 helpers do
 
-  def prepare_peep_feed
+  def prepare_feed
       @all_peeps = Peep.all
       @all_peeps.reverse!
       @all_users = User.all
+  end
+
+  def prepare_public_feed
+    @public_feed = []
+    prepare_feed
+    @all_peeps.each do |peep|
+      if peep.personal_message_to == 'public'
+        @public_feed << peep
+      end
+    end
   end
 
   def prepare_private_feed(sender, receiver)
     @private_feed = []
     @sender = sender
     @receiver = receiver
-    prepare_peep_feed
+    prepare_feed
     @all_peeps.each do |peep|
       if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver)
         @private_feed << peep
@@ -49,9 +59,8 @@ helpers do
 
 end
 
-
 get '/' do
-  prepare_peep_feed
+  prepare_public_feed
   erb :index
 end
 
@@ -101,21 +110,21 @@ get '/main' do
     redirect to '/'
   end
   @name = user.name
-  prepare_peep_feed
+  prepare_public_feed
   erb :mainpage
 end
 
 post '/main' do
   user = User.get(session[:id])
   create_peep(user.name, 'public')
-  prepare_peep_feed
+  prepare_public_feed
   erb :mainpage
 end
 
 get '/main/private' do
   user = User.get(session[:id])
   @sender = user.name
-  prepare_peep_feed
+  prepare_private_feed
   erb :private_peep
 end
 
