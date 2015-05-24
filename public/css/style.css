@@ -14,3 +14,12 @@ body{
   color: white;
   text-decoration: none;
 }
+
+#dotted{
+    border-bottom-style: dotted;
+    border-color: white;
+}
+
+#button-hack{
+    margin-left: 25px;
+}

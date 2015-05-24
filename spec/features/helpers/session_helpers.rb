@@ -20,7 +20,7 @@ module SessionHelper
   end
 
   def add_peep(message="Tester")
-    click_on "Peep!"
+    click_button "Dare to Peep?"
     fill_in :message, with: message
     click_button "Peep it"
   end

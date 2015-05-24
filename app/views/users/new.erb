@@ -1,9 +1,28 @@
-<div id='sign-up'>
-  <form action='/users' method='post'>
-  NAME: <input type='text' name='name'>
-  USERNAME (HANDLE):<input type='text' name='username'>
-  EMAIL: <input type='text' name='email'>
-  PASSWORD: <input type='text' name='password'>
-  PASSWORD CONFIRMATION: <input type='text' name='password_confirmation'>
-  <input type='submit' value='Sign up'>
-</div>
+<form action='/users' method='post'>
+  <div class='form-group' id='sign-up'>
+    <label for="Name">Name</label>
+    <input type='text' name='name' class="form-control" id="exampleInputEmail1">
+  </div>
+  <div class='form-group'>
+    <label for="User Handle">User Handle</label>
+    <input type='text' name='username' class="form-control" id ="exampleInputEmail1">
+  </div>
+  <div class='form-group'>
+    <label for="Email">Email</label>
+    <input type='text' name='email' class="form-control" id="exampleInputEmail1">
+  </div>
+  <div class='form-group'>
+    <label for="Password">Password</label>
+    <input type='text' name='password' class="form-control" id="exampleInputEmail1">
+  </div>
+  <div class='form-group'>
+    <label for="Password Confirmation">Password Confirmation</label>
+    <input type='text' name='password_confirmation' class="form-control" id="exampleInputEmail1">
+  </div>
+    <!-- USERNAME (HANDLE):<input type='text' name='username'>
+    EMAIL: <input type='text' name='email'>
+    PASSWORD: <input type='text' name='password'>
+    PASSWORD CONFIRMATION: <input type='text' name='password_confirmation'> -->
+    <button type='submit' class='btn btn-default' value='Sign up'> Sign up </button>
+  </div>
+</form>

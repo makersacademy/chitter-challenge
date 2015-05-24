@@ -9,27 +9,38 @@
 <br>
 <br>
 
+<!-- Headers why didn't this line properly?>
+<! <div class='row'>
+  <div class="col-md-10 col-md-offset-1">
+    <div class='row'>
+      <div class="col-md-11">
+        <div class ="col-md-4">Message </div>
+        <div class ="col-md-2">Name </div>
+        <div class ="col-md-2">Handle</div>
+        <div class ="col-md-2">Time </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<!-- Actual Peeps -->
 <div class='row' id='peeps'>
-  <div class"col-md-10 col-md-offset-1">
+  <div class="col-md-10 col-md-offset-1">
     <% if @peeps %>
       <% @peeps.reverse.each do |peep| %>
       <div class='row'>
-        <div class"col-md-6 col-md-offset-3">
-          <div class ="col-md-3"> <%=peep.message%> </div>
-          <div class ="col-md-1">User: <%=peep.user.name%> </div>
-          <div class ="col-md-1">Handle: <%=peep.user.username%> </div>
-          <div class ="col-md-1">Time Posted: <%=peep.created_at.strftime('%F %H:%M:%S')%> </div>
-          <%if session["user_id"] %>
-            <button id='reply' class='btn btn-danger'>
-                 <form action='peeps/makereply' method='post'>
-                    <input type='hidden' name='original_id' value='<%=peep.id%>'>
-                    <input type='submit' value='Reply?'>
-                  </form>
-            </button>
+        <div class="col-md-11" id='dotted'>
+            <div class ="col-md-4" id='test'> <%=peep.message%> </div>
+            <div class ="col-md-2"><%=peep.user.name%> </div>
+            <div class ="col-md-2">@<%=peep.user.username%> </div>
+            <div class ="col-md-2"><%=peep.created_at.strftime('%e %b %Y %H:%M:%S')%> </div>
+             <form action='peeps/makereply' method='post'>
+                <input type='hidden' name='original_id' value='<%=peep.id%>'>
+                <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
+              </form>
           </div>
         </div>
           <br>
-        <%end%>
       <%end%>
     <%end%>
     </div>

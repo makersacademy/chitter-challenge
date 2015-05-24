@@ -30,12 +30,12 @@ feature 'See all peeps' do
 
   scenario 'user can see latest peeps first' do
     visit ('/')
-    expect(page).to have_selector('li:nth-child(1)', text: "Hello world 3")
+    expect(page).to have_selector('div#test', text: "Hello world 3")
   end
 
   scenario 'peeps should have a timestamp' do
     visit ('/')
     t = Time.now
-    expect(page).to have_selector('div#peeps', text: "#{t.strftime('%F %H:%M:%S')}")
+    expect(page).to have_selector('div#peeps', text: "#{t.strftime('%e %b %Y %H:%M:%S')}")
   end
 end

@@ -1,6 +1,8 @@
-Reply to a peep!
 <form action='/peeps/getreply' method='post'>
-  <input type='text' name='message'>
-  <input type='hidden' name='original_id' value='<%=@original_id%>'>
-  <input type='submit' value ='Peep it'>
+  <div class='form-group'>
+    <label for="Reply">Reply to a peep</label>
+    <input type='text' name='message' class="form-control"id="exampleInputEmail1">
+    <input type='hidden' name='original_id' value='<%=@original_id%>'>
+  </div>
+    <button type='submit' class='btn btn-default' value ='Peep it'> Reply Peep </button>
 </form>
