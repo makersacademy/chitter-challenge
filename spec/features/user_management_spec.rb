@@ -63,27 +63,27 @@ feature 'User can sign in' do
     expect(page).not_to have_content 'Welcome, ash@ash.com'
   end
 
-  feature 'User can sign out' do
+end
 
-    def sign_in(email, password)
-      visit '/sessions/new'
-      fill_in :email, with: email
-      fill_in :password, with: password
-      click_button 'Sign In'
-    end
+feature 'User can sign out' do
 
-    before(:each) do
-      User.create(email: 'ash@ash.com', password: 'pass', password_confirmation: 'pass')
-    end
-
-    scenario 'after having signed in' do
-      visit '/'
-      sign_in 'ash@ash.com', 'pass'
-      expect(page).to have_content 'Welcome, ash@ash.com'
-      click_button 'Sign Out'
-      # expect(page).to have_content 'Goodbye!'    FLASH NOTICE
-      expect(page).not_to have_content 'Welcome, ash@ash.com'
-    end
+  def sign_in(email, password)
+    visit '/sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button 'Sign In'
   end
 
+  before(:each) do
+    User.create(email: 'ash@ash.com', password: 'pass', password_confirmation: 'pass')
+  end
+
+  scenario 'after having signed in' do
+    visit '/'
+    sign_in 'ash@ash.com', 'pass'
+    expect(page).to have_content 'Welcome, ash@ash.com'
+    click_button 'Sign Out'
+    # expect(page).to have_content 'Goodbye!'    FLASH NOTICE
+    expect(page).not_to have_content 'Welcome, ash@ash.com'
+  end
 end

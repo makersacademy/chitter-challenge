@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'tilt/erb'
+require 'rack-flash'
 require 'data_mapper'
 require_relative 'user'
 
@@ -14,6 +14,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
+	use Rack::Flash
 	use Rack::MethodOverride
 	enable :sessions
 	set :session_secret, 'extremely secret stuff'
@@ -35,8 +36,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
   	@user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-  	session[:user_id] = @user.id
-  	redirect '/'
+  	if @user.save
+  		session[:user_id] = @user.id
+  		redirect '/'
+  	else
+  		flash[:notice] = @user.errors.full_messages
+  		erb :'users/new'
+  	end
   end
 
   get '/sessions/new' do
