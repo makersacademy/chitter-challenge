@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'byebug'
 gem 'rack-flash3'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'

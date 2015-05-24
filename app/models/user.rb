@@ -10,10 +10,8 @@ class User
   property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
   validates_uniqueness_of :email
+  validates_confirmation_of :password, message: "Sorry, your passwords do not match"
 
-
-
-  validates_confirmation_of :password
 
   def password=(password)
     @password = password
@@ -22,7 +20,6 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
