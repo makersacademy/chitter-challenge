@@ -12,7 +12,7 @@ require './lib/peep' # this needs to be done after datamapper is initialised
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
@@ -28,6 +28,7 @@ class Chitter < Sinatra::Base
 	end
 
   get '/' do
+  	@peeps = Peep.all
     erb :index
   end
 
@@ -37,9 +38,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-  	@user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+  	@user = User.create(email: params[:email],
+  											password: params[:password],
+  											password_confirmation: params[:password_confirmation])
   	if @user.save
   		session[:user_id] = @user.id
+
+
+
+
   		redirect '/'
   	else
   		flash.now[:errors] = @user.errors.full_messages
@@ -56,6 +63,8 @@ class Chitter < Sinatra::Base
   	@user = User.authenticate(email, password)
   	if @user
   	 	session[:user_id] = @user.id
+      session[:name] = @user.name
+      session[:username] = @user.username
   		redirect '/'
   	else
   		erb :'sessions/new'
@@ -71,6 +80,18 @@ class Chitter < Sinatra::Base
 
   get '/peeps/new' do
   	erb :'peeps/new'
+  end
+
+  post '/peeps' do
+  	if current_user
+  		Peep.create(peep_text: params['peep_text'],
+      	          username: current_user.username,
+        	        name: current_user.name)
+    	redirect '/'
+  	else
+  		flash[:notice] = 'Please log in to peep!'
+  		redirect '/sessions/new'
+  	end
   end
 
   run! if app_file == $0
