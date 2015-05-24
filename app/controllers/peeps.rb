@@ -17,6 +17,12 @@ post '/peeps/makereply' do
   erb :'peeps/reply'
 end
 
+#sub optimal redirect to deal with CSS issue
+post '/peeps/redirect' do
+  flash[:notice] = "Please log in to peep"
+  redirect to ('/sessions/new')
+end
+
 post '/peeps/getreply' do
   @original = Peep.get(params['original_id'])
   @peep = Peep.create(message: "@#{@original.user.username}:" + params['message'], user_id: current_user.id)
@@ -27,3 +33,4 @@ post '/peeps/getreply' do
     erb :'peep/reply'
   end
 end
+

@@ -34,10 +34,16 @@
             <div class ="col-md-2"><%=peep.user.name%> </div>
             <div class ="col-md-2">@<%=peep.user.username%> </div>
             <div class ="col-md-2"><%=peep.created_at.strftime('%e %b %Y %H:%M:%S')%> </div>
-             <form action='peeps/makereply' method='post'>
-                <input type='hidden' name='original_id' value='<%=peep.id%>'>
-                <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
-              </form>
+            <%if session["user_id"] %>
+               <form action='/peeps/makereply' method='post'>
+                  <input type='hidden' name='original_id' value='<%=peep.id%>'>
+                  <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
+                </form>
+                <%else%>
+                  <form action='/peeps/redirect' method='post'>
+                    <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
+                  </form>
+              <%end%>
           </div>
         </div>
           <br>
