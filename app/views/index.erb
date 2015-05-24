@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to ChitterChatter</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
+<link href="/css/homepage.css" rel="stylesheet">
+
+
+<body>
     <h1>Welcome to ChitterChatter</h1>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-<div>
+    <br>
   <a href="/peeps/new">New peep</a>
 
 <ul>
@@ -22,7 +14,7 @@
     <%=(User.first(id: peep.user_id)).name%>
     at <%=peep.timestamp.hour%>:<%=peep.timestamp.min %> on <%=peep.timestamp.day%>/<%=peep.timestamp.month%>/<%=peep.timestamp.year%><br><br>
   <% end %>
-</ul>
-  </body>
-</html>
+  </ul>
+</body>
+
 

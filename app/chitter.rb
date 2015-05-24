@@ -23,9 +23,9 @@ class ChitterChatter < Sinatra::Base
     end
 
   get '/' do
-    @peeps = Peep.all
-    @peeps.reverse!
-    erb :index
+    # @peeps = Peep.all
+    # @peeps.reverse!
+    erb :practice, :layout => false
   end
 
   get '/users/new' do
