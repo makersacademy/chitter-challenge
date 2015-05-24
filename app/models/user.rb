@@ -8,7 +8,7 @@ class User
 
   property :id, Serial
   property :username, String, unique: true, message: 'This username is already taken'
-  property :email, String, unique: true, message: 'This email is already taken'
+  property :email, String, unique: true, message:'This email is already taken'
   property :password_digest, Text
   validates_uniqueness_of :email
   validates_uniqueness_of :username
