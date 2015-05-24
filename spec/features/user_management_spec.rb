@@ -24,7 +24,8 @@ feature 'User can sign up' do
 
   scenario 'But not with a password that doesn\'t match' do
     expect{ sign_up('ash@ash.com', 'pass', 'wrong') }.to change(User, :count).by 0
-    # INCLUDE FLASH MESSAGE EXPECTANCY
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'But not with an email that is already registered' do
