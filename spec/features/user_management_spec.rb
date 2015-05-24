@@ -6,9 +6,10 @@
 
 feature 'User can sign up' do
 
-  def sign_up(username="ashleighpants", email="ash@ash.com", password="pass", password_confirmation="pass")
+  def sign_up(name="Ashleigh Smells", username="ashleighpants", email="ash@ash.com", password="pass", password_confirmation="pass")
     visit '/users/new'
     expect(page.status_code).to eq 200
+    fill_in :name, with: name
     fill_in :username, with: username
     fill_in :email, with: email
     fill_in :password, with: password
@@ -24,7 +25,7 @@ feature 'User can sign up' do
   end
 
   scenario 'But not with a password that doesn\'t match' do
-    expect { sign_up('ashleighpants', 'ash@ash.com', 'pass', 'wrong') }.to change(User, :count).by 0
+    expect { sign_up('Ashleigh Smells', 'ashleighpants', 'ash@ash.com', 'pass', 'wrong') }.to change(User, :count).by 0
     expect(current_path).to eq('/users')
     expect(page).to have_content('Password does not match the confirmation')
   end
