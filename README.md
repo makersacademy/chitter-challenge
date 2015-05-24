@@ -94,9 +94,13 @@ Notes on functionality:
 * Drive the creation of your app using tests - either cucumber or rspec as you prefer
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
 * Use bcrypt to secure the passwords.
 * Use data mapper and postgres to save the data.
+
+
+
+
+* Peeps (posts to chitter) have the name of the maker and their user handle.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
