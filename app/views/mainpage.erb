@@ -2,30 +2,34 @@
 
   <h3>Welcome back <%= @name %></h3>
   <br>
-<div class='container'>
+<div class='container-fluid'>
   <form method="post" action="/main" class="form-inline">
     <fieldset>
       <legend>Post a peep here</legend>
       <div class="form-group">
         <div class="col-lg-10">
-          <textarea class="form-control" rows="3" id="message"placeholder="What's on your mind..."></textarea>
+          <textarea class="form-control" rows="3" name="message" placeholder="What's on your mind..."></textarea>
         </div>
       </div>
-    <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+      <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
         </div>
       </fieldset>
     </form>
   <br>
-  Or for a private peep
-  <form method='post' action='/main/private/person'>
-    <select name='maker'>
-      <% @all_users.each do |user| %>
-        <% if user.name != @name %>
-          <option value=<%= user.name %>><%= user.name %></option>
-        <% end %>
-      <% end %>
-    </select>
-      <button type="submit" class="btn btn-primary" name='Go'>Go</button>
+  <form method='post' class='form-inline' action='/main/private/person'>
+    <fieldset class='scheduler-border'>
+      <legend>Send a private peep</legend>
+      <div class="form-group">
+        <select class='form-control' name='maker'>
+          <% @all_users.each do |user| %>
+            <% if user.name != @name %>
+              <option value=<%= user.name %>><%= user.name %></option>
+            <% end %>
+          <% end %>
+        </select>
+        <button type="submit" class="btn btn-primary" name='Go'>Go</button>
+      </div>
+    </fieldset>
   </form>
   <br>
   <h2>Past peeps:</h2>

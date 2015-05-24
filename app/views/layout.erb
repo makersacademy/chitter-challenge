@@ -17,42 +17,35 @@
     <![endif]-->
   </head>
   <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/main">Chitter feed</a>
+        <a class="navbar-brand" href="/main">About</a>
+        <a class="nav navbar-nav navbar-right">
+          <form method="post" action="/session">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-primary btn-lg" name='Logout'>Logout</button>
+          </form>
+        </a>
+      </div>
+    </nav>
     <center>
-      <% if flash[:notice] %>
+      <% if flash[:error] %>
         <div id='notice'>
-          <h3><p class="bg-warning"><%= flash[:notice] %></p></h3>
+          <h3><div class="alert alert-warning" role="alert"><%= flash[:error] %></div></h3>
+        </div>
+        <% elsif flash[:notice] %>
+        <div id='notice'>
+          <h3><div class="alert alert-success" role="alert"><%= flash[:notice] %></div></h3>
+        </div>
         </div>
       <% end %>
     </center>
   </header>
   <body>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Home</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/main">Chitter Feed <span class="sr-only">(current)</span></a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <form method="post" action="/session">
-      <input type="hidden" name="_method" value="delete">
-      <button type="submit" class="btn btn-primary btn-lg" name='Logout'>Logout</button>
-    </form>
-        </ul>
-      </div>
-    </div>
-  </nav>
     <center>
-    <%= yield %>
+      <%= yield %>
     </center>
   </body>
 </html>

@@ -11,10 +11,47 @@ enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
 
+helpers do
+
+  def prepare_peep_feed
+      @all_peeps = Peep.all
+      @all_peeps.reverse!
+      @all_users = User.all
+  end
+
+  def prepare_private_feed(sender, receiver)
+    @private_feed = []
+    @sender = sender
+    @receiver = receiver
+    prepare_peep_feed
+    @all_peeps.each do |peep|
+      if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver)
+        @private_feed << peep
+      end
+    end
+  end
+
+  def create_peep(sender, receiver)
+    time = Time.now
+    message = params[:message]
+    if message && message.length > 140
+      flash[:error] = 'Peeps must be less than 140 characters'
+      redirect to '/main'
+    end
+    @sender = sender
+    @receiver = receiver
+    Peep.create(message: message,
+                time: time,
+                user_id: session[:id],
+                personal_message_to: @receiver,
+                personal_message_from: @sender)
+  end
+
+end
+
+
 get '/' do
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  prepare_peep_feed
   erb :index
 end
 
@@ -38,7 +75,7 @@ post '/signup' do
     flash[:notice] = 'Registration confirmed'
     redirect '/'
   else
-    flash.now[:notice] = @user.errors.full_messages
+    flash.now[:error] = @user.errors.full_messages
     erb :signup
   end
 end
@@ -51,7 +88,7 @@ post '/login' do
     session[:id] = user.id
     redirect to '/main'
   else
-    flash[:notice] = 'The username or password was incorrect'
+    flash[:error] = 'The username or password was incorrect'
     redirect to '/'
   end
 end
@@ -60,42 +97,25 @@ get '/main' do
   id = session[:id]
   user = User.get(id)
   if user == nil
-    flash[:notice] = 'Please login first'
+    flash[:error] = 'Please login first'
     redirect to '/'
   end
   @name = user.name
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  prepare_peep_feed
   erb :mainpage
 end
 
 post '/main' do
-  id = session[:id]
-  time = Time.now
-  user = User.get(id)
-  @name = user.name
-  message = params[:message]
-  if message.length > 140
-    flash[:notice] = 'Peeps must be less than 140 characters'
-    redirect to '/main'
-  end
-  Peep.create(message: message,
-              time: time,
-              user_id: id,
-              personal_message_to: 'public')
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  user = User.get(session[:id])
+  create_peep(user.name, 'public')
+  prepare_peep_feed
   erb :mainpage
 end
 
 get '/main/private' do
   user = User.get(session[:id])
   @sender = user.name
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  prepare_peep_feed
   erb :private_peep
 end
 
@@ -103,26 +123,14 @@ post '/main/private/person' do
   user = User.get(session[:id])
   @sender = user.name
   @receiver = params[:maker]
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  prepare_private_feed(@sender, @receiver)
   erb :private_peep
 end
 
 post '/main/private' do
-  time = Time.now
   user = User.get(session[:id])
-  @sender = user.name
-  message = params[:message]
-  @receiver = params[:receiver]
-  Peep.create(message: message,
-              time: time,
-              user_id: session[:id],
-              personal_message_to: @receiver,
-              personal_message_from: @sender)
-  @all_peeps = Peep.all
-  @all_peeps.reverse!
-  @all_users = User.all
+  create_peep(user.name, params[:receiver])
+  prepare_private_feed(user.name, params[:receiver])
   erb :private_peep
 end
 

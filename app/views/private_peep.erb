@@ -3,21 +3,19 @@
   <form method='post' class="form-horizontal" action='/main/private'>
     <div class="form-group">
       <label for="inputPeep">Write a new private peep here: </label>
-      <input type='text' placeholder='Write your peep here...' name='message'>
+      <input type='text' placeholder='Peep here...' name='message'>
       <input type="hidden" name="receiver" value= <%= @receiver %> >
       <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
     </div>
   </form>
   <br>
-  <% if @all_peeps %>
-    <% @all_peeps.each do |peep| %>
-      <% if (peep.personal_message_to == @receiver && peep.personal_message_from == @sender) || (peep.personal_message_to == @sender && peep.personal_message_from == @receiver) %>
-        <dl>
-          <dt><%= peep.personal_message_from %> at <%= peep.time.strftime('%r')%>:</dt>
-          <dt> <%= peep.message %> </dt>
-        </dl>
-        <br>
-        <% end %>
+  <% if @private_feed %>
+    <% @private_feed.each do |peep| %>
+      <dl>
+        <dt><%= peep.personal_message_from %> at <%= peep.time.strftime('%r')%>:</dt>
+        <dt> <%= peep.message %> </dt>
+      </dl>
+      <br>
     <% end %>
   <% end %>
   <form method="get" action="/main">

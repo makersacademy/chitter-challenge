@@ -27,8 +27,7 @@ feature 'A new user wants to sign up' do
                      'test123',
                      'test123',
                      'Jack',
-                     'test_user1')
-     }.to change(User, :count).by(0)
+                     'test_user1') }.to change(User, :count).by(0)
     expect(page).to have_content 'This username is already taken'
   end
 
@@ -46,8 +45,9 @@ feature 'A new user wants to sign up' do
   scenario 'and will only see the confirmation message once' do
     sign_up
     expect(page).to have_content 'Registration confirmed'
-    # Logins incorrectly
+    # User logs in incorrectly
     login('wrong_username', 'wrong_password')
     expect(page).not_to have_content 'Registration confirmed'
+    expect(page).to have_content 'The username or password was incorrect'
   end
 end
