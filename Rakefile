@@ -1,12 +1,14 @@
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
+require 'data_mapper'
+require_relative './app/server'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
 Cucumber::Rake::Task.new :cuke
 
-task default: [:cop, :spec, :cuke]
+task default: [:auto_migrate]
 
 task :auto_upgrade do
   # auto_upgrade makes non-destructive changes.
