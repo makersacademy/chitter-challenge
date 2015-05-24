@@ -3,28 +3,31 @@
   <h1>Please fill in your details:</h1>
   <br>
   <form method='post' class="form-horizontal" action='/signup'>
-    <div class="form-group">
-      <label for="inputEmail">Email: </label>
-      <input type='email' name='email' placeholder='Enter your email' value ='<%= @user.email %>' >
-    </div>
-    <div class="form-group">
-      <label for="inputname">First name: </label>
-      <input type='text' name='name' placeholder='Enter your first name'>
-    </div>
-    <div class="form-group">
-      <label for="inputUsername">Username: </label>
-      <input type='text' name='username' placeholder='Enter your username'>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword">Password: </label>
-      <input type='password' name='password' placeholder='Enter your password'>
-    </div>
-    <div class="form-group">
-      <label for="inputPasswordConfirmation">Password Confirmation: </label>
-      <input type='password' name='password_confirmation' placeholder='Confirm your password'>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-primary" name='Login'>Submit</button>
+    <fieldset class='scheduler-border'>
+      <legend>Sign up</legend>
+      <div class="form-group">
+        <label for="inputEmail">Email: </label>
+        <input type='email' name='email' placeholder='Enter your email' value ='<%= @user.email %>' >
+      </div>
+      <div class="form-group">
+        <label for="inputname">First name: </label>
+        <input type='text' name='name' placeholder='Enter your first name'>
+      </div>
+      <div class="form-group">
+        <label for="inputUsername">Username: </label>
+        <input type='text' name='username' placeholder='Enter your username'>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword">Password: </label>
+        <input type='password' name='password' placeholder='Enter your password'>
+      </div>
+      <div class="form-group">
+        <label for="inputPasswordConfirmation">Password Confirmation: </label>
+        <input type='password' name='password_confirmation' placeholder='Confirm your password'>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" name='Login'>Submit</button>
+  </fieldset>
   </form>
 </body>
 

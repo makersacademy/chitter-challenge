@@ -1,10 +1,19 @@
 <body>
+
   <h3>Welcome back <%= @name %></h3>
   <br>
-  Post a peep here
-    <form method="post" action="/main">
-      <input type="text" name="message" placeholder="What's on your mind...">
-      <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+<div class='container'>
+  <form method="post" action="/main" class="form-inline">
+    <fieldset>
+      <legend>Post a peep here</legend>
+      <div class="form-group">
+        <div class="col-lg-10">
+          <textarea class="form-control" rows="3" id="message"placeholder="What's on your mind..."></textarea>
+        </div>
+      </div>
+    <button type="submit" class="btn btn-primary" name='Peep'>Peep</button>
+        </div>
+      </fieldset>
     </form>
   <br>
   Or for a private peep
@@ -17,11 +26,6 @@
       <% end %>
     </select>
       <button type="submit" class="btn btn-primary" name='Go'>Go</button>
-  </form>
-  <br>
-  <form method="post" action="/session">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn btn-primary" name='Logout'>Logout</button>
   </form>
   <br>
   <h2>Past peeps:</h2>

@@ -1,9 +1,11 @@
 <body>
   <br>
-  <h1>Welcome to Chitter<small><br>Please login here</small></h1>
+  <h1>Welcome to Chitter</h1>
   <br>
   <br>
   <form class="form-inline" method='post' action='/login'>
+    <fieldset class="scheduler-border">
+      <legend>Please login here</legend>
     <div class="form-group">
       <label for="inputUsername">Username: </label>
       <input type='text' name='username' class="form-control" placeholder='Enter your username'>
@@ -13,6 +15,7 @@
       <input type='password' class="form-control" name='password' placeholder='Enter your password'>
     </div>
       <button type="submit" class="btn btn-primary" name='Login'>Login</button>
+      </fieldset>
   </form>
   <br>
   <br>

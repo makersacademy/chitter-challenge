@@ -18,6 +18,10 @@ get '/' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
+
 get '/signup' do
   @user = User.new
   erb :signup
@@ -55,6 +59,10 @@ end
 get '/main' do
   id = session[:id]
   user = User.get(id)
+  if user == nil
+    flash[:notice] = 'Please login first'
+    redirect to '/'
+  end
   @name = user.name
   @all_peeps = Peep.all
   @all_peeps.reverse!

@@ -24,10 +24,10 @@ feature 'A new user wants to sign up' do
     sign_up
     expect(User.count).to eq 1
     expect { sign_up('newperson@test.com',
-                      'test123,
-                      test123,
-                      Jack
-                      test_user1')
+                     'test123',
+                     'test123',
+                     'Jack',
+                     'test_user1')
      }.to change(User, :count).by(0)
     expect(page).to have_content 'This username is already taken'
   end
