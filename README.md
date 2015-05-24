@@ -36,25 +36,7 @@ Links:
 Database layout:
 -------
 
-- users
-| id | username | name           | email            | password_digest |
-| ---|:--------:| --------------:|-----------------:|----------------:|
-| 1  | Big_G    | Andy Gout      | example@test.com | $5f$96$Gcja...  |
-| 2  | Robbo    | Robert Bentley | sample@test.com  | $4w$00$Wdic...  |
-
-- peeps
-| id | text                         | time                       | user_id |
-| ---|:----------------------------:| --------------------------:|--------:|
-| 1  | Now poured milk on OJ on...  | 2015-05-24 11:01:04.090368 | 1       |
-| 2  | Feeling a bit sick now...    | 2015-05-24 11:14:13.069034 | 1       |
-| 3  | At the airport - SFO here... | 2015-05-24 11:37:32.564842 | 2       |
-
-- replies
-| id | text                         | time                       | user_id | peep_id |
-| ---|:----------------------------:| --------------------------:|--------:|--------:|
-| 1  | OMG, well jealous...         | 2015-05-24 11:49:41.668771 | 1       | 3       |
-| 2  | Never mix OJ and milk...     | 2015-05-24 11:50:14.144025 | 2       | 2       |
-| 3  | Take some painkillers...     | 2015-05-24 11:53:31.80567  | 2       | 2       |
+![Screenshot DB Layout](/public/git_img/db_layout.png)
 
 Images:
 -------
