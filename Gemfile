@@ -4,7 +4,6 @@ ruby '2.2.1'
 
 gem 'bcrypt'
 gem 'capybara'
-gem 'cucumber'
 gem 'coveralls', require: false
 gem 'database_cleaner'
 gem 'data_mapper'
