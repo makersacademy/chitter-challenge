@@ -1,12 +1,10 @@
-# User Story currently being tested:
-
-# As a Maker
-# So that I can post messages on Chitter as me
-# I want to log in to Chitter
-
 feature 'User can sign up' do
 
-  def sign_up(name="Ashleigh Smells", username="ashleighpants", email="ash@ash.com", password="pass", password_confirmation="pass")
+  def sign_up(name="Ashleigh Smells",
+              username="ashleighpants",
+              email="ash@ash.com",
+              password="pass",
+              password_confirmation="pass")
     visit '/users/new'
     expect(page.status_code).to eq 200
     fill_in :name, with: name
