@@ -18,7 +18,6 @@ DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super secret'
-set :erb, layout: :'views/layout'
 
 use Rack::Flash
 post '/set-flash' do
