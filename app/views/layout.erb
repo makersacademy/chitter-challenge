@@ -1,6 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Chatter</title>
+  <link rel="stylesheet" type="text/css" href="/css/application.css">
+</head>
 <body>
   <% if current_user %>
     Welcome, <%= current_user.username %>
   <% end %>
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
   <%= yield %>
 </body>
+</html>
