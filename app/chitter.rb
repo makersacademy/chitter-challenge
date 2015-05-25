@@ -10,6 +10,7 @@ require_relative 'data_mapper_setup'
 require_relative 'controllers/base'
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
+require_relative 'controllers/peeps'
 
 
 module Chitter
@@ -22,6 +23,7 @@ module Chitter
 
     use Routes::Users
     use Routes::Sessions
+    use Routes::Peeps
 
     set :partial_template_engine, :erb
     set :views, Proc.new { File.join('app', 'views') }
