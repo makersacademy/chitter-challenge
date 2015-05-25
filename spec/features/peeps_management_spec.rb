@@ -31,5 +31,30 @@ feature 'User posts a peep' do
     visit '/'
     expect(page).to have_content('This is a test peep')
   end
+end
+
+feature 'User views list of peeps' do
+
+  before(:each) do
+    user = User.create(email: 'uhoh@danieljohnston.co.uk',
+                       handle: 'hrrmm',
+                       password: 'testpassword',
+                       password_confirmation: 'testpassword')
+    user.peeps.create(content: 'First peep', time: Time.new)
+    user.peeps.create(content: 'Second peep', time: Time.new)
+    user.peeps.create(content: 'Third peep', time: Time.new)
+    user.peeps.create(content: 'Fourth peep', time: Time.new)
+    user.peeps.create(content: 'Fifth peep', time: Time.new)
+  end
+
+  scenario 'and sees them in reverse chronological order' do
+    visit '/'
+    expect(page).to have_content(/Fifth\p{Zs}peep[.\s]*
+                                  Fourth\p{Zs}peep[.\s]*
+                                  Third\p{Zs}peep[.\s]*
+                                  Second\p{Zs}peep[.\s]*
+                                  First\p{Zs}peep/x)
+
+  end
 
 end

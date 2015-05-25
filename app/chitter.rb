@@ -30,7 +30,8 @@ module Chitter
     set :public_folder, Proc.new { File.join('public') }
 
     get '/' do
-      @peeps = Peep.all
+      # Sort peeps in reverse chronological order
+      @peeps = Peep.all(:order => [ :time.desc ])
       erb :index
     end
 

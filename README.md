@@ -50,7 +50,11 @@ Peeps:
 
 * new - GET 'peeps/new' producing POST to '/peeps'
 
-Status: completed with commit 
+Status: completed with commit 9376898. Took a bunch of work to figure out why the database was setting up a many-to-many relation between User and Peep.
+
+### As a Maker. So that I can see what others are saying. I want to see all peeps in reverse chronological order
+
+No domain changes. `Peep.all(:order => [ :time.desc ])` was used to sort peeps prior to display on page load. This feels dubious in terms of scalability, but does the job for now. Testing was awkward - tried using the Orderly gem but it wasn't recogni
 
 # Original challenge Readme
 
