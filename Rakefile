@@ -1,4 +1,5 @@
-require './app/server'
+require './app/data_mapper_setup'
+require 'data_mapper'
 
 task :before do
   fail "RAKE_ENV has not been specified" unless ENV.key?('RACK_ENV')

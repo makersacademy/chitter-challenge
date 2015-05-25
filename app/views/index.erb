@@ -2,15 +2,15 @@
 
 Current Peeps:
 <ul>
-  <% @messages.each do |message| %>
-    <li><a ><%= message.peep %> </a></li><li><a ><%= message.username %> </a></li>
+  <% Message.all(order:[:time.desc]).each do |message| %>
+    <li><a ><%= message.peep %> </a></li>
+    (Peeped by "<%= message.user.name %>" - <%= message.time%>)
   <% end %>
 </ul>
 
 <div id='new-peep'>
   <form action='/peeps' method='post'>
     Peep: <input type='text' name='peep'>
-    Username: <input type='text' name='username'>
     <input type='submit' value='Add Peep'>
   </form>
 </div>

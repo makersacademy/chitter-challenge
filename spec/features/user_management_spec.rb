@@ -1,4 +1,52 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+
+include SessionHelpers
+
+feature 'User signs in' do
+
+  before(:each) do
+    User.create(email: 'sunshine@hope.com',
+                username: 'sunnydays',
+                name: 'Sally',
+                password: 'hopeful',
+                password_confirmation: 'hopeful')
+  end
+
+  scenario 'with correct details' do
+    visit '/'
+    expect(page).not_to have_content('Welcome, sunndays')
+    sign_in('sunshine@hope.com', 'hopeful')
+    expect(page).to have_content('Welcome, sunnydays')
+  end
+
+  scenario 'with incorrect details' do
+    visit '/'
+    expect(page).not_to have_content('Welcome, sunshine@hope.com')
+    sign_in('sunshine@hope.com', 'wrong')
+    expect(page).not_to have_content('Welcome, sunnydays')
+  end
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(email: 'sunshine@hope.com',
+                username: 'sunnydays',
+                name: 'Sally',
+                password: 'hopeful',
+                password_confirmation: 'hopeful')
+  end
+
+  scenario 'while being signed in' do
+    sign_in('sunshine@hope.com', 'hopeful')
+    click_button 'Time to leave?'
+    expect(page).to have_content('Good-bye!') #
+    expect(page).not_to have_content('Welcome, sunnydays')
+  end
+end
+
 
 feature 'User signs up' do
 
@@ -9,7 +57,7 @@ feature 'User signs up' do
   end
 
   scenario 'with a password that does not match' do
-    expect { sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    expect { sign_up(password: 'pass', password_confirmation: 'wrong') }.to change(User, :count).by(0)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Sorry, your passwords do not match')
   end
@@ -19,16 +67,6 @@ feature 'User signs up' do
   expect { sign_up }.to change(User, :count).by(0)
   expect(page).to have_content('This email is already taken')
 end
-
-  def sign_up(email = 'alib@b@@example.com', username = 'Alib@b@', password = 'genius!', password_confirmation = 'genius!')
-    visit '/users/new'
-    fill_in :email, with: email
-    fill_in :username, with: username
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Join Chatter!'
-  end
-
 
 
 end
