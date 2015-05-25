@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Sessions < Base
 
       # Log in page
@@ -28,5 +30,7 @@ module Chitter
       end
 
     end
+
   end
+
 end

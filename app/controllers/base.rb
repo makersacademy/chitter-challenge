@@ -1,7 +1,10 @@
 module Chitter
+
   module Routes
+
     class Base < Sinatra::Application
-      set :views, Proc.new { File.join(root, '../views') }
+
+      set :views, proc { File.join(root, '../views') }
       set :partial_template_engine, :erb
 
       helpers do
@@ -11,5 +14,7 @@ module Chitter
       end
 
     end
+
   end
+
 end

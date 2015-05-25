@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Users < Base
 
       get '/users/new' do
@@ -22,5 +24,7 @@ module Chitter
       end
 
     end
+
   end
+
 end

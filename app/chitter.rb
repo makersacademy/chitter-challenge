@@ -4,7 +4,6 @@ require 'rack-flash'
 require 'sinatra/partial'
 require 'byebug'
 
-
 require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'data_mapper_setup'
@@ -14,10 +13,10 @@ require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/peeps'
 
-
 module Chitter
 
   class Application < Sinatra::Application
+
     enable :sessions
     set :session_secret, 'super secret'
     use Rack::Flash
@@ -28,12 +27,12 @@ module Chitter
     use Routes::Peeps
 
     set :partial_template_engine, :erb
-    set :views, Proc.new { File.join('app', 'views') }
-    set :public_folder, Proc.new { File.join('public') }
+    set :views, proc { File.join('app', 'views') }
+    set :public_folder, proc { File.join('public') }
 
     get '/' do
       # Sort peeps in reverse chronological order
-      @peeps = Peep.all(:order => [ :time.desc ])
+      @peeps = Peep.all(order: [:time.desc])
       erb :index
     end
 
@@ -42,4 +41,5 @@ module Chitter
     end
 
   end
+
 end

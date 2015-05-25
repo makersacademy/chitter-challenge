@@ -1,9 +1,9 @@
 module SessionHelpers
 
-  def sign_up(email='uhoh@danieljohnston.co.uk',
-              handle='uhoh',
-              password='testpassword',
-              password_confirmation='testpassword')
+  def sign_up(email = 'uhoh@danieljohnston.co.uk',
+              handle = 'uhoh',
+              password = 'testpassword',
+              password_confirmation = 'testpassword')
     visit '/users/new'
     fill_in :email, with: email
     fill_in :handle, with: handle
@@ -12,8 +12,8 @@ module SessionHelpers
     click_button 'Sign up'
   end
 
-  def sign_in(email='uhoh@danieljohnston.co.uk',
-              password='testpassword')
+  def sign_in(email = 'uhoh@danieljohnston.co.uk',
+              password = 'testpassword')
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password

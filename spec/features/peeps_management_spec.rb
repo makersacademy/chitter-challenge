@@ -21,7 +21,7 @@ feature 'User posts a peep' do
   end
 
   scenario 'while not logged in' do
-    expect{ post_peep }.to raise_error('Unable to find field :content')
+    expect { post_peep }.to raise_error('Unable to find field :content')
     expect(page).to have_content('You need to be logged in first')
   end
 

@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Peeps < Base
 
       'You need to be logged in first'
@@ -7,7 +9,7 @@ module Chitter
       # Create a peep page
       get '/peeps/new' do
         # Error if logged out
-        if !current_user
+        unless current_user
           flash[:errors] = ['You need to be logged in first']
           redirect '/'
         end
@@ -17,7 +19,7 @@ module Chitter
       # Handle a peep posting request
       post '/peeps' do
         # Error if logged out
-        if !current_user
+        unless current_user
           flash[:errors] = ['You need to be logged in first']
           redirect '/'
         end
@@ -26,6 +28,9 @@ module Chitter
         flash[:notice] = 'Your peep has been posted!'
         redirect '/'
       end
+
     end
+
   end
+
 end

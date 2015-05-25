@@ -36,7 +36,6 @@ class User
   # if creating a unique index implies a model-level validation.
   validates_confirmation_of :password
 
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -45,26 +44,25 @@ class User
   def self.authenticate(email, password)
     # that's the user who is trying to sign in
     user = first(email: email)
-  # if this user exists and the password provided matches
-  # the one we have password_digest for, everything's fine
+    # if this user exists and the password provided matches
+    # the one we have password_digest for, everything's fine
 
-# POTENTIAL PLACE FOR REPLACEMENT PW STUFF?:
-            # user = User.first(email: email)
-            # # avoid having to memorise ascii codes
-            # user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
-            # user.password_token_timestamp = Time.now
-            # user.save
+    # POTENTIAL PLACE FOR REPLACEMENT PW STUFF?:
+    # user = User.first(email: email)
+    # # avoid having to memorise ascii codes
+    # user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+    # user.password_token_timestamp = Time.now
+    # user.save
 
-
-  # The Password.new returns an object that overrides the ==
-  # method. Instead of comparing two passwords directly
-  # (which is impossible because we only have a one-way hash)
-  # the == method calculates the candidate password_digest from
-  # the password given and compares it to the password_digest
-  # it was initialised with.
-  # So, to recap: THIS IS NOT A STRING COMPARISON
+    # The Password.new returns an object that overrides the ==
+    # method. Instead of comparing two passwords directly
+    # (which is impossible because we only have a one-way hash)
+    # the == method calculates the candidate password_digest from
+    # the password given and compares it to the password_digest
+    # it was initialised with.
+    # So, to recap: THIS IS NOT A STRING COMPARISON
     if user && BCrypt::Password.new(user.password_digest) == password
-  # return this user
+      # return this user
       user
     else
       nil
