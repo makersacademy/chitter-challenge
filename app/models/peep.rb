@@ -1,8 +1,7 @@
 class Peep
-
   include DataMapper::Resource
 
-  belongs_to :User
+  belongs_to :user
 
   property :id, Serial, unique: true, message: 'ID conflict!'
   property :content, Text

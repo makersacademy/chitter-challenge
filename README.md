@@ -50,7 +50,7 @@ Peeps:
 
 * new - GET 'peeps/new' producing POST to '/peeps'
 
-Status: 
+Status: completed with commit 
 
 # Original challenge Readme
 

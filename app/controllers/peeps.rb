@@ -16,18 +16,15 @@ module Chitter
 
       # Handle a peep posting request
       post '/peeps' do
-        puts 'PEEPS'
         # Error if logged out
         if !current_user
-          puts 'PEEPS NOT CURRENT USER'
           flash[:errors] = ['You need to be logged in first']
           redirect '/'
         end
-        puts 'PEEPS IS CURRENT USER'
         content = params[:content]
-        peep = Peep.create(content: content, time: Time.new)
-        current_user.peeps << peep # UH OH
+        peep = current_user.peeps.create(content: content, time: Time.new)
         flash[:notice] = 'Your peep has been posted!'
+        redirect '/'
       end
     end
   end

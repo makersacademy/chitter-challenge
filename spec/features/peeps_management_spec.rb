@@ -25,8 +25,11 @@ feature 'User posts a peep' do
     expect(page).to have_content('You need to be logged in first')
   end
 
-  xscenario 'and sees their peep on the front page' do
-
+  scenario 'and sees their peep on the front page' do
+    sign_in
+    post_peep
+    visit '/'
+    expect(page).to have_content('This is a test peep')
   end
 
 end
