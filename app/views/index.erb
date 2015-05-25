@@ -4,3 +4,10 @@
     <li><%= peep.text %></li>
   <% end %>
 </ul>
+
+<div id='new-peep'>
+  <form action='/peeps' method='post'>
+    Peep: <input type='text' name='text'>
+    <input type='submit' value='Add peep'>
+  </form>
+</div>

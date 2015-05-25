@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
+require 'byebug'
 
 require_relative 'models/user'
 require_relative 'models/peep'
@@ -18,4 +19,16 @@ DataMapper.auto_upgrade!
 get '/' do
   @peeps = Peep.all
   erb :index
+end
+
+
+
+post '/peeps' do
+  text1 = params[:text]
+  Peep.create(text: text1)
+
+  p "!!!!!"
+  p Peep.count
+  byebug
+  redirect to('/')
 end
