@@ -24,11 +24,7 @@ end
 
 
 post '/peeps' do
-  text1 = params[:text]
-  Peep.create(text: text1)
-
-  p "!!!!!"
-  p Peep.count
-  byebug
+  input = params[:text]
+  Peep.create(text: input)
   redirect to('/')
 end

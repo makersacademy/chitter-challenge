@@ -1,5 +1,4 @@
 # Taken from the cucumber-rails project.
-
 module NavigationHelpers
   # Maps a name to a path. Used by the
   #
@@ -25,5 +24,4 @@ module NavigationHelpers
     end
   end
 end
-
 World(NavigationHelpers)
