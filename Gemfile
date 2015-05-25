@@ -18,5 +18,10 @@ group :development, :test do
   gem 'shotgun'
   gem 'database_cleaner'
   gem 'byebug'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'coveralls', require: false
+
+
 end
 

@@ -3,13 +3,14 @@ module Chitter
     class Peeps < Base
 
       get '/' do 
-        @peeps = Peep.all
         erb :index
       end
 
       post '/peeps' do
         message = params['message']
-        Peep.create(message: message)
+        user_id = session[:user_id]
+        time = Time.now
+        Peep.create(message: message, time: time, user_id: user_id)
         redirect to('/')
       end
 

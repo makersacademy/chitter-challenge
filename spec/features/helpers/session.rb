@@ -20,5 +20,12 @@ module SessionHelpers
     end
   end
 
+  def add_peep(message)
+    visit '/peeps/new'
+    within('#new-peep') do 
+      fill_in 'message', with: message
+      click_button 'Add peep'
+    end
+  end
 
 end

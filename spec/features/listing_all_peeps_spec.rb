@@ -1,13 +1,24 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature 'User browses all current peeps' do 
 
   before(:each) do 
-    Peep.create(message: 'peep peep!')
+    sign_up
+    add_peep('this is a peep')
   end
 
   scenario 'when opening the home page' do 
     visit '/'
-    expect(page).to have_content('peep peep!')
+    expect(page).to have_content('Current peeps:')
   end
+
+  scenario 'with username and name for each peep' do 
+    expect(page).to have_content('Tim(username)') 
+  end
+
+
+
 end

@@ -4,18 +4,21 @@ class User
 
   include DataMapper::Resource
 
+  has n, :peep
+  
   property :id, Serial
   property :email, String, unique: true, message: 'This email is already taken'
   property :password_digest, Text
   property :password_token, Text
   property :password_token_timestamp, Time
   property :name, String
-  property :username, String
+  property :username, String, unique: true, message: 'This username is already taken'
 
   attr_reader :password
   attr_accessor :password_confirmation
 
   validates_uniqueness_of :email
+  validates_uniqueness_of :username
   validates_confirmation_of :password
 
   def password=(password)
