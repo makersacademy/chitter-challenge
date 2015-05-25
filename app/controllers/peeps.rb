@@ -12,7 +12,7 @@ module Chitter
         content = params[:content]
         peep = Peep.create(content: content, time: Time.new)
         puts current_user
-        current_user << peep # UH OH
+        current_user.peeps << peep # UH OH
         flash[:notice] = 'Your peep has been posted!'
       end
     end
