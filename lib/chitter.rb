@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    current_user.peep.create(message: params[:peep_message])
+    current_user.peep.create(message: params[:peep_message], timestamp: Time.now)
     redirect to('/')
     erb :index
   end
@@ -83,6 +83,7 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id]) if session[:user_id]
     end
+
   end
 
   # start the server if ruby file executed directly
