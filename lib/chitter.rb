@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(message: params[:peep_message])
+    current_user.peep.create(message: params[:peep_message])
     redirect to('/')
     erb :index
   end
@@ -61,7 +61,6 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.first(:email => params[:email])
-
     if @user
       session[:user_id] = @user.id
       redirect to('/')
