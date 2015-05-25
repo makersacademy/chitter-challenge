@@ -11,7 +11,7 @@ gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
-  gem 'pry'
+  gem 'byebug'
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'

@@ -40,21 +40,31 @@ feature 'User views list of peeps' do
                        handle: 'hrrmm',
                        password: 'testpassword',
                        password_confirmation: 'testpassword')
-    user.peeps.create(content: 'First peep', time: Time.new)
-    user.peeps.create(content: 'Second peep', time: Time.new)
-    user.peeps.create(content: 'Third peep', time: Time.new)
-    user.peeps.create(content: 'Fourth peep', time: Time.new)
-    user.peeps.create(content: 'Fifth peep', time: Time.new)
+    @fake_time = []
+    @fake_time[0] = Time.now - 500
+    4.times do |index|
+      @fake_time << @fake_time[index] + 100
+    end
+
+    user.peeps.create(content: 'First peep', time: @fake_time[0])
+    user.peeps.create(content: 'Second peep', time: @fake_time[1])
+    user.peeps.create(content: 'Third peep', time: @fake_time[2])
+    user.peeps.create(content: 'Fourth peep', time: @fake_time[3])
+    user.peeps.create(content: 'Fifth peep', time: @fake_time[4])
   end
 
   scenario 'and sees them in reverse chronological order' do
     visit '/'
-    expect(page).to have_content(/Fifth\p{Zs}peep[.\s]*
-                                  Fourth\p{Zs}peep[.\s]*
-                                  Third\p{Zs}peep[.\s]*
-                                  Second\p{Zs}peep[.\s]*
+    expect(page).to have_content(/Fifth\p{Zs}peep[\s\S]*
+                                  Fourth\p{Zs}peep[\s\S]*
+                                  Third\p{Zs}peep[\s\S]*
+                                  Second\p{Zs}peep[\s\S]*
                                   First\p{Zs}peep/x)
+  end
 
+  scenario 'and sees the time each was posted at' do
+    visit '/'
+    expect(page).to have_content('Fifth peep - ' + @fake_time[4].to_s)
   end
 
 end

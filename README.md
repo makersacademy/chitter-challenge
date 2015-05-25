@@ -54,7 +54,15 @@ Status: completed with commit 9376898. Took a bunch of work to figure out why th
 
 ### As a Maker. So that I can see what others are saying. I want to see all peeps in reverse chronological order
 
-No domain changes. `Peep.all(:order => [ :time.desc ])` was used to sort peeps prior to display on page load. This feels dubious in terms of scalability, but does the job for now. Testing was awkward - tried using the Orderly gem but it wasn't recogni
+No domain changes. `Peep.all(:order => [ :time.desc ])` was used to sort peeps prior to display on page load. This feels dubious in terms of scalability, but does the job for now. Testing was awkward - tried using the Orderly gem but ended up creating a regex. There's potential for hidden breakage as the test data are entered into the database chronologically, which means in theory that i could pass tests just by posting in order of peep_id.
+
+Status: completed with commit 47baa02.
+
+### As a maker. So that I can better appreciate the context of a peep. I want to see the time at which it was made
+
+No domain changes. Just adding time to the view.
+
+Status: completed with commit 
 
 # Original challenge Readme
 
