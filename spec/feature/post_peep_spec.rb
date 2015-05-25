@@ -9,7 +9,7 @@ feature "Posting peeps" do
   scenario "Users are able to post peeps when signed in" do
     expect(Peep.count).to eq(0)
 
-    sign_in("chidu@chidu.com", "123")
+    sign_in("chidu@chidu.com", "12345")
     peep("this is a test peep")
     expect(Peep.count).to eq(1)
 

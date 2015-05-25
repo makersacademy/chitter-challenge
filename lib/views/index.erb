@@ -2,7 +2,7 @@
 <a href="/sessions/new">Sign In</a>
 
 <% @peeps.each do |peep| %>
-  <%= current_user.username %> <li><%= peep.message %></li>
+  <%= peep.user.username %> <li><%= peep.message %></li>
 <% end %>
 
 <% if session[:user_id] %>

@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    @current_user.peep.create(message: params[:peep_message])
+    current_user.peep.create(message: params[:peep_message])
     redirect to('/')
     erb :index
   end
