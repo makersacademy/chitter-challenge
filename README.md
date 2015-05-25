@@ -1,4 +1,4 @@
-
+Project Overview at http://timrobertson0122.github.io/chitter-challenge/
 
 
 
@@ -44,6 +44,7 @@ Technologies used:
 - Written in Ruby, tested with Rspec and Capybara
 - DataMapper and Postgresql for DB
 - Bcrypt for password encryption
+- Mailgun API for email integration
 - Served by Sinatra, HTML, CSS, Bootstrap for looks
 
 
