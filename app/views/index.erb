@@ -1,6 +1,6 @@
 Current peeps:
 <ul>
   <% Peep.all(order: [:time.desc]).each do |peep| %>
-    <li><h4><%= peep.message %></h4> (Peeped by <%= peep.user.name %> - <%= peep.time %></a></li>
+    <li><h4><%= peep.message %></h4> (Peeped by <%= peep.user.name %> - <%= peep.time %>)</a></li>
   <% end %>
 </ul>
