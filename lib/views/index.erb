@@ -1,15 +1,33 @@
-<a href="/users/new">Sign Up</a>
-<a href="/sessions/new">Sign In</a>
 
-<% @peeps.each do |peep| %>
-  <%= peep.user.username %> <%= peep.timestamp %> <li><%= peep.message %></li>
-<% end %>
+<body>
 
-<% if session[:user_id] %>
-  <div id="post_peep">
-    <form action='/' method="post">
-      <input type="textarea" name="peep_message">
-      <button> Peep! </button>
-    </form>
+  <div class="col-md-4 session-buttons">
+    <button><a href="/users/new">Sign Up</a></button>
+    <button><a href="/sessions/new">Sign In</a></button>
   </div>
-<% end %>
+
+  <div class="col-md-4">
+    <% if session[:user_id] %>
+      <div id="post_peep">
+        <form action='/' method="post">
+          <input type="textarea" name="peep_message" style="height: 100px; width: 350px; padding-bottom: 1px;">
+          <button> Peep! </button>
+        </form>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="peeps-container">
+    <% @peeps.each do |peep| %>
+      <div id="peep">
+        <div id="peep-meta">
+          Peeped by <%= peep.user.username %> at <%= peep.timestamp %>
+        </div> <!--#peep-meta-->
+        <div id="peep-message">
+          <%= peep.message %>
+        </div> <!--#peep-message-->
+      </div> <!--#peep-->
+    <% end %>
+  </div> <!--.peeps-container-->
+
+</body>

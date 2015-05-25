@@ -2,26 +2,45 @@
   <head>
     <title> Chitter </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <style>
+    .container {
+      padding: 40px 15px;
+      text-align: center;
+    }
+    .session-buttons {margin-top: 1px;}
+    .peeps-container {margin-top: 160px;}
+    #peep {margin-top: 15px;}
+    #peep-meta{background-color: gray; color: #fff; border-radius: 0.3em; height: 30px;}
+    #peep-message{border: 1px solid gray; height: 40px;}
+    </style>
   </head>
 
   <body>
 
-    <% if session[:user_id] %>
-      Welcome <%= User.get(session[:user_id]).username %>
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+    <header>
+      <h1 style="font-size: 40px; text-align: center; color: gray;">Chitter Baby!</h1>
+      <p style="text-align: center; color: gray;"> for people too cool for the real thing </p>
+    </header>
 
-     <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+    <div class="container">
 
-    <h1> Chitter </h1>
-    <%= yield %>
+      <% if session[:user_id] %>
+        Welcome <%= current_user.username %>
+        <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      <% end %>
+
+       <% if flash[:notice] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
 
   </body>
 
