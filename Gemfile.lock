@@ -93,6 +93,7 @@ GEM
     gherkin (2.12.2)
       multi_json (~> 1.3)
     highline (1.7.2)
+    htmlbeautifier (1.1.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     json (1.8.2)
@@ -185,6 +186,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  htmlbeautifier (~> 1.1.0)
   launchy
   rack-flash3
   rest-client

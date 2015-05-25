@@ -32,7 +32,7 @@ module Chitter
 
       get '/users/reset_password' do
         erb :'users/reset_password'
-      end 
+      end
 
       get '/users/new_password/:token' do
         @token = params[:token]

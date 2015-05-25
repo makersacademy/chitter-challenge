@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-  gem 'sinatra'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'bcrypt'
-  gem 'rack-flash3'
-  gem 'sinatra-partial'
-  gem 'launchy'
-  gem 'rest-client'
+gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'bcrypt'
+gem 'rack-flash3'
+gem 'sinatra-partial'
+gem 'launchy'
+gem 'rest-client'
+gem 'htmlbeautifier', '~> 1.1.0'
 
 group :development, :test do
 
@@ -19,9 +20,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'byebug'
   gem 'rubocop-rspec'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'coveralls', require: false
 
 
 end
-

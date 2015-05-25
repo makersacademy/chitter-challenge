@@ -5,14 +5,14 @@ class User
   include DataMapper::Resource
 
   has n, :peeps
-  
+
   property :id, Serial
   property :email, String, unique: true
   property :password_digest, Text
   property :password_token, Text
   property :password_token_timestamp, Time
   property :name, String
-  property :username, String, unique: true 
+  property :username, String, unique: true
 
   attr_reader :password
   attr_accessor :password_confirmation

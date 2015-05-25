@@ -4,8 +4,8 @@ require_relative 'helpers/session'
 
 include SessionHelpers
 
-feature 'User submits a new peep' do 
-  scenario 'when browsing the homepage' do 
+feature 'User submits a new peep' do
+  scenario 'when browsing the homepage' do
     sign_up
     expect(Peep.count).to eq(0)
     visit '/peeps/new'

@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe Peep do 
+describe Peep do
 
-  context 'Checking that datamapper works' do 
-    it 'should be created and then retrieved from the db' do 
+  context 'Checking that datamapper works' do
+    it 'should be created and then retrieved from the db' do
       User.create(email: 'test@test.com',
-                password: 'test',
-                password_confirmation: 'test',
-                name: 'Testname',
-                username: 'Testusername')
+                  password: 'test',
+                  password_confirmation: 'test',
+                  name: 'Testname',
+                  username: 'Testusername')
       user = User.first
       expect(Peep.count).to eq(0)
       Peep.create(message: 'my first peep!',

@@ -2,7 +2,7 @@ module Chitter
   module Routes
     class Peeps < Base
 
-      get '/' do 
+      get '/' do
         erb :index
       end
 
@@ -14,7 +14,7 @@ module Chitter
         redirect to('/')
       end
 
-      get '/peeps/new' do 
+      get '/peeps/new' do
         erb :"peeps/new"
       end
 

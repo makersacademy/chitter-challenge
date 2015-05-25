@@ -1,7 +1,7 @@
 module SessionHelpers
 
-  def sign_up(email = 'test@test.com', password = 'oranges!', 
-    password_confirmation = 'oranges!', name = 'Tim', username = 'username')
+  def sign_up(email = 'test@test.com', password = 'oranges!',
+              password_confirmation = 'oranges!', name = 'Tim', username = 'username')
     visit '/users/new'
     fill_in :email, with: email
     fill_in :password, with: password
@@ -13,16 +13,16 @@ module SessionHelpers
 
   def sign_in(email, password)
     visit '/sessions/new'
-    within 'section#sign-in' do 
-    fill_in 'email', with: email
-    fill_in 'password', with: password
-    click_button 'Sign in'
+    within 'section#sign-in' do
+      fill_in 'email', with: email
+      fill_in 'password', with: password
+      click_button 'Sign in'
     end
   end
 
   def add_peep(message)
     visit '/peeps/new'
-    within('#new-peep') do 
+    within('#new-peep') do
       fill_in 'message', with: message
       click_button 'Add peep'
     end

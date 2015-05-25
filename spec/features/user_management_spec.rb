@@ -3,9 +3,9 @@ require_relative 'helpers/session'
 
 include SessionHelpers
 
-feature 'User signs up' do 
+feature 'User signs up' do
 
-  scenario 'when being the user visiting the site' do 
+  scenario 'when being the user visiting the site' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, Tim')
     expect(User.first.email).to eq('test@test.com')
@@ -71,8 +71,8 @@ end
 
 feature 'User forgets password' do
 
-  let(:user) { User.create(email: 'test@test.com', password: 'test', 
-    password_confirmation: 'test', name: 'Testname', username: 'Testusername') }
+  let(:user) { User.create(email: 'test@test.com', password: 'test',
+                           password_confirmation: 'test', name: 'Testname', username: 'Testusername') }
 
   before do
     user
