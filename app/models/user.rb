@@ -1,10 +1,13 @@
 require 'bcrypt'
+require 'dm-validations'
 
 class User
   include DataMapper::Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
+
+  has n, :peeps
 
   property :id, Serial
   property :username, String, unique: true, message: 'This username is already taken'
