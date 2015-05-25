@@ -1,3 +1,7 @@
+
+
+
+
 Chitter Challenge
 =================
 
@@ -47,3 +51,4 @@ Bonus Features:
 --------------
 
 - User can request a new password and receive a password token via email
+- User must be signed in to post a Peep
