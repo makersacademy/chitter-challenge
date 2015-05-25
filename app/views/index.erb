@@ -1,0 +1,17 @@
+<h1>Welcome to Chatter</h1>
+
+Current Peeps:
+<ul>
+  <% @messages.each do |message| %>
+    <li><a href='<%= message.peep %>'><%= message.username %></a></li>
+  <% end %>
+</ul>
+
+<div id='new-peep'>
+  <form action='/peeps' method='post'>
+    Peep: <input type='text' name='peep'>
+    Username: <input type='text' name='username'>
+    <input type='submit' value='Add Peep'>
+  </form>
+</div>
+<!-- This should probably be within sign in page not on homepage -->
