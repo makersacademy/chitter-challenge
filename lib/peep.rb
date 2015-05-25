@@ -1,7 +1,8 @@
 class Peep
 
   include DataMapper::Resource
-  has n, :user, through: Resource
+  # has n, :user, through: Resource
+  belongs_to :user, :required => false
 
   property :id, Serial
 

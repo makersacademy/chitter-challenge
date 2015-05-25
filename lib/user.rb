@@ -1,7 +1,8 @@
 class User
 
   include DataMapper::Resource
-  has n, :peep, through: Resource
+
+  has n, :peep
 
   property :id, Serial
 
