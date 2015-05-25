@@ -8,5 +8,4 @@ class Peep
   property :message, String
   property :time, Time
 
-
 end

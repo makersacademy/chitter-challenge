@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Peeps < Base
 
       get '/' do
@@ -19,5 +21,8 @@ module Chitter
       end
 
     end
+
   end
+
 end
+

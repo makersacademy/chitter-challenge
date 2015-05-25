@@ -1,7 +1,8 @@
 module SessionHelpers
 
   def sign_up(email = 'test@test.com', password = 'oranges!',
-              password_confirmation = 'oranges!', name = 'Tim', username = 'username')
+              password_confirmation = 'oranges!',
+              name = 'Tim', username = 'username')
     visit '/users/new'
     fill_in :email, with: email
     fill_in :password, with: password

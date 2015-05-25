@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Sessions < Base
 
       get '/sessions/new' do
@@ -25,5 +27,7 @@ module Chitter
       end
 
     end
+
   end
+
 end

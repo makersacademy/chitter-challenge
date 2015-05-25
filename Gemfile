@@ -23,5 +23,4 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'coveralls', require: false
 
-
 end

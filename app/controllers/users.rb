@@ -1,5 +1,7 @@
 module Chitter
+
   module Routes
+
     class Users < Base
 
       get '/users/new' do
@@ -8,8 +10,11 @@ module Chitter
       end
 
       post '/users' do
-        @user = User.new(email: params[:email],password: params[:password],
-                         password_confirmation: params[:password_confirmation],name: params[:name],username: params[:username] )
+        @user = User.new(email: params[:email],
+                         password: params[:password],
+                         password_confirmation: params[:password_confirmation],
+                         name: params[:name],
+                         username: params[:username])
         if @user.save
           session[:user_id] = @user.id
           redirect to('/')
@@ -22,7 +27,7 @@ module Chitter
       post '/users/reset_password' do
         @email = params[:email]
         user = User.first(email: @email)
-        user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+        user.password_token = (1..64).map { ('A'..'Z').to_a.sample }.join
         user.password_token_timestamp = Time.now
         user.save
         user.receive_password_token_email
@@ -49,8 +54,8 @@ module Chitter
         redirect to('/sessions/new')
       end
 
-
-
     end
+
   end
+
 end

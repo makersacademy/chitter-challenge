@@ -19,6 +19,4 @@ feature 'User browses all current peeps' do
     expect(page).to have_content('Peeped by "Tim" ')
   end
 
-
-
 end

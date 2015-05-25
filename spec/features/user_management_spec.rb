@@ -12,15 +12,18 @@ feature 'User signs up' do
   end
 
   scenario 'with a password that does not match' do
-    expect { sign_up('a@a.com', 'pass', 'wrong') }.to change(User, :count).by(0)
+    expect { sign_up('a@a.com', 'pass', 'wrong') }
+      .to change(User, :count).by(0)
     expect(current_path).to eq('/users')
-    expect(page).to have_content('Sorry, there were the following problems with the form.')
+    expect(page).to have_content
+    ('Sorry, there were the following problems with the form.')
   end
 
   scenario 'with an email that is already registered' do
     expect { sign_up }.to change(User, :count).by(1)
     expect { sign_up }.to change(User, :count).by(0)
-    expect(page).to have_content('Sorry, there were the following problems with the form.')
+    expect(page).to have_content
+    ('Sorry, there were the following problems with the form.')
   end
 
 end
@@ -71,8 +74,13 @@ end
 
 feature 'User forgets password' do
 
-  let(:user) { User.create(email: 'test@test.com', password: 'test',
-                           password_confirmation: 'test', name: 'Testname', username: 'Testusername') }
+  let(:user) do
+    User.create(email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test',
+                name: 'Testname',
+                username: 'Testusername')
+  end
 
   before do
     user
@@ -85,7 +93,8 @@ feature 'User forgets password' do
       fill_in :email, with: user.email
     end
 
-    expect(Chitter::Application.email_handler).to receive(:send_email_to).with(anything)
+    expect(Chitter::Application.email_handler)
+      .to receive(:send_email_to).with(anything)
 
     click_button 'Request new password'
     expect(page).to have_content('Password recovery e-mail sent!')
