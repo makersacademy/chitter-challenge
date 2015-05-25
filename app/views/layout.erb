@@ -1,0 +1,40 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/css/application.css">
+</head>
+
+<header>
+  <div id='logo'><a href="/">Chitter</a></div>
+  <a href="/peeps/new" class="button highlighted">Add peep</a>
+  <div id='user-peeps'>
+    <% if current_user %>
+      <span id='welcome-message'>
+        Currently peeping as <%= current_user.name %> (aka <%= current_user.username %>)
+      </span>
+      <form id='sign-out' method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out' class='button'>
+      </form>
+    <% else %>
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+    <% end %>
+  </div>
+</header>
+
+<body>
+  <% if flash[:notice] %>
+    <div class='flash notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li class='flash error'><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= yield %>
+</body>

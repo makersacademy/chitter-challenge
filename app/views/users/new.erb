@@ -1,0 +1,24 @@
+<h1>Please sign up</h1>
+
+<div id='peeps-container'>
+
+  <form action='/users' method='post' class='peep_form'>
+    <label>
+      Username: <input type='text' name='username' size='100' value='<%= @user.username %>'/>
+    </label>
+    <label>
+      Name: <input type='text' name='name' size='100' value='<%= @user.name %>'/>
+    </label>
+    <label>
+      e-mail: <input type='text' name='email' size='100' value='<%= @user.email %>'/>
+    </label>
+    <label>
+      Password: <input type='password' name='password' size='100'/>
+    </label>
+    <label>
+      Password confirmation: <input type='password' name='password_confirmation' size='100'/>
+    </label>
+    <input type='submit' value='Sign up' class='button'>
+  </form>
+
+</div>

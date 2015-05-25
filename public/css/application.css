@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/img/extra_clean_paper.png)
+}
+
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+.button {
+  display: inline-block;
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+}
+
+.button.highlighted {
+  background-color: #b77843;
+}
+
+.button.reply {
+  width: 60px;
+  font-size: 12px;
+  background-color: #82B743;
+  padding: 0px 10px;
+  text-align: center;
+  margin: 5px;
+}
+
+header {
+  height: 40px;
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 0 20px;
+}
+
+header > * {
+  margin: auto 0;
+}
+
+header #logo {
+  display: flex;
+  margin-right: 100px;
+  font-size: 40px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header #user-peeps {
+  flex: 1;
+  -webkit-flex: 1;
+  text-align: right;
+}
+
+header #user-peeps > * {
+  display: inline-block;
+}
+
+header #user-peeps #welcome-message {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 75px;
+  margin: 30px 50px;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 30px 50px;
+}
+
+#peeps-container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#peeps-container .peep_form {
+  margin: 10px inherit;
+  padding: 5px 10px;
+}
+
+label, input {
+  display: block;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+.peep {
+  background-color: #D1FFE0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 5px 10px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.peep .description {
+  margin: 5px inherit;
+}
+
+.peep .source {
+  font-size: 12px;
+  margin: 5px inherit;
+}
+
+.peep .reply_header {
+  float: right;
+  font-size: 12px;
+  margin: 5px inherit;
+}
+
+.reply {
+  background-color: #EBF5FF;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 5px 10px;
+  text-align: right;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.reply .description {
+  margin: 5px inherit;
+}
+
+.reply .source {
+  font-size: 12px;
+  margin: 5px inherit;
+}
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.flash.notice {
+  background-color: rgba(67,183,120,0.75);
+}
+
+.flash.error {
+ background-color: rgba(169,29,42,0.75);
+}

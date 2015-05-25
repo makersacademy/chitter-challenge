@@ -1,0 +1,27 @@
+<h1><%= @peep.text %></h1>
+<h2>Posted by <%= @peep.user.name %> (aka <a href="/users?username=<%= @peep.user.username %>"><%= @peep.user.username %></a>) on <%= @peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %></h2>
+
+<div id='peeps-container'>
+
+  <% Reply.all(peep_id: @peep.id, order: [:time.asc]).each do |reply| %>
+    <li class='reply'>
+
+      <div class='description'>
+        <%= reply.text %>
+      </div>
+
+      <span class='source'>
+        (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+      </span>
+    </li>
+  <% end %>
+
+  <form action='/peeps/reply' method='post' class='peep_form'>
+    <label>
+      Reply (50 characters max): <input type='text' name='text' maxlength='50' size='100'/>
+    </label>
+    <input type='hidden' name='peep_id' value='<%= @peep.id %>'>
+    <input type='submit' value='Reply!' class='button'>
+  </form>
+
+</div>
