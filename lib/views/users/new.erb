@@ -1,5 +1,13 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <div id="sign-up-form">
-  <form action="/users/new" method="post">
+  <form action="/users" method="post">
     Name: <input type="text" name="name">
     Username: <input type="text" name="username">
     Email: <input type="text" name="email">
