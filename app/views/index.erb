@@ -1,0 +1,18 @@
+
+<body>
+    <h1>Welcome to ChitterChatter</h1>
+    <br>
+  <a href="/peeps/new">New peep</a>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <%=peep.text %><br>
+    Posted by: <a href=/users/<%=(User.first(id: peep.user_id)).username %>><%= (User.first(id: peep.user_id)).username %></a>,
+    <br>
+    <%=(User.first(id: peep.user_id)).name%>
+    at <%=peep.timestamp.hour%>:<%=peep.timestamp.min %> on <%=peep.timestamp.day%>/<%=peep.timestamp.month%>/<%=peep.timestamp.year%><br><br>
+  <% end %>
+  </ul>
+</body>
+
+

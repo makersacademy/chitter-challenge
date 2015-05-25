@@ -1,0 +1,36 @@
+
+<head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+<body>
+
+  <% if current_user %>
+    Welcome, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+
+  <% if !current_user %>
+    <a href='/sessions/new'>Log in</a><br>
+    <a href='/users/new'>Sign up</a><br>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:errors] %>
+    <ul id='errors'>
+       <%flash[:errors].each do |error|%>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+    <% end %>
+  <%=yield%>
+
+ </body>
+
