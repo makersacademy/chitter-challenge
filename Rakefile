@@ -1,4 +1,4 @@
-begin
+# begin
   require 'rspec/core/rake_task'
   require 'rubocop/rake_task'
 
@@ -7,7 +7,7 @@ begin
 
   task default: [:cop, :spec]
   rescue LoadError
-end
+# end
 require 'data_mapper'
 require './app/datamapper_setup'
 

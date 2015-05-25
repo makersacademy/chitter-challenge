@@ -4,7 +4,7 @@ class User
 
   include DataMapper::Resource
 
-  has n, :peep
+  has n, :peeps
   
   property :id, Serial
   property :email, String, unique: true, message: 'This email is already taken'
