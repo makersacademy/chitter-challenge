@@ -1,11 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Helvetica, Arial, Sans-serif;
   background-image: url(/img/extra_clean_paper.png)
 }
 
-a.button {
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+.button {
   display: inline-block;
-  width: 80px;
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
   background-color: #82B743;
   border: 2px solid white;
   color: white;
@@ -18,8 +29,17 @@ a.button {
   text-shadow: 0 0 2px rgba(0,0,0, 0.4);
 }
 
-a.button.highlighted {
+.button.highlighted {
   background-color: #b77843;
+}
+
+.button.reply {
+  width: 60px;
+  font-size: 12px;
+  background-color: #82B743;
+  padding: 0px 10px;
+  text-align: center;
+  margin: 5px;
 }
 
 header {
@@ -51,18 +71,20 @@ header #user-peeps {
   text-align: right;
 }
 
+header #user-peeps > * {
+  display: inline-block;
+}
+
+header #user-peeps #welcome-message {
+  font-size: 14px;
+}
+
 h1 {
   font-size: 75px;
   margin: 30px 50px;
 }
 
 h2 {
-  font-size: 30px;
-  margin: 30px 50px;
-}
-
-#notice {
-  color: #33D685;
   font-size: 30px;
   margin: 30px 50px;
 }
@@ -127,4 +149,21 @@ label {
 .reply .source {
   font-size: 12px;
   margin: 5px inherit;
+}
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+.flash.notice {
+  background-color: rgba(67,183,120,0.75);
+}
+
+.flash.error {
+ background-color: rgba(169,29,42,0.75);
 }

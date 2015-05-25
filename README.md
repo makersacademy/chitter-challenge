@@ -20,6 +20,7 @@ Next Steps
 - Styling for sign-up/sign-in error msgs.
 - Styling: only display certain links ('Add Peep', 'Reply') when user is signed in.
 - Partials.
+- Deploy to Heroku.
 
 Technologies Used
 -------
@@ -42,26 +43,32 @@ Database layout:
 Images:
 -------
 
-- Sign Up
+- Sign up
 ![Screenshot Sign Up](/public/git_img/sign_up.png)
 
-- Sign In
-![Screenshot Sign Up](/public/git_img/sign_in.png)
+- Sign up errors
+![Screenshot Sign Up](/public/git_img/sign_up_error.png)
 
-- Home Page
+- Home page
 ![Screenshot Home Page](/public/git_img/home_page.png)
 
-- Add New Peep
+- Sign in
+![Screenshot Sign Up](/public/git_img/sign_in.png)
+
+- Sign in errors
+![Screenshot Sign Up](/public/git_img/sign_in_error.png)
+
+- Add new peep
 ![Screenshot Home Page](/public/git_img/add_new_peep.png)
 
 - Reply
 ![Screenshot Home Page](/public/git_img/reply.png)
 
-- User Feed
+- User feed
 ![Screenshot User Feed](/public/git_img/user_feed.png)
 
 - Goodbye message
-![Screenshot User Feed](/public/git_img/goodbye_msg.png)
+![Screenshot User Feed](/public/git_img/goodbye.png)
 
 Features:
 -------

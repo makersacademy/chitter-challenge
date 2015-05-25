@@ -8,10 +8,12 @@
   <a href="/peeps/new" class="button highlighted">Add peep</a>
   <div id='user-peeps'>
     <% if current_user %>
-      Currently peeping as <%= current_user.name %> (aka <%= current_user.username %>)
-      <form method='post' action='/sessions' style="float: right; padding-left: 20px">
+      <span id='welcome-message'>
+        Currently peeping as <%= current_user.name %> (aka <%= current_user.username %>)
+      </span>
+      <form id='sign-out' method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <input type='submit' value='Sign out' class='button'>
       </form>
     <% else %>
       <a href='/users/new' id='sign-up' class='button'>Sign up</a>
@@ -21,20 +23,18 @@
 </header>
 
 <body>
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    Sorry, there were the following problems with the form.
-    <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <% if flash[:notice] %>
-    <div id='notice'>
+    <div class='flash notice'>
       <%= flash[:notice] %>
     </div>
   <% end %>
 
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li class='flash error'><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= yield %>
 </body>
