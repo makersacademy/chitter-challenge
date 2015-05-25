@@ -57,19 +57,19 @@ And/Or:
 
 * Work on the css to make it look good (we all like beautiful things).
 
-Technologies used:
+#Technologies used:
 
 * Capybara/Rspec for testing
 * Sinatra web framework
 * DataMapper ORM and PostgresSQL for persistence
 
-Plans for the future of this app:
+#Plans for the future of this app:
 
 * Inject some CSS/Bootstrap awesomeness
 * Modularize codebase. Refactor heavily.
 * Deploy to Heroku
 
-In order to run tests you'll have to fork this repo and run `rspec` in the command line. Ensure that the capybara is added to your Gemfile.
+In order to run tests you'll have to fork this repo and run `rspec` in the command line. Ensure that the capybara gem is added to your Gemfile.
 To run the app fork the repo and in the command line:
 a) Run rackup in your local directory
 b) Run shotgun
