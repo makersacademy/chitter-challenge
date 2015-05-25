@@ -30,7 +30,7 @@ Status: completed with commit 36e75. A *lot* of the code was reused from Bookmar
 
 ### As a Maker. So that I can post messages on Chitter as me. I want to log in to Chitter
 
-Users:
+Sessions:
 
 * login - GET '/sessions/new' producing POST to '/sessions'
 
@@ -38,13 +38,19 @@ Status: completed with commit a834899. A *lot* of the code was reused from Bookm
 
 ### As a Maker. So that I can avoid others posting messages on Chitter as me. I want to log out of Chitter
 
-Users:
+Sessions:
 
 * logout - GET '/' producing DELETE to '/sessions'
 
+Status: completed with commit 78b9085. Code mostly reused from BookmarkManager.
+
+### As a Maker. So that I can let people know what I am doing. I want to post a message (peep) to chitter
+
+Peeps:
+
+* new - GET 'peeps/new' producing POST to '/peeps'
+
 Status: 
-
-
 
 # Original challenge Readme
 
