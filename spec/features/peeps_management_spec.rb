@@ -20,8 +20,9 @@ feature 'User posts a peep' do
     expect(page).to have_content('Your peep has been posted')
   end
 
-  xscenario 'while not logged in' do
-
+  scenario 'while not logged in' do
+    expect{ post_peep }.to raise_error('Unable to find field :content')
+    expect(page).to have_content('You need to be logged in first')
   end
 
   xscenario 'and sees their peep on the front page' do
