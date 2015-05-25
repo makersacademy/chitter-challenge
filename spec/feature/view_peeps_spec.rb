@@ -9,7 +9,7 @@ feature "Viewing peeps" do
 
   scenario "users can view peeps in reverse chronological order" do
     sign_in("theking@gmail.com", "secret1234")
-    expect(page).to have_content("Chitter King peep 3 Chitter King peep 2 Chitter King peep 1")
+    expect(page).to have_content("Peeped by Chitter King at peep 3 Peeped by Chitter King at peep 2 Peeped by Chitter King at peep 1")
   end
 
   def sign_in email, password
