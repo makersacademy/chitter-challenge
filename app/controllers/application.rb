@@ -1,4 +1,4 @@
 get '/' do
-  @peep = Peep.all
+  @peeps = Peep.all(:order => [ :created_at.desc ])
   erb :index
 end
