@@ -9,6 +9,7 @@ module Chitter
 
       post '/users' do
         @user = User.new(email: params[:email],
+                         handle: params[:handle],
                          password: params[:password],
                          password_confirmation: params[:password_confirmation])
         if @user.save

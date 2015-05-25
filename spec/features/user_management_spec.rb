@@ -18,9 +18,15 @@ feature 'User signs up' do
   end
 
   scenario 'with an email that is already registered' do
-    expect { sign_up }.to change(User, :count).by(1)
-    expect { sign_up }.to change(User, :count).by(0)
-    expect(page).to have_content('Sorry, there were the following problems with the form.')
+    expect { sign_up('a@a.com','myhandle') }.to change(User, :count).by(1)
+    expect { sign_up('a@a.com','myotherhandle') }.to change(User, :count).by(0)
+    expect(page).to have_content('This email is already taken')
+  end
+
+  scenario 'with a handle that is already registered' do
+    expect { sign_up('a@a.com','myhandle') }.to change(User, :count).by(1)
+    expect { sign_up('b@b.com','myhandle') }.to change(User, :count).by(0)
+    expect(page).to have_content('This handle is taken')
   end
 end
 
