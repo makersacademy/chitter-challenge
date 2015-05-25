@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    current_user.peep.create(message: params[:peep_message])
+    @current_user.peep.create(message: params[:peep_message])
     redirect to('/')
     erb :index
   end
@@ -60,14 +60,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    @user = User.first(:email => params[:email])
-    if @user
-      session[:user_id] = @user.id
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email, password)
+
+    if user
+      session[:user_id] = user.id
       redirect to('/')
     else
-      flash[:notice] = "Sorry"
+      flash[:notice] = "Sorry, login invalid"
       erb :'/sessions/new'
     end
+
   end
 
   delete '/sessions' do
