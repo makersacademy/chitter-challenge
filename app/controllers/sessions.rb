@@ -20,6 +20,13 @@ module Chitter
         end
       end
 
+      # Log out action
+      delete '/sessions' do
+        session[:user_id] = nil
+        flash[:notice] = 'Good bye!'
+        redirect to('/')
+      end
+
     end
   end
 end
