@@ -61,11 +61,18 @@ h2 {
   margin: 30px 50px;
 }
 
+#notice {
+  color: #33D685;
+  font-size: 30px;
+  margin: 30px 50px;
+}
+
 #peeps-container {
   background-color: white;
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding: 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 #peeps-container .peep_form {
@@ -73,11 +80,20 @@ h2 {
   padding: 5px 10px;
 }
 
+label, input {
+  display: block;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
 .peep {
   background-color: #D1FFE0;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 5px 10px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .peep .description {
@@ -89,12 +105,19 @@ h2 {
   margin: 5px inherit;
 }
 
+.peep .reply_header {
+  float: right;
+  font-size: 12px;
+  margin: 5px inherit;
+}
+
 .reply {
   background-color: #EBF5FF;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   margin: 10px inherit;
   padding: 5px 10px;
   text-align: right;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .reply .description {

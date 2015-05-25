@@ -3,19 +3,27 @@
 <div id='peeps-container'>
 
   <% Peep.all(order: [:time.desc]).each do |peep| %>
+
     <li class='peep'>
 
       <div class='description'>
         <%= peep.text %>
+
+        <% unless Reply.first(peep_id: peep.id).nil? %>
+          <span class='reply_header'>Replies ↓↓↓</span>
+        <% end %>
+
       </div>
 
       <span class='source'>
-        (Peeped by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>) (<a href="/peeps/reply?peep_id=<%= peep.id %>">Reply</a>)</br>
+        (Peeped by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+        <a href="/peeps/reply?peep_id=<%= peep.id %>" class='button'>Reply</a>
       </span>
 
     </li>
 
     <% Reply.all(peep_id: peep.id, order: [:time.asc]).each do |reply| %>
+
       <li class='reply'>
 
         <div class='description'>
@@ -27,6 +35,7 @@
         </span>
 
       </li>
+
     <% end %>
 
   <% end %>

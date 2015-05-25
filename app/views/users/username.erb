@@ -8,14 +8,19 @@
 
       <div class='description'>
         <%= peep.text %>
+
+        <% unless Reply.first(peep_id: peep.id).nil? %>
+          <span class='reply_header'>Replies ↓↓↓</span>
+        <% end %>
+
       </div>
 
       <span class='source'>
         (Peeped on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+        <a href="/peeps/reply?peep_id=<%= peep.id %>" class='button'>Reply</a>
       </span>
 
     </li>
-
 
     <% Reply.all(peep_id: peep.id, order: [:time.asc]).each do |reply| %>
 

@@ -2,12 +2,22 @@
 
 <div id='peeps-container'>
 
-  <form action='/users' method='post'>
-    Username: <input name='username' type='text' value='<%= @user.username %>'>
-    Name: <input name='name' type='text' value='<%= @user.name %>'>
-    e-mail: <input name='email' type='text' value='<%= @user.email %>'>
-    Password: <input name='password' type='password'>
-    Password confirmation: <input name='password_confirmation' type='password'>
+  <form action='/users' method='post' class='peep_form'>
+    <label>
+      Username: <input type='text' name='username' size='100' value='<%= @user.username %>'/>
+    </label>
+    <label>
+      Name: <input type='text' name='name' size='100' value='<%= @user.name %>'/>
+    </label>
+    <label>
+      e-mail: <input type='text' name='email' size='100' value='<%= @user.email %>'/>
+    </label>
+    <label>
+      Password: <input type='password' name='password' size='100'/>
+    </label>
+    <label>
+      Password confirmation: <input type='password' name='password_confirmation' size='140'/>
+    </label>
     <input type='submit' value='Sign up'>
   </form>
 

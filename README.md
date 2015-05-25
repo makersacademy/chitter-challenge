@@ -15,9 +15,10 @@ Next Steps
 
 - Raise error if user tries to respond to own peep (can this also be enforced at DB level?).
 - Additional tests to ensure user feed page includes no other user's peeps.
-- Additional tests to ensure no blank entries for: username/name/email/pword/pwrod confirmation; peeps; replies (again, can this be enforced at DB level?).
+- Additional tests to ensure no blank entries for: username/name/email/pword/pword confirmation; peeps; replies (again, can this be enforced at DB level?).
 - Password recovery functionality.
-- CSS styling (poss. w/ Bootstrap?).
+- Styling for sign-up/sign-in error msgs.
+- Styling: only display certain links ('Add Peep', 'Reply') when user is signed in.
 - Partials.
 
 Technologies Used
@@ -44,14 +45,23 @@ Images:
 - Sign Up
 ![Screenshot Sign Up](/public/git_img/sign_up.png)
 
+- Sign In
+![Screenshot Sign Up](/public/git_img/sign_in.png)
+
 - Home Page
 ![Screenshot Home Page](/public/git_img/home_page.png)
 
-- Add Reply
-![Screenshot Add Reply](/public/git_img/add_reply.png)
+- Add New Peep
+![Screenshot Home Page](/public/git_img/add_new_peep.png)
+
+- Reply
+![Screenshot Home Page](/public/git_img/reply.png)
 
 - User Feed
 ![Screenshot User Feed](/public/git_img/user_feed.png)
+
+- Goodbye message
+![Screenshot User Feed](/public/git_img/goodbye_msg.png)
 
 Features:
 -------
