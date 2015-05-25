@@ -9,7 +9,7 @@ Welcome to Chitter
 </div>
 
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
   	<li>
 		<%= peep.peep_text %><%= peep.username %><%= peep.name %>
 	</li>

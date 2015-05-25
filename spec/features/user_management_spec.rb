@@ -39,10 +39,11 @@ end
 feature 'User can sign in' do
 
   before(:each) do
-    User.create(username: 'ashleighpants',
-                email: 'ash@ash.com',
-                password: 'pass',
-                password_confirmation: 'pass')
+    @user = User.create(name: 'Ashleigh Smells',
+                  username: 'ashleighpants',
+                  email: 'ash@ash.com',
+                  password: 'pass',
+                  password_confirmation: 'pass')
   end
 
   def sign_in(username, email, password)
@@ -71,7 +72,7 @@ end
 
 feature 'User can sign out' do
 
-  def sign_in(username, email, password)
+  def sign_in(username="ashleighpants", email="ash@ash.com", password="pass")
     visit '/sessions/new'
     fill_in :username, with: username
     fill_in :email, with: email
@@ -80,7 +81,8 @@ feature 'User can sign out' do
   end
 
   before(:each) do
-    User.create(username: 'ashleighpants',
+    User.create(name: 'Ashleigh Smells',
+                username: 'ashleighpants',
                 email: 'ash@ash.com',
                 password: 'pass',
                 password_confirmation: 'pass')
@@ -88,7 +90,7 @@ feature 'User can sign out' do
 
   scenario 'after having signed in' do
     visit '/'
-    sign_in 'ashleighpants', 'ash@ash.com', 'pass'
+    sign_in
     expect(page).to have_content 'Welcome, ash@ash.com'
     click_button 'Sign Out'
     # expect(page).to have_content 'Goodbye!'    FLASH NOTICE

@@ -6,7 +6,7 @@ require_relative 'user'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL']  || "postgres://localhost/chitter_#{env}")
 
 require './lib/user'
 require './lib/peep' # this needs to be done after datamapper is initialised
@@ -39,7 +39,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-  	@user = User.create(email: params[:email],
+  	@user = User.create(name: params[:name],
+  											username: params[:username],
+  											email: params[:email],
   											password: params[:password],
   											password_confirmation: params[:password_confirmation])
   	if @user.save
@@ -80,15 +82,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-  	if current_user
-  		@peep = Peep.create(peep_text: params['peep_text'],
-      	          username: current_user.username,
-        	        name: current_user.name)
-    	redirect '/'
-  	else
-  		flash[:notice] = 'Please log in to peep!'
-  		redirect '/sessions/new'
-  	end
+    peep_text = params['peep_text']
+    Peep.create(peep_text: peep_text,
+    						name: current_user.name,
+    						username: current_user.username)
+
+    redirect to '/'
   end
 
   run! if app_file == $0
