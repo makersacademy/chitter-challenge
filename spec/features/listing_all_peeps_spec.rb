@@ -16,7 +16,7 @@ feature 'User browses all current peeps' do
   end
 
   scenario 'with username and name for each peep' do 
-    expect(page).to have_content('Tim(username)') 
+    expect(page).to have_content('Peeped by "Tim" ') 
   end
 
 
