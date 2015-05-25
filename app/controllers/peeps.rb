@@ -1,3 +1,7 @@
+get '/peeps/new' do
+  erb :'peeps/new'
+end
+
 post '/peeps' do
   text = params[:text]
   user_id = session[:user_id]

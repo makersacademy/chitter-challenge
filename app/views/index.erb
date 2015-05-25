@@ -1,22 +1,32 @@
-<h1>Welcome to Chitter!</h1>
+<div id='peeps-container'>
 
-<Peeps>
-<ul>
   <% Peep.all(order: [:time.desc]).each do |peep| %>
-    <li><%= peep.text %> (Peeped by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>) (<a href="/peeps/reply?peep_id=<%= peep.id %>">Reply</a>)</br>
-      <ul style="list-style-type:circle">
-        <% Reply.all(peep_id: peep.id, order: [:time.asc]).each do |reply| %>
-          <li><%= reply.text %> (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ul>
+    <li class='peep'>
 
-<div id='new-peep'>
-  <form action='/peeps' method='post'>
-    Peep: <input type='text' name='text'>
-    <input type='submit' value='Peep!'>
-  </form>
+      <div class='description'>
+        <%= peep.text %>
+      </div>
+
+      <span class='source'>
+        (Peeped by <%= peep.user.name %> (aka <a href="/users?username=<%= peep.user.username %>"><%= peep.user.username %></a>) on <%= peep.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>) (<a href="/peeps/reply?peep_id=<%= peep.id %>">Reply</a>)</br>
+      </span>
+
+    </li>
+
+    <% Reply.all(peep_id: peep.id, order: [:time.asc]).each do |reply| %>
+      <li class='reply'>
+
+        <div class='description'>
+          <%= reply.text %>
+        </div>
+
+        <span class='source'>
+          (Reply by <%= reply.user.name %> (aka <a href="/users?username=<%= reply.user.username %>"><%= reply.user.username %></a>) on <%= reply.time.strftime("%A %d %B %Y at %l:%M%p (%S secs)") %>)
+        </span>
+
+      </li>
+    <% end %>
+
+  <% end %>
+
 </div>

@@ -18,6 +18,7 @@ DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super secret'
+set :erb, layout: :'views/layout'
 
 use Rack::Flash
 post '/set-flash' do
@@ -27,3 +28,4 @@ post '/set-flash' do
 end
 
 use Rack::MethodOverride
+set :public_folder, proc { File.join(root, '..', 'public') }

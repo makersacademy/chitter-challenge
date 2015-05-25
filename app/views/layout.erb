@@ -1,3 +1,25 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/application.css">
+</head>
+
+<header>
+  <div id='logo'><a href="/">Chitter</a></div>
+  <a href="/peeps/new" class="button highlighted">Add peep</a>
+  <div id='user-peeps'>
+    <% if current_user %>
+      Welcome, <%= current_user.name %> (aka <%= current_user.username %>)
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+    <% end %>
+  </div>
+</header>
+
 <body>
   <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with the form.
@@ -8,19 +30,11 @@
     </ul>
   <% end %>
 
-  <% if current_user %>
-    Welcome, <%= current_user.name %> (aka <%= current_user.username %>)
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-  <% end %>
-
   <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
     </div>
   <% end %>
 
-  <%= yield%>
+  <%= yield %>
 </body>

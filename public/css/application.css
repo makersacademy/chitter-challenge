@@ -1,0 +1,91 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/img/extra_clean_paper.png)
+}
+
+a.button {
+  display: inline-block;
+  width: 80px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+}
+
+a.button.highlighted {
+  background-color: #b77843;
+}
+
+header {
+  height: 40px;
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 0 20px;
+}
+
+header > * {
+  margin: auto 0;
+}
+
+header #logo {
+  display: flex;
+  margin-right: 100px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header #user-peeps {
+  flex: 1;
+  -webkit-flex: 1;
+  text-align: right;
+}
+
+#peeps-container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.peep {
+  background-color: #D1FFE0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 5px 10px;
+}
+
+.peep .description {
+  margin: 5px inherit;
+}
+
+.peep .source {
+  font-size: 12px;
+  margin: 5px inherit;
+}
+
+.reply {
+  background-color: #EBF5FF;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.reply .description {
+  margin: 5px inherit;
+}
+
+.reply .source {
+  font-size: 12px;
+  margin: 5px inherit;
+}

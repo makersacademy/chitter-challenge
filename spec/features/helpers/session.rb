@@ -23,6 +23,7 @@ module SessionHelpers
   end
 
   def add_peep(text)
+    click_link('Add peep')
     within('#new-peep') do
       fill_in :text, with: text
       click_button 'Peep!'
