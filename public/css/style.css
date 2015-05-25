@@ -1,0 +1,25 @@
+body{
+  background-color: #0e1111;
+  color: white;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
+
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#peep{
+  color: white;
+  text-decoration: none;
+}
+
+#dotted{
+    border-bottom-style: dotted;
+    border-color: white;
+}
+
+#button-hack{
+    margin-left: 25px;
+}

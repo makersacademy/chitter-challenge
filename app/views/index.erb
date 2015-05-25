@@ -1,0 +1,53 @@
+<div class='row'>
+  <div class="col-md-2 col-md-offset-5">
+  <%if session["user_id"] %>
+    <button id='peep_button' class="btn btn-danger btn-lg"> <a id='peep' href='/peeps/new'>Dare to Peep?</a> </button>
+    </div>
+  <%end%>
+</div>
+
+<br>
+<br>
+
+<!-- Headers why didn't this line properly?>
+<! <div class='row'>
+  <div class="col-md-10 col-md-offset-1">
+    <div class='row'>
+      <div class="col-md-11">
+        <div class ="col-md-4">Message </div>
+        <div class ="col-md-2">Name </div>
+        <div class ="col-md-2">Handle</div>
+        <div class ="col-md-2">Time </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<!-- Actual Peeps -->
+<div class='row' id='peeps'>
+  <div class="col-md-10 col-md-offset-1">
+    <% if @peeps %>
+      <% @peeps.reverse.each do |peep| %>
+      <div class='row'>
+        <div class="col-md-11" id='dotted'>
+            <div class ="col-md-4" id='test'> <%=peep.message%> </div>
+            <div class ="col-md-2"><%=peep.user.name%> </div>
+            <div class ="col-md-2">@<%=peep.user.username%> </div>
+            <div class ="col-md-2"><%=peep.created_at.strftime('%e %b %Y %H:%M:%S')%> </div>
+            <%if session["user_id"] %>
+               <form action='/peeps/makereply' method='post'>
+                  <input type='hidden' name='original_id' value='<%=peep.id%>'>
+                  <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
+                </form>
+                <%else%>
+                  <form action='/peeps/redirect' method='post'>
+                    <button type='submit' class='btn btn-default' id='button-hack' value='Reply?'>Reply?</button>
+                  </form>
+              <%end%>
+          </div>
+        </div>
+          <br>
+      <%end%>
+    <%end%>
+    </div>
+</div>

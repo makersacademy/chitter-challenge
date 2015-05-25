@@ -1,21 +1,11 @@
-Chitter Challenge
+Summary
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+* Twitter clone web app (Minimalitter Chitter) that allows the users to post messages to a public stream and reply to those messages.
 
-Challenge:
--------
+[Minimalitter Chitter](https://minimalitter-chitter-ah.herokuapp.com/)
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Requested Use Cases:
 -------
 
 ```sh
@@ -32,11 +22,11 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
@@ -44,29 +34,39 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+How to run
+----
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* For web viewing, simply follow the link to the website hosted on heroku
+* For local use, clone or fork the repo to your local machine
+* Install sinatra and shotgun gems to view on your local host
+* Tests can be run by installing rspec and capybara gems and running rspec from your command line
 
-Bonus:
------
 
-If you have time you can implement the following:
+Checklist
+----
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+- [x] Sign-up and post messages as a logged in user
+- [x] Log-out and not be able to post messages
+- [x] All messages display user, user handle and timestamp and are displayed in chronological order
+- [x] Users can reply to other users
 
-And/Or:
 
-* Work on the css to make it look good (we all like beautiful things).
+Technologies used
+----
 
-Good luck and let the chitter begin!
+* Production - Ruby, CSS (using Bootstrap), HTML Datamapper, PSQL, Sinatra, Heroku, Bcrypt (for passwords)
+* Testing - Rspec, Capybara, Database Cleaner (for test database), Rubocop, Coveralls
+
+Screenshots
+----
+
+![Front Page](https://github.com/AlexHandy1/chitter-challenge/blob/master/public/img/Minimalitter-chitter.png)
+
+![Sign-up](https://github.com/AlexHandy1/chitter-challenge/blob/master/public/img/Minimalitter-chitter-sign-up.png)
+
+Further Features
+----
+
+* User profiles
+* Forgotten password retrieval
