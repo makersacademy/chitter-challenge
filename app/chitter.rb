@@ -5,22 +5,21 @@ require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
-
 class ChitterChatter < Sinatra::Base
 
   enable :sessions
   set :session_secret, "verysecret"
-  set :views, Proc.new {File.join(root, "views")}
+  set :views, Proc.new { File.join(root, "views") }
   set :public_folder, 'public'
 
   use Rack::Flash
   use Rack::MethodOverride
 
-   helpers do
-      def current_user
-        @current_user ||= User.get(session[:user_id]) if session[:user_id]
-      end
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id]) if session[:user_id]
     end
+  end
 
   get '/' do
     @peeps = Peep.all
@@ -35,10 +34,10 @@ class ChitterChatter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email],
-                      name: params[:name],
-                      username: params[:username],
-                      password: params[:password],
-                      password_confirmation: params[:password_confirmation] )
+                        name: params[:name],
+                        username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -95,7 +94,7 @@ class ChitterChatter < Sinatra::Base
     erb :"/users/profile"
   end
 
-
   # start the server if ruby file executed directly
   run! if app_file == $0
+
 end
