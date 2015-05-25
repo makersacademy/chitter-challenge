@@ -19,11 +19,11 @@ feature 'User replies to peep of another user' do
   end
 
   scenario 'with username and name for each reply' do
-    expect(page.first('div#peeps-container:nth-child(2)')).to have_content('Reply by Robert Bentley (aka Robbo)')
+    expect(page.first('li:nth-child(2)')).to have_content('Reply by Robert Bentley (aka Robbo)')
   end
 
   scenario 'with timestamp of when reply was posted' do
-    expect(page.first('div#peeps-container:nth-child(2)')).to have_content(/[A-Z][a-z]{5,8} [123]*[0-9] [A-Z][a-z]{2,8} [0-9]{4} at [1]*[0-9]:[0-5][0-9](A|P)M \([0-5][0-9] secs\)/)
+    expect(page.first('li:nth-child(2)')).to have_content(/[A-Z][a-z]{5,8} [123]*[0-9] [A-Z][a-z]{2,8} [0-9]{4} at [1]*[0-9]:[0-5][0-9](A|P)M \([0-5][0-9] secs\)/)
   end
 
   scenario 'and sees replies displayed in chronological order' do

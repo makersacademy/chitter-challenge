@@ -1,8 +1,12 @@
 <h1>Add a new peep</h1>
 
-<div id='new-peep'>
-  <form action='/peeps' method='post'>
-    Peep: <input type='text' name='text'>
-    <input type='submit' value='Peep!'>
-  </form>
+<div id='peeps-container'>
+
+  <div id='new-peep'>
+    <form method='post' action='/peeps' class='peep_form'>
+      Peep (140 characters max): <input type='text' name='text' maxlength='140' size='140'>
+      <input type='submit' value='Peep!'>
+    </form>
+  </div>
+
 </div>
