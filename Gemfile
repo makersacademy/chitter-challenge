@@ -8,6 +8,7 @@ ruby '2.2.1'
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
   gem 'pry'
+  gem 'bcrypt-ruby'
 
 group :test do
   gem 'rspec'
