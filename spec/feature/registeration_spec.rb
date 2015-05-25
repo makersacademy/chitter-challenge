@@ -20,14 +20,14 @@ feature "Chitter user behaviour" do
     visit '/'
     click_link "Sign Up"
 
-    sign_up("Been Here", "beenhere", "beenhere@been.com", "123" )
+    sign_up("Been Here", "beenhere", "beenhere@been.com", "123")
 
     expect(page).to have_content("This username has been taken")
     expect(page).to have_content("This email has been registered")
 
   end
 
-  def sign_up name="John Bosco", username="Chitterer", email="first@chitterer.com", password="123"
+  def sign_up name = "John Bosco", username = "Chitterer", email = "first@chitterer.com", password = "123"
     visit '/users/new'
     within('#sign-up-form') do
       fill_in "name", with: name

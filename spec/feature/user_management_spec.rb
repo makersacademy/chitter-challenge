@@ -14,7 +14,7 @@ feature "Chitter user behaviour" do
     expect(user.username).to eq("Chitterer")
   end
 
-  def sign_up name="John Bosco", username="Chitterer", email="first@chitterer.com", password="123"
+  def sign_up name = "John Bosco", username = "Chitterer", email = "first@chitterer.com", password = "123"
     visit '/users/new'
     within('#sign-up-form') do
       fill_in "name", with: name

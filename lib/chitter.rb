@@ -18,8 +18,9 @@ DataMapper.auto_upgrade!
 # ------ DATAMAPPER SETUP END ---------#
 
 class Chitter < Sinatra::Base
+
   enable :sessions
-  set :session_secret, 'seekrit' #why does this have to be set?
+  set :session_secret, 'seekrit' # why does this have to be set?
 
   use Rack::Flash
   use Rack::MethodOverride
@@ -43,9 +44,9 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.new(name: params[:name],
-             username: params[:username],
-             email: params[:email],
-             password: params[:password] )
+                     username: params[:username],
+                     email: params[:email],
+                     password: params[:password])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -60,7 +61,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    email, password = params[:email], params[:password]
+    email = params[:email]
+    password = params[:password]
     user = User.authenticate(email, password)
 
     if user
@@ -87,5 +89,6 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
+
 end

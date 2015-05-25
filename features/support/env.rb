@@ -11,9 +11,11 @@ require 'rspec'
 Capybara.app = Chitter
 
 class ChitterWorld
+
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
+
 end
 
 World do
