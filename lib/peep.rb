@@ -4,6 +4,6 @@ include DataMapper::Resource
 
 property :id, Serial
 property :content, String
-property :hashtag, Symbol
+property :hashtag, String
 
 end
