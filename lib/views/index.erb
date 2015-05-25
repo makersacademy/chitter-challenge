@@ -1,7 +1,17 @@
 Welcome to Chitter
 
-<form action="/peeps" method="post">
-	Add a peep!
-	<input type="text" name="peep_text">
-	<input type="submit" value="Peep Peep!">
-</form>
+<div id='new-peep'>
+	<form action="/peeps" method="post">
+		Add a peep!
+		<input type="text" name="peep_text">
+		<input type="submit" value="Peep Peep!">
+	</form>
+</div>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  	<li>
+		<%= peep.peep_text %><%= peep.username %><%= peep.name %>
+	</li>
+   <% end %>
+ </ul>

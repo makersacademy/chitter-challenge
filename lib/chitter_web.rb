@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'rack-flash'
 require 'data_mapper'
+require 'tilt/erb'
 require_relative 'user'
 
 env = ENV['RACK_ENV'] || 'development'
@@ -43,10 +44,6 @@ class Chitter < Sinatra::Base
   											password_confirmation: params[:password_confirmation])
   	if @user.save
   		session[:user_id] = @user.id
-
-
-
-
   		redirect '/'
   	else
   		flash.now[:errors] = @user.errors.full_messages
@@ -84,7 +81,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
   	if current_user
-  		Peep.create(peep_text: params['peep_text'],
+  		@peep = Peep.create(peep_text: params['peep_text'],
       	          username: current_user.username,
         	        name: current_user.name)
     	redirect '/'
