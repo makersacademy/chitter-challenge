@@ -1,9 +1,15 @@
-require 'cucumber/rake/task'
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
+task test: [:cop, :spec, :cuke]
 
-RuboCop::RakeTask.new :cop
-RSpec::Core::RakeTask.new :spec
-Cucumber::Rake::Task.new :cuke
+task default: `bundle exec rackup`
 
-task default: [:cop, :spec, :cuke]
+begin
+  require 'cucumber/rake/task'
+  require 'rspec/core/rake_task'
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new :cop
+  RSpec::Core::RakeTask.new :spec
+  Cucumber::Rake::Task.new :cuke
+rescue LoadError => e
+  puts "Test dependencies could not be loaded"
+end
+

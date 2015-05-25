@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
+<div id="sign-in-form">
+  <form action="/sessions" method="post">
+    Email: <input type="text" name="email">
+    Password: <input type="password" name="password">
+    <button> Sign In </button>
+  </form>
+</div>
