@@ -42,3 +42,8 @@ Technologies used:
 - Bcrypt for password encryption
 - Served by Sinatra, HTML, CSS, Bootstrap for looks
 
+
+Bonus Features:
+--------------
+
+- User can request a new password and receive a password token via email
