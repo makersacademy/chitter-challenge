@@ -1,17 +1,18 @@
-Welcome to Chitter
-
 <div id='new-peep'>
 	<form action="/peeps" method="post">
 		Add a peep!
-		<input type="text" name="peep_text">
-		<input type="submit" value="Peep Peep!">
+		<input type="text" name="peep_text" id="entry-box">
+		<input type="submit" value="Peep Peep!" id="submit-buttons">
 	</form>
 </div>
 
-<ul>
+<div id="peepfeed">Peepfeed:</div>
+<ul id="peep-list">
   <% @peeps.reverse_each do |peep| %>
   	<li>
-		<%= peep.peep_text %><%= peep.username %><%= peep.name %>
+		<div id="text"><%= peep.peep_text %></div>
+		Peeped by </span><span id="username"><%= peep.username %>,</span>
+		<span id="name"><%= peep.name %></span>
 	</li>
    <% end %>
  </ul>

@@ -82,12 +82,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep_text = params['peep_text']
-    Peep.create(peep_text: peep_text,
-    						name: current_user.name,
-    						username: current_user.username)
-
-    redirect to '/'
+  	if current_user
+    	peep_text = params['peep_text']
+    	Peep.create(peep_text: peep_text,
+    							name: current_user.name,
+    							username: current_user.username)
+    	redirect to '/'
+    else
+    	redirect '/'
+    end
   end
 
   run! if app_file == $0

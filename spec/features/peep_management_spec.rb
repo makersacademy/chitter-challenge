@@ -1,10 +1,3 @@
-# User Story currently being tested:
-
-# As a maker
-# So that I can let people know what I am doing  
-# I want to post a message (peep) to chitter
-
-
 feature 'Peeps shown on website' do
 
   before(:each) do
@@ -42,7 +35,7 @@ feature 'Peeps shown on website' do
     visit '/'
     expect(page).to have_content('Hello there!')
   end
-  
+
 end
 
 feature 'User can post peeps' do

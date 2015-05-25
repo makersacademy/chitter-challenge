@@ -1,4 +1,4 @@
-<h1>Please sign up</h1>
+<h2>Please sign up</h2>
 
 <% if flash[:errors] && !flash[:errors].empty? %>
   <div id='errors'><% flash[:errors].each do |error| %>
@@ -6,11 +6,11 @@
     <% end %>
 <% end %>
 
-<form action="/users" method="post">
-	Name: <input type="text" name="name">
-	Username: <input type="text" name="username">
-	Email: <input type="text" name="email">
-	Password: <input type="password" name="password">
-	Confirm Password: <input type="password" name="password_confirmation">
-	<input type="submit" value="Sign Up">
+<form action="/users" method="post" id="submit-forms">
+	Name: <input type="text" name="name" id="entry-box"><br>
+	Username: <input type="text" name="username" id="entry-box"><br>
+	Email: <input type="text" name="email" id="entry-box"><br>
+	Password: <input type="password" name="password" id="entry-box"><br>
+	Confirm Password: <input type="password" name="password_confirmation" id="entry-box"><br>
+	<input type="submit" value="Sign Up" id="submit-buttons">
 </form>

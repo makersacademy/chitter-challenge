@@ -1,0 +1,122 @@
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
+
+/*--------------------------------*/
+
+body {
+	background-image: url('http://images2.layoutsparks.com/1/213010/colourful-spring-striped-pattern.jpg');
+	font-family: 'Just Me Again Down Here', cursive;
+	color: #A5A5B8;
+}
+
+h1 {
+	font-size: 150px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #A5A5B8;
+}
+
+h2 {
+	font-size: 50px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#text {
+	color: #FF9966;
+	font-size: 35px;
+}
+
+#name {
+	color: #99CCFF;
+}
+
+#username {
+	color: #FF8383;
+}
+
+#header {
+	width: 700px;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-radius: 10%
+}
+
+#welcome-message {
+	font-size: 50px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#peepfeed {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 50px;
+}
+
+#new-peep {
+	font-size: 30px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#submit-forms {
+	font-size: 30px;
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	padding: 20px 20px 20px 20px;
+}
+
+#entry-box {
+	text-align: left;
+	font-family: 'Just Me Again Down Here', cursive;
+	font-size: 30px;
+	border-style: dashed;
+	border-color: #A5A5B8;
+	margin: 20px;
+}
+
+#signup-signin {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#submit-buttons {
+	font-family: 'Just Me Again Down Here', cursive;
+	font-size: 30px;
+	background-color: white;
+	color: #A5A5B8;
+	border-style: solid;
+	border-width: medium;
+	border-radius: 25%;
+	border-color: #A5A5B8;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none;
+}
+
+#peep-list {
+	background-color: white;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+}

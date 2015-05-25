@@ -1,10 +1,29 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen" />
+  <link href='http://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here' rel='stylesheet' type='text/css'>
+</head>
+
 <body>
+
+<div id="header">
+
+<h1>Chitter</h1>
+
 	<% if current_user %>
+		<div id="welcome-message">
 		Welcome, <%= current_user.email %>!
 		<form method="post" action="/sessions">
 			<input type="hidden" name="_method" value="delete">
-			<input type="submit" value="Sign Out">
+			<input type="submit" value="Sign Out" id="submit-buttons">
 		</form>
+		</div>
+	<% else %>
+		<div id="signup-signin">
+		<a href="/users/new" id="submit-buttons">Sign Up</a>
+		<a href="/sessions/new" id="submit-buttons">Sign In</a>
+		</div>
 	<% end %>
 	<%= yield %>
+
+</div>
 </body>
