@@ -4,10 +4,6 @@ module Chitter
 
     class Peeps < Base
 
-      get '/' do
-        erb :index
-      end
-
       post '/peeps' do
         message = params['message']
         user_id = session[:user_id]
