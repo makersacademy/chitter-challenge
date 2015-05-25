@@ -5,29 +5,24 @@ require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
-
 class ChitterChatter < Sinatra::Base
 
   enable :sessions
   set :session_secret, "verysecret"
-  set :views, Proc.new {File.join(root, "views")}
+  set :views, Proc.new { File.join(root, "views") }
   set :public_folder, 'public'
 
   use Rack::Flash
   use Rack::MethodOverride
 
-   helpers do
-      def current_user
-        @current_user ||= User.get(session[:user_id]) if session[:user_id]
-      end
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id]) if session[:user_id]
     end
-
-  get '/' do
-    erb :practice, :layout => false
   end
 
-  get '/peeps' do
-    @peeps = Peep.all
+  get '/' do
+     @peeps = Peep.all
     @peeps.reverse!
     erb :index
   end
@@ -39,13 +34,13 @@ class ChitterChatter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email],
-                      name: params[:name],
-                      username: params[:username],
-                      password: params[:password],
-                      password_confirmation: params[:password_confirmation] )
+                        name: params[:name],
+                        username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/peeps')
+      redirect to('/')
     else
       flash[:errors] = @user.errors.full_messages
       redirect to('users/new')
@@ -61,7 +56,7 @@ class ChitterChatter < Sinatra::Base
     user = User.authenticate(email, password)
     if user
       session[:user_id] = user.id
-      redirect to('/peeps')
+      redirect to('/')
     else
       flash[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -71,7 +66,7 @@ class ChitterChatter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash[:notice] = "Goodbye!"
-    redirect to('/peeps')
+    redirect to('/')
   end
 
   get '/peeps/new' do
@@ -79,7 +74,7 @@ class ChitterChatter < Sinatra::Base
       erb :'peeps/new'
     else
       flash[:notice] = "Please log in or sign up to post a peep"
-      redirect to('/peeps')
+      redirect to('/')
     end
   end
 
@@ -87,7 +82,7 @@ class ChitterChatter < Sinatra::Base
     @peep = Peep.create(text: params[:peep], user_id: session[:user_id], timestamp: Time.now)
     @peep.save
     @user = User.first(id: @peep.user_id)
-    redirect to('/peeps')
+    redirect to('/')
   end
 
   get '/users/:username' do
@@ -99,7 +94,7 @@ class ChitterChatter < Sinatra::Base
     erb :"/users/profile"
   end
 
-
   # start the server if ruby file executed directly
   run! if app_file == $0
+
 end

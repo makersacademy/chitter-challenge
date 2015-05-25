@@ -19,7 +19,6 @@ class User
   validates_uniqueness_of :email
   validates_uniqueness_of :username
 
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -29,8 +28,7 @@ class User
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
+
 end
