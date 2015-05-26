@@ -7,29 +7,24 @@ I am creating a very simple Twitter clone, 'Chitter', to demonstrate the use of 
 
 ## Technologies Used
 
-Ruby
-Sinatra
-Rspec
+- Ruby
+- Sinatra
+- Rspec
 
 
 ## Job List
 
-- Create viable directory structure including config.ru etc
-- Create tests and functionality for posting messages to the platform
-- Create tests and functionality for signing up, logging in, logging out etc
-- Add tests and functionality to allow timestamps etc
-
-## Favourite Code Snippet
-
-~~~
- TODO: paste code here
-~~~
+- Created viable directory structure including config.ru etc
+- Created tests and functionality for posting messages to the platform
+- Created tests and functionality for signing up
 
 ## Still to complete/refactor
 
-- [ ]
-- [ ]
+- Add logging in, logging out etc
+- Add tests and functionality to allow timestamps etc
+- limit characters to 141 per peep (one better than twitter itself)
+- Add CSS stylings
 
 ## Takeaway
 
-TODO: Enter a personal reflection and/or things you learnt
+Ideally I would have gotten through this a lot further before the end of the weekend. Problems with the directory structure put me back 2 days though, as I repeatedly deleted my structure and repo. Only by carefully analysing the routing for all the required files, gems etc was I able to get a hold on how the project was shaped, and the code and tests began to follow. There is learning in this!
