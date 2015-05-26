@@ -1,0 +1,6 @@
+POSSIBLY NEEDED
+
+IN CONFIG.RU
+require './app/server'
+
+run Sinatra::Application
