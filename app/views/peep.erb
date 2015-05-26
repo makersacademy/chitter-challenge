@@ -1,0 +1,13 @@
+<li class='peep'>
+  <div class='description' style="background-color:#6E9CFF; color:#73777F; padding:20px;">
+    <%= peep.content %>
+  </div>
+    <span class='time'>
+      <% time = peep.created_at.strftime("%H:%M, %d/%m/%Y") %>
+      added at <%= time %>
+    </span>
+    <span class='username' style="color:#587DCC">
+      <% username = peep.user.username %>
+      <a><%= username %></a>
+    </span>
+</li>

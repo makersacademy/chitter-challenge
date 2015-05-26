@@ -1,0 +1,12 @@
+  <div id='new-peep'>
+    <form action='/peeps' method='post'>
+      Peep: <input type='text' name='peep'>
+      <input type='submit' value='Add peep'>
+    </form>
+  </div>
+<ul>
+  <% @peeps.each do |peep| %>
+    <%= partial :peep, locals: { peep: peep }  %>
+  <% end %>
+</ul>
+
