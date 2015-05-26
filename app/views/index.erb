@@ -1,0 +1,17 @@
+
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.content %> <%= peep.hashtag %>
+    </li>
+  <% end %>
+</ul>
+
+<div id='new-peep'>
+<form  action='/peeps' method='post'>
+  Peep:<input type='text' name= 'content'>
+  Hastag:<input type='text' name= 'hashtag' placeholder='#'>
+  <input type='submit' value='Peep'>
+</form>
+</div>
