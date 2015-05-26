@@ -1,12 +1,26 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'bcrypt'
+gem 'rack-flash3'
+gem 'sinatra-partial'
+gem 'launchy'
+gem 'rest-client'
+gem 'htmlbeautifier', '~> 1.1.0'
 
-group :test do
+group :development, :test do
+
+  gem 'capybara'
+  # gem 'cucumber'
+  # gem 'cucumber-sinatra'
   gem 'rspec'
-  gem 'cucumber'
+  gem 'shotgun'
+  gem 'database_cleaner'
+  gem 'byebug'
   gem 'rubocop-rspec'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'coveralls', require: false
-end
 
+end

@@ -1,0 +1,11 @@
+<div id='new-peep'>
+  <% if current_user %>
+  <form method='post' action='/peeps'>
+    Peep: <input type='text' name='message'>
+    <input type='submit' value='Add peep'>
+  </form>
+  <% else %>
+  Please <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+  Or <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+  <% end %>
+</div>

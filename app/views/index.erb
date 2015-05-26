@@ -1,0 +1,24 @@
+<div id='new-peep'>
+  <% if current_user %>
+  <form method='post' action='/peeps'>
+    Peep: <input type='text' name='message'>
+    <input type='submit' value='Add peep'>
+  </form>
+  <% else %>
+  Please <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+  Or <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+  <% end %>
+</div>
+
+    Current peeps:
+      <ul>
+        <% Peep.all(order: [:time.desc]).each do |peep| %>
+        <li><h4><%= peep.message %></h4> 
+        (Peeped by "<%= peep.user.name %> (a.k.a <%= peep.user.username %>)" - <%= peep.time %>)
+        </a></li>
+        <% end %>
+      </ul>
+
+
+
+
