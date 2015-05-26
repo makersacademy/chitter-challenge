@@ -1,0 +1,13 @@
+<div>
+  <h1> Hello welcome to Chitter </h1>
+  <div><% @message %></div>
+  <a href="/users/new" >Register </a>
+  <% if current_user %>
+    <form method='post' action='/peep/new'>
+      Would you like to Peep?
+      <input type='peep_msg' name='peep_msg'>
+      <input type='submit' value='Peeeeep!'>
+    </form>
+  <% end %>
+</div>
+

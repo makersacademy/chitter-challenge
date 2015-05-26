@@ -1,0 +1,10 @@
+<h1>Register for Chitter</h1>
+
+<form action='/users' method='post'>
+  Name:         <input name='fullname' type='text'          value='<%= @user.fullname %>'>
+  <br>Username: <input name='username' type='text'          value='<%= @user.username %>'>
+  <br>Email:    <input name='email'    type='text'          value='<%= @user.email %>'>
+  <br>Password: <input name='password' type='password'>
+  Password conformation: <input name='password_confirmation' type='password'>
+  <br><input type='submit' value='Sign up'>
+</form>
