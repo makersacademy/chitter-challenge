@@ -1,0 +1,15 @@
+<header>
+  <div id='logo'>Chitter</div>
+  <div id='user-signed-in'>
+    <% if current_user %>
+      <span id='welcome-message'>
+        Welcome, <%= current_user.email %>
+      </span>
+
+      <form id='sign-out' method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    <% end %>
+  </div>
+</header>
