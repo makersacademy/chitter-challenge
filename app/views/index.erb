@@ -1,0 +1,14 @@
+<H1>THIS IS... CHITTER</H1>
+- you don't deserve any better
+<ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text %></li>
+  <% end %>
+</ul>
+
+<div id='new-peep'>
+  <form action='/peeps' method='post'>
+    Peep: <input type='text' name='text'>
+    <input type='submit' value='Add peep'>
+  </form>
+</div>

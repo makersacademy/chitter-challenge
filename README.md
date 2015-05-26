@@ -1,72 +1,30 @@
-Chitter Challenge
-=================
+Makers Academy Chitter Challenge
+================================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+I am creating a very simple Twitter clone, 'Chitter', to demonstrate the use of Relational databases in basic web apps. This will be Test-Driven using Rspec, with the code being handled by Ruby/Sinatra. Database relationships are being handled with DataMapper/Postgres.
 
-Challenge:
--------
+![CHITTER](http://www.wilko.com/content/ebiz/wilkinsonplus/invt/0320694/0320694_l.jpg)
 
-As usual please start by 
+## Technologies Used
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+- Ruby
+- Sinatra
+- Rspec
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+## Job List
 
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+- Created viable directory structure including config.ru etc
+- Created tests and functionality for posting messages to the platform
+- Created tests and functionality for signing up
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+## Still to complete/refactor
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+- Add logging in, logging out etc
+- Add tests and functionality to allow timestamps etc
+- limit characters to 141 per peep (one better than twitter itself)
+- Add CSS stylings
 
-As a maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+## Takeaway
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
+Ideally I would have gotten through this a lot further before the end of the weekend. Problems with the directory structure put me back 2 days though, as I repeatedly deleted my structure and repo. Only by carefully analysing the routing for all the required files, gems etc was I able to get a hold on how the project was shaped, and the code and tests began to follow. There is learning in this!
