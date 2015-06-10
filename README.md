@@ -4,8 +4,8 @@ Chitter Challenge [![Code Climate](https://codeclimate.com/repos/55781a256956807
 A clone of the micro blogging website twitter, built using Sinatra, Datamapper, BCrypt, PSQL and Ruby.
 Tested with RSpec + Capybara.
 
-Tests/Documentation
-
+####Tests/Documentation
+```
 adding peeps
   is not possible when logged out
   is possible when logged in
@@ -49,3 +49,4 @@ Peep
 
 Finished in 4.45 seconds (files took 2.58 seconds to load)
 22 examples, 0 failures
+```
