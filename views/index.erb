@@ -1,13 +1,21 @@
-<div class='peep_box'>
-  <br><em class='tobold'><a href="/peeps/new">New Peep!</a></em>
+<br><div class="newpeep"><em class='tobold'><a href="/peeps/new">New Peep!</a></em></div>
+  <div class='peep_box'>
+        <ul>
+          <% @sorted.each do |peep| %>
+            <div class='peeplist'><li><em class='tobold'><em class='userp'><%=peep.user%></em></em> peeps: <em class='tobold'>"<%= peep.content %>"</em> <a href="/reply/<%=peep.id%>">reply</a></li> </div>
+                <% peep.replys.each do |reply| %>
+                <div class='replys'>
+                  <li><em class='tobold'><em class='userr'><%=reply.user %></em></em> replys: <em class='tobold'><%= reply.reply %></li></em>
+                  </div>
+                <% end %>
+          <% end %>
       <ul>
-        <% @sorted.each do |peep| %>
-          <div class='peeplist'><li><em class='tobold'><em class='userp'><%=peep.user%></em></em> peeps: <em class='tobold'>"<%= peep.content %>"</em> <a href="/reply/<%=peep.id%>">reply</a></li> </div>
-              <% peep.replys.each do |reply| %>
-              <div class='replys'>
-                <li><em class='tobold'><em class='userr'><%=reply.user %></em></em> replys: <em class='tobold'><%= reply.reply %></li></em>
-                </div>
-              <% end %>
-        <% end %>
-    <ul>
+  </div>
+<div id="clouds">
+  <div class="cloud x1"></div>
+  <!-- Time for multiple clouds to dance around -->
+  <div class="cloud x2"></div>
+  <div class="cloud x3"></div>
+  <div class="cloud x4"></div>
+  <div class="cloud x5"></div>
 </div>
