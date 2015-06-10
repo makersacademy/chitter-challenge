@@ -1,4 +1,4 @@
-rvm: '2.2.1'
+rvm: '2.2.0'
 script: 
   - bundle exec rspec spec
 
