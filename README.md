@@ -1,9 +1,9 @@
 Chitter Challenge [![Code Climate](https://codeclimate.com/repos/55781a2569568071a002b5c8/badges/62dafddf067c35f409b4/gpa.svg)](https://codeclimate.com/repos/55781a2569568071a002b5c8/feed) [![Build Status](https://travis-ci.org/rjlynch/chitter-challenge.svg?branch=master)](https://travis-ci.org/rjlynch/chitter-challenge)
 =================
-
+[visit the site](http://rjl-chitter.herokuapp.com/)
 A clone of the micro blogging website twitter, built using Sinatra, Datamapper, BCrypt, PSQL and Ruby.
 Tested with RSpec + Capybara.
-
+![site screen shot](http://i.imgur.com/sLIcTp2.png)
 ####Tests/Documentation
 ```
 adding peeps
