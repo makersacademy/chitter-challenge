@@ -5,7 +5,7 @@ feature 'User sign up' do
   	fill_in :email, with: 'natalie@gmail.com'
   	fill_in :password, with: 'natso1'
   	click_button 'Sign up'
-    #expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content 'Hi, natalie@gmail.com'
+    expect(User.first.email).to eq('natalie@gmail.com')
   end
 end
