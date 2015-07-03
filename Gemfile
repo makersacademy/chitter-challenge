@@ -9,6 +9,7 @@ ruby '2.2.1'
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'cucumber'

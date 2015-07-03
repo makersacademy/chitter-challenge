@@ -8,5 +8,15 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Hello, this is my first peep!!')
   end
 
+  scenario 'user can write a peep' do
+    visit '/peeps'
+    fill_in 'peep', with: 'This app is awesome!!'
+    click_button 'Peep'
+
+    expect(current_path).to eq '/peeps'
+
+    expect(page).to have_content('This app is awesome!!')
+  end
+
 
 end
