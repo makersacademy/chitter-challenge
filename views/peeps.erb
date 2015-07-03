@@ -1,0 +1,16 @@
+<main>
+<div>
+  <form >
+    <label>Write your peep here</label>
+    <input type="text" name="peep">
+    <input type="submit" value="Peep">
+  </form>
+</div>
+
+<section>
+  <% @peeps.each do |peep| %>
+    <%= peep.message %>
+  <% end %>
+</section>
+
+</main>
