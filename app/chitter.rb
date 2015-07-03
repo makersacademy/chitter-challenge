@@ -9,7 +9,7 @@ class CHITTERchallenge < Sinatra::Base
   enable :sessions
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => :date.desc )
     erb :'peeps'
   end
 
