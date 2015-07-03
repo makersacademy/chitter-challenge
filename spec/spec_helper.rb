@@ -6,6 +6,7 @@ require 'rspec'
 require './app/data_mapper_setup'
 require './app/chitter'
 require 'database_cleaner'
+require_relative './helpers/user_helpers.rb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

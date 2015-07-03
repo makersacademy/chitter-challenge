@@ -53,6 +53,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/logout' do
+    erb :'/users/logout'
+  end
+
+  post '/users/logout' do
+    session[:user_id] = nil
+    redirect '/peeps'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
