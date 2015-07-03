@@ -13,7 +13,7 @@ feature 'Peeps' do
     expect(page).to have_content 'Hello world!'
   end
 
-  skip 'peeps appear in reverse chronological order' do
+  scenario 'peeps appear in reverse chronological order' do
     user = User.create(user_params)
     visit '/'
     within 'form#sign_in' do
@@ -23,11 +23,9 @@ feature 'Peeps' do
     click_button 'Sign in'
     fill_in 'peep', with: 'Hello world!'
     click_button 'Peep'
-    fill_in 'peep', with: 'It is me'
+    Peep.create(text: 'It is me', time_stamp: Time.now + 1, user_id: user.id)
     click_button 'Peep'
-    within 'ul#peep_list' do
-      expect()
-    end
+    expect(first 'li').to have_content 'It is me'
   end
 
   scenario 'peeps time stamp is attached' do

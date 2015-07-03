@@ -9,8 +9,10 @@ gem 'sinatra-flash'
 gem 'dm-postgres-adapter'
 
 group :test do
+  gem 'launchy'
   gem 'database_cleaner'
   gem 'rspec'
+  gem 'byebug'
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'cucumber'
