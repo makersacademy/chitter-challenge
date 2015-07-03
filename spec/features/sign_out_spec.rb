@@ -2,7 +2,7 @@ feature 'Signing out' do
 
   let(:user) { double :user, password: 'secret123', username: 'test_name' }
 
-  scenario 'after logging in a user can sign out' do
+  skip 'after logging in a user can sign out' do
     visit '/'
     within 'form#sign_in' do
       fill_in 'username', with: user.username

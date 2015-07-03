@@ -7,6 +7,9 @@ require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
 
+require './app/data_mapper_setup'
+require './app/app'
+
 Capybara.app = Chitter
 
 SimpleCov.formatters = [
@@ -15,19 +18,19 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-# RSpec.configure do |config|
-#
-#   config.before(:suite) do
-#     DatabaseCleaner.strategy = :transaction
-#     DatabaseCleaner.clean_with(:truncation)
-#   end
-#
-#   config.before(:each) do
-#     DatabaseCleaner.start
-#   end
-#
-#   config.after(:each) do
-#     DatabaseCleaner.clean
-#   end
-#
-# end
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
