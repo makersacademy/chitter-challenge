@@ -7,4 +7,6 @@ class User
   property :id, Serial
   property :email, String
   property :password, String
+  property :name, String
+  property :username, String
 end

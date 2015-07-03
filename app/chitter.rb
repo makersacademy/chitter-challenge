@@ -6,12 +6,14 @@ class App < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
   
   get '/' do
+  	@user = User.new
     'Hello App!'
   end
 
-  post '/' do
-  	user = User.new(email: params[:email], password: params[:password])
-  	user.save
+  post '/users' do
+  	@user = User.new(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+  	@user.save
+
     erb :index
   end
 
