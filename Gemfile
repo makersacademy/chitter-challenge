@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'sinatra'
-gem 'data_mapper'
 gem 'bcrypt'
+gem 'data_mapper'
+gem 'sinatra'
+gem 'sinatra-flash'
 gem 'dm-postgres-adapter'
 
 group :test do

@@ -1,10 +1,12 @@
 require 'sinatra'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :'users/sign_up'
@@ -17,9 +19,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.first(username: params[:username])
-    session[:user_id] = @user.id unless session[:user_id]
-    erb :'users/peeps'
+    @user = User.authenticate(username: params[:username], password: params[:password])
+    if @user
+      session[:user_id] = @user.id unless session[:user_id]
+      erb :'users/peeps'
+    else
+      flash[:error] = 'The email or password is incorrect'
+      redirect '/'
+    end
   end
 
   get '/users' do
