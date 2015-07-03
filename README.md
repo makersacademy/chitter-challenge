@@ -1,24 +1,16 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Synopsis
 
-Challenge:
+Project involves creating our own version of Twitter. Our version is called Chitter and will allow users to post messages to a public stream.
+
+
+
+User stories:
 -------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -43,6 +35,25 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+
+## Technologies Used
+- Ruby
+- Rspec
+- Capybara
+- Sinatra
+-
+-
+
+
+
+
+## Job List
+
+
+## Still to complete/refactor
+
+
 
 Notes on functionality:
 ------

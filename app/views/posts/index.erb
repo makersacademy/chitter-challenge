@@ -1,0 +1,10 @@
+<h1>Posts</h1>
+
+<ul id="posts">
+  <% @posts.each do |post| %>
+  <li>
+    Post:  <%= post.message %>
+    <!-- Posted:   <%= post.created_at %> -->
+  </li>
+  <% end %>
+</ul>
