@@ -1,11 +1,12 @@
 <% if current_user %>
-  <h1><%= current_user.name %>, your Peeps</h1>
-<% end %>
+  <h1>Hi <%= current_user.name %>, here are your Peeps</h1>
 
-<form method='POST' action='/peeps'>
-  <input type='text' name='peep' />
-  <input type='submit' value='Peep' />
-</form>
+  <form method='POST' action='/peeps'>
+    <input type='text' name='peep' />
+    <input type='submit' value='Peep' />
+  </form>
+
+<% end %>
 
 <% if @peeps %>
   <ul>

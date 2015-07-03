@@ -14,7 +14,7 @@ feature 'Signing up' do
   scenario 'after going through a walk through user can send first Peep' do
     sign_up(@user)
     click_button 'Send my first Peep'
-    expect(page).to have_content 'test, your Peeps'
+    expect(page).to have_content 'Hi test, here are your Peeps'
   end
 
   def sign_up(user)

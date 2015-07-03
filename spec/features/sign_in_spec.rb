@@ -8,7 +8,7 @@ feature 'Signing in' do
       fill_in 'password', with: user.password
     end
     click_button 'Sign in'
-    expect(page).to have_content 'test, your Peeps'
+    expect(page).to have_content 'Hi test, here are your Peeps'
   end
 
   scenario 'an existing user cannot sign in if their password is incorrect' do
