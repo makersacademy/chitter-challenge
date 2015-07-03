@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-  gem 'sinatra'
+  gem 'bcrypt'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
-  gem 'bcrypt'
   gem 'dm-validations'
+  gem 'sinatra'
   gem 'sinatra-flash'
 
 group :test do
@@ -20,4 +20,3 @@ group :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
 end
-
