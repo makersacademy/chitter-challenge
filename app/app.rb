@@ -34,8 +34,17 @@ class Chitter < Sinatra::Base
     erb :'users/peeps'
   end
 
-  def current_user
-    User.get(session[:user_id])
+  post '/sessions' do
+    session.clear
+    erb :'users/goodbye'
+  end
+
+  helpers do
+
+    def current_user
+      User.get(session[:user_id])
+    end
+
   end
 
 end

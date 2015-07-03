@@ -1,16 +1,16 @@
 <form id='sign_up' action='/users/new' method='POST'>
-  <input type='text' name='username' />
-  <input type='text' name='name' />
-  <input type='text' name='email' />
-  <input type='text' name='password' />
+  <label for='username'>Username:</label><input type='text' name='username' />
+  <label for='name'>Name:</label><input type='text' name='name' />
+  <label for='email'>Email:</label><input type='text' name='email' />
+  <label for='password'>Password:</label><input type='password' name='password' />
   <input type='submit' value='Sign up' />
 </form>
 
 <p> Already a Peep?</p>
 
 <form id='sign_in' action='/users' method='POST'>
-  <input type='text' name='username' />
-  <input type='text' name='password' />
+  <label for='username'>Username:</label><input type='text' name='username' />
+  <label for='password'>Password:</label><input type='password' name='password' />
   <input type='submit' value='Sign in' />
 </form>
 

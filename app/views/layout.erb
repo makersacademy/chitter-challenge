@@ -8,8 +8,7 @@
 
     <% if current_user %>
 
-      <form id='sign_out' method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
+      <form id='sign_out' method='POST' action='/sessions'>
         <input type='submit' value='Sign out'>
       </form>
 

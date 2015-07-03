@@ -8,7 +8,8 @@ feature 'Signing out' do
       fill_in 'password', with: user.password
     end
     click_button 'Sign in'
-    expect(page).to have_selector 'form#sign_out'
+    click_button 'Sign out'
+    expect(page).to have_content 'Goodbye!'
   end
 
   def user_params
