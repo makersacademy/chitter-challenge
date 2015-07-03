@@ -13,6 +13,16 @@ feature 'Peeps' do
     expect(page).to have_content 'Hello world!'
   end
 
+  skip 'if user is not logged in they can still view peeps' do
+
+
+  end
+
+  scenario 'if user is not logged in she cannot peep' do
+    visit '/users'
+    expect(page).not_to have_selector 'form#peep'
+  end
+
   def user_params
     { email: 'example@example.com',
       password: 'secret123',

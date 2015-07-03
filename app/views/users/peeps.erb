@@ -1,7 +1,7 @@
 <% if current_user %>
   <h1>Hi <%= current_user.name %>, here are your Peeps</h1>
 
-  <form method='POST' action='/peeps'>
+  <form id='peep' method='POST' action='/peeps'>
     <input type='text' name='peep' />
     <input type='submit' value='Peep' />
   </form>
