@@ -48,7 +48,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ['The Username or Email is incorrect']
      erb :'/users/login'
     end
   end
