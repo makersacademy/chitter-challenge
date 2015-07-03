@@ -3,7 +3,7 @@ feature 'Sign out' do
     sign_up
     sign_in
     click_button('Sign out')
-    expect(page).to have_content('Goodbye')
+    expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome, kj')
   end
 end

@@ -7,6 +7,11 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.username %>
+      <form action='/sessions' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+      <!-- NB positioning the form here means signing out is only available when a user has already signed in. -->
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
@@ -17,6 +22,14 @@
           <% end %>
         </ul>
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>
