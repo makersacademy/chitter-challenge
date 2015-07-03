@@ -9,10 +9,10 @@
 <% end %>
 
 <% if @peeps %>
-  <ul>
+  <ul id='peep_list'>
   <% @peeps.each do |peep| %>
     <li><%= peep.text %>
-      <p><%= current_user.name %>, <%= peep.time_stamp %></p>
+      <p><%= current_user.username %>, <%= peep.time_stamp %></p>
     </li>
   <% end %>
 </ul>
