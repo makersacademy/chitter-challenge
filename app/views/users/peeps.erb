@@ -1,1 +1,18 @@
-<h1><%= @user.name %>, your Peeps</h1>
+<% if current_user %>
+  <h1><%= current_user.name %>, your Peeps</h1>
+<% end %>
+
+<form method='POST' action='/peeps'>
+  <input type='text' name='peep' />
+  <input type='submit' value='Peep' />
+</form>
+
+<% if @peeps %>
+  <ul>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.text %>
+      <p><%= current_user.name %>, <%= peep.time_stamp %></p>
+    </li>
+  <% end %>
+</ul>
+<% end %>

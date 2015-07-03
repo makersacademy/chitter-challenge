@@ -34,9 +34,16 @@ class Chitter < Sinatra::Base
     erb :'users/peeps'
   end
 
-  post '/sessions' do
+  post '/session' do
     session.clear
     erb :'users/goodbye'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
+    current_user.peeps << peep
+    @peeps = current_user.peeps.all(:order => :time_stamp.desc )
+    erb :'users/peeps'
   end
 
   helpers do

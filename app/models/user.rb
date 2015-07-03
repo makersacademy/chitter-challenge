@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-validations'
 require 'bcrypt'
 
 class User
@@ -12,6 +13,8 @@ class User
   property :name, String
   property :email, String, unique: true, message: 'This email already exits, trying signing in'
   property :password_digest, Text, :lazy => false
+
+  has n, :peeps
 
   def password=(pass)
     @password = pass
