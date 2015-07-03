@@ -1,9 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+
 require './app/models/user'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
+
   set :sessions_secret, 'super secret'
 
   get '/' do
@@ -30,8 +34,13 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username], password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['Incorrect username and/or password']
+      redirect to('/sessions/new')
+    end
   end
 
   helpers do
