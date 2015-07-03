@@ -18,31 +18,31 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users' do
+  post '/sessions' do
     @user = User.authenticate(username: params[:username], password: params[:password])
     if @user
       session[:user_id] = @user.id unless session[:user_id]
-      erb :'users/peeps'
+      erb :'sessions/peeps'
     else
       flash[:error] = 'The email or password is incorrect'
       redirect '/'
     end
   end
 
-  get '/users' do
-    erb :'users/peeps'
+  get '/sessions' do
+    erb :'sessions/peeps'
   end
 
-  post '/session' do
+  post '/sessions/end' do
     session.clear
-    erb :'users/goodbye'
+    erb :'sessions/goodbye'
   end
 
   post '/peeps' do
     peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
     current_user.peeps << peep
     @peeps = current_user.peeps.all(:order => :time_stamp.desc )
-    erb :'users/peeps'
+    erb :'sessions/peeps'
   end
 
   helpers do

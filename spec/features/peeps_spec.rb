@@ -13,6 +13,8 @@ feature 'Peeps' do
     expect(page).to have_content 'Hello world!'
   end
 
+
+
   skip 'if user is not logged in they can still view peeps' do
 
 
