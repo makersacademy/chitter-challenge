@@ -14,7 +14,8 @@ class CHITTERchallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    new_peep = Peep.new(message: params[:peep])
+    new_peep = Peep.new(message: params[:peep],
+                        date: Time.now)
     new_peep.save
     redirect '/peeps'
   end

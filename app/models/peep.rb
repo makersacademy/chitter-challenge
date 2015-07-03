@@ -4,5 +4,6 @@ class Peep
 
   property :id, Serial
   property :message, String
+  property :date, Time
 
 end
