@@ -24,6 +24,10 @@ class Chitter < Sinatra::Base
     redirect to('/peeps')
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'  
+  end
+
   helpers do
     def current_user
       @user||=User.get session[:user_id]
