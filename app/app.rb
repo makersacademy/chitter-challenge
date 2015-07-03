@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # erb :peeps
+    erb :peeps
   end
 
   get '/users/new' do
