@@ -13,6 +13,12 @@ class CHITTERchallenge < Sinatra::Base
     erb :'peeps'
   end
 
+  post '/peeps' do
+    new_peep = Peep.new(message: params[:peep])
+    new_peep.save
+    redirect '/peeps'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
