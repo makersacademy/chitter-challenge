@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 
 group :test do
-  gem 'rspec'
+  
+  gem 'capybara'
+  gem 'coveralls', require: false
   gem 'cucumber'
+  gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  
 end
 
