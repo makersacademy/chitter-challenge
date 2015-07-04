@@ -18,5 +18,9 @@
   <% end %>
 </ul>
 <% else %>
-  <p>User has not peeped yet</p>
+  <% if current_user %>
+    <p>Post your first peep!</p>
+  <% else %>
+    <p>User has not peeped yet</p>
+  <% end %>
 <% end %>

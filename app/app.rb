@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions' do
+  get '/sessions/new' do
     erb :'sessions/peeps'
   end
 
