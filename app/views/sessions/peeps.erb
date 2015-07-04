@@ -12,7 +12,7 @@
   <ul id='peep_list'>
   <% @peeps.each do |peep| %>
     <li><%= peep.text %>
-      <p><%= current_user.username %>: <%= peep.time_stamp.strftime('%a, %I:%M:%S %p') %></p>
+      <p><%= @user.username %>: <%= peep.time_stamp.strftime('%a, %I:%M:%S %p') %></p>
     </li>
   <% end %>
 </ul>

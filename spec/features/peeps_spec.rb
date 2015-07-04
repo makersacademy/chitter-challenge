@@ -54,7 +54,7 @@ feature 'Peeps' do
     expect(page).to have_content user.username
   end
 
-  skip 'if user is not logged in they can still view peeps' do
+  scenario 'if user is not logged in they can still view peeps' do
     user = User.create(user_params)
     visit '/'
     within 'form#sign_in' do
@@ -69,8 +69,18 @@ feature 'Peeps' do
     expect(page).to have_content 'Hello world!'
   end
 
-  scenario 'if user is not logged in she cannot peep' do
-    visit '/users'
+  skip 'if user is not logged in she cannot peep' do
+    user = User.create(user_params)
+    visit '/'
+    within 'form#sign_in' do
+      fill_in 'username', with: user.username
+      fill_in 'password', with: user.password
+    end
+    click_button 'Sign in'
+    fill_in 'peep', with: 'Hello world!'
+    click_button 'Peep'
+    click_button 'Sign out'
+    visit '/test_name'
     expect(page).not_to have_selector 'form#peep'
   end
 

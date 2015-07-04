@@ -12,6 +12,16 @@ class Chitter < Sinatra::Base
     erb :'users/sign_up'
   end
 
+  get '/:username' do
+    @user = User.first(username: params[:username])
+    if @user
+      @peeps = @user.peeps.all(:order => :time_stamp.desc )
+      erb :'sessions/peeps'
+    else
+      erb :'users/not_found'
+    end
+  end
+
   post '/users/new' do
     @user = User.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = @user.id
@@ -39,6 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    @user = current_user
     peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
     current_user.peeps << peep
     @peeps = current_user.peeps.all(:order => :time_stamp.desc )
