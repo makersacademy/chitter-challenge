@@ -21,6 +21,9 @@ feature 'Visitor signs up' do
 
     expect(page).to have_content 'Password does not match the confirmation'
   end
+
+  scenario 'with blank fields' do
+  end
 end
 
 def sign_up_with user
