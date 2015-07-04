@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+      <p>Welcome, <%= current_user.name %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

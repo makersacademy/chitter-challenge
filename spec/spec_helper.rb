@@ -3,15 +3,14 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara/rspec'
-
-# require_relative './factories/user'
-# require_relative './helpers/session'
+require 'factory_girl'
+require_relative './factories/user'
+require_relative './helpers/session'
 require './app/data_mapper_setup'
 
 require 'database_cleaner'
-require 'factory_girl'
-# require 'coveralls'
-# require 'simplecov'
+require 'coveralls'
+require 'simplecov'
 
 Capybara.app = Chitter
 
@@ -40,8 +39,8 @@ RSpec.configure do |config|
   end
 end
 
-# SimpleCov.formatters = [
-#   SimpleCov::Formatter::HTMLFormatter,
-#   Coveralls::SimpleCov::Formatter
-# ]
-# Coveralls.wear!
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!

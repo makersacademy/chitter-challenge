@@ -8,13 +8,15 @@ ruby '2.2.1'
   gem 'dm-postgres-adapter'
   gem 'dm-timestamps'
   gem 'bcrypt'
-  gem 'factory_girl'
+  # gem 'factory_girl'
 
 group :test do
 
   gem 'capybara'
   # gem 'capybara/rspec'
   gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'rspec'
+  gem 'coveralls', require: false
 
 end

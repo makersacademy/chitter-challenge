@@ -42,14 +42,24 @@ I want to see the time at which it was made
 - Rspec
 - Capybara
 - Sinatra
--
--
+- Postgres
+- DataMapper
 
 
+To run:
+
+In order to run tests, fork/clone this repo and run rspec in the command line. Ensure that the capybara gem is added to your Gemfile. To run the app fork the repo and in the command line: run rackup in your local directory or run it directly (ruby chitter.rb)
 
 
 ## Job List
+* Test drive creation of app using rspec
+* Create list of posts/peeps that can be viewed in chronological order - most recent first
+* Create sign up form requesting user to sign up by entering their email address, name, a username, password and password confirmation in the sign up form (username and email must be unique)
+* Create a log in form for those users that have already signed up - containing just username and password input fields
+* Use bcrypt to secure the passwords
+* Once you log in you can post a message to/on Chitter
 
+* PROVIDE INSTRUCTIONS ON HOW TO INSTALL AND RUN TESTS
 
 ## Still to complete/refactor
 
@@ -58,8 +68,7 @@ I want to see the time at which it was made
 Notes on functionality:
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Use bcrypt to secure the passwords.

@@ -9,6 +9,6 @@ class Post
   property :message, Text
   property :created_at, DateTime
 
-  # belongs_to :user
+  belongs_to :user
 
 end
