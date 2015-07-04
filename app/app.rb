@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :sessions_secret, 'super secret'
+  register Sinatra::Flash
   
   get '/' do 
     'Chitter-Challenge'
@@ -16,10 +18,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name],email: params[:email],username: params[:username],password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name],email: params[:email],username: params[:username],password: params[:password], password_confirmation: params[:password_confirmation])
 
-    session[:user_id] = user.id
-    redirect to('/')
+    if @user.save  
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:notice] = "The password and confirmation password are not correct"
+      erb :'user/new'
+    end
   end
 
   helpers do  

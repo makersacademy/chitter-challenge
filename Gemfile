@@ -14,6 +14,7 @@ ruby '2.2.2'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'sinatra'
+  gem 'sinatra-flash'
 
   
 # end
