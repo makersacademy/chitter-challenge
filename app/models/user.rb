@@ -13,6 +13,8 @@ class User
   validates_presence_of :username
   validates_presence_of :name
   validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_uniqueness_of :username
 
   property :id, Serial
   property :email, String

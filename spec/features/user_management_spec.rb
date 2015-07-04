@@ -45,6 +45,22 @@ feature 'User sign up' do
     expect(page).to have_content 'Email must not be blank'
   end
 
+  scenario 'requires a unique email address' do
+    user = build :user
+    dup_user = build :user, password: '1233', password_confirmation: '1233', name: 'Bob', username: 'Bobo'
+    sign_up_as(user)
+    expect{ sign_up_as(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'  
+  end
+
+  scenario 'requires a unique username' do
+    user = build :user
+    dup_user = build :user, email: 'natalie@gmail.com', password: '1233', password_confirmation: '1233', name: 'Bob'
+    sign_up_as(user)
+    expect{ sign_up_as(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'  
+  end
+
   def sign_up_as(user)
     visit 'users/new'
   	fill_in :email, with: user.email
