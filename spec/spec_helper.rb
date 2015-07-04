@@ -3,6 +3,8 @@ require 'simplecov'
 require 'capybara/rspec'
 require './app/data_mapper_setup'
 require './app/app'
+require 'database_cleaner'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -11,5 +13,21 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 Capybara.app = App
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
 
 ENV['RACK_ENV'] = 'test'

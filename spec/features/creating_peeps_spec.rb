@@ -1,4 +1,4 @@
-require './app/models/peep'
+require './app/models/user'
 
 feature 'creating peeps' do
 
@@ -13,4 +13,9 @@ feature 'creating peeps' do
       expect(page).to have_content('This is a test peep')
     end
   end
+
+  scenario 'there are no links in the database at the start of the test' do
+    expect(Peep.count).to eq 0
+  end
+
 end
