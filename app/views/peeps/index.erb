@@ -1,3 +1,9 @@
+<% if current_user %>
+<form action='/peeps/new'>
+  <input type='submit' value='Post a Peep'>
+</form>
+<% end %>
+
 <h1> Peeps </h1>
 
 <ul id="peeps">

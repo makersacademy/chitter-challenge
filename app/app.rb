@@ -36,7 +36,13 @@ class Chitter < Sinatra::Base
       username: current_user.username,
       name: current_user.full_name,
       user_id: current_user.id)
-      redirect to('/peeps')
+
+    if @peep.save
+        redirect to('/peeps')
+    else
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :'peeps/new'
+    end
   end
 
 

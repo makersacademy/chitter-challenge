@@ -11,6 +11,8 @@ class Peep
   property :name, String
   property :created_at, DateTime
 
+  validates_presence_of :message
+
   belongs_to :user
 
 end
