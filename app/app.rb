@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 require './app/models/user'
+require './app/models/peep'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -16,11 +17,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
   post '/peeps/new' do
     erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    if current_user
+      peep = Peep.new(message: params[:peep])
+      peep.save
+      redirect '/peeps'
+    else
+      'Please log in first'
+      redirect '/sessions/new'
+    end
   end
 
   get '/users/new' do
