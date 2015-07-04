@@ -12,23 +12,19 @@ class Chitter < Sinatra::Base
     erb :'user/new'
   end
 
-  post '/main' do
-    erb :'/main'
+  post '/users' do
+    @user = User.create(name: params[:name],email: params[:email],username: params[:username])
+    # ,password: params[:password])
+    @user.save
+    redirect to('/main')
   end
 
-
+  get '/main' do
+    erb :'main'
+  end
  
-#   # post '/user' do 
-#   #   user = User.new
-#   #   user.name = params[:name]
-#   #   user.email = params[:email]
-
-#   #   erb :'/user/new'
-#   # end
-
- 
-#   # start the server if ruby file executed directly
-#   run! if app_file == $0
+  # start the server if ruby file executed directly
+  run! if app_file == $0
 
 
  end
