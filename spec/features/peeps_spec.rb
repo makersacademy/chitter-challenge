@@ -38,7 +38,7 @@ feature 'Peeps' do
     click_button 'Sign in'
     fill_in 'peep', with: 'Hello world!'
     click_button 'Peep'
-    expect(page).to have_content Peep.first(user_id: user.id).time_stamp.strftime('%a, %I:%M:%S %p')
+    expect(page).to have_content Peep.first(user_id: user.id).time_stamp.strftime('%b %e')
   end
 
   scenario 'peeps username is attached' do
@@ -52,6 +52,19 @@ feature 'Peeps' do
     fill_in 'peep', with: 'Hello world!'
     click_button 'Peep'
     expect(page).to have_content user.username
+  end
+
+  scenario 'peeps name is attached' do
+    user = User.create(user_params)
+    visit '/'
+    within 'form#sign_in' do
+      fill_in 'username', with: user.username
+      fill_in 'password', with: user.password
+    end
+    click_button 'Sign in'
+    fill_in 'peep', with: 'Hello world!'
+    click_button 'Peep'
+    expect(page).to have_content user.name
   end
 
   scenario 'if user is not logged in they can still view peeps' do
@@ -99,7 +112,7 @@ feature 'Peeps' do
 
   scenario 'if user does not exist' do
     visit '/test_name'
-    expect(page).to have_content 'User does not exits'  
+    expect(page).to have_content 'User does not exits'
   end
 
   def user_params

@@ -11,8 +11,9 @@
 <% if @peeps %>
   <ul id='peep_list'>
   <% @peeps.each do |peep| %>
-    <li><%= peep.text %>
-      <p><%= @user.username %>: <%= peep.time_stamp.strftime('%a, %I:%M:%S %p') %></p>
+    <p style='font-size: 70%'><b><%= @user.name %>  </b><a style='color: gray'>@<%= @user.username %>: <%= peep.time_stamp.strftime('%b %e') %></a></p>
+    <li>
+      <%= peep.text %>
     </li>
   <% end %>
 </ul>
