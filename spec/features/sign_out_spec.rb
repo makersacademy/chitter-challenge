@@ -1,5 +1,5 @@
 feature 'Sign out' do
-  scenario 'removes the sign in information from the browser session' do
+  scenario 'the sign in information is removed from the browser session' do
     sign_up
     sign_in
     click_button('Sign out')
