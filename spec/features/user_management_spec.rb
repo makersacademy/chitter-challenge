@@ -27,6 +27,24 @@ feature 'User sign up' do
     expect(page).to have_content 'Password must not be blank'
   end
 
+  scenario 'requires a username to be entered' do
+    user = build :user, username: ''
+    expect { sign_up_as(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Username must not be blank'
+  end
+
+  scenario 'requires a name to be entered' do
+    user = build :user, name: ''
+    expect { sign_up_as(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Name must not be blank'
+  end
+
+  scenario 'requires an email address to be entered' do
+    user = build :user, email: ''
+    expect { sign_up_as(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
   def sign_up_as(user)
     visit 'users/new'
   	fill_in :email, with: user.email
