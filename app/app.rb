@@ -1,17 +1,19 @@
 require 'sinatra/base'
 require './app/data_mapper_setup.rb'
-require './app/models/user'
 
 class Chitter < Sinatra::Base
   
-# set :views, proc { File.join(root, '..', 'views') 
-  
   get '/' do 
+    'Chitter-Challenge'
     erb :'index'
   end
 
   get '/user/new' do
     erb :'user/new'
+  end
+
+  post '/main' do
+    erb :'/main'
   end
 
 

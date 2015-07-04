@@ -9,6 +9,7 @@ DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 require './app/models/user'
 
-DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+DataMapper.finalize
