@@ -8,6 +8,15 @@ feature 'User sign up' do
     expect(User.first.email).to eq('natalie@gmail.com')
   end
 
+  scenario 'can see labelled input fields' do
+    visit '/users/new'
+    expect(page).to have_content 'Email:'
+    expect(page).to have_content 'Password:'
+    expect(page).to have_content 'Confirm Password:'
+    expect(page).to have_content 'Name:'
+    expect(page).to have_content 'Username:'
+  end
+
   scenario 'requires a matching confirmation password' do
     user = build :user, password: '1235'
   	sign_up_as(user)

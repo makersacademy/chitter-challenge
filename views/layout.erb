@@ -5,7 +5,9 @@
   </head>
   <body>
     <% if flash[:error] %>
-      <div><%= flash[:error] %></div>
+     <% flash[:error].each do |error| %>
+       <div><%= error %></div>
+     <% end %>
     <% end %>
     <% if current_user && session[:user_id]%>
       Hi, <%= current_user.username %>
