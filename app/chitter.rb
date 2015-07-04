@@ -8,6 +8,8 @@ class CHITTERchallenge < Sinatra::Base
 
   enable :sessions
 
+  set :session_secret, 'super secret'
+
   get '/peeps' do
     @peeps = Peep.all(:order => :date.desc )
     erb :'peeps'
@@ -19,6 +21,19 @@ class CHITTERchallenge < Sinatra::Base
     new_peep.save
     redirect '/peeps'
   end
+
+  get '/index' do
+    erb :'index'
+  end
+
+  post '/index' do
+    new_user = User.create(email: params[:sign_up_email],
+                password: params[:sign_up_password],
+                username: params[:sign_up_username])
+    session[:user_id] = new_user.id
+    redirect to('/peeps')
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

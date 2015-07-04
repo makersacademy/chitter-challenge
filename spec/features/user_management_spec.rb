@@ -11,11 +11,13 @@ feature 'User sign up' do
   end
 
   def sign_up(email: 'ichnusa@sardinia.com',
-            password: '123456')
-    visit '/users/new'
+              username: 'SardiniaAwesome',
+              password: '123456')
+    visit '/index'
     expect(page.status_code).to eq(200)
-    fill_in :email, with: email
-    fill_in :password, with: password
+    fill_in :sign_up_email, with: email
+    fill_in :sign_up_username, with: username
+    fill_in :sign_up_password, with: password
     click_button 'Sign up'
   end
 
