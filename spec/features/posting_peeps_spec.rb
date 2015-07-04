@@ -1,4 +1,4 @@
-feature 'Posting Peeps' do
+feature 'User Peeps' do
 
   let(:peep) do
     build(:peep)
@@ -8,7 +8,7 @@ feature 'Posting Peeps' do
     create(:user)
   end
 
-  scenario 'I can create a new peep' do
+  scenario 'can create a new peep' do
     visit('/sign_in')
     sign_in(user)
     visit('/peeps/new')
@@ -19,16 +19,16 @@ feature 'Posting Peeps' do
     end
   end
 
-  scenario "I can't post an empty peep" do
+  scenario "can't post an empty peep" do
     visit('/sign_in')
     sign_in(user)
     visit('/peeps/new')
-    click_button 'Post Peep' 
+    click_button 'Post Peep'
     expect(page).to have_content('Sorry, there were the following problems with the form.')
   end
 
 
-  scenario 'I can see when a peep was created' do
+  scenario 'can see when a peep was created' do
     visit('/sign_in')
     sign_in(user)
     visit('/peeps/new')
