@@ -27,7 +27,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     if current_user
-      peep = Peep.new(message: params[:peep], username: current_user.username)
+      peep = Peep.new(message: params[:peep],
+                  username: current_user.username, name: current_user.name)
       peep.save
       redirect '/peeps'
     else

@@ -17,6 +17,7 @@ feature 'Posting a peep' do
     expect(page).to have_content 'My status update'
     within 'ul#peeps' do
       expect(page).to have_content 'kj'
+      expect(page).to have_content 'Kirsten Jones'
     end
   end
 
