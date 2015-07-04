@@ -15,6 +15,9 @@ feature 'Posting a peep' do
     fill_in 'peep',  with:'My status update'
     click_button('Post now')
     expect(page).to have_content 'My status update'
+    within 'ul#peeps' do
+      expect(page).to have_content 'kj'
+    end
   end
 
   scenario 'I cannot post a new peep if I have not logged in' do
