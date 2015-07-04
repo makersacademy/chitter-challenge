@@ -15,7 +15,14 @@
       <form action='/users/new'>
         <input type='submit' value='Chitter Sign Up'>
       </form>
+      <form action='/sign_in'>
+        <input type='submit' value='Member Sign In'>
+      </form>
     <% end %>
+
+    <form action='/peeps'>
+      <input type='submit' value='Main Page'>
+    </form>
 
     <% if flash[:notice] %>
       <div id='notice'>
