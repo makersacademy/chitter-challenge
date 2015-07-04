@@ -16,4 +16,12 @@ feature 'Posting a peep' do
     click_button('Post now')
     expect(page).to have_content 'My status update'
   end
+
+  scenario 'I cannot post a new peep if I have not logged in' do
+    visit '/peeps'
+    click_button('New peep')
+    fill_in 'peep', with: 'Any message'
+    click_button('Post now')
+    expect(page).to have_content 'Please sign in first'
+  end
 end

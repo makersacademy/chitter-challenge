@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
       peep.save
       redirect '/peeps'
     else
-      'Please log in first'
+      flash[:notice]=['Please sign in first']
       redirect '/sessions/new'
     end
   end
