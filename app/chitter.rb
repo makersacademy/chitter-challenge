@@ -34,7 +34,8 @@ class CHITTERchallenge < Sinatra::Base
   end
 
   post '/index' do
-    @new_user = User.new(email: params[:sign_up_email],
+    @new_user = User.new(name: params[:sign_up_name],
+                email: params[:sign_up_email],
                 password: params[:sign_up_password],
                 username: params[:sign_up_username])
     if @new_user.save
