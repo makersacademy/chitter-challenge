@@ -1,10 +1,13 @@
-# require 'bcrypt'
+require 'bcrypt'
 
-# class User
-#   include DataMapper::Resource
+class User
+  include DataMapper::Resource
 
-#   property :id, Serial
-#   property :email, String
-#   property :username, Text
+  property :id, Serial
+  property :email, String
+  property :username, Text
+  property :password, String
+  # property :name, Text
+  # property :surname, Text
 
-# end
+end
