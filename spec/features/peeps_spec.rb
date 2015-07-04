@@ -97,6 +97,11 @@ feature 'Peeps' do
     expect(page).to have_content 'User has not peeped yet'
   end
 
+  scenario 'if user does not exist' do
+    visit '/test_name'
+    expect(page).to have_content 'User does not exits'  
+  end
+
   def user_params
     { email: 'example@example.com',
       password: 'secret123',
