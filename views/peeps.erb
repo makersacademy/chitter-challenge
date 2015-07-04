@@ -1,16 +1,22 @@
 <main>
-<div>
-  <form action='/peeps' method="POST">
-    <label>Write your peep here</label>
-    <input type="text" name="peep">
-    <input type="submit" value="Peep">
-  </form>
-</div>
+  <div>
+    <% if current_user %>
+        Welcome, <%= current_user.username %>
+     <% end %>
+  </div>
 
-<section>
-  <% @peeps.each do |peep| %>
-    <%= peep.message %></br></br>
-  <% end %>
-</section>
+  <div>
+    <form action='/peeps' method="POST">
+      <label>Write your peep here</label>
+      <input type="text" name="peep">
+      <input type="submit" value="Peep">
+    </form>
+  </div>
+
+  <section>
+    <% @peeps.each do |peep| %>
+      <%= peep.message %></br></br>
+    <% end %>
+  </section>
 
 </main>

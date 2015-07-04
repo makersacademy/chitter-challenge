@@ -35,6 +35,7 @@ class CHITTERchallenge < Sinatra::Base
                 password: params[:sign_up_password],
                 username: params[:sign_up_username])
     session[:user_id] = new_user.id
+
     redirect to('/peeps')
   end
 
