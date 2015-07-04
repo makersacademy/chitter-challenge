@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user && @user == current_user  %>
   <h1>Hi <%= current_user.name %>, here are your Peeps</h1>
 
   <form id='peep' method='POST' action='/peeps'>
@@ -6,9 +6,13 @@
     <input type='submit' value='Peep' />
   </form>
 
+<% elsif current_user %>
+  <form id='home' method='GET' action='/sessions/new'>
+    <input type='submit' value='Home' />
+  </form>
 <% end %>
 
-<% if @peeps %>
+<% if !@peeps.empty? %>
   <ul id='peep_list'>
   <% @peeps.each do |peep| %>
     <p style='font-size: 70%'><b><%= @user.name %>  </b><a style='color: gray'>@<%= @user.username %>: <%= peep.time_stamp.strftime('%b %e') %></a></p>
@@ -16,11 +20,9 @@
       <%= peep.text %>
     </li>
   <% end %>
-</ul>
-<% else %>
-  <% if current_user %>
+  </ul>
+<% elsif current_user %>
     <p>Post your first peep!</p>
-  <% else %>
-    <p>User has not peeped yet</p>
-  <% end %>
+<% else %>
+  <p>User has not peeped yet</p>
 <% end %>

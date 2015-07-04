@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/sessions' do
+  post '/sessions/new' do
     @user = User.authenticate(username: params[:username], password: params[:password])
     if @user
       session[:user_id] = @user.id unless session[:user_id]
@@ -45,6 +45,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @user = current_user
+    @peeps = current_user.peeps.all(:order => :time_stamp.desc )
     erb :'sessions/peeps'
   end
 
