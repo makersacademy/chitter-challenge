@@ -10,9 +10,10 @@ feature 'Posting a peep' do
   scenario 'My peep appears in the list' do
     sign_up
     sign_in
-    visit '/peeps/new'
+    visit '/peeps'
+    click_button('New peep')
     fill_in 'peep',  with:'My status update'
-    click_button('Post')
+    click_button('Post now')
     expect(page).to have_content 'My status update'
   end
 end
