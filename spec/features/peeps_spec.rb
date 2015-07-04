@@ -38,7 +38,7 @@ feature 'Peeps' do
     click_button 'Sign in'
     fill_in 'peep', with: 'Hello world!'
     click_button 'Peep'
-    expect(page).to have_content Peep.first(user_id: user.id).time_stamp
+    expect(page).to have_content Peep.first(user_id: user.id).time_stamp.strftime('%a, %I:%M:%S %p')
   end
 
   scenario 'peeps username is attached' do
