@@ -3,11 +3,11 @@
   <head>
     <title>Chitter</title>
   </head>
-  <% if flash %>
-    <div><%= flash %></div>
-  <% end %>
   <body>
-    <% if current_user %>
+    <% if flash[:error] %>
+      <div><%= flash[:error] %></div>
+    <% end %>
+    <% if current_user && session[:user_id]%>
       Hi, <%= current_user.username %>
     <% end %>
     <%= yield %>

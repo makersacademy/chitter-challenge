@@ -15,15 +15,20 @@ feature 'User sign up' do
   	expect(page).to have_content 'Password does not match'
   end
 
+  scenario 'does not display name if login failed' do
+    user = build :user, password: '1235'
+    sign_up_as(user)
+    expect(page).not_to have_content 'Hi, Natso'
+  end
 
-    def sign_up_as(user)
-      visit 'users/new'
-  	  fill_in :email, with: user.email
-  	  fill_in :password, with: user.password
-  	  fill_in :password_confirmation, with: user.password_confirmation
-  	  fill_in :name, with: user.name
-  	  fill_in :username, with: user.username
-  	  click_button 'Sign up'
-    end
+  def sign_up_as(user)
+    visit 'users/new'
+  	fill_in :email, with: user.email
+  	fill_in :password, with: user.password
+  	fill_in :password_confirmation, with: user.password_confirmation
+  	fill_in :name, with: user.name
+  	fill_in :username, with: user.username
+  	click_button 'Sign up'
+  end
 
 end
