@@ -16,15 +16,22 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(name: params[:name],email: params[:email],username: params[:username],password: params[:password])
-    # ,password: params[:password])
-    @user.save
-    redirect to('/main')
+    user = User.create(name: params[:name],email: params[:email],username: params[:username],password: params[:password])
+    session[:user_id] = user.id
+    redirect to('/')
   end
 
-  get '/main' do
-    erb :'main'
+  helpers do  
+    def current_user
+      user ||= User.first(id: session[:user_id]) #what does this line of code mean?
+    end
   end
+
+
+
+  # get '/main' do
+  #   erb :'main'
+  # end
  
   # start the server if ruby file executed directly
   run! if app_file == $0
