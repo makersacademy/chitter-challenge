@@ -24,10 +24,10 @@ feature 'User sign up' do
   	expect(page).to have_content 'Password does not match'
   end
 
-  scenario 'does not display name if login failed' do
+  scenario 'does not display message if login failed' do
     user = build :user, password: '1235'
     sign_up_as(user)
-    expect(page).not_to have_content 'Hi, Natso'
+    expect(page).not_to have_content 'Hi'
   end
 
   scenario 'requires a password to be entered' do
@@ -66,18 +66,17 @@ feature 'User sign up' do
     user = build :user
     dup_user = build :user, email: 'natalie@gmail.com', password: '1233', password_confirmation: '1233', name: 'Bob'
     sign_up_as(user)
-    expect{ sign_up_as(user) }.not_to change(User, :count)
+    expect{ sign_up_as(dup_user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'  
   end
+end
 
-  def sign_up_as(user)
-    visit 'users/new'
-  	fill_in :email, with: user.email
-  	fill_in :password, with: user.password
-  	fill_in :password_confirmation, with: user.password_confirmation
-  	fill_in :name, with: user.name
-  	fill_in :username, with: user.username
-  	click_button 'Sign up'
+feature 'User sign in' do
+
+  scenario 'with correct credentials' do
+    user = build :user
+    sign_up_as(user)
+    sign_in(user)
+    expect(page).to have_content 'Hi, Natso'
   end
-
 end
