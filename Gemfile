@@ -4,6 +4,7 @@ ruby '2.2.2'
 
 # group :test do
   
+  gem 'bcrypt'
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'cucumber'

@@ -2,6 +2,9 @@ require 'sinatra/base'
 require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :sessions_secret, 'super secret'
   
   get '/' do 
     'Chitter-Challenge'
@@ -13,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(name: params[:name],email: params[:email],username: params[:username])
+    @user = User.create(name: params[:name],email: params[:email],username: params[:username],password: params[:password])
     # ,password: params[:password])
     @user.save
     redirect to('/main')
