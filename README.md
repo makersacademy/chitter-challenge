@@ -52,7 +52,7 @@ In order to run tests, fork/clone this repo and run rspec in the command line. E
 
 
 ## Job List
-* Test drive creation of app using rspec
+* Test drive creation of app using rspec (kid of did this anyways)
 * Create list of posts/peeps that can be viewed in chronological order - most recent first
 * Create sign up form requesting user to sign up by entering their email address, name, a username, password and password confirmation in the sign up form (username and email must be unique)
 * Create a log in form for those users that have already signed up - containing just username and password input fields

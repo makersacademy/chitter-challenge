@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
 
   enable :sessions, :static
   set :sessions_secret, 'v secret'
@@ -14,21 +15,42 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(name: params[:name],
+    @user = User.new(name: params[:name],
                 username: params[:username],
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/')
+    if @user.save # save returns true if model has been saved to the db
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/posts/add')
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'sessions/new'
+    end
   end
 
   def current_user
-    @current_user ||= User.get(session[:user_id]) 
+    @current_user ||= User.get(session[:user_id])
   end
 
   # start the server if ruby file executed directly

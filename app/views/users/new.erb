@@ -1,21 +1,26 @@
 <div id="wrapper">
   <div id="content">
     <h1>Sign up</h1>
-
     <form action='/users' method='post'>
       <label for='name'>Name:</label>
-      <input name='name' type='text'>
+      <input name='name' type='text' value='<%= @user.name %>'>
       <label for='username'>Username:</label>
-      <input name='username' type='text'>
+      <input name='username' type='text' value='<%= @user.username %>'>
       <label for='email'>Email:</label>
-      <input name='email' type='text'>
+      <input name='email' type='text' value='<%= @user.email %>'>
       <label for='password'>Password:</label>
       <input name='password' type='password'>
       <label for='password confirmation'>Password confirmation:</label>
       <input name='password_confirmation' type='password'>
       <input type='submit' value='Sign up'>
     </form>
-
-
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please correct the errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

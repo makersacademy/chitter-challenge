@@ -14,5 +14,4 @@ feature 'View posts' do
     #   expect(page).to have_content('loliphant', 'random chitter chatter')
     # end
   end
-
 end
