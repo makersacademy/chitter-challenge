@@ -14,6 +14,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  attr_reader :password
+
   validates_uniqueness_of :email
   validates_uniqueness_of :username
 

@@ -8,6 +8,7 @@ class CHITTERchallenge < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
 
   enable :sessions
+
   register Sinatra::Flash
 
   set :session_secret, 'super secret'
@@ -43,10 +44,7 @@ class CHITTERchallenge < Sinatra::Base
       flash.now[:errors] = @new_user.errors.full_messages
       erb :'/index'
     end
-
-
   end
-
 
 
   def current_user
