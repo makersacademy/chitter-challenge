@@ -55,18 +55,4 @@ feature 'Peeps' do
     expect(page).to have_content 'User has not peeped yet'
   end
 
-  scenario 'if user does not exist' do
-    visit '/test_name'
-    expect(page).to have_content 'User does not exits'
-  end
-
-  scenario 'when a logged in user looks at another user page she can go back to her home page' do
-    User.create(username: 'tansaku', name: 'Samuel Russell Hampden Joseph', email: 'sam@makersacademy.com', password: 's3cr3t')
-    sign_in
-    visit '/tansaku'
-    expect(page).not_to have_selector 'form#peep'
-    click_button 'Home'
-    expect(page).to have_selector 'form#peep'
-  end
-
 end
