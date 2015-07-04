@@ -10,9 +10,13 @@ feature 'User sign up' do
     expect(User.first.username).to eq('SardiniaAwesome')
   end
 
+  User.create(email: 'ichnusa@sardinia.com',
+              password: '123456',
+              username: 'SardiniaAwesome')
+
   scenario 'I cannot sign up with an existing email' do
-    sign_up_as(user)
-    expect { sign_up_as(user) }.to change(User, :count).by(0)
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
   end
 
