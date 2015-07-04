@@ -10,6 +10,10 @@ class CHITTERchallenge < Sinatra::Base
 
   set :session_secret, 'super secret'
 
+  get '/' do
+    redirect '/index'
+  end
+
   get '/peeps' do
     @peeps = Peep.all(:order => :date.desc )
     erb :'peeps'
@@ -32,6 +36,10 @@ class CHITTERchallenge < Sinatra::Base
                 username: params[:sign_up_username])
     session[:user_id] = new_user.id
     redirect to('/peeps')
+  end
+
+  def current_user
+    current_user ||= User.get(session[:user_id])
   end
 
 
