@@ -3,7 +3,10 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-      Peeps: <%= peep.message %>
+       By <%=(peep.name).split.map(&:capitalize).join(' ')%>, @<%= peep.username %> <br>
+       Peep: <%= peep.message %><br>
+       Time: <%= peep.created_at %><br>
     </li>
+
   <% end %>
 </ul>

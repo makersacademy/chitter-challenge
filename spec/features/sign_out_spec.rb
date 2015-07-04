@@ -6,7 +6,7 @@ feature 'User signs out' do
 
   scenario 'while being signed in' do
     sign_in(user)
-    click_button 'Sign out'
+    click_button 'Sign Out'
     expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome')
   end

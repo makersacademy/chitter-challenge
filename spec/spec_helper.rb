@@ -6,7 +6,10 @@ require 'tilt/erb'
 require 'database_cleaner'
 require 'factory_girl'
 require_relative './factories/user'
+require_relative './factories/peep'
+
 require_relative './helpers/sign_in_up'
+require_relative './helpers/post_message'
 
 
 ENV['RACK_ENV'] = 'test'

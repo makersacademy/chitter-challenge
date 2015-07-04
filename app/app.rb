@@ -2,22 +2,43 @@ require 'sinatra/base'
 require './app/data_mapper_setup.rb'
 require 'pry'
 require 'sinatra/flash'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
   run! if app_file == $0
   enable :sessions
+  set :partial_template_engine, :erb
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::MethodOverride
 
 
   get '/' do
-    redirect 'peeps'
+    erb :'welcome/index'
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => :created_at.desc)
     erb :'peeps/index'
   end
+
+  get '/peeps/new' do
+    if current_user
+      @peep = Peep.new
+      erb :'peeps/new'
+    else
+      redirect to('/peeps')
+    end
+  end
+
+  post '/peeps' do
+    @peep = Peep.create(message: params[:message],
+      username: current_user.username,
+      name: current_user.full_name,
+      user_id: current_user.id)
+      redirect to('/peeps')
+  end
+
 
   get '/users/new' do
     @user = User.new
@@ -32,7 +53,7 @@ class Chitter < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -44,11 +65,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-
     user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'users/sign_in'

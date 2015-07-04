@@ -1,4 +1,7 @@
 require 'bcrypt'
+require "pry"
+
+
 
 class User
   include DataMapper::Resource
@@ -30,7 +33,5 @@ class User
       nil
     end
   end
-
   has n, :peeps
-
 end
