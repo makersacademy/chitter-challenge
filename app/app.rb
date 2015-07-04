@@ -16,7 +16,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :peeps
+    erb :'peeps/index'
+  end
+
+  post '/peeps/new' do
+    erb :'peeps/new'
   end
 
   get '/users/new' do
