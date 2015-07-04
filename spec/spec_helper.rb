@@ -4,6 +4,7 @@ require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require 'factory_girl'
+require 'byebug'
 
 require './app/app.rb'
 require './app/data_mapper_setup'
