@@ -11,7 +11,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   set :sessions_secret, 'super secret'
-
+  set :public_folder, proc { File.join(root, '..', "public") }
+  
   get '/' do
     redirect '/peeps'
   end
