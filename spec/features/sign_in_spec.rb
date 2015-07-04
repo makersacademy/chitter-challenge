@@ -22,6 +22,18 @@ feature 'Signing in' do
     expect(page).to have_content 'The email or password is incorrect'
   end
 
+  scenario 'once signed in a user can see all their peeps' do
+    user = User.create(user_params)
+    Peep.create(text: 'Hello world!', time_stamp: Time.now, user_id: user.id)
+    visit '/'
+    within 'form#sign_in' do
+      fill_in 'username', with: user.username
+      fill_in 'password', with: user.password
+    end
+    click_button 'Sign in'
+    expect(page).to have_content 'Hello world!'
+  end
+
   def user_params
     { email: 'example@example.com',
       password: 'secret123',

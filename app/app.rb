@@ -36,6 +36,7 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(username: params[:username], password: params[:password])
     if @user
       session[:user_id] = @user.id unless session[:user_id]
+      @peeps = current_user.peeps.all(:order => :time_stamp.desc )
       erb :'sessions/peeps'
     else
       flash[:error] = 'The email or password is incorrect'
