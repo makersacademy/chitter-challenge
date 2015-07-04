@@ -9,6 +9,7 @@ require 'simplecov'
 
 require './app/data_mapper_setup'
 require './app/app'
+require './spec/features/helpers/session'
 
 Capybara.app = Chitter
 
@@ -32,5 +33,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include SessionHelpers
 
 end
