@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class CHITTERchallenge < Sinatra::Base
@@ -7,6 +8,7 @@ class CHITTERchallenge < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
 
   enable :sessions
+  register Sinatra::Flash
 
   set :session_secret, 'super secret'
 
@@ -31,13 +33,21 @@ class CHITTERchallenge < Sinatra::Base
   end
 
   post '/index' do
-    new_user = User.create(email: params[:sign_up_email],
+    @new_user = User.new(email: params[:sign_up_email],
                 password: params[:sign_up_password],
                 username: params[:sign_up_username])
-    session[:user_id] = new_user.id
+    if @new_user.save
+      session[:user_id] = @new_user.id
+      redirect to('/peeps')
+    else
+      flash.now[:notice] = "Fill all the field please"
+      erb :'/index'
+    end
 
-    redirect to('/peeps')
+
   end
+
+
 
   def current_user
     current_user ||= User.get(session[:user_id])
