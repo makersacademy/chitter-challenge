@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <% if flash %>
+    <div><%= flash %></div>
+  <% end %>
+  <body>
+    <% if current_user %>
+      Hi, <%= current_user.username %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
