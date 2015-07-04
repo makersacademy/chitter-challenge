@@ -12,4 +12,13 @@ feature 'A user can sign up' do
     fill_in :password, with: user.password
     click_on 'Sign up'
   end
+
+  scenario 'user can sign in' do
+    user = create :user
+    visit 'sessions/new'
+    fill_in :username, with: user.username
+    fill_in :password, with: user.password
+    click_on 'Sign up'
+    expect(page).to have_content 'Welcome back, foobar_user'
+  end
 end
