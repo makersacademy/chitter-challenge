@@ -40,7 +40,7 @@ class CHITTERchallenge < Sinatra::Base
       session[:user_id] = @new_user.id
       redirect to('/peeps')
     else
-      flash.now[:notice] = "Fill all the field please"
+      flash.now[:errors] = @new_user.errors.full_messages
       erb :'/index'
     end
 
