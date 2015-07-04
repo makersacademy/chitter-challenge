@@ -7,4 +7,12 @@ feature 'Posting a peep' do
     expect(page).to have_content 'Enter your peep here'
   end
 
+  scenario 'My peep appears in the list' do
+    sign_up
+    sign_in
+    visit '/peeps/new'
+    fill_in 'peep',  with:'My status update'
+    click_button('Post')
+    expect(page).to have_content 'My status update'
+  end
 end
