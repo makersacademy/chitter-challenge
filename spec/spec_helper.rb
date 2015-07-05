@@ -9,7 +9,7 @@ require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require './app/data_mapper_setup'
-
+require_relative './helpers/session'
 
 
 Capybara.app = Chitter
@@ -23,6 +23,8 @@ Coveralls.wear!
 
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
 

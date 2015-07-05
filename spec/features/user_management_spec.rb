@@ -13,15 +13,15 @@ feature 'User can sign up' do
     expect { sign_up(password_confirmation: 'wrong')}.not_to change(User,:count)
   end
 
-  def sign_up(email: 'elinnet@gmail.com', name: 'Elin', password: 'password', password_confirmation: 'password')
-      visit '/user/new'
-      expect(page.status_code).to eq(200)
-      fill_in :email, with: email
-      fill_in :name, with: name
-      fill_in :password, with: password
-      fill_in :password_confirmation, with: password_confirmation
-      click_button 'Sign up'
-  end
+  # def sign_up(email: 'elinnet@gmail.com', name: 'Elin', password: 'password', password_confirmation: 'password')
+  #     visit '/user/new'
+  #     expect(page.status_code).to eq(200)
+  #     fill_in :email, with: email
+  #     fill_in :name, with: name
+  #     fill_in :password, with: password
+  #     fill_in :password_confirmation, with: password_confirmation
+  #     click_button 'Sign up'
+  # end
 end
 #Need to add function for error message stating multiple errors, attempts to sign up with existing email
 
@@ -37,12 +37,35 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Login'
+  # def sign_in(email:, password:)
+  #   visit '/sessions/new'
+  #   fill_in :email, with: email
+  #   fill_in :password, with: password
+  #   click_button 'Login'
+  # end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(email: 'elinnet@gmail.com',
+                password: 'password',
+                password_confirmation: 'password')
   end
+
+  scenario 'while being signed in' do
+    sign_in(email: 'elinnet@gmail.com', password: 'password')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!') # where does this message go?
+    expect(page).not_to have_content('Welcome, elinnet@gmail.com')
+  end
+
+end
+
+
+
+
+
+
 
 
   end
