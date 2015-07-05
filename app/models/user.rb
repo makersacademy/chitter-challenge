@@ -7,7 +7,7 @@ class User
 
   property :id, Serial
   property :username, String
-  property :email, String
+  property :email, String, required: true, unique: true, message: 'This email is already taken'
 
   property :password_digest, Text
 
@@ -18,4 +18,5 @@ class User
   end
 
   validates_confirmation_of :password
+  validates_presence_of :email
 end

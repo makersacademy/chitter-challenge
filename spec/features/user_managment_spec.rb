@@ -14,6 +14,12 @@ feature 'user sign up' do
   scenario 'does not redirect when passwords dont match' do
     expect{sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Passwords do not match'
+    expect(page).to have_content "Password does not match the confirmation"
+  end
+
+  scenario 'I cannot sign up with an existing email' do
+    sign_up
+    expect {sign_up}.to change(User, :count).by(0)
+    expect(page).to have_content('This email is already taken')
   end
 end
