@@ -5,6 +5,8 @@
     <input type='text' name='peep' />
     <input type='submit' value='Peep' />
   </form>
+  <% elsif @user.username == params[:username] %>
+    <h1><%= @user.name %> Peeps</h1>
 <% end %>
 
 <% if !@peeps.empty? %>
