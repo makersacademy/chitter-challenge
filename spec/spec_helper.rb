@@ -1,16 +1,48 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app/chitter_web.rb')
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'database_cleaner'
+require 'factory_girl'
+require 'tilt/erb'
 
-require './app/models/peep.rb'
+require './app/data_mapper_setup.rb'
+
+require './spec/helpers/sign_up.rb'
+
+require './spec/factories/user.rb'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include FactoryGirl::Syntax::Methods
+
+  # config.before(:suite) do
+  #   begin
+  #     DatabaseCleaner.start
+  #     FactoryGirl.lint
+  #   ensure
+  #     DatabaseCleaner.clean
+  #   end
+  # end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
