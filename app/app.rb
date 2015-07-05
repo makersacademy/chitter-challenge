@@ -27,9 +27,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @user = User.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = @user.id
-    erb :'users/new'
+    @user = User.new(username: params[:username], name: params[:name], email: params[:email], password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+      erb :'users/new'
+    else
+      flash.next[:errors] = @user.errors.full_messages
+      redirect '/'
+    end
   end
 
   post '/sessions/new' do
@@ -39,7 +44,7 @@ class Chitter < Sinatra::Base
       @peeps = current_user.peeps.all(:order => :time_stamp.desc )
       erb :'sessions/peeps'
     else
-      flash[:error] = 'The email or password is incorrect'
+      flash[:errors] = 'The email or password is incorrect'
       redirect '/'
     end
   end
