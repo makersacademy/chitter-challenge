@@ -5,26 +5,25 @@
   </head>
   <link href="/css/stylesheet.css" rel="stylesheet" type="text/css"/>
   <body>
-  <h1>chitter</h1>
     <% if current_user %>
-      Welcome, <%= current_user.username %>
-
-      <form action='/peeps/new' method='post'>
-        <input type='submit' value='New peep'>
-      </form>
-
       <form action='/sessions' method='post' >
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+      <h1>chitter</h1>
+      <p>Welcome, <%= current_user.username %></p>
+
+      <form action='/peeps/new' method='post'>
+        <input type='submit' value='New peep'>
+      </form>
       <!-- NB positioning the form here means signing out is only available when a user has already signed in. -->
     <% else %>
-      <form action='/users/new'>
-        <input type='submit' value='Sign up'>
+      <a href='/users/new'>Register for chitter</a>
+      <a href='/sessions/new'>Sign in</a>
+      <form action='/peeps/new' method='post'>
+        <input type='submit' value='New peep'>
       </form>
-      <form action='/sessions/new'>
-        <input type='submit' value='Sign in'>
-      </form>
+      <h1>chitter</h1>
         <!-- <a href='/sessions/new'>Sign in</a> -->
     <% end %>
 
