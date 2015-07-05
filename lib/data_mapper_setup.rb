@@ -6,6 +6,7 @@ require 'dm-postgres-adapter'
 
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
   require './lib/models/user'
+  require './lib/models/peep'
 
   DataMapper.finalize
 

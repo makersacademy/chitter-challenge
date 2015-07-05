@@ -1,3 +1,4 @@
+require 'data_mapper'
 require 'bcrypt'
 
 class User
@@ -8,6 +9,8 @@ class User
   property :email, String, required: true, unique: true
   property :username, String, required: true
   property :password_digest, Text
+
+  has n, :peep, through: Resource
 
   validates_presence_of :email
   validates_uniqueness_of :email

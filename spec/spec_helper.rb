@@ -3,7 +3,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'lib/Chitter.rb')
-
+require_relative 'helpers/session'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -30,6 +30,7 @@ Capybara.app = Chitter
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.include SessionHelpers
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
   FactoryGirl.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
