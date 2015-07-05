@@ -11,6 +11,7 @@ require './app/data_mapper_setup'
 require 'database_cleaner' # MUST require data_mapper_setup before database_cleaner
 require 'factory_girl'
 require './spec/factories/user'
+require_relative './helpers/helpers'
 
 
 
