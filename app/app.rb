@@ -28,8 +28,12 @@ class Chitter < Sinatra::Base
 
   post '/:username' do
     @user = User.first(username: params[:username])
-    peep = Peep.create(text: params[:reply], time_stamp: Time.now, user_id: current_user.id, reply: true, replied_id: params[:peep_id], replied_to: @user.username)
-    current_user.peeps << peep
+    if params[:reply] == ''
+      flash.now[:errors] = "Cannot post a blank peep!"
+    else
+      peep = Peep.create(text: params[:reply], time_stamp: Time.now, user_id: current_user.id, reply: true, replied_id: params[:peep_id], replied_to: @user.username)
+      current_user.peeps << peep
+    end
     get_users_peeps_and_replies
     erb :'sessions/peeps'
   end
@@ -75,8 +79,12 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     @user = current_user
-    peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
-    current_user.peeps << peep
+    if params[:peep] == ''
+      flash.now[:errors] = "Cannot post a blank peep!"
+    else
+      peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
+      current_user.peeps << peep
+    end
     get_users_peeps_and_replies
     erb :'sessions/peeps'
   end

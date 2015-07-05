@@ -6,7 +6,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,         Serial
-  property :text,       Text, unique: true, message: 'You already chittered that'
+  property :text,       Text, :required => true
   property :time_stamp, DateTime
   property :reply,      Boolean, :default  => false
   property :replied_id, Integer

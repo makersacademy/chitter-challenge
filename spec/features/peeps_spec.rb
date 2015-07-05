@@ -55,4 +55,15 @@ feature 'Peeps' do
     expect(page).to have_content 'User has not peeped yet'
   end
 
+  scenario 'a peep is not added to the database if it is blank' do
+    sign_in
+    expect { click_button 'Peep' }.not_to change(User, :count)
+  end
+
+  scenario 'a peep is cannot be added if it is blank' do
+    sign_in
+    click_button 'Peep'
+    expect(page).to have_content 'Cannot post a blank peep!'
+  end
+
 end

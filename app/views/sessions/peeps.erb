@@ -5,6 +5,7 @@
     <input type='text' name='peep' />
     <input type='submit' value='Peep' />
   </form>
+  <%= flash[:errors] %>
   <% elsif @user.username == params[:username] %>
     <h1><%= @user.name %> Peeps</h1>
 <% end %>
@@ -36,6 +37,7 @@
         <input type='text' name='reply' />
         <input type='submit' value='Reply' />
       </form>
+      <%= flash[:errors] %>
       <% end %>
     </p>
   <% end %>

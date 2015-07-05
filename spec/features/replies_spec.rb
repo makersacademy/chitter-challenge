@@ -51,4 +51,12 @@ feature 'Users can reply to peeps' do
     expect(page).to have_content 'another_name'
   end
 
+  scenario 'when a user replies the reply cannot be blank' do
+    another_user_peeps
+    sign_in
+    visit '/another_name'
+    click_button 'Reply'
+    expect(page).to have_content 'Cannot post a blank peep!'
+  end
+
 end
