@@ -63,7 +63,6 @@ class Chitter < Sinatra::Base
     peep = Peep.new(text: params[:peep])
     peep.user = @user
     peep.save
-    @author = peep.user
     @peeps = Peep.all
     erb :'peeps/index'
   end

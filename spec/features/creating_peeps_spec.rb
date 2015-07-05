@@ -16,4 +16,9 @@ feature 'Creating peeps' do
     click_button 'peep'
     expect(page).to have_content 'faisal: Hello, from London'
   end
+
+  scenario 'only logged in users can add peeps' do
+    visit '/peep/new'
+    expect(page).to have_content 'Please Sign in'
+  end
 end

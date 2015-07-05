@@ -3,6 +3,7 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-      <%= @author.username %>: <%= peep.text %>
+      <%= peep.user.username %>: <%= peep.text %>
     </li>
-<% end %>
+  <% end %>
+</ul>
