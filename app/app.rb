@@ -32,19 +32,24 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       erb :'users/new'
     else
-      flash.next[:errors] = @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
       redirect '/'
     end
   end
 
   post '/sessions/new' do
-    @user = User.authenticate(username: params[:username], password: params[:password])
-    if @user
-      session[:user_id] = @user.id unless session[:user_id]
-      @peeps = current_user.peeps.all(:order => :time_stamp.desc )
-      erb :'sessions/peeps'
+    if User.first(username: params[:username])
+      @user = User.authenticate(username: params[:username], password: params[:password])
+      if @user
+        session[:user_id] = @user.id unless session[:user_id]
+        @peeps = current_user.peeps.all(:order => :time_stamp.desc )
+        erb :'sessions/peeps'
+      else
+        flash[:errors] = ['Incorrect password']
+        redirect '/'
+      end
     else
-      flash[:errors] = 'The email or password is incorrect'
+      flash[:errors] = ['No username exists, try signing up']
       redirect '/'
     end
   end

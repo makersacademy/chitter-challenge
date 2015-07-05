@@ -5,6 +5,16 @@ feature 'Signing in' do
     expect(page).to have_content 'Hi test, here are your Peeps'
   end
 
+  scenario 'user cannot sign in if they have not yet signed up' do
+    visit '/'
+    within 'form#sign_in' do
+      fill_in 'username', with: 'not_signed_up'
+      fill_in 'password', with: 'no_password'
+    end
+    click_button 'Sign in'
+    expect(page).to have_content 'No username exists, try signing up'
+  end
+
   scenario 'an existing user cannot sign in if their password is incorrect' do
     user = User.create(user_params)
     visit '/'
@@ -13,7 +23,7 @@ feature 'Signing in' do
       fill_in 'password', with: 'not_the_right_password'
     end
     click_button 'Sign in'
-    expect(page).to have_content 'The email or password is incorrect'
+    expect(page).to have_content 'Incorrect password'
   end
 
   scenario 'once signed in a user can see all their peeps' do
