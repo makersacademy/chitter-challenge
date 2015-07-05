@@ -32,7 +32,8 @@ feature 'Visitor signs up' do
 
     sign_up_with second_user
 
-    expect(page).to have_content 'Email already registered'
+    expect(User.count).to eq 1
+    expect(page).to have_content 'Email is already taken'
   end
 end
 

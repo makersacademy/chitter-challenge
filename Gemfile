@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl'
   gem 'byebug'
+  gem 'database_cleaner'
 
   gem 'rubocop-rspec'
   gem 'rubocop'
