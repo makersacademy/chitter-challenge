@@ -5,6 +5,7 @@ class Peeps
 
   property :id, Serial
   property :activity, String
+  property :created_at, DateTime
 
 
 end

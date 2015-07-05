@@ -8,6 +8,17 @@ feature 'Viewing links' do
       expect(page).to have_content('Eating dinner with friends')
     end
   end
+
+  scenario 'I can see peeps with a time stamp' do 
+    
+    Peeps.create(activity: 'Eating dinner with friends', created_at: '2015-07-05T22:22:08+01:00')
+    visit '/peeps'
+    expect(page).to have_content('2015-07-05T22:22:08+01:00')
+    
+  end
+
+
+
 end
 
 

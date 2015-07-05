@@ -10,5 +10,7 @@ feature 'Creating peeps' do
       expect(page).to have_content('Eating dinner with friends')
     end
   end
+
+  
 end
     
