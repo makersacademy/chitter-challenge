@@ -15,7 +15,7 @@ feature 'User\'s' do
 
   scenario 'can sign up' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, Triffanys101')
+    expect(page).to have_content('Triffanys101')
     expect(User.first.username).to eq('Triffanys101')
   end
 
