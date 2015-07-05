@@ -72,3 +72,4 @@ v2.0:
 * The reply appears in the other users page under the peep with a note of who it was from
 * The reply also appears on the users page with a note of who it was in reply to
 * Non logged-in users cannot reply
+* Peeps and replies cannot be blank
