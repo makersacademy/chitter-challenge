@@ -1,22 +1,33 @@
-Chitter Challenge
-=================
+Chitter
+=======
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is a simple Twitter clone, allowing users to post messages (peeps) on their profile page and for users and non logged-in users to view everyone's peeps. This is built using [Sinatra](http://www.sinatrarb.com/) and [Postgres](http://www.postgresql.org/). Tests are written in [Rspec](http://rspec.info/) and [Capybara](http://jnicklas.github.io/capybara/). Used [bcrypt](https://github.com/codahale/bcrypt-ruby) to secure the passwords and [data mapper](http://datamapper.org/) to save the data to the Postgres database.
 
-Challenge:
--------
+Getting Started
+---------------
 
-As usual please start by 
+I work off a vagrant VM whose Vagrantfile you can find [here](https://github.com/DataMinerUK/MakersAcademy-VM). So when running this from the VM, put the Vagrantfile in the chitter directory and:
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+On the command line
+```bash
+vagrant up # This may take a while
+sudo -i -u postgres
+createdb chitter_test
+createdb chitter_development
+exit
+vagrant ssh
+cd /vagrant
+cd [where_ever_happens_to_be]/chitter
+bundle install
+```
+To check run the version locally
+```bash
+rackup -p4567 --host 0.0.0.0
+```
+and go to localhost:4567 on your machine.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+User Stories
+------------
 
 ```sh
 As a Maker
@@ -44,29 +55,14 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+Notes on functionality v1.0:
+----------------------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+* Users sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Peeps (posts to chitter) have the name of the maker, their user handle and a time element.
+* Non-logged users in can see peeps.
+* Users can peep if they are logged in.
 
-Bonus:
+v2.0:
 -----
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
