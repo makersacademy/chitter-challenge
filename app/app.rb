@@ -6,15 +6,10 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   register Sinatra::Flash
 
-  enable :sessions, :static
+  enable :sessions
+  enable :static
   set :sessions_secret, 'v secret'
   set :public_folder, Proc.new { File.join(root, '..', 'public') }
-
-  get '/' do
-    @posts = Post.all
-    # @posts = Post.sort_posts
-    erb :index
-  end
 
   get '/users/new' do
     @user = User.new
@@ -44,62 +39,41 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/posts')
       # redirect to('/post/new')
     else
       flash.now[:errors] = ['The username or password is incorrect']
-      erb :'sessions/new'
+      erb :index
     end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
     flash[:notice] = 'Goodbye!'
+    redirect to('/posts')
     # user = User.get(session[:user_id]).destroy
-    redirect to('/')
+    # erb :index
   end
 
-  # get '/' do
-  #   @posts = Post.all
-  #   # @posts = Post.sort_posts
-  #   erb :index
-  # end
-
-  # get '/posts' do
-  #   @posts = Post.all
-  #   # @posts = Post.sort_posts
-  #   erb :index
-  # end
-
-  get '/posts/new' do
-    erb :'posts/new'
-  end
-
-  post '/posts/new' do
+  get '/' do
     if current_user
       @post = Post.new
-      erb :'posts/new'
-    else
-      flash.now[:notice] = 'Please log in to post messages'
-      erb :'sessions/new'
-    end
-  end
-
-  post '/posts/new' do
-    @post = Post.new(message: params[:message], created_at: DateTime.now)
-    if @post.save
       redirect to('/posts')
     else
-      # flash.now[:notice] = 'Please add message text'
-      erb :'posts/new'
+      redirect to('/users/new')
     end
-    # current_user.post_message.create(message: params[:message], created_at: DateTime.now)
-    # redirect to('/posts')
-    # erb :'posts/index'
   end
 
-  get '/peeps' do
-    @posts = Post.all
+  get '/posts' do
+    @posts = Post.all(:order => :created_at.desc)
+    # @posts = Post.sort_posts
+    erb :index
+  end
+
+  post '/posts' do
+    @post = Post.create(message: params[:message], user_id: current_user.id)
+    # @post.save
+    # post = Post.create(message: params[:message], created_at: DateTime.now)
     erb :index
   end
 

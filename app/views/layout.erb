@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/css/style.css">
     <title>Chitter</title>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <div id="wrapper">
       <div id="content">
-        <% if current_user %>
-          <p>Welcome, <%= current_user.name %></p>
-          <form method='POST' action='/sessions'>
-            <input type='hidden' name='_method' value='delete'>
-            <input type='submit' value='Sign out'>
-          </form>
-        <% end %>
-
         <%= yield %>
       </div>
     </div>

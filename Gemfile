@@ -8,6 +8,7 @@ ruby '2.2.1'
   gem 'dm-postgres-adapter'
   gem 'dm-timestamps'
   gem 'bcrypt'
+  gem 'pry'
   # gem 'factory_girl'
 
 group :test do

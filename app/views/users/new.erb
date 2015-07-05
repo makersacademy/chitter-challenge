@@ -1,26 +1,22 @@
-<div id="wrapper">
-  <div id="content">
-    <h1>Sign up</h1>
-    <form action='/users' method='post'>
-      <label for='name'>Name:</label>
-      <input name='name' type='text' value='<%= @user.name %>'>
-      <label for='username'>Username:</label>
-      <input name='username' type='text' value='<%= @user.username %>'>
-      <label for='email'>Email:</label>
-      <input name='email' type='text' value='<%= @user.email %>'>
-      <label for='password'>Password:</label>
-      <input name='password' type='password'>
-      <label for='password confirmation'>Password confirmation:</label>
-      <input name='password_confirmation' type='password'>
-      <input type='submit' value='Sign up'>
-    </form>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please correct the errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
+<h1>Sign up</h1>
+<form action='/users' method='post'>
+  <label for='name'>Name:</label>
+  <input name='name' type='text' value='<%= @user.name %>'><br />
+  <label for='username'>Username:</label>
+  <input name='username' type='text' value='<%= @user.username %>'><br />
+  <label for='email'>Email:</label>
+  <input name='email' type='text' value='<%= @user.email %>'><br />
+  <label for='password'>Password:</label>
+  <input name='password' type='password'><br />
+  <label for='password confirmation'>Password confirmation:</label>
+  <input name='password_confirmation' type='password'><br />
+  <input type='submit' value='Sign up' class='button'>
+</form>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please correct the errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
     <% end %>
-  </div>
-</div>
+  </ul>
+<% end %>
