@@ -7,6 +7,12 @@
 
   <%= @user ? "Welcome, #{@user.email}." : "Welcome." %>
 
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <% if flash[:errors] %>
 
     <ul id='errors'>

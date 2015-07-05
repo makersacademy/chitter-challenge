@@ -5,7 +5,7 @@ feature 'User logs out' do
 
     log_out
 
-    expect(page).to have_content "Goodbye."
+    expect(page).to have_content "You are now logged out."
   end
 
   def log_out
