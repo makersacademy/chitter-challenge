@@ -44,8 +44,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash[:signup] = 'Username or email address already registered'
+      redirect to('/peeps')
+    end
   end
 
   get '/sessions/new' do

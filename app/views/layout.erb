@@ -43,7 +43,12 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
+    <% if flash[:signup] %>
+      <div id='signup'>
+        <p></p>
+        <%= flash[:signup] %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
