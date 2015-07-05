@@ -35,8 +35,18 @@ feature 'Signing in' do
     expect(page).to have_content 'User does not exits'
   end
 
-  scenario 'when a logged in user looks at another user page she can go back to her home page' do
+  scenario 'when a logged in user looks at another user page wiht no peeps she can go back to her home page' do
     User.create(username: 'tansaku', name: 'Samuel Russell Hampden Joseph', email: 'sam@makersacademy.com', password: 's3cr3t')
+    sign_in
+    visit '/tansaku'
+    expect(page).not_to have_selector 'form#peep'
+    click_button 'Home'
+    expect(page).to have_selector 'form#peep'
+  end
+
+  scenario 'when a logged in user looks at another user page wiht no peeps she can go back to her home page' do
+    user = User.create(username: 'tansaku', name: 'Samuel Russell Hampden Joseph', email: 'sam@makersacademy.com', password: 's3cr3t')
+    Peep.create(text: 'It is me', time_stamp: Time.now, user_id: user.id)
     sign_in
     visit '/tansaku'
     expect(page).not_to have_selector 'form#peep'
