@@ -1,18 +1,30 @@
 <main>
   <div>
-    <% if current_user %>
-        Welcome, <%= current_user.username %>
+
+    <div id='welcome-box'>
+      <% if current_user %>
+          Welcome, <%= current_user.username %>
+    </div>
 
 
-  <div>
-    <form action='/peeps' method="POST">
-      <label>Write your peep here</label>
-      <input type="text" name="peep" required>
-      <input type="submit" value="Peep">
+    <div>
+
+    <form action="/peeps" method='POST'>
+      <input type='hidden' name='_method' value='DELETE'>
+      <input type='submit' value='Sign out'>
     </form>
   </div>
 
-  <% end %>
+
+    <div>
+      <form action='/peeps' method="POST">
+        <label>Write your peep here</label>
+        <input type="text" name="peep" required>
+        <input type="submit" value="Peep">
+      </form>
+    </div>
+
+      <% end %>
   </div>
 
   <section>

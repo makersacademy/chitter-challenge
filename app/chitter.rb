@@ -15,6 +15,8 @@ class CHITTERchallenge < Sinatra::Base
 
   set :session_secret, 'super secret'
 
+  use Rack::MethodOverride
+
   get '/' do
     redirect '/index'
   end
@@ -63,6 +65,13 @@ class CHITTERchallenge < Sinatra::Base
       flash.now[:error_sign_in] = 'The email or password is incorrect'
       erb :'/log_in'
     end
+  end
+
+   delete '/peeps' do
+    session[:user_id] = nil
+
+    flash[:notice] = 'goodbye!'
+    redirect '/peeps'
   end
 
 
