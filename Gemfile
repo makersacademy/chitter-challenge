@@ -9,6 +9,7 @@ ruby '2.2.2'
   gem 'coveralls', require: false
   gem 'cucumber'
   gem 'data_mapper'
+  gem 'database_cleaner'
   gem 'dm-postgres-adapter'
   gem 'rspec'
   gem 'rubocop-rspec'

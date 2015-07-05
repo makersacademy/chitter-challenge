@@ -5,7 +5,7 @@ feature 'User can sign up' do
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
     visit '/'
-    expect(page).to have_content('Welcome, Elin')
+    expect(page).to have_content('Welcome, elinnet@gmail.com')
     expect(User.last.email).to eq('elinnet@gmail.com')
   end
 
@@ -22,20 +22,35 @@ feature 'User can sign up' do
       fill_in :password_confirmation, with: password_confirmation
       click_button 'Sign up'
   end
-
-
-
-
-
-
 end
+#Need to add function for error message stating multiple errors, attempts to sign up with existing email
+
+feature 'User sign in' do
+  let(:user) do
+    User.create(email: 'elinnet@gmail.com',
+              password: 'password',
+              password_confirmation: 'password')
+  end
+
+  scenario 'with correct credentials' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, #{user.email}"
+  end
+
+  def sign_in(email:, password:)
+    visit '/sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button 'Login'
+  end
+
+
+  end
 
 
 
-    # visit '/user/new'
-    # fill_in 'name', with: 'Elin'
-    # fill_in 'email', with: 'elinnet@gmail.com'
-    # click_button 'Sign up'
 
-    # expect(page).to have_content('Welcome, Elin')
+
+
+
   
