@@ -22,4 +22,14 @@ feature 'Users can reply to peeps' do
     expect(page).to have_content 'Hello to you too'
   end
 
+  scenario 'when a user replies the reply appears on the users page' do
+    another_user_peeps
+    sign_in
+    visit '/another_name'
+    fill_in 'reply', with: 'Hello to you too'
+    click_button 'Reply'
+    click_button 'Home'
+    expect(page).to have_content 'Hello to you too'
+  end
+
 end
