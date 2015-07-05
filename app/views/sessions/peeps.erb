@@ -16,7 +16,7 @@
     </li>
   <% end %>
   </ul>
-<% elsif current_user %>
+<% elsif current_user && @user == current_user %>
     <p>Post your first peep!</p>
 <% else %>
   <p>User has not peeped yet</p>
