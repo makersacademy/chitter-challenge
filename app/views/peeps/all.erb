@@ -1,5 +1,7 @@
 <ul id='peeps'>
-  <% Peep.all.reverse_each do |peep| %>
+  <% current_user.peeps.reverse_each do |peep| %>
     <p><%= peep.body %> <%= peep.time %></p>
   <% end %>
 </ul>
+
+<!-- but how to order -->

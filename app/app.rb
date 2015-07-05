@@ -47,8 +47,25 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id]  = nil
-    flash.now[:notice] = "You are now logged out."
+    flash[:notice] = "You are now logged out." # why not flash.now?
     redirect '/'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.new body: params[:peep]
+    current_user.peeps << peep
+    if peep.save
+      redirect '/peeps'
+    else
+    end
+  end
+
+  get '/peeps' do
+    erb :'peeps/all'
   end
 
   helpers do
