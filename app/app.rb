@@ -50,7 +50,7 @@ class Chitter < Sinatra::Base
       @user = User.authenticate(username: params[:username], password: params[:password])
       if @user
         session[:user_id] = @user.id unless session[:user_id]
-get_users_peeps_and_replies
+        get_users_peeps_and_replies
         erb :'sessions/peeps'
       else
         flash[:errors] = ['Incorrect password']
