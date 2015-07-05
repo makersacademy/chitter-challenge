@@ -4,6 +4,7 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @user = User.get session[:user_id]
@@ -41,6 +42,21 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/goodbye'
+  end
+
+  get '/goodbye' do
+    "Goodbye."
+  end
+
+  helpers do
+    def current_user
+      @id ||= User.get session[:user_id]
     end
   end
 end
