@@ -22,4 +22,22 @@ feature 'user sign up' do
     expect {sign_up}.to change(User, :count).by(0)
     expect(page).to have_content('This email is already taken')
   end
+
+  feature 'Sign in' do
+    let(:user) do
+      User.create(username: 'faisal',
+                  email: 'faisal@gmail.com',
+                  password: 'burgerking',
+                  password_confirmation: 'burgerking')
+    end
+
+    scenario 'with correct credentials' do
+      sign_in(email: user.email,   password: user.password)
+      expect(page).to have_content "Welcome, #{user.username}"
+    end
+
+    it 'does not authenticate when given an incorrect password' do
+      expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+    end
+  end
 end
