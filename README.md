@@ -12,6 +12,7 @@ On the command line
 ```bash
 vagrant up # This may take a while
 sudo -i -u postgres
+createuser -drS vagrant
 createdb chitter_test
 createdb chitter_development
 exit
