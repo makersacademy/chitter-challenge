@@ -12,8 +12,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/chitter_
 # DataMapper::Logger.new($stdout, :debug) # to debug - see postgres
 # DataMapper.setup(:default, "postgres://localhost/chitter")
 
-require './app/models/post'
 require './app/models/user'
+require './app/models/post'
 # get application code that will require each model individually - the path may vary depending on your file structure
 
 DataMapper.finalize # finalizes models

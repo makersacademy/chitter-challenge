@@ -1,9 +1,9 @@
 FactoryGirl.define do
 
   factory :post do
-    username 'loli'
+    # username 'loli'
     message 'random chitter chatter'
-    created_at '12345678'
+    # created_at '...'
   end
 
 end

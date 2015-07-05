@@ -53,7 +53,6 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
-    # session.clear
     session[:user_id] = nil
     flash[:notice] = 'Goodbye!'
     # user = User.get(session[:user_id]).destroy
@@ -81,23 +80,29 @@ class Chitter < Sinatra::Base
       @post = Post.new
       erb :'posts/new'
     else
-      redirect to('/')
+      flash.now[:notice] = 'Please log in to post messages'
+      erb :'sessions/new'
     end
   end
 
-  post '/' do
-    @post = Post.new(message: params[:message],
-      username: current_user.username)
+  post '/posts/new' do
+    @post = Post.new(message: params[:message], created_at: DateTime.now)
     if @post.save
-      redirect to('/')
+      redirect to('/posts')
     else
-      # flash notice here for if users leave empty message field?
+      # flash.now[:notice] = 'Please add message text'
       erb :'posts/new'
     end
     # current_user.post_message.create(message: params[:message], created_at: DateTime.now)
     # redirect to('/posts')
     # erb :'posts/index'
   end
+
+  get '/peeps' do
+    @posts = Post.all
+    erb :index
+  end
+
 
   def current_user
     @current_user ||= User.get(session[:user_id])
