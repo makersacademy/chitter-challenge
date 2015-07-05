@@ -10,12 +10,9 @@ feature 'Viewing peeps' do
   end
 
   scenario 'I can see existing peeps' do
-    sign_in(email: 'faisal@gmail.com', password: 'burgerking')
-    visit '/peep/new'
-    fill_in :peep, with: "Let's have some burgerking"
-    click_button 'peep'
+    peep
     within 'ul#peeps' do
-      expect(page).to have_content("Let's have some burgerking")
+      expect(page).to have_content("Hello, from London")
     end
   end
 end

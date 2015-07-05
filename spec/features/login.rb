@@ -17,4 +17,11 @@ module Login
     fill_in :password, with: password
     click_button 'Sign in'
   end
+
+  def peep
+    sign_in(email: 'faisal@gmail.com', password: 'burgerking')
+    visit '/peep/new'
+    fill_in :peep, with: 'Hello, from London'
+    click_button 'peep'
+  end
 end

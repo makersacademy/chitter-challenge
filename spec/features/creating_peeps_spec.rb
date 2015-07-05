@@ -10,10 +10,7 @@ feature 'Creating peeps' do
   end
 
   scenario 'create after login' do
-    sign_in(email: 'faisal@gmail.com', password: 'burgerking')
-    visit '/peep/new'
-    fill_in :peep, with: 'Hello, from London'
-    click_button 'peep'
+    peep
     expect(page).to have_content 'faisal: Hello, from London'
   end
 
@@ -23,10 +20,7 @@ feature 'Creating peeps' do
   end
 
   scenario 'peeps have the time' do
-    sign_in(email: 'faisal@gmail.com', password: 'burgerking')
-    visit '/peep/new'
-    fill_in :peep, with: 'Hello, from London'
-    click_button 'peep'
+    peep
     expect(page).to have_content "#{Time.now}"
   end
 end
