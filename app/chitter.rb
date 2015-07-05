@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/all'
   end
 
@@ -43,7 +44,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/login' do
-    user = user = User.authenticate(username: params[:username], password: params[:password])
+    user = User.authenticate(username: params[:username], password: params[:password])
     if user
       session[:user_id] = user.id
       redirect '/peeps'
@@ -67,9 +68,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-
-    flash[:peep] = params[:peep]
-    erb :'/peeps/new'
+    user = current_user
+    Peep.create(content:  params[:content],
+                user:     user)
+    @peeps = Peep.all
+    erb :'/peeps/all'
   end
 
   helpers do
