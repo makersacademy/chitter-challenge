@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative './models/user'
+require_relative './models/peep'
 
 class CHITTERchallenge < Sinatra::Base
 
@@ -34,15 +36,15 @@ class CHITTERchallenge < Sinatra::Base
   end
 
   post '/index' do
-    @new_user = User.new(name: params[:sign_up_name],
+    @user = User.new(name: params[:sign_up_name],
                 email: params[:sign_up_email],
                 password: params[:sign_up_password],
                 username: params[:sign_up_username])
-    if @new_user.save
-      session[:user_id] = @new_user.id
+    if @user.save || (params[:sign_in_username] && params[:sign_in_password]) != nil
+      session[:user_id] = @user.id
       redirect to('/peeps')
     else
-      flash.now[:errors] = @new_user.errors.full_messages
+      flash.now[:error_sign_up] = @user.errors.full_messages
       erb :'/index'
     end
   end
@@ -54,16 +56,16 @@ class CHITTERchallenge < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'index'
+      flash.now[:error_sign_in] = 'The email or password is incorrect'
+      erb :'/index'
     end
-
   end
 
 
   def current_user
     current_user ||= User.get(session[:user_id])
   end
+
 
 
   # start the server if ruby file executed directly

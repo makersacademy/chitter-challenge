@@ -6,16 +6,20 @@
 
   <body>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
+    <% if flash[:error_sign_up] && !flash[:error_sign_up].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>
-         <% flash[:errors].each do |error| %>
+         <% flash[:error_sign_up].each do |error| %>
       <li><%= error %></li>
           <% end %>
       </ul>
     <% end %>
 
     <%= yield %>
+
+    <% if flash[:error_sign_in] %>
+      <div id='notice'><%= flash[:error_sign_in] %></div>
+    <% end %>
 
   </body>
 </html>

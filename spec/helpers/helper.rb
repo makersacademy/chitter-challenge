@@ -11,7 +11,7 @@ end
 
 def sign_in_as(user)
   visit '/index'
-  fill_in :sign_up_username, with: user.username
-  fill_in :sign_up_password, with: user.password
+  fill_in :sign_in_username, with: user.username
+  fill_in :sign_in_password, with: user.password
   click_button 'Sign in'
 end
