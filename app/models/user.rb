@@ -8,9 +8,9 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :email, String
+  property :email, String, unique: true
   property :name, String
-  property :username, String
+  property :username, String, unique: true
   property :password_digest, Text
 
   has n, :peeps, through: Resource
