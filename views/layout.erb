@@ -4,13 +4,20 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+      Hi, <%= current_user.username %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
     <% if flash[:error] %>
      <% flash[:error].each do |error| %>
        <div><%= error %></div>
      <% end %>
     <% end %>
-    <% if current_user && session[:user_id]%>
-      Hi, <%= current_user.username %>
+    <% if flash[:notice] %>
+       <div><%= flash[:notice] %></div>
     <% end %>
     <%= yield %>
   </body>

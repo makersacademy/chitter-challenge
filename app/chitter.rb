@@ -8,9 +8,15 @@ class App < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
+  end
+
+  get '/users/new' do
+  	@user = User.new
+    erb :'users/new'
   end
 
   post '/users' do
@@ -19,15 +25,9 @@ class App < Sinatra::Base
   	  session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:error] = @user.errors.full_messages#'Password does not match'
-      session[:user_id] = nil
+      flash.now[:error] = @user.errors.full_messages#'Password does not match'	
       erb :'/users/new'
     end
-  end
-
-  get '/users/new' do
-  	@user = User.new
-    erb :'users/new'
   end
 
   get '/sessions/new' do
@@ -45,9 +45,16 @@ class App < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    flash.now[:notice] = 'Goodbye!'
+    session[:user_id] = nil
+    erb :'sessions/new'
+  end
+
   helpers do
   	def current_user
-      @user = User.first(id: session[:user_id])
+  	  return false unless session[:user_id]
+      current_user ||= User.first(id: session[:user_id])
     end
   end
   # start the server if ruby file executed directly
