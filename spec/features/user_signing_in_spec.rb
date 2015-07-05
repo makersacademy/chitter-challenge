@@ -2,10 +2,6 @@ require './spec/factory/user.rb'
 
 feature 'Visitor signs up' do
 
-  before(:each) do
-    visit '/users/new'
-  end
-
   scenario 'with valid email and password' do
     valid_user = build :user
 
@@ -38,6 +34,8 @@ feature 'Visitor signs up' do
 end
 
 def sign_up_with user
+  visit '/users/new'
+  
   fill_in 'email',                  with: user.email
   fill_in 'password',               with: user.password
   fill_in 'password_confirmation',  with: user.password_confirmation
