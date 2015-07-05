@@ -16,6 +16,14 @@
     <li>
       <%= peep.text %>
     </li>
+    <p>
+      <% if current_user && @user.username == params[:username] %>
+      <form id='reply' method='POST' action='/:username'>
+        <input type='text' name='reply' />
+        <input type='submit' value='Reply' />
+      </form>
+      <% end %>
+    </p>
   <% end %>
   </ul>
 <% elsif current_user && @user == current_user %>
