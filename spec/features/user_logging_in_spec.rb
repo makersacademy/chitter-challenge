@@ -1,18 +1,18 @@
 feature 'User logs in' do
 
   scenario 'with valid email and password' do
-    valid_user = build :user
+    valid_user = create :user
 
     log_in valid_user
 
     expect(page).to have_content "Welcome, #{valid_user.email}"
   end
 
-  scenario 'with incorrect email and password' do
+  xscenario 'with incorrect email and password' do
 
   end
 
-  scenario 'with forgotten email or password' do
+  xscenario 'with forgotten email or password' do
 
   end
 

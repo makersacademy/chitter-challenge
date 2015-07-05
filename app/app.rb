@@ -6,8 +6,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    user = User.first id: session[:user_id]
-    "Welcome, #{user.email}"
+    @user = User.get session[:user_id]
+    erb :welcome
   end
 
   get '/users/new' do
