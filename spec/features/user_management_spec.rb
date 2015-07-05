@@ -1,26 +1,18 @@
 feature 'User\'s' do
 
-  def sign_up(username: 'Triffanys101',
-              email: 'triffanys@example.com',
-              password: 'princess',
-              password_confirmation: 'princess')
-    visit '/users/new'
-    expect(page.status_code).to eq(200)
-    fill_in :username, with: username
-    fill_in :email,    with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
+  let(:user) do
+    build(:user)
   end
 
   scenario 'can sign up' do
-    expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Triffanys101')
-    expect(User.first.username).to eq('Triffanys101')
+    expect { sign_up(user) }.to change(User, :count).by(1)
+    expect(page).to have_content("#{user.username}")
+    expect(User.first.username).to eq("#{user.username}")
   end
 
   scenario 'requires a matching confirmation password when signing up' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    user = build(:user, password_confirmation: 'wrong')
+    expect { sign_up(user) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content 'Password does not match the confirmation'
   end

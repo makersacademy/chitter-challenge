@@ -7,8 +7,11 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/data_mapper_setup'
 require 'database_cleaner'
+require 'factory_girl'
 require 'coveralls'
 require 'simplecov'
+require_relative './factories/user'
+require_relative './helpers/session'
 
 Capybara.app = Chitter
 
@@ -19,6 +22,8 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
