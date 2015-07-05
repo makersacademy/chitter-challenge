@@ -5,6 +5,8 @@
 
 <body>
 
+  <%= @user ? "Welcome, #{@user.email}." : "Welcome." %>
+
   <% if flash[:errors] %>
 
     <ul id='errors'>
@@ -15,6 +17,13 @@
 
     </ul>
 
+  <% end %>
+
+  <% if current_user %>
+    <form method='POST' action='/sessions'>
+      <input type='hidden' name='_method' value='DELETE'>
+      <input type='submit' value='Log out.'>
+    </form>
   <% end %>
 
   <%= yield %>
