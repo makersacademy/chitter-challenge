@@ -1,9 +1,17 @@
-Peeping time:
+<% if session[:user_id] %>
 
-<form action='/peeps/new' method='POST'>
+  Peeping time:
 
-  <label for="peep">Peep</label>
-  <input type="text" name="content">
-  <input type="submit" value="PEEP">
+  <form action='/peeps/new' method='POST'>
 
-</form>
+    <label for="peep">Peep</label>
+    <input type="text" name="content">
+    <input type="submit" value="PEEP">
+
+  </form>
+
+<% else %>
+
+  You must be logged in to create peeps
+
+<% end %>

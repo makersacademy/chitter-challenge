@@ -14,4 +14,10 @@ feature "Peeps" do
     expect(page).to have_content "My first peep"
   end
 
+  scenario 'cannot be made when not logged in' do
+    visit '/peeps/new'
+    expect(page).to have_content "You must be logged in to create peeps"
+  end
+
+
 end
