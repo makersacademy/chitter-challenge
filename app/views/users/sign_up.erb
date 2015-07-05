@@ -15,10 +15,16 @@
 </form>
 
 <% if flash[:errors] && !flash[:errors].empty? %>
-      Sorry, there were the following problems with the form.
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><b><%= error %></b></li>
-        <% end %>
-      </ul>
+  Sorry, there were the following problems with the form.
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><b><%= error %></b></li>
     <% end %>
+  </ul>
+<% end %>
+
+<ul id='users'>
+  <% @all_users.each do |username| %>
+    <li><a href="/<%= username %>"><%= username %></a></li>
+    <% end %>
+</ul>

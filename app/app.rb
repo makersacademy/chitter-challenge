@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
     if current_user
       redirect '/sessions/new'
     else
+      @all_users = User.all.map{ |user| user.username }
       erb :'users/sign_up'
     end
   end
