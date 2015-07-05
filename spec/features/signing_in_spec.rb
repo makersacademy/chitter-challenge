@@ -10,7 +10,7 @@ feature 'A user can sign up' do
 
   scenario 'user can sign in' do
     sign_in
-    expect(page).to have_content 'Welcome back, foobar_user'
+    expect(page).to have_content 'Welcome, foobar_user'
   end
 
   scenario 'I cannot sign up with an existing email' do

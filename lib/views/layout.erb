@@ -21,6 +21,9 @@
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
+    <form action='/peep/new' method='post'>
+      <input name="peep" placeholder="Enter your peep" type="text" required>
+      <input type="submit" value="Send Peep">
     <% else %>
     <form action='/sessions/new'>
       <input type='submit' value='Sign in?'>

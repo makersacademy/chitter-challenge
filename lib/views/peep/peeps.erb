@@ -1,6 +1,6 @@
 <h1> Current Peeps </h1>
 
-<% @peeps.each do |peep| %>
+<% @peeps.reverse.each do |peep| %>
 	<li>
 	<%= peep.user.username %>: <%= peep.body %>
 	</li>

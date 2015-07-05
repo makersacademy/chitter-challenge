@@ -1,3 +1,7 @@
 <h1> Welcome to Chitter </h1>
 <a href="/users/new"> Sign up </a> </br>
-<a href="/sessions/new"> Sign in </a>
+<a href="/sessions/new"> Sign in </a></br>
+<a href="/peep"> View peeps </a>
+<% if session[:user] %>
+<a href="/peep/new"> Write a peep </a>
+<% end %>
