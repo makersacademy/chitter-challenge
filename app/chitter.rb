@@ -15,10 +15,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = chronological_peeps
     erb :'peeps/all'
   end
-
 
   get '/users/new' do
     erb :'users/new'
@@ -70,16 +69,21 @@ class Chitter < Sinatra::Base
   post '/peeps/new' do
     user = current_user
     Peep.create(content:  params[:content],
-                user:     user)
-    @peeps = Peep.all
+                user:     user,
+                creation_time: Time.now)
+    @peeps = chronological_peeps
     erb :'/peeps/all'
   end
 
-  helpers do
+
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-  end
+
+    def chronological_peeps
+      Peep.all(:order => [ :creation_time.desc ])
+    end
+
 
   run! if app_file == $0
 end
