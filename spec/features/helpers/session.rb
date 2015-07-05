@@ -23,8 +23,10 @@ module SessionHelpers
   end
 
   def peep_hello_world
-    fill_in 'peep', with: 'Hello world!'
-    click_button 'Peep'
+    within 'form#peep' do
+      fill_in 'peep', with: 'Hello world!'
+      click_button 'Peep'
+    end
   end
 
   def another_user_peeps

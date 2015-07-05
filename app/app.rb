@@ -20,10 +20,24 @@ class Chitter < Sinatra::Base
     @user = User.first(username: params[:username])
     if @user
       @peeps = @user.peeps.all(:order => :time_stamp.desc )
+      all_users_peep_ids = @peeps.map{ |peep| peep.id }
+      replies = Peep.all(reply: true)
+      @users_replies = replies.select{ |peep| all_users_peep_ids.include?(peep.replied_id) }
       erb :'sessions/peeps'
     else
       erb :'users/not_found'
     end
+  end
+
+  post '/:username' do
+    @user = User.first(username: params[:username])
+    peep = Peep.create(text: params[:reply], time_stamp: Time.now, user_id: current_user.id, reply: true, replied_id: params[:peep_id])
+    current_user.peeps << peep
+    @peeps = @user.peeps.all(:order => :time_stamp.desc )
+    all_users_peep_ids = @peeps.map{ |peep| peep.id }
+    replies = Peep.all(reply: true)
+    @users_replies = replies.select{ |peep| all_users_peep_ids.include?(peep.replied_id) }
+    erb :'sessions/peeps'
   end
 
   post '/users/new' do
@@ -43,6 +57,9 @@ class Chitter < Sinatra::Base
       if @user
         session[:user_id] = @user.id unless session[:user_id]
         @peeps = current_user.peeps.all(:order => :time_stamp.desc )
+        all_users_peep_ids = @peeps.map{ |peep| peep.id }
+        replies = Peep.all(reply: true)
+        @users_replies = replies.select{ |peep| all_users_peep_ids.include?(peep.replied_id) }
         erb :'sessions/peeps'
       else
         flash[:errors] = ['Incorrect password']
@@ -57,6 +74,9 @@ class Chitter < Sinatra::Base
   get '/sessions/new' do
     @user = current_user
     @peeps = current_user.peeps.all(:order => :time_stamp.desc )
+    all_users_peep_ids = @peeps.map{ |peep| peep.id }
+    replies = Peep.all(reply: true)
+    @users_replies = replies.select{ |peep| all_users_peep_ids.include?(peep.replied_id) }
     erb :'sessions/peeps'
   end
 
@@ -65,11 +85,14 @@ class Chitter < Sinatra::Base
     erb :'sessions/goodbye'
   end
 
-  post '/peeps' do
+  post '/peeps/new' do
     @user = current_user
     peep = Peep.create(text: params[:peep], time_stamp: Time.now, user_id: current_user.id)
     current_user.peeps << peep
     @peeps = current_user.peeps.all(:order => :time_stamp.desc )
+    all_users_peep_ids = @peeps.map{ |peep| peep.id }
+    replies = Peep.all(reply: true)
+    @users_replies = replies.select{ |peep| all_users_peep_ids.include?(peep.replied_id) }
     erb :'sessions/peeps'
   end
 
