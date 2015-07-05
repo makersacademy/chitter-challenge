@@ -10,7 +10,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'database_cleaner'
+
 
 
 group :test do
@@ -19,5 +19,6 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'factory_girl'
+  gem 'database_cleaner'
   gem 'coveralls', require: false
 end

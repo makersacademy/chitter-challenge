@@ -9,7 +9,7 @@ def sign_up(user)
 end
 
 def sign_in(user)
-  visit '/sign_in'
+  visit '/sign_in/new'
   fill_in :username, with: user.username
   fill_in :password, with: user.password
   click_button 'Sign in'

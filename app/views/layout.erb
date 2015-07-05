@@ -7,7 +7,7 @@
   <body>
     <% if current_user %>
       Welcome, <%= (current_user.full_name).split.map(&:capitalize).join(' ') %>
-      <form method='post' action='/sign_out'>
+      <form method='post' action='/sign_in'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign Out'>
       </form>
@@ -15,7 +15,7 @@
       <form action='/users/new'>
         <input type='submit' value='Chitter Sign Up'>
       </form>
-      <form action='/sign_in'>
+      <form action='/sign_in/new'>
         <input type='submit' value='Member Sign In'>
       </form>
     <% end %>

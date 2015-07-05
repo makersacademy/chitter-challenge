@@ -13,9 +13,13 @@
        Peep: <%= peep.message %><br>
        Time: <%= peep.created_at %><br>
        <form action='/peeps/reply' method='post'>
-         <input type='text' name='peep_reply'>
+         <input type='text' name='peep_reply' placeholder='peep reply'>
          <input type='submit' value='reply'>
        </form>
+
+        Comments: <% replies = Comment.all.select { |comment| comment.peep_id == peep.id} %>
+        <%= replies.map {|reply| reply.peep_reply} %>
+
     </ul>
   <% end %>
 </ul>

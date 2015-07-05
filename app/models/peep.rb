@@ -14,5 +14,6 @@ class Peep
   validates_presence_of :message
 
   belongs_to :user
+  has n, :comments
 
 end

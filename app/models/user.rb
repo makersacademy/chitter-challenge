@@ -32,6 +32,12 @@ class User
     else
       nil
     end
+
   end
+
   has n, :peeps
+
+
+
+
 end

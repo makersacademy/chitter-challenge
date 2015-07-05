@@ -1,5 +1,12 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
+
+
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+
+
 require './app/data_mapper_setup.rb'
 require 'capybara/rspec'
 require 'tilt/erb'
@@ -13,20 +20,13 @@ require_relative './helpers/sign_in_up'
 require_relative './helpers/post_message'
 require_relative './helpers/post_reply'
 
-
-ENV['RACK_ENV'] = 'test'
-
-require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+  SimpleCov.formatters = [
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  Coveralls.wear!
 
 Capybara.app = Chitter
-
-
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 RSpec.configure do |config|
 
@@ -39,6 +39,7 @@ RSpec.configure do |config|
   end
 
   config.mock_with :rspec do |mocks|
+
     mocks.verify_partial_doubles = true
   end
 

@@ -7,6 +7,7 @@ require 'sinatra/partial'
 class Chitter < Sinatra::Base
   run! if app_file == $0
   enable :sessions
+  set :session_secret, 'super secret'
   set :partial_template_engine, :erb
   register Sinatra::Flash
   register Sinatra::Partial
@@ -19,7 +20,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all(:order => :created_at.desc)
-    @comment = Comment.new
+
+    # peeps_id = Peep.all
+    # peeps_id.each do |peep|
+    #   session[:peep_id] = peep.id
+    # end
+
     erb :'peeps/index'
   end
 
@@ -39,7 +45,8 @@ class Chitter < Sinatra::Base
       user_id: current_user.id)
 
     if @peep.save
-        redirect to('/peeps')
+      session[:peep_id] = @peep.id
+      redirect to('/peeps')
     else
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
@@ -47,13 +54,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/reply' do
-    @comment = Comment.create(peep_reply: params[:peep_reply])
 
+    comment = Comment.create(peep_reply: params[:peep_reply], peep_id: current_peep.id )
+
+    # comments << comment
+    # save
     redirect to('/peeps')
 
-      # username: current_user.username,
-      # name: current_user.full_name,
-      # user_id: current_user.id)
   end
 
 
@@ -77,8 +84,8 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sign_in' do
-    erb :'users/sign_in'
+  get '/sign_in/new' do
+    erb :'sign_in/new'
   end
 
   post '/sign_in' do
@@ -88,11 +95,11 @@ class Chitter < Sinatra::Base
       redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'users/sign_in'
+      erb :'sign_in/new'
     end
   end
 
-  delete '/sign_out' do
+  delete '/sign_in' do
     session[:user_id] = nil
     flash[:notice] = 'Goodbye!'
     redirect to('/peeps')
@@ -101,6 +108,10 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
        @current_user ||= User.get(session[:user_id])
+     end
+
+     def current_peep
+       @current_peep ||= Peep.get(session[:peep_id])
      end
   end
 

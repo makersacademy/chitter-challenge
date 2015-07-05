@@ -1,17 +1,19 @@
 require 'data_mapper'
-
-env = ENV['RACK_ENV'] || 'development'
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
-
-
+require 'dm-postgres-adapter'
 require 'dm-validations'
-require './app/models/user'
-require './app/models/peep'
-require './app/models/comment'
 require 'dm-timestamps'
 
 
-DataMapper.auto_upgrade!
+env = ENV['RACK_ENV'] || 'development'
+
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+
+
+
+require './app/models/user'
+require './app/models/peep'
+require './app/models/comment'
+
+
 
 DataMapper.finalize
