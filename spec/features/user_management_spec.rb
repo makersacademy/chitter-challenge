@@ -32,4 +32,23 @@ feature 'User\'s' do
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
   end
+
+  scenario 'cannot sign up with an existing username' do
+    sign_up(user)
+    expect(page.status_code).to eq(200)
+    expect { sign_up(user) }.to change(User, :count).by(0)
+    expect(page).to have_content('Username is already taken')
+  end
+end
+
+feature 'User\'s' do
+
+  let(:user) do
+    create(:user)
+  end
+
+  scenario 'can log in with correct credentials' do
+    log_in(user)
+    expect(page).to have_content "#{user.username}"
+  end
 end
