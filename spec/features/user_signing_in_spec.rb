@@ -22,7 +22,17 @@ feature 'Visitor signs up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'with blank fields' do
+  xscenario 'with blank fields' do
+
+  end
+
+  scenario 'with invalid email address (duplicate)' do
+    first_user  = create :user
+    second_user = build :user
+
+    sign_up_with second_user
+
+    expect(page).to have_content 'Email already registered'
   end
 end
 
