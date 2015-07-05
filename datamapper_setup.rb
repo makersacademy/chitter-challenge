@@ -7,7 +7,7 @@ env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 require './app/models/user' # require each model individually - the path may vary depending on your file structure.
-
+require './app/models/peep'
 # After declaring your models, you should finalise them
 DataMapper.finalize
 

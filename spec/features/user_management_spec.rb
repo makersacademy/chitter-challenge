@@ -87,7 +87,7 @@ feature 'User sign out' do
     sign_up_as(user)
     sign_in(user)
     click_button 'Sign out'
-    #expect(page).not_to have_content('Hi, Natso')
+    expect(page).not_to have_content('Hi, Natso')
     expect(page).to have_content('Goodbye')
   end
 end

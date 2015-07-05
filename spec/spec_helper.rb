@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 
 require './app/models/user'
+require './app/models/peep'
 require './datamapper_setup'
 
 require 'capybara'

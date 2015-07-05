@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative '../datamapper_setup.rb'
 require_relative './models/user'
+require_relative './models/peep'
 
 class App < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
@@ -49,6 +50,20 @@ class App < Sinatra::Base
     flash.now[:notice] = 'Goodbye!'
     session[:user_id] = nil
     erb :'sessions/new'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(message: params[:peep])
+    erb :'/peeps/peeps'
+  end
+
+  get '/peeps' do
+  	@peeps = Peep.all
+    erb :'/peeps/peeps'
   end
 
   helpers do
