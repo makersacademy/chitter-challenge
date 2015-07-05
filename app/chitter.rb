@@ -49,7 +49,11 @@ class CHITTERchallenge < Sinatra::Base
     end
   end
 
-  post '/index' do
+  get '/log_in' do
+    erb :'log_in'
+  end
+
+  post '/log_in' do
     user = User.authenticate(params[:sign_in_username],
                              params[:sign_in_password])
     if user
@@ -57,7 +61,7 @@ class CHITTERchallenge < Sinatra::Base
       redirect to('/peeps')
     else
       flash.now[:error_sign_in] = 'The email or password is incorrect'
-      erb :'/index'
+      erb :'/log_in'
     end
   end
 

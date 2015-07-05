@@ -2,8 +2,7 @@
   <div>
     <% if current_user %>
         Welcome, <%= current_user.username %>
-     <% end %>
-  </div>
+
 
   <div>
     <form action='/peeps' method="POST">
@@ -11,6 +10,9 @@
       <input type="text" name="peep" required>
       <input type="submit" value="Peep">
     </form>
+  </div>
+
+  <% end %>
   </div>
 
   <section>

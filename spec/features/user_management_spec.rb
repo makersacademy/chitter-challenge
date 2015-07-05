@@ -22,7 +22,7 @@ feature 'User sign in' do
   scenario 'with correct credentials' do
     user = create :user
     sign_in_as(user)
-    expect(page).to have_content 'Welcome, #{user.username}'
+    expect(page).to have_content 'Welcome'
   end
 
 end

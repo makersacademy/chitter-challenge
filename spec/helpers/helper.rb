@@ -10,7 +10,7 @@ end
 
 
 def sign_in_as(user)
-  visit '/index'
+  visit '/log_in'
   fill_in :sign_in_username, with: user.username
   fill_in :sign_in_password, with: user.password
   click_button 'Sign in'
