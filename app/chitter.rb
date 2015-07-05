@@ -47,6 +47,19 @@ class CHITTERchallenge < Sinatra::Base
     end
   end
 
+  post '/index' do
+    user = User.authenticate(params[:sign_in_username],
+                             params[:sign_in_password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'index'
+    end
+
+  end
+
 
   def current_user
     current_user ||= User.get(session[:user_id])

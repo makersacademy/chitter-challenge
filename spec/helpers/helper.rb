@@ -15,4 +15,3 @@ def sign_in_as(user)
   fill_in :sign_up_password, with: user.password
   click_button 'Sign in'
 end
-
