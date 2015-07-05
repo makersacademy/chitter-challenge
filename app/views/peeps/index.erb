@@ -1,12 +1,12 @@
-<h2> Peeps </h2>
+<h2> peeps </h2>
 
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-      Username:   <%= peep.username %>
-      Name:       <%= peep.name%>
-      Message:    <%= peep.message %>
-      Date/time:  <%= peep.time_date %>
+      <%= peep.username %>&nbsp;&nbsp;
+      <%= peep.name%>&nbsp;&nbsp;
+      <%= peep.message %>&nbsp;&nbsp;
+      <%= peep.time_date %>&nbsp;&nbsp;
     </li>
   <% end %>
 </ul>

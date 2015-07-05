@@ -8,6 +8,6 @@ class Peep
   property :message,   Text
   property :username,  String
   property :name,      String
-  property :time_date, DateTime, :default => lambda { |p,s| DateTime.now }
+  property :time_date, DateTime, :default => lambda { |p,s| DateTime.now.strftime("%a %d %B %Y - %H:%M") }
 
 end
