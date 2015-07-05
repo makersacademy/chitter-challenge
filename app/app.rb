@@ -76,3 +76,5 @@ class Chitter < Sinatra::Base
   end
   # LEARN HOW TO DO THIS. THIS GIVES ACCESS TO THE USER FOR WELCOME AFTER SIGN_UP
 end
+
+# https://ancient-coast-3410.herokuapp.com/peeps
