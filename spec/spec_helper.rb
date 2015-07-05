@@ -11,6 +11,7 @@ require 'simplecov'
 
 require './app/data_mapper_setup'
 require_relative './helpers/session'
+require_relative './factories/user.rb'
 
 Capybara.app = Chitter
 # NEED THIS LINE WHEN ERROR SAYS RACK-TEST REQUIRES A RACK APPLICATION BUT NONE WAS GIVEN.
@@ -22,6 +23,8 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
