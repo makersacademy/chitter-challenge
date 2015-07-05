@@ -1,6 +1,12 @@
 feature 'Viewing peeps' do
+  let (:user) do
+    User.create(email: 'kate@email.com',
+                password: '1234')
+  end
+
   scenario 'I can see existing peeps on the peeps page' do
-    Peep.create(message: 'first message', time: DateTime.now)
+    register(user)
+    Peep.create(message: 'first message', created_at: DateTime.now, user_id: user.id)
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#messages' do

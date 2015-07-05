@@ -4,7 +4,8 @@
 <% @peeps.each do |peep| %>
   <li>
     <%= peep.message %>
-    <%= peep.time %>
+    <%= peep.created_at %>
+    <%= User.get(id: peep.user_id) %>
   </li>
 <% end %>
 </ul>
