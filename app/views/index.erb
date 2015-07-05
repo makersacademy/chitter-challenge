@@ -1,0 +1,18 @@
+<%if session[:user_id]%>
+  <p> New peep:<p>
+  <form action="/" method="POST">
+    <input name="peep_text" type="text">
+    <input value="Post"  type="submit">
+  </form>
+<%end%>
+
+<%if @peeps%> 
+  
+  <ul> 
+    <%@peeps.each do |peep|%>
+      <li><%=peep.text%></li><br>
+      <%=peep.creation_time%>
+      <%=peep.user.user_name%>
+    <%end%>
+  </ul>
+<%end%>

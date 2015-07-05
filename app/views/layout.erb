@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <title>Title to be set</title>
+  </head>
+
+  <body>
+    <%if flash[:errors]%>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%if current_user%>
+      <%=flash[:notice]%> <%="#{current_user.name}"%><br>
+    <%else%>
+    Have you got an account?
+      <form action="/register">
+        <input type="submit" value="Register"><br>
+      </form>
+      
+      <form action="/session" method="POST">
+        User name<input name="user_name" type="text"><br>
+        Password <input name="password"  type="password"><br>
+        <input value="Sign in" type="submit"><br><br>
+      </form>
+    <%end%>
+
+    <%=yield%>
+  </body>
+
+</html>
