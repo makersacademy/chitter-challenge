@@ -11,18 +11,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    erb :'/posts/new'
+    erb :'posts/new'
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
-  post 'users' do
-    user = User.create(username: params[:username],
+  post '/users' do
+    @user = User.create(username: params[:username],
                        email: params[:email],
                        password: params[:password],)
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     redirect '/posts'
   end
 
