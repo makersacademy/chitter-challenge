@@ -16,13 +16,9 @@ class Chitter < Sinatra::Base
     @user = User.first(username: params[:username])
     if @user
       @peeps = @user.peeps.all(:order => :time_stamp.desc )
-      if !@peeps.empty?
-        erb :'sessions/peeps'
-      else
-        erb :'users/no_peeps'
-      end
+      erb :'sessions/peeps'
     else
-        erb :'users/not_found'
+      erb :'users/not_found'
     end
   end
 
