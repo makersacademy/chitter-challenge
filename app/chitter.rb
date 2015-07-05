@@ -58,7 +58,7 @@ class App < Sinatra::Base
 
   post '/peeps' do
     if session[:user_id]
-      Peep.create(message: params[:peep])
+      Peep.create(message: params[:peep], time: Time.now)
       redirect '/peeps'
     else
       flash.now[:notice] = 'You must be logged in to peep'

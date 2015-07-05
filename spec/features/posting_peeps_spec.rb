@@ -11,12 +11,6 @@ feature 'Posting peeps' do
     expect(current_path).to eq('/peeps')
   end
 
-  scenario 'can view peeps' do
-    Peep.create(message: 'Hello, world')
-    visit '/peeps'
-    expect(page).to have_content('Hello, world')
-  end
-
   scenario 'must be logged in' do
     visit '/peeps/new'
     fill_in 'peep', with: 'Hello, world'
