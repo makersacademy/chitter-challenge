@@ -10,6 +10,6 @@ feature 'Viewing peeps' do
     time = Time.new(2015,7,5,15,25,0, "+01:00")
     Peep.create(message: 'Hello, world', time: time)
     visit '/peeps'
-    expect(page).to have_content('2015-07-05 15:25:00 +0100')
+    expect(page).to have_content('15:25 5/7/2015')
   end
 end

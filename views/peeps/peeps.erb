@@ -1,7 +1,7 @@
 <% if @peeps %>
   <% @peeps.reverse.each do |peep| %>
     <div>
-      <%= peep.message %> <%= peep.time %>
+      <%= peep.message %> <%= peep.post_time %>
     </div>
   <% end %>
 <% end %>

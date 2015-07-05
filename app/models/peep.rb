@@ -6,6 +6,11 @@ class Peep
 
   property :id, Serial
   property :message, String
-  property :time, Time
+  #property :time, Time
+  property :post_time, Text
+
+  def time=(time)
+    self.post_time = "#{time.hour}:#{time.min} #{time.day}/#{time.month}/#{time.year}"
+  end
 
 end
