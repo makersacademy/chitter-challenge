@@ -7,6 +7,7 @@ require 'dm-validations'
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 
 require_relative './models/user'
+require_relative './models/posts'
 
 DataMapper.finalize
 

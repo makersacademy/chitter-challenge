@@ -1,1 +1,15 @@
 <h1>Welcome to Chitter!</h1>
+
+<a href='/posts/new'>Post your peep!</a>
+<% if flash[:notice] %>
+  <div id='peeps'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<ul id='posts'>
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep.post %>
+  </li>
+<% end %>
+</ul>

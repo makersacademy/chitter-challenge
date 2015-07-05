@@ -14,7 +14,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
+    @peeps = Peep.all
     erb :'posts/new'
+  end
+
+  post '/posts' do
+    @peeps = Peep.all
+    erb :'posts/new'
+  end
+
+  get '/posts/new' do
+    erb :'posts/posting'
   end
 
   get '/users/new' do
