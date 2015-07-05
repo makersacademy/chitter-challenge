@@ -21,4 +21,12 @@ feature 'Creating peeps' do
     visit '/peep/new'
     expect(page).to have_content 'Please Sign in'
   end
+
+  scenario 'peeps have the time' do
+    sign_in(email: 'faisal@gmail.com', password: 'burgerking')
+    visit '/peep/new'
+    fill_in :peep, with: 'Hello, from London'
+    click_button 'peep'
+    expect(page).to have_content "#{Time.now}"
+  end
 end
