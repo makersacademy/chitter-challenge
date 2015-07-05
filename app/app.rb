@@ -49,6 +49,25 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peep/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peep' do
+    @user = current_user
+    peep = Peep.new(text: params[:peep])
+    peep.user = @user
+    peep.save
+    @author = peep.user
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
   def current_user
     User.get(session[:user_id])
   end

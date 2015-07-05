@@ -1,5 +1,5 @@
 require './spec/features/login'
-feature 'Viewing peeps' do
+feature 'Creating peeps' do
   include Login
 
   before(:each) do
@@ -9,13 +9,11 @@ feature 'Viewing peeps' do
                 password_confirmation: 'burgerking')
   end
 
-  scenario 'I can see existing peeps' do
+  scenario 'create after login' do
     sign_in(email: 'faisal@gmail.com', password: 'burgerking')
     visit '/peep/new'
-    fill_in :peep, with: "Let's have some burgerking"
+    fill_in :peep, with: 'Hello, from London'
     click_button 'peep'
-    within 'ul#peeps' do
-      expect(page).to have_content("Let's have some burgerking")
-    end
+    expect(page).to have_content 'faisal: Hello, from London'
   end
 end
