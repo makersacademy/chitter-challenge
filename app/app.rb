@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
       redirect to('/')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
+      erb :'sessions/new' #The flash now error does not work
     end
 
  
