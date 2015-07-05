@@ -57,8 +57,13 @@ class App < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:peep])
-    erb :'/peeps/peeps'
+    if session[:user_id]
+      Peep.create(message: params[:peep])
+      redirect '/peeps'
+    else
+      flash.now[:notice] = 'You must be logged in to peep'
+      erb :'/sessions/new'
+    end
   end
 
   get '/peeps' do

@@ -1,5 +1,7 @@
 <% if @peeps %>
-  <% @peeps.each do |peep| %>
-    <%= peep.message %>
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+      <%= peep.message %>
+    </div>
   <% end %>
 <% end %>
