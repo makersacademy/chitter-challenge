@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
 
   post '/:username' do
     @user = User.first(username: params[:username])
-    peep = Peep.create(text: params[:reply], time_stamp: Time.now, user_id: current_user.id, reply: true, replied_id: params[:peep_id])
+    peep = Peep.create(text: params[:reply], time_stamp: Time.now, user_id: current_user.id, reply: true, replied_id: params[:peep_id], replied_to: @user.username)
     current_user.peeps << peep
     @peeps = @user.peeps.all(:order => :time_stamp.desc )
     all_users_peep_ids = @peeps.map{ |peep| peep.id }
