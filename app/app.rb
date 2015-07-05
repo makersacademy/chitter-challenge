@@ -9,7 +9,11 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb :'users/sign_up'
+    if current_user
+      redirect '/sessions/new'
+    else
+      erb :'users/sign_up'
+    end
   end
 
   get '/:username' do
