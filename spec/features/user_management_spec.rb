@@ -51,4 +51,11 @@ feature 'User\'s' do
     log_in(user)
     expect(page).to have_content "#{user.username}"
   end
+
+  scenario 'can log out once signed in' do
+    log_in(user)
+    click_button 'Log out'
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content('#{user.username}')
+  end
 end
