@@ -24,4 +24,4 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made.
 
-Currently working on the first one, which allows people to sign up for Chitter.
+First user story complete as people can now sign up for Chitter.
