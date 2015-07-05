@@ -12,4 +12,24 @@ feature 'Viewing peeps' do
     visit '/peeps'
     expect(page).to have_content('15:25 5/7/2015')
   end
+
+  scenario 'peeps contain username' do
+    user = build :user
+    sign_up_as(user)
+    sign_in(user)
+    visit '/peeps/new'
+    fill_in 'peep', with: 'Hello, world'
+    click_button 'Post peep'
+    expect(page).to have_content('Author: Natso')
+  end
+
+  scenario 'peeps contain name' do
+    user = build :user
+    sign_up_as(user)
+    sign_in(user)
+    visit '/peeps/new'
+    fill_in 'peep', with: 'Hello, world'
+    click_button 'Post peep'
+    expect(page).to have_content('(Natalie)')
+  end
 end
