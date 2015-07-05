@@ -37,13 +37,6 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
-  # def sign_in(email:, password:)
-  #   visit '/sessions/new'
-  #   fill_in :email, with: email
-  #   fill_in :password, with: password
-  #   click_button 'Login'
-  # end
-
 feature 'User signs out' do
 
   before(:each) do
@@ -55,7 +48,7 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     sign_in(email: 'elinnet@gmail.com', password: 'password')
     click_button 'Sign out'
-    expect(page).to have_content('goodbye!') # where does this message go?
+    expect(page).to have_content('Goodbye!') 
     expect(page).not_to have_content('Welcome, elinnet@gmail.com')
   end
 

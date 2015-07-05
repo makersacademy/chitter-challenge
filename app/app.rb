@@ -4,6 +4,8 @@ require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+
   enable :sessions
   set :sessions_secret, 'super secret'
   register Sinatra::Flash
@@ -49,17 +51,14 @@ class Chitter < Sinatra::Base
       erb :'sessions/new' #The flash now error does not work
     end
 
- 
-
-
   end
 
+  delete '/sessions' do
+    flash.now[:notice] = 'Goodbye!'
+    session[:user_id] = nil
+    erb :'sessions/new'
+  end
 
-
-  # get '/main' do
-  #   erb :'main'
-  # end
- 
   # start the server if ruby file executed directly
   run! if app_file == $0
 
