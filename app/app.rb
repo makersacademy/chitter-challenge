@@ -13,19 +13,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Partial
   use Rack::MethodOverride
 
-
   get '/' do
     erb :'welcome/index'
   end
 
   get '/peeps' do
     @peeps = Peep.all(:order => :created_at.desc)
-
-    # peeps_id = Peep.all
-    # peeps_id.each do |peep|
-    #   session[:peep_id] = peep.id
-    # end
-
     erb :'peeps/index'
   end
 
@@ -40,10 +33,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(message: params[:message],
-      username: current_user.username,
-      name: current_user.full_name,
-      user_id: current_user.id)
-
+                        username: current_user.username,
+                        name: current_user.full_name,
+                        user_id: current_user.id)
     if @peep.save
       session[:peep_id] = @peep.id
       redirect to('/peeps')
@@ -54,15 +46,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/reply' do
-
     comment = Comment.create(peep_reply: params[:peep_reply], peep_id: current_peep.id )
-
-    # comments << comment
-    # save
     redirect to('/peeps')
-
   end
-
 
   get '/users/new' do
     @user = User.new
@@ -109,10 +95,9 @@ class Chitter < Sinatra::Base
     def current_user
        @current_user ||= User.get(session[:user_id])
      end
-
-     def current_peep
-       @current_peep ||= Peep.get(session[:peep_id])
-     end
+     #
+    #  def current_peep
+    #    @current_peep ||= Peep.get(session[:peep_id])
+    #  end
   end
-
 end

@@ -1,7 +1,4 @@
 require 'bcrypt'
-require "pry"
-
-
 
 class User
   include DataMapper::Resource
@@ -14,9 +11,7 @@ class User
   property :email, String, unique: true, message: 'This email is already taken'
   property :username, String, unique: true, message: 'This username is already taken'
 
-
   property :password_digest, Text
-  # property :password_token, Text
 
   def password=(password)
     @password = password
@@ -32,12 +27,7 @@ class User
     else
       nil
     end
-
   end
 
   has n, :peeps
-
-
-
-
 end

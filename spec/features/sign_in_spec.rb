@@ -11,5 +11,4 @@ feature 'User sign in' do
     sign_in(user)
     expect(page).to have_content "Sorry, there were the following problems with the form."
     end
-
 end

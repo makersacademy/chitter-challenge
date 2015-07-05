@@ -7,7 +7,7 @@ require 'simplecov'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 
-require './app/data_mapper_setup.rb'
+require './app/data_mapper_setup'
 require 'capybara/rspec'
 require 'tilt/erb'
 require 'database_cleaner'

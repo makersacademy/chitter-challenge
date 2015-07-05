@@ -1,6 +1,3 @@
-require "pry"
-
-
 class Peep
 
   include DataMapper::Resource
