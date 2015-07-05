@@ -19,9 +19,15 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email],
                 password: params[:password],
-                username: params[:username])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+                username: params[:username],
+                password_confirmation: params[:password_confirmation])
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'user/register'
+    end
   end
 
   get '/sessions/new' do
@@ -32,11 +38,16 @@ class Chitter < Sinatra::Base
     user = User.authenticate(email: params[:email], password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/peeps'
+      redirect '/peeps/new'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'user/login'
     end
+  end
+
+  delete '/sessions' do
+    session.clear
+    erb :'messages/index'
   end
 
   get '/peeps' do
@@ -52,6 +63,12 @@ class Chitter < Sinatra::Base
     Peep.create(message: params[:message], created_at: DateTime.now, user_id: session[:user_id])
     redirect '/peeps'
   end
+
+  # delete '/sessions' do
+  #   session.clear
+  #   flash.now[:errors] = ['You are now logged out, goodbye!']
+  #   erb :'messages/index'
+  # end
 
   helpers do
 

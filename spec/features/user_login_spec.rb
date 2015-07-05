@@ -22,13 +22,43 @@ feature 'User can sign up' do
   let (:user) do
     User.new(email: 'kate@email.com',
              password: '1234',
-             username: 'kate')
+             username: 'kate',
+             password_confirmation: '1234')
     end
 
   scenario 'user can sign up for chitter' do
     expect { register(user) }.to change(User, :count).by(1)
     expect(page).to have_content("You're logged in as kate")
     expect(User.first.email).to eq ('kate@email.com')
+  end
+end
+
+feature 'User cannot sign up' do
+  let (:user) do
+    User.new(email: 'kate@email.com',
+             password: '1234',
+             username: 'kate',
+             password_confirmation:'wrong')
+  end
+
+  scenario 'with a password confirmation that does not match' do
+    expect { register(user) }.not_to change(User, :count)
+    expect(page).to have_content('Password does not match the confirmation')
+  end
+end
+
+feature 'User cannot sign up' do
+  let (:user) do
+    User.create(email: 'kate@email.com',
+             password: '1234',
+             username: 'kate',
+             password_confirmation:'1234')
+  end
+
+  scenario 'with an already existing email' do
+    register(user)
+    expect { register(user) }.to change(User, :count).by(0)
+    expect(page).to have_content('Email is already taken')
   end
 
 end
@@ -37,7 +67,8 @@ feature 'user can sign in with correct credentials' do
   let (:user) do
     User.new(email: 'kate@email.com',
              password: '1234',
-             username: 'kate')
+             username: 'kate',
+             password_confirmation: '1234')
   end
 
   scenario 'user can sign into their account' do

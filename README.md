@@ -39,11 +39,12 @@ Currently implemented:
 * User can sign in with correct credentials, but if an incorrect password or email is given they are redirected.
 * 'Peeps' can be created and are displayed with time of creation on the 'peeps' index.
 * All peeps can be seen regardless of who is logged in.
+* User can only sign up with a unique email address (not already in database)
+* Users must supply matching password confirmation in order to sign up
+
 
 I want to implement:
 
-* Password confirmation when signing up
-* Making sure all email addresses in database are unique
 * Allowing a user to log out
 * only allowing a user to 'peep' if they're logged in
 * displaying the username next to the peep

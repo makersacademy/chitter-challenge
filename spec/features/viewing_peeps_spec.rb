@@ -1,7 +1,9 @@
 feature 'Viewing peeps' do
   let (:user) do
     User.create(email: 'kate@email.com',
-                password: '1234')
+                password: '1234',
+                password_confirmation: '1234',
+                username: 'kate')
   end
 
   scenario 'I can see existing peeps on the peeps page' do
