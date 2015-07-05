@@ -1,7 +1,7 @@
 Chitter
 =======
 
-This is a simple Twitter clone, allowing users to post messages (peeps) on their profile page and for users and non logged-in users to view everyone's peeps. This is built using [Sinatra](http://www.sinatrarb.com/) and [Postgres](http://www.postgresql.org/). Tests are written in [Rspec](http://rspec.info/) and [Capybara](http://jnicklas.github.io/capybara/). Used [bcrypt](https://github.com/codahale/bcrypt-ruby) to secure the passwords and [data mapper](http://datamapper.org/) to save the data to the Postgres database.
+This is a simple Twitter clone, allowing users to post messages (peeps) on their profile page and for users and non logged-in users to view everyone's peeps by going to their user page. This is built using [Sinatra](http://www.sinatrarb.com/) and [Postgres](http://www.postgresql.org/). Tests are written in [Rspec](http://rspec.info/) and [Capybara](http://jnicklas.github.io/capybara/). Used [bcrypt](https://github.com/codahale/bcrypt-ruby) to secure the passwords and [data mapper](http://datamapper.org/) to save the data to the Postgres database.
 
 Getting Started
 ---------------
