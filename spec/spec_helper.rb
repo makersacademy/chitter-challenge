@@ -7,9 +7,11 @@ require 'database_cleaner'
 require 'factory_girl'
 require_relative './factories/user'
 require_relative './factories/peep'
+require_relative './factories/comment'
 
 require_relative './helpers/sign_in_up'
 require_relative './helpers/post_message'
+require_relative './helpers/post_reply'
 
 
 ENV['RACK_ENV'] = 'test'

@@ -8,11 +8,14 @@
 
 <ul id="peeps">
   <% @peeps.each do |peep| %>
-    <li>
+    <ul>
        By <%=(peep.name).split.map(&:capitalize).join(' ')%>, @<%= peep.username %> <br>
        Peep: <%= peep.message %><br>
        Time: <%= peep.created_at %><br>
-    </li>
-
+       <form action='/peeps/reply' method='post'>
+         <input type='text' name='peep_reply'>
+         <input type='submit' value='reply'>
+       </form>
+    </ul>
   <% end %>
 </ul>

@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all(:order => :created_at.desc)
+    @comment = Comment.new
     erb :'peeps/index'
   end
 
@@ -43,6 +44,16 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
     end
+  end
+
+  post '/peeps/reply' do
+    @comment = Comment.create(peep_reply: params[:peep_reply])
+
+    redirect to('/peeps')
+
+      # username: current_user.username,
+      # name: current_user.full_name,
+      # user_id: current_user.id)
   end
 
 
