@@ -17,6 +17,6 @@ div.content {
 }
 
 /* error message */
-#notice {
+#notice, #errors {
   color: red;
 }

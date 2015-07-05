@@ -1,11 +1,31 @@
-<h1>Posts</h1>
+<div id="wrapper">
+  <div id="content">
+    <h1>Posts</h1>
 
-<ul id="posts">
-  <% @posts.each do |post| %>
-  <li>
-    <!-- who posted it goes here  - user -->
-    Post:  <%= post.message %>
-    <!-- Posted:   <%= post.created_at %> -->
-  </li>
-  <% end %>
-</ul>
+    <ul id="posts">
+      <% @posts.each do |post| %>
+      <li>
+        <!-- who posted it goes here  - user -->
+        Post:  <%= post.message %>
+        <!-- Posted:   <%= post.created_at %> -->
+      </li>
+      <% end %>
+    </ul>
+
+    <% if current_user %>
+    <div id="post-message">
+      <h1>Create post</h1>
+      <form action='/posts/new' method='post'>
+        <input type='submit' value='New post'>
+      </form>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

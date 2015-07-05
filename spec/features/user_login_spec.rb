@@ -10,6 +10,4 @@ feature 'User log in' do
     "Welcome, #{user.name}"
   end
 
-  
-
 end

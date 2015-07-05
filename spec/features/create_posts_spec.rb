@@ -2,22 +2,28 @@ require 'spec_helper'
 
 feature 'Create posts' do
 
-  # scenario 'I can add a message' do
-  #   visit '/messages/new'
-  #   fill_in 'url',   with: 'http://www.zombo.com/'
-  #   fill_in 'title', with: 'This is Zombocom'
-  #   click_button 'Create link'
-  #
-  #   # we expect to be redirected back to the links page
-  #   expect(current_path).to eq '/links'
-  #
-  #   within 'ul#links' do
-  #     expect(page).to have_content('This is Zombocom')
-  #   end
-  # end
-  #
-  # scenario 'there are no links in the database at the start of the test' do
-  #   expect(Link.count).to eq 0
-  # end
+  let(:user) do
+    create(:user)
+    # create(:post)
+  end
+
+  let(:post) do
+    build(:post)
+  end
+
+  scenario 'user can add a post once logged in' do
+    log_in(user)
+    visit('/')
+    click_button('New post')
+    expect(page).to have_content 'Add post:'
+    expect{ post_message(post) }.to change(Post, :count).by(1)
+    # post_message(post)
+    # expect(Post.count).to eq(1)
+    expect(current_path).to eq '/posts'
+      within 'ul#posts' do
+        expect(page).to have_content("#{post.message}")
+        expect(page).to have_content("loli")
+      end
+  end
 
 end

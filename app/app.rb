@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions, :static
@@ -11,6 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @posts = Post.all
+    # @posts = Post.sort_posts
     erb :index
   end
 
@@ -42,11 +44,59 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/posts/add')
+      redirect to('/')
+      # redirect to('/post/new')
     else
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    # session.clear
+    session[:user_id] = nil
+    flash[:notice] = 'Goodbye!'
+    # user = User.get(session[:user_id]).destroy
+    redirect to('/')
+  end
+
+  # get '/' do
+  #   @posts = Post.all
+  #   # @posts = Post.sort_posts
+  #   erb :index
+  # end
+
+  # get '/posts' do
+  #   @posts = Post.all
+  #   # @posts = Post.sort_posts
+  #   erb :index
+  # end
+
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts/new' do
+    if current_user
+      @post = Post.new
+      erb :'posts/new'
+    else
+      redirect to('/')
+    end
+  end
+
+  post '/' do
+    @post = Post.new(message: params[:message],
+      username: current_user.username)
+    if @post.save
+      redirect to('/')
+    else
+      # flash notice here for if users leave empty message field?
+      erb :'posts/new'
+    end
+    # current_user.post_message.create(message: params[:message], created_at: DateTime.now)
+    # redirect to('/posts')
+    # erb :'posts/index'
   end
 
   def current_user
