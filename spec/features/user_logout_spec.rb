@@ -7,7 +7,6 @@ feature 'user can log out' do
   end
 
   scenario 'when there is a user logged in' do
-    register(user)
     sign_in(email: 'kate@email.com',
             password: '1234')
     click_on 'Log out'

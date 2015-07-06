@@ -18,6 +18,13 @@
     <%= yield %>
     </p>
     <p>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    </p>
+    <p>
     <% if flash[:errors] && !flash[:errors].empty? %>
         <ul id='errors'>
           <% flash[:errors].each do |error| %>
