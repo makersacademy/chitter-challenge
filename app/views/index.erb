@@ -1,8 +1,25 @@
+<div id='welcome'>
 Welcome to Chitter
+</div>
 
-<form action='/sessions/new' method='get'>
-  <input type='submit' value='Log in'>
-</form>
-<form action='/user/register' method='get'>
-  <input type='submit' value='Register'>
-</form>
+<div id='login-register'>
+  <% unless current_user %>
+    <form action='/sessions/new' method='get'>
+      <input type='submit' value='Log in' id='submit-button'>
+    </form>
+    <form action='/user/register' method='get'>
+      <input type='submit' value='Register' id='submit-button'>
+    </form>
+  <% end %>
+</div>
+
+<div id='view-write-peep'>
+  <form action='/peeps' method='get'>
+    <input type='submit' value='View peeps' id='submit-button'>
+  </form>
+    <% if current_user %>
+      <form action='/peeps/new' method='get'>
+        <input type='submit' value='Write peep' id='submit-button'>
+      </form>
+    <% end %>
+</div>

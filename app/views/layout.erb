@@ -5,11 +5,19 @@
   </head>
 
   <body>
+    <p>
     <% if current_user %>
-      You're logged in as <%= current_user.username %>
+      You're logged in as <%= current_user.username %><br>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Log out'>
+        </form>
     <% end %>
+    </p>
+    <p>
     <%= yield %>
-
+    </p>
+    <p>
     <% if flash[:errors] && !flash[:errors].empty? %>
         <ul id='errors'>
           <% flash[:errors].each do |error| %>
@@ -17,6 +25,8 @@
           <% end %>
         </ul>
     <% end %>
+    </p>
+    <p>
 
   </body>
 </html>

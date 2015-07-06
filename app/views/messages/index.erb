@@ -1,11 +1,11 @@
 <h1> PEEPS </h1>
 
 <ul id="messages">
-<% @peeps.each do |peep| %>
+<% @peeps.reverse_each do |peep| %>
   <li>
-    <%= peep.message %>
-    <%= peep.created_at %>
-    <%= User.get(id: peep.user_id) %>
+    <%= peep.message %><br>
+    peeped by: <%= peep.created_by %><br>
+    at: <%= peep.created_at %>
   </li>
 <% end %>
 </ul>
