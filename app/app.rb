@@ -16,8 +16,6 @@ class App < Sinatra::Base
   end
 
   get '/peep' do
-    # require 'byebug'
-    # byebug
     @peeps = Peep.all
     erb :index
   end
