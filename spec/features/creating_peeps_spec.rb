@@ -1,6 +1,6 @@
 feature 'Posting peeps' do
 
-  scenario 'there are no peeps in the database' do
+  skip 'there are no peeps in the database' do
     visit '/posts/new'
     fill_in 'post', with: 'My first peep!'
     click_button 'peep'

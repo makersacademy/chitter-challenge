@@ -1,4 +1,4 @@
-feature 'User\'s' do
+feature 'Signing up user\'s' do
 
   let(:user) do
     build(:user)
@@ -10,14 +10,14 @@ feature 'User\'s' do
     expect(User.first.username).to eq("#{user.username}")
   end
 
-  scenario 'requires a matching confirmation password when signing up' do
+  scenario 'requires a matching confirmation password' do
     user = build(:user, password_confirmation: 'wrong')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'must enter an email address and username when signing up' do
+  scenario 'must enter an email address and username' do
     visit '/users/new'
     fill_in :password, with: 'hello'
     fill_in :password_confirmation, with: 'hello'
@@ -41,13 +41,13 @@ feature 'User\'s' do
   end
 end
 
-feature 'User\'s' do
+feature 'Logging in user\'s' do
 
   let(:user) do
     create(:user)
   end
 
-  scenario 'can log in with correct credentials' do
+  scenario 'must have correct credentials' do
     log_in(user)
     expect(page).to have_content "#{user.username}"
   end
