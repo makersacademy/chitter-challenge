@@ -1,0 +1,83 @@
+div#wrapper {
+  width: 100%;
+  height: 600px
+  position: relative;
+}
+
+div#content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #545454;
+}
+
+/* error message */
+#notice, #errors {
+  color: red;
+}
+
+form input {
+  padding: 0;
+  margin: 5px 20px;
+  height: 20px;
+  width: 150px;
+}
+
+/* TODO
+add in floats to labels and inputs to fix alignment issues*/
+
+form input.button {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  height: 33px;
+  font-size: 13px;
+  /*padding: 0 15px;*/
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px 0;
+  background-color:#212121;
+  color: #fff;
+  border: none;
+  padding: 0;
+}
+
+input[type=text], textarea, select {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #ccccc;
+}
+
+input[type=text]:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 5px rgba(127,127,127, 1);
+  border: 1px solid rgba(127,127,127, 1);
+}
+
+input.button:hover {
+	background-color: #f7a27f;
+}
+
+/*form input.message-field {
+  height: 60px;
+}*/
+
+.button {
+  width: 135px;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
