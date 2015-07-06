@@ -1,0 +1,18 @@
+<h1> Welcome to Chitter! </h1>
+
+<a href="/users/new">Sign up</a>
+<br>
+<a href="/sessions/new">Sign in</a>
+<br>
+<a href="/peep/new">New peep</a>
+<br>
+
+<h2> Peeps: </h2>
+
+<ul id="peep">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= self.peep %>
+    </li>
+  <% end %>
+</ul>
