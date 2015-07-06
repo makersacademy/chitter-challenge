@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <link href="/css/stylesheet.css" rel="stylesheet" type="text/css"/>
+  <body>
+    <% if current_user %>
+      <form action='/signin' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+      <h1>chitter</h1>
+      <p>Welcome, <%= current_user.username %></p>
+
+      <form action='/peeps/new' method='post'>
+        <input type='submit' value='New peep'>
+      </form>
+      <!-- NB positioning the form here means signing out is only available when a user has already signed in. -->
+    <% else %>
+      <a href='/users/new'>Register for chitter</a>
+      <a href='/signin/sign_in'>Sign in</a>
+      <form action='/peeps/new' method='post'>
+        <input type='submit' value='New peep'>
+      </form>
+      <h1>chitter</h1>
+        <!-- <a href='/sessions/new'>Sign in</a> -->
+    <% end %>
+
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <p></p>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:signup] %>
+      <div id='signup'>
+        <p></p>
+        <%= flash[:signup] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
