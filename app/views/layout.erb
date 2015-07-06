@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= (current_user.full_name).split.map(&:capitalize).join(' ') %>
+      <form method='post' action='/sign_in'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
+      <%else%>
+      <form action='/users/new'>
+        <input type='submit' value='Chitter Sign Up'>
+      </form>
+      <form action='/sign_in/new'>
+        <input type='submit' value='Member Sign In'>
+      </form>
+    <% end %>
+
+    <form action='/peeps'>
+      <input type='submit' value='Main Page'>
+    </form>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Sorry, there were the following problems with the form.
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
