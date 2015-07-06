@@ -59,34 +59,15 @@ In order to run tests, fork/clone this repo and run rspec in the command line. E
 * Use bcrypt to secure the passwords
 * Once you log in you can post a message to/on Chitter
 
-* PROVIDE INSTRUCTIONS ON HOW TO INSTALL AND RUN TESTS
+
 
 ## Still to complete/refactor
+* Fix configuration issue/database issue - no data is being added to databases anymore - datamapper / postgres config issue?
+* Add posts to /post page
+* Show who has posted the message and at what time
+* Add additional styling
+* Peeps (posts to chitter) have the name of the maker and their user handle, as well as time peep was posted
+* If you have time you can implement the following:
 
-
-
-Notes on functionality:
-------
-
-
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
+Extras to add
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
