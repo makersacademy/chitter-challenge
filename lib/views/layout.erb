@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+     <% end %>
+    <% if flash[:error] %>
+    <div id='error'>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+    <% if session[:username] %>
+      Welcome, <%= session[:username] %> </br>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+    <form action='/peep/new' method='post'>
+      <input name="peep" placeholder="Enter your peep" type="text">
+      <input type="submit" value="Send Peep">
+    <% else %>
+    <form action='/sessions/new'>
+      <input type='submit' value='Sign in?'>
+    </form>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
