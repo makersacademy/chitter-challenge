@@ -1,5 +1,5 @@
 require 'data_mapper'
-require 'pry'
+# require 'pry'
 
 class Post
 

@@ -72,11 +72,10 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     @post = Post.create(message: params[:message], user_id: current_user.id)
-    # @post.save
-    # post = Post.create(message: params[:message], created_at: DateTime.now)
+    # post = Post.new
+    # current_user.post.create(message: params[:message])
     erb :index
   end
-
 
   def current_user
     @current_user ||= User.get(session[:user_id])

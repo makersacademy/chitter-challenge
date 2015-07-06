@@ -5,9 +5,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara/rspec'
 require 'factory_girl'
 require_relative './factories/user'
-# require_relative './factories/post'
 require_relative './helpers/session'
-# require_relative './helpers/post_message'
 require './app/data_mapper_setup'
 
 require 'database_cleaner'
