@@ -9,12 +9,8 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-  validates_presence_of :password
-  validates_presence_of :username
-  validates_presence_of :name
-  validates_presence_of :email
-  validates_uniqueness_of :email
-  validates_uniqueness_of :username
+  validates_presence_of :password, :username, :name, :email
+  validates_uniqueness_of :email, :username
 
   property :id, Serial
   property :email, String
