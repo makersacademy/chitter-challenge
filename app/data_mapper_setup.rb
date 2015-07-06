@@ -17,3 +17,5 @@ require './app/models/comment'
 
 
 DataMapper.finalize
+
+DataMapper.auto_upgrade!
