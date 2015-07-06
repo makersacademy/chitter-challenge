@@ -41,6 +41,7 @@ Currently implemented:
 * All peeps can be seen regardless of who is logged in.
 * User can only sign up with a unique email address (not already in database)
 * Users must supply matching password confirmation in order to sign up
+* displaying the peeps in reverse chronological order
 
 
 I want to implement:
@@ -49,7 +50,6 @@ I want to implement:
 * only allowing a user to 'peep' if they're logged in
 * displaying the username next to the peep
 * displaying the time the peep was created in a more legible fashion
-* displaying the peeps in reverse chronological order
 * making the flow more user friendly - peeps should be visible on index & there should be a sign up/ log in button there. Once logged in a button should appear for 'Write a peep' or something similar.
 * styling the application!
 
