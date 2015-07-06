@@ -2,11 +2,13 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'data_mapper'
 require './app/data_mapper_setup'
+require 'cucumber/rake/task'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
+Cucumber::Rake::Task.new :cuke
 
-task default: [:cop, :spec]
+task default: [:cop, :spec, :cuke]
 
 
 

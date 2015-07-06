@@ -14,6 +14,7 @@ gem 'sinatra-partial'
 
 
 group :test do
+  gem 'cucumber'
   gem 'rspec'
   gem 'capybara'
   gem 'rubocop-rspec'
