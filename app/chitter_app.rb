@@ -34,9 +34,9 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(username: params[:username],
-                       email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/posts'
@@ -71,4 +71,5 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     erb :'sessions/end'
   end
+
 end

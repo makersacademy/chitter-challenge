@@ -9,9 +9,9 @@ class User
 
   validates_confirmation_of :password
 
-  property :id,       Serial
+  property :id, Serial
   property :username, String, required: true, unique: true
-  property :email,    String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, Text
 
   def password= password
@@ -23,8 +23,6 @@ class User
     user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
   

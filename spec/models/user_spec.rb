@@ -1,5 +1,4 @@
 describe User do
-  
   let(:user) do
     create(:user)
   end
