@@ -1,0 +1,49 @@
+<% if current_user && @user == current_user  %>
+  <h1>Hi <%= current_user.name %>, here are your Peeps</h1>
+
+  <form id='peep' method='POST' action='/peeps/new'>
+    <input type='text' name='peep' />
+    <input type='submit' value='Peep' />
+  </form>
+  <%= flash[:errors] %>
+  <% elsif @user.username == params[:username] %>
+    <h1><%= @user.name %> Peeps</h1>
+<% end %>
+
+<% if !@peeps.empty? %>
+  <ul id='peep_list'>
+  <% @peeps.each do |peep| %>
+    <p style='font-size: 70%'><b><%= @user.name %>  </b><a style='color: gray'>@<%= @user.username %>: <%= peep.time_stamp.strftime('%b %e') %></a></p>
+    <li>
+      <%= peep.text %>
+
+      <% if peep.reply %>
+    </br> <a style='color: gray; font-size: 70%'> - in reply to @<a href='/<%= peep.replied_to %>'><%= peep.replied_to %></a></a>
+      <% end %>
+
+      <% all_replies = @users_replies.select{ |reply| reply.replied_id == peep.id  } %>
+      <% if !all_replies.empty? %>
+        <% all_replies.each do |reply| %>
+          <li type="square" style='font-size: 70%'>
+            <%= reply.text %>, <a style='color: gray'>from: @<a href='/<%= User.first(id: reply.user_id).username %>'><%= User.first(id: reply.user_id).username %></a></a>
+          </li>
+          <% end %>
+      <% end %>
+    </li>
+    <p>
+      <% if current_user && @user != current_user %>
+      <form id='reply' method='POST' action='/<%= @user.username %>'>
+        <input type='hidden' name='peep_id' value='<%= peep.id %>' />
+        <input type='text' name='reply' />
+        <input type='submit' value='Reply' />
+      </form>
+      <%= flash[:errors] %>
+      <% end %>
+    </p>
+  <% end %>
+  </ul>
+<% elsif current_user && @user == current_user %>
+    <p>Post your first peep!</p>
+<% else %>
+  <p>User has not peeped yet</p>
+<% end %>
