@@ -10,19 +10,16 @@ describe User do
   end
 
   it 'authenticates when given an valid username and password' do
-   authenticated_user = User.authenticate(username: user.username, password: user.password)
-   expect(authenticated_user).to eq user
- end
+    authenticated_user = User.authenticate(username: user.username, password: user.password)
+    expect(authenticated_user).to eq user
+  end
 
- it 'does not authenticates when given an invalid username' do
-  authenticated_user = User.authenticate(username: 'wrong', password: user.password)
-  expect(authenticated_user).to be_nil
-end
+  it 'does not authenticates when given an invalid username' do
+    authenticated_user = User.authenticate(username: 'wrong', password: user.password)
+    expect(authenticated_user).to be_nil
+  end
 
   it 'does not authenticate when given an incorrect password' do
     expect(User.authenticate(username: user.username, password: 'wrong_password')).to be_nil
   end
-
-
-
 end

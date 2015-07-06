@@ -12,7 +12,7 @@ describe Peep do
     visit('/sign_in')
     sign_in(user)
     visit('/peeps/new')
-    expect{ post_message(peep) }.to change(Peep, :count).by(1)
+    expect { post_message(peep) }.to change(Peep, :count).by(1)
   end
 
 end

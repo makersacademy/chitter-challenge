@@ -17,7 +17,7 @@ describe Comment do
     sign_in(user)
     visit('/peeps/new')
     post_message(peep)
-    expect{ post_reply(comment) }.to change(Comment, :count).by(1)
+    expect { post_reply(comment) }.to change(Comment, :count).by(1)
 
   end
 end
