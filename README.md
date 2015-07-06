@@ -56,16 +56,16 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality v1.0:
-----------------------------
+ v1.0
+------
 
 * Users sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker, their user handle and a time element.
-* Non-logged users in can see peeps.
-* Users can peep if they are logged in.
+* Non logged-in users can see peeps by going ot a users homepage.
+* Users can only peep if they are logged in.
 
-v2.0:
+v2.0
 -----
 
 * Signed in users can reply to another users peep
