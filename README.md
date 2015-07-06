@@ -44,7 +44,7 @@ Currently implemented:
 * displaying the peeps in reverse chronological order
 
 
-I want to implement:
+Still to implement:
 
 * Allowing a user to log out
 * only allowing a user to 'peep' if they're logged in
