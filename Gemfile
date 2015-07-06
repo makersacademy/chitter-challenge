@@ -5,11 +5,16 @@ ruby '2.1.5'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
-gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
 
+group :development do
+  gem 'byebug'
+end
+
 group :test do
+  gem 'launchy'
+  gem 'database_cleaner'
   gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'

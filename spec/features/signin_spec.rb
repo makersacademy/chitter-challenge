@@ -38,9 +38,10 @@ feature 'User signs out' do
       click_button 'Sign in'
     end
 
-    sign_in(email: 'test@test.com', password: 'test')
+    sign_in(email: 'user@example.com', password: 'secret1234')
+    # save_and_open_page
     click_button 'Sign out'
     expect(page).to have_content('goodbye!') # where does this message go?
-    expect(page).not_to have_content('Welcome, test@test.com')
+    expect(page).not_to have_content('Welcome, user@example.com')
   end
 end

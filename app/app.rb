@@ -16,6 +16,8 @@ class App < Sinatra::Base
   end
 
   get '/peep' do
+    # require 'byebug'
+    # byebug
     @peeps = Peep.all
     erb :index
   end
@@ -59,7 +61,7 @@ class App < Sinatra::Base
                              password: params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/links')
+      redirect to('/peep')
     else
       flash[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
