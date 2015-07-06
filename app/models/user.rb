@@ -6,7 +6,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
 
 
@@ -19,4 +19,17 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_presence_of :email
+
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+    # User.first(email: email)
+      user
+    else
+      nil
+    end
+  end
+
+
 end
