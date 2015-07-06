@@ -1,0 +1,8 @@
+<h1>Peeps</h1>
+<% if @peeps %>
+  <% @peeps.reverse.each do |peep| %>
+    <div>
+      <%= peep.message %> <%= peep.post_time %> Author: <%= peep.username %> (<%= peep.name %>)
+    </div>
+  <% end %>
+<% end %>
