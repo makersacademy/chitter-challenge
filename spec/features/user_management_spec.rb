@@ -1,9 +1,9 @@
 feature 'User sign up' do
 
   scenario 'can sign up as a new user' do
-  	user = build :user
-  	sign_up_as(user)
-  	expect(page.status_code).to eq 200
+    user = build :user
+    sign_up_as(user)
+    expect(page.status_code).to eq 200
     expect(page).to have_content 'Hi, Natso'
     expect(User.first.email).to eq('natalie@gmail.com')
   end
@@ -19,9 +19,9 @@ feature 'User sign up' do
 
   scenario 'requires a matching confirmation password' do
     user = build :user, password: '1235'
-  	sign_up_as(user)
-  	expect(current_path).to eq ('/users')
-  	expect(page).to have_content 'Password does not match'
+    sign_up_as(user)
+    expect(current_path).to eq ('/users')
+    expect(page).to have_content 'Password does not match'
   end
 
   scenario 'does not display message if login failed' do
@@ -58,7 +58,7 @@ feature 'User sign up' do
     user = build :user
     dup_user = build :user, password: '1233', password_confirmation: '1233', name: 'Bob', username: 'Bobo'
     sign_up_as(user)
-    expect{ sign_up_as(user) }.not_to change(User, :count)
+    expect { sign_up_as(user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'  
   end
 
@@ -66,7 +66,7 @@ feature 'User sign up' do
     user = build :user
     dup_user = build :user, email: 'natalie@gmail.com', password: '1233', password_confirmation: '1233', name: 'Bob'
     sign_up_as(user)
-    expect{ sign_up_as(dup_user) }.not_to change(User, :count)
+    expect { sign_up_as(dup_user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'  
   end
 end
