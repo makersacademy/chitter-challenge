@@ -32,10 +32,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(message: params[:message],
-                        username: current_user.username,
-                        name: current_user.full_name,
-                        user_id: current_user.id)
+    @peep = Peep.create(message: params[:message], username: current_user.username, name: current_user.full_name, user_id: current_user.id)
+
     if @peep.save
       session[:peep_id] = @peep.id
       redirect to('/peeps')
@@ -46,8 +44,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/reply' do
-    comment = Comment.create(peep_reply: params[:peep_reply], peep_id: current_peep.id )
-    redirect to('/peeps')
+    @comment = Comment.create(peep_reply: params[:peep_reply], peep_id: params[:peep_id] )
+
+    if @comment.save
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = @comment.errors.full_messages
+      erb :'peeps/index'
+    end
   end
 
   get '/users/new' do
@@ -56,11 +60,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(full_name: params[:full_name],
-                        email: params[:email],
-                        username: params[:username],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation])
+    @user = User.create(full_name: params[:full_name],  email: params[:email], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
+
     if @user.save
       session[:user_id] = @user.id
       redirect to('/peeps')
@@ -76,6 +77,7 @@ class Chitter < Sinatra::Base
 
   post '/sign_in' do
     user = User.authenticate(username: params[:username], password: params[:password])
+
     if user
       session[:user_id] = user.id
       redirect to('/peeps')
@@ -95,9 +97,5 @@ class Chitter < Sinatra::Base
     def current_user
        @current_user ||= User.get(session[:user_id])
      end
-     #
-    #  def current_peep
-    #    @current_peep ||= Peep.get(session[:peep_id])
-    #  end
   end
 end
