@@ -1,19 +1,7 @@
 Chitter Challenge
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Challenge is to create a twitter clone based on the meeting the following user expectations:
 
 Features:
 -------
@@ -32,17 +20,40 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+
+Currently implemented:
+
+* User can sign up and a record is created within the database
+* User can sign in with correct credentials, but if an incorrect password or email is given they are redirected.
+* 'Peeps' can be created and are displayed with time of creation on the 'peeps' index.
+* All peeps can be seen regardless of who is logged in.
+* User can only sign up with a unique email address (not already in database)
+* Users must supply matching password confirmation in order to sign up
+* displaying the peeps in reverse chronological order
+
+
+Still to implement:
+
+* Allowing a user to log out
+* only allowing a user to 'peep' if they're logged in
+* displaying the username next to the peep
+* displaying the time the peep was created in a more legible fashion
+* making the flow more user friendly - peeps should be visible on index & there should be a sign up/ log in button there. Once logged in a button should appear for 'Write a peep' or something similar.
+* styling the application!
+
+
 
 Notes on functionality:
 ------

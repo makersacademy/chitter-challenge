@@ -1,0 +1,11 @@
+<h1> PEEPS </h1>
+
+<ul id="messages">
+<% @peeps.reverse_each do |peep| %>
+  <li>
+    <%= peep.message %><br>
+    peeped by: <%= peep.created_by %><br>
+    at: <%= peep.created_at %>
+  </li>
+<% end %>
+</ul>
