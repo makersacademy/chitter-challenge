@@ -71,10 +71,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    @post = Post.create(message: params[:message], user_id: current_user.id)
+    @post = Post.create!(message: params[:message], user_id: current_user.id)
+    redirect to('/posts')
     # post = Post.new
     # current_user.post.create(message: params[:message])
-    erb :index
+    # erb :index
   end
 
   def current_user

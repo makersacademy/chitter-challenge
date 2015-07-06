@@ -11,6 +11,7 @@ feature 'Create posts' do
     visit('/posts')
     expect(page).to have_content 'Create post'
     fill_in :message, with: 'random chitter chatter'
+    click_button('Post')
     expect(Post.count).to eq(1)
     expect(current_path).to eq '/posts'
       within 'ul#posts' do
