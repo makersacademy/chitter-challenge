@@ -1,5 +1,5 @@
 feature 'Posting peeps' do
-  
+
   scenario 'can post a new peep if logged in' do
     user = build :user
     sign_up_as(user)
