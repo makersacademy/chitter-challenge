@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
       redirect to '/'
       erb :sessions
     else
-      flash.next[:errors] = ['The username or password is incorrect']
+      flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
     end
   end
