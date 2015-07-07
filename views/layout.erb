@@ -6,6 +6,24 @@
 
   <body>
 
+  <form action='/peeps'>
+    <input type="submit" value="view peeps">
+  </form>
+  <form action='/peeps/new'>
+    <input type="submit" value="create peep">
+  </form>
+  <form action='/users/new'>
+    <input type="submit" value="new user">
+  </form>
+  <form action='/users/login'>
+    <input type="submit" value="login">
+  </form>
+  <form action='/users/logout'>
+    <input type="submit" value="logout">
+  </form>
+
+
+
     <% if current_user %>
       Welcome, <%= current_user.username %>
     <% end %>

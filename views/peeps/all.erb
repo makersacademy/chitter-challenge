@@ -6,7 +6,7 @@
       Peep: <%= peep.content %>
       Username: <%= peep.user.username %>
       User: <%= peep.user.name %>
-      Time: <%= peep.creation_time %>
+      Time: <%= peep.creation_time.strftime("%c") %>
     </li>
   <% end %>
 </ul>

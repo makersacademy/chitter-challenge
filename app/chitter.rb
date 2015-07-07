@@ -71,8 +71,7 @@ class Chitter < Sinatra::Base
     Peep.create(content:  params[:content],
                 user:     user,
                 creation_time: Time.now)
-    @peeps = chronological_peeps
-    erb :'/peeps/all'
+    redirect '/peeps'
   end
 
 
