@@ -12,6 +12,8 @@ require 'tilt/erb'
 require './app/data_mapper_setup.rb'
 
 require './spec/helpers/sign_up.rb'
+require './spec/helpers/sign_in.rb'
+
 
 require './spec/factories/user.rb'
 

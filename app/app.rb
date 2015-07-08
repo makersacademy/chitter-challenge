@@ -1,14 +1,15 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set    :session_secret, 'super secret'
-
+  register Sinatra::Flash
 
   get '/' do
-    'Hello Chitter!'
+    erb :front_page
   end
 
   get '/user/new' do
@@ -17,18 +18,33 @@ class Chitter < Sinatra::Base
 
   post '/user' do
     @user = User.create(name: params[:name],
-                     email: params[:email],
-                     username: params[:username],
-                     password: params[:password],
-                     password_confirmation: params[:password_confirmation])
-    session[:user_id] = @user.id
-    redirect '/user'
+                        email: params[:email],
+                        username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/user'
+    else
+      flash.now[:notice] = "Password and confirmation password do not match"
+      erb :new_user
+    end
   end
 
   get '/user' do
     erb :welcome_user
   end
 
+  get '/session/new' do
+    erb :sign_in
+  end
+
+  post '/session' do
+    @user = User.get(username: params[:username],
+                     password: params[:password])
+    session[:user_id] = @user_id
+    redirect '/user'
+  end
 
 
   # get '/peep/new' do
