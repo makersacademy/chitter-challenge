@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PeepCity</title>
+	</head>
+
+	<body>
+		<% if current_user %>
+			<h2>Welcome, <%= current_user.email %></h2>
+			<form method="POST" action="/sessions">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="Sign out">
+			</form>
+		<% end %>
+
+		<% if flash[:notice] %>
+			<div id='notice'>
+				<%= flash[:notice]%>
+			</div>
+		<% end %>
+		
+		<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+	<% end %>
+
+		<%= yield %>
+	</body>
+</html>
