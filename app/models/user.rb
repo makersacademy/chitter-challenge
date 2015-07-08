@@ -8,12 +8,13 @@ class User
   attr_accessor :password_confirmation
   attr_reader :password
 
-
   property :id, Serial
   property :name, String
   property :email, String
   property :password_digest, Text
   property :username, String  
+
+  has n, :peeps
 
   validates_confirmation_of :password
 

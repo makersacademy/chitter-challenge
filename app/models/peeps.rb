@@ -7,7 +7,8 @@ class Peep
   property :activity, String
   property :created_at, DateTime
 
-
+  belongs_to :user
+  
 end
 
 

@@ -12,6 +12,6 @@ require './app/models/user'
 require './app/models/peeps'
 
 
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 DataMapper.finalize
