@@ -1,0 +1,18 @@
+
+
+
+<h1> Peeps <h2>
+
+<ul id="peeps">
+  
+  <% @peeps.each do |peep| %>
+  <li>Activity: <%= peep.activity %>
+      Created: <%= peep.created_at %></li>
+  <% end %>
+  
+</ul>
+
+
+<a href='/peeps/new'>Make a new peep</a>
+
+
