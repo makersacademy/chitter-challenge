@@ -7,11 +7,11 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'sinatra-flash'
-gem 'bcrpyt'
+gem 'bcrypt'
 
 
 group :development, :test do
-  gem 'databae_cleaner'
+  gem 'database_cleaner'
   gem 'rspec'
   gem 'capybara'
   gem 'cucumber'
