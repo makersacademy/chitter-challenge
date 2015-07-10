@@ -21,7 +21,15 @@ class User
   validates_uniqueness_of :username
 
   def self.authenticate(username, password)
-    User.first(username: username)
+    
+    user = first(username: username)
+    
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+
   end
 
   def password=(password)
