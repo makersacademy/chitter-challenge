@@ -2,21 +2,24 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
   </head>
 
   <body>
-    <% if current_user %>
-    Welcome, <%= current_user.email %>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-  <% end %>
-  <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-    <%= yield %>
+    <div id="page">
+      <% if current_user %>
+      Welcome, <%= current_user.email %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+      <%= yield %>
+  </div>
   </body>
 </html>
