@@ -2,6 +2,15 @@
 
 https://chitter-challenge-ruby.herokuapp.com/peep <br>
 
+<b> Technologies used: </b> <br>
+-Ruby <br>
+-Rspec <br>
+-Sinatra <br>
+-Capybara <br>
+-HTML <br>
+-CSS <br>
+-Other gems in gemfile <br>
+
 <b> Features: </b> <br>
 
 As a Maker <br>
