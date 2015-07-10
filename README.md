@@ -2,7 +2,7 @@
 
 https://chitter-challenge-ruby.herokuapp.com/peep <br>
 
-Features: <br>
+<b> Features: </b> <br>
 
 As a Maker <br>
 So that I can post messages on Chitter as me <br>
