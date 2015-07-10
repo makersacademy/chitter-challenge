@@ -1,7 +1,7 @@
 feature 'User Sign-Up' do
   scenario 'can sign-up as new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, banana@example.com')
+    expect(page).to have_content('Welcome, bananaman1')
     expect(User.first.email).to eq 'banana@example.com'
   end
 
@@ -11,6 +11,11 @@ feature 'User Sign-Up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
+  scenario 'I cannot sign up with an existing username' do
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content('Username is already taken')
+  end
 
   def sign_up(name: 'banana man',
               email: 'banana@example.com', 

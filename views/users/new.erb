@@ -1,9 +1,9 @@
 <h1>User Sign-Up</h1>
 
 <form action='/users' method="POST">
-  Full Name:<input type='text' name='name'>
+  Full Name:<input type='text' name='name' value='<%= @user.name %>'>
   Email:<input type='text' name='email' value='<%= @user.email %>'>
-  Username:<input type='text' name='username'>
+  Username:<input type='text' name='username' value='<%= @user.username %>'>
   Password:<input type='text' name='password'>
   Password Confirmation:<input type='text' name='password_confirmation'>
   <input type='submit' value="Sign up">
