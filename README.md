@@ -1,29 +1,29 @@
 <h1>Chitter Challenge</h1>
 
-https://chitter-challenge-ruby.herokuapp.com/peep
+https://chitter-challenge-ruby.herokuapp.com/peep <br>
 
-Features:
+Features: <br>
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+As a Maker <br>
+So that I can post messages on Chitter as me <br>
+I want to sign up for Chitter <br>
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+As a Maker <br>
+So that I can post messages on Chitter as me <br>
+I want to log in to Chitter <br>
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+As a Maker <br>
+So that I can avoid others posting messages on Chitter as me <br>
+I want to log out of Chitter <br>
 
-As a maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+As a maker <br>
+So that I can let people know what I am doing <br>
+I want to post a message (peep) to chitter <br>
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+As a maker <br>
+So that I can see what others are saying <br>
+I want to see all peeps in reverse chronological order <br>
 
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+As a maker <br>
+So that I can better appreciate the context of a peep <br>
+I want to see the time at which it was made <br>
