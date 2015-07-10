@@ -2,10 +2,10 @@ source "https://rubygems.org"
 
 ruby '2.1.5'
 
+gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
-gem 'bcrypt'
 gem 'sinatra-flash'
 
 group :development do
@@ -13,11 +13,12 @@ group :development do
 end
 
 group :test do
-  gem 'launchy'
+  gem 'coveralls', require: false
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
-  gem 'capybara'
+  gem 'timecop'
 end

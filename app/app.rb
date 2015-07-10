@@ -21,7 +21,7 @@ class App < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = Peep.create(peep: params[:peep])
+    @peep = Peep.create(peep: params[:peep], time_stamp: Time.now)
     @peep.save
     redirect to('/peep')
   end
@@ -67,7 +67,8 @@ class App < Sinatra::Base
   end
 
   delete '/sessions' do
-    flash[:notice] = ['goodbye!']
+    session.clear
+    erb :'sessions/end'
   end
 
   def current_user
