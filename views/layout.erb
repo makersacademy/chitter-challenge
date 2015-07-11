@@ -7,7 +7,12 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.username %>
+      <form method='POST' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
        Please refer to the following errors below:
        <ul id='errors'>
@@ -16,6 +21,7 @@
          <% end %>
        </ul>
      <% end %>
+
     <%= yield %>
   </body>
 </html>

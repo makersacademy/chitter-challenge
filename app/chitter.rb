@@ -5,6 +5,8 @@ require 'data_mapper'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+
+use Rack::MethodOverride
   
 set :views, proc { File.join(root, '..', 'views') }
 
@@ -23,7 +25,7 @@ register Sinatra::Flash
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    Peep.create(content: params[:content], time: peep_time, user: current_user.username)
     redirect to('/peeps')
   end
 
@@ -67,7 +69,34 @@ register Sinatra::Flash
       end
   end
 
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = 'Goodbye!'
+    redirect '/sessions/new'
+  end
+
+  get '/password_reset' do
+    erb :'users/password_reset'
+  end
+
+  post 'users/password_reset' do
+    user = User.first(email: params[:email])
+    user.password_token = generate_token
+    user.save
+    # SendResetEmail.call(user)
+    erb :'users/recovery_sent'
+  end
+
   helpers do
+
+    def peep_time
+      Time.now.strftime("%d/%m/%Y %H:%M")
+    end
+
+    def generate_token
+      "1t2ok3e4n5"
+    end
+
     def current_user
       user ||= User.get(session[:user_id])
     end

@@ -12,6 +12,7 @@ class User
   property :email, String
 
   property :password_digest, Text
+  property :password_token, Text
 
   validates_confirmation_of :password
   validates_presence_of :email
