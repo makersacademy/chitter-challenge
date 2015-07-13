@@ -17,6 +17,7 @@ feature 'User Sign-Up' do
     expect(page).to have_content('Username is already taken')
   end
 
+
   def sign_up(name: 'banana man',
               email: 'banana@example.com', 
               username: 'bananaman1',

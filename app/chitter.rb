@@ -16,7 +16,7 @@ set :session_secret, 'super secret'
 register Sinatra::Flash
 
   get '/' do
-    'Welcome to Chitter!'
+    erb :index
   end
 
   get '/peeps' do
@@ -25,7 +25,7 @@ register Sinatra::Flash
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content], time: peep_time, user: current_user.username)
+    Peep.create(content: params[:content], time: peep_time, user: current_user)
     redirect to('/peeps')
   end
 
