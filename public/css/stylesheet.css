@@ -1,0 +1,42 @@
+html {
+  background: url(sky.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+
+  position: relative;
+}
+
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 72px;
+}
+
+h2 {
+  font-family: sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+h3 {
+  font-family: sans-serif;
+  color: white;
+}
+
+p {
+  font-family: sans-serif;
+  color: black;
+
+}
+
+a {
+  font-family: sans-serif;
+  color: white;
+}
