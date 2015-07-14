@@ -16,4 +16,13 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  def self.authenticate(email, password)
+    user = User.first(email: email) # providing a hash argument scopes the search result to the hashed query
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
 end

@@ -5,6 +5,10 @@
   </head>
 
   <body>
-    <a href="/users/new">Sign up</a>
+    <% if current_user %>
+    <% else %>
+      <a href="/users/new">Sign up</a>
+      <a href="/sessions/new">Login</a>
+    <% end %>
   </body>
 </html>

@@ -48,6 +48,38 @@ feature 'User sign up' do
     fill_in :password, with: user.password
     fill_in :password_confirmation, with: user.password
     click_button 'Sign up'
+  end
+end
 
+feature 'User sign in' do
+  scenario 'with correct info' do
+    user = create :user
+    sign_in_as(user)
+    expect(page).to have_content "Welcome, #{user.username}"
+  end
+
+  def sign_in_as(user)
+    visit '/sessions/new'
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button 'Login'
+  end
+end
+
+feature 'User logout' do
+
+  scenario 'logging out while signed in' do
+    user = create :user
+    sign_in_as(user)
+    click_button 'Logout'
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content("Welcome, #{user.username}")
+  end
+
+  def sign_in_as(user)
+    visit '/sessions/new'
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button 'Login'
   end
 end
