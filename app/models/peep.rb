@@ -10,4 +10,7 @@ class Peep
   property :name,      String
   property :time_date, DateTime, :default => lambda { |p,s| DateTime.now.strftime("%a %d %B %Y - %H:%M") }
 
+# add method to display time
+
+
 end
