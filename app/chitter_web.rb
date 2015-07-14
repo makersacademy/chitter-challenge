@@ -30,7 +30,6 @@ class ChitterWeb < Sinatra::Base
   end
 
   get '/sessions/new' do
-
     erb :'sessions/new'
   end
 
@@ -43,6 +42,22 @@ class ChitterWeb < Sinatra::Base
       flash.now[:errors] = ['Incorrect email/password']
       erb :'sessions/new'
     end
+  end
+
+  get '/password_reset' do
+    erb :'password_reset'
+  end
+
+  post '/password_reset' do
+    user = User.first(email: params[:email])
+    user.password_token = "bscyrpt stufff"
+    user.save
+    redirect('/password_reset_sent')
+  end
+
+  get '/password_reset_sent' do
+    'Check your email for a password reset token'
+    erb :index
   end
 
   helpers do

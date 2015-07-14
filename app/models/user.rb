@@ -11,6 +11,7 @@ class User
   property :username, String, required: true, unique: true, message: 'Username already registered'
   property :email, String, required: true, unique: true, message: 'Email already registered'
   property :password_digest, Text, required: true
+  property :password_token, Text
 
   def password=(password)
     @password = password
@@ -24,5 +25,11 @@ class User
     else
       nil
     end
+  end
+
+  def set_password_token
+    user = User.first(email: email)
+    user.password_token = "bscyrpt stufff"
+    user.save
   end
 end
