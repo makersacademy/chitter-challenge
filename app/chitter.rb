@@ -7,10 +7,10 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
 
 use Rack::MethodOverride
-  
-set :views, proc { File.join(root, '..', 'views') }
 
-enable :sessions
+enable :sessions, :static
+set :views, proc { File.join(root, '..', 'views') }
+set :public_folder, Proc.new { File.join(root, '..', 'public')}
 set :session_secret, 'super secret'
 
 register Sinatra::Flash
@@ -42,7 +42,7 @@ register Sinatra::Flash
     @user = User.new(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation],
-                username: params[:username],  
+                username: params[:username],
                 name: params[:name]
                 )
     if @user.save

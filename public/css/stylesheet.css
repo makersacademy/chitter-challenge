@@ -1,0 +1,14 @@
+body {
+  background-color: #E8E8E8;
+    font-family: 'Pacifico', sans-serif, cursive;
+}
+
+#homepage {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
+#peeps {
+  background-color: white;
+}

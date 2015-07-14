@@ -1,3 +1,15 @@
 body {
-  background-color: #E8E8E8 
+  background-color: #E8E8E8;
+  font-family: 'Pacifico', cursive;
+}
+
+#homepage {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#singlePeep {
+  background-color: white;
+  border-style: groove;
+  border-color: blue;
 }
