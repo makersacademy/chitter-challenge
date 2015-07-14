@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'sinatra'
 gem 'dm-postgres-adapter'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
@@ -14,5 +15,6 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'factory_girl'
 end
 
