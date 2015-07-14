@@ -4,16 +4,10 @@ require 'dm-postgres-adapter'
 class Peep
 
   include DataMapper::Resource
+  belongs_to :user
 
   property :id, Serial
-  property :message, String
-  property :post_time, Text
-  property :user_id, Serial
-  property :username, String
-  property :name, String
-
-  def time=(time)
-    self.post_time = "#{time.hour}:#{time.min} #{time.day}/#{time.month}/#{time.year}"
-  end
+  property :message, String, required: true
+  property :time, DateTime
 
 end

@@ -9,16 +9,17 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps
+
   validates_confirmation_of :password
-  validates_presence_of :password, :username, :name, :email
-  validates_uniqueness_of :email, :username
+  validates_presence_of :password
 
   property :id, Serial
-  property :email, String
-  property :password_digest, Text
+  property :email, String, unique: true, required: true
+  property :password_digest, Text, required: true
 
-  property :name, String
-  property :username, String
+  property :name, String, required: true
+  property :username, String, unique: true, required: true
 
   def password=(password)
     @password = password

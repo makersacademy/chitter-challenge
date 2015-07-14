@@ -1,8 +1,7 @@
 feature 'Posting peeps' do
 
   scenario 'can post a new peep if logged in' do
-    user = build :user
-    sign_up_as(user)
+    user = create :user
     sign_in(user)
     visit '/peeps/new'
     fill_in 'peep', with: 'Hello, world'
@@ -21,8 +20,7 @@ feature 'Posting peeps' do
   end
 
   scenario 'message field must not be blank' do
-    user = build :user
-    sign_up_as(user)
+    user = create :user
     sign_in(user)
     visit '/peeps/new'
     click_button 'Post peep'

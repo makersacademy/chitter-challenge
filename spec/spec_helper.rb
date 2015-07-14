@@ -11,8 +11,11 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
+require 'timecop'
 require_relative './factory/user'
+require_relative './factory/peep'
 require_relative './helpers/session'
+require_relative './helpers/post_peep'
 
 Capybara.app = App
 
@@ -21,6 +24,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.include SessionHelpers
+  config.include PostPeepHelpers
 
   config.include Capybara::DSL
 

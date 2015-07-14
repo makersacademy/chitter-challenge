@@ -55,18 +55,14 @@ feature 'User sign up' do
   end
 
   scenario 'requires a unique email address' do
-    user = build :user
-    dup_user = build :user, password: '1233', password_confirmation: '1233', name: 'Bob', username: 'Bobo'
-    sign_up_as(user)
+    user = create :user
     expect { sign_up_as(user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'requires a unique username' do
-    user = build :user
-    dup_user = build :user, email: 'natalie@gmail.com', password: '1233', password_confirmation: '1233', name: 'Bob'
-    sign_up_as(user)
-    expect { sign_up_as(dup_user) }.not_to change(User, :count)
+    user = create :user
+    expect { sign_up_as(user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
 end
@@ -74,8 +70,7 @@ end
 feature 'User sign in' do
 
   scenario 'with correct credentials' do
-    user = build :user
-    sign_up_as(user)
+    user = create :user
     sign_in(user)
     expect(page).to have_content 'Hi, Natso'
   end
@@ -83,8 +78,7 @@ end
 
 feature 'User sign out' do
   scenario 'while being signed in' do
-    user = build :user
-    sign_up_as(user)
+    user = create :user
     sign_in(user)
     click_button 'Sign out'
     expect(page).not_to have_content('Hi, Natso')

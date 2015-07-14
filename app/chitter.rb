@@ -59,8 +59,8 @@ class App < Sinatra::Base
 
   post '/peeps' do
     if session[:user_id]
-      if (params[:peep] != '')
-        Peep.create(message: params[:peep], time: Time.now, user_id: current_user.id, username: current_user.username, name: current_user.name)
+      peep = Peep.create(message: params[:peep], time: Time.now, user_id: current_user.id)
+      if peep.save
         redirect '/peeps'
       else
         flash.now[:notice] = 'You must enter a message'

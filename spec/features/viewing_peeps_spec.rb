@@ -1,35 +1,36 @@
 feature 'Viewing peeps' do
 
+  let!(:user) do
+    user = create :user
+  end
+
+  let(:peep) do
+    peep = build :peep
+  end
+
   scenario 'can view peeps' do
-    Peep.create(message: 'Hello, world')
-    visit '/peeps'
+    sign_in(user)
+    post(peep)
     expect(page).to have_content('Hello, world')
   end
 
   scenario 'peeps contain time created' do
-    time = Time.new(2015, 7, 5, 15, 25, 0, "+01:00")
-    Peep.create(message: 'Hello, world', time: time)
-    visit '/peeps'
-    expect(page).to have_content('15:25 5/7/2015')
+    sign_in(user)
+    Timecop.freeze(Time.local(2015))
+    post(peep)
+    expect(page).to have_content("00:00 01/01/2015")
+    Timecop.return
   end
 
   scenario 'peeps contain username' do
-    user = build :user
-    sign_up_as(user)
     sign_in(user)
-    visit '/peeps/new'
-    fill_in 'peep', with: 'Hello, world'
-    click_button 'Post peep'
+    post(peep)
     expect(page).to have_content('Author: Natso')
   end
 
   scenario 'peeps contain name' do
-    user = build :user
-    sign_up_as(user)
     sign_in(user)
-    visit '/peeps/new'
-    fill_in 'peep', with: 'Hello, world'
-    click_button 'Post peep'
+    post(peep)
     expect(page).to have_content('(Natalie)')
   end
 end
