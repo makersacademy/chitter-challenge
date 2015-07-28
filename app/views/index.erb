@@ -1,0 +1,22 @@
+<h1> Welcome to Chitter! </h1>
+
+<div id="homelinks">
+  <a href="/users/new">Sign up</a>
+  <br>
+  <a href="/sessions/new">Sign in</a>
+  <br>
+  <a href="/peep/new">New peep</a>
+  <br>
+</div>
+
+<div id="peeps">
+<h2> Peeps: </h2>
+
+<ul id="peep">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep %>
+    </li>
+  <% end %>
+</ul>
+</div>

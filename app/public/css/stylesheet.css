@@ -1,0 +1,20 @@
+body {
+  background-color: #87CEFA;
+}
+
+h1 {
+  text-align: center;
+}
+
+#homelinks {
+  text-align: right;
+  margin-top: 100px;
+  font-size: 125%;
+  margin-right: 125px;
+}
+
+#peeps {
+  text-align: left;
+  margin-top: -85px;
+  margin-left: 75px;
+}
