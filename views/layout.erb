@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+   <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <% if flash[:error_sign_up] && !flash[:error_sign_up].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+         <% flash[:error_sign_up].each do |error| %>
+      <li><%= error %></li>
+          <% end %>
+      </ul>
+    <% end %>
+
+    <%= yield %>
+
+    <% if flash[:error_sign_in] %>
+      <div id='notice'><%= flash[:error_sign_in] %></div>
+    <% end %>
+
+
+
+  </body>
+</html>
