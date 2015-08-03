@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+  </head>
+
+  <body>
+    <div id='homepage'>
+      <h1>Chitter</h1>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% else %>
+    <div id='sign_in'>
+      <form action='/sessions/new'>
+        <input type='submit' value='Sign In'>
+      </form>
+    </div>
+    <div id='sign_up'>
+      <form action='/users/new'>
+        <input type='submit' value='Sign Up'>
+      </form>
+    </div>
+    <% end %>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<h1>Sign In</h1>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<form action="/sessions" method="POST">
+  Username:<input type="text" name="username">
+  Password:<input type="password" name="password">
+  <input type="submit" value='Sign in'>
+</form>
