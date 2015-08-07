@@ -1,0 +1,5 @@
+<ul id='peeps'>
+  <% Peep.all.reverse_each do |peep| %>
+    <p><%= peep.body %> <%= peep.time %></p>
+  <% end %>
+</ul>

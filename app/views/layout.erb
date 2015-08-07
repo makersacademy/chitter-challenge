@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+<title>Chitter</title>
+</head>
+
+<body>
+
+  <%= @user ? "Welcome, #{@user.email}." : "Welcome." %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:errors] %>
+
+    <ul id='errors'>
+
+      <% flash[:errors].each do |error| %>
+        <li><%= error %>
+      <% end %>
+
+    </ul>
+
+  <% end %>
+
+  <% if current_user %>
+    <form method='POST' action='/sessions'>
+      <input type='hidden' name='_method' value='DELETE'>
+      <input type='submit' value='Log out.'>
+    </form>
+  <% end %>
+
+  <%= yield %>
+
+</body>
