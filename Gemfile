@@ -3,6 +3,7 @@ ruby '2.2.2'
 
 gem "sinatra"
 gem "sinatra-session"
+gem "sinatra-flash"
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 

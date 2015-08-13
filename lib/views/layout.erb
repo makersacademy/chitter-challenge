@@ -8,6 +8,9 @@
     <% if current_peeper %>
     <p> What's peeping <%= current_peeper.name %>?</p>
     <% end %>
+    <% if flash[:notice] %>
+      <div id="notice" > <%= flash[:notice] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

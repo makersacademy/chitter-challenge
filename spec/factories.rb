@@ -4,5 +4,6 @@ FactoryGirl.define do
     email "captain@strawhats.com"
     username "Future Pirate King"
     password "AceSabo"
+    password_confirmation "AceSabo"
   end
 end

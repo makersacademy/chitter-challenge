@@ -9,6 +9,12 @@ feature "user signing up" do
     expect(User.first.username).to eq monkey.username
   end
 
+  scenario "cannot sign up if confirmation password different" do
+    monkey = build :user, password: "hi"
+    expect { sign_up(monkey) }.not_to change(User, :count)
+    expect(current_path).to eq "/users"
+    expect(page).to have_content "Password and confirmation password do not match"
+  end
 
 
   def sign_up(user)
@@ -19,6 +25,7 @@ feature "user signing up" do
     fill_in "email", with: user.email
     fill_in "username", with: user.username
     fill_in "password", with: user.password
+    fill_in "password_confirmation", with: user.password_confirmation
     click_button "Sign up"
   end 
 end
