@@ -1,7 +1,11 @@
 require 'sinatra/base'
+require "sinatra/session"
 require_relative "../data_mapper_setup"
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, "super secret"
 
   get '/' do
     erb :home
@@ -13,11 +17,18 @@ class Chitter < Sinatra::Base
       email: params[:email],
       username: params[:username],
       password: params[:password])
+    session[:username] = params[:username]
     redirect "/"
   end
 
   get "/users/new" do
     erb :sign_up
+  end
+
+  helpers do
+    def current_peeper
+      User.first(:username => session[:username])
+    end
   end
 
   # start the server if ruby file executed directly

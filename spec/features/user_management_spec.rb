@@ -4,6 +4,9 @@ feature "user signing up" do
   scenario "can sign up if all ok" do
     monkey = build :user
     expect { sign_up(monkey) }.to change(User, :count).by 1
+    expect(page).to have_content "What's peeping #{monkey.name}?"
+    expect(User.first.email).to eq monkey.email
+    expect(User.first.username).to eq monkey.username
   end
 
 
