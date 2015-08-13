@@ -16,6 +16,26 @@ feature "user signing up" do
     expect(page).to have_content "Password and confirmation password do not match"
   end
 
+  scenario "cannot sign up if no email given" do
+    monkey = build :user, email: ""
+    expect { sign_up(monkey) }.not_to change(User, :count)
+    expect(current_path).to eq "/users"
+    expect(page).to have_content "Please enter a valid email address"
+  end
+
+  scenario "cannot sign up if no name given" do
+    monkey = build :user, name: ""
+    expect { sign_up(monkey) }.not_to change(User, :count)
+    expect(current_path).to eq "/users"
+    expect(page).to have_content "Please enter your name"
+  end
+
+  scenario "cannot sign up if no username given" do
+    monkey = build :user, username: ""
+    expect { sign_up(monkey) }.not_to change(User, :count)
+    expect(current_path).to eq "/users"
+    expect(page).to have_content "Please enter the username you want to use"
+  end
 
   def sign_up(user)
     visit "/"

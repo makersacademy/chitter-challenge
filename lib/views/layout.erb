@@ -8,8 +8,13 @@
     <% if current_peeper %>
     <p> What's peeping <%= current_peeper.name %>?</p>
     <% end %>
-    <% if flash[:notice] %>
-      <div id="notice" > <%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please see the following errors:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <%= yield %>
   </body>
