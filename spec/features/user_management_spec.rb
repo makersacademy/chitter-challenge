@@ -46,7 +46,6 @@ feature "user signing up" do
       expect(page).to have_content "Username taken"
     end
   end
-
   def sign_up(user)
     visit "/"
     click_link "Become a Chitter Peeper"
@@ -59,3 +58,43 @@ feature "user signing up" do
     click_button "Sign up"
   end 
 end
+
+feature "user signing in" do
+  let(:monkey) { create :user }
+  context "can sign in" do
+    scenario "with correct credentials" do
+      sign_in(monkey.email, monkey.password)
+      expect(page).to have_content "What's peeping #{monkey.name}?"
+    end
+  end
+  context "cannot sign in" do
+    scenario "with incorrect email" do
+      sign_in("Cook@strawhats.com", monkey.password)
+      expect(page).to have_content "Email or password is incorrect."
+    end
+    scenario "with incorrect password" do
+      sign_in(monkey.email, "Nami-swan-robin-chwan")
+      expect(page).to have_content "Email or password is incorrect."
+    end
+  end
+
+  def sign_in(email, password)
+    visit "/"
+    click_link "Get back to Peeping"
+    expect(current_path).to eq "/sessions/new"
+    fill_in "email", with: email
+    fill_in "password", with: password
+    click_button "Sign in"
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
