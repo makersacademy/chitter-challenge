@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    timestamp = DateTime.now
+    timestamp = Time.now
     Peep.create(text: params[:text], timestamp: timestamp)
     redirect to '/peeps'
   end
@@ -37,11 +37,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email],
+    @user = User.create(email: params[:email],
                 password: params[:password],
                 name: params[:name],
                 username: params[:username])
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     redirect to '/peeps'
   end
 end
