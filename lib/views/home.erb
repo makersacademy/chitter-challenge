@@ -5,6 +5,13 @@
       <input type="submit" value="Pop that peeper">
     </form></p>
   <% end %>
-  Here's what's peeping:
-  
+  <h2>Here's what's peeping:</h2>
+    <ul id="peeps">
+      <% (Peep.all).each do |peep| %>
+        <li>
+          <h6><%= name_finder(peep.user_id) %>(<%= username_finder(peep.user_id) %>)
+          <p><%= peep.peep %></p>
+        </li>
+      <% end %>
+    </ul>
 </div>
