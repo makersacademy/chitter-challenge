@@ -7,10 +7,12 @@ class User
   property :id, Serial
   property :name, String, required: true, 
     :messages => { :presence  => "Please enter your name." }
-  property :email, String, required: true, 
-    :messages => { :presence => "Please enter a valid email address." }
-  property :username, String, required: true, 
-    :messages => { :presence => "Please enter the username you want to use." }
+  property :email, String, required: true, unique: true,
+    :messages => { :presence => "Please enter a valid email address.",
+                   :is_unique => "Email already in use." }
+  property :username, String, required: true, unique: true,
+    :messages => { :presence => "Please enter the username you want to use.",
+                   :is_unique => "Username taken." }
   
   property :password_digest, Text
   
