@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
       password: params[:password],
       password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:username] = @user.username
+      session[:user_id] = @user.id
       redirect "/"
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
   post "/sessions" do
     user = User.authenticate(params[:email], params[:password])
     if user
-      session[:username] = user.username
+      session[:user_id] = user.id
       redirect "/"
     else
       flash.now[:errors] = ["Email or password is incorrect."]
@@ -51,13 +51,18 @@ class Chitter < Sinatra::Base
   end
 
   delete "/sessions" do
-    session[:username] = nil
+    session[:user_id] = nil
+    redirect "/"
+  end
+
+  post "/peeps/new" do
+    Peep.create(peep: params[:peep])
     redirect "/"
   end
 
   helpers do
     def current_peeper
-      User.first(:username => session[:username])
+      User.get(session[:user_id])
     end
   end
 

@@ -1,3 +1,10 @@
 <div>
-
+  <% if session[:user_id] %>
+    <p><form action="/peeps/new" method="post">
+      Post a Peep:<input type="text" name="peep">
+      <input type="submit" value="Pop that peeper">
+    </form></p>
+  <% end %>
+  Here's what's peeping:
+  
 </div>
