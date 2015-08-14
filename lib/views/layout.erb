@@ -4,10 +4,14 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_peeper %>
+    <p><form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Peep ya later">
+    <p> What's peeping <%= current_peeper.name %>?</p>
+    <% else %>
     <p><a href="/sessions/new"><button type="button">Get back to Peeping</button></a>
       <a href="/users/new"><button type="button">Become a Chitter Peeper</button></a></p>
-    <% if current_peeper %>
-    <p> What's peeping <%= current_peeper.name %>?</p>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please see the following errors:
