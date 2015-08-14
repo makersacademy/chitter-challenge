@@ -7,4 +7,18 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    Peep.create(text: params[:text], timestamp: params[:timestamp])
+    redirect to '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
 end

@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require_relative './app/models/peep'
 
 env = ENV['RACK_ENV'] || 'development'
