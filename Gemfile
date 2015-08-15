@@ -14,5 +14,6 @@ group :test do
 	gem 'dm-postgres-adapter'
 	gem 'bcrypt'
 	gem 'dm-validations'
+	gem 'sinatra-flash'
 end
 
