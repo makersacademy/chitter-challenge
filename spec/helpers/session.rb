@@ -7,6 +7,7 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
+  
   def sign_up(email: 'test@test.com',
               password: 'password',
               name: 'name',
