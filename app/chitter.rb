@@ -14,11 +14,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(username: params[:username],
+    @user = User.create(username: params[:username],
                 email: params[:email],
                 password: params[:password])
-    session[:user_id] = user.id
-    redirect to('\peeps')
+    session[:user_id] = @user.id
+    redirect to('/peeps')
   end
 
   get '/peeps' do
@@ -33,6 +33,12 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     Peep.create(message: params[:message], time: Time.now)
     redirect to('/peeps')
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    end
   end
 
   # start the server if ruby file executed directly
