@@ -1,12 +1,16 @@
 feature do
+  let(:user) { user = build(:user) }
+
   scenario 'User can sign up' do
-    visit('/users/new')
-    fill_in('email', with: 'test@test.com')
-    fill_in('password', wth: 'test')
-    fill_in('password_confirmation', with: 'test')
-    fill_in('name', with: 'Testbot')
-    fill_in('user name', with: 'Tester')
-    click_button('Register')
-    expect(curret_path).to eq('/')
+    sign_up(user)
+    expect(current_path).to eq('/')
+  end
+
+  scenario 'User can log in after signing up' do
+    sign_up(user)
+    click_button('Log out')
+    sign_in(user)
+    expect(current_path).to eq('/')
+    expect(page).to have_content("Welcome, #{user.user_name}!")
   end
 end

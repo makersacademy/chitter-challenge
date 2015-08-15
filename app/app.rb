@@ -1,12 +1,16 @@
 require 'sinatra/base'
 
+require_relative 'helpers/app_helpers'
 require_relative 'data_mapper_setup'
-require_relative 'controllers/base'
 
 Dir[__dir__ + '/controllers/*.rb'].each(&method(:require))
+
+include Chitter::Models
 
 module Chitter
   class MyApp < Sinatra::Base
     use Routes::Mainpage
+    use Routes::Sessions
+    use Routes::Users
   end
 end
