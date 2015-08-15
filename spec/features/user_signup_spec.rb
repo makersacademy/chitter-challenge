@@ -8,7 +8,13 @@ feature 'user sign up' do
   scenario 'user can sign up' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content 'Hello abc@test.com'
+    expect(page).to have_content "Hello #{user.name}"
+  end
+
+  scenario 'must enter valid name' do
+    user = build :user, name: nil
+    expect { sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content 'Name must not be blank'
   end
 
   scenario 'must enter valid username' do

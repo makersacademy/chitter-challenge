@@ -11,8 +11,6 @@ module ChitterApp
         if params[:peep] != ''
           peep = Peep.create(text: params[:peep])
           peep.save
-          current_user.peeps << peep
-          current_user.save
           redirect '/peeps'
         else
           flash.next[:errors] = ["Cannot be empty"]

@@ -16,9 +16,7 @@ feature 'posting to chitter' do
 
   scenario 'can see posted peeps' do
     sign_in
-    visit '/peeps/new'
-    fill_in 'peep', with: 'Hello'
-    click_button 'Submit'
+    post_peep
     within "ul#peeps" do
       expect(page).to have_content 'Hello'
     end
@@ -26,9 +24,7 @@ feature 'posting to chitter' do
 
   scenario 'can see posted time' do
     sign_in
-    visit '/peeps/new'
-    fill_in 'peep', with: 'Hello'
-    click_button 'Submit'
+    post_peep
     within "ul#peeps" do
       expect(page).to have_content '2015'
     end
@@ -36,9 +32,7 @@ feature 'posting to chitter' do
 
   scenario 'can see posted peeps' do
     sign_in
-    visit '/peeps/new'
-    fill_in 'peep', with: 'Hello'
-    click_button 'Submit'
+    post_peep
     within "ul#peeps" do
       expect(page).to have_content 'Hello'
     end
@@ -55,6 +49,13 @@ feature 'posting to chitter' do
     click_button 'Submit'
     expect(Peep.count).to eq 0
     expect(page).to have_content "Cannot be empty"
+  end
+
+  scenario 'will always see latest post first' do
+    sign_in
+    post_peep
+    post_peep(message: 'Hi')
+    expect(page).to have_content "Timeline Hi"
   end
 
   scenario 'there are no links in the database at the start of the test' do

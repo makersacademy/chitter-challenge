@@ -1,3 +1,4 @@
+
 class Peep
   include DataMapper::Resource
 

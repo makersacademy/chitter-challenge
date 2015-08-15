@@ -11,7 +11,7 @@ feature 'user sign in' do
     fill_in 'username', with: user.username
     fill_in 'password', with: user.password
     click_button 'Sign in'
-    expect(page).to have_content "Hello #{user.email}"
+    expect(page).to have_content "Hello #{user.name}"
   end
 
   scenario 'cannot sign in with wrong password' do
@@ -24,7 +24,8 @@ feature 'user sign in' do
   end
 
   scenario 'cannot sign in after signed in' do
-    sign_in
+    user = create :user
+    sign_in(username: user.username, password: user.password)
     visit '/session/new'
     expect(page).to have_content "You're already signed in"
   end
