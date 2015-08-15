@@ -16,6 +16,12 @@ module Chitter
         end
       end
 
+      delete '/sessions' do
+        session.clear
+        flash[:notice] = 'Goodbye!'
+        redirect('/')
+      end
+
     end
   end
 end
