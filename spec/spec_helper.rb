@@ -1,5 +1,6 @@
 require 'coveralls'
 require 'simplecov'
+require 'capybara/rspec'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
