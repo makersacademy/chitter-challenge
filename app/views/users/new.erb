@@ -4,9 +4,11 @@
 
 <form action='/users' method='post'>
   <p>Enter email</p>
-  <input name='email' type='text'>
+  <input name='email' type='text' value='<%= @user.email %>'>
   <p>Enter password</p>
   <input name='password' type='password'>
+  <p>Confirm password</p>
+  <input name='password_confirmation' type='password'>
   <p>Enter name</p>
   <input name='name' type='text'>
   <p>Enter username</p>
