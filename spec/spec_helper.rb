@@ -9,6 +9,7 @@ require 'simplecov'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require './app/chitter.rb'
 
 
 Capybara.app = Chitter
