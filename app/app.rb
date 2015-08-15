@@ -4,12 +4,20 @@ require_relative '../data_mapper_setup'
 class Chitter_Challenge < Sinatra::Base
 
   get '/' do
-    'Hello chitter-challenge!'
+    'Hello, welcome to chitter'
   end
 
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new_peeps'
+  end
+
+  post '/peeps' do
+
   end
 
   # start the server if ruby file executed directly
