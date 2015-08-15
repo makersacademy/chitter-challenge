@@ -12,5 +12,6 @@ module Chitter
   class MyApp < Sinatra::Base
     use Routes::Homepage
     use Routes::Users
+    use Routes::Sessions
   end
 end

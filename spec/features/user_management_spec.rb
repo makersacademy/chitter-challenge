@@ -31,3 +31,21 @@ feature '#User sign up' do
     expect(page).to have_content('Email is already taken')
   end
 end
+
+feature '#User login' do
+  scenario 'Can log into Chitter' do
+    user = create(:user)
+    sign_in_as(user)
+    expect(current_path).to eq('/')
+    expect(page).to have_content("Welcome, #{user.name}")
+  end
+end
+
+feature '#User signs out' do
+  scenario 'signs out while logged in' do
+    user = create(:user)
+    sign_in_as(user)
+    click_button('Sign out')
+    expect(page).to have_content('Goodbye!')
+  end
+end
