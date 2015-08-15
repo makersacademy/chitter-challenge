@@ -14,6 +14,13 @@ module Chitter
         redirect('/')
       end
 
+      delete '/sessions' do
+        user = User.get(session[:user_id])
+        flash[:notice] = "Goodbye, #{user.user_name}!"
+        session.clear
+        redirect('/')
+      end
+
     end
 
   end

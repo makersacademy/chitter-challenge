@@ -17,4 +17,10 @@ module Helpers
     click_button('Log in')
   end
 
+  def create_peep
+    visit('peeps/new')
+    fill_in('peep', with: 'This is a test peep.')
+    click_button('Peep')
+  end
+
 end

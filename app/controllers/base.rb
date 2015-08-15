@@ -6,6 +6,9 @@ module Chitter
       set :views, proc { File.join(root, '..', 'views') }
       enable :sessions
       set :session_secret, 'secret'
+      register Sinatra::Flash
+      use Rack::MethodOverride
+
     end
   end
 end
