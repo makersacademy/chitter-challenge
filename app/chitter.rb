@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
-  #register Sinatra::Flash
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -26,14 +26,34 @@ class Chitter < Sinatra::Base
     first_name: params[:first_name],
     last_name: params[:first_name],
     username: params[:username])
-    @user.save
-    session[:user_id] = @user.id
-    redirect to('/')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   helpers do
     def current_user
       User.get(session[:user_id])
+    end
+  end
+
+  get '/sessions/new' do
+    # @user = User.new
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
     end
   end
 
