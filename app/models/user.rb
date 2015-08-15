@@ -17,6 +17,7 @@ module Chitter
       property :password_digest, Text
       property :name, String
       property :username, String
+      has n, :peeps, through: Resource
 
       def password=(password)
         @password = password

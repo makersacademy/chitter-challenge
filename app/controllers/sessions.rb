@@ -9,6 +9,7 @@ module Chitter
         user = User.authenticate(params[:email], params[:password])
         if user
           session[:user_id] = user.id
+          flash[:notice] = "Welcome back, #{user.name}"
           redirect('/')
         else
           flash.now[:errors] = ['The email or password is incorrect']

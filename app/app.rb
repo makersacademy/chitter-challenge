@@ -13,5 +13,6 @@ module Chitter
     use Routes::Homepage
     use Routes::Users
     use Routes::Sessions
+    use Routes::Peeps
   end
 end

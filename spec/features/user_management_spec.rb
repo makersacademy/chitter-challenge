@@ -8,24 +8,24 @@ feature '#User sign up' do
     expect(page).to have_content('Password Confirmation')
     user = build(:user)
     sign_up_as(user)
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/peeps')
     expect(page).to have_content("Welcome, #{user.name}")
   end
 
-  scenario 'requires a matching confirmation password' do
+  scenario 'Requires a matching confirmation password' do
     user = build(:user, password_confirmation: 'wrong')
     sign_up_as(user)
     expect(current_path).to eq('/users/new')
     expect(page).to have_content('Password does not match the confirmation')
   end
 
-  scenario 'requires user to input an email' do
+  scenario 'Requires user to input an email' do
     user = build(:user, email: '')
     sign_up_as(user)
     expect(current_path).to eq('/users/new')
   end
 
-  scenario 'cannot sign up with an existing email' do
+  scenario 'Cannot sign up with an existing email' do
     user = create(:user)
     sign_up_as(user)
     expect(page).to have_content('Email is already taken')
@@ -36,13 +36,13 @@ feature '#User login' do
   scenario 'Can log into Chitter' do
     user = create(:user)
     sign_in_as(user)
-    expect(current_path).to eq('/')
-    expect(page).to have_content("Welcome, #{user.name}")
+    expect(current_path).to eq('/peeps')
+    expect(page).to have_content("Welcome back, #{user.name}")
   end
 end
 
 feature '#User signs out' do
-  scenario 'signs out while logged in' do
+  scenario 'Signs out while logged in' do
     user = create(:user)
     sign_in_as(user)
     click_button('Sign out')

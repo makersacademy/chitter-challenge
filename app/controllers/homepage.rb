@@ -2,7 +2,7 @@ module Chitter
   module Routes
     class Homepage < Base
       get '/' do
-        erb :'peeps/content'
+        redirect('/peeps')
       end
     end
   end
