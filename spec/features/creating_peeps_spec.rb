@@ -1,7 +1,8 @@
 feature 'Creating peeps' do
 
-  scenario 'I can create a new peep' do
-    visit '/peeps/new'
+  scenario 'I can create a new peep if I am signed in' do
+    sign_up
+    visit '/peeps'
     fill_in 'text',   with: 'Hello world!'
     click_button 'Create peep'
 

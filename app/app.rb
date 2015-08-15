@@ -29,13 +29,15 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     timestamp = Time.now
-    Peep.create(text: params[:text], timestamp: timestamp)
+    name = session[:user_name]
+    username = session[:user_username]
+    Peep.create(text: params[:text], timestamp: timestamp, user_name: name, user_username: username)
     redirect to '/peeps'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
+  # get '/peeps/new' do
+  #   erb :'peeps/new'
+  # end
 
   get '/users/new' do
     @user = User.new
@@ -50,6 +52,9 @@ class Chitter < Sinatra::Base
                 password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      session[:user_name] = @user.name
+      session[:user_username] = @user.username
+      session[:user_email] = @user.email
       redirect to '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages

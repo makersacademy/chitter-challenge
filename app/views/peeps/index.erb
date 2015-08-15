@@ -2,11 +2,23 @@
 
 <h1> Peeps! </h1>
 
+<% if current_user %>
+<div>
+  <form action='/peeps' method='post'>
+    <p>Enter Peep</p>
+    <input type="text" name="text">
+    <input type="submit" value="Create peep">
+  </form>
+</div>
+<%end%>
+
 <ol id="peeps">
   <% @peeps.each do |peep| %>
     <li>
       Peep: <%= peep.text %>
-      Timestamp:  <%= peep.timestamp %>
+      Written By: <%= peep.user_name %>
+      Username: <%= peep.user_username %>
+      Timestamp:  (<%= peep.timestamp %>)
     </li>
   <% end %>
 </ol>
