@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get '/' do
+    erb :home
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
