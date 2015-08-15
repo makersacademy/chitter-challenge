@@ -1,13 +1,12 @@
 module SessionHelpers
 
- def sign_in(email:, password:)
-   visit '/sessions/new'
+  def sign_in(email:, password:)
+    visit '/sessions/new'
     expect(page.status_code).to eq(200)
     fill_in :email,    with: email
     fill_in :password, with: password
     click_button 'Sign in'
- end
-
+  end
   def sign_up(email: 'test@test.com',
               password: 'password',
               name: 'name',

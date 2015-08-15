@@ -31,7 +31,10 @@ class Chitter < Sinatra::Base
     timestamp = Time.now
     name = session[:user_name]
     username = session[:user_username]
-    Peep.create(text: params[:text], timestamp: timestamp, user_name: name, user_username: username)
+    Peep.create(text: params[:text], 
+                timestamp: timestamp, 
+                user_name: name, 
+                user_username: username)
     redirect to '/peeps'
   end
 
@@ -42,10 +45,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email],
-                password: params[:password],
-                name: params[:name],
-                username: params[:username],
-                password_confirmation: params[:password_confirmation])
+                        password: params[:password],
+                        name: params[:name],
+                        username: params[:username],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       session[:user_name] = @user.name
