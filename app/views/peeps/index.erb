@@ -1,15 +1,16 @@
-<div style='width: 100%; text-align:center; margin:0 auto; '>
-  <div><img src="http://2.bp.blogspot.com/-2iQ_E_vuDDw/Vc-dFquq2mI/AAAAAAAARFw/xRtwERRTU1I/s1600/chitter.png"></div>
+<div style='width: 100%; background:#fffed1; text-align:center; margin:0 auto; '>
+  <div style="font-size: 10px; float: right; "><a href="/">Home</a></div>
+  <div><img src="http://3.bp.blogspot.com/-a9aGpuTZP-c/Vc-z9aEzBTI/AAAAAAAARGE/kIwqOkCVqPU/s320/chitter%2B2.png"></div>
   <div style="font-family: Arial Black; font-size: 26px; color: black; ">Check out what the Peeps say!</div>
 <div><ul id="peeps">
   <% @peeps.reverse_each do |peep| %>
-      <div style='width: 400px; border: 3px solid #28aae1; padding: 20px; background:#DEDEDE; text-align:left; margin:0 auto; '>           <div style="font-size: 22px; ">Peep: <%= peep.text %></div>
+      <div style='width: 400px; border: 3px solid #28aae1; padding: 20px; background:#DEDEDE; text-align:left; margin:0 auto; '>           <div style="font-size: 22px; vertical-align: top"><img src="http://4.bp.blogspot.com/-xS7oAf5iy0U/Vc-z9TJZ7jI/AAAAAAAARGA/aO9PwBSxMog/s1600/chitter%2Bpeep%2Blogo.png" width="25" > <%= peep.text %></div>
         <div>&nbsp;</div> 
-        <div style="font-size: 14px; float: right">Posted:  <%= peep.timestamp %></div>
+        <div style="font-size: 14px; float: right">Posted:  <%= peep.timestamp.strftime('%c') %></div>
       </div>
     <div>&nbsp;</div>
   <% end %>
 </ul>
-  <div style="font-size: 20px; "><a href="/">Return to Home Page</a></div>
 </div>
+  <div style="font-size: 20px; "><a href="/">Return to Home Page</a></div>
 </div>
