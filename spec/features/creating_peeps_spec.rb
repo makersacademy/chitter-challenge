@@ -16,10 +16,10 @@ feature 'Creating peeps' do
     fill_in 'text',   with: 'Hello world!'
     click_button 'Create peep'
     within 'ol#peeps' do
-      expect(page).to have_content('Written By: name Username: username')
+      expect(page).to have_content('name, or better known as username')
     end
   end
-  
+
   scenario 'there are no peeps in the database at the start of the test' do
     expect(Peep.count).to eq 0
   end

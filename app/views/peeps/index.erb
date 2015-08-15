@@ -15,10 +15,9 @@
 <ol id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-      Peep: <%= peep.text %>
-      Written By: <%= peep.user_name %>
-      Username: <%= peep.user_username %>
-      Timestamp:  (<%= peep.timestamp %>)
+      <p>Peep by <%= peep.user_name %>, or better known as <%= peep.user_username %> (<%= peep.timestamp %>)</p>
+      <p></p>
+      <h1><%= peep.text %></h1>
     </li>
   <% end %>
 </ol>
