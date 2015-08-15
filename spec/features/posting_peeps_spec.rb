@@ -3,6 +3,7 @@ feature '#Posting peeps' do
     user = create(:user)
     sign_in_as(user)
     visit('/peeps/new')
+    expect(page).to have_content('Insert your peep here:')
     fill_in('peep', with: 'Hey!')
     click_button('Submit')
     expect(current_path).to eq('/peeps')
