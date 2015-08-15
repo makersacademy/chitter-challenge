@@ -2,9 +2,9 @@ require 'data_mapper'
 
 env = ENV['RACK_ENV'] || 'development'
 
-Datamapper.setup(:default, "postgress://localhost/chitter#{env}")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
-require './app/models/peeps'
+require './app/models/peep'
 
 DataMapper.finalize
 
