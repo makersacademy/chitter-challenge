@@ -7,11 +7,22 @@ module ChitterApp
       end
 
       post '/peeps' do
-        Peep.create(text: params[:peep])
-        redirect '/peeps'
+        peep = Peep.create(text: params[:peep])
+        if peep.save
+          current_user.peeps << peep
+          current_user.save
+          peep.user << current_user
+          peep.save
+          redirect '/peeps'
+        else
+          flash.now[:errors] = current_user.errors.full_messages
       end
 
       get '/peeps/new' do
+        if session[:user_id].nil?
+          flash.next[:notice] = "Sign in first"
+          redirect '/'
+        end
         erb :'/peeps/new'
       end
     end

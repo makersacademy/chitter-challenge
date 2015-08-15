@@ -9,6 +9,7 @@ module ChitterApp
       set :session_secret, 'Very Secret'
 
       get '/' do
+        flash.now[:notice]
         erb :homepage
       end
 
