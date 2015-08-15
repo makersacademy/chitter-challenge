@@ -4,8 +4,15 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require_relative '../app/app.rb'
 require 'byebug'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
