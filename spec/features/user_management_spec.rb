@@ -18,4 +18,10 @@ feature '#User sign up' do
     expect(current_path).to eq('/users/sign_up')
     expect(page).to have_content('Password does not match the confirmation')
   end
+
+  scenario 'requires user to input an email' do
+    user = build(:user, email: '')
+    sign_up_as(user)
+    expect(current_path).to eq('/users/sign_up')
+  end
 end
