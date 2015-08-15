@@ -14,7 +14,11 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    erb :index
+    if current_user
+      redirect to '/messages'
+    else
+      erb :index
+    end
   end
 
   get '/users/new' do
