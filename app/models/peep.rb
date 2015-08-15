@@ -6,6 +6,4 @@ class Peep
   property :created_at, DateTime
 
   validates_presence_of :text
-
-  has 1, :user, through: Resource
 end

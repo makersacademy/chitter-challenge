@@ -8,14 +8,14 @@ module ChitterApp
 
       post '/peeps' do
         peep = Peep.create(text: params[:peep])
+        current_user.peeps << peep
+        current_user.save
         if peep.save
-          current_user.peeps << peep
-          current_user.save
-          peep.user << current_user
-          peep.save
           redirect '/peeps'
         else
-          flash.now[:errors] = current_user.errors.full_messages
+          flash.next[:errors] = ["Cannot be empty"]
+          redirect '/peeps/new'
+        end
       end
 
       get '/peeps/new' do
@@ -23,6 +23,7 @@ module ChitterApp
           flash.next[:notice] = "Sign in first"
           redirect '/'
         end
+        flash.now[:errors]
         erb :'/peeps/new'
       end
     end

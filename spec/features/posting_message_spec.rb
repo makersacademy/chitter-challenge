@@ -53,8 +53,8 @@ feature 'posting to chitter' do
     sign_in
     visit '/peeps/new'
     click_button 'Submit'
-    expect(Peep, :count).not_to change
-    expect(page).to have_content "ASDF"
+    expect(Peep.count).to eq 0
+    expect(page).to have_content "Cannot be empty"
   end
 
   scenario 'there are no links in the database at the start of the test' do
