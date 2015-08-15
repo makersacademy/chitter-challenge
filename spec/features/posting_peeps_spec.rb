@@ -8,5 +8,6 @@ feature '#Posting peeps' do
     click_button('Submit')
     expect(current_path).to eq('/peeps')
     expect(page).to have_content('Hey!')
+    expect(page).to have_content("#{user.username}")
   end
 end

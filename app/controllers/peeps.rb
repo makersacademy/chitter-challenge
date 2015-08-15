@@ -8,8 +8,10 @@ module Chitter
       end
 
       post '/peeps' do
-        peep = params[:peep]
-        current_user.peeps << Peep.create(content: peep)
+        peep = Peep.create(content: params[:peep])
+        peep.users << current_user
+        peep.save
+        current_user.peeps << peep
         redirect('/')
       end
 
