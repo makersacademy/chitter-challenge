@@ -2,13 +2,16 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require './data_mapper_setup'
+require './app/helpers/app_helpers'
 
 class Chitter < Sinatra::Base
+  include AppHelpers
   enable :sessions
   set :session_secret, 'super secret'
   set :views, proc { File.join(root, 'views') }
   register Sinatra::Flash
   register Sinatra::Partial
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -19,11 +22,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @user = User.new(email: params[:email], name: params[:name], password: params[:password], username: params[:username], password_confirmation: params[:password_confirmation])
+    @user = User.new(email: params[:email],
+                     name: params[:name],
+                     password: params[:password],
+                     username: params[:username],
+                     password_confirmation: params[:password_confirmation])
 
     if @user.save
       session[:user_id] = @user.id
-      session[:username] = @user.username
       redirect to('/messages')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -44,12 +50,16 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      session[:username] = user.username
       redirect to('/messages')
     else
-      flash.now[:errors] = user.errors.full_messages
+      flash.now[:errors] = ['Your login information is incorrect. Please try again.']
       erb :'/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session.clear
+    flash.now[:notice] = ['See you again soon!']
   end
 
   # start the server if ruby file executed directly

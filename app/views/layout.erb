@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-  <head>Chitter</head>
+  <head><title>Chitter</title></head>
   <body>
     <div id='header'>
       <form action='/'>
@@ -8,7 +8,9 @@
       </form>
       <h1>Chitter</h1>
     </div>
-    <%= erb :flash_errors %>
+    <%= erb :'/partials/welcome' %>
+    <%= erb :'/partials/sign_out' %>
+    <%= erb :'/partials/flash_errors' %>
     <%= yield %>
   </body>
 </html>
