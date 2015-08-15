@@ -3,14 +3,13 @@ require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
-
- 	# set :views, proc { File.join(root, '.', 'views') }
  	set :views, Proc.new {File.join(root, '.', "views")}
   # set :public, proc { File.join(root, '.', 'public') }
 
 	enable :sessions
 	set :session_secret, 'super secret'
 	register Sinatra::Flash
+	use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -48,6 +47,12 @@ class Chitter < Sinatra::Base
   		flash.now[:errors] =  ['The email or password is incorrect']
   		erb :"sessions/new"
   	end
+  end
+
+  delete "/sessions" do
+  	session.clear
+  	flash[:notice] = "You are now logged out"
+  	redirect "/"
   end
 
   helpers do

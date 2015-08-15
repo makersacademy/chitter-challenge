@@ -7,9 +7,19 @@
 
   <body>
   Layout Static Test
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
+  <% if current_user %>
+   Welcome, <%= current_user.email %>
+   <form method='post' action='/sessions'>
+   	<input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign Out'>
+   </form>
+  <% end %>
+
+  <% if flash[:notice] %>
+  	<div id='notice'>
+  		<%= flash[:notice] %>
+  	</div>
+  <% end %>
 
 	<% if flash[:errors] && !flash[:errors].empty? %>
 	  Please refer to the following errors below:

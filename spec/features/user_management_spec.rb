@@ -58,3 +58,30 @@ feature "User sign in" do
 	end
 
 end
+
+#take the sign in and sign up methods out in a separate helper module (see section 7)
+#refactor opportunity
+feature "User sign out" do
+	before(:each) { User.create(email: 'ben@test.com', password: 'password', password_confirmation: 'password') }
+
+	scenario "user can sign out while signed in" do
+		sign_in(email: "ben@test.com", password: "password")
+		click_button "Sign Out"
+		expect(page).to have_content("You are now logged out")
+		expect(page).not_to have_content("Welcome, ben@test.com")
+	end
+
+	#duplication from sign in feature - pull out into helper module
+	def sign_in(email:, password:)
+		visit "/sessions/new"
+		fill_in :email, with: "ben@test.com"
+		fill_in :password, with: "password"
+		click_button "Sign In"
+	end
+	
+end
+
+
+
+
+
