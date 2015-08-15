@@ -37,6 +37,21 @@ class Chitter < Sinatra::Base
   	end
   end
 
+  get "/users/password_reset" do
+    erb :"users/password_reset"
+  end
+
+  post "/users/password_reset" do
+    user = User.first(email: params[:email])
+    user.update(password_token: rand_token)
+    flash[:notice] = 'Check your emails'
+  end
+
+  get "/users/password_reset_reset/:token" do
+  	session[:token] = params[:token]
+  	erb :"users/password_reset_reset"
+  end
+
   get "/sessions/new" do
   	erb :"sessions/new"
   end
@@ -72,10 +87,21 @@ class Chitter < Sinatra::Base
   	redirect to("/peeps")
   end
 
+
   helpers do
+
   	def current_user
       current_user ||= User.get(session[:user_id])
     end
+
+    def rand_token
+   		[*'A'..'Z'].shuffle.join
+  	end
+
+  	def token?
+    	User.first(password_token: session[:token])
+  	end
+
   end
 
   # start the server if ruby file executed directly
