@@ -1,0 +1,12 @@
+<form action="/chitters/new">
+  <input type="submit" value="New Chitter">
+</form>
+
+<ul id="chitters">
+  <% @chitters.each do |chitter| %>
+  <li>
+      <%= chitter.text %>
+      <%= chitter.created_at %>
+  </li>
+  <% end %>
+</ul>
