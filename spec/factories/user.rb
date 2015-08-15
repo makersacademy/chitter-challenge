@@ -4,6 +4,6 @@ FactoryGirl.define do
     name 'John Doe'
     username 'JD03'
     password 'secret'
-    password_confirmation 'secret'
+    #password_confirmation 'secret'
   end
 end
