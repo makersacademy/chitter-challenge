@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+  <head>Chitter</head>
+  <body>
+    <div id='header'>
+      <form action='/'>
+        <input type='submit' value='Home'>
+      </form>
+      <h1>Chitter</h1>
+    </div>
+    <%= erb :flash_errors %>
+    <%= yield %>
+  </body>
+</html>
