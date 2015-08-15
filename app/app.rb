@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :timestamp.desc ])
     erb :'peeps/index'
   end
 
@@ -34,10 +34,6 @@ class Chitter < Sinatra::Base
     Peep.create(text: params[:text], timestamp: timestamp, user_name: name, user_username: username)
     redirect to '/peeps'
   end
-
-  # get '/peeps/new' do
-  #   erb :'peeps/new'
-  # end
 
   get '/users/new' do
     @user = User.new
