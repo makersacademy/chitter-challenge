@@ -24,4 +24,20 @@ describe User do
   it 'does not authenticate incorrect password' do
     expect(User.authenticate(user.email, "incorrect_password")).to be_nil
   end
+
+  it 'only allows unique usernames' do
+    user1 = attributes_for(:user)
+    user2 = attributes_for(:user)
+    User.create(user1)
+    User.create(user2)
+    expect(User.count).to eq(1)
+  end
+
+  it 'only allows unique emails' do
+    user1 = attributes_for(:user)
+    user2 = attributes_for(:user)
+    User.create(user1)
+    User.create(user2)
+    expect(User.count).to eq(1)
+  end
 end

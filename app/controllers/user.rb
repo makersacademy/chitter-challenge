@@ -21,7 +21,6 @@ module ChitterModule
           erb :'users/new'
         end
       end
-
     end
   end
 end

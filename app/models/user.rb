@@ -15,6 +15,8 @@ module ChitterModule
       property :user_name, String
 
       validates_confirmation_of :password
+      validates_uniqueness_of :user_name
+      validates_uniqueness_of :email
 
       def password=(password)
         @password = password
