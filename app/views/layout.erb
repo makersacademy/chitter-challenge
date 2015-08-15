@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+    <% end %>
+    <%=yield%>
+  </body>
+</html>
+
+
