@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative "../data_mapper_setup"
 require_relative "./models/user"
+require_relative "./models/peep"
 require 'sinatra/session'
 require 'sinatra/flash'
 
@@ -10,6 +11,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -55,6 +57,28 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.now[:notice] = 'You have logged out'
+    erb :'/sessions/new'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new_peep' do
+    erb :'peeps/new_peep'
+  end
+
+  post '/peeps' do
+    timestamp = Time.now
+    peep = Peep.new(text: params[:text], timestamp: timestamp)
+    peep.save
+    redirect to '/peeps'
   end
 
   # start the server if ruby file executed directly

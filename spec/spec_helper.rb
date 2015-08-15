@@ -9,8 +9,15 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
 
 RSpec.configure do |config|
 
