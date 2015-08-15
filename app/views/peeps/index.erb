@@ -1,14 +1,15 @@
 <div style='width: 100%; text-align:center; margin:0 auto; '>
   <div><img src="http://2.bp.blogspot.com/-2iQ_E_vuDDw/Vc-dFquq2mI/AAAAAAAARFw/xRtwERRTU1I/s1600/chitter.png"></div>
-  <h1> Peeps </h1>
-
-<ul id="peeps">
-  <% @peeps.each do |peep| %>
-    <li>
-      Peep: <%= peep.text %>
-      Timestamp:  <%= peep.timestamp %>
-    </li>
+  <div style="font-family: Arial Black; font-size: 26px; color: black; ">Check out what the Peeps say!</div>
+<div><ul id="peeps">
+  <% @peeps.reverse_each do |peep| %>
+      <div style='width: 400px; border: 3px solid #28aae1; padding: 20px; background:#DEDEDE; text-align:left; margin:0 auto; '>           <div style="font-size: 22px; ">Peep: <%= peep.text %></div>
+        <div>&nbsp;</div> 
+        <div style="font-size: 14px; float: right">Posted:  <%= peep.timestamp %></div>
+      </div>
+    <div>&nbsp;</div>
   <% end %>
 </ul>
-<a href="/">Go to Home Page</a>
+  <div style="font-size: 20px; "><a href="/">Return to Home Page</a></div>
+</div>
 </div>
