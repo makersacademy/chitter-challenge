@@ -7,6 +7,10 @@ module Application
         erb :'/users/new'
       end
 
+      post '/users' do
+        redirect '/users/new' if params[:password] == "" || params[:email] == ""
+      end
+
     end
   end
 end

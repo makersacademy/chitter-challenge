@@ -40,6 +40,8 @@ GEM
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     highline (1.7.3)
@@ -127,6 +129,7 @@ DEPENDENCIES
   cucumber
   database_cleaner
   factory_girl (~> 4.0)
+  faker
   rspec
   rspec-sinatra
   rubocop

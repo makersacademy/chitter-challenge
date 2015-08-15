@@ -5,6 +5,7 @@ gem 'sinatra'
 
 
 group :test do
+  gem 'faker'
   gem 'rspec-sinatra'
   gem 'database_cleaner'
   gem 'capybara'
