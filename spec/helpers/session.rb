@@ -18,9 +18,15 @@ module SessionHelpers
     fill_in "password_confirmation", with: user.password_confirmation
     click_button "Sign up"
   end
-  def post_peep
+  def post_peep(peep)
     visit "/"
-    fill_in "peep", with: "I'm going to be King the Pirates!"
+    fill_in "peep", with: peep.content
     click_button "Pop that peeper"
+  end
+  def name_finder(user_id)
+    User.get(user_id).name
+  end
+  def username_finder(user_id)
+    User.get(user_id).username
   end
 end

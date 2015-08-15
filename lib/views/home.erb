@@ -7,10 +7,10 @@
   <% end %>
   <h2>Here's what's peeping:</h2>
     <ul id="peeps">
-      <% (Peep.all).each do |peep| %>
+      <% (Peep.all.reverse).each do |peep| %>
         <li>
-          <h6><%= name_finder(peep.user_id) %>(<%= username_finder(peep.user_id) %>)
-          <p><%= peep.peep %></p>
+          <h6><%= name_finder(peep.user_id) %> (<%= username_finder(peep.user_id) %>)
+          <p><%= peep.content %></p>
         </li>
       <% end %>
     </ul>
