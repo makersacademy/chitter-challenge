@@ -1,11 +1,11 @@
 module Chitter
   module Routes
     class Users < Base
-      get '/users/sign_up' do
+      get '/users/new' do
         erb :'users/sign_up'
       end
 
-      post '/users/sign_up' do
+      post '/users/new' do
         @user = User.create(email: params[:email],
                            name: params[:name],
                            username: params[:username],

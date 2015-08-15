@@ -6,7 +6,7 @@ require_relative 'helpers/app_helper'
 require_relative 'controllers/base'
 Dir[__dir__ + '/controllers/*.rb'].each(&method(:require))
 
-include BookmarkManager::Models
+include Chitter::Models
 
 module Chitter
   class MyApp < Sinatra::Base

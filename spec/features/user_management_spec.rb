@@ -1,6 +1,6 @@
 feature '#User sign up' do
   scenario 'Can sign up on chitter' do
-    visit('/users/sign_up')
+    visit('/users/new')
     expect(page).to have_content('Email')
     expect(page).to have_content('Name')
     expect(page).to have_content('Username')
@@ -15,13 +15,19 @@ feature '#User sign up' do
   scenario 'requires a matching confirmation password' do
     user = build(:user, password_confirmation: 'wrong')
     sign_up_as(user)
-    expect(current_path).to eq('/users/sign_up')
+    expect(current_path).to eq('/users/new')
     expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'requires user to input an email' do
     user = build(:user, email: '')
     sign_up_as(user)
-    expect(current_path).to eq('/users/sign_up')
+    expect(current_path).to eq('/users/new')
+  end
+
+  scenario 'cannot sign up with an existing email' do
+    user = create(:user)
+    sign_up_as(user)
+    expect(page).to have_content('Email is already taken')
   end
 end
