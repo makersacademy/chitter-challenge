@@ -7,11 +7,13 @@ class User
 	attr_accessor :password_confirmation
 
 	property :id, Serial
+	property :username, String, required: true, :unique => true
 	property :email, String, required: true, :unique => true
 	property :password_digest, Text
 
 	validates_format_of :email, :as => :email_address
 	validates_confirmation_of :password
+	#Should not be required // validates_uniqueness_of :username
 
 	def password=(password)
 		@password = password

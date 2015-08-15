@@ -16,24 +16,32 @@ feature "User sign up" do
 		expect(page).to have_content "Password does not match"
 	end
 
-	scenario "cannot sign up with providing valid email" do
+	scenario "cannot sign up without providing valid email" do
 		expect {sign_up(email: "bob") }.not_to change(User, :count)
 		expect(current_path).to eq("/users")
 		expect(page).to have_content "Email has an invalid format"
 	end
 
 	#need to refactor with FactoryGirl
-	scenario "cannot sign up with an existing email registered previously" do
-		sign_up(email: 'ben@test.com', password: 'password', password_confirmation: 'password')
-		expect { sign_up(email: 'ben@test.com', password: 'password', password_confirmation: 'password') }.to change(User, :count).by(0)
-		expect(page).to have_content('Email is already taken')
+	scenario "cannot sign up with an existing email previously registered" do
+		sign_up(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
+		expect { sign_up(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password') }.to change(User, :count).by(0)
+		expect(page).to have_content "Email is already taken"
+	end
+
+	scenario "cannot sign up with an existing username previously registered" do
+		sign_up(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
+		expect { sign_up(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password') }.to change(User, :count).by(0)
+		expect(page).to have_content "Username is already taken"
 	end
 
 	#refactor note - pull out in helpers folder
-	def sign_up(email: 'ben@test.com', password: 'password', password_confirmation: 'password')
+	#during refactor add name as a field to sign up (it is not a required field)
+	def sign_up(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
 		visit "/users/new"
 		expect(page.status_code).to eq(200)
 		fill_in :email, with: email
+		fill_in :username, with: username
 		fill_in :password, with: password
 		fill_in :password_confirmation, with: password_confirmation
 		click_button "Sign Up"
@@ -43,7 +51,7 @@ end
 
 feature "User sign in" do
 
-	let(:user) { User.create(email: 'ben@test.com', password: 'password', password_confirmation: 'password') }
+	let(:user) { User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password') }
 
 	scenario "user will be succesfully signed in (with correct credentials)" do
 		sign_in(email: user.email, password: user.password)
@@ -62,7 +70,7 @@ end
 #take the sign in and sign up methods out in a separate helper module (see section 7)
 #refactor opportunity
 feature "User sign out" do
-	before(:each) { User.create(email: 'ben@test.com', password: 'password', password_confirmation: 'password') }
+	before(:each) { User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password') }
 
 	scenario "user can sign out while signed in" do
 		sign_in(email: "ben@test.com", password: "password")
@@ -78,7 +86,7 @@ feature "User sign out" do
 		fill_in :password, with: "password"
 		click_button "Sign In"
 	end
-	
+
 end
 
 
