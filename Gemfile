@@ -15,5 +15,6 @@ group :test do
 	gem 'bcrypt'
 	gem 'dm-validations'
 	gem 'sinatra-flash'
+	gem 'database_cleaner'
 end
 

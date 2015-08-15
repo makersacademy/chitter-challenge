@@ -29,6 +29,7 @@ feature "User sign up" do
 		expect(page).to have_content('Email is already taken')
 	end
 
+	#refactor note - pull out in helpers folder
 	def sign_up(email: 'ben@test.com', password: 'password', password_confirmation: 'password')
 		visit "/users/new"
 		expect(page.status_code).to eq(200)
@@ -41,6 +42,19 @@ feature "User sign up" do
 end
 
 feature "User sign in" do
-	let(:user)
+
+	let(:user) { User.create(email: 'ben@test.com', password: 'password', password_confirmation: 'password') }
+
+	scenario "user will be succesfully signed in (with correct credentials)" do
+		sign_in(email: user.email, password: user.password)
+		expect(page).to have_content "Welcome, #{user.email}"
+	end
+
+	def sign_in(email:, password:)
+		visit "/sessions/new"
+		fill_in :email, with: "ben@test.com"
+		fill_in :password, with: "password"
+		click_button "Sign In"
+	end
 
 end
