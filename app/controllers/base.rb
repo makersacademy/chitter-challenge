@@ -2,6 +2,7 @@ module Armadillo
   module Routes
     class Base < Sinatra::Base
       register Sinatra::Flash
+      use Rack::MethodOverride
       set :views, proc { File.join(root, '..', 'views') }
 
       helpers do

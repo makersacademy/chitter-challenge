@@ -1,9 +1,17 @@
 <% if current_user %>
   Welcome, <%= current_user.username %>!
+  <form action = "/sessions" method = "post">
+    <input type = "hidden" name = "_method" value = "delete">
+    <input type = "submit" value = "Log out">
+  </form>
 <% end %>
-
+<% if flash[:notice] %>
+  <div id = "notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
-Please refer to the following errors below:
+  Please refer to the following errors below:
   <ul id = "errors">
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>

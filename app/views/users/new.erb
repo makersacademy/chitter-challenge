@@ -1,7 +1,10 @@
 Please sign up:
 <form action = "/users" method = "post">
 Username:
-<input type = "text" name = "username">
+<input type = "text" name = "username" value = "@user.username">
+<br />
+Name:
+<input type = "text" name = "name" value = "<%= @user.name %>" >
 <br />
 Email:
 <input type = "text" name = "email" value = "<%= @user.email %>" >

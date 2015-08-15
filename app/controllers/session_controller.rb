@@ -16,6 +16,12 @@ module Armadillo
           erb :'sessions/new'
         end
       end
+
+      delete '/sessions' do
+        session[:user_id] = nil
+        erb :'sessions/goodbye'
+      end
+
     end
   end
 end
