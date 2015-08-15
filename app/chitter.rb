@@ -4,7 +4,7 @@ require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
  	set :views, Proc.new {File.join(root, '.', "views")}
-  # set :public, proc { File.join(root, '.', 'public') }
+  set :public, proc { File.join(root, '.', "public") }
 
 	enable :sessions
 	set :session_secret, 'super secret'
