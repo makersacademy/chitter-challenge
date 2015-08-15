@@ -9,12 +9,12 @@ class User
 
   property :id, Serial
   property :name, String
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
-  property :username, String
+  property :username, String, required: true
 
   validates_confirmation_of :password
-  validates_presence_of :email, :username
+  validates_uniqueness_of :email, :username
 
   def password=(password)
     @password = password
