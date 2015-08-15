@@ -21,15 +21,22 @@ feature "peeps are visible" do
     end
   end
   scenario "peeps are displayed in reverse chronological order" do
-    peep1 = "I'm going to be King the Pirates!"
-    peep2 = "I'm hungry! WHERE'S THE MEAT!!"
-    post_peep(build :peep)
-    post_peep(build :peep, content: peep2)
-    expected_content = "#{name_finder(11)} 
-      (#{username_finder(11)}) #{peep2} #{name_finder(11)} 
-      (#{username_finder(11)}) #{peep1}"
+    peep1 = create :peep, user_id: luffy.id
+    peep2 = create :peep, user_id: luffy.id, content: "I'm hungry! WHERE'S THE MEAT!!"
+    visit "/"
+    expected_content = 
+      "#{name_finder(luffy.id)} (#{username_finder(luffy.id)}) #{peep2.content} 
+      peeped at #{ peep2.creation_time.strftime("%H:%M on %d/%m/%y") } 
+      #{name_finder(luffy.id)} (#{username_finder(luffy.id)}) #{peep1.content}"
     within "ul#peeps" do 
       expect(page).to have_content expected_content
+    end
+  end
+  scenario "peeps are displayed with the time they were created" do
+    peep = create :peep, user_id: luffy.id
+    visit "/"
+    within "ul#peeps" do 
+      expect(page).to have_content "peeped at #{ peep.creation_time.strftime("%H:%M on %d/%m/%y") }"
     end
   end
 end

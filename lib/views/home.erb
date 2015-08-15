@@ -11,6 +11,7 @@
         <li>
           <h6><%= name_finder(peep.user_id) %> (<%= username_finder(peep.user_id) %>)
           <p><%= peep.content %></p>
+          <p>peeped at <%= "#{ peep.creation_time.strftime("%H:%M on %d/%m/%y") }" %></p>
         </li>
       <% end %>
     </ul>
