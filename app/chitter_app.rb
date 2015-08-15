@@ -37,7 +37,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    "Sign in"
+    erb :'/sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:username] = user.username
+      redirect to('/messages')
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'/sessions/new'
+    end
   end
 
   # start the server if ruby file executed directly
