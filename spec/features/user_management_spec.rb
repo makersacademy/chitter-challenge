@@ -89,6 +89,20 @@ feature "User sign out" do
 
 end
 
+feature "Password recovery" do
+	
+	scenario "requesting a password reset" do
+		user = User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
+		visit '/password_reset'
+		fill_in "Email", with: user.email
+		click_button "Reset Password"
+		user = User.first(email: user.email)
+		expect(user.password_token).not_to be_nil
+		expect(page).to have_content "Check your email"
+	end
+
+end
+
 
 
 

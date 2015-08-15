@@ -1,13 +1,5 @@
 
-feature "Viewing Peeps" do
-
-	scenario "User can see peeps displayed on the peeps page" do
-		Peep.create(content: "I am a test peep")
-		visit '/peeps'
-		expect(page.status_code).to eq 200
-		expect(page).to have_content("I am a test peep")
-	end
-
+feature "Viewing & Creating Peeps" do
 
 	scenario "User can create a new peep" do
 	 	#this top line not required until DB relations issue sorted. 
@@ -18,6 +10,9 @@ feature "Viewing Peeps" do
 	 	expect(current_path).to eq "/peeps"
 	 	expect(page).to have_content "I am a test peep"
 	end
+
+	scenario "All peeps from all users are displayed on index page"
+
 
 	def create_user
 	   User.create(email:    'ben@test.com',

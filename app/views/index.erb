@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+
+
 Hello Chitter!
+
+<% @peeps.reverse.each do |peep| %>
+	User: <%= user.content %>
+  Content: <%= peep.content %>
+  Time: <%= peep.time %>
+<%end%>
