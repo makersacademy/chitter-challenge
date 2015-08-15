@@ -1,8 +1,6 @@
 feature do
   scenario 'User can sign up' do
-    visit('/')
-    click_button('Sign up')
-    expect(curret_path).to eq('/users/new')
+    visit('/users/new')
     fill_in('email', with: 'test@test.com')
     fill_in('password', wth: 'test')
     fill_in('password_confirmation', with: 'test')

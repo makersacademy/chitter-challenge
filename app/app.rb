@@ -1,10 +1,12 @@
 require 'sinatra/base'
 
-class Chitter < Sinatra::Base
-  get '/' do
-    'Hello Chitter!'
-  end
+require_relative 'data_mapper_setup'
+require_relative 'controllers/base'
 
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+Dir[__dir__ + '/controllers/*.rb'].each(&method(:require))
+
+module Chitter
+  class MyApp < Sinatra::Base
+    use Routes::Mainpage
+  end
 end
