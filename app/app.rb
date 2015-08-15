@@ -1,5 +1,7 @@
 require 'sinatra/base'
+require 'sinatra/partial'
 require_relative 'data_mapper_setup'
+require_relative 'helpers/app_helper'
 require_relative 'controllers/base'
 Dir[__dir__ + '/controllers/*.rb'].each(&method(:require))
 
