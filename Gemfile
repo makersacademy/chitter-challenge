@@ -7,6 +7,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-sinatra'
   gem 'sinatra-base'
+  gem 'sinatra-partial'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
