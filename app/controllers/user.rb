@@ -16,7 +16,7 @@ module Application
                     email: params[:email], password: params[:password],
                     name: params[:name], username: params[:username]
                   )
-
+          session[:user_id] = @user.id if @user.save
         erb :'/users/new'
 
       end

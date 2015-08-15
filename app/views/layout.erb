@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Chitter - Connecting Peeps</title>
+    <title> Chitter </title>
   </head>
 
   <body>
-      <p> Welcome <%= @user.name %> </p>
-      <%= yield %>
+    <h2> Chitter - Connecting Peeps </h2>
+    <%if current_user %>
+      <p> Welcome <%= current_user.name %> </p>
+    <% end %>
+    <%= yield %>
   </body>
 
 </html>
