@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require_relative './factories.rb'
+require_relative './helpers/userhelper.rb'
 
 
 SimpleCov.formatters = [
@@ -154,4 +155,11 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
   end
+end
+
+
+RSpec.configure do |config|
+
+  config.include UserHelper
+
 end
