@@ -1,0 +1,12 @@
+<form action="/peeps/new">
+  <input type="submit" value="New Peep">
+</form>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+      <%= peep.text %>
+      <%= peep.created_at %>
+  </li>
+  <% end %>
+</ul>
