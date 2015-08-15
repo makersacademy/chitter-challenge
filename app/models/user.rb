@@ -9,6 +9,8 @@ module BookmarkManager
 
       include DataMapper::Resource
 
+      validates_confirmation_of :password
+
       property :id, Serial
       property :email, String
       property :password_digest, Text

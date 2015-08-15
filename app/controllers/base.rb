@@ -2,7 +2,7 @@ module Chitter
   module Routes
     class Base < Sinatra::Base
       enable :sessions
-      # register Sinatra::Flash
+      register Sinatra::Flash
       set :session_secret, 'super secret'
       set :views, proc { File.join(root, '..', 'views') }
       # set :public_folder, proc { File.join(root, '../..', 'public') }

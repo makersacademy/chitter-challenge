@@ -11,8 +11,13 @@ module Chitter
                            username: params[:username],
                            password: params[:password],
                            password_confirmation: params[:password_confirmation])
-        session[:user_id] = @user.id
-        redirect('/')
+        if @user.save
+          session[:user_id] = @user.id
+          redirect('/')
+        else
+          flash.now[:errors] = @user.errors.full_messages
+          erb :'users/sign_up'
+        end
       end
     end
   end
