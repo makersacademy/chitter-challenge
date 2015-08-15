@@ -2,7 +2,12 @@ module ChitterApp
   module Routes
     class UserManagementController < Base
       get '/user/new' do
-        erb :'/users/sign_up'
+        if session[:user_id].nil?
+          erb :'/users/sign_up'
+        else
+          flash.next[:errors] = ["You're already signed in"]
+          redirect '/peeps'
+        end
       end
 
       post '/user/new' do
@@ -16,7 +21,12 @@ module ChitterApp
       end
 
       get '/session/new' do
-        erb :'/users/sign_in'
+        if session[:user_id].nil?
+          erb :'/users/sign_in'
+        else
+          flash.next[:errors] = ["You're already signed in"]
+          redirect '/peeps'
+        end
       end
 
       post '/session/new' do

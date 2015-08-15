@@ -22,4 +22,10 @@ feature 'user sign in' do
     click_button 'Sign in'
     expect(page).to have_content 'Password or username is incorrect'
   end
+
+  scenario 'cannot sign in after signed in' do
+    sign_in
+    visit '/session/new'
+    expect(page).to have_content "You're already signed in"
+  end
 end

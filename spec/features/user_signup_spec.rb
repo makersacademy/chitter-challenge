@@ -42,4 +42,11 @@ feature 'user sign up' do
     expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content 'Password does not match the confirmation'
   end
+
+  scenario 'cannot signup after signed in' do
+    user = build :user
+    sign_up(user)
+    visit '/user/new'
+    expect(page).to have_content "You're already signed in"
+  end
 end

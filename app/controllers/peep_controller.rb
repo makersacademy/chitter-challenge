@@ -2,15 +2,17 @@ module ChitterApp
   module Routes
     class PeepController < Base
       get '/peeps' do
+        flash.now[:errors]
         @peeps = Peep.all
         erb :'/peeps/index'
       end
 
       post '/peeps' do
-        peep = Peep.create(text: params[:peep])
-        current_user.peeps << peep
-        current_user.save
-        if peep.save
+        if params[:peep] != ''
+          peep = Peep.create(text: params[:peep])
+          peep.save
+          current_user.peeps << peep
+          current_user.save
           redirect '/peeps'
         else
           flash.next[:errors] = ["Cannot be empty"]

@@ -11,11 +11,11 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, Text
 
+  has n, :peeps, through: Resource
+
   validates_confirmation_of :password
   validates_presence_of :username
   validates_presence_of :email
-
-  has n, :peeps, through: Resource
 
   def password=(password)
     @password = password
