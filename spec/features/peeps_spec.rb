@@ -11,7 +11,9 @@ feature "Viewing & Creating Peeps" do
 	 	expect(page).to have_content "I am a test peep"
 	end
 
-	scenario "All peeps from all users are displayed on index page"
+	scenario "All peeps from all users are displayed on index page" do
+		sign_in
+	end
 
 
 	def create_user

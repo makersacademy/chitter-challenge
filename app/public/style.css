@@ -1,14 +1,13 @@
-* {
+html {
 font-family: 'Open Sans', sans-serif;
   color: black;
   font-size: 14px;
   margin: 5px 5px 5px 5px;
   padding: 5px ;
   font-weight: 300;
-  background: white no-repeat center center fixed; 
+  background: url(bg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
 }
