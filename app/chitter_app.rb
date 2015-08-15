@@ -11,8 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Partial
 
   get '/' do
-    'Hello Chitter!'
-    #index erb containing two buttons - sign in and sign up
+    erb :index
   end
 
   get '/users/new' do
@@ -35,6 +34,10 @@ class Chitter < Sinatra::Base
   get '/messages' do
     @username = session[:username]
     erb :'/messages/messages'
+  end
+
+  get '/sessions/new' do
+    "Sign in"
   end
 
   # start the server if ruby file executed directly

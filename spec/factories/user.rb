@@ -9,5 +9,13 @@ FactoryGirl.define do
     factory :wrong_password_user do
       password_confirmation 'sausage'
     end
-  end
+
+    factory :no_email_user do
+      email ''
+    end
+
+    factory :no_username_user do
+      username ''
+    end
+   end
 end
