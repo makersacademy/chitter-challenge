@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-group :test do
-  gem 'rspec'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'rspec-sinatra'
+gem 'sinatra'
+
+group :development, :test do
+  gem 'capybara'
   gem 'cucumber'
-  gem 'rubocop-rspec'
+  gem 'rspec'
   gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'coveralls', require: false
 end
 
