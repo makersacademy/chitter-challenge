@@ -164,11 +164,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   coveralls
   cucumber
   data_mapper
   dm-postgres-adapter
+  dm-validations
   rspec
   rspec-sinatra
   rubocop
