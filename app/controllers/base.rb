@@ -3,10 +3,10 @@ module Chitter
     class Base < Sinatra::Base
       enable :sessions
       # register Sinatra::Flash
-      # set :session_secret, 'super secret'
+      set :session_secret, 'super secret'
       set :views, proc { File.join(root, '..', 'views') }
       # set :public_folder, proc { File.join(root, '../..', 'public') }
-      # use Rack::MethodOverride
+      use Rack::MethodOverride
       include ApplicationHelpers
 
       configure do

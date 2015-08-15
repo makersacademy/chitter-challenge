@@ -10,6 +10,7 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'factory_girl'
 gem 'byebug'
+gem 'database_cleaner'
 
 group :test do
   gem 'rspec'

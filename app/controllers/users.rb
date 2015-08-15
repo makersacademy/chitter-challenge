@@ -12,7 +12,7 @@ module Chitter
                            password: params[:password],
                            password_confirmation: params[:password_confirmation])
         session[:user_id] = @user.id
-        redirect '/'
+        redirect('/')
       end
     end
   end
