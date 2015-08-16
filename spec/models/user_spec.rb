@@ -11,7 +11,7 @@ describe User do
   end
 
   it 'password is required' do
-    user_with_no_password = build(:user, password: "")
+    user_with_no_password = build(:user, password_digest: "")
     expect(user_with_no_password.save).to be false
   end
 end
