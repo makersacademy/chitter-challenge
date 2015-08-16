@@ -2,7 +2,7 @@ require './app/models/user'
 
 describe User do
 
-  let!(:user){create :user}
+  let!(:user) { create :user }
 
   it 'authenticates when given a valid email address and password' do
     authenticated_user = User.authenticate(user.username, user.password)

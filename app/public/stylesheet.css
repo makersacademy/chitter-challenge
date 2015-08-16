@@ -50,3 +50,7 @@ header #logo {
     -webkit-flex: 1;
     text-align: right;
   }
+
+  input {
+    color:black ;
+  }
