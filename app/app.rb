@@ -35,14 +35,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    @user = User.create(email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation],
+                        name: params[:name],
+                        user_name: params[:user_name])
     session[:user_id] = @user.id
     redirect to('/')
   end
-
-
-
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
   set :views, proc { File.join(root, 'views') }
+
 end
