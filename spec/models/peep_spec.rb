@@ -6,7 +6,10 @@ describe Peep do
     expect(peep.save).to be false
   end
 
-  xit 'limits content length to 140 characters'
+  it 'limits content length to 140 characters' do
+    peep = Peep.new content: "dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb dfghtyjkcb f"
+    expect(peep.save).to be false
+  end
 
   xit 'is created with a time stamp'
 end
