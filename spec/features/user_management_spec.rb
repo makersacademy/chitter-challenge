@@ -17,4 +17,20 @@ feature 'User Management' do
     expect { sign_up user }.to change(User, :count).by(1)
     expect(User.first.email).to eq(user.email)
   end
+
+  scenario 'Users are taken to root path after successful sign-up' do
+    sign_up(create :user)
+    expect(current_path).to eq '/'
+  end
+
+  scenario 'Users are not taken to root path after unsuccessful sign-up' do
+    sign_up(create :user, email: "")
+    expect(current_path).to_not eq '/'
+  end
+
+  scenario 'Users are logged-in (id saved in session) after signing-up' do
+    user = create(:user)
+    sign_up user
+    expect(session).to include(user.id)
+  end
 end

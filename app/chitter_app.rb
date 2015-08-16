@@ -3,6 +3,9 @@ require 'sinatra/base'
 require_relative 'datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     @peeps = Peep.all.reverse
     erb :'peeps/index'
@@ -22,9 +25,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/' do
-    new_user = User.new email: params['email'], password: params['password']
-    new_user.save
-    redirect to('/')
+    user = User.new email: params['email'], password: params['password']
+    if user.save
+      redirect to('/')
+    end
   end
 
   private
