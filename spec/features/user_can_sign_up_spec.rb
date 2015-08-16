@@ -4,7 +4,6 @@ feature 'User sign-up:' do
     user = build(:user)
     expect{ sign_up(user) }.to change(User, :count).by(1)
     retrieved_user = User.first()
-    p "retrieved_user"
     expect(retrieved_user.name).to eq('first last')
   end
 
@@ -22,6 +21,24 @@ feature 'User sign-up:' do
     user2 = build(:user, email: 'different')
     expect{ sign_up(user2) }.to_not change(User, :count)
     expect(page).to have_content('Username is already taken')
+  end
+
+  scenario 'New user cannot sign up without providing email address' do
+    user = build(:user, email: '')
+    expect{ sign_up(user) }.to_not change(User, :count)
+    # expect(page).to have_content('')
+  end
+
+  scenario 'New user cannot sign up without providing name' do
+    user = build(:user, name: '')
+    expect{ sign_up(user) }.to_not change(User, :count)
+    # expect(page).to have_content('')
+  end
+
+  scenario 'New user cannot sign up without providing username' do
+    user = build(:user, username: '')
+    expect{ sign_up(user) }.to_not change(User, :count)
+    # expect(page).to have_content('')
   end
 
   scenario 'Unsucceful attempt to create account refreshes the page' do

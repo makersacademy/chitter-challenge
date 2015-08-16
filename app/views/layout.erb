@@ -7,10 +7,14 @@
     <% if flash[:errors] && !flash[:errors].empty? %>
       The following errors have been encountered:
       <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
       </ul>
+    <% else %>
+      <% if current_user %>
+        <%= current_user.username %> is in the building. %>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>
