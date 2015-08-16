@@ -47,8 +47,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    t = Time.new
     peep = Peep.new(content: params[:message],
-                    time_created: Time.now)
+                    time_created: "Written on #{t.day}-#{t.month}-#{t.year} at #{t.hour}:#{t.min}")
     peep.user = current_user
     peep.save
     redirect to('/peeps')

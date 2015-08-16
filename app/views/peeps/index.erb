@@ -7,7 +7,7 @@
       <ul class='peep_info'>
         Created by: <li><%= peep.user.name %></li>
         Logged in as: <li><%= peep.user.username %></li>
-        Created at: <li><%= peep.time_created %></li>
+        Written on: <li><%= "#{peep.time_created.day}-#{peep.time_created.month}-#{peep.time_created.year} at #{peep.time_created.hour}:#{peep.time_created.min}" %></li>
       </ul>
     </div>
   <% end %>
