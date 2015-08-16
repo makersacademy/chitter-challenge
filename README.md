@@ -1,22 +1,26 @@
-Chitter Challenge
+Chitter
 =================
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is my fourth weekend challenge while at Makers Academy. After a week of learning how to use an ORM to connect domain models up to a SQL database the challenge was to make **Chitter**. A clone of twitter that allows users to post messages to a public stream.
 
-Challenge:
--------
+Technologies used
+-----------------
 
-As usual please start by
+Application is written in ruby and runs on a Sinatra. Datamapper has been used for the ORM and postgres as the SQL database. Bcrypt is used to salt and hash the passwords. For testing rspec and capybara with Factory Girl for testing database models, and also timecop and ordely gems for testing tine and order of posts peeps are correct.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+Sinatra has been set up in a modulare style with a module per controller inhereting from a Base class. The main sinatra server file app.rb requires and routes the controller modules.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+HTMl and CSS have been used on the front end.
 
-Features:
--------
+
+Installation guidelines
+-----------------
+
+Clone this directory. Requirements are that you have RVM, Homebrew and Bundle. Postgres database is also required with two databases set up. Chitter_development and Chitter_test. Once installed run bundle. You can then use Sinatra rackup to launch the app.
+
+
+User Stories
+------------
 
 ```sh
 As a Maker
@@ -44,40 +48,10 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-```
-require 'coveralls'
-require 'simplecov'
-require 'capybara/rspec'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-```
