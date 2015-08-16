@@ -1,4 +1,3 @@
-require 'dm-timestamps'
 require 'data_mapper'
 
 class Peep

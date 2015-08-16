@@ -62,7 +62,7 @@ class Chitter < Sinatra::Base
     end
   end
   get '/peep/all' do
-    @peeps= Peep.all
+    @peeps = Peep.all
     erb :'peep/all'
   end
 

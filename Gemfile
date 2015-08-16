@@ -7,6 +7,7 @@ group :test do
   gem 'cucumber'
   gem 'orderly'
   gem 'rspec'
+  gem 'rspec-sinatra'
   gem 'rubocop'
   gem 'rubocop-rspec'
 end
@@ -16,4 +17,3 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'rspec-sinatra'
