@@ -5,6 +5,7 @@ require 'rspec'
 require 'database_cleaner'
 require 'capybara'
 require 'factory_girl'
+require 'timecop'
 require_relative 'helpers/session'
 require_relative 'helpers/peep'
 

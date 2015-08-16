@@ -4,7 +4,7 @@ FactoryGirl.define do
 
   factory :peep do 
     message 'The first peep'
-    time Time.now
+    time Timecop.freeze(Time.local(2015))
   end
 
 end
