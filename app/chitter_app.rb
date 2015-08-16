@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
-  post '/peeps/new' do
+  post '/peeps/' do
     Peep.create(content: params['content'])
     redirect to('/')
   end
@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users/new' do
+  post '/users/' do
     new_user = User.new email: params['email'], password: params['password']
     new_user.save
     redirect to('/')
