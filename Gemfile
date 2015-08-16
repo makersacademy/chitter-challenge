@@ -11,6 +11,7 @@ gem 'sinatra-flash'
 
 group :development, :test do
   gem 'rspec'
+  gem 'cucumber'
   gem 'capybara'
   gem 'rubocop-rspec'
   gem 'rubocop'

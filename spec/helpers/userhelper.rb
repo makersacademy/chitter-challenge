@@ -1,6 +1,5 @@
 module UserHelper
 
-
   def sign_up_as(user)
     visit '/peeps'
     click_link 'join'
@@ -14,11 +13,10 @@ module UserHelper
 
   def sign_in_as(user)
     visit '/peeps'
-    click_link'Sign in'
+    click_link 'Sign in'
     fill_in :user_name, with: user.user_name
     fill_in :password, with: user.password
     click_button 'Submit'
   end
-
 end
 

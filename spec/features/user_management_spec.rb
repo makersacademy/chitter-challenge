@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 feature 'user sign up' do
 
   let(:user) { build(:user) }
@@ -50,7 +49,6 @@ feature 'User sign in' do
     expect(page).to have_content "logged in as: #{user.user_name}"
   end
 end
-
 
 feature 'User signs out' do
 

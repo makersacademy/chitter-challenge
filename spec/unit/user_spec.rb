@@ -4,7 +4,6 @@ describe User do
 
   let(:user) { create(:user) }
 
-
   it 'contains user' do
     create(:user)
     expect(User.map(&:name)).to include('test user')
