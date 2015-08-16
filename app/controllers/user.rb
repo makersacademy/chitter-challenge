@@ -10,18 +10,16 @@ module Application
       end
 
       post '/users' do
-        params.has_value?('') || params.values.grep(/\s/).empty? ?
-          (redirect '/users/new') :
-          @user = User.create(
-                    email: params[:email], password: params[:password],
-                    name: params[:name], username: params[:username]
-                  )
-          if @user.save
-            session[:user_id] = @user.id
-            redirect '/posts/new'
-          else
-            erb :'/users/new'
-          end
+        @user = User.create(email: params[:email], password: params[:password],
+                              name: params[:name], username: params[:username],password_confirmation: params[:password_confirmation]
+                              )
+        redirect '/users/new' if params.has_value?('') #|| params.values.grep(/\s/).empty? == false
+        if @user.save
+          session[:user_id] = @user.id
+          redirect '/posts/new'
+        else
+          erb :'/users/new'
+        end
 
       end
 

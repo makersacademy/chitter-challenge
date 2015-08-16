@@ -1,14 +1,13 @@
 require 'data_mapper'
-#require 'dm-validations'
+require 'dm-validations'
+
+require './app/models/user'
 
 env = ENV['RACK_ENV'] || 'development'
 
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/application_chitter_#{env}")
 
-# require './app/models/link'
-# require './app/models/tag'
-require './app/models/user'
 
 # After declaring your models, you should finalise them
 DataMapper.finalize

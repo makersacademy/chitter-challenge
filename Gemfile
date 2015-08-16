@@ -4,6 +4,9 @@ ruby '2.2.2'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-validations'
+gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :test do
   gem 'faker'
