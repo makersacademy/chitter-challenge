@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter Chitter Yang-Yang</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% else %>
+      To Peep You Must Be a Peeper! Please Sign In And Be One Step Closer To Being Complete!
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

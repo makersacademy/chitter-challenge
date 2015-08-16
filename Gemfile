@@ -8,6 +8,8 @@ gem 'rspec-sinatra'
 gem 'rack'
 gem 'rake'
 gem 'database_cleaner'
+gem 'byebug'
+gem 'bcrypt'
 
 
 
