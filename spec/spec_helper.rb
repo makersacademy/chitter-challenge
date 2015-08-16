@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'factory_girl'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
