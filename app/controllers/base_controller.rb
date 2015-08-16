@@ -1,6 +1,9 @@
 module ChitterApp
+
   module Routes
+
     class Base < Sinatra::Base
+
       register Sinatra::Flash
       use Rack::MethodOverride
       set :views, proc { File.join(root, '..', 'views') }
@@ -23,6 +26,9 @@ module ChitterApp
           random_token.hash
         end
       end
+
     end
+
   end
+
 end

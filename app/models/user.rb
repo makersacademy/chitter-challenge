@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User
+
   include DataMapper::Resource
 
   attr_reader :password
@@ -29,4 +30,5 @@ class User
     user = first(username: username)
     (user && BCrypt::Password.new(user.password_digest)) == password ? user : nil
   end
+
 end

@@ -1,4 +1,5 @@
 module Helper
+
   def sign_up(user)
     visit '/user/new'
     fill_in 'name', with: user.name
@@ -21,4 +22,5 @@ module Helper
     fill_in 'peep', with: message
     click_button 'Submit'
   end
+
 end

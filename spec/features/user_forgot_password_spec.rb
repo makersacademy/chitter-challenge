@@ -16,7 +16,7 @@ feature 'user resets password' do
     expect(user.password_token).not_to be_nil
   end
 
-   scenario 'reset password using token' do
+  scenario 'reset password using token' do
     user = create :user
     user.update(password_token: 'token')
     visit "/password_reset/#{user.password_token}"

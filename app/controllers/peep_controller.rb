@@ -1,6 +1,9 @@
 module ChitterApp
+
   module Routes
+
     class PeepController < Base
+
       get '/peeps' do
         flash.now[:errors]
         @peeps = Peep.all.reverse
@@ -9,7 +12,7 @@ module ChitterApp
 
       post '/peeps' do
         if params[:peep] != ''
-          peep = Peep.create(text: params[:peep])
+          peep = Peep.create(text: params[:peep], user: current_user)
           peep.save
           redirect '/peeps'
         else
@@ -26,6 +29,9 @@ module ChitterApp
         flash.now[:errors]
         erb :'/peeps/new'
       end
+
     end
+
   end
+
 end

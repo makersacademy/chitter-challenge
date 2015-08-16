@@ -1,6 +1,9 @@
 module ChitterApp
+
   module Routes
+
     class UserManagementController < Base
+
       get '/user/new' do
         if session[:user_id].nil?
           erb :'/users/sign_up'
@@ -73,6 +76,9 @@ module ChitterApp
         session.clear
         redirect '/'
       end
+
     end
+
   end
+
 end
