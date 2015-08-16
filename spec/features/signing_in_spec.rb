@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'User sign in' do
   scenario 'with correct credentials' do
     user = create(:user)

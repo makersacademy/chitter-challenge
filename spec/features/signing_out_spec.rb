@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'Sign out' do
   scenario 'while being signed in' do
     user = create(:user)

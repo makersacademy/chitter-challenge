@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'timecop'
 
 feature 'Post a peep' do
   scenario 'I can create a new peep' do

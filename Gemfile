@@ -15,6 +15,7 @@ group :test do
   gem 'cucumber'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'orderly'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'

@@ -4,13 +4,13 @@
 </form>
 
 <div id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <div class='peep'>
       <%= peep.content %>
       <ul class='peep_info'>
-        Created by: <li><%= peep.user.name %></li>
-        Logged in as: <li><%= peep.user.username %></li>
-        Written on: <li><%= "#{peep.time_created.day}-#{peep.time_created.month}-#{peep.time_created.year} at #{peep.time_created.hour}:#{peep.time_created.min}" %></li>
+        <li>Created by: <%= peep.user.name %></li>
+        <li>Logged in as: <%= peep.user.username %></li>
+        <li>Written on: <%= "#{peep.time_created.day}-#{peep.time_created.month}-#{peep.time_created.year} at #{peep.time_created.hour}:#{peep.time_created.min}" %></li>
       </ul>
     </div>
   <% end %>

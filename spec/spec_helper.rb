@@ -4,9 +4,11 @@ require 'capybara/rspec'
 require 'coveralls'
 require 'database_cleaner'
 require 'factory_girl'
+require 'orderly'
 require 'rspec'
 require 'rubygems'
 require 'simplecov'
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

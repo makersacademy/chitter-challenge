@@ -1,6 +1,12 @@
-feature 'Viewing peeps' do
-  xscenario 'You don\'t need to be signed in' do
+require 'spec_helper'
 
+feature 'Viewing peeps' do
+  scenario 'You don\'t need to be signed in' do
+    user = create(:user)
+    write_peep(user, 'Hello')
+    click_button 'Sign out'
+    visit '/peeps'
+    expect(page).to have_content('Hello')
   end
 
   scenario 'I can see existing peeps' do
@@ -12,7 +18,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content('How is everyone?')
   end
 
-  scenario 'I can see peeps from different users' do
+  scenario 'I can see peeps from different users in reverse chronological order' do
     user_one = create(:user)
     user_two = create(:user_two)
     write_peep(user_one, 'Hi-de-hi!')
@@ -20,9 +26,7 @@ feature 'Viewing peeps' do
     visit '/peeps'
     expect(page).to have_content('Hi-de-hi!')
     expect(page).to have_content('Howdy!')
+    expect('Howdy!').to appear_before('Hi-de-hi!')
   end
 
-  xscenario 'Peeps appear in reverse chronological order' do
-
-  end
 end
