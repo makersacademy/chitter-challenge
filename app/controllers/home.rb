@@ -1,4 +1,5 @@
 module ChitterModule
+
   module Routes
 
     class HomeController < Base
@@ -7,5 +8,7 @@ module ChitterModule
         redirect to('/peeps')
       end
     end
+
   end
+
 end

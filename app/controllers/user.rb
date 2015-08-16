@@ -1,4 +1,5 @@
 module ChitterModule
+
   module Routes
 
     class UserController < Base
@@ -41,5 +42,7 @@ module ChitterModule
         flash.now[:notice] = ['goodbye!']
       end
     end
+
   end
+
 end

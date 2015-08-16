@@ -1,4 +1,5 @@
 module ChitterModule
+
   module Routes
 
     class PeepController < Base
@@ -15,5 +16,7 @@ module ChitterModule
         redirect to('/peeps')
       end
     end
+
   end
+
 end

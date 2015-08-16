@@ -11,7 +11,7 @@ feature 'creating peeps' do
 
   scenario ' I can peep when logged in' do
 
-    time = Time.local(2015, 8, 16, 18,0)
+    time = Time.local(2015, 8, 16, 18, 0)
     Timecop.freeze(time)
 
     user = create(:user)
@@ -32,23 +32,27 @@ feature 'creating peeps' do
     end
   end
 
-
   scenario 'view all peeps by time decending' do
 
     peep = create(:peep)
     peep_second = create(:peep_second)
     user = create(:user)
-    peeps = [peep, peep_second].map do |peep|
-      peep.user_id = user.id
-      peep.save
-      peep
+    peeps = [peep, peep_second].map do |peep_post|
+      peep_post.user_id = user.id
+      peep_post.save
+      peep_post
     end
 
     visit '/peeps'
     within 'div#peeps' do
-      peeps.each { |peep| expect(page).to have_content(peep.body) }
+      peeps.each { |peep_post| expect(page).to have_content(peep_post.body) }
     end
     expect(peep_second.body).to appear_before(peep.body)
+  end
+
+  scenario 'home redirects to peeps' do
+    visit '/'
+    expect(current_path).to eq('/peeps')
   end
 end
 

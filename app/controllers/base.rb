@@ -1,5 +1,7 @@
 module ChitterModule
+
   module Routes
+
     class Base < Sinatra::Base
 
       include AppHelpers
@@ -14,5 +16,7 @@ module ChitterModule
       set :public_folder, proc { File.join(root, '../..', 'public') }
 
     end
+
   end
+
 end

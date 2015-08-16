@@ -1,6 +1,8 @@
 module ChitterModule
+
   module Models
     class Peep
+
 
       include DataMapper::Resource
 
@@ -11,5 +13,7 @@ module ChitterModule
       belongs_to :user
 
     end
+
   end
+
 end

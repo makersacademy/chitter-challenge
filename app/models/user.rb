@@ -1,6 +1,9 @@
 require 'bcrypt'
+
 module ChitterModule
+
   module Models
+
     class User
 
       attr_reader :password
@@ -32,6 +35,8 @@ module ChitterModule
         end
       end
     end
+
   end
+
 end
 

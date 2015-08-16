@@ -18,5 +18,6 @@ module UserHelper
     fill_in :password, with: user.password
     click_button 'Submit'
   end
+
 end
 
