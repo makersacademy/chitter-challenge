@@ -4,12 +4,12 @@ describe User do
 
   let(:user) { create(:user) }
 
+
   it 'contains user' do
     create(:user)
     expect(User.map(&:name)).to include('test user')
     expect(User.first.email).to eq('test@example.com')
   end
-
 
   it 'requires confirmation password to be correct' do
     create(:user_wrong_confirmation )
@@ -23,6 +23,18 @@ describe User do
 
   it 'does not authenticate incorrect password' do
     expect(User.authenticate(user.user_name, "incorrect_password")).to be_nil
+  end
+
+  it 'requires a username' do
+    user = attributes_for(:user_no_username)
+    User.create(user)
+    expect(User.count).to eq(0)
+  end
+
+  it 'requires an email' do
+    user = attributes_for(:user_no_email)
+    User.create(user)
+    expect(User.count).to eq(0)
   end
 
   it 'only allows unique usernames' do

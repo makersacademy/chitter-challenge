@@ -4,6 +4,8 @@ require 'spec_helper'
 feature 'user sign up' do
 
   let(:user) { build(:user) }
+  let(:user_no_email) { build(:user_no_email) }
+  let(:user_no_username) { build(:user_no_username) }
 
   scenario 'Sign up page exists' do
     visit '/users/new'
@@ -28,6 +30,17 @@ feature 'user sign up' do
     sign_up_as(user)
     expect(page).to have_content('Email is already taken')
   end
+
+  scenario 'requires an email' do
+    sign_up_as(user_no_email)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'requires an email' do
+    sign_up_as(user_no_username)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
 end
 
 feature 'User sign in' do

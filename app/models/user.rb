@@ -9,10 +9,10 @@ module ChitterModule
       include DataMapper::Resource
 
       property :id, Serial
-      property :email, String
+      property :email, String, required: true
       property :password_digest, Text
       property :name, String
-      property :user_name, String
+      property :user_name, String, required: true
 
       validates_confirmation_of :password
       validates_uniqueness_of :user_name
