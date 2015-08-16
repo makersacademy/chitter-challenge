@@ -23,7 +23,6 @@ class Chitter < Sinatra::Base
       redirect to ('/users/new')
     else
       peep = Peep.create(message: params[:message], timestamp: Time.now)
-      peep.save
       redirect to('/peeps')
     end
   end

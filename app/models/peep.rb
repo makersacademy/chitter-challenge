@@ -8,6 +8,6 @@ class Peep
   property :message,     String
   property :timestamp,   DateTime
 
-  belongs_to :user, key: true
+  belongs_to :user
 
 end
