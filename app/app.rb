@@ -13,6 +13,7 @@ module Armadillo
 
     use Routes::Homepage
     use Routes::Users
+    use Routes::Sessions
 
   end
 
