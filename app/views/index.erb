@@ -1,7 +1,10 @@
 <ul id="peeps">
   <% @peeps.each do |each_peep| %>
     <li>
-      Peep:<%= each_peep.peep %>
+      <% user = each_peep.users.first %>
+      <% time = Time.new.strftime("%I:%M %p") %>
+      Peep: <%= each_peep.peep %>
+      Peeped by <%= user.name %> @<%= user.user_name %> at <%= time %>.
     </li>
   <% end %>
 </ul>

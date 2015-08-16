@@ -8,10 +8,15 @@ module Chitter
       include DataMapper::Resource
 
       property :id, Serial
-      property :email, String
+      property :email, String, required: true
       property :password_digest, Text
-      property :name, Text
-      property :user_name, Text
+      property :name, String, required: true
+      property :user_name, String, required: true
+      has n, :peeps, through: Resource
+
+      validates_uniqueness_of :email
+      validates_uniqueness_of :user_name
+      validates_confirmation_of :password
 
       def password=(password)
         @password = password

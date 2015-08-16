@@ -1,7 +1,8 @@
 describe User do
   let!(:user) do
-    described_class.create(email: 'test@test.com', password: 'secret1234',
-                           password_confirmation: 'secret1234')
+    described_class.create(email: 'foo@bar.com', password: 'secret1234',
+                           password_confirmation: 'secret1234', name: 'Foo Bar',
+                           user_name: 'foobar')
   end
 
   it 'authenticates when given a valid email address and password' do

@@ -5,12 +5,18 @@ module Chitter
     class Peeps < Base
 
       get '/peeps/new' do
+        unless current_user
+          flash[:notice] = 'Please sign up or sign in first!'
+          redirect('/')
+        end
         erb :'peeps/new'
       end
 
       post '/peeps' do
+        current_user
         peep = Peep.create(peep: params[:peep])
-        peep.save
+        @current_user.peeps << peep
+        @current_user.save
         redirect('/')
       end
 
