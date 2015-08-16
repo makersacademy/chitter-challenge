@@ -6,6 +6,7 @@ require 'database_cleaner'
 require 'capybara'
 require 'factory_girl'
 require_relative 'helpers/session'
+require_relative 'helpers/peep'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -24,6 +25,7 @@ Capybara.app = Turing::Chitter
 RSpec.configure do |config|
 
   config.include SessionHelpers
+  config.include PeepHelpers
   
   config.expect_with :rspec do |expectations|
    

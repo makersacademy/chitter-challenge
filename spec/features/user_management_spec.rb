@@ -30,7 +30,6 @@ feature 'User sign up' do
     user = create(:user)
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
-
   end
 
 end

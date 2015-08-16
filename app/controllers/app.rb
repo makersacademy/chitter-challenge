@@ -5,7 +5,7 @@ module Turing
     class AppRoute < Base
       
     get '/' do
-      "Welcome to Chitter"
+      erb :index
     end
 
     end

@@ -1,5 +1,4 @@
 require 'bcrypt'
-require 'data_mapper'
 
 class User
 
@@ -7,6 +6,8 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
+
+  has n, :peeps
 
   property :id, Serial
   property :email, String, required: true
@@ -18,6 +19,7 @@ class User
   validates_confirmation_of :password
   validates_presence_of :email
   validates_uniqueness_of :email
+  validates_presence_of :username
 
 
   def password=(password)
@@ -25,8 +27,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(email, password)
-    user = first(email: email)
+  def self.authenticate(username, password)
+    user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
