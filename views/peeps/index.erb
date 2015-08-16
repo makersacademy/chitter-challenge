@@ -9,8 +9,10 @@
 <div id="peeps">
   <% @peeps.each do |peep| %>
     <div class="peep">
-     username: <%= peep.user.user_name %>
-     name: <%= peep.user.name %>
+      <span class="author">
+        <%= peep.user.user_name %>
+        <%= peep.user.name %>
+      </span>
       <%= peep.body %>
     </div>
   <% end %>

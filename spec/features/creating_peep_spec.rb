@@ -19,8 +19,10 @@ feature 'creating peeps' do
     click_button 'Create peep'
     within 'div#peeps' do
       expect(page). to have_content ('this is a peep')
-      expect(page). to have_content ("username: #{user.user_name}")
-      expect(page). to have_content ("name: #{user.name}")
+    end
+    within 'span.author' do
+      expect(page). to have_content ("#{user.user_name}")
+      expect(page). to have_content ("#{user.name}")
     end
   end
 end
