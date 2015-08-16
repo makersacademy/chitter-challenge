@@ -17,6 +17,16 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users/new' do
+    new_user = User.new email: params['email'], password: params['password']
+    new_user.save
+    redirect to('/')
+  end
+
   private
 
   helpers do
