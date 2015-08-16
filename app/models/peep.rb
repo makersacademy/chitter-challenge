@@ -7,4 +7,6 @@ class Peep
 
   validates_presence_of :content
   validates_length_of :content, max: 140
+
+  belongs_to :user
 end
