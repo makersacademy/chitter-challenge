@@ -29,12 +29,10 @@ RSpec.configure do |config|
   config.include PeepHelpers
   
   config.expect_with :rspec do |expectations|
-   
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
   config.mock_with :rspec do |mocks|
-    
     mocks.verify_partial_doubles = true
   end
 
@@ -48,8 +46,6 @@ RSpec.configure do |config|
   FactoryGirl.definition_file_paths = %w{./factories ./spec/factories}
   FactoryGirl.find_definitions
 
-  
-
   config.before(:each) do
     DatabaseCleaner.start
   end
@@ -57,6 +53,5 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
-
+  
 end

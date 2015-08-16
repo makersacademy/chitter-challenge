@@ -1,6 +1,5 @@
 module SessionHelpers 
-
- def sign_in(user)
+  def sign_in(user)
     visit'/sessions/new'
     fill_in :username, with: user.username
     fill_in :password, with: user.password
@@ -16,5 +15,4 @@ module SessionHelpers
     fill_in :username, with: user.username
     click_button 'Sign up'
   end
-
 end
