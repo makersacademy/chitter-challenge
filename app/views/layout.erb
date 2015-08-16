@@ -1,22 +1,4 @@
-<% if current_user %>
-  <p>Welcome, <%= @current_user.user_name %>!</p>
 
-  <form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="Log out" />
-  </form>
-<% end %>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  <p>Please refer to the following errors below:</p>
-  <ul id ='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
+<%= partial :header %>
+<%= partial :flash %>
 <%= yield %>
