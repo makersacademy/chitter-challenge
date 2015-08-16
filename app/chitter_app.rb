@@ -39,8 +39,7 @@ class Chitter < Sinatra::Base
     end
 
     def current_user
-      user_id = session[:user_id]
-      User.get(user_id)
+      User.get(session[:user_id])
     end
   end
 end
