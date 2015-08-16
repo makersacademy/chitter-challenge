@@ -1,0 +1,18 @@
+<h1> Peeps </h1>
+<% if current_user %>
+  <h3>Compose peep<h3>
+  <form method='POST' action='/peeps' >
+      <h3> Message: </h3> <input type='text' name='message'> <br>
+      <input type='submit' value='Peep'>
+  </form>
+<%end%>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      User:      <%= peep.handle %>
+      Content:   <%= peep.message %>
+      Time:      <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
