@@ -6,7 +6,7 @@ feature 'Signing up' do
     click_button 'Sign up'
     user = build(:user)
     expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome #{user.username}"
+    expect(page).to have_content "Signed in as #{user.username}"
     expect(User.first.email).to eq('rebecca@example.com')
   end
 

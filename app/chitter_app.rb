@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     if current_user
-      redirect to '/messages'
+      redirect to '/peeps'
     else
       erb :index
     end
@@ -34,16 +34,29 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/messages')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
   end
 
-  get '/messages' do
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'/peeps/index'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(content: params[:message],
+                    time_created: Time.now)
+    peep.user = current_user
+    peep.save
+    redirect to('/peeps')
+  end
+
+  get '/peeps/new' do
     @username = session[:username]
-    erb :'/messages/messages'
+    erb :'/peeps/new'
   end
 
   get '/sessions/new' do
@@ -54,7 +67,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/messages')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['Your login information is incorrect. Please try again.']
       erb :'/sessions/new'
