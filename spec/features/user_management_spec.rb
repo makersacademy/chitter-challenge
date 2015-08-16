@@ -1,5 +1,6 @@
+require 'helpers/session.rb'
+#include SesssionHelpers
 require 'spec_helper'
-#require './app/models/user'
 
 feature 'user registration' do
   scenario 'see a Sign up page' do
@@ -12,11 +13,12 @@ feature 'user registration' do
   end
 
   context 'Successful Sign up' do
-    scenario 'registered user can see a welcome page' do
+    scenario 'registered user can see a posts page' do
       user = build :user
       sign_up(user)
       expect(page).to have_content user.name
       expect(User.count).to eq 1
+      expect(current_path).to eq '/posts/new'
     end
   end
 
@@ -55,15 +57,6 @@ feature 'user registration' do
 
 
 #   have_content "Welcome to Chitter, diegoregules@gmail.com"
-end
-
-def sign_up user
-  visit '/users/new'
-  fill_in :email, with: user.email
-  fill_in :name, with: user.name
-  fill_in :username, with: user.username
-  fill_in :password, with: user.password
-  click_button 'Sign Up'
 end
 
 

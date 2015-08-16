@@ -2,7 +2,7 @@ require_relative 'base'
 
 module Application
   module Routes
-    class XUser < Base
+    class Users < Base
 
       get '/users/new' do
         @user = User.new
@@ -16,8 +16,12 @@ module Application
                     email: params[:email], password: params[:password],
                     name: params[:name], username: params[:username]
                   )
-          session[:user_id] = @user.id if @user.save
-        erb :'/users/new'
+          if @user.save
+            session[:user_id] = @user.id
+            redirect '/posts/new'
+          else
+            erb :'/users/new'
+          end
 
       end
 

@@ -10,5 +10,6 @@ class User
   property :email, String
   property :username, String
   property :password_digest, Text
+  #has n, :post
 
 end
