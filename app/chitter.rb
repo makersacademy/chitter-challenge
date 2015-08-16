@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+
     @user = User.new
     erb :'users/new'
   end
@@ -44,7 +45,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    # @user = User.new
+    #session.clear
     erb :'sessions/new'
   end
 
@@ -71,14 +72,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new_peep' do
+    #@peep = Peep.new
     erb :'peeps/new_peep'
   end
 
   post '/peeps' do
     timestamp = Time.now
-    peep = Peep.new(text: params[:text], timestamp: timestamp)
-    peep.save
-    redirect to '/peeps'
+    @peep = Peep.new(user_id: params[:user_id], text: params[:text], timestamp: timestamp)
+    if @peep.save
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :'peeps/new_peep'
+    end
   end
 
   # start the server if ruby file executed directly
