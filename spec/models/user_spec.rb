@@ -14,6 +14,8 @@ describe User do
     expect_not_to_save_user_with_no :email
   end
 
+  xit 'email must be unique in order for user to be saved to the database'
+
   it 'password is required in order to be saved to the database' do
     expect_not_to_save_user_with_no :password_digest
   end
