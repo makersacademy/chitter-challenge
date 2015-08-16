@@ -1,13 +1,12 @@
 <div id='peeps-container'>
   <ul id="peeps">
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
-    </li>
-    <% end %>
-    <% @peeps.users.each do |user| %>
-    <li>
-      <%= user.username %>
+      <% peep.users.each do |user| %>
+        <%= user.username %>
+        <%= user.name %>
+      <% end %>
     </li>
     <% end %>
    </ul>
