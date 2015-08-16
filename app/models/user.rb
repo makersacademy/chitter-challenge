@@ -14,6 +14,7 @@ class User
   property :password_token, Text
 
   has n, :peeps, through: Resource
+
   validates_confirmation_of :password
   validates_presence_of :username
   validates_presence_of :email

@@ -6,6 +6,7 @@
   <% @peeps.each do |peep| %>
   <li>
       <%= peep.text %>
+      <%= peep.users.map(&:name) %>
       || <%= peep.created_at %> ||
   </li>
   <% end %>
