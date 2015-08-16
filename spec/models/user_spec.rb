@@ -6,5 +6,8 @@ describe User do
     expect(user_with_no_email.save).to be false
   end
 
-  xit 'password is required'
+  it 'password is required' do
+    user_with_no_password = build(:user, password: "")
+    expect(user_with_no_password.save).to be false
+  end
 end
