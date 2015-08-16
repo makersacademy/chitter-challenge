@@ -8,11 +8,14 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'factory_girl'
+require_relative './factories/user.rb'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
