@@ -16,7 +16,6 @@ module TheApp
       end
 
       get '/peeps/new' do
-        @username = session[:username]
         erb :'/peeps/new'
       end
     end

@@ -5,11 +5,7 @@ feature 'Post a peep' do
   scenario 'I can create a new peep' do
     t = Timecop.freeze(Time.new)
     user = create(:user)
-    sign_in(user)
-    visit '/peeps/new'
-    fill_in 'message', with: 'Hello world!'
-
-    click_button 'Post'
+    write_peep(user, 'Hello world!')
     expect(current_path).to eq('/peeps')
     within 'div#peeps' do
       expect(page).to have_content('Hello world!')
@@ -19,4 +15,19 @@ feature 'Post a peep' do
     end
   end
 
+  scenario 'I can post multiple peeps' do
+    user = create(:user)
+    write_peep(user, 'Hi there!')
+    write_peep(user, "Howdy!")
+    within 'div#peeps' do
+      expect(page).to have_content('Hi there!')
+      expect(page).to have_content('Howdy!')
+    end
+  end
+
+  scenario 'You must be signed in to peep' do
+    visit '/peeps'
+    click_button 'Peep!'
+    expect(page).to have_content('You need to be signed in to peep!')
+  end
 end

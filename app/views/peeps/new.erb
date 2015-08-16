@@ -1,4 +1,9 @@
-<form action='/peeps' method='post'>
-  Your peep: <input type='text' name='message'>
-  <input type='submit' value='Post'>
-</form>
+<% if current_user %>
+  <form action='/peeps' method='post'>
+    Your peep: <input type='text' name='message'>
+    <input type='submit' value='Post'>
+  </form>
+<% else %>
+  You need to be signed in to peep!
+  <a href='/sessions/new'>Sign in</a>
+<% end %>
