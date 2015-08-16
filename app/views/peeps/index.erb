@@ -3,7 +3,7 @@
 </form>
 <h1>Timeline</h1>
 <ul id="peeps">
-  <% @peeps.sort.reverse.each do |peep| %>
+  <% @peeps.each do |peep| %>
   <li>
       <%= peep.text %>
       || <%= peep.created_at %> ||

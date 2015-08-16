@@ -3,7 +3,7 @@ module ChitterApp
     class PeepController < Base
       get '/peeps' do
         flash.now[:errors]
-        @peeps = Peep.all
+        @peeps = Peep.all.reverse
         erb :'/peeps/index'
       end
 

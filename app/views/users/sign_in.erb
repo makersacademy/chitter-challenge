@@ -7,3 +7,8 @@
   </p>
   <input type="submit" value="Sign in">
 </form>
+<% if flash.now[:errors] %>
+  <form action="/user/password_reset">
+    <input type="submit" value="Reset Password">
+  </form>
+<% end %>

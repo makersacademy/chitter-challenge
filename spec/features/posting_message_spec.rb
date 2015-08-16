@@ -54,8 +54,9 @@ feature 'posting to chitter' do
   scenario 'will always see latest post first' do
     sign_in
     post_peep
-    post_peep(message: 'Hi')
-    expect(page).to have_content "Timeline Hi"
+    post_peep(message: 'A')
+    post_peep(message: 'B')
+    expect(page).to have_content "Timeline B"
   end
 
   scenario 'there are no links in the database at the start of the test' do

@@ -17,6 +17,11 @@ module ChitterApp
         def current_user
           User.get(session[:user_id])
         end
+
+        def random_token
+          random_token = Array.new(10).map { (65 + rand(58)).chr }.join
+          random_token.hash
+        end
       end
     end
   end
