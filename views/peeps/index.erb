@@ -1,1 +1,15 @@
-
+<% if current_user %>
+  <p>enter peep</p>
+  <form action="/peep" method="post">
+  <input type="text" name="peep_body"><br>
+  <input type="submit" value="Create peep">
+<%  else %>
+  <p>you must be logged in to peep</p>
+<% end %>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.body %>
+    </li>
+  <% end %>
+</ul>

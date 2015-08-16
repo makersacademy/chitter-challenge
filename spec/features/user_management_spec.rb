@@ -12,7 +12,6 @@ feature 'user sign up' do
     expect(page).to have_content('Please sign up')
   end
 
-
   scenario 'I can sign up as a new user' do
     sign_up_as(user)
     expect(page).to have_content('logged in as: test_user_name')
@@ -20,13 +19,13 @@ feature 'user sign up' do
   end
 
   scenario 'I cannot sign up with an exisiting username' do
-    sign_up_as(user)
+    create(:user)
     sign_up_as(user)
     expect(page).to have_content('User name is already taken')
   end
 
   scenario 'I cannot sign up with an exisiting email' do
-    sign_up_as(user)
+    create(:user)
     sign_up_as(user)
     expect(page).to have_content('Email is already taken')
   end

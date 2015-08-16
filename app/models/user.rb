@@ -29,7 +29,6 @@ module ChitterModule
           user
         end
       end
-
     end
   end
 end
