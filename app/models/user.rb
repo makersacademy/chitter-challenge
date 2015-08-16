@@ -9,6 +9,7 @@ class User
 
   property :id, Serial
   property :email, String
+  property :user_name, String
   property :password_digest, Text
 
   def password=(password)

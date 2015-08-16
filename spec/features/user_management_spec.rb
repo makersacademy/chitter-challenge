@@ -6,7 +6,7 @@ feature 'User sign up' do
     expect(User.first.email).to eq('rich@gmail.com')
   end
 
-  scenario 'requires a matching conformation password' do
+  scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
@@ -16,6 +16,7 @@ feature 'User sign up' do
       visit '/users/new'
       expect(page.status_code).to eq(200)
       fill_in :email, with: email
+      fill_in :user_name; with: user_name
       fill_in :password, with: password
       fill_in :password_confirmation, with: password_confirmation
       click_button 'Sign Up'
