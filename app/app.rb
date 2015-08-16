@@ -10,6 +10,12 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id]) if session[:user_id]
+    end
+  end
+
   get '/' do
     erb :home
   end
