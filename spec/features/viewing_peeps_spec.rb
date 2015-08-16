@@ -1,7 +1,7 @@
 require 'orderly'
 
 feature 'Viewing Peeps' do
-  before :each do
+  before :all do
     @time = Time.now
     create(:peep, content: "First Peep", created_at: @time)
     create(:peep, content: "Second Peep")
