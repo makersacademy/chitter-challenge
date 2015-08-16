@@ -16,6 +16,15 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, password)
+    user = User.first(email: email) #the first for which email is email provided
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+
   validates_uniqueness_of :username, :email
   validates_length_of :password, min: 6
   validates_confirmation_of :password
