@@ -2,6 +2,7 @@ require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'factory_girl'
 
 require File.join(File.dirname(__FILE__), '../app/chitter_app.rb')
 Capybara.app = Chitter
@@ -14,9 +15,9 @@ Coveralls.wear!
 
 RSpec.configure do |config|
   
-  # config.include FactoryGirl::Syntax::Methods 
-  # FactoryGirl.definition_file_paths = %w{./spec/factories}
-  # FactoryGirl.find_definitions
+  config.include FactoryGirl::Syntax::Methods 
+  FactoryGirl.definition_file_paths = %w{./spec/factories}
+  FactoryGirl.find_definitions
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
