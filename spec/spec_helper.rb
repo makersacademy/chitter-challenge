@@ -1,7 +1,7 @@
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
-# require 'database_cleaner'
+require 'database_cleaner'
 
 require File.join(File.dirname(__FILE__), '../app/chitter_app.rb')
 Capybara.app = Chitter
@@ -26,16 +26,16 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-  # config.before(:each) do
-  #   DatabaseCleaner.start
-  # end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
