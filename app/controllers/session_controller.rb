@@ -1,5 +1,6 @@
 module TheApp
   module Routes
+
     class SessionController < Base
       get '/sessions/new' do
         erb :'/sessions/new'
@@ -22,5 +23,6 @@ module TheApp
         redirect to('/peeps')
       end
     end
+
   end
 end

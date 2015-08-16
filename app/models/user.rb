@@ -3,6 +3,7 @@ require 'data_mapper'
 
 module TheApp
   module Models
+
     class User
       include DataMapper::Resource
 
@@ -33,6 +34,7 @@ module TheApp
           nil
         end
       end
+
     end
   end
 end

@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Post a peep' do
   scenario 'I can create a new peep' do
     t = Timecop.freeze(Time.new)
+    timestamp = "Written on #{t.day}-#{t.month}-#{t.year} at #{t.hour}:#{t.min}"
     user = create(:user)
     write_peep(user, 'Hello world!')
     expect(current_path).to eq('/peeps')
@@ -10,7 +11,7 @@ feature 'Post a peep' do
       expect(page).to have_content('Hello world!')
       expect(page).to have_content('Rebecca')
       expect(page).to have_content('katylouise')
-      expect(page).to have_content("Written on #{t.day}-#{t.month}-#{t.year} at #{t.hour}:#{t.min}")
+      expect(page).to have_content(timestamp)
     end
   end
 

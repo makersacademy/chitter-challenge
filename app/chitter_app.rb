@@ -12,6 +12,7 @@ require './app/controllers/peep_controller'
 include TheApp::Models
 
 module TheApp
+
   class Chitter < Sinatra::Base
     include AppHelpers
     register Sinatra::Flash
@@ -21,6 +22,6 @@ module TheApp
     use Routes::SessionController
     use Routes::PeepController
     use Routes::HomeController
-
   end
+
 end

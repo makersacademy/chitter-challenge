@@ -1,5 +1,6 @@
 module TheApp
   module Routes
+
     class HomeController < Base
       get '/' do
         if current_user
@@ -9,5 +10,6 @@ module TheApp
         end
       end
     end
+
   end
 end

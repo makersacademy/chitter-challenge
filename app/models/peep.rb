@@ -2,6 +2,7 @@ require 'data_mapper'
 
 module TheApp
   module Models
+
     class Peep
       include DataMapper::Resource
 
@@ -11,6 +12,7 @@ module TheApp
 
       belongs_to :user
     end
+
   end
 end
 

@@ -1,5 +1,6 @@
 module TheApp
   module Routes
+
     class PeepController < Base
       get '/peeps' do
         @peeps = Peep.all
@@ -19,5 +20,6 @@ module TheApp
         erb :'/peeps/new'
       end
     end
+
   end
 end

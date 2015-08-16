@@ -1,4 +1,5 @@
 module SessionHelpers
+
   def sign_up(user)
     visit '/users/new'
     fill_in 'name', with: user.name
@@ -22,4 +23,5 @@ module SessionHelpers
     fill_in 'message', with: message
     click_button 'Post'
   end
+
 end

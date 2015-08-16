@@ -33,14 +33,14 @@ feature 'Signing up' do
 
   scenario 'I cannot sign up with an existing email' do
     user = create(:user)
-    expect{ sign_up(user) }.to change(User, :count).by(0)
+    expect { sign_up(user) }.to change(User, :count).by(0)
     expect(current_path).to eq('/users/new')
     expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'I cannot sign up with an existing username' do
     user = create(:user)
-    expect{ sign_up(user) }.to change(User, :count).by(0)
+    expect { sign_up(user) }.to change(User, :count).by(0)
     expect(current_path).to eq('/users/new')
     expect(page).to have_content 'Username is already taken'
   end
