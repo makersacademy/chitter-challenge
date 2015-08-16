@@ -6,10 +6,12 @@
 <%  else %>
   <p>you must be logged in to peep</p>
 <% end %>
-<ul id="peeps">
+<div id="peeps">
   <% @peeps.each do |peep| %>
-    <li>
+    <div class="peep">
+     username: <%= peep.user.user_name %>
+     name: <%= peep.user.name %>
       <%= peep.body %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>

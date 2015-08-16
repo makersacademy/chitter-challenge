@@ -14,6 +14,8 @@ module ChitterModule
       property :name, String
       property :user_name, String, required: true
 
+      has n, :peeps
+
       validates_confirmation_of :password
       validates_uniqueness_of :user_name
       validates_uniqueness_of :email

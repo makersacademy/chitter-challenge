@@ -9,7 +9,8 @@ module ChitterModule
       end
 
       post '/peep' do
-        Peep.create(body: params[:peep_body])
+        Peep.create(body: params[:peep_body],
+                    user_id:  session[:user_id])
         redirect to('/peeps')
       end
     end

@@ -17,8 +17,10 @@ feature 'creating peeps' do
     expect(page).not_to have_content('you must be logged in to peep')
     fill_in 'peep_body', with: 'this is a peep'
     click_button 'Create peep'
-    within 'ul#peeps' do
+    within 'div#peeps' do
       expect(page). to have_content ('this is a peep')
+      expect(page). to have_content ("username: #{user.user_name}")
+      expect(page). to have_content ("name: #{user.name}")
     end
   end
 end

@@ -6,6 +6,9 @@ module ChitterModule
 
       property :id, Serial
       property :body, String
+
+      belongs_to :user
+
     end
   end
 end
