@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
     if session[:user_id] == nil
       redirect to ('/users/new')
     else
-      peep = Peep.new(message: params[:message], name: params[:email], username: params[:username], timestamp: Time.now)
+      peep = Peep.create(message: params[:message], timestamp: Time.now)
       peep.save
       redirect to('/peeps')
     end
