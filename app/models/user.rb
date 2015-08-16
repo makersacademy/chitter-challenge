@@ -20,8 +20,7 @@ module ChitterModule
       has n, :peeps
 
       validates_confirmation_of :password
-      validates_uniqueness_of :user_name
-      validates_uniqueness_of :email
+      validates_uniqueness_of :email, :user_name
 
       def password=(password)
         @password = password
