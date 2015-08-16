@@ -4,6 +4,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'helpers/user'
 require 'helpers/peep'
+require 'orderly'
 require_relative '../app/app.rb'
 Capybara.app = Chitter
 

@@ -5,6 +5,7 @@ group :test do
   gem 'capybara'
   gem 'coveralls', require: false  
   gem 'cucumber'
+  gem 'orderly'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'
