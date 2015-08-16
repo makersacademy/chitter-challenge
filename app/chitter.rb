@@ -18,7 +18,11 @@ module Armadillo
     end
 
     post '/' do
-      Peep.create(content: params[:content])
+      user = current_user
+      peep = Peep.new(content: params[:content])
+      peep.save
+      user.peeps << peep
+      user.save
       redirect '/'
     end
 
