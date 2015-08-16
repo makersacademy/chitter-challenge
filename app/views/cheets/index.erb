@@ -1,0 +1,10 @@
+<h1> Cheets </h1>
+
+<ul id="cheets">
+  <% @cheets.each do |cheet| %>
+    <li>
+      Message: <%= cheet.message %>
+      Time:   <%= cheet.time %>
+    </li>
+  <% end %>
+</ul>
