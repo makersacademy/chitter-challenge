@@ -45,8 +45,6 @@ end
 
 feature 'User sign in' do
 
-  # let(:user) { build(:user) }
-
   scenario 'with correct credentials' do
     user = create(:user)
     sign_in_as(user)
@@ -54,3 +52,14 @@ feature 'User sign in' do
   end
 end
 
+
+feature 'User signs out' do
+
+  scenario 'while being signed in' do
+    user = create(:user)
+    sign_in_as(user)
+    click_button 'Sign out'
+    expect(page). to have_content('goodbye!')
+    expect(page).not_to have_content "logged in as: #{user.user_name}"
+  end
+end

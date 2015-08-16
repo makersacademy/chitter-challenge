@@ -1,5 +1,9 @@
   <% if current_user %>
     logged in as: <%= current_user.user_name %>
+    <form method="post" action="/user-signout" >
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out" >
+    </form>
   <%  else %>
   <h1>sign in</h1>
   <form action="/users/sign-in" method="get">

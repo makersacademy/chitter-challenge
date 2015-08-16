@@ -36,6 +36,11 @@ module ChitterModule
         end
       end
 
+      delete '/user-signout' do
+        session.clear
+        flash.now[:notice] = ['goodbye!']
+      end
+
     end
   end
 end
