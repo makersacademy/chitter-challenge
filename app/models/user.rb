@@ -2,6 +2,7 @@ require 'bcrypt'
 require 'data_mapper'
 
 module TheApp
+
   module Models
 
     class User
@@ -36,5 +37,7 @@ module TheApp
       end
 
     end
+
   end
+
 end

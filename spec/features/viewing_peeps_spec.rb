@@ -18,7 +18,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content('How is everyone?')
   end
 
-  scenario 'I can see peeps from different users in reverse chronological order' do
+  scenario 'I can see peeps from users in reverse chronological order' do
     user_one = create(:user)
     user_two = create(:user_two)
     write_peep(user_one, 'Hi-de-hi!')

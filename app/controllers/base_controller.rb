@@ -1,4 +1,5 @@
 module TheApp
+
   module Routes
 
     class Base < Sinatra::Base
@@ -15,4 +16,5 @@ module TheApp
     end
 
   end
+
 end

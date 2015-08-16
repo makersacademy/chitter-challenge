@@ -1,4 +1,5 @@
 module TheApp
+
   module Routes
 
     class PeepController < Base
@@ -22,4 +23,5 @@ module TheApp
     end
 
   end
+
 end

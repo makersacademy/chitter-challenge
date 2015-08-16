@@ -1,6 +1,7 @@
 require 'data_mapper'
 
 module TheApp
+
   module Models
 
     class Peep
@@ -14,6 +15,7 @@ module TheApp
     end
 
   end
+
 end
 
 

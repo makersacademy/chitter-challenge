@@ -1,4 +1,5 @@
 module TheApp
+
   module Routes
 
     class UserController < Base
@@ -24,5 +25,6 @@ module TheApp
     end
 
   end
+
 end
 

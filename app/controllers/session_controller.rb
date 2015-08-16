@@ -1,4 +1,5 @@
 module TheApp
+
   module Routes
 
     class SessionController < Base
@@ -25,4 +26,5 @@ module TheApp
     end
 
   end
+
 end
