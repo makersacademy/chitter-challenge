@@ -1,4 +1,10 @@
 <h1> Wall of Peeps </h1>
+
+<% unless current_user %>
+  <a href="/sessions/new">Sign in</a> Not registered?
+  <a href="/users/new">Sign up</a>
+<% end %>
+
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>

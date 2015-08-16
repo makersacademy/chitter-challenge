@@ -10,6 +10,7 @@ class User
   property :name, String, required: true
   property :email, String, required: true, format: :email_address
   property :password_digest, Text
+  has n, :peeps
 
   def password=(password)
     @password = password # need that because validation doesnt work with nil password
