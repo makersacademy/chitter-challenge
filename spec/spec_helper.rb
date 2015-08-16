@@ -3,6 +3,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl'
+require 'dm-rspec'
 
 require File.join(File.dirname(__FILE__), '../app/chitter_app.rb')
 Capybara.app = Chitter
@@ -14,6 +15,8 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include(DataMapper::Matchers) #for dm-rspec gem
   
   config.include FactoryGirl::Syntax::Methods 
   FactoryGirl.definition_file_paths = %w{./spec/factories}

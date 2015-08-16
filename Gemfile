@@ -19,5 +19,6 @@ group :test do
   gem 'orderly'
   gem 'launchy'
   gem 'rack-test'
+  gem 'dm-rspec'
 end
 

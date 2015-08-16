@@ -14,8 +14,7 @@ describe Peep do
   end
 
   it 'cannot be created without content' do
-    peep_with_no_content = build(:peep, content: "")
-    expect(peep_with_no_content.save).to be false
+    should validate_presence_of :content
   end
 
   it 'cannot be created with content length over 140 characters' do
