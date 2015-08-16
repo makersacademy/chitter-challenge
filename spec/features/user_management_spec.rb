@@ -1,4 +1,6 @@
 feature 'User Management' do
+  include Rack::Test::Methods
+
   def sign_up(user)
     visit '/users/new'
     fill_in :email, with: user.email
@@ -28,9 +30,9 @@ feature 'User Management' do
     expect(current_path).to_not eq '/'
   end
 
-  scenario 'Users are logged-in (id saved in session) after signing-up' do
+  scenario 'Users are logged-in and welcomed after signing-up' do
     user = create(:user)
     sign_up user
-    expect(session).to include(user.id)
+    expect(page).to have_content "Welcome, #{user.email}."
   end
 end

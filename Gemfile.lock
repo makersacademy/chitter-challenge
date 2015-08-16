@@ -216,6 +216,7 @@ DEPENDENCIES
   guard-rspec
   launchy
   orderly
+  rack-test
   rspec
   rubocop
   rubocop-rspec

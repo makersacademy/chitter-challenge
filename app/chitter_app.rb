@@ -1,9 +1,8 @@
-require 'rubygems'
 require 'sinatra/base'
 require_relative 'datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
-  enable :sessions
+  enable :sessions unless test?
   set :session_secret, 'super secret'
 
   get '/' do
@@ -27,6 +26,7 @@ class Chitter < Sinatra::Base
   post '/users/' do
     user = User.new email: params['email'], password: params['password']
     if user.save
+      session[:user_id] = user.id
       redirect to('/')
     end
   end
@@ -36,6 +36,11 @@ class Chitter < Sinatra::Base
   helpers do
     def formatted_time_stamp(time_stamp)
       time_stamp.ctime
+    end
+
+    def current_user
+      user_id = session[:user_id]
+      User.get(user_id)
     end
   end
 end

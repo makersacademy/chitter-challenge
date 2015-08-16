@@ -18,5 +18,6 @@ group :test do
   gem 'coveralls', require: false
   gem 'orderly'
   gem 'launchy'
+  gem 'rack-test'
 end
 
