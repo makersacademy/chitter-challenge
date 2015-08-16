@@ -5,6 +5,7 @@ module TheApp
   module Models
 
     class Peep
+
       include DataMapper::Resource
 
       property :id, Serial

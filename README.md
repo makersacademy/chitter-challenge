@@ -1,3 +1,5 @@
+![Travis CI Build Working](https://travis-ci.org/katylouise/chitter-challenge.svg?branch=master)
+
 Chitter Challenge
 =================
 
@@ -45,4 +47,4 @@ Tests are run using RSpec, Capybara, Factory Girl and Database Cleaner
 
 Author
 -------
-Created by Rebecca Appleyard 16/08/15
+Created on 16/08/15 by Rebecca Appleyard
