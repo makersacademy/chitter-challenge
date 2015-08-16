@@ -4,8 +4,8 @@ feature 'In order to sign up'  do
     User.new(name: 'John', 
              user_name: 'Johnnyboy', 
              email: 'john@example.com',
-             password: '12345', 
-             password_confirmation: '12345')
+             password: '12345') 
+             # password_confirmation: '12345')
   end
 
   scenario 'There is a sign up page that needs my information' do
@@ -19,7 +19,7 @@ feature 'In order to sign up'  do
   end
   scenario 'when I sign up I am added to the database' do
     expect{ sign_up_a user }.to change(User, :count).by(1)
-    expect(page).to have_content "Hello"
+    expect(page).to have_content "#{user.user_name} is logged in."
   end
   scenario 'I must enter data for name' do
     no_name = User.new(name: '', user_name: 'Johnnyboy', email: 'john@example.com')
@@ -36,10 +36,12 @@ feature 'In order to sign up'  do
     expect{ sign_up_a(no_email) }.to change(User, :count).by(0)
     expect(page).to have_content "Email must not be blank"
   end
-  scenario 'password and password confirm must match' do
-    user = User.new(name: 'John', user_name: 'Johnnyboy', email: 'john@example.com', )
-    expect{ sign_up_a(no_email) }.to change(User, :count).by(0)
-    expect(page).to have_content "Email must not be blank"
+  # scenario 'email must be unique' do
+  # end
+  # scenario 'username must be unique' do
+  # end
+  scenario 'password required' do
+    expect{ sign_up_a(user) }.to change(User, :count).by(1)
   end
 
 end
