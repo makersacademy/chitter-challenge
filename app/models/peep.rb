@@ -1,8 +1,8 @@
 module ChitterModule
 
   module Models
-    class Peep
 
+    class Peep
 
       include DataMapper::Resource
 

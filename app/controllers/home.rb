@@ -7,6 +7,7 @@ module ChitterModule
       get '/' do
         redirect to('/peeps')
       end
+
     end
 
   end
