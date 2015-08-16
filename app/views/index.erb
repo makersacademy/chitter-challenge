@@ -1,11 +1,10 @@
-<h2>Peeps</h2>
-<% if current_user %>
-  <form action = '/peeps/new'>
-    <input type = "submit" value = "New Peep">
-  </form>
-<% end %>
-<ul id = "peeps">
-  <% @peeps.reverse_each do |peep| %>
-    <li><%= User.get(peep.user_id).username %> (<%= User.get(peep.user_id).name %>) <%= peep.timestamp %>:<br /> <%= peep.content %></li>
-  <% end %>
-</ul>
+<div id = "heading"><h2>Peeps</h2></div>
+<div id = "peeps-container">
+  <ul id = "peeps">
+    <% @peeps.reverse_each do |peep| %>
+      <li class = "peep">
+      <p class = "user"><%= User.get(peep.user_id).username %> (<%= User.get(peep.user_id).name %>) <%= peep.timestamp %>:</p>
+      <p class = "content"><%= peep.content %></p></li>
+    <% end %>
+  </ul>
+</div>

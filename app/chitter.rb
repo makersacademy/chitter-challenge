@@ -15,6 +15,6 @@ module Armadillo
     use Routes::PeepController
     use Routes::HomeController
 
-    run! if app_file == $0
+    # run! if app_file == $0
   end
 end
