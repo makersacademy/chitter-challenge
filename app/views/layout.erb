@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter :-D</title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      The following errors have been encountered:
+      <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
