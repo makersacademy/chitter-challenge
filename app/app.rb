@@ -17,7 +17,8 @@ class Chitter_Challenge < Sinatra::Base
   end
 
   post '/peeps' do
-
+    Peep.create(user: params[:user], peeps: params[:peeps])
+    redirect to('/peeps')
   end
 
   # start the server if ruby file executed directly
