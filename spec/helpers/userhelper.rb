@@ -3,7 +3,7 @@ module UserHelper
 
   def sign_up_as(user)
     visit '/peeps'
-    click_link 'join chitter'
+    click_link 'join'
     fill_in :email, with: user.email
     fill_in :name, with: user.name
     fill_in :user_name, with: user.user_name

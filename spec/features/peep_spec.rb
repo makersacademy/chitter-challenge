@@ -19,7 +19,7 @@ feature 'creating peeps' do
     visit '/peeps'
     expect(page).not_to have_content('you must be logged in to peep')
     fill_in 'peep_body', with: 'this is a peep'
-    click_button 'Create peep'
+    click_button 'peep!'
     within 'div#peeps' do
       expect(page). to have_content ('this is a peep')
     end

@@ -6,12 +6,12 @@
   </span>
 
   </header>
-    <form id="sign-out" class="button" method="post" action="/user-signout" >
+    <form  method="post" action="/user-signout" >
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out" >
+      <input type="submit" value="Sign out" class="button">
     </form>
   <%  else %>
    <a href="/users/sign-in" id="sign-in" class="button">Sign in</a>
-   <a href="/users/new" id="sign-up" class="button">join chitter</a>
+   <a href="/users/new" id="sign-up" class="button">join</a>
   <% end %>
 </header>

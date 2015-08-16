@@ -1,8 +1,11 @@
 <% if current_user %>
-  <p>enter peep</p>
-  <form action="/peep" method="post">
-  <input type="text" name="peep_body"><br>
-  <input type="submit" value="Create peep">
+
+  <div id="peep-entry">
+    <h2>enter peep</h2>
+    <form action="/peep" method="post">
+    <input type="text" name="peep_body"><br>
+    <input type="submit" value="peep!" class="button">
+  </div>
 <%  else %>
   <p>you must be logged in to peep</p>
 <% end %>

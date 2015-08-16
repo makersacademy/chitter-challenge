@@ -1,8 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Helvetica, Arial, Sans-serif;
 }
 
-a.button {
+a.button, .button {
   display: inline-block; /* display inline but have dimensions */
   width: 80px;
   background-color: #99CCFF;
@@ -47,11 +51,26 @@ header #logo {
   }
 
 
-  #peeps {
+  #peeps, .container {
   background-color: white;
   margin: 40px;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding: 10px;
+}
+
+#peep-entry {
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 18px;
+}
+
+input {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px 10px;
+  line-height: 20px;
 }
 
   .peep {
@@ -78,3 +97,32 @@ header #logo {
   .peep-body {
     font-size: 18px;
   }
+
+
+  form {
+  text-align: left;
+}
+
+  form p {
+    margin: 10px 0;
+  }
+
+  form input[type="text"], form input[type="password"] {
+    border: 1px solid black;
+    font-size: 16px;
+    width: 400px;
+  }
+
+
+  .submit {
+    background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
