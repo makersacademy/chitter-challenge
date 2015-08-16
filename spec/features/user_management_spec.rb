@@ -8,12 +8,14 @@ feature 'User sign up' do
     expect(User.first.email).to eq('sam@makersacademy.com')
   end
 
-  # def sign_up user
-  #     visit('/users/new')
-  #     fill_in :email, with: user.email
-  #     fill_in :password, with: user.password
-  #     fill_in :password_confirmation, with: user.password_confirmation
-  #     click_button 'Sign up'
-  # end
-
 end
+
+# feature 'User sign in' do
+
+#   scenario 'with correct credentials' do
+#     user = create(:user)
+#     sign_in(email: user.email, password: user.password)
+#     expect(page).to have_content "Welcome, #{{user.email}}"
+#   end
+
+# end

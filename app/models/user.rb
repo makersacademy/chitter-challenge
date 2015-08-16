@@ -1,4 +1,5 @@
 require 'bcrypt'
+require './app/helpers/app_helpers'
 
 class User
 
