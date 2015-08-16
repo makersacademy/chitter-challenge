@@ -8,8 +8,9 @@ feature 'Viewing Peeps' do
   end
 
   context 'when viewing the homepage' do
-    scenario "users see peeps' content" do    
-      visit '/'
+    before(:each){ visit '/' }
+
+    scenario "users see peeps' content" do
       expect(page).to have_content "First Peep"
       expect(page).to have_content "Second Peep"
       expect(page).to have_content "Third Peep"
@@ -19,12 +20,10 @@ feature 'Viewing Peeps' do
       time = Time.now
       formatted_time_stamp = time.ctime
       peep = create(:peep, created_at: time)
-      visit '/'
       expect(page).to have_content(formatted_time_stamp)
     end
 
     scenario 'peeps are in reverse chronological order' do
-      visit '/'
       expect("Third Peep").to appear_before("Second Peep")
     end
   end

@@ -21,9 +21,7 @@ feature 'User Management' do
   end
 
   context 'after successful sign-up' do
-    before :each do
-      sign_up(create :user)
-    end
+    before(:each){ sign_up(create :user) }
 
     scenario 'users are taken to root path' do
       expect(current_path).to eq '/'
@@ -35,9 +33,7 @@ feature 'User Management' do
   end
 
   context 'after unsuccessful sign-up' do
-    before :each do
-      sign_up(create :user, email: "")
-    end
+    before(:each){ sign_up(create :user, email: "") }
 
     scenario 'users are not taken to the root path' do
       expect(current_path).to_not eq '/'
