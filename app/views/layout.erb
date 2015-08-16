@@ -4,10 +4,26 @@
     <title>Chitter!</title>
   </head>
 
+<header>
+  <div id='logo'>Chitter</div>
+  <div id='user-links'>
+  <% if current_user %>
+  <span id='welcome-message'>
+    Welcome, <%= current_user.username %>
+  </span>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+  </div>
+</header>
+
   <body>
-    <% if current_user %>
-    Welcome,
-    <%= current_user.username %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>

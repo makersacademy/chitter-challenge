@@ -1,5 +1,4 @@
-feature 'User signs in' do
-
+feature 'User signs out' do
   let(:user) do
     User.create(username: 'Teeohbee',
                 password: '12345678',
@@ -7,9 +6,11 @@ feature 'User signs in' do
                 password_confirmation: '12345678')
   end
 
-  scenario 'with correct credentials' do
-    sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome, #{user.username}"
+  scenario 'while being signed in' do
+    sign_in(email: 'toby@example.com', password: '12345678')
+    click_button 'Sign out'
+    expect(page).to have_content('You successfully signed out')
+    expect(page).not_to have_content('Welcome, Teeohbee')
   end
 
   def sign_in(email:, password:)
