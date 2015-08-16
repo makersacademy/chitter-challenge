@@ -6,7 +6,16 @@
 
   <body>
     <% if current_user %>
-      You are logged in as <%= current_user.username %>
+      What's up, <%= current_user.username %>?
+      <form action='/peeps' method='post'>
+        <input type=text name="new_peep">
+        <input type=submit value="Peep">
+      </form>
+      <form
+      <form  method='post' action='/sessions'>
+        <input type='hidden' value='delete' name='_method'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
     <%= yield %>
   </body>

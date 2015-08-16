@@ -6,8 +6,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, '8h2e9h%$@##&#@&$)^@#ADIZdfgwd'
 
+  use Rack::MethodOverride
+
   get '/' do
-    redirect to('/peeps/new')
+    redirect to('/peeps')
   end
 
   get '/peeps' do
@@ -15,9 +17,9 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-   erb :'peeps/new'
-  end
+  # get '/peeps/new' do
+  #  erb :'peeps/new'
+  # end
 
   post '/peeps' do
    Peep.create(content: params[:new_peep])
@@ -47,6 +49,11 @@ class Chitter < Sinatra::Base
     else
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to('/peeps')
   end
 
 
