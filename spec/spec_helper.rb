@@ -21,7 +21,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/chitter_app.rb')
 require_relative 'factories/user'
 require_relative 'helpers/session'
 
-Capybara.app = Chitter
+Capybara.app = TheApp::Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
