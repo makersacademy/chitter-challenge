@@ -1,0 +1,3 @@
+describe Chitter do
+
+end
