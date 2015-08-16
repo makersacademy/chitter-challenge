@@ -32,7 +32,8 @@ feature 'creating peeps' do
     end
   end
 
-  scenario 'view peeps ordered by time decending' do
+
+  scenario 'view all peeps by time decending' do
 
     peep = create(:peep)
     peep_second = create(:peep_second)
@@ -40,9 +41,13 @@ feature 'creating peeps' do
     peeps = [peep, peep_second].map do |peep|
       peep.user_id = user.id
       peep.save
+      peep
     end
 
     visit '/peeps'
+    within 'div#peeps' do
+      peeps.each { |peep| expect(page).to have_content(peep.body) }
+    end
     expect(peep_second.body).to appear_before(peep.body)
   end
 end
