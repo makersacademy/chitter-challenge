@@ -10,6 +10,7 @@ class User
   property :user_name, String
   property :email, String
   property :password_digest, Text
+  has n, :peeps, through: Resource
 
   validates_presence_of :name
   validates_presence_of :user_name

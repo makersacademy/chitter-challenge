@@ -52,7 +52,9 @@ class Chitter < Sinatra::Base
     erb :'peep/new'
   end
   post '/peep' do
-    peep = Peep.create(content: params[:content])   
+    peep = Peep.create(content: params[:content], user_id: session[:user_id])   
+    flash[:notice] = "Thanks for peeping" 
+    redirect '/peep/new'
   end
 
 
