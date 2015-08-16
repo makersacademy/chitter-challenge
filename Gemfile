@@ -7,7 +7,7 @@ gem 'dm-timestamps'
 gem 'dm-validations'
 gem 'rake'
 gem 'sinatra'
-gem 'sintra-flash'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
