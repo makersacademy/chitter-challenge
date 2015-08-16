@@ -17,5 +17,14 @@ FactoryGirl.define do
     factory :user_no_username do
       user_name ''
     end
+
+    factory :user_wrong_password do
+      password 'wrong'
+    end
+
+    factory :user_wrong_username do
+      user_name 'wrong'
+    end
+
   end
 end

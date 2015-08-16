@@ -48,6 +48,21 @@ feature 'User sign in' do
     sign_in_as(user)
     expect(page).to have_content "logged in as: #{user.user_name}"
   end
+
+  scenario 'errors with incorrect password' do
+    user = create(:user)
+    wrong_user = build(:user_wrong_password)
+    sign_in_as(wrong_user)
+    expect(page).to have_content('The username or password is incorrect')
+  end
+
+  scenario 'errors with incorrect email' do
+    user = create(:user)
+    wrong_user = build(:user_wrong_username)
+    sign_in_as(wrong_user)
+    expect(page).to have_content('The username or password is incorrect')
+  end
+
 end
 
 feature 'User signs out' do
