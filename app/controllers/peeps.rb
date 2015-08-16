@@ -4,7 +4,7 @@ module ChitterModule
     class PeepController < Base
 
       get '/peeps' do
-        @peeps = Peep.all
+        @peeps = Peep.all(order: [:time.desc])
         erb :'peeps/index'
       end
 

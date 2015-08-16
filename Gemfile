@@ -17,5 +17,6 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'orderly'
 end
 

@@ -6,6 +6,7 @@ module ChitterModule
 
       property :id, Serial
       property :body, String
+      property :time, DateTime
 
       belongs_to :user
 

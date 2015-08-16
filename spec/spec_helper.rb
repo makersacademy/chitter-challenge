@@ -6,7 +6,9 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
-require_relative './factories.rb'
+require 'orderly'
+require_relative './factories/users.rb'
+require_relative './factories/peeps.rb'
 require_relative './helpers/userhelper.rb'
 
 

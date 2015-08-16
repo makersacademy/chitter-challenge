@@ -25,4 +25,23 @@ feature 'creating peeps' do
       expect(page). to have_content ("#{user.name}")
     end
   end
+
+  scenario 'peeps are in order of time' do
+
+    peep = create(:peep)
+    peep_second = create(:peep_second)
+
+    user = create(:user)
+    peeps = [peep, peep_second].map do |peep|
+      peep.user_id = user.id
+      peep.save
+    end
+
+    visit '/peeps'
+    expect(peep_second.body).to appear_before(peep.body)
+
+
+  end
+
 end
+
