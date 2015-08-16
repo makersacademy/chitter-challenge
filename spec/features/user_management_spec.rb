@@ -4,11 +4,13 @@ feature 'User sign up' do
   
   def sign_up(email: 'dave@example.com',
               password: 'oranges',
+              name: 'Dave',
               username: 'OrangeDave')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :email,    with: email
     fill_in :password, with: password
+    fill_in :name, with: name
     fill_in :username, with: username   
     click_button 'Sign up'
   end  
