@@ -8,6 +8,8 @@ require './app/controllers/user_controller'
 require './app/controllers/session_controller'
 require './app/controllers/peep_controller'
 
+include TheApp::Models
+
 module TheApp
   class Chitter < Sinatra::Base
     include AppHelpers

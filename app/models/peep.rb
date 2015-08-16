@@ -1,14 +1,18 @@
 require 'data_mapper'
 
-class Peep
-  include DataMapper::Resource
+module TheApp
+  module Models
+    class Peep
+      include DataMapper::Resource
 
-  property :id, Serial
-  property :content, Text
-  property :time_created, DateTime
+      property :id, Serial
+      property :content, Text
+      property :time_created, DateTime
 
-  belongs_to :user
+      belongs_to :user
 
+    end
+  end
 end
 
 
