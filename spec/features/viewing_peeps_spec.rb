@@ -6,7 +6,7 @@ feature 'Viewing Peeps' do
   end
 
   context 'when on homepage' do
-    scenario 'users sees peeps' do
+    scenario "users see peeps' content" do
       visit '/'
       expect(page).to have_content "First Peep"
       expect(page).to have_content "Second Peep"
