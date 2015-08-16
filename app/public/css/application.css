@@ -88,6 +88,11 @@ a {
     letter-spacing: 1px;
     margin: 10px inherit;
   }
+  .time {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right;
+    font-size: 12px;
+  }
 
 
 h1 {
