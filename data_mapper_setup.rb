@@ -2,7 +2,7 @@ require 'data_mapper'
 
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, ENV['DATABASE_NEW'] || "postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_NEW'] || "postgres://localhost/chitter2_#{env}")
 
 
 require './app/models/peep'

@@ -13,6 +13,12 @@ feature 'Creating peeps' do
     expect(User.first.email).to eq('retesh@example.com')
   end
 
+  scenario 'signing up as a new user with the same email fails' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+  end
+
+
   def sign_up
     visit '/users/new'
     fill_in :email,    with: 'retesh@example.com'

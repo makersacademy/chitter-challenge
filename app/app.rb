@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require './data_mapper_setup'
+require 'sinatra/flash'
+
 
 
 class Chitter < Sinatra::Base
@@ -7,14 +9,15 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   set :views, proc { File.join(root, 'views') }
-
+  use Rack::MethodOverride
+  register Sinatra::Flash
 
     get '/' do
       redirect '/peeps'
     end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
@@ -22,7 +25,10 @@ class Chitter < Sinatra::Base
     if session[:user_id] == nil
       redirect to ('/users/new')
     else
+      @user = current_user
       peep = Peep.create(message: params[:message], timestamp: Time.now)
+      @user.peeps << peep
+      @user.save
       redirect to('/peeps')
     end
   end
@@ -37,12 +43,38 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email],
-                password: params[:password],
-                username: params[:username])
-    @user.save
-    session[:user_id] = @user.id
-    redirect to('/peeps')
+    @exists = User.exists(params[:email])
+    if user
+      redirect to('/users/new')
+    else
+      @user = User.create(email: params[:email],
+                  password: params[:password],
+                  username: params[:username])
+      @user.save
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+
+  delete '/sessions' do
+    session.clear
+    flash.now[:notice] = ["Goodbye!"]
   end
 
   helpers do
