@@ -12,7 +12,6 @@ module Chitter
           peep = Peep.create(content: params[:peep])
           peep.users << current_user
           peep.save
-          current_user.peeps << peep
         else
           flash[:notice] = 'Please sign up or login first!'
         end
