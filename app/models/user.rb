@@ -11,12 +11,13 @@ module Chitter
 
       validates_confirmation_of :password
       validates_uniqueness_of :email
+      validates_uniqueness_of :username
 
       property :id, Serial
       property :email, String, required: true
       property :password_digest, Text
       property :name, String
-      property :username, String
+      property :username, String, required: true
       has n, :peeps, through: Resource
 
       def password=(password)

@@ -23,12 +23,26 @@ feature '#User sign up' do
     user = build(:user, email: '')
     sign_up_as(user)
     expect(current_path).to eq('/users/new')
+    expect(page).not_to have_content("Welcome, #{user.name}")
+  end
+
+  scenario 'Requires user to input a username' do
+    user = build(:user, username: '')
+    sign_up_as(user)
+    expect(current_path).to eq('/users/new')
+    expect(page).not_to have_content("Welcome, #{user.name}")
   end
 
   scenario 'Cannot sign up with an existing email' do
     user = create(:user)
     sign_up_as(user)
     expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'Cannot sign up with an existing username' do
+    user = create(:user)
+    sign_up_as(user)
+    expect(page).to have_content('Username is already taken')
   end
 end
 
