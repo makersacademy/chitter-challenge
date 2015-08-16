@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    "Hello"
+    erb :'index'
   end
 
   get '/user/new' do
@@ -33,7 +33,10 @@ class Chitter < Sinatra::Base
       current_user ||= User.get(session[:user_id])
     end
   end
+
 end
+
+
 
 
 

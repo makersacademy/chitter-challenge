@@ -3,15 +3,16 @@ ruby '2.2.2'
 
 group :test do
   gem 'capybara'
-  gem 'rspec'
+  gem 'coveralls', require: false  
   gem 'cucumber'
-  gem 'rubocop-rspec'
+  gem 'rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'rubocop-rspec'
 end
 
-gem 'sinatra'
-gem 'rspec-sinatra'
+gem 'database_cleaner'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rspec-sinatra'
