@@ -4,7 +4,7 @@ require_relative 'datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
