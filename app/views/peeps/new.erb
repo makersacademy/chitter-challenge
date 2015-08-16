@@ -1,4 +1,4 @@
-<form action="/peeps" method="post">
-  Peep:<input type="text" name="peep" />
+<form id="peep_entry" action="/peeps" method="post">
+  Peep:<input type="text" name="peep" value="<%= @reply_to %> " />
   <input type="submit" value="Peep!" />
 </form>

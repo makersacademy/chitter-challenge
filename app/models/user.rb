@@ -1,8 +1,11 @@
 require 'bcrypt'
 
 module Chitter
+
   module Models
+
     class User
+
       attr_reader :password
       attr_accessor :password_confirmation
       include DataMapper::Resource
@@ -27,6 +30,9 @@ module Chitter
         user = first(email: email)
         user && BCrypt::Password.new(user.password_digest) == password ? user : nil
       end
+
     end
+
   end
+
 end

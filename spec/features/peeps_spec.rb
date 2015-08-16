@@ -39,17 +39,34 @@ feature 'Viewing peeps when logged out' do
   end
 
   scenario 'The peeps have a timestamp' do
-    time = Time.new
     sign_up(user)
     create_peep('test')
-    Peep.last.update(time: time)
-    create_peep('test')
-    Peep.last.update(time: time + 3600)
-    within 'ul#peeps li:nth-child(1)' do
-      expect(page).to have_content((time + 3660).strftime("%I:%M %p"))
+    click_button('Log out')
+    within 'ul#peeps' do
+      expect(page).to have_content(Time.new.strftime("%I:%M %p"))
     end
-    within 'ul#peeps li:nth-child(2)' do
-      expect(page).to have_content(time.strftime("%I:%M %p"))
+  end
+end
+
+feature 'Users can reply to other peeps' do
+  let(:user) { build(:user) }
+
+  scenario 'User can click reply and send a peep to the original peeper' do
+    sign_up(user)
+    create_peep('test')
+    click_button('Reply')
+    expect(current_path).to eq('/peeps/new')
+    within '#peep_entry' do
+      expect(page).to have_field('peep', with: '@foobar ')
+    end
+  end
+
+  scenario 'User cannot reply to peeps when logged out' do
+    sign_up(user)
+    create_peep('test')
+    click_button('Log out')
+    within 'ul#peeps' do
+      expect(page).not_to have_button('Reply')
     end
   end
 end

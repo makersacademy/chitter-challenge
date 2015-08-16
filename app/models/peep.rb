@@ -8,7 +8,8 @@ module Chitter
 
       property :id, Serial
       property :peep, String
-      has n, :users, through: Resource
+      property :time, String
+      belongs_to :user
 
     end
 

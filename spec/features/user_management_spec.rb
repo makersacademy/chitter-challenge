@@ -51,6 +51,16 @@ feature 'User can sign up' do
     sign_in(user)
     expect(page).to have_content('The email or password is incorrect')
   end
+
+  scenario 'User retains inputed information when passwords do not match' do
+    user = build(:user, password_confirmation: 'wrong')
+    sign_up(user)
+    within '#user_info' do
+      expect(page).to have_field('email', with: 'foo@bar.com')
+      expect(page).to have_field('name', with: 'Foo Bar')
+      expect(page).to have_field('user_name', with: 'foobar')
+    end
+  end
 end
 
 feature 'User can log in' do
