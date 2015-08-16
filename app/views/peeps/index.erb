@@ -1,23 +1,26 @@
 <% if current_user %>
-<div id="new-peep">
-  <h3>Compose peep<h3>
-  
-  <form method='POST' action='/peeps' >
+<h3>Compose peep<h3>
+  <div id="new-peep">
+    <form method='POST' action='/peeps' >
       <input type='text' name='message'> <br>
       <input type='submit' value='Peep'>
-  </form>
-</div>
+    </form>
+  </div>
+  <br>
 <%end%>
-<div id='peeps-container'>
+
+<div class='container'>
   <div id="new-peep">
-    <ul>
+    <h3>Peeps<h3><br>
     <% Peep.all(order: [:time.desc]).each do |peep| %>
+      <ul id='peep'>
       <li>
-        User:      <%= peep.handle %>
+        <%= peep.handle %>
+        Time:      <%= peep.time %><br>
         Content:   <%= peep.message %>
-        Time:      <%= peep.time %>
       </li>
+      </ul>
+      <br>
     <% end %>
-    </ul>
   </div>
 </div>

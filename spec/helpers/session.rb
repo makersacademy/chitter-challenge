@@ -3,7 +3,7 @@ module SessionHelpers
     visit '/sessions/new'
     fill_in :handle, with: user.handle
     fill_in :password, with: user.password
-    click_button 'Sign In'
+    click_button 'Sign in'
   end
 
   def sign_up(user)

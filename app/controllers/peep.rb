@@ -4,7 +4,7 @@ module Bamboo
     class PeepController < Base
       get '/peeps' do
         @peeps = Peep.all
-        erb :'/peeps/new'
+        erb :'/peeps/index'
       end
 
       post '/peeps' do

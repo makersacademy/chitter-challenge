@@ -84,18 +84,12 @@ a {
     padding: 15px 10px;
   }
 
-  .peep a.title {
+  .peep {
     letter-spacing: 1px;
-  }
-
-  .peep .description {
     margin: 10px inherit;
   }
 
-  .peep .source {
-    float: right;
-    font-size: 12px;
-  }
+
 h1 {
   font-size: 22px ;
 }

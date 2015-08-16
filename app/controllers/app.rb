@@ -4,7 +4,7 @@ module Bamboo
   module Routes
     class AppController < Base
       get '/' do
-        erb :index
+        erb :'/peeps/index'
       end
     end
   end

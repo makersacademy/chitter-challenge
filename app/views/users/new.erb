@@ -1,10 +1,19 @@
 <h1>Please sign up</h1>
-<form action='/users' method='post'>
-  <ul>
-  <li>Email:<br><input name='email' type='text' value='<%= @user.email %>'></li><br>
-  <li>Chitter Handle(@user_name):<br> <input name='handle' type='text' value='<%= @user.handle %>'></li><br>
-  <li>Password:<br> <input name='password' type='password'></li><br>
-  <li>Password Confirmation:<br> <input name='password_confirmation' type='password'></li><br>
-  <li><input type='submit' value='Sign up'></li><br>
-  </ul>
+
+<form action="/users" method="post">
+  <p>
+    <input name="email" type="text" value="<%= @user.email %>" placeholder='Email address'>
+  </p>
+  <p>
+    <input name="handle" type="text" value="<%= @user.handle %>" placeholder='handle'>
+  </p>
+  <p>
+    <input name="password" type="password" placeholder='Password'>
+  </p>
+  <p>
+    <input name="password_confirmation" type="password" placeholder="Password confirmation">
+  </p>
+  <p>
+    <input type="submit" value="Sign up" class='button'>
+  </p>
 </form>

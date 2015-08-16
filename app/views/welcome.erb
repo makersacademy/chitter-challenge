@@ -5,13 +5,13 @@
       <span id="welcome-message">
         Welcome, <%= current_user.handle %>
       </span>
-      <form id="sign-up" class='button' method="post" action="/sessions">
+      <form id="sign-up" method="post" action="/sessions">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
+        <input type="submit" value="Sign Out">
       </form>
     <% else %>
-      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
-      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>
+      <a href='/users/new' id='sign-up' class='button'>Sign Up</a>
+      <a href='/sessions/new' id='sign-in' class='button'>Sign In</a>
     <% end %>
   </div>
 </header>
