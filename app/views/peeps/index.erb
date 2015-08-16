@@ -1,8 +1,8 @@
 <% if current_user %>
-<h3>Compose peep<h3>
-  <div id="new-peep">
+  <div>
     <form method='POST' action='/peeps' >
-      <input type='text' name='message'> <br>
+      <textarea rows="4" cols="50" name='message'>Compose your peep!</textarea>
+      <br>
       <input type='submit' value='Peep'>
     </form>
   </div>
@@ -11,15 +11,15 @@
 
 <div class='container'>
   <div id="new-peep">
-    <h3>Peeps<h3><br>
+    <h3><strong>Peeps</strong><h3><br>
     <% Peep.all(order: [:time.desc]).each do |peep| %>
       <ul id='peep'>
       <li>
         <%= peep.handle %>
-        <span class='time'><%= peep.time %></span>
+        <span class='time'>Posted:<%= peep.time %></span>
         <br>
         <br>
-        Content:   <%= peep.message %>
+        <%= peep.message %>
       </li>
       </ul>
       <br>

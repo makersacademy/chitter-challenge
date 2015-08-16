@@ -2,13 +2,13 @@
   <div id="logo">Chitter</div>
   <div id="user-peeps">
     <% if current_user %>
-      <span id="welcome-message">
-        Welcome, <%= current_user.handle %>
-      </span>
-      <form id="sign-up" method="post" action="/sessions">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign Out">
-      </form>
+      Welcome, <%= current_user.handle %>
+      <div id='signout'>
+        <form method="post" action="/sessions">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign Out" class='button'>
+        </form>
+      <div>
     <% else %>
       <a href='/users/new' id='sign-up' class='button'>Sign Up</a>
       <a href='/sessions/new' id='sign-in' class='button'>Sign In</a>
