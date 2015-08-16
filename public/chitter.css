@@ -1,0 +1,80 @@
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+a.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 80px;
+  background-color: #99CCFF;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  text-decoration: none; /*no underlining*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+}
+
+header {
+  width: 100%;
+  height: 30px;
+  background-color: #0099FF;
+  color: white;
+  display: flex;
+  padding: 0 5px;
+}
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    display: flex;
+  }
+
+  header #user-links {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }
+
+
+  #peeps {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+  .peep {
+  background-color: #EEE; /* same as #EEEEEE */
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  /* 10px for top and bottom, inherit from parent */
+  /* for left and right */
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+  .author {
+    margin: 10px inherit;
+    font-style: italic;
+    color: #000099;
+  }
+
+  .time {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right;
+    font-size: 12px;
+  }
+
+  .peep-body {
+    font-size: 18px;
+  }

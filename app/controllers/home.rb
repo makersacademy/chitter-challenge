@@ -4,7 +4,7 @@ module ChitterModule
     class HomeController < Base
 
       get '/' do
-        'Hello Chitter!'
+        redirect to('/peeps')
       end
     end
   end

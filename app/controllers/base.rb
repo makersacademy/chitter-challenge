@@ -11,6 +11,7 @@ module ChitterModule
       register Sinatra::Flash
 
       set :views, proc { File.join(root,'../..','views') }
+      set :public_folder, proc { File.join(root, '../..', 'public') }
 
     end
   end

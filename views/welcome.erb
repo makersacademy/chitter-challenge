@@ -1,14 +1,17 @@
+<header>
+<div id="logo">Chitter&nbsp;</div>
   <% if current_user %>
+  <span id ="welcome-message">
     logged in as: <%= current_user.user_name %>
-    <form method="post" action="/user-signout" >
+  </span>
+
+  </header>
+    <form id="sign-out" class="button" method="post" action="/user-signout" >
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Sign out" >
     </form>
   <%  else %>
-  <form action="/users/sign-in" method="get">
-    <input type="submit" value="Sign in">
-  </form>
-  <form action="/users/new" method="get">
-    <input type="submit" value="join chitter" name="join chitter">
-  </form>
+   <a href="/users/sign-in" id="sign-in" class="button">Sign in</a>
+   <a href="/users/new" id="sign-up" class="button">join chitter</a>
   <% end %>
+</header>
