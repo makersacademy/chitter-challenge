@@ -4,6 +4,9 @@ module Armadillo
       register Sinatra::Flash
       use Rack::MethodOverride
       set :views, proc { File.join(root, '..', 'views') }
+      register Sinatra::Flash
+      enable :sessions
+      set :session_secret, 'super secret'
 
       helpers do
       def current_user

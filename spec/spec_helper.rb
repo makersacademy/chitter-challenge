@@ -9,12 +9,14 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
+require './spec/helpers/test_helpers'
 require_relative './factories/user'
 
 Capybara.app = Armadillo::Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+  config.include TestHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
