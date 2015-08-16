@@ -24,7 +24,7 @@ As a maker
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
-- [ ] story 4
+- [x] story 4
 
 ```
 As a maker

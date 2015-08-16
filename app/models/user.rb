@@ -17,6 +17,8 @@ class User
   validates_uniqueness_of :email
   validates_uniqueness_of :username
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -29,6 +31,11 @@ class User
     else
       nil
     end
+  end
+
+  def peep content
+    peep = Peep.new(peep_body: content, user: self)
+    return peep
   end
 
 end
