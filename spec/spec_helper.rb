@@ -1,14 +1,36 @@
 ENV['RACK_ENV'] = 'test'
 
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'factory_girl'
 require 'rspec'
+require_relative '../app/app.rb'
+require_relative './helpers/helpers.rb'
+
+Capybara.app = Armadillo::App
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   FactoryGirl.definition_file_paths = %w{./factories ./spec/factories}
   FactoryGirl.find_definitions
+
+  config.include Helpers
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
 end
 
