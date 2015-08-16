@@ -33,7 +33,6 @@ module TheApp
           nil
         end
       end
-
     end
   end
 end

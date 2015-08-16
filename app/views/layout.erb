@@ -1,15 +1,23 @@
 <!DOCTYPE HTML>
 <html>
-  <head><title>Chitter</title></head>
+  <head>
+    <title>Chitter</title>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico|Reenie+Beanie' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/normalize.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/chitter.css'>
+  </head>
   <body>
     <div id='header'>
-      <form action='/'>
-        <input type='submit' value='Home'>
-      </form>
-      <h1>Chitter</h1>
+      <div id='home'>
+        <form action='/'>
+          <input class='button' type='submit' value='Home'>
+        </form>
+      </div>
+      <span id='logo'>Chitter</span>
+      <%= erb :'/partials/welcome' %>
+      <%= erb :'/partials/sign_out' %>
     </div>
-    <%= erb :'/partials/welcome' %>
-    <%= erb :'/partials/sign_out' %>
     <%= erb :'/partials/flash_errors' %>
     <%= erb :'/partials/flash_signout' %>
     <%= yield %>

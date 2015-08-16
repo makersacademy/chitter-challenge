@@ -10,7 +10,7 @@ feature 'Post a peep' do
       expect(page).to have_content('Hello world!')
       expect(page).to have_content('Rebecca')
       expect(page).to have_content('katylouise')
-      expect(page).to have_content("Written on: #{t.day}-#{t.month}-#{t.year} at #{t.hour}:#{t.min}")
+      expect(page).to have_content("Written on #{t.day}-#{t.month}-#{t.year} at #{t.hour}:#{t.min}")
     end
   end
 

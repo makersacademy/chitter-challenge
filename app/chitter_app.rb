@@ -4,6 +4,7 @@ require 'sinatra/partial'
 require './data_mapper_setup'
 require './app/helpers/app_helpers'
 require './app/controllers/base_controller'
+require './app/controllers/home_controller'
 require './app/controllers/user_controller'
 require './app/controllers/session_controller'
 require './app/controllers/peep_controller'
@@ -19,14 +20,7 @@ module TheApp
     use Routes::UserController
     use Routes::SessionController
     use Routes::PeepController
-
-    get '/' do
-      if current_user
-        redirect to '/peeps'
-      else
-        erb :index
-      end
-    end
+    use Routes::HomeController
 
   end
 end

@@ -1,0 +1,103 @@
+body {
+  background-color: #ffffff;
+  font-family: 'Tahoma', sans-serif;
+  margin: 5px;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 40pt;
+  text-align: center;
+  margin: 5px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
+#header {
+  width: 100%;
+  height: 100px;
+  padding: 5px 5px;
+}
+
+#home {
+  float: left;
+}
+
+#logo {
+  float: right;
+  font-family: 'Pacifico', cursive;
+  font-size: 25pt;
+  margin-right: 10px;
+  margin-top: -10px;
+}
+
+#peep_content {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 28pt;
+}
+
+#signed_in_as {
+  text-align: right;
+  font-size: 10pt;
+  width: 99%;
+  margin-top: 50px;
+  margin-right: 10px;
+}
+
+#sign_out {
+  width: 99%;
+  text-align: right;
+}
+
+#peeps {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+.peep {
+  text-align: center;
+  border: 1px solid #f3f3f3;
+  margin: auto;
+  margin: 10px;
+  border-radius: 3px;
+  padding: 10px 5px 0px 0px;
+}
+
+.peep ul li {
+  font-size: 8pt;
+  text-align: right;
+  font-family: 'Pacifico', cursive;
+}
+
+.button {
+  font-family: 'Pacifico', cursive;
+  border-radius: 3px;
+  border: 1px solid #838399;
+  font-size: 10pt;
+  background-color: #f3f3f3;
+}
+
+#peep_button {
+  text-align: center;
+}
+
+#peep_it {
+  font-size: 40pt;
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#new_peep {
+  text-align: center;
+  margin-top: 50px;
+}
