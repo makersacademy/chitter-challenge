@@ -30,3 +30,14 @@ feature 'user sign up' do
   end
 end
 
+feature 'User sign in' do
+
+  # let(:user) { build(:user) }
+
+  scenario 'with correct credentials' do
+    user = create(:user)
+    sign_in_as(user)
+    expect(page).to have_content "logged in as: #{user.user_name}"
+  end
+end
+

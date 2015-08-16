@@ -16,13 +16,13 @@ describe User do
     expect(User).not_to include('test user')
   end
 
-  it 'authenticated when given a valid email and password' do
-    authenticated_user = User.authenticate(user.email, user.password)
+  it 'authenticated when given a valid username and password' do
+    authenticated_user = User.authenticate(user.user_name, user.password)
     expect(authenticated_user).to eq(user)
   end
 
   it 'does not authenticate incorrect password' do
-    expect(User.authenticate(user.email, "incorrect_password")).to be_nil
+    expect(User.authenticate(user.user_name, "incorrect_password")).to be_nil
   end
 
   it 'only allows unique usernames' do

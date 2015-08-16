@@ -21,6 +21,21 @@ module ChitterModule
           erb :'users/new'
         end
       end
+
+      get '/users/sign-in' do
+        erb :'users/sign_in'
+      end
+
+      post '/users/sign-in' do
+        user = User.authenticate(params[:user_name], params[:password])
+        if user
+          session[:user_id] = user.id
+          redirect to('/peeps')
+        else
+          flash.now[:errors] = ['The emails or password is incorrect']
+        end
+      end
+
     end
   end
 end

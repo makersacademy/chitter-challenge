@@ -23,8 +23,8 @@ module ChitterModule
         self.password_digest = BCrypt::Password.create(password)
       end
 
-      def self.authenticate(email, password)
-        user = self.first(email: email)
+      def self.authenticate(user_name, password)
+        user = self.first(user_name: user_name)
         if user && BCrypt::Password.new(user.password_digest) == password
           user
         end

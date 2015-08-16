@@ -11,5 +11,13 @@ module UserHelper
     click_button 'Sign up'
   end
 
+  def sign_in_as(user)
+    visit '/peeps'
+    click_button 'Sign in'
+    fill_in :user_name, with: user.user_name
+    fill_in :password, with: user.password
+    click_button 'Submit'
+  end
+
 end
 
