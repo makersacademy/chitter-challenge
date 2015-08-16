@@ -28,5 +28,4 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Howdy!')
     expect('Howdy!').to appear_before('Hi-de-hi!')
   end
-
 end
