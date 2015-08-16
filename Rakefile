@@ -1,6 +1,6 @@
-# require 'cucumber/rake/task'
-# require 'rspec/core/rake_task'
-# require 'rubocop/rake_task'
+require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 require 'data_mapper'
 require './data_mapper_setup'
 
