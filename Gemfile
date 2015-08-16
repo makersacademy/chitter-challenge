@@ -9,7 +9,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sintra-flash'
 
-group :test, :development do
+group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl'
