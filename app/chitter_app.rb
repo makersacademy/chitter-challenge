@@ -14,6 +14,7 @@ include TheApp::Models
 module TheApp
 
   class Chitter < Sinatra::Base
+
     include AppHelpers
     register Sinatra::Flash
     register Sinatra::Partial
@@ -22,6 +23,7 @@ module TheApp
     use Routes::SessionController
     use Routes::PeepController
     use Routes::HomeController
+
   end
 
 end

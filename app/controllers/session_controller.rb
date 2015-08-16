@@ -3,6 +3,7 @@ module TheApp
   module Routes
 
     class SessionController < Base
+
       get '/sessions/new' do
         erb :'/sessions/new'
       end
@@ -23,6 +24,7 @@ module TheApp
         flash[:sign_out] = 'See you again soon!'
         redirect to('/peeps')
       end
+
     end
 
   end

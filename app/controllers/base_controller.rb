@@ -3,6 +3,7 @@ module TheApp
   module Routes
 
     class Base < Sinatra::Base
+
       include AppHelpers
       enable :sessions
       set :session_secret, 'super secret'
@@ -13,6 +14,7 @@ module TheApp
       use Rack::MethodOverride
 
       run! if app_file == $0
+
     end
 
   end

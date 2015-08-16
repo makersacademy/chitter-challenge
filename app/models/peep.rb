@@ -12,6 +12,7 @@ module TheApp
       property :time_created, DateTime
 
       belongs_to :user
+
     end
 
   end
