@@ -4,6 +4,8 @@ require_relative 'data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   get '/' do
@@ -35,8 +37,16 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect '/'
+    else
+      flash[:notice] = "Wrong Password"
+      redirect '/session/new'
     end
   end 
+  delete '/session' do
+    session[:user_id] = nil
+    flash[:notice] = "Goodbye"
+    redirect '/session/new'
+  end
 
   helpers do
     def current_user
