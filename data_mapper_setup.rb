@@ -3,6 +3,7 @@ require 'rubygems'
 require 'dm-core'
 require 'dm-timestamps'
 require_relative 'app/models/peep.rb'
+require_relative 'app/models/user.rb'
 require 'dm-validations'
 
 env = ENV['RACK_ENV'] || 'development'

@@ -28,5 +28,19 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+  User.create(email: params[:email],
+              password: params[:password],
+              username: params[:username],
+              realname: params[:realname])
+              session[:user_id] = user.id
+  redirect to('/peeps')
+
+end
+
   run! if app_file == $0
 end
