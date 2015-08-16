@@ -6,6 +6,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_
 
 require './app/models/peep'
 require './app/models/user'
+require 'dm-validations'
+
 
 DataMapper.finalize
 

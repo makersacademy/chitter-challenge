@@ -6,6 +6,8 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  set :views, proc { File.join(root, 'views') }
+
 
     get '/' do
       redirect '/peeps'
