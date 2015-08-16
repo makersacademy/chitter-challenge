@@ -2,7 +2,8 @@ require 'orderly'
 
 feature 'Viewing Peeps' do
   before :each do
-    create(:peep, content: "First Peep")
+    @time = Time.now
+    create(:peep, content: "First Peep", created_at: @time)
     create(:peep, content: "Second Peep")
     create(:peep, content: "Third Peep")
   end
@@ -17,10 +18,7 @@ feature 'Viewing Peeps' do
     end
 
     scenario "users can see when peeps were created" do
-      time = Time.now
-      formatted_time_stamp = time.ctime
-      peep = create(:peep, created_at: time)
-      expect(page).to have_content(formatted_time_stamp)
+      expect(page).to have_content(@time.ctime)
     end
 
     scenario 'peeps are in reverse chronological order' do
