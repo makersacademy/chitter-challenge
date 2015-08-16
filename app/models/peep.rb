@@ -6,8 +6,8 @@ class Peep
 
   property :id,          Serial
   property :message,     String
-  property :name,        String
-  property :username,    String
   property :timestamp,   DateTime
+
+  # belongs_to :user
 
 end
