@@ -39,7 +39,7 @@ feature 'User Management' do
       sign_up(create :user, email: "")
     end
 
-    scenario 'users are not taken to root path after unsuccessful sign-up' do
+    scenario 'users are not taken to the root path' do
       expect(current_path).to_not eq '/'
     end
   end
