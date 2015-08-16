@@ -15,7 +15,7 @@ FactoryGirl.define do
     end
 
     factory :user_no_username do
-      email ''
+      user_name ''
     end
   end
 end

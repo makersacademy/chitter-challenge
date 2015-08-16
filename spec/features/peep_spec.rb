@@ -11,6 +11,9 @@ feature 'creating peeps' do
 
   scenario ' I can peep when logged in' do
 
+    time = Time.local(2015, 8, 16, 18,0)
+    Timecop.freeze(time)
+
     user = create(:user)
     sign_in_as(user)
     visit '/peeps'
@@ -24,13 +27,15 @@ feature 'creating peeps' do
       expect(page). to have_content ("#{user.user_name}")
       expect(page). to have_content ("#{user.name}")
     end
+    within 'span.time' do
+      expect(page).to have_content ("18:00 16/08/2015")
+    end
   end
 
-  scenario 'peeps are in order of time' do
+  scenario 'view peeps ordered by time decending' do
 
     peep = create(:peep)
     peep_second = create(:peep_second)
-
     user = create(:user)
     peeps = [peep, peep_second].map do |peep|
       peep.user_id = user.id
@@ -39,9 +44,6 @@ feature 'creating peeps' do
 
     visit '/peeps'
     expect(peep_second.body).to appear_before(peep.body)
-
-
   end
-
 end
 

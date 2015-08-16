@@ -37,7 +37,7 @@ feature 'user sign up' do
 
   scenario 'requires an email' do
     sign_up_as(user_no_username)
-    expect(page).to have_content 'Email must not be blank'
+    expect(page).to have_content 'User name must not be blank'
   end
 
 end

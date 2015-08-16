@@ -32,7 +32,7 @@ module ChitterModule
           session[:user_id] = user.id
           redirect to('/peeps')
         else
-          flash.now[:errors] = ['The emails or password is incorrect']
+          flash.now[:errors] = ['The username or password is incorrect']
         end
       end
 

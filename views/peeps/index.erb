@@ -13,6 +13,9 @@
         <%= peep.user.user_name %>
         <%= peep.user.name %>
       </span>
+      <span class="time">
+        <%= peep.time.strftime("%H:%M %d/%m/%Y")%>
+      </span>
       <%= peep.body %>
     </div>
   <% end %>

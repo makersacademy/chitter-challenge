@@ -12,7 +12,7 @@ describe User do
   end
 
   it 'requires confirmation password to be correct' do
-    create(:user_wrong_confirmation )
+    create(:user_wrong_confirmation)
     expect(User).not_to include('test user')
   end
 
