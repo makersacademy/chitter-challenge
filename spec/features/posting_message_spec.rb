@@ -56,7 +56,7 @@ feature 'posting to chitter' do
     post_peep
     post_peep(message: 'A')
     post_peep(message: 'B')
-    expect(page).to have_content "Timeline B"
+    expect(page).to have_content "Timeline Peep: B"
   end
 
   scenario 'there are no links in the database at the start of the test' do
