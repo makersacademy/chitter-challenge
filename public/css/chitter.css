@@ -29,6 +29,17 @@ legend {
   margin: auto;
 }
 
+a {
+  font-size: 24pt;
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  font-size: 30pt;
+  color: #6d6d6d;
+}
+
 #header {
   width: 100%;
   height: 100px;

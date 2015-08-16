@@ -19,7 +19,7 @@ module TheApp
       delete '/sessions' do
         session.clear
         flash[:sign_out] = 'See you again soon!'
-        redirect to('/')
+        redirect to('/peeps')
       end
     end
   end
