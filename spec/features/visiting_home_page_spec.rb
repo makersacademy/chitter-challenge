@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'Visit home page' do
   scenario 'I have signed in before' do
     user = create(:user)
