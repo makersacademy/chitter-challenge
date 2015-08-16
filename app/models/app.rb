@@ -4,6 +4,7 @@ require './spec/helpers/session_helper'
 require './app/helpers/app_helpers'
 require './app/controllers/base'
 require './app/controllers/user'
+require './app/controllers/session'
 
 module Contro
   class App < Sinatra::Base
@@ -13,6 +14,7 @@ module Contro
     include AppHelpers
 
     use Routes::UserController
+    use Routes::SessionController
 
     get '/' do
       p current_user

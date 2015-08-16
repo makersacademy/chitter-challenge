@@ -8,7 +8,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
-# s
 # require_relative './helpers/session_helper'
 
 Capybara.app = Contro::App
