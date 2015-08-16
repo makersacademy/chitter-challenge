@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
               password: params[:password],
               username: params[:username],
               realname: params[:realname])
-              session[:user_id] = user.id
+  session[:user_id] = User.id
   redirect to('/peeps')
 
 end

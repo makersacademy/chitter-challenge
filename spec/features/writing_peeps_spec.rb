@@ -1,13 +1,13 @@
 feature 'writing peeps' do
 
-  scenario 'I can write a new peep' do
+  scenario 'I write a peep and it displays my username' do
     visit '/peeps/new'
-    fill_in 'user',   with: 'chrisalcockdev'
     fill_in 'content', with: 'hello world!'
     click_button 'Peep'
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps' do
+      expect(page).to have_content('hello world!')
       expect(page).to have_content('chrisalcockdev')
     end
   end
