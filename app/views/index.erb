@@ -1,14 +1,14 @@
-<div>
-  <h1>Welcome to Chitter<h1>
-    <% if current_user == nil%>
-    Please Sign In
-    <form method='get' action='/sessions/new'>
-      <input type='submit' value='Sign In'>
-    </form>
-    New User? Please Register
-    <form method='get' action='/users/new'>
-      <input type='submit' value='Sign Up'>
-    </form>
-    <%end%>
+<div id='peeps-container'>
+  <div id="new-peep">
+    <ul>
+    Peeps
+    <% Peep.all(order: [:time.desc]).each do |peep| %>
+      <li>
+        <%= peep.handle %>
+        Content:   <%= peep.message %>
+        Time:      <%= peep.time %>
+      </li>
+    <% end %>
+    </ul>
   </div>
-  <a href="/peeps">Peeps</a>
+</div>

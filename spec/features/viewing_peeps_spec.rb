@@ -8,8 +8,6 @@ feature 'Viewing links' do
     fill_in :message, with: 'Omg this is my first peep!'
     click_button 'Peep'
     expect(page.status_code).to eq 200
-    within 'ul#peeps' do
-      expect(page).to have_content('Omg this is my first peep!')
-    end
+    expect(page).to have_content('Omg this is my first peep!')
   end
 end

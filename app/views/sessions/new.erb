@@ -1,14 +1,8 @@
 <h1>Please Sign In</h1>
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<br>
 <form method='post' action='/sessions'>
-  handle: <input name='handle' type='text'>
-  password: <input name='password' type='password'>
-  <input type='submit' value='Sign In'>
+  <ul>
+  <li>Username: <br><input name='handle' type='text'></li></br>
+  <li>Password: <br><input name='password' type='password'></li></br>
+  <li><br><input type='submit' value='Sign In'></li></br>
 </form>

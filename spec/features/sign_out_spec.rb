@@ -4,7 +4,7 @@ feature 'User signs out' do
     visit '/sessions/new'
     sign_in(user)
     click_button 'Sign out'
-    expect(page).to have_content('goodbye!')
+    expect(page).to have_content('Good bye!')
     expect(page).not_to have_content('Welcome, #{user.handle}')
   end
 end

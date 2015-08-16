@@ -8,7 +8,7 @@ require_relative 'helpers/session'
 
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
-Capybara.app = Chitter
+Capybara.app = Bamboo::Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
