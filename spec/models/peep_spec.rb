@@ -11,5 +11,8 @@ describe Peep do
     expect(peep.save).to be false
   end
 
-  xit 'is created with a time stamp'
+  it 'is created with a time stamp' do
+    peep = Peep.create content: "Hello"
+    expect(peep.created_at).to be_truthy
+  end
 end
