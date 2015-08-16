@@ -7,4 +7,10 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all
     erb :'peeps/index'
   end
+
+  helpers do
+    def formatted_time_stamp(time_stamp)
+      time_stamp.ctime
+    end
+  end
 end
