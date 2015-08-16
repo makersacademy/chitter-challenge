@@ -3,6 +3,7 @@ require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require 'helpers/user'
+require 'helpers/peep'
 require_relative '../app/app.rb'
 Capybara.app = Chitter
 
@@ -20,6 +21,7 @@ RSpec.configure do |config|
   end
 
   config.include UserHelpers
+  config.include PeepHelpers
 
 end
 
