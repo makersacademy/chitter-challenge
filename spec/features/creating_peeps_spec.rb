@@ -17,6 +17,8 @@ feature 'Creating Peeps' do
       expect(current_path).to eq '/'
     end
 
-    scenario 'user can see Peep on page'
+    scenario 'user can see Peep on page' do
+      expect(page).to have_content "My first peep"
+    end
   end
 end
