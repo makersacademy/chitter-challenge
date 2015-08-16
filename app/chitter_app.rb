@@ -8,6 +8,17 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    Peep.create(content: params['content'])
+    redirect to('/')
+  end
+
+  private
+
   helpers do
     def formatted_time_stamp(time_stamp)
       time_stamp.ctime
