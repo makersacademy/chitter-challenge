@@ -9,6 +9,7 @@ gem 'sinatra-flash'
 gem 'database_cleaner'
 
 group :test do
+  gem 'timecop'
   gem 'factory_girl'
   gem 'capybara'
   gem 'rspec-sinatra'

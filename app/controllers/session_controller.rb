@@ -12,14 +12,15 @@ module Armadillo
           session[:user_id] = @user.id
           redirect '/'
         else
-          flash.now[:errors] = "The username or password you have entered is incorrect"
+          flash.now[:notice] = "The username or password you have entered is incorrect"
           erb :'sessions/new'
         end
       end
 
       delete '/sessions' do
         session[:user_id] = nil
-        erb :'sessions/goodbye'
+        flash[:notice] = "Goodbye!"
+        redirect'/'
       end
 
     end
