@@ -6,4 +6,10 @@ feature 'User sign in' do
     sign_in(user)
     expect(page).to have_content("Signed in as #{user.username}")
   end
+
+  scenario 'I can not sign in with incorrect credentials' do
+    user = build(:user)
+    sign_in(user)
+    expect(page).to have_content('Your login information is incorrect')
+  end
 end
