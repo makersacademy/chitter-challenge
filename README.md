@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Build Status](https://travis-ci.org/adrianw1832/chitter-challenge.svg?branch=master)](https://travis-ci.org/adrianw1832/chitter-challenge)
 
 How I approached it:
 --------------------

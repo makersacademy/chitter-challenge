@@ -16,6 +16,15 @@ feature 'Creating peeps' do
     expect(current_path).to eq('/')
     expect(page).to have_content('Please sign up or sign in first!')
   end
+
+  scenario 'User cannot create an empty peep' do
+    sign_up(user)
+    visit('peeps/new')
+    fill_in('peep', with: '')
+    click_button('Peep')
+    expect(current_path).to eq('/peeps')
+    expect(page).to have_content('Peep must not be blank')
+  end
 end
 
 feature 'Viewing peeps when logged out' do
@@ -43,7 +52,7 @@ feature 'Viewing peeps when logged out' do
     create_peep('test')
     click_button('Log out')
     within 'ul#peeps' do
-      expect(page).to have_content(Time.new.strftime("%I:%M %p"))
+      expect(page).to have_content(Time.new.strftime("%I:%M %P %d-%m-%Y"))
     end
   end
 end

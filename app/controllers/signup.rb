@@ -5,6 +5,10 @@ module Chitter
     class Users < Base
 
       get '/users/new' do
+        if current_user
+          flash[:notice] = "#{@current_user.user_name} is logged in already!"
+          redirect('/')
+        end
         @user = User.new
         erb :'users/new'
       end

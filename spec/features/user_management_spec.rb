@@ -81,6 +81,15 @@ feature 'User can log in' do
     expect(page).to have_content("#{user.user_name} is logged in already!")
     expect(page).to have_content("Welcome, #{user.user_name}!")
   end
+
+  scenario 'User cannot sign up while logged in' do
+    user = create(:user)
+    sign_in(user)
+    visit('/users/new')
+    expect(current_path).to eq('/')
+    expect(page).to have_content("#{user.user_name} is logged in already!")
+    expect(page).to have_content("Welcome, #{user.user_name}!")
+  end
 end
 
 feature 'User can log out' do

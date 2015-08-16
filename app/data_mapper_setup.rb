@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require 'dm-validations'
 
 require_relative 'models/user'
