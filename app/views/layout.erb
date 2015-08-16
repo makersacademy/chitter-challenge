@@ -13,9 +13,15 @@
       </ul>
     <% else %>
       <% if current_user %>
-        <%= current_user.username %> is in the building. %>
+        <%= current_user.username %> is in the building...
       <% end %>
     <% end %>
     <%= yield %>
+    <% if current_user %>
+      <form action="/sessions", method='post'>
+        <input type="hidden", name='_method' value='delete'>
+        <input type="submit" value='Log out'>
+      </form>
+    <% end %>
   </body>
 </html>

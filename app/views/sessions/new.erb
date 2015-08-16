@@ -1,6 +1,10 @@
-Please enter your account details below to log-in:
-<form action="/sessions/new" method="post">
-  Email: <input type="text" name="email">
-  Password: <input type="password" name="password">
-  <input type="submit" value="Log in">
-</form>
+<% if flash[:notification] %>
+  <%= flash[:notification] %><br>
+<% else %>
+  Please enter your account details below to log-in:
+  <form action="/sessions/new" method="post">
+    Email: <input type="text" name="email"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Log in">
+  </form>
+<% end %>

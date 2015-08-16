@@ -15,5 +15,10 @@ class Chitter
     end
   end
 
+delete '/sessions' do
+  session[:user_id] = nil
+  flash.now[:notification] = 'You are now logged-out. Come back soon!'
+  erb :'/sessions/new'
+end
 
 end

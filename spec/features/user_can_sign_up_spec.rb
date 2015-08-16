@@ -26,19 +26,16 @@ feature 'User sign-up:' do
   scenario 'New user cannot sign up without providing email address' do
     user = build(:user, email: '')
     expect{ sign_up(user) }.to_not change(User, :count)
-    # expect(page).to have_content('')
   end
 
   scenario 'New user cannot sign up without providing name' do
     user = build(:user, name: '')
     expect{ sign_up(user) }.to_not change(User, :count)
-    # expect(page).to have_content('')
   end
 
   scenario 'New user cannot sign up without providing username' do
     user = build(:user, username: '')
     expect{ sign_up(user) }.to_not change(User, :count)
-    # expect(page).to have_content('')
   end
 
   scenario 'Unsucceful attempt to create account refreshes the page' do

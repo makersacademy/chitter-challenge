@@ -17,7 +17,7 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
-- [ ] story 3
+- [x] story 3
 
 ```
 As a maker

@@ -4,6 +4,10 @@ require_relative './data_mapper_setup'
 require 'byebug'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+  register Sinatra::Flash
+  enable :sessions
+  set :session_secret, 'super secret'
 end
 
 Dir.glob("#{File.dirname(__FILE__)}/controllers/*.rb").each do |file|
@@ -11,9 +15,6 @@ Dir.glob("#{File.dirname(__FILE__)}/controllers/*.rb").each do |file|
 end
 
 class Chitter
-  register Sinatra::Flash
-  enable :sessions
-  set :session_secret, 'super secret'
 
   get '/' do
     erb :index
