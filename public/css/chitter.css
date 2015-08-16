@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  font-family: 'Tahoma', sans-serif;
+  font-family: 'Pacifico', cursive;
   margin: 5px;
 }
 
@@ -19,6 +19,14 @@ h2 {
   font-family: 'Pacifico', cursive;
   font-size: 30px;
   text-align: center;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+legend {
+  margin: auto;
 }
 
 #header {
@@ -90,14 +98,35 @@ h2 {
   text-align: center;
 }
 
-#peep_it {
+.big_button {
   font-size: 40pt;
   background-color: #f3f3f3;
   padding: 10px;
   border-radius: 5px;
+  display: inline-block;
+  margin-right: 30px;
+  padding-right: 15px;
+  text-align: center;
 }
 
-#new_peep {
+.form {
   text-align: center;
   margin-top: 50px;
 }
+
+.home {
+  margin: auto;
+  width: 30%;
+  display: flex;
+  margin-top: 30px;
+}
+
+#sign_up {
+  width : 100%;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+          box-sizing: border-box;
+}
+
