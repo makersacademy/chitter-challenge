@@ -9,9 +9,10 @@ module Chitter
 
       post '/peeps' do
         if current_user
-          peep = Peep.create(content: params[:peep])
+          peep = Peep.create(content: params[:peep], time: Time.new.strftime("%I:%M %p"))
           peep.users << current_user
           peep.save
+          p peep.time
         else
           flash[:notice] = 'Please sign up or login first!'
         end

@@ -5,6 +5,7 @@ module Chitter
 
       property :id, Serial
       property :content, String
+      property :time, String
       has n, :users, through: Resource
     end
   end

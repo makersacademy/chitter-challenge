@@ -36,4 +36,18 @@ feature '#Posting peeps' do
       expect(page).to have_content('Coding is fun')
     end
   end
+
+  scenario 'Peeps contain time at which it is created' do
+    user = create(:user)
+    sign_in_as(user)
+    peep = create(:peep, time: Time.new.strftime("%I:%M %p"))
+    peep2 = create(:peep, content: "Coffee was great!", time: (Time.new + 1800).strftime("%I:%M %p"))
+    visit('/peeps')
+    within 'ul#peeps li:nth-child(1)' do
+      expect(page).to have_content(peep2.time)
+    end
+    within 'ul#peeps li:nth-child(2)' do
+      expect(page).to have_content(peep.time)
+    end
+  end
 end
