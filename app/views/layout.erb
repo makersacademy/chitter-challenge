@@ -5,9 +5,15 @@
     <title>Chitter</title>
   </head>
   <body>
+
     <% if current_user %>
       Welcome, <%= current_user.email %>
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+
     <%= yield %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
