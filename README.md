@@ -6,6 +6,8 @@ Simple app to send messages out to the world. Can read 'peeps' in reverse chrono
 Setup
 -----
 
-Create local postgresql databases for relevant env, ie development and test, named "chitter_#{env}"
+To set up locally, create local postgresql databases for relevant env, ie development and test, named "chitter_development" and "chitter_test"
 
-bundle
+'''bundle'''
+
+Rackup and you're golden.
