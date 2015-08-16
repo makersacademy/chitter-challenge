@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      You are logged in as <%= current_user.username %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
