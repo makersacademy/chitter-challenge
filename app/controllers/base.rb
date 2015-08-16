@@ -7,6 +7,7 @@ module Chitter
       include AppHelpers
 
       set :views, proc { File.join(root, '..', 'views') }
+      set :public_folder, proc { File.join(root, '../..', 'public') }
       enable :sessions
       set :session_secret, 'secret'
       register Sinatra::Flash

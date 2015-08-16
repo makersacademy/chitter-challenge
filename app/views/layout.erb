@@ -1,4 +1,14 @@
-
-<%= partial :header %>
-<%= partial :flash %>
-<%= yield %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/application.css">
+</head>
+<body>
+  <%= partial :header %>
+  <%= partial :flash %>
+  <%= yield %>
+</body>
+</html>
