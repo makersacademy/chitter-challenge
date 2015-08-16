@@ -8,6 +8,7 @@ module Application
       set :views, proc { File.join(root, '..', 'views') }
       enable :sessions
       register Sinatra::Flash
+      use Rack::MethodOverride
 
       helpers do
         def current_user
@@ -16,7 +17,7 @@ module Application
       end
       #run! if app_file == $0
 
-      #use Rack::MethodOverride
+
 
     end
   end

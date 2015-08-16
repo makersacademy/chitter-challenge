@@ -17,8 +17,20 @@
 
     <%if current_user %>
       <p> Welcome <%= current_user.name %> </p>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
     <% end %>
+
+    <% if flash[:end_of_session] %>
+      <div id='notice'>
+        <%= flash[:end_of_session] %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
   </body>
 
 </html>

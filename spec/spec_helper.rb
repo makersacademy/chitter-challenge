@@ -5,8 +5,8 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 
-#require 'helpers/session'
-require './app/data_mapper_setup'
+require 'helpers/session'
+#require './app/data_mapper_setup'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -21,6 +21,10 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
   FactoryGirl.find_definitions
+end
+
+RSpec.configure do |config|
+  config.include SessionHelpers
 end
 
 RSpec.configure do |config|

@@ -12,7 +12,7 @@ feature 'user registration' do
     expect(User.count).to eq 0
   end
 
-  context 'Successful Sign up' do
+  context 'Successful attempt Sign up' do
     scenario 'registered user can see a posts page' do
       user = build :user
       sign_up(user)
@@ -22,7 +22,7 @@ feature 'user registration' do
     end
   end
 
-  context 'no action is taken for incorrect input in Sign Up' do
+  context 'Unsuccesful attempts during Sign Up' do
     scenario 'when email is missing' do
       user = build(:user, email: '')
       sign_up(user)
@@ -46,11 +46,11 @@ feature 'user registration' do
       expect(User.count).to eq 0
      end
 
-    scenario 'when passwords do not match' do
+    scenario 'when passwords do not match - NOT WORKING' do
       user = build(:user, password_confirmation: 'wrong')
       sign_up(user)
       #expect(current_path).to eq 'users/new'
-      #expect(page).to have_content 'Passwords do not match, please reenter'
+      #expect(page).to have_content 'Password does not match the confirmation'
       #expect(User.count).to eq 0
      end
 
@@ -73,11 +73,36 @@ feature 'user registration' do
       expect(page).to have_content 'Username is already taken'
       expect(User.first.username).to eq user_two.username
      end
-
    end
 
+  context 'During Sign in' do
+    scenario 'Successful: password and email entered correctly' do
+      user = build(:user)
+      sign_up(user)
+      sign_in(user)
+      expect(page).to have_content user.name
+      expect(current_path).to eq '/posts'
+    end
 
-#   have_content "Welcome to Chitter, diegoregules@gmail.com"
+    scenario 'Unsuccesful: password entered incorrectly' do
+      authorized_user = build(:user)
+      sign_up(authorized_user)
+      authorized_user.password =  'wrong'
+      sign_in(authorized_user)
+      expect(current_path).to eq '/sessions/new'
+      expect(page).to have_content 'Password and/or email incorrect'
+    end
+  end
+    scenario 'user can Sign Out' do
+      user = build(:user)
+      sign_up(user)
+      sign_in(user)
+      click_button 'Sign Out'
+      expect(current_path).to eq '/sessions'
+      expect(page).to have_content 'goodbye'
+  end
+
+
 end
 
 
