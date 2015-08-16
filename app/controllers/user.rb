@@ -18,6 +18,7 @@ module Application
           session[:user_id] = @user.id
           redirect '/posts/new'
         else
+          flash.now[:errors] = @user.errors.full_messages
           erb :'/users/new'
         end
 

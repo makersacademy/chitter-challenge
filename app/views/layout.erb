@@ -6,6 +6,15 @@
 
   <body>
     <h2> Chitter - Connecting Peeps </h2>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
     <%if current_user %>
       <p> Welcome <%= current_user.name %> </p>
     <% end %>
