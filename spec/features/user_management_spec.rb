@@ -42,7 +42,7 @@ feature 'User can sign up and sign in' do
     scenario "while being signed in the user can sign out" do
       sign_up(user)
       sign_in(user)
-      click_button "Sign out"
+      click_button "Log out"
       expect(page).to have_content "You have logged out"
     end
 

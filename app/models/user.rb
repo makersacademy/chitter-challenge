@@ -13,6 +13,8 @@ module Armadillo
       property :name, String, required: true
       property :user_name, String, required: true
 
+      has n, :peeps, through: Resource
+
       validates_uniqueness_of :email
       validates_uniqueness_of :user_name
       validates_confirmation_of :password
