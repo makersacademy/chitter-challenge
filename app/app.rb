@@ -35,8 +35,9 @@ end
   end
 
   post '/users' do
-    User.create(email: params[:name],
-                password: params[:password])
+    user = User.create(email: params[:name],
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
     session[:user_id] = user_id
     redirect to('/peeps')
     erb :'users/new'
