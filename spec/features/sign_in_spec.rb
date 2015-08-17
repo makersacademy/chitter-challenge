@@ -8,9 +8,8 @@ feature 'User signs in' do
 		
 	def sign_in(email:, password:)
 		visit '/sessions/new'
-		user = create :user
-		fill_in :email, with: user.email
-		fill_in :password, with: 'secret1234'
+		fill_in :email, with: email
+		fill_in :password, with: password
 		click_button 'Sign in'
 	end
 end
