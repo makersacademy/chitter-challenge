@@ -7,13 +7,17 @@ class User
 
   property :id, Serial
   property :username, String, required: true
+  property :name, String, required: true
   property :email, String, required: true
   property :password_digest, Text
 
   validates_presence_of :username
   validates_presence_of :email
+  validates_presence_of :name
   validates_confirmation_of :password
   validates_uniqueness_of :email
+
+  has n, :peeps
 
   def password=(password)
     @password = password

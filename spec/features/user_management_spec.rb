@@ -16,15 +16,26 @@ feature 'User sign up' do
   end
 
   scenario 'I cannot sign up with an existing email' do
-    sign_up()
-    expect { sign_up() }.to change(User, :count).by(0)
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
   end
 
-  def sign_up(username: 'Teeohbee', password: '12345678', email: 'toby@example.com', password_confirmation: '12345678')
+  scenario 'I cannot sign up with an existing username' do
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content('Email is already taken')
+  end
+
+  def sign_up(username: 'Teeohbee',
+              name: 'Toby Clarke',
+              password: '12345678',
+              email: 'toby@example.com',
+              password_confirmation: '12345678')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :username, with: username
+    fill_in :name, with: name
     fill_in :email, with: email
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation

@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(username: params[:username],
+                name: params[:name],
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
@@ -49,7 +50,6 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.next[:notice] = 'You successfully signed out'
-    # erb :'sessions/new'
     redirect to('/peeps')
   end
 
@@ -63,7 +63,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message], time: Time.now)
+    user = User.first(id: session[:user_id])
+    user.peeps.create(message: params[:message], time: Time.now)
     redirect to('/peeps')
   end
 

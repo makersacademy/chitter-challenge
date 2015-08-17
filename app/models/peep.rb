@@ -6,4 +6,6 @@ class Peep
   property :time, DateTime
 
   validates_presence_of :message
+
+  belongs_to :user
 end
