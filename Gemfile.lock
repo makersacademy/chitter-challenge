@@ -9,12 +9,15 @@ GEM
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     builder (3.2.2)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    columnize (0.9.0)
     coveralls (0.7.12)
       multi_json (~> 1.10)
       rest-client (>= 1.6.8, < 2)
@@ -174,6 +177,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  byebug
   capybara
   coveralls
   cucumber

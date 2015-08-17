@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
 	use Rack::MethodOverride
 
   get '/' do
-  	@users = User.all
   	@peeps = Peep.all
     erb :index
   end
@@ -74,7 +73,8 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps" do
-  	@peeps = Peep.all(:order => [ :time.desc ])
+  	@peeps = Peep.all
+    # (:order => [ :time.desc ])
   	erb :"peeps/index"
   end
 
@@ -83,8 +83,9 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
-  	Peep.create(content: params[:content], time: Time.now)
-  	redirect to("/peeps")
+   current_user.peeps.create(content: params[:content], time: Time.now)
+   p Peep.first
+   redirect to("/peeps")
   end
 
 

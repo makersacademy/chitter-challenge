@@ -4,6 +4,7 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 
+require 'byebug'
 require 'coveralls'
 require 'simplecov'
 require 'capybara'

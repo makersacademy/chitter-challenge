@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 group :test do
+  gem 'byebug'
   gem 'rspec'
   gem 'cucumber'
   gem 'capybara'

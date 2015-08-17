@@ -16,14 +16,14 @@ describe Peep do
     it "can be created and then retrieved from the db" do
       User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
       user = User.first
-      expect(described_class.count).to eq(0)
-      described_class.create(content: 'My first peep!',
-                             time: Time.now)
-      expect(described_class.count).to eq(1)
-      peep = described_class.first
+      user_id = user.id
+      expect(Peep.count).to eq(0)
+      Peep.create(content: 'My first peep!', user_id: user_id, time: Time.now)
+      expect(Peep.count).to eq(1)
+      peep = Peep.first
       expect(peep.content).to eq('My first peep!')
       peep.destroy
-      expect(described_class.count).to eq(0)
+      expect(Peep.count).to eq(0)
     end
   end
 

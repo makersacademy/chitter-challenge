@@ -2,17 +2,13 @@
 feature "Viewing & Creating Peeps" do
 
 	scenario "User can create a new peep" do
-	 	#this top line not required until DB relations issue sorted. 
+	 	create_user
 	 	sign_in(email: "ben@test.com", password: "password")
 		visit "/peeps/new"
 	 	fill_in "content", with: "I am a test peep"
 	 	click_button "Peep"
 	 	expect(current_path).to eq "/peeps"
 	 	expect(page).to have_content "I am a test peep"
-	end
-
-	scenario "All peeps from all users are displayed on index page" do
-		sign_in
 	end
 
 

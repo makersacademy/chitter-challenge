@@ -6,7 +6,7 @@
 Hello Chitter!
 
 <% @peeps.reverse.each do |peep| %>
-	User: <%= user.content %>
+	User: <%= peep.user %>
   Content: <%= peep.content %>
   Time: <%= peep.time %>
 <%end%>

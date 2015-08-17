@@ -16,9 +16,12 @@ class User
 
 	validates_format_of :email, :as => :email_address
 	validates_confirmation_of :password
-	#Should not be required // validates_uniqueness_of :username
 
-	# has n, :peeps
+	#Validate should not be required //
+	validates_uniqueness_of :email
+	validates_uniqueness_of :username
+
+	has n, :peeps
 
 
 	def password=(password)
