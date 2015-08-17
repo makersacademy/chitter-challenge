@@ -8,5 +8,5 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] ||"postgres://localhost/chitter_#
 require './app/models/user'
 require './app/models/cheets'
 
+DataMapper.auto_migrate!
 DataMapper.finalize
-DataMapper.auto_upgrade!

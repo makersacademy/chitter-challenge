@@ -19,6 +19,8 @@ module App
       erb :'/welcome'
     end
 
+    enable :sessions
+
     use Routes::Cheets_Controller
     use Routes::Sessions_Controller
     use Routes::User_Controller

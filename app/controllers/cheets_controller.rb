@@ -3,7 +3,6 @@ module App
 		class Cheets_Controller < Base
 			
 			get '/cheets' do
-				@user = User.new
 				@cheets = Cheet.all
 				erb :'/cheets/index'
 			end
@@ -13,8 +12,7 @@ module App
 			end
 
 			post '/cheets' do
-				@cheets = Cheet.new(message: params[:message], time: DateTime.now)
-				@cheets.save
+				cheet = Cheet.create(message: params[:message], time: DateTime.now, user_id: current_user.id)
 				redirect to('/cheets')
 			end
 		end

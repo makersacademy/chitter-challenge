@@ -18,7 +18,8 @@ module App
 			end
 
 			delete '/sessions' do
-				sessions[:user_id] = nil
+				session[:user_id] = nil
+				flash[:notice] = 'goodbye!'
 				redirect to('/')
 			end
 
