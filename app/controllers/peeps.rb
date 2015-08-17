@@ -18,7 +18,7 @@ module Chitter
       end
 
       get '/peeps/new' do
-        @reply_to = params[:reply_to]
+        @reply_to = params[:_reply_to]
         erb :'peeps/new'
       end
 
