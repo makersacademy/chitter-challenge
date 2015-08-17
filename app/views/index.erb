@@ -1,15 +1,20 @@
-<ul id="peeps">
-  <% @peeps.each do |each_peep| %>
-    <li>
-      <% user = User.get(each_peep.user_id) %>
-      Peep: <%= each_peep.peep %>
-      Peeped by <%= user.name %> @<%= user.user_name %> at <%= each_peep.time %>.
+<div id="peeps-container">
+  <ul id="peeps">
+    <% @peeps.each do |each_peep| %>
+
+      <li class="peep">
+        <% user = User.get(each_peep.user_id) %>
+        Peep: <%= each_peep.peep %>
+        Peeped by <%= user.name %> @<%= user.user_name %> at <%= each_peep.time %>.
+      </li>
+
       <% if current_user %>
         <form action="/peeps/new" method="get">
           <input type="hidden" name="reply_to" value="@<%= user.user_name %>" />
           <input type="submit" value="Reply" />
         </form>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+
+    <% end %>
+  </ul>
+</div>
