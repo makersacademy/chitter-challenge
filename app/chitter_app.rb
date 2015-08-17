@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/' do
-    #byebug
     #Peep.create(content: params['content'], user_id: current_user.id)
     current_user.peeps.create(content: params['content'])
     redirect to('/')
@@ -31,6 +30,8 @@ class Chitter < Sinatra::Base
     if user.save
       session[:user_id] = user.id
       redirect to('/')
+    else
+      redirect to('/users/new')
     end
   end
 

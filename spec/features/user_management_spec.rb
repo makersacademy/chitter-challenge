@@ -15,9 +15,20 @@ feature 'User Management' do
   end
 
   scenario 'users can sign up' do
-    user = create(:user)
+    user = build(:user)
     expect { sign_up user }.to change(User, :count).by(1)
     expect(User.first.email).to eq(user.email)
+  end
+
+  scenario 'user cannot sign up with an email that already exists' do
+    create(:user)
+    user = build(:user)
+    sign_up(user)
+    expect(current_path).to eq '/users/new'
+  end
+
+  context 'when trying to sign up with an email that already exists' do
+    scenario "user is alerted with a flash message that the email already exists"
   end
 
   context 'after successful sign-up' do
