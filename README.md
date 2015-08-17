@@ -1,7 +1,7 @@
 #Chitter Challenge
 
 ##Installation
-With the project directory stored locally, run the following in your command line to set up the required gem dependencies:
+With the project directory stored locally, run the following in your command line from the project directory in order to set up the required gem dependencies:
 `$ bundle`
 
 If you do not already have bundler installed, you will need to install this first:
