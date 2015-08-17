@@ -1,0 +1,8 @@
+<div>
+  <form action='/peeps' method='POST'>
+    peep message:
+    <input name='text' type='text'>
+    <input name='user_id' type='hidden' value="<%= session[:user_id] %>">
+    <input type='submit' value='Submit peep'>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<h1>
+  Peeps
+</h1>
+
+<ul id="peeps">
+  <% @peeps.reverse_each do |peep| %>
+  <li>
+    Peep:
+    <%= peep.text %><br>
+    By:
+    <%= peep.user.first_name %>
+    <%= peep.user.last_name %><br>
+    Handle:
+    <%= peep.user.username %><br>
+    Posted:
+    <%= peep.timestamp %></div>
+</li>
+<% end %>
+</ul>
