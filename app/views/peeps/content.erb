@@ -7,7 +7,8 @@
       @<%= peep.user.username %>
       <%= peep.time %>
       <% if current_user %>
-        <form action="/peeps/reply" method="post">
+        <form action="/peeps/new" method="get">
+          <input type="hidden" name="reply_to" value="@<%= peep.user.username %>" />
           <input type="submit" value="Reply" />
         </form>
       <% end %>

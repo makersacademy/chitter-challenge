@@ -75,13 +75,10 @@ feature '#Posting peeps' do
     visit('/peeps/new')
     fill_in('peep', with: 'Coding is fun')
     click_button('Submit')
-    click_button('Sign out')
-    user2 = create(:user, email: 'other@gmail.com', username: 'Friend')
-    sign_in_as(user2)
-    visit('/peeps')
     click_button('Reply')
-    fill_in('reply', with: 'Hey let\'s meet up for lunch, I\'ve got some job openings')
-    click_button('Submit')
-    expect(page).to have_content('@Friend Hey let\'s meet up for lunch, I\'ve got some job openings')
+    expect(current_path).to eq('/peeps/new')
+    within '#input_peep' do
+      expect(page).to have_field('peep', with: '@testing_123')
+    end
   end
 end

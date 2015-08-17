@@ -18,11 +18,11 @@ module Chitter
       end
 
       get '/peeps/new' do
+        @reply_to = params[:reply_to]
         erb :'peeps/new'
       end
 
       get '/peeps/reply' do
-        p "potato"
         erb :'peeps/reply'
       end
 
