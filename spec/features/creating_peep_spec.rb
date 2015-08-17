@@ -1,7 +1,7 @@
 feature 'Creating Peeps' do
 
   let(:user) do
-    User.create(email: 'sam@makersacademy.com', password: 'secret1234', first_name: 'Samuel', last_name: 'Joseph', username:'tansaku')
+    user = create :user
   end
 
   scenario 'can post a new peep to Chitter' do
@@ -13,4 +13,12 @@ feature 'Creating Peeps' do
     expect(Peep.count).to eq(1)
   end
 
+  scenario 'can only peep if logged in' do
+    expect(Peep.count).to eq(0)
+    visit '/peeps/new_peep'
+    fill_in 'text', with: 'peep message'
+    click_button 'Submit peep'
+    expect(Peep.count).to eq(0)
+    expect(page).to have_content('Please log in or register to create a peep')
+  end
 end

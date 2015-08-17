@@ -5,7 +5,6 @@ require_relative "./models/peep"
 require 'sinatra/session'
 require 'sinatra/flash'
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -25,10 +24,10 @@ class Chitter < Sinatra::Base
   #
   post '/users' do
     @user = User.new(email: params[:email],
-    password: params[:password],
-    first_name: params[:first_name],
-    last_name: params[:first_name],
-    username: params[:username])
+                     password:     params[:password],
+                     first_name:   params[:first_name],
+                     last_name:    params[:last_name],
+                     username:     params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -45,7 +44,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    #session.clear
+    # session.clear
     erb :'sessions/new'
   end
 
@@ -72,15 +71,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new_peep' do
-    #@peep = Peep.new
+    # @peep = Peep.new
     erb :'peeps/new_peep'
   end
 
   post '/peeps' do
-    timestamp = Time.now
-    @peep = Peep.new(user_id: params[:user_id], text: params[:text], timestamp: timestamp)
-    if @peep.save
+    timestamp = Time.now.strftime('%Y-%m-%d_%H-%M-%S')
+    @peep = Peep.new(user_id: params[:user_id],
+                     text: params[:text],
+                     timestamp: timestamp)
+    if @peep != "" && !session[:user_id].nil?
+      @peep.save
       redirect to('/peeps')
+    elsif @peep != ""
+      flash.now[:errors] = ['Please log in or register to create a peep']
     else
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new_peep'
@@ -88,5 +92,6 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
+
 end

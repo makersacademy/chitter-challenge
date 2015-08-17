@@ -1,20 +1,22 @@
 feature 'User sign up' do
-  scenario 'I can sign up for Chitter' do
+
+  let(:user) do
     user = build :user
+  end
+
+  scenario 'can sign up for Chitter' do
     expect { sign_up(user) }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, sam@makersacademy.com')
     expect(User.first.email).to eq('sam@makersacademy.com')
   end
 
-  scenario 'I cannot sign up with an existing email' do
-    user = build :user
+  scenario 'cannot sign up with an existing email' do
     sign_up(user)
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
   end
 
-  scenario 'I cannot sign up with an existing username' do
-    user = build :user
+  scenario 'cannot sign up with an existing username' do
     sign_up(user)
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Username is already taken')
@@ -22,10 +24,10 @@ feature 'User sign up' do
 
 end
 
-feature 'User log in' do
+feature 'User logs in' do
 
   let(:user) do
-    User.create(email: 'sam@makersacademy.com', password: 'secret1234', first_name: 'Samuel', last_name: 'Joseph', username:'tansaku')
+    user = create :user
   end
 
   scenario 'with correct credentials' do
@@ -38,11 +40,11 @@ end
 feature 'User signs out' do
 
   let(:user) do
-    User.create(email: 'sam@makersacademy.com', password: 'secret1234', first_name: 'Samuel', last_name: 'Joseph', username:'tansaku')
+    user = create :user
   end
 
   scenario 'while being signed in' do
-    sign_in(email: 'sam@makersacademy.com', password: 'test')
+    sign_in(email: user.email,   password: user.password)
     click_button 'Sign out'
     expect(page).to have_content('You have logged out')
     expect(page).not_to have_content('Welcome, sam@makersacademy.com')

@@ -1,16 +1,17 @@
 require 'bcrypt'
 
 class User
+
   include DataMapper::Resource
 
   attr_reader :password
 
   property :id, Serial
-  property :email, String, required: true , unique:true
+  property :email, String, required: true, unique: true
   property :password, String, required: true
-  property :first_name, String #, required: true
-  property :last_name, String #, required: true
-  property :username, String, required: true , unique:true
+  property :first_name, String # , required: true
+  property :last_name, String # , required: true
+  property :username, String, required: true, unique: true
 
   property :password_digest, Text
 
@@ -21,12 +22,11 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(email, password)
+  def self.authenticate(email, _password)
     User.first(email: email)
   end
 
   def self.authenticate(email, password)
-
     user = first(email: email)
 
     if user && BCrypt::Password.new(user.password_digest) == password
