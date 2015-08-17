@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'byebug'
 require_relative 'datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
@@ -15,7 +16,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/' do
-    Peep.create(content: params['content'])
+    #byebug
+    #Peep.create(content: params['content'], user_id: current_user.id)
+    current_user.peeps.create(content: params['content'])
     redirect to('/')
   end
 
