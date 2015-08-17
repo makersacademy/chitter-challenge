@@ -15,7 +15,7 @@ module Chitter
       property :password_digest, Text
       property :name, String, required: true
       property :user_name, String, required: true, unique: true
-      has n, :peeps, through: Resource
+      has n, :peeps
 
       validates_confirmation_of :password
 

@@ -5,6 +5,11 @@ Chitter Challenge
 How I approached it:
 --------------------
 
+*This weekend challenge was very much based on the bookmark manager that we did during the week. In order to run the program properly, two databases, chitter_development and chitter_test has to be created via psql first.
+
+Time:
+------------
+
 * Challenge time: Friday afternoon (+ weekend if you need it)
 * Feel free to use google, your notes, books, etc but work on your own
 * You must submit a pull request to this repo with your code by 9am Monday morning
