@@ -5,6 +5,6 @@ feature 'Users have their own peeps stored in database' do
     visit '/peeps'
     fill_in 'new_peep', with: 'posted this'
     click_on 'Peep'
-    expect(User.first.peeps).to eq('posted this')
+    expect(User.get(user.id).peeps.map(&:content).sample).to eq('posted this')
   end
 end

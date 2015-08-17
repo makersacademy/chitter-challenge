@@ -1,11 +1,11 @@
-class User
+require 'bcrypt'
 
-  require 'bcrypt'
+class User
   include DataMapper::Resource
   attr_reader :password
   attr_accessor :password_confirmation
 
-  property :user_id, Serial
+  property :id, Serial
   property :username, String, required: true
   property :name, String, required: true
   property :email, String, required: true, format: :email_address
@@ -27,6 +27,6 @@ class User
   end
 
   validates_uniqueness_of :username, :email
-  validates_length_of :password, min: 6
+  # validates_length_of     :password, min: 6 <= this was my epic db problem
   validates_confirmation_of :password
 end

@@ -13,18 +13,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
-    p 'SESSION STARTS'
-    p session
-    p 'SESSION ENDS'
-    p current_user
+    @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
   post '/peeps' do
-    peep = Peep.create(content: params[:new_peep], user: current_user)
+    user = current_user
+    peep = user.peeps.create(content: params[:new_peep])
     redirect to('/peeps')
-
   end
 
   get '/users/new' do
@@ -34,7 +30,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(username: params[:username], name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.user_id
+    session[:user_id] = user.id
     redirect to('/peeps')
   end
 
@@ -45,7 +41,7 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      session[:user_id] = user.user_id
+      session[:user_id] = user.id
       redirect to('/peeps')
     else
       erb :'sessions/new'

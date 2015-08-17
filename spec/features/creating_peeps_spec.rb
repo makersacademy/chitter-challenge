@@ -15,7 +15,7 @@ feature 'creating peeps' do
   end
 
   scenario 'I can only peep when logged in' do
-    visit '/peeps/'
+    visit '/peeps'
     expect(page).not_to have_field 'new_peep'
   end
 
