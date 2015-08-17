@@ -8,8 +8,7 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.user %><br />
-      <%= peep.content %><br />
+      <%= peep.user %><br />: <%= peep.content %><br />
     </li>
   <% end %>
 </ul>
