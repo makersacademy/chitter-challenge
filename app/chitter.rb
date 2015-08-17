@@ -64,8 +64,13 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     user = User.first(id: session[:user_id])
-    user.peeps.create(message: params[:message], time: Time.now)
-    redirect to('/peeps')
+    if user
+      user.peeps.create(message: params[:message], time: Time.now)
+      redirect to('/peeps')
+    else
+      flash.next[:notice] = "You must be logged in to peep"
+      redirect to('sessions/new')
+    end
   end
 
   helpers do

@@ -18,12 +18,21 @@ feature 'Viewing peeps' do
   end
 
   scenario ' I can see time stamps on peeps' do
-    Peep.create(message: 'Test message', time: '14:11')
+    sign_in(user)
+    user.peeps.create(message: 'Test message', time: '14:11')
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do
       expect(page).to have_content('14:11')
     end
+  end
+
+  scenario 'I cannot peep if not logged in' do
+    visit '/peeps/new'
+    fill_in :message, with: "Test message"
+    click_button 'Post'
+    expect(page.status_code).to eq 200
+    expect(page).to have_content('You must be logged in to peep')
   end
 
   def sign_in(user)
