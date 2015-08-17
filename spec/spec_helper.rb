@@ -10,6 +10,7 @@ require 'rspec'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
+require 'factory_girl'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -21,6 +22,10 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.definition_file_paths = %w{./factories ./test/factories ./spec/factories}
+  FactoryGirl.find_definitions
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

@@ -1,13 +1,7 @@
 feature 'Viewing peeps' do
-  let(:user) do
-    User.create(username: 'Teeohbee',
-                name: 'Toby Clarke',
-                password: '12345678',
-                email: 'toby@example.com',
-                password_confirmation: '12345678')
-  end
 
   scenario ' I can see existing peeps on the main page' do
+    user = create :user
     sign_in(user)
     user.peeps.create(message: 'Test message')
     visit '/peeps'
@@ -18,6 +12,7 @@ feature 'Viewing peeps' do
   end
 
   scenario ' I can see time stamps on peeps' do
+    user = create :user
     sign_in(user)
     user.peeps.create(message: 'Test message', time: '14:11')
     visit '/peeps'

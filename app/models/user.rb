@@ -16,6 +16,7 @@ class User
   validates_presence_of :name
   validates_confirmation_of :password
   validates_uniqueness_of :email
+  validates_uniqueness_of :username
 
   has n, :peeps
 
