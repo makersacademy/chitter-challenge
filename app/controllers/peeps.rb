@@ -8,18 +8,22 @@ module Chitter
       end
 
       post '/peeps' do
-        if current_user
-          peep = Peep.create(content: params[:peep], time: Time.new.strftime("%I:%M %p"))
-          peep.users << current_user
-          peep.save
+        peep = Peep.create(content: params[:peep], time: Time.new.strftime("%I:%M %p"), user: current_user)
+        if peep.save
+          redirect('/')
         else
           flash[:notice] = 'Please sign up or login first!'
+          redirect('/')
         end
-        redirect('/')
       end
 
       get '/peeps/new' do
         erb :'peeps/new'
+      end
+
+      get '/peeps/reply' do
+        p "potato"
+        erb :'peeps/reply'
       end
 
     end

@@ -3,11 +3,14 @@
     <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
-      <% peep.users.each do |user| %>
-        <%= user.username %>
-        <%= user.name %>
-      <% end %>
+      By <%= peep.user.name %>
+      @<%= peep.user.username %>
       <%= peep.time %>
+      <% if current_user %>
+        <form action="/peeps/reply" method="post">
+          <input type="submit" value="Reply" />
+        </form>
+      <% end %>
     </li>
     <% end %>
    </ul>
