@@ -1,0 +1,23 @@
+<header>
+  <div id="logo">
+  <a href="/">Chitter</a>
+  </div>
+
+  <div id="user-peeps">
+
+    <% if current_user %>
+      <a href="/peeps/new" class="button highlighted">Peep</a>
+      <span id="welcome-message">
+        <p>Welcome, <%= @current_user.user_name %>!</p>
+      </span>
+      <form id="log-out" action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Log out" class="button" />
+      </form>
+    <% else %>
+      <a href="/users/new" id="register" class="button">Register</a>
+      <a href="/sessions/new" id="log-in" class="button">Log in</a>
+    <% end %>
+
+  </div>
+</header>
