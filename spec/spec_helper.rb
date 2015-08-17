@@ -4,6 +4,8 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require 'dm-rspec'
+require 'byebug'
+
 
 require File.join(File.dirname(__FILE__), '../app/chitter_app.rb')
 Capybara.app = Chitter

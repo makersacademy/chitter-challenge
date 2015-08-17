@@ -22,3 +22,7 @@ group :test do
   gem 'dm-rspec'
 end
 
+group :development do 
+  gem 'byebug'
+end
+

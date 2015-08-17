@@ -1,4 +1,12 @@
 feature 'Creating Peeps' do
+    
+  before :each do 
+    visit '/users/new'
+    fill_in :email, with: 'thomas@test.com'
+    fill_in :password, with: 'password'
+    click_on 'Submit'
+  end
+  
   context 'when on Create Peep page' do
     scenario 'user sees content box' do
       visit '/peeps/new'
@@ -18,6 +26,7 @@ feature 'Creating Peeps' do
     end
 
     scenario 'user can see Peep on page' do
+      #byebug
       expect(page).to have_content "My first peep"
     end
   end
