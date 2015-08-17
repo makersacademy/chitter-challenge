@@ -16,6 +16,7 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'factory_girl'
+  gem 'orderly'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false

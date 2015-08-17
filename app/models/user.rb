@@ -33,9 +33,4 @@ class User
     end
   end
 
-  def peep content
-    peep = Peep.new(peep_body: content, user: self)
-    return peep
-  end
-
 end
