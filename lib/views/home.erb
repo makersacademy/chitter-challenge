@@ -1,5 +1,5 @@
 <div>
-  <% if session[:user_id] %>
+  <% if current_peeper %>
     <p><form action="/peeps/new" method="post">
       Post a Peep:<input type="text" name="peep">
       <input type="submit" value="Pop that peeper">
@@ -7,11 +7,11 @@
   <% end %>
   <h2>Here's what's peeping:</h2>
     <ul id="peeps">
-      <% (Peep.all.reverse).each do |peep| %>
+      <% @peeps.each do |peep| %>
         <li>
-          <h6><%= name_finder(peep.user_id) %> (<%= username_finder(peep.user_id) %>)
-          <p><%= peep.content %></p>
-          <p>peeped at <%= "#{ peep.creation_time.strftime("%H:%M on %d/%m/%y") }" %></p>
+          <h6><%= peep.user.name %> (<%= peep.user.username %>)
+          <%= peep.content %>
+          peeped at <%= "#{ peep.creation_time.strftime("%H:%M on %d/%m/%y") }" %>
         </li>
       <% end %>
     </ul>

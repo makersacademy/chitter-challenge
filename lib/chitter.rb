@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all.reverse
     erb :home
   end
 
@@ -56,21 +57,15 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps/new" do
-    Peep.create(content: params[:peep], 
-                user_id: session[:user_id], 
-                creation_time: Time.new)
+    user = current_peeper
+    peep = Peep.create!(content: params[:peep], user: user, creation_time: Time.new)
+    user.save
     redirect "/"
   end
 
   helpers do
     def current_peeper
       User.get(session[:user_id])
-    end
-    def name_finder(user_id)
-      User.get(user_id).name
-    end
-    def username_finder(user_id)
-      User.get(user_id).username
     end
   end
 

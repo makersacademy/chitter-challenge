@@ -1,16 +1,18 @@
 require "spec_helper"
 
 feature "Peeping" do
-  let(:luffy) { create :user }
+  let(:luffy) { build :user }
+  before(:each) { sign_up(luffy) }
   scenario "signed up user can post peeps" do
-    sign_in(luffy.email, luffy.password)
     expect(page).to have_content "Post a Peep"
-    peep = build :peep
-    post_peep(peep)
+    peep = build :peep, user: luffy
+    fill_in "peep", with: peep.content
+    click_button "Pop that peeper"
     expect(Peep.first.content).to eq peep.content
+    expect(page).to have_content "I'm going to be King the Pirates!"
   end
   scenario "cannot peep if not signed in" do
-    visit "/"
+    click_button "Peep ya later"
     expect(page).not_to have_content "Post a Peep"
   end
 end

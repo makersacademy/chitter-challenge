@@ -23,10 +23,4 @@ module SessionHelpers
     fill_in "peep", with: peep.content
     click_button "Pop that peeper"
   end
-  def name_finder(user_id)
-    User.get(user_id).name
-  end
-  def username_finder(user_id)
-    User.get(user_id).username
-  end
 end

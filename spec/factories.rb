@@ -8,7 +8,6 @@ FactoryGirl.define do
   end
   factory :peep do
     content "I'm going to be King the Pirates!"
-    user_id 1
     creation_time Time.new
   end
 end
