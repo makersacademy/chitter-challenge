@@ -1,6 +1,6 @@
 require 'data_mapper'
 
-class Cheets
+class Cheet
 
 	include DataMapper::Resource
 
@@ -8,4 +8,5 @@ class Cheets
 	property :message, String
 	property :time,    DateTime
 
+	belongs_to :user
 end

@@ -1,41 +1,35 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+require 'sinatra/partial'
 require './data_mapper_setup'
+require './app/controllers/base'
+require './app/controllers/cheets_controller'
+require './app/controllers/sessions_controller'
+require './app/controllers/user_controller'
 
-class Chitter < Sinatra::Base
+module App
 
-  enable :sessions
-  set :session_secret, 'super secret'
-  set :view, proc { File.join(root, 'view')}
+  class Chitter < Sinatra::Base
 
-  get '/' do
-    'Hello Chitter!'
+    get '/' do
+      erb :'/index'
+    end
+
+    get '/welcome' do
+      erb :'/welcome'
+    end
+
+    use Routes::Cheets_Controller
+    use Routes::Sessions_Controller
+    use Routes::User_Controller
+
+    register Sinatra::Partial
+    register Sinatra::Flash
+
+    helpers do
+      def current_user 
+        current_user = User.get(session[:user_id])
+      end
+    end
   end
-
-  get '/user/new' do
-  	erb :'/user/new'
-  end
-
-  post '/user/new' do
-  	user = User.create(email: params[:email], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
-  	user.save
-    "Welcome to Chitter!"
-  end
-
-  get '/cheets' do
-    @cheets = Cheets.all
-  	erb :'/cheets/index'
-  end
-
-  get '/cheets/new' do
-    erb :'/cheets/new'
-  end
-
-  post '/cheets' do
-  	cheets = Cheets.new(message: params[:message], time: DateTime.now)
-    cheets.save
-  	redirect to('/cheets')
-  end
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
 end

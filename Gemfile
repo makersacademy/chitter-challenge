@@ -7,6 +7,10 @@ ruby '2.2.2'
   gem 'capybara'
   gem 'pg'
   gem 'bcrypt'
+  gem 'rack'
+  gem 'sinatra-flash'
+  gem 'factory_girl'
+  gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
@@ -15,5 +19,6 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'capybara'
 end
 

@@ -8,6 +8,10 @@ require 'rspec'
 require 'simplecov'
 require 'coveralls'
 require 'database_cleaner'
+require 'factory_girl'
+require_relative '../app/chitter'
+require_relative 'factories/user'
+require_relative 'helpers/sessions'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -15,11 +19,32 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-Capybara.app = Chitter
+Capybara.app = App::Chitter
 
 RSpec.configure do |config|
   
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
+  config.include SessionsHelpers
+
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.start
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -27,16 +52,6 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
-  end
-
-  # config.before(:suite) do #These two lines were problematic for Bex
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-    DatabaseCleaner.clean
   end
 
 end
