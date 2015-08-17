@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'byebug'
+# require 'byebug'
 require_relative 'datamapper_setup.rb'
 
 class Chitter < Sinatra::Base
