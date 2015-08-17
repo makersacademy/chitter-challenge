@@ -1,0 +1,13 @@
+<form  action='/users' method='post'>
+  Username:
+  <input name='username' type='text' value= <%= @user.username %>>
+  Your name and surname:
+  <input name='name' type='text' value= <%= @user.name %>>
+  Email:
+  <input name='email' type='email' value= <%= @user.email %>>
+  Password:
+  <input name='password' type='password'>
+  Re-type password:
+  <input name='password_confirmation' type='password'>
+  <input type='submit' value='Sign up'>
+</form>
