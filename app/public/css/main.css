@@ -1,0 +1,62 @@
+/*--this is a comment, you can put anything inside the star and slash--*/
+header {
+  width: 100%;
+  height: 30px;
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 0 5px;
+}
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+body{
+   margin: 0px;
+   padding: 0px;
+}
+div{
+   margin: 0px;
+   padding: 0px;
+}
+img{
+   border: 0px;
+   margin: 0px;
+   padding: 0px;
+}
+table{
+   margin: 0px;
+   padding: 0px;
+}
+p{
+   margin: 15px;
+   padding: 0px;
+}
+ul{
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 35px;
+   padding: 0px;
+   list-style-image: url('image location');
+   line-height: 20px; (gives spacing between list items)
+}
+a{
+   text-decoration: underline/none;
+   color: hexcode/word;
+   font-weight: bold/normal;
+}
+a:hover{
+   text-decoration: underline/none;
+   color: hexcode/word;
+   font-weight: bold/normal;
+   /*make sure to change at least one thing from your a tag definition*/
+}
+a:visited{
+   text-decoration: underline/none;
+   color: hexcode/word;
+   font-weight: bold/normal;
+   /*make sure to change at least one thing from your a tag definition*/
+}
