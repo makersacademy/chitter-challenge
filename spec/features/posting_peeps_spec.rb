@@ -77,8 +77,9 @@ feature '#Posting peeps' do
     click_button('Submit')
     click_button('Reply')
     expect(current_path).to eq('/peeps/new')
-    within '#input_peep' do
-      expect(page).to have_field('peep', with: '@testing_123')
-    end
+    expect(page).to have_field('peep', with: '@testing_123')
+    fill_in('peep', with: '@testing_123 You\'re a potato')
+    click_button('Submit')
+    expect(page).to have_content('@testing_123 You\'re a potato')
   end
 end
