@@ -1,0 +1,10 @@
+<h1> Peeps Timeline </h1>
+
+<ul id="peeps">
+  <% @peeps.each do |peepers| %>
+    <li>
+      Peeps: <%= peepers.peeps %>
+      Time:  <%= peepers.time  %>
+    </li>
+  <% end %>
+</ul>

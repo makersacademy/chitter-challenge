@@ -8,7 +8,7 @@ require 'Database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative './helpers/session'
+# require_relative './helpers/session'
 
 Capybara.app = Chitter_Challenge
 
@@ -35,5 +35,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include SessionHelpers
+  # config.include SessionHelpers
 end
