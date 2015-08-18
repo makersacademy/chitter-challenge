@@ -9,16 +9,17 @@ describe Peep do
 	end
 
   context "Checking that datamapper works" do
+
+  let (:user) { User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password') }
+
+  subject { Peep.new(content: 'My first peep!', user: user, time: Time.now) }
+
     it "can be created and then retrieved from the db" do
-      User.create(email: 'ben@test.com', username: '@ben', password: 'password', password_confirmation: 'password')
-      user = User.first
-      user_id = user.id
       expect(Peep.count).to eq(0)
-      Peep.create(content: 'My first peep!', user_id: user_id, time: Time.now)
+      subject.save
       expect(Peep.count).to eq(1)
-      peep = Peep.first
-      expect(peep.content).to eq('My first peep!')
-      peep.destroy
+      expect(subject.content).to eq('My first peep!')
+      subject.destroy
       expect(Peep.count).to eq(0)
     end
   end
