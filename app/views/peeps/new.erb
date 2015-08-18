@@ -1,0 +1,14 @@
+<div class='form'>
+  <% if current_user %>
+    <form action='/peeps' method='post'>
+      <label for='peep'>
+        Your peep:
+        <input type='text' id='peep' name='message'>
+      </label>
+      <input id='peep_button' class='button' type='submit' value='Post'>
+    </form>
+  <% else %>
+    <h2>You need to be signed in to peep!</h2>
+    <a href='/sessions/new'>Sign in</a>
+  <% end %>
+</div>

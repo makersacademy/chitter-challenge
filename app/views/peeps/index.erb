@@ -1,0 +1,18 @@
+<div id='peep_button'>
+  <form action='/peeps/new'>
+    <input class='big_button button' type='submit' value='Peep!'>
+  </form>
+</div>
+
+<div id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <div class='peep'>
+      <span id='peep_content'><%= peep.content %></span>
+      <ul>
+        <li>Created by: <%= peep.user.name %></li>
+        <li>Logged in as: <%= peep.user.username %></li>
+        <li>Written on <%= "#{peep.time_created.day}-#{peep.time_created.month}-#{peep.time_created.year} at #{peep.time_created.hour}:#{peep.time_created.min}" %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
