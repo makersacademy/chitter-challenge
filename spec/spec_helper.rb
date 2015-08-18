@@ -13,6 +13,7 @@ require 'rspec'
 require 'factory_girl'
 require 'faker'
 require 'database_cleaner'
+require 'byebug'
 #require './app/chitter'
 
 Capybara.app = Application::Chitter
