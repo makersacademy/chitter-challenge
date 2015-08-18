@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'helpers/user'
 require 'helpers/peep'
 require 'orderly'
+require 'byebug'
 require_relative '../app/app.rb'
 Capybara.app = Chitter
 
