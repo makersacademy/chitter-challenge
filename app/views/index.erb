@@ -1,12 +1,17 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+<div id="main">
+<h4> Peeps </h4>
 
-
-Hello Chitter!
-
-<% @peeps.reverse.each do |peep| %>
-	User: <%= peep.user %>
-  Content: <%= peep.content %>
-  Time: <%= peep.time %>
+<ul id="peeps">
+<% @peeps.each do |peep| %>
+	<li>User: <%= peep.user.username %>  <span>Time: <%= peep.time %></span></li>
+  <li class="content">Content: <%= peep.content %></li>
 <%end%>
+</ul>
+
+<div id="right_section"> Right section </div>
+
+</div>
+

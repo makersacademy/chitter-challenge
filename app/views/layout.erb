@@ -9,20 +9,38 @@
   </head>
 
   <body>
-  Layout Static Test
+  <div id="container">
+  <div id="header">
+  <a href="#"><h4 id="logo">Chitter</h4></a>
+
   <% if current_user %>
-   Welcome, <%= current_user.email %>
+  <ul id="welcome_user"><li> Welcome, <%= current_user.email %> </li>
    <form method='post' action='/sessions'>
-   	<input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign Out'>
+   <li>	<input type='hidden' name='_method' value='delete'> </li>
+   <li> <input type='submit' value='Sign Out'> </li>
    </form>
   <% end %>
+  </ul>
 
 	<%= erb :"partials/_notice" %>
 
 	<%= erb :"partials/_flash" %>
-
+  </div>
     <%= yield %>
   
+  <div id="footer"> Footer
+  <ul class="footer-links">
+  <li>Home</li>
+  <li>Sign Up</li>
+  <li>Sign In</li>
+  <li>Sign Out</li>
+  <li>Forgot Password?</li>
+  <li>Post Peep</li>
+  </ul>
+  </div>
+  </div>
   </body>
 </html>
+
+
+

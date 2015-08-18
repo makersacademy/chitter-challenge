@@ -3,13 +3,9 @@ require './app/data_mapper_setup'
 describe Peep do 
 	
 	it "will have a timestamp on creation" do
+    #Could also utilise the TimeCop gem - this seems rigorous enough for this application I feel.
 		peep = Peep.create(content: 'Testing 123', time: Time.now)
 		expect(peep.time.to_s).to eq Time.now.to_s
-
-		# wanted to use this expect (but only supported by rails .second)
-		# expect(peep.time).to be_within(1.second).of Time.now
-
-		#Also could utilise the TimeCop gem
 	end
 
   context "Checking that datamapper works" do

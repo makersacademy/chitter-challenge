@@ -11,6 +11,25 @@ feature "Viewing & Creating Peeps" do
 	 	expect(page).to have_content "I am a test peep"
 	end
 
+	scenario "All Peeps are displayed on the homepage" do
+		create_user
+	 	sign_in(email: "ben@test.com", password: "password")
+		visit "/peeps/new"
+	 	fill_in "content", with: "I am a test peep"
+	 	click_button "Peep"
+	 	visit "/"
+	 	expect(page).to have_content "I am a test peep"
+	end
+
+	scenario "Associated username is displayed alongside the peep" do
+		create_user
+	 	sign_in(email: "ben@test.com", password: "password")
+		visit "/peeps/new"
+	 	fill_in "content", with: "I am a test peep"
+	 	click_button "Peep"
+	 	visit "/"
+	 	expect(page).to have_content "@ben"
+	end
 
 	def create_user
 	   User.create(email:    'ben@test.com',
