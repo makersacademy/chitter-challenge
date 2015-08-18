@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="../style.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+<h1>Please sign up</h1>
+
+<form action='/users' method='post'>
+  Email: <input name='email' type='email' value='<%= @user.email %>'>
+  Username: <input name='username' type='text' value='<%= @user.username %>'>
+  Password: <input name='password' type='password'>
+  Password Confirmation: <input name='password_confirmation' type='password'>
+  <input type='submit' value='Sign Up'>
+</form>
