@@ -4,9 +4,9 @@ require_relative '../data_mapper_setup'
 
 class Chitter_Challenge < Sinatra::Base
 
-  get '/' do
-    erb :'home/homepage'
-  end
+  # get '/' do
+  #   erb :'home/homepage'
+  # end
 
   get '/peeps' do
     @peeps = Peep.all
