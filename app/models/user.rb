@@ -6,7 +6,7 @@ class User
 
   attr_reader :name, :password
   attr_accessor :password_confirmation
-  validates_confirmation_of :password
+
   validates_presence_of :email, :name, :username
 
   property :id, Serial
@@ -29,4 +29,7 @@ class User
       nil
     end
   end
+
+  validates_confirmation_of :password
+
 end

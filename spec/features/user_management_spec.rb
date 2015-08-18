@@ -51,7 +51,7 @@ feature 'user registration' do
       sign_up(user)
       #expect(current_path).to eq 'users/new'
       #expect(page).to have_content 'Password does not match the confirmation'
-      #expect(User.count).to eq 0
+      expect(User.count).to eq 0
      end
 
     scenario 'when email exists already' do
