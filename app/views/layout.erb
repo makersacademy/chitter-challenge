@@ -8,7 +8,7 @@
     <link rel='stylesheet' type='text/css' href='/public/css/chitter.css'>
   </head>
   <body>
-    <div id='header'>
+    <header id='header'>
       <div id='home'>
         <form action='/'>
           <input class='button' type='submit' value='Home'>
@@ -17,7 +17,7 @@
       <span id='logo'>Chitter</span>
       <%= erb :'/partials/welcome' %>
       <%= erb :'/partials/sign_out' %>
-    </div>
+    </header>
     <%= erb :'/partials/flash_errors' %>
     <%= erb :'/partials/flash_signout' %>
     <%= yield %>

@@ -14,4 +14,9 @@ describe User do
   it 'does not authenticate when given an incorrect username' do
     expect(User.authenticate('bob', user.password)).to be_nil
   end
+
+  it 'fails when creating a user whos email already exisits' do
+    expect(User.create(email: user.email, username: 'jimmy', password: "654321", password_confirmation: "654321", name: "jim").errors.full_messages).to include "Email is already taken"
+  end
+
 end
