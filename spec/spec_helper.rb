@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
+require 'database_cleaner'
 # require_relative './helpers/session_helper'
 
 Capybara.app = Contro::App
@@ -33,6 +34,20 @@ RSpec.configure do |config|
   config.include SessionHelpers
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 
   FactoryGirl.definition_file_paths = %w{./factories ./spec/factories}
   FactoryGirl.find_definitions
