@@ -5,9 +5,12 @@ require './app/helpers/app_helpers'
 require './app/controllers/base'
 require './app/controllers/user'
 require './app/controllers/session'
+require './app/controllers/peeps'
 
 module Contro
   class App < Sinatra::Base
+
+    use Rack::MethodOverride
 
     enable :sessions
     set :session_secret, 'super secret'
@@ -15,6 +18,7 @@ module Contro
 
     use Routes::UserController
     use Routes::SessionController
+    use Routes::PeepController
 
     get '/' do
       p current_user

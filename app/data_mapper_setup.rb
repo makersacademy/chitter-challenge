@@ -7,6 +7,7 @@ DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
 
  # require each model individually - the path may vary depending on your file structure.
  require './app/models/user'
+ require './app/models/peep'
 
 # After declaring your models, you should finalise them
 DataMapper.finalize

@@ -8,9 +8,9 @@ module Contro
         end
 
         post '/sessions' do
-          byebug
+          # byebug
           user = User.authenticate(params[:email], params[:password])
-          if user == true
+          if user
             session[:user_id] = user.id
             redirect to ('/')
           else
@@ -20,8 +20,13 @@ module Contro
 
         delete '/sessions' do
           session.clear
-          redirect'/'
+          redirect '/goodbye'
         end
+
+        get '/goodbye' do
+          erb :goodbye
+        end
+
        end
     end
 end

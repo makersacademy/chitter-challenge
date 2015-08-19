@@ -22,3 +22,20 @@ feature 'User sign in' do
   end
 
 end
+
+
+feature 'User signs out' do
+
+  before(:each) do
+    user = create(:user)
+  end
+
+  scenario 'while being signed in' do
+    sign_in('sam@makersacademy.com','squitecret1234')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, sam@makersacademy.com')
+  end
+
+
+end
