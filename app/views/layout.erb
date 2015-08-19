@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter :-D</title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      The following errors have been encountered:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <% if current_user %>
+        <%= current_user.username %> is in the building...
+      <% end %>
+    <% end %>
+    <%= yield %>
+    <% if current_user %>
+      <form action="/sessions", method='post'>
+        <input type="hidden", name='_method' value='delete'>
+        <input type="submit" value='Log out'>
+      </form>
+    <% end %>
+  </body>
+</html>

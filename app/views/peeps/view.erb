@@ -1,0 +1,14 @@
+<table style="width:60%">
+  <tr>
+    <th>Username</th>
+    <th>Peep</th>
+    <th>Peep Time</th>
+  </tr>
+<% @peeps.each do |peep| %>
+  <tr>
+    <th><%=peep.user.username%></th>
+    <th><%=peep.peep_body%></th>
+    <th><%=peep.peep_time%></th>
+  </tr>
+<% end %>
+</table>
