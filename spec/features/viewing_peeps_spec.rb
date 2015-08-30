@@ -3,7 +3,7 @@ feature 'Viewing peeps' do
   scenario ' I can see existing peeps on the main page' do
     user = create :user
     sign_in(user)
-    user.peeps.create(message: 'Test message')
+    user.peeps.create(message: 'Test message', time: '14:11')
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do

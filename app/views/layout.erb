@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter!</title>
-    <!-- <link href="css/main.css" rel="stylesheet" type="text/css" /> -->
-  </head>
 
-<header>
-  <div id='logo'>Chitter - Full of chatter</div>
-  <div id='user-links'>
-  <% if current_user %>
-  <span id='welcome-message'>
-    Welcome, <%= current_user.username %>
-  </span>
-    <form id="sign-up" method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-  <% end %>
-  </div>
-</header>
+<head>
+  <title>Chitter!</title>
+  <link href="http://localhost:9292/css/main.css" rel="stylesheet" type="text/css" />
+</head>
 
-  <body>
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Chitter</a>
+    </div>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/peeps/new">Create a peep! <span class="sr-only">(current)</span></a></li>
       </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <!-- <ul class="nav navbar-nav navbar-right"> -->
+        <%= partial :"partials/user_links" %>
+      <!-- </ul> -->
+    </div>
+  </div>
+</nav>
+
+<body>
+  <% if flash[:notice] %>
+  <div class="alert alert-dismissible alert-warning">
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  </div>
+
     <% end %>
 
-    <%= yield %>
-  </body>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-dismissible alert-danger">
+        Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+            <% end %>
+            </div>
+        </ul>
+        <% end %>
+
+          <%= yield %>
+</body>
+
 </html>

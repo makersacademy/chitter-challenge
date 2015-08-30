@@ -1,15 +1,22 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative '../data_mapper_setup'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
+  PERMITTED_PARAMS = [:name, :username, :email, :password, :password_confirmation, :message]
+
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   get '/' do
     'Hello Chitter!'
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -18,11 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(username: params[:username],
-                name: params[:name],
-                email: params[:email],
-                password: params[:password],
-                password_confirmation: params[:password_confirmation])
+    @user = User.new(permitted_params(params))
     if @user.save
       session[:user_id] = @user.id
       redirect to('/peeps')
@@ -71,6 +74,10 @@ class Chitter < Sinatra::Base
       flash.next[:notice] = "You must be logged in to peep"
       redirect to('sessions/new')
     end
+  end
+
+  def permitted_params(parameters)
+    parameters.select{|k,v| PERMITTED_PARAMS.include?(k.to_sym) }
   end
 
   helpers do
