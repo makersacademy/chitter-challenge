@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-validations'
+gem 'database_cleaner'
+gem 'bcrypt'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
@@ -7,5 +15,7 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'capybara'
+  gem 'rspec-sinatra'
+  gem 'factory_girl'
 end
-
