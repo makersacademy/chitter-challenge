@@ -1,5 +1,5 @@
 ***View my finished project here***
-https://mysterious-meadow-7260.herokuapp.com/
+owenchitterchallenge.herokuapp.com
 
 Chitter Challenge
 =================
