@@ -1,5 +1,5 @@
 ***View my finished project here***
-owenchitterchallenge.herokuapp.com
+http://owenchitterchallenge.herokuapp.com
 
 Chitter Challenge
 =================
