@@ -1,24 +1,14 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/richgeog/chitter-challenge.svg)](https://travis-ci.org/richgeog/chitter-challenge) [![Test Coverage](https://codeclimate.com/github/richgeog/chitter-challenge/badges/coverage.svg)](https://codeclimate.com/github/richgeog/chitter-challenge/coverage) [![Code Climate](https://codeclimate.com/github/richgeog/chitter-challenge/badges/gpa.svg)](https://codeclimate.com/github/richgeog/chitter-challenge)
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Task:
 
-Challenge:
--------
+Write a little Twitter clone that will allow the users to post messages to a public stream.
 
-As usual please start by
+## Features:
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
+````
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -42,31 +32,76 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-```
+
 
 Notes on functionality:
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Use bcrypt to secure the passwords.
 * Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
+* You do not have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
 Bonus:
 -----
 
-If you have time you can implement the following:
+* Work on the css to make it look good.
+````
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+## Setup
 
-And/Or:
+In terminal:
+````
+$ brew install postgresql
+````
 
-* Work on the css to make it look good (we all like beautiful things).
+Enter the following lines into the command line:
+````
+$ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+````
 
-Good luck and let the chitter begin!
+type:
+````
+$ psql
+````
+
+Followed by:
+````
+$ CREATE DATABASE chitter_development;
+$ CREATE DATABASE chitter_test;
+````
+
+In terminal:
+````
+$ rackup
+````
+* Go to localhost:9292
+
+## Testing
+
+````
+$ rspec
+````
+
+## V1
+
+* Database created
+* Welcome page created
+
+## Still to do
+
+* Allow users to sign up with a username and email that is unique
+* Allow users to sign in and out once a user has been created
+* Allow users to view peeps when they are nit signed in
+* Allow users to post peeps on a timeline only when signed in
+* Add a timestamp to peeps when they are created
+* View all peeps in reverse chronological order
+* Allow users to like peeps
+* Create associations between peeps, users and likes
+* CSS
+
+## Key learnings
