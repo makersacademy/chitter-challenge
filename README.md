@@ -1,4 +1,6 @@
-***View live application:http://owenchitterchallenge.herokuapp.com***
+[![Build Status](https://travis-ci.org/ojlamb/chitter-challenge.svg?branch=master)](https://travis-ci.org/ojlamb/chitter-challenge)
+
+***View live application: http://owenchitterchallenge.herokuapp.com***
 
 Chitter Challenge
 =================
