@@ -1,0 +1,28 @@
+<% if current_user %>
+  <div>
+    <form method='POST' action='/peeps' >
+      <textarea rows="4" cols="50" name='message'>Compose your peep!</textarea>
+      <br>
+      <input type='submit' value='Peep'>
+    </form>
+  </div>
+  <br>
+<%end%>
+
+<div class='container'>
+  <div id="new-peep">
+    <h3><strong>Peeper Feed</strong><h3><br>
+    <% Peep.all(order: [:time.desc]).each do |peep| %>
+      <ul id='peep'>
+      <li>
+        <%= peep.handle %>
+        <span class='time'>Posted:<%= peep.time %></span>
+        <br>
+        <br>
+        <%= peep.message %>
+      </li>
+      </ul>
+      <br>
+    <% end %>
+  </div>
+</div>

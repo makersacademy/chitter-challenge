@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-serif;
+  background-image: url(/images/background1.jpg)
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color:#ffc600;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+}
+
+header {
+  height: 40px;
+  background-color: rgb(64,153,255);
+  color: white;
+  font-size: 25px;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  padding: 0 20px;
+}
+#notice {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgba(67,183,120,0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+#errors {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgba(255,0,144,0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+.button.highlighted {
+  background-color: #b77843;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  header a {
+    color: white;
+  }
+
+  header #user-peeps {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }
+
+#container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+  #peep {
+    background-color: #EEE;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    margin: 10px inherit;
+    padding: 15px 10px;
+  }
+
+  .peep {
+    letter-spacing: 1px;
+    margin: 10px inherit;
+  }
+  .time {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right;
+    font-size: 12px;
+  }
+#signout {
+  float: right;
+}
+
+
+h1 {
+  font-size: 22px ;
+}
+
+form {
+  text-align: left;
+}
+
+form p {
+  margin: 10px 0;
+}
+
+form input[type="text"], form input[type="password"] {
+  border: 1px solid black;
+  font-size: 16px;
+  width: 200px;
+}

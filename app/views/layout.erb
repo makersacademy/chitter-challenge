@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
+  </head>
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <div id ='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
