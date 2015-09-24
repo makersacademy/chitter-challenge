@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   DataMapper::Model.raise_on_save_failure = true
 
   get '/' do
-    'Hello Chitter!'
+    erb :index
   end
 
   # start the server if ruby file executed directly
