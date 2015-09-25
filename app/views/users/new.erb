@@ -1,0 +1,10 @@
+<h3> Sign up to be an awesome chitterer </h3>
+
+<form action='/users' method='POST'>
+  Name <input type='text' name='name' value= <%= @user.name %>>
+  Username <input type='text' name='username' value= <%= @user.username %>> <br>
+  Email <input type='text' name='email' value= <%= @user.email %>>
+  Password <input type='password' name='password'>
+  Re-type Password <input type='password' name='password_confirmation'>
+  <input type='submit' value='Sign Up'>
+</form>

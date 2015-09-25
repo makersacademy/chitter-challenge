@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter </title>
+  </head>
+
+  <body>
+    <h2> Chitter - Connecting Peeps </h2>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <%if current_user %>
+      <p> Welcome <%= current_user.name %> </p>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
+    <% end %>
+
+    <% if flash[:end_of_session] %>
+      <div id='notice'>
+        <%= flash[:end_of_session] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+
+</html>
