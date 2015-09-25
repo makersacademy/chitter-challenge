@@ -12,9 +12,10 @@ class User
   property :username, String, unique: true, required: true,
     messages: { is_unique: "Username already taken",
                 presence: "Username needed"}
-  property :email, String, unique: true, required: true,
+  property :email, String, unique: true, required: true, format: :email_address,
     messages: { is_unique: "Email already taken",
-                presence: "Email address needed"}
+                presence: "Email address needed",
+                format: "That doesn't seem to be a valid email"}
   property :password_digest, Text
 
   validates_confirmation_of :password,

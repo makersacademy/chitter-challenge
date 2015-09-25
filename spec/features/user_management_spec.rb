@@ -39,6 +39,12 @@ feature 'New user sign up' do
     expect(page).to have_content "Username needed"
   end
 
+  scenario 'email must be of an email format' do
+    user = build(:user, email: 'badEmail')
+    expect{ sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content "That doesn't seem to be a valid email"
+  end
+
   def sign_up(user)
     visit ('/')
     click_button 'Sign up'
