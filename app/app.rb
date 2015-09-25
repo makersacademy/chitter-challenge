@@ -12,6 +12,7 @@ class App < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(params[:content])
+    Peep.create(content: params[:content])
+    redirect to '/peeps'
   end
 end

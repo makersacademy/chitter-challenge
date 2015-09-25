@@ -10,5 +10,6 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'capybara'
+  gem 'launchy'
   gem 'coveralls', require: false
 end
