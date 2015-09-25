@@ -12,7 +12,7 @@ class App < Sinatra::Base
   set :session_secret, '121212121212'
   use Rack::Session::Pool
   env = ENV['RACK_ENV'] || "development"
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/ohchit_#{env}")
 
   # DataMapper::Logger.new($stdout, :debug)
   DataMapper::Model.raise_on_save_failure = true

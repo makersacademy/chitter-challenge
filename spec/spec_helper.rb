@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'lib/app.rb')
 
+require 'byebug'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -9,8 +10,8 @@ require 'dm-rspec'
 require 'pry'
 require 'rspec'
 require 'tilt/erb'
-require 'coveralls'
-require 'simplecov'
+require 'coveralls' # Makers
+require 'simplecov' # Makers
 
 SimpleCov.formatters = [
     SimpleCov::Formatter::HTMLFormatter,
@@ -22,14 +23,14 @@ def app
   App
 end
 
-def populate_links
-  link = Link.create(title: 'Makers Academy', url: 'http://makersacademy.se', description: 'Whatever', user_id: 1)
-  ['start-up', 'sweden', 'incubator'].each do |tag|
-    new_tag = Tag.first_or_create(title: tag)
-    link.tags << new_tag
-    link.save
-  end
-end
+# def populate_links
+#   link = Link.create(title: 'Makers Academy', url: 'http://makersacademy.se', description: 'Whatever', user_id: 1)
+#   ['start-up', 'sweden', 'incubator'].each do |tag|
+#     new_tag = Tag.first_or_create(title: tag)
+#     link.tags << new_tag
+#     link.save
+#   end
+# end
 
 Capybara.app = App
 

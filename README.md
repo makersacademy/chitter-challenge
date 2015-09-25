@@ -1,3 +1,8 @@
+#About
+
+* An educational project for Maker's Academy
+* See it on the web at https://ohchit.herokuapp.com/
+
 Chitter Challenge
 =================
 
