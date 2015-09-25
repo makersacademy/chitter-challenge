@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C H I T T E R</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.realname %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
