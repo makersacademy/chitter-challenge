@@ -1,5 +1,8 @@
 require: rubocop-rspec
 
+LineLength:
+  Enabled: false
+
 EmptyLinesAroundBlockBody:
   Enabled: false
 

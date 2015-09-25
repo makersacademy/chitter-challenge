@@ -1,9 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-timestamps'
+gem 'dm-validations'
+gem 'pg'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-flash'
+
 group :test do
-  gem 'rspec'
+  gem 'capybara'
   gem 'cucumber'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'rspec'
+  gem 'rspec-sinatra'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
