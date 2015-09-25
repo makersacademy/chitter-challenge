@@ -1,0 +1,19 @@
+Please sign up:
+<form action = "/users" method = "post">
+Username:
+<input type = "text" name = "username" value = "<%= @user.username %>">
+<br />
+Name:
+<input type = "text" name = "name" value = "<%= @user.name %>" >
+<br />
+Email:
+<input type = "text" name = "email" value = "<%= @user.email %>" >
+<br />
+Password:
+<input type = "password" name = "password">
+<br />
+Confirm Password:
+<input type = "password" name = "password_confirmation">
+<br />
+<input type = "submit" value = "Sign Up">
+</form>
