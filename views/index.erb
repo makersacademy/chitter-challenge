@@ -1,14 +1,5 @@
-<% if @user %>
-  <div>
-    <h1>Welcome to Chitter, <%= @user.username %>!</h1>
-  </div>
-<% else %>
-  <div>
-    <h1>Welcome to Chitter!</h1>
-  </div>
-  <div>
-    <form action='/users/new'>
-      <input type='submit' value='Sign up'>
-    </form>
-  </div>
-<% end %>
+<div>
+  <form action='/users/new'>
+    <input type='submit' value='Sign up'>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter!</title>
+  </head>
+
+  <body>
+
+    <div>
+      <% if @user %>
+        <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+      <% else %>
+        <h1>Welcome to Chitter!</h1>
+      <% end %>
+    </div>
+    <div id='error' >
+      <% if flash[:error] %>
+        <%= flash[:error] %>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

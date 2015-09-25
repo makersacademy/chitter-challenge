@@ -12,6 +12,12 @@ feature 'New user sign up' do
     expect(page).to have_content "Password and confirmation password don't match"
   end
 
+  scenario 'can\'t register with an email that\'s already in the DB' do
+    sign_up(user)
+    expect{ sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content "Email already taken"
+  end
+
   def sign_up(user)
     visit ('/')
     click_button 'Sign up'

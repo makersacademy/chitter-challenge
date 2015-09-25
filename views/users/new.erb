@@ -1,12 +1,8 @@
-<% if @fail_message %>
-  <%= @fail_message %>
-<% end %>
-
 <form action='/users/new' method='post'>
   <h4>Please enter details below...</h4>
-  <p><label>Name:</label>             <input type='text' name='name'>
-  <p><label>Username:</label>         <input type='text' name='username'>
-  <p><label>Email:</label>            <input type='text' name='email'>
+  <p><label>Name:</label>             <input type='text' name='name' value='<%= @user.name %>'>
+  <p><label>Username:</label>         <input type='text' name='username' value='<%= @user.username %>'>
+  <p><label>Email:</label>            <input type='text' name='email' value='<%= @user.email %>'>
   <p><label>Password:</label>         <input type='password' name='password'>
   <p><label>Confirm password:</label> <input type='password' name='password_confirmation'>
   <input type='submit' value='Register'>
