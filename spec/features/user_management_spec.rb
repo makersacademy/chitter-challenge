@@ -27,6 +27,18 @@ feature 'New user sign up' do
     expect(page).to have_content "Username already taken"
   end
 
+  scenario 'email must be provided' do
+    user = build(:user, email: '')
+    expect{ sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content "Email address needed"
+  end
+
+  scenario 'username must be provided' do
+    user = build(:user, username: '')
+    expect{ sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content "Username needed"
+  end
+
   def sign_up(user)
     visit ('/')
     click_button 'Sign up'

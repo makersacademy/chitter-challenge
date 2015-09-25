@@ -9,10 +9,12 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String, unique: true,
-    messages: {is_unique: "Username already taken"}
-  property :email, String, unique: true,
-    messages: {is_unique: "Email already taken"}
+  property :username, String, unique: true, required: true,
+    messages: { is_unique: "Username already taken",
+                presence: "Username needed"}
+  property :email, String, unique: true, required: true,
+    messages: { is_unique: "Email already taken",
+                presence: "Email address needed"}
   property :password_digest, Text
 
   validates_confirmation_of :password,
