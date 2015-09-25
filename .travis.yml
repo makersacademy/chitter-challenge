@@ -2,7 +2,6 @@ rvm: '2.2.3'
 
 script:
   - mkdir -p spec && bundle exec rspec spec
-  - mkdir -p features && bundle exec cucumber
 
 before_install:
 - sed -i '2d' Gemfile
