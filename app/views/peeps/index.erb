@@ -1,5 +1,7 @@
 <h1>Peeps</h1>
-
+<% if @user %>
+  Welcome, <%= @user.name %>
+<% end %>
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>

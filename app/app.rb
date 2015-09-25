@@ -2,7 +2,10 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class App < Sinatra::Base
+  enable :sessions
+
   get '/peeps' do
+    @user = User.get(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -26,6 +29,7 @@ class App < Sinatra::Base
                     nickname: params[:nickname],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
-    # user.save
+    session[:user_id] = user.id
+    redirect to '/peeps'
   end
 end
