@@ -7,5 +7,5 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'rspec-sinatra'
 end
-
