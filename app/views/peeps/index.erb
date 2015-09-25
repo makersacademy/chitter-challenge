@@ -1,0 +1,4 @@
+<% @peeps.each do |peep| %>
+  <p><%= peep.content %></p>
+  <p><%= formatted_time_stamp(peep.created_at) %></p>
+<% end %>
