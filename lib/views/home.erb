@@ -1,0 +1,18 @@
+<div>
+  <% if current_peeper %>
+    <p><form action="/peeps/new" method="post">
+      Post a Peep:<input type="text" name="peep">
+      <input type="submit" value="Pop that peeper">
+    </form></p>
+  <% end %>
+  <h2>Here's what's peeping:</h2>
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+        <li>
+          <h6><%= peep.user.name %> (<%= peep.user.username %>)
+          <%= peep.content %>
+          peeped at <%= "#{ peep.creation_time.strftime("%H:%M on %d/%m/%y") }" %>
+        </li>
+      <% end %>
+    </ul>
+</div>

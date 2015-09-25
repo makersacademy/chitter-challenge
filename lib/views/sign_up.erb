@@ -1,0 +1,10 @@
+<div>
+  <form action="/users" method="post">
+    <p>Name:<input type="text" name="name" value="<%= @user.name %>"></p>
+    <p>Email:<input type="text" name="email" value="<%= @user.email %>"></p>
+    <p>Username:<input type="text" name="username" value="<%= @user.username %>"></p>
+    <p>Password:<input type="password" name="password"></p>
+    <p>Password Confirmation:<input type="password" name="password_confirmation"></p>
+    <p><input type="submit" value="Sign up"></p>
+  </form>
+</div>
