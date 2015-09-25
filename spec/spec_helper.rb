@@ -7,8 +7,13 @@ require File.join(File.dirname(__FILE__), '..', 'app/server.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'coveralls'
+require 'database_cleaner'
+require 'factory_girl'
 require 'rspec'
 require 'simplecov'
+
+#Require FactoryGirl factories
+require 'factories/user'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -36,6 +41,23 @@ Capybara.app = Chitter
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

@@ -6,11 +6,13 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 
 group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'cucumber'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'rspec'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
 end
 
