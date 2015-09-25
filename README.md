@@ -1,5 +1,56 @@
-Chitter Challenge
-=================
+Chitter Challenge [![Code Climate](https://codeclimate.com/repos/55781a2569568071a002b5c8/badges/62dafddf067c35f409b4/gpa.svg)](https://codeclimate.com/repos/55781a2569568071a002b5c8/feed) [![Build Status](https://travis-ci.org/rjlynch/chitter-challenge.svg?branch=master)](https://travis-ci.org/rjlynch/chitter-challenge)
+
+[visit the site](http://rjl-chitter.herokuapp.com/)<br>
+A clone of the micro blogging website twitter, built using Sinatra, Datamapper, BCrypt, PSQL and Ruby.
+Tested with RSpec + Capybara.
+![site screen shot](http://i.imgur.com/sLIcTp2.png)
+
+####Tests/Documentation
+```
+adding peeps
+  is not possible when logged out
+  is possible when logged in
+  creates a peep with the users name attached
+
+Logging in
+  when we havent logged in
+    we are not logged in
+    we are presented a log in form
+    we are presented a link to sign up
+  with correct details
+    welcomes us on the homepage
+  with incorrect details
+    we are prompted to log in again
+    and given a warning
+
+Logging out
+  while logged in
+
+replying to a peep
+  takes us to a reply page
+  if we are not logged in we cant reply
+  if we are logged in we can reply
+
+Viewing peeps
+  on the homepage
+  in reverse chronological order
+
+Signing up
+  as a new user visiting the site
+  with a password that does not match
+    doesnt add the user to the database
+    redirects the user to the sign up form and displays an error
+  is not possible
+    with an email that is already taken
+    with a username that is already taken
+
+Peep
+  can store a peep
+  can store a user
+
+Finished in 4.45 seconds (files took 2.58 seconds to load)
+22 examples, 0 failures
+=======
 
 * Challenge time: Friday afternoon (+ weekend if you need it)
 * Feel free to use google, your notes, books, etc but work on your own
@@ -42,31 +93,5 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+>>>>>>> master
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
