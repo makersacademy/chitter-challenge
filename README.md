@@ -1,42 +1,56 @@
-Title
+Chitter - Maker Challenge \# 4
 =======================
 
 ## Synopsis
-
-TODO: Enter a description of your project here.
-
-![NAME_OF_IMAGE](http://ENTER_URL)
-
+Make a Twitter clone
 ## Technologies Used
 
-- LANGUAGE_ONE
-- LANGUAGE_TWO
-- FRAMEWORK
-- TESTING SUITES
+- ruby
+- sinatra
+- postgreSQL
+- rspec
+- travis ci
+- rubocop
+- simplecov
 
 ## Job List
 
-- [ ]
-- [ ]
+- [Create functional representation]
+- [Initialise test and development databases ]
 - [ ]
 - [ ]
 
-## Favourite Code Snippet
+## User stories
 
-~~~
- TODO: paste code here
-~~~
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
 
-## Collaborators
+As a Maker
+So that I can post messages on Chitter as me
+I want to log in to Chitter
 
-- NAME_ONE (http://www.github.com/USERNAME)
-- NAME_TWO (http://www.github.com/USERNAME)
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+As a maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+## Functional representation
+
+TODO
 
 ## Still to complete/refactor
 
 - [ ]
 - [ ]
-
-## Takeaway
-
-TODO: Enter a personal reflection and/or things you learnt
