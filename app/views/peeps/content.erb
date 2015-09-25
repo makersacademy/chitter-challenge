@@ -1,0 +1,18 @@
+<div id='peeps-container'>
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.content %>
+      By <%= peep.user.name %>
+      @<%= peep.user.username %>
+      <%= peep.time %>
+      <% if current_user %>
+        <form action="/peeps/new" method="get">
+          <input type="hidden" name="_reply_to" value="@<%= peep.user.username %>" />
+          <input type="submit" value="Reply" />
+        </form>
+      <% end %>
+    </li>
+    <% end %>
+   </ul>
+</div>
