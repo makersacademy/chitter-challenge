@@ -9,11 +9,14 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
-  property :email, String, unique: true, messages: {is_unique: "Email already taken"}
+  property :username, String, unique: true,
+    messages: {is_unique: "Username already taken"}
+  property :email, String, unique: true,
+    messages: {is_unique: "Email already taken"}
   property :password_digest, Text
 
-  validates_confirmation_of :password, message: "Password and confirmation password don't match"
+  validates_confirmation_of :password,
+    message: "Password and confirmation password don't match"
 
   def password=(password)
     @password = password
