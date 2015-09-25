@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'byebug'
+# require 'byebug'
 # require 'pry'
 require 'tilt/erb'
 require 'data_mapper'
