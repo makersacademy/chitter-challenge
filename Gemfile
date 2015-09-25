@@ -3,7 +3,7 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'database_cleaner'
+
 group :test do
   gem 'rspec'
   gem 'cucumber'
@@ -11,6 +11,6 @@ group :test do
   gem 'rubocop'
   gem 'capybara'
   gem 'launchy'
-
+  gem 'database_cleaner'
   gem 'coveralls', require: false
 end

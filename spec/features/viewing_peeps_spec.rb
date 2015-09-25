@@ -1,4 +1,3 @@
-require './app/models/peep'
 feature 'Viewing peeps' do
   scenario 'I can view peep on the screen' do
     Peep.create(content: 'TGI Friday!')
