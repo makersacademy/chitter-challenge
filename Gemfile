@@ -11,9 +11,11 @@ gem 'capybara'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
-  gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'coveralls', require: false
+  gem 'dm-postgres-adapter'
+  gem 'database_cleaner'
+  gem 'dm-validations'
 end
 
