@@ -1,5 +1,8 @@
 require 'coveralls'
 require 'simplecov'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -11,11 +14,7 @@ Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
-
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
+require File.join(File.dirname(__FILE__), '..', '/app/chitter.rb')
 
 Capybara.app = Chitter
 
