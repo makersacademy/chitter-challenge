@@ -1,0 +1,24 @@
+<% if current_user %>
+Welcome <%= current_user.name %> <br>
+  What's on your mind?
+  <form action="/messages" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="submit message">
+  </form> 
+
+  <form action="/users/new" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="sign out">
+  </form>
+
+<% else %>
+  Please sign up or sign in to post messages
+  <a href="/users/new">sign up</a>
+  <a href="/login">sign in</a>
+<% end %>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message.content %></li>
+  <%end%>
+</ul>
