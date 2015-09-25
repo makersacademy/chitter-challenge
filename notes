@@ -1,0 +1,6 @@
+
+  feature 'I can use chitter' do #new file? adding peeps, viewing peeps etc 
+    scenario 'to post a peep'
+    scenario 'to see existing peeps'
+  end
+end

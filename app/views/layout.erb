@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <% if current_user %>
+      <%= current_user.user_name %> is logged in.
+      <p></p>
+      <form method='post' action='/session'>
+        <input type='submit' value='Sign out'>
+        <input type='hidden' name='_method' value='delete'>
+      </form>
+       <p></p>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+        <p></p>
+      </div>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+        <li> <%= error %> </li>
+      <% end %>
+    <% end %>
+
+    <%=yield%>
+
+  </body>
+</html>
+
+

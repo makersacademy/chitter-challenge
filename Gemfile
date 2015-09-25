@@ -2,10 +2,19 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 group :test do
-  gem 'rspec'
+  gem 'capybara'
+  gem 'coveralls', require: false  
   gem 'cucumber'
-  gem 'rubocop-rspec'
+  gem 'orderly'
+  gem 'rspec'
+  gem 'rspec-sinatra'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'rubocop-rspec'
 end
 
+gem 'database_cleaner'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'byebug'
