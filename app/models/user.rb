@@ -9,4 +9,6 @@ class User
   property :password, Text
   property :password_confirmation, Text
 
+  validates_confirmation_of :password
+
 end

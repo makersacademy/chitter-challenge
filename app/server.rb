@@ -17,13 +17,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.create( name: params[:name],
-                        username: params[:username],
-                        email: params[:email],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect '/'
+    user = User.new(name: params[:name],
+                    username: params[:username],
+                    email: params[:email],
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
+    if user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      @fail_message = "Password and confirmation password don't match"
+      erb :'users/new'
+    end
   end
 
 end
