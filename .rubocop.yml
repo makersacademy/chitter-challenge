@@ -1,70 +1,52 @@
-require: rubocop-rspec
+AllCops:
+  DisabledByDefault: true
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  RunRailsCops: false
+  Exclude:
+    - 'spec/spec_helper.rb'
 
-EmptyLinesAroundBlockBody:
-  Enabled: false
+inherit_from:
+  - enabled.yml
+  - disabled.yml
 
-Style/EmptyLinesAroundClassBody:
-  Description: Keeps track of empty lines around class bodies.
-  Enabled: true
-  EnforcedStyle: empty_lines
-  SupportedStyles:
-  - empty_lines
-  - no_empty_lines
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
+  # a Float.
+  Max: 15
 
-Style/EmptyLinesAroundModuleBody:
-  Description: Keeps track of empty lines around module bodies.
-  Enabled: true
-  EnforcedStyle: empty_lines
-  SupportedStyles:
-  - empty_lines
-  - no_empty_lines
+Metrics/BlockNesting:
+  Max: 3
 
-Style/StringLiterals:
-  Enabled: false
+Metrics/ClassLength:
+  CountComments: false  # count full line comments?
+  Max: 100
 
-Style/Documentation:
-  Description: Document classes and non-namespace modules.
-  Enabled: false
+Metrics/ModuleLength:
+  CountComments: false  # count full line comments?
+  Max: 100
 
-Style/MethodDefParentheses:
-  Description: Checks if the method definitions have or don't have parentheses.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#method-parens
-  Enabled: false
+# Avoid complex methods.
+Metrics/CyclomaticComplexity:
+  Max: 6
 
-Style/SingleLineBlockParams:
-  Description: Enforces the names of some block params.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#reduce-blocks
-  Enabled: false
-  Methods:
-  - reduce:
-    - a
-    - e
-  - inject:
-    - a
-    - e
+Metrics/LineLength:
+  Max: 90
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # contaning a URI to be longer than Max.
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
 
-Lint/UselessAssignment:
-  Description: Checks for useless assignment to a local variable.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars
-  Enabled: false
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 5
 
-Style/TrailingBlankLines:
-  Description: Checks trailing blank lines and final newline.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#newline-eof
-  Enabled: false
-  EnforcedStyle: final_newline
-  SupportedStyles:
-  - final_newline
-  - final_blank_line
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
 
+Metrics/PerceivedComplexity:
+  Max: 7
 
-Style/RedundantSelf:
-  Description: Don't use self where it's not needed.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-self-unless-required
-  Enabled: false
-
-Style/Semicolon:
-  Description: Don't use semicolons to terminate expressions.
-  StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-semicolon
-  Enabled: false
-  AllowAsExpressionSeparator: false
