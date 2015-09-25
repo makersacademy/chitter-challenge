@@ -10,10 +10,10 @@ class User
   property :id, Serial
   property :name, String
   property :username, String
-  property :email, String
+  property :email, String, unique: true, messages: {is_unique: "Email already taken"}
   property :password_digest, Text
 
-  validates_confirmation_of :password
+  validates_confirmation_of :password, message: "Password and confirmation password don't match"
 
   def password=(password)
     @password = password

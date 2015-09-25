@@ -1,7 +1,8 @@
 feature 'New user sign up' do
 
+  let(:user){build :user}
+
   scenario 'I can sign up as a new user' do
-    user = build :user
     expect{ sign_up(user) }.to change(User, :count).by(1)
     expect(page).to have_content "Welcome to Chitter, MickTheMiller"
   end
