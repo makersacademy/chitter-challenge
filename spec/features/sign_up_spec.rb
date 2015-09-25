@@ -9,6 +9,26 @@ feature 'Sign up' do
     expect(User.first.nickname).to eq user.nickname
   end
 
+  scenario 'I cannot sign up without an email' do
+    user = build(:user, email: '')
+    expect { sign_up(user) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up without a name' do
+    user = build(:user, name: '')
+    expect { sign_up(user) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up without a nickname' do
+    user = build(:user, nickname: '')
+    expect { sign_up(user) }.not_to change(User, :count)
+  end
+
+  scenario 'Hashed password with salt is stored in the database' do
+    user = build(:user)
+    expect(user.password_digest).not_to eq(user.password)
+  end
+
   def sign_up(user)
     visit '/users/new'
     fill_in 'email', with: user.email
