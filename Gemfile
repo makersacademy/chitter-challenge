@@ -12,11 +12,11 @@ gem 'rake'
 
 group :test do
   gem 'rspec'
-  # gem 'cucumber'
+  gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
-  # gem 'cucumber-sinatra'
+  gem 'cucumber-sinatra'
   gem 'launchy'
   gem 'database_cleaner'
 end
