@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Chitter</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="header">
+      <div id="logo">
+        <span>like twitter, but shitter</span>
+      </div>
+    </div>
+
+    <ul id="menu">
+      <li><a href="/users/new">Sign up</a></li>
+      <li><a href="/sessions/new">Sign in</a></li>
+      <li><a href="/peeps/new">Peep!</a></li>
+      <li><a href="/peeps">Chitter feed</a></li>
+    </ul>
+
+    <%= partial :welcome_message %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+
+</html>

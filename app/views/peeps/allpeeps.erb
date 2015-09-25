@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Chitter</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+<h1>Chitter Timeline</h1>
+<h1>Peeps</h1>
+
+  <div id="peeps">
+    <ul>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          <p> <%= peep.message %> </p>
+          <p> <%= User.get(peep.user_id).username %> </p>
+          <p> <%= User.get(peep.user_id).name %> </p>
+          <p> <%= peep.time.strftime("%c") %> </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</body>
+
+</html>
+
