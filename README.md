@@ -1,28 +1,10 @@
 #About
 
-* An educational project for Maker's Academy
-* See it on the web at https://ohchit.herokuapp.com/
-* Testing 123
+* Weekend Challenge No. 4 for ["Maker's Academy Sweden."](http://www.makersacademy.se)
+* "Completed" by one novice full-stack developer in one weekend. 
+* See the finished product live on the web at [www.ohchit.herokuapp.com](https://ohchit.herokuapp.com/) (work in progress!).
 
-Chitter Challenge
-=================
-
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/MakersSweden/learning_plan_september2015 (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+#User Stories
 
 ```
 As a Maker
@@ -50,29 +32,26 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+#Other Requirements
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Use BDD and TDD. 
+* Users sign up to OhChit with email, password, name, and user name.
+* Email and user name must be unique.
+* Chits (posts to OhChit) show the Chitter's user name and when he or she created the Chit.
+* Paswords are secured with bcrypt.
+* DataMapper and PostgreSQL are used to persist data.
+* Visitors to OhChit do not have to be logged in to see the stream of Chits.
+* Users can only Chit if they are logged in.
 
-Bonus:
------
 
-If you have time you can implement the following:
+#TODO
+* Update this README to indicate the technologies used and give instructions on how to install and run the tests.
+* Submit a pull request before Monday at 9am with your solution or partial solution.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+#Bonus User Story
 
-And/Or:
+In order to start a conversation as a Chitter I want to reply to a Chit from another Chitter.
 
-* Work on the css to make it look good (we all like beautiful things).
+#Bonus CSS
 
-Good luck and let the chitter begin!
+Polish this Chit and make it beautiful!
