@@ -1,0 +1,10 @@
+<h1> Feed </h1>
+
+<ul id="feed">
+  <% @peeps.each do |peep| %>
+    <li>
+      Message: <%= peep.message %>
+      Time: <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
