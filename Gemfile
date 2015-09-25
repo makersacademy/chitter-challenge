@@ -1,5 +1,12 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+
 ruby '2.2.3'
+
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'sinatra-partial'
+gem 'bcrypt'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
