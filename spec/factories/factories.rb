@@ -5,4 +5,5 @@ FactoryGirl.define do
     password  "Atlanta2010"
     password_confirmation  "Atlanta2010"
   end
+  
 end

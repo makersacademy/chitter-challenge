@@ -18,4 +18,10 @@ feature 'When signing up' do
     sign_in(user)
     expect(page).to have_content "Welcome, #{user.username}"
   end
+
+  scenario 'user can sign out' do
+    sign_in(user)
+    sign_out(user)
+    expect(page).to have_content "Goodbye!"
+  end
 end

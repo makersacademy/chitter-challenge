@@ -50,5 +50,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sessions' do
+    @user = nil
+    session.clear
+    flash[:goodbye] = "Goodbye!"
+    redirect('/')
+  end
+
   run! if app_file == $0
 end

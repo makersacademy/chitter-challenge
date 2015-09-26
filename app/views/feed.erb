@@ -1,6 +1,8 @@
+<% unless current_user %>
 <form action="sessions/new">
   <input type="submit" value="Sign in">
 </form>
 <form action="sessions/sign_up">
   <input type="submit" value="Sign up">
 </form> 
+<% end %>
