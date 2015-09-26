@@ -7,6 +7,7 @@ module ChitterApp
       property :id, Serial
       property :username, String, required: true, unique: true
       property :email, String, required: true, unique: true
+      property :name, String, required: true
       property :password_digest, Text
       property :password_token, Text
       attr_reader :password, :email, :username

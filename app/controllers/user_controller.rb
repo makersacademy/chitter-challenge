@@ -6,8 +6,8 @@ module ChitterApp
       end
 
       post '/users' do
-        @user = User.create(username: params[:username], email: params[:email],
-        password: params[:password],
+        @user = User.new(username: params[:username], email: params[:email],
+        name: params[:name], password: params[:password],
         password_confirmation: params[:password_confirmation])
         if @user.save
           session[:user_id] = @user.id

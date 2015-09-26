@@ -1,8 +1,9 @@
 <h1> Please fill in your information to sign up </h1>
 
 <form action="/users" method="post">
-  Username <input type="text" name="username">
-  Email <input type="text"  name="email">
+  Username <input type="text" name="username" value="<%= @user.username unless @user == nil %>">
+  Email <input type="text"  name="email" value="<%= @user.email unless @user == nil %>">>
+  Name <input type="text"  name="name" value="<%= @user.name unless @user == nil %>">>
   Password <input type="password"  name="password">
   Password_confirmation <input type="password" name= "password_confirmation">
   <input type="submit" value="Sign up">

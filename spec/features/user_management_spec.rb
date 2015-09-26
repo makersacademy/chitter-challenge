@@ -24,6 +24,13 @@ feature 'User sign up' do
     expect(page).to have_content 'Email must not be blank'
   end
 
+  scenario 'requires a non-empty name' do
+    user = build(:user, name: nil)
+    expect {sign_up(user)}.not_to change(User, :count)
+    expect(current_path).to eq('/users/new')
+    expect(page).to have_content 'Name must not be blank'
+  end
+
   scenario 'requires password confirmation to match password' do
     user = build(:user, password_confirmation: 'not_right')
     expect {sign_up(user)}.not_to change(User, :count)
@@ -45,8 +52,37 @@ feature 'User sign up' do
     expect(page).to have_content 'Email is already taken'
   end
 
-  # scenario 'save username and email if valid' do
-  #
-  # end
+  scenario 'two person of the same name can signup as two users' do
+    user = create :user
+    sign_up(user)
+    user.username = 'joezhou'
+    user.email = 'jz@jz.com'
+    expect { sign_up(user) }.to change(User, :count).by(1)
+    expect(current_path).to eq('/')
+    expect(page).to have_content "Welcome to Chitter, joezhou!"
+  end
+
+  scenario 'displays multiple error messages' do
+    user = create :user
+    user.email = nil
+    user.name = nil
+    user.password_confirmation = 'wrong'
+    expect {sign_up(user)}.not_to change(User, :count)
+    expect(current_path).to eq('/users/new')
+    expect(page).to have_content 'Username is already taken'
+    expect(page).to have_content 'Password does not match the confirmation'
+    expect(page).to have_content 'Email must not be blank'
+    expect(page).to have_content 'Name must not be blank'
+  end
 
 end
+
+# feature 'User sign in' do
+#
+#   scenario 'I can sign in with my username and password' do
+#     user = create :user
+#     sign_in(user)
+#     expect(current_path).to eq('/users/new')
+#   end
+#
+# end
