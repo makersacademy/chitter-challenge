@@ -4,6 +4,5 @@ class Chit
 
   property :id,     Serial
   property :post,   String
-  property :handle, String
 
 end
