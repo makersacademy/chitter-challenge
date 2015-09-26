@@ -22,24 +22,41 @@ feature 'When signing up' do
     expect(page).to have_content "Goodbye!"
   end
 
-  scenario 'cannot sign up without an email' do
+  scenario 'email required to sign-in' do
     no_email = build(:user, email: nil)
     sign_up(no_email)
     click_button 'Sign up'
     expect(page).to have_content "Email must not be blank"
   end
 
-  scenario 'cannot sign up without an username' do
+  scenario 'username required to sign-in' do
     no_username = build(:user, username: nil)
     sign_up(no_username)
     click_button 'Sign up'
     expect(page).to have_content "Username must not be blank"
   end
 
-  scenario 'cannot register duplicate emails' do
+  scenario 'email must be unique' do
     sign_up(build(:user))
     sign_up(build(:user))
-    expect(page).to have_content "Email is  already taken"
+    expect(page).to have_content "Email is already taken"
   end
+
+  scenario 'password confirmation must match to register' do
+    sign_up(build(:user, password: 'bla'))
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
+
+  scenario 'password field cannot be blank to register' do
+    sign_up(build(:user, password: nil, password_confirmation: nil))
+    expect(page).to have_content 'Password must not be blank'
+  end
+
+  scenario 'username must be unique' do
+    sign_up(build(:user))
+    sign_up(build(:user))
+    expect(page).to have_content 'Username is already taken'
+  end
+
 
 end

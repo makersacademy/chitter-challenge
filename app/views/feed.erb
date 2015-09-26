@@ -16,9 +16,9 @@
 <ul id="peeps">
   <% @peeps.reverse_each do |peep| %>
     <li>
-      Peeper: <%= peep.peeper %>
-      Date/Time:   <%= peep.timestamp  %>
-      Peep:  <%= peep.body %>
+      Peeper:     <%= peep.peeper %>
+      Date/Time:  <%= peep.timestamp  %>
+      Peep:       <%= peep.body %>
     </li>
   <% end %>
 </ul>
