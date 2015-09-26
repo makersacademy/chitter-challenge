@@ -12,7 +12,7 @@ feature 'User can register' do
   scenario 'I can register as a new user' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, james.bond@mi6.com"# - Do separate test
+    expect(page).to have_content "Welcome, James Bond" # - Do separate test
     expect(User.first.email).to eq"james.bond@mi6.com"
   end
 
@@ -37,12 +37,18 @@ feature 'User can register' do
   end
 end
 
-# feature 'User can login' do
-#
-#   scenario 'User can login' do
-#
-#   end
-#
-#
-#
-# end
+feature 'User can login' do
+  let!(:user) { create :user }
+
+  scenario 'with correct credentials' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, #{user.name}"
+  end
+
+  def sign_in(email:, password:)
+    visit '/'
+    fill_in :user,     with: 'james_bond'
+    fill_in :password, with: 'agent007'
+    click_button "Login"
+  end
+end

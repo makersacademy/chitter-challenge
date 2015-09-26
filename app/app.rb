@@ -4,7 +4,7 @@ require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
   run! if app_file == $PROGRAM_NAME
-  
+
   register Sinatra::Flash
 
   set :views, proc { File.join(root, 'views') }
@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  # 1. Regestering
   get '/' do
     erb :index
   end
@@ -36,6 +37,18 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
       User.get(session[:user_id])
+    end
+  end
+
+  # 2. Log in
+  post '/user/sign-in' do
+    user = User.login(params[:user], params[:login_password])
+    if user
+      session[:user_id] = user.id
+      reditect to '/user'
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      redirect to '/'
     end
   end
 end

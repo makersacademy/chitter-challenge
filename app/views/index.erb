@@ -14,8 +14,13 @@
       <% end %>
     </ul>
     <% end %>
-
-
+    <br /><br /><b>Please login below:</b>
+    <form action="/user/sign-in" method="post">
+      <input type="text"     name="user">Username<br />
+      <input type="password" name="login_passowrd">Password<br />
+      <input type="submit"   value="Login">
+    </form><br /><br /><br />
+    <br /><b>Please register below:</b>
     <form action="/user/sign-up"  method="post">
       <input type="text"     name="email">Email<br />
       <input type="password" name="password">Password<br />
