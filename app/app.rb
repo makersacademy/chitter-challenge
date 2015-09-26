@@ -10,6 +10,7 @@ class ChitterApp < Sinatra::Base
   helpers Helpers
 
   get '/' do
+    @topbox = :welcome
     @peeps = Peep.all
     erb :index
   end
@@ -17,6 +18,12 @@ class ChitterApp < Sinatra::Base
   post '/' do
     Peep.create(message: params[:message]) unless params[:message].empty?
     redirect '/'
+  end
+
+  get '/sign-up' do
+    @topbox = :sign_up
+    @peeps = Peep.all
+    erb :index
   end
 
   # start the server if ruby file executed directly
