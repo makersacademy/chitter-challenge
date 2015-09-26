@@ -10,11 +10,15 @@
       <input type='submit' value='Sign out'>
     </form>
     <% elsif @signing_up %>
-    <form action="sessions/sign_in">
+    <form action="sessions/new">
       <input type="submit" value="Sign in">
     </form>
+    <% elsif @signing_in %>
+    <form action="sessions/sign_up">
+      <input type="submit" value="Sign up">
+    </form>  
     <% else %>
-    <form action="sessions/sign_in">
+    <form action="sessions/new">
       <input type="submit" value="Sign in">
     </form>
     <form action="sessions/sign_up">

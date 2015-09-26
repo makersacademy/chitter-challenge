@@ -22,6 +22,22 @@ class Chitter < Sinatra::Base
     erb :'sessions/new_user'
   end
 
+  get '/sessions/new' do
+    @signing_in = true
+    erb :'sessions/new_session'
+  end
+
+  post '/sessions/new' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash.now[:errors] = ['Email/password combination incorrect']
+      erb :'/sessions/new_session'
+    end
+  end
+
   post '/sessions/sign_up' do
     @user = User.create(username: params[:username],
                         email: params[:email],
