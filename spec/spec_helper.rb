@@ -15,6 +15,7 @@ require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'tilt/erb'
 
 Capybara.app = ChitterApp
 
