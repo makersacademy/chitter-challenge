@@ -29,6 +29,8 @@ end
 end
 
 
+
+
   def sign_up(email: 'pip@example.com',
               name: 'Philip Clarke',
               username: 'pip',
@@ -53,6 +55,8 @@ end
     fill_in :password_confirmation, with: user.password_confirmation
 
   end
+
+
 
 
 end
