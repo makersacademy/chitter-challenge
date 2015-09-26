@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
-  # register Sinatra::Flash
+  register Sinatra::Flash
   # use Rack::MethodOverride needed for delete
   # set :views, proc { File.join(root, '..', 'views') }
 
@@ -24,14 +24,20 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users' do
+  post '/users/new' do
     user = User.create(email: params[:email],
                   password:   params[:password],
                   password_confirmation: params[:password_confirmation],
                   name:       params[:name],
                   username:   params[:username])
-    session[:user_id] = user.id
-    redirect '/'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:notice] = "Password and confirmation password do not match"
+      erb :'users/new'
+    end
+
   end
 
 end

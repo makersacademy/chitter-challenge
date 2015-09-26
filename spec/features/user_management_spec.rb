@@ -1,13 +1,14 @@
 feature 'User sign up' do
 
   def sign_up(user)
-      visit '/users/new'
+      visit '/'
+      click_button 'Sign up'
       fill_in :email,     with: user.email
       fill_in :password,  with: user.password
       fill_in :password_confirmation, with: user.password_confirmation
       fill_in :name,      with: user.name
       fill_in :username,  with: user.username
-      click_button 'Sign up'
+      click_button 'Register'
   end
 
   scenario 'I can sign up as a new user' do
@@ -18,9 +19,9 @@ feature 'User sign up' do
   end
 
   scenario 'requires a matching confirmation password' do
-    user = create(:user, password_confirmation: 'wrong')
-  expect { sign_up user }.not_to change(User, :count)
-end
-
+    user = build(:user, password_confirmation: 'wrong')
+    expect { sign_up user }.not_to change(User, :count)
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
 
 end
