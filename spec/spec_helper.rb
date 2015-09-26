@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
 
@@ -6,8 +8,6 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
-
-ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
