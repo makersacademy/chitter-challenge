@@ -1,6 +1,13 @@
-ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+# SimpleCov.start
+ENV['RACK_ENV'] = 'test'
 require 'capybara/rspec'
 require './app/app'
 require './app/data_mapper_setup'
@@ -10,11 +17,7 @@ require 'byebug'
 FactoryGirl.find_definitions
 Capybara.app = App
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
