@@ -12,4 +12,8 @@ feature 'Creating peeps' do
     end
   end
 
+  scenario 'There are no links in the database at the start of the test' do
+    expect(Peep.count).to eq 0
+  end
+
 end
