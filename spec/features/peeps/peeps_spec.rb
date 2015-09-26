@@ -10,15 +10,10 @@ feature 'creating new peeps' do
     expect(page).to have_content 'sup peeps!'
   end
 
+  scenario 'non registered user cannot post peeps' do
+    visit('/')
+    click_button 'fresh peep'
+    expect(page).to have_content 'sign in or register to get peeping!'
+  end
+
 end
-
-
-  # post '/links' do
-  #   link = Link.new(url: params[:url],
-  #                 title: params[:title])
-  #   params[:tags].split(" ").each do |each_tag|
-  #     link.tags << Tag.new(name: each_tag)
-  #   end
-  #   link.save
-  #   redirect('/links')
-  # end

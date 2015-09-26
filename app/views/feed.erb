@@ -9,6 +9,10 @@
 
 <h1> Peep feed: </h1>
 
+<form action="peeps/new">
+<input type="submit" value="fresh peep">
+</form>
+
 <ul id="peeps">
   <% @peeps.reverse_each do |peep| %>
     <li>
@@ -18,7 +22,3 @@
     </li>
   <% end %>
 </ul>
-
-<form action="peeps/new">
-<input type="submit" value="fresh peep">
-</form>

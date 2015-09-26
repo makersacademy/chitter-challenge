@@ -10,12 +10,26 @@
       <input type='submit' value='Sign out'>
     </form>  
     <% end %>
+    
     <% if flash[:goodbye] %>
-    <%= flash[:goodbye] %>
+      <%= flash[:goodbye] %>
     <% end %>
-    <% if flash[:errors] %>
-    Please see the following errors:
-    <%= flash[:errors] %>
+    
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if flash[:peep_confirmation] %>
+      <%= flash[:peep_confirmation] %>
+    <% end %>
+
+    <% if flash[:no_peepy] %>
+      <%= flash[:no_peepy] %>
     <% end %>
 
   <%= yield %>

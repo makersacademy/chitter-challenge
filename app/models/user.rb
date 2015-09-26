@@ -9,7 +9,6 @@ include DataMapper::Resource
   attr_accessor :password
 
   validates_confirmation_of :password
-  validates_presence_of :email
   validates_uniqueness_of :email
 
 # writes to the database -------------
