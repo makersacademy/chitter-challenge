@@ -3,8 +3,9 @@
 <ul id="feed">
   <% @peeps.each do |peep| %>
     <li>
-      Message: <%= peep.message %>
-      Time: <%= peep.time %>
+      <%= peep.message %>
+      <%= peep.time %>
+      <%= peep.user %>
     </li>
   <% end %>
 </ul>
