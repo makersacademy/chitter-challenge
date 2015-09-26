@@ -4,7 +4,7 @@ feature 'New user sign up' do
 
   scenario 'I can sign up as a new user' do
     expect{ sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome to Chitter, MickTheMiller"
+    expect(page).to have_content "Welcome to Chitter, #{user.username}"
   end
 
   scenario 'password and confirmation must match' do
