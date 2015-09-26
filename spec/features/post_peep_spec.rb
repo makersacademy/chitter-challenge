@@ -36,7 +36,13 @@ feature 'Posting messages(peeps)' do
     post_peep(user, 'test2')
     click_button 'Sign out'
     visit '/peeps'
-    expect(page).to have_content("Yana Proskurina (aka yana) posted: test2 Yana Proskurina (aka yana) posted: test1")
+    expect(page).to have_content("#{DateTime.now.strftime("%a, %d %b %Y %H:%M")} Yana Proskurina (aka yana) posted: test2 #{DateTime.now.strftime("%a, %d %b %Y %H:%M")} Yana Proskurina (aka yana) posted: test1")
+  end
+
+  scenario 'I can see a time at which peep was made' do
+    user = create :user
+    post_peep(user, 'test time')
+    expect(page).to have_content("#{DateTime.now.strftime("%a, %d %b %Y %H:%M")} Yana Proskurina (aka yana) posted: test time")
   end
 
 end
