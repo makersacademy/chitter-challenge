@@ -3,6 +3,7 @@ require_relative 'data_mapper_setup'
 
 class App < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/peeps' do
     @user = User.get(session[:user_id])

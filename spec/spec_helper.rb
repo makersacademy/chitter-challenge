@@ -16,6 +16,7 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -30,5 +31,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include FactoryGirl::Syntax::Methods
+
 end

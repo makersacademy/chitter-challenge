@@ -24,10 +24,17 @@ feature 'Sign up' do
     expect { sign_up(user) }.not_to change(User, :count)
   end
 
+  scenario 'I cannot sign up when password and confirmation do not match' do
+    user = build(:user, password: '1234')
+    expect { sign_up(user) }.not_to change(User, :count)
+  end
+
   scenario 'Hashed password with salt is stored in the database' do
     user = build(:user)
-    expect(user.password_digest).not_to eq(user.password)
+    sign_up(user)
+    expect(user.password).not_to eq(user.password_digest)
   end
+
 
   def sign_up(user)
     visit '/users/new'
