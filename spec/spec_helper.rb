@@ -13,6 +13,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
+require 'pry'
 
 require './spec/factories/user'
 

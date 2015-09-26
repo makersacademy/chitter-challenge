@@ -11,6 +11,7 @@ feature 'User sign up,' do
   scenario 'I cannot sign up with an existing email' do
     user = create(:user)
     expect { sign_up(user) }.to change(User, :count).by(0)
+    binding.pry
     expect(page).to have_content "Email is already taken"
   end
 
@@ -18,9 +19,10 @@ end
 
 feature 'User sign in' do
 
-  xscenario 'with correct credentials' do
+  scenario 'with correct credentials' do
     user = create(:user)
     sign_in(user)
+    binding.pry
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
