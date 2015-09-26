@@ -3,8 +3,8 @@ Chitter - Maker Challenge \# 4
 
 ## Synopsis
 Make a Twitter clone
-## Technologies Used
 
+## Technologies Used
 - ruby
 - sinatra
 - postgreSQL
@@ -13,12 +13,12 @@ Make a Twitter clone
 - rubocop
 - simplecov
 
-## Job List
+## To run this project
 
-- [Create functional representation]
-- [Initialise test and development databases ]
-- [ ]
-- [ ]
+git clone <repo>
+bundle install
+touch .env # and add your details
+ruby <run file>
 
 ## User stories
 
@@ -48,7 +48,18 @@ I want to see the time at which it was made
 
 ## Functional representation
 
-TODO
+Objects  | Messages
+------------- | -------------
+`maker` |
+`website` | `sign in`, `sign out`, `sign up`,
+`message` | `post`, `view reverse chronological`, 'time'
+
+## Job List
+
+- [Create functional representation]
+- [Initialise test and development databases ]
+- [ ]
+- [ ]
 
 ## Still to complete/refactor
 
