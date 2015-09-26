@@ -58,5 +58,4 @@ feature 'When signing up' do
     expect(page).to have_content 'Username is already taken'
   end
 
-
 end

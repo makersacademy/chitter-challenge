@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'timecop'
 gem 'capybara'
 gem 'data_mapper'
+gem 'dm-validations'
 
 group :test do
   gem 'factory_girl'
@@ -18,6 +19,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
-  gem 'dm-validations'
 end
 
