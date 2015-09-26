@@ -6,4 +6,10 @@ feature 'Viewing peeps:' do
       expect(page).to have_content('Little Bo Peep has lost her sheep')
     end
   end
+  scenario 'I get a no peeps message when there are none' do
+    visit '/'
+    within 'div#peeps' do
+      expect(page).to have_content('not a peep to be heard')
+    end
+  end
 end

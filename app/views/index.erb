@@ -4,4 +4,7 @@
   <% @peeps.reverse.each do |peep| %>
     <p><%= peep.message %></p>
   <% end %>
+  <% if @peeps.empty? %>
+    <p><i>not a peep to be heard</i></p>
+  <% end %>
 </div>
