@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/feed' do
     @peeps = Peep.all
@@ -51,9 +52,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/feed')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:errors] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.now[:notice] = 'goodbye!'
   end
 
   helpers do

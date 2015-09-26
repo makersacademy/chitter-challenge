@@ -45,3 +45,15 @@ feature 'User sign in' do
   end
 
 end
+
+feature 'User signs out' do
+
+  scenario 'while being signed in' do
+    user = create :user
+    sign_in(user)
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content("Welcome, #{user.username}")
+  end
+
+end
