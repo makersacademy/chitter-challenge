@@ -10,7 +10,7 @@ module ChitterApp
       property :name, String, required: true
       property :password_digest, Text
       property :password_token, Text
-      attr_reader :password, :email, :username
+      attr_reader :password, :email, :username, :name
       attr_accessor :password_confirmation
       validates_confirmation_of :password
       def password=(password)

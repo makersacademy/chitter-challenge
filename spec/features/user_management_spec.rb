@@ -6,7 +6,7 @@ feature 'User sign up' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
     expect(current_path).to eq('/')
-    expect(page).to have_content "Welcome to Chitter, joema!"
+    expect(page).to have_content "Welcome to Chitter, Joe Zhou @joema!"
     expect(User.first.email).to eq "joe@ma.com"
   end
 
@@ -59,7 +59,7 @@ feature 'User sign up' do
     user.email = 'jz@jz.com'
     expect { sign_up(user) }.to change(User, :count).by(1)
     expect(current_path).to eq('/')
-    expect(page).to have_content "Welcome to Chitter, joezhou!"
+    expect(page).to have_content "Welcome to Chitter, Joe Zhou @joezhou!"
   end
 
   scenario 'displays multiple error messages' do
@@ -77,12 +77,21 @@ feature 'User sign up' do
 
 end
 
-# feature 'User sign in' do
-#
-#   scenario 'I can sign in with my username and password' do
-#     user = create :user
-#     sign_in(user)
-#     expect(current_path).to eq('/users/new')
-#   end
-#
-# end
+feature 'User sign in' do
+
+  scenario 'I can sign in with my username and password' do
+    user = create :user
+    sign_in(user)
+    expect(current_path).to eq('/')
+    expect(page).to have_content "Welcome to Chitter, Joe Zhou @joema!"
+  end
+
+  scenario 'Display error message when signing in with wrong username' do
+    user = create :user
+    user.username = 'wrong'
+    sign_in(user)
+    expect(current_path).to eq('/')
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
+end

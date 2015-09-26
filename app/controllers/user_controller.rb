@@ -22,6 +22,21 @@ module ChitterApp
         redirect '/'
       end
 
+      get '/users/sign_in' do
+        erb :'users/sign_in'
+      end
+
+      post '/users/sign_in' do
+        user = User.authenticate(params[:username],
+               params[:password])
+        if user
+          session[:user_id] = user.id
+        else
+          flash.next[:errors] = ['The email or password is incorrect']
+        end
+        redirect '/'
+      end
+
     end
   end
 end

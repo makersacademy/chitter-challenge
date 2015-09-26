@@ -11,7 +11,7 @@ module SessionUser
   end
 
   def sign_in(user)
-      visit '/sessions/new'
+      visit '/users/sign_in'
       fill_in :username, with: user.username
       fill_in :password, with: user.password
       click_button "Sign in"
