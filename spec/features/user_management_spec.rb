@@ -14,7 +14,7 @@ feature 'User sign up' do
   scenario 'can sign up a new user' do
     user = build(:user)
     expect { sign_up user }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, alice2@example.com')
+    expect(page).to have_content('Welcome to Chitter!')
     expect(User.first.email).to eq('alice@example.com')
   end
 
@@ -33,9 +33,27 @@ feature 'User sign up' do
   scenario 'I cannot sign up with an existing email' do
     user = build(:user)
     sign_up user
-    user = build(:user, email: 'alice@example.com')
+    diff_user = build(:user, email: 'alice@example.com')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
+  end
+
+end
+
+feature 'User sign in' do
+
+  def sign_in(user)
+    visit ('/')
+    click_button 'Sign in'
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'Sign in'
+  end
+
+  scenario 'can log in with username and password' do
+    user = build(:user)
+    sign_in(user)
+    expect(page).to have_content "Welcome to Chitter!"
   end
 
 end

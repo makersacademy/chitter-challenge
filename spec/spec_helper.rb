@@ -1,29 +1,44 @@
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-# Coveralls.wear!
-
-SimpleCov.start
-
 ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
-# require 'database_cleaner'
+require 'database_cleaner'
 require 'factory_girl'
 require 'data_mapper'
 require './app/chitter_web'
 require './app/data_mapper_setup'
 require 'factories/user'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
+SimpleCov.start
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
 
@@ -35,17 +50,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-    # config.before(:suite) do
-    #   DatabaseCleaner.strategy = :transaction
-    #   DatabaseCleaner.clean_with(:truncation)
-    # end
-    #
-    # config.before(:each) do
-    #   DatabaseCleaner.start
-    # end
-    #
-    # config.after(:each) do
-    #   DatabaseCleaner.clean
-    # end
 
 end
