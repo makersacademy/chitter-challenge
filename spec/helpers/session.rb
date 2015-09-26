@@ -2,7 +2,6 @@ module SessionHelpers
 
   def sign_up(user)
     visit '/sessions/sign_up'
-    expect(page.status_code).to eq(200)
     fill_in :username, with: user.username
     fill_in :email,    with: user.email
     fill_in :password, with: user.password
@@ -17,7 +16,7 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-  def sign_out(user)
+  def sign_out
     visit('/')
     click_button 'Sign out'
   end

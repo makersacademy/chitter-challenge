@@ -4,7 +4,6 @@ class User
 
 include DataMapper::Resource
 
-# TODO: don't have in database
   attr_accessor :password_confirmation
   attr_accessor :password
 
@@ -16,8 +15,6 @@ include DataMapper::Resource
   property :username, Text, required: true
   property :email, String, required: true
   property :password_digest, Text
-  # property :password, String
-  # property :password_confirmation, String
 
   has n, :peeps, through: Resource
 
