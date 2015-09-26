@@ -89,4 +89,22 @@ class App < Sinatra::Base
       erb :'users/email_verification'
     end
   end
+
+  get '/users/password_reset/:password_token' do
+    session[:password_token] = params[:password_token]
+    erb :'users/password_reset'
+  end
+
+  post '/password_reset' do
+    user = User.first(password_token: session[:password_token])
+    user.update(password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if user.save
+      flash[:notice] = 'Password is successfully reset'
+      redirect '/peeps'
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/password_reset'
+    end
+  end
 end
