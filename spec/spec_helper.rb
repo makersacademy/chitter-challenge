@@ -28,8 +28,8 @@ RSpec.configure do |config|
 
   config.before(:all) do FactoryGirl.reload end
   config.include FactoryGirl::Syntax::Methods
-  FactoryGirl.definition_file_paths = %w{./spec/factories}
-  FactoryGirl.find_definitions
+  # FactoryGirl.definition_file_paths = %w{./spec/factories}
+  # FactoryGirl.find_definitions
 
 #-------------------Capybara
 
