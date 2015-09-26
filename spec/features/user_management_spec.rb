@@ -29,14 +29,9 @@ feature 'User sign up' do
   end
 
   feature 'User sign in' do
-    let(:user) do
-      User.create(email: 'user@example.com',
-                  password: 'secret1234',
-                  password_confirmation: 'secret1234')
-    end
-
     scenario 'with correct credentials' do
-      sign_in(email: user.email,   password: user.password)
+      user = build :user
+      sign_up(user)
       expect(page).to have_content "Welcome, #{user.email}"
     end
   end
@@ -44,17 +39,16 @@ feature 'User sign up' do
   feature 'User signs out' do
 
     let(:user) do
-      User.create(email: 'test@example.com',
-                  password: 'secret1234',
-                  password_confirmation: 'secret1234')
-  end
-
-  scenario 'while being signed in' do
-      sign_in(email: 'test@example.com', password: 'test')
-      click_button 'Sign out'
-      expect(page).to have_content('goodbye!')
-      expect(page).not_to have_content('Welcome, test@example.com')
+      User.create(email: 'test@test.com',
+                  password: 'test',
+                  password_confirmation: 'test')
     end
 
+    scenario 'while being signed in' do
+      sign_in(email: 'test@test.com', password: 'test')
+      click_button 'Sign out'
+      expect(page).to have_content('goodbye!')
+      expect(page).not_to have_content('Welcome, test@test.com')
+    end
   end
 end

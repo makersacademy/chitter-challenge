@@ -5,7 +5,9 @@ class Chitter < Sinatra::Base
   enable :sessions
   use Rack::MethodOverride
   register Sinatra::Flash
+  register Sinatra::Partials
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
 
   get '/' do
     erb :'index'
