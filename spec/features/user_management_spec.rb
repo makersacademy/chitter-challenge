@@ -11,10 +11,10 @@ feature 'User sign up' do
       click_button 'Register'
   end
 
-  scenario 'I can sign up as a new user' do
+  scenario 'can sign up a new user' do
     user = build(:user)
     expect { sign_up user }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, alice@example.com')
+    expect(page).to have_content('Welcome, alice2@example.com')
     expect(User.first.email).to eq('alice@example.com')
   end
 
@@ -24,10 +24,18 @@ feature 'User sign up' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 
-  scenario 'cant sign up without entering an email' do
-    user = create(:user, email: '')
+  scenario 'requires entering an email' do
+    user = build(:user, email: '')
     expect { sign_up user }.not_to change(User, :count)
     expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'I cannot sign up with an existing email' do
+    user = build(:user)
+    sign_up user
+    user = build(:user, email: 'alice@example.com')
+    expect { sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 
 end
