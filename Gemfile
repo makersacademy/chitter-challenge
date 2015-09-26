@@ -4,6 +4,8 @@ ruby '2.2.3'
   gem 'datamapper'
   gem 'dm-postgres-adapter'
   gem 'sinatra'
+  gem 'bcrypt'
+  gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
