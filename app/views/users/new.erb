@@ -2,10 +2,10 @@
 
 <form action='/users/new' method='post'>
   Please enter your details:
-  Email:    <input name='email'    type='text'>
+  Email:    <input name='email'    type='text'    value='<%= @user.email %>'>
+  Name:     <input name='name'     type='name'     value='<%= @user.name %>'>
+  Username: <input name='username' type='username' value='<%= @user.username %>'>
   Password: <input name='password' type='password'>
   Password Confirmation: <input name='password_confirmation' type='password_confirmation'>
-  Name:     <input name='name'     type='name'>
-  Username: <input name='username' type='username'>
   <input type='submit' value='Register'>
 </form>
