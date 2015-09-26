@@ -36,7 +36,7 @@ class ChitterWeb < Sinatra::Base
     session[:user_id] = user.id
     redirect to('/')
   else
-    flash.now[:notice] = "Your Password and confirmation password do not match - please try again"
+    flash.now[:errors] = user.errors
     erb :'new_users'
   end
 
