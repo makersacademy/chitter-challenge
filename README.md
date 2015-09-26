@@ -31,6 +31,16 @@ I want to see the time at which it was made
 ```
 
 I use Sinatra to put it online, bcrypt to make password, datamapper to work with database.
-
 For tests I use capybara, factory_girl, database_cleaner.
+
+I have two classes, User and Peep, they are connected one-to-many (user can have many peeps, peep belongs to one user).
+Website structure is the following:
+/
+/peeps
+/peeps/new
+session
+/session/new
+user
+user/new
+
 
