@@ -1,7 +1,11 @@
-<form action="/users/new">
-  <input type="submit" value="Sign Up">
-</form>
+<h1>
+  Peeps
+</h1>
 
-<form action="/sessions/new">
-  <input type="submit" value="Sign In">
-</form>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <%= peep.message %>
+    </li>
+  <% end %>
+</ul>

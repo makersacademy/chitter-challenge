@@ -3,6 +3,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'dm-validations'
 require './app/models/user'
+require './app/models/peeps'
+require './app/models/tags'
  # require each model individually - the path may vary depending on your file structure.
 
 env = ENV['RACK_ENV'] || 'development'

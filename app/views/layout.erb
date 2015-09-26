@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
+    <%= partial :'/controllers/title' %>
   </head>
 
   <body>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= partial :'/controllers/welcome' %>
 
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+    <%= partial :'/controllers/sign_up' %>
 
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+    <%= partial :'/controllers/sign_in' %>
+
+    <%= partial :'/controllers/notice' %>
+
+    <%= partial :'/controllers/errors' %>
 
     <%= yield %>
   </body>

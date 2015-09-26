@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
 
   get '/' do
+    @peeps = Peep.all
     erb :'index'
   end
 
@@ -53,6 +54,24 @@ class Chitter < Sinatra::Base
     flash.now[:notice] = :goodbye!
     session[:user_id] = nil
     erb :'sessions/goodbye'
+  end
+
+  get '/peep/new' do
+    erb :'peeps/new'
+  end
+
+  post '/' do
+    peep = Peep.create(message: params[:message])
+    tag = Tag.create(name: params[:tag])
+    peep.tags << tag
+    peep.save
+    redirect to('/')
+  end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @peeps = tag ? tag.peeps : []
+    erb :'index'
   end
 
   helpers do
