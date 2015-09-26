@@ -1,15 +1,23 @@
-feature 'User sign up' do
+def sign_up(user)
+  visit '/'
+  click_button 'Sign up'
+  fill_in :email,     with: user.email
+  fill_in :password,  with: user.password
+  fill_in :password_confirmation, with: user.password_confirmation
+  fill_in :name,      with: user.name
+  fill_in :username,  with: user.username
+  click_button 'Register'
+end
 
-  def sign_up(user)
-      visit '/'
-      click_button 'Sign up'
-      fill_in :email,     with: user.email
-      fill_in :password,  with: user.password
-      fill_in :password_confirmation, with: user.password_confirmation
-      fill_in :name,      with: user.name
-      fill_in :username,  with: user.username
-      click_button 'Register'
-  end
+def sign_in(user)
+  visit '/sessions/new'
+  click_button 'Sign in'
+  fill_in 'email',    with: user.email
+  fill_in 'password', with: user.password
+  click_button 'Sign in'
+end
+
+feature 'User sign up' do
 
   scenario 'can sign up a new user' do
     user = build(:user)
@@ -56,18 +64,21 @@ end
 
 feature 'User sign in' do
 
-  def sign_in(user)
-    visit ('/')
-    click_button 'Sign in'
-    fill_in 'email', with: user.email
-    fill_in 'password', with: user.password
-    click_button 'Sign in'
-  end
-
   scenario 'can log in with username and password' do
     user = build(:user)
     sign_in(user)
     expect(page).to have_content "Welcome to Chitter!"
+  end
+
+end
+
+feature 'User signs out' do
+
+  scenario 'while being signed in' do
+    user = create(:user)
+    sign_in(user)
+    click_button 'Sign out'
+    expect(page).to have_content('Goodbye')
   end
 
 end

@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter!</title>
+    <title>Chitter</title>
   </head>
+  <div>
+    <h1>Welcome to Chitter!</h1>
+  </div>
   <body>
-    <div>
-      <h1>Welcome to Chitter!</h1>
-    </div>
-    <div id='error' >
-      <% if flash[:errors] && !flash[:errors].empty? %>
-        <ul id='errors'>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
+
+   <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+   <ul id='errors'>
+   <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+    <% if current_user %>
+    Welcome, <%= current_user.name %>
+
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+
+    <% if flash[:logged_out] %>
+      <p> <%= flash[:logged_out] %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
