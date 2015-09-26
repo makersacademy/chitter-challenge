@@ -18,7 +18,7 @@ require './app/chitter_web'
 require './app/data_mapper_setup'
 
 
-Capybara.app = Chitter
+Capybara.app = ChitterApp::Chitter
 
 RSpec.configure do |config|
 

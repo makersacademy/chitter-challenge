@@ -1,15 +1,15 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require './app/controllers/base_controller'
+require './app/controllers/user_controller'
 
-class Chitter < Sinatra::Base
-
-  enable :sessions
-  register Sinatra::Flash
-  use Rack::MethodOverride #need for delete
-  set :session_secret, 'super secret'
-
-  get '/' do
-    erb :'index'
+module ChitterApp
+  class Chitter < Sinatra::Base
+    use Routes::UserController
+    register Sinatra::Flash
+    get '/' do
+      erb :'index'
+    end
   end
 end
