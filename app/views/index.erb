@@ -1,0 +1,7 @@
+<h1>Peeps</h1>
+
+<div id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <p><%= peep.message %></p>
+  <% end %>
+</div>
