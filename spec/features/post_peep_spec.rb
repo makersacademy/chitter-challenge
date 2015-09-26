@@ -3,10 +3,7 @@ feature 'Posting messages(peeps)' do
 
   scenario 'when signed in I can post a new peep' do
     user = create :user
-    sign_in_as(user)
-    click_button 'New peep'
-    fill_in 'text', with: 'test peep'
-    click_button 'Post peep'
+    post_peep(user, 'test peep')
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
       expect(page).to have_content("Yana Proskurina (aka yana) posted: test peep")
@@ -31,6 +28,15 @@ feature 'Posting messages(peeps)' do
     visit '/peeps/new'
     click_button 'Sign up'
     expect(current_path).to eq '/users/new'
+  end
+
+  scenario 'post appear in reverse chronological order' do
+    user = create :user
+    post_peep(user, 'test1')
+    post_peep(user, 'test2')
+    click_button 'Sign out'
+    visit '/peeps'
+    expect(page).to have_content("Yana Proskurina (aka yana) posted: test2 Yana Proskurina (aka yana) posted: test1")
   end
 
 end

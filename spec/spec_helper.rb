@@ -13,6 +13,7 @@ require './spec/factories/user'
 require './chitter'
 require './data_mapper_setup'
 require_relative 'helpers/session'
+require_relative 'helpers/peep'
 
 require File.join(File.dirname(__FILE__), '..', 'chitter.rb')
 
@@ -48,6 +49,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.include SessionHelpers
+
+  config.include PeepHelpers
 
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
