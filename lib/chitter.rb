@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   set :views, proc { File.join(root, 'views') }
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -15,6 +15,12 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     User.create(email: params[:email], password: params[:password])
+    redirect '/'
+  end
+
+  get '/peeps' do
+    @user = User.first
+    erb :'peeps/index'
   end
 
   # start the server if ruby file executed directly

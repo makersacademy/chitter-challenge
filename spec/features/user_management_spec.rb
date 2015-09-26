@@ -5,14 +5,13 @@ feature 'User sign up,' do
   scenario 'I can sign up as a new user.' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
-    # expect(page).to have_content "Welcome, alice@example.com"
-    # expect(User.first.email).to eq "alice@example.com"
+    expect(User.first.email).to eq "roy@reynholm.co.uk"
   end
 
-  xscenario 'I cannot sign up with an existing email' do
+  scenario 'I cannot sign up with an existing email' do
     user = create(:user)
     expect { sign_up(user) }.to change(User, :count).by(0)
-    expect(page).to have_content "Email is already taken"
+    xexpect(page).to have_content "Email is already taken"
   end
 
 end
