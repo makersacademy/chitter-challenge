@@ -24,4 +24,5 @@ feature 'When signing up' do
     sign_out(user)
     expect(page).to have_content "Goodbye!"
   end
+
 end

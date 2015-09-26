@@ -10,15 +10,15 @@
 <h1> Peep feed: </h1>
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       Peeper: <%= peep.peeper %>
-      Date/Time:   <%= peep.timestamp   %>
+      Date/Time:   <%= peep.timestamp  %>
       Peep:  <%= peep.body %>
     </li>
   <% end %>
 </ul>
 
-<form method="peep" action="links/new">
+<form action="peeps/new">
 <input type="submit" value="fresh peep">
 </form>
