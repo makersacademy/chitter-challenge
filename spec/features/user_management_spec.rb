@@ -30,12 +30,26 @@ feature 'User sign up' do
     expect(page).to have_content 'Email must not be blank'
   end
 
+  scenario 'requires entering an username' do
+    user = build(:user, username: '')
+    expect { sign_up user }.not_to change(User, :count)
+    expect(page).to have_content 'Username must not be blank'
+  end
+
   scenario 'I cannot sign up with an existing email' do
     user = build(:user)
     sign_up user
     diff_user = build(:user, email: 'alice@example.com')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'I cannot sign up with an existing username' do
+    user = build(:user)
+    sign_up user
+    diff_user = build(:user, username: 'alice123')
+    expect { sign_up(user) }.not_to change(User, :count)
+    expect(page).to have_content('Username is already taken')
   end
 
 end

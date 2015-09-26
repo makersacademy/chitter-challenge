@@ -21,6 +21,9 @@ class User
   validates_uniqueness_of :email,
     message: "Email is already taken"
 
+  validates_uniqueness_of :email,
+    message: "Username is already taken"
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
