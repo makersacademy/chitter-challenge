@@ -72,4 +72,21 @@ class App < Sinatra::Base
     flash[:notice] = "Good bye!"
     redirect to '/sessions/new'
   end
+
+  get '/email_verification' do
+    erb :'users/email_verification'
+  end
+
+  post '/email_verification' do
+    user = User.first(email: params[:email])
+    if user
+      user.password_token = generate_password_token
+      user.save
+      flash.now[:notice] = 'Email sent. Please check your email'
+      erb :'users/email_verification'
+    else
+      flash.now[:notice] = 'Email not found'
+      erb :'users/email_verification'
+    end
+  end
 end

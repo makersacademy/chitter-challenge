@@ -9,6 +9,7 @@ class User
   property :name, String, required: true
   property :nickname, String, required: true
   property :password_digest, Text
+  property :password_token, Text
 
   validates_uniqueness_of :email, :nickname
   validates_confirmation_of :password
