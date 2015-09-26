@@ -10,6 +10,9 @@
   <% end %>
 </ul>
 
-<form action = '/feed/new'>
-  <input type='submit' value='Write peep'>
-</form>
+
+<% if current_user %>
+  <form action = '/feed/new'>
+    <input type='submit' value='Write peep'>
+  </form>
+<% end %>
