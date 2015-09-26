@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User signs out' do
+feature 'Signing out' do
 
   scenario 'while being signed in' do
     user = create(:user)

@@ -13,8 +13,4 @@ feature 'Creating peeps' do
     end
   end
 
-  # scenario 'peep database is empty at start of test' do
-  #   expect(Peep.count).to eq 0
-  # end
-
 end

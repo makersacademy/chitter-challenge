@@ -31,7 +31,7 @@ feature 'Signing up' do
     user = build(:user)
     sign_up user
     diff_user = build(:user, email: 'alice@example.com')
-    expect { sign_up(user) }.not_to change(User, :count)
+    expect { sign_up user }.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
   end
 
@@ -39,7 +39,7 @@ feature 'Signing up' do
     user = build(:user)
     sign_up user
     diff_user = build(:user, username: 'alice123')
-    expect { sign_up(user) }.not_to change(User, :count)
+    expect { sign_up user }.not_to change(User, :count)
     expect(page).to have_content('Username is already taken')
   end
 

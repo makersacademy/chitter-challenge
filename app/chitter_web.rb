@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+      erb :index
   end
 
   get '/users/new' do

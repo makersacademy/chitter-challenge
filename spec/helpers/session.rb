@@ -1,4 +1,5 @@
 module SessionHelpers
+
   def sign_up(user)
     visit '/'
     click_button 'Sign up'
