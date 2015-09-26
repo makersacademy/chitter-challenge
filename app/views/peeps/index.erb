@@ -6,6 +6,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.content %>
+      <%= peep.created_at %>
       <!-- <%= current_user.name if current_user%>
       <%= current_user.nickname if current_user%> -->
     </li>
