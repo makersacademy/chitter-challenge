@@ -3,9 +3,18 @@ require_relative 'data_mapper_setup'
 
 class ChitterChallenge < Sinatra::Base
 
-  get '/' do
+  get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new_peep'
+  end
+
+  post '/peeps' do
+    Peep.create(peep: params[:peep])
+    redirect to('/peeps')
   end
 
 # start the server if ruby file executed directly
