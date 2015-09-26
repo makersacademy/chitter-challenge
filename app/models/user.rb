@@ -4,22 +4,20 @@ class User
 
 include DataMapper::Resource
 
-  attr_accessor :email
-  attr_accessor :username
-  attr_accessor :password
   attr_accessor :password_confirmation
-  attr_accessor :password_token
+  attr_accessor :password
 
   validates_confirmation_of :password
   validates_presence_of :email
   validates_uniqueness_of :email
 
+# writes to the database -------------
   property :id, Serial
+  property :username, Text, required: true
   property :email, String, required: true
   property :password_digest, Text
-  property :password_token, Text
-  property :password_token_timestamp, Text
-
+  # property :password, String
+  # property :password_confirmation, String
 
   def password=(password)
     @password = password

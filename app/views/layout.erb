@@ -9,13 +9,18 @@
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
-    <% else %>
-      <form method='post' action='/sign_in'>
-      <input type='text' name='username'>
-      <input type='password' name='password'>
-      <input type='submit' value='Sign in'>
+    <% elsif @signing_up %>
+    <form action="sessions/sign_in">
+      <input type="submit" value="Sign in">
     </form>
-  <% end %>
+    <% else %>
+    <form action="sessions/sign_in">
+      <input type="submit" value="Sign in">
+    </form>
+    <form action="sessions/sign_up">
+      <input type="submit" value="Sign up">
+    </form>   
+    <% end %>
   <%= yield %>
 
   <body>
