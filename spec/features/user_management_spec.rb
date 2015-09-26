@@ -2,7 +2,6 @@ require 'spec_helper'
 
 feature 'User can register' do
 
-  let!(:user) { build :user }
   # Strictly speaking, the tests that check the UI
   # (have_content, etc.) should be separate from the tests
   # that check what we have in the DB since these are separate concerns
@@ -10,19 +9,31 @@ feature 'User can register' do
 
   # However, we are currently driving everything through
   # feature tests and we want to keep this example simple.
+
   scenario 'I can register as a new user' do
-    expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, #{user.name}"
-    expect(User.first.email).to eq 'james.bond@mi6.com'
-    #add page.status_code and refactor the test later
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content "Welcome, james.bond@mi6.com"
+    expect(User.first.email).to eq"james.bond@mi6.com"
   end
 
-  def sign_up(user)
+  scenario 'I cannot register twice with the same username' do
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
+  end
+
+  scenario 'I cannot register twice with the same email' do
+    sign_up
+    expect { sign_up(username: 'bob') }.to change(User, :count).by(0)
+  end
+
+  def sign_up(email: "james.bond@mi6.com",
+    password: 'oranges!', name: 'James Bond',
+    username: 'james_bond')
     visit '/'
-    fill_in 'email',                 with: user.email
-    fill_in 'password',              with: user.password
-    fill_in 'name',                  with: user.name
-    fill_in 'username',              with: user.username
-    click_button 'Sign up'
+    fill_in 'email',    with: email
+    fill_in 'password', with: password
+    fill_in 'name',     with: name
+    fill_in 'username', with: username
+    click_button "Sign up"
   end
 end
