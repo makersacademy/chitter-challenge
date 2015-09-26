@@ -2,6 +2,11 @@
 <html>
   <%= erb :'partials/header' %>
   <body>
+    <% if current_user %>
+      Welcome to Chitter, <%= current_user.name %> @<%= current_user.username %>!
+    <% else %>
+      <p><a href="/users/new">Sign up</a>  <a href="/users/sign_in">Sign in</a></p>
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id="errors">
@@ -9,9 +14,6 @@
           <li><%= error %></li>
         <% end %>
       </ul>
-    <% end %>
-    <% if current_user %>
-      Welcome to Chitter, <%= current_user.name %> @<%= current_user.username %>!
     <% end %>
     <%= yield %>
   </body>

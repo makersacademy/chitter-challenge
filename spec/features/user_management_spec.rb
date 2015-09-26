@@ -94,4 +94,12 @@ feature 'User sign in' do
     expect(page).to have_content "The email or password is incorrect"
   end
 
+  scenario 'Display error message when signing in with wrong password' do
+    user = create :user
+    user.password = 'wrong'
+    sign_in(user)
+    expect(current_path).to eq('/')
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
 end
