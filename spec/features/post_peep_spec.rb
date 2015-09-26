@@ -9,7 +9,7 @@ feature 'Posting messages(peeps)' do
     click_button 'Post peep'
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
-      expect(page).to have_content("yana posted: test peep")
+      expect(page).to have_content("Yana Proskurina (aka yana) posted: test peep")
     end
   end
 

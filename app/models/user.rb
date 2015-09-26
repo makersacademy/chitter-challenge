@@ -10,7 +10,7 @@ class User
   property :name, String
   property :user_name, String, unique: true
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   attr_reader :password
 
