@@ -90,6 +90,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.0.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     fastercsv (1.5.5)
@@ -183,6 +184,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dotenv
   factory_girl
   rake
   rspec
