@@ -4,6 +4,7 @@
   <% @peeps.each do |peep| %>
     <li>
       Content: <%= peep.content %>
+      Written on: <%= "#{peep.time_created}"%>
     </li>
   <% end %>
 </ul>
