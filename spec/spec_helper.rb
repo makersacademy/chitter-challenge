@@ -17,6 +17,7 @@ require 'factory_girl'
 require 'data_mapper'
 require './app/chitter_web'
 require './app/data_mapper_setup'
+require 'factories/user'
 
 Capybara.app = Chitter
 
