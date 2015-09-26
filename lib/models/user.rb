@@ -27,12 +27,8 @@ class User
     # the password given and compares it to the password_digest
     # it was initialised with.
     # So, to recap: THIS IS NOT A STRING COMPARISON
-    if user && BCrypt::Password.new(user.password_digest) == password
-      # return this user
-      user
-    else
-      nil
-    end
+    return user if user && BCrypt::Password.new(user.password_digest) == password
+    nil
   end
 
 end

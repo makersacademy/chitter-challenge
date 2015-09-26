@@ -1,9 +1,8 @@
 require 'data_mapper'
 require 'dm-validations'
 
-require 'models/user'
-
-require 'helpers/session_user'
+require './lib/models/user.rb'
+require './lib/helpers/session_user'
 
 env = ENV['RACK_ENV'] || 'development'
 
