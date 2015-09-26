@@ -50,7 +50,7 @@ class Chitter < Sinatra::Base
     erb :'user/index'
   end
 
-  helpers do
+  helpers do # Need to refactor as a module
     def current_user
       User.get(session[:user_id])
     end
