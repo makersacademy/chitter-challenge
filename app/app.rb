@@ -1,18 +1,19 @@
 require_relative 'data_mapper_setup'
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative 'data_mapper_setup'
 require_relative 'helpers'
 
 
 
 class ChitterWeb < Sinatra::Base
 
+  include Helpers
+
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do
-    'hello world'
+    erb :'peeps'
   end
 
   get '/users/new' do

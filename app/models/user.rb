@@ -4,6 +4,8 @@ class User
 
   include DataMapper::Resource
 
+  attr_reader :password
+
   property :id, Serial
   property :name, String, required: true
   property :username, String, required: true, unique: true

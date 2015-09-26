@@ -11,8 +11,8 @@
   </head>
   <body>
     <% if current_user %>
-     Welcome, <%= current_user.email %>
-   <% end %
+     Welcome, <%= current_user.username %>
+   <% end %>
     <%= yield %>
     <!-- Bootstrap jquery plugins -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
