@@ -11,6 +11,9 @@
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
+      <% if current_user %>
+        Welcome, <%= current_user.name %><%= current_user.nickname %>
+      <% end %>
       <%= yield %>
     </body>
   </html>

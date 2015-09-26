@@ -32,13 +32,21 @@ class App < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email],
+    user = User.new(email: params[:email],
                     name: params[:name],
                     nickname: params[:nickname],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to '/peeps'
+    if user.save
+      session[:user_id] = user.id
+      flash[:notice] = "Successfully signed up"
+      redirect to '/peeps'
+    else
+      flash[:notice] = 'There was a problem signing you up.
+        Please try again'
+      redirect to '/users/new'
+    end
+
   end
 
   get '/sessions/new' do
