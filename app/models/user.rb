@@ -15,6 +15,8 @@ class User
   property :password_digest, Text
   property :password_token, Text
 
+  has n, :peeps, through: Resource
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
