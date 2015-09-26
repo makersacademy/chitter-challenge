@@ -1,23 +1,6 @@
-def sign_up(user)
-  visit '/'
-  click_button 'Sign up'
-  fill_in :email,     with: user.email
-  fill_in :password,  with: user.password
-  fill_in :password_confirmation, with: user.password_confirmation
-  fill_in :name,      with: user.name
-  fill_in :username,  with: user.username
-  click_button 'Register'
-end
+require 'spec_helper'
 
-def sign_in(user)
-  visit '/sessions/new'
-  click_button 'Sign in'
-  fill_in 'email',    with: user.email
-  fill_in 'password', with: user.password
-  click_button 'Sign in'
-end
-
-feature 'User sign up' do
+feature 'Signing up' do
 
   scenario 'can sign up a new user' do
     user = build(:user)
@@ -58,27 +41,6 @@ feature 'User sign up' do
     diff_user = build(:user, username: 'alice123')
     expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content('Username is already taken')
-  end
-
-end
-
-feature 'User sign in' do
-
-  scenario 'can log in with username and password' do
-    user = build(:user)
-    sign_in(user)
-    expect(page).to have_content "Welcome to Chitter!"
-  end
-
-end
-
-feature 'User signs out' do
-
-  scenario 'while being signed in' do
-    user = create(:user)
-    sign_in(user)
-    click_button 'Sign out'
-    expect(page).to have_content('Goodbye')
   end
 
 end

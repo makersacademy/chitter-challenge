@@ -1,15 +1,15 @@
 require 'coveralls'
 require 'simplecov'
 
-ENV['RACK_ENV'] = 'test'
-
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require 'data_mapper'
 require './app/chitter_web'
 require './app/data_mapper_setup'
-require 'factories/user'
+
+require './app/models/user'
+require './app/models/peep'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -17,13 +17,17 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-SimpleCov.start
+ENV['RACK_ENV'] = 'test'
+
+require 'factories/user'
+require 'helpers/session'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -38,7 +42,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
 

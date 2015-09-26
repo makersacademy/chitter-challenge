@@ -4,6 +4,7 @@ require 'dm-validations'
 require 'sinatra/flash'
 
 require './app/models/user'
+require './app/models/peep'
 
 
 env = ENV['RACK_ENV'] || 'development'
