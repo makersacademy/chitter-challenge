@@ -4,6 +4,7 @@ require './app/models/peep'
 require './app/models/user'
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative '../spec/factories/user'
 
 env = ENV['RACK_ENV'] || 'development'
 
