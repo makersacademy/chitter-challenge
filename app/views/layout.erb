@@ -1,1 +1,10 @@
-<%= yield %>
+<!DOCTYPE html>
+<html>
+  <%= erb :'partials/header' %>
+  <body>
+    <% if current_user %>
+      Welcome to Chitter, <%= current_user.username %>!
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
