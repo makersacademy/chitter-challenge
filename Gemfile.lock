@@ -89,6 +89,8 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     json_pure (1.8.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -176,7 +178,9 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-validations
   factory_girl
+  launchy
   pry
   rspec
   rubocop
