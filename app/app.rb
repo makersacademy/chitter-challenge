@@ -41,11 +41,11 @@ class Chitter < Sinatra::Base
   end
 
   # 2. Log in
-  post '/user/sign-in' do
+  post '/user/login' do
     user = User.login(params[:user], params[:login_password])
     if user
       session[:user_id] = user.id
-      reditect to '/user'
+      redirect to '/user'
     else
       flash.now[:errors] = ['The username or password is incorrect']
       redirect to '/'

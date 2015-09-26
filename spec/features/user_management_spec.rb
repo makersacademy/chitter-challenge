@@ -27,14 +27,6 @@ feature 'User can register' do
     expect { sign_up(user) }.to change(User, :count).by(0)
   end
 
-  def sign_up(user)
-    visit '/'
-    fill_in 'email',    with: user.email
-    fill_in 'password', with: user.password
-    fill_in 'name',     with: user.name
-    fill_in 'username', with: user.username
-    click_button "Sign up"
-  end
 end
 
 feature 'User can login' do
@@ -45,10 +37,13 @@ feature 'User can login' do
     expect(page).to have_content "Welcome, #{user.name}"
   end
 
-  def sign_in(email:, password:)
-    visit '/'
-    fill_in :user,     with: 'james_bond'
-    fill_in :password, with: 'agent007'
-    click_button "Login"
+end
+
+feature 'User can sign out' do
+  before { create :user }
+
+  scenario 'while sign in, I can sign out' do
+
   end
+
 end
