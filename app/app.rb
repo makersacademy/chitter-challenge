@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require './app/helpers/user_helper'
+require 'sinatra/flash'
 
 class App < Sinatra::Base
   helpers UserHelpers
-
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -47,6 +48,7 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/peeps'
     else
+      flash[:notice] = 'Email or password is invalid'
       redirect to '/sessions/new'
     end
   end
