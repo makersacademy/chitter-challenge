@@ -10,9 +10,10 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
+  property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
-  # property :password_token, Text
+  property :password_token, Text
 
   def password=(password)
     @password = password

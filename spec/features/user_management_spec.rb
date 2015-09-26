@@ -22,10 +22,17 @@ feature 'User sign up' do
 
   scenario 'I cannot sign up with an existing email' do
     user = build :user
-    user2 = build :user
     sign_up(user)
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'I cannot sign up with an existing username' do
+    user = build :user
+    user2 = build :username
+    sign_up(user)
+    expect { sign_up(user2) }.to change(User, :count).by(0)
+    expect(page).to have_content('Username is already taken')
   end
 
   feature 'User sign in' do
@@ -39,7 +46,7 @@ feature 'User sign up' do
   feature 'User signs out' do
 
     let(:user) do
-      User.create(email: 'test@test.com',
+      User.create(email: 'test@test.com', username: 'foo',
                   password: 'test',
                   password_confirmation: 'test')
     end

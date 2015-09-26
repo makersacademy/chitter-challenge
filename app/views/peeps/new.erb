@@ -1,3 +1,4 @@
+<% if current_user %>
 <div style='padding-left: 25px; height: 170px; width: 325px; border: 3px solid red'>
   <br>
   <form action='/' method="post">
@@ -13,3 +14,9 @@
     <input type="submit" value="Back">
   </form>
 </div>
+
+<% else %>
+
+You must sign up first to peep or sign in!
+
+<% end %>
