@@ -2,6 +2,14 @@
 <html>
   <%= erb :'partials/header' %>
   <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <% if current_user %>
       Welcome to Chitter, <%= current_user.username %>!
     <% end %>
