@@ -1,6 +1,5 @@
 require 'bcrypt'
 
-
 class User
 
   include DataMapper::Resource
@@ -29,8 +28,6 @@ class User
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
 
