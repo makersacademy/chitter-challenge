@@ -4,7 +4,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-require 'database_cleaner'
 require 'factory_girl'
 require_relative 'helpers/session'
 
@@ -48,7 +47,6 @@ RSpec.configure do |config|
 
 
   config.mock_with :rspec do |mocks|
-
     mocks.verify_partial_doubles = true
   end
 end

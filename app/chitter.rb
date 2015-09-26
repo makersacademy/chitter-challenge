@@ -1,11 +1,14 @@
 require './app/data_mapper_setup'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
 
+  register Sinatra::Flash
+  register Sinatra::Partial
+
   enable :sessions
   use Rack::MethodOverride
-  register Sinatra::Flash
-  register Sinatra::Partials
+
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
 
