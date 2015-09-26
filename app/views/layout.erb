@@ -3,15 +3,9 @@
   <head>
     <title>Chitter!</title>
   </head>
-
   <body>
-
     <div>
-      <% if @user %>
-        <h1>Welcome to Chitter!</h1>
-      <% else %>
-        <h1>Welcome to Chitter!</h1>
-      <% end %>
+      <h1>Welcome to Chitter!</h1>
     </div>
     <div id='error' >
       <% if flash[:errors] && !flash[:errors].empty? %>
@@ -22,7 +16,6 @@
         </ul>
       <% end %>
     </div>
-
     <%= yield %>
   </body>
 </html>
