@@ -24,4 +24,10 @@ feature 'User sign up' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 
+  scenario 'cant sign up without entering an email' do
+    user = create(:user, email: '')
+    expect { sign_up user }.not_to change(User, :count)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
 end
