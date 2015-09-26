@@ -16,4 +16,5 @@ group :test do
   gem 'rerun'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'bcrypt'
 end
