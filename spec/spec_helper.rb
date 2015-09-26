@@ -6,6 +6,7 @@ require './app/app'
 require './app/data_mapper_setup'
 require 'database_cleaner'
 require 'factory_girl'
+require 'byebug'
 FactoryGirl.find_definitions
 Capybara.app = App
 

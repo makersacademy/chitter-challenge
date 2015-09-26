@@ -1,12 +1,15 @@
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require './app/helpers/user_helper'
 
 class App < Sinatra::Base
+  helpers UserHelpers
+
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/peeps' do
-    @user = User.get(session[:user_id])
+    current_user
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -32,5 +35,19 @@ class App < Sinatra::Base
                     password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/peeps'
+    else
+      redirect to '/sessions/new'
+    end
   end
 end
