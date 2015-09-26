@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'factory_girl'
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
@@ -12,8 +13,12 @@ require 'coveralls'
 Coveralls.wear!
 
 Capybara.app = Chitter
+
 RSpec.configure do |config|
+
   config.include Capybara::DSL
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

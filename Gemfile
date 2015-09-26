@@ -11,6 +11,7 @@ gem 'capybara'
 gem 'data_mapper'
 
 group :test do
+  gem 'factory_girl'
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'
