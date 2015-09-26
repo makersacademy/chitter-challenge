@@ -10,6 +10,8 @@ class User
   property :name, String
   property :user_name, String, unique: true
 
+  has n, :peeps, through: Resource
+
   attr_reader :password
 
   def password=(password)

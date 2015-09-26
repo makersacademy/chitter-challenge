@@ -26,12 +26,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
-    session[:user_id] = @user.id
-    redirect '/peeps'
-  end
-
-  get '/peeps' do
-    erb :'peeps/index'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'/users/new'
+    end
   end
 
   get '/sessions/new' do
@@ -53,6 +54,21 @@ class Chitter < Sinatra::Base
     flash.now[:notice] = "Goodbye!"
     session[:user_id] = nil
     erb :'sessions/new'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(text: params[:text], user: current_user)
+    peep.save
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly
