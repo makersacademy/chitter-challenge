@@ -6,3 +6,19 @@
   <input type="submit" value="Sign up">
 </form> 
 <% end %>
+
+<h1> Peep feed: </h1>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      Peeper: <%= peep.peeper %>
+      Date/Time:   <%= peep.timestamp   %>
+      Peep:  <%= peep.body %>
+    </li>
+  <% end %>
+</ul>
+
+<form method="peep" action="links/new">
+<input type="submit" value="fresh peep">
+</form>

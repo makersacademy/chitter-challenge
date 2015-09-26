@@ -14,7 +14,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all
     erb :feed
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    user = User.first(user_id: session[:user_id])
+    peep = Peep.new(body: params[:body], peeper: user.username)
+    user.peeps << peep
+    user.save
+    flash[:peep_confirmation] = "Well done, you've just peeped!"
+    redirect('/')
   end
 
   get '/sessions/sign_up' do
@@ -28,7 +42,7 @@ class Chitter < Sinatra::Base
   post '/sessions/new' do
     user = User.authenticate(params[:username], params[:password])
     if user
-      session[:user_id] = user.id
+      session[:user_id] = user.user_id
       redirect('/')
     else
       flash.now[:errors] = ['Email/password combination incorrect']
@@ -42,7 +56,7 @@ class Chitter < Sinatra::Base
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:user_id] = @user.id
+      session[:user_id] = @user.user_id
       redirect('/')
     else
       flash[:errors] = @user.errors.full_messages

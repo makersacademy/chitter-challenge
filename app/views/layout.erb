@@ -13,6 +13,10 @@
     <% if flash[:goodbye] %>
     <%= flash[:goodbye] %>
     <% end %>
+    <% if flash[:errors] %>
+    Please see the following errors:
+    <%= flash[:errors] %>
+    <% end %>
 
   <%= yield %>
 
