@@ -19,7 +19,7 @@ feature 'Viewing peeps:' do
     peep = Peep.create(message: 'Little Bo Peep has lost her sheep')
     visit '/'
     within 'div#peeps' do
-      expect(page).to have_content(peep.created_at)
+      expect(page).to have_content(peep.created_at.strftime('%F %T'))
     end
   end
 
