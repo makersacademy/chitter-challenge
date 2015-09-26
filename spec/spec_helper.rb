@@ -1,3 +1,4 @@
+ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
