@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'database_cleaner'
 require 'simplecov'
@@ -14,8 +16,6 @@ require 'rspec'
 
 require_relative '../app/app.rb'
 require './app/models/peep'
-
-ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
