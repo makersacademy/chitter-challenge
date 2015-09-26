@@ -8,6 +8,7 @@ gem 'sinatra-partial'
 gem 'bcrypt'
 gem 'timecop'
 gem 'capybara'
+gem 'data_mapper'
 
 group :test do
   gem 'rspec'
