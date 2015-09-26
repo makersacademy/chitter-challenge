@@ -26,8 +26,6 @@ class User
     end
   end
 
-  private
-
   def self.password_correct(user, password)
     BCrypt::Password.new(user.password_digest) == password
   end

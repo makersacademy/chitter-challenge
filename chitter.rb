@@ -1,7 +1,10 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
+
+  register Sinatra::Flash
 
   set :views, proc {File.join(root, '/app/views')}
   enable :sessions
@@ -39,6 +42,9 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect to('/peeps')
+    else
+      flash.now[:notice] = 'The email or password is incorrect'
+      erb :'sessions/new'
     end
   end
 

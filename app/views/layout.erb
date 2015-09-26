@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif current_user %>
+      Welcome, <%= current_user.user_name %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
