@@ -23,8 +23,12 @@ class App < Sinatra::Base
   post '/peeps' do
     peep = Peep.new(content: params[:content], created_at: Time.now)
     peep.user_id = session[:user_id]
-    peep.save
-    redirect to '/peeps'
+    if peep.save
+      redirect to '/peeps'
+    else
+      flash[:notice] = 'Please sign in'
+      redirect to '/sessions/new'
+    end
   end
 
   get '/users/new' do
@@ -42,9 +46,8 @@ class App < Sinatra::Base
       flash[:notice] = "Successfully signed up"
       redirect to '/peeps'
     else
-      flash[:notice] = 'There was a problem signing you up.
-        Please try again'
-      redirect to '/users/new'
+      flash.now[:errors] = user.errors.full_messages
+      erb :'/users/new'
     end
 
   end
@@ -59,8 +62,8 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/peeps'
     else
-      flash[:notice] = 'Email or password is invalid'
-      redirect to '/sessions/new'
+      flash.now[:notice] = 'Email or password is invalid'
+      erb :'/sessions/new'
     end
   end
 

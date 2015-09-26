@@ -11,6 +11,13 @@
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
+      <% if flash[:errors] %>
+        <ul>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <% if current_user %>
         Welcome, <%= current_user.name %><%= current_user.nickname %>
       <% end %>

@@ -39,9 +39,6 @@ feature 'Sign up' do
   scenario 'User cannot sign up again with the same email address/nickname' do
     sign_up(user)
     expect { sign_up(user) }.not_to change(User, :count)
-    expect(current_path).to eq('/users/new')
-    expect(page).to have_content 'There was a problem signing you up.
-      Please try again'
   end
 
 

@@ -20,6 +20,11 @@ feature 'Creating peeps' do
   scenario 'There are no peeps in the database at the start of the test' do
     expect(Peep.count).to eq 0
   end
+
+  scenario 'Without sign-in, user cannot post a peep' do
+    expect { create_peep }.not_to change(Peep, :count)
+    expect(page).to have_content 'Please sign in'
+  end
 end
 
 def sign_in(user)
