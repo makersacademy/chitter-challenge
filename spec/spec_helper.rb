@@ -4,6 +4,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'database_cleaner'
+require 'factory_girl'
 require_relative 'helpers/session'
 
 SimpleCov.formatters = [
@@ -22,6 +24,8 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.include SessionHelpers
 
