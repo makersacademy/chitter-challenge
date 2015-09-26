@@ -4,6 +4,7 @@ require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
   run! if app_file == $PROGRAM_NAME
+  
   register Sinatra::Flash
 
   set :views, proc { File.join(root, 'views') }
@@ -23,7 +24,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect :'/user'
     else
-      flash[:error] = ["The email or username are taken."]
+      flash[:errors] = @user.errors.full_messages
       redirect '/'
     end
   end

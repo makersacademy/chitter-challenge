@@ -5,6 +5,17 @@
 
   <body>
     <h1>Welcome to Chitter </h1>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id="errors">
+      <% flash[:errors].each do |error| %>
+        <li> <% error %> </li>
+      <% end %>
+    </ul>
+    <% end %>
+
+
     <form action="/user/sign-up"  method="post">
       <input type="text"     name="email">Email<br />
       <input type="password" name="password">Password<br />

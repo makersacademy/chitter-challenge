@@ -16,12 +16,13 @@ feature 'User can register' do
     expect(User.first.email).to eq"james.bond@mi6.com"
   end
 
-  scenario 'I cannot register twice with the same email' do
+  xscenario 'I cannot register with an existing email' do
     user = create :user, email: 'james@bond.com'
     expect { sign_up(user) }.to change(User, :count).by(0)
+    expect(page).to have_content "Email is already taken"
   end
 
-  scenario 'I cannot register twice with the same username' do
+  xscenario 'I cannot register twice with the same username' do
     user = create :user, username: 'bond'
     expect { sign_up(user) }.to change(User, :count).by(0)
   end
