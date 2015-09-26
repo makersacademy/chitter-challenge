@@ -27,7 +27,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-
     erb :'peeps/index'
   end
 
