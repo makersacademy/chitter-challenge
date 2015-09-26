@@ -3,7 +3,7 @@
   Welcome, <%= current_user.name %><%= current_user.nickname %>
 <% end %>
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
       <%= peep.created_at %>
@@ -12,3 +12,4 @@
     </li>
   <% end %>
 </ul>
+<a href="/peeps/new">Create new peep</a>
