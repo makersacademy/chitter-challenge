@@ -1,5 +1,5 @@
 feature 'Creating peeps' do
-  scenario 'I can create peeps' do
+  scenario 'User can create peeps' do
     user = create(:user)
     sign_in(user)
     visit '/peeps/new'

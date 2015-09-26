@@ -6,6 +6,7 @@ require 'sinatra/flash'
 class App < Sinatra::Base
   helpers UserHelpers
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -53,5 +54,11 @@ class App < Sinatra::Base
       flash[:notice] = 'Email or password is invalid'
       redirect to '/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash[:notice] = "Good bye!"
+    redirect to '/sessions/new'
   end
 end

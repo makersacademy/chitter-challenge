@@ -7,11 +7,25 @@ feature 'Sign in & Sign out' do
     expect(page).to have_content(user.nickname)
   end
 
-  scenario 'User cannot sign in with invalid information' do
+  scenario 'User cannot sign in with invalid password' do
     user = build(:user, password: 'pass')
     sign_in(user)
     expect(current_path).to eq('/sessions/new')
     expect(page).to have_content('Email or password is invalid')
+  end
+
+  scenario 'User cannot sign in with non-existent email' do
+    user = build(:user, email: 'no@email.com')
+    sign_in(user)
+    expect(current_path).to eq('/sessions/new')
+    expect(page).to have_content('Email or password is invalid')
+  end
+
+  scenario 'User can sign out while being signed in' do
+    user = create(:user)
+    sign_in(user)
+    click_button 'Sign out'
+    expect(page).to have_content('Good bye!')
   end
 end
 

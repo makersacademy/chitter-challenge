@@ -1,5 +1,5 @@
 feature 'Viewing peeps' do
-  scenario 'I can view peep on the screen' do
+  scenario 'User can view peep on the screen' do
     user = create(:user)
     peep = Peep.create(content: 'TGI Friday!')
     peep.user_id = user.id

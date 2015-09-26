@@ -4,6 +4,10 @@
       <title>Bookmark Manager</title>
     </head>
     <body>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
