@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
 
@@ -17,7 +19,6 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-ENV['RACK_ENV'] = 'test'
 
 require 'factories/user'
 require 'helpers/session'
