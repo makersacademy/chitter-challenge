@@ -9,3 +9,13 @@ feature 'User sign up' do
   end
 
 end
+
+feature 'Log in' do
+
+  scenario 'I can log in' do
+    user = create :user
+    sign_in_as(user)
+    expect(page).to have_content("Welcome, #{user.user_name}")
+  end
+
+end

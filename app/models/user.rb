@@ -13,7 +13,23 @@ class User
   attr_reader :password
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && password_correct(user, password)
+      user
+    else
+      nil
+    end
+  end
+
+  private
+
+  def self.password_correct(user, password)
+    BCrypt::Password.new(user.password_digest) == password
   end
 
 end
