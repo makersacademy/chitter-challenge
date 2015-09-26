@@ -20,7 +20,9 @@ class App < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    peep = Peep.new(content: params[:content])
+    peep.user_id = session[:user_id]
+    peep.save
     redirect to '/peeps'
   end
 

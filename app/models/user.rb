@@ -21,4 +21,6 @@ class User
     user = User.first(email: email)
     user if user && (BCrypt::Password.new(user.password_digest) == password)
   end
+
+  has n, :peeps
 end
