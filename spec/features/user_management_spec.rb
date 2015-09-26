@@ -8,6 +8,24 @@ feature 'User sign up' do
     expect(User.first.user_name).to eq('yana')
   end
 
+  scenario 'I can not sign up if user_name is taken' do
+    user1 = build :user
+    sign_up_as(user1)
+    user2 = build(:user, email: 'anna@example.com')
+    expect { sign_up_as(user2) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'User name is already taken'
+  end
+
+  scenario 'I can not sign up if e-mail is taken' do
+    user1 = build :user
+    sign_up_as(user1)
+    user2 = build(:user, user_name: 'anna')
+    expect { sign_up_as(user2) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Email is already taken'
+  end
+
 end
 
 feature 'Log in' do
