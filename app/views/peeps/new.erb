@@ -1,12 +1,13 @@
 <body class="container">
-  <h1> Add Peep </h1>
     <% if current_user %>
+      <h1> Add Peep </h1>
         <form action="/peeps/new" method="post">
           <textarea rows="4" cols="50" name="message"> Enter text here...</textarea>
           <input type="submit" value="Peep">
         </form>
     <% else %>
         <h1> Please login in order to create a Peep </h1>
+        <a href="/users/new" class="btn btn-info" role="button">Sign Up</a>
     <% end %>
 
 </body>
