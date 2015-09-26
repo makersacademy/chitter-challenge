@@ -6,14 +6,16 @@ require_relative 'helpers'
 
 
 class ChitterWeb < Sinatra::Base
-
+  use Rack::MethodOverride
   include Helpers
 
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
+
   get '/' do
+    @peeps = Peep.all
     erb :'peeps'
   end
 
@@ -45,16 +47,33 @@ class ChitterWeb < Sinatra::Base
     erb :'sessions/new'
   end
 
-  post '/sessions/new' do
-  user = User.authenticate(params[:email], params[:password])
-  if user
-    session[:user_id] = user.id
-    redirect to('/')
-  else
-    flash.now[:errors] = ['The email or password is incorrect']
-    erb :'sessions/new'
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
   end
-end
+
+  delete '/sessions' do
+    session.clear
+    flash.next[:notice] = ['Goodbye!']
+    redirect('/')
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    peep = Peep.create(message: params[:message])
+    redirect('/peeps/new')
+  end
+
+
 
 
 

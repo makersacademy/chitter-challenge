@@ -1,2 +1,12 @@
 <body class = "container">
 <h1>Latest Peeps</h1>
+
+
+<ul id="links">
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= peep.message %> <br>
+    Created at <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>

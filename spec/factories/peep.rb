@@ -1,0 +1,21 @@
+FactoryGirl.define do
+
+  factory :peep do
+    message 'test peep'
+    created_at  '2015-09-26 20:08:30'
+  end
+
+  user = create :user
+  sign_in_as(user)
+  expect(page).to have_content "Welcome, #{user.username}"
+end
+
+
+def sign_in_as(user)
+  visit '/sessions/new'
+  fill_in :email,    with: user.email
+  fill_in :password, with: user.password
+  click_button 'Sign in'
+end
+
+end
