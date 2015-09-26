@@ -1,9 +1,14 @@
-require 'sinatra/base'
 require './lib/data_mapper_setup'
+require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   set :views, proc { File.join(root, 'views') }
+
+  register Sinatra::Flash
 
   get '/' do
     redirect '/peeps'
@@ -14,8 +19,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password])
-    redirect '/'
+    @user = User.new(email: params[:email], password: params[:password])
+    if @user.save
+      redirect '/peeps'
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect '/users/new'
+    end
   end
 
   get '/peeps' do
