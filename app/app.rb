@@ -26,6 +26,10 @@ class ChitterApp < Sinatra::Base
     erb :index
   end
 
+  post '/sign-up' do
+    
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 
