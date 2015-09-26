@@ -16,10 +16,7 @@ feature 'Creating Peeps' do
 
   scenario 'As a non-user I cannot add a peep' do
     visit '/peeps/new'
-    fill_in 'message', with: 'This is a new peep!'
-    click_button 'Peep'
-    peep = Peep.first
-    expect(peep.message).to eq('You have to log in to create a peep!')
+    expect(page).to have_content 'Please login in order to create a Peep'
   end
 
 end
