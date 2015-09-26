@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
 
   register Sinatra::Flash
 
@@ -46,6 +47,12 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    flash.now[:notice] = "Goodbye!"
+    session[:user_id] = nil
+    erb :'sessions/new'
   end
 
   # start the server if ruby file executed directly
