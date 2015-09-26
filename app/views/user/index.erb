@@ -1,1 +1,4 @@
-<h1> Welcome, <%= @user.email %> </h1>
+<% if current_user %>
+
+<h1> Welcome, <%= current_user.email %> </h1>
+<% end %>
