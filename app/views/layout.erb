@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Welcome to Chitter</title>
+  </head>
+
+    <% if current_user %>
+    Welcome, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+    <% else %>
+      <form method='post' action='/sign_in'>
+      <input type='text' name='username'>
+      <input type='text' name='password'>
+      <input type='submit' value='Sign in'>
+    </form>
+  <% end %>
+  <%= yield %>
+
+  <body>
+
+  </body>
+</html>

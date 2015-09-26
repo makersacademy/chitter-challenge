@@ -1,24 +1,20 @@
-require 'data_mapper'
-require 'factory_girl'
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
+require 'data_mapper'
+require 'factory_girl'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-
 require 'coveralls'
-Coveralls.wear!
 
+Coveralls.wear!
 Capybara.app = Chitter
 
+
 RSpec.configure do |config|
-
-  config.include Capybara::DSL
-
-  config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -28,6 +24,19 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+#-------------------Factory Girl
+
+  config.before(:all) do FactoryGirl.reload end
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.definition_file_paths = %w{./spec/factories}
+  FactoryGirl.find_definitions
+
+#-------------------Capybara
+
+  config.include Capybara::DSL
+
+#-------------------Database Cleaner
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -35,6 +44,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    # add Factory lint???
   end
 
   config.after(:each) do
