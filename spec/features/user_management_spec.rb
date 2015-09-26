@@ -28,10 +28,20 @@ feature 'User sign up' do
 
   scenario 'I cannot sign up with an existing email' do
     user = create :user
-    # user.password = 'wrong'
+    user.password = 'wrong'
     expect{sign_up_as(user)}.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
-    # expect(page).to have_content('Password does not match the confirmation')
+    expect(page).to have_content('Password does not match the confirmation')
+  end
+
+end
+
+feature 'User sign in' do
+
+  scenario 'with correct credentials' do
+    user = create :user
+    sign_in(user)
+    expect(page).to have_content "Welcome, #{user.username}"
   end
 
 end
