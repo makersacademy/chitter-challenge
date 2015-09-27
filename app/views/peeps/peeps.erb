@@ -9,6 +9,11 @@
         <td colspan="2"><%= peep.username %></td>
         <td><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %><td>
       </tr>
+      <tr>
+        <td colspan="3">
+          <a href="/peeps/<%= peep.id %>/reply">reply</a>
+        </td>
+      </tr>
     </table>
   <% end %>
 </div>
@@ -18,6 +23,3 @@
 </form>
 <% end %>
 <br>
-<form action='/'>
-  <input type='submit' value='Homepage'>
-</form>

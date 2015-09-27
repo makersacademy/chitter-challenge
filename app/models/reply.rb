@@ -1,11 +1,11 @@
-class Peep
+class Reply
   include DataMapper::Resource
 
   property :id, Serial
   property :username, String
-  property :peep, Text
+  property :reply, Text
   property :created_at, DateTime
 
+  belongs_to :peep
   belongs_to :user
-  has n, :reply, through: Resource
 end

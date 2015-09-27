@@ -13,6 +13,7 @@ class User
   property :password_digest, Text
 
   has n, :peeps, through: Resource
+  has n, :replys, through: Resource
 
   validates_confirmation_of :password
 
