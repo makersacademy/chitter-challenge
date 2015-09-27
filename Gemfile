@@ -11,6 +11,7 @@ ruby '2.2.3'
   gem 'capybara'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 
 group :test do
 
