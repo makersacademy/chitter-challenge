@@ -9,7 +9,7 @@ FactoryGirl.define do
 
   factory :peep do
     message 'Little Bo Peep has lost her sheep'
-    user {create :user}
+    user
   end
 
 end
