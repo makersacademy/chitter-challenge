@@ -11,9 +11,18 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
-  get '/peeps/all' do
-  #   @peeps = Peep.all
-    erb :'peeps/all'
+  get '/peep/all' do
+    @peeps = Peep.all
+    erb :'peep/all'
+  end
+
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post '/peep/new' do
+    peep = Peep.create(content: params[:content])
+    redirect '/peep/all'
   end
 
   get '/user/new' do
@@ -43,7 +52,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/peeps/all'
+      redirect '/peep/all'
     else
       flash.now[:error] = 'Wrong credentials. Please try again.'
       erb :'session/new'

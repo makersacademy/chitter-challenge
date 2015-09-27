@@ -1,5 +1,5 @@
 require 'data_mapper'
-# require './lib/models/peep'
+require './lib/models/peep'
 require './lib/models/user'
 
 env = ENV['RACK_ENV'] || 'development'
