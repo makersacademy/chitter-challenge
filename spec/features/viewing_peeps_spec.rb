@@ -9,7 +9,7 @@ feature 'Viewing peeps:' do
     end
   end
 
-  scenario 'I get a no peeps message when there are none' do
+  scenario 'I get a \'no peeps\' message when there are none' do
     visit '/'
     within 'div#peeps' do
       expect(page).to have_content('not a peep to be heard')

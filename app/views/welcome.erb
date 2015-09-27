@@ -1,17 +1,10 @@
 <div id='welcome'>
-  <% if current_user%>
-  <form action='/logged-in' method='post'>
-    <p><%= "You are logged in as #{name_handle(current_user)}" %>
-    <button type='submit'>Log out</button></p>
+  <p>Welcome to PeepShow. Log in or sign up to start peeping.</p>
+  <form style='display:inline-block' action='/log-in' method='get'>
+    <button type='submit'>Log in</button>
   </form>
-  <% else %>
-    <p>Welcome to PeepShow. Log in or sign up to start peeping.</p>
-    <form style='display:inline-block' action='/log-in' method='get'>
-      <button type='submit'>Log in</button>
-    </form>
-    <form style='display:inline-block' action='/sign-up' method='get'>
-      <button type='submit'>Sign up</button>
-    </form>
-  <% end %>
+  <form style='display:inline-block' action='/sign-up' method='get'>
+    <button type='submit'>Sign up</button>
+  </form>
   <hr>
 </div>

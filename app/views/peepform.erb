@@ -1,5 +1,9 @@
 <div id='peepform'>
-  <form action='/' method='post'>
+  <form action='/log-out' method='post'>
+    <p><%= "You are logged in as #{name_handle(current_user)}" %>
+    <button type='submit'>Log out</button></p>
+  </form>
+  <form action='/send-peep' method='post'>
     <p>Enter your peep (max 140 characters):</p>
     <p><textarea name='message' rows='2' cols='70' maxlength='140'
         style='resize:none; font-family:monospace'></textarea></p>

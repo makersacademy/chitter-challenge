@@ -12,12 +12,12 @@ class ChitterApp < Sinatra::Base
   helpers Helpers
 
   get '/' do
-    @topbox = :welcome
+    @topbox = current_user ? :peepform : :welcome
     @peeps = Peep.all
     erb :index
   end
 
-  post '/' do
+  post '/send-peep' do
     Peep.create(message: params[:message]) unless params[:message].empty?
     redirect '/'
   end
@@ -47,7 +47,7 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
-  post '/logged-in' do
+  post '/log-out' do
     session[:user_id] = nil
     redirect '/'
   end
