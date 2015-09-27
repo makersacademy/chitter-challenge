@@ -1,0 +1,54 @@
+body{
+	margin: 20px 0px 0px 100px;
+	max-width: 860px;
+	background-color: #eeeeee;
+	color: #222222;
+	}
+
+h1{
+	font: 48px 'Courier', monospace;
+	padding: 0px 0px 10px 0px;
+  margin-bottom: 0px;
+	border-bottom: 1pt solid;
+  border-color: #222222;
+}
+
+p{
+	font: 20px 'Courier', monospace;
+	line-height: 1.5;
+}
+p.peep{
+  margin-bottom: 5px;
+}
+p.details{
+	font: 15px 'Courier', monospace;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+
+input, textarea{
+  font: 20px 'Courier', monospace;
+  display: inline-block;
+	line-height: 1.5;
+	text-indent: 5px;
+}
+
+button{
+	font: 20px 'Courier', monospace;
+  height: 36px;
+	padding:5px 10px;
+  margin-right: 9px;
+  background:#cccccc;
+  border: 1px solid #bbbbbb;
+}
+button:hover {
+	background-color: #dddddd;
+}
+button:active {
+	border: 1px solid #aaaaaa;
+}
+button:pressed {
+	background-color: #dddddd;
+	border: 1px solid #aaaaaa;
+}
