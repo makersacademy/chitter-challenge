@@ -24,7 +24,9 @@ feature "Viewing peeps" do
   let(:user) { create :user }
 
   scenario "I can see existing peeps on the peeps page" do
-    Peep.create(peep: 'Chitter test')
+    sign_in(user: user.username, password: user.password)
+    create_peep(text: "Chitter test")
+    click_button 'Sign out'
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do

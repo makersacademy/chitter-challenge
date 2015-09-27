@@ -17,6 +17,8 @@ class Chitter < Sinatra::Base
   # Amend this so that only the user can post.
   post '/peeps' do
     peep = Peep.create(peep: params[:peep])
+    peep.user = current_user
+    peep.save
     redirect '/peeps'
   end
 

@@ -4,6 +4,9 @@
 </form>
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
-  <li> <%= peep.peep %> </li>
+  <li> <%= "Name:#{peep.user.name}, username: #{peep.user.username}" %> <br />
+  <%= peep.time %> <br />
+  <%= peep.peep %>
+  </li>
   <% end %>
 </ul>
