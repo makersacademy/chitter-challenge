@@ -12,7 +12,7 @@ module Chitter
       end
 
       get '/peeps/new' do
-        unless current_user
+        if !current_user
           flash[:message] = 'Sign in or sign up to peep!'
           redirect to('/peeps')
         else
