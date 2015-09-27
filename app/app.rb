@@ -4,6 +4,7 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/chits' do
     @chits = Chit.all
@@ -29,6 +30,18 @@ class Chitter < Sinatra::Base
     tag = Tag.first(name: params[:name])
     @chits = tag ? tag.chits : []
     erb :'chits/index'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    User.create(email: params[:email],
+                handle: params[:handle],
+                password: params[:password])
+    session[:user_id] = user.id
+    redirect to('/chits')
   end
 
   run! if app_file == Chitter

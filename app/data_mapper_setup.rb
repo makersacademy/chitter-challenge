@@ -6,6 +6,7 @@ DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
 
 require './app/models/chit'
 require './app/models/tag'
+require './app/models/user'
 
 DataMapper.finalize
 DataMapper.auto_migrate!
