@@ -7,10 +7,11 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :name, String, required: true
+  property :name, String
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  has n, :peeps, through: Resource
 
   def password=(password)
     @password = password

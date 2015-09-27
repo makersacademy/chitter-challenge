@@ -1,0 +1,18 @@
+<h1>Peeps</h1>
+
+<ul id='peeps'>
+
+  <% @peeps.each do |post| %>
+    <li>
+      Peeper: <%= User.get(post.user_id).name %>
+              <%= User.get(post.user_id).username %>
+      Peep: <%= post.peep %>
+    </li>
+  <% end %>
+
+</ul>
+
+
+<form action="/peeps/new">
+  <button>Peep</button>
+</form>

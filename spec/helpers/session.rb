@@ -17,4 +17,10 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def create_peep(text)
+    visit '/peeps/new'
+    fill_in :peep, with: text
+    click_button 'Peep'
+  end
+
 end
