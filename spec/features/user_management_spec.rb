@@ -1,4 +1,5 @@
 require_relative '../factories/user'
+require 'spec_helper'
 
 feature 'User sign up' do
 
@@ -23,6 +24,18 @@ feature 'User sign up' do
     expect(page).to have_content 'Please refer to the errors listed below:'
   end
 
+  scenario 'with an empty name field' do
+    user = build :user
+    user.name = nil
+    expect { sign_up_as(user) }.not_to change(User, :count)
+  end
+
+  scenario 'with an empty username field' do
+    user = build :user
+    user.username = nil
+    expect { sign_up_as(user) }.not_to change(User, :count)
+  end
+
   scenario 'with an empty email field' do
     user = build :user
     user.email = nil
@@ -41,9 +54,11 @@ end
 feature 'User sign in' do
 
   let(:user) do
-    User.create(email: 'user@example.com',
-                password: 'secret1234',
-                password_confirmation: 'secret1234')
+    User.create(name: 'Test Test',
+                username: 'testtest',
+                email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
   end
 
   scenario 'with correct credentials' do
@@ -56,7 +71,9 @@ end
 feature 'User signs out' do
 
   let(:user) do
-    User.create(email: 'test@test.com',
+    User.create(name: 'Test Test',
+                username: 'testtest',
+                email: 'test@test.com',
                 password: 'test',
                 password_confirmation: 'test')
   end
@@ -69,3 +86,19 @@ feature 'User signs out' do
   end
 
 end
+
+# feature 'password reset' do
+#
+#   scenario 'requesting a password reset' do
+#     user = User.create(email: 'test@test.com',
+#                       password: 'secret1234',
+#                       password_confirmation: 'secret1234')
+#     visit '/password_reset'
+#     fill_in 'Email', with: user.email
+#     click_button 'Reset password'
+#     user = User.first(email: user.email)
+#     expect(user.password_token).not_to be_nil
+#     expect(page).to have_content 'Check your emails'
+#   end
+#
+# end
