@@ -16,11 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    if current_user
       redirect '/peeps'
-    else
-      erb :index
-    end
   end
 
   get '/users/new' do
@@ -28,7 +24,7 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users/new' do
+  post '/users' do
     @user = User.create(email: params[:email],
                    name:       params[:name],
                    username:   params[:username],
@@ -47,11 +43,11 @@ class Chitter < Sinatra::Base
     erb :'/sessions/new'
   end
 
-  post '/sessions/new' do
+  post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ["Email or password incorrect"]
       erb :'sessions/new'
@@ -69,15 +65,17 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+  post '/peeps' do
+    t = Time.new
+    Peep.create(content: params[:content],
+                time_created: "Written on #{t}"
+                )
+    # p current_user.name
+    redirect '/peeps'
   end
 
-  post '/peeps' do
-    t = (Time.new + 3600).strftime("%H:%M")
-    Peep.create(content: params[:content],
-                time_created: "Written on #{t}")
-    redirect '/peeps'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
 end

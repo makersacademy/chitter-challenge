@@ -9,4 +9,6 @@ class Peep
   property :content,      Text
   property :time_created, DateTime
 
+
+
 end

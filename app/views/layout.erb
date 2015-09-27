@@ -17,16 +17,19 @@
     <% end %>
 
     <% if current_user %>
-    Welcome, <%= current_user.name %>
-    <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-    </form>
+      Welcome, <%= current_user.name %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
 
     <% if flash[:logged_out] %>
-    <p> <%= flash[:logged_out] %></p>
+      <div id='logged_out'>
+        <%= flash[:logged_out] %>
+      </div>
     <% end %>
+
     <%= yield %>
   </body>
 </html>
