@@ -14,10 +14,18 @@ class Chitter < Sinatra::Base
     def current_user
       User.get(session[:user_id])
     end
+
+    def time_format(peep)
+      peep.created_at.strftime("%a, %d %b %Y %H:%M")
+    end
+
+    def create_user
+      User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    end
   end
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -25,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
+    @user = create_user
     if @user.save
       session[:user_id] = @user.id
       redirect '/peeps'

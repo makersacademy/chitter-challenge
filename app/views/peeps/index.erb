@@ -6,7 +6,7 @@
 
 <ul id="peeps">
   <% @peeps.each do |peep| %>
-    <%=peep.created_at.strftime("%a, %d %b %Y %H:%M")%> <%=peep.user.name%> (aka <%=peep.user.user_name%>) posted:
+    <%=time_format(peep)%> <%=peep.user.name%> (aka <%=peep.user.user_name%>) posted:
     <li>
       <%=peep.text %>
     </li>
