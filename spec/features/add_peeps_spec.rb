@@ -35,7 +35,8 @@ feature 'Creating Peeps' do
     sign_in_as(user)
     peep_now(peep)
     visit('/')
-    expect(page).to have_content('Created at')
+    expect(page).to have_content(Time.new)
+    page(Time.new)
   end
 
 end
