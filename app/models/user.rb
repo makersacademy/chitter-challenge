@@ -21,6 +21,7 @@ include DataMapper::Resource
   property :username, Text, required: true
   property :email, String, required: true
   property :password_digest, Text
+  property :password_token, String
 
   has n, :peeps, through: Resource
 
@@ -40,6 +41,7 @@ include DataMapper::Resource
 
   def password_token
     self.password_token_timestamp = Time.now
+#MAKE THIS RANDOM
     self.password_token = "DMFYOMLYCESXAFPYFRATHPTKLULDPOVIHUIOZIIPSRLCQV"
   end
 
