@@ -21,3 +21,6 @@ group :test do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem "unicorn"
+end
