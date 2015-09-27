@@ -59,6 +59,15 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/peeps/new' do
+    erb :'/peeps/new'
+  end
+
+  post '/peeps/new' do
+    Peep.create(heading: params[:heading], message: params[:message])
+    redirect '/'
+  end
+
   helpers do
     def current_user
       @current_user = User.get(session[:user_id])
