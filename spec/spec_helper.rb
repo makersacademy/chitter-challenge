@@ -19,6 +19,7 @@ require 'factory_girl'
 require 'tilt/erb'
 
 require_relative 'factories'
+require_relative 'test_helpers'
 
 Capybara.app = ChitterApp
 
@@ -26,6 +27,8 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+  config.include Helpers
+  config.include TestHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

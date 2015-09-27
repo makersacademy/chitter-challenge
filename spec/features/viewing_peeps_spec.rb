@@ -1,7 +1,5 @@
 feature 'Viewing peeps:' do
 
-  include Helpers
-
   scenario 'I can see a list of peeps on the home page' do
     peep = build :peep
     peep.save

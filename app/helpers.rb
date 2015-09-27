@@ -8,4 +8,8 @@ module Helpers
     @current_user ||= User.get(session[:user_id])
   end
 
+  def name_handle(user)
+    "#{user.name} (@#{user.handle})"
+  end
+
 end

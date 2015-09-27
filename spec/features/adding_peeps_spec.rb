@@ -2,9 +2,7 @@ feature 'Adding peeps:' do
 
   scenario 'I can add a peep' do
     peep = build :peep
-    visit '/'
-    fill_in :message, with: peep.message
-    click_button 'Peep'
+    send_a_peep(peep)
     within 'div#peeps' do
       expect(page).to have_content(peep.message)
     end
