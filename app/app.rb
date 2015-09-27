@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require './app/helpers'
 
 class Chitter < Sinatra::Base
+
+  include Helper
 
   enable :sessions
   set :session_secret, 'super secret'
