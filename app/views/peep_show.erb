@@ -1,4 +1,4 @@
-<div id="peeps">
+<div id="peep_show">
   <% @peeps.sort_by(&:created_at).reverse.each do |peep| %>
     <p><%= peep.message %></p>
     <p><i><%= peep_details(peep.user, peep.created_at) %></i></p>

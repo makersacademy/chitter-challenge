@@ -14,7 +14,7 @@ module ChitterHelpers
 
   def pretty_errors(errors)
     errors << 'Please try again.'
-    errors.join('. ')
+    errors.uniq.join('. ')
   end
 
 end

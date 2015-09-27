@@ -4,14 +4,14 @@ feature 'Viewing peeps:' do
     peep = build :peep
     peep.save
     visit '/'
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page).to have_content(peep.message)
     end
   end
 
   scenario 'I get a \'no peeps\' message when there are none' do
     visit '/'
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page).to have_content('not a peep to be heard')
     end
   end
@@ -20,7 +20,7 @@ feature 'Viewing peeps:' do
     peep = build :peep
     peep.save
     visit '/'
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page).to have_content(peep_details(peep.user, peep.created_at))
     end
   end
@@ -32,7 +32,7 @@ feature 'Viewing peeps:' do
     peep2.created_at = (peep1.created_at.to_time + 60).to_datetime
     peep2.save
     visit '/'
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page.body.index('early bird')).to be > page.body.index('late worm')
     end
   end

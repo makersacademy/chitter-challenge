@@ -10,7 +10,7 @@ feature 'Sending peeps:' do
     log_in_as(user)
     peep = build :peep
     send_a_peep(peep)
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page).to have_content(peep.message)
     end
   end
@@ -20,7 +20,7 @@ feature 'Sending peeps:' do
     log_in_as(user)
     peep = build :peep
     send_a_peep(peep)
-    within 'div#peeps' do
+    within 'div#peep_show' do
       expect(page).to have_content(user.handle)
     end
   end

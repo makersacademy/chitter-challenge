@@ -1,4 +1,4 @@
-<div id='sign-up'>
+<div id='user_sign_up'>
   <% if flash[:errors] %>
     <p><%= pretty_errors(flash[:errors]) %></p>
   <% else %>
@@ -9,7 +9,8 @@
     <p>Email: <input name='email' maxlength='50' style='font-family:monospace'></p>
     <p>Password: <input name='password' type='password' style='font-family:monospace'></p>
     <p>Handle: <input name='handle' maxlength='15' style='font-family:monospace'></p>
-    <button type='submit'>Sign up</button></p>
+    <button type='submit'>Sign up</button>
+    <button type='submit' formaction='/' formmethod='get'>Cancel</button>
   </form>
   <hr>
 </div>

@@ -15,7 +15,7 @@ class ChitterApp < Sinatra::Base
   helpers ChitterHelpers
 
   get '/' do
-    @topbox = current_user ? :peepform : :welcome
+    @topbox = current_user ? :peep_form : :welcome
     @peeps = Peep.all
     erb :index
   end
@@ -27,7 +27,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/sign-up' do
-    @topbox = :sign_up
+    @topbox = :user_sign_up
     @peeps = Peep.all
     erb :index
   end
@@ -45,7 +45,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/log-in' do
-    @topbox = :log_in
+    @topbox = :user_log_in
     @peeps = Peep.all
     erb :index
   end
