@@ -1,6 +1,9 @@
 feature 'Adding tags' do
 
+  let(:user){create :user}
+
   scenario 'I can add a single tag to a new peep' do
+    sign_in(handle: user.handle, password: user.password)
     visit '/peeps/new'
     fill_in 'post',   with: 'going to the rugby'
     fill_in 'tags',  with: 'fun'
@@ -11,6 +14,7 @@ feature 'Adding tags' do
   end
 
   scenario 'I can add multiple tags to a new peep' do
+    sign_in(handle: user.handle, password: user.password)
     visit '/peeps/new'
     fill_in 'post',   with: 'hello world'
     fill_in 'tags',  with: 'fun ruby'

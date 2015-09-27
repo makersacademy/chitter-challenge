@@ -11,7 +11,6 @@
       </div>
     <% end %>
     <% if current_user %>
-      Welcome, <%= current_user.handle %>
         <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
@@ -27,9 +26,6 @@
       <% end %>
       <% if current_user %>
         Welcome, <%= current_user.handle %>
-      <% end %>
-      <% if flash[:notice] %>
-        <div id='notice'><%= flash[:notice] %></div>
       <% end %>
     <%= yield %>
   </body>

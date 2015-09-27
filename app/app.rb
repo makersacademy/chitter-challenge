@@ -12,6 +12,10 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get '/' do
+    erb :'peeps/index'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
@@ -22,7 +26,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(post: params[:post])
+    peep = Peep.create(post: params[:post],
+                       user: session[:user],
+                       time: Time.now)
     tags = params[:tags].split(' ')
     tags.each do |tag|
       tag  = Tag.create(name: tag)
@@ -50,6 +56,7 @@ class Chitter < Sinatra::Base
                 password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      session[:user] = params[:handle]
       redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -65,6 +72,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:handle], params[:password])
     if user
       session[:user_id] = user.id
+      session[:user] = params[:handle]
       redirect to('/peeps')
     else
       flash.now[:errors] = ['The username or password is incorrect']
@@ -74,6 +82,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+    session[:user] = nil
     flash.next[:notice] = 'goodbye!'
     redirect to('/sessions/new')
   end

@@ -1,9 +1,23 @@
-<h1> Post new Peep </h1>
+<% if current_user %>
 
-<form action="/peeps" method="post">
-    Post:
-    <input type="text" name="post" autofocus>
-    Tags:
-    <input type="text" name="tags" autofocus>
-    <input type="submit" value="Post peep">
-</form>
+  <h1> Post new Peep </h1>
+
+  <form action="/peeps" method="post">
+      Post:
+      <input type="text" name="post" autofocus>
+      Tags:
+      <input type="text" name="tags" autofocus>
+      <input type="submit" value="Post peep">
+  </form>
+
+<% else %>
+
+  You must sign in before posting a peep
+
+  <form method='post' action='/sessions'>
+    Username: <input type='text' name='handle'>
+    Password: <input type='password' name='password'>
+    <input type='submit' value='Sign In'>
+  </form>
+
+<% end %>

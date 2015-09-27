@@ -6,6 +6,8 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter ]
 Coveralls.wear!
 
+ENV['RACK_ENV'] = 'test'
+
 require 'capybara/rspec'
 require_relative '../app/data_mapper_setup'
 require_relative '../app/app'
