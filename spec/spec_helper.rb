@@ -1,8 +1,11 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'capybara'
+require 'capybara/rspec'
 require 'coveralls'
 require 'database_cleaner'
 require 'factory_girl'
+require 'rspec'
 require 'simplecov'
 
 SimpleCov.formatters = [
@@ -11,12 +14,11 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
+# require './app/models/peep'
+# require './app/models/user'
 
-require_relative '../app/app.rb'
-require './app/models/peep'
+# require_relative '../app/app.rb'
+require_relative 'helpers/session'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
@@ -25,6 +27,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
