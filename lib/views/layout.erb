@@ -6,7 +6,11 @@
 
   <body>
     <% if current_user %>
-      Hi, <%= current_user.username %>
+      Hi, <%= current_user.username %><br><br>
+      <form action='/session' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form><br><br>
     <% end %>
 
     <%= yield %>

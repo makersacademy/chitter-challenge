@@ -1,11 +1,14 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
-    erb :index
+    erb :home
   end
 
   get '/peeps/all' do
@@ -14,17 +17,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do
+    @user = User.new
     erb :'user/new'
   end
 
   post '/user/new' do
-    user = User.new(email: params[:email],
+    @user = User.new(email: params[:email],
                     username: params[:username],
                     password: params[:password],
-                    password_confirm: params[:password_confirm],
+                    password_confirmation: params[:password_confirmation],
                     name: params[:name])
-    if user.save
+    if @user.save
       redirect '/session/new'
+    else
+      flash.now[:error] = @user.errors.full_messages
+      erb :'user/new'
     end
   end
 
@@ -37,7 +44,15 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect '/peeps/all'
+    else
+      flash.now[:error] = 'Wrong credentials. Please try again.'
+      erb :'session/new'
     end
+  end
+
+  delete '/session' do
+    session[:user_id] = nil
+    redirect '/session/new'
   end
 
   def current_user

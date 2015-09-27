@@ -1,13 +1,13 @@
-describe User do
-  let!(:user) do
-    User.create(username: 'jk', password: '12345', password_confirm: '12345')
-  end
+require './spec/factories/user'
 
+describe User do
   it 'authenticates when given a valid username and password' do
+    user = create :user
     expect(User.authenticate(user.username, user.password)).to eq user
   end
 
   it 'does not authenticate when given an incorrect password' do
+    user = create :user
     expect(User.authenticate(user.username, 'wrong_password')).to be_nil
   end
 end

@@ -1,5 +1,8 @@
-Please log in<br><br>
+<% if flash[:error] %>
+  <%= flash[:error] %><br><br>
+<% end %>
 
+Please log in<br><br>
 <form action='/session/new' method='post'>
   Username: <input type='text' name='username'><br><br>
   Password: <input type='password' name='password'><br><br>

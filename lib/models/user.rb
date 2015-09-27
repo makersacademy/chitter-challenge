@@ -4,15 +4,17 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
-  property :username, String
+  property :email, String, unique: true, required: true
+  property :username, String, unique: true, required: true
   property :password_digest, Text
-  property :password_confirm, Text
   property :name, String
 #
 #   has n, :peep
 #
 attr_reader :password
+attr_accessor :password_confirmation
+
+validates_confirmation_of :password
 
 def self.authenticate username, password
   user = User.first(username: username)
