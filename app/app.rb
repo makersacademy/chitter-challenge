@@ -16,8 +16,11 @@ class Chitter < Sinatra::Base
 
   post '/chits' do
     chit = Chit.create(post: params[:post])
-    tag  = Tag.create(name: params[:tag])
-    chit.tags << tag
+    tags = params[:tags].split(' ')
+    tags.each do |tag|
+      tag  = Tag.create(name: tag)
+      chit.tags << tag
+    end
     chit.save
     redirect to('/chits')
   end
