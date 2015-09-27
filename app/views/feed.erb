@@ -11,20 +11,11 @@
 <% end %>
 
 <div class="main_body">
-<h1> Peep feed: </h1>
+<h1> Recent peeps: </h1>
 
 <form action="peeps/new">
 <input type="submit" value="fresh peep">
 </form>
-
-<ul id="peeps">
-  <% @peeps.reverse_each do |peep| %>
-    <li>
-      Peeper:     <%= peep.peeper %>
-      Date/Time:  <%= peep.timestamp  %>
-      Peep:       <%= peep.body %>
-    </li>
-  <% end %>
-</ul>
+<%= erb :'/partials/peeps' %>
 </div>
 </div>

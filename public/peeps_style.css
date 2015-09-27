@@ -1,0 +1,33 @@
+.users {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+}
+/* Column widths are based on these cells */
+.user {
+  width: 20%;
+}
+.date {
+  width: 30%;
+}
+.body {
+  width: 60%;
+}
+
+.users td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.users th {
+  background: darkblue;
+  color: white;
+}
+.users td,
+.users th {
+  text-align: left;
+  padding: 5px 10px;
+}
+.users tr:nth-child(even) {
+  background: lightblue;
+}

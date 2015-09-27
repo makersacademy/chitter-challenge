@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="../../../public/peeps_style.css" />
+
+<table class="users">
+  <thead>
+    <tr>
+      <th class="row-1 date">Date</th>
+      <th class="row-2 user">User</th>
+      <th class="row-3 body">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @peeps.reverse_each do |peep| %>
+    <tr>
+      <td><%= peep.timestamp  %></td>
+      <td><%= peep.peeper %></td>
+      <td><%= peep.body %> </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

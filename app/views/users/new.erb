@@ -1,5 +1,6 @@
+<link rel="stylesheet" type="text/css" href="../../../public/style.css" />
+<body>
 Please sign up.
-
 <form method='post' action='/sessions/sign_up'>
   Username: <input type='text' name='username' value="<%= @user.username %>">
   Email: <input name='email' type='text' value='<%= @user.email %>'>
@@ -7,4 +8,4 @@ Please sign up.
   Password Confirmation: <input type='password' name='password_confirmation'>
   <input type='submit' value='Sign up'>
 </form>
-
+</body>
