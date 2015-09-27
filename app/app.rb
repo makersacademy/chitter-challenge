@@ -10,12 +10,6 @@ class App < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  # get '/user/:id' do
-  #   p params[:id]
-  #   @user = User.get(params[:id])
-  #   erb :'users/name'
-  # end
-
   get '/users/:id/peeps' do
     user = User.get(params[:id]) || User.get(session[:user_id])
     @peeps = user.peeps
@@ -117,9 +111,22 @@ class App < Sinatra::Base
     end
   end
 
-  # configure :production do
-  #   DataMapper.setup(:default, ENV['DATABASE_URL'])
-  #   DataMapper.finalize
-  #   DataMapper.auto_upgrade!
-  # end
+  get '/peeps/:id/reply' do
+    session[:peep_id] = params[:id]
+    erb :'peeps/replies'
+  end
+
+  post '/peeps/reply' do
+    peep = Peep.get(session[:peep_id])
+    reply = Reply.new(body: params[:reply])
+    current_user.replies << reply
+    peep.replies << reply
+    if peep.save && current_user.save
+      redirect to "/users/#{peep.user_id}/peeps"
+    else
+      flash[:notice] = 'Please sign in'
+      redirect '/sessions/new'
+    end
+  end
+
 end

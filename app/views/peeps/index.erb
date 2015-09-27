@@ -5,6 +5,12 @@
       <td><%= peep.content %></td>
       <td><%= peep.user.name %></td>
       <td><%= peep.created_at.strftime("%H:%M %b %d %Y") %></td>
+      <td>
+        <% peep.replies.each do |reply| %>
+          <%= reply.user.name %>: <%= reply.body %><br>
+        <% end %>
+      </td>
+      <td><a href="/peeps/<%= peep.id %>/reply">Reply</a></td>
     </tr>
   <% end %>
 </table>

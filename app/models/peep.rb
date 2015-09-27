@@ -1,4 +1,3 @@
-require './app/data_mapper_setup'
 class Peep
   include DataMapper::Resource
 
@@ -7,4 +6,5 @@ class Peep
   property :created_at, Time
 
   belongs_to :user
+  has n, :replies
 end

@@ -24,4 +24,5 @@ class User
   end
 
   has n, :peeps
+  has n, :replies
 end
