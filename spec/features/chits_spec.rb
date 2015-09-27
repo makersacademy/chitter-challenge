@@ -30,6 +30,15 @@ feature 'viewing chits' do
     expect(page).to have_content("Recent Chits Very far away")
   end
 
+  scenario 'Posts new chit' do
+    user = add_user(build(:user))
+    visit '/chits'
+    sign_in(user)
+    fill_in :chit,    with: 'This is a test'
+    click_button 'Post'
+    expect(page).to have_content("This is a test")
+  end
+
 
 
 

@@ -6,13 +6,17 @@
   <body>
     <h1> Chitter </h1>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.real_name %>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+      <form method='post' action='/chits'>
+        <textarea name="chit" cols="40" rows="5" ></textarea>
+        <input type='submit' value='Post'>
+      </form>
     <% else %>
-      Please sign in.
+      Please sign in or <a href=./users/new>Sign up.</a>
       <form action='/sessions/new' method = 'post'>
         Email: <input type='text' name='email'>
         Password: <input type='text' name='password'>

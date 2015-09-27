@@ -18,8 +18,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/chits' do
-    @chits =  Chit.all.sort_by{|chit| chit.time}.reverse
+    @chits =  Chit.all.sort_by(&:time).reverse
     erb :'chits/view'
+  end
+
+  post '/chits' do
+
+    chit = Chit.new(  time: Time.now,
+                      text: params[:chit],
+                      user_id: current_user.id)
+    chit.save
+    p chit.errors.full_messages
+    redirect '/chits'
   end
 
   get '/users/new' do
@@ -60,19 +70,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.next[:notice] = "Goodbye!"
     redirect '/chits'
-  end
-
-  get '/password_reset' do
-    erb :'/users/password_reset'
-  end
-
-  post '/password_reset' do
-    user = User.first(email: params[:email])
-    user.password_token = SecureRandom.urlsafe_base64(32)
-    user.save
-    erb :'/users/check_your_email'
   end
 
 

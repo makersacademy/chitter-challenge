@@ -2,7 +2,7 @@
 <% @chits.each do |chit| %>
   <div id=<%=chit.id%> class='chit'>
     <%= chit.text %> <br>
-    Posted by: <%= User.get(chit.user_id).user_name %><br>
+    Posted by: <%= chit.user.user_name %>, <%= chit.user.real_name%><br>
     On: <%= chit.time %> <br>
     <br>
 </div>

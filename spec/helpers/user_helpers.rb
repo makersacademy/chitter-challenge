@@ -26,9 +26,4 @@ module UserHelpers
      fill_in :password, with: user.password
      click_button 'Sign in'
   end
-  #
-  # def user_sign_out(user)
-  #
-  # end
-
 end
