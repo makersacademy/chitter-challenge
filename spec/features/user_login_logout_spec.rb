@@ -12,6 +12,10 @@ feature 'Logging in or out:' do
   end
 
   scenario 'I can log out' do
+    user = create :user
+    log_in_as(user)
+    click_button 'Log out'
+    expect(page).to have_content('Welcome to PeepShow.')
   end
 
 end
