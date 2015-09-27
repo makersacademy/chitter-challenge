@@ -21,9 +21,9 @@ module Chitter
       end
 
       post '/peeps/new' do
-        peep = Peep.create(peep: params[:peep], 
+        peep = Peep.create(peep: params[:peep],
                            user: current_user,
-                           time: Time.new.strftime("%I:%M %P %d-%m-%Y"))
+                           time: Time.now)
         if peep.save
           redirect to('/peeps')
         end

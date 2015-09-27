@@ -21,7 +21,7 @@ feature 'creating peeps' do
     user = create :user
     sign_in(user)
     create_peep('hello')
-    expect(page).to have_content(Time.new.strftime("%I:%M %P %d-%m-%Y"))
+    expect(page).to have_content(Time.new.strftime("%I:%M%P %d/%m/%Y"))
   end
 
 end

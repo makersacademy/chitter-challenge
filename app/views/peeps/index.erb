@@ -2,11 +2,11 @@
 
 <ul id='peeps'>
 
-  <% @peeps.each do |post| %>
+  <% @peeps.reverse.each do |post| %>
     <li>
       Peeper: <%= User.get(post.user_id).name %>
               <%= User.get(post.user_id).username %>
-              <%= post.time.strftime("%I:%M %P %d-%m-%Y") %>
+              <%= post.time.strftime("%I:%M%P %d/%m/%Y") %>
       Peep: <%= post.peep %>
     </li>
   <% end %>
