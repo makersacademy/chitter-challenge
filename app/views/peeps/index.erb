@@ -4,9 +4,9 @@
   <% @peeps.reverse.each do |peep| %>
     <li>
       Content:    <%= peep.content %>
-      Written on: <%= peep.time %>
+      Posted: <%= peep.time %>
       By:         <%= peep.name %>
-      Username:   <%= peep.username %>
+      #<%= peep.username %>
     </li>
   <% end %>
 </ul>
