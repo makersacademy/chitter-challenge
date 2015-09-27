@@ -21,12 +21,11 @@ module Chitter
       end
 
       post '/peeps/new' do
-        peep = Peep.create(peep: params[:peep], user: current_user)
+        peep = Peep.create(peep: params[:peep], 
+                           user: current_user,
+                           time: Time.new.strftime("%I:%M %P %d-%m-%Y"))
         if peep.save
           redirect to('/peeps')
-        # else
-        #   flash.now[:errors] = peep.errors.full_messages
-        #   erb :'peeps'
         end
       end
 

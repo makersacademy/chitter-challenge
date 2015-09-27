@@ -4,7 +4,7 @@ feature 'user sign up' do
   scenario 'I can sign up as a new user to Chitter' do
     user = build :user
     sign_up(user)
-    expect(page).to have_content("Welcome, #{user.email}")
+    expect(page).to have_content "Welcome, #{user.email}"
   end
 
   scenario 'with a password that does not match' do
@@ -39,14 +39,14 @@ feature 'user sign up' do
     user = create :user
     visit '/users/new'
     sign_up(user)
-    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'I cannot sign up with an existing username' do
    user = create :user
    visit '/users/new'
    sign_up(user)
-   expect(page).to have_content('Username is already taken')
+   expect(page).to have_content 'Username is already taken'
  end
 
 end
@@ -67,8 +67,8 @@ feature 'User signs out' do
     user = create :user
     sign_in(user)
     click_button 'Sign out'
-    expect(page).to have_content('Goodbye!')
-    expect(page).not_to have_content("Welcome, #{user.email}")
+    expect(page).to have_content 'Goodbye!'
+    expect(page).not_to have_content "Welcome, #{user.email}"
   end
 
 end
