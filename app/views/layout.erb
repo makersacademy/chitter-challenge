@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= partial :'/controllers/title' %>
+  </head>
+
+  <body>
+
+    <%=partial :'controllers/welcome' %>
+
+    <%= partial :'controllers/sign_up' %>
+
+    <%= partial :'controllers/sign_in' %>
+
+    <%= partial :'controllers/notice' %>
+
+    <%= partial :'controllers/errors' %>
+
+    <%= yield %>
+  </body>
+</html>

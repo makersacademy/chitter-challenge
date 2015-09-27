@@ -1,0 +1,16 @@
+<% if current_user %>
+<div style='padding-left:25px; height: 170px; width: 325px; border: 3px solid red'>
+
+  <form action='/' method='post'>
+    What would you like to peep?
+    <input type='text' name='message' required>
+    <input type='text' name='tag'>
+    <input type='submit' name='Post peep' value='Post peep' width='150' height='70'>
+  </form>
+</div>
+
+<% else %>
+
+You must sign up or sign in first to post peeps!
+
+<% end %>

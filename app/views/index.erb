@@ -1,0 +1,14 @@
+<h1>Peeps</h1>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    Posted on <%= peep.posted %> by <%= peep.user %>:
+    <%= peep.message %>
+  </li>
+  <% end %>
+</ul>
+
+<form action+"/peep/new">
+  <input type="submit" value="Peep">
+</form> 
