@@ -1,7 +1,7 @@
-module Helpers
+module ChitterHelpers
 
-  def prettify(datetime)
-    datetime.strftime('peeped at %T on %F')
+  def prettify(user, datetime)
+    datetime.strftime("peeped by #{name_handle(user)} at %T on %F")
   end
 
   def current_user

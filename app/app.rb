@@ -1,15 +1,16 @@
 require 'sinatra/base'
 require 'sinatra/partial'
+
+require_relative 'app_helpers'
 require_relative 'data_mapper_setup'
-require_relative 'helpers'
 
 class ChitterApp < Sinatra::Base
 
-  enable :sessions
-  set :session_secret, 'super secret'
   register Sinatra::Partial
   set :partial_template_engine, :erb
-  helpers Helpers
+  enable :sessions
+  set :session_secret, 'super secret'
+  helpers ChitterHelpers
 
   get '/' do
     @topbox = current_user ? :peepform : :welcome
@@ -18,7 +19,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/send-peep' do
-    Peep.create(message: params[:message]) unless params[:message].empty?
+    Peep.create(message: params[:message], user: current_user) unless params[:message].empty?
     redirect '/'
   end
 

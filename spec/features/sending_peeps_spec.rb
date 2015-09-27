@@ -15,6 +15,16 @@ feature 'Sending peeps:' do
     end
   end
 
+  scenario 'Peeps I send are tagged as mine' do
+    user = create :user
+    log_in_as(user)
+    peep = build :peep
+    send_a_peep(peep)
+    within 'div#peeps' do
+      expect(page).to have_content(user.handle)
+    end
+  end
+
   scenario 'I can\'t peep a blank message' do
     user = create :user
     log_in_as(user)

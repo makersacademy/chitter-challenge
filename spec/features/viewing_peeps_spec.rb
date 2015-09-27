@@ -21,7 +21,7 @@ feature 'Viewing peeps:' do
     peep.save
     visit '/'
     within 'div#peeps' do
-      expect(page).to have_content(prettify(peep.created_at))
+      expect(page).to have_content(prettify(peep.user, peep.created_at))
     end
   end
 

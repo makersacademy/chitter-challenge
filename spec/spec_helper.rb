@@ -27,7 +27,7 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
-  config.include Helpers
+  config.include ChitterHelpers
   config.include TestHelpers
 
   config.before(:suite) do
