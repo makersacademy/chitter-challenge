@@ -1,6 +1,12 @@
 <% unless current_user %>
   <h1>Welcome to Chitter</h1>
 <% end %>
+<p>Connect with your friends —
+  and other fascinating people.
+  Get in-the-moment updates on the
+  things that interest you.
+  And watch events unfold, in real time,
+  from every angle.</p>
 <% unless current_user %>
   <form action="/users/new">
     <input type="submit" value="Sign up">
@@ -12,3 +18,7 @@
     <input type="submit" value="Sign in">
   </form>
 <% end %>
+<br>
+<form action='/peeps'>
+  <input type='submit' value='Peeps'>
+</form>

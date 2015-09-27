@@ -19,4 +19,5 @@ group :test do
   gem 'factory_girl'
   gem 'pry'
   gem 'coveralls', require: false
+  gem 'timecop'
 end

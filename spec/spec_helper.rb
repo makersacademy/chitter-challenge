@@ -13,6 +13,7 @@ require 'simplecov'
 require 'factory_girl'
 require_relative './factories/users.rb'
 require_relative 'helpers/session'
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

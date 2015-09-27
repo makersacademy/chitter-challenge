@@ -12,6 +12,12 @@
     </table>
   <% end %>
 </div>
+<% if current_user %>
 <form action='/peeps/new'>
   <input type='submit' value='New Peep'>
+</form>
+<% end %>
+<br>
+<form action='/'>
+  <input type='submit' value='Homepage'>
 </form>
