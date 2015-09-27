@@ -1,14 +1,23 @@
 * {
   font-family: Arial;
 }
-
-.top_nav {
-  width: 200%;
-  height: 60px;
-  position: fixed;
+.flash_header {
+  padding: 5px;
   margin-top: -10px;
   margin-left: -10px;
   margin-right: -30px;
+  margin-bottom: 10px;
+  width: 200%;
+  font-size: 14px;
+  background-color: orange;
+}
+
+.top_nav {
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -30px;
+  width: 200%;
+  height: 60px;
   background-color: #c6e2ff;
 }
 

@@ -4,8 +4,11 @@
     <title>Welcome to Chitter</title>
   </head>
 
+    <div class="flash_header">
+    <%= erb :'/partials/flash_messages' %>
+    </div>
+
     <% if current_user %>
-<div class="top_nav">
 <div class="top_nav">
     Welcome, <%= current_user.username %>
     <form method='post' action='/sessions'>
@@ -13,27 +16,6 @@
       <input style="font-size: 40px" type='submit' value='Sign out'>
     </form>  
     <% end %>
-
-    <% if flash[:goodbye] %>
-      <%= flash[:goodbye] %>
-    <% end %>
-    
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:peep_confirmation] %>
-      <%= flash[:peep_confirmation] %>
-    <% end %>
-
-    <% if flash[:no_peepy] %>
-      <%= flash[:no_peepy] %>
-    <% end %>
 </html>
 </div>
-  <%= yield %>
+<%= yield %>

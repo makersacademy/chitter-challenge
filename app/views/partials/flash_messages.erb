@@ -1,0 +1,20 @@
+<% if flash[:goodbye] %>
+  <%= flash[:goodbye] %>
+<% end %>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if flash[:peep_confirmation] %>
+  <%= flash[:peep_confirmation] %>
+<% end %>
+
+<% if flash[:no_peepy] %>
+  <%= flash[:no_peepy] %>
+<% end %>
