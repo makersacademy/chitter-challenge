@@ -1,6 +1,6 @@
 require_relative '../factories/user'
 
-feature 'creating peeps' do
+feature 'Creating peeps' do
 
   scenario 'User can create a new peep when signed in' do
     user = create :user
@@ -21,7 +21,27 @@ feature 'creating peeps' do
     user = create :user
     sign_in(user)
     create_peep('hello')
-    expect(page).to have_content(Time.new.strftime("%I:%M%P %d/%m/%Y"))
+    expect(page).to have_content(Time.new)
+  end
+
+end
+
+feature 'Viewing Peeps' do
+
+  scenario 'I can see existing peeps on the Peeps page' do
+    user = create :user
+    sign_in(user)
+    create_peep('hello there')
+    expect(page).to have_content 'hello there'
+  end
+
+  scenario 'I can see existing peeps without being signed in' do
+    user = create :user
+    sign_in(user)
+    create_peep('hello there')
+    click_button 'Sign out'
+    visit '/peeps'
+    expect(page).to have_content 'hello there'
   end
 
 end
