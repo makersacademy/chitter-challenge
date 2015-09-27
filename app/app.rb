@@ -65,6 +65,7 @@ class ChitterWeb < Sinatra::Base
   end
 
   get '/peeps/new' do
+
     erb :'peeps/new'
   end
 
