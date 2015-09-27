@@ -8,4 +8,9 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
+  gem 'data_mapper'
+  gem 'sinatra'
+  gem 'capybara'
+  gem 'dm-postgres-adapter'
+  gem 'bcrypt'
 end
