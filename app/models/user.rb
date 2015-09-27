@@ -18,6 +18,8 @@ class User
                 format: "That doesn't seem to be a valid email" }
   property :password_digest, Text
 
+  has n, :peeps
+
   validates_confirmation_of :password,
     message: "Password and confirmation password don't match"
 

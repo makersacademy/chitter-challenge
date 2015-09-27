@@ -1,11 +1,21 @@
 feature 'Viewing peeps' do
 
+  let(:user){build :user}
+
+  before do
+    create :user
+    log_in(user)
+    click_button 'New peep!'
+    post_peep
+    click_button 'New peep!'
+    post_peep
+    sign_out
+  end
+
   scenario 'visiting the home page I see the peeps listed' do
-    Peep.create(heading: "Peep 1", message: "First peep")
-    Peep.create(heading: "Peep 2", message: "Next peep")
     visit '/'
-    expect(page).to have_content "First peep"
-    expect(page).to have_content "Next peep"
+    expect(page).to have_content("This is a lovely peep", count: 2)
+    # expect(page).to have_content "Next peepsp"
   end
 
 end
@@ -23,21 +33,23 @@ feature 'Adding peeps' do
     visit '/'
     click_button 'New peep!'
     expect(current_path).to eq '/peeps/new'
-    fill_in 'heading', with: 'Peep 1'
-    fill_in 'message', with: 'My first peep'
-    click_button 'Post peep!'
+    post_peep
     expect(current_path).to eq '/'
-    expect(page).to have_content "My first peep"
+    expect(page).to have_content "This is a lovely peep"
   end
 
   scenario 'user must be logged in to post peeps' do
     sign_out
     visit '/peeps/new'
-    fill_in 'heading', with: 'Peep 1'
-    fill_in 'message', with: 'My first peep'
-    click_button 'Post peep!'
+    post_peep
     expect(page).to have_content "You need to sign in to peep!"
-    expect(page).not_to have_content "My first peep"
+    expect(page).not_to have_content "This is a lovely peep"
+  end
+
+  scenario 'peeps have the username of the user that added them' do
+    click_button 'New peep!'
+    post_peep
+    expect(page).to have_content "Added by #{user.username}"
   end
 
 end

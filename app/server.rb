@@ -65,7 +65,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     if session[:user_id]
-      Peep.create(heading: params[:heading], message: params[:message])
+      Peep.create(heading: params[:heading],
+                  message: params[:message],
+                  user_id: session[:user_id])
       redirect '/'
     else
       flash.next[:notice] = "You need to sign in to peep!"

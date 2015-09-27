@@ -2,7 +2,8 @@
   <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li><h6><%= peep.heading %></h6>
-      <%= peep.message %>
+      <%= peep.message %><br>
+      Added by <%= peep.user.username %>
     </li>
   <% end %>
   </ul>

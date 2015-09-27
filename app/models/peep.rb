@@ -6,4 +6,6 @@ class Peep
   property :heading, String
   property :message, Text, length: 250
 
+  belongs_to :user
+
 end
