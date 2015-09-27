@@ -1,4 +1,4 @@
-module SessionUser
+module SessionHelpers
 
   def sign_up(user)
     visit '/'
@@ -14,6 +14,12 @@ module SessionUser
     fill_in :user,     with: 'james_bond'
     fill_in :login_password, with: 'agent007'
     click_button "Login"
+  end
+
+  def create_peep(text:)
+    click_button "New Peep"
+    fill_in 'peep', with: text
+    click_button 'Peep'
   end
 
 end

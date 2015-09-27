@@ -1,4 +1,8 @@
+<% if current_user %>
 <form action="/peeps"    method="post">
-  <input type="text"     name="peep"><br />
-  <input type="submit"   value="Create peep">
+  <input type="text"     name="peep">
+  <input type="submit"   value="Peep">
 </form>
+<% else %>
+Please sign in first. Click <a href="/">here</a> to sign in.
+<% end %>

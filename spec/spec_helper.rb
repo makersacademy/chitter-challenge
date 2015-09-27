@@ -8,7 +8,7 @@ require 'simplecov'
 require './spec/factories/user.rb'
 require './app/app.rb'
 require './app/data_mapper_setup.rb'
-require './app/helpers/session_user.rb'
+require './spec/helpers/session_helpers.rb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -22,8 +22,8 @@ Coveralls.wear!
 RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
-  config.include SessionUser
-  
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
