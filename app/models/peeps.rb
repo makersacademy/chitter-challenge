@@ -6,6 +6,6 @@ class Peep
   property :message,  String
   property :posted,   String
 
-  has n, :users, through: Resource
+  has 1, :user, through: Resource
   has n, :tags, through: Resource
 end

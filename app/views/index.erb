@@ -3,10 +3,9 @@
 </h1>
 
 <ul id="peeps">
-  <% peeps = @peeps.sort_by{|peep| -peep.id} %>
-  <% peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
-      Posted on <%= peep.posted %> by <%= %>:
+      Posted on <%= peep.posted %> by <%= peep.user %>:
       <%= peep.message %>
     </li>
   <% end %>

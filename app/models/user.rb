@@ -13,7 +13,6 @@ class User
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
-  property :password_token, Text
 
   has n, :peeps, through: Resource
 
