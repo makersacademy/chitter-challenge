@@ -21,7 +21,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/send-peep' do
-    Peep.create(message: params[:message], user: current_user) unless params[:message].empty?
+    message = params[:message]
+    Peep.create(message: message, user: current_user) unless message.empty?
     redirect '/'
   end
 

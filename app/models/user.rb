@@ -7,10 +7,10 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :name, String
-  property :email, String
+  property :name, String, required: true
+  property :email, String, required: true
   property :password_digest, Text
-  property :handle, String, length: 15
+  property :handle, String, length: 15, required: true
 
   has n, :peeps
 
@@ -25,7 +25,9 @@ class User
     BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
 
-  # validates_presence_of :email
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_presence_of :handle
   # validates_uniqueness_of :email
 
 end
