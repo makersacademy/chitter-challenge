@@ -6,7 +6,7 @@ class Peep
   property :peep, String, length: 1..140
 
   attr_reader :peep
-  attr_reader :when
+  attr_reader :time
 
   belongs_to :user
 

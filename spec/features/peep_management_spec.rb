@@ -34,9 +34,11 @@ feature "Viewing peeps" do
     end
   end
 
-  scenario "I can see the peep, name of the creator and time" do
+  scenario "I can see the peep, the name and username of the creator" do
     sign_in(user: user.username, password: user.password)
     create_peep(text: "I can see you")
-    expect(page).to have_content "#{user.name} #{user.username} I can see you"
+    expect(page).to have_content "Name: #{user.name}"
+    expect(page).to have_content "Username: #{user.username}"
+    expect(page).to have_content "#{Time.now.strftime("%H:%M %d/%m/%Y")}"
   end
 end
