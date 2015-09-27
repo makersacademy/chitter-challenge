@@ -1,0 +1,9 @@
+<h2> Recent Chits</h1>
+<% @chits.each do |chit| %>
+  <div id=<%=chit.id%> class='chit'>
+    <%= chit.text %> <br>
+    Posted by: <%= User.get(chit.user_id).user_name %><br>
+    On: <%= chit.time %> <br>
+    <br>
+</div>
+<%end%>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <h1> Chitter </h1>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      Please sign in.
+      <form action='/sessions/new' method = 'post'>
+        Email: <input type='text' name='email'>
+        Password: <input type='text' name='password'>
+        <input type=submit value='Sign in'>
+      </form>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
