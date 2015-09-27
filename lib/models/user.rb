@@ -8,9 +8,9 @@ class User
   property :username, String, unique: true, required: true
   property :password_digest, Text
   property :name, String
-#
-#   has n, :peep
-#
+
+  has n, :peeps
+
 attr_reader :password
 attr_accessor :password_confirmation
 

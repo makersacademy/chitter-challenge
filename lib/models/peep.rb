@@ -3,7 +3,7 @@ class Peep
 
   property :id, Serial
   property :content, String
-#   property :time, Time
-#
-#   belongs_to :user
+  property :time, Time
+
+  belongs_to :user
 end

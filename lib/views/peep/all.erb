@@ -1,3 +1,10 @@
-<% @peeps.each do |peep| %>
-  <%= peep.content %>
+<a href='/peep/new'>Create peep</a><br><br>
+
+<% @peeps.reverse.each_with_index do |peep, i| %>
+  <div id="peep<%= i %>" >
+    Content: <%= peep.content %><br>
+    Time: <%= peep.time %><br>
+    Username: <%= peep.user.username %><br>
+    Name: <%= peep.user.name %><br><br>
+  </div>
 <% end %>
