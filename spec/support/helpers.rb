@@ -19,4 +19,8 @@ module Helpers
     click_button 'Enter'
   end
 
+  def sign_out(user)
+    click_button 'Sign out'
+  end
+
 end

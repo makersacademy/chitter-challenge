@@ -15,6 +15,7 @@ feature 'New user sign up' do
 
   scenario 'can\'t register with an email that\'s already taken' do
     sign_up(user)
+    sign_out(user)
     user_diff = build(:user, username: 'other_name')
     expect{ sign_up(user_diff) }.not_to change(User, :count)
     expect(page).to have_content "Email already taken"
@@ -22,6 +23,7 @@ feature 'New user sign up' do
 
   scenario 'can\'t register with a username that\'s already taken' do
     sign_up(user)
+    sign_out(user)
     user_diff = build(:user, email: 'other@email.co.uk')
     expect{ sign_up(user_diff) }.not_to change(User, :count)
     expect(page).to have_content "Username already taken"

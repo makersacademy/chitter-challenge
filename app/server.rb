@@ -12,7 +12,6 @@ class Chitter < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
 
   get '/' do
-    @user = User.get(session[:user_id])
     erb :index
   end
 
@@ -22,11 +21,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @user = User.new(name: params[:name],
-                    username: params[:username],
-                    email: params[:email],
-                    password: params[:password],
-                    password_confirmation: params[:password_confirmation])
+    @user = User.new( name: params[:name],
+                      username: params[:username],
+                      email: params[:email],
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/'
@@ -37,6 +36,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @username = nil
     erb :'/sessions/new'
   end
 
@@ -48,7 +48,7 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = ["Username or password incorrect"]
       @username = params[:username]
-      erb :'sessions/new'
+      erb 'sessions/new'
     end
   end
 
@@ -56,6 +56,12 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.next[:notice] = "Goodbye!"
     redirect '/'
+  end
+
+  helpers do
+    def current_user
+      @current_user = User.get(session[:user_id])
+    end
   end
 
 end

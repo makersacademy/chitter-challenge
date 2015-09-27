@@ -7,10 +7,24 @@
   <body>
 
     <div>
-      <% if @user %>
-        <h1>Welcome to Chitter, <%= @user.username %>!</h1>
+      <% if current_user %>
+        <h1>Welcome to Chitter, <%= current_user.username %>!</h1>
+        <div>
+          <form action='/sessions' method='post'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        </div>
       <% else %>
         <h1>Welcome to Chitter!</h1>
+        <div>
+          <form action='/sessions/new'>
+            <input type='submit' value='Log in'>
+          </form>
+          <form action='/users/new'>
+            <input type='submit' value='Sign up'>
+          </form>
+        </div>
       <% end %>
     </div>
     <div id='notice' >
