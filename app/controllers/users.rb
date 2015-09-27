@@ -13,14 +13,14 @@ module Chitter
                          email:     params[:email],
                          password:  params[:password],
                          password_confirmation: params[:password_confirmation])
-       if @user.save
-         session[:user_id] = @user.id
-         redirect to('/peeps')
-       else
-         flash.now[:errors] = @user.errors.full_messages.uniq
-         erb :'users/new'
-       end
-     end
+        if @user.save
+          session[:user_id] = @user.id
+          redirect to('/peeps')
+        else
+          flash.now[:errors] = @user.errors.full_messages.uniq
+          erb :'users/new'
+        end
+      end
 
     end
   end

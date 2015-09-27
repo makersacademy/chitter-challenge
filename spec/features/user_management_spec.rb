@@ -8,34 +8,34 @@ feature 'user sign up' do
   end
 
   scenario 'with a password that does not match' do
-     user = create :user
-     user.password_confirmation = 'wrong'
-     sign_up(user)
-     expect(page).to have_content 'Password does not match the confirmation'
-   end
+    user = create :user
+    user.password_confirmation = 'wrong'
+    sign_up(user)
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
 
-   scenario 'requires a name to sign up' do
-     user = create :user
-     user.name = nil
-     sign_up(user)
-     expect(page).to have_content 'Name must not be blank'
-   end
+  scenario 'requires a name to sign up' do
+    user = create :user
+    user.name = nil
+    sign_up(user)
+    expect(page).to have_content 'Name must not be blank'
+  end
 
-   scenario 'requires a username to sign up' do
-     user = create :user
-     user.username = nil
-     sign_up(user)
-     expect(page).to have_content 'Username must not be blank'
-   end
+  scenario 'requires a username to sign up' do
+    user = create :user
+    user.username = nil
+    sign_up(user)
+    expect(page).to have_content 'Username must not be blank'
+  end
 
-   scenario 'requires an email to sign up' do
-     user = create :user
-     user.email = nil
-     sign_up(user)
-     expect(page).to have_content 'Email must not be blank'
-   end
+  scenario 'requires an email to sign up' do
+    user = create :user
+    user.email = nil
+    sign_up(user)
+    expect(page).to have_content 'Email must not be blank'
+  end
 
-   scenario 'I cannot sign up with an existing email' do
+  scenario 'I cannot sign up with an existing email' do
     user = create :user
     visit '/users/new'
     sign_up(user)
@@ -43,11 +43,11 @@ feature 'user sign up' do
   end
 
   scenario 'I cannot sign up with an existing username' do
-   user = create :user
-   visit '/users/new'
-   sign_up(user)
-   expect(page).to have_content 'Username is already taken'
- end
+    user = create :user
+    visit '/users/new'
+    sign_up(user)
+    expect(page).to have_content 'Username is already taken'
+  end
 
 end
 
