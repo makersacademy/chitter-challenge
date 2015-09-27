@@ -1,7 +1,9 @@
 <% if current_user %>
-  Welcome, <%= current_user.email %>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
+  <div class="jumbotron">
+    <h1>Welcome, <%= current_user.email %></h1>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  </div>
 <% end %>
