@@ -34,26 +34,6 @@ set :session_secret, 'super secret'
     end
   end
 
-  get'/sessions/new' do
-    erb :'sessions/new', :layout => false
-  end
-
-  post'/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect('/peep')
-    else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    session.clear
-    redirect('/')
-  end
-
   get '/peep' do
     @peeps = Peep.all
     erb :'peep/index'
@@ -70,6 +50,27 @@ set :session_secret, 'super secret'
                     time: t.strftime("%b %e, %l:%M %p"))
     peep.save
     redirect('/peep')
+  end
+
+  get'/sessions/new' do
+    erb :'sessions/new', :layout => false
+  end
+
+  post'/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:username] = user.username
+      redirect('/peep')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session.clear
+    redirect('/')
   end
 
   # start the server if ruby file executed directly
