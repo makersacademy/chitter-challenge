@@ -3,7 +3,8 @@
 <ul id="chits">
   <% @chits.each do |chit| %>
     <li>
-      post:   <%= chit.post  %>
+      post: <%= chit.post  %>
+      Tags: <%= chit.tags.map(&:name) if chit.tags.empty? == false %>
     </li>
   <% end %>
 </ul>

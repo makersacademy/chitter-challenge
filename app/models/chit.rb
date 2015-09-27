@@ -5,4 +5,6 @@ class Chit
   property :id,     Serial
   property :post,   String
 
+  has n, :tags, through: Resource
+
 end

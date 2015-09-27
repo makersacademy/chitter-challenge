@@ -15,7 +15,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/chits' do
-    Chit.create(post: params[:post])
+    chit = Chit.create(post: params[:post])
+    tag  = Tag.create(name: params[:tag])
+    chit.tags << tag
+    chit.save
     redirect to('/chits')
   end
 
