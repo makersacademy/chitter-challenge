@@ -4,7 +4,6 @@ require 'data_mapper'
 require './app/data_mapper_setup'
 
 RuboCop::RakeTask.new :cop
-RSpec::Core::RakeTask.new :spec
 
 task default: [:cop, :spec]
 
