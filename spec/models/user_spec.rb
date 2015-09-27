@@ -8,4 +8,9 @@ describe User do
     authenticated_user = User.authenticate(user.email, user.password)
     expect(authenticated_user).to eq user
   end
+
+  # it 'does not authenticate when when given an invalid email address and password' do
+  #   expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+  # end
+
 end

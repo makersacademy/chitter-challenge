@@ -14,7 +14,7 @@ class User
 
   property :password_digest, Text
 
-  	# has n, :peeps, through: Resource
+  has n, :peeps, through: Resource
 
 
   def password=(password)
@@ -25,4 +25,5 @@ class User
   def self.authenticate(email, password)
     User.first(email: email)
   end
+
 end

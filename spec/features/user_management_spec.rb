@@ -1,5 +1,7 @@
 feature 'User sign up' do
 
+  include Helpers
+
   scenario 'I can sign up as a new user' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
@@ -39,6 +41,7 @@ feature 'User sign up' do
      sign_in(user)
      expect(page).to have_content("Welcome, #{user.email}")
    end
+
 
   end
 end

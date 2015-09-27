@@ -2,10 +2,11 @@
 
 <a href="/peeps/new">Post a new Peep</a>
 
-<ul id="peeps">
-  <% @peeps.each do |peep| %>
-  <li>
-    Message: <%= peep.message %>
-  </li>
-  <% end %>
-</ul>
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        Message: <%= peep.message%>
+        User: <%= peep.user %>
+      </li>
+      <% end %>
+    </ul>
