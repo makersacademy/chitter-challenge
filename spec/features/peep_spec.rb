@@ -2,6 +2,11 @@ require 'spec_helper'
 
 feature 'User can create peeps' do
 
+  scenario 'I need to be signed in to peep' do
+    visit '/peeps/new'
+    expect(page).to have_content("You need to be signed in to peep!")
+  end
+
   scenario 'I can create a new peep' do
     user = create :user
     sign_in(user)
