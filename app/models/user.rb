@@ -13,6 +13,8 @@ class User
   property :username, String
   property :password_digest, Text
 
+  has n, :peeps, through: Resource
+
 
   def password=(password)
     @password = password
@@ -25,7 +27,7 @@ class User
       user
     else
       nil
-    end 
+    end
   end
 
 end

@@ -60,7 +60,6 @@ feature 'User sign in' do
   end
 
 end
-
 feature 'User signs out' do
 
   let(:user){build(:user)}

@@ -3,5 +3,8 @@ class Peep
 
   property :id, Serial
   property :message, String
+  property :username, String 
+
+  has 1, :user, through: Resource
 
 end
