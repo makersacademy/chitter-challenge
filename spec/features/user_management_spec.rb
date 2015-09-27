@@ -59,6 +59,13 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
+  scenario 'with incorrect credentials' do
+    user = create :user
+    user.password = 'wrong'
+    sign_in(user)
+    expect(page).to have_content 'The email or password is incorrect'
+  end
+
 end
 
 feature 'User signs out' do
