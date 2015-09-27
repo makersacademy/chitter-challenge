@@ -3,9 +3,10 @@ ruby '2.2.3'
 
 gem 'bcrypt'
 gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'sinatra'
 gem 'database_cleaner'
+gem 'dm-postgres-adapter'
+gem 'factory_girl'
+gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
