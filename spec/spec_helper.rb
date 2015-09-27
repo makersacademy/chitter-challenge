@@ -11,6 +11,8 @@ require 'database_cleaner'
 require 'factory_girl'
 require 'rspec'
 require 'simplecov'
+require 'support/helpers'
+
 
 #Require FactoryGirl factories
 require 'factories/user'
@@ -57,6 +59,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.include Helpers
 
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate

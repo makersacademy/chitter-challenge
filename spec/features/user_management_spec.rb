@@ -45,15 +45,51 @@ feature 'New user sign up' do
     expect(page).to have_content "That doesn't seem to be a valid email"
   end
 
-  def sign_up(user)
-    visit ('/')
-    click_button 'Sign up'
-    fill_in 'email',    with: user.email
-    fill_in 'name',     with: user.name
-    fill_in 'username', with: user.username
-    fill_in 'password', with: user.password
-    fill_in 'password_confirmation', with: user.password_confirmation
-    click_button 'Register'
+end
+
+feature 'Existing user log in' do
+
+  let(:user){build :user}
+
+  before do
+    create :user
+  end
+
+  scenario 'can log in with username and password' do
+    log_in(user)
+    expect(page).to have_content "Welcome to Chitter, #{user.username}"
+  end
+
+  scenario 'unable to log in if password incorrect' do
+    user = build(:user, password: 'wrong')
+    log_in(user)
+    expect(current_path).to eq '/sessions/new'
+    expect(page).to have_content "Username or password incorrect"
+  end
+
+  scenario 'unable to log in if username incorrect' do
+    user = build(:user, username: 'other_name')
+    log_in(user)
+    expect(current_path).to eq '/sessions/new'
+    expect(page).to have_content "Username or password incorrect"
+  end
+
+end
+
+
+feature 'User can sign out' do
+
+  let(:user){build :user}
+
+  before do
+    create :user
+    log_in(user)
+  end
+
+  scenario 'user can sign out' do
+    click_button 'Sign out'
+    expect(page).to have_content "Goodbye"
+    expect(page).not_to have_content "Welcome, #{user.username}"
   end
 
 end
