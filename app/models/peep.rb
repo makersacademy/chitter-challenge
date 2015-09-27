@@ -7,6 +7,7 @@ class Peep
 
   attr_reader :peep
   attr_reader :when
+
   #belongs_to :user
 
 end

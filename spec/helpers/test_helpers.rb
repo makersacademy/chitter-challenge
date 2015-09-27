@@ -1,4 +1,4 @@
-module SessionHelpers
+module TestHelpers
 
   def sign_up(user)
     visit '/'
