@@ -46,6 +46,21 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :new_sessions
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/feed')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :new_sessions
+    end
+  end
+
 
 
   # start the server if ruby file executed directly
