@@ -1,0 +1,9 @@
+<h3>Peeps</h3>
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <p><%= peep.user.name %> @<%= peep.user.username %> Peeped on <%= "#{peep.creation_time.day}-#{peep.creation_time.month}-#{peep.creation_time.year}"%></p>
+      <p><%= peep.content %></p>
+    </li>
+  <% end %>
+</ul>
