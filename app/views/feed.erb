@@ -35,16 +35,16 @@
     <% @peeps.reverse.each do |peep| %>
       <div style="border: solid white; text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat">
         <li>
-          <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; float: left; font-weight: bold">
+          <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; font-weight: bold">
             <%= peep.name %> 
               <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
                 @<%= peep.username %> 
               </div> 
-              <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal"> 
+              <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px"> 
                 <%= peep.time.strftime("%l:%M %p %A %d %b") %>
               </div> 
           </div>
-          <div>
+          <div style="height: 120px; width: 400px; display: flex; justify-content: center; align-items: center">
             <%= peep.message %>
           </div>
         </li>
