@@ -6,6 +6,7 @@ feature 'Viewing Peeps' do
       Peep.create(message: 'Test text')
       visit '/peeps'
       expect(page.status_code).to eq 200
+
       within 'ul#peeps' do
         expect(page).to have_content('Test text')
       end
