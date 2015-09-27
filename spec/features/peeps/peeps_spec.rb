@@ -15,5 +15,4 @@ feature 'creating new peeps' do
     click_button 'fresh peep'
     expect(page).to have_content 'sign in or register to get peeping!'
   end
-
 end

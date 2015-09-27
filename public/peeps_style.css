@@ -20,14 +20,15 @@
   text-overflow: ellipsis;
 }
 .users th {
-  background: darkblue;
+  border-radius: 5px;
+  background:   darkblue;
   color: white;
 }
-.users td,
+
 .users th {
   text-align: left;
   padding: 5px 10px;
 }
 .users tr:nth-child(even) {
-  background: lightblue;
+  background: yellow;
 }

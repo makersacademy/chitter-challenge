@@ -4,11 +4,11 @@
 
 <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
-  <ul>
-    <% flash[:errors].each do |error| %>
+    <ul>
+      <% flash[:errors].each do |error| %>
       <li><%= error %></li>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
 <% end %>
 
 <% if flash[:peep_confirmation] %>
