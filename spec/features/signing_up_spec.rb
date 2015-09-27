@@ -14,10 +14,28 @@ feature "User sign up" do
   end
 
   scenario 'I can sign up as a new user' do
-
     expect { sign_up }.to change(User, :count).by(1)
-    # expect(page).to have_content('Welcome, Person')
-    expect(User.first.email).to eq('person@example.com')
+    expect(page).to have_content('Hello, pers0n.')
+    expect(User.first.username).to eq('pers0n')
   end
 
 end
+
+# feature "User sign in" do
+#
+#   def sign_in(username: 'pers0n',
+#               password: 'bananas!')
+#     visit 'users/sign_in'
+#     expect(page.status_code).to eq(200)
+#     fill_in :username, with: username
+#     fill_in :password, with: password
+#     click_button 'Log in'
+#   end
+#
+#   scenario 'I can sign in as a user' do
+#     expect { sign_in }.to change(User, :count).by(1)
+#     expect(page).to have_content('Hello, pers0n.')
+#     expect(User.first.username).to eq('pers0n')
+# #   end
+#
+# end
