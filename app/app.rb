@@ -10,8 +10,10 @@ class Chitter < Sinatra::Base
   set :views, proc {File.join(root,'..','/app/views')}
 
   use Rack::MethodOverride
-
+  
   enable :sessions
+  set :static, true
+  set :root, File.dirname(__FILE__)
   set :session_secret, 'super secret'
 
   register Sinatra::Flash

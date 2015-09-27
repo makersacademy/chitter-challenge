@@ -9,7 +9,7 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     user = create :user
     sign_in_as(user)
-    click_button 'Sign out'
+    click_button 'Sign Out'
     expect(page).to have_content('goodbye!')
     expect(page).not_to have_content('Welcome, test@test.com')
   end

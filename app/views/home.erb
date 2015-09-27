@@ -1,15 +1,17 @@
-<form action='/users/new'>
-  <input type='submit' value='Sign up'>
-</form>
-
-<div>
-  Chitter
+<div style="position: absolute; right: 5px; padding: 5px">
+  <form action='/users/new'>
+    <input type="submit" value="Sign up" style="text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 8em;  height: 2em;">
+  </form>
 </div>
 
-<div> Sign in </div>
+<div style="position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center"> 
+  <div style="font-weight: bold; font-size: 300%; padding: 5px">
+    chitter
+  </div>
 
-<form action='/' method="post">
-  Email: <input type="text" name="email">
-  Password: <input type="password" name="password">
-  <input type="submit" value="Sign in">
-</form>
+  <form action='/' method="post">
+    <input type="text" name="email" placeholder="email" style="margin-bottom: 5px; text-align: center; font-size: 120%; border-radius: 4px"> </br>
+    <input type="password" name="password" placeholder="password" style="margin-bottom: 5px; text-align: center; font-size: 120%; border-radius: 4px"> </br>
+    <input type="submit" value="Sign in" style="text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 13.5em;  height: 2em;">
+  </form>
+</div>
