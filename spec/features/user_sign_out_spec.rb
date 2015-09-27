@@ -7,11 +7,8 @@ feature 'User signs out' do
   end
 
   scenario 'while being signed in' do
-    visit 'sessions/new'
     user = create :user
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button('Sign in')
+    sign_in_as(user)
     click_button 'Sign out'
     expect(page).to have_content('goodbye!')
     expect(page).not_to have_content('Welcome, test@test.com')

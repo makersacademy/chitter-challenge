@@ -5,14 +5,32 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
-  use Rack::MethodOverride
-
   include Helpers
+
+  set :views, proc {File.join(root,'..','/app/views')}
+
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
 
   register Sinatra::Flash
+
+  get '/' do
+    erb :home
+  end
+
+  post '/' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/feed')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :home
+    end
+  end
+
 
   get '/feed' do
     @peeps = Peep.all
@@ -24,7 +42,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do 
-    Peep.create(message: params[:message])
+    peep = Peep.new(message: params[:message],
+                    username: session[:username],
+                    name: session[:name],
+                    time: Time.now)
+    peep.save
     redirect to('/feed')
   end
 
@@ -41,6 +63,8 @@ class Chitter < Sinatra::Base
                 password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      session[:username] = params[:username]
+      session[:name] = params[:name]
       redirect to('/feed')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -48,20 +72,20 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions/new' do
-    erb :new_sessions
-  end
+  # get '/sessions/new' do
+  #   erb :new_sessions
+  # end
 
-  post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect('/feed')
-    else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :new_sessions
-    end
-  end
+  # post '/sessions' do
+  #   user = User.authenticate(params[:email], params[:password])
+  #   if user
+  #     session[:user_id] = user.id
+  #     redirect('/feed')
+  #   else
+  #     flash.now[:errors] = ['The email or password is incorrect']
+  #     erb :new_sessions
+  #   end
+  # end
 
   delete '/sessions' do
     session.clear

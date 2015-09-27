@@ -10,6 +10,11 @@ feature 'Creating peeps' do
     end 
   end
 
+  scenario 'I can only peep if I am logged in' do 
+    visit '/feed'
+    expect(page).not_to have_button('New peep')
+  end
+
 
 
 end

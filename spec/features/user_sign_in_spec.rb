@@ -8,7 +8,7 @@ feature 'User sign in' do
   # end
 
   scenario 'I am welcomed after signing in' do
-    visit '/sessions/new'
+    visit '/'
     user = create :user
     sign_in_as(user)
     expect(page).to have_content("Welcome, dbatten")

@@ -1,10 +1,11 @@
 <h1>Peep Feed</h1>
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
-      Message: <%= peep.message %>
-      Time:   <%= peep.time   %>
+      Message: <%= peep.message %> </br>
+      Time:   <%= peep.time.strftime("%l:%M %p %A %d %b %Y") %> </br>
+      Posted by: <%= peep.name %> (<%= peep.username %>)
     </li>
   <% end %>
 </ul>

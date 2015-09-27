@@ -12,7 +12,7 @@ module Session
   end
 
   def sign_in_as(user)
-    visit '/sessions/new'
+    visit '/'
     fill_in :email, with: user.email
     fill_in :password, with: user.password
     click_button 'Sign in'
