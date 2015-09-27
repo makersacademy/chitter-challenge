@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'coveralls'
 require 'database_cleaner'
+require 'factory_girl'
 require 'simplecov'
 
 SimpleCov.formatters = [
@@ -23,6 +24,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
