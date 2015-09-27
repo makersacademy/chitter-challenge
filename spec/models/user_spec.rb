@@ -1,6 +1,6 @@
 require './app/models/user_model'
 
-describe User do
+describe Chatter::Models::User do
 
   it 'Can add user with correct input to database' do
     user = build(:user)

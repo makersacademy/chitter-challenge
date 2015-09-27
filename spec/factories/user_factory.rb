@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :user do
+  factory :user, class:'Chatter::Models::User' do
     email 'foo@bar.com'
     real_name 'Foo Foo'
     user_name 'foobar_user'

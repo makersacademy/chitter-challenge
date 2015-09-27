@@ -9,4 +9,5 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_
 require './app/models/chit_model'
 require './app/models/user_model'
 
+
 DataMapper.finalize

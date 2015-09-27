@@ -1,6 +1,6 @@
 require './app/models/chit_model'
 
-describe Chit do
+describe Chatter::Models::Chit do
 
   it 'Can add a chit to the database' do
     chit = build(:chit)
