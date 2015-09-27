@@ -1,17 +1,16 @@
 feature 'Creating peeps' do
+  let(:user) { create(:user) }
   scenario 'User can create peeps' do
-    user = create(:user)
     sign_in(user)
-    create_peep
+    create_peep(user)
     within('ul#peeps') do
       expect(page).to have_content 'Que sera sera'
     end
   end
 
   scenario 'When creating peep, the time at which it was made is stored' do
-    user = create(:user)
     sign_in(user)
-    create_peep
+    create_peep(user)
     within('ul#peeps') do
       expect(page).to have_content("#{Time.now}")
     end
@@ -22,7 +21,7 @@ feature 'Creating peeps' do
   end
 
   scenario 'Without sign-in, user cannot post a peep' do
-    expect { create_peep }.not_to change(Peep, :count)
+    expect { create_peep(user) }.not_to change(Peep, :count)
     expect(page).to have_content 'Please sign in'
   end
 end
@@ -34,8 +33,8 @@ def sign_in(user)
   click_button 'Sign in'
 end
 
-def create_peep
-  visit '/peeps/new'
+def create_peep(user)
+  visit "/users/#{user.id}/peeps/new"
   fill_in 'content', with: 'Que sera sera'
   click_button 'Chitter'
 end

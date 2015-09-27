@@ -10,13 +10,19 @@ class App < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  get '/peeps' do
-    current_user
-    @peeps = Peep.all
+  # get '/user/:id' do
+  #   p params[:id]
+  #   @user = User.get(params[:id])
+  #   erb :'users/name'
+  # end
+
+  get '/users/:id/peeps' do
+    user = User.get(params[:id]) || User.get(session[:user_id])
+    @peeps = user.peeps
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
+  get '/users/:id/peeps/new' do
     erb :'peeps/new'
   end
 
@@ -24,7 +30,7 @@ class App < Sinatra::Base
     peep = Peep.new(content: params[:content], created_at: Time.now)
     peep.user_id = session[:user_id]
     if peep.save
-      redirect to '/peeps'
+      redirect to '/users/:id/peeps'
     else
       flash[:notice] = 'Please sign in'
       redirect to '/sessions/new'
@@ -44,7 +50,7 @@ class App < Sinatra::Base
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Successfully signed up"
-      redirect to '/peeps'
+      redirect to '/users/:id/peeps'
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'/users/new'
@@ -60,7 +66,7 @@ class App < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to '/peeps'
+      redirect to "/users/#{user.id}/peeps"
     else
       flash.now[:notice] = 'Email or password is invalid'
       erb :'/sessions/new'
@@ -101,7 +107,8 @@ class App < Sinatra::Base
       password_confirmation: params[:password_confirmation])
     if user.save
       flash[:notice] = 'Password is successfully reset'
-      redirect '/peeps'
+      session[:user_id] = user.id
+      redirect 'users/:id/peeps'
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/password_reset'

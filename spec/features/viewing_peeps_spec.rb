@@ -4,7 +4,8 @@ feature 'Viewing peeps' do
     peep = Peep.create(content: 'TGI Friday!')
     peep.user_id = user.id
     peep.save
-    visit '/peeps'
+    visit "/users/#{user.id}/peeps"
+
     expect(page.status_code).to eq 200
     within('ul#peeps') do
       expect(page).to have_content("TGI Friday!")
