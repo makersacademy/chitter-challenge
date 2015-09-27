@@ -1,8 +1,14 @@
-<h1>Welcome to Chitter</h1>
-<form action="/users/new">
+<% unless current_user %>
+  <h1>Welcome to Chitter</h1>
+<% end %>
+<% unless current_user %>
+  <form action="/users/new">
     <input type="submit" value="Sign up">
-</form>
+  </form>
+<% end %>
 <br>
-<form action="/sessions/new">
+<% unless current_user %>
+  <form action="/sessions/new">
     <input type="submit" value="Sign in">
-</form>
+  </form>
+<% end %>

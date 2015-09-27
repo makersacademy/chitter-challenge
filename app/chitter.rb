@@ -9,9 +9,13 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   register Sinatra::Flash
+  register Sinatra::Partial
 
   enable :sessions
+  enable :partial_underscores
+
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
 
   get '/' do
     erb :'index'
@@ -49,11 +53,14 @@ class Chitter < Sinatra::Base
       redirect to('/')
     else
       flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
     end
   end
 
   delete '/sessions' do
-    flash.now[:notice] = ["goodbye!"]
+    session[:user_id] = nil
+    flash.now[:notice] = "Goodbye!"
+    erb :'sessions/goodbye', :layout => false
   end
 
   # start the server if ruby file executed directly

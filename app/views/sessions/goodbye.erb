@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<form action='/'>
+  <input type='submit' value='Homepage'>
+</form>

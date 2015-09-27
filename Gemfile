@@ -7,6 +7,7 @@ ruby '2.2.2'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
+  gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
