@@ -1,4 +1,4 @@
-class Chit
+class Peep
 
   include DataMapper::Resource
 

@@ -1,0 +1,10 @@
+<h1> Chits </h1>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      post: <%= peep.post  %>
+      Tags: <%= peep.tags.map(&:name) if peep.tags.empty? == false %>
+    </li>
+  <% end %>
+</ul>

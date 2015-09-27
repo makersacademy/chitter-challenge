@@ -4,6 +4,6 @@ class Tag
   property :id, Serial
   property :name, String
 
-  has n, :chits, through: Resource
+  has n, :peeps, through: Resource
 
 end

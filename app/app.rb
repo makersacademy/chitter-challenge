@@ -9,30 +9,30 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  get '/chits' do
-    @chits = Chit.all
-    erb :'chits/index'
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  get '/chits/new' do
-    erb :'chits/new'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
-  post '/chits' do
-    chit = Chit.create(post: params[:post])
+  post '/peeps' do
+    peep = Peep.create(post: params[:post])
     tags = params[:tags].split(' ')
     tags.each do |tag|
       tag  = Tag.create(name: tag)
-      chit.tags << tag
+      peep.tags << tag
     end
-    chit.save
-    redirect to('/chits')
+    peep.save
+    redirect to('/peeps')
   end
 
   get '/tags/:name' do
     tag = Tag.first(name: params[:name])
-    @chits = tag ? tag.chits : []
-    erb :'chits/index'
+    @peeps = tag ? tag.peeps : []
+    erb :'peeps/index'
   end
 
   get '/users/new' do
@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
                 handle: params[:handle],
                 password: params[:password])
     session[:user_id] = user.id
-    redirect to('/chits')
+    redirect to('/peeps')
   end
 
   run! if app_file == Chitter
