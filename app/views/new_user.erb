@@ -2,11 +2,11 @@
 
 <form action='/users' method='post'>
   Name: 
-    <input type='text' name='name'>
+    <input type='text' name='name' value='<%= @user.name %>'>
   Email: 
-    <input type='text' name='email'>
+    <input type='text' name='email' value='<%= @user.email %>'>
   Username: 
-    <input type='text' name='username'>
+    <input type='text' name='username' value='<%= @user.username %>'>
   Password:
     <input type='password' name= 'password'>
   Password Confirmation: 
