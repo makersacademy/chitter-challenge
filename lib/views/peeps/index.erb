@@ -1,0 +1,12 @@
+<h1>Peeps</h1>
+
+<a href="/peeps/new">Create a new Peep</a>
+
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        Message: <%= peep.message%>
+        User: <%= peep.user %>
+      </li>
+      <% end %>
+    </ul>
