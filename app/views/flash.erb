@@ -4,6 +4,12 @@
   </div>
 <% end %>
 
+<% if flash[:message] %>
+  <div id='message'>
+    <%= flash[:message] %>
+  </div>
+<% end %>
+
 <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id='errors'>

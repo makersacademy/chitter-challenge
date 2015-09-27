@@ -1,3 +1,6 @@
+<!-- <a href="/users/new"><button>Sign up</button></a>
+<a href="/sessions/new"><button>Sign in</button></a> -->
+
 <% if current_user %>
   <p>Welcome, <%= current_user.email %></p>
   <form method='post' action='/sessions'>

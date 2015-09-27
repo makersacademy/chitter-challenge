@@ -12,22 +12,22 @@ module Chitter
       end
 
       get '/peeps/new' do
-        erb :'peeps/new'
+        unless current_user
+          flash[:message] = 'Sign in or sign up to peep!'
+          redirect to('/peeps')
+        else
+          erb :'peeps/new'
+        end
       end
 
       post '/peeps/new' do
         peep = Peep.create(peep: params[:peep], user: current_user)
         if peep.save
           redirect to('/peeps')
+        # else
+        #   flash.now[:errors] = peep.errors.full_messages
+        #   erb :'peeps'
         end
-        # peep = Peep.new(peep: params[:peep])
-        # peeps_array = params[:tag].split(' ')
-        #   peeps_array.each do |post|
-        #     newpeep = Peep.create(name: tag)
-        #     peep.posts << newpeep
-        #   end
-        # peep.save
-        # redirect('/peeps')
       end
 
     end
