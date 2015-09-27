@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Partial
 
-  enable :sessions
+  enable :sessions, :static
   enable :partial_underscores
 
   set :session_secret, 'super secret'

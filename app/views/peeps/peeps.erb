@@ -1,14 +1,17 @@
 <h1>Peeps</h1>
 <div id='peep'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <table>
       <tr>
         <td colspan="3"><%= peep.peep %></td>
       </tr>
       <tr>
         <td colspan="2"><%= peep.username %></td>
-        <td><%= peep.created_at %><td>
+        <td><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %><td>
       </tr>
     </table>
   <% end %>
 </div>
+<form action='/peeps/new'>
+  <input type='submit' value='New Peep'>
+</form>
