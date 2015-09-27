@@ -1,5 +1,5 @@
 
-This is a little Twitter clone that allow the users to post messages to a public stream.
+This is a little Twitter clone that allows the users to post messages to a public stream.
 
 Features:
 -------
@@ -30,11 +30,12 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-I use Sinatra to put it online, bcrypt to make password, datamapper to work with database.
+I use Sinatra, bcrypt to make password, datamapper to work with database.
 For tests I use capybara, factory_girl, database_cleaner.
 
 I have two classes, User and Peep, they are connected one-to-many (user can have many peeps, peep belongs to one user).
 Website structure is the following:
+```
 /
 /peeps
 /peeps/new
@@ -42,5 +43,6 @@ session
 /session/new
 user
 user/new
+```
 
 
