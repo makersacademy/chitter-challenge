@@ -12,6 +12,7 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'pry'
   gem 'rubocop'
   gem 'rubocop-rspec'

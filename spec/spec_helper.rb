@@ -15,13 +15,17 @@ require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'factory_girl'
 require 'tilt/erb'
+
+require_relative 'factories'
 
 Capybara.app = ChitterApp
 
 RSpec.configure do |config|
 
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

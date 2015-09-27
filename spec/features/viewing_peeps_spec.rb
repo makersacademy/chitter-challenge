@@ -3,10 +3,11 @@ feature 'Viewing peeps:' do
   include Helpers
 
   scenario 'I can see a list of peeps on the home page' do
-    Peep.create(message: 'Little Bo Peep has lost her sheep')
+    peep = build :peep
+    peep.save
     visit '/'
     within 'div#peeps' do
-      expect(page).to have_content('Little Bo Peep has lost her sheep')
+      expect(page).to have_content(peep.message)
     end
   end
 
@@ -18,7 +19,8 @@ feature 'Viewing peeps:' do
   end
 
   scenario 'The peeps are displayed with their timestamps' do
-    peep = Peep.create(message: 'Little Bo Peep has lost her sheep')
+    peep = build :peep
+    peep.save
     visit '/'
     within 'div#peeps' do
       expect(page).to have_content(prettify(peep.created_at))
@@ -26,13 +28,14 @@ feature 'Viewing peeps:' do
   end
 
   scenario 'The peeps are displayed in reverse chronological order' do
-    peep1 = Peep.create(message: 'Little Bo Peep has lost her sheep')
-    peep2 = Peep.new(message: 'And doesn\'t know where to find them.')
+    peep1 = build :peep, message: 'early bird'
+    peep1.save
+    peep2 = build :peep, message: 'late worm'
     peep2.created_at = (peep1.created_at.to_time + 60).to_datetime
     peep2.save
     visit '/'
     within 'div#peeps' do
-      expect(page.body.index('Little')).to be > page.body.index('And')
+      expect(page.body.index('early bird')).to be > page.body.index('late worm')
     end
   end
 
