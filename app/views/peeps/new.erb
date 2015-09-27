@@ -1,0 +1,11 @@
+
+<% if current_user %>
+<h1>Peep here!</h1>
+
+<form action='/peeps' method='post'>
+  Peep: <input name='message' type='text'>
+    <input type='submit' value='Peep'>
+</form>
+<% else %>
+Sorry, you can't Peep unless you're a member! Sign up or sign in to Peep!
+<% end %>

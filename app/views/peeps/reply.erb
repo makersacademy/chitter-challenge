@@ -1,0 +1,11 @@
+
+<% if current_user %>
+<h1>Reply!</h1>
+
+<form action='/peeps/<%= @peep %>/reply' method='post'>
+  Reply: <input name='message' type='text'>
+    <input type='submit' value='reply'>
+</form>
+<% else %>
+Sorry, you can't reply to a Peep unless you're a member! Sign up or sign in!
+<% end %>

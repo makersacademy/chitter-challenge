@@ -10,12 +10,12 @@ ruby '2.2.3'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
-gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'rspec-sinatra'
 
 group :test do
+gem 'database_cleaner'
 gem 'rspec'
 gem 'capybara'
 gem 'byebug'
