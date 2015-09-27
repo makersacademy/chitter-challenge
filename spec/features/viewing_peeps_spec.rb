@@ -18,8 +18,19 @@ feature 'Viewing peeps' do
     visit '/feed'
     within 'ul#feed' do
       expect(page).to have_content('Alice Example')
-      expect(page).to have_content('@alice')
+      expect(page).to have_content('alice')
     end
   end
+
+  # scenario 'I can filter peeps by user' do
+  #   user = create :user
+  #   Peep.create(message: 'test', username: user.username, name: user.name, time: Time.now)
+  #   Peep.create(message: 'test', username: 'emily', name: 'Emily Worrall', time: Time.now)
+  #   visit '/feed/alice'
+  #   within 'ul#feed' do
+  #     expect(page).not_to have_content('emily')
+  #     expect(page).to have_content('alice')
+  #   end
+  # end
 
 end

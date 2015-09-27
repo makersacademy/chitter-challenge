@@ -3,6 +3,7 @@ require_relative '../../app/data_mapper_setup'
 feature 'Writing peeps' do
 
   scenario 'I can write a new peep' do
+    user = create :user
     visit '/feed/new'
     fill_in 'peep', with: 'hello'
     click_button 'Send peep'

@@ -47,15 +47,9 @@ class Chitter < Sinatra::Base
     end
   end
 
-  # get '/feed/:username' do
-  #     peeps = Tag.first(name: params[:name])
-  #     @links = tag ? tag.links : []
-  #     erb :'links/index'
-  #   end
-
   get '/sessions/new' do
       erb :'sessions/new'
-    end
+  end
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
