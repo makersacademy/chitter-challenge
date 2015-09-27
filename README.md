@@ -39,10 +39,10 @@ Website structure is the following:
 /
 /peeps
 /peeps/new
-session
+/session
 /session/new
-user
-user/new
+/user
+/user/new
 ```
 
 
