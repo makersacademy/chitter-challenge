@@ -11,13 +11,17 @@
   <% end %>
 </ul>
 
-<form action="/sessions/new">
-  <input type="submit" value="Sign in">
-</form>
+<% if current_user == nil %>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
+<% end %>
 
-<form action='/users/new'>
-  <input type="submit" value="Sign up">
-</form>
+<% if current_user == nil %>
+  <form action='/users/new'>
+    <input type="submit" value="Sign up">
+  </form>
+<% end %>
 
 <form action='/peeps/new'>
   <input type="submit" value="New peep">

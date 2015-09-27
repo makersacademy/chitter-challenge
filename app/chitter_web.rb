@@ -58,7 +58,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash[:logged_out] = "Goodbye"
+    flash[:logged_out] = "Goodbye!"
     redirect '/peeps'
   end
 
@@ -73,7 +73,6 @@ class Chitter < Sinatra::Base
                 name: session[:name],
                 time: Time.now
                 )
-    p params[:name]
     peep.save
     redirect '/peeps'
   end
