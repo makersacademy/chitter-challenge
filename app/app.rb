@@ -3,8 +3,6 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup.rb'
 require_relative 'helpers'
 
-# require './app/data_mapper_setup.rb' might have to change back?
-
 
 class Chitter < Sinatra::Base
 
@@ -14,7 +12,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-# set :public_folder, Proc.new { File.join(root, '..', 'public') }
 
   get '/' do
     @user = current_user
@@ -55,20 +52,38 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
-end
+  end
 
+  get '/' do
+    if current_user
+      redirect to('/posts')
+    else
+      redirect to('/users/new')
+    end
+  end
 
-  # get '/' do
-  #   if current_user
-  #     @post = Post.new
-  #     redirect to('/posts')
-  #   else
-  #     redirect to('/users/new')
-  #   end
-  # end
+  get '/posts' do
+    @posts = Post.all
+    erb :index
+  end
+
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts' do
+    post = Post.create(message: params[:message],
+                       user: current_user)
+    if post.save
+      redirect to('/posts')
+    else
+      flash.now[:errors] = post.errors.full_messages
+      erb :'posts/new'
+    end
+    # redirect to('/posts')
+  end
+
 
   run! if app_file == Chitter
-  # run! if app_file == $PROGRAM_NAME
 
 end
-

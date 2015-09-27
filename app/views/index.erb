@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+<ul id='posts'>
+
+  <% @posts.each do |post| %>
+    <li>
+      Post: <%= post.message %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='posts/new'>
+  <button>Add new post</button>
+</form>

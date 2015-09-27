@@ -2,6 +2,7 @@ env = ENV['RACK_ENV'] || 'development'
 
 require 'data_mapper'
 require './app/models/user'
+require './app/models/post'
 require 'dm-validations'
 
 
