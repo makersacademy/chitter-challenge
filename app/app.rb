@@ -16,8 +16,10 @@ class Chitter < Sinatra::Base
     erb :'feed/new'
   end
 
-  post '/feed/new' do
+  post '/feed' do
     peep = Peep.new(message: params[:message],
+                    username: session[:username],
+                    name: session[:name],
                     time: Time.now)
     peep.save
     redirect ('/feed')
@@ -30,17 +32,26 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email],
-                username: params[:username],
-                password: params[:password],
-                password_confirmation: params[:password_confirmation])
+                        name: params[:name],
+                        username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      session[:username] = params[:username]
+      session[:name] = params[:name]
       redirect '/feed'
     else
       flash.now[:errors] = @user.errors
       erb :'users/new'
     end
   end
+
+  # get '/feed/:username' do
+  #     peeps = Tag.first(name: params[:name])
+  #     @links = tag ? tag.links : []
+  #     erb :'links/index'
+  #   end
 
   get '/sessions/new' do
       erb :'sessions/new'
@@ -52,7 +63,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/feed')
     else
-      flash.now[:errors] = 'The email or password is incorrect'
+      flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
   end

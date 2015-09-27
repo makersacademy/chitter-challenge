@@ -10,6 +10,7 @@ class User
 
   property :id,              Serial
   property :email,           String, required: true, unique: true
+  property :name,            String
   property :username,        String
   property :password_digest, Text
 
