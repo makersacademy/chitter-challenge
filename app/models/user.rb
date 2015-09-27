@@ -6,6 +6,8 @@ include DataMapper::Resource
 
   attr_accessor :password_confirmation
   attr_accessor :password
+  attr_accessor :password_token
+  attr_accessor :password_token_timestamp
 
   validates_confirmation_of :password
   validates_uniqueness_of :email

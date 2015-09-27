@@ -6,6 +6,7 @@ require_relative 'helpers/session'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
+require 'timecop'
 require 'factory_girl'
 require 'capybara'
 require 'capybara/rspec'
