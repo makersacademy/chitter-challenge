@@ -9,6 +9,7 @@ class Peep
   property :body, String
   property :name, String
   property :username, String
+  property :time, DateTime
 
   has n, :user, through: Resource
 

@@ -76,7 +76,8 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     peep = Peep.new(body: params[:body],
                     name: session[:name],
-                    username: session[:username])
+                    username: session[:username],
+                    time: Time.now)
     peep.save
     redirect '/peeps'
   end
