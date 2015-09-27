@@ -1,0 +1,14 @@
+<h1>Peeps</h1>
+<div id='peep'>
+  <% @peeps.each do |peep| %>
+    <table>
+      <tr>
+        <td colspan="3"><%= peep.peep %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= peep.username %></td>
+        <td><%= peep.created_at %><td>
+      </tr>
+    </table>
+  <% end %>
+</div>
