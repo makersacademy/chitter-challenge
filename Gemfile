@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'dm-validations'
 
 group :test do
   gem 'byebug'
@@ -20,5 +21,4 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'timecop'
-  gem 'dm-validations'
 end
