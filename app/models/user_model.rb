@@ -25,6 +25,9 @@ class User
 
   property :password_token, Text
 
+  has n, :chits, through: Resource
+
+
   validates_length_of :password, min: 1, message: "Password cannot be blank"
   validates_confirmation_of :password, message: "Passwords do not match."
 
