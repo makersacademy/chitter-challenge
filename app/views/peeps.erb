@@ -7,6 +7,10 @@
     <li>
     <%= peep.message %> <br>
     Created at <%= peep.created_at %>
+   <%= "Peeped by #{User.get(peep.user_id).username}" %>
     </li>
   <% end %>
+
+  <a href="/peeps/new" class="btn btn-info" role="button">Add a Peep</a>
+
 </ul>

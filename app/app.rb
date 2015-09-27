@@ -65,13 +65,14 @@ class ChitterWeb < Sinatra::Base
   end
 
   get '/peeps/new' do
-
     erb :'peeps/new'
   end
 
   post '/peeps/new' do
-    peep = Peep.create(message: params[:message])
-    redirect('/peeps/new')
+    peep = Peep.new(message: params[:message])
+    peep.user_id = session[:user_id]
+    peep.save
+    redirect('/')
   end
 
 

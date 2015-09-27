@@ -11,6 +11,7 @@ feature 'Creating Peeps' do
     fill_in 'message', with: 'This is a new peep!'
     click_button 'Peep'
     peep = Peep.first
+    p User.get(peep.user_id).username
     expect(peep.message).to eq('This is a new peep!')
   end
 
@@ -21,22 +22,24 @@ feature 'Creating Peeps' do
 
   scenario 'I would like my name to be added to my peeps' do
     user = create :user
+    peep = create :peep
     sign_in_as(user)
     visit '/peeps/new'
     fill_in 'message', with: 'This is a new peep!'
     click_button 'Peep'
-    peep = Peep.first
-    expect(peep.message).to eq('Peeped by pip')
+    visit('/peeps')
+    expect(page).to have_content('Peeped by pip at Sun, 27 Sep 2015 14:19:10.000000000 +0100')
   end
 
   scenario 'I would like my peep to be dated' do
     user = create :user
+    peep = create :peep
+    peep.created_at = '2015-09-26 20:08:30'
     sign_in_as(user)
-    visit '/peeps/new'
-    fill_in 'message', with: 'This is a new peep!'
-    click_button 'Peep'
+    p peep
+    peep_now(peep)
     peep = Peep.first
-    expect(peep.created_at).to eq('2015-09-26 20:08:30')
+    expect(peep.created_at).to eq('Sun, 27 Sep 2015 20:08:30.000000000 +0100')
   end
 
 end
@@ -47,4 +50,11 @@ def sign_in_as(user)
   fill_in :email,    with: user.email
   fill_in :password, with: user.password
   click_button 'Sign in'
+end
+
+def peep_now(peep)
+  visit '/peeps/new'
+  fill_in :message, with: peep.message
+  peep.created_at = '2015-09-26 20:08:30'
+  click_button 'Peep'
 end
