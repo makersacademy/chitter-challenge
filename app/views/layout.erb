@@ -5,9 +5,15 @@
   </head>
 
   <body>
+
     <% if current_user %>
       Welcome, <%= current_user.username %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>
@@ -16,9 +22,15 @@
         <% end %>
       </ul>
     <% end %>
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
+
+     <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
     <%= yield %>
+
   </body>
+  
 </html>
