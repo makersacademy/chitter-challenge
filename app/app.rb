@@ -117,9 +117,9 @@ class App < Sinatra::Base
     end
   end
 
-  configure :production do
-    DataMapper.setup(:default, ENV['DATABASE_URL'])
-    DataMapper.finalize
-    DataMapper.auto_upgrade!
-  end
+  # configure :production do
+  #   DataMapper.setup(:default, ENV['DATABASE_URL'])
+  #   DataMapper.finalize
+  #   DataMapper.auto_upgrade!
+  # end
 end
