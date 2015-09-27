@@ -22,6 +22,12 @@ class Chitter < Sinatra::Base
     redirect to('/chits')
   end
 
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @chits = tag ? tag.chits : []
+    erb :'chits/index'
+  end
+
   run! if app_file == Chitter
 
 end
