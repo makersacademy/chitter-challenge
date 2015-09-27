@@ -5,11 +5,8 @@ ruby '2.2.3'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'dotenv'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'sinatra-partial'
-
 
 group :test do
   gem 'byebug'
@@ -23,4 +20,5 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'timecop'
+  gem 'dm-validations'
 end
