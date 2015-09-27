@@ -21,14 +21,14 @@ feature 'Viewing peeps:' do
     peep.save
     visit '/'
     within 'div#peeps' do
-      expect(page).to have_content(prettify(peep.user, peep.created_at))
+      expect(page).to have_content(peep_details(peep.user, peep.created_at))
     end
   end
 
   scenario 'The peeps are displayed in reverse chronological order' do
     peep1 = build :peep, message: 'early bird'
     peep1.save
-    peep2 = build :peep, message: 'late worm'
+    peep2 = Peep.new(user: peep1.user, message: 'late worm')
     peep2.created_at = (peep1.created_at.to_time + 60).to_datetime
     peep2.save
     visit '/'

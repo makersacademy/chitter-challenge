@@ -33,10 +33,15 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(name: params[:name], email: params[:email],
+    user = User.new(name: params[:name], email: params[:email],
       password: params[:password], handle: params[:handle])
-    session[:user_id] = user.id
-    redirect '/'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:errors] = user.errors.full_messages
+      redirect '/sign-up'
+    end
   end
 
   get '/log-in' do
@@ -51,7 +56,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
-      flash[:errors] = ['The handle or password is incorrect. Please try again.']
+      flash[:errors] = ['The handle or password is incorrect']
       redirect '/log-in'
     end
   end

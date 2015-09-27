@@ -1,7 +1,7 @@
 <div id="peeps">
   <% @peeps.sort_by(&:created_at).reverse.each do |peep| %>
     <p><%= peep.message %></p>
-    <p><i><%= prettify(peep.user, peep.created_at) %></i></p>
+    <p><i><%= peep_details(peep.user, peep.created_at) %></i></p>
   <% end %>
   <% if @peeps.empty? %>
     <p><i>not a peep to be heard</i></p>

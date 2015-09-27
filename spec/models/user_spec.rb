@@ -28,4 +28,12 @@ describe User do
     expect(user.errors.full_messages).to include 'Handle must not be blank'
   end
 
+  it 'won\'t accept duplicate emails or handles' do
+    create :user
+    user = build :user
+    user.save
+    expect(user.errors.full_messages).to include 'Email is already taken'
+    expect(user.errors.full_messages).to include 'Handle is already taken'
+  end
+
 end
