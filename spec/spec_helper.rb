@@ -9,6 +9,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/data_mapper_setup.rb'
+require 'database_cleaner'
 
 
 Capybara.app = Chitter
