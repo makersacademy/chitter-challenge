@@ -20,7 +20,3 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
 end
-
-group :production do
-  gem "unicorn"
-end
