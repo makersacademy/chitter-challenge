@@ -2,12 +2,17 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
+require './app/controllers/base'
+require './app/controllers/users'
 
-class ChitterApp < Sinatra::Base
-  get '/' do
-    'Hello chitter-challenge!'
+module Chitter
+
+  class ChitterApp < Sinatra::Base
+
+    use Routes::Users
+
+    # start the server if ruby file executed directly
+    run! if app_file == $PROGRAM_NAME
   end
 
-  # start the server if ruby file executed directly
-  run! if app_file == $PROGRAM_NAME
 end
