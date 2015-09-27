@@ -6,6 +6,8 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   include Helpers
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   enable :sessions
@@ -35,7 +37,24 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    @user = User.new
+    erb :'sessions/new'
+  end
 
+  post '/sessions/new' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+    end
+  end
+
+  delete '/sessions' do
+    flash.now[:notice] = ["goodbye!"]
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
