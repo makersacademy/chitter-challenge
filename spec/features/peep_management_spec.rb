@@ -19,7 +19,7 @@ feature 'Adding peeps' do
     log_in(user)
   end
 
-  scenario '' do
+  scenario 'user can post peeps' do
     visit '/'
     click_button 'New peep!'
     expect(current_path).to eq '/peeps/new'
@@ -28,6 +28,16 @@ feature 'Adding peeps' do
     click_button 'Post peep!'
     expect(current_path).to eq '/'
     expect(page).to have_content "My first peep"
+  end
+
+  scenario 'user must be logged in to post peeps' do
+    sign_out
+    visit '/peeps/new'
+    fill_in 'heading', with: 'Peep 1'
+    fill_in 'message', with: 'My first peep'
+    click_button 'Post peep!'
+    expect(page).to have_content "You need to sign in to peep!"
+    expect(page).not_to have_content "My first peep"
   end
 
 end
