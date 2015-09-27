@@ -6,10 +6,10 @@ feature 'Signing up as a user:' do
     expect(User.first.handle).to eq(user.handle)
   end
 
-  scenario 'I am signed in once I\'ve signed up' do
+  scenario 'I get confirmation that I\'ve signed in' do
     user = build :user
     sign_up_as(user)
-    expect(page).to have_content("You are signed in as #{name_handle(user)}")
+    expect(page).to have_content("You are logged in as #{name_handle(user)}")
   end
 
 end

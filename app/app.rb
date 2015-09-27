@@ -35,6 +35,18 @@ class ChitterApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/log-in' do
+    @topbox = :log_in
+    @peeps = Peep.all
+    erb :index
+  end
+
+  post '/log-in' do
+    user = User.first(handle: params[:handle])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 

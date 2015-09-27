@@ -1,14 +1,16 @@
 <div id='welcome'>
-
   <% if current_user%>
-  <form action='/signed-in' method='get'>
-    <p><%= "You are signed in as #{current_user.name} (@#{current_user.handle})" %>
-    <button type='submit'>Sign out</button></p>
+  <form action='/logged-in' method='get'>
+    <p><%= "You are logged in as #{name_handle(current_user)}" %>
+    <button type='submit'>Log out</button></p>
   </form>
   <% else %>
-    <form action='/sign-up' method='get'>
-      <p>Welcome to PeepShow. Sign up to start peeping:
-      <button type='submit'>Sign up</button></p>
+    <p>Welcome to PeepShow. Log in or sign up to start peeping.</p>
+    <form style='display:inline-block' action='/log-in' method='get'>
+      <button type='submit'>Log in</button>
+    </form>
+    <form style='display:inline-block' action='/sign-up' method='get'>
+      <button type='submit'>Sign up</button>
     </form>
   <% end %>
   <hr>

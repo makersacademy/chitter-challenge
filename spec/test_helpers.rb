@@ -16,4 +16,12 @@ module TestHelpers
     click_button 'Sign up'
   end
 
+  def log_in_as(user)
+    visit '/'
+    click_button 'Log in'
+    fill_in :handle, with: user.handle
+    fill_in :password, with: user.password
+    click_button 'Log in'
+  end
+
 end
