@@ -17,10 +17,15 @@ feature 'Creating peeps' do
     end
   end
 
-    scenario 'cant post peep if not signed in' do
-      visit '/peeps'
-      click_button 'New peep'
-      expect(page).to have_content('You must sign in to peep')
-    end
+  scenario 'time when created is displayed' do
+    t = Timecop.freeze(Time.new)
+    time_created = "Written on #{t}"
+  end
+
+  scenario 'cant post peep if not signed in' do
+    visit '/peeps'
+    click_button 'New peep'
+    expect(page).to have_content('You must sign in to peep')
+  end
 
 end
