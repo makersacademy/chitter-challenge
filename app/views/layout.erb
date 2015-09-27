@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter</title>
-  </head>
+  <div style="font-family:'Georgia'">
+    <body bgcolor="#FF9999">
+    <head>
+      <title>Chitter</title>
+    </head>
 
-  <body>
-    <h1>Chitter</h1>
+    <body>
+      <h1>Chitter</h1>
 
-    <% if current_user %>
-      Welcome, <%= current_user.username %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
+      <% if current_user %>
+        Welcome, <%= current_user.username %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      <% end %>
+      <%= yield %>
+    </body>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+      <%= flash[:notice] %></div>
     <% end %>
-    <%= yield %>
-  </body>
 
-  <% if flash[:notice] %>
-    <div id='notice'>
-    <%= flash[:notice] %></div>
-  <% end %>
-
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to these errors:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-  <% end %>
-
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to these errors:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+    <% end %>
+  </div>
 </html>

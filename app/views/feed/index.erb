@@ -16,4 +16,11 @@
   <form action = '/feed/new'>
     <input type='submit' value='Write peep'>
   </form>
+<% else %>
+  <form action = '/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
+  <form action = '/users/new'>
+    <input type='submit' value='Register'>
+  </form>
 <% end %>
