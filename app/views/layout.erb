@@ -20,7 +20,11 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user != nil %>
             <li><a>Welcome, <%= current_user.email %></a></li>
-            <li><a href="/sessions">Sign Out</a></li>
+            <li><a rel="nofollow" data-method="delete" href="/sessions">Sign Out</a></li>
+            <li><form action='/sessions' method='post'>
+              <input name='_method' type='hidden' value='delete'>
+              <input type='submit' value='Sign out'>
+            </form></li>
             <% end %>
             <% if current_user == nil %>
             <li><a href="/sessions/new">Sign In</a></li>

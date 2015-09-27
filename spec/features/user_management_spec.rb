@@ -4,7 +4,6 @@ feature 'User sign up' do
   scenario 'I can sign up as a new user' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, foo@bar.com')
     expect(User.first.email).to eq('foo@bar.com')
   end
 
@@ -34,12 +33,13 @@ feature 'User sign up' do
     expect { sign_up(user2) }.to change(User, :count).by(0)
     expect(page).to have_content('Username is already taken')
   end
+end
 
   feature 'User sign in' do
     scenario 'with correct credentials' do
       user = build :user
       sign_up(user)
-      expect(page).to have_content "Welcome, #{user.email}"
+      expect(page).to have_content "Sign out"
     end
   end
 
@@ -58,4 +58,3 @@ feature 'User sign up' do
       expect(page).not_to have_content('Welcome, test@test.com')
     end
   end
-end
