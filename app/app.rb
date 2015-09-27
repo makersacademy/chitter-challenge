@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'sinatra/partial'
 
 require_relative 'app_helpers'
@@ -6,10 +7,11 @@ require_relative 'data_mapper_setup'
 
 class ChitterApp < Sinatra::Base
 
-  register Sinatra::Partial
-  set :partial_template_engine, :erb
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
   helpers ChitterHelpers
 
   get '/' do
@@ -43,9 +45,14 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/log-in' do
-    user = User.first(handle: params[:handle])
-    session[:user_id] = user.id
-    redirect '/'
+    user = User.authenticate(params[:handle], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash[:errors] = ['The handle or password is incorrect. Please try again.']
+      redirect '/log-in'
+    end
   end
 
   post '/log-out' do

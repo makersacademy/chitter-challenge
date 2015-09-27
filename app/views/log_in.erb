@@ -1,7 +1,13 @@
 <div id='log-in'>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <% flash[:errors].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
+
   <form action='/log-in' method='post'>
     <p>Please enter your handle and password:<p>
-    <p>Handle: <input name='handle' maxlength='15' style='font-family:monospace'></p>
+    <p>Handle: @<input name='handle' maxlength='15' style='font-family:monospace' required></p>
     <p>Password: <input name='password' type='password' style='font-family:monospace'></p>
     <button type='submit'>Log in</button></p>
   </form>
