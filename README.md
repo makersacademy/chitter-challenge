@@ -13,8 +13,10 @@ Anyone can view the peeps but you have to be logged in to peep yourself. Peeps
 are displayed in reverse chronological order with a timestamp and the peeper's
 name and handle.
 
+If you're logged in you can click on a 'reply' link to next to peeps. This just
+sticks @whoever in the peep box and returns the focus there. I used a tiny bit
+of JavaScript to get this working. (I realise this is probably cheating.)
+
 The database comprises two tables, peeps and users, with a many-to-one relation
 from the former to the latter. The pages are served up in two halves, a top box
 that varies depending on the router logic, and list of all peeps below it.
-
-Next on the to-do list is implementing a reply function.

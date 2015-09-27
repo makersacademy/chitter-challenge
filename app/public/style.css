@@ -26,7 +26,6 @@ p.details{
   margin-bottom: 25px;
 }
 
-
 input, textarea{
   font: 20px 'Courier', monospace;
   display: inline-block;
@@ -51,4 +50,13 @@ button:active {
 button:pressed {
 	background-color: #dddddd;
 	border: 1px solid #aaaaaa;
+}
+
+a{
+	color: #888888;
+	text-decoration: none;
+}
+a:hover{
+	color: #222222;
+	text-decoration: underline;
 }
