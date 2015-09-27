@@ -24,22 +24,18 @@ feature 'Creating Peeps' do
     user = create :user
     peep = create :peep
     sign_in_as(user)
-    visit '/peeps/new'
-    fill_in 'message', with: 'This is a new peep!'
-    click_button 'Peep'
-    visit('/peeps')
-    expect(page).to have_content('Peeped by pip at Sun, 27 Sep 2015 14:19:10.000000000 +0100')
+    peep_now(peep)
+    visit('/')
+    expect(page).to have_content('Peeped by pip')
   end
 
   scenario 'I would like my peep to be dated' do
     user = create :user
-    peep = create :peep
-    peep.created_at = '2015-09-26 20:08:30'
+    peep = build :peep
     sign_in_as(user)
-    p peep
     peep_now(peep)
-    peep = Peep.first
-    expect(peep.created_at).to eq('Sun, 27 Sep 2015 20:08:30.000000000 +0100')
+    visit('/')
+    expect(page).to have_content('Created at')
   end
 
 end
