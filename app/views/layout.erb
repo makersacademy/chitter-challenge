@@ -7,7 +7,7 @@
   <body>
 
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.username %>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
@@ -17,7 +17,7 @@
         <li><%= error %></li>
         <% end %>
       </ul>
-    <% end %> 
+    <% end %>
 
     <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
