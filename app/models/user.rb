@@ -22,11 +22,9 @@ class User
   end
 
   def self.login(username, password)
-    user = User.first(username: username)
+    user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
 

@@ -9,7 +9,7 @@ module SessionUser
     click_button "Sign up"
   end
 
-  def sign_in(email:, password:)
+  def sign_in(user:, password:)
     visit '/'
     fill_in :user,     with: 'james_bond'
     fill_in :login_password, with: 'agent007'
