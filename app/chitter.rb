@@ -27,33 +27,34 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users' do
-    @user = User.new( email: params[:email],
+  post '/users/new' do
+    User.all
+    @user = User.new( email: params[:sign_up_email],
                       real_name: params[:real_name],
                       user_name: params[:user_name],
-                      password: params[:password],
+                      password: params[:sign_up_password],
                       password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/chits'
     else
-      flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
+      flash[:errors] = @user.errors.full_messages
+      redirect '/chits'
     end
   end
 
   get '/sessions/new' do
-    erb :'/chits'
+    redirect '/chits'
   end
 
   post '/sessions/new' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/chits')
+      redirect '/chits'
     else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
+      flash.next[:errors] = ['The email or password is incorrect']
+      redirect '/chits'
     end
   end
 

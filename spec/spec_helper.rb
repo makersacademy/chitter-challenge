@@ -8,7 +8,6 @@ require 'rspec'
 require 'rubocop'
 require 'simplecov'
 require 'timecop'
-
 require 'factories/chit_factory'
 require 'factories/user_factory'
 require 'helpers/chit_helpers'
