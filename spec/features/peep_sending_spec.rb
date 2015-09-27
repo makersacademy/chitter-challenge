@@ -8,7 +8,7 @@ feature 'Sending peeps:' do
   scenario 'I can log in and send a peep' do
     user = create :user
     log_in_as(user)
-    peep = build :peep
+    peep = build :peep, user: user
     send_a_peep(peep)
     within 'div#peep_show' do
       expect(page).to have_content(peep.message)
@@ -18,7 +18,7 @@ feature 'Sending peeps:' do
   scenario 'Peeps I send are tagged as mine' do
     user = create :user
     log_in_as(user)
-    peep = build :peep
+    peep = build :peep, user: user
     send_a_peep(peep)
     within 'div#peep_show' do
       expect(page).to have_content(user.handle)

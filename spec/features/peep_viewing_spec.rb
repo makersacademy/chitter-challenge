@@ -28,7 +28,8 @@ feature 'Viewing peeps:' do
   scenario 'The peeps are displayed in reverse chronological order' do
     peep1 = build :peep, message: 'early bird'
     peep1.save
-    peep2 = Peep.new(user: peep1.user, message: 'late worm')
+    # peep2 = Peep.new(user: peep1.user, message: 'late worm')
+    peep2 = build :peep, user: peep1.user, message: 'late worm'
     peep2.created_at = (peep1.created_at.to_time + 60).to_datetime
     peep2.save
     visit '/'
