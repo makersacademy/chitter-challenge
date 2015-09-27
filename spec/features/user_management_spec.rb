@@ -1,40 +1,42 @@
 feature 'User sign up' do
 
+  before do
+    @user = build(:user)
+  end
+
   scenario 'I can sign up as a new user' do
-    expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, alice@example.com')
+    expect { sign_up(@user) }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, alicesmith')
     expect(User.first.email).to eq('alice@example.com')
   end
 
   scenario 'with a password that does not match' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    user = build(:user, password_confirmation: 'wrong')
+    expect { sign_up(user)}.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario 'Cannot sign up without an email' do
-    expect { sign_up(email: "") }.to_not change(User, :count)
+    user = build(:user, email: "")
+    expect { sign_up(user) }.to_not change(User, :count)
     expect(current_path).to eq('/users')
+    expect(page).to have_content "Email must not be blank"
   end
 
-  scenario 'Cannot sign up with the same email twice' do
-    sign_up
-    expect { sign_up(email: "") }.to_not change(User, :count)
+  scenario 'Cannot sign up with the same email' do
+    user = build(:user, username: "alice")
+    sign_up(@user)
+    expect { sign_up(user) }.to change(User, :count).by(0)
     expect(current_path).to eq('/users')
+    expect(page).to have_content('Email is already taken')
   end
 
-  def sign_up(name: 'Alice Smith',
-              username: 'alicesmith',
-              email: 'alice@example.com',
-              password: 'oranges!',
-              password_confirmation: 'oranges!')
-    visit '/users/new'
-    expect(page.status_code).to eq(200)
-    fill_in :name, with: name
-    fill_in :username, with: username
-    fill_in :email,    with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
+  scenario 'Cannot sign up with the same username' do
+    user = build(:user, email: "alicesmith@example.com")
+    sign_up(@user)
+    expect {sign_up(user)}.to change(User, :count).by(0)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Username is already taken')
   end
 end
