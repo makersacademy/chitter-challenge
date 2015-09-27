@@ -7,6 +7,10 @@ class Peep
 
   property :id,           Serial
   property :content,      Text
-  property :time_created, DateTime
+  property :time,         DateTime
+  property :name,         String
+  property :username,     String
+
+  has 1, :user, through: Resource
 
 end

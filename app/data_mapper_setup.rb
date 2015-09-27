@@ -2,6 +2,8 @@ require 'data_mapper'
 require 'dm-validations'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'dm-timestamps'
+
 # require all models here  e.g require './app/models/etc'
 require './app/models/user'
 require './app/models/peep'

@@ -19,6 +19,8 @@ class User
     message: 'Password and confirmation password do not match'
   validates_uniqueness_of :email, :username
 
+  has n, :peeps, through: Resource
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

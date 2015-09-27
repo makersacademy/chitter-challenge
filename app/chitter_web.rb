@@ -31,7 +31,9 @@ class Chitter < Sinatra::Base
                    password:   params[:password],
                    password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:user_id] = @user.id
+      session[:user_id]  = @user.id
+      session[:username] = params[:username]
+      session[:name]     = params[:name]
       redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -66,11 +68,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    t = Time.new
-    Peep.create(content: params[:content],
-                time_created: "Written on #{t}"
+    peep = Peep.new(content: params[:content],
+                username: session[:username],
+                name: session[:name],
+                time: Time.now
                 )
-    # p current_user.name
+    p params[:name]
+    peep.save
     redirect '/peeps'
   end
 

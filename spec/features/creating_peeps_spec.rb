@@ -19,7 +19,7 @@ feature 'Creating peeps' do
 
   scenario 'time when created is displayed' do
     t = Timecop.freeze(Time.new)
-    time_created = "Written on #{t}"
+    time = "Written on #{t}"
   end
 
   scenario 'cant post peep if not signed in' do

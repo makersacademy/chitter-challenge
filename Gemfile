@@ -20,4 +20,5 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'timecop'
+  gem 'dm-timestamps'
 end

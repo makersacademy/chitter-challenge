@@ -188,6 +188,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   dm-validations
   factory_girl
   launchy
