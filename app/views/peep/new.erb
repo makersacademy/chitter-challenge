@@ -1,0 +1,9 @@
+<h1>Peep</h1>
+
+<% if current_user %>
+  <form action="/peep" method="post">
+  <textarea name="content" rows=5 cols=20 placeholder="Peep here.....">
+  </textarea>
+  <input type="submit" value="Post">
+  </form>
+<% end %>
