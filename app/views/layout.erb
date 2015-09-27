@@ -4,13 +4,10 @@
       <title>Bookmark Manager</title>
     </head>
     <body>
-      <form action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
-      </form>
       <% if flash[:notice] %>
         <%= flash[:notice] %>
       <% end %>
+      <%= flash[:welcome] %>
       <% if flash[:errors] %>
         <ul>
           <% flash[:errors].each do |error| %>
@@ -19,7 +16,10 @@
         </ul>
       <% end %>
       <% if current_user %>
-        Welcome, <%= current_user.name %><%= current_user.nickname %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+        </form>
       <% end %>
       <%= yield %>
     </body>

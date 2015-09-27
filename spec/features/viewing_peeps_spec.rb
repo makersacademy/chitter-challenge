@@ -7,7 +7,7 @@ feature 'Viewing peeps' do
     visit "/users/#{user.id}/peeps"
 
     expect(page.status_code).to eq 200
-    within('ul#peeps') do
+    within('table#peeps') do
       expect(page).to have_content("TGI Friday!")
     end
   end

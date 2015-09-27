@@ -49,8 +49,9 @@ class App < Sinatra::Base
                     password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
+      flash[:welcome] = "Welcome, #{user.name}"
       flash[:notice] = "Successfully signed up"
-      redirect to '/users/:id/peeps'
+      redirect to "/users/#{user.id}/peeps"
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'/users/new'
@@ -66,6 +67,7 @@ class App < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
+      flash[:welcome] = "Welcome back, #{user.name}"
       redirect to "/users/#{user.id}/peeps"
     else
       flash.now[:notice] = 'Email or password is invalid'

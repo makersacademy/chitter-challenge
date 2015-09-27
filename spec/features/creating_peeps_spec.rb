@@ -3,7 +3,7 @@ feature 'Creating peeps' do
   scenario 'User can create peeps' do
     sign_in(user)
     create_peep(user)
-    within('ul#peeps') do
+    within('table#peeps') do
       expect(page).to have_content 'Que sera sera'
     end
   end
@@ -11,8 +11,8 @@ feature 'Creating peeps' do
   scenario 'When creating peep, the time at which it was made is stored' do
     sign_in(user)
     create_peep(user)
-    within('ul#peeps') do
-      expect(page).to have_content("#{Time.now}")
+    within('table#peeps') do
+      expect(page).to have_content("#{(Time.now).strftime("%H:%M %b %d %Y")}")
     end
   end
 

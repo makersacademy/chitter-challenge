@@ -3,7 +3,6 @@ feature 'Sign in & Sign out' do
     user = create(:user)
     sign_in(user)
     expect(page).to have_content(user.name)
-    expect(page).to have_content(user.nickname)
   end
 
   scenario 'User cannot sign in with invalid password' do

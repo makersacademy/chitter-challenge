@@ -1,13 +1,13 @@
 <h1>Peeps</h1>
-<ul id="peeps">
+<table id="peeps">
   <% @peeps.reverse.each do |peep| %>
-    <li>
-      <%= peep.content %>
-      <%= peep.created_at %>
-      <!-- <%= current_user.name if current_user%>
-      <%= current_user.nickname if current_user%> -->
-    </li>
+    <tr>
+      <td><%= peep.content %></td>
+      <td><%= peep.user.name %></td>
+      <td><%= peep.created_at.strftime("%H:%M %b %d %Y") %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+
 <!-- fix the path below -->
 <a href="/users/:id/peeps/new">Create new peep</a>
