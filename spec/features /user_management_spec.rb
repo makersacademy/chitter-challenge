@@ -31,7 +31,7 @@ feature 'User sign up' do
 
   def sign_up(user)
   visit '/users/new'
-  expect(page.status_code).to eq 200
+  # expect(page.status_code).to eq 200
   fill_in :email, with: user.email
   fill_in :username, with: user.username
   fill_in :password, with: user.password
@@ -63,14 +63,14 @@ end
 
 feature 'User signs out' do
 
+  let(:user){build(:user)}
+
   before(:each) do
-    User.create(username: 'test17',
-                password: 'test',
-                password_confirmation: 'test')
+    sign_up(user)
+    sign_in(user)
   end
 
   scenario 'while being signed in' do
-    sign_in(username: 'test17', password: 'test')
     click_button 'Sign out'
     expect(page).to have_content('goodbye!')
     expect(page).not_to have_content("Welcome, test17")

@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
   set :views, proc {File.join(root,'..','/app/views')}
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
 
   helpers do
@@ -61,6 +62,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ["The username or password is incorrect"]
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash[:notice] = "goodbye!" #flash.now does not allow the redirect to happen.
+    redirect '/peeps'
   end
 
 
