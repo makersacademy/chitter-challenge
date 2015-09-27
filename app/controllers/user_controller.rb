@@ -37,6 +37,16 @@ module ChitterApp
         redirect '/'
       end
 
+      delete '/users/sign_out' do
+        session[:user_id] = nil
+        flash[:sign_out] = 'Goodbye!'
+        redirect '/'
+      end
+
+      get '/users/sign_out' do
+        redirect '/'
+      end
+
     end
   end
 end

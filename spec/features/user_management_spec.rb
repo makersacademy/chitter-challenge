@@ -103,3 +103,15 @@ feature 'User sign in' do
   end
 
 end
+
+feature 'User sign out' do
+
+  scenario 'I can sign out if I am signed in' do
+    user = create :user
+    sign_in(user)
+    click_button 'Sign out'
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content('Welcome to Chitter, Joe Zhou @joema!')
+  end
+
+end
