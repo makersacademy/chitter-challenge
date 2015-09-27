@@ -51,4 +51,4 @@ To run this:
 ------
 
 * Create your local databases
-* Run the program your local host or config your environment URL and push up to your app hosting platform
+* Run the program from your local host or config your environment URL and push up to your app hosting platform
