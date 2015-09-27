@@ -5,6 +5,8 @@ require_relative 'helpers'
 
 class ChitterApp < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Partial
   set :partial_template_engine, :erb
   helpers Helpers
@@ -27,7 +29,10 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/sign-up' do
-    
+    user = User.create(name: params[:name], email: params[:email],
+      password: params[:password], handle: params[:handle])
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
