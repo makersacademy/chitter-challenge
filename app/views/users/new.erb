@@ -7,9 +7,9 @@
     <% end %>
   </ul>
 <% end %>
+<br>
 
-
-Please sign up
+Please sign up<br>
 
 <form action='/users' method='post'>
   <input name='email' type='text' placeholder='email'>
@@ -17,4 +17,11 @@ Please sign up
   <input name='name' type='text' placeholder='name'>
   <input name='user_name' type='text' placeholder='user name'>
   <input type='submit' value='Sign up'>
+</form>
+
+<br>
+Or sign in <br>
+
+<form action='/sessions/new'>
+  <input type='submit' value='Sign in'>
 </form>
