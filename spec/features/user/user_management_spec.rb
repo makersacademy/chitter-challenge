@@ -58,4 +58,9 @@ feature 'When signing up' do
     expect(page).to have_content 'Username is already taken'
   end
 
+  scenario 'usernames must be larger then 8 characters' do
+    sign_up(build(:user, username: "blah"))
+    expect(page).to have_content 'Username must be at least 8 characters long'
+  end
+
 end

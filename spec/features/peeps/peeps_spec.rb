@@ -1,6 +1,6 @@
 feature 'creating new peeps' do
   
-  scenario 'user can post a new peep' do
+  scenario 'users can post peeps' do
     user = build(:user)
     sign_up(user)
     sign_in(user)
@@ -10,7 +10,7 @@ feature 'creating new peeps' do
     expect(page).to have_content 'sup peeps!'
   end
 
-  scenario 'non registered user cannot post peeps' do
+  scenario 'unregistered users cannot post peeps' do
     visit('/')
     click_button 'fresh peep'
     expect(page).to have_content 'sign in or register to get peeping!'

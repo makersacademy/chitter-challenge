@@ -11,7 +11,7 @@
   <tbody>
   <% @peeps.reverse_each do |peep| %>
     <tr>
-      <td><%= peep.timestamp  %></td>
+      <td><%= peep.timestamp.strftime("%A %d at %H%M:")  %></td>
       <td><%= peep.peeper %></td>
       <td><%= peep.body %> </td>
     </tr>

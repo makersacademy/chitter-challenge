@@ -13,6 +13,7 @@ include DataMapper::Resource
   validates_uniqueness_of :email
   validates_uniqueness_of :username
   validates_presence_of :password
+  validates_length_of :username, min: 8
 
   property :user_id, Serial
   property :username, Text, required: true
