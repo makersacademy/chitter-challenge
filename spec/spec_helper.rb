@@ -19,7 +19,7 @@ require './app/models/peep'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
-Capybara.app = ChitterChallenge
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
