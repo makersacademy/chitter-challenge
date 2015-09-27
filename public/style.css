@@ -1,0 +1,23 @@
+* {
+  font-family: Arial;
+}
+
+.top_nav {
+  width: 200%;
+  height: 60px;
+  position: fixed;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -30px;
+  background-color: #c6e2ff;
+}
+
+.tn_buttons {
+  margin-left: 10px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.main_body {
+  margin-left: 20px;
+}

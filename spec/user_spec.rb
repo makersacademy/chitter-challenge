@@ -20,10 +20,5 @@ Timecop.freeze(Time.now)
       user.password_token
       expect(user.password_token_timestamp).to eq Time.now
     end
-
-
   end
-
-
-
 end

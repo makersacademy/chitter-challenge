@@ -5,7 +5,7 @@ class Peep
   property :peep_id,   Serial
   property :body,      String
   property :timestamp, Text
-  property :peeper, Text
+  property :peeper,    Text
 
   has n, :users, through: Resource
 

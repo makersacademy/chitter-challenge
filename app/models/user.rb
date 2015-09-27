@@ -14,7 +14,6 @@ include DataMapper::Resource
   validates_uniqueness_of :username
   validates_presence_of :password
 
-# writes to the database -------------
   property :user_id, Serial
   property :username, Text, required: true
   property :email, String, required: true

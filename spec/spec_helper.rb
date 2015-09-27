@@ -1,5 +1,5 @@
-require 'data_mapper'
 ENV['RACK_ENV'] = 'test'
+require 'data_mapper'
 
 require_relative 'helpers/session'
 
