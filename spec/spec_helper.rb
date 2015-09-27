@@ -12,10 +12,13 @@ require_relative '../app/app'
 require 'database_cleaner'
 require 'factory_girl'
 require_relative 'factories/user'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.include FactoryGirl::Syntax::Methods
 
