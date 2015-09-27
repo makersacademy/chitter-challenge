@@ -60,3 +60,20 @@ feature 'User sign in' do
   end
 
 end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(username: 'test17',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
+  scenario 'while being signed in' do
+    sign_in(username: 'test17', password: 'test')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content("Welcome, test17")
+  end
+
+end

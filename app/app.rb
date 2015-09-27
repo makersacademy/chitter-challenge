@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
   Peep.create(message: params[:message])
   redirect '/peeps'
-end
+  end
 
   get '/users/new' do
     @user = User.new

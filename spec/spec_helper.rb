@@ -7,6 +7,7 @@ require './app/app'
 require 'database_cleaner'
 require 'factory_girl'
 require './spec/factories/user'
+require_relative 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -19,6 +20,7 @@ Capybara.app = Chitter
   RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
+  config.include SessionHelpers 
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
