@@ -16,7 +16,7 @@ set :session_secret, 'super secret'
 
   get '/user/new' do
     @user = User.new
-    erb :'user/new', :layout => false
+    erb :'user/new', layout: false
   end
 
   post '/user' do
@@ -52,11 +52,11 @@ set :session_secret, 'super secret'
     redirect('/peep')
   end
 
-  get'/sessions/new' do
-    erb :'sessions/new', :layout => false
+  get '/sessions/new' do
+    erb :'sessions/new', layout: false
   end
 
-  post'/sessions' do
+  post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
