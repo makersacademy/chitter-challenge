@@ -29,8 +29,6 @@ class User
   user = first(handle: handle)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
 

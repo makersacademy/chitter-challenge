@@ -21,12 +21,12 @@ feature 'Viewing peeps' do
   end
 
   scenario 'I can filter peeps by tag' do
-  visit '/tags/happy'
-  within 'ul#peeps' do
-    expect(page).not_to have_content('goodbye')
-    expect(page).not_to have_content('frown')
-    expect(page).to have_content('hello')
-    expect(page).to have_content('smile')
+    visit '/tags/happy'
+    within 'ul#peeps' do
+      expect(page).not_to have_content('goodbye')
+      expect(page).not_to have_content('frown')
+      expect(page).to have_content('hello')
+      expect(page).to have_content('smile')
+    end
   end
-end
 end
