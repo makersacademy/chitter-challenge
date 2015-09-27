@@ -11,18 +11,14 @@ class User
 
   property :id,       Serial
   property :name,     String
-  property :username, String, unique: true, required: true
-  property :email,    String, unique: true, required: true
+  property :username, String, required: true
+  property :email,    String, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password,
     message: 'Password and confirmation password do not match'
+  validates_uniqueness_of :email, :username
 
-  validates_uniqueness_of :email,
-    message: "Email is already taken"
-
-  validates_uniqueness_of :email,
-    message: "Username is already taken"
 
   def password=(password)
     @password = password

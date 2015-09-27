@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Signing up' do
 
   scenario 'can sign up a new user' do
+    visit '/'
     user = build(:user)
     expect { sign_up user }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome to Chitter!')
@@ -28,18 +29,17 @@ feature 'Signing up' do
   end
 
   scenario 'I cannot sign up with an existing email' do
-    user = build(:user)
+    user = create(:user)
     sign_up user
     diff_user = build(:user, email: 'alice@example.com')
-    expect { sign_up user }.not_to change(User, :count)
+    expect { sign_up user }.to change(User, :count).by(0)
     expect(page).to have_content('Email is already taken')
   end
 
   scenario 'I cannot sign up with an existing username' do
-    user = build(:user)
-    sign_up user
-    diff_user = build(:user, username: 'alice123')
-    expect { sign_up user }.not_to change(User, :count)
+    user = create(:user)
+    diff_user = create(:user, username: 'alice123')
+    expect { sign_up user }.to change(User, :count).by(0)
     expect(page).to have_content('Username is already taken')
   end
 

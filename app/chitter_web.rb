@@ -16,7 +16,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    if current_user
+      redirect '/peeps'
+    else
       erb :index
+    end
   end
 
   get '/users/new' do
@@ -57,7 +61,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash[:logged_out] = "Goodbye"
-    redirect '/'
+    redirect '/peeps'
   end
 
   get '/peeps' do

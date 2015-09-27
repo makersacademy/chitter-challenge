@@ -10,8 +10,12 @@ describe User do
 
     it 'does not authenticates when given wrong password' do
       user = create(:user)
-      authenticated_user = User.authenticate(user.email, 'wrong')
-      expect(authenticated_user).to be_nil
+      expect(User.authenticate(user.email, 'wrong')).to be_nil
+    end
+
+    it 'does not authenticates when given wrong email' do
+      user = create(:user)
+      expect(User.authenticate('wrong', user.password)).to be_nil
     end
 
   end
