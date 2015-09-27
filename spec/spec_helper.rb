@@ -1,5 +1,11 @@
 require 'coveralls'
 require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter ]
+Coveralls.wear!
+
 require 'capybara/rspec'
 require_relative '../app/data_mapper_setup'
 require_relative '../app/app'
@@ -27,9 +33,3 @@ RSpec.configure do |config|
   end
 
 end
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!

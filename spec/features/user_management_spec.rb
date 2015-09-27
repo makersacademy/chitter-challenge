@@ -44,3 +44,25 @@ feature 'User sign up' do
   end
 
 end
+
+feature 'User sign in' do
+
+  def sign_in(handle:, password:)
+    visit 'sessions/new'
+    fill_in :handle, with: user.handle
+    fill_in :password, with: user.password
+    click_button 'Sign In'
+  end
+
+  let(:user){ create :user }
+
+  scenario 'with correct credentials' do
+    sign_in(handle: user.handle, password: user.password)
+    expect(page).to have_content "Welcome, #{user.handle}"
+  end
+
+  it 'does not authenticate when given an incorrect password' do
+    expect(User.authenticate(user.handle, 'wrong_stupid_password')).to be_nil
+  end
+
+end
