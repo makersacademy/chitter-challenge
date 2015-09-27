@@ -8,5 +8,6 @@ begin
   Cucumber::Rake::Task.new :cuke
 
   task default: [:cop, :spec, :cuke]
+  
 rescue LoadError
 end
