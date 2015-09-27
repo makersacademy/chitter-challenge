@@ -6,6 +6,22 @@
 
   <body>
 
+    <div id='notice' >
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
+    <div id='error' >
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <p>
     <div>
       <% if current_user %>
         <h1>Welcome to Chitter, <%= current_user.username %>!</h1>
@@ -25,21 +41,6 @@
             <input type='submit' value='Sign up'>
           </form>
         </div>
-      <% end %>
-    </div>
-    <div id='notice' >
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
-    </div>
-    <div id='error' >
-      <% if flash[:errors] && !flash[:errors].empty? %>
-        Please refer to the following errors:
-        <ul id='errors'>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
       <% end %>
     </div>
 
