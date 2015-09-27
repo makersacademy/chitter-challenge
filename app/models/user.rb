@@ -14,6 +14,7 @@ include DataMapper::Resource
   validates_uniqueness_of :username
   validates_presence_of :password
   validates_length_of :username, min: 8
+  validates_length_of :password, min: 8
   validates_format_of :email, as: :email_address
 
   property :user_id, Serial

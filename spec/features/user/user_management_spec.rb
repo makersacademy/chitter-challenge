@@ -68,4 +68,9 @@ feature 'When signing up' do
     expect(page).to have_content 'Email has an invalid format'
   end
 
+  scenario 'passwords must be at least 8 characters in length' do
+    sign_up(build(:user, password: "bleh", password_confirmation: "bleh"))
+    expect(page).to have_content 'Password must be at least 8 characters long'
+  end
+
 end
