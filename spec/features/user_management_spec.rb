@@ -48,6 +48,13 @@ feature 'User sign in' do
     expect(User.authenticate(user.handle, 'wrong_stupid_password')).to be_nil
   end
 
+  it 'with incorrect credentials' do
+    visit '/sessions/new'
+    fill_in 'handle',   with: 'chweeks'
+    fill_in 'password',  with: 'wrong'
+    expect(current_path).to eq '/sessions/new'
+  end
+
 end
 
 feature 'User signs out' do
