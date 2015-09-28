@@ -7,7 +7,7 @@
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
     <li>
-      Posted on <%= peep.posted %> by <%= peep.user %>:
+      Posted on <%= peep.posted %> by <%= peep.user.username %>:
       <%= peep.message %>
     </li>
   <% end %>

@@ -1,10 +1,14 @@
 feature 'Viewing peeps' do
 
   scenario 'I can see existing peeps on the index page' do
-    Peep.create(message: 'Hello, This is my first peep.')
-
+    user = build :user
+    sign_up(user)
+    click_button 'Peep'
+    fill_in 'message', with: 'today is saturday'
+    click_button 'Post peep'
     visit '/'
-      expect(page).to have_content('Hello')
+    # save_and_open_page
+    expect(page).to have_content('today is saturday')
   end
 
   scenario 'Peeps display the username of poster' do
@@ -39,9 +43,10 @@ end
 
 feature 'Filtering peeps' do
   before(:each) do
-    Peep.create(message: 'http://www.makersacademy.com',
+    user = create :user
+    user.peeps.create(message: 'http://www.makersacademy.com',
                 tags: [Tag.first_or_create(name: 'education')])
-    Peep.create(message: 'hello how are you',
+    user.peeps.create(message: 'hello how are you',
                 tags: [Tag.first_or_create(name: 'education')])
   end
 

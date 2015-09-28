@@ -23,7 +23,7 @@
             <li><a rel="nofollow" data-method="delete" href="/sessions">Sign Out</a></li>
             <li><form action='/sessions' method='post'>
               <input name='_method' type='hidden' value='delete'>
-              <input type='submit' value='Sign out'>
+              <input id="sign_out" type='submit' value='Sign out'>
             </form></li>
             <% end %>
             <% if current_user == nil %>
