@@ -4,7 +4,7 @@ FactoryGirl.define do
 # named ":user" is "User"
   factory :user do
     email                 'roy@reynholm.co.uk'
-    password              'isecretlylovejen'
+    password              'p@ssw0rd'
   end
 
 end

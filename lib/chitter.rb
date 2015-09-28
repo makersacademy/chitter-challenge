@@ -4,6 +4,8 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
+  include CurrentUser
+
   enable :sessions
 
   set :views, proc { File.join(root, 'views') }
@@ -34,6 +36,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
+    p user
     if user
       session[:user_id] = user.id
       redirect '/peeps'

@@ -3,6 +3,7 @@ require 'dm-validations'
 
 require './lib/models/user.rb'
 require './lib/helpers/session_user'
+require './lib/helpers/current_user'
 
 env = ENV['RACK_ENV'] || 'development'
 

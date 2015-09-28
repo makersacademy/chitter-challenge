@@ -20,7 +20,7 @@ feature 'User sign in' do
 
   scenario 'with correct credentials' do
     user = create(:user)
-    sign_in(user)
+    sign_in(user.email, 'p@ssw0rd')
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
@@ -28,12 +28,12 @@ end
 
 feature 'User signs out' do
 
-  xscenario 'while being signed in' do
+  scenario 'while being signed in' do
     user = create(:user)
-    sign_in(user)
+    sign_in(user.email, 'p@ssw0rd')
     click_button 'Sign out'
     expect(page).to have_content('Goodbye!')
-    expect(page).not_to have_content('Welcome, alice@example.com')
+    expect(page).not_to have_content('Welcome, roy@reynholm.co.uk')
   end
 
 end
