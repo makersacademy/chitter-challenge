@@ -3,7 +3,8 @@
   <% @peeps.each do |peep| %>
     <li><h6><%= peep.heading %></h6>
       <%= peep.message %><br>
-      Added by <%= peep.user.username %>
+      Posted by <%= peep.user.username %><br>
+      <%= peep.created_at.strftime("%H:%M %d/%m/%Y") %>
     </li>
   <% end %>
   </ul>

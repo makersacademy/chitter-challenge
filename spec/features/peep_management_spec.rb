@@ -49,7 +49,14 @@ feature 'Adding peeps' do
   scenario 'peeps have the username of the user that added them' do
     click_button 'New peep!'
     post_peep
-    expect(page).to have_content "Added by #{user.username}"
+    expect(page).to have_content "Posted by #{user.username}"
+  end
+
+  scenario 'peeps have the time they were posted' do
+    Timecop.freeze(Time.local(2015,9,27,13,30,00))
+    click_button 'New peep!'
+    post_peep
+    expect(page).to have_content "13:30 27/09/2015"
   end
 
 end

@@ -12,6 +12,7 @@ require 'factory_girl'
 require 'rspec'
 require 'simplecov'
 require 'support/helpers'
+require 'timecop'
 
 
 #Require FactoryGirl factories
