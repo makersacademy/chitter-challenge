@@ -104,7 +104,7 @@ class App < Sinatra::Base
     if user.save
       flash[:notice] = 'Password is successfully reset'
       session[:user_id] = user.id
-      redirect 'users/:id/peeps'
+      redirect "users/#{user.id}/peeps"
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/password_reset'
