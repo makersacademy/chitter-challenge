@@ -1,4 +1,5 @@
 require './app/data_mapper_setup'
+require './app/app_helpers'
 require 'securerandom'
 require 'sinatra/base'
 require 'sinatra/partial'
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   use Rack::MethodOverride
+  include Helpers
 
   get '/' do
     redirect '/chits'
@@ -62,35 +64,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     redirect '/chits'
   end
-
-  helpers do
-
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-
-    def authenticate_user
-      User.authenticate(  params[:email],
-                          params[:password] )
-    end
-
-    def new_chit
-      Chit.new(  time: Time.now,
-                        text: params[:chit],
-                        user_id: current_user.id)
-    end
-
-    def new_user
-      User.new( email: params[:sign_up_email],
-                        real_name: params[:real_name],
-                        user_name: params[:user_name],
-                        password: params[:sign_up_password],
-                        password_confirmation: params[:password_confirmation])
-    end
-
-
-  end
-
 
   run! if app_file == $PROGRAM_NAME
 end
