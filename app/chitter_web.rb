@@ -14,7 +14,7 @@ module ChitterApp
     use Routes::PeepController
     register Sinatra::Flash
     get '/' do
-      erb :'index'
+      erb :index
     end
   end
 end
