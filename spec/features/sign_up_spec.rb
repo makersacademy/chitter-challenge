@@ -40,15 +40,4 @@ feature 'Sign up' do
     sign_up(user)
     expect { sign_up(user) }.not_to change(User, :count)
   end
-
-
-  def sign_up(user)
-    visit '/users/new'
-    fill_in 'email', with: user.email
-    fill_in 'name', with: user.name
-    fill_in 'nickname', with: user.nickname
-    fill_in 'password', with: user.password
-    fill_in 'password_confirmation', with: user.password_confirmation
-    click_button 'Sign up'
-  end
 end

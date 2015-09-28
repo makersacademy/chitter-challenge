@@ -25,16 +25,3 @@ feature 'Creating peeps' do
     expect(page).to have_content 'Please sign in'
   end
 end
-
-def sign_in(user)
-  visit '/sessions/new'
-  fill_in 'email', with: user.email
-  fill_in 'password', with: user.password
-  click_button 'Sign in'
-end
-
-def create_peep(user)
-  visit "/users/#{user.id}/peeps/new"
-  fill_in 'content', with: 'Que sera sera'
-  click_button 'Chitter'
-end

@@ -7,6 +7,7 @@ feature 'Password reset' do
     fill_in 'email', with: user.email
     click_button 'Verify'
     expect(user.password_token).not_to be_nil
+    # expect(SendResetEmail).to receive(:call)
     expect(page).to have_content('Email sent. Please check your email')
   end
 
