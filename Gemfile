@@ -10,6 +10,7 @@ gem 'timecop'
 gem 'capybara'
 gem 'data_mapper'
 gem 'dm-validations'
+gem 'dm-postgres-adapter'
 
 group :test do
   gem 'factory_girl'
@@ -17,6 +18,5 @@ group :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'coveralls', require: false
-  gem 'dm-postgres-adapter'
   gem 'database_cleaner'
 end
