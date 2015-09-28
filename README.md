@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter challenge    		 ![](https://travis-ci.org/UsmanJ/chitter-challenge.svg?branch=master)
 =================
 
 
