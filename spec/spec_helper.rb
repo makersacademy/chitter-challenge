@@ -15,7 +15,7 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 
-Capybara.app = Chitter
+Capybara.app = Chitter::Application
 Coveralls.wear!
 
 
