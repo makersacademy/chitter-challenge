@@ -1,37 +1,17 @@
-<link rel="stylesheet" type="text/css" href="public/style.css" />
-
-  <% if current_user %>
-  <%= erb :'/partials/home_logo'%>
-    <div class="top_nav">
-      <div class="username_and_signout">
-        Welcome, <%= current_user.username %>
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input style="font-size: 40px" type='submit' value='Sign out'>
-        </form>  
-      </div>
-    </div>
-    <% end %>
+<%= erb :'/partials/style_sheet'%>
 
 <% if !current_user %>
-<%= erb :'/partials/home_logo'%>
-<div class="top_nav">
-<form class="tn_buttons" action="sessions/new">
-  <input style="font-size: 40px" type="submit" value="Sign in">
-</form>
-<form class="tn_buttons" style="margin-left: 0px;"action="sessions/sign_up">
-  <input style="font-size: 40px" type="submit" value="Sign up">
-</form>
+  <%= erb :'/partials/user_not_signed_in'%>
 <% end %>
 
+<% if current_user %>
+  <%= erb :'/partials/user_signed_in'%>
+<% end %>
 
-</div>
 <div class="main_body">
-<h1> Recent peeps: </h1>
-
-<form action="peeps/new">
-<input type="submit" value="fresh peep">
-</form>
-<%= erb :'/partials/peeps' %>
-</div>
+  <h1> Recent peeps: </h1>
+    <form action="peeps/new">
+      <input type="submit" value="fresh peep">
+    </form>
+  <%= erb :'/partials/peeps' %>
 </div>

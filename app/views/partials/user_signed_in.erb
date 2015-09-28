@@ -1,0 +1,10 @@
+<%= erb :'/partials/home_logo'%>
+<div class="top_nav">
+  <div class="username_and_signout">
+    Welcome, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input style="font-size: 40px" type='submit' value='Sign out'>
+    </form>  
+  </div>
+</div>
