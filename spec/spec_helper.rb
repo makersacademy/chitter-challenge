@@ -24,6 +24,7 @@ RSpec.configure do |config|
   
   config.include FactoryGirl::Syntax::Methods
   config.include Helpers
+  config.include Timestamper
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

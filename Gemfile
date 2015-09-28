@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'database_cleaner'
 gem 'sinatra-flash'
+gem 'time_difference'
 
 group :test do
   gem 'rspec'

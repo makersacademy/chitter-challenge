@@ -3,7 +3,7 @@ class Peep
 
   property :id,       Serial
   property :message,  Text
-  property :time,     DateTime
+  property :time,     String
   property :username, String
   property :name,     String  
 

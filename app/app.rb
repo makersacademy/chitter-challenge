@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require './spec/helpers/timestamper'
 require_relative 'helpers'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
   include Helpers
+  include Timestamper
 
   set :views, proc {File.join(root,'..','/app/views')}
 
@@ -49,7 +51,7 @@ class Chitter < Sinatra::Base
     peep = Peep.new(message: params[:message],
                     username: session[:username],
                     name: session[:name],
-                    time: Time.now)
+                    time: relative_time(Time.now))
     peep.save
     redirect to('/feed')
   end
