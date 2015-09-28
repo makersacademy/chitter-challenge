@@ -1,81 +1,75 @@
 require_relative '../factories/user'
 
-feature 'user sign up' do
-  scenario 'I can sign up as a new user to Chitter' do
+feature 'User Features' do
+  let(:user){ create :user }
+
+  scenario 'can sign up' do
     user = build :user
     sign_up(user)
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
-  scenario 'with a password that does not match' do
-    user = create :user
-    user.password_confirmation = 'wrong'
-    sign_up(user)
-    expect(page).to have_content 'Password does not match the confirmation'
-  end
-
-  scenario 'requires a name to sign up' do
-    user = create :user
-    user.name = nil
-    sign_up(user)
-    expect(page).to have_content 'Name must not be blank'
-  end
-
-  scenario 'requires a username to sign up' do
-    user = create :user
-    user.username = nil
-    sign_up(user)
-    expect(page).to have_content 'Username must not be blank'
-  end
-
-  scenario 'requires an email to sign up' do
-    user = create :user
-    user.email = nil
-    sign_up(user)
-    expect(page).to have_content 'Email must not be blank'
-  end
-
-  scenario 'I cannot sign up with an existing email' do
-    user = create :user
-    visit '/users/new'
-    sign_up(user)
-    expect(page).to have_content 'Email is already taken'
-  end
-
-  scenario 'I cannot sign up with an existing username' do
-    user = create :user
-    visit '/users/new'
-    sign_up(user)
-    expect(page).to have_content 'Username is already taken'
-  end
-
-end
-
-feature 'User sign in' do
-
-  scenario 'with correct credentials' do
-    user = create :user
+  scenario 'can sign in' do
     sign_in(user)
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
-  scenario 'with incorrect credentials' do
-    user = create :user
-    user.password = 'wrong'
-    sign_in(user)
-    expect(page).to have_content 'The email or password is incorrect'
-  end
-
-end
-
-feature 'User signs out' do
-
-  scenario 'while being signed in' do
-    user = create :user
+  scenario 'can sign out' do
     sign_in(user)
     click_button 'Sign out'
     expect(page).to have_content 'Goodbye!'
     expect(page).not_to have_content "Welcome, #{user.email}"
   end
 
+  context 'when signing up' do
+    scenario 'password confirmation must match password' do
+      user.password_confirmation = 'wrong'
+      sign_up(user)
+      expect(page).to have_content 'Password does not match the confirmation'
+    end
+
+    scenario 'name is required' do
+      user.name = nil
+      sign_up(user)
+      expect(page).to have_content 'Name must not be blank'
+    end
+
+    scenario 'username is required' do
+      user.username = nil
+      sign_up(user)
+      expect(page).to have_content 'Username must not be blank'
+    end
+
+    scenario 'email is required' do
+      user.email = nil
+      sign_up(user)
+      expect(page).to have_content 'Email must not be blank'
+    end
+
+    scenario 'email must be unique' do
+      visit '/users/new'
+      sign_up(user)
+      expect(page).to have_content 'Email is already taken'
+    end
+
+    scenario 'username must be unique' do
+      visit '/users/new'
+      sign_up(user)
+      expect(page).to have_content 'Username is already taken'
+    end
+  end
+
+  context 'when signing in' do
+    scenario 'password must be correct' do
+      user.password = 'wrong'
+      sign_in(user)
+      expect(page).to have_content 'The email or password is incorrect'
+    end
+
+    scenario 'email must be correct' do
+      user.email = 'wrong@email.com'
+      sign_in(user)
+      expect(page).to have_content 'The email or password is incorrect'
+    end
+  end
 end

@@ -13,6 +13,9 @@ class User
   property :password_digest, Text
   has n, :peeps, through: Resource
 
+  validates_presence_of :name, :username, :email
+  validates_confirmation_of :password
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -22,10 +25,4 @@ class User
     user = User.first(email: email)
     user if user && BCrypt::Password.new(user.password_digest) == password
   end
-
-  validates_presence_of :name
-  validates_presence_of :username
-  validates_presence_of :email
-  validates_confirmation_of :password
-
 end

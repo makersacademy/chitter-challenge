@@ -6,8 +6,4 @@ class Peep
   property :time, Time
   belongs_to :user
 
-  # def format_time(time)
-  #   time.strftime("%I:%M%p")
-  # end
-
 end
