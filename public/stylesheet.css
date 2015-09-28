@@ -3,11 +3,17 @@
   background-color: orange;
   margin: 0px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 #peeps {
   border-style: groove;
   border-width: 3px;
+}
+
+#peeps_logo {
+  text-align: center;
+  background-color: orange;
 }
 
 .button {
@@ -20,5 +26,5 @@
 }
 
 #sign_out {
-  text-align: right;
+  text-align: left;
 }

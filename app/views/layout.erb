@@ -7,7 +7,7 @@
 
 <body>
 
-  <h1 id='logo'> CHITTER </h1>
+  <h1 id='logo'><a href='/'> CHITTER </a></h1>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
@@ -19,8 +19,12 @@
   <% end %>
 
   <% if current_user %>
-    Welcome, <%= current_user.name %>
+    <p> Welcome, <%= current_user.name %> :) </p>
   <% end %>
+
+  <form action = '/peeps'>
+    <input class = 'button' type='submit' value='Go to the peeps wall!'>
+  </form>
 
   <div id = "sign_out">
     <% if current_user %>

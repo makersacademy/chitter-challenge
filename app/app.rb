@@ -1,3 +1,5 @@
+require 'coveralls'
+require 'simplecov'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'

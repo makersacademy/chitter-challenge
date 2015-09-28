@@ -1,12 +1,12 @@
 feature 'Creating peeps' do
 
- let(:user) do
-   User.create(email: 'user@example.com',
-               password: 'secret1234',
-               password_confirmation: 'secret1234',
-               name: 'Anthony',
-               username: 'adellanno')
- end
+  let(:user) do
+    User.create(email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234',
+                name: 'Anthony',
+                username: 'adellanno')
+  end
 
   scenario 'I can create a new peep' do
     visit '/peeps/new'
