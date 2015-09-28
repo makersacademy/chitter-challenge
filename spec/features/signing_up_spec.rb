@@ -25,6 +25,20 @@ feature "User sign up" do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
+  scenario 'returns an error when a password does not match' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq ('/users')
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario 'requires an email' do
+    expect { sign_up(email: '')}.not_to change(User, :count)
+  end
+
+  # scenario 'requires a valid email address' do
+  #   expect {sign_up(email: 'test')}.not_to change(User, :count)
+  # end
+
 end
 
 
