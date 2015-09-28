@@ -39,7 +39,7 @@ end
     scenario 'with correct credentials' do
       user = build :user
       sign_up(user)
-      expect(page).to have_content "Sign out"
+      expect(page).to have_content "Welcome"
     end
   end
 
@@ -55,6 +55,5 @@ end
       sign_in(email: 'test@test.com', password: 'test')
       page.find("#sign_out").click
       expect(page).to have_content('goodbye!')
-      expect(page).not_to have_content('Welcome, test@test.com')
     end
   end
