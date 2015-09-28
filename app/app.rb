@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './app/data_mapper_setup'
+require './app/helpers/user_helper.rb'
 
 class Chitter < Sinatra::Base
+  include UserHelper
   run! if app_file == $PROGRAM_NAME
   use Rack::MethodOverride
   register Sinatra::Flash
@@ -47,12 +49,6 @@ class Chitter < Sinatra::Base
     else
       flash.now[:notice] = ["The email or username is not available"]
       redirect '/'
-    end
-  end
-
-  helpers do # Need to refactor as a module
-    def current_user
-      User.get(session[:user_id])
     end
   end
 
