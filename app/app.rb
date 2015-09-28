@@ -50,8 +50,7 @@ class Chitter < Sinatra::Base
   post '/feed' do 
     peep = Peep.new(message: params[:message],
                     username: session[:username],
-                    name: session[:name],
-                    time: relative_time(Time.now))
+                    name: session[:name])
     peep.save
     redirect to('/feed')
   end

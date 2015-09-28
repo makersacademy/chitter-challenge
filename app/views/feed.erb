@@ -42,23 +42,25 @@
 
 <div style="position: absolute; left: 30%; margin-right; -50%; min-height: 100px; width:600px">
   <ul id="peeps" style="list-style-type: none">
-    <% @peeps.reverse.each do |peep| %>
-      <div style="text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat; word-wrap: break-word">
-        <li>
-          <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; font-weight: bold">
-            <%= peep.name %> 
-              <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
-                @<%= peep.username %> 
-              </div> 
-              <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: normal"> 
-                <%= peep.time %>
-              </div> 
-          </div>
-          <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px">
-            <%= peep.message %>
-          </div>
-        </li>
-      </div>
+    <% if @peeps %>
+      <% @peeps.reverse.each do |peep| %>
+        <div style="text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat; word-wrap: break-word">
+          <li>
+            <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; font-weight: bold">
+              <%= peep.name %> 
+                <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
+                  @<%= peep.username %> 
+                </div> 
+                <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: normal"> 
+                  <%= relative_time(peep.created_at) %>
+                </div> 
+            </div>
+            <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px">
+              <%= peep.message %>
+            </div>
+          </li>
+        </div>
+      <% end %>
     <% end %>
   </ul>
 </div>
