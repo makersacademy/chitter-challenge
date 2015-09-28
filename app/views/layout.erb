@@ -5,7 +5,7 @@
     <title>Chitter</title>
   </head>
 
-  <body>
+<body>
 
   <h1 id='logo'> CHITTER </h1>
 
@@ -19,20 +19,22 @@
   <% end %>
 
   <% if current_user %>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out' >
-    </form>
-  <% end %>
-
-
-  <% if current_user %>
     Welcome, <%= current_user.name %>
   <% end %>
+
+  <div id = "sign_out">
+    <% if current_user %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input class = 'button' type='submit' value='Sign out' >
+      </form>
+    <% end %>
+  </div>
+
 
   <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
   <% end %>
     <%= yield %>
-  </body>
+</body>
 </html>

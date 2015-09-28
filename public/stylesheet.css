@@ -1,7 +1,24 @@
 #logo {
+  text-align: center;
   background-color: orange;
+  margin: 0px;
+  margin-bottom: 10px;
 }
 
-.test {
+#peeps {
+  border-style: groove;
+  border-width: 3px;
+}
+
+.button {
+  cursor: pointer;
+  width: 300px;
+}
+
+.button:hover{
   background-color: green;
+}
+
+#sign_out {
+  text-align: right;
 }

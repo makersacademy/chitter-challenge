@@ -5,25 +5,27 @@
 </head>
 <body>
 
-<h1> Peeps </h1>
+  <h1> Peeps </h1>
 
-<ul>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-      Peep: <%= peep.body %>
+  <form action="peeps/new">
+    <input class = 'button' type='submit' value='New Peep'>
+  </form>
+  <form action="sessions/new" >
+    <input class = 'button' type='submit' value='Sign in'>
+  </form>
+  </body>
+  </html>
+
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li id = "peeps">
+        Peep: <%= peep.body %>
+        <br>
+        <br>
+        Name: <%= peep.name %>
+        Username: <%= peep.username %>
+        Time: <%= peep.time %>
+      </li>
       <br>
-      Name: <%= peep.name %>
-      Username: <%= peep.username %>
-      Time: <%= peep.time %>
-    </li>
-    <br>
   <% end %>
 </ul>
-<form action="peeps/new">
-  <button>New Peep</button>
-</form>
-<form action="sessions/new" >
-  <input type='submit' value='Sign in'>
-</form>
-</body>
-</html>
