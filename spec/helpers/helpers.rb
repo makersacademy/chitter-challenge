@@ -1,5 +1,4 @@
-module Session
-
+module Helpers
 
   def sign_up_as(user)
     visit '/users/new'
