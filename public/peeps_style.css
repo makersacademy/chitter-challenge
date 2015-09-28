@@ -2,10 +2,11 @@
   table-layout: fixed;
   width: 100%;
   white-space: nowrap;
+  font-size: 13px;
 }
 
 .user {
-  width: 15%;
+  width: 12%;
 }
 .date {
   width: 15%;
@@ -21,7 +22,7 @@
 }
 .users th {
   border-radius: 5px;
-  background:   darkblue;
+  background:  #F4B541;
   color: white;
 }
 

@@ -12,7 +12,7 @@ body {
   margin-left: -10px;
   margin-right: -30px;
   margin-bottom: 10px;
-  width: 100%;
+  width: 101%;
   font-size: 14px;
   background-color: orange;
 }
@@ -27,7 +27,7 @@ body {
   margin-right: -30px;
   font-size: 15px;
   padding-left: 10px;
-  width: 100%;
+  width: 101%;
   height: 60px;
   background-color: #c6e2ff;
 }
