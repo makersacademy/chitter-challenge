@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+on Heroku at https://bat020-peeps.herokuapp.com/
+
 I've rebranded my app as PeepShow since this seemed appropriate. It runs on
 Sinatra with a PostgreSQL database and DataMapper ORM. I used RSpec, Capybara
 and FactoryGirl for testing the code. It's styled with CSS.
