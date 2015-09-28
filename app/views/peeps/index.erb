@@ -3,11 +3,15 @@
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <p>Posted: <%= peep.time.strftime("%b %e, %l:%m %p") %> By: <%= peep.user.name %> #<%= peep.username %></p>
+      <p>Posted: <%= peep.time.strftime("%b %e, %l:%m %p") %> By: <%= peep.name %> #<%= peep.username %></p>
       <p>Content: <%= peep.content %></p>
-      <% peep.replies.each do |reply| %>
-      <p>Replies: <%= reply.reply %></p>
+      <ul id="replies">
+        <% peep.replies.reverse.each do |reply| %>
+          <li>
+            <p>Replies: <%= reply.reply %></p>
+          </li>
       <% end %>
+    </ul>
       <form action="peeps/<%= peep.id %>/replies">
         <input type="submit" value="Reply">
       </form>
