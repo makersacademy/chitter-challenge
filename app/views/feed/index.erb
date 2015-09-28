@@ -2,11 +2,11 @@
 
 <% if current_user %>
 <ul id="peep">
-  <% $peeps.reverse.each do |peep| %>
+  <% @peepsall.reverse.each do |peepall| %>
     <li>
-      @<%= peep.username %>:
-       <%= peep.content %>
-      <p><%= peep.time %></p>
+      @<%= peepall.username %>:
+       <%= peepall.content %>
+      <p><%= peepall.time %></p>
     </li>
   <% end %>
 </ul>

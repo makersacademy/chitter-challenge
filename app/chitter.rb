@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    $peeps = Peep.all
+    @peepsall = Peep.all
     erb :'feed/index'
   end
 
