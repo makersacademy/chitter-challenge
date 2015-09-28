@@ -17,7 +17,7 @@
 <div style="position: absolute; left: 15px; padding: 5px; margin-top: 50px">
   <% if current_user %>
     <form action="/feed" method="post">
-      <textarea name="message" cols="20" rows="5" placeholder="Write a Peep" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%; border-image: none; border-radius: 6px; border-style: none solid solid none; border-width: medium 1px 1px medium; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12)"></textarea>
+      <textarea name="message" cols="20" rows="5" placeholder="what's on your mind?" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%; border-image: none; border-radius: 6px; border-style: none solid solid none; border-width: medium 1px 1px medium; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); outline: none"></textarea>
     <!-- Submit -->
       <input type="submit" value="Peep" style="position: absolute; bottom: -35px; right: 110px; left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
   </form>
@@ -55,7 +55,7 @@
                   <%= relative_time(peep.created_at) %>
                 </div> 
             </div>
-            <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px">
+            <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px; font-size: 110%; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)">
               <%= peep.message %>
             </div>
           </li>
