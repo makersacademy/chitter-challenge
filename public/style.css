@@ -33,9 +33,9 @@ body {
 }
 
 .tn_buttons {
-  margin-left: 10px;
   display: inline-block;
-  margin-top: 20px;
+  margin-left: 150px;
+  margin-top: 30px;
 }
 
 .main_body {
@@ -47,5 +47,10 @@ body {
   table-layout: auto;
   border: 1px solid black;
   width: 60%;
+}
+
+#chitter {
+  position: absolute;
+  margin-left: 15px;
 }
 

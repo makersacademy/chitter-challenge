@@ -1,11 +1,12 @@
 <link rel="stylesheet" type="text/css" href="public/style.css" />
 
 <% unless current_user %>
+<img id="chitter" src="public/chitter.png" alt="Mountain View" style="width:120px;height:40">
 <div class="top_nav">
 <form class="tn_buttons" action="sessions/new">
   <input style="font-size: 40px" type="submit" value="Sign in">
 </form>
-<form class="tn_buttons" action="sessions/sign_up">
+<form class="tn_buttons" style="margin-left: 0px;"action="sessions/sign_up">
   <input style="font-size: 40px" type="submit" value="Sign up">
 </form>
 <% end %>
