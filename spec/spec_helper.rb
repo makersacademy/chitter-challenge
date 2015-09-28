@@ -10,6 +10,7 @@ require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
 require_relative 'helpers/session'
+require './app/helpers/user.rb'
 
 
 Capybara.app = Chitter
@@ -60,6 +61,19 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+    config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   # config.before(:suite) do
   #     DatabaseCleaner.strategy = :transaction
   #     DatabaseCleaner.clean_with(:truncation)
@@ -89,6 +103,8 @@ RSpec.configure do |config|
   #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
   #   - http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3#new__config_option_to_disable_rspeccore_monkey_patching
   config.disable_monkey_patching!
+
+
 
   # This setting enables warnings. It's recommended, but in some cases may
   # be too noisy due to issues in dependencies.

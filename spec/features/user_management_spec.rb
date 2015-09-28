@@ -15,7 +15,7 @@ end
 feature 'User signs in' do
 
   scenario 'users can sign into chitter' do
-    user = build :user
+    user = create :user
     sign_in(user)
     expect(page).to have_content "Welcome, #{user.email}"
   end
@@ -25,7 +25,7 @@ end
 feature 'User signs out' do
 
   scenario 'whilst signed in, user can sign out' do
-    user = build :user
+    user = create :user
     sign_in(user)
     click_button 'Sign out'
     expect(page).to have_content('goodbye!')

@@ -1,17 +1,16 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup.rb'
+require_relative './helpers/user.rb'
 
 class Chitter < Sinatra::Base
-  use Rack::MethodOverride
-  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
+  use Rack::MethodOverride
+  register Sinatra::Flash
 
-  def current_user
-    User.get(session[:user_id])
-  end
+  include Helpers
 
   get '/' do
     erb :'index'
@@ -24,6 +23,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email:    params[:email],
+                        username: params[:username],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
     if @user.save
@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
       redirect to('/')
@@ -54,6 +54,24 @@ class Chitter < Sinatra::Base
     flash.next[:notice] = 'goodbye!'
     session[:user_id] = nil
     redirect to('/')
+  end
+
+  get '/feed' do
+    $peeps = Peep.all
+    erb :'feed/index'
+  end
+
+  get '/feed/new' do
+    erb :'feed/new'
+  end
+
+  post '/feed' do
+    t   =  Time.now
+    peep = Peep.new(username: session[:username],
+                    content:  params[:content],
+                    time:     t.strftime("%b %e, %l:%M %p"))
+    peep.save
+    redirect('/feed')
   end
 
 
