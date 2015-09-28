@@ -16,11 +16,21 @@
 
 <div style="position: absolute; left: 5px; padding: 5px; margin-top: 50px">
   <% if current_user %>
-    <form action='/feed/new'>
-      <input type="submit" value="New Peep" style="margin-left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 8em;  height: 2em;">
-    </form>
+    <form action="/feed" method="post">
+      <textarea name="message" cols="20" rows="5" placeholder="Write a Peep" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%"></textarea>
+    <!-- Submit -->
+      <input type="submit" value="Peep" style="position: absolute; bottom: -30px; right: 110px; left: 33px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
+  </form>
   <% end %>
 </div>
+
+<!-- <div style="float:left; position: absolute; margin-top: 100px">
+  <form action="/feed" method="post">
+      <textarea name="message" cols="20" rows="5" placeholder="Write a peep" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%"></textarea> -->
+    <!-- Submit -->
+  <!--     <input type="submit" value="Peep" style="position: absolute; bottom: -30px; right: 110px; left: 50; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 11.3em;  height: 1.8em;">
+  </form>
+</div> -->
 
 <div style="position: absolute; right: 5px; padding: 5px">
   <% unless current_user %>
@@ -30,7 +40,7 @@
   <% end %>
 </div>
 
-<div style="margin:0 auto; min-height: 100px; overflow: hidden; width:600px">
+<div style="position: absolute; left: 30%; margin-right; -50%; min-height: 100px; width:600px">
   <ul id="peeps" style="list-style-type: none">
     <% @peeps.reverse.each do |peep| %>
       <div style="text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat; word-wrap: break-word">
