@@ -10,6 +10,9 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/data_mapper_setup.rb'
 require 'database_cleaner'
+require 'factory_girl'
+require_relative './factories/users.rb'
+require './spec/helpers/sessions'
 
 
 Capybara.app = Chitter
@@ -32,7 +35,12 @@ Capybara.app = Chitter
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include SessionHelpers
+
   config.include Capybara::DSL
+
+  config.include FactoryGirl::Syntax::Methods
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -55,6 +63,19 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  config.before(:suite) do
+     DatabaseCleaner.strategy = :transaction
+     DatabaseCleaner.clean_with(:truncation)
+   end
+
+   config.before(:each) do
+     DatabaseCleaner.start
+   end
+
+   config.after(:each) do
+     DatabaseCleaner.clean
+   end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
