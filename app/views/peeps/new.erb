@@ -1,5 +1,12 @@
+<% if current_user %>
 <form method='post' action='/peeps'>
   <textarea name="body" rows="15" cols="60">Write your peep here...</textarea>
   <input type='submit' value='Post Peep'>
 </form>
+<% else %>
+You must sign in to post a peep!
+<form action = '/sessions/new'>
+<input type='submit' value='Sign in'>
+</form>
+<% end %>
 

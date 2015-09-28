@@ -1,6 +1,5 @@
 feature 'User sign up' do
 
-
   scenario 'I can sign up as a new user' do
     user = build(:user)
     expect { sign_up user }.to change(User, :count).by(1)
@@ -40,7 +39,6 @@ feature 'User sign up' do
     expect { sign_up (user) }.to change(User, :count).by(0)
     expect(page).to have_content('Username is already taken')
   end
-
 
 end
 
