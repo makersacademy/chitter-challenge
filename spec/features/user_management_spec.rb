@@ -53,7 +53,7 @@ end
 
     scenario 'while being signed in' do
       sign_in(email: 'test@test.com', password: 'test')
-      page.find("#sign_out").click
-      expect(page).to have_content('goodbye!')
+      click_button('Sign out')
+      expect(page).to have_content('Goodbye!')
     end
   end

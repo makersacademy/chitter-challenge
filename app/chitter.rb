@@ -51,7 +51,7 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
-    flash.now[:notice] = :goodbye!
+    flash.now[:notice] = :Goodbye!
     session[:user_id] = nil
     erb :'sessions/goodbye'
   end
