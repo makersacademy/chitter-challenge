@@ -13,7 +13,7 @@ env = ENV['RACK_ENV'] || 'development'
 # The name will be 'boommark_manager_test' or 'bookmark_manager_development'
 #depending on the environment
 
-DataMapper.setup(:default, "postgres://localhost/chitter_challenge_#{env}")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 DataMapper.finalize
 
