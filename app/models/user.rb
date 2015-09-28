@@ -1,18 +1,22 @@
+require 'data_mapper'
+require './app/data_mapper_setup'
 require 'bcrypt'
 
 class User
-  include DataMapper:: Resource
+  include DataMapper::Resource
 
-  attr_reader :password
+  attr_reader   :password
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
 
-  property :id, Serial
-  property :name, String, required: true
+  property :id,       Serial
+  property :name,     String, required: true
   property :username, String, required: true, unique: true
-  property :email, String, required: true, unique: true
+  property :email,    String, required: true, unique: true
   property :password_digest, Text
+
+  has n, :peeps, through: Resource
 
   def password=(password)
     @password = password

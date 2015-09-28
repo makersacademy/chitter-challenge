@@ -1,5 +1,8 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require 'dm-validations'
+require 'sinatra/base'
+require 'sinatra/flash'
 
 require './app/models/peep'
 require './app/models/user'

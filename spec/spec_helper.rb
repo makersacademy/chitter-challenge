@@ -4,9 +4,12 @@ require 'capybara'
 require 'capybara/rspec'
 require 'coveralls'
 require 'database_cleaner'
+require 'data_mapper'
+require 'dm-timestamps'
 require 'factory_girl'
 require 'rspec'
 require 'simplecov'
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -17,8 +20,14 @@ Coveralls.wear!
 # require './app/models/peep'
 # require './app/models/user'
 
-# require_relative '../app/app.rb'
-require_relative 'helpers/session'
+# require './app/app'
+require_relative '../app/app.rb'
+
+# require './app/data_mapper_setup'
+# require_relative '../data_mapper_setup'
+
+require 'factories/user'
+require 'helpers/session'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
