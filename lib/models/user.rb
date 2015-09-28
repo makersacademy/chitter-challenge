@@ -10,11 +10,10 @@ class User
 
   property :id, Serial
   property :email, String, required: true, unique: true
-  property :username, String
+  # property :username, String
   property :password_digest, Text
 
-  has n, :peeps, through: Resource
-
+  has n, :peeps
 
   def password=(password)
     @password = password
