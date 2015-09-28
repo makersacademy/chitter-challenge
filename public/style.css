@@ -1,0 +1,71 @@
+#middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #99ccff;
+}
+
+#text-field {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 120%;
+  border-radius: 4px
+}
+
+#peep-container {
+  text-align: center;
+  display: inline-block;
+  width: 415px;
+  height: 170px;
+  background-image: url('/images/rsz_chitter-box.png');
+  background-repeat: no-repeat;
+}
+
+#peep-message {
+  height: 120px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+#peep-date {
+  font-size: 80%;
+  color: black;
+  display: inline-block;
+  font-weight: normal;
+  float: right;
+  margin-right: 12px
+}
+
+#peep-name {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 90%;
+  text-align: left;
+  font-weight: bold
+}
+
+#peep-username {
+  font-size: 80%;
+  color: grey;
+  display: inline-block;
+  font-weight: normal;
+}
+
+.textarea {
+  font-family: 'Helvetica', 'Lucida Grande', sans-serif;
+  font-size: 110%
+}
+

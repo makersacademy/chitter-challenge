@@ -6,7 +6,7 @@ feature 'User signs out' do
                 password_confirmation: 'test')
   end
 
-  scenario 'while being signed in' do
+  scenario 'I can sign out while being signed in' do
     user = create :user
     sign_in_as(user)
     click_button 'Sign out'
