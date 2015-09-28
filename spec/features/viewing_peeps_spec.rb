@@ -5,7 +5,7 @@ feature 'Viewing peeps' do
 
 
   scenario 'I can view peeps on the peep feed page' do
-    Peep.create(message: 'hello', time: Time.now)
+    Peep.create(message: 'hello')
     visit '/feed'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do 

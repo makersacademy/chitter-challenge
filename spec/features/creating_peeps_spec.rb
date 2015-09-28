@@ -20,6 +20,17 @@ feature 'Creating peeps' do
     end 
   end
 
+  scenario 'Peeps are created with correct relative time stamp' do 
+    visit '/'
+    user = create :user
+    sign_in_as(user)
+    fill_in 'message', with: 'hello'
+    click_button 'Peep'
+    within 'ul#peeps' do 
+      expect(page).to have_content('Just now')
+    end
+  end
+
   scenario 'I can only peep if I am logged in' do 
     visit '/feed'
     expect(page).not_to have_button('Peep')
