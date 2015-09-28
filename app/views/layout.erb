@@ -5,29 +5,9 @@
 </head>
 <body>
 
-<% if current_user %>
-<form action="/user/login" method="post">
-  <input type="hidden"     name="_method" value="delete">
-  <input type="submit"     value="Sign out">
-</form>
+<%= partial :'partials/current_user' %>
 
-<h1> Welcome, <%= current_user.name %> </h1>
-<% end %>
-
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-Please refer to the following errors below:
-<ul id="errors">
-  <% flash[:errors].each do |error| %>
-    <li> <%= error %> </li>
-  <% end %>
-</ul>
-<% end %>
+<%= partial :'partials/flash_notice' %>
 
 <%= yield %>
 </body>

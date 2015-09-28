@@ -32,7 +32,7 @@ feature 'User registration' do
 end
 
 feature 'User login process' do
-  let!(:user) { create :user }
+  let(:user) { create :user }
 
   scenario 'User can login with correct credentials' do
     sign_in(user: user.username, password: user.password)
