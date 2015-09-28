@@ -9,6 +9,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   set :session_secret, 'super secret'
 
+  set :public_folder, proc { File.join(root, '..', 'public') }
+
   helpers do
     def current_user
       User.get(session[:user_id])

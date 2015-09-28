@@ -1,13 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="stylesheet.css"  type="text/css" />
+</head>
+<body>
+
 <h1> Peeps </h1>
 
 <ul>
   <% @peeps.reverse.each do |peep| %>
     <li>
       Peep: <%= peep.body %>
+      <br>
       Name: <%= peep.name %>
       Username: <%= peep.username %>
       Time: <%= peep.time %>
     </li>
+    <br>
   <% end %>
 </ul>
 <form action="peeps/new">
@@ -16,3 +25,5 @@
 <form action="sessions/new" >
   <input type='submit' value='Sign in'>
 </form>
+</body>
+</html>
