@@ -24,6 +24,13 @@ module Helpers
   end
 
   def post(peep)
+    click_button 'New peep!'
+    fill_in 'heading', with: peep.heading
+    fill_in 'message', with: peep.message
+    click_button 'Post peep!'
+  end
+
+  def post_after_click(peep)
     fill_in 'heading', with: peep.heading
     fill_in 'message', with: peep.message
     click_button 'Post peep!'
