@@ -37,7 +37,6 @@ feature 'Creating Peeps' do
     Timecop.freeze(new_time)
     sign_in_as(user)
     peep_now(peep)
-    p peep
     visit('/')
     expect(page).to have_content('2008-09-01T12:00:00+01:00')
     Timecop.return

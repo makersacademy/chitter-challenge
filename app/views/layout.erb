@@ -9,12 +9,14 @@
 
     <title> Chitter</title>
   </head>
-  <body>
+
+  <body class = "container">
+
     <% if current_user %>
-     Welcome, <%= current_user.username %>
+     <h1> Welcome back to Chitter, <%= current_user.username %> </h1>
      <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
+      <input type='submit' class="btn btn-success" value='Sign out'>
     </form>
    <% end %>
 
