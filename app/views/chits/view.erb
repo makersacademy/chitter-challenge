@@ -1,3 +1,13 @@
+<style>
+.chit {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 10px;
+    width: 300px;
+    height: 110px;
+}
+</style>
+
 <h2> Recent Chits</h1>
 <% @chits.each do |chit| %>
   <div id=<%=chit.id%> class='chit'>
@@ -6,4 +16,5 @@
     On: <%= chit.time %> <br>
     <br>
 </div>
+<br>
 <%end%>
