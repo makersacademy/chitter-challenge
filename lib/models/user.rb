@@ -6,6 +6,7 @@ class User
   property :id, Serial
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  has n, :peeps
 
   attr_reader :password
   attr_reader :email

@@ -12,6 +12,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  use Rack::MethodOverride
+
   get '/' do
     redirect '/peeps'
   end
@@ -36,7 +38,6 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    p user
     if user
       session[:user_id] = user.id
       redirect '/peeps'
@@ -46,9 +47,24 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash[:notice] = 'Goodbye!'
+    redirect to('/peeps')
+  end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    current_user.peeps.create(content: params[:content])
+    redirect 'peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   # start the server if ruby file executed directly

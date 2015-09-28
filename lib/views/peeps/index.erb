@@ -2,6 +2,14 @@
 
 <h2>Chitter : Peeps</h2>
 
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      Content: <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
+
 <a href="/users/new">Sign up for Chitter</a>
 
 </div>

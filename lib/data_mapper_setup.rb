@@ -1,7 +1,8 @@
 require 'data_mapper'
 require 'dm-validations'
 
-require './lib/models/user.rb'
+require './lib/models/user'
+require './lib/models/peep'
 require './lib/helpers/session_user'
 require './lib/helpers/current_user'
 
