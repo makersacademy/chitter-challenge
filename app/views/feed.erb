@@ -1,6 +1,6 @@
 <div style="position: absolute; right: 5px; padding: 5px">
   <% if current_user %>
-    <div style="text-align: center; padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 40px; font-size: 100%; color: black; border-radius: 4px; border: solid black; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #fffffa">
+    <div style="text-align: center; padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 40px; font-size: 100%; color: black; border-radius: 4px; border: solid black; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #f5faff">
       <%= current_user.username %>
     </div>
     <form method='post' action='/sessions'>
@@ -33,7 +33,7 @@
 <div style="margin:0 auto; min-height: 100px; overflow: hidden; width:600px">
   <ul id="peeps" style="list-style-type: none">
     <% @peeps.reverse.each do |peep| %>
-      <div style="border: solid white; text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat">
+      <div style="text-align: center; display: inline-block; width: 415px; height: 170px; padding; background-image: url('/images/rsz_chitter-box.png'); background-repeat: no-repeat; word-wrap: break-word">
         <li>
           <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; font-weight: bold">
             <%= peep.name %> 
