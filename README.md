@@ -1,4 +1,4 @@
-Chitter challenge    		    ![](https://travis-ci.org/UsmanJ/chitter-challenge.svg?branch=master)   [![Coverage Status](https://coveralls.io/repos/UsmanJ/chitter-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/UsmanJ/chitter-challenge?branch=master)
+Chitter Challenge    		          ![](https://travis-ci.org/UsmanJ/chitter-challenge.svg?branch=master)   [![Coverage Status](https://coveralls.io/repos/UsmanJ/chitter-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/UsmanJ/chitter-challenge?branch=master)
 =================
 
 
