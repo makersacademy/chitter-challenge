@@ -19,6 +19,27 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    t = Time.now
+    peep = Peep.new(content: params[:content],
+                username: session[:username],
+                name: session[:name],
+                time: t.strftime("%b %e, %l:%m %p")
+                )
+    peep.user = current_user
+    peep.save
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -60,25 +81,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash[:logged_out] = "Goodbye!"
     redirect '/peeps'
-  end
-
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end
-
-  post '/peeps' do
-    peep = Peep.new(content: params[:content],
-                username: session[:username],
-                name: session[:name],
-                time: Time.now
-                )
-    peep.save
-    redirect '/peeps'
-  end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
   end
 
 end

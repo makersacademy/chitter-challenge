@@ -19,7 +19,7 @@ class User
     message: 'Password and confirmation password do not match'
   validates_uniqueness_of :email, :username
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   def password=(password)
     @password = password

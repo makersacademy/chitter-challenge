@@ -11,6 +11,6 @@ class Peep
   property :name,         String
   property :username,     String
 
-  has 1, :user, through: Resource
+  belongs_to :user
 
 end

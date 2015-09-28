@@ -1,8 +1,8 @@
 <% if current_user %>
-<form action="/peeps" method="post">
-  Peep here: <textarea cols="50" rows="7" name="content"></textarea>
-  <input type="submit" value="Peep!">
-</form>
+  <form action="/peeps" method="post">
+    Peep here: <textarea cols="50" rows="7" name="content"></textarea>
+    <input type="submit" value="Peep!">
+  </form>
 <% else %>
   <h2>You must sign in to peep</h2>
   <a href='/sessions/new'>Sign in</a>

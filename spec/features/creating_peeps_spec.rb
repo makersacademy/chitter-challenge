@@ -9,7 +9,6 @@ feature 'Creating peeps' do
     fill_in 'content',   with: 'First peep'
     click_button 'Peep!'
 
-    # we expect to be redirected back to the links page
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps' do
@@ -17,15 +16,15 @@ feature 'Creating peeps' do
     end
   end
 
-  scenario 'time when created is displayed' do
-    t = Timecop.freeze(Time.new)
-    time = "Written on #{t}"
-  end
-
   scenario 'cant post peep if not signed in' do
     visit '/peeps'
     click_button 'New peep'
     expect(page).to have_content('You must sign in to peep')
+  end
+
+  scenario 'time when created is displayed' do
+    t = Timecop.freeze(Time.new)
+    time = "Written on #{t}"
   end
 
 end

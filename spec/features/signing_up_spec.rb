@@ -20,12 +20,14 @@ feature 'Signing up' do
   scenario 'requires entering an email' do
     user = build(:user, email: '')
     expect { sign_up user }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
     expect(page).to have_content 'Email must not be blank'
   end
 
   scenario 'requires entering an username' do
     user = build(:user, username: '')
     expect { sign_up user }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
     expect(page).to have_content 'Username must not be blank'
   end
 
