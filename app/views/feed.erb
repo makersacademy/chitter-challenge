@@ -14,12 +14,12 @@
   chitter
 </div>
 
-<div style="position: absolute; left: 5px; padding: 5px; margin-top: 50px">
+<div style="position: absolute; left: 15px; padding: 5px; margin-top: 50px">
   <% if current_user %>
     <form action="/feed" method="post">
       <textarea name="message" cols="20" rows="5" placeholder="Write a Peep" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%"></textarea>
     <!-- Submit -->
-      <input type="submit" value="Peep" style="position: absolute; bottom: -30px; right: 110px; left: 33px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
+      <input type="submit" value="Peep" style="position: absolute; bottom: -35px; right: 110px; left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
   </form>
   <% end %>
 </div>
@@ -51,7 +51,7 @@
                 <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
                   @<%= peep.username %> 
                 </div> 
-                <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: normal"> 
+                <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: bold"> 
                   <%= relative_time(peep.created_at) %>
                 </div> 
             </div>
