@@ -8,7 +8,8 @@ module PeepHelpers
   end
 
   def time
-    DateTime.now.strftime("%a, %d %b %Y %H:%M")
+    #DateTime.now.strftime("%a, %d %b %Y %H:%M")
+    Time.local(2015).strftime("%a, %d %b %Y %H:%M")
   end
 
   def user_yana

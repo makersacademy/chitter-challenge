@@ -12,6 +12,7 @@ require 'factory_girl'
 require './spec/factories/user'
 require './chitter'
 require './data_mapper_setup'
+require 'timecop'
 require_relative 'helpers/session'
 require_relative 'helpers/peep'
 

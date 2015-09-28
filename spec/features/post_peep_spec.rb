@@ -1,6 +1,14 @@
 
 feature 'Posting messages(peeps)' do
 
+  before do
+    Timecop.freeze(time)
+  end
+
+  after do
+    Timecop.return
+  end
+
   scenario 'when signed in I can post a new peep' do
     user = create :user
     post_peep(user, 'test peep')
