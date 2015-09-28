@@ -3,8 +3,8 @@ class Peep
 
   property :id, Serial
   property :message, String
-  property :username, String 
-
-  has 1, :user, through: Resource
+  property :username, String
+ 
+  belongs_to :user
 
 end

@@ -3,6 +3,7 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
   attr_reader :password
+  attr_reader :username
   attr_accessor :password_confirmation
   validates_confirmation_of :password
   validates_presence_of :email
@@ -13,7 +14,7 @@ class User
   property :username, String
   property :password_digest, Text
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
 
   def password=(password)

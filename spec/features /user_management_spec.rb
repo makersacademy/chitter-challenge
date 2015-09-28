@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'User sign up' do
 
   scenario 'I can sign up as a new user' do
-    user = User.new(email: "Adrian@gmail.com", username: "Adrian17", password: 'password', password_confirmation: 'password')
+    user = build(:user)
     expect { sign_up(user) }.to change(User, :count).by(1)
     expect(page).to have_content("Welcome, Adrian17")
     expect(User.first.email).to eq("Adrian@gmail.com")
