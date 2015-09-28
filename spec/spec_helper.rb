@@ -16,7 +16,8 @@ require 'timecop'
 
 
 #Require FactoryGirl factories
-require 'factories/user'
+require 'factories/users'
+require 'factories/peeps'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

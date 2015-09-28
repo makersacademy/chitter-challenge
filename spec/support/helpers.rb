@@ -23,9 +23,9 @@ module Helpers
     click_button 'Sign out'
   end
 
-  def post_peep
-    fill_in 'heading', with: 'Hello!'
-    fill_in 'message', with: 'This is a lovely peep'
+  def post(peep)
+    fill_in 'heading', with: peep.heading
+    fill_in 'message', with: peep.message
     click_button 'Post peep!'
   end
 
