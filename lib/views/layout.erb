@@ -21,14 +21,16 @@
     <% end %>
 
     <% if current_user %>
+    Welcome, <%= current_user.email %>
       <form method="POST" action="/sessions">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Sign out">
       </form>
-
-      Welcome, <%= current_user.email %>
+      <a href="/peeps/new">Create new peep</a>
+    <% else %>
+      <a href="/users/new">Sign up for Chitter</a><br>
+      <a href="/sessions/new">Sign in to Chitter</a>
     <% end %>
-
 
     <%= yield %>
   </body>

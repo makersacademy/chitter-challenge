@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-validations'
+require 'dm-timestamps'
 
 require './lib/models/user'
 require './lib/models/peep'

@@ -3,13 +3,15 @@
 <h2>Chitter : Peeps</h2>
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
+      Date / time: <%= peep.created_at %>
       Content: <%= peep.content %>
+      User: <%= User.get(peep.user_id).email %>
     </li>
   <% end %>
 </ul>
 
-<a href="/users/new">Sign up for Chitter</a>
+
 
 </div>

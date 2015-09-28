@@ -9,6 +9,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'dm-validations'
+gem 'dm-timestamps'
 gem 'pry'
 
 
