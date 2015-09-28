@@ -7,6 +7,7 @@ require 'dm-timestamps'
 # require all models here  e.g require './app/models/etc'
 require './app/models/user'
 require './app/models/peep'
+require './app/models/reply'
 
 env = ENV['RACK_ENV'] || 'development'
 

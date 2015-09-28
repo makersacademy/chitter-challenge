@@ -13,6 +13,9 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id]) if session[:user_id]
     end
+    def current_peep
+      @current_peep ||= Peep.get(session[:peep_id]) if session[:peep_id]
+    end
   end
 
   get '/' do
@@ -38,6 +41,17 @@ class Chitter < Sinatra::Base
 
   get '/peeps/new' do
     erb :'peeps/new'
+  end
+
+  get '/peeps/:id/replies' do
+    @peep = (params[:id])
+    erb :'replies/new'
+  end
+
+  post '/peeps/:id/replies' do
+    peep = Peep.get(params[:id])
+    peep.replies.create(reply:     params[:reply])
+    redirect '/peeps'
   end
 
   get '/users/new' do

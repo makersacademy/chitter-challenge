@@ -1,8 +1,6 @@
 feature 'Creating peeps' do
 
   scenario 'I can create a new peep' do
-    visit '/peeps'
-    click_button 'Sign in'
     user = create(:user)
     sign_in(user)
     click_button 'New peep'

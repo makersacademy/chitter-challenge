@@ -12,5 +12,6 @@ class Peep
   property :username,     String
 
   belongs_to :user
+  has n, :replies
 
 end
