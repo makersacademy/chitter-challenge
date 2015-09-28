@@ -2,7 +2,7 @@ feature 'user sign up' do
 
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, alice@example.com')
+    expect(page).to have_content('Hello, alice@example.com')
     expect(User.first.username).to eq('alice@example.com')
   end
 
@@ -14,6 +14,12 @@ feature 'user sign up' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario 'you won\'t be signed up without entering a username' do
+    expect { sign_up(username: '') }.not_to change(User, :count)
+    expect(current_parth).to eq('/users')
+    expect(page).to have_content 'Please enter a username'
   end
 
   def sign_up(username: 'alice@example.com',
