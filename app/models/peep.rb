@@ -5,7 +5,7 @@ class Peep
   property :id, Serial
   property :message, Text
 
-  has 1, :user, through: Resource
+  belongs_to :user
 
 
 end

@@ -14,7 +14,7 @@ class User
 
   property :password_digest, Text
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
 
   def password=(password)

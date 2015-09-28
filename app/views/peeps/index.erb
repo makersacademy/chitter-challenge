@@ -6,7 +6,7 @@
       <% @peeps.each do |peep| %>
       <li>
         Message: <%= peep.message%>
-        User: <%= peep.user %>
+        User: <%= peep.user.email %>
       </li>
       <% end %>
     </ul>
