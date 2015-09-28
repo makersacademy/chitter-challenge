@@ -14,16 +14,14 @@
           <a href="/peeps/<%= peep.id %>/reply">reply</a>
         </td>
       </tr>
-      <% if peep.reply %>
-        <% peep.reply.reverse.each do |reply| %>
-        <tr>
+      <tr>
+        <% Reply.all(peep_id: peep.id).reverse.each do | reply | %>
           <td colspan="3"><%= reply.reply %></td>
         </tr>
         <tr>
           <td colspan="2"><%= reply.username %></td>
           <td><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %><td>
         </tr>
-        <% end %>
       <% end %>
     </table>
   <% end %>
