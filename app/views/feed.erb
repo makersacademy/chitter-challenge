@@ -50,11 +50,11 @@
               <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
                 @<%= peep.username %> 
               </div> 
-              <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px"> 
+              <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: bold"> 
                 <%= peep.time.strftime("%l:%M %p %A %d %b") %>
               </div> 
           </div>
-          <div style="height: 120px; width: 400px; display: flex; justify-content: center; align-items: center">
+          <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px">
             <%= peep.message %>
           </div>
         </li>
