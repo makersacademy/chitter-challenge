@@ -63,7 +63,8 @@ class Chitter < Sinatra::Base
   post '/' do
     posted = Time.now.strftime("%d/%m/%Y at %H:%M:%S")
     params[:posted] = posted
-    peep = Peep.new(message: params[:message], posted: params[:posted], user_id: @current_user)
+    peep = Peep.new(message: params[:message],
+      posted: params[:posted], user_id: @current_user)
     peep.user = current_user
     tag = Tag.create(name: params[:tag])
     peep.tags << tag
