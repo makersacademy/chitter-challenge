@@ -9,14 +9,9 @@ feature 'creating peep' do
 
   scenario 'can create a new peep' do
     user = create :user
-    visit 'session/new'
-    fill_in 'username', with: user.username
-    fill_in 'password', with: user.password
-    click_button 'Log in'
+    log_in user, user.password
     peep = build :peep
-    visit '/peep/new'
-    fill_in 'content', with: peep.content
-    click_button 'Post'
+    create_peep peep
     expect(current_path).to eq('/peep/all')
     expect(page).to have_content peep.content
   end

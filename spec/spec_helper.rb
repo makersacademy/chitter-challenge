@@ -1,6 +1,30 @@
 require 'coveralls'
 require 'simplecov'
 
+#helper methods for tests
+def sign_up user, password
+  visit '/user/new'
+  fill_in 'email', with: user.email
+  fill_in 'username', with: user.username
+  fill_in 'password', with: password
+  fill_in 'password_confirmation', with: user.password_confirmation
+  fill_in 'name', with: user.name
+  click_button 'Sign up'
+end
+
+def log_in user, password
+  visit 'session/new'
+  fill_in 'username', with: user.username
+  fill_in 'password', with: password
+  click_button 'Log in'
+end
+
+def create_peep peep
+  visit '/peep/new'
+  fill_in 'content', with: peep.content
+  click_button 'Post'
+end
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
