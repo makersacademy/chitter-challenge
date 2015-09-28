@@ -10,9 +10,11 @@ gem 'sinatra-flash'
 gem 'rspec-sinatra'
 
 group :test do
+	gem 'byebug'
 	gem 'capybara'
   gem 'rspec'
   gem 'cucumber'
+  gem 'factory_girl'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
