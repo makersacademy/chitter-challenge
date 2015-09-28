@@ -1,20 +1,11 @@
 Chitter Challenge
 =================
 
-* Challenge time: The weekend and up to 9am Monday morning
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-* Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
 
-Challenge:
+Synopsis:
 -------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Chitter is a replication of Twitter. In this challenge I created a twitter like application to which users are able to sign up and peep (equivalent of tweet). Peeps are visible by anyone who visits the website and users that have signed up can post peeps. The peeps display the date and time of when they were posted along with the username of the person who posted them.
 
 Features:
 -------
@@ -47,47 +38,41 @@ I want to see the time at which it was made
 
 Notes on functionality:
 ------
+* Users can sign up using their email, username and password.
+* All usernames and emails have to be unique.
+* Peeps can be posted by all users that have signed in.
+* All peeps display a Date/Time of posting along with the username of the user who posted them.
+* Bcrypt was used to secure passwords.
+* SQL databases are used and DataMapper is used to save the data.
+* Users don't have to be logged in to view the peeps.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+
+Technologies used:
+------
+* The application was coded in Ruby using Sinatra.
+* RSpec was used in order to conduct test-driven development.
+* DataMapper was used to save the data to the tables.
+* Sinatra-flash was used in order to display error messages and notices.
+* Sinatra-partial was used to refactor some code.
+
 
 Bonus:
 -----
 
-If you have time you can implement the following:
+I have used bootstrap to add some css to the application.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
+Installation:
+------
 
-* Work on the css to make it look good (we all like beautiful things).
+To run the application you can either visit it on Heroku (https://usmanchitter.herokuapp.com/)
 
-Good luck and let the chitter begin!
+-- or --
 
-Notes on test coverage
-----------------------
+Download a clone of this repo and use Rackup to run it on your localhost. 
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+Tests
+------
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally
-Then run `open coverage/index.html` from the command line to view details
+You can check the tests by running 'rspec' in the root folder in terminal.
