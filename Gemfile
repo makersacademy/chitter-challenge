@@ -11,6 +11,7 @@ gem 'bcrypt'
 group :test do
   gem 'database_cleaner'
   gem 'rspec'
+  gem 'factory_girl'
   gem 'capybara'
   gem 'cucumber'
   gem 'rubocop-rspec'
