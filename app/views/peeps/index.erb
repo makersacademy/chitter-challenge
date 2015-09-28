@@ -11,9 +11,10 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li>
+      <%= peep.content %>
       <%= peep.time %>
-      <%= peep.peep %>
-      <%= peep.username %>
+      <%= peep.user.name %>
+      <%= peep.user.username %>
     </li>
   <% end %>
 </ul>

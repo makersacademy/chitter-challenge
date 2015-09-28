@@ -1,22 +1,23 @@
+require_relative '../factories/user'
+require 'spec_helper'
+
 feature 'Creating peeps' do
 
-  let(:user) do
-    User.create(name: 'Foo Bar',
-                username: 'foobar',
-                email: 'foo@bar.com',
-                password: 'secret1234',
-                password_confirmation: 'secret1234')
-  end
-
   scenario 'I can create a new peep' do
-    # visit '/sessions/new'
-    sign_in(email: 'foo@bar.com', password: 'secret1234')
-    visit '/peeps/new'
-    click_button 'Peep'
-    fill_in 'Peep', with: 'This is a peep'
-    click_button 'Peep'
+    user = User.create(name: 'Test Test',
+                username: 'testtest',
+                email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
 
-    expect(current_path).to eq '/peeps'
+    visit '/sessions/new'
+    fill_in :email,    with: user.email
+    fill_in :password, with: user.password
+    click_button 'Sign in'
+
+    visit '/peeps/new'
+    fill_in :content, with: 'This is a peep'
+    click_button 'Peep Content'
 
     within 'ul#peeps' do
       expect(page).to have_content('This is a peep')
@@ -28,10 +29,24 @@ feature 'Creating peeps' do
   end
 
   scenario 'I can only create a new peep if signed in' do
-    visit '/peeps'
-    fill_in 'peep', with: 'This is a peep'
-    click_button 'Peep'
-    expect(page).to have_content('You must sign in to peep')
+    user = User.create(name: 'Test Test',
+                username: 'testtest',
+                email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+
+    visit '/sessions/new'
+    fill_in :email,    with: user.email
+    fill_in :password, with: user.password
+    click_button 'Sign in'
+
+    click_button 'Sign out'
+
+    visit '/peeps/new'
+    # expect(page).to have_content 'happening'
+    # fill_in 'content', with: 'This is a peep'
+    # click_button 'Peep Content'
+    expect(page).to have_content('Please sign in or sign up first')
   end
 
 end

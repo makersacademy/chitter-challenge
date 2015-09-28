@@ -16,7 +16,7 @@ class User
   property :email,    String, required: true, unique: true
   property :password_digest, Text
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   def password=(password)
     @password = password

@@ -7,11 +7,9 @@
     <input type="submit" value="Sign in">
   </form>
 <% else %>
-    <form action='/peeps' method="post">
-    <br>
+  <form action='/peeps' method="post">
     What's happening?
-    <input type="text" name="peep" required>
-    <br>
-    <input type="submit" name="peep" value="Peep">
+    <input type="text" name="content" required>
+    <input type="submit" value="Peep Content">
   </form>
 <% end %>

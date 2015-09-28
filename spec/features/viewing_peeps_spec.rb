@@ -4,13 +4,23 @@ require 'spec_helper'
 feature 'Viewing peeps' do
 
   scenario 'I can see existing peeps on the peeps page' do
-    user = create :user
-    Peep.create(peep: 'hello world')
-    visit '/peeps'
-    expect(page.status_code).to eq 200
+    user = User.create(name: 'Test Test',
+                username: 'testtest',
+                email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+
+    visit '/sessions/new'
+    fill_in :email,    with: user.email
+    fill_in :password, with: user.password
+    click_button 'Sign in'
+
+    visit '/peeps/new'
+    fill_in :content, with: 'Testing, testing, one.. two.. peep'
+    click_button 'Peep Content'
 
     within 'ul#peeps' do
-      expect(page).to have_content('hello world')
+      expect(page).to have_content('Testing, testing, one.. two.. peep')
     end
   end
 
