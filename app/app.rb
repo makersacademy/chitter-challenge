@@ -24,7 +24,7 @@ class App < Sinatra::Base
     peep = Peep.new(content: params[:content], created_at: Time.now)
     peep.user_id = session[:user_id]
     if peep.save
-      redirect to '/users/:id/peeps'
+      redirect to "/users/#{peep.user_id}/peeps"
     else
       flash[:notice] = 'Please sign in'
       redirect to '/sessions/new'
@@ -111,8 +111,8 @@ class App < Sinatra::Base
     end
   end
 
-  get '/peeps/:id/reply' do
-    session[:peep_id] = params[:id]
+  get '/peeps/:p_id/reply' do
+    session[:peep_id] = params[:p_id]
     erb :'peeps/replies'
   end
 

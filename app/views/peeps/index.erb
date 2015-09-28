@@ -15,5 +15,4 @@
   <% end %>
 </table>
 
-<!-- fix the path below -->
-<a href="/users/:id/peeps/new">Create new peep</a>
+<a href="/users/<%= @peeps.first.user.id if @peeps.first %>/peeps/new">Create new peep</a>
