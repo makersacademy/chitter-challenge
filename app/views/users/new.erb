@@ -1,12 +1,16 @@
 <link rel="stylesheet" type="text/css" href="../../../public/style.css" />
 <body>
-Please sign up.
-<form method='post' action='/sessions/sign_up'>
-  Username: <input type='text' name='username' value="<%= @user.username %>">
-  Email: <input name='email' type='text' value='<%= @user.email %>'>
-  Password: <input type='password' name='password'>
-  Password Confirmation: <input type='password' name='password_confirmation'>
-  <input type='submit' value='Sign up'>
-</form>
-<%= erb :'/partials/home_button' %>
+  Please sign up.
+  <form method='post' action='/sessions/sign_up'>
+    Username:
+      <input type='text' name='username' value="<%= @user.username %>">
+    Email:
+      <input name='email' type='text' value='<%= @user.email %>'>
+    Password:
+      <input type='password' name='password'>
+    Password Confirmation:
+      <input type='password' name='password_confirmation'>
+    <input type='submit' value='Sign up'>
+  </form>
+  <%= erb :'/partials/home_button' %>
 </body>

@@ -1,16 +1,15 @@
 <link rel="stylesheet" type="text/css" href="../../../public/style.css" />
 <body>
-Sign in.
-<form method='post' action='/sessions/new'>
-  Username: 
-  <input type='text' name='username'>
-  Password: 
-  <input type='password' name='password'>
-  <input type='submit' value='Sign in'>
-</form>
-
-<form action="/password_reset">
-  <input type="submit" value="forgotten password?">
-</form>
-<%= erb :'/partials/home_button' %>
+  Sign in.
+  <form method='post' action='/sessions/new'>
+    Username: 
+      <input type='text' name='username'>
+        Password: 
+        <input type='password' name='password'>
+      <input type='submit' value='Sign in'>
+  </form>
+  <form action="/password_reset">
+    <input type="submit" value="forgotten password?">
+  </form>
+  <%= erb :'/partials/home_button' %>
 </body>

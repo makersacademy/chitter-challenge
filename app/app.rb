@@ -43,7 +43,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/sign_up' do
-    ### REFACTOR <<<<<<
     @user = User.create(username: params[:username],
                         email: params[:email],
                         password: params[:password],
@@ -100,7 +99,6 @@ class Chitter < Sinatra::Base
 
   get '/password_reset/:token' do
     user = User.first(password_token: params[:token])
-#MAKE IV -> SESSION
     @token = params[:token]
     erb :'/users/reset_password'
   end
@@ -111,7 +109,6 @@ class Chitter < Sinatra::Base
     flash[:password_changed] = "Password succesfully changed"
     redirect('/')   
   end
-
 
   run! if app_file == $0
 end

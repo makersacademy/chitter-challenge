@@ -1,10 +1,8 @@
 ENV['RACK_ENV'] = 'test'
-require 'data_mapper'
-
 require_relative 'helpers/session'
 
-require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
-
+require 'data_mapper'
+require 'tilt/erb'
 require 'timecop'
 require 'factory_girl'
 require 'capybara'
@@ -12,6 +10,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'coveralls'
+
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 Coveralls.wear!
 Capybara.app = Chitter
@@ -27,17 +27,9 @@ RSpec.configure do |config|
   end
 
   config.include SessionHelpers
-
-#------------------- Factory Girl
-
   config.before(:all) do FactoryGirl.reload end
   config.include FactoryGirl::Syntax::Methods
-
-#------------------- Capybara
-
   config.include Capybara::DSL
-
-#------------------- Database Cleaner
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -51,5 +43,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
