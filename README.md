@@ -4,7 +4,6 @@
 
 **Chitter-Challenge**
 =================
-![Chitter](https://github.com/harryandrew/chitter-challenge/blob/master/public/snapshot.png)
 Week four Makers Academy - Chitter challenge!
 
 Description
@@ -14,7 +13,6 @@ The challenge this week is to write a Twitter clone that will allow the users to
 Installation/Dependencies
 --------------------------
 Ruby 2.2.3   
-Please run bundle to install dependenciess.
-
-Other Info:
-------------
+Please run bundle to install dependenciess.   
+   
+![Chitter](https://github.com/harryandrew/chitter-challenge/blob/master/public/snapshot.png)
