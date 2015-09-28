@@ -4,25 +4,7 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter </h1>
-
-    <%= partial :'partials/flash_errors' %>
-
-
-    <br /><br /><b>Please login below:</b>
-    <form action="/user/login" method="post">
-      <input type="text"     name="user">Username<br />
-      <input type="password" name="login_password">Password<br />
-      <input type="submit"   value="Login">
-    </form><br /><br /><br />
-    <br /><b>Please register here:</b>
-    <form action="/user/sign-up"  method="post">
-      <input type="text"     name="email">Email<br />
-      <input type="password" name="password">Password<br />
-      <input type="name"     name="name">Name<br />
-      <input type="username" name="username">Userame<br />
-      <input type="submit"   value="Sign up">
-    </form>
+    <%= partial :'partials/home_page' %>
   </body>
 
 </html>

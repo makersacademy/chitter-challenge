@@ -2,11 +2,4 @@
 <form action="/peeps/new">
   <input type="submit" value="New Peep">
 </form>
-<ul id="peeps">
-  <% @peeps.reverse.each do |peep| %>
-  <li> Name: <%= User.get(peep.user_id).name %>, Username: <%= User.get(peep.user_id).username %><br />
-  Date: <%=  peep.time.strftime("%H:%M %d/%m/%Y") %> <br />
-  Peep: <%= peep.peep %>
-  </li>
-  <% end %>
-</ul>
+<%= partial :'partials/peeps_display' %>
