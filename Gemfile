@@ -16,7 +16,7 @@ group :test do
   gem 'factory_girl'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'coveralls'
   gem 'launchy'
   gem 'guard'
 end
