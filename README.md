@@ -4,7 +4,7 @@
 
 **Chitter-Challenge**
 =================
-![Chitter](https://github.com/harryandrew/rps-challenge/blob/public/snapshot.png)
+![Chitter](https://github.com/harryandrew/chitter-challenge/blob/public/snapshot.png)
 Week four Makers Academy - Chitter challenge!
 
 Description
