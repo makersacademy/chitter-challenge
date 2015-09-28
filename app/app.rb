@@ -41,9 +41,9 @@ class Chitter < Sinatra::Base
     erb :feed
   end
 
-  get '/feed/new' do 
-    erb :new_peep
-  end
+  # get '/feed/new' do 
+  #   erb :new_peep
+  # end
 
   post '/feed' do 
     peep = Peep.new(message: params[:message],
