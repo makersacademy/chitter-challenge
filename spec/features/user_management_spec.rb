@@ -41,6 +41,14 @@ end
       sign_up(user)
       expect(page).to have_content "Welcome"
     end
+
+    scenario 'with incorrect credentials' do
+      visit ('/sessions/new')
+      fill_in 'email', with: 'today is saturday'
+      fill_in 'password', with: 'today is saturday'
+      click_button 'Sign in'
+      expect(page).to have_content "The email or password is incorrect"
+    end
   end
 
   feature 'User signs out' do
