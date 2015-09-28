@@ -17,12 +17,17 @@ feature 'Viewing peeps' do
     peep2 = build(:peep, message: "Second peep")
     peep3 = build(:peep, message: "Third peep")
     log_in(user)
+    start_time = Time.local(2015,9,27,13,30,00)
+    Timecop.travel(start_time)
+    Timecop.scale(3600)
     post(peep1)
+    sleep(1)
     post(peep2)
+    sleep(1)
     post(peep3)
     expect(page).to have_css("ul#peeps li:nth-child(1)", text: "#{peep3.message}")
-    expect(page).to have_css("ul#peeps li:nth-child(2)", text: "#{peep3.message}")
-    expect(page).to have_css("ul#peeps li:nth-child(3)", text: "#{peep3.message}")
+    expect(page).to have_css("ul#peeps li:nth-child(2)", text: "#{peep2.message}")
+    expect(page).to have_css("ul#peeps li:nth-child(3)", text: "#{peep1.message}")
   end
 
 end
