@@ -1,4 +1,4 @@
-Chitter challenge    		 ![](https://travis-ci.org/UsmanJ/chitter-challenge.svg?branch=master)
+Chitter challenge    		    ![](https://travis-ci.org/UsmanJ/chitter-challenge.svg?branch=master)   [![Coverage Status](https://coveralls.io/repos/makersacademy/chitter-challenge/badge.svg?branch=rjlynch&service=github)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)
 =================
 
 
@@ -69,7 +69,7 @@ To run the application you can either visit it on Heroku (https://usmanchitter.h
 
 -- or --
 
-Download a clone of this repo and use Rackup to run it on your localhost. 
+Download a clone of this repo and use Rackup to run it on your localhost.
 
 
 Tests
