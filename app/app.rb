@@ -42,7 +42,6 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-
   post '/sessions/sign_up' do
     ### REFACTOR <<<<<<
     @user = User.create(username: params[:username],
@@ -50,6 +49,7 @@ class Chitter < Sinatra::Base
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
     if @user.save
+      flash[:welcome_user] = "Welcome, #{@user.username}"
       session[:user_id] = @user.user_id
       redirect('/')
     else
@@ -66,9 +66,10 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.user_id
+      flash[:welcome_user] = "Welcome, #{user.username}"
       redirect('/')
     else
-      flash.now[:errors] = ['Email/password combination incorrect']
+      flash.now[:errors] = "Email/password combination incorrect"
       erb :'/sessions/new'
     end
   end

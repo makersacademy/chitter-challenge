@@ -1,7 +1,20 @@
 <link rel="stylesheet" type="text/css" href="public/style.css" />
 
-<% unless current_user %>
-<img id="chitter" src="public/chitter.png" alt="Mountain View" style="width:120px;height:40">
+  <% if current_user %>
+  <%= erb :'/partials/home_logo'%>
+    <div class="top_nav">
+      <div class="username_and_signout">
+        Welcome, <%= current_user.username %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input style="font-size: 40px" type='submit' value='Sign out'>
+        </form>  
+      </div>
+    </div>
+    <% end %>
+
+<% if !current_user %>
+<%= erb :'/partials/home_logo'%>
 <div class="top_nav">
 <form class="tn_buttons" action="sessions/new">
   <input style="font-size: 40px" type="submit" value="Sign in">
@@ -11,6 +24,8 @@
 </form>
 <% end %>
 
+
+</div>
 <div class="main_body">
 <h1> Recent peeps: </h1>
 

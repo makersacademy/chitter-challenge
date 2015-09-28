@@ -3,7 +3,7 @@
   width: 100%;
   white-space: nowrap;
 }
-/* Column widths are based on these cells */
+
 .user {
   width: 15%;
 }
@@ -28,7 +28,4 @@
 .users th {
   text-align: left;
   padding: 5px 10px;
-}
-.users tr:nth-child(even) {
-  background: yellow;
 }
