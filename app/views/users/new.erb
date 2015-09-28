@@ -1,0 +1,27 @@
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
+
+Please sign up<br>
+
+<form action='/users' method='post'>
+  <input name='email' type='text' placeholder='email'>
+  <input name='password' type='password' placeholder='password'>
+  <input name='name' type='text' placeholder='name'>
+  <input name='user_name' type='text' placeholder='user name'>
+  <input type='submit' value='Sign up'>
+</form>
+
+<br>
+Or sign in <br>
+
+<form action='/sessions/new'>
+  <input type='submit' value='Sign in'>
+</form>

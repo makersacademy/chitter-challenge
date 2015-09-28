@@ -1,0 +1,16 @@
+
+
+<%if current_user %>
+  <form action='/peeps' method="post">
+    <input type="text" name="text" placeholder='what are you doing?'>
+    <input type="submit" value="Post peep">
+  </form>
+<%else%>
+  Please sign in or sign up
+  <form action='/users/new'>
+    <input type='submit' value='Sign up'>
+  </form>
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
+<%end%>
