@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/users/log_in' do
+    erb :'users/log_in'
+  end
+
   get '/users/sign_up' do
     @user = User.new
     erb :'users/sign_up'
