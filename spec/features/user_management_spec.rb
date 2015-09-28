@@ -32,15 +32,16 @@ feature 'User registration' do
 end
 
 feature 'User login process' do
-  let(:user) { create :user }
+  let!(:user) { create :user }
 
   scenario 'User can login with correct credentials' do
     sign_in(user: user.username, password: user.password)
     expect(page).to have_content "Welcome, #{user.name}"
   end
 
-  xscenario 'User cannot login with incorrect credentials' do
-
+  scenario 'User cannot login with incorrect credentials' do
+    sign_in(user: 'bond', password: user.password)
+    expect(page).to have_content "The username or password is incorrect"
   end
 
 end

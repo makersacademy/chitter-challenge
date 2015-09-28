@@ -11,8 +11,8 @@ module TestHelpers
 
   def sign_in(user:, password:)
     visit '/'
-    fill_in :user,     with: 'james_bond'
-    fill_in :login_password, with: 'agent007'
+    fill_in :user,     with: user
+    fill_in :login_password, with: password
     click_button "Login"
   end
 
