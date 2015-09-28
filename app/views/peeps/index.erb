@@ -1,14 +1,36 @@
-<h1> Peeps </h1>
-
-<a href= '/peeps/new'> Post new peep </a>
-<ul id="peeps">
-  <%if @peeps%>
-    <% @peeps.reverse.each do |peep| %>
-      <li>
-        <%= peep.user %>: <%= peep.post  %>
-        #<%= peep.tags.map(&:name).join(' #') if peep.tags.empty? == false %>
-        <%= peep.time %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+  </head>
+  <body style= "background-image: url('/images/skyline.jpg');
+   background-size: cover">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h1> Peeps </h1>
+        <a class="btn btn-primary" href= '/peeps/new'> Post new peep </a>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-md-4">
+        <ul id="peeps">
+          <%if @peeps%>
+            <% @peeps.reverse.each do |peep| %>
+              <dl>
+                <div style="display: inline-block">
+                <dt><%= peep.user %></dt> <dd><%= peep.post  %>
+                  #<%= peep.tags.map(&:name).join(' #') if peep.tags.empty? == false %>
+                <%= peep.time.strftime('%m-%e-%y %H:%M') %></dd>
+              </div>
+              </dl>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

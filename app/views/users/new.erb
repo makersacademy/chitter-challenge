@@ -1,9 +1,37 @@
-<h1>Please sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
 
-<form action='/users' method='post'>
-  Email: <input name='email' type='text' value='<%= @user.email %>'>
-  Username: <input name='handle' type ='text' value='<%= @user.handle %>'>
-  Password: <input name='password' type='password'>
-  Confirm Password: <input name='password_confirmation' type='password'>
-  <input type='submit' value='Sign up'>
-</form>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+
+  </head>
+  <body style= "background-image: url('/images/db.jpg')">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+          <h1>Sign Up</h1>
+          <br>
+          <form method='post' action='/users'>
+            <input class="form-control" name='email';
+             type='text' value='<%= @user.email %>' placeholder="Email">
+            <br>
+            <input class="form-control" name='handle';
+             type ='text' value='<%= @user.handle %>' placeholder="Username">
+            <br>
+            <input class="form-control" name='password';
+             type='password' placeholder="Password">
+            <br>
+            <input class="form-control" name='password_confirmation';
+             type='password'; placeholder="Confirm Password">
+            <br>
+            <button type='submit' class= "btn btn-primary" value='Sign up'>
+              Sign Up
+            </button>
+          </form>
+      </div>
+    </div>
+  </body>
+</html>

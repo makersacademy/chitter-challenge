@@ -16,7 +16,7 @@ require 'factory_girl'
 require_relative 'factories/user'
 require_relative 'helpers/session'
 
-Capybara.app = Chitter
+Capybara.app = ChitterApp::Chitter
 
 RSpec.configure do |config|
 

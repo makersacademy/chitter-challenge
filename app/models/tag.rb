@@ -1,9 +1,14 @@
-class Tag
-  include DataMapper::Resource
+module ChitterApp
+  module Models
 
-  property :id, Serial
-  property :name, String
+    class Tag
+      include DataMapper::Resource
 
-  has n, :peeps, through: Resource
+      property :id, Serial
+      property :name, String
 
+      has n, :peeps, through: Resource
+
+    end
+  end
 end

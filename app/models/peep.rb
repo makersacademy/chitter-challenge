@@ -1,12 +1,17 @@
-class Peep
+module ChitterApp
+  module Models
+    
+    class Peep
 
-  include DataMapper::Resource
+      include DataMapper::Resource
 
-  property :id,     Serial
-  property :post,   String
-  property :user,   String
-  property :time,   DateTime
+      property :id,     Serial
+      property :post,   String
+      property :user,   String
+      property :time,   DateTime
 
-  has n, :tags, through: Resource
+      has n, :tags, through: Resource
 
+    end
+  end
 end

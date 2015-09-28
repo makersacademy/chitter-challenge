@@ -1,23 +1,56 @@
-<% if current_user %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <h1> Post new Peep </h1>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
 
-  <form action="/peeps" method="post">
-      Post:
-      <input type="text" name="post" autofocus>
-      Tags:
-      <input type="text" name="tags" autofocus>
-      <input type="submit" value="Post peep">
-  </form>
+  </head>
 
-<% else %>
+  <body style= "background-image: url('/images/skyline.jpg');
+   background-size: cover">
+    <% if current_user %>
 
-  You must sign in before posting a peep
 
-  <form method='post' action='/sessions'>
-    Username: <input type='text' name='handle'>
-    Password: <input type='password' name='password'>
-    <input type='submit' value='Sign In'>
-  </form>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <h1> Post a Peep </h1>
 
-<% end %>
+          <form action="/peeps" method="post">
+            <input type="text" name="post" autofocus placeholder="Post">
+            <input type="text" name="tags" autofocus placeholder="Tags">
+            <button type="submit" class= "btn btn-success";
+             value="Post peep">Post Peep</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <% else %>
+
+      <body style= "background-image: url('/images/db.jpg')">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+              <h1>Sign In To Peep</h1>
+              <br>
+              <form method='post' action='/sessions'>
+                <input type='text' class="form-control";
+                 name='handle' placeholder = 'Username'>
+                <br>
+                <input type='password' class="form-control";
+                 name='password' placeholder = 'Password'>
+                <br>
+                <br>
+                <button type='submit' class= "btn btn-primary" value='Sign In'>
+                  Sign In
+                </button>
+                <a class="btn btn-success" href= '/users/new'> New User</a>
+              </form>
+          </div>
+        </div>
+
+    <% end %>
+  </body>
+</html>
