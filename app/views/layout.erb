@@ -24,7 +24,6 @@
       </form>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors:
       <ul id='errors'>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>

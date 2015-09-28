@@ -17,8 +17,9 @@ Make a Twitter clone
 
 git clone <repo>
 bundle install
-touch .env # and add your details
-ruby <run file>
+create postgreSQL database chitter_development
+rake auto_migrate
+ruby ./app/chitter.rb
 
 ## User stories
 
@@ -56,8 +57,8 @@ Objects  | Messages
 
 ## Job List
 
-- [Create functional representation]
-- [Initialise test and development databases ]
+- [Refactor controller]
+- [CSS/make beautiful ]
 - [ ]
 - [ ]
 
