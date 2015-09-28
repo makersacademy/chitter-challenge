@@ -8,6 +8,9 @@ body {
  bottom:0;
  left:50%;
 }
+#peep {
+  background-color: white;
+}
 a:link {
     color: green;
 }
