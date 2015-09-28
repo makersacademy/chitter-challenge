@@ -6,12 +6,13 @@ feature 'Creating Peeps' do
 
   scenario 'As a user I can add a peep' do
     user = create :user
+    peep = create :peep
+    p peep
     sign_in_as(user)
     visit '/peeps/new'
     fill_in 'message', with: 'This is a new peep!'
     click_button 'Peep'
     peep = Peep.first
-    p User.get(peep.user_id).username
     expect(peep.message).to eq('This is a new peep!')
   end
 
@@ -52,6 +53,5 @@ end
 def peep_now(peep)
   visit '/peeps/new'
   fill_in :message, with: peep.message
-  peep.created_at = '2015-09-26 20:08:30'
   click_button 'Peep'
 end

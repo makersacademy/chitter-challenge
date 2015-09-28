@@ -172,6 +172,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    timecop (0.8.0)
     timers (4.0.4)
       hitimes
     tins (1.6.0)
@@ -203,6 +204,7 @@ DEPENDENCIES
   sinatra
   sinatra-flash
   sinatra-partial
+  timecop
 
 BUNDLED WITH
    1.10.6

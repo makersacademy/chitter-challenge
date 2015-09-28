@@ -9,12 +9,12 @@ feature 'User sign up' do
     expect(User.first.email).to eq('pip@example.com')
   end
 
-  scenario ' requires a matching comfirmation password' do
+  scenario 'requires a matching comfirmation password' do
     expect { sign_up(password_confirmation: 'wrong_password')}.not_to change(User, :count)
   end
 
-  scenario 'with a password that does not match' do
-  expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  scenario 'Gives an error message with a password that does not match' do
+  expect { sign_up(password_confirmation: 'wrong_password') }.not_to change(User, :count)
   expect(current_path).to eq('/users/new')
   expect(page).to have_content 'Password does not match the confirmation'
 end
@@ -27,8 +27,6 @@ end
   expect { click_button('Sign up') }.to change(User, :count).by(0)
   expect(page).to have_content('Email is already taken')
 end
-
-
 
 
   def sign_up(email: 'pip@example.com',
