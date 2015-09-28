@@ -20,4 +20,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'factory_girl'
+  gem 'rerun'
 end

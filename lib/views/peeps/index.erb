@@ -10,6 +10,7 @@
       <li>
         Message: <%= peep.message%>
         User: <%= peep.user %>
+        <!-- User: <%= "Posted by #{User.get(peep.user_id).username}" %> -->
       </li>
       <% end %>
     </ul>

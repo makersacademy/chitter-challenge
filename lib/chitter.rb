@@ -18,10 +18,10 @@ class Chitter < Sinatra::Base
 
 
     get '/' do
-      redirect '/peeps'
+      redirect '/peeps/new'
     end
 
-    get '/peeps' do
+    get '/peeps/new' do
       @peeps = Peep.all
       erb :'peeps/index'
     end
