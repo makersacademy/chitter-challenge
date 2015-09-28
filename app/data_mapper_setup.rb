@@ -9,6 +9,7 @@ DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 # require './app/models/tag.rb'# depending on your file structure
 require './app/models/user.rb'
 require './app/models/peep.rb'
+require './app/models/reply.rb'
 #After declaring your models, you should finalise them
 DataMapper.finalize
 

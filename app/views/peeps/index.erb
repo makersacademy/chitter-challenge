@@ -3,7 +3,14 @@
   <% @peeps.reverse.each do |peep| %>
     <li>
       <p><%= peep.user.name %> @<%= peep.user.username %> Peeped on <%= "#{peep.creation_time.day}-#{peep.creation_time.month}-#{peep.creation_time.year}"%></p>
-      <p><%= peep.content %></p>
+      <p><%= peep.content %> <a href="/<%= peep.id %>/replies/new">reply</a></p>
+      <p>
+        <ul>
+          <% Reply.all(peep_id: peep.id).reverse.each do |reply| %>
+            <li><%= reply.reply_content%></li>
+          <% end %>
+        </ul>
+      </p>
     </li>
   <% end %>
 </ul>

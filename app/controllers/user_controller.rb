@@ -34,7 +34,7 @@ module ChitterApp
         else
           flash.next[:errors] = ['The email or password is incorrect']
         end
-        redirect '/'
+        redirect '/'   #redirect to peeps page
       end
 
       delete '/users/sign_out' do

@@ -9,7 +9,10 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+Restructure the helper methods to more suitable directory
+
+
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
 * Forking this repo
@@ -86,7 +89,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally

@@ -1,0 +1,8 @@
+<% if current_user %>
+  <form action='/replies' method='post'>
+      Content of your reply: <input type='text' name='reply_content'>
+    <input type='submit' value='Reply'>
+  </form>
+<% else %>
+  You need to be signed in to reply!
+<% end %>

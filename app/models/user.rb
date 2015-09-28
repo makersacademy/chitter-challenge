@@ -10,7 +10,8 @@ module ChitterApp
       property :name, String, required: true
       property :password_digest, Text
       property :password_token, Text
-      has n, :peeps
+      has n, :peeps#, through: Resource
+      has n, :replies
       attr_reader :password, :email, :username, :name
       attr_accessor :password_confirmation
       validates_confirmation_of :password
