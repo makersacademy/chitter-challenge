@@ -16,13 +16,14 @@ feature 'User registration' do
     expect(User.first.email).to eq"james.bond@mi6.com"
   end
 
-  xscenario 'User cannot register with an existing email' do
-    user = create :user, username: 'JamesBond'
-    expect { sign_up(user) }.to change(User, :count).by(0)
+  scenario 'User cannot register with an existing email' do
+    user = create :user
+    fake_user = build :user, username: 'JamesBond'
+    expect { sign_up(fake_user) }.to change(User, :count).by(0)
     expect(page).to have_content "Email is already taken"
   end
 
-  xscenario 'User cannot register with an existing username' do
+  scenario 'User cannot register with an existing username' do
     user = create :user, email: 'agent007@mi6.com'
     expect { sign_up(user) }.to change(User, :count).by(0)
     expect(page).to have_content "Username is already taken"

@@ -6,6 +6,7 @@ require './app/helpers/user_helper.rb'
 class Chitter < Sinatra::Base
   include UserHelper
   run! if app_file == $PROGRAM_NAME
+
   use Rack::MethodOverride
   register Sinatra::Flash
 
@@ -47,8 +48,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect :'/peeps'
     else
-      flash.now[:notice] = ["The email or username is not available"]
-      redirect '/'
+      flash.now[:errors] = @user.errors.full_messages
+      erb :index
     end
   end
 
@@ -59,7 +60,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/peeps'
     else
-      flash.now[:errors] = ['The username or password is incorrect']
+      flash[:errors] = ['The username or password is incorrect']
       redirect to '/'
     end
   end
