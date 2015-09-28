@@ -35,9 +35,9 @@ feature "User sign up" do
     expect { sign_up(email: '')}.not_to change(User, :count)
   end
 
-  # scenario 'requires a valid email address' do
-  #   expect {sign_up(email: 'test')}.not_to change(User, :count)
-  # end
+  scenario 'requires a valid email address' do
+    expect {sign_up(email: 'test')}.not_to change(User, :count)
+  end
 
 end
 
