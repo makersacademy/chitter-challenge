@@ -20,6 +20,7 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 
+
 #SimpleCov.start
 Coveralls.wear!
 
