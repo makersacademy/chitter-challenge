@@ -11,6 +11,10 @@ feature 'user sign up' do
   end
 
   scenario 'stays on the same page if passwords do not match' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
 
   def sign_up(username: 'alice@example.com',
               password: 'oranges!',
