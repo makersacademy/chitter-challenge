@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'bcrypt'
+gem 'byebug'
 
 group :test do
   gem 'database_cleaner'
