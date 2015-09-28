@@ -1,13 +1,13 @@
 
 require './spec/factories/user'
 require './spec/factories/peep'
+require 'Timecop'
 
 feature 'Creating Peeps' do
 
   scenario 'As a user I can add a peep' do
     user = create :user
     peep = create :peep
-    p peep
     sign_in_as(user)
     visit '/peeps/new'
     fill_in 'message', with: 'This is a new peep!'
@@ -33,11 +33,14 @@ feature 'Creating Peeps' do
   scenario 'I would like my peep to be dated' do
     user = create :user
     peep = build :peep
+    new_time = Time.local(2008, 9, 1, 12, 0, 0)
+    Timecop.freeze(new_time)
     sign_in_as(user)
     peep_now(peep)
+    p peep
     visit('/')
-    expect(page).to have_content(Time.new)
-    page(Time.new)
+    expect(page).to have_content('2008-09-01T12:00:00+01:00')
+    Timecop.return
   end
 
 end
