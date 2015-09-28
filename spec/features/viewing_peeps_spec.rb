@@ -18,6 +18,18 @@ feature 'Viewing peeps' do
     expect(current_path).to eq '/peeps'
     expect(page).to have_content('Anthony')
   end
+
+  scenario 'User does not have to be logged in to see peeps' do
+    visit '/peeps/new'
+    sign_in(email: user.email, password: user.password)
+    click_button 'New Peep'
+    fill_in 'body', with: 'hello stranger!'
+    click_button 'Post Peep'
+    click_button 'Sign out'
+
+    expect(page).to have_content('hello stranger!')
+  end
+
 end
 
 
