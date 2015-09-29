@@ -1,4 +1,4 @@
-<div style="position: absolute; right: 5px; padding: 5px">
+<div style="position: fixed; right: 5px; padding: 5px">
   <% if current_user %>
     <div style="text-align: center; padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 40px; font-size: 100%; color: black; border-radius: 4px; border: solid black; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #f5faff">
       <%= current_user.username %>
@@ -10,18 +10,22 @@
   <% end %>
 </div>
 
-<div style="margin-left: 10px; font-weight: bold; font-size: 250%; float: left">
-  chitter
-</div>
+<div style="position: fixed">
 
-<div style="position: absolute; left: 15px; padding: 5px; margin-top: 50px">
-  <% if current_user %>
-    <form action="/feed" method="post">
-      <textarea name="message" cols="20" rows="5" placeholder="what's on your mind?" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%; border-image: none; border-radius: 6px; border-style: none solid solid none; border-width: medium 1px 1px medium; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); outline: none"></textarea>
-    <!-- Submit -->
-      <input type="submit" value="Peep" style="position: absolute; bottom: -35px; right: 110px; left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
-  </form>
-  <% end %>
+  <div style="margin-left: 10px; font-weight: bold; font-size: 250%; float: left">
+    chitter
+  </div>
+
+  <div style="left: 15px; padding: 5px; margin-top: 50px">
+    <% if current_user %>
+      <form action="/feed" method="post">
+        <textarea name="message" cols="20" rows="5" placeholder="what's on your mind?" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%; border-image: none; border-radius: 6px; border-style: none solid solid none; border-width: medium 1px 1px medium; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); outline: none"></textarea>
+      <!-- Submit -->
+        <input type="submit" value="Peep" style="position: absolute; bottom: -35px; right: 110px; left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
+    </form>
+    <% end %>
+  </div>
+
 </div>
 
 <!-- <div style="float:left; position: absolute; margin-top: 100px">
