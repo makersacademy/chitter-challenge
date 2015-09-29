@@ -3,13 +3,16 @@ require_relative '../data_mapper_setup'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
+  register Sinatra::Partial
 
   use Rack::MethodOverride
 
   enable :sessions
-  set :session_secret, 'super secret'
+  enable :partial_underscores
 
+  set :session_secret, 'super secret'
   set :views, proc { File.join(root, '..', 'views') }
+  set :partial_template_engine, :erb
 
   get '/' do
     @peeps = Peep.all(order: [:created_at.desc])

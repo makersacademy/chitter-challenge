@@ -2,6 +2,7 @@ feature 'Viewing peeps' do
 
   let(:user){create :user}
   let(:peep){build :peep}
+  let(:time){Time.local(2015,9,27,13,30,00)}
 
   scenario 'visiting the home page I see the peeps listed' do
     log_in(user)
@@ -17,8 +18,7 @@ feature 'Viewing peeps' do
     peep2 = build(:peep, message: "Second peep")
     peep3 = build(:peep, message: "Third peep")
     log_in(user)
-    start_time = Time.local(2015,9,27,13,30,00)
-    Timecop.travel(start_time)
+    Timecop.travel(time)
     Timecop.scale(3600)
     post(peep1)
     sleep(1)
@@ -36,6 +36,7 @@ feature 'Adding peeps' do
 
   let(:user){build :user}
   let(:peep){build :peep}
+  let(:time){Time.local(2015,9,27,13,30,00)}
 
   before do
     create :user
@@ -65,7 +66,7 @@ feature 'Adding peeps' do
   end
 
   scenario 'peeps have the time they were posted' do
-    Timecop.freeze(Time.local(2015,9,27,13,30,00))
+    Timecop.freeze(time)
     post(peep)
     expect(page).to have_content "13:30 27/09/2015"
   end

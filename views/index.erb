@@ -1,11 +1,13 @@
 <div>
-  <ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li><h6><%= peep.heading %></h6>
-      <%= peep.message %><br>
-      Posted by <%= peep.user.username %><br>
-      <%= peep.created_at.strftime("%H:%M %d/%m/%Y") %>
-    </li>
+  <% if @peeps %>
+    <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li><h6><%= peep.heading %></h6>
+        <%= peep.message %><br>
+        Posted by <%= peep.user.username %><br>
+        <%= peep.created_at.strftime("%H:%M %d/%m/%Y") %>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
 </div>

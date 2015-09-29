@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-timestamps'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 
 env = ENV['RACK_ENV'] || 'development'
 

@@ -1,0 +1,33 @@
+<header>
+  <div id='logo'>Chitter!</div>
+  <div id='user-links'>
+
+    <% if current_user %>
+
+      <span id='welcome-message'>
+        Welcome to Chitter, <%= current_user.username %>!
+      </span>
+      <form id='new-peep' action='/peeps/new'>
+        <input type='submit' value='New peep!'>
+      </form>
+      <form id='sign-out' action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+
+    <% else %>
+
+      <span id='welcome-message'>
+        Welcome to Chitter!
+      </span>
+      <form id='log-in' action='/sessions/new'>
+        <input type='submit' value='Log in'>
+      </form>
+      <form id='sign-up' action='/users/new'>
+        <input type='submit' value='Sign up'>
+      </form>
+
+    <% end %>
+
+  </div>
+</header>
