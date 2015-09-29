@@ -18,6 +18,10 @@ a.button {
   text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
 }
 
+form {
+  font-weight: bold;
+}
+
 header {
   height: 40px;
   background-color: #663366;
