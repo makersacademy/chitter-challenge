@@ -1,12 +1,12 @@
 body {
-  font-family: Helvetica, Arial, Sans-serif;
-  background-image: url(/images/extra_clean_paper.png)
+  font-family: "Courier New", Courier, monospace;
+  background-image: url(/images/linen_texture_backround.jpg)
 }
 
 a.button {
   display: inline-block; /* display inline but have dimensions */
   width: 80px;
-  background-color: #82B743;
+  background-color: #6666CC;
   border: 2px solid white;
   color: white; /*text colour*/
   text-decoration: none; /*no underlining*/
@@ -20,7 +20,7 @@ a.button {
 
 header {
   height: 40px;
-  background-color: black;
+  background-color: #663366;
   color: white;
   display: flex; /* http://learnlayout.com/flexbox.html */
   padding: 0 20px;
@@ -32,6 +32,8 @@ header {
   }
   header #logo {
     display: flex;
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
   }
 
   header #user-links {
