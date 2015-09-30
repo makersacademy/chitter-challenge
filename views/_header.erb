@@ -1,29 +1,41 @@
 <header>
-  <div id='logo'>Chitter!</div>
-  <div id='user-links'>
+  <div id='logo'>
+    <a href="/">Chitter!</a>
+  </div>
 
-    <% if current_user %>
+  <% if current_user %>
 
+    <form id='new-peep' action='/peeps/new'>
+      <input type='submit' value='New peep!' class='button highlighted'>
+    </form>
+    <div id='user-links'>
+      <form id='sign-out' action='/sessions' method='post'>
       <span id='welcome-message'>
         Welcome to Chitter, <%= current_user.username %>!
       </span>
-      <form id='new-peep' action='/peeps/new'>
-        <input type='submit' value='New peep!'>
-      </form>
-      <form id='sign-out' action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <input type='submit' value='Sign out' class='button'>
       </form>
+    </div>
 
-    <% else %>
+  <% else %>
 
-      <span id='welcome-message'>
-        Welcome to Chitter!
-      </span>
-      <a href='/sessions/new' id='log-in' class='button'>Log in</a>
-      <a href='/users/new' id='sign-up' class='button'>Sign up</a>
+    <div id='user-links'>
+      <div id='forms'>
+        <form action='/users/new'>
+          <input type='submit' value='Sign up' class='button'>
+        </form>
+      </div>
+      <div id='forms'>
+        <form action='/sessions/new'>
+          <span id='welcome-message'>
+            Welcome to Chitter!
+          </span>
+          <input type='submit' value='Log in' class='button right'>
+        </form>
+      </div>
+    </div>
 
-    <% end %>
+  <% end %>
 
-  </div>
 </header>

@@ -1,0 +1,10 @@
+<li class='peep'>
+  <div class='heading'><%= peep.heading %></div>
+  <div class='message'>
+    <%= peep.message %>
+  </div>
+  <span class='source'>
+    Posted by <%= peep.user.username %>
+    <%= peep.created_at.strftime("%H:%M %d/%m/%Y") %>
+  </span>
+</li>

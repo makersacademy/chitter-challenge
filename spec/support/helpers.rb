@@ -2,7 +2,7 @@ module Helpers
 
   def sign_up(user)
     visit ('/')
-    click_link 'Sign up'
+    click_button 'Sign up'
     fill_in 'email',    with: user.email
     fill_in 'name',     with: user.name
     fill_in 'username', with: user.username
@@ -13,7 +13,7 @@ module Helpers
 
   def log_in(user)
     visit ('/')
-    click_link 'Log in'
+    click_button 'Log in'
     fill_in 'username', with: user.username
     fill_in 'password', with: user.password
     click_button 'Enter'
