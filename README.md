@@ -7,7 +7,7 @@
 =================
 Week four Makers Academy - Chitter challenge!
 
-[Click here to play online](https://shielded-woodland-1531.herokuapp.com/), or as below clone this repo and run `bundle install` to download the relevant gems.
+[Click here to login and get peeping](https://shielded-woodland-1531.herokuapp.com/), or as mentioned below clone this repo and run `bundle install` to download the relevant gems.
 
 Description
 ------------
