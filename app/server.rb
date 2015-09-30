@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = ["Username or password incorrect"]
       @username = params[:username]
-      erb 'sessions/new'
+      erb :'sessions/new'
     end
   end
 
