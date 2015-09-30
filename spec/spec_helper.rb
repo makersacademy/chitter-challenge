@@ -14,10 +14,12 @@ require 'coveralls'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 Coveralls.wear!
-Capybara.app = Chitter
+Capybara.app = BeefBurgers::Chitter
 
 RSpec.configure do |config|
 
+  config.include SessionHelpers
+  
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -26,7 +28,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include SessionHelpers
   config.before(:all) do FactoryGirl.reload end
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL

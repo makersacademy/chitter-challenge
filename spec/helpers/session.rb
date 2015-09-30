@@ -23,8 +23,3 @@ module SessionHelpers
 
 end
 
-
-
-
-
-
