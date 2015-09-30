@@ -1,10 +1,5 @@
-require 'rubocop/rake_task'
 require 'data_mapper'
 require './app/data_mapper_setup'
-
-RuboCop::RakeTask.new :cop
-
-task default: [:cop, :spec]
 
 task :auto_upgrade do
   DataMapper.auto_upgrade!
