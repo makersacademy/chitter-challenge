@@ -12,21 +12,34 @@ module Chitter
       end
 
       get '/peeps/new' do
-        if !current_user
+        if current_user
+          erb :'peeps/new'
+        else
           flash[:message] = 'Sign in or sign up to peep!'
+          redirect to('/peeps')
+        end
+      end
+
+      post '/peeps/new' do
+        peep = Peep.new(peep: params[:peep],
+                        user: current_user,
+                        time: Time.now)
+        if peep.save
           redirect to('/peeps')
         else
           erb :'peeps/new'
         end
       end
 
-      post '/peeps/new' do
-        peep = Peep.create(peep: params[:peep],
-                           user: current_user,
-                           time: Time.now)
-        if peep.save
-          redirect to('/peeps')
-        end
+      get '/peeps/:id/replies' do
+        session[:id] = params[:id]
+        erb :'peeps/replies'
+      end
+
+      post '/peeps/:id/replies' do
+        peep = Peep.first(id: session[:id])
+        peep.replies.create(reply: params[:reply], time: Time.now, user: current_user)
+        redirect '/peeps'
       end
 
     end

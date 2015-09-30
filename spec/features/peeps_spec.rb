@@ -42,3 +42,16 @@ feature 'Viewing Peeps' do
     expect(page).to have_content 'hello there'
   end
 end
+
+feature 'Replying to Peep' do
+  scenario 'I can reply to a peep' do
+    user = create :user
+    sign_in(user)
+    create_peep('hello there')
+    visit '/peeps'
+    click_link 'Reply'
+    fill_in :reply, with: 'First reply'
+    click_button 'Reply'
+    expect(page).to have_content 'First reply'
+  end
+end

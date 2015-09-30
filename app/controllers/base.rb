@@ -18,9 +18,16 @@ module Chitter
       set :views, proc { File.join(root, '..', 'views')}
 
       helpers do
+
        def current_user
          @current_user ||= User.get(session[:user_id])
        end
+
+       def current_peep
+         @current_peep ||= Peep.get(session[:peep_id])
+        #  if session[:peep_id]
+       end
+
       end
 
     end

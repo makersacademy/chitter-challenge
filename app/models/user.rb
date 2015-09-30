@@ -11,7 +11,7 @@ class User
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   validates_presence_of :name, :username, :email
   validates_confirmation_of :password
