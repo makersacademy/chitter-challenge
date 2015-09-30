@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'test'
+ENV['DATABASE_URL'] = 'postgres://localhost/chitter_test'
 require_relative 'helpers/session'
 
 require 'data_mapper'
