@@ -1,10 +1,13 @@
 [![Build Status](https://travis-ci.org/Harryandrew/Chitter-Challenge.svg?branch=master)](https://travis-ci.org/Harryandrew/Chitter-Challenge)
 [![Coverage Status](https://coveralls.io/repos/Harryandrew/Chitter-Challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/Harryandrew/Chitter-Challenge?branch=master)
 [![Dependency Status](https://gemnasium.com/Harryandrew/Chitter-Challenge.svg)](https://gemnasium.com/Harryandrew/Chitter-Challenge)
+[![Code Climate](https://codeclimate.com/github/Harryandrew/Chitter-Challenge/badges/gpa.svg)](https://codeclimate.com/github/Harryandrew/Chitter-Challenge)
 
 **Chitter-Challenge**
 =================
 Week four Makers Academy - Chitter challenge!
+
+[Click here to play online](https://shielded-woodland-1531.herokuapp.com/), or as below clone this repo and run `bundle install` to download the relevant gems.
 
 Description
 ------------
