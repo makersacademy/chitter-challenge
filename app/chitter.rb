@@ -17,6 +17,23 @@ class Chitter < Sinatra::Base
     erb :'home/index'
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/all'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    peep = Peep.new(content: params[:content])
+    peep.user = User.first(id: session[:user_id])
+    peep.time = Time.now
+    peep.save
+    redirect '/peeps'
+  end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new', layout: false
