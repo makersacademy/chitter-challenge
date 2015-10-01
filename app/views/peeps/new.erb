@@ -1,0 +1,11 @@
+<%= erb :'/partials/style_sheet'%>
+<body>
+  <h1> New peep </h1>
+  A peep is a message you can leave in the main feed, for everybody to see.
+  <br><br>
+  <form method="post" action="/peeps">
+   <input type="text" name="body">
+    <input type="submit" value="peeps away!">
+  </form>
+  <%= erb :'/partials/home_button' %>
+</body>

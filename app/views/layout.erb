@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="../../../public/style.css" />
+
+<%= erb :'/partials/favicon'%>
+
+<head>
+  <title>Welcome to Chitter</title>
+</head>
+
+<body>
+  <div class="flash_header">
+    <%= erb :'/partials/flash_messages' %>
+  </div>
+</body>
+<%= yield %>
