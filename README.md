@@ -91,3 +91,17 @@ Coveralls.wear!
 
 Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally
 Then run `open coverage/index.html` from the command line to view details
+
+- How to install this on your machine
+- Outline your approach
+- Describe any design patterns or principles you used
+- Obstacles you encountered and how you overcame them
+- Demonstrate what you learned
+- Further features/improvements you would add
+- The tests you have written
+- Badges  from the CI Build and Test Coverage
+- Descriptive commit messages
+- Passing tests
+- Good code. Have you run it through a linter and removed all extraneous comments?
+  (there are some really useful ones in Atom that’ll stop you getting loads of emails
+  from the Hound check that I can show you)
