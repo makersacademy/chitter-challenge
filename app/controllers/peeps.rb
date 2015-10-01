@@ -14,7 +14,8 @@ module BeefBurgers
 
       post '/peeps' do
         user = User.first(user_id: session[:user_id])
-        peep = Peep.create(body: params[:body], peeper: user.username, timestamp: Time.now)
+        peep = Peep.create(body: params[:body], peeper: user.username,
+         timestamp: Time.now)
         user.peeps << peep
         user.save
         flash[:peep_confirmation] = "Well done, you've just peeped!"

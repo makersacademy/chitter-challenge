@@ -11,6 +11,6 @@ module BeefBurgers
     use Routes::Users
     use Routes::Sessions
     use Routes::Peeps
-    run! if app_file == $0
+    run! if app_file == $PROGRAM_NAME
   end
 end

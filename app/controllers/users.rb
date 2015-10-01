@@ -19,7 +19,8 @@ module BeefBurgers
           flash[:password_reset_sent] = "Check your emails"
           redirect('/')
         else
-          flash[:resetting_no_email_on_record] = "No such account on record"
+          flash[:resetting_no_email_on_record] = "No such 
+          account on record"
           redirect('/password_reset')
         end
       end
@@ -33,7 +34,8 @@ module BeefBurgers
       post '/password_reset_success' do
         user = User.first(password_token: @token)
         user.password = params[:new_password]
-        flash[:password_changed] = "Password succesfully changed"
+        flash[:password_changed] = "Password succesfully 
+        changed"
         redirect('/')   
       end
     end

@@ -11,7 +11,8 @@ module BeefBurgers
         @user = User.create(username: params[:username],
                             email: params[:email],
                             password: params[:password],
-                            password_confirmation: params[:password_confirmation])
+                            password_confirmation: 
+                            params[:password_confirmation])
         if @user.save
           flash[:welcome_user] = "Welcome, #{@user.username}"
           session[:user_id] = @user.user_id
