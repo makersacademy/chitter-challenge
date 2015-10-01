@@ -1,7 +1,6 @@
 require 'dm-validations'
 require 'dm-migrations'
 require 'data_mapper'
-# Temporary!! Please disable the line below to enable heroku postrgres ENV VAR as per line 8 - or leave as is to push on local database.
 ENV['DATABASE_URL'] ||= "postgres://localhost/chitter_development"
 require_relative 'models/user'
 require_relative 'models/peep'
