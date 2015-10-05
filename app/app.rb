@@ -7,7 +7,6 @@ require './app/controllers/app_controller'
 require './app/controllers/test_controller'
 
 include Chitter
-
 module Chitter
 
   class Application < Sinatra::Base
