@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User
 
-  attr_reader :password
+  attr_reader :password, :email
   attr_accessor :password_confirmation
 
   include DataMapper::Resource
@@ -14,6 +14,8 @@ class User
   property :handle, String, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
+
+  has n, :posts
 
   def password=(password)
     @password = password

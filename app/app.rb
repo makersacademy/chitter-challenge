@@ -15,14 +15,14 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = current_user
-    erb :homepage
+    @posts = Post.all
+    erb :index
   end
 
   get '/users/new' do
     @user = User.new
     erb :'users/new'
   end
-
 
   post '/users' do
     @user = User.create(name:     params[:name],
@@ -54,17 +54,27 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/' do
-    if current_user
-      redirect to('/posts')
-    else
-      redirect to('/users/new')
-    end
+  delete '/sessions' do
+    session.clear
+    flash[:notice] = "Goodbye"
+    redirect '/'
   end
+
+  # get '/' do
+  #   if current_user
+  #     redirect to('/posts')
+  #   else
+  #     redirect to('/users/new')
+  #   end
+  # end
 
   get '/posts' do
     @posts = Post.all
-    erb :index
+    # if current_user == nil
+    #   redirect '/sessions/new'
+    # else
+      erb :index
+    # end
   end
 
   get '/posts/new' do

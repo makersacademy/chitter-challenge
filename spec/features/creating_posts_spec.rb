@@ -8,7 +8,7 @@ feature 'Creating posts' do
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :name,     with: user.name
-    fill_in :handle,    with: user.handle
+    fill_in :handle,   with: user.handle
     fill_in :email,    with: user.email
     fill_in :password, with: user.password
     fill_in :password_confirmation, with: user.password_confirmation
@@ -26,7 +26,7 @@ feature 'Creating posts' do
     expect(Post.count).to eq(1)
     expect(current_path).to eq'/posts'
       within 'ul#posts' do
-        expect(page).to have_content('hello world')
+        expect(page).to have_content('hello world ')
       end
   end
 

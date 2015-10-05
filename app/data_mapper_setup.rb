@@ -4,6 +4,7 @@ require 'data_mapper'
 require './app/models/user'
 require './app/models/post'
 require 'dm-validations'
+require 'dm-timestamps'
 
 
 if ENV["RACK_ENV"] == 'production'
