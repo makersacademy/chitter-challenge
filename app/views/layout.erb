@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
-  </head>
+    <!-- Latest compiled and minified CSS -->
 
-  <body>
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+    <title>Chitter</title>
+  </head>
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+  <h1 id="header">
+    Welcome to Chitter
+  </h1>
+  <body class="container">>
     <% if current_user %>
       Welcome, <%= current_user.username %>
       <form method='post' action='/sessions'>
