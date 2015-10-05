@@ -7,6 +7,9 @@
   </form>
 <% end %>
 <h1> Welcome to Chitter! </h1>
+<form method='get' action='/peeps/new'>
+  <input type='submit' value='Post a peep!'>
+</form>
 Peeps:
 <ul id="peeps">
   <% @peeps.each do |peep| %>

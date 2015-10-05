@@ -20,7 +20,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-      erb :'peeps/new'
+      if current_user
+        erb :'peeps/new'
+      else
+        flash[:notice] = 'You must be logged in to post a peep!'
+        redirect to('/peeps')
+      end
   end
 
   post '/peeps' do
