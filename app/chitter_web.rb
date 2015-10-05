@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @users = User.all
     erb :'peeps/index'
   end
 
@@ -49,8 +50,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:id/replies' do
-    peep = Peep.get(params[:id])
-    peep.replies.create(reply:     params[:reply])
+    reply = Reply.new(reply: params[:reply],
+                      user_id: session[:user_id],
+                      peep_id: params[:id]
+                      )
+    reply.user = current_user
+    reply.save
     redirect '/peeps'
   end
 

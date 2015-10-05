@@ -20,6 +20,7 @@ class User
   validates_uniqueness_of :email, :username
 
   has n, :peeps
+  has n, :replies
 
   def password=(password)
     @password = password

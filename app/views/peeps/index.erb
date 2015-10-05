@@ -9,6 +9,7 @@
         <% peep.replies.reverse.each do |reply| %>
           <li>
             <p>Replies: <%= reply.reply %></p>
+            <p>By: <%= @users.find{ |u| u.id == reply.user_id }.username %></p>
           </li>
       <% end %>
     </ul>

@@ -9,5 +9,6 @@ class Reply
   property :reply,        Text
 
   belongs_to :peep
+  belongs_to :user
 
 end
