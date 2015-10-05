@@ -26,8 +26,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-  current_user.peeps.create(message: params[:message])
-  redirect '/peeps'
+    current_user.peeps.create(message: params[:message])
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -41,11 +41,11 @@ class Chitter < Sinatra::Base
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
     if @user.save
-    session[:user_id] = @user.id
-    redirect '/peeps'
+      session[:user_id] = @user.id
+      redirect '/peeps'
     else
-    flash.now[:errors] = @user.errors.full_messages
-    erb :'users/new'
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
     end
   end
 
@@ -71,5 +71,5 @@ class Chitter < Sinatra::Base
   end
 
 
-run! if app_file == $0
+run! if app_file == $PROGRAM_NAME
 end

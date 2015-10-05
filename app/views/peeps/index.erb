@@ -1,13 +1,25 @@
 <h1> Peeps </h1>
 
+<% if current_user == nil %>
+  <form action="/sessions/new">
+    <button>Log in</button>
+  </form>
+<% end %>
+
+<% if current_user == nil %>
+  <form action="/users/new">
+    <button>Sign up</button>
+  </form>
+<% end %>
+
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      Peep: <%= peep.message %> written by <%= peep.user.username %>
+      Peep: <%= peep.message %> written by <%= peep.user.username %> at <%= peep.created_at %>
     </li>
   <% end %>
 </ul>
 
 <form action="/peeps/new">
-  <button>Send a new Peep</button>
+  <button id="Send a new Peep">Send a new Peep</button>
 </form>
