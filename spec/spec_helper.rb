@@ -12,7 +12,6 @@ require './app/data_mapper_setup'
 require 'timecop'
 require 'dm-timestamps'
 
-
 require './app/models/user'
 require './app/models/peep'
 
