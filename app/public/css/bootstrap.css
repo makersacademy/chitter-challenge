@@ -13,6 +13,24 @@
 body{
   background-image: url("https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png");
 }
+
+.top{
+  width:2000px;
+  height:50px;
+  background-color:white;
+  padding-left: -100px;
+}
+
+#welcome{
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+#signOut{
+  margin-top: 30px;
+
+}
+
 .clearfix {
   *zoom: 1;
 }
@@ -819,6 +837,8 @@ ol {
   padding: 0;
   margin: 0 0 10px 25px;
   background-color: white;
+  border-radius: 25px;
+  padding: 80px;
 }
 
 ul ul,
