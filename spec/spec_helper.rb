@@ -14,6 +14,7 @@ require 'database_cleaner'
 require 'factory_girl'
 require_relative '../app/app.rb'
 require_relative './factories/user.rb'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -21,6 +22,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
+  config.include SessionHelpers
 
   # config.before do
   #   FactoryGirl.find_definitions
