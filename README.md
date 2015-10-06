@@ -5,10 +5,24 @@ Chitter Challenge
 * Feel free to use google, your notes, books, etc but work on your own
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+
+Technologies:
+-------
+* Ruby (2.2.3)
+* Sinatra
+* Postgresql
+* Datamapper
+* Factory Girl
+* Bcrypt
+* Twitter Bootstrap
+* Mailgun
+* Rspec
+* Capybara
+
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo

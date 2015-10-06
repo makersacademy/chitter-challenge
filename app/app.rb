@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
     def current_user
       User.get(session[:user_id])
     end
+
     def send_email
       RestClient::Request.execute(
       url: "https://api:key-7af11fe0adc2a642e55d33744117e7d2"\
@@ -33,6 +34,7 @@ class Chitter < Sinatra::Base
     :verify_ssl => false
   )
   end
+  
 end
 
   get '/peeps' do
