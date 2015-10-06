@@ -8,5 +8,6 @@ class Peep
   property :id,       Serial
   property :content,  Text
   property :username, Text
+  property :created_at, Date
 
 end

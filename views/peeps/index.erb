@@ -14,7 +14,7 @@
 
 
 <ul class="trwh-list-group">
-  <% @peeps.each do |peep| %>
-    <li class="list-group-item"><b><%= peep.username %>:</b> <%= peep.content %></li>
+  <% @peeps.reverse.each do |peep| %>
+    <li class="list-group-item"><b><%= peep.username %>:</b> <%= peep.content %> <br><i>Date: <%= peep.created_at %></i></li>
   <% end %>
 </ul>
