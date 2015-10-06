@@ -2,7 +2,7 @@ module Chitter
 
   module Routes
 
-    class HomePage < App
+    class HomePage < Sinatra::Base
 
       #Home Page
       get '/' do
@@ -14,7 +14,7 @@ module Chitter
       post '/user/sign-up' do
         @user = User.create(email: params[:email], password: params[:password],
         name: params[:name], username: params[:username])
-        if @user.save 
+        if @user.save
           session[:user_id] = @user.id
           redirect to '/'
         else

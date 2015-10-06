@@ -2,7 +2,7 @@ module Chitter
 
   module Routes
 
-    class Peeps < App
+    class Peeps < Sinatra::Base
 
       post '/peeps' do
         peep = Peep.create(peep: params[:peep])
