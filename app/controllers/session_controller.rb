@@ -2,13 +2,13 @@ module Chitter
 
   module Routes
 
-    class UserSession < Sinatra::Base
+    class UserSession < App
       # 2. Log in
       post '/user/login' do
         user = User.login(params[:user], params[:login_password])
         if user
           session[:user_id] = user.id
-          redirect to '/peeps'
+          redirect to '/'
         else
           flash[:errors] = ['The username or password is incorrect']
           redirect to '/'
@@ -19,7 +19,7 @@ module Chitter
       delete '/user/login' do
         flash.next[:notice] = "Goodbye #{current_user.name}"
         session[:user_id] = nil
-        redirect to '/peeps'
+        redirect to '/'
       end
 
     end

@@ -2,19 +2,22 @@ module Chitter
 
   module Routes
 
-    class UserRegistration < Sinatra::Base
+    class HomePage < App
 
+      #Home Page
       get '/' do
+        @peeps = Peep.all
         erb :index
       end
 
+      #User Registration
       post '/user/sign-up' do
         #we initialize the object without saving it.
         @user = User.create(email: params[:email], password: params[:password],
         name: params[:name], username: params[:username])
         if @user.save #return true or false if successfuly saved
           session[:user_id] = @user.id
-          redirect :'/peeps'
+          redirect to '/'
         else
           flash.now[:errors] = @user.errors.full_messages
           erb :index

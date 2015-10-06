@@ -4,7 +4,6 @@ module Chitter
 
     class Peeps < App
 
-      # Creating Peeeps
       post '/peeps' do
         peep = Peep.create(peep: params[:peep])
         peep.user = current_user
