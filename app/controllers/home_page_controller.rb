@@ -2,7 +2,7 @@ module Chitter
 
   module Routes
 
-    class HomePage < Sinatra::Base
+    class HomePage < App
 
       #Home Page
       get '/' do

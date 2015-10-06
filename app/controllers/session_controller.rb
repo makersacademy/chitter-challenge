@@ -2,7 +2,7 @@ module Chitter
 
   module Routes
 
-    class UserSession < Sinatra::Base
+    class UserSession < App
 
       # 2. Log in
       post '/user/login' do
