@@ -1,0 +1,48 @@
+.navbar-brand {
+  float: left;
+  height: 10px;
+  padding: 5px 5px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.trwh-list-group {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.archie-header {
+  padding-left: 50px;
+  padding-bottom: 9px;
+}
+
+.alert-warning {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+.alert-danger {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+
+/*.navbar-default {
+  background-color: #ffffff;
+  border-color: #e7e7e7;
+}*/

@@ -1,0 +1,6 @@
+<form action='/peeps' method='post'>
+  What's on your mind?
+  <input type='text' name='content' required>
+  <input type='hidden' name='username' value='<%= current_user.username %>'>
+  <input type='submit' value='Submit' required>
+</form>
