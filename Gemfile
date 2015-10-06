@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'pg'
 
 group :test do
   gem 'byebug'
