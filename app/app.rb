@@ -9,12 +9,19 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+  set :static, true
+  set :public_folder, '/public'
 
   get '/' do
     redirect '/peeps'
   end
 
   get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/e' do
     @peeps = Peep.all
     erb :'peeps/index'
   end

@@ -7,6 +7,7 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, message: "Passwords don't match"
+  validates_presence_of :password, message: "Enter a password, bitch."
 
   property :id, Serial
   property :username, String, required: true, unique: true,
