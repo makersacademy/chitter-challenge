@@ -19,8 +19,8 @@ module Chitter
           session[:user_id] = @user.id
           redirect to '/'
         else
-          flash.now[:errors] = @user.errors.full_messages
-          erb :index
+          flash[:errors] = @user.errors.full_messages
+          redirect to '/'
         end
       end
 

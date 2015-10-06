@@ -10,6 +10,21 @@ h1 {
   text-align: center;
   margin: 5px;
 }
+
+.flash_errors {
+  font-family: Arial;
+  font-size: 20pt;
+  text-align: center;
+  margin: 5px;
+}
+
+.flash {
+  font-family: 'Arial';
+  font-size: 40pt;
+  text-align: center;
+  margin: 5px;
+}
+
 section.form {
   float: right;
   padding: 10px;
