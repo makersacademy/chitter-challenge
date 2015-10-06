@@ -10,16 +10,6 @@ module Chitter
         redirect '/'
       end
 
-      get '/peeps' do
-        @peeps = Peep.all
-        erb :'/peeps/index'
-      end
-
-      get '/peeps/new' do
-        erb :'/peeps/new'
-      end
-
-
       # 1. Registering
       get '/' do
         @peeps = Peep.all

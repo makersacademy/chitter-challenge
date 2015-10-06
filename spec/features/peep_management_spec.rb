@@ -14,9 +14,8 @@ feature "Creating peeps" do
   end
 
   scenario "I cannot create a peep unless I am logged in" do
-    visit '/peeps'
-    click_button 'New Peep'
-    expect(page).to have_content 'Please sign in first.'
+    visit '/'
+    expect(page).not_to have_content 'Peep'
   end
 end
 
