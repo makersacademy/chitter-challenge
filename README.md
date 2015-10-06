@@ -36,7 +36,7 @@ How to run:
 ------
 * For web viewing, simply click on [Chitter](https://zhivko-chitter.herokuapp.com/).
 * For local use, clone the repo to your local machine and run `bundle install`.
-* Tests can by run by running `rspec` from the command line.
+* Tests can be run by running `rspec` from the command line.
 
 Technologies used:
 -----
