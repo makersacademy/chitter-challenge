@@ -7,7 +7,7 @@ module Chitter
         peep = Peep.create(peep: params[:peep])
         peep.user = current_user
         peep.save
-        redirect '/peeps'
+        redirect '/'
       end
 
       get '/peeps' do
@@ -22,6 +22,7 @@ module Chitter
 
       # 1. Registering
       get '/' do
+        @peeps = Peep.all
         erb :index
       end
 
@@ -43,7 +44,7 @@ module Chitter
         user = User.login(params[:user], params[:login_password])
         if user
           session[:user_id] = user.id
-          redirect to '/peeps'
+          redirect to '/'
         else
           flash[:errors] = ['The username or password is incorrect']
           redirect to '/'

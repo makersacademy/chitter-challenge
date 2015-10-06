@@ -5,6 +5,10 @@
 
   <body>
     <%= partial :'partials/home_page' %>
+    <form action="/peeps/new">
+      <input type="submit" value="New Peep">
+    </form>
+    <%= partial :'partials/peeps_display' %>
   </body>
 
 </html>
