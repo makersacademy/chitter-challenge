@@ -8,6 +8,8 @@ gem 'dm-postgres-adapter'
 gem 'factory_girl'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'mailgun-ruby', require: 'mailgun'
+
 
 group :test do
   gem 'rspec'

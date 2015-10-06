@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './data_mapper_setup'
 require 'sinatra/flash'
+require 'mailgun'
 
 class Chitter < Sinatra::Base
   set :views, proc {File.join(root,'..','/app/views')}
@@ -13,8 +14,26 @@ class Chitter < Sinatra::Base
     def current_user
       User.get(session[:user_id])
     end
+    def send_email
+      RestClient::Request.execute(
+      url: "https://api:key-7af11fe0adc2a642e55d33744117e7d2"\
+      "@api.mailgun.net/v3/sandbox1aad2b9369f348018e3b435a1026927c.mailgun.org/messages",
+      :method => :post,
+      :payload => {
+      :from => 'Mailgun Sandbox <postmaster@sandbox1aad2b9369f348018e3b435a1026927c.mailgun.org>',
+      :sender => 'Mailgun Sandbox <postmaster@sandbox1aad2b9369f348018e3b435a1026927c.mailgun.org>',
+      :to => params[:email],
+      :subject => "Welcome to Chitter",
+      :text => "Welcome to Chitter " + params[:username] + ".Get Chittering!",
+      :multipart => true
+    },
+    :headers => {
+      :"h:X-My-Header" => "www/mailgun-email-send"
+    },
+    :verify_ssl => false
+  )
   end
-
+end
 
   get '/peeps' do
     @peeps = Peep.all
@@ -40,8 +59,10 @@ class Chitter < Sinatra::Base
                 username: params[:username],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
+
     if @user.save
       session[:user_id] = @user.id
+      send_email
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages

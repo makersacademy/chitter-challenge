@@ -11,7 +11,7 @@
 
 
 body{
-  background-image: url("https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png");
+  background-image: url("http://img05.deviantart.net/bf2e/i/2010/222/b/6/cute_twitter_background_by_ithinkthereforeimac.jpg");
 }
 
 .top{
@@ -24,6 +24,7 @@ body{
 #welcome{
   font-size: 50px;
   margin-top: 20px;
+  font-family: fantasy;
 }
 
 #signOut{
