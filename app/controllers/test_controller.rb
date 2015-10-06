@@ -32,7 +32,7 @@ module Chitter
         name: params[:name], username: params[:username])
         if @user.save #return true or false if successfuly saved
           session[:user_id] = @user.id
-          redirect :'/peeps'
+          redirect to '/'
         else
           flash.now[:errors] = @user.errors.full_messages
           erb :index

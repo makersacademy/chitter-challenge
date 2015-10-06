@@ -1,3 +1,4 @@
+<% if !@peeps.nil? %>
 <div class="peeps">
   <% @peeps.reverse.each do |peep| %>
   <div class="peep">
@@ -10,3 +11,4 @@
   </div>
   <% end %>
 </div>
+<% end %>
