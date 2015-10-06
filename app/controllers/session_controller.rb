@@ -3,6 +3,7 @@ module Chitter
   module Routes
 
     class UserSession < App
+      
       # 2. Log in
       post '/user/login' do
         user = User.login(params[:user], params[:login_password])

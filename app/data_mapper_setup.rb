@@ -10,7 +10,6 @@ env = ENV['RACK_ENV'] || 'development'
 #depending on the environment
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_challenge_#{env}")
-# DataMapper.setup(:default, 'sqlite3::memory:')
 
 #Requiring each module individually
 require './app/models/user.rb'

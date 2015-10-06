@@ -34,9 +34,9 @@ I want to see the time at which it was made
 
 How to run:
 ------
-* For web viewings, simply click on [Chitter](https://zhivko-chitter.herokuapp.com/).
+* For web viewing, simply click on [Chitter](https://zhivko-chitter.herokuapp.com/).
 * For local use, clone the repo to your local machine and run `bundle install`.
-* Test can by run by running `rspec` from the command line.
+* Tests can by run by running `rspec` from the command line.
 
 Technologies used:
 -----
@@ -46,5 +46,9 @@ Technologies used:
 
 Screenshots
 ----------------------
+
+* Home Page
 ![Home Page](https://github.com/zsid/chitter-challenge/blob/master/app/public/images/homepage.png)
+
+* Signed in
 ![Signed in](https://github.com/zsid/chitter-challenge/blob/master/app/public/images/signin.png)

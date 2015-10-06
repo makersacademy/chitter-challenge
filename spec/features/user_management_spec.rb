@@ -2,17 +2,10 @@ require 'spec_helper'
 
 feature 'User registration' do
 
-  # Strictly speaking, the tests that check the UI
-  # (have_content, etc.) should be separate from the tests
-  # that check what we have in the DB since these are separate concerns
-  # and we should only test one concern at a time.
-
-  # However, we are currently driving everything through
-  # feature tests and we want to keep this example simple.
   scenario 'User can register as a new user' do
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, James Bond" # - Do separate test
+    expect(page).to have_content "Welcome, James Bond"
     expect(User.first.email).to eq"james.bond@mi6.com"
   end
 
