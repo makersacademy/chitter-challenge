@@ -6,7 +6,7 @@ require 'dm-timestamps'
 env = ENV['RACK_ENV'] || 'development'
 
 # we are telling the datamapper to use a postgres database on localhost.
-# The name will be 'boommark_manager_test' or 'bookmark_manager_development'
+# The name will be 'chitter_challenge_test' or 'chitter_challenge_development'
 #depending on the environment
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_challenge_#{env}")
