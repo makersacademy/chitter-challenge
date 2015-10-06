@@ -4,6 +4,7 @@ class Peep
 
   property :id, Serial
   property :message, Text
+  property :rating, Text
 
   belongs_to :user
 

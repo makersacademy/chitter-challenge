@@ -36,7 +36,6 @@ feature 'User sign up' do
    let(:user) { user = build(:user) }
 
    scenario 'can log in with correct credentials' do
-
      user = create(:user)
      sign_in(user)
      expect(page).to have_content("Welcome, #{user.email}")

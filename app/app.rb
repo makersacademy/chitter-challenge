@@ -31,12 +31,9 @@ class Chitter < Sinatra::Base
     end
 
     post '/peeps' do
-    # user = User.first(id: session[:user_id])
-    # peep = user.peeps.create(message: params[:message])
-    peep = Peep.new(message: params[:message])
-    peep.user = current_user
-    peep.save
-      # Peep.create
+      peep = Peep.new(message: params[:message])
+      peep.user = current_user
+      peep.save
       redirect ('/peeps')
     end
 
@@ -46,7 +43,7 @@ class Chitter < Sinatra::Base
     end
 
     post '/users' do
-      @user = User.create(email: params[:email],
+      @user = User.new(email: params[:email],
                   password: params[:password],
                   password_confirmation: params[:password_confirmation])
 

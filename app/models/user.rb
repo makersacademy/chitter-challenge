@@ -13,6 +13,7 @@ class User
   property :handle, String
 
   property :password_digest, Text
+  property :time, DateTime
 
   has n, :peeps
 
@@ -24,6 +25,10 @@ class User
 
   def self.authenticate(email, password)
     User.first(email: email)
+  end
+
+  def nice_time
+    "2pm"
   end
 
 end
