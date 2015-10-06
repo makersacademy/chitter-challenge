@@ -4,10 +4,9 @@
   </head>
 
   <body>
-    <%= partial :'partials/home_page' %>
-    <form action="/peeps/new">
-      <input type="submit" value="New Peep">
-    </form>
+    <%= partial :'partials/current_user' %>
+    <%= partial :'partials/flash_notice' %>
+
     <%= partial :'partials/peeps_display' %>
   </body>
 

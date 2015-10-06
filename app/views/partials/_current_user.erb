@@ -5,4 +5,16 @@
 </form>
 
 <h1> Welcome, <%= current_user.name %> </h1>
+
+<form action="/peeps"    method="post">
+  <input type="text"     name="peep">
+  <input type="submit"   value="Peep">
+</form>
+
+<% else %>
+
+<h1>Welcome to Chitter </h1>
+
+<%= partial :'partials/home_page' %>
+
 <% end %>

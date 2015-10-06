@@ -55,7 +55,7 @@ module Chitter
       delete '/user/login' do
         flash.next[:notice] = "Goodbye #{current_user.name}"
         session[:user_id] = nil
-        redirect to '/peeps'
+        redirect to '/'
       end
     end
 
