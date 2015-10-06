@@ -17,7 +17,7 @@ module TestHelpers
   end
 
   def create_peep(text:)
-    click_button "New Peep"
+    click_button "Peep"
     fill_in 'peep', with: text
     click_button 'Peep'
   end
