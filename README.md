@@ -2,7 +2,6 @@ Challenge:
 -------
 
 * Create a Twitter clone web app (Chitter) that allows the users to post messages to a public stream.
-* [Chitter](https://zhivko-chitter.herokuapp.com/)
 
 Features:
 -------
@@ -42,12 +41,10 @@ How to run:
 Technologies used:
 -----
 
-If you have time you can implement the following:
-
 * Production: Ruby, DataMapper, PSQL, BCrypt (for passwords), Sinatra, Heroku, HTML, CSS
-* Testing: Rspec, Capybara, Database Clearner (for test database), Rubocop, Coveralls.
+* Testing: Rspec, Capybara, Database Cleaner (for test database), Rubocop, Coveralls.
 
 Screenshots
 ----------------------
-![Home Page]()
-![Signed in]()
+![Home Page](https://github.com/zsid/chitter-challenge/blob/master/app/public/images/homepage.png)
+![Signed in](https://github.com/zsid/chitter-challenge/blob/master/app/public/images/signin.png)
