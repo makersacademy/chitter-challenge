@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/harrietc52/chitter-challenge.svg)](https://travis-ci.org/harrietc52/chitter-challenge)
+
 Chitter Challenge
 =================
 
