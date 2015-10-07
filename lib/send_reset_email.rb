@@ -7,11 +7,6 @@ class SendResetEmail
     @client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
   end
 
-  # def call
-  #   @client.send_message(to: @user.email, message: "You have requested a password reset. Follow this link to continue:
-  #     http://www.chitter.com/password_reset/#{@user.password_token}")
-  # end
-
   def send_message
     RestClient::Request.execute(
       :url => "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v3/sandbox119f7055446a45519d466456e9412df8.mailgun.org/messages",
@@ -20,8 +15,10 @@ class SendResetEmail
         :from => "noreply@email.com",
         :to => @user.email,
         :subject => "Hello",
-        :text => "Reset your password!",
+        :text => "Reset your password by clicking the link below"\
+                 "localhost:9292/users/password_reset/#{@user.password_token}",
       },
       :verify_ssl => false)
+      # "http://rocky-taiga-9772.herokuapp.com/users/password_reset/#{@user.password_token}"
   end
 end
