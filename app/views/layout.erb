@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Bookmark Manager</title>
+    </head>
+    <body>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+      <%= flash[:welcome] %>
+      <% if flash[:errors] %>
+        <ul>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if current_user %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+        </form>
+      <% end %>
+      <%= yield %>
+    </body>
+  </html>
+</html>
