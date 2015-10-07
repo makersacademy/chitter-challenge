@@ -16,9 +16,8 @@ class SendResetEmail
         :to => @user.email,
         :subject => "Hello",
         :text => "Reset your password by clicking the link below"\
-                 "localhost:9292/users/password_reset/#{@user.password_token}",
+                 "http://rocky-taiga-9772.herokuapp.com/users/password_reset/#{@user.password_token}",
       },
       :verify_ssl => false)
-      # "http://rocky-taiga-9772.herokuapp.com/users/password_reset/#{@user.password_token}"
   end
 end
