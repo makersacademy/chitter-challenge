@@ -9,7 +9,6 @@ describe Chitter do
   end
 
   it 'has send_email method' do
-    #shouldn't this be passing also?!
     expect(app).to respond_to :send_email
   end
 
