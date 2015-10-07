@@ -6,9 +6,10 @@ gem 'data_mapper'
 gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'factory_girl'
+gem 'mailgun-ruby', require: 'mailgun'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'mailgun-ruby', require: 'mailgun'
+gem 'pg'
 
 
 group :test do

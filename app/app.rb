@@ -34,8 +34,12 @@ class Chitter < Sinatra::Base
     :verify_ssl => false
   )
   end
-  
+
 end
+
+  get '/' do
+    redirect '/peeps'
+  end
 
   get '/peeps' do
     @peeps = Peep.all
