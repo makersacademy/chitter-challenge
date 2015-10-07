@@ -6,6 +6,10 @@ Chitter Challenge
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
 
+Domain:
+-------
+Visit Chitter at https://adrian-chitter.herokuapp.com
+
 Technologies:
 -------
 * Ruby (2.2.3)
