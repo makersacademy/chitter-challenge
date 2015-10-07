@@ -40,11 +40,25 @@ end
     redirect '/sign-up'
     end
   end
-  #
-  # get '/sessions/new' do
-  #   erb :'sessions/new'
-  # end
-  #
+
+  get '/log-in' do
+    @topbox = :user_log_in
+    @peeps = Peep.all
+    erb :'index'
+  end
+
+  post '/log-in' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user_id
+      redirect '/'
+    else
+      flash[:errors] = ["The username or password is incorrect. Please try again."]
+      redirect '/log-in'
+    end
+  end
+
+
   # post '/sessions' do
   #   user = User.authenticate(params[:email], params[:password])
   #   if user
@@ -82,5 +96,5 @@ end
     end
   end
 
-run! if app_file == Chitter
+run! if app_file == $PROGRAM_NAME
 end
