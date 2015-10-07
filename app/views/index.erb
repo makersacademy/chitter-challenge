@@ -1,14 +1,10 @@
-<h1>Peeps</h1>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
 
-<ul id="peeps">
-  <% @peeps.reverse.each do |peep| %>
-  <li>
-    Posted on <%= peep.posted %> by <%= peep.user %>:
-    <%= peep.message %>
-  </li>
-  <% end %>
-</ul>
-
-<form action+"/peep/new">
-  <input type="submit" value="Peep">
-</form> 
+<body>
+  <h1>Chitter</h1>
+  <%= partial @topbox %>
+  <%= partial :peep_show %>
+</body>

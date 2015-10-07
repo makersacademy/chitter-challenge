@@ -1,0 +1,20 @@
+<div id="peep_show">
+  <% @peeps.sort_by(&:ceated_at).reverse.each do |peep| %>
+  <p class='peep'><%= peep.message %></p>
+  <p class='details'><%= peep_details(peep.user, peep.created_at) %>
+    <% if current_user %>
+    - <a href="javascript:reply_to('<%= peep.user.handle%>')">reply</a>
+    <% end %></p>
+    <hr>
+    <% end %>
+    <% if @peeps.empty? %>
+      <p><i>not a peep to be heard</i></p>
+      <hr>
+    <% end %>
+    </div>
+
+    <script>
+      function reply_to(string) {
+        document.getElementById('pbox').value = '@' + string + ' ';
+        document.getElementById('pbox').focus(); }
+    </script>

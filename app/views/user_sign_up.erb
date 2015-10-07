@@ -1,0 +1,17 @@
+<div id='user_sign_up'>
+  <% if flash[:errors] %>
+    <p><%= pretty_errors(flash[:errors]) %></p>
+  <% else %>
+    <p>Please enter your details and choose a username:<p>
+  <% end %>
+  <form action='/sign-up' method='post'>
+    <p>Name:&nbsp;&nbsp;&nbsp;&nbsp; <input name='name' maxlength='50' style='font-family:verdana'></p>
+    <p>Email:&nbsp;&nbsp;&nbsp; <input name='email' maxlength='50' style='font-family:verdana'></p>
+    <p>Username:&nbsp;&nbsp; <input name='username' maxlength='15' style='font-family:verdana'></p>
+    <p>Password: <input name='password' type='password' style='font-family:verdana'></p>
+    <p>Password confirmation: <input name='password_confirmation' type='password' style='font-family:verdana'></p>
+    <button type='submit'>Sign up</button>
+    <button type='submit' formaction='/' formmethod='get'>Cancel</button>
+  </form>
+  <hr>
+</div>
