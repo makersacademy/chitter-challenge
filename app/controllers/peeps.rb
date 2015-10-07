@@ -30,12 +30,11 @@ module ChitterApp
 
       post '/peeps/:id/reply' do
         peep = Peep.first(id: session[:id])
-        reply = Reply.new(username: session[:username],
+        peep.replies.create(username: session[:username], #could drop this and call it
                           reply: params[:reply],
-                          created_at: Time.now)
-        reply.peep = peep
-        reply.user = current_user
-        reply.save
+                          created_at: Time.now,
+                          user: current_user)
+
         redirect to('/peeps')
       end
 

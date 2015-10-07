@@ -1,9 +1,18 @@
-<div>
-  <form action="/peeps/:id/reply" method="post">
-  <textarea name="reply" rows=5 cols=20 placeholder="Reply here">
-  </textarea>
-  <input type="submit" value="Create Reply">
-  </form>
-</div>
-
-<%= @peep %>
+<% if current_user %>
+  <div>
+    <form action="/peeps/:id/reply" method="post">
+    <textarea name="reply" rows=5 cols=20 placeholder="Reply here">
+    </textarea>
+    <input type="submit" value="Create Reply">
+    </form>
+  </div>
+<% else %>
+<p>Please sign in or sign up to reply to peeps</p>
+<form action="/users/new">
+  <input type="submit" value="Sign up">
+</form>
+<br>
+<form action="/sessions/new">
+  <input type="submit" value="Sign in">
+</form>
+<% end %>

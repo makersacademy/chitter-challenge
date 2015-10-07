@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="/public/images/favicon.ico">
 
   </head>
   <body>
+
+    <%= partial :'partials/navbar' %>
 
     <%= partial :'partials/signout' %>
 
@@ -21,8 +23,8 @@
 
     <%= yield %>
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
-  <footer id='footer'>
-    <a href="/" style='color: white; font-size: 16px;'>Homepage</a>
-  </footer>
 </html>

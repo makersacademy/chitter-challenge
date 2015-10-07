@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-require 'sinatra/flash'
+# require 'sinatra/flash'
 require './app/controllers/base'
 require './app/controllers/users'
 require './app/controllers/sessions'

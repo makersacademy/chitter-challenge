@@ -203,7 +203,6 @@ DEPENDENCIES
   rspec-sinatra
   rubocop
   rubocop-rspec
-  sinatra
   sinatra-flash
   sinatra-partial
   timecop

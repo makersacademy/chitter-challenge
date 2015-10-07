@@ -1,11 +1,9 @@
-class Peep
+class Like
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
-  property :peep, Text
   property :created_at, DateTime
 
   belongs_to :user
-  has n, :replies
+  belongs_to :peep
 end

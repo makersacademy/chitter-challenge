@@ -1,6 +1,30 @@
 Chitter Challenge
 =================
 
+## Set Up
+
+```
+$ git clone
+https:://
+bundle
+```
+
+### Gems used
+Timecop - to help test for the time.
+FactoryGirl - to help create dummy users
+Sinatra Flash - This enables error messaging
+Sinatra Partials - which allows the use of partials in Sinatra
+brcypt - to encrypt the passwords stored on the site (It hashes and also adds a salt)
+Data Mapper - to interact with the postgres database that was used on this project.
+
+### To run the app
+```
+$ rackup
+```
+Go to http://localhost:9292
+
+
+
 * Challenge time: Friday afternoon (+ weekend if you need it)
 * Feel free to use google, your notes, books, etc but work on your own
 * You must submit a pull request to this repo with your code by 9am Monday morning
@@ -8,7 +32,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
