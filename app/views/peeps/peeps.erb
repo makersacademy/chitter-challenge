@@ -8,18 +8,18 @@
 <br>
 <div id='peep' style='width: 502px; height:auto; overflow: auto;'>
   <% @peeps.reverse.each do |peep| %>
-    <div style='width: 502px; float: left; background-color: white; border: solid 1px black'>
+    <div class="user_text" style='width: 502px; float: left; background-color: white; border: solid 1px black'>
       <div style='width: 500px; float: left'><%= peep.peep %></div>
-      <div style='width: 300px; float: left'><%= peep.username %></div>
+      <div style='width: 300px; float: left'><%= peep.username.capitalize %></div>
       <div style='width: 200px; float: left'><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %></div>
       <div style='width: 500px; float: left'><a href="/peeps/<%= peep.id %>/reply">reply</a></div>
       </div>
       <% peep.replies.each do |reply| %>
-      <div style='width: 502px; float: left; background-color: white; border: solid 1px black'>
+      <div class="user_text" style='width: 502px; float: left; background-color: white; border: solid 1px black'>
       <div align="right" style='width: 500px; float: right'><%= reply.reply %></div>
-      <div align="right" style='width: 300px; float: right'><%= reply.username %></div>
+      <div align="right" style='width: 300px; float: right'><%= reply.username.capitalize %></div>
       <div align="right" style='width: 200px; float: right'><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %></div>
+      </div>
       <% end %>
     <% end %>
-  </div>
 </div>

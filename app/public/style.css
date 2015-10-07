@@ -1,25 +1,21 @@
 body {
-  background-image: url(https://c1.staticflickr.com/3/2862/10613506655_cc8a61694d_b.jpg);
+  background-image: url("/images/londonskyline.jpg");
   background-size: cover;
 }
-
-#footer {
- position:fixed;
- bottom:0;
- left:50%;
-}
 a:link {
-    color: #51a0e7;
+  color: #51a0e7;
 }
 a:visited {
   color: #51a0e7;
 }
 #icon {
-  width: 50px;
+  width: 40px;
+  margin-top: 5px;
 }
 #title {
   font-weight: bold;
   color: white;
+  margin-top: 40px;
 }
 nav {
   border-radius: 0 !important;
@@ -31,6 +27,7 @@ section#sign_in {
   padding: 0px;
   min-height: 100%;
   margin-top: 20px;
+  opacity: 0;
 }
 .input_box {
   margin-top: 5px;
@@ -48,4 +45,22 @@ section#sign_in {
 #sign_in_button {
   margin-bottom: 20px;
   margin-top: 5px;
+}
+.user_text {
+  margin-top: 10px;
+  opacity: 0;
+}
+.text {
+  color:white;
+  font-size: 20px;
+  font-weight:200;
+  margin-top: 20px;
+}
+section#sign_in_home {
+  background-color: white;
+  border-radius: 5px;
+  height: 200px;
+  padding: 0px;
+  min-height: 100%;
+  margin-top: 20px;
 }
