@@ -36,7 +36,7 @@ end
       session[:user_id] = user.id
       redirect to ('/')
     else
-      flash[errors] = user.errors.full_messages
+      flash[:errors] = user.errors.full_messages
     redirect '/sign-up'
     end
   end
