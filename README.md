@@ -52,6 +52,16 @@ Technologies Used:
 * Sinatra-flash was used to display error messages and notices
 * Sinatra-partial was used to refactor code
 
+Progress:
+------------------
+So far I have created the following features with passing tests:
+* user can sign up
+* user gets sign up confirmation and welcome message
+* passwords are checked when logging in
+* users cannot signup with emails and passwords that have already been taken
+
+Currently working on logging out feature before moving onto peeps
+
 Instructions on installing and running tests :
 ----------------------------------------------
 
