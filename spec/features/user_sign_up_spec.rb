@@ -11,4 +11,11 @@ feature 'Signing up as a user:' do
     sign_up(user)
     expect(page).to have_content("You are logged in as #{user_name(user)}")
   end
+
+  xscenario 'I can log out' do
+    user = create :user
+    log_in(user)
+    click_button 'Log out'
+    expect(page).to have_content 'Welcome to Chitter'
+  end
 end

@@ -3,7 +3,7 @@
   <p class='peep'><%= peep.message %></p>
   <p class='details'><%= peep_details(peep.user, peep.created_at) %>
     <% if current_user %>
-    - <a href="javascript:reply_to('<%= peep.user.handle%>')">reply</a>
+    - <a href="javascript:reply_to('<%= peep.user.username %>')">reply</a>
     <% end %></p>
     <hr>
     <% end %>

@@ -53,9 +53,14 @@ end
       session[:user_id] = user_id
       redirect '/'
     else
-      flash[:errors] = ["The username or password is incorrect. Please try again."]
+      flash[:errors] = ["The username or password is incorrect"]
       redirect '/log-in'
     end
+  end
+
+  post '/log-out' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
 
