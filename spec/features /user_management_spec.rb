@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'User sign up' do
+  include Rack::Test::Methods
 
   scenario 'I can sign up as a new user' do
     user = build(:user)
@@ -28,6 +29,13 @@ feature 'User sign up' do
     expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content("Email is already taken")
   end
+
+  # scenario "the sign_up method is called when the user signs up" do
+  #   user = create :user
+  #   allow_any_instance_of(RestClient::Request).to receive(:execute).with(any_args)
+  #   sign_up(user)
+  #   expect(Chitter).to have_received(:send_email)
+  # end
 
   def sign_up(user)
   visit '/users/new'

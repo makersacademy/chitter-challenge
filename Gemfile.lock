@@ -172,6 +172,7 @@ DEPENDENCIES
   factory_girl
   mailgun-ruby
   pg
+  rack-test
   rspec
   rubocop
   rubocop-rspec

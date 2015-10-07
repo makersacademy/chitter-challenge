@@ -25,17 +25,17 @@ class Chitter < Sinatra::Base
       :sender => 'Mailgun Sandbox <postmaster@sandbox1aad2b9369f348018e3b435a1026927c.mailgun.org>',
       :to => params[:email],
       :subject => "Welcome to Chitter",
-      :text => "Welcome to Chitter " + params[:username] + ".Get Chittering!",
+      :text => "Welcome to Adrian's awesome Chitter site. " + params[:username] + ".Get Chittering!",
       :multipart => true
-    },
-    :headers => {
-      :"h:X-My-Header" => "www/mailgun-email-send"
-    },
-    :verify_ssl => false
-  )
-  end
+      },
+      :headers => {
+        :"h:X-My-Header" => "www/mailgun-email-send"
+      },
+      :verify_ssl => false
+      )
+    end
 
-end
+  end
 
   get '/' do
     redirect '/peeps'
