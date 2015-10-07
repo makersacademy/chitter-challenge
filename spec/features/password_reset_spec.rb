@@ -5,9 +5,9 @@ feature 'Password reset' do
   scenario 'User can verify valid email for password reset' do
     visit '/email_verification'
     fill_in 'email', with: user.email
+    expect(SendResetEmail).to receive(:call)
     click_button 'Verify'
     expect(user.password_token).not_to be_nil
-    # expect(SendResetEmail).to receive(:call)
     expect(page).to have_content('Email sent. Please check your email')
   end
 

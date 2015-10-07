@@ -6,6 +6,8 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'pg'
+gem 'mailgun-ruby', require: 'mailgun'
+gem 'dotenv'
 group :test do
   gem 'rspec'
   gem 'cucumber'

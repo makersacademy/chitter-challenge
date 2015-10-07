@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'dotenv'
+Dotenv.load
 require_relative 'data_mapper_setup'
 require './app/helpers/user_helper'
 require 'sinatra/flash'
@@ -83,6 +85,7 @@ class App < Sinatra::Base
     if user
       user.password_token = generate_password_token
       user.save
+      SendResetEmail.new(user).send_message
       flash.now[:notice] = 'Email sent. Please check your email'
       erb :'users/email_verification'
     else
