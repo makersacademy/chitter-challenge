@@ -24,7 +24,7 @@ class Chitter < Sinatra::Base
     @topbox = :user_sign_up
     @peeps = Peep.all
     erb :index
-end
+  end
 
   post '/sign-up' do
     user = User.new(name: params[:name],

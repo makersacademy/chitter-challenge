@@ -4,7 +4,8 @@ feature 'Validating user information' do
     user = create :user
     user.password = 'wrong'
     log_in(user)
-    expect(page).to have_content "The username or password is incorrect. Please try again."
+    expect(page).to have_content "The username or password is incorrect.
+      Please try again."
   end
 
   scenario 'Emails and usernames must not be already taken at sign-up' do
