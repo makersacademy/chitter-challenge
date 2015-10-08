@@ -16,7 +16,7 @@ feature "User sign up" do
   end
 
 # #--> FactoryGirl refactoring
-# def sign_up_as(user)
+# def sign_up_as(user) #--> change scenarios to use this method!
 #   visit 'users/sign_up'
 #
 #   fill_in :name,                  with: user.name
