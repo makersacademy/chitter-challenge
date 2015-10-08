@@ -13,6 +13,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'cucumber'
   gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'

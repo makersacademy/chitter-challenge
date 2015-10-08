@@ -11,6 +11,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'factory_girl'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
@@ -18,7 +19,10 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.before(:suite) do
+    FactoryGirl.reload
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
