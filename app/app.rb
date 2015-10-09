@@ -1,5 +1,3 @@
-require 'coveralls'
-require 'simplecov'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
@@ -10,7 +8,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
-
   set :public_folder, proc { File.join(root, '..', 'public') }
 
   helpers do
@@ -44,8 +41,6 @@ class Chitter < Sinatra::Base
       erb :'users/new'
     end
   end
-
-
 
   get '/sessions/new' do
     erb :'sessions/new'
@@ -90,5 +85,3 @@ class Chitter < Sinatra::Base
  run! if app_file == $0
 
 end
-
-

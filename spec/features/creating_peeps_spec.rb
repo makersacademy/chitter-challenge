@@ -14,7 +14,6 @@ feature 'Creating peeps' do
     click_button 'New Peep'
     fill_in 'body', with: 'test peep'
     click_button 'Post Peep'
-
     expect(current_path).to eq '/peeps'
     expect(page).to have_content('test peep')
   end

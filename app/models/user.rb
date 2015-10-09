@@ -32,6 +32,8 @@ class User
         user
       else
         nil
-     end
-   end
+      end
+
+  end
+  
 end

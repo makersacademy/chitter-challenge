@@ -14,5 +14,3 @@ class Peep
   has n, :user, through: Resource
 
 end
-
-
