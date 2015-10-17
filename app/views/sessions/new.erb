@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+
+  </head>
+  <body style= "background-image: url('/images/db.jpg')">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+          <h1>Sign In</h1>
+          <br>
+          <form method='post' action='/sessions'>
+            <input type='text' class="form-control" name='handle';
+             placeholder = 'Username'>
+            <br>
+            <input type='password' class="form-control" name='password';
+             placeholder = 'Password'>
+            <br>
+            <br>
+            <button type='submit' class= "btn btn-primary" value='Sign In'>
+              Sign In
+            </button>
+            <a class="btn btn-success" href= '/users/new'> New User</a>
+          </form>
+      </div>
+    </div>
+  </body>
+</html>
