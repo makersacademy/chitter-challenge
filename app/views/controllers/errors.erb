@@ -1,0 +1,10 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+<div class="alert alert-danger" role="alert">
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>

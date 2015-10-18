@@ -1,0 +1,13 @@
+<% if session[:user_id] == nil %>
+  Please sign in.
+  <form action='/sessions' method='post'>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon2">Email</span>
+      <input type="text" class="form-control" placeholder="Enter email" name="email" aria-describedby="sizing-addon2">
+      <span class="input-group-addon" id="sizing-addon2">Password</span>
+      <input type="password" class="form-control" placeholder="Enter Password" name="password" aria-describedby="sizing-addon2">
+    </div>
+    <br>
+    <input type='submit' value='Sign in'>
+  </form>
+<% end %>

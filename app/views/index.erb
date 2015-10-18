@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1>
+    Peeps
+  </h1>
+</div>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Posted on <%= peep.posted %> by <%= peep.user.username %>:
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
+<br>
+<form action="/peep/new">
+  <input type="submit" value="Peep">
+</form>
