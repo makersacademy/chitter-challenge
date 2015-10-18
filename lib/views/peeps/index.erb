@@ -1,0 +1,17 @@
+<div>
+
+<h2>Chitter : Peeps</h2>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Date / time: <%= peep.created_at %>
+      Content: <%= peep.content %>
+      User: <%= User.get(peep.user_id).email %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+</div>
