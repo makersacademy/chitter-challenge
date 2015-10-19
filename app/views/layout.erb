@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <!-- <link rel="stylesheet" href="..." -->
+  </head>
+
+  <body style="background-color: #fbfbff; font-family: 'Helvetica', 'Lucida Grande', sans-serif">
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+     <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+    <%= yield %>
+
+  </body>
+
+</html>
+
+<!-- #fafaff (lilac) -->

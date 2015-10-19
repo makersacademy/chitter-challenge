@@ -1,0 +1,70 @@
+<div style="position: fixed; right: 5px; padding: 5px">
+  <% if current_user %>
+    <div style="text-align: center; padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 40px; font-size: 100%; color: black; border-radius: 4px; border: solid black; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #f5faff">
+      <%= current_user.username %>
+    </div>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type="submit" value="Sign out" style="text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; padding-top: 8px; padding-bottom: 8px; padding-left: 40px; padding-right: 40px; margin-top: 5px">
+    </form>
+  <% end %>
+</div>
+
+<div style="position: fixed">
+
+  <div style="margin-left: 10px; font-weight: bold; font-size: 250%; float: left">
+    chitter
+  </div>
+
+  <div style="left: 15px; padding: 5px; margin-top: 50px">
+    <% if current_user %>
+      <form action="/feed" method="post">
+        <textarea name="message" cols="20" rows="5" placeholder="what's on your mind?" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%; border-image: none; border-radius: 6px; border-style: none solid solid none; border-width: medium 1px 1px medium; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); outline: none"></textarea>
+      <!-- Submit -->
+        <input type="submit" value="Peep" style="position: absolute; bottom: -35px; right: 110px; left: 5px; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 9.3em;  height: 2.2em;">
+    </form>
+    <% end %>
+  </div>
+
+</div>
+
+<!-- <div style="float:left; position: absolute; margin-top: 100px">
+  <form action="/feed" method="post">
+      <textarea name="message" cols="20" rows="5" placeholder="Write a peep" style="font-family: 'Helvetica', 'Lucida Grande', sans-serif; font-size: 110%"></textarea> -->
+    <!-- Submit -->
+  <!--     <input type="submit" value="Peep" style="position: absolute; bottom: -30px; right: 110px; left: 50; text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 11.3em;  height: 1.8em;">
+  </form>
+</div> -->
+
+<div style="position: absolute; right: 5px; padding: 5px">
+  <% unless current_user %>
+    <form action='/'>
+      <input type="submit" value="Sign in" style="text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 8em;  height: 2em;">
+    </form>
+  <% end %>
+</div>
+
+<div style="position: absolute; left: 32%; margin-right; -50%; min-height: 100px; width:500px">
+  <ul id="peeps" style="list-style-type: none">
+    <% if @peeps %>
+      <% @peeps.reverse.each do |peep| %>
+        <div style="text-align: center; display: inline-block; width: 415px; height: 170px; background-image: url('/images/rsz_chitter-box-texturized-2.png'); background-repeat: no-repeat; word-wrap: break-word">
+          <li>
+            <div style="margin-top: 10px; margin-left: 10px; font-size: 90%; text-align: left; font-weight: bold">
+              <%= peep.name %> 
+                <div style="font-size: 80%; color: grey; display: inline-block; font-weight: normal"> 
+                  @<%= peep.username %> 
+                </div> 
+                <div style="font-size: 80%; color: black; display: inline-block; font-weight: normal; float: right; margin-right: 12px; font-weight: bold"> 
+                  <%= relative_time(peep.created_at) %>
+                </div> 
+            </div>
+            <div style="height: 110px; width: 390px; display: flex; justify-content: center; align-items: center; padding: 5px; padding-left: 10px; font-size: 110%; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2)">
+              <%= peep.message %>
+            </div>
+          </li>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

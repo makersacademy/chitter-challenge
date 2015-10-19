@@ -1,0 +1,14 @@
+<div style="margin-left: 10px; font-weight: bold; font-size: 250%; float: left">
+  chitter
+</div>
+
+<div style="position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center"> 
+  <form action='/users' method='post' style="margin-bottom: 5px; text-align: center; font-size: 120%; border-radius: 4px; font-size">
+    <input type='text' name='name' value='<%= @user.name %>' placeholder="name" style="margin-bottom: 5px; text-align: center; font-size: 100%; border-radius: 4px"> </br>
+    <input type='text' name='email' value='<%= @user.email %>' placeholder="email" style="margin-bottom: 5px; text-align: center; font-size: 100%; border-radius: 4px"> </br>
+    <input type='text' name='username' value='<%= @user.username %>' placeholder="username" style="margin-bottom: 5px; text-align: center; font-size: 100%; border-radius: 4px"> </br>
+    <input type='password' name= 'password' placeholder="password" style="margin-bottom: 5px; text-align: center; font-size: 100%; border-radius: 4px"> </br>
+    <input type='password' name='password_confirmation' placeholder="retype password" style="margin-bottom: 5px; text-align: center; font-size: 100%; border-radius: 4px"> </br>
+    <input type="submit" value="Sign up" style="text-align: center; font-size: 100%; color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); background: #99ccff; width: 11.3em;  height: 1.8em;">
+  </form>
+</div>
