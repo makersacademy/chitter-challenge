@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <%= erb :'partials/header' %>
+  <body>
+    <% if flash[:sign_out] %>
+      <div><%= flash[:sign_out] %></div>
+    <% end %>
+    <% if current_user %>
+      <form method="post" action="/users/sign_out">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+      Welcome to Chitter, <%= current_user.name %> @<%= current_user.username %>!
+    <% else %>
+      <p><a href="/users/new">Sign up</a>  <a href="/users/sign_in">Sign in</a></p>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

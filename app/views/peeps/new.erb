@@ -1,0 +1,8 @@
+<% if current_user %>
+  <form action='/peeps' method='post'>
+      Content of your peep: <input type='text' name='content'>
+    <input type='submit' value='Post new peep'>
+  </form>
+<% else %>
+  You need to be signed in to peep!
+<% end %>
