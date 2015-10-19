@@ -1,0 +1,16 @@
+<h1> Peep Feed </h1>
+
+<% if current_user %>
+<ul id="peep">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      @<%= peep.username %>:
+      <%= peep.content %>
+      <p><%= peep.time %></p>
+    </li>
+  <% end %>
+</ul>
+  <form action = '/peep/new'>
+    <input type='submit' value='Post'>
+  </form>
+<% end %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Chitter</h1>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+      <form action="/peep">
+        <button>Peep Feed</button>
+      </form>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
+    <% else %>
+      <form action="/user/new">
+        <button>Register</button>
+      </form>
+      <form action="/sessions/new">
+        <button>Sign In</button>
+      </form>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id="notice">
+        <%= flash[:notice] %>
+        <form action="/">
+          <button>Home</button>
+        </form>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
