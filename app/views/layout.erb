@@ -1,0 +1,31 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+
+
+  <body>
+    <title>Chitter</title>
+    <% if current_user %>
+    <p> Welcome <%=@current_user.email%></p>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+    <a href='/peeps/new'>Make peep</a>
+   </form>
+
+    <% else %>
+    <a href="/users/new">Sign up</a>
+    <a href="/sessions/new">Sign in</a>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <%flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <%end%>
+    <%=yield %>
+  </body>
