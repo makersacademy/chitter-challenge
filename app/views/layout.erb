@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="http://localhost:9292/css/bootstrap.css" rel="stylesheet">
+    <link href="http://localhost:9292/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+    <title> Chitter</title>
+  </head>
+
+  <body class = "container">
+
+    <% if current_user %>
+     <h1> Welcome back to Chitter, <%= current_user.username %> </h1>
+     <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' class="btn btn-success" value='Sign out'>
+    </form>
+   <% end %>
+
+   <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+    <%= yield %>
+    <!-- Bootstrap jquery plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+    </script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js">
+    </script>
+ </body>
+</html>

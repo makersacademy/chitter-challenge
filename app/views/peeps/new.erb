@@ -1,0 +1,14 @@
+<body class="container">
+    <% if current_user %>
+      <h1> Add Peep </h1>
+        <form action="/peeps/new" method="post">
+          <textarea rows="4" cols="50" name="message"> Enter text here...</textarea>
+          <br>
+          <input type="submit" class="btn btn-info" role="button" value="Peep">
+        </form>
+    <% else %>
+        <h1> Please login in order to create a Peep </h1>
+        <a href="/sessions/new" class="btn btn-info" role="button">Sign in</a>
+    <% end %>
+
+</body>
