@@ -1,20 +1,7 @@
 Chitter Challenge
 =================
 
-* Challenge time: The weekend and up to 9am Monday morning
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-* Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Week four weekend challenge at Makers Academy: write a little Twitter clone that can allow users to post messages to a public stream.
 
 Features:
 -------
@@ -45,49 +32,55 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+Functionality I plan to implement:
+------------------
+* Users can sign up using their email, username and password
+* All usernames and emails have to be unique
+* Peeps can be posted by all users that have signed in
+* All peeps display a Date/Time of posting along with the username of the user who posted them
+* Users don't have to be logged in to view the peeps
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Technologies Used:
+------------------
+* The application was codded in Ruby using Sinatra
+* Rspec and Caypybara were used for testing
+* DataMapper was used to save data to tables
+* Sinatra-flash was used to display error messages and notices
+* Sinatra-partial was used to refactor code
 
-Bonus:
------
+Progress:
+------------------
+So far I have created the following features with passing tests:
+* user can sign up
+* user gets sign up confirmation and welcome message
+* passwords are checked when logging in
+* users cannot signup with emails and passwords that have already been taken
+* email and passwords are required before a suer is able to sign up
+* Bcrypt was used to secure passwords
+* PostgreSQL and DataMapper is used to save data
+* users can sign in
+* users can log out 
 
-If you have time you can implement the following:
+Improvements: 
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+I am currently working on peeps and the ability for users to post peeps and reply to peeps. I would also like users to be able to sign back in once signed out. Lastly, some CSS is required to make the app look more appealing. 
 
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+Instructions on installing and running tests :
+----------------------------------------------
+Clone this repository:
 ```
-
-Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally
-Then run `open coverage/index.html` from the command line to view details
+$ git clone https://github.com/catherinestevenson/chitter-challenge
+```
+Once cloned change into the directory and run bundle install to install all gems. 
+```
+$ cd chitter-challenge
+$ bundle install
+```
+You can then use RSpec to check tests:
+```
+$ rspec
+```
+To run the app on your localhost browser use rackup and open the application on your browser, eg: http://localhost:9292 :
+```
+$ rackup
+```

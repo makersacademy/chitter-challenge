@@ -1,0 +1,13 @@
+<div id='peep form'>
+  <form action='/log-out' method='post'>
+    <p><%= "You are logged in as #{user_name(current_user)}" %>
+      <button type='submit'>Log out</button></p>
+    </form>
+    <form action='/send-peep' method='post'>
+      <p>Enter your peep (max 140 characters):</p>
+      <p><textarea id='pbox' name='message'rows='2' cols='70' maxlength='140'
+        style='resize:none; font-family:verdana'></textarea></p>
+      <p><button type='submit'>Peep</button></p>
+    </form>
+    <hr>
+  </div>
