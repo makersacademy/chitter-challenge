@@ -1,0 +1,12 @@
+<% if current_user %>
+
+peep away! <br><br>
+<form action='/peeps/new' method='post'>
+  <input type='text' name="content">
+  <input type='submit' value='peep!'>
+</form>
+
+<% else %>
+Please sign in  <a href='/sessions/new'>Log in</a><br><br><br>
+
+<% end %>
