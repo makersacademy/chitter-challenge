@@ -1,0 +1,23 @@
+<% if current_user %>
+
+
+<form class="signout" action="/user/login" method="post">
+  <input type="hidden"     name="_method" value="delete">
+  <input class="button" type="submit"     value="Sign out">
+</form>
+
+<h1> Welcome, <%= current_user.name %> </h1><br />
+
+<section class="peeps">
+  <form action="/peeps"    method="post">
+    <input class="peep_content" type="text"     name="peep">
+    <input class="peep_button" type="submit"   value="Peep">
+  </form>
+</section>
+<% else %>
+
+<h1>Welcome to Chitter </h1><br />
+
+<%= partial :'partials/home_page' %>
+
+<% end %>

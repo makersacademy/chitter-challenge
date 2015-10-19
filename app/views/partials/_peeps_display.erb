@@ -1,0 +1,14 @@
+<% if !@peeps.nil? %>
+<div class="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <div class="peep">
+    <span class="peep_content"><%= peep.peep %></span>
+    <ul>
+      <li>Created by: <%= User.get(peep.user_id).name %></li>
+      <li>Logged in as: <%= User.get(peep.user_id).username %> </li>
+      <li>Written on: <%=  peep.time.strftime("%H:%M %d/%m/%Y") %></li>
+    </ul>
+  </div>
+  <% end %>
+</div>
+<% end %>

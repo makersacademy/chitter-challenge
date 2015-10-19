@@ -1,0 +1,85 @@
+body {
+  background-color: #ffffff;
+  font-family: 'Arial';
+  margin: 5px;
+}
+
+h1 {
+  font-family: 'Arial';
+  font-size: 40pt;
+  text-align: center;
+  margin: 5px;
+}
+
+.flash_errors {
+  font-family: Arial;
+  font-size: 20pt;
+  text-align: center;
+  margin: 5px;
+}
+
+.flash {
+  font-family: 'Arial';
+  font-size: 40pt;
+  text-align: center;
+  margin: 5px;
+}
+
+section.form {
+  float: right;
+  padding: 10px;
+}
+
+.signout {
+  float: right;
+}
+
+.peep_button {
+  font-size: 140%;
+  background-color: #f3f3f3;
+  padding: 25px;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+}
+
+.button {
+  font-size: 75%;
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 30px;
+  padding-right: 15px;
+  text-align: center;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.peeps {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+.peep {
+  text-align: center;
+  border: 1px solid #f3f3f3;
+  margin: auto;
+  margin: 10px;
+  border-radius: 3px;
+  padding: 10px 5px 0px 0px;
+}
+
+.peep ul li {
+  font-size: 8pt;
+  text-align: right;
+  font-family: 'Arial';
+}
+
+.peep_content {
+  font-family: 'Arial';
+  font-size: 28pt;
+}

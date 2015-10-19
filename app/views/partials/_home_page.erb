@@ -1,0 +1,22 @@
+<!-- <h1>Welcome to Chitter </h1> -->
+
+<%= partial :'partials/flash_errors' %>
+
+<section class="form">
+<br /><br /><b>Please login below:</b>
+<form action="/user/login" method="post">
+  <input type="text"     name="user"            placeholder="Username"><br />
+  <input type="password" name="login_password"  placeholder="Password"><br />
+  <input class="button" type="submit"   value="Login">
+</form><br /><br />
+
+
+<br /><b>Please register here:</b>
+<form action="/user/sign-up"  method="post">
+  <input type="email"     name="email"    placeholder="Email"><br />
+  <input type="password" name="password"  placeholder="Password"><br />
+  <input type="name"     name="name"      placeholder="Name"><br />
+  <input type="username" name="username"  placeholder="Username"><br />
+  <input class="button" type="submit"   value="Sign up">
+</form>
+</section>
