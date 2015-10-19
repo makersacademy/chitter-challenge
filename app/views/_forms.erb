@@ -1,0 +1,7 @@
+<% if current_user %>
+  Welcome, <%= current_user.real_name %>
+  <%= partial :'sign-out' %>
+  <%= partial :'post-chit' %>
+<% else %>
+  <%= partial :'sign-in' %>
+<% end %>
