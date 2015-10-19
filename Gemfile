@@ -1,11 +1,24 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+
 ruby '2.2.3'
 
+gem 'bcrypt'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'dm-validations'
+
 group :test do
-  gem 'rspec'
+  gem 'byebug'
+  gem 'capybara'
+  gem 'coveralls', require: false
   gem 'cucumber'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'rake'
+  gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'timecop'
 end
-
