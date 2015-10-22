@@ -1,11 +1,6 @@
 Chitter Challenge
 =================
 
-* Challenge time: The weekend and up to 9am Monday morning
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-* Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
-
 Challenge:
 -------
 
