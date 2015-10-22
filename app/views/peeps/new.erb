@@ -1,0 +1,15 @@
+<% if current_user == nil %>
+  <h1>Please sign in or sign up first:</h1>
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
+<% else %>
+  <form action='/peeps' method="post">
+    What's happening?
+    <input type="text" name="content" required>
+    <input type="submit" value="Peep Content">
+  </form>
+<% end %>
