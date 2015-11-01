@@ -1,3 +1,6 @@
+[![BuildStatus](https://travis-ci.org/lucetzer/chitter-challenge.svg?branch=master)](https://travis-ci.org/lucetzer/chitter-challenge)
+[![CoverageStatus](https://coveralls.io/repos/lucetzer/chitter-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/lucetzer/chitter-challenge?branch=master)
+
 Chitter Challenge
 =================
 
@@ -6,7 +9,7 @@ This is week 4 challenge at Makers Academy which is to make a Twitter clone. The
 Features:
 -------
 
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -34,6 +37,9 @@ I want to see the time at which it was made
 
 Technologies used:
 ------
+* Ruby 2.2.3
+* Sinatra framework
+* Bcrypt
 
 Database:
 * DataMapper
@@ -42,7 +48,6 @@ Database:
 
 Testing:
 * RSpec
-* Sinatra
 * Capybara
 * Factory Girl
 * Database Cleaner
