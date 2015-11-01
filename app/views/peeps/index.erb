@@ -1,0 +1,27 @@
+<h1>Peeps</h1>
+
+<ul id='peeps'>
+
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Peeper: <%= peep.user.name %>
+              <%= peep.user.username %>
+              <%= peep.time.strftime("%R") %>
+      Peep: <%= peep.peep %>
+      <a href="/peeps/<%= peep.id %>/replies">Reply</a>
+        <% peep.replies.each do |reply| %>
+          <li>
+          <%= reply.reply %>
+          <%= reply.user.name %>
+          <%if reply.time %>
+          <%= reply.time.strftime("%R") %>
+          <%end%>
+          </li>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new">
+  <button>Peep</button>
+</form>
