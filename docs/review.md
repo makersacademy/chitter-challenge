@@ -9,20 +9,27 @@ Please use this form to tick off where your reviewee has successfully has succes
 
 Please checkout your reviewee's code and run their tests. Read the code and try and use the app through the web interface.  You can also experiment with the engine in IRB. How easy is it to understand the structure of their code? How readable is their code? Did you need to make any cognitive leaps to 'get it'?
 
+# Step 0.5?  How far did they get?
+
+* stage 1
+* stage 2
+* stage 3?
+
+general comments here if you want to skip the following????
+
 # Step 1: Structure and supporting files
 
-## Instructions in README
+## Installation Instructions in README
 
-As we have seen previously, the README is a great place to show the full story of how your app is used (from a user's perspective).  For a web app, include instructions for how to download and run the app, e.g.:
+Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application:
 
-```sh
-$ git clone git@github.com:[USERNAME]/rps-challenge.git
-$ cd rps-challenge
-$ bundle
-$ rackup
+```
+TODO example
 ```
 
-And maybe include some screenshots?  For more info on embedding images in a README: https://guides.github.com/features/mastering-markdown/
+And as we saw in previous weeks you'll want to have screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
+
+For more info on embedding images in a README: https://guides.github.com/features/mastering-markdown/
 
 e.g.:
 ```
