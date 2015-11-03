@@ -1,0 +1,15 @@
+<% unless current_user %>
+  Please log in to create peep.<br><br>
+  <a href='/session/new'>Log in</a><br><br><br>
+
+  Please sign up if you are new to Chitter.<br><br>
+  <a href='/user/new'>Sign up</a>
+
+<% else %>
+Please create a new peep below<br><br>
+<form action='/peep/new' method='post'>
+  <input type='text' name='content'>
+  <input type='submit' value='Post'>
+</form>
+
+<% end %>

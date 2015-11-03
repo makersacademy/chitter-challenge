@@ -1,0 +1,15 @@
+<% if flash[:error] %>
+  <% flash[:error].each do |error| %>
+    <%= error %><br><br>
+  <% end %>
+<% end %>
+
+Please sign up<br><br>
+<form action='/user/new' method='post'>
+  Email: <input type='text' name='email' value='<%= @user.email %>' required><br><br>
+  Username: <input type='text' name='username' value='<%= @user.username %>' required><br><br>
+  Password: <input type='password' name='password'><br><br>
+  Password confirmation: <input type='password' name='password_confirmation'><br><br>
+  Name: <input type='text' name='name' value='<%= @user.name %>'><br><br>
+  <input type='submit' value='Sign up'>
+</form>
