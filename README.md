@@ -6,10 +6,28 @@ Chitter Challenge
 * You must submit a pull request to this repo with your code by 9am Monday morning
 * Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
 
+
+Domain:
+-------
+Visit Chitter at https://adrian-chitter.herokuapp.com
+
+Technologies:
+-------
+* Ruby (2.2.3)
+* Sinatra
+* Postgresql
+* Datamapper
+* Factory Girl
+* Bcrypt
+* Twitter Bootstrap
+* Mailgun
+* Rspec
+* Capybara
+
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
 * Forking this repo

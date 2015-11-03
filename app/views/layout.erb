@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css">
+  <title>Chitter</title>
+</head>
+
+
+<body class="container">
+<div id="welcome">  <% if current_user %>
+    Welcome,
+    <%= current_user.username %><br><br>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input id="signOut" type='submit' value='Sign out'>
+      </form>
+      <% end %>
+</div>
+
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Please refer to the following errors below:
+          <ul id='errors'>
+            <%flash[:errors].each do |error| %>
+              <li>
+                <%= error %>
+              </li>
+              <% end %>
+          </ul>
+          <% end %>
+
+            <% if flash[:notice] %>
+              <div id='notice'>
+                <%= flash[:notice] %>
+              </div>
+              <% end %>
+                <%= yield %>
+</body>
+
+</html>
