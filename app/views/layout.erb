@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <title>Chitter</title>
+    </head>
+  <div>
+    <h1>Welcome to Chitter!</h1>
+  </div>
+  <body class = "container">
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <% if current_user %>
+      Hello, <%= current_user.name.capitalize %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+
+    <% if flash[:logged_out] %>
+      <div id='logged_out'>
+        <%= flash[:logged_out] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
