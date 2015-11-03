@@ -1,0 +1,127 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-image: url(/images/linen_texture_backround.jpg);
+  background-size: cover;
+}
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 90px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #6666CC;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px; /*rounded corners*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+}
+
+/* a link that has both classes. Overrides the previous declaration */
+.button.highlighted {
+  background-color: #b77843;
+  width: 110px;
+}
+
+form {
+  font-weight: bold;
+}
+
+  #welcome-message {
+    font-weight: normal;
+  }
+
+header {
+  height: 50px;
+  background-color: #663366;
+  color: white;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  display: -webkit-flex;
+  padding: 0 20px;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    display: flex;
+    margin-right: 30px;
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  header #user-links {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }
+
+  header #forms {
+    float: right;
+  }
+
+#notice {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgba(67,183,120,0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: black;
+  font-weight: bold;
+  font-size: -webkit-xxx-large;
+}
+
+#error {
+  text-align: left;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgba(216, 16, 53, 0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: black;
+  font-weight: bold;
+  font-size: large;
+}
+
+  #errors {
+    text-align: center;
+  }
+
+#peeps-container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 5px;
+}
+
+.peep {
+  background-color: #EEE;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px 7px;
+  padding: 15px 10px;
+}
+
+  .peep .heading {
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+
+  .peep .message {
+    margin: 10px inherit;
+  }
+
+  .peep .source {
+    float: right;
+    font-size: 12px;
+  }
