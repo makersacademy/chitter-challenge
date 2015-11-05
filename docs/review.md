@@ -1,8 +1,8 @@
 # Introduction
 
-Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.
+Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.  
 
-If you don't feel comfortable giving technical feedback at this stage, try going through this guide with your reviewee and review the code together.
+Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
 
 Please use this form to tick off where your reviewee has successfully has successfully incorporated these guidelines!  This form helps us get an overall picture of how the whole cohort is doing - it's not an assessment of an individual student.
 
@@ -35,6 +35,8 @@ Particularly now that we have a database involved, it becomes even more importan
 ```
 $ git clone https://github.com/tansaku/chitter_challenge
 $ bundle
+$ psql < CREATE DATABASE chitter_development
+$ rake auto_migrate
 $ rspec
 $ rackup
 
@@ -63,9 +65,24 @@ For example if you've been using the launchy gem to `save_and_open_page` then yo
 capybara-*.html
 ```
 
-## Ensure Rakefile has appropriate tasks +
+## Ensure Rakefile has appropriate tasks
 
 For migration and upgrade
+
+```ruby
+require 'data_mapper'
+require './app/data_mapper_setup'
+
+task :auto_upgrade do
+  DataMapper.auto_upgrade!
+  puts 'Auto-upgrade complete (no data loss)'
+end
+
+task :auto_migrate do
+  DataMapper.auto_migrate!
+  puts 'Auto-migrate complete (data could have been lost)'
+end
+```
 
 ## Gemfile should use test groups
 
@@ -78,6 +95,19 @@ http://bundler.io/groups.html
 ## Ensure spec_helper configured correctly
 
 Pull in a single app file that pulls in all the other dependencies required by the app.  Don't pull in the models etc. separately or you risk having the tests pass when the app might be missing a dependency.
+
+Also watch out for spec helpers vs sinatra helpers. They are two very different things.  Don't pull your sinatra helpers into your rspec config:
+
+```
+RSpec.configure do |config|
+
+  config.include Capybara::DSL # good
+  config.include FactoryGirl::Syntax::Methods # sure
+  config.include TestHelpers # good
+  config.include ChitterHelpers # nooooooooooo
+
+end
+```
 
 ## Factory Girl
 
@@ -323,7 +353,7 @@ Note the much shorter method and the business logic all pulled into the User mod
 Rather than
 
 ```ruby
-class Chitter < Sinatra::Base
+class Chitter < Sinatra::Application
   get '/' do
     redirect '/peeps'
   end
@@ -345,7 +375,7 @@ prefer
 # app.rb
 require 'controllers/peep_controller'
 
-class Chitter < Sinatra::Base
+class Chitter < Sinatra::Application
   use Routes::PeepController
 end
 
@@ -368,6 +398,8 @@ module Routes
 end
 ```
 
+TODO - do we need the `use` keyword here?
+TODO - watch out for unnecessary inheritance
 
 ## Models
 
