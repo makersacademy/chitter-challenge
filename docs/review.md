@@ -1,4 +1,5 @@
 # Introduction
+
 Welcome to the code review for the Chitter Challenge!  Again, don't worry - you are not expected to have all the answers. The following is a code-review scaffold for Chitter Challenge that you can follow if you want to.  These are common issues to look out for in this challenge - but you may decide to take your own route.
 
 If you don't feel comfortable giving technical feedback at this stage, try going through this guide with your reviewee and review the code together.
@@ -9,15 +10,23 @@ Please use this form to tick off where your reviewee has successfully has succes
 
 Please checkout your reviewee's code and run their tests. Read the code and try and use the app through the web interface.  You can also experiment with the engine in IRB. How easy is it to understand the structure of their code? How readable is their code? Did you need to make any cognitive leaps to 'get it'?
 
-# Step 0.5?  How far did they get?
+# Step 1:  How far did they get?
 
-* stage 1
-* stage 2
-* stage 3?
+* Features
+  * [ ] Sign up
+  * [ ] Log in
+  * [ ] Log out
+  * [ ] Peeping
+  * [ ] Listing Peeps
+  * [ ] Display time of peep
 
-general comments here if you want to skip the following????
+* Bonus Features
+  * [ ] Replying to peeps
+  * [ ] CSS styling
 
-# Step 1: Structure and supporting files
+The relevance of the subsequent steps may depend on how far the reviewee got with their challenge
+
+# Step 2: Structure and supporting files
 
 ## Installation Instructions in README
 
@@ -121,7 +130,7 @@ ENV['DATABASE_URL'] = 'postgres://localhost/chitter_test'
 DataMapper.setup(:default, ENV['DATABASE_URL'])
 ```
 
-# Step 2: Tests and \*\_spec.rb files  
+# Step 3: Tests and \*\_spec.rb files  
 
 ## \*\_spec.rb files (unit tests)
 
@@ -239,7 +248,7 @@ add the following to config.ru
 use Rack::Static, :urls => ['/stylesheets', '/javascripts'], :root => 'public'
 ```
 
-# Step 3: Application code and \*.rb files
+# Step 4: Application code and \*.rb files
 
 TODO are we expecting full password reset functionality?
 
