@@ -40,447 +40,413 @@ You will need to host your images somewhere, e.g.:
 * http://imgur.com/
 * http://dropbox.com/
 
-## Inconsistent folder layout (Sinatra structure)
+## Read Over Your Pull Request Before Submitting
 
-Sinatra is not a particularly opinionated framework (unlike Rails).  This means it does not mandate folder structures and naming conventions.  This gives developers the freedom to choose their own structures according to the needs of a project.
+The final process should be reading the created pull request and making changes that are seen before sending it to us, as otherwise we waste time going over indentation, dead code in comments, and unnecessary files ++++
 
-Structure is an important decision in your design as it affects readability.  One of the most important considerations is the *separation of concerns*
-
-Here is a checklist to consider:
-If the structure has an `/app` folder:
-* Is the server file (e.g rps_web.rb or app.rb) at the top level of the `/app` folder?
-* Is the `/views` folder in `/app`?
-* Is the `/lib` folder in the project root folder?
+For example if you've been using the launchy gem to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git.  Try updating .gitignore like so:
 
 ```
-├── app
-│   └── rps_web.rb
-│   └── views
-│       └── index.erb
-├── lib
-│   ├── game.rb
-│   ├── computer.rb
-│   └── player.rb
-└── spec
-    └── spec_helper.rb
+capybara-*.html
 ```
 
-If the structure does not have an `/app` folder:
-* Is the server file (e.g rps_web.rb or app.rb) in the project root folder?
+## Ensure Rakefile has appropriate tasks +
 
+For migration and upgrade
+
+## Gemfile should use test groups
+
+ensure test related stuff in test group, e.g. capybara etc.
+
+TODO - actually does this work with sinatra based on RACK_ENV or is it Rails only?
+
+## Ensure spec_helper configured correctly
+
+Pull in a single app file that pulls in all the other dependencies required by the app.  Don't pull in the models etc. separately or you risk having the tests pass when the app might be missing a dependency.
+
+## Factory Girl
+
+What's our position on this?  Do we encourage it's use?  Should we prefer doubles?  Only use it for feature tests?
+
+## Set up database cleaner correctly
+
+We should have a set up like this:
+
+```ruby
+  config.before(:suite) do # <-- before entire test run
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do # <-- create a "save point" before each test
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do # <-- after each individual test roll back to "save point"
+    DatabaseCleaner.clean
+  end
 ```
-├── lib
-│   ├── game.rb
-│   ├── computer.rb
-│   └── player.rb
-├── spec
-│   └── spec_helper.rb
-├── views
-│   └── index.erb
-└── rps_web.rb
+
+then we are doing a thorough clean of the entire database before we startup (with a truncation, which does a quick remove of all rows), and then we are doing a slightly more complex transaction on each individual test where we roll back just the things that happened in that particular test ...
+
+related links:
+
+* https://github.com/DatabaseCleaner/database_cleaner#how-to-use
+* http://stackoverflow.com/a/10906127/316729
+
+## Ensure separate data_mapper setup
+
+All data_mapper setup should be in a separate file and make sure that we're properly adapting to the RACK_ENV environment variable, and ready for Heroku to override with a production db URL:
+
+* Good
+```
+env = ENV['RACK_ENV'] || 'development'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 ```
 
-## Inconsistent file naming
+In particular you want to avoid database security tokens in data_mapper setup
 
-Ruby class files should be named with the snake_case version of the class name.  Class names should be PascalCase.  Hence:
-### Good
+* Not good
+```ruby
+DataMapper.setup(:default, ENV['DATABASE_URL'] ||= 'postgres://qsr
+  cwyyergqzvs:dQB7uYe3NCJ7-p_-7iMpTP_SzH@ec2-54-163-228-109.comput
+  e-1.amazonaws.com:5432/d7khun32k78jic')
+```
 
-- `class RPS` -> `rps.rb`
-- `class RPSWeb` -> `rps_web.rb`
+Also avoid directly setting the DATABASE_URL like so:
 
-### Bad
-
-- `class RPS_web` -> `rps_web.rb`
-- `class RPSWeb` -> `rps.rb`
-
-## Not initializing capybara/ spec_helper correctly
-
-In `spec/spec_helper.rb`, don't forget to add `Capybara.app = MyRackApp` or similar. You can use generators such as `rspec-sinatra init myApp lib/myapp.rb` but beware that the spec_helper will be overwritten; make sure you copy all the pre-written CI code, otherwise you will break your coveralls CI, causing silent failure of your pull request.
-
-## Not removing comments before committing
-
-Old code should be deleted before you commit - it is distracting and makes your code hard to read. There is no reason to keep commented-out code - if you are commiting regularly, all your code will be in git so you can easily look back at how it looked before you made changes.
-
+```ruby
+ENV['DATABASE_URL'] = 'postgres://localhost/chitter_test'
+DataMapper.setup(:default, ENV['DATABASE_URL'])
+```
 
 # Step 2: Tests and \*\_spec.rb files  
 
 ## \*\_spec.rb files (unit tests)
 
-### Not testing all of the game logic in unit tests
-As there is a discrete number of possible outcomes, your tests should test them all.  This may seem like overkill, but how else will you know that your game logic is correct in all circumstances?
+### RSpec features scenarios
 
+Ensure your feature tests look like feature tests, not unit tests.  Unit tests should have only one expect per it block.  Feature test scenarios can have more than one expect; and should have in order to improve comprehensibility and to avoid excessive running times, but don't go crazy.
 
-## \*\_spec.rb files (feature tests)
-
-### Testing game logic in feature tests
-Your feature test should not need to test all of the rock/paper/scissors(/lizard/spock) possibilities - this is the responsibility of your unit tests.
-
-### Not testing all game outcomes in feature tests
-Although you do not need to test all possible combinations, your feature tests should test every possible outcome - i.e.:
-
-- a win
-- a loss
-- and a draw.
-
-to ensure the user interface logic is correct.
-
-### Stub out random behaviour
-
-* stub out random behaviour to ensure your feature tests pass consistently, e.g. (i)
+* good
 
 ```ruby
-feature 'Playing the game' do
-  scenario "When I submit 'Rock' I am told if I have won" do
-    allow_any_instance_of(Array).to receive(:sample).and_return('scissors')
-    visit '/'
-    fill_in('name', with: 'Philip')
-    select('rock', from: 'your_choice')
-    click_button('Play')
-    expect(page).to have_content "The result is .... You won"
+scenario 'Can create peeps after sign up'  do
+  sign_up_and_create_peep('Test text')
+  expect(current_path).to eq '/peeps'
+  expect(page.status_code).to eq 200
+
+  within 'ul#peeps' do
+    expect(page).to have_content('Test text')
   end
 end
+```
+
+* not so good
+
+```ruby
+scenario 'Current path is correct after signing up and peeping'  do
+  sign_up_and_create_peep('Test text')
+  expect(current_path).to eq '/peeps'
+end
+
+scenario 'Status code is correct after signing up and peeping'  do
+  sign_up_and_create_peep('Test text')
+  expect(page.status_code).to eq 200
+end
+
+scenario 'Peep is shown after signing up and peeping'  do
+  sign_up_and_create_peep('Test text')
+  within 'ul#peeps' do
+    expect(page).to have_content('Test text')
+  end
+end
+```
+
+
+### location of feature/acceptance and unit tests
+
+Ensure that all your acceptance tests are in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.
+
+If a test is in the feature folder it should be testing the entire stack, i.e. it should interact with the app via a web page, and then test the results of that action in the web page that gets returned.  It's acceptable to manipulate the database directly to set things up, but note their are risks associated here, i.e. that you will get your database in a state that it couldn't get into via the web interface, and thus when the tests pass it may not reflect precisely the user experience of using the site.
+
+Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
+
+### need unit tests for datamapper
+
+I think we should encourage the use of a [shoulda](https://github.com/thoughtbot/shoulda-matchers) style syntax for datamapper:
+
+https://github.com/greyblake/dm-rspec
+
+But I realise that this might not be popular - but I think it's an important part of following the acceptance test, unit test cycle ...
+
+Maybe this should be part of moving to something like:
+
+https://github.com/jeremyevans/sequel
+
+
+### Appropriate use of Spec Helpers (and factory girl?)
+
+```ruby
+feature "User sign up" do
+  include Helpers
+  let(:user) { user = build(:user) }
+
+  scenario 'with correct credentials' do
+    user = create(:user)
+    sign_in(user)
+    expect(page).to have_content("Welcome, #{user.email}")
+  end
+end
+```
+
+```ruby
+module Helpers
+
+  def sign_in(user)
+    visit('/sessions/new')
+    fill_in :email, with: user.email
+    fill_in :password, with: user.password
+    click_button "Log in"
+  end
+```
+
+https://gist.github.com/ptolemybarnes/2dfda607b85d01e113b0 <-- turn into a pill?
+
+
+## Ensure asset routes are set correctly
+
+Do we like http://recipes.sinatrarb.com/p/asset_management/sinatra_assetpack ?
+
+Or should we just be telling them to set the public folder correctly
+
+```ruby
+set :public_folder, Proc.new { File.join(root, 'static') }
+```
+
+and for Heroku:
+
+* http://abernardes.github.io/2014/10/24/static-assets-with-rack.html
+* http://stackoverflow.com/a/5509152/316729
+
+add the following to config.ru
+
+```ruby
+use Rack::Static, :urls => ['/stylesheets', '/javascripts'], :root => 'public'
 ```
 
 # Step 3: Application code and \*.rb files
 
-## Including presentation strings in business logic layer
+TODO are we expecting full password reset functionality?
 
-Your `Game` class (or similar) should not return presentation strings like `"Congratulations - you won!"`.  This is a presentation concern and should be handled in another layer of code (**separation of concerns**).  Instead, return representative codes, such as `:win` and `:draw` from the `Game` class which can be translated by the presentation layer.
+## Controllers
 
-This approach makes it possible to change the presentation layer (e.g. to add support for a different language) without changing the lower-level code (**open/closed principle**).
+### Prefer Sinatra::Application + (what do we prefer?)
 
-**bad**
+TODO research this
+
+### Be clear about how to use flash.now
+
+Have to register Sinatra Flash before using. Have to use
+
+```
+flash.next[:notice]
+```
+
+and not
+
+```
+flash.now[:notice]
+```
+
+in order to see the message after the redirect.
+
+### Fefactor long controller methods
+
+This overly long controller method with business logic spread spread out throughout the method is not ideal.
 
 ```ruby
-class Game
-  def result
-    'Congratulations - you won!'
-  end
-end
-
-class RPSWeb < Sinatra::Application
-  get '/result' do
-    @game = Game.new
-    erb :result
+post '/password_reset' do
+  user = User.first(email: params[:email])
+  if user
+    user.reset_password
+    user.save
+    flash[:info] = 'Check your emails'
+    redirect('/')
+  else
+    flash[:info] = 'No such account on record'
+    redirect('/password_reset')
   end
 end
 ```
 
-```html
-<h1><%= @game.result%></h1>
-```
-
-**good**
+It could be refactored like so:
 
 ```ruby
-class Game
-  def result
-    :win # hard coded for example purposes
-  end
-end
-
-class RPSWeb < Sinatra::Application
-  get '/result' do
-    @game = Game.new
-    erb @game.result
+post '/password_reset' do
+  if User.reset_password(email: params[:email])
+    flash[:info] = 'Check your emails'
+    redirect('/')
+  else
+    flash[:info] = 'No such account on record'
+    redirect('/password_reset')
   end
 end
 ```
 
-in `views/win.erb`:
+Note the much shorter method and the business logic all pulled into the User model.
 
-```html
-<h1>Congratulations - you won</h1>
-```
+### Split routes into a controller file/many controller files +
 
-## Use of `if/elsif` conditionals for business logic
-
-Long `if` and `elsif` trees are very difficult to read and nested `if` statements require too much working memory for a reader to quickly scan.
-
-There are a number of approaches to the game logic of Rock Paper Scissors,  e.g.:
-
-- Use a hash to map the rules:
+Rather than
 
 ```ruby
-RULES = { rock: :scissors,
-          paper: :rock,
-          scissors: :paper }
-```
-
-or for RPSLS:
-
-```ruby
-RULES = { rock: [scissors, lizard],
-          paper: [:rock, :spock],
-          scissors: [:paper, :lizard],
-          lizard: [:paper, :spock],
-          spock: [:rock, :scissors] }
-```
-- Use a `Weapon` class with a `beats?` or similar method that takes another weapon instance as a parameter.
-
-```ruby
-class Weapon
-  attr_reader :type
-
-  def initialize(type)
-    @type = type.to_sym
-  end
-
-  def beats?(other)
-    RULES[type][other.type]
-  end
-end
-
-rock = Weapon.new(:rock)
-rock.beats?(Weapon.new(:scissors))
-```
-
-## Not encapsulating the 'computer' in a separate class
-
-By creating a `Computer` class, you can take advantage of duck-typing in the game class.  The game does not need to know if it's comparing two players or one player vs a computer or even two computers!
-
-```ruby
-class Computer
-  def weapon
-    [:rock, :paper, :scissors].sample
-  end
-end
-
-class Player
-  attr_reader :weapon
-
-  def weapon=(weapon)
-    fail 'not a possible weapon' unless [:rock, :paper, :scissors].includes? weapon
-    @weapon = weapon
-  end
-end
-```
-
-## Use of global variables
-
-It is tempting to use global variables to ensure instances of a game or players are persisted across calls to the server.  But [*global variables are evil*](http://c2.com/cgi/wiki?GlobalVariablesAreBad).  There are a number of other ways to achieve the same thing.  While some may argue these also introduce 'globally accessible' state, the critical difference is we have more control over this state and it is properly **namespaced**.  Here is an example using a class methods inside the server and Sinatra helper methods to encapsulate the interface:
-
-```ruby
-class Player
-
-  # class methods
-
-  def self.find(id)
-    players[id]
-  end
-
-  def self.add(id, player)
-    players[id] = player
-  end
-
-  def self.players
-    @players ||= {}
-  end
-
-  # instance methods
-
-  attr_reader :name
-
-  # ... other instance methods
-end
-
-class RPSWeb < Sinatra::Application
-  enable :sessions
-
-  helpers do
-    def current_player
-      Player.find(session[:player_id])
-    end
-
-    def add_player(player)
-      id = player.object_id
-      Player.add(id, player)
-      session[:player_id] = id
-    end
-  end
-
+class Chitter < Sinatra::Base
   get '/' do
-    "Hello #{current_player.name}" if current_player
+    redirect '/peeps'
   end
 
-  post '/player' do
-    player = Player.new(params[:name])
-    add_player(player)
-    redirect_to '/'
-  end
-end
-```
-
-## Not storing the weapons in a constant
-
-If you have something like this:
-
-```ruby
-def weapons
-  ['Rock', 'Paper', 'Scissors']
-end
-```
-
-Then *four* new objects will be created *every time you call `weapons`*  (what are the four objects?).  Use a constant with symbols instead:
-
-```ruby
-WEAPONS = [:rock, :paper, :scissors]
-```
-
-## Inconsistent routing and route naming
-
-Routes should not have dual purposes.  Each discrete action of your programme should have its own dedicated route (N.B. the route comprises both the verb and the path).
-
-The preferred convention for naming routes is snake_case, e.g. `game` over `Game`.
-
-```ruby
-class RPSWeb < Sinatra::Application
-
-  get '/game' do
-    erb :new_game
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  post '/game' do
-    @game = Game.new(params)
-    redirect to '/play'
-  end
-end
-
-```
-
-In the above example the first route GETs the form that allows a user to create a new game.  This action does not change any state on the server so it's important that we use the GET action, and not POST.  The second route corresponds to the POSTed submission of the new game form.  This action does create some state on the server, i.e. the creation of a particular game, so it makes sense to use the active verb POST here.
-
-## Defining weapons in more than one place
-
-Don't Repeat Yourself (DRY)!  The list of available weapons should be defined in only one place.  It can be passed around or referenced or injected, but not duplicated!
-
-Let's DRY the code from the encapsulation example above:
-
-```ruby
-class Game
-  WEAPONS = [:rock, :paper, :scissors]
-end
-
-class Computer
-  def weapon
-    Game::WEAPONS.sample
-  end
-end
-
-class Player
-  attr_reader :weapon
-
-  def weapon=(weapon)
-    fail 'not a possible weapon' unless Game::WEAPONS.includes? weapon
-    @weapon = weapon
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 end
 ```
 
-## Calling business logic from the view
-
-It is the controller's responsibility to pass the player's weapon to the game and get the result.  Use instance variables or helper methods to represent or convert this result for rendering in the view.
-
-**bad**
+prefer
 
 ```ruby
-class Game
-  def result
-    :win
-  end
+# app.rb
+require 'controllers/peep_controller'
+
+class Chitter < Sinatra::Base
+  include PeepController
 end
 
-class RPSWeb < Sinatra::Application
-  get '/choose' do
-    @player1_choice = params[:choice]
-    @game = Game.current_game(session[:game_id])
-    erb :result
+# controllers/peep_controller.rb
+module PeepController
+  get '/' do
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 end
+```
+
+
+## Models
+
+### Not encapsulating business logic in the model
+
+see 'refactor long controller methods' above where business logic is pulled from controller into User model
+
+## Views
+
+### Correct semantics for form mark up
+
+Specifically use a for attribute in labels as per (mozilla's guide)[https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form]:
+
+```html
+<form action='/peeps' method='post'>
+Message
+  <label for='message'>
+    <input type='text' name='message' required>
+  </label>
+  <button type='submit'>Create Peep</button>
+</form>
+```
+
+### avoid divs ?
+
+TODO check with SamM
+
+Should we be avoiding excessive use of divs?  What's the best rule of thumb here?
+
+### Appropriate use of partials and other HTML conventions
+
+```html
+<link rel="stylesheet" type="text/css" href="../../../public/style.css" />
+
+<%= erb :'/partials/favicon'%>
+
+<head>
+  <title>Welcome to Chitter</title>
+</head>
+
+<body>
+  <div class="flash_header">
+    <%= erb :'/partials/flash_messages' %>
+  </div>
+</body>
+<%= yield %>
 ```
 
 ```html
-<h1>
-<% @game.player1_choice(@player1_choice) %>
-<% if @game.result == :win %>
-  Congratulations - you won
-<% else %>
-  Sorry - you lost
+<!-- '/partials/favicon.erb -->
+<link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+```
+
+```html
+<!-- '/partials/flash_messages.erb -->
+<% if flash[:peep_confirmation] %>
+  <%= flash[:peep_confirmation] %>
 <% end %>
-</h1>
+
+<% if flash[:no_peepy] %>
+  <%= flash[:no_peepy] %>
+<% end %>
+
+<% if flash[:password_reset_sent] %>
+  <%= flash[:password_reset_sent] %>
+<% end %>
+
+...
 ```
 
-**better**
+a partial for the favicon in the above code seems excessive.  The style sheet ref shouldn't be relative if the public root is being set correctly, and notice that the yield is outside the html body element, and the top level html settings are missing.  Extracting flash_messages to partial okay, but how often will that actually be re-used?  It's justified here because the the flash messages partial is so long, but that's partly because the partial itself is unDRY - it should use flash[:error] and flash[:notice] rather than a separate symbol for every kind of message.
+
+
+## View Helpers
+
+Avoid the following in your app file:
 
 ```ruby
-class Game
-  def result
-    :win
-  end
-end
-
-class RPSWeb < Sinatra::Application
-  get '/choose' do
-    @game.player1_choice(params[:choice])
-    erb @game.result
-  end
-end
-```
-
-in `views/win.erb`:
-
-```html
-<h1>Congratulations - you won</h1>
-```
-
-## Fat controllers
-
-Game logic should be executed in your lib files. You should minimise the amount of logic in the controller by extracting it to the lib files. This helps to ensure your code is testable, maintainable and reusable.
-
-**bad**
-
-```ruby
-class RPSWeb < Sinatra::Application
-  get '/choose' do
-    @player_choice = params[:choice]
-    @computer_choice = [:rock, :scissors, :paper].sample
-    @result = 'you lose!'
-    if RULES[@player_choice][@computer_choice]
-      @result = 'you win!'
+class Chitter < Sinatra::Base
+  helpers do
+    def current_user
+      User.get(session[:user_id])
     end
-    erb :result
   end
 end
 ```
 
-```html
-<h1><%= @result %></h1>
-```
-
-**better**
+Prefer that pulled out to a helpers file like so
 
 ```ruby
-class Game
-  WEAPONS = [:rock, :paper, :scissors]
-  def player_choice=(weapon)
-    fail 'not a possible weapon' unless WEAPONS.includes? weapon
-    @player_choice = weapon
-  end
-  def result
-    RULES[player_choice][computer.choice()] ? :win : :lose
-  end
+require_relative 'helpers'
+
+class Chitter < Sinatra::Base
+  include Helpers
 end
 
-class RPSWeb < Sinatra::Application
-  get '/play' do
-    @game.player1_choice = params[:choice]
-    erb @game.result
+# app/helpers.rb
+module Helpers
+  helpers do
+    def current_user
+      User.get(session[:user_id])
+    end
   end
 end
-```
-
-in `views/win.erb`:
-
-```html
-<h1>Congratulations - you won</h1>
 ```
