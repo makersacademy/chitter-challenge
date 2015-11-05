@@ -35,11 +35,10 @@ Particularly now that we have a database involved, it becomes even more importan
 ```
 $ git clone https://github.com/tansaku/chitter_challenge
 $ bundle
-$ psql < CREATE DATABASE chitter_development
+$ echo 'CREATE DATABASE chitter_development' | psql
 $ rake auto_migrate
 $ rspec
 $ rackup
-
 ```
 
 And as we saw in previous weeks you'll want to have screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
@@ -57,13 +56,26 @@ You will need to host your images somewhere, e.g.:
 
 ## Read Over Your Pull Request Before Submitting
 
-The final process should be reading the created pull request and making changes that are seen before sending it to us, as otherwise we waste time going over indentation, dead code in comments, and unnecessary files ++++
+Always leave a space to check over your pull request before submission.  Please try to check for simple issues like:
 
-For example if you've been using the launchy gem to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git.  Try updating .gitignore like so:
+* indentation
+* dead code in comments
+* unecessary files
+
+For example if you've been using the [launchy gem](https://github.com/copiousfreetime/launchy) to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git.  Try updating `.gitignore` like so:
+
 
 ```
 capybara-*.html
 ```
+
+and if you already have unwanted files committed to git then delete them from git:
+
+```
+$ git rm capybara-*.html
+```
+
+then commit and push
 
 ## Ensure Rakefile has appropriate tasks
 
@@ -86,15 +98,37 @@ end
 
 ## Gemfile should use test groups
 
-ensure test related stuff in test group, e.g. capybara etc.
+Ensure that all test related gems are in test group, e.g. capybara etc.
 
-TODO - actually does this work with sinatra based on RACK_ENV or is it Rails only?
+```ruby
+source 'https://rubygems.org'
 
-http://bundler.io/groups.html
+ruby '2.2.3'
 
-## Ensure spec_helper configured correctly
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'bcrypt'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 
-Pull in a single app file that pulls in all the other dependencies required by the app.  Don't pull in the models etc. separately or you risk having the tests pass when the app might be missing a dependency.
+group :test do
+  gem 'rspec'
+  gem 'cucumber'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'coveralls', require: false
+  gem 'rspec-sinatra'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl'
+end
+```
+
+See http://bundler.io/groups.html for more details
+
+## Ensure spec_helper is configured correctly
+
+Make sure that your spec_helper pulls in a single app file that requires all the other dependencies required by the app.  Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
 
 Also watch out for spec helpers vs sinatra helpers. They are two very different things.  Don't pull your sinatra helpers into your rspec config:
 
@@ -111,11 +145,20 @@ end
 
 ## Factory Girl
 
-What's our position on this?  Do we encourage it's use?  Should we prefer doubles?  Only use it for feature tests?
+Use [factory girl](https://github.com/thoughtbot/factory_girl) appropriately and configure correctly
+
+```ruby
+# spec/support/factory_girl.rb
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+end
+```
+
+TODO - do we want factory girl used? Is it optional?  Only for acceptance tests?  To be used with care in case it creates unrealistic acceptance tests?
 
 ## Set up database cleaner correctly
 
-We should have a set up like this:
+Set up like so:
 
 ```ruby
   config.before(:suite) do # <-- before entire test run
@@ -210,7 +253,7 @@ end
 ```
 
 
-### location of feature/acceptance and unit tests
+### Correct location of feature/acceptance and unit tests
 
 Ensure that all your acceptance tests are in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.
 
@@ -218,9 +261,9 @@ If a test is in the feature folder it should be testing the entire stack, i.e. i
 
 Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
 
-### need unit tests for datamapper
+### Need unit tests for datamapper
 
-I think we should encourage the use of a [shoulda](https://github.com/thoughtbot/shoulda-matchers) style syntax for datamapper:
+TODO I think we should encourage the use of a [shoulda](https://github.com/thoughtbot/shoulda-matchers) style syntax for datamapper:
 
 https://github.com/greyblake/dm-rspec
 
@@ -232,9 +275,9 @@ Maybe this should be part of moving to something like:
 * https://github.com/kematzy/minitest-sequel
 * https://github.com/openhood/rspec_sequel_matchers
 
+I guess we can't have any of the above when the bookmark_manager project doesn't address any of this ...
 
-
-### Appropriate use of Spec Helpers (and factory girl?)
+### Appropriate use of Spec Helpers
 
 ```ruby
 require_relative 'helpers'
@@ -263,7 +306,7 @@ module Helpers
   end
 ```
 
-https://gist.github.com/ptolemybarnes/2dfda607b85d01e113b0 <-- turn into a pill?
+See https://github.com/makersacademy/course/blob/master/pills/spec_helper_methods.md
 
 
 ## Ensure asset routes are set correctly
@@ -289,13 +332,13 @@ use Rack::Static, :urls => ['/stylesheets', '/javascripts'], :root => 'public'
 
 # Step 4: Application code and \*.rb files
 
-TODO are we expecting full password reset functionality?
-
 ## Controllers
 
-### Prefer Sinatra::Application + (what do we prefer?)
+### Prefer Sinatra::Application vs Sinatra::Base
 
-TODO research this http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
+TODO work out if we care
+
+* http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
 
 ### Be clear about how to use flash.now
 
@@ -313,7 +356,7 @@ flash.now[:notice]
 
 in order to see the message after the redirect.
 
-### Fefactor long controller methods
+### Refactor long controller methods
 
 This overly long controller method with business logic spread spread out throughout the method is not ideal.
 
@@ -399,7 +442,7 @@ end
 ```
 
 TODO - do we need the `use` keyword here?
-TODO - watch out for unnecessary inheritance
+TODO - watch out for unnecessary inheritance - does PeepController need to extend anything?
 
 ## Models
 
@@ -422,6 +465,8 @@ Message
   <button type='submit'>Create Peep</button>
 </form>
 ```
+
+but please follow https://developer.mozilla.org/en-US/docs/Web/Guide/HTML in general
 
 ### Prefer other semantic HTML elements to divs where possible
 
