@@ -69,6 +69,8 @@ ensure test related stuff in test group, e.g. capybara etc.
 
 TODO - actually does this work with sinatra based on RACK_ENV or is it Rails only?
 
+http://bundler.io/groups.html
+
 ## Ensure spec_helper configured correctly
 
 Pull in a single app file that pulls in all the other dependencies required by the app.  Don't pull in the models etc. separately or you risk having the tests pass when the app might be missing a dependency.
@@ -256,7 +258,7 @@ TODO are we expecting full password reset functionality?
 
 ### Prefer Sinatra::Application + (what do we prefer?)
 
-TODO research this
+TODO research this http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
 
 ### Be clear about how to use flash.now
 
@@ -380,11 +382,40 @@ Message
 </form>
 ```
 
-### avoid divs ?
+### Prefer other semantic HTML elements to divs where possible
+
+It's tempting to wrap everything HTML5 in a div.  However we should try to make use of other semantic HTML elements where possible.  Try using this [flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.png).  This flowchart should help us choose item 2 from the following list
+
+* 1. Pure Div
+
+```html
+<div class='peep'>
+</div>
+```
+
+* 2. Article (HTML5 recommended)
+
+```html
+<article class='peep'>
+</article>
+```
+
+* 3. Creating your own HTML5 element (avoid id possile)
+
+```html
+<peep>
+</peep>
+```
+
+Related links:
+
+
+* http://html5doctor.com/lets-talk-about-semantics/
+* http://learn.shayhowe.com/advanced-html-css/semantics-accessibility/ ?
+* http://www.w3schools.com/html/html5_semantic_elements.asp
 
 TODO check with SamM
 
-Should we be avoiding excessive use of divs?  What's the best rule of thumb here?
 
 ### Appropriate use of partials and other HTML conventions
 
