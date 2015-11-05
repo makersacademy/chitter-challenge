@@ -183,7 +183,10 @@ But I realise that this might not be popular - but I think it's an important par
 
 Maybe this should be part of moving to something like:
 
-https://github.com/jeremyevans/sequel
+* https://github.com/jeremyevans/sequel
+* https://github.com/kematzy/minitest-sequel
+* https://github.com/openhood/rspec_sequel_matchers
+
 
 
 ### Appropriate use of Spec Helpers (and factory girl?)
