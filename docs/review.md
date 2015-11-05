@@ -33,7 +33,11 @@ The relevance of the subsequent steps may depend on how far the reviewee got wit
 Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application:
 
 ```
-TODO example
+$ git clone https://github.com/tansaku/chitter_challenge
+$ bundle
+$ rspec
+$ rackup
+
 ```
 
 And as we saw in previous weeks you'll want to have screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
@@ -203,6 +207,8 @@ Maybe this should be part of moving to something like:
 ### Appropriate use of Spec Helpers (and factory girl?)
 
 ```ruby
+require_relative 'helpers'
+
 feature "User sign up" do
   include Helpers
   let(:user) { user = build(:user) }
@@ -216,6 +222,7 @@ end
 ```
 
 ```ruby
+# spec/helpers.rb
 module Helpers
 
   def sign_in(user)
@@ -339,22 +346,24 @@ prefer
 require 'controllers/peep_controller'
 
 class Chitter < Sinatra::Base
-  include PeepController
+  use Routes::PeepController
 end
 
 # controllers/peep_controller.rb
-module PeepController
-  get '/' do
-    redirect '/peeps'
-  end
+module Routes
+  class PeepController < Sinatra::Application
+    get '/' do
+      redirect '/peeps'
+    end
 
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
-  end
+    get '/peeps' do
+      @peeps = Peep.all
+      erb :'peeps/index'
+    end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+    get '/peeps/new' do
+      erb :'peeps/new'
+    end
   end
 end
 ```
@@ -481,15 +490,13 @@ Prefer that pulled out to a helpers file like so
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
-  include Helpers
+  helpers Helpers
 end
 
 # app/helpers.rb
 module Helpers
-  helpers do
-    def current_user
-      User.get(session[:user_id])
-    end
+  def current_user
+    User.get(session[:user_id])
   end
 end
 ```
