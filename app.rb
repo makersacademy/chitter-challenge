@@ -1,4 +1,7 @@
 require 'sinatra/base'
+# require './model/maker'
+
+ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -11,6 +14,7 @@ class Chitter < Sinatra::Base
 
   post '/sign_up_confirmation' do
     @name = session[:name] = params[:name]
+    Maker.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     erb :sign_up_confirmation
   end
 

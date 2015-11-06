@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'coveralls'
 require 'simplecov'
+require './model/maker'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

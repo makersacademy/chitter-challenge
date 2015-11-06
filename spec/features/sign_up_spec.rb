@@ -7,5 +7,6 @@ feature "Users can sign up for Chitter" do
     fill_in('password', with: 'password')
     click_button('Register')
     expect(page).to have_content 'Welcome Alaan!'
+    expect(Maker.count).to eq 1
   end
  end
