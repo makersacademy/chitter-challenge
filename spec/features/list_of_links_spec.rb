@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-feature 'list of links' do
+feature 'list of messages' do
 
-  scenario 'shows a list of links on the homepage' do
-  	Link.create( message: 'Makers Academy')
+  scenario 'shows a list of messages' do
+  	Message.create( message: 'Makers Academy')
   	visit('/links')
   	expect(page.status_code).to eq 200
   	within 'ul#links' do

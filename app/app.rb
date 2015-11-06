@@ -11,18 +11,9 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 	get '/links' do
-		@links=Link.all
+		@links=Message.all
 		erb(:'links/index')
 	end
-
-  # post '/links' do
-  #   link = Link.create(message: params[:title])
-  #   params[:name].split(" ").each do |tag|
-  #     link.tags << Tag.create(name: tag)
-  #   end
-  #   link.save
-  #   redirect '/links'
-  # end
 
   get '/' do
     redirect '/sign_up'
@@ -31,12 +22,6 @@ class Chitter < Sinatra::Base
   get '/links/new' do
     erb(:'links/new')
   end
-
-  # get '/tags/:name' do
-  #   tag = Tag.first(name: params[:name])
-  #   @links = tag ? tag.links : []
-  #   erb :'links/index'
-  # end
 
   get '/sign_up' do
     @user = User.new
