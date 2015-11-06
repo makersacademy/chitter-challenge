@@ -5,6 +5,7 @@ feature "Users can sign up for Chitter" do
     fill_in('username', with: 'Alaanzr')
     fill_in('email', with: 'Alaanzr@gmail.com')
     fill_in('password', with: 'password')
+    click_button('Register')
     expect(page).to have_content 'Welcome Alaan!'
   end
  end
