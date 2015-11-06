@@ -354,9 +354,7 @@ Rather than
 
 ```ruby
 class Chitter < Sinatra::Application
-  get '/' do
-    redirect '/peeps'
-  end
+  set :public_folder, Proc.new { File.join(root, 'static') }
 
   get '/peeps' do
     @peeps = Peep.all
@@ -373,33 +371,28 @@ prefer
 
 ```ruby
 # app.rb
+require 'controllers/application_controller'
 require 'controllers/peep_controller'
 
-class Chitter < Sinatra::Application
-  use Routes::PeepController
+# controllers/application_controller.rb
+class Chitter < Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, 'static') }
 end
 
 # controllers/peep_controller.rb
-module Routes
-  class PeepController < Sinatra::Application
-    get '/' do
-      redirect '/peeps'
-    end
+class PeepController < Sinatra::Base
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
 
-    get '/peeps' do
-      @peeps = Peep.all
-      erb :'peeps/index'
-    end
-
-    get '/peeps/new' do
-      erb :'peeps/new'
-    end
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 end
-```
 
-TODO - do we need the `use` keyword here?
-TODO - watch out for unnecessary inheritance - does PeepController need to extend anything?
+# and other controllers for other collections of routes
+```
 
 ## Models
 
@@ -456,8 +449,6 @@ Related links:
 * http://html5doctor.com/lets-talk-about-semantics/
 * http://learn.shayhowe.com/advanced-html-css/semantics-accessibility/ ?
 * http://www.w3schools.com/html/html5_semantic_elements.asp
-
-TODO check with SamM
 
 
 ### Appropriate use of partials and other HTML conventions
