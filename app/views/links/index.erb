@@ -1,0 +1,9 @@
+<ul id='links'>
+	<% @links.each do |link| %>
+		<li>
+			Message: <%= link.message %>
+			<!-- message: <%= link.url %>
+      Tag: <%= link.tags %> -->
+		</li>
+	<% end %>
+</ul>
