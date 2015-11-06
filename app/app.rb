@@ -5,7 +5,7 @@ require 'bcrypt'
 class Chitter < Sinatra::Base
   
   get '/' do
-  	erb :index
+  	redirect '/users'
   end
 
   get '/sign_up' do
