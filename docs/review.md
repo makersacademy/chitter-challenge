@@ -35,7 +35,7 @@ Particularly now that we have a database involved, it becomes even more importan
 ```
 $ git clone https://github.com/tansaku/chitter_challenge
 $ bundle
-$ echo 'CREATE DATABASE chitter_development' | psql
+$ createdb chitter_development
 $ rake auto_migrate
 $ rspec
 $ rackup
@@ -143,19 +143,6 @@ RSpec.configure do |config|
 end
 ```
 
-## Factory Girl
-
-Use [factory girl](https://github.com/thoughtbot/factory_girl) appropriately and configure correctly
-
-```ruby
-# spec/support/factory_girl.rb
-RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-end
-```
-
-TODO - do we want factory girl used? Is it optional?  Only for acceptance tests?  To be used with care in case it creates unrealistic acceptance tests?
-
 ## Set up database cleaner correctly
 
 Set up like so:
@@ -261,22 +248,6 @@ If a test is in the feature folder it should be testing the entire stack, i.e. i
 
 Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
 
-### Need unit tests for datamapper
-
-TODO I think we should encourage the use of a [shoulda](https://github.com/thoughtbot/shoulda-matchers) style syntax for datamapper:
-
-https://github.com/greyblake/dm-rspec
-
-But I realise that this might not be popular - but I think it's an important part of following the acceptance test, unit test cycle ...
-
-Maybe this should be part of moving to something like:
-
-* https://github.com/jeremyevans/sequel
-* https://github.com/kematzy/minitest-sequel
-* https://github.com/openhood/rspec_sequel_matchers
-
-I guess we can't have any of the above when the bookmark_manager project doesn't address any of this ...
-
 ### Appropriate use of Spec Helpers
 
 ```ruby
@@ -311,50 +282,36 @@ See https://github.com/makersacademy/course/blob/master/pills/spec_helper_method
 
 ## Ensure asset routes are set correctly
 
-Do we like http://recipes.sinatrarb.com/p/asset_management/sinatra_assetpack ?
-
-Or should we just be telling them to set the public folder correctly
+Set the public folder correctly like so
 
 ```ruby
 set :public_folder, Proc.new { File.join(root, 'static') }
-```
-
-and for Heroku:
-
-* http://abernardes.github.io/2014/10/24/static-assets-with-rack.html
-* http://stackoverflow.com/a/5509152/316729
-
-add the following to config.ru
-
-```ruby
-use Rack::Static, :urls => ['/stylesheets', '/javascripts'], :root => 'public'
 ```
 
 # Step 4: Application code and \*.rb files
 
 ## Controllers
 
-### Prefer Sinatra::Application vs Sinatra::Base
-
-TODO work out if we care
+### Prefer Modular over Classic Style
 
 * http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
 
 ### Be clear about how to use flash.now
 
-Have to register Sinatra Flash before using. Have to use
+Note that you have to register Sinatra Flash before you can use it.
+
+Also be careful of the difference between `next` and `now` methods.  Use
 
 ```
 flash.next[:notice]
 ```
-
-and not
+to see the message after a redirect, and
 
 ```
 flash.now[:notice]
 ```
 
-in order to see the message after the redirect.
+to only see it immediately.
 
 ### Refactor long controller methods
 
@@ -555,7 +512,7 @@ Avoid the following in your app file:
 class Chitter < Sinatra::Base
   helpers do
     def current_user
-      User.get(session[:user_id])
+      @user ||=  User.get(session[:user_id])
     end
   end
 end
@@ -573,7 +530,7 @@ end
 # app/helpers.rb
 module Helpers
   def current_user
-    User.get(session[:user_id])
+    @user ||=  User.get(session[:user_id])
   end
 end
 ```
