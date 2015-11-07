@@ -15,6 +15,7 @@ module Routes
         redirect to '/home'
       else
         flash.now[:email_taken] = @maker.errors[:email].first
+        flash.now[:username_taken] = @maker.errors[:username].first
         erb :'maker/signup'
       end
     end
