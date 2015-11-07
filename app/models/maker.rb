@@ -4,6 +4,8 @@ class Maker
   include DataMapper::Resource
   include BCrypt
 
+  # has n, :peeps, :through => Resource
+
   property :id, Serial
 
   property :name, String, required: true,
@@ -26,17 +28,16 @@ class Maker
   property :password_hash, String, required: true,
     messages: { presence: "Password required." }
 
-  property :password_hash_confirmation, String
+  property :password_hash_confirmation, String, required: true,
+    messages: { presence: "Password confirmation required." }
 
-  # has n, :peeps, :through => Resource
+  validates_confirmation_of :password_hash,
+    message: 'Password and confirmation password do not match'
 
-  # validates_confirmation_of :password_hash
-  #
-  # def password=(new_password)
-  #   @password = new_password
-  #   self.password_hash = Password.create(new_password)
-  # end
-  #
-  # attr_reader :password_hash_confirmation
+  def password=(new_password)
+    @password = new_password
+    self.password_hash = Password.create(new_password)
+  end
 
+  attr_reader :password_hash_confirmation
 end

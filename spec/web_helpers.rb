@@ -57,3 +57,23 @@ def sign_up_without_password
   fill_in :password_confirmation, with: 'letmein'
   click_button 'Submit'
 end
+
+def sign_up_without_password_confirmation
+  visit '/signup'
+  fill_in :name, with: 'David Wright'
+  fill_in :email, with: 'David.Wright12345@gmail.com'
+  fill_in :username, with: 'DWright1234'
+  fill_in :password, with: 'letmein'
+  fill_in :password_confirmation, with: ''
+  click_button 'Submit'
+end
+
+def sign_up_without_passwords_matching
+  visit '/signup'
+  fill_in :name, with: 'David Wright'
+  fill_in :email, with: 'David.Wright123456@gmail.com'
+  fill_in :username, with: 'DWright12345'
+  fill_in :password, with: 'letmein'
+  fill_in :password_confirmation, with: 'letmein1'
+  click_button 'Submit'
+end

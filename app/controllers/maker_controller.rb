@@ -18,6 +18,7 @@ module Routes
         flash.now[:email_error] = @maker.errors[:email].first
         flash.now[:username_error] = @maker.errors[:username].first
         flash.now[:password_error] = @maker.errors[:password_hash].first
+        flash.now[:password_conf_error] = @maker.errors[:password_hash_confirmation].first
         erb :'maker/signup'
       end
     end
