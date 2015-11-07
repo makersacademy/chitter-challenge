@@ -14,7 +14,7 @@ class User
   validates_presence_of :email
   validates_uniqueness_of :email
 
-  def self.authenticate(email: email, password: password)
+  def self.authenticate(email:, password:)
     user = User.first(email: email)
     user && BCrypt::Password.new(user.password) == password ? user : nil
   end
