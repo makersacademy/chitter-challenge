@@ -7,7 +7,16 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.name %>
+    <form action="/sessions" method="post" accept-charset="utf-8">
+      <input name="_method" type="hidden" value="delete"/>
+      <input type="submit" value="Sign out">
+    </form>
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
