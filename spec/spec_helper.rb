@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
 require 'capybara'
@@ -26,14 +28,14 @@ RSpec.configure do |config|
   end
 
 #Setup for Database rollback between test example instances
-  # config.before(:suite) do
-  #   DatabaseCleaner.clean_with :truncation
-  #   DatabaseCleaner.strategy = :transaction
-  # end
-  # config.around(:each) do |example|
-  #   DatabaseCleaner.start
-  #   example.run
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.around(:each) do |example|
+    DatabaseCleaner.start
+    example.run
+    DatabaseCleaner.clean
+  end
 
 end
