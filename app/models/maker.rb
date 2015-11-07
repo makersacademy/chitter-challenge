@@ -6,7 +6,14 @@ class Maker
 
   property :id, Serial
   property :name, String
-  property :email, String
+  property :email, String, unique: true,
+  format: :email_address,
+  messages: {
+      presence: "Email address required.",
+      is_unique: "Email address already taken.",
+      format: "Email address entered is not valid."
+  }
+
   property :username, String
   property :password_hash, String
   property :password_hash_confirmation, String

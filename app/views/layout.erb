@@ -8,6 +8,7 @@
     <% if current_user %>
       Welcome, <%= current_user.name %>
     <% end %>
+    <%= flash[:email_taken] if flash[:email_taken] %>
     <%= yield %>
   </body>
 </html>

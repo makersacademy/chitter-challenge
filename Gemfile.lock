@@ -173,6 +173,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-transactions
   rspec
   rspec-sinatra
   rubocop

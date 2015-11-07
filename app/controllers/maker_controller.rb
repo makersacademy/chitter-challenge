@@ -9,9 +9,14 @@ module Routes
     end
 
     post '/signup-details' do
-      maker = Maker.create(name: params[:name], email: params[:email], username: params[:username], password_hash: params[:password], password_hash_confirmation: params[:password_confirmation])
-      session[:maker_id] = maker.id
-      redirect to '/home'
+      @maker = Maker.create(name: params[:name], email: params[:email], username: params[:username], password_hash: params[:password], password_hash_confirmation: params[:password_confirmation])
+      if @maker.save
+        session[:maker_id] = @maker.id
+        redirect to '/home'
+      else
+        flash.now[:email_taken] = @maker.errors[:email].first
+        erb :'maker/signup'
+      end
     end
 
     get '/home' do
