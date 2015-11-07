@@ -17,7 +17,7 @@ class Maker
         format: "Email address entered is not valid."
     }
 
-  property :username, String, unique: true,
+  property :username, String, required: true, unique: true,
     messages: {
         presence: "Username required.",
         is_unique: "Username already taken."
