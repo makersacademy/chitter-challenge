@@ -9,7 +9,7 @@ feature "Posting a peep" do
     click_button('Register')
   end
 
-  scenario "Submitting a new peep" do
+  scenario "Submitting a new peep as a logged-in user" do
     sign_up
     fill_in('peep', with: 'Good morning world!')
     click_button('Peep!')

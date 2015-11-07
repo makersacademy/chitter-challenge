@@ -1,7 +1,9 @@
+<% if current_maker %>
 <form action="peep" method="post">
   <input type="text" name="peep">
   <input type="submit" value="Peep!">
 </form>
+<% end %>
 
 <ul id='peeps'>
   <% Peep.all.each do |peep| %>
