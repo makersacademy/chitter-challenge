@@ -1,16 +1,20 @@
 <h1> Welcome to Chitter! </h1>
 
+<% if !current_maker %>
 <div id='header'>
   <h3> Please Register for a Chitter Account </h3>
   <a href="/sign_up"> Register </a>
   <% if !current_maker %>
   <h3> Existing Users: Please sign in </h3>
   <form action="/home" method="post">
-    Name:           <input type="text" name="name">
     Username:       <input type="text" name="username">
-    Email Address:  <input type="email" name="email">
     Password:       <input type="password" name="password">
                     <input type="submit" value="Sign in">
   </form>
   <% end %>
 </div>
+<% end %>
+
+<form action="/home">
+  <input type="submit" value="View Peeps">
+</form>

@@ -34,12 +34,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    maker = Maker.authenticate(params[:email], params[:password])
+    maker = Maker.authenticate(params[:username], params[:password])
     if maker
       session[:maker_id] = maker.id
       redirect to('/home')
     else
-      flash.now[:errors] = 'Incorrect email or password'
+      flash.now[:errors] = 'Incorrect username or password'
       erb :index
     end
   end

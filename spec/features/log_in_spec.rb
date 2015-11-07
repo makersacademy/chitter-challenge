@@ -18,9 +18,7 @@ feature "Registered users can log in" do
 
   def sign_in(name, username, email, password)
     visit('/')
-    fill_in('name', with: name)
     fill_in('username', with: username)
-    fill_in('email', with: email)
     fill_in('password', with: password)
     click_button('Sign in')
   end
@@ -33,6 +31,6 @@ feature "Registered users can log in" do
 
   scenario "A user receives an error message when they attempt to sign in with an incorrect password" do
     sign_in(maker.name, maker.username, maker.email, 'incorrect password')
-    expect(page).to have_content('Incorrect email or password')
+    expect(page).to have_content('Incorrect username or password')
   end
 end

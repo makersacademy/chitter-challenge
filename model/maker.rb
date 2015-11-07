@@ -27,8 +27,8 @@ class Maker
   # The Password.new method returns an object that has a different implementation of the equality
   #(==) method. Our initially instantiated password (i.e. the un-encrypted password) is being
   # compared to the password being passed in.
-  def self.authenticate(email, password)
-      maker = Maker.first(email: email)
+  def self.authenticate(username, password)
+      maker = Maker.first(username: username)
       if maker && BCrypt::Password.new(maker.password_digest) == password
         maker
       else
