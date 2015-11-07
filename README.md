@@ -1,37 +1,13 @@
-Chitter Challenge
+[![Build Status](https://travis-ci.org/Harryandrew/Chitter-Challenge.svg?branch=master)](https://travis-ci.org/Harryandrew/Chitter-Challenge)
+[![Coverage Status](https://coveralls.io/repos/Harryandrew/Chitter-Challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/Harryandrew/Chitter-Challenge?branch=master)
+[![Dependency Status](https://gemnasium.com/Harryandrew/Chitter-Challenge.svg)](https://gemnasium.com/Harryandrew/Chitter-Challenge)
+[![Code Climate](https://codeclimate.com/github/Harryandrew/Chitter-Challenge/badges/gpa.svg)](https://codeclimate.com/github/Harryandrew/Chitter-Challenge)
+
+
+**Chitter-Challenge**
 =================
-
-* Challenge time: The weekend and up to 9am Monday morning
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-* Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
+Week four Makers Academy - Chitter challenge!
+=======
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -68,26 +44,23 @@ If you have time you can implement the following:
 
 And/Or:
 
-* Work on the css to make it look good (we all like beautiful things).
+The challenge this week is to write a Twitter clone that will allow users to post messages to a public stream.  
 
-Good luck and let the chitter begin!
+[Click here to sign/up login and get peeping](https://shielded-woodland-1531.herokuapp.com/), or as mentioned below clone this repo and run `bundle install` to download the relevant gems.
 
-Notes on test coverage
-----------------------
+Description
+------------ 
+The application is built on Sinatra 1.4.6 and tested using Rspec 3.3, site data currently is maintained via postgresql remote database. [Click here](https://rubygems.org/gems/pg/versions/0.18.3) for the gem and more information. 
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+The main feature of the application is the user management system, where users are able to sign up and make posts to the main feed (otherwise known as 'peeps'). Users can sign up and login to post peeps, and request a password reset if needs be. User passwords are salt hashed for added security and saved to the database - Heroku side postgresql [Bcrypt](http://bcrypt.sourceforge.net/). Users must have an account to make posts.
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+Installation/Dependencies
+--------------------------
+Running on Ruby version 2.2.3
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+To preview, `git clone` this repo from the command line, then run `bundle` to install the relevant dependencies.   
+Rack up the middleware of your choice and point your browser accordingly. Tested and working with Rackup & Puma.
+When running locally you must configure postgresql to handle database functionality.
 
-Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally
-Then run `open coverage/index.html` from the command line to view details
+   
+![Chitter](https://github.com/harryandrew/chitter-challenge/blob/master/public/snapshot.png)

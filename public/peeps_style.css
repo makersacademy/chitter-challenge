@@ -1,0 +1,32 @@
+.users {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.user {
+  width: 12%;
+}
+.date {
+  width: 15%;
+}
+.body {
+  width: 70%;
+}
+
+.users td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.users th {
+  border-radius: 5px;
+  background:  #E59898;
+  color: white;
+}
+
+.users th {
+  text-align: left;
+  padding: 5px 10px;
+}

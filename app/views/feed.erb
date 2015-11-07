@@ -1,0 +1,14 @@
+<%= erb :'/partials/style_sheet'%>
+<% if !current_user %>
+  <%= erb :'/partials/user_not_signed_in'%>
+<% end %>
+<% if current_user %>
+  <%= erb :'/partials/user_signed_in'%>
+<% end %>
+<div class="main_body">
+  <h1> Recent peeps: </h1>
+    <form action="peeps/new">
+      <input type="submit" value="fresh peep">
+    </form>
+  <%= erb :'/partials/peeps' %>
+</div>

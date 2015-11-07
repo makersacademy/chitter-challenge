@@ -1,0 +1,36 @@
+<% if flash[:goodbye] %>
+  <%= flash[:goodbye] %>
+<% end %>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+    <ul>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<% if flash[:peep_confirmation] %>
+  <%= flash[:peep_confirmation] %>
+<% end %>
+
+<% if flash[:no_peepy] %>
+  <%= flash[:no_peepy] %>
+<% end %>
+
+<% if flash[:password_reset_sent] %>
+  <%= flash[:password_reset_sent] %>
+<% end %>
+
+<% if flash[:password_changed] %>
+  <%= flash[:password_changed] %>
+<% end %>
+
+<% if flash[:resetting_no_email_on_record] %>
+  <%= flash[:resetting_no_email_on_record] %>
+<% end %>
+
+<% if flash[:welcome_user] %>
+  <%= flash[:welcome_user] %>
+<% end %>
