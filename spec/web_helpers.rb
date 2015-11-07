@@ -12,20 +12,20 @@ def sign_up(name: 'Yev Insomniak',
   click_button 'Sign up!'
 end
 
-def sign_in
+def log_in
   visit '/sessions/new'
   fill_in :username, with: 'yev_insomniak'
   fill_in :password, with: 'bla-bla-bla'
-  click_button 'Sign in'
+  click_button 'Log in'
 end
 
-def sign_out
+def log_out
   click_button 'Sign out'
 end
 
-def sign_in_with_wrong_password
+def log_in_with_wrong_password
   visit '/sessions/new'
   fill_in :username, with: 'yev_insomniak'
   fill_in :password, with: 'the-yev'
-  click_button 'Sign in'
+  click_button 'Log in'
 end
