@@ -1,6 +1,6 @@
 rvm: '2.2.3'
 
-sudo: false
+sudo: required
 
 script:
   - mkdir -p spec && bundle exec rspec spec
