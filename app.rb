@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './model/maker'
+require './model/peep'
 require 'bcrypt'
 require 'sinatra/flash'
 
@@ -46,6 +47,14 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     erb :home
+  end
+
+  post '/peep' do
+    if session[:maker_id]
+      maker = current_maker
+    end
+    peep = Peep.create(maker_name: maker.name, maker_username: maker.username, content: params[:peep])
+    redirect to('/home')
   end
 
   # start the server if ruby file executed directly

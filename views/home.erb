@@ -1,0 +1,12 @@
+<form action="peep" method="post">
+  <input type="text" name="peep">
+  <input type="submit" value="Peep!">
+</form>
+
+<ul id='peeps'>
+  <% Peep.all.each do |peep| %>
+    <li> <p> <%= peep.content %> </p>
+         <p> Posted by: <%= peep.maker_username %> </p>
+    </li>
+  <% end %>
+</ul>
