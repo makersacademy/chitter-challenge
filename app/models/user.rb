@@ -12,7 +12,10 @@ class User
             required: true,
             unique:   true
 
+  has n, :peeps, through: Resource
+
   attr_accessor :password_confirmation
+
   validates_uniqueness_of    :email, :username
   validates_format_of         email: :email_address
   validates_confirmation_of  :password

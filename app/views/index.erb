@@ -1,0 +1,8 @@
+<h1>PEEPS</h1>
+
+<% if peeps %>
+  <% peeps.each do |peep| %>
+    <%= peep.content %>
+    <%= peep.created_at.strftime("Posted on %d/%m/%Y, at %l:%M%p") %> by <%= peep.user.username %>
+  <% end %>
+<% end %>

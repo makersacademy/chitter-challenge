@@ -14,3 +14,15 @@ def sign_in
   fill_in(:password,  with: '4ndyDragon')
   click_button('Submit')
 end
+
+def peep
+  visit '/peeps/new'
+  fill_in(:new_peep, with: 'Hello world')
+  click_button('Submit')
+end
+
+def peep2
+  visit '/peeps/new'
+  fill_in(:new_peep, with: 'Does this work?')
+  click_button('Submit')
+end

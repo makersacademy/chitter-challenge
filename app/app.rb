@@ -11,6 +11,10 @@ helpers do
   def current_user
     @current_user || User.get(session[:user_id])
   end
+
+  def peeps
+    Peep.all
+  end
 end
 
   get '/' do
@@ -51,8 +55,21 @@ end
   post '/sign_out' do
     session.delete(:user_id)
     flash.next[:notice] = "You have been signed out"
-    flash[:notice]
     redirect ('/')
+  end
+
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
+  post '/peeps/new' do
+    if peep = Peep.create(content: params[:new_peep], user: current_user) && current_user
+      current_user.save
+      peep.save
+      redirect '/'
+    end
+    flash.now[:errors] = peep.errors.full_messages
+    erb(:'/peeps/new')
   end
 
   run! if app_file == $0
