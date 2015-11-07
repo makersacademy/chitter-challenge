@@ -23,7 +23,8 @@ class Maker
         is_unique: "Username already taken."
     }
 
-  property :password_hash, String
+  property :password_hash, String, required: true,
+    messages: { presence: "Password required." }
 
   property :password_hash_confirmation, String
 
