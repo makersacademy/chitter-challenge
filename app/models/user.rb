@@ -2,6 +2,7 @@ class User
   include DataMapper::Resource
 
   attr_accessor :password_confirmation
+  has n, :peeps
 
   property :id, Serial
   property :email, String, required: true, unique: true, format: :email_address

@@ -1,10 +1,5 @@
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
 require 'data_mapper'
 require './app/chitter'
-RuboCop::RakeTask.new :cop
-RSpec::Core::RakeTask.new :spec
-
 
 namespace :db do
   desc "Non destructive upgrade"
@@ -20,4 +15,3 @@ namespace :db do
     puts "Auto-migrate complete (data was lost)"
   end
 end
-task default: [:cop, :spec]

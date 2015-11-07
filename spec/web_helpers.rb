@@ -101,3 +101,9 @@ def sign_out_after_sign_in
   sign_in_with_valid_credentials
   click_button 'Sign Out'
 end
+def post_a_peep_as_signed_in_user
+  sign_in_with_valid_credentials
+  click_button 'Post'
+  fill_in :text, with: 'I feel mysterious today!'
+  click_button 'Peep!'
+end
