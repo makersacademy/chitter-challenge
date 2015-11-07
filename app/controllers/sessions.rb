@@ -15,5 +15,13 @@ class Chitter < Sinatra::Base
       redirect to '/sessions/new'
     end
   end
+
+  delete '/sessions' do
+    username = current_user ? current_user.username : ""
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye, #{username}!"
+    redirect to '/peeps/index'
+  end
+
 end
 

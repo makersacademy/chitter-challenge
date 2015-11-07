@@ -80,6 +80,7 @@ def sign_in_with_valid_credentials
   fill_in :password, with: 'TopS3cr3t'
   click_button 'Sign In'
 end
+
 def sign_in_with_invalid_credentials
   sign_up_with_valid_details
   visit '/sessions/new'
@@ -87,6 +88,7 @@ def sign_in_with_invalid_credentials
   fill_in :password, with: 'TopS3cr3t'
   click_button 'Sign In'
 end
+
 def sign_in_with_valid_credentials_wrong_password
   sign_up_with_valid_details
   visit '/sessions/new'
@@ -95,3 +97,7 @@ def sign_in_with_valid_credentials_wrong_password
   click_button 'Sign In'
 end
 
+def sign_out_after_sign_in
+  sign_in_with_valid_credentials
+  click_button 'Sign Out'
+end
