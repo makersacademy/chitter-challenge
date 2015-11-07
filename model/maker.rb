@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'bcrypt'
+require_relative 'peep'
 
 class Maker
   include DataMapper::Resource
@@ -11,6 +12,8 @@ class Maker
   property :username, String
   property :email, String
   property :password_digest, Text
+
+  has n, :peeps
 
   # Here, we are over-riding what gets stored in our database when we create a new Maker in our
   # controller, i.e. we use Maker.create(password: params[:password]) (using the below password
@@ -33,7 +36,3 @@ class Maker
       end
   end
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_migrate!

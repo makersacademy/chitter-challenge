@@ -1,6 +1,5 @@
 require 'sinatra/base'
-require './model/maker'
-require './model/peep'
+require './data_mapper_setup'
 require 'bcrypt'
 require 'sinatra/flash'
 
@@ -53,7 +52,7 @@ class Chitter < Sinatra::Base
     if session[:maker_id]
       maker = current_maker
     end
-    peep = Peep.create(maker_name: maker.name, maker_username: maker.username, content: params[:peep])
+    peep = Peep.create(maker_name: maker.name, maker_username: maker.username, content: params[:peep], maker_id: maker.id)
     redirect to('/home')
   end
 

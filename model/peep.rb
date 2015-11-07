@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative 'maker'
 
 class Peep
   include DataMapper::Resource
@@ -8,8 +9,6 @@ class Peep
   property :maker_username, String
   property :content, Text
 
-end
+  belongs_to :maker
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
+end

@@ -10,6 +10,7 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require './model/maker'
+require './model/peep'
 require 'sinatra/flash'
 
 
