@@ -1,14 +1,12 @@
 rvm: '2.2.3'
 
 script:
-  - bundle exec rspec spec
+    - mkdir -p spec && bundle exec rspec spec
 
 before_install:
-- sed -i '2d' Gemfile
-- sudo apt-get update -qq
-- sudo apt-get install -qq postgresql-server-dev-9.3
+  - sed -i '2d' Gemfile
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql-server-dev-9.3
 
 before_script:
-  - psql -c 'create database chitter_test;' -U postgres
-  - rake db:auto_migrate RACK_ENV=test
-
+    - psql -c 'create database chitter_test;' -U postgres
