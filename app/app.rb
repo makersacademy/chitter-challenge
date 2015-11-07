@@ -15,12 +15,17 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     user = User.create(username: params[:username],
-                password: params[:password])
+                       password: params[:password],
+                       password_confirmation: params[:password_check])
     session[:user_id] = user.id
-    redirect :home
+    redirect user.valid? ? '/home' : '/signup/error'
   end
 
-  post '/login' do
+  get '/signup/error' do
+    erb :'signup/error'
+  end
+
+  get '/login' do
     redirect :home
   end
 
