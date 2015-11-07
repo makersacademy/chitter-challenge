@@ -5,6 +5,9 @@
     <title> Chitter </title>
   </head>
   <body>
-      <%= yield %>
+    <% if current_maker %>
+      <h1> Welcome <%= current_maker.name %>! </h1>
+    <% end %>
+    <%= yield %>
   </body>
 </html>
