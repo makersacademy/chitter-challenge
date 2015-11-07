@@ -72,3 +72,11 @@ def sign_up_with_duplicate_username
   fill_in :username, with: 'JohnDoe'
   click_button 'Sign Up'
 end
+
+def sign_in_with_valid_credentials
+  sign_up_with_valid_details
+  visit '/sessions/new'
+  fill_in :email, with: 'example@example.com'
+  fill_in :password, with: 'TopS3cr3t'
+  click_button 'Sign In'
+end

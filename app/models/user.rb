@@ -1,4 +1,3 @@
-
 class User
   include DataMapper::Resource
 
@@ -14,4 +13,9 @@ class User
   validates_format_of email:  :email_address
   validates_presence_of :email
   validates_uniqueness_of :email
+
+  def self.authenticate(email: email, password: password)
+    user = User.first(email: email)
+    user && BCrypt::Password.new(user.password) == password ? user : nil
+  end
 end
