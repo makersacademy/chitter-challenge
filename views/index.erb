@@ -3,6 +3,7 @@
 <div id='header'>
   <h3> Please Register for a Chitter Account </h3>
   <a href="/sign_up"> Register </a>
+  <% if !current_maker %>
   <h3> Existing Users: Please sign in </h3>
   <form action="/home" method="post">
     Name:           <input type="text" name="name">
@@ -11,4 +12,5 @@
     Password:       <input type="password" name="password">
                     <input type="submit" value="Sign in">
   </form>
+  <% end %>
 </div>
