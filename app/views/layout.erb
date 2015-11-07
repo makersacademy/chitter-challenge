@@ -10,6 +10,7 @@
     <% end %>
     <%= flash[:email_taken] if flash[:email_taken] %>
     <%= flash[:username_taken] if flash[:username_taken] %>
+    <%= flash[:name_missing] if flash[:name_missing] %>
     <%= yield %>
   </body>
 </html>

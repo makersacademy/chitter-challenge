@@ -16,6 +16,7 @@ module Routes
       else
         flash.now[:email_taken] = @maker.errors[:email].first
         flash.now[:username_taken] = @maker.errors[:username].first
+        flash.now[:name_missing] = @maker.errors[:name].first
         erb :'maker/signup'
       end
     end
