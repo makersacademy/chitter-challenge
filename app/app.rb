@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'rochefort rocks'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -35,6 +36,11 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
+  delete '/sessions' do 
+    session[:user_id] = nil
+    redirect '/'
+  end
+
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
 
@@ -48,6 +54,12 @@ class Chitter < Sinatra::Base
 
   get '/feeds/view' do
     erb :'/feeds/view'
+  end
+  
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   run! if app_file == $0
