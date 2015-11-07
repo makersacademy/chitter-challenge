@@ -1,12 +1,15 @@
-require 'sinatra/base'
-require 'sinatra/flash'
-require_relative '../data_mapper_setup'
+require_relative 'base_controller'
 
-class PeepController < Sinatra::Base
+module Routes
 
-  get '/' do
+  class PeepController < BaseController
 
+    get '/' do
+
+    end
+    
+
+    run! if app_file == $PROGRAM_NAME
   end
 
-  run! if app_file == $PROGRAM_NAME
 end
