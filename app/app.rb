@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   post '/sessions/new' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      flash[:notice] = "Successfully added new applicant." #sinatra_flash 4/5
+      flash[:notice] = "Successfully log int." #sinatra_flash 4/5
       session[:user_id] = user.id
       redirect to('/welcome')
     else
@@ -45,6 +45,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
     else
       flash[:notice] = "Please enter the same password"
+      redirect('/user/new')
     end
     redirect('/welcome')
   end
@@ -62,7 +63,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect('/user/new')
+    redirect('/')
   end
 
   # start the server if ruby file executed directly
