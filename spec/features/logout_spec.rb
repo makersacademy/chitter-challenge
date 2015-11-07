@@ -14,7 +14,7 @@ feature 'Log out of Chitter' do
   scenario 'I want to click on logout and receive confirmation of loggin out' do
     click_button('Sign out')
     expect(page).not_to have_content('Welcome, Peter Jackson!')
-    expect(page).to have_content('Welcome to Chitter.')
+    expect(page).to have_content('Welcome to Chitter')
   end
 
 end

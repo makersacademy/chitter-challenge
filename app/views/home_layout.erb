@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter. Peep at the World</title>
+    <link rel="stylesheet" href="/css/shift.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body>
+    <div class="nav">
+      <div class="container">
+        <ul class="pull-left">
+          <li><img src="/images/chitter.png"> <a href='/'>Welcome to Chitter</a></li>
+        </ul>
+        <ul class="pull-right">
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/sessions/new">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+
+</html>

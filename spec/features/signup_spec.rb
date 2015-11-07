@@ -9,7 +9,7 @@ feature 'Sign up for Chitter' do
   # I want to see the welcome page 
   scenario 'I want to visit the welcome page' do
     visit '/'
-    expect(page).to have_content('Welcome to Chitter.')
+    expect(page).to have_content('Welcome to Chitter')
   end
   
   # As a Maker

@@ -2,19 +2,44 @@
 <html>
   <head>
     <title>Chitter. Peep at the World</title>
+    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
     <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
-  <% if current_user %>
-    <div id='top-bar'>
-      Welcome, <%= current_user.name %>! 
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    </div>
-  <% end %>
+
   <body>
-    <%= yield %>
+    <div class="nav">
+      <div class="container">
+        <ul class="pull-left">
+          <% if current_user %>
+            <li><a href='#'>Welcome, <%= current_user.name %>!</a></li>
+          <% else %>
+            <li><img src="/images/chitter.png"> <a href='/'>Welcome to Chitter</a></li>
+          <% end %>
+        </ul>
+        <ul class="pull-right">
+          <% if current_user %>
+            <li>
+              <form method='post' action='/sessions'>
+                <input type='hidden' name='_method' value='delete'>
+                <input type='submit' value='Sign out'>
+              </form>
+            </li>
+          <% else %>
+            <li><a href="/users/new">Sign Up</a></li>
+            <li><a href="/sessions/new">Log In</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
   </body>
 
 </html>
