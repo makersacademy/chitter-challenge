@@ -1,1 +1,14 @@
-<h1 id='feed view'>Feed View</h1>
+<div id='peep-feed'>
+  <h1>Feed View</h1>
+  
+  <div id='peeps'>
+    <% current_user.peeps.each do |peep| %>
+      <div id='peep-block'>
+        <h2><%= current_user.name %> @<%= current_user.username %> * 
+            <%= peep.created_at %><h2>
+        <p><%= peep.message %></p>
+      </div>
+    <% end %>
+  </div>
+
+

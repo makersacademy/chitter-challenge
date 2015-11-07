@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -55,6 +56,16 @@ class Chitter < Sinatra::Base
 
   get '/feeds/view' do
     erb :'/feeds/view'
+  end
+
+  get '/message/new' do
+    erb :'message/new'
+  end
+
+  post '/message' do
+    current_user.peeps << Peep.new(message: params[:message])
+    current_user.save
+    redirect '/feeds/view'
   end
 
   helpers do
