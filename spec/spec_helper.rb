@@ -12,6 +12,7 @@ require 'database_cleaner'
 require './model/maker'
 require './model/peep'
 require 'sinatra/flash'
+require_relative 'features/web_helper'
 
 
 SimpleCov.formatters = [

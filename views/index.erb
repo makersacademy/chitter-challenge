@@ -6,11 +6,13 @@
   <a href="/sign_up"> Register </a>
   <% if !current_maker %>
   <h3> Existing Users: Please sign in </h3>
+  <div class="form-group">
   <form action="/home" method="post">
     Username:       <input type="text" name="username">
     Password:       <input type="password" name="password">
                     <input type="submit" value="Sign in">
   </form>
+</div>
   <% end %>
 </div>
 <% end %>

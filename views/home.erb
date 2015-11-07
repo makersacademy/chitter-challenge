@@ -7,8 +7,10 @@
 
 <ul id='peeps'>
   <% Peep.all.each do |peep| %>
+  <blockquote>
     <li> <p> <%= peep.content %> </p>
-         <p> Posted by: <%= peep.maker_username %> </p>
+         <footer> <p> Posted by: <%= peep.maker_username %> </p> </footer>
     </li>
+  </blockquote>
   <% end %>
 </ul>

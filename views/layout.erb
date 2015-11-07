@@ -1,10 +1,11 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <title> Chitter </title>
   </head>
   <body>
+    <div class="container">
     <% if flash[:errors] %>
       <p><%= flash[:errors] %></p>
     <% end %>
@@ -12,7 +13,8 @@
     <% if current_maker %>
       <h1> Welcome <%= current_maker.name %>! </h1>
     <% end %>
-    
+
     <%= yield %>
+  </div>
   </body>
 </html>

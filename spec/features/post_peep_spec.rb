@@ -1,14 +1,5 @@
 feature "Posting a peep" do
 
-  def sign_up
-    visit('/sign_up')
-    fill_in('name', with: 'Alaan')
-    fill_in('username', with: 'Alaanzr')
-    fill_in('email', with: 'Alaanzr@gmail.com')
-    fill_in('password', with: 'password')
-    click_button('Register')
-  end
-
   scenario "Submitting a new peep as a logged-in user" do
     sign_up
     fill_in('peep', with: 'Good morning world!')
