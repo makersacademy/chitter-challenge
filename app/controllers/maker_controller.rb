@@ -14,9 +14,9 @@ module Routes
         session[:maker_id] = @maker.id
         redirect to '/home'
       else
-        flash.now[:email_taken] = @maker.errors[:email].first
-        flash.now[:username_taken] = @maker.errors[:username].first
-        flash.now[:name_missing] = @maker.errors[:name].first
+        flash.now[:name_error] = @maker.errors[:name].first
+        flash.now[:email_error] = @maker.errors[:email].first
+        flash.now[:username_error] = @maker.errors[:username].first
         erb :'maker/signup'
       end
     end

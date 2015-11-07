@@ -9,7 +9,7 @@ class Maker
   property :name, String, required: true,
     messages: { presence: "Name required." }
 
-  property :email, String, unique: true,
+  property :email, String, required: true, unique: true,
   format: :email_address,
     messages: {
         presence: "Email address required.",
@@ -22,7 +22,7 @@ class Maker
         presence: "Username required.",
         is_unique: "Username already taken."
     }
-    
+
   property :password_hash, String
 
   property :password_hash_confirmation, String

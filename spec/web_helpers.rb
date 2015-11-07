@@ -27,3 +27,13 @@ def sign_up_without_name
   fill_in :password_confirmation, with: 'letmein'
   click_button 'Submit'
 end
+
+def sign_up_without_email
+  visit '/signup'
+  fill_in :name, with: 'David Wright'
+  fill_in :email, with: ''
+  fill_in :username, with: 'DWright12'
+  fill_in :password, with: 'letmein'
+  fill_in :password_confirmation, with: 'letmein'
+  click_button 'Submit'
+end

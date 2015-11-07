@@ -8,9 +8,9 @@
     <% if current_user %>
       Welcome, <%= current_user.name %>
     <% end %>
-    <%= flash[:email_taken] if flash[:email_taken] %>
-    <%= flash[:username_taken] if flash[:username_taken] %>
-    <%= flash[:name_missing] if flash[:name_missing] %>
+    <%= flash[:name_error] if flash[:name_error] %>
+    <%= flash[:email_error] if flash[:email_error] %>
+    <%= flash[:username_error] if flash[:username_error] %>
     <%= yield %>
   </body>
 </html>
