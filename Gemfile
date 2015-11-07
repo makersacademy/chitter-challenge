@@ -9,3 +9,12 @@ group :test do
   gem 'coveralls', require: false
 end
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
+gem 'database_cleaner'
+gem 'bcrypt'
+gem 'dm-validations'
+gem 'sinatra-flash'
+gem 'capybara'
+gem 'sinatra'
