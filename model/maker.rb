@@ -21,9 +21,12 @@ class Maker
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  # The Password.new method returns an object that has a different implementation of the equality
+  #(==) method. Our initially instantiated password (i.e. the un-encrypted password) is being
+  # compared to the password being passed in.
   def self.authenticate(email, password)
       maker = Maker.first(email: email)
-      if BCrypt::Password.new(maker.password_digest) == password
+      if maker && BCrypt::Password.new(maker.password_digest) == password
         maker
       else
         nil

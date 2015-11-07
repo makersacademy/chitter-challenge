@@ -34,6 +34,6 @@ feature "Registered users can log in" do
   scenario "A user receives an error message when they attempt to sign in with an incorrect password" do
     sign_up
     sign_in(maker.name, maker.username, maker.email, 'incorrect password')
-    expect(page).to have_content('Incorrect password')
+    expect(page).to have_content('Incorrect email or password')
   end
 end

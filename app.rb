@@ -39,7 +39,7 @@ class Chitter < Sinatra::Base
       session[:maker_id] = maker.id
       redirect to('/home')
     else
-      flash.now[:errors] = ['Incorrect password']
+      flash.now[:errors] = 'Incorrect email or password'
       erb :index
     end
   end
