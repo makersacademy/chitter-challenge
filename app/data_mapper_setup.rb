@@ -1,5 +1,5 @@
-# require_relative 'models/user.rb'
 require 'data_mapper'
+require './app/models/user.rb'
 
 DataMapper.setup(:default, "postgres://localhost/peep")
 DataMapper.finalize

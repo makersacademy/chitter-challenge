@@ -1,6 +1,6 @@
 feature 'User sign up' do
   scenario 'I can sign up as a new user' do
-    visit '/users/new'
+    visit '/user/new'
     expect(page.status_code).to eq(200)
     fill_in :name,    with: 'mattia'
     fill_in :email,    with: 'mattia@example.com'
