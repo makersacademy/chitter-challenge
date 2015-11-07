@@ -7,5 +7,12 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'capybara'
+  gem 'sinatra'
+  gem 'sinatra-flash'
+  gem 'rake'
+  gem 'data_mapper'
+  gem 'database_cleaner'
+  gem 'dm-postgres-adapter'
 end
 
