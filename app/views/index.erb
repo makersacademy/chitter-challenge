@@ -1,8 +1,8 @@
 Welcome to Chitter.
 
-<div id='sign_in'>
+<div id='sign_up'>
   <h2>New to Chitter? Sign up</h2>
-  <form class='aligned-form' action='/users/new' method='post'>
+  <form class='aligned-form' action='/users' method='post'>
     <fieldset>
       <div class="pure-control-group">
         <input name="name" type="text" placeholder="Full name">
@@ -26,6 +26,22 @@ Welcome to Chitter.
 
       <div class="pure-control-group">
         <button type="submit" class="pure-button pure-button-primary">Sign up for Chitter</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+
+<div id='log_in'>
+  <form class='aligned-form' action='/sessions' method='post'>
+    <fieldset>
+      <div class="pure-control-group">
+        <input name="email" type="email" placeholder="Email">
+      </div>
+
+      <div class="pure-control-group">
+        <input name="password" type="password" placeholder="Password">
+        <button type="submit" class="pure-button pure-button-primary">Log in</button>
       </div>
     </fieldset>
   </form>

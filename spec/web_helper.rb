@@ -1,4 +1,4 @@
-def sign_in(name: 'Peter Jackson', username: 'pjackson',
+def sign_up(name: 'Peter Jackson', username: 'pjackson',
             email: 'jackie@zmail.org', password: '123456',
             password_confirmation: '123456' )
 
@@ -8,5 +8,13 @@ def sign_in(name: 'Peter Jackson', username: 'pjackson',
   fill_in 'password', with: password
   fill_in 'password_confirmation', with: password_confirmation
   click_button('Sign up for Chitter')
+
+end
+
+def log_in(email: 'jackie@zmail.org', password: '123456')
+  
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button('Log in') 
 
 end

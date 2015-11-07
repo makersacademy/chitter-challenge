@@ -17,40 +17,40 @@ feature 'Sign up for Chitter' do
   # I want to enter my name, username, email and password
   scenario 'I want to sign up as a new user with my name, username, email and password' do
     visit '/'
-    within 'div#sign_in' do
-      expect { sign_in }.to change { User.count }.by(1)
+    within 'div#sign_up' do
+      expect { sign_up }.to change { User.count }.by(1)
     end
   end
   
   scenario 'I cannot sign up when confirmation password does not match' do
     visit '/'
-    within 'div#sign_in' do
-      expect { sign_in(password_confirmation: 'wrong') }.not_to change { User.count }
+    within 'div#sign_up' do
+      expect { sign_up(password_confirmation: 'wrong') }.not_to change { User.count }
     end
     expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'I cannot sign up without an email address' do
     visit '/'
-    within 'div#sign_in' do
-      expect { sign_in(email: '') }.not_to change { User.count }
+    within 'div#sign_up' do
+      expect { sign_up(email: '') }.not_to change { User.count }
     end
-    expect(current_path).to eq '/users/new' 
+    expect(current_path).to eq '/users' 
   end
 
   scenario 'I cannot sign up with an invalid email address' do
     visit '/'
-    within 'div#sign_in' do
-      expect { sign_in(email: 'invalid@email') }.not_to change { User.count }
+    within 'div#sign_up' do
+      expect { sign_up(email: 'invalid@email') }.not_to change { User.count }
     end
-    expect(current_path).to eq '/users/new' 
+    expect(current_path).to eq '/users' 
   end
 
   scenario 'I cannot sign up with an email that is already registered' do
     visit '/'
-    within 'div#sign_in' do
-      sign_in(email: 'jackie@zmail.org')
-      sign_in(email: 'jackie@zmail.org')
+    within 'div#sign_up' do
+      sign_up(email: 'jackie@zmail.org')
+      sign_up(email: 'jackie@zmail.org')
     end
     expect(page).to have_content 'Email is already taken'
   end
