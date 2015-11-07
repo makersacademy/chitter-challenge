@@ -37,7 +37,6 @@ use Rack::MethodOverride
                    name: params[:name],
                    username: params[:username])
    peep.save
-   p params
    redirect to('/chitter')
  end
 

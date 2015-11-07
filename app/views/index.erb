@@ -5,8 +5,8 @@
   </head>
   <body>
   
-  <% Peep.all(order: [ :id.desc ]).each do |peep| %>
-  <p> <%= peep.name %> @<%= peep.username %> <br>
+  <% Peep.all(order: [:id.desc]).each do |peep| %>
+  <p> <%= peep.name %> @<%= peep.username %> <%= peep.created_at.strftime("%H:%M (%d, %b)") %><br>
   	  <%= peep.message %></p>
   <% end %>
 
