@@ -25,11 +25,25 @@ class Chitter  < Sinatra::Base
     redirect '/messages/index'
   end
 
+  get '/signin/new' do
+    erb :signin
+  end
+
+  post '/signin' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect 'messages/index'
+    else
+      redirect '/'
+    end
+  end
+
   get '/messages/index'do
     erb :index
   end
 
   # start the server if ruby file executed directly
-run! if app_file == $0
+  run! if app_file == $0
 
 end
