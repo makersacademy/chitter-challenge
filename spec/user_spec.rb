@@ -13,6 +13,6 @@ describe User do
                 name: name,
                 password: password,
                 password_confirmation: password)
-    expect(user.authenticate(email, password)).to be true
+    expect(user.authenticate(username, password)).to be true
   end
 end

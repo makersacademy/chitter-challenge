@@ -47,6 +47,29 @@ use Rack::MethodOverride
     end
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions/new' do
+    if User.authenticate(params[:username],
+                         params[:password])
+      user = User.first(username: params[:username])
+      session[:user_id] = user.id
+      redirect to('/chitter')
+    else
+      flash.next[:notice] = 'Wrong password. Please try again.'
+      redirect to('/sessions/new')
+    end
+  end
+
+  delete '/sessions' do
+    email = current_user.email
+    session.clear
+    flash.next[:notice] = "Goodbye, #{email}!"
+    redirect to('/sessions/new')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

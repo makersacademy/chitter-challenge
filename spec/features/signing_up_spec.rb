@@ -3,7 +3,7 @@ feature 'Signing up:' do
     visit '/users/new'
     expect(page.status_code).to eq(200)
     expect {sign_up}.to change(User, :count).by 1
-    expect(page).to have_content('Hi, incredible@yev.com')
+    expect(page).to have_content('Hi, Yev Insomniak')
     expect(User.first.email).to eq('incredible@yev.com')
   end
 

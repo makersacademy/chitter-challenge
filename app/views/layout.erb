@@ -6,7 +6,7 @@
 
   <body>
     <% if current_user %>
-      Hi, <%= current_user.email %>!
+      Hi, <%= current_user.name %>!
     <% end %>
 
     <form action="/sessions" method="post" accept-charset="utf-8">

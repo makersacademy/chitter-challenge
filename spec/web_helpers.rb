@@ -14,7 +14,7 @@ end
 
 def sign_in
   visit '/sessions/new'
-  fill_in :email, with: 'incredible@yev.com'
+  fill_in :username, with: 'yev_insomniak'
   fill_in :password, with: 'bla-bla-bla'
   click_button 'Sign in'
 end
@@ -25,7 +25,7 @@ end
 
 def sign_in_with_wrong_password
   visit '/sessions/new'
-  fill_in :email, with: 'incredible@yev.com'
+  fill_in :username, with: 'yev_insomniak'
   fill_in :password, with: 'the-yev'
   click_button 'Sign in'
 end
