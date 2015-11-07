@@ -7,13 +7,13 @@ ruby '2.2.3'
   gem 'bcrypt'
   gem 'sinatra-flash'
   gem 'sinatra'
-
-group :test do
-  gem 'rspec'
-  gem 'database_cleaner'
-  gem 'capybara'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'rspec'
+
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara'
   gem 'coveralls', require: false
 end
 
