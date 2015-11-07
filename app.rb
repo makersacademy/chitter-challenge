@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require './model/maker'
+require './model/maker'
 
 ENV['RACK_ENV'] ||= 'development'
 
