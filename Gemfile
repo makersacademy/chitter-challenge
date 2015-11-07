@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-  gem 'sinatra'
-  gem 'bcrypt'
+gem 'sinatra'
+gem 'data_mapper'
+gem 'bcrypt'
+gem 'dm-postgres-adapter'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
