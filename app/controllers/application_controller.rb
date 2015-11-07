@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative 'data_mapper_setup'
+require_relative '../data_mapper_setup'
 
 class ApplicationController < Sinatra::Base
 

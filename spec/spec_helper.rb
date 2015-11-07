@@ -13,9 +13,9 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require '../app/models/maker'
-require '../app/models/peep'
 require 'database_cleaner'
+require_relative '../app/models/maker'
+require_relative '../app/models/peep'
 
 Capybara.app = ChitterWebApp
 
@@ -35,17 +35,17 @@ RSpec.configure do |config|
   if config.files_to_run.one?
     config.default_formatter = 'doc'
   end
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  #
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+  #
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  #
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 end
