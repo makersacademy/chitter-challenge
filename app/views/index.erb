@@ -1,0 +1,32 @@
+Welcome to Chitter.
+
+<div id='sign_in'>
+  <h2>New to Chitter? Sign up</h2>
+  <form class='aligned-form' action='/users/new' method='post'>
+    <fieldset>
+      <div class="pure-control-group">
+        <input name="name" type="text" placeholder="Full name">
+      </div>
+
+      <div class="pure-control-group">
+        <input name="username" type="text" placeholder="Username">
+      </div>
+
+      <div class="pure-control-group">
+        <input name="email" type="email" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$">
+      </div>
+
+      <div class="pure-control-group">
+        <input name="password" type="password" placeholder="Password">
+      </div>
+
+      <div class="pure-control-group">
+        <input name="password_confirmation" type="password" placeholder="Re-type password">
+      </div>
+
+      <div class="pure-control-group">
+        <button type="submit" class="pure-button pure-button-primary">Sign up for Chitter</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
