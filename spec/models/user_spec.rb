@@ -1,4 +1,3 @@
-# in /spec/models/user_spec.rb
 describe User do
 
   let!(:user) do

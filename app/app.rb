@@ -10,16 +10,23 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+
 	get '/links' do
 		@links=Message.all
 		erb(:'links/index')
 	end
 
+  post '/links' do
+  link = Message.new(message: params[:message])
+  link.save
+  redirect to('/links')
+end
+
   get '/' do
     redirect '/sign_up'
   end
 
-  get '/links/new' do
+  post '/links/new' do
     erb(:'links/new')
   end
 

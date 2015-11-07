@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <title>Chitter</title>
+   <title>Welcome To Chitter</title>
   </head>
   <body>
     <% if current_user %>
@@ -10,7 +10,7 @@
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
-  <% end %>
+<% end %>
   <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id='errors'>
