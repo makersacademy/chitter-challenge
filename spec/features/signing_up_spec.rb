@@ -2,13 +2,13 @@ feature 'Signing up:' do
   scenario 'User can sign up' do
     visit '/users/new'
     expect(page.status_code).to eq(200)
-    expect { sign_up }.to change(User, :count).by 1
+    expect {sign_up}.to change(User, :count).by 1
     expect(page).to have_content('Hi, incredible@yev.com')
     expect(User.first.email).to eq('incredible@yev.com')
   end
 
   scenario 'Requires a matching confirmation password' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect {sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
     expect(current_path).to eq ('/users')
     expect(page).to have_content 'Password does not match the confirmation'
   end
@@ -45,7 +45,7 @@ feature 'Signing up:' do
     expect(page).to have_content "Email is already taken"
   end
 
-    scenario "Can't sign up twice with the same username" do
+  scenario "Can't sign up twice with the same username" do
     sign_up
     sign_up(name: 'Another Yev',
             email: 'another@yev.com',
