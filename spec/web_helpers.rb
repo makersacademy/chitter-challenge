@@ -29,3 +29,9 @@ def log_in_with_wrong_password
   fill_in :password, with: 'the-yev'
   click_button 'Log in'
 end
+
+def peep
+  visit '/peeps/new'
+  fill_in :peep, with: 'My test peep'
+  click_button 'PEEP!'
+end

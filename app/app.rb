@@ -23,6 +23,24 @@ use Rack::MethodOverride
    erb :index
  end
 
+ get '/peeps/new' do
+   if current_user
+     @user = current_user
+     erb :'peeps/new'
+   else
+     redirect to('/sessions/none')
+   end
+ end
+
+ post '/peeps/new' do
+   peep = Peep.new(message: params[:peep],
+                   name: params[:name],
+                   username: params[:username])
+   peep.save
+   p params
+   redirect to('/chitter')
+ end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -61,6 +79,10 @@ use Rack::MethodOverride
       flash.next[:notice] = 'Wrong password. Please try again.'
       redirect to('/sessions/new')
     end
+  end
+
+  get '/sessions/none' do
+    erb :'sessions/none'
   end
 
   delete '/sessions' do

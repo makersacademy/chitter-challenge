@@ -4,6 +4,10 @@
     <title>Chitter</title>
   </head>
   <body>
-   
+  
+  <% Peep.all.each do |peep| %>
+  <p><%= peep.message %></p>
+  <% end %>
+
   </body>
 </html>
