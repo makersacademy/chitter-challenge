@@ -11,3 +11,4 @@ before_install:
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
 
+sudo: false
