@@ -5,6 +5,7 @@ require 'simplecov'
 require './app/app'
 require 'capybara/rspec'
 require 'database_cleaner'
+require_relative 'web_helpers'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

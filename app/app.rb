@@ -23,11 +23,13 @@ end
 
   post '/users/register' do
     user = User.create(
-      email:    params[:email],
-      name:     params[:name],
-      username: params[:username],
-      password: params[:password]
+      email:                  params[:email],
+      name:                   params[:name],
+      username:               params[:username],
+      password:               params[:password],
+      password_confirmation:  params[:password_confirmation]
       )
+    user.save
     flash.now[:errors] = user.errors.full_messages unless \
     user.errors.full_messages.length == 0
     erb(:'/users/register')
@@ -42,6 +44,15 @@ end
       session[:user_id] = user.id
       redirect('/')
     end
+    flash[:errors] = "Username or password incorrect"
+    erb(:'users/sign_in')
+  end
+
+  post '/sign_out' do
+    session.delete(:user_id)
+    flash.next[:notice] = "You have been signed out"
+    flash[:notice]
+    redirect ('/')
   end
 
   run! if app_file == $0

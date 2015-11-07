@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter, chit chit chit</title>
+</head>
+<body>
+<% if current_user %>
+  Welcome, <%= current_user.name %>
+  <form action='/sign_out' method='post'>
+    <input type='submit' value='Sign out'>
+  </form>
+<% else %>
+  <form action='/users/register' method='get'>
+    <input type='submit' value='Register'>
+  </form>
+
+  <form action='/users/sign_in' method='get'>
+    <input type='submit' value='Sign in'>
+  </form>
+<% end %>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<%= yield %>
+</body>
+</html>

@@ -1,5 +1,4 @@
-<h1>Please register</h1>
-
+<header>Please register</header>
 <ul>
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -17,5 +16,7 @@
     <input type='text' name='username'>
   <label for='password'>Password</label>
     <input type='password' name='password'>
-  <input type='submit' value='Register'>
+  <label for='password_confirmation'>Password Confirmation</label>
+    <input type='password' name='password_confirmation'>
+  <input type='submit' value='Submit'>
 </form>
