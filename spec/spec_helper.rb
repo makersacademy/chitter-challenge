@@ -1,13 +1,14 @@
+ENV['RACK_ENV'] = 'test'
 
 require 'coveralls'
 require 'simplecov'
 require './app/models/user'
 require 'web_helpers'
 require 'capybara/rspec'
+require './app/app'
 
 
-#Capybara.app = Chitter
-
+Capybara.app = Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

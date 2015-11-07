@@ -1,3 +1,8 @@
+<% if @user %>
+  Welcome, <%= @user.email %>
+<% end %>
+
+
 <form action='/users' method='post'>
   <label for='email'>
     Email: <input name='email' type='email'>

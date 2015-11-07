@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-validations'
-#gem 'database_cleaner'
+gem 'database_cleaner'
 
 group :test do
   gem 'rspec'

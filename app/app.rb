@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require 'bcrypt'
-#require 'sinatra/flash'
+require 'data_mapper'
+require_relative './models/user'
+
 
 class Chitter < Sinatra::Base
   
   get '/' do
-  	redirect '/users'
+  	redirect '/sign_up'
   end
 
   get '/sign_up' do
@@ -16,7 +18,7 @@ class Chitter < Sinatra::Base
   post '/users' do
   	@user = User.new(email: params[:email],
                   password: params[:password])
-  	erb :index
+  	erb :'users/sign_up'
   end
 
   run! if app_file == $0
