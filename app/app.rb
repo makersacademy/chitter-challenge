@@ -1,29 +1,36 @@
 require 'sinatra/base'
 require './app/data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'potato'
+  register Sinatra::Flash
 
   get '/' do
     erb :index
   end
 
   get '/signup' do
+    @user = User.new
     erb :signup
   end
 
   post '/signup' do
-    user = User.create(username: params[:username],
-                       password: params[:password],
-                       password_confirmation: params[:password_check])
-    session[:user_id] = user.id
-    redirect user.valid? ? '/home' : '/signup/error'
+    @user = User.create(username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_check],
+                        email: params[:email],
+                        name: params[:name])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect :home
+    else
+      flash.now[:notice] = "Error: Passwords don't match"
+      erb :signup
+    end
   end
 
-  get '/signup/error' do
-    erb :'signup/error'
-  end
 
   get '/login' do
     redirect :home

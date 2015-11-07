@@ -1,8 +1,17 @@
 Sign up
-
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
 <form action='/signup' method='post' >
-  username: <input type='text' name='username'><br>
-  password: <input type='password' name='password'>
-  re-type password: <input type='password' name='password_check'><br>
+  name:
+  <input type='text' name='name' value='<%= @user.name %>'><br>
+  username:
+  <input type='text' name='username' value='<%= @user.username %>'><br>
+  password:
+  <input type='password' name='password'>
+  re-type password:
+  <input type='password' name='password_check'><br>
+  email:
+  <input type='email' name='email' value='<%= @user.email %>' required>
   <input type='submit' value='Submit'>
 </form>
