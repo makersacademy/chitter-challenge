@@ -3,6 +3,10 @@
 # I want to post a message (peep) to chitter
 
 feature 'Post a message as user' do
+  before do
+    sign_up
+    log_in
+  end
 
   # As a user
   # So that I can post a message

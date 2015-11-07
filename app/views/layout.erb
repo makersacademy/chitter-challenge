@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Chitter. Peep at the World</title>
-    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/shift.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/pure-min.css">
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -27,6 +27,7 @@
               </form>
             </li>
           <% else %>
+            <li><a href="/feeds/view">View peeps</a></li>
             <li><a href="/users/new">Sign Up</a></li>
             <li><a href="/sessions/new">Log In</a></li>
           <% end %>

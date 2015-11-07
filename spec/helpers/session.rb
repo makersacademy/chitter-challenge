@@ -18,9 +18,11 @@ module SessionHelpers
     click_button('Log in') 
   end
 
+  def log_out
+    click_button('Sign out')
+  end
+
   def peep(message: 'My first peep')
-    sign_up
-    log_in
     visit '/message/new'
     fill_in 'message', with: message
     click_button('Peep')

@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    redirect '/feeds/view' if current_user
     erb :index, :layout => :home_layout
   end
 
@@ -59,6 +58,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/message/new' do
+    redirect '/feeds/view' unless current_user
     erb :'message/new'
   end
 
