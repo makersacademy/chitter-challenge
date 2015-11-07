@@ -80,3 +80,18 @@ def sign_in_with_valid_credentials
   fill_in :password, with: 'TopS3cr3t'
   click_button 'Sign In'
 end
+def sign_in_with_invalid_credentials
+  sign_up_with_valid_details
+  visit '/sessions/new'
+  fill_in :email, with: 'nobody@example.com'
+  fill_in :password, with: 'TopS3cr3t'
+  click_button 'Sign In'
+end
+def sign_in_with_valid_credentials_wrong_password
+  sign_up_with_valid_details
+  visit '/sessions/new'
+  fill_in :email, with: 'example@example.com'
+  fill_in :password, with: 'BadPassword'
+  click_button 'Sign In'
+end
+
