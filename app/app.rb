@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'time_ago_in_words'
 require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'data_mapper_setup'
@@ -71,6 +72,10 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
+    end
+
+    def format_time(creation_time)
+      Time.parse(creation_time.to_s).ago_in_words
     end
   end
 

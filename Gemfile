@@ -10,6 +10,7 @@ ruby '2.2.3'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'rspec'
+  gem 'time_ago_in_words'
 
 group :test do
   gem 'database_cleaner'
