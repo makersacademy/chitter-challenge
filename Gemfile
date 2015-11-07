@@ -11,4 +11,6 @@ group :test do
   gem 'coveralls', require: false
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
+  gem 'bcrypt'
+  gem 'database_cleaner'
 end
