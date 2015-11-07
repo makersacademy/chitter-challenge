@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/support/data_mapper_setup'
 
 class Chitter < Sinatra::Base
-enable :sessions
-set :session_secret, 'super secret'
+  register Sinatra::Flash
+  enable :sessions
+  set :session_secret, 'super secret'
 
 helpers do
   def current_user
@@ -15,19 +17,19 @@ end
     erb :index
   end
 
-  post '/' do
-
-  end
-
   get '/users/register' do
     erb(:'users/register')
   end
 
   post '/users/register' do
-    user = User.create(email: params[:email],
-                name: params[:name],
-                username: params[:username],
-                password: params[:password])
+    user = User.create(
+      email:    params[:email],
+      name:     params[:name],
+      username: params[:username],
+      password: params[:password]
+      )
+    flash.now[:errors] = user.errors.full_messages unless \
+    user.errors.full_messages.length == 0
     erb(:'/users/register')
   end
 

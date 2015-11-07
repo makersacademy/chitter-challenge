@@ -1,4 +1,12 @@
-Please enter your details below...
+<h1>Please register</h1>
+
+<ul>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
 
 <form action='/users/register' method='post'>
   <label for='email'>Email</label>
