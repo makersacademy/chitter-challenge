@@ -64,9 +64,9 @@ use Rack::MethodOverride
   end
 
   delete '/sessions' do
-    email = current_user.email
+    name = current_user.name
     session.clear
-    flash.next[:notice] = "Goodbye, #{email}!"
+    flash.next[:notice] = "Goodbye, #{name}!"
     redirect to('/sessions/new')
   end
 
