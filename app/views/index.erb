@@ -5,8 +5,9 @@
   </head>
   <body>
   
-  <% Peep.all.each do |peep| %>
-  <p><%= peep.message %></p>
+  <% Peep.all(order: [ :id.desc ]).each do |peep| %>
+  <p> <%= peep.name %> @<%= peep.username %> <br>
+  	  <%= peep.message %></p>
   <% end %>
 
   </body>
