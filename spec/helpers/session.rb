@@ -1,6 +1,6 @@
 module SessionHelpers
 
-  def sign_up(name: 'peter jackson', username: 'pjackson', email: 'jackie@zmail.org', 
+  def sign_up(name: 'Peter Jackson', username: 'pjackson', email: 'jackie@zmail.org', 
               password: '123456', password_confirmation: '123456' )
     visit '/users/new'
     fill_in 'name', with: name 
@@ -16,6 +16,14 @@ module SessionHelpers
     fill_in 'email', with: email
     fill_in 'password', with: password
     click_button('Log in') 
+  end
+
+  def peep(message: 'My first peep')
+    sign_up
+    log_in
+    visit '/message/new'
+    fill_in 'message', with: message
+    click_button('Peep')
   end
 
 end

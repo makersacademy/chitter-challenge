@@ -1,46 +1,59 @@
-<div id='sign_up'>
-  <h1>New to Chitter? Sign up</h1>
-  <form class='aligned-form' action='/users' method='post'>
-    <fieldset>
-      <div class="pure-control-group">
-        <input name="name" type="text" placeholder="Full name">
-      </div>
-
-      <div class="pure-control-group">
-        <input name="username" type="text" placeholder="Username">
-      </div>
-
-      <div class="pure-control-group">
-        <input name="email" type="email" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$">
-      </div>
-
-      <div class="pure-control-group">
-        <input name="password" type="password" placeholder="Password">
-      </div>
-
-      <div class="pure-control-group">
-        <input name="password_confirmation" type="password" placeholder="Re-type password">
-      </div>
-
-      <div class="pure-control-group">
-        <button type="submit" class="pure-button pure-button-primary">Sign up for Chitter</button>
-      </div>
-    </fieldset>
-  </form>
+<div class="row">
+  <div class="col-sm-7"></div>
+  <div class="col-sm-5">
+    <h3>New to Chitter? Sign up</h3>
+  </div>
 </div>
 
+<div class="row">
+  <div class="col-sm-7"></div>
 
-<div id='log_in'>
-  <form class='aligned-form' action='/sessions' method='post'>
-    <fieldset>
-      <div class="pure-control-group">
-        <input name="email" type="email" placeholder="Email">
-      </div>
+  <div class="col-sm-2">
+    <div id='sign_up'>
+      <form class='form-horizontal' action='/users' method='post'>
+        <div class="form-group">
+          <input name="name" class="form-control" type="text" placeholder="Full name">
+        </div>
 
-      <div class="pure-control-group">
-        <input name="password" type="password" placeholder="Password">
-        <button type="submit" class="pure-button pure-button-primary">Log in</button>
-      </div>
-    </fieldset>
-  </form>
+        <div class="form-group">
+          <input name="username" class="form-control" type="text" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+          <input name="email" class="form-control" type="email" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$">
+        </div>
+
+        <div class="form-group">
+          <input name="password" class="form-control" type="password" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <input name="password_confirmation" class="form-control" type="password" placeholder="Re-type password">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" >Sign up for Chitter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-2">
+    <div id='log_in'>
+      <form class='form-horizontal' action='/sessions' method='post'>
+        <div class="form-group">
+          <input name="email" type="email" class="form-control" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <input name="password" class="form-control" type="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

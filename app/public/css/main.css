@@ -17,7 +17,7 @@
 }
 
 .jumbotron {
-  background-image:url('http://goo.gl/04j7Nn');
+  background-image:url('');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,4 +67,9 @@
 .neighborhood-guides p {
   font-size: 15px;
   margin-bottom: 13px;
+}
+
+#peep-feed h2 {
+  font-size: 14px;
+  color: black;
 }
