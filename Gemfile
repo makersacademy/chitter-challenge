@@ -3,8 +3,6 @@ ruby '2.2.3'
 
 group :test do
   gem 'rspec'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
   gem 'coveralls', require: false
 
   gem 'capybara'
@@ -15,4 +13,5 @@ group :test do
   gem 'dm-migrations'
   gem 'database_cleaner'
   gem 'rake'
+  gem 'bcrypt'
 end

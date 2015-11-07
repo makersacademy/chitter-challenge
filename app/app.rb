@@ -1,12 +1,12 @@
-# #
 ENV["RACK_ENV"] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class Chitter  < Sinatra::Base
+
   enable :sessions
-  set :session_secret, 'secret'
+  set :session_secret, 'super secret'
 
   get '/' do
     redirect '/users/new'
