@@ -1,9 +1,12 @@
 require 'sinatra/base'
 require './model/maker'
+require 'bcrypt'
+require 'sinatra/flash'
 
 ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -27,19 +30,18 @@ class Chitter < Sinatra::Base
   post '/sign_up_confirmation' do
     maker = Maker.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session[:maker_id] = maker.id
-    session[:name] = params[:name]
-    session[:username] = params[:username]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
     redirect to('/home')
   end
 
   post '/home' do
-    session[:name] = params[:name]
-    session[:username] = params[:username]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
-    redirect to('/home')
+    maker = Maker.authenticate(params[:email], params[:password])
+    if maker
+      session[:maker_id] = maker.id
+      redirect to('/home')
+    else
+      flash.now[:errors] = ['Incorrect password']
+      erb :index
+    end
   end
 
   get '/home' do

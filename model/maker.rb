@@ -4,6 +4,8 @@ require 'bcrypt'
 class Maker
   include DataMapper::Resource
 
+  attr_reader :password
+
   property :id, Serial
   property :name, String
   property :username, String
@@ -15,7 +17,17 @@ class Maker
   # method as our key, instead of Maker.create(password_digest: params[:password]). This results
   #in our password_digest property being saved as an encrypted hash+salt in our database.
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email, password)
+      maker = Maker.first(email: email)
+      if BCrypt::Password.new(maker.password_digest) == password
+        maker
+      else
+        nil
+      end
   end
 end
 

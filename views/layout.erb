@@ -5,9 +5,14 @@
     <title> Chitter </title>
   </head>
   <body>
+    <% if flash[:errors] %>
+      <p><%= flash[:errors] %></p>
+    <% end %>
+
     <% if current_maker %>
       <h1> Welcome <%= current_maker.name %>! </h1>
     <% end %>
+    
     <%= yield %>
   </body>
 </html>
