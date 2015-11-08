@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homepage</title>
-</head>
-<body>
-  <p> Welcome to Chitter!</p>
-  <form action= '/registration' method='get'>
-    <input type= 'submit' value='Register' />
-  </form>
-  <form action= '/signin' method='get'>
-    <input type= 'submit' value='Sign in' />
-  </form>
-</body>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
+    <%= yield %>
+  </body>
 </html>

@@ -8,6 +8,7 @@ gem "sinatra"
 gem "database_cleaner"
 gem "rake"
 gem "dm-transactions"
+gem "bcrypt"
 
 group :test do
   gem 'rspec'
