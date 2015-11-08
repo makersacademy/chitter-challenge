@@ -6,4 +6,6 @@ class Peep
   property :id, Serial
   property :message, String
   property :time_stamp, Time
+
+  #belongs_to :user
 end

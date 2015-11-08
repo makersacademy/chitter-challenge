@@ -11,22 +11,9 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   use Rack::MethodOverride
 
-
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/index'
+  get '/' do
+    redirect '/peeps'
   end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/peeps' do
-    Peep.create(message: params[:message], time_stamp: Time.now)
-    redirect to('/peeps')
-  end
-
-=begin
 
   get '/sessions/new' do
     erb :'sessions/new'
@@ -36,53 +23,57 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/links')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.next[:notice] = 'Goodbye!'
+    redirect to '/peeps'
+  end
+
   get '/users/new' do
     @user = User.new
-    erb(:'users/new')
+    erb :'users/new'
   end
 
   post '/users' do
     @user = User.new(email: params[:email],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation])
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation],
+                      name: params[:name],
+                      user_name: params[:user_name])
     if @user.save
-      session[:user_id] = @user.id
-      redirect '/links'
+      #session[:user_id] = @user.id
+      session[:user_id] = nil
+      redirect '/users/new'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
 
-  get '/links/new' do
-    erb(:'links/new')
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  post '/links' do
-    link = Link.create(title: params[:title], url: params[:url])
-    params[:name].split(" ").each do |tag|
-      link.tags << Tag.create(name: tag)
+  get '/peeps/new' do
+    if session[:user_id]
+      erb :'peeps/new'
+    else
+      flash.next[:notice] = 'User not logged in'
+      redirect '/peeps'
     end
-    link.save
-    redirect '/links'
   end
 
-  get '/links' do
-    @links=Link.all
-    erb(:'links/index')
-  end
-
-  get '/tags/:name' do
-    tag = Tag.first(name: params[:name])
-    @links = tag ? tag.links : []
-    erb :'links/index'
+  post '/peeps' do
+    Peep.create(message: params[:message], time_stamp: Time.now)
+    redirect to('/peeps')
   end
 
   helpers do
@@ -91,11 +82,5 @@ class Chitter < Sinatra::Base
     end
   end
 
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye!'
-    redirect to '/links'
-  end
-=end
   run! if app_file == $0
 end
