@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
   delete '/sign-out' do
     flash.keep[:notice] = "Goodbye, #{current_user.user_name}"
     session[:user_id] = nil
-    redirect to '/index'
+    redirect to '/peeps'
   end
 
   helpers do
@@ -55,6 +55,18 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  post '/create-peep' do
+    peep = Peep.create(content: params[:content], time: Time.now)
+    current_user.peeps << peep
+    current_user.save
+    redirect to('/peeps')
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps'
   end
 
   # start the server if ruby file executed directly

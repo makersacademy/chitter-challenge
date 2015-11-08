@@ -18,3 +18,9 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def create_peep(email:, password:, content:)
+  sign_in(email: email, password: password)
+  fill_in :content, with: content
+  click_button 'Submit your peep'
+end
