@@ -40,6 +40,13 @@ body {
 	float: right;
 }
 
+.peep_button {
+     width: 300px;
+     height: 75px;
+     font-size: 16px;
+     font-weight: 600
+}
+
 #peeps {
 	position: absolute;
 	top: 5%;
