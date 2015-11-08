@@ -10,6 +10,7 @@ gem 'dm-validations'
 gem 'sinatra-flash'
 
 group :test do
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'rspec'
   gem 'cucumber'
