@@ -5,9 +5,14 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.name %>
+    <% if current_maker %>
+      Welcome, <%= current_maker.name %>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+      </form>
     <% end %>
+    <div id='notice'><%= flash[:logout] if flash[:logout] %></div>
     <%= flash[:name_error] if flash[:name_error] %>
     <%= flash[:email_error] if flash[:email_error] %>
     <%= flash[:username_error] if flash[:username_error] %>

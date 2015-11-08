@@ -47,6 +47,12 @@ module Routes
       end
     end
 
+    delete '/sessions' do
+      session[:maker_id] = nil
+      flash.keep[:logout] = "See you soon!"
+      redirect to '/login'
+    end
+
     run! if app_file == $PROGRAM_NAME
   end
 end

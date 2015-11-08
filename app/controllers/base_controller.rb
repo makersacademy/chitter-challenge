@@ -8,12 +8,13 @@ module Routes
     set :views, proc { File.join(root, '..', 'views') }
     enable :sessions
     set :session_secret, 'super secret'
+    use Rack::MethodOverride
     register Sinatra::Flash
 
     helpers do
 
-     def current_user
-       @current_user ||= Maker.get(session[:maker_id])
+     def current_maker
+       @current_maker ||= Maker.get(session[:maker_id])
      end
 
      def current_peep
