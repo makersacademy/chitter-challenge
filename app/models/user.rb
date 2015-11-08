@@ -12,4 +12,12 @@ class User
                                              :format => 'Please enter a valid email address' }
   property :password,  BCryptHash
 
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password) == password
+      user
+    else
+      nil
+    end
+  end
 end

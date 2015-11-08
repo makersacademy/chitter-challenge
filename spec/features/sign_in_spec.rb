@@ -1,3 +1,5 @@
+require "spec_helper.rb"
+
 feature 'User sign in' do
   let(:user) do
     User.create(name: 'Dave',
