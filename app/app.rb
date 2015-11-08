@@ -42,8 +42,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params[:peep])
-    redirect('/users/welcome')
+
+    if current_user
+      peep = Peep.create(peep: params[:peep])
+      redirect('/users/welcome')
+    else
+      flash.now[:errors] = ['You must sign in or sign up']
+    end
   end
 
   get '/sessions/new' do
