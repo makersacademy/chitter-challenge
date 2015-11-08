@@ -6,7 +6,7 @@
 <% end %>
 
 <ul id='peeps'>
-  <% Peep.all.each do |peep| %>
+  <% Peep.all.reverse.each do |peep| %>
   <blockquote>
     <li> <p> <%= peep.content %> </p>
          <footer> <p> Posted by: <%= peep.maker_username %> </p> </footer>
