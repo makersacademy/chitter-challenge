@@ -6,6 +6,7 @@ gem "data_mapper"
 gem "dm-postgres-adapter"
 gem 'bcrypt'
 
+
 group :test do
   gem 'rspec'
   gem 'cucumber'
@@ -14,4 +15,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'sinatra-flash'
 end
