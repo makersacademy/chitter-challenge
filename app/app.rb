@@ -16,7 +16,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    if User.count(email: params[:email]) + User.count(username: params[:username]) > 0
+    users = User.all
+    if !(users.nil?) && User.count(email: params[:email]) + User.count(username: params[:username]) > 0
       redirect '/signuperror'
     else
     user = User.create(username: params[:username],
