@@ -1,4 +1,10 @@
+
+<link href='/css/application.css' rel='stylesheet' type='text/css'>
+
+<div id='peeps'>
 <h1> New Peep! </h1>
+<br>
+<br>
 
 <% if current_user %>
 <form action='/peeps/new' method='post'>
@@ -11,3 +17,4 @@
   <input type='submit' value='PEEP!'>
 </form>
 <% end %>
+</div>

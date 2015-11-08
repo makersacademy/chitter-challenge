@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'tilt/erb'
 require_relative 'data_mapper_setup'
+require_relative 'helpers'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -13,32 +14,28 @@ set :session_secret, 'super secret'
 register Sinatra::Flash
 use Rack::MethodOverride
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
+  helpers Helpers
+
+  get '/chitter' do
+    erb :index
+  end
+
+  get '/peeps/new' do
+    if current_user
+      @user = current_user
+      erb :'peeps/new'
+    else
+      redirect to('/sessions/none')
     end
   end
 
- get '/chitter' do
-   erb :index
- end
-
- get '/peeps/new' do
-   if current_user
-     @user = current_user
-     erb :'peeps/new'
-   else
-     redirect to('/sessions/none')
-   end
- end
-
- post '/peeps/new' do
-   peep = Peep.new(message: params[:peep],
-                   name: params[:name],
-                   username: params[:username])
-   peep.save
-   redirect to('/chitter')
- end
+  post '/peeps/new' do
+    peep = Peep.new(message: params[:peep],
+                    name: params[:name],
+                    username: params[:username])
+    peep.save
+    redirect to('/chitter')
+  end
 
   get '/users/new' do
     @user = User.new
@@ -92,5 +89,5 @@ use Rack::MethodOverride
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

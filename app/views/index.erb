@@ -2,13 +2,16 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link href='/css/application.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
-  
+  <div id='peeps'>
+  <br>
+  <br>
   <% Peep.all(order: [:id.desc]).each do |peep| %>
   <p> <%= peep.name %> @<%= peep.username %> <%= peep.created_at.strftime("%H:%M (%d, %b)") %><br>
   	  <%= peep.message %></p>
   <% end %>
-
+  </div>
   </body>
 </html>

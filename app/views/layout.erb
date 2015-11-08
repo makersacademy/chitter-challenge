@@ -2,9 +2,15 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link href='/css/application.css' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
+  <div id='header'>
+    <div id='logo'>
+    @ Chitter.
+    </div>
+    <div id='user'>
     <% if current_user %>
       Hi, <%= current_user.name %>!
     <% end %>
@@ -17,7 +23,9 @@
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>
-
+    </div>
     <%= yield %>
+  
+  </div>
   </body>
 </html>

@@ -13,7 +13,7 @@ class User
   property :id, Serial
   property :name, Text
   property :username, Text,
-           :messages => {
+           messages: {
              presence:  "Please enter a username address.",
              is_unique: "Sorry, that usename is not available."
              }
@@ -25,8 +25,8 @@ class User
   validates_confirmation_of :password
 
   property :email, String,
-           :format   => :email_address,
-           :messages => {
+           format: :email_address,
+           messages: {
              presence:  "Please enter an email address.",
              is_unique: "We already have that email.",
              format:    "Doesn't look like an email address to me ..."
