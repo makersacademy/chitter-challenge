@@ -1,12 +1,16 @@
 require 'bcrypt'
 
 class User
+  attr_reader :password
+  attr_accessor :password_confirmation
+
   include DataMapper::Resource
 
   property :id, Serial
   property :full_name, Text
   property :email, String
   property :password_digest, Text
+  validates_confirmation_of :password
 
   def password=(password)
     @password = password
