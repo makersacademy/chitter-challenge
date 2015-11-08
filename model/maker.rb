@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'bcrypt'
 require_relative 'peep'
+require 'dm-validations'
 
 class Maker
   include DataMapper::Resource
@@ -8,10 +9,12 @@ class Maker
   attr_reader :password
 
   property :id, Serial
-  property :name, String
-  property :username, String
-  property :email, String
-  property :password_digest, Text
+  property :name, String, required: true
+  property :username, String, required: true
+  property :email, String, required: true
+  property :password_digest, Text, required: true
+
+  validates_format_of :email, as: :email_address
 
   has n, :peeps
 

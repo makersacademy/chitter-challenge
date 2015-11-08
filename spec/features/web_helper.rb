@@ -7,6 +7,11 @@ def sign_up
   click_button('Register')
 end
 
+def partial_sign_up
+  fill_in('name', with: 'Alaan')
+  click_button('Register')
+end
+
 def sign_in(name, username, email, password)
   visit('/')
   fill_in('username', with: username)

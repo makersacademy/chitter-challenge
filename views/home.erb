@@ -5,6 +5,7 @@
 </form>
 <% end %>
 
+<nav>
 <ul id='peeps'>
   <% Peep.all.reverse.each do |peep| %>
   <blockquote>
@@ -19,3 +20,4 @@
 <form action="/">
   <input type="submit" value="Back to homepage">
 </form>
+</nav>
