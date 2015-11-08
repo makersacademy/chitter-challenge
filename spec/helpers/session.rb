@@ -1,0 +1,2 @@
+module SessionHelpers
+end
