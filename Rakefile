@@ -1,5 +1,5 @@
 require 'cucumber/rake/task'
-require 'rspec/core/rake_task'
+require 'rspswec/core/rake_task'
 require 'rubocop/rake_task'
 require 'data_mapper'
 require './app/app.rb'
