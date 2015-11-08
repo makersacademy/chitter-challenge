@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #e05915;  
+  text-decoration: none;
+}
+
+body {
+	background-color: #c2dde6;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+#header {
+	top: 10%;
+	background-color: #bccbde;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #e05915;
+	font-weight: 900;
+}
+
+#logo {
+	float: left;
+    margin: 3px;
+    padding: 3px; 
+	font-size: 30px; 
+} 
+
+#user {
+	float: right;
+	margin: 3px;
+    padding: 3px; 
+    /*text-align: right;
+    */
+}
+
+#buttons {
+	float: right;
+}
+
+#peeps {
+	position: absolute;
+	top: 5%;
+	left: 35%;
+	background-color: #c2dde6;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #431c5d;
+	text-align: center;
+}
+
+#signup {
+	position: absolute;
+	top: 20%;
+	left: 3%;
+	background-color: #c2dde6;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #431c5d;
+	text-align: center;
+}
+
+#login {
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	background-color: #c2dde6;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #431c5d;
+	text-align: center;
+}
+
+.single_peep {
+	width: 300px;
+	padding: 10px;
+	border: 1px solid gray;
+	margin: 10px;
+	background-color: #FFFFFF;
+}
+
+#peep_name {
+    font-weight: 600
+}
+
+#peep_light {
+    font-weight: 300;
+    font-size: 10px;
+    color: #bccbde;
+}
+
+#peep_message {
+    font-weight: 300;
+    font-size: 16px;
+    color: #431c5d;
+}

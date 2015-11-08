@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
 
   set :views, proc { File.join(root, "../views") }
+  set :public_folder, proc { File.join(root, "../public") }
 
   enable :sessions
   set :session_secret, 'super secret'
