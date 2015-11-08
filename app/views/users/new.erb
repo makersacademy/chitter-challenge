@@ -8,22 +8,22 @@
       <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors:
         <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
         </ul>
       <% end %>
     </h3>
     <h1>Please sign up</h1>
     <form action='/sign-up' method='post'>
       <label for='email'>
-        Email: <input type=text name='email'  value='<%= @user.email %>' required>
+        Email: <input type=text name='email' value='<%= @user.email %>' required>
       </label>
       <label for='password'>
-        Password: <input type=text name='password'>
+        Password: <input type='password' name='password'>
       </label>
       <label for='password_confirmation'>
-        Confirm password: <input type=text name='password_confirmation'>
+        Confirm password: <input type='password' name='password_confirmation'>
       </label>
       <label for='name'>
         Name: <input type=text name='name'>
