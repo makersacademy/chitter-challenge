@@ -52,6 +52,16 @@ class Chitter < Sinatra::Base
     erb :'links/home'
   end
 
+  post '/home/save_peeps' do
+    peep = Peep.create( text: params[:peep])
+    redirect :'/home/peeps'
+  end
+
+  get '/home/peeps' do
+    @peeps = Peep.all
+    erb :'links/peeps'
+  end
+
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'

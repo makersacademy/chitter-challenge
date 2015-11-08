@@ -3,8 +3,11 @@
   <input type='hidden' name='_method' value='delete'>
   <input type="submit" value="Log-out">
 </form>
-
-<form action="/home/save_peeps" method="post">
-  <input type="text" name="peep" placeholder="peep">
-  <input type="submit" value="Peep">
-</form>
+<ul id='links'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep:
+    <%= peep.text %><br>
+  </li>
+  <% end %>
+</ul>
