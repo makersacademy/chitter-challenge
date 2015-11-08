@@ -1,6 +1,6 @@
 feature 'Viewing links' do
 
-  scenario 'I can see existing links on the links page' do
+  scenario 'I can see existing peeps on the peep_list page' do
     Peep.create(text: 'Hello, world')
 
     visit '/peep'
