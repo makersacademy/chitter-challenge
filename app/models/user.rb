@@ -8,9 +8,10 @@ class User
 
   property :id, Serial
   property :full_name, Text
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
   validates_confirmation_of :password
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password

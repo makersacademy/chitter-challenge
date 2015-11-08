@@ -2,16 +2,16 @@
 
 <form action='/users' method='post'>
 	<p>
-		<input type='text' placeholder='Full name' name='full_name' value='<%= @user.full_name %>'>
+		<input type='text' placeholder='Full name' name='full_name' value='<%= @user.full_name %>' required>
 	</p>
 	<p>
-		<input type='email' placeholder='Email' name='email' value='<%= @user.email %>'>	
+		<input type='email' placeholder='Email' name='email' value='<%= @user.email %>' required>	
 	</p>
 	<p>
-		<input type='password' placeholder='Password' name='password'>	
+		<input type='password' placeholder='Password' name='password' required>	
 	</p>
 	<p>
-		<input type='password' placeholder='Password confirmation' name='password_confirmation'>	
+		<input type='password' placeholder='Password confirmation' name='password_confirmation' required>	
 	</p>
 		<input type='submit' value='Sign up'>
 </form>
