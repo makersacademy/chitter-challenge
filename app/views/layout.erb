@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>Chitter, chit chit chit</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <% if current_user %>
-  Welcome, <%= current_user.name %>
+  <header>Welcome, <%= current_user.name %></header>
   <form action='/sign_out' method='post'>
     <input type='submit' value='Sign out'>
+  </form>
+  <form action='/peeps/new'>
+    <input type='submit' value='New peep'>
   </form>
 <% else %>
   <form action='/users/register' method='get'>

@@ -13,7 +13,9 @@ helpers do
   end
 
   def peeps
-    Peep.all
+    if Peep.all.length > 0
+      Peep.all(:order => [:created_at.desc])
+    end
   end
 end
 
@@ -33,9 +35,10 @@ end
       password:               params[:password],
       password_confirmation:  params[:password_confirmation]
       )
-    user.save
-    flash.now[:errors] = user.errors.full_messages unless \
-    user.errors.full_messages.length == 0
+    if user.save
+      redirect '/'
+    end
+    flash.now[:errors] = user.errors.full_messages
     erb(:'/users/register')
   end
 
@@ -64,8 +67,6 @@ end
 
   post '/peeps/new' do
     if peep = Peep.create(content: params[:new_peep], user: current_user) && current_user
-      current_user.save
-      peep.save
       redirect '/'
     end
     flash.now[:errors] = peep.errors.full_messages

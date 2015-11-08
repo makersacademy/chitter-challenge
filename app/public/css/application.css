@@ -1,0 +1,28 @@
+body {
+  font-family: Palatino, Arial;
+  font-weight: bolder;
+}
+
+p {
+  font-size: 14px;
+  font-family: Palatino;
+  font-weight: bolder;
+}
+
+header {
+  font-size: 30px;
+  font-family: Palatino;
+  font-weight: bold, italic;
+}
+
+div {
+  font-size: 12px;
+  font-family: Palatino;
+  font-weight: normal;
+  border: 3px solid navy;
+  width: 300px;
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
