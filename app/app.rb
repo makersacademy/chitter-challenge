@@ -37,7 +37,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+    @peeps = Peep.all
     erb :home
+  end
+
+  post '/home/new_post' do
+    peep = Peep.new(text: params[:peep_box])
+    peep.user = current_user
+    peep.save
+    redirect '/home'
   end
 
   get '/sessions' do

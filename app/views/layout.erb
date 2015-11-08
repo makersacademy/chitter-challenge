@@ -8,6 +8,7 @@
       Hello <%= current_user.user_name %>!
       <form action='/user/sign_out' method='post'>
         <input type=submit value='Sign out'>
+      </form>
     <% end %>
     <% if flash[:errors] %>
       Please refer to the following errors below:

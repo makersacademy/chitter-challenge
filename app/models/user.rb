@@ -19,4 +19,6 @@ class User
       nil
     end
   end
+
+  has n, :peeps 
 end
