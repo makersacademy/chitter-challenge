@@ -5,5 +5,8 @@ class Peep
 
   property :id, Serial
   property :text, Text, :required => true, :lazy => false
-  property :created_at, DateTime
+  property :time, Text, :required => true, :lazy => false
+
+  belongs_to :user
+
 end

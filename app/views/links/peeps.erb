@@ -1,15 +1,16 @@
-<h1>Welcome <%=current_user.username%>!</h1>
-<form action="/sessions" method="post">
-  <input type='hidden' name='_method' value='delete'>
-  <input type="submit" value="Log-out">
+<form action="/post_peeps" method="post">
+  <input type="submit" value="Post peeps">
 </form>
+
 <ul id='links'>
   <% @peeps.each do |peep| %>
   <li>
     Peep:
     <%= peep.text %><br>
     Time:
-    <%= peep.created_at%>
+    <%= (peep.time)%>
+    User:
+    <%= User.first(id: peep.user_id).username%>
   </li>
   <% end %>
 </ul>

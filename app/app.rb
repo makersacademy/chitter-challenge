@@ -58,13 +58,25 @@ class Chitter < Sinatra::Base
   end
 
   post '/home/save_peeps' do
-    peep = Peep.create( text: params[:peep])
+    user = User.get(session[:user_id])
+    peep = Peep.new( text: params[:peep], time: Time.now.strftime("%d/%m/%Y %H:%M") )
+    user.peeps << peep
+    user.save
     redirect :'/home/peeps'
   end
 
   get '/home/peeps' do
     @peeps = Peep.all.reverse
     erb :'links/peeps'
+  end
+
+  post '/post_peeps' do
+    if session[:user_id]
+      redirect to('/home')
+    else
+      flash.now[:notice] = "You need to register if you want to peep"
+      erb :'links/join_login'
+    end
   end
 
   delete '/sessions' do
