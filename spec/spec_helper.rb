@@ -12,7 +12,7 @@ require 'simplecov'
 require 'database_cleaner'
 require './app/datamapper_setup.rb'
 require './app/models/user'
-require './app/models/peeps'
+require './app/models/peep'
 require './spec/spec_shortcuts'
 
 SimpleCov.formatters = [
