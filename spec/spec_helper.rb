@@ -9,7 +9,7 @@ require 'data_mapper'
 # require 'web_helper'
 require 'database_cleaner'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
-
+require './spec/helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -26,6 +26,8 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.include SessionHelpers
 
 #Setup for Database rollback between test example instances
   config.before(:suite) do

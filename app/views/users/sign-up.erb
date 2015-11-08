@@ -9,7 +9,7 @@
     </div>
     <div>
       <%= @email_error ? "This email address is already taken, please enter another one:" : "Please enter your email address:" %></br>
-      <input type='text' name='email' value='<%= @email || "dj@tan.go"%>'  required>
+      <input type='email' name='email' value='<%= @email || "dj@tan.go"%>'  required>
       </input>
     </div>
     <div>
