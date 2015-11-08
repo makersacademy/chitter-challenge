@@ -8,6 +8,16 @@ def sign_up_with_valid_details
   click_button 'Sign Up'
 end
 
+def sign_up_with_valid_details_2
+  visit '/users/new'
+  fill_in :email, with: 'joe@example.com'
+  fill_in :password, with: 'TopS3cr3t'
+  fill_in :password_confirmation, with: 'TopS3cr3t'
+  fill_in :name, with: 'Joe Blow'
+  fill_in :username, with: 'JoeBlow'
+  click_button 'Sign Up'
+end
+
 def sign_up_with_missing_email
   visit '/users/new'
   fill_in :password, with: 'BrillianT'
@@ -81,6 +91,14 @@ def sign_in_with_valid_credentials
   click_button 'Sign In'
 end
 
+def sign_in_with_valid_credentials_2
+  sign_up_with_valid_details_2
+  visit '/sessions/new'
+  fill_in :email, with: 'joe@example.com'
+  fill_in :password, with: 'TopS3cr3t'
+  click_button 'Sign In'
+end
+
 def sign_in_with_invalid_credentials
   sign_up_with_valid_details
   visit '/sessions/new'
@@ -106,6 +124,13 @@ def post_a_peep_as_signed_in_user
   sign_in_with_valid_credentials
   click_button 'Post'
   fill_in :text, with: 'I feel mysterious today!'
+  click_button 'Peep!'
+end
+
+def post_a_peep_as_signed_in_user_2
+  sign_in_with_valid_credentials_2
+  click_button 'Post'
+  fill_in :text, with: 'Practice makes perfect!'
   click_button 'Peep!'
 end
 
