@@ -27,7 +27,8 @@ module Routes
      end
 
     end
-    # run! if app_file == $PROGRAM_NAME
+
+     run! if app_file == $PROGRAM_NAME
   end
 
 end
