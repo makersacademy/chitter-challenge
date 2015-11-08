@@ -45,7 +45,8 @@ The app follows a standard Sinatra structure, with views and models folders. I t
 
 As ever, I followed a test-driven development strategy, writing Capybara scenarios for each new feature before I coded it. This minimised errors and made logical flaws and assumptions apparent, speeding up the whole process of app creation.
 
-Here are some notes:
+Notes
+-----
 
 * All posts ('Peeps') can be viewed at the `/peeps` page, in reverse-chronological order and with a timestamp. To post their own Peeps, users need to sign up or log in with an existing account.
 * The homepage (`/`) allows users to sign up or log in. New accounts are initialised as rows in the postGresql database's 'users' table.
