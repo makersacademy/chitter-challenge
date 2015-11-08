@@ -38,13 +38,12 @@ class Chitter < Sinatra::Base
       save_entered_details
       process_errors(@new_user)
       assign_errors
-      p "Sign up errors: #{@new_user.errors.full_messages}"
       erb :'users/sign-up'
     end
   end
 
   get '/main/peeps' do
-    @name ||= User.get(session[:user_id]).name.split(' ').first
+    @name ||= User.first_name(session[:user_id])
     erb :'main/peeps'
   end
 
@@ -53,20 +52,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/chitter-login' do
-    @user = User.first(email: params['username']) || User.first(username: params['username']) || User.new
-      if @user.password != params['password']
-        save_entered_details
-        flash.now[:login_failed] = @user.errors.full_messages
-        @login_error = flash[:login_failed]
-        erb :'/users/login'
-      else
+    @user = User.authenticate(params['username'], params['password'])
+      if @user
         session[:user_id] = @user.id
         redirect('/main/peeps')
+      else
+        save_entered_details
+        flash.now[:login_failed] = :failed_authentication
+        @login_error = flash[:login_failed]
+        erb :'/users/login'
       end
   end
 
   get '/logout' do
-    @name = User.get(session[:user_id]).name.split(' ').first
+    @name = User.first_name(session[:user_id])
     session[:user_id] = nil
     erb :'users/logout'
   end

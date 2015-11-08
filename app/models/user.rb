@@ -13,4 +13,13 @@ class User
   validates_confirmation_of :password
   validates_length_of :password_confirmation, min: 6
 
+  def self.first_name(id)
+    User.get(id).name.split(' ').first
+  end
+
+  def self.authenticate(email_or_username, password)
+    user = User.first(email: email_or_username) || User.first(username: email_or_username)
+    user && user.password == password ? user : nil
+  end
+
 end
