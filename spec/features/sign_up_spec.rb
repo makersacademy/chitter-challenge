@@ -9,5 +9,8 @@ require 'spec_helper'
 
  	 scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
-  end
+  	expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
+	  expect(page).to have_content 'Password and confirmation password do not match'
+	end
+
  end

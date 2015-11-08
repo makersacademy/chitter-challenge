@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'bcrypt'
 require 'data_mapper'
 require_relative './models/user'
-
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
@@ -20,15 +20,24 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-  	@user = User.create(email: params[:email],
+  	user = User.create(email: params[:email],
                   name: params[:name],
                   nickname: params[:nickname],
   								password: params[:password],
   								password_confirmation: params[:password_confirmation])
-  	session[:user_id] = @user.user_id
-  	@user.save
+  	#session[:user_id] = user.user_id
+  	if user.save # #save returns true/false depending on whether the model is successfully saved to the database.
+	    session[:user_id] = user.user_id
+	    redirect to('/peep')
+	    # if it's not valid,
+	    # we'll render the sign up form again
+  	else
+   		erb :'users/sign_up'
+  	end
+
+  	#user.save
   	#erb :'users/sign_up'
-  	redirect '/peep'
+  	#redirect '/peep'
   end
 
    get '/peep' do
