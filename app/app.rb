@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'bcrypt'
 require 'data_mapper'
 require_relative './models/user'
+require_relative './models/peep'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -39,9 +40,25 @@ class Chitter < Sinatra::Base
 		end
   end
 
-   get '/peep' do
-   	erb :'peep/peep'
-   end
+  get '/peep' do
+    @peeps = Peep.all
+   	erb :'peep/peep_list'
+  end
+
+  get '/peep/new' do
+    if session[:user_id]
+      erb :'peep/peep_new'
+    else
+      flash.now[:errors] = ['Sign in for peeping']
+      erb :'users/sign_in'
+    end
+  end
+
+  post '/peep' do
+    Peep.create(text: params[:peep])
+    redirect to('/peep')
+  end
+
 
   get '/sign_in' do
   	erb :'users/sign_in'
