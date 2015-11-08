@@ -1,0 +1,51 @@
+body{
+  font-size: 80%;
+  font-family: "Curier New", Curier, monospace;
+  letter-spacing: 0.15em;
+  background-color: #efefef;
+  text-align: center;
+  background-image: url(/images/typewriter.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.header{
+  padding: 0px 0px 0px 0px;
+  height: 50px;
+  top: 0px;
+  width: 100%;
+}
+
+#page {
+  max-width: 940px;
+  min-width: 720px;
+  margin: 10px auto 10px auto;
+  padding: 20px;
+  border: 4px double #000;
+  background-color: #ffffff;
+}
+
+#navigation {
+  width: 570px;
+  padding: 15px;
+  margin: 0px auto 0px auto;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+
+li {
+  display: inline;
+  margin: 0px 3px;
+}
+
+p{
+  border: 2px double #000;
+  text-align: center;
+  width: 600px;
+  margin: 10px auto 10px auto;
+  font-weight: normal;
+}

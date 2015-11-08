@@ -1,3 +1,4 @@
+<link href="./../style.css" rel="stylesheet">
 <h1>Welcome <%=current_user.username%>!</h1>
 <form action="/sessions" method="post">
   <input type='hidden' name='_method' value='delete'>
@@ -7,4 +8,8 @@
 <form action="/home/save_peeps" method="post">
   <input type="text" name="peep" placeholder="peep">
   <input type="submit" value="Peep">
+</form>
+
+<form action="/home/peeps" method="get">
+  <input type="submit" value="peeps">
 </form>
