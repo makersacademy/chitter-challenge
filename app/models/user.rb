@@ -3,6 +3,7 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
+
   property :id, Serial
 
   property :email, String, required: true,
@@ -29,5 +30,12 @@ class User
   validates_confirmation_of :password
   validates_length_of :password_confirmation, min: 6,
                                               message: 'Password must be at least 6 characters'
+
+  def self.authenticate(username, password)
+    user = User.first(username: username)
+    user && user.password == password ? user : nil
+  end
+
+
 
 end

@@ -1,0 +1,16 @@
+<% if flash[:welcome_msg] %>
+<p><%= flash[:welcome_msg] %></p>
+<p>You may now login below:</p>
+<% end %>
+<% if current_user %>
+<p>Logged in as: <%= current_user.username %></p>
+<% else %>
+<form action='/sessions' method='post'>
+  <label>Username:</label><input type='text' name='username' />
+  <label>Password:</label><input type='password' name='password' />
+  <input type='submit' value='Login' />
+</form>
+<form action='/users/new' method='get'>
+  <input type='submit' value='Signup' />
+</form>
+<% end %>

@@ -20,8 +20,12 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   enable :partial_underscores
 
+  def current_user
+    @current_user ||= User.get(session[:user_id])
+  end
+
   get '/' do
-    redirect '/users/new'
+    redirect '/peeps'
   end
 
   run! if app_file == $0
