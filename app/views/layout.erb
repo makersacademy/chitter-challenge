@@ -5,6 +5,9 @@
   <title>Chitter</title>
 </head>
 <body>
+  <% if current_user %>
+      Welcome to Chitter <%= current_user.username %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
