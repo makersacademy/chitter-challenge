@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
 
   get '/' do
@@ -31,8 +32,18 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/users/welcome' do
+  get '/users/welcome' do #this is eventually going to be the homescreen ('/peeps/list') where peeps are read from
+    @peeps = Peep.all
     erb :'users/welcome'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(peep: params[:peep])
+    redirect('/users/welcome')
   end
 
   get '/sessions/new' do
@@ -48,6 +59,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['Incorrect email or password']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye"
+    redirect to '/users/welcome'
   end
 
   helpers do

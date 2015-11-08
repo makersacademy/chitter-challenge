@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Chitter</title>
+  </head>
+  <body>
+    <ul id="peeps">
+      <% @peeps.each do | peep | %>
+        <li>
+          Peep: <%= peep.peep %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

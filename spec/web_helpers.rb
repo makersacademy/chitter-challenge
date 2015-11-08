@@ -8,3 +8,10 @@ def sign_up(name: 'Ivan Sathianathan', username: 'ivan', email: 'ivan@test.com',
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Submit'
 end
+
+def sign_in(username:, password:)
+  visit '/sessions/new'
+  fill_in 'username', with: username
+  fill_in 'password', with: password
+  click_button 'Sign in'
+end

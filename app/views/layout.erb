@@ -7,12 +7,19 @@
   <body>
 
     <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
     <% if current_user %>
       Welcome, <%= current_user.name %>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
     <% end %>
+
     <%= yield %>
 
   </body>
