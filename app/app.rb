@@ -20,28 +20,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/sign-up' do
-    @username = session['username']
-    @email = session['email']
-    @password_error = flash[:password_error]
-    @username_error = flash[:username_error]
-    @email_error = flash[:email_error]
-    p flash
     erb :'users/sign-up'
   end
 
   post '/users/chitter-signup' do
-    new_user = User.new(
+    @new_user = User.new(
               username:              params['username'],
               email:                 params['email'],
+              name:                  params['name'],
               password:              params['password'],
               password_confirmation: params['password_confirmation'])
-    if new_user.save
+    if @new_user.save
+      redirect('/main/peeps')
     else
       save_entered_details
-      process_errors(new_user)
-      redirect('/users/sign-up')
+      process_errors(@new_user)
+      erb :'users/sign-up'
     end
-    redirect('/main/peeps')
   end
 
   get '/main/peeps' do
@@ -53,15 +48,18 @@ class Chitter < Sinatra::Base
   end
 
   def save_entered_details
-    session['username'] = params['username']
-    session['email'] = params['email']
+    @username = params['username']
+    @email = params['email']
   end
 
   def process_errors(new_user)
     errors = new_user.errors
-    flash[:password_error] = SignupErrorHandler.run(errors, :password_error)
-    flash[:username_error] = SignupErrorHandler.run(errors, :username_error)
-    flash[:email_error] = SignupErrorHandler.run(errors, :email_error)
+    flash.now[:password_error] = SignupErrorHandler.run(errors, :password_error)
+    flash.now[:username_error] = SignupErrorHandler.run(errors, :username_error)
+    flash.now[:email_error] = SignupErrorHandler.run(errors, :email_error)
+    @password_error = flash[:password_error]
+    @username_error = flash[:username_error]
+    @email_error = flash[:email_error]
   end
 
   # start the server if ruby file executed directly

@@ -28,8 +28,6 @@ feature "Signing in:" do
           click_button('Sign up!')
         end
       }.to change(User, :count).by(1)
-      # expect(page).to have_content('Username djtango is already taken')
-      # expect(page).to have_content('Email address dj@tan.go is already taken')
     end
 
   end
