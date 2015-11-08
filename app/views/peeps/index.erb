@@ -1,3 +1,11 @@
-<% @peeps.each do |peep| %>
-  <%= peep.text  %>
-<% end %>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep[:text]  %>
+      <br />
+      <br />
+      <%= peep[:time] %> Author: <%= peep[:author] %>
+    </li>
+  <% end %>
+
+</ul>

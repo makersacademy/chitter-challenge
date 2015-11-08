@@ -1,7 +1,15 @@
 class Chitter < Sinatra::Base
   get '/peeps/index' do
     @username = current_user ? current_user.username : nil
-    @peeps = Peep.all
+    messages = Peep.all(order: [:created_at.desc])
+    @peeps = []
+    messages.each do |message|
+      @peeps << {
+        text: message.text,
+        author: User.get(message.user_id).username,
+        time: message.created_at.strftime("%a, %e %b %Y %H:%M:%S %z")
+    }
+    end
     erb(:'/peeps/index')
   end
 
