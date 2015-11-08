@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'securerandom'
 
 class User
   include DataMapper::Resource
@@ -9,6 +10,7 @@ class User
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  property :password_token, Text
 
   has n, :peeps
 
@@ -27,5 +29,10 @@ class User
   def self.authenticate(email, password)
     user = first(email: email)
     user && Password.new(user.password_digest) == password ? user : nil
+  end
+
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.save
   end
 end
