@@ -9,9 +9,10 @@ class Chitter < Sinatra::Base
     user = User.authenticate(email: email, password: password)
     if user
       session[:user_id] = user.id
+      flash.next[:notice] = "Welcome, #{user.username}!"
       redirect to '/peeps/index'
     else
-      flash.next[:notice] = ["Invalid email or password"]
+      flash.next[:errors] = ["Invalid email or password"]
       redirect to '/sessions/new'
     end
   end

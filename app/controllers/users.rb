@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
+      flash.next[:notice] = "Welcome, #{user.username}!"
       redirect to '/peeps/index'
     else
       flash.next[:errors] = user.errors.full_messages

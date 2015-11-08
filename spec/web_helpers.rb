@@ -122,14 +122,14 @@ end
 
 def post_a_peep_as_signed_in_user
   sign_in_with_valid_credentials
-  click_button 'Post'
+  click_link 'Post'
   fill_in :text, with: 'I feel mysterious today!'
   click_button 'Peep!'
 end
 
 def post_a_peep_as_signed_in_user_2
   sign_in_with_valid_credentials_2
-  click_button 'Post'
+  click_link 'Post'
   fill_in :text, with: 'Practice makes perfect!'
   click_button 'Peep!'
 end
