@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
 
 gem 'data_mapper'
  gem 'dm-postgres-adapter'
@@ -13,7 +12,6 @@ gem 'data_mapper'
  gem 'rubocop'
  gem 'sinatra-partial'
  gem 'timecop'
- gem 'rake'
 
 group :test do
  gem 'database_cleaner'
