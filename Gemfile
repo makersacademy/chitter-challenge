@@ -13,6 +13,7 @@ gem 'data_mapper'
  gem 'rubocop'
  gem 'sinatra-partial'
  gem 'timecop'
+ gem 'rake'
 
 group :test do
  gem 'database_cleaner'
