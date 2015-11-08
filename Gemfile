@@ -7,14 +7,14 @@ ruby '2.2.3'
   gem 'bcrypt'
   gem 'sinatra-flash'
   gem 'sinatra'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
-  gem 'rspec'
   gem 'time_ago_in_words'
 
 group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'rspec'
 end
 
