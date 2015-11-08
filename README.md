@@ -1,15 +1,17 @@
 [![Build Status](https://travis-ci.org/forty9er/chitter-challenge.svg)](https://travis-ci.org/forty9er/chitter-challenge)
 
-# Usage
+# @Chitter.
+
+### Usage
 
 Visit:
 https://cryptic-citadel-4502.herokuapp.com/
 
-Alternatively, download the files in the repo and run via a Sinatra server on your local machine. The main controller is 'app.rb' in the 'app' directory.
+Alternatively, download the files in the repo and run via a Sinatra server via Rackup on your local machine. The main controller is 'app.rb' in the 'app' directory.
 
 From the root folder:
 ```
-ruby app/app.rb
+rackup app/config.ru
 ```
 
 You can view 'Peeps' simply by navigating to the website, or by clicking on the "@Chitter" logo.
