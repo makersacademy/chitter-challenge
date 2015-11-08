@@ -1,22 +1,12 @@
-Chitter Challenge
+Week 4 Weekend Challenge - Chitter Challenge
 =================
-
-* Challenge time: The weekend and up to 9am Monday morning
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
-* Please feel free to submit pull requests early at any time during the weekend to get automated feedback from Hound and test coverage stats from Coveralls
 
 Challenge:
 -------
 
-As usual please start by 
+To write a little Twitter clone that will allow the users to post messages to a public stream.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Feature Stories:
 -------
 
 ```sh
@@ -44,6 +34,8 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+
 
 Notes on functionality:
 ------
