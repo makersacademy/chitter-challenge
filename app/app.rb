@@ -4,6 +4,11 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
+# require 'action_view'
+# require 'action_view/helpers'
+#
+# include ActionView::Helpers::DateHelper
+
 class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
