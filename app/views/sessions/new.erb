@@ -1,27 +1,8 @@
 <div class='login login-sep'>
+
   <h1>Log in to Chitter</h1>
+  <%= partial :login_form %>
 
-  <form action='/sessions' method='post'>
-    <div class="form-group">
-      <input name="email" class="form-control" type="email" placeholder="Email">
-    </div>
-
-    <div class="form-group" >
-      <input name="password" class='form-control form-inline' type="password" placeholder="Password">
-    </div>
-
-    <div class="form-group" >
-      <button type="submit" class="btn btn-primary">Log in</button>
-    </div>
-  </form>
 </div>
 
-<% if flash[:errors] %>
-  <div class='login flash_error'>
-    <ul>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= partial :flash >

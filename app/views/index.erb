@@ -1,45 +1,5 @@
-<div class='signup'>
-  <h1>New to Chitter? Sign up</h1>
-  <p>
-  <form action='/users' method='post'>
-    <div class="form-group">
-      <input name="name" class="form-control" type="text" placeholder="Full name">
-    </div>
-
-    <div class="form-group">
-      <input name="username" type="text" class="form-control" placeholder="Username">
-    </div>
-
-    <div class="form-group">
-      <input name="email" type="email" class="form-control" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$">
-    </div>
-
-    <div class="form-group">
-      <input name="password" type="password" class="form-control" placeholder="Password">
-    </div>
-
-    <div class="form-group">
-      <input name="password_confirmation" type="password" class="form-control" placeholder="Re-type password">
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" >Sign up for Chitter</button>
-    </div>
-  </form>
-</div>
+<%= partial :signup_form %>
 
 <div class='login'>
-  <form action='/sessions' method='post'>
-    <div class="form-group">
-      <input name="email" class="form-control" type="email" placeholder="Email">
-    </div>
-
-    <div class="form-group" >
-      <input name="password" class='form-control form-inline' type="password" placeholder="Password">
-    </div>
-
-    <div class="form-group" >
-      <button type="submit" class="btn btn-primary">Log in</button>
-    </div>
-  </form>
+  <%= partial :login_form %>
 </div>

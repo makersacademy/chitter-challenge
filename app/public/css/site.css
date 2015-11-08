@@ -84,12 +84,6 @@ body {
 	background-color: rgba(200, 200, 200, 1);
 }
 
-/*.signout form{
-  font-size: 14px;
-  line-height: 20px;
-  height: 40px;
-}*/
-
 .signout input {
   background-color: rgba(248, 248, 248, 1);
   border:none;
@@ -291,7 +285,6 @@ body {
 .feed-div {
 	padding: 5px;
 	margin: 8px;
-
 }
 
 .feed-div h1 {
@@ -306,6 +299,7 @@ body {
 	border-radius: 6px;
 	padding: 20px;
 	text-align: justify;
+  word-wrap: break-word;
 }
 
 .new-peep {

@@ -1,0 +1,28 @@
+<header class='nav'>
+
+  <ul class='pull-left'>
+    <% if current_user %>
+      <li><a href='/feeds/view'><img src="/images/chitter.png"> Welcome, <%= current_user.name %>!</a></li>
+    <% else %>
+      <li><a href='/'><img src="/images/chitter.png"> Welcome to Chitter</a></li>
+    <% end %>
+  </ul>
+
+  <ul class='pull-right'>
+    <% if current_user %>
+      <li><a href="/feeds/view">View peeps</a></li>
+      <li><a href="/message/new">New peep</a></li>
+      <li class='signout'>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      </li>
+    <% else %>
+      <li><a href="/feeds/view">View peeps</a></li>
+      <li><a href="/users/new">Sign Up</a></li>
+      <li><a href="/sessions/new">Log In</a></li>
+    <% end %>
+  </ul>
+
+</header><!-- .header-->
