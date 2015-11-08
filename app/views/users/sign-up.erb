@@ -2,18 +2,26 @@
 <h2>Please sign-up to gain access to our amazing Peep functionality and join the millions already Peeping about their non-vacuous thoughts and feelings. #JointheHive</h2>
 <div id='sign-up'>
   <form action='/users/chitter-signup' method='post'>
-    <input type='text' name='username' value='djtango'>
-      Please enter your username:
+    <div>
+      <%= @username_error ? "This username has already been taken, please enter another one." : "Please enter your username:" %></br>
+      <input type='text' name='username' value=<%= @username || 'djtango'%> >
     </input>
-    <input type='text' name='email' value='dj@tan.go'>
-      Please enter your email address:
-    </input>
-    <input type='password' name='password' value='dtpassword'>
-      Please enter your password:
-    </input>
-    <input type='password' name='password_confirmation' value='dtpassword'>
-      Please confirm your password:
-    </input>
+    </div>
+    <div>
+      <%= @email_error ? "This email address is already taken, please enter another one." : "Please enter your email address:" %></br>
+      <input type='text' name='email' value=<%= @email || 'dj@tan.go'%>>
+      </input>
+    </div>
+    <div>
+      <%= @password_error ? 'Your passwords did not match, please try again:' : 'Please enter your password:' %></br>
+      <input type='password' name='password' value='dtpassword'>
+      </input>
+    </div>
+    <div>
+      Please confirm your password:</br>
+      <input type='password' name='password_confirmation' value='dtpassword'>
+      </input>
+    </div>
     <input type='submit' name='sign-up' value='Sign up!'>
   </form>
 </div>
