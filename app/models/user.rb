@@ -2,9 +2,9 @@ class User
   include DataMapper::Resource
 
   property :id,       Serial
-  propery :name,      String
+  property :name,      String
   property :username, String, :unique => true
   property :email,    String, :unique => true
-  propery :password,  BCryptHash
+  property :password,  BCryptHash
 
 end
