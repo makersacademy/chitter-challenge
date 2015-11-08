@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
 
   end
 
+  patch '/users' do
+    redirect '/sessions/new'
+  end
+
   get '/users/recover' do
     erb :'users/recover'
   end
@@ -31,6 +35,7 @@ class Chitter < Sinatra::Base
 
   get '/users/reset_password' do
     @user = User.find_by_valid_token(params[:token])
-    @user ? "Please enter your new password" : "Your token is invalid"
+    @user ? (erb :'/users/reset_password') : "Your token is invalid"
   end
+
 end

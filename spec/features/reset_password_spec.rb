@@ -45,6 +45,15 @@ feature 'Resetting password' do
     end
   end
 
+  scenario 'it lets you enter a password with a valid token' do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
+    click_button('Submit')
+    expect(page).to have_content 'Log in to Chitter' 
+  end
+
   def recover_password
     visit '/users/recover'
     fill_in 'email', with: 'pjackson@iszombie.org'
