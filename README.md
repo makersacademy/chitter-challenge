@@ -40,7 +40,7 @@ I want to see the time at which it was made
 
 Approach
 --------
-This challenge followed an intense week at Makers Academy where I learned to use relational databases within the context of Ruby-based web apps. The concepts were difficult, but now that I had understood them properly I was looking to implement them successfully in my weekend challenge submission.
+This challenge followed an intense week at Makers Academy, during which I learned to use relational databases within the context of Ruby-based web apps. The concepts were difficult, but now that I had understood them properly I was looking to implement them successfully as part of my weekend challenge submission.
 
 I used the DataMapper gem to issue commands to the PostgreSQL databases I was working with, along with DatabaseCleaner in order to clean up the tables following testing (which I carried out via rspec). I also used BCrypt to implement password encryption, meaning that users can sign up and log in without their actual password ever touching the database.
 
