@@ -1,19 +1,13 @@
-
 <link href='/css/application.css' rel='stylesheet' type='text/css'>
-
 <div id='peeps'>
 <h1> New Peep! </h1>
 <br>
 <br>
-
 <% if current_user %>
 <form action='/peeps/new' method='post'>
   <input name="name" type="hidden" value='<%= @user.name %>' />
-    <input name="username" type="hidden" value='<%= @user.username %>' /> 
-   <label for='peep'>
-  	Peep:
-  	<input type='text' name='peep'>
-  </label>
+  <input name="username" type="hidden" value='<%= @user.username %>' /> 
+  <label for='peep'> Peep: <input type='text' name='peep'></label>
   <input type='submit' value='PEEP!'>
 </form>
 <% end %>
