@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'capybara'
@@ -14,4 +13,3 @@ group :test do
   gem 'bcrypt'
   gem 'database_cleaner'
   gem 'sinatra-flash'
-end
