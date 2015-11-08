@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :test do
   gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
@@ -15,5 +14,4 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'rack'
   gem 'shotgun'
-end
 
