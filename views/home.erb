@@ -10,6 +10,7 @@
   <blockquote>
     <li> <p> <%= peep.content %> </p>
          <footer> <p> Posted by: <%= peep.maker_username %> </p> </footer>
+         <footer> <p> Posted on: <%= Time.new.asctime %> </p> </footer>
     </li>
   </blockquote>
   <% end %>
