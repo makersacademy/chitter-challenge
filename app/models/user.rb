@@ -1,5 +1,6 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
+require 'dm-validations'
+require 'bcrypt'
 
 class User
 
@@ -7,10 +8,22 @@ include DataMapper::Resource
 
   property :user_id,     Serial
   property :email,  String
-  property :password,   String
+  property :name,   String
+  property :nickname,   String
+  property :password_digest,   Text
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
+  validates_format_of :email, as: :email_address
+
+  def password=(password)
+	  @password = password
+	  self.password_digest = BCrypt::Password.create(password)
+  end
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
