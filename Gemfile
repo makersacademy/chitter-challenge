@@ -14,5 +14,6 @@ group :test do
   gem 'database_cleaner'
   gem 'dm-postgres-adapter'
   gem 'rack'
+  gem 'shotgun'
 end
 
