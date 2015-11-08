@@ -1,0 +1,14 @@
+<h1>Join Chitter today.</h1>
+
+<form action='/users' method='post'>
+	<p>
+		<input type='text' placeholder='Full name' name='full_name' value='<%= @user.full_name %>'>
+	</p>
+	<p>
+		<input type='email' placeholder='Email' name='email' value='<%= @user.email %>'>	
+	</p>
+	<p>
+		<input type='password' placeholder='Password' name='password'>	
+	</p>
+		<input type='submit' value='Sign up'>
+</form>
