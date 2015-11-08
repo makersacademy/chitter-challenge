@@ -1,6 +1,8 @@
 require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
+require './lib/data_mapper_setup'
+require './lib/my_app.rb'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
