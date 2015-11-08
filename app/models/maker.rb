@@ -5,7 +5,7 @@ class Maker
   include DataMapper::Resource
   include BCrypt
 
-  has n, :peeps, :through => Resource
+  has n, :peeps, through: Resource
 
   property :id, Serial
 
@@ -45,10 +45,10 @@ class Maker
     if maker && BCrypt::Password.create(maker.password_hash) == password
       maker
     else
-      nil
+      return nil
     end
   end
 
   attr_reader :password_hash_confirmation
-  
+
 end
