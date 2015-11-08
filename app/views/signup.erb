@@ -4,14 +4,18 @@ Sign up
 <% end %>
 <form action='/signup' method='post' >
   name:
-  <input type='text' name='name' value='<%= @user.name %>'><br>
+  <input type='text' name='name' value='<%= @user.name %>'><br required>
   username:
-  <input type='text' name='username' value='<%= @user.username %>'><br>
+  <input type='text' name='username' value='<%= @user.username %>'><br required>
   password:
-  <input type='password' name='password'>
+  <input type='password' name='password' required>
   re-type password:
   <input type='password' name='password_check'><br>
   email:
   <input type='email' name='email' value='<%= @user.email %>' required>
   <input type='submit' value='Submit'>
+    <% if @error %>
+      <p class=error>Passwords must match</p>
+      <p class=error>A unique username must be used</p>
+    <% end %>
 </form>

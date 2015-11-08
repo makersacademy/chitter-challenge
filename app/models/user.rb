@@ -15,6 +15,7 @@ class User
 
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
+  property :email, String, required: true, unique: true
 
   def password=(new_password)
     @password = new_password

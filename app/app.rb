@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect :home
     else
-      flash.now[:notice] = "Error: Passwords don't match"
+      @error = true
       erb :signup
     end
   end
@@ -47,6 +47,10 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
+    end
+
+    def time_now
+      @time_now = Time.now.strftime("%I:%M:%S")
     end
   end
 
