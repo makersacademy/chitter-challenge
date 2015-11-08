@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/DeathRay1977/chitter-challenge.svg)](https://travis-ci.org/DeathRay1977/chitter-challenge)
+
+
 A demo of this site can be found at:
 
 https://enigmatic-fortress-2942.herokuapp.com/peeps/index
