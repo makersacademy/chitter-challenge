@@ -37,12 +37,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @peeps = Peep.all
     erb :home
   end
 
   post '/home/new_post' do
-    peep = Peep.new(text: params[:peep_box])
+    peep = Peep.new(text: params[:peep_box], time: Time.now)
     peep.user = current_user
     peep.save
     redirect '/home'

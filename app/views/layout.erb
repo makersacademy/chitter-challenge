@@ -18,6 +18,16 @@
         <% end %>
       </ul>
     <% end %>
+
+    <ul id='peeps'>
+      <% Peep.all.reverse.each do |peep| %>
+        <li>
+          <%= peep.user.user_name %> said
+          <%= peep.text %> at <%= peep.time.strftime("%H:%M")%> on
+          <%= peep.time.strftime("%D") %>
+        </li>
+      <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,5 @@
 feature "Posting peep" do
+
   scenario 'once logged in' do
     user =      User.new(user_name: 'atulord', email: 'a@bc.com',
                 password: '1234',

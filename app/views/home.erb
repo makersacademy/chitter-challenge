@@ -2,12 +2,3 @@
   <input type=text name=peep_box>
   <input type=submit value='Post'>
 </form>
-
-<ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-      <%= peep.user.user_name %> said
-      <%= peep.text %>
-    </li>
-  <% end %>
-</ul>
