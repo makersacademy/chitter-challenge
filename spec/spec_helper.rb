@@ -9,6 +9,15 @@ require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
 
+require_relative 'web_helpers'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
+
+
 
 RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
@@ -28,7 +37,6 @@ RSpec.configure do |config|
   end
 
 end
-
 
 Capybara.app = Chitter
 
