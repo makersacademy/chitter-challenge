@@ -84,3 +84,18 @@ def login(username:, password:)
   fill_in :password, with: password
   click_button 'Login'
 end
+
+def post_a_peep_1
+  fill_in :message, with: "I'm creating an app called Chitter!"
+  click_button 'Peep!'
+end
+
+def post_a_peep_2
+  fill_in :message, with: "I love peeping!"
+  click_button 'Peep!'
+end
+
+def post_a_peep_3
+  fill_in :message, with: "Come and join Chitter!"
+  click_button 'Peep!'
+end

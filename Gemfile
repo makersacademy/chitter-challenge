@@ -8,6 +8,7 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
+gem 'time_ago_in_words'
 
 group :test do
   gem 'rspec'

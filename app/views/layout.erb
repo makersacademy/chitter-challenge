@@ -24,10 +24,10 @@
       <ul id='peeps'>
         <% if @peeps %>
         <h3>List of Peeps:</h3>
-          <% @peeps.each do |peep| %>
+          <% @peeps.sort_by{ |peep| peep.time }.reverse.each do |peep| %>
         <li>
-           <p><em>Peep:</em> <%= peep.peep %> </p>
-           <p><em>From:</em> <%= peep.makers.map(&:name).join %> </p>
+           <p><%= peep.makers.map(&:username).join %> <em><%= format_time(peep.time) %></em></p>
+           <p><%= peep.peep %> </p>
         </li>
           <% end %>
         <% end %>
