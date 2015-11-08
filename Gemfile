@@ -13,5 +13,6 @@ group :test do
   gem 'data_mapper'
   gem 'database_cleaner'
   gem 'dm-postgres-adapter'
+  gem 'rack'
 end
 
