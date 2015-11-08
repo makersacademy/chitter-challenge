@@ -17,6 +17,13 @@ body{
   top: 0px;
   width: 100%;
 }
+#log, #peep{
+    float: left;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    padding: 5px
+}
 
 #page {
   max-width: 940px;
