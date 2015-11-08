@@ -12,6 +12,10 @@ def partial_sign_up
   click_button('Register')
 end
 
+def sign_out
+  click_button('Sign out')
+end
+
 def sign_in(name, username, email, password)
   visit('/')
   fill_in('username', with: username)

@@ -10,8 +10,8 @@ class Maker
 
   property :id, Serial
   property :name, String, required: true
-  property :username, String, required: true
-  property :email, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, Text, required: true
 
   validates_format_of :email, as: :email_address
