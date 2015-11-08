@@ -10,8 +10,18 @@
       <p><%= flash[:errors] %></p>
     <% end %>
 
+    <% if flash[:notice] %>
+      <div id="notice">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
     <% if current_maker %>
       <h1> Welcome <%= current_maker.name %>! </h1>
+      <form action="/sign_out" method="post">
+        <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+      </form>
     <% end %>
 
     <%= yield %>

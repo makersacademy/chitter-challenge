@@ -6,6 +6,7 @@ require 'sinatra/flash'
 ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
@@ -54,6 +55,12 @@ class Chitter < Sinatra::Base
     end
     peep = Peep.create(maker_name: maker.name, maker_username: maker.username, content: params[:peep], maker_id: maker.id)
     redirect to('/home')
+  end
+
+  delete '/sign_out' do
+    session[:maker_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to('/')
   end
 
   # start the server if ruby file executed directly
