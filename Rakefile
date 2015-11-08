@@ -6,9 +6,9 @@ require './app/app.rb'
 
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
-Cucumber::Rake::Task.new :cuke
+# Cucumber::Rake::Task.new :cuke
 
-task default: [:cop, :migrate, :spec, :cuke]
+task default: [:cop, :migrate, :spec]
 
 
 desc "db auto upgrade"
