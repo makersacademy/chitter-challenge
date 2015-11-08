@@ -18,7 +18,13 @@ private
   end
 
   def prep_errors(errors)
-    unpack_errors(errors).map{|error| error.split(' ').first}
+    unpack_errors(errors).map do |error|
+      if error.split(' ').last != 'long'
+        error.split(' ').first
+      else
+        'min_length'
+      end
+    end
   end
 
   def error_to_sym(errors)

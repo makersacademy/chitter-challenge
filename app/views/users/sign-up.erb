@@ -3,12 +3,12 @@
 <div id='sign-up'>
   <form action='/users/chitter-signup' method='post'>
     <div>
-      <%= @username_error ? "This username has already been taken, please enter another one." : "Please enter your username:" %></br>
+      <%= @username_error ? "This username has already been taken, please enter another one:" : "Please enter your username:" %></br>
       <input type='text' name='username' value='<%= @username || "djtango"%>' required>
     </input>
     </div>
     <div>
-      <%= @email_error ? "This email address is already taken, please enter another one." : "Please enter your email address:" %></br>
+      <%= @email_error ? "This email address is already taken, please enter another one:" : "Please enter your email address:" %></br>
       <input type='text' name='email' value='<%= @email || "dj@tan.go"%>'  required>
       </input>
     </div>
@@ -20,6 +20,9 @@
     <div>
       <%= @password_error ? 'Your passwords did not match, please try again:' : 'Please enter your password:' %></br>
       <input type='password' name='password' value='dtpassword' required>
+      <% if @length_error %>
+        Passwords must be at least six characters long.
+      <% end %>
       </input>
     </div>
     <div>

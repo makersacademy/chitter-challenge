@@ -11,5 +11,6 @@ class User
   property :password,  BCryptHash, required: true
 
   validates_confirmation_of :password
+  validates_length_of :password_confirmation, min: 6
 
 end

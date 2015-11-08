@@ -9,7 +9,7 @@ feature 'Arriving at Chitter:' do
     scenario 'there is a log-in page for existing users' do
       visit('/')
       click_link('login')
-      expect(current_path).to eq '/users/log-in'
+      expect(current_path).to eq '/users/login'
     end
   end
 end
