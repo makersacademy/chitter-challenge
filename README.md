@@ -10,7 +10,8 @@ Setup
 *rackup -p 4567
 *visit localhost:4567
 
-or alternatively visit
+[Heroku](https://fast-temple-2711.herokuapp.com/)
+
 
 Approach
 -----------------

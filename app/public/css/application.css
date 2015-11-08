@@ -21,9 +21,6 @@ header {
   text-shadow: 1px 1px #000000;
 }
 
-div {
-}
-
 h1 {
   font-size: 20px;
   text-shadow: 1px 1px #000000;
@@ -50,6 +47,7 @@ h1 {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  text-align: center;
 }
 
 
