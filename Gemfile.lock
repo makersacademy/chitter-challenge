@@ -138,6 +138,7 @@ GEM
     thor (0.19.1)
     tilt (2.0.1)
     time_ago_in_words (0.1.1)
+    timecop (0.8.0)
     tins (1.6.0)
     unf (0.1.4)
       unf_ext
@@ -164,6 +165,7 @@ DEPENDENCIES
   sinatra-flash
   sinatra-partial
   time_ago_in_words
+  timecop
 
 BUNDLED WITH
    1.10.6

@@ -3,6 +3,12 @@
 # I want to be able to reset my password
 
 feature 'Resetting password' do
+  before do
+    sign_up
+    Capybara.reset!
+  end
+
+  let(:user) { User.first }
 
   # As a braindead zombie
   # So that I can reset my password
@@ -25,6 +31,20 @@ feature 'Resetting password' do
     sign_up
     expect { recover_password }.to change {User.first.password_token}
   end
+
+  scenario 'it asks for your new password when token is valid' do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    expect(page).to have_content 'Please enter your new password'
+  end
+
+  scenario 'it saves a possword recovery token time when we generate one' do
+    Timecop.freeze do
+      user.generate_token
+      expect(user.password_token_time).to eq Time.now
+    end
+  end
+
   def recover_password
     visit '/users/recover'
     fill_in 'email', with: 'pjackson@iszombie.org'

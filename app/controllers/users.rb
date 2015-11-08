@@ -28,4 +28,9 @@ class Chitter < Sinatra::Base
 
     erb :'users/acknowledgment'
   end
+
+  get '/users/reset_password' do
+    @user = User.find_by_valid_token(params[:token])
+    @user ? "Please enter your new password" : "Your token is invalid"
+  end
 end
