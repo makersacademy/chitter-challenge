@@ -1,3 +1,49 @@
+[![Build Status](https://travis-ci.org/forty9er/chitter-challenge.svg)](https://travis-ci.org/forty9er/chitter-challenge)
+
+# Usage
+
+Visit:
+https://cryptic-citadel-4502.herokuapp.com/
+
+Alternatively, download the files in the repo and run via a Sinatra server on your local machine. The main controller is 'app.rb' in the 'app' directory.
+
+From the root folder:
+```
+ruby app/app.rb
+```
+
+You can view 'Peeps' simply by navigating to the website, or by clicking on the "@Chitter" logo.
+
+In order to 'Peep' you need to create an account and sign in. You can then hit the Peep! button and submit your peep.
+
+<!-- ![xxxx](https://github.com/forty9er/rps-challenge/blob/master/Rock_paper_scissors_lizard_spock.png) -->
+
+
+### TODO
+
+* Consider using partials.
+* Consider whether controllers can be slimmed down further.
+* Integrate tagging other users to create conversations.
+* More comprehensive feature testing.
+* More CSS/styling.
+
+
+### Technologies used
+
+* Ruby
+* PostgreSQL
+* DataMapper
+* HTML
+* CSS
+* TDD (via Rspec & Capybara)
+* Sinatra
+* Heroku
+* Rake
+
+
+# Original instructions
+
+
 Chitter Challenge
 =================
 
