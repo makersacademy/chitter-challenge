@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
     if current_user.nil?
       erb :'/sign_up_and_log_in/user_sign_up'
     else
-      redirect ('/peeps')
+      redirect('/peeps')
     end
   end
 

@@ -25,7 +25,7 @@ end
 
 feature 'Post peep inaccessible when not logged in' do
   scenario 'Users can\'t go straight to Make Peep page without logging in' do
-    visit ('/peeps')
+    visit('/peeps')
     expect(page).not_to have_content('Fancy posting a peep of your own')
   end
 end

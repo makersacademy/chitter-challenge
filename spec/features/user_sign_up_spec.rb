@@ -24,7 +24,7 @@ feature 'User can sign up' do
   scenario 'Redirect to error page when using in-use email or username' do
     click_button('Sign up')
     click_button('Log out')
-    visit ('/')
+    visit('/')
     within('.sign-up') do
       fill_in('username', with: 'gwpmad')
       fill_in('email', with: 'george@test.com')
