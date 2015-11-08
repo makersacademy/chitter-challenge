@@ -19,6 +19,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    user = User.first
+    @username = user.username unless user.nil?
     erb :peeps
   end
 
