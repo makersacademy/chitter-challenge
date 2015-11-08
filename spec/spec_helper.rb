@@ -2,27 +2,32 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require './app/models/init'
-
-require File.join(File.dirname(__FILE__), '..', './app/chitterapp.rb')
 require 'capybara'
 require 'capybara/rspec'
+require 'coveralls'
+require 'simplecov'
+require 'rspec'
+require 'database_cleaner'
+
+require File.join(File.dirname(__FILE__), '..', './app/chitterapp.rb')
+
+require './app/models/init'
+
+require_relative 'helpers/session'
+
 Capybara.app = ChitterApp
 
-require 'coveralls'
 Coveralls.wear!
 
-require 'simplecov'
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
 
-require 'rspec'
-require 'database_cleaner'
 RSpec.configure do |config|
 
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

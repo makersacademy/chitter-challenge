@@ -1,0 +1,24 @@
+<form action='/users' method='post'>
+  <p>
+    <label>Email:</label>
+    <input type='text' name='email' value='<%= session[:email] %>' />
+  </p>
+  <p>
+    <label>Name:</label>
+    <input type='text' name='name' value='<%= session[:name] %>' />
+  </p>
+  <p>
+    <label>Username:</label>
+    <input type='text' name='username' value='<%= session[:username] %>' />
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type='password' name='password' value='<%= session[:password] %>' />
+  </p>
+  <p>
+    <label>Password again:</label>
+    <input type='password' name='password_confirmation' value='<%= session[:password_confirmation] %>' />
+  </p>
+  <p>
+    <input type='submit' value='Submit' />
+</form>
