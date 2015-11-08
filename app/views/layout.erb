@@ -9,7 +9,7 @@
       Welcome to Chitter <%= current_user.username %>
   <% end %>
   <% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
+  Oops, a number of errors occurred:
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
