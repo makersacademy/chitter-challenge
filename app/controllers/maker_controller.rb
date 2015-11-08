@@ -4,6 +4,10 @@ module Routes
 
   class MakerController < BaseController
 
+    get '/' do
+      redirect to '/signup'
+    end
+
     get '/signup' do
       @maker = Maker.new
       erb :'maker/signup'
@@ -51,5 +55,5 @@ module Routes
 
     run! if app_file == $PROGRAM_NAME
   end
-  
+
 end
