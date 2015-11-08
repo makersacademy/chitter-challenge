@@ -9,12 +9,12 @@ ruby '2.2.3'
   gem 'sinatra'
   gem 'time_ago_in_words'
   gem 'rspec'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
 
 group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'rubocop-rspec'
-  gem 'rubocop'
 end
 
