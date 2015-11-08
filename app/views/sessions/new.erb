@@ -1,15 +1,27 @@
-<div id='log_in'>
+<div class='login login-sep'>
   <h1>Log in to Chitter</h1>
-  <form class='aligned-form' action='/sessions' method='post'>
-    <fieldset>
-      <div class="pure-control-group">
-        <input name="email" type="email" placeholder="Email">
-      </div>
 
-      <div class="pure-control-group">
-        <input name="password" type="password" placeholder="Password">
-        <button type="submit" class="pure-button pure-button-primary">Log in</button>
-      </div>
-    </fieldset>
+  <form action='/sessions' method='post'>
+    <div class="form-group">
+      <input name="email" class="form-control" type="email" placeholder="Email">
+    </div>
+
+    <div class="form-group" >
+      <input name="password" class='form-control form-inline' type="password" placeholder="Password">
+    </div>
+
+    <div class="form-group" >
+      <button type="submit" class="btn btn-primary">Log in</button>
+    </div>
   </form>
 </div>
+
+<% if flash[:errors] %>
+  <div class='login flash_error'>
+    <ul>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

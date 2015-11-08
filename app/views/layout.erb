@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter. Peep at the World</title>
-    <link rel="stylesheet" href="/css/shift.css">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/main.css">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Chitter. Peep at the World</title>
+  <link href="/css/site.css" rel="stylesheet">
+	<link href="/css/reset.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="nav">
-      <div class="container">
-        <ul class="pull-left">
-          <% if current_user %>
-            <li><a href='#'>Welcome, <%= current_user.name %>!</a></li>
-          <% else %>
-            <li><img src="/images/chitter.png"> <a href='/'>Welcome to Chitter</a></li>
-          <% end %>
-        </ul>
-        <ul class="pull-right">
-          <% if current_user %>
-            <li>
-              <form method='post' action='/sessions'>
-                <input type='hidden' name='_method' value='delete'>
-                <input type='submit' value='Sign out'>
-              </form>
-            </li>
-          <% else %>
-            <li><a href="/feeds/view">View peeps</a></li>
-            <li><a href="/users/new">Sign Up</a></li>
-            <li><a href="/sessions/new">Log In</a></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<body>
+<div class="wrapper">
 
-    <div class="jumbotron">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </div>
+	<header class='nav'>
 
-  </body>
+		<ul class='pull-left'>
+      <% if current_user %>
+        <li><a href='/feeds/view'><img src="/images/chitter.png"> Welcome, <%= current_user.name %>!</a></li>
+      <% else %>
+        <li><a href='/'><img src="/images/chitter.png"> Welcome to Chitter</a></li>
+      <% end %>
+    </ul>
 
+		<ul class='pull-right'>
+      <% if current_user %>
+        <li><a href="/feeds/view">View peeps</a></li>
+        <li><a href="/message/new">New peep</a></li>
+        <li class='signout'>
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        </li>
+      <% else %>
+        <li><a href="/feeds/view">View peeps</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/sessions/new">Log In</a></li>
+      <% end %>
+		</ul>
+
+	</header><!-- .header-->
+
+
+  <main class="content" id="front-page">
+
+    <%= yield %>
+
+  </main><!-- .content -->
+
+
+  <footer class="footer">
+
+  	<p>© 2015 Samuel Overloop. Created during <a href='www.makersacademy.com'>Makers Academy</a>, a bootcamp for developers</p>
+
+  </footer><!-- .footer -->
+
+</div><!-- .wrapper -->
+
+</body>
 </html>

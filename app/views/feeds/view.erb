@@ -1,21 +1,35 @@
-<div id='peep-feed'>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <h1>Feed View</h1>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-
-  <% Peep.all.sort_by{ |peep| peep.created_at }.reverse.each do |peep| %>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6" id='peep'>
-        <h2><%= peep.user.name %> @<%= peep.user.username %> *
-            <%= format_time(peep.created_at) %><h2>
-            <p><%= peep.message %></p>
+<% if current_user %>
+<div class='new-peep-container'>
+  <div class='new-peep'>
+    <form action='/message' method='post'>
+      <div class="form-group new-peep">
+        <input type='text' class="form-control" type="text" name="message"
+        placeholder="Ruminate to your heart's content (140 chars max)" maxlength="140">
       </div>
-      <div class="col-md-3"></div>
-    <div class="row">
-  <% end %>
+
+      <div class="form-group new-peep">
+        <button type="submit" class="btn btn-primary" >New peep</button>
+      </div>
+    </form>
+  </div>
+</div>
+<% end %>
+
+<div class='feed-container'>
+  <div class='feeds'>
+    <% Peep.all.sort_by{ |peep| peep.created_at }.reverse.each do |peep| %>
+
+      <div class='feed-div'>
+
+        <h1><%= peep.user.name %> <span class='light'>@<%= peep.user.username %> ·
+          <%= format_time(peep.created_at) %><h1>
+
+        <div class='feed-txt'>
+          <p><%= peep.message %></p>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
 </div>

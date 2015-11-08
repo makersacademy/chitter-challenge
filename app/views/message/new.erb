@@ -1,8 +1,15 @@
-<h1>Compose a new peep</h1>
 
-<form role="form" method='post' action='/message'>
-  <div class="form-group">
-    <input type="text" class="form-control" name='message' id="peep-body">
+<div class='new-peep-container'>
+  <div class='new-peep'>
+    <form action='/messages' method='post'>
+      <div class="form-group new-peep">
+        <input type='text' class="form-control" type="text" name="message"
+        placeholder="Ruminate to your heart's content (140 chars max)" maxlength="140">
+      </div>
+
+      <div class="form-group new-peep">
+        <button type="submit" class="btn btn-primary" >New peep</button>
+      </div>
+    </form>
   </div>
-  <button type="submit" class="btn btn-default">Peep</button>
-</form>
+</div>

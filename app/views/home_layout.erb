@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter. Peep at the World</title>
-    <link rel="stylesheet" href="/css/shift.css">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/main.css">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Chitter. Peep at the World</title>
+  <link href="/css/site.css" rel="stylesheet">
+	<link href="/css/reset.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="nav">
-      <div class="container">
-        <ul class="pull-left">
-          <li><img src="/images/chitter.png"> <a href='/'>Welcome to Chitter</a></li>
-        </ul>
-        <ul class="pull-right">
-          <li><a href="/feeds/view">View peeps</a></li>
-          <li><a href="/users/new">Sign Up</a></li>
-          <li><a href="/sessions/new">Log In</a></li>
-        </ul>
-      </div>
-    </div>
+<body>
+  <div class="wrapper">
 
-    <div class="jumbotron">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </div>
+    <header class='nav'>
+  		<ul class='pull-left'>
+  			<li><a href='/'><img src="/images/chitter.png"> Welcome to Chitter</a></li>
+  		</ul>
+  		<ul class='pull-right'>
+  			<li><a href='/feeds/view'>View feed</a></li>
+  			<li><a href='/users/new'>Sign Up</a></li>
+  			<li><a href='/sessions/new'>Log in</a></li>
+  		</ul>
+  	</header><!-- .header -->
+
+    <main class="content" id="front-page">
+      <%= yield %>
+    </main><!-- .content -->
+
+    <footer class="footer">
+      <p>© 2015 Samuel Overloop. Created during <a href='http://www.makersacademy.com'>Makers Academy</a>, a bootcamp for developers</p>
+    </footer><!-- .footer -->
+
+  </div><!-- .wrapper -->
 
   </body>
-
-</html>
+  </html>

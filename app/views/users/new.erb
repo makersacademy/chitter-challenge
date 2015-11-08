@@ -1,38 +1,42 @@
-<div id='sign_in_error'>
-  <% if flash[:errors] %>
-    <% flash[:errors].each do |error| %>
-      <p><%= error %></p>
-    <% end %>
-  <% end %>
-</div>
-
-<div id='sign_up retry'>
+<div class='signup signup-sep'>
   <h1>New to Chitter? Sign up</h1>
-  <form class='aligned-form' action='/users' method='post'>
-    <fieldset>
-      <div class="pure-control-group">
-        <input name="name" type="text" placeholder="Full name">
-      </div>
+  <p>
+  <form action='/users' method='post'>
+    <div class="form-group">
+      <input name="name" class="form-control" type="text" placeholder="Full name"
+      value="<%= @user.name %>" >
+    </div>
 
-      <div class="pure-control-group">
-        <input name="username" type="text" placeholder="Username">
-      </div>
+    <div class="form-group">
+      <input name="username" type="text" class="form-control" placeholder="Username"
+      value="<%= @user.username %>" >
+    </div>
 
-      <div class="pure-control-group">
-        <input name="email" type="email" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$">
-      </div>
+    <div class="form-group">
+      <input name="email" type="email" class="form-control" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$"
+      value="<%= @user.email %>" >
+    </div>
 
-      <div class="pure-control-group">
-        <input name="password" type="password" placeholder="Password">
-      </div>
+    <div class="form-group">
+      <input name="password" type="password" class="form-control" placeholder="Password">
+    </div>
 
-      <div class="pure-control-group">
-        <input name="password_confirmation" type="password" placeholder="Re-type password">
-      </div>
+    <div class="form-group">
+      <input name="password_confirmation" type="password" class="form-control" placeholder="Re-type password">
+    </div>
 
-      <div class="pure-control-group">
-        <button type="submit" class="pure-button pure-button-primary">Sign up for Chitter</button>
-      </div>
-    </fieldset>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" >Sign up for Chitter</button>
+    </div>
   </form>
 </div>
+
+<% if flash[:errors] %>
+  <div class='signup flash_error'>
+    <ul>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

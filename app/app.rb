@@ -50,6 +50,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/feeds/view'
     else
+      flash.now[:errors] = ["Email or password incorrect"]
       erb :'sessions/new'
     end
   end
