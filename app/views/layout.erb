@@ -8,6 +8,9 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.username %>!
+    <form action="/logout" method="post">
+      <input type="submit" value="Log out">
+    </form>
     <% end %>
     <%= yield %>
   </body>

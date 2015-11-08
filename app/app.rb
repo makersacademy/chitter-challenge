@@ -8,7 +8,11 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    erb :user_sign_up
+    if current_user.nil?
+      erb :'/sign_up_and_log_in/user_sign_up'
+    else
+      redirect ('/peeps')
+    end
   end
 
   post '/signup' do
@@ -19,24 +23,43 @@ class Chitter < Sinatra::Base
                         name: params[:name],
                         email: params[:email],
                         password: params[:password])
-    session[:user_id]=user.id
+    session[:user_id] = user.id
     redirect '/peeps'
     end
   end
 
   get '/signuperror' do
-    erb :sign_up_error
+    erb :'sign_up_and_log_in/sign_up_error'
+  end
+
+  post '/login' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      redirect '/wrongpassword'
+    end
+  end
+
+  get '/wrongpassword' do
+    erb :'sign_up_and_log_in/wrong_password'
+  end
+
+  post '/logout' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :peeps
+    erb :'peeps/peeps'
   end
 
   post '/postpeep' do
     Peep.create(time: Time.new,
-                name: current_user.name,
-                content: params[:peep])
+                content: params[:peep],
+                name: current_user.name)
     redirect '/peeps'
   end
 
