@@ -6,7 +6,7 @@ require './app/app.rb'
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
 
-task default: [:cop, :spec, :cuke]
+task default: [:cop, :spec]
 
 namespace :db do
   desc "Non desctructive upgrade"

@@ -11,6 +11,7 @@ ruby '2.2.3'
   gem 'rspec'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'sinatra-partial'
 
 group :test do
   gem 'database_cleaner'

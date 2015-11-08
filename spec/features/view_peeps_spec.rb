@@ -25,7 +25,7 @@ feature 'View all peeps in reverse chronological order' do
   # I want to see my last peep at the top
   scenario 'I post two peeps and see the last one first' do
     peep(message: 'My second peep')
-    within('div .feeds', :match => :first) do
+    within('div .feeds', match: :first) do
       expect(page).to have_content('My second peep')
     end
   end

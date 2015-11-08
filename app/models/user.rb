@@ -28,12 +28,7 @@ class User
   
   def self.authenticate(email, password)
     user = first(email: email)
-
-    if user && Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user && Password.new(user.password_digest) == password ? user : nil
   end
 end
 
