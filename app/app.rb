@@ -36,9 +36,10 @@ end
       password_confirmation:  params[:password_confirmation]
       )
     if user.save
+      session[:user_id] = user.id
       redirect '/'
     end
-    flash.now[:errors] = user.errors.full_messages
+    flash.now[:errors] = user.errors.full_messagesg
     erb(:'/users/register')
   end
 

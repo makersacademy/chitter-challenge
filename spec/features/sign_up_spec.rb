@@ -17,6 +17,7 @@ feature 'Register' do
   scenario 'enter valid details' do
     register
     expect(User.count).to eq 1
+    expect(page).to have_content("Welcome, andy")
   end
 
   scenario 'enter duplicate valid details' do
