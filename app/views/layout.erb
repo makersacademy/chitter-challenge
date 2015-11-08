@@ -12,7 +12,8 @@
     <%= flash[:email_error] if flash[:email_error] %>
     <%= flash[:username_error] if flash[:username_error] %>
     <%= flash[:password_error] if flash[:password_error] %>
-    <%= flash[:password_conf_error] if flash[:password_conf_error] %>
+    <%= flash[:cfm_error] if flash[:cfm_error] %>
+    <%= flash[:login_error] if flash[:login_error] %>
     <%= yield %>
   </body>
 </html>

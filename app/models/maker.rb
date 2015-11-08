@@ -39,5 +39,14 @@ class Maker
     self.password_hash = Password.create(new_password)
   end
 
+  def self.authenticate(username, password)
+    maker = first(username: username)
+    if maker && BCrypt::Password.create(maker.password_hash) == password
+      maker
+    else
+      nil
+    end
+  end
+
   attr_reader :password_hash_confirmation
 end

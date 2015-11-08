@@ -77,3 +77,10 @@ def sign_up_without_passwords_matching
   fill_in :password_confirmation, with: 'letmein1'
   click_button 'Submit'
 end
+
+def login(username:, password:)
+  visit '/login'
+  fill_in :username, with: username
+  fill_in :password, with: password
+  click_button 'Login'
+end
