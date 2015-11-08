@@ -1,0 +1,5 @@
+<h2> Chitter </h2>
+<% if session[:user_id] %>
+<a href='/logout'>Logout</a>
+<% end %>
+<%= yield %>

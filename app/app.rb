@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/login' do
+    redirect('/main/peeps') if not session[:user_id].nil?
     erb :'users/login'
   end
 
@@ -64,7 +65,11 @@ class Chitter < Sinatra::Base
       end
   end
 
-
+  get '/logout' do
+    @name = User.get(session[:user_id]).name.split(' ').first
+    session[:user_id] = nil
+    erb :'users/logout'
+  end
 
   private
 
