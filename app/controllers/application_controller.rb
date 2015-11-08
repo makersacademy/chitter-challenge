@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
 
   helpers Helpers
 
+  get '/' do
+    erb:index
+  end
+
   get '/chitter' do
     erb :index
   end
