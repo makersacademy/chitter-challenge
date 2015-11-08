@@ -8,6 +8,7 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
+	register Sinatra::Flash
 	enable :sessions
 	set :session_secret, 'super secret'
   
@@ -16,28 +17,24 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign_up' do
+  	@user = User.new
     erb(:'users/sign_up')
   end
 
   post '/users' do
-  	user = User.create(email: params[:email],
+  	@user = User.create(email: params[:email],
                   name: params[:name],
                   nickname: params[:nickname],
   								password: params[:password],
   								password_confirmation: params[:password_confirmation])
-  	#session[:user_id] = user.user_id
-  	if user.save # #save returns true/false depending on whether the model is successfully saved to the database.
-	    session[:user_id] = user.user_id
+  	if @user.save # #save returns true/false depending on whether the model is successfully saved to the database.
+	    session[:user_id] = @user.user_id
 	    redirect to('/peep')
-	    # if it's not valid,
-	    # we'll render the sign up form again
-  	else
-   		erb :'users/sign_up'
-  	end
 
-  	#user.save
-  	#erb :'users/sign_up'
-  	#redirect '/peep'
+  	else
+			flash.now[:errors] = @user.errors.full_messages   		
+			erb :'users/sign_up'
+		end
   end
 
    get '/peep' do

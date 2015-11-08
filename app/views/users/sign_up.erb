@@ -1,14 +1,8 @@
 <h1>Please sign up</h1>
 
-<% if @user %>
-  Welcome, <%= user.email %>
-<% end %>
-
-
 <form action='/users' method='post'>
   <label for='email'>
-    Email: <input name='email' type='email'>
-  </label>
+    Email: <input name='email' type='email' value='<%= @user.email %>' required>  </label>
 
   <label for='name'>
     Name: <input name='name' type='text' >
