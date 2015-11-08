@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'database_cleaner'
 gem 'pg'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'

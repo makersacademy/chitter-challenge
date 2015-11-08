@@ -7,7 +7,7 @@ module SessionHelpers
   end
 
   def test_sign_up
-    visit('/users/sign-up')
+    visit('/users/new')
     fill_in('username', with: 'test_account')
     fill_in('email', with: 'test@account.com')
     fill_in('name', with: 'Sinatra McCapybara')

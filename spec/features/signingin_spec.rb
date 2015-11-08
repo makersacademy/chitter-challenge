@@ -12,7 +12,7 @@ feature "Signing in:" do
 
     scenario "a user should not be created if there is the passwords do not match" do
       expect{
-      visit('users/sign-up')
+      visit('users/new')
       fill_in('password_confirmation', with: 'wrong')
         }.not_to change(User, :count)
     end

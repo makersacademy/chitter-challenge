@@ -5,7 +5,7 @@ feature "Login Page" do
     before do
       test_sign_up
       click_link('Logout')
-      visit('/users/login')
+      visit('/sessions/new')
     end
 
     scenario "the user should be be able to log in with their details" do
@@ -29,7 +29,7 @@ feature "Login Page" do
       expect(page).to have_content('Sinatra, you have successfully logged out from Chitter now.')
       click_link('Back to the main page.')
       click_link('login')
-      expect(current_path).to eq('/users/login')
+      expect(current_path).to eq('/sessions/new')
     end
 
   end

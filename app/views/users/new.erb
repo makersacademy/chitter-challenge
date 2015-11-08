@@ -1,7 +1,7 @@
 <h1>Welcome to Chitter!</h1>
 <h2>Please sign-up to gain access to our amazing Peep functionality and join the millions already Peeping about their non-vacuous thoughts and feelings. #JointheHive</h2>
 <div id='sign-up'>
-  <form action='/users/chitter-signup' method='post'>
+  <form action='/users/new' method='post'>
     <div>
       <%= @username_error ? "This username has already been taken, please enter another one:" : "Please enter your username:" %></br>
       <input type='text' name='username' value='<%= @username || "djtango"%>' required>
