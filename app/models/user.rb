@@ -20,8 +20,6 @@ class User
 
   property :user_name, String, required: true, unique: true
 
-  #has n, :peeps
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
