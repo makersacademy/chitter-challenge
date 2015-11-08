@@ -8,6 +8,7 @@ ruby '2.2.3'
   gem 'sinatra-flash'
   gem 'sinatra'
   gem 'time_ago_in_words'
+  gem 'rspec'
 
 group :test do
   gem 'database_cleaner'
@@ -15,6 +16,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'rspec'
 end
 
