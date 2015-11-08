@@ -17,4 +17,12 @@ class Chitter < Sinatra::Base
     end
 
   end
+
+  get '/users/recover' do
+    erb :'users/recover'
+  end
+
+  post '/users/recover' do
+    erb :'users/acknowledgment'
+  end
 end
