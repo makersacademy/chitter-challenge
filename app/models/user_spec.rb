@@ -7,7 +7,7 @@ describe User do
   end
 
   it 'authenticates when given a valid email and password' do
-    authentic_user = User.authenticate(user.email, user.password)
-    expect(authentic_user).to eq user
+    authenticated_user = User.authenticate(user.email, user.password)
+    expect(authenticated_user).to eq user
   end
 end

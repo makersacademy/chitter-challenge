@@ -6,20 +6,19 @@ feature 'User sign in' do
 
   let(:user) do
     User.create(email: 'hello@hello.com',
-                password: 'abcd')
+                password: 'abcd',
+                password_confirmation: 'abcd')
   end
 
-  scenario 'user signs in with correct email and password' do
-    sign_in(email: 'hello@hello.com', password: 'abcd', password_confirmation: 'abcd')
-    expect(page).to have_content "Welcome, #{user.name}"
-
+  it 'authenticates when given a valid email address and password' do
+      authenticated_user = User.authenticate(user.email, user.password)
+      expect(authenticated_user).to eq user
   end
 
-  def sign_in(email:, password:, password_confirmation:)
-    visit '/users/new'
+  def sign_in(email:, password:)
+    visit '/signin/new'
     fill_in :email, with: email
     fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
     click_button('Sign in')
   end
 
