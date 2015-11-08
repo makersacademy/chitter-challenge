@@ -66,10 +66,10 @@ end
   end
 
   post '/peeps/new' do
-    if peep = Peep.create(content: params[:new_peep], user: current_user) && current_user
+    if Peep.create(content: params[:new_peep], user: current_user) && current_user
       redirect '/'
     end
-    flash.now[:errors] = peep.errors.full_messages
+    flash.now[:notice] = "Please log in to peep"
     erb(:'/peeps/new')
   end
 

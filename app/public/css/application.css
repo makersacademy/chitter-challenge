@@ -1,21 +1,46 @@
-body {
+html {
+  background: linear-gradient(#00CCFF, #0099FF) no-repeat fixed;
+  background-size: cover;
   font-family: Palatino, Arial;
+  color: white;
+}
+
+body {
   font-weight: bolder;
 }
 
 p {
   font-size: 14px;
-  font-family: Palatino;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 header {
   font-size: 30px;
   font-family: Palatino;
-  font-weight: bold, italic;
+  font-weight: bolder;
+  text-shadow: 1px 1px #000000;
 }
 
 div {
+}
+
+h1 {
+  font-size: 20px;
+  text-shadow: 1px 1px #000000;
+}
+
+.logged_in {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.sign_up {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.peeps {
   font-size: 12px;
   font-family: Palatino;
   font-weight: normal;
@@ -26,3 +51,5 @@ div {
   padding-bottom: 10px;
   padding-left: 10px;
 }
+
+

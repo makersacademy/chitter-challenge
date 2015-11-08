@@ -23,4 +23,12 @@ namespace :db do
     DataMapper.auto_migrate!
     puts "Auto-migrate complete (data was lost)"
   end
+
+  desc "prepare database"
+  task :chitter_setup do
+    system("createdb chitter_andy_development")
+    system("createdb chitter_andy_test")
+    system("bundle exec rake db:auto_migrate RACK_ENV=test")
+    system("bundle exec rake db:auto_migrate RACK_ENV=development")
+  end
 end

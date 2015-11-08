@@ -1,3 +1,24 @@
+Andrew Dowell Chitter Challenge
+=================
+
+Setup
+-----------------
+*git clone https://github.com/k0zakinio/chitter-challenge.git
+*bundle
+*rake db:chitter_setup
+*rspec
+*rackup -p 4567
+*visit localhost:4567
+
+or alternatively visit
+
+Approach
+-----------------
+Similar to the bookmark manager challenge.
+
+Everything is controlled through the model and the helper methods within it.  I haven't had time to split the controllers out, though I'd probably look at doing that.
+
+
 Chitter Challenge
 =================
 
