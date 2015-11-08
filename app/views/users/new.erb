@@ -4,17 +4,17 @@
   <form action='/users' method='post'>
     <div class="form-group">
       <input name="name" class="form-control" type="text" placeholder="Full name"
-      value="<%= @user.name %>" >
+      value="<%= @user.name if current_user %>" >
     </div>
 
     <div class="form-group">
       <input name="username" type="text" class="form-control" placeholder="Username"
-      value="<%= @user.username %>" >
+      value="<%= @user.username if current_user %>" >
     </div>
 
     <div class="form-group">
       <input name="email" type="email" class="form-control" placeholder="Email Address" required pattern="^[a-zA-Z][a-zA-Z0-9\._-]+@[a-zA-Z0-9][a-zA-Z0-9_.-]+\.[a-zA-Z]+$"
-      value="<%= @user.email %>" >
+      value="<%= @user.email  if current_user %>" >
     </div>
 
     <div class="form-group">

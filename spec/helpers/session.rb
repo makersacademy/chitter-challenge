@@ -25,7 +25,7 @@ module SessionHelpers
   def peep(message: 'My first peep')
     visit '/message/new'
     fill_in 'message', with: message
-    click_button('Peep')
+    click_button('New peep')
   end
 
 end

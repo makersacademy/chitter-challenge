@@ -14,9 +14,8 @@ feature 'View all peeps in reverse chronological order' do
   # I want to see all peeps without the need for logging in
   scenario 'I want to see peeps without logging in' do
     log_out
-    visit '/'
-    click_link('View peeps')
-    within('div#peep') do
+    visit '/feeds/view'
+    within('div .feeds') do
       expect(page).to have_content('My first peep')
     end
   end
@@ -26,7 +25,7 @@ feature 'View all peeps in reverse chronological order' do
   # I want to see my last peep at the top
   scenario 'I post two peeps and see the last one first' do
     peep(message: 'My second peep')
-    within('div#peep', :match => :first) do
+    within('div .feeds', :match => :first) do
       expect(page).to have_content('My second peep')
     end
   end

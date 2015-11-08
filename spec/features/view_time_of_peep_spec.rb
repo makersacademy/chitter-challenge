@@ -14,7 +14,7 @@ feature 'See how long ago message was peeped' do
 
   scenario 'A message posted 1 day ago' do 
     visit '/feeds/view'
-    within('div#peep') do
+    within('div .feeds') do
       expect(page).to have_content('1 day ago')
     end
   end 
