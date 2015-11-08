@@ -10,16 +10,16 @@ feature 'User sign in' do
   end
 
   scenario 'user signs in with correct email and password' do
-    sign_in(email: 'hello@hello.com', password: 'abcd')
+    sign_in(email: 'hello@hello.com', password: 'abcd', password_confirmation: 'abcd')
     expect(page).to have_content "Welcome, #{user.name}"
 
   end
 
-
-  def sign_in(email:, password:)
-    visit '/signin/new'
+  def sign_in(email:, password:, password_confirmation:)
+    visit '/users/new'
     fill_in :email, with: email
     fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
     click_button('Sign in')
   end
 
