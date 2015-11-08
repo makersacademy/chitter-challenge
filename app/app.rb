@@ -39,7 +39,7 @@ end
       session[:user_id] = user.id
       redirect '/'
     end
-    flash.now[:errors] = user.errors.full_messagesg
+    flash.now[:errors] = user.errors.full_messages
     erb(:'/users/register')
   end
 

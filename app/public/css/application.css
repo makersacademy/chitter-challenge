@@ -26,17 +26,6 @@ h1 {
   text-shadow: 1px 1px #000000;
 }
 
-.logged_in {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.sign_up {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .peeps {
   font-size: 12px;
   font-family: Palatino;
