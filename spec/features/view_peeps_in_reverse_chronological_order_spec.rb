@@ -10,7 +10,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content 'I feel mysterious today!'
 
     expect(page.body.index('Practice makes perfect!')).to be <
-           page.body.index('I feel mysterious today!')
+      page.body.index('I feel mysterious today!')
   end
 end
 
