@@ -1,9 +1,9 @@
 <form action='/user/sign_up' method='post'>
   <label for='user_name'>
-    Username: <input type='text' name='user_name'>
+    Username: <input type='text' name='user_name' value= '<%= @user.user_name%>'>
   </label>
   <label for='email'>
-    Email: <input type='text' name='email'>
+    Email: <input type='text' name='email' value= '<%= @user.email%>'>
   </label>
   <label for='password'>
     Password: <input type='password' name='password'>

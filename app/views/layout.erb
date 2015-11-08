@@ -6,6 +6,16 @@
   <body>
     <% if current_user %>
       Hello <%= current_user.user_name %>!
+      <form action='/user/sign_out' method='post'>
+        <input type=submit value='Sign out'>
+    <% end %>
+    <% if flash[:errors] %>
+      Please refer to the following errors below:
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <%= yield %>
   </body>
