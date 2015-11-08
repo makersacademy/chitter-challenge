@@ -6,6 +6,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'potato'
   register Sinatra::Flash
+  use Rack::MethodOverride
+
 
   get '/' do
     erb :index
@@ -31,8 +33,31 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'sucka foo!'
+    redirect :index
+  end
 
-  get '/login' do
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+  user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect :home
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  post '/message' do
+    message = Message.create(message: params[:message],
+                             time: time_now,
+                             user: current_user.username)
     redirect :home
   end
 
@@ -41,6 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+    @messages = Message.all
     erb :home
   end
 

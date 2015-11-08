@@ -1,1 +1,18 @@
-CHITTER 0.1a
+FOOLISH SUCKA FOOL (CHITTER 0.1a)<br>
+<% redirect '/' unless current_user %>
+
+<form action='/message' method='post'>
+  <input type='text' name='message' class='message'><br>
+  <input type='submit' value='Post'>
+</form>
+
+<ul id='messages'>
+
+<% @messages.reverse_each do |msg|  %>
+
+  <%= msg.time %>
+  <span class='user'><%= msg.user %> -</span>
+  <span><%= msg.message %></span><br>
+
+<% end %>
+</ul>

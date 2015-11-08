@@ -1,9 +1,21 @@
 body {
-
+  color: #616161;
+  font-size: 20px;
+  font-family: helvetica;
+  /*background-image: url('200.gif');*/
 }
 
 p {
-  background:#F2DEDE;
-  color:#B94A48;
-  border:1px solid #EED3D7;
+  /*white-space: nowrap ;*/
+  /*background:black;
+  color: white;*/
+}
+
+.message {
+    width: 300px;
+}
+
+.user {
+  font-style: italic;
+  color: black;
 }

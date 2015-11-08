@@ -2,14 +2,22 @@
 <html>
   <head>
   <link href="style.css" rel="stylesheet" type="text/css" />
-    <title>CHITTER</title>
+    <title>T-CHAT (CHITTER)</title>
   </head>
 
   <body>
     -- <%= time_now %> --
     <% if current_user %>
       Welcome <%= current_user.username %>
-    <% end %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+      <form action='/home'>
+        <input type='submit' value='Home'>
+      </form>
+    <% end %><br>
+    <img src="mr-t.gif" style="max-width:50%;" alt="foo"><br>
     <%= yield %>
   </body>
 </html>

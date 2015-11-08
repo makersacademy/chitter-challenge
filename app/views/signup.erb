@@ -4,9 +4,9 @@ Sign up
 <% end %>
 <form action='/signup' method='post' >
   name:
-  <input type='text' name='name' value='<%= @user.name %>'><br required>
+  <input type='text' name='name' value='<%= @user.name %>' required><br>
   username:
-  <input type='text' name='username' value='<%= @user.username %>'><br required>
+  <input type='text' name='username' value='<%= @user.username %>' required><br>
   password:
   <input type='password' name='password' required>
   re-type password:
