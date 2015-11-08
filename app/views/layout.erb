@@ -6,6 +6,9 @@
 </head>
 <body>
   <%=yield%>
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
   <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id='errors'>

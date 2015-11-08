@@ -3,17 +3,17 @@ def join(name: 'Gio',
          confirm_password: '123')
   visit ('/')
   click_button('Join')
-  fill_in 'Username', with: name
-  fill_in 'Password', with: password
-  fill_in 'Confirm_password', with: confirm_password
+  fill_in 'username', with: name
+  fill_in 'password', with: password
+  fill_in 'confirm_password', with: confirm_password
   click_button('Join')
 end
 
 def log_in(name: 'Gio',
-         password: '123')
+           password: '123')
   visit ('/')
   click_button('Log-in')
-  fill_in 'Username', with: name
-  fill_in 'Password', with: password
+  fill_in 'username', with: name
+  fill_in 'password', with: password
   click_button('Log-in')
 end

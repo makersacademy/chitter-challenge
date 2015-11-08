@@ -6,6 +6,7 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -17,14 +18,10 @@ class Chitter < Sinatra::Base
     erb :'links/join'
   end
 
-  get '/log-in' do
-    erb :'links/log_in'
-  end
-
   post '/authentication' do
-    user = User.create(username: params[:Username],
-                       password: params[:Password],
-                       confirm_password: params[:Confirm_password])
+    user = User.create(username: params[:username],
+                       password: params[:password],
+                       confirm_password: params[:confirm_password])
     if user.save
       session[:user_id] = user.id
       redirect :'/home'
@@ -32,11 +29,39 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = user.errors.full_messages
       erb :'links/join'
     end
+  end
 
+  get '/session/new' do
+    erb :'links/log_in'
+  end
+
+  post '/sessions' do
+    username = params[:username]
+    password = params[:password]
+    user = User.authenticate(username, password)
+    if user
+      session[:user_id] = user.id
+      redirect to('/home')
+    else
+      flash.now[:notice] = 'Username or password is incorrect'
+      erb :'/links/log_in'
+    end
   end
 
   get '/home' do
     erb :'links/home'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   # start the server if ruby file executed directly

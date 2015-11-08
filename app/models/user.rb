@@ -13,4 +13,13 @@ class User
 
   validates_confirmation_of :password, confirm: :confirm_password
 
+  def self.authenticate(username, password)
+    user = first( username: username )
+    if user && BCrypt::Password.new(user.password) == password
+      user
+    else
+      nil
+    end
+  end
+
 end
