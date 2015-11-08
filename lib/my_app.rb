@@ -19,22 +19,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.new(name: params[:name],
+    user = User.create(name: params[:name],
                     username: params[:username],
                     email: params[:email],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect to('/welcome')
-    else
-      #flash.now[:notice] = "Password and confirmation password do not match"
-      erb :'users/new'
-    end
+
+    session[:user_id] = user.id
+
+    redirect('/sessions/new')
   end
 
-  get '/welcome' do
-    erb :welcome
+  get '/session/new' do
+    erb :'sessions/new'
   end
 
   # start the server if ruby file executed directly

@@ -4,12 +4,7 @@ require 'spec_helper'
 # I want to sign up for Chitter
 
 feature 'User can Sign up' do
-
-  scenario 'displays a welcome message after user signs up' do
-    sign_up_one
-    expect(page).to have_content('Welcome Dave')
-  end
-
+  
   scenario 'User count increase by one' do
     expect { sign_up_two }.to change{User.count}.by(1)
   end
