@@ -1,6 +1,9 @@
 Chitter
 =======
 
+Application available here, via Heroku:
+https://chitter900.herokuapp.com/
+
 Challenge
 ---------
 I coded this application for my fourth weekend challenge at Makers Academy. The challenge was to create simple Twitter-style application that would allow users to post messages to a public stream.
@@ -55,6 +58,10 @@ Notes
 
 Setup
 -----
+The application is available online here: https://chitter900.herokuapp.com/
+
+However, if you'd like to run it locally, here are the instructions:
+
 1. Fork this repository and then clone it using `git clone <url>`
 2. Run `bundle` to install the required gems
 3. Install PostgreSQL using Homebrew: `brew install postgresql`. You may also need to run `ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents` and then `launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
