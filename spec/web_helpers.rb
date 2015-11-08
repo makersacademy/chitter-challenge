@@ -1,3 +1,5 @@
+module Helpers
+
 def sign_up
   visit '/'
   click_button 'Sign up'
@@ -16,4 +18,6 @@ def sign_up_2
   fill_in :email, with: 'anderson_is_queen@email.com'
   fill_in :password, with: 'MMAbjj'
   click_button 'Confirm sign up'
+end
+
 end

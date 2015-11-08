@@ -13,6 +13,6 @@ feature 'User sign in' do
     fill_in :username, with: 'Big Dave'
     fill_in :password, with: 'secret123'
     click_button 'Sign in'
-    expect(page).to have_content "Welcome, #{user.username}"
+    expect(page).to have_content "Welcome #{user.username}"
   end
 end
