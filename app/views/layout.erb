@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>!
+    <% end %>
+
+    <% if flash[:error] %>
+  <div id='error'><%= flash[:error] %></div>
+<% end %>
+    <%= yield %>
+  </body>
+</html>
