@@ -7,7 +7,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'cucumber/rake/task'
+# require 'cucumber/rake/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'database_cleaner'
