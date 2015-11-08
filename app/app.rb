@@ -5,7 +5,9 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
-
+  register Sinatra::Flash
+  enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb :'links/join_login'
@@ -19,12 +21,18 @@ class Chitter < Sinatra::Base
     erb :'links/log_in'
   end
 
-  post '/home' do
+  post '/authentication' do
     user = User.create(username: params[:Username],
                        password: params[:Password],
                        confirm_password: params[:Confirm_password])
-    # p user
-    redirect :'/home'
+    if user.save
+      session[:user_id] = user.id
+      redirect :'/home'
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'links/join'
+    end
+
   end
 
   get '/home' do
