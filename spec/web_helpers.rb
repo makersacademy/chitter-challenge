@@ -1,4 +1,5 @@
 def sign_up(usr: 'mmm', p1: 'ooh', p2: 'ooh', email: 'a@oh.ma')
+
   visit('/')
   click_button('Sign up')
   fill_in('username', with: usr)
