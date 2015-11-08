@@ -4,7 +4,7 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    erb :homepage
   end
 
   run! if app_file == $0
