@@ -5,6 +5,7 @@
   </head>
 
   <body>
+    <h2>Chitter</h2>
     <% if current_maker %>
       Welcome, <%= current_maker.name %>
       <form action="/sessions" method="post">
@@ -19,6 +20,19 @@
     <%= flash[:password_error] if flash[:password_error] %>
     <%= flash[:cfm_error] if flash[:cfm_error] %>
     <%= flash[:login_error] if flash[:login_error] %>
+
+      <ul id='peeps'>
+        <% if @peeps %>
+        <h3>List of Peeps:</h3>
+          <% @peeps.each do |peep| %>
+        <li>
+           <p><em>Peep:</em> <%= peep.peep %> </p>
+           <p><em>From:</em> <%= peep.makers.map(&:name).join %> </p>
+        </li>
+          <% end %>
+        <% end %>
+      </ul>
+
     <%= yield %>
   </body>
 </html>

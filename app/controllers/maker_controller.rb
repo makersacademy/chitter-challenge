@@ -28,10 +28,6 @@ module Routes
       end
     end
 
-    get '/home' do
-      erb :'maker/home'
-    end
-
     get '/login' do
       erb :'maker/login'
     end
@@ -55,4 +51,5 @@ module Routes
 
     run! if app_file == $PROGRAM_NAME
   end
+  
 end

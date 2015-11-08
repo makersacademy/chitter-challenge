@@ -1,10 +1,11 @@
 require 'bcrypt'
 
 class Maker
+
   include DataMapper::Resource
   include BCrypt
 
-  # has n, :peeps, :through => Resource
+  has n, :peeps, :through => Resource
 
   property :id, Serial
 
@@ -49,4 +50,5 @@ class Maker
   end
 
   attr_reader :password_hash_confirmation
+  
 end

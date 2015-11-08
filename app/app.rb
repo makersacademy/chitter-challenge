@@ -7,11 +7,12 @@ require_relative 'controllers/maker_controller'
 require_relative 'controllers/peep_controller'
 require_relative 'controllers/base_controller'
 
-  class ChitterWebApp < Sinatra::Base
+class ChitterWebApp < Sinatra::Base
 
-    use Routes::BaseController
-    use Routes::MakerController
-    use Routes::PeepController
+  use Routes::BaseController
+  use Routes::MakerController
+  use Routes::PeepController
 
-    run! if app_file == $PROGRAM_NAME
-  end
+  run! if app_file == $PROGRAM_NAME
+
+end
