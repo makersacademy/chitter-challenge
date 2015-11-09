@@ -1,0 +1,21 @@
+<h3>Sign Up</h3>
+
+<form action="/signup-details" method="post">
+  <label for="name">Name:</label>
+    <input type="text" name="name" required>
+  <label for="name">Email:</label>
+    <input type="email" name="email" value="<%= @maker.email %>" required>
+  <label for="name">Username:</label>
+    <input type="text" name="username" required>
+  <label for="name">Password:</label>
+    <input type="password" name="password" required>
+  <label for="name">Confirm Password:</label>
+    <input type="password" name="password_confirmation" required>
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Already have an account? Click below to login</h3>
+
+<form action="/login">
+  <button type="submit">Login to my account</button>
+</form>
