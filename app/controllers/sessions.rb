@@ -10,4 +10,10 @@ class ChitterApp < Sinatra::Base
     redirect '/peeps'
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash[:message] = 'Logged out succesfully'
+    redirect '/peeps'
+  end
+
 end

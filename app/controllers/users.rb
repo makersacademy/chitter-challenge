@@ -12,7 +12,7 @@ class ChitterApp < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:id] = user.id
-      flash.next[:welcome_msg] = "Succesfully registered #{user.username}"
+      flash.next[:message] = "Succesfully registered #{user.username}, you may now login below:"
       redirect '/peeps'
     else
       flash.next[:errors] = user.errors.full_messages

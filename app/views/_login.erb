@@ -1,9 +1,14 @@
-<% if flash[:welcome_msg] %>
-<p><%= flash[:welcome_msg] %></p>
-<p>You may now login below:</p>
+<% if flash[:message] %>
+<p><%= flash[:message] %></p>
 <% end %>
 <% if current_user %>
 <p>Logged in as: <%= current_user.username %></p>
+<p>
+  <form action='sessions' method='post'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='Logout' />
+  </form>
+</p>
 <% else %>
 <form action='/sessions' method='post'>
   <label>Username:</label><input type='text' name='username' />
