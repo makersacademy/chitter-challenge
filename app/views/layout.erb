@@ -12,6 +12,9 @@
         <input type="submit" value="Log out">
       </form>
     <% end %>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <ul id='errors'>
       <% if flash[:errors] && !flash[:errors].empty? %>
         <% flash[:errors].each do |error| %>

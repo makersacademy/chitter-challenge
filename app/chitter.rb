@@ -60,13 +60,13 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     name = current_user.full_name
     session[:user_id] = nil
-    flash.keep[:notice] = "Goodbye, #{name}!"
+    flash.next[:notice] = "Goodbye, #{name}!"
     redirect to('/sessions/new')
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/new'
   end
 
   get '/peeps/new' do

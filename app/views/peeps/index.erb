@@ -1,0 +1,12 @@
+<h1>Peeps</h1>
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <%= peep.message %> 
+  <% if current_user %>
+    <form action"/peep" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+          </form>
+      <% end %>
+    <% end %>
+  </ul>
