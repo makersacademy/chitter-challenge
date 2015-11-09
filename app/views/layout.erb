@@ -13,14 +13,20 @@
         <input type="submit" value="Logout">
       </form>
     <% end %>
+
     <div id='notice'><%= flash[:logout] if flash[:logout] %></div>
-    <%= flash[:name_error] if flash[:name_error] %>
-    <%= flash[:email_error] if flash[:email_error] %>
-    <%= flash[:username_error] if flash[:username_error] %>
-    <%= flash[:password_error] if flash[:password_error] %>
-    <%= flash[:cfm_error] if flash[:cfm_error] %>
+
     <%= flash[:login_error] if flash[:login_error] %>
 
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
       <ul id='peeps'>
         <% if @peeps %>
         <h3>List of Peeps:</h3>
