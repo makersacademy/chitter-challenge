@@ -2,7 +2,7 @@ require "spec_helper.rb"
 
 feature 'user signs out' do
 
-  before (:each) do
+  let(:user) do
     User.create(name: 'Dave',
                 username: 'Big Dave',
                 email: 'dave@email.com',
