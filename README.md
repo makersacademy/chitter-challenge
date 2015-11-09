@@ -1,19 +1,8 @@
 Chitter Challenge
 =================
-Technologies used:
--------
-* Sinatra
-* Postgresql
-* DataMapper
-* Sinatra flash
-* Sinatra partial
-* Rspec Sinatra
-* Database Cleaner
-* Capybara
-
-
 Features:
 -------
+The challenge aims to address the following user stories:
 
 ```sh
 As a Maker
@@ -41,6 +30,17 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+Technologies used:
+-------
+* Sinatra
+* Postgresql
+* DataMapper
+* Sinatra flash
+* Sinatra partial
+* Rspec Sinatra
+* Database Cleaner
+* Capybara
+
 Notes on functionality:
 ------
 
@@ -54,36 +54,3 @@ Notes on functionality:
 * You only can peep if you are logged in.
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 * Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-```
-
-Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally
-Then run `open coverage/index.html` from the command line to view details

@@ -1,8 +1,9 @@
+require 'data_mapper'
 require 'bcrypt'
+require_relative 'peep'
 
 class User
   include DataMapper::Resource
-
 
   property :id, Serial
 
@@ -30,6 +31,8 @@ class User
   validates_confirmation_of :password
   validates_length_of :password_confirmation, min: 6,
                                               message: 'Password must be at least 6 characters'
+
+  has n, :peeps
 
   def self.authenticate(username, password)
     user = User.first(username: username)

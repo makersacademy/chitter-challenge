@@ -1,0 +1,9 @@
+<% if current_user %>
+<p>
+  <form action='/peeps' method='post'>
+    <label>New peep:</label>
+    <input type='text' name='message' />
+    <input type='submit' value='Peep!' />
+  </form>
+</p>
+<% end %>
