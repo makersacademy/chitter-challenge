@@ -13,6 +13,7 @@ group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'rubocop-rspec'
+  gem 'capybara/rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
 end

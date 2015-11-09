@@ -1,6 +1,4 @@
 require 'data_mapper'
-require 'dm-postgres-adapter'
-require_relative 'models/users'
 
 env = ENV['RACK_ENV'] || 'development'
 

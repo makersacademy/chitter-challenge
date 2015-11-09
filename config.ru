@@ -1,2 +1,2 @@
 require './app/app'
-run HelloWorldApp
+run Chitter
