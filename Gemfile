@@ -8,15 +8,18 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'bcrypt'
-gem 'guard-rspec'
-gem 'rspec'
-gem 'cucumber'
-gem 'capybara'
-gem 'database_cleaner'
-gem 'pry'
-gem 'pry-byebug'
-gem 'rspec-sinatra'
-gem 'rubocop-rspec'
-gem 'rubocop'
-gem 'coveralls', require: false
+
+group :test do
+  gem 'guard-rspec'
+  gem 'rspec'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'rspec-sinatra'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'coveralls', require: false
+end
 
