@@ -6,6 +6,7 @@ require 'sinatra/partial'
 
 require_relative 'models/init'
 require_relative 'controllers/init'
+require_relative 'helpers'
 
 class ChitterApp < Sinatra::Base
   register Sinatra::Flash
@@ -20,9 +21,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   enable :partial_underscores
 
-  def current_user
-    @current_user ||= User.get(session[:user_id])
-  end
+  helpers Helpers
 
   get '/' do
     redirect '/peeps'
