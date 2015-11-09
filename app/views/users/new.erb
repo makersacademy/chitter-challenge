@@ -1,0 +1,22 @@
+<form action= '/users/new' method='post'>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name" />
+  </div>
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username" />
+  </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" value="<%= @user.email %>" required />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="text" name="password" />
+  </div>
+
+  <div class="button">
+    <button type= 'submit'>Confirm sign up</button>
+  </div>
+</form>
