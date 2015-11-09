@@ -1,5 +1,4 @@
 require 'bcrypt'
-# require 'securerandom'
 
 class User
   include DataMapper::Resource

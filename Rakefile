@@ -1,4 +1,4 @@
-begin 
+unless ENV['RACK_ENV'] == 'production'
   require 'rspec/core/rake_task'
   require 'rubocop/rake_task'
 
@@ -6,7 +6,6 @@ begin
   RSpec::Core::RakeTask.new :spec
 
   task default: [:cop, :spec]
-rescue LoadError
 end
 
 require 'data_mapper'
