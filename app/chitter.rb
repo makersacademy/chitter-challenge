@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   include CurrentUser
 
   enable :sessions
+  
   register Sinatra::Flash
   set :session_secret, 'super secret'
 
@@ -18,6 +19,7 @@ class Chitter < Sinatra::Base
   set :views, proc {File.join(root, '..', 'app/views')}
 
   get '/' do
+
     @peeps = Peep.all.reverse
     erb(:'index')
   end

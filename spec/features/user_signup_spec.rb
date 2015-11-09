@@ -1,15 +1,12 @@
 feature "So that I can post messages on Chitter" do
 
   scenario "I want to sign up" do
+
     visit '/'
     click_link('signup')
     expect(page.status_code).to eq 200
     sign_up
-    if page.has_content?("You're signed in , David Jones!")
-      expect { sign_up }.to change(User, :count).by(1)
-    else
-      expect(page).to have_content("There were the following errors:")
-    end
+    expect(page).to have_content("Hi, David Jones!")
   end
 
   scenario "sign up should detect if there is a password mismatch" do
