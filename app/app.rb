@@ -22,7 +22,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.new( name: params[:name],
+                      username: params[:username],
+                      email: params[:email],
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation]
+                    )
     if @user.save
       session[:user_id] = @user.id
       redirect('users/welcome')
@@ -42,13 +47,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-
-    if current_user
-      peep = Peep.create(peep: params[:peep])
+      peep = Peep.new( username: session[:username],
+                          content: params[:content]
+                        )
+      p peep
+      p current_user
+      # current_user.peeps << peep
+      # current_user.save
+      peep.save
       redirect('/users/welcome')
-    else
-      flash.now[:errors] = ['You must sign in or sign up']
-    end
   end
 
   get '/sessions/new' do
@@ -59,6 +66,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
+      session[:username] = user.username
       redirect('users/welcome')
     else
       flash.now[:errors] = ['Incorrect email or password']

@@ -1,9 +1,7 @@
 feature 'creating a peep' do
   scenario 'requires sign in' do
     visit '/peeps/new'
-    fill_in('peep', with: 'Hello world!')
-    click_button('Peep!')
-    expect(page).to have_content('You must sign in or sign up')
+    expect(page).to have_content('Sign in or Sign up')
   end
 
   let (:user) do
@@ -13,8 +11,9 @@ feature 'creating a peep' do
   scenario 'when signed in displays peep' do
     sign_in(username: user.username, password: user.password)
     visit '/peeps/new'
-    fill_in('peep', with: 'Hello world!')
+    fill_in('content', with: 'Hello world!')
     click_button('Peep!')
     expect(page).to have_content('Hello world!')
+    expect(page).to have_content('ivan')
   end
 end

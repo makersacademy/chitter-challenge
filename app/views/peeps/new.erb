@@ -5,9 +5,11 @@
     <title>Create a peep</title>
   </head>
   <body>
+    <% if current_user %>
     <form action="/peeps" method="post">
       <label>Peep</label>
-        <input type="text" name="peep">
+        <input type="text" name="content">
       <input type="submit" value="Peep!">
+    <% end %>
   </body>
 </html>

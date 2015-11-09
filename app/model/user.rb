@@ -12,6 +12,8 @@ class User
   property :email, String
   property :password_hash, Text
 
+  has n, :peeps, through: Resource
+
   validates_confirmation_of :password
 
   def password=(password)
