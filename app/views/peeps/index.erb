@@ -1,4 +1,4 @@
-<form action= '/peeps' method='post'>
+<form action= '/peeps/new' method='post'>
   <div>
     <label for="body">Write a peep:</label>
     <input type="text" name="body" />
@@ -17,7 +17,7 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
     <li>
-      <%= peep.body %> at: <%= peep.created_at %> from <%= User.first_name(peep.user_id) %>
+      <%= peep.body %> at: <%= peep.created_at %> from <%= User.name(peep.user_id) %>
     </li>
   <% end %>
 </ul>
