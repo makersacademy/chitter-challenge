@@ -1,0 +1,21 @@
+<% if flash[:errors] %>
+  <h3>There were the following errors:</h3>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <h4><%= error %></h4>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>Join Chitter community.  Its growing day-by-day...</h3>
+
+<form action="/users/sign_up" method="post" class="pure-form">
+  <input type="text" name="name" placeholder="Your Name"><br/>
+  <input type="text" name="username" placeholder="Username"><br/>
+  <input type="text" name="email" placeholder="Email"><br/>
+  <input type="password" name="password" placeholder="Password"><br/>
+  <input type="password" name="password_confirmation" placeholder="Confirm Password"><br/>
+  <input type="submit"   value="Create Account" class="pure-button pure-button-primary">
+</form>
+
+<h4>Already have an account? <a href="/users/sign_in">Sign in here</a></h4>
