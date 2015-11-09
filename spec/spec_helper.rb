@@ -22,6 +22,7 @@ Coveralls.wear!
 
 require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 
+DataMapper.auto_migrate!
 
 Capybara.app = Chitter
 
