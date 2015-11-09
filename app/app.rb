@@ -29,8 +29,19 @@ class Chitter < Sinatra::Base
     erb :sign_in
   end
 
+  post '/authenticate' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:username] = user.username
+      redirect '/chitter'
+    else
+      redirect '/sign_in'
+    end
+  end
+
   get '/chitter' do
-    erb :layout
+    erb :peeps
   end
 
   helpers do
