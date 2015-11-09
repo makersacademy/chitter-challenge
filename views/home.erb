@@ -1,0 +1,23 @@
+<% if current_maker %>
+<form action="peep" method="post">
+  <input type="text" name="peep">
+  <input type="submit" value="Peep!">
+</form>
+<% end %>
+
+<nav>
+<ul id='peeps'>
+  <% Peep.all.reverse.each do |peep| %>
+  <blockquote>
+    <li> <p> <%= peep.content %> </p>
+         <footer> <p> Posted by: <%= peep.maker_username %> </p> </footer>
+         <footer> <p> Posted on: <%= Time.new.asctime %> </p> </footer>
+    </li>
+  </blockquote>
+  <% end %>
+</ul>
+
+<form action="/">
+  <input type="submit" value="Back to homepage">
+</form>
+</nav>

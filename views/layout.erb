@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title> Chitter </title>
+    <style>
+      body {
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <% if flash[:errors] %>
+      <p><%= flash[:errors] %></p>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id="notice">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
+    <% if current_maker %>
+      <h1> Welcome <%= current_maker.name %>! </h1>
+      <form action="/sign_out" method="post">
+        <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+      </form>
+    <% end %>
+
+    <%= yield %>
+  </div>
+  </body>
+</html>
