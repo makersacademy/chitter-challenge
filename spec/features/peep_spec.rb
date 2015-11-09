@@ -14,7 +14,7 @@ feature 'posting messages to Chitter' do
     fill_in :peep, with: 'Hello'
     click_button 'Peep'
 
-    within 'ul.peeps' do
+    within 'ul#peeps' do
       expect(page).to have_content('Hello')
     end
   end
