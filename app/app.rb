@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -34,13 +35,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :peeps
   end
 
   post '/signin' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      flash[:notice] = ['Sign in successful']
+      flash[:notice] = 'Sign in successful'
       session[:user_id] = user.id
       redirect '/peeps'
     else
@@ -51,9 +53,15 @@ class Chitter < Sinatra::Base
 
   delete '/signout' do
     session[:user_id] = nil
-    flash.keep[:notice] = ['You have successfully logged out']
+    flash.keep[:notice] = 'You have successfully logged out'
     redirect '/peeps'
   end
+
+  post '/peeps' do
+    peep = Peep.create(peep: params[:peep])
+    redirect 'peeps'
+  end
+
 
   helpers do
    def current_user
