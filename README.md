@@ -1,3 +1,25 @@
+Andrew Dowell Chitter Challenge
+=================
+
+Setup
+-----------------
+* git clone https://github.com/k0zakinio/chitter-challenge.git
+* bundle
+* rake db:chitter_setup
+* rspec
+* rackup -p 4567
+* visit localhost:4567
+
+[Heroku](https://fast-temple-2711.herokuapp.com/)
+
+
+Approach
+-----------------
+Similar to the bookmark manager challenge.
+
+Everything is controlled through the model and the helper methods within it.  I haven't had time to split the controllers out, though I'd probably look at doing that.
+
+
 Chitter Challenge
 =================
 
@@ -9,7 +31,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_september2015 (if you haven't already)
 * Forking this repo
@@ -33,11 +55,11 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
@@ -86,7 +108,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 Note that you can replace `Coveralls.wear!` with  `SimpleCov.start` to get coverage stats locally

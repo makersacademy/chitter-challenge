@@ -1,0 +1,9 @@
+<h1>Most recent peeps</h1>
+
+<% if peeps %>
+  <% peeps.each do |peep| %>
+    <div class='peeps'><p><%= peep.content %></p>
+    <%= peep.created_at.strftime("Posted on %d/%m/%Y, at %l:%M%p") %> by <%= peep.user.username %></div>
+    <p>
+  <% end %>
+<% end %>

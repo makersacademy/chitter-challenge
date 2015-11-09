@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter, chit chit chit</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
+</head>
+<header>
+Chitter
+</header>
+<body>
+<% if current_user %>
+  <h1>
+    Welcome, <%= current_user.name %>
+  </h1>
+  <div class='logged_in'>
+  <form action='/sign_out' method='post'>
+    <input type='submit' value='Sign out'>
+  </form>
+  <form action='/peeps/new'>
+    <input type='submit' value='New peep'>
+  </form>
+  </div>
+<% else %>
+  <div class='sign_up'>
+  <form action='/users/register' method='get'>
+    <input type='submit' value='Register'>
+  </form>
+  <form action='/users/sign_in' method='get'>
+    <input type='submit' value='Sign in'>
+  </form>
+<% end %>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<%= yield %>
+</body>
+</html>
