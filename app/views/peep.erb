@@ -1,0 +1,17 @@
+<h1>Feel free to Leave a peep on Chitter<h1>
+
+<form action="/peep" method="post">
+  <label for="text">
+    Peep: <input type="text" name="message">
+  </label>
+  <input type="submit" value="Peep it now">
+</form>
+
+<ul id='links'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep:
+    <%= peep.text %><br>
+  </li>
+  <% end %>
+</ul>

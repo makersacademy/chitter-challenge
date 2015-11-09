@@ -1,1 +1,17 @@
 <h1>Welcome to Chitter! Here is all your chitters!</h1>
+<body>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+    <li>
+      Peep:
+      <%= peep.message %><br>
+    </li>
+    <% end %>
+  </ul>
+
+  <div>
+    <form action="/peep/new">
+      <input type="submit" value="Leave a peep">
+    </form>
+  </div>
+</body>
