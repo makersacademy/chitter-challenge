@@ -7,7 +7,7 @@
 <body>
   <% if current_user %>
       Welcome to Chitter <%= current_user.email %>
-      <form action='' method='post'>
+      <form action='/signout' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
