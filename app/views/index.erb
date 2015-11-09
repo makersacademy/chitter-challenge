@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link href='/css/application.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div id='peeps'>
+  <br>
+  <br>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' class='peep_button' value='NEW PEEP!'>
+  </form>
+  <br>
+  <br>
+  <% Peep.all(order: [:id.desc]).each do |peep| %>
+    <div class='single_peep'><p><div id='peep_name'><%= peep.name %></div><div id='peep_light'>@<%= peep.username %> <%= peep.created_at.strftime("%H:%M (%d, %b)") %></div><div id='peep_message'><%= peep.message %><br></p><br></div></div>
+  <% end %>
+  </div>
+</body>
+</html>
