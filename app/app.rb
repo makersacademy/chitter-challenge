@@ -13,6 +13,12 @@ class Chitter < Sinatra::Base
   enable 'sessions'
   set :secret_session, 'secrets'
 
+  helpers do
+   def current_user
+     @current_user ||= User.get(session[:user_id])
+   end
+  end
+
   get '/' do
     erb :homepage
   end
@@ -58,16 +64,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params[:peep])
+    @peep = Peep.create(peep: params[:peep])
     redirect 'peeps'
   end
 
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  end
+
 
   run! if app_file == $0
 end

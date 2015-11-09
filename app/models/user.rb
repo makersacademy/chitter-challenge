@@ -16,6 +16,7 @@ class User
                                                      :format => 'Please enter a valid email address' }
   property :password_hash,    Text
 
+  has n, :peeps
 
   def password=(password)
     @password = password
