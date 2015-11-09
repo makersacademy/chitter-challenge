@@ -1,0 +1,18 @@
+<h1>Welcome to Chitter! Here is all your chitters!</h1>
+<body>
+
+  <div>
+    <form action='/peep/new' method='get'>
+      <input type="submit" value="Leave a peep">
+    </form>
+  </div>
+
+  <ul id='peeps'>
+    <% @peeps.reverse_each do|peep| %>
+    <li>
+      Peep: <%= peep.message %><br>
+    </li>
+    <% end %>
+  </ul>
+
+</body>
