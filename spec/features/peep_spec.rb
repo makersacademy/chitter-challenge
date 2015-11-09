@@ -16,7 +16,6 @@ feature 'posting messages to Chitter' do
 
     within 'ul#peeps' do
       expect(page).to have_content('Hello')
-      expect(page).to have_content('Dave')
       expect(page).to have_content('Big Dave')
     end
   end
