@@ -1,0 +1,9 @@
+<h1> Peeps </h1>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.message %> </li>
+    <li> <%= peep.name %> </li>
+    <li> <%= peep.user_name %></li>
+    <li> <%= peep.time_stamp.httpdate %> </li>
+  <% end %>
+</ul>

@@ -1,3 +1,40 @@
+Instructions for running application
+====================================
+
+* git clone https://github.com/youngmanr/chitter-challenge
+* bundle
+* psql
+  * create database 'chitter_development';
+  * create database 'chitter_test';
+* rspec
+* commands to clean the database (if necessary)
+  * rake db:auto_migrate RACK_ENV=development
+  * rake db:auto_upgrade RACK_ENV=development
+* ruby ./app/app.rb
+* open link in browser http://localhost:4567
+* possible commands are
+  * /users/new - sign up
+  * /sessions/new - log in
+  * /peeps/new - create a new peep
+  * /peeps/ - lists all peeps
+* heroku https://murmuring-reef-8614.herokuapp.com/users/new
+
+Current application limitations
+===============================
+* Flash messages sometimes do not get cleared and persist e.g after sign out the Goodbye! message perists
+* No sorting of peeps in reverse chronological order
+* Layout of peeps is not as pretty as I would like
+* Peeps are not yet linked to users via a 'many to one relationship' 
+
+Screen shots
+============
+
+Screen shots are in the project's root directory
+* users_new.PNG - create new user
+* sessions_new.PNG - user log in
+* peeps_new - add a new peep
+* peeps - display list of all peeps
+
 Chitter Challenge
 =================
 
