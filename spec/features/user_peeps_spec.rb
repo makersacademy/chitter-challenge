@@ -1,16 +1,3 @@
-# As a Maker
-# So that I can let people know what I am doing
-# I want to post a message (peep) to chitter
-#
-# As a maker
-# So that I can see what others are saying
-# I want to see all peeps in reverse chronological order
-#
-# As a maker
-# So that I can better appreciate the context of a peep
-# I want to see the time at which it was made
-#
-
 feature "So that I can let people know what I am doing" do
   scenario "I want to post a peep" do
     visit '/'
@@ -20,6 +7,7 @@ feature "So that I can let people know what I am doing" do
     click_button('Sign In')
     click_link('postp')
     expect(page.status_code).to eq 200
+    expect(page).to have_content("Post")
   end
 
   scenario "I want to see date/time on the peeps that are posted" do

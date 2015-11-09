@@ -32,7 +32,10 @@ class Chitter < Sinatra::Base
       flash.now[:errors] << "Your passwords didn't match. Try again."
       erb(:"users/sign_up")
     else
-      user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+      user = User.new(name: params[:name],
+                      username: params[:username],
+                      email: params[:email],
+                      password: params[:password])
       if user.save
         session[:user_id] = user.id
         redirect("/")
