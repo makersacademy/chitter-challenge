@@ -100,7 +100,7 @@ end
 
 Clearly these tasks can be run directly from an irb console, but the Rakefile makes it simpler to run common tasks as part of deployment to Heroku and Continuous Integration (C.I.) and other situations where your code runs remotely.
 
-## Gemfile should use test groups
+## Gemfile should Use Test Groups
 
 Ensure that all test related gems are in test group, e.g. capybara etc.
 
@@ -130,7 +130,7 @@ end
 
 See http://bundler.io/groups.html for more details
 
-## Ensure spec_helper is configured correctly
+## Ensure spec_helper.rb is Configured Correctly
 
 Make sure that your spec_helper pulls in a single app file that requires all the other dependencies required by the app.  Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
 
