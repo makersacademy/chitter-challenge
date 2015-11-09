@@ -3,7 +3,7 @@
 </head>
 
 <% if current_user.nil? %>
-Please <a href="/">sign up or log in</a> to be able to post peeps!
+  Please <a href="/">sign up or log in</a> to be able to post peeps!
 <% end %>
 
 <center><h1>Peeps</h1>
@@ -11,10 +11,10 @@ Please <a href="/">sign up or log in</a> to be able to post peeps!
 <ul id="peeps" style="list-style-type:none">
   <% @peeps.sort{|x,y| y.time <=> x.time}.each do |peep| %>
 
-      <li><b>User:</b> <%= peep.name %></li>
-      <li><b>Time:</b> <%= peep.short_time %></li>
-      <li><%= peep.content %></li>
-      <p>
+    <li><b>User:</b> <%= peep.name %></li>
+    <li><b>Time:</b> <%= peep.short_time %></li>
+    <li><%= peep.content %></li>
+    <p>
   <% end %>
 </ul>
 

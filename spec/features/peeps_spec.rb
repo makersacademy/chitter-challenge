@@ -10,9 +10,9 @@ feature 'User makes peep' do
   end
 
   scenario 'Peep is posted with its time of creation' do
-      post_peep
-      peep_time = Peep.first(name: 'George').time
-      expect(page).to have_content(peep_time[0..18])
+    post_peep
+    peep_time = Peep.first(name: 'George').time
+    expect(page).to have_content(peep_time[0..18])
   end
 
   scenario 'a new peep instance is created' do
