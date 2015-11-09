@@ -10,4 +10,5 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-
+  - DataMapper.auto_upgrade!
+  - DataMapper.auto_migrate!
