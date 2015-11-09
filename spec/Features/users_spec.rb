@@ -3,11 +3,7 @@ require "spec_helper"
 feature "User sign up" do
 	scenario "I can sign up as a new user" do
 		visit "/"
-		expect(page.status_code).to eq 200
-		fill_in :email, with: "eleni_s_2015@hotmail.com"
-		fill_in :password, with: "Passw0rd"
-		fill_in :name, with: "Eleni Skouroupathi"
-		fill_in :user_name, with: "Dubai_Girl_15"
-	click_button "create user"
+		expect { sign_up }.to change(User, :count).by(1)
+		expect(User.first.email).to eq("eleni_s_2015@hotmail.com")
 end
 end
