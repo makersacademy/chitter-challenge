@@ -10,4 +10,4 @@ before_install:
 
 before_script:
   - psql -c 'create database myapp_test;' -U postgres
-  - rake db:auto_upgrade RACK_ENV=test
+  - bundle exec rake -t
