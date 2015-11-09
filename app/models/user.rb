@@ -1,6 +1,7 @@
 require 'bcrypt'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require './app/app.rb'
 
 class User
   include DataMapper::Resource
@@ -21,8 +22,20 @@ class User
   # and save it in the database. This digest, provided by bcrypt,
   # has both the password hash and the salt. We save it to the
   # database instead of the plain password for security reasons.
+  attr_reader :password
+
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email, password)
+    user = User.first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
   end
 
 end
@@ -31,4 +44,4 @@ end
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 #
 DataMapper.finalize
-# DataMapper.auto_upgrade!
+DataMapper.auto_upgrade!

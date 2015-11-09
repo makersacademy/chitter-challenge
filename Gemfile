@@ -9,6 +9,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'capybara'
 gem 'rspec'
+gem 'database_cleaner'
 
   gem 'cucumber'
   gem 'rubocop-rspec'
