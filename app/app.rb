@@ -5,6 +5,6 @@ require_relative 'data_mapper_setup'
 
 class HelloWorldApp < Sinatra::Base
   get '/' do
-    "Hello, world!"
+    erb :home
   end
 end
