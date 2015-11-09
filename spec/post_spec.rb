@@ -6,6 +6,8 @@ describe Post do
                 )
   end
   describe 'Adding a peep' do
-    expect(post.peep).to eq 'This is a test message.'
+    it 'create a post with message' do
+      expect(post.peep).to eq 'This is a test message.'
+    end
   end
 end
