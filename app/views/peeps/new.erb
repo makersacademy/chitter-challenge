@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create a peep</title>
+  </head>
+  <body>
+    <% if current_user %>
+    <form action="/peeps" method="post">
+      <label>Peep</label>
+        <input type="text" name="content">
+      <input type="submit" value="Peep!">
+    <% end %>
+  </body>
+</html>

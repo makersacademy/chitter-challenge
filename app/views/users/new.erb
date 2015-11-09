@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Sign Up</title>
+  </head>
+  <body>
+    <form action="/users" method="post">
+      <label>Name</label>
+        <input type="text" name="name" value='<%= @user.name %>'>
+      <label>Username</label>
+        <input type="text" name="username" value='<%= @user.username %>'>
+      <label>Email address</label>
+        <input type="text" name="email" value='<%= @user.email %>'>
+      <label>Password</label>
+        <input type="text" name="password">
+      <label>Please reenter your password</label>
+        <input type="text" name="password_confirmation">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
