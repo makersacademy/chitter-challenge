@@ -7,7 +7,9 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -58,8 +60,25 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     name = current_user.full_name
     session[:user_id] = nil
-    flash.next[:notice] = "Goodbye, #{name}!"
+    flash.keep[:notice] = "Goodbye, #{name}!"
     redirect to('/sessions/new')
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(message: params[:message])        
+    session[:peep_id] = peep.id
+    current_user.peeps << peep
+    current_user.save
+    redirect to('/')
   end
 
   # start the server if ruby file executed directly

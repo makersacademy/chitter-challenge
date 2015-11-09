@@ -1,4 +1,4 @@
-feature 'Logging out' do
+feature 'Peeping' do
   let(:user) do
   User.create(full_name: 'Incredible Yev',
               email: 'incredible@yev.com',
@@ -6,11 +6,12 @@ feature 'Logging out' do
               password_confirmation: 'bla-bla-bla')
   end
 
-  scenario "while being logged in" do
+  scenario "I can send a peep" do
     log_in(email: user.email,   
            password: user.password)
-    click_button('Log out')
-    expect(page).to have_content 'Goodbye, #{user.full_name}!'
-    expect(page).not_to have_content 'Welcome, #{user.full_name}!'
+    expect(page).to have_content 'Write a Peep'
+    fill_in :message, with: "This my first peep!"
+    click_button 'Peep'
+    expect(page).to have_content 'This my first peep!'
   end
 end
