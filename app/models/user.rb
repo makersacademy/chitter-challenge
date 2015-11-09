@@ -1,5 +1,5 @@
 require 'bcrypt'
-require 'securerandom'
+# require 'securerandom'
 
 class User
   include DataMapper::Resource
@@ -9,7 +9,7 @@ class User
   property :name, String, required: true, unique: true
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
-  property :password_digest, Text
+  property :password_digest, Text, required: true
   property :password_token, Text
   property :password_token_time, Time
 

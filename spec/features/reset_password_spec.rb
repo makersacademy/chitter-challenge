@@ -4,7 +4,7 @@
 
 feature 'Resetting password' do
   before do
-    sign_up
+    sign_up(email: 'pjackson@iszombie.org')
     Capybara.reset!
   end
 
@@ -54,9 +54,28 @@ feature 'Resetting password' do
     expect(page).to have_content 'Log in to Chitter' 
   end
 
+  scenario 'it lets you sign in after password reset' do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
+    click_button('Submit')
+    log_in(email: 'pjackson@iszombie.org', password: 'newpassword')
+    expect(page).to have_content 'Welcome, Peter Jackson!'
+  end
+
+  scenario 'it tells you when your passwords do no match' do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "wrongpassword"
+    click_button('Submit')
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
+
   def recover_password
     visit '/users/recover'
-    fill_in 'email', with: 'pjackson@iszombie.org'
+    fill_in :email, with: 'pjackson@iszombie.org'
     click_button('Reset password')
   end
 end

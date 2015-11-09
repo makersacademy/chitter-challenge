@@ -19,23 +19,39 @@ class Chitter < Sinatra::Base
   end
 
   patch '/users' do
-    redirect '/sessions/new'
+    user = User.find_by_valid_token(params[:token])
+    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      redirect '/sessions/new'
+    else
+      flash.next[:errors] = ['Password does not match the confirmation']
+      redirect "/users/reset_password?token=#{params[:token]}"
+    end
   end
-
+  
   get '/users/recover' do
     erb :'users/recover'
   end
 
   post '/users/recover' do
-    user = User.first(params[:email])
-    user.generate_token if user
-
-    erb :'users/acknowledgment'
+    @user = User.first(email: params[:email])
+    
+    if @user
+      @user.generate_token
+      erb :'users/acknowledgment'
+    else
+      flash.next[:errors] = ['This email address is not in use']
+      redirect '/users/recover'
+    end
   end
 
   get '/users/reset_password' do
     @user = User.find_by_valid_token(params[:token])
-    @user ? (erb :'/users/reset_password') : "Your token is invalid"
+    if @user
+      erb :'/users/reset_password'
+    else
+      flash.next[:errors] = ["Your token is invalid"]
+      redirect '/sessions/new'
+    end
   end
 
 end
