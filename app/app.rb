@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
       redirect ('/peeps/index')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :homepage
+      erb :index
     end
   end
 

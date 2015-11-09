@@ -17,7 +17,7 @@
 <ul>
   <% @peeps.reverse_each do |peep| %>
     <li>
-      <%= peep.body %> at: <%= peep.created_at %> from <%= User.name(peep.user_id) %>
+      <%= peep.body %> at: <%= peep.created_at %> from <%= User.get(peep.user_id) %>
     </li>
   <% end %>
 </ul>
