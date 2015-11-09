@@ -6,11 +6,15 @@
 
 	<body>
 		<% if current_user %>
-			Welcome, <%= current_user.full_name %>!
-		<% end %>
-		<% if flash[:notice] %>
- 			<div id='notice'><%= flash[:notice] %></div>
-		<% end %>
-		<%= yield %>
-	</body>
+      		Welcome, <%= current_user.full_name %>!
+    	<% end %>
+    	<ul id='errors'>
+      		<% if flash[:errors] && !flash[:errors].empty? %>
+        		<% flash[:errors].each do |error| %>
+          			<li><%=error%></li>
+        		<% end %>
+     		<% end %>
+    	</ul>
+    	<%= yield %>
+  	</body>
 </html>
