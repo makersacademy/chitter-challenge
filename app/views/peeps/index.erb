@@ -1,0 +1,24 @@
+<form action= '/peeps' method='post'>
+  <div>
+    <label for="body">Write a peep:</label>
+    <input type="text" name="body" />
+  </div>
+  <div class="button">
+    <button type= "submit">Post peep</button>
+  </div>
+</form>
+
+<head>
+<h1> Peeps </h1>
+</head>
+<body>
+
+<div id="peeps">
+<ul>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      <%= peep.body %> at: <%= peep.created_at %> from <%= User.first_name(peep.user_id) %>
+    </li>
+  <% end %>
+</ul>
+</div>

@@ -11,8 +11,8 @@ feature 'posting messages to Chitter' do
 
   scenario 'I can make a peep' do
     sign_in(email: user.email, password: user.password)
-    fill_in :peep, with: 'Hello'
-    click_button 'Peep'
+    fill_in :body, with: 'Hello'
+    click_button 'Post peep'
 
     within 'ul#peeps' do
       expect(page).to have_content('Hello')

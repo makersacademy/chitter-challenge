@@ -5,18 +5,24 @@ class User
 
   attr_reader :password
 
+  has n, :peeps
+
   property :id,               Serial
-  property :name,             String
-  property :username,         String, :required => true, :unique => true, :messages =>
+  property :name,             String,  :required => true, :messages => {
+                                      :presence => 'Please enter your name' }
+  property :username,         String, :required => true, :unique => true,
+                                      :messages =>
                                     { :presence => 'Please enter a username',
                                       :is_unique => 'We already have that username' }
-  property :email,            String, :required => true, :unique => true, :format => :email_address,
+  property :email,            String, :required => true, :unique => true,
+                                      :format => :email_address,
                                       :messages => { :presence => 'Please enter an email address',
                                                      :is_unique => 'We already have that email',
                                                      :format => 'Please enter a valid email address' }
-  property :password_hash,    Text
+  property :password_hash,    Text,   :required => true, :messages => {
+                                      :presence => 'Please enter a password' }
 
-  has n, :peeps
+
 
   def password=(password)
     @password = password
