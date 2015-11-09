@@ -67,6 +67,8 @@ rspec
 * Consider using partials.
 * Consider whether controllers can be slimmed down further.
 * Use view helpers to remove amount of embedded Ruby and comply with SRP.
+* Correct semantics for HTML form markup.
+* Use article etc. not div in HTML.
 * Integrate tagging other users to create conversations.
 * Rake task for first DB setup.
 * More comprehensive feature testing.
