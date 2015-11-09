@@ -10,11 +10,13 @@ class User
   property :name,      String, required: true
   property :password,  BCryptHash, required: true
 
+  has n, :peeps
+
   validates_confirmation_of :password
-  validates_length_of :password_confirmation, min: 6
+  # validates_length_of :password_confirmation, min: 6
 
   def self.first_name(id)
-    User.get(id).name.split(' ').first
+    User.get(id) ? User.get(id).name.split(' ').first : nil
   end
 
   def self.authenticate(email_or_username, password)

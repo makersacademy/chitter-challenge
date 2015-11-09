@@ -15,4 +15,10 @@ module SessionHelpers
     fill_in('password_confirmation', with: 'opensesam3')
     click_button('Sign up!')
   end
+
+  def test_peep
+    fill_in('peep body', with: 'test peep')
+    click_button('Post Peep')
+  end
+
 end

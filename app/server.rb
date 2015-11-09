@@ -11,6 +11,11 @@ class Chitter < Sinatra::Base
 
 
   helpers do
+
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
     def save_entered_details
       @username = params['username']
       @email = params['email']

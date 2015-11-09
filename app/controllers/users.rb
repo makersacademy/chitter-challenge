@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
               password_confirmation: params['password_confirmation'])
     if @new_user.save
       session[:user_id] = @new_user.id
-      redirect('/main/peeps')
+      redirect('/peeps')
     else
       save_entered_details
       process_errors(@new_user)

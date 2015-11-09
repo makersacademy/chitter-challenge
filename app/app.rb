@@ -9,6 +9,7 @@ require './app/models/data_mapper_setup'
 require './app/server'
 require './app/controllers/sessions'
 require './app/controllers/users'
+require './app/controllers/peeps'
 
 require './lib/signup_error_handler'
 
@@ -16,22 +17,10 @@ require './lib/signup_error_handler'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'Schubert'
-  # set :views, Proc.new { File.join(root, "../views") }
   register Sinatra::Flash
 
   get '/' do
     erb :index
-  end
-
-  get '/main/peeps' do
-    @name ||= User.first_name(session[:user_id])
-    erb :'main/peeps'
-  end
-
-  get '/logout' do
-    @name = User.first_name(session[:user_id])
-    session[:user_id] = nil
-    erb :'users/logout'
   end
 
   # start the server if ruby file executed directly

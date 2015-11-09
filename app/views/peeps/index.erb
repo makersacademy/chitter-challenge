@@ -1,0 +1,20 @@
+<h3> Welcome to Chitter, <%= @name %>!</h3>
+
+<div>
+  <form action='/peeps/new' method='post'>
+    What's on your mind?</br>
+    <input type='text' name='peep body'>
+    </input>
+    <input type='submit' value='Post Peep'></input>
+  </form>
+</div>
+
+<div id='peep_history'>
+  <ul>
+  <% @peeps.reverse_each do |peep| %>
+  <li>
+    <%= peep.body %> at: <%= peep.created_at %> from <%= User.first_name(peep.user_id) %>
+  </li>
+  <% end %>
+  </ul>
+</div>

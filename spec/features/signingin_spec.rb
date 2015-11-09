@@ -7,7 +7,7 @@ feature "Signing in:" do
 
     scenario "signing up should take the user to their Peeps page" do
       test_sign_up
-      expect(current_path).to eq('/main/peeps')
+      expect(current_path).to eq('/peeps')
     end
 
     scenario "a user should not be created if there is the passwords do not match" do
