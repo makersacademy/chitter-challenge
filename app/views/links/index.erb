@@ -1,0 +1,10 @@
+<ul id='links'>
+	<% @links.each do |link| %>
+		<li>
+			<%= current_user.email %> Message: <%= link.message %>
+		</li>
+	<% end %>
+	<form action='/links/new' method='post'>
+	  <input type='submit' value='post a message'>
+	</form>
+</ul>
