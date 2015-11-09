@@ -1,1 +1,8 @@
-Hello
+<% if @posts %>
+  Makers peeps:
+  <ul id='peeps'>
+    <% @posts.each do |post| %>
+      <li><%= post.peep %></li>
+    <% end %>
+  </ul>
+<% end %>

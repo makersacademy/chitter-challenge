@@ -22,3 +22,10 @@ def sign_in(username: 'ezzye',
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def post_peep(peep: 'Stampy the cat is awesome!')
+  visit '/peeps/new'
+  expect(page.status_code).to eq(200)
+  fill_in :peep, with: peep
+  click_button 'Peep'
+end
