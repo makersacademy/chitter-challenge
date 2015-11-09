@@ -1,0 +1,9 @@
+<% if flash[:errors] %>
+  <section class='signup flash_error'>
+    <ul>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

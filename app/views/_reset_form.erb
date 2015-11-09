@@ -1,0 +1,27 @@
+<section class='signup signup-sep'>
+  <h1>Please enter your new password<h1>
+  <p>
+  <form action='/users?token=<%= @user.password_token %>' method='post'>
+
+    <input type='hidden' name='_method' value='patch'>
+
+    <div class="form-group">
+      <label for='password'>
+        <input name="password" class="form-control" type="password"
+        placeholder="Password" required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for='password_confirmation'>
+        <input name="password_confirmation" class="form-control" type="password"
+        placeholder="Retype your password" required>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+
+  </form>
+</section>

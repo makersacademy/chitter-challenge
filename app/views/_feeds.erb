@@ -1,0 +1,20 @@
+<section class='feed-container'>
+
+  <div class='feeds'>
+    <% Peep.all.sort_by{ |peep| peep.created_at }.reverse.each do |peep| %>
+
+      <div class='feed-div'>
+
+        <h1><%= peep.user.name %> <span class='light'>@<%= peep.user.username %> ·
+          <%= format_time(peep.created_at) %><h1>
+
+        <div class='feed-txt'>
+          <p><%= peep.message %></p>
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
+
+</section><!-- section .feed-container -->
