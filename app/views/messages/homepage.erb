@@ -1,0 +1,26 @@
+<h1>Chitter</h1>
+<% if current_user %>
+	<form action='/message' method='post'>
+	  <label for='message'>Message:</label>
+	    <input type='text' name='peep'>
+	  <input type='submit' value='Post'>
+	</form>
+<% end %>
+<ul id='messages'>
+	<% @messages.each do |message| %>
+		<li>
+			<label id='username'>
+				<%= User.get(message.user_id).username %> 
+			</label>
+			<label id='date_time'>
+				<%= message.created_at.to_s[11..15] %> <%= message.created_at.to_s[4..9
+					].split('-').reverse.join('/').chomp('/') %>
+			</label>
+			<div>
+				<label id='message'>
+	      	<%= message.peep %>
+	      </label>
+    </div>
+		</li>
+	<% end %>
+</ul>

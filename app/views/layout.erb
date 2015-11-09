@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Chitter</title>
+  </head>
+  <body>
+    <% if !current_user %>
+      <form action='/sessions' method='post'>
+        <label for='username1'>
+          Username:<input name='username1' type='text' required>
+        </label>
+        <label for='password1'>
+          Password:<input name='password1' type='password' required>
+        </label>
+        <input type='submit' value='Sign in'>
+      </form>
+    <% end %>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+      <form method='post' action='/sessions'>
+        <input type ='hidden' name='_method' value = 'delete'>
+        <input type = 'submit' value = 'Sign out'>
+      </form>
+     <% end %>
+     <% if flash[:notice] && !flash[:notice].empty? %>
+      <ul id='notice'>
+        <% flash[:notice].each do |notice| %>
+          <li><%= notice %></li>
+        <% end %>
+      </ul>
+     <% end %>
+    <%= yield %>
+  </body>
+</html>
+
