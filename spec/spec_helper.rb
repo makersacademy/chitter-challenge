@@ -2,6 +2,7 @@
 
 ENV['RACK_ENV'] = 'test'
 
+
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
@@ -15,6 +16,8 @@ require 'database_cleaner'
 RuboCop::RakeTask.new :cop
 RSpec::Core::RakeTask.new :spec
 Cucumber::Rake::Task.new :cuke
+
+DataMapper.auto_migrate!
 
 task default: [:cop, :spec, :cuke]
 
