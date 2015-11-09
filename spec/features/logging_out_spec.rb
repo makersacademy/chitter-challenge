@@ -1,16 +1,16 @@
 feature 'Logging out' do
   let(:user) do
-  User.create(full_name: 'Incredible Yev',
-              email: 'incredible@yev.com',
-              password: 'bla-bla-bla',
-              password_confirmation: 'bla-bla-bla')
+  User.create(full_name: "Incredible Yev",
+              email: "incredible@yev.com",
+              password: "bla-bla-bla",
+              password_confirmation: "bla-bla-bla")
   end
 
   scenario "while being logged in" do
     log_in(email: user.email,   
            password: user.password)
-    click_button('Log out')
-    expect(page).to have_content 'Goodbye, #{user.full_name}!'
-    expect(page).not_to have_content 'Welcome, #{user.full_name}!'
+    click_button("Log out")
+    expect(page).to have_content "Goodbye, #{user.full_name}!"
+    expect(page).not_to have_content "Welcome, #{user.full_name}!"
   end
 end
