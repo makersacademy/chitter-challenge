@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter  < Sinatra::Base
 
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -55,13 +56,15 @@ class Chitter  < Sinatra::Base
     erb :index
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
-    end
-
-    def authenticated_user
-      @authenticated_user ||= User.get(session[:user_id])
     end
   end
 
