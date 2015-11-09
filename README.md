@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/samover/chitter-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/samover/chitter-challenge?branch=master)
 Chitter Challenge
 =================
 
