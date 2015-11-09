@@ -59,7 +59,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'You have successfully logged out'
-    redirect ('/peeps/index')
+    erb :'users/log_out'
   end
 
   get '/peeps/index' do
