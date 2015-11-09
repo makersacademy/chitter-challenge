@@ -1,5 +1,7 @@
 rvm: '2.2.3'
 
+sudo: required
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
@@ -10,4 +12,3 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-

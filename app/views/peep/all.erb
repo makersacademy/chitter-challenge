@@ -1,0 +1,17 @@
+<form action='/peep/new' method='get'>
+  <input value='post a new peep' type='submit'>
+</form>
+<!-- <form action='/tags' method='post'>
+  <input  type='text' name="name">
+  <input value='filter by tags' type="submit">
+</form> -->
+
+<h3> Peeps are: </h3>
+<ul id='peeps'>
+  <% @peeps.each do |link| %>
+    <li>
+      <a href='<%= peeps.peep %></a> (
+      <%= peep.peeps.map { |p| p.peeps }.join(', ') %>)
+    </li>
+    <% end %>
+</ul>
