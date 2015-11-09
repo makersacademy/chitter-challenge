@@ -1,4 +1,8 @@
+require_relative '../web_helpers'
+
 feature 'Logging in:' do
+  include Helpers
+
   scenario 'A user can log in' do
     sign_up
     log_in

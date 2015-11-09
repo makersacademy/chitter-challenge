@@ -1,4 +1,8 @@
+require_relative '../web_helpers'
+
 feature 'Signing up:' do
+  include Helpers
+
   scenario 'User can sign up' do
     visit '/users/new'
     expect(page.status_code).to eq(200)

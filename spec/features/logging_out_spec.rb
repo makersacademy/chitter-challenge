@@ -1,4 +1,8 @@
+require_relative '../web_helpers'
+
 feature 'Logging out:' do
+  include Helpers
+
   scenario 'User logs out' do
     sign_up
     log_in

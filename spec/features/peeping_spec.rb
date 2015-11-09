@@ -1,4 +1,8 @@
+require_relative '../web_helpers'
+
 feature 'Peeping:' do
+  include Helpers
+
   scenario 'User can send a peep.' do
     sign_up
     log_in
