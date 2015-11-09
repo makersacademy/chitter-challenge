@@ -211,9 +211,7 @@ To make sure that your web page will be able to load static assets such as CSS, 
 
 # Step 3: Tests and \*\_spec.rb files  
 
-## \*\_spec.rb files (unit tests)
-
-### Avoid RSpec Feature Scenarios organized like Unit Tests
+## Avoid RSpec Feature Scenarios organized like Unit Tests
 
 Ensure your feature tests look like feature tests, not unit tests.  Unit tests should have only one expect per it block.  Feature test scenarios can have more than one expect; and should have in order to improve comprehensibility and to avoid excessive running times, but don't go crazy.
 
@@ -253,7 +251,7 @@ end
 ```
 
 
-### Ensure Correct Location of Feature/Acceptance and Unit Tests
+## Ensure Correct Location of Feature/Acceptance and Unit Tests
 
 All your acceptance tests should be in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.  It depends if you want the convenience of running units and features together or the convenience of being able to run them separately (helpful if feature tests run very slowly).
 
@@ -261,7 +259,7 @@ If a test is in the feature folder it should be testing the entire stack, i.e. i
 
 Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
 
-### Use Spec 'Helpers' Appropriately
+## Use Spec 'Helpers' Appropriately
 
 Extract Spec 'Helpers' into a module and include like so:
 
