@@ -13,7 +13,7 @@
     <% if current_user %>
     Hi, <%= current_user.name %>!
     <div id='buttons'><form action="/sessions" method="post" accept-charset="utf-8">
-      <input name="_method" type="hidden" value="delete" /><input type="submit" value="Sign out"></div>
+      <input name="_method" type="hidden" value="delete" /><input type="submit" value="Log out"></div>
     </form>
     <% else %>
     <div id='buttons'>

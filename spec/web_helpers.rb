@@ -20,7 +20,7 @@ def log_in
 end
 
 def log_out
-  click_button 'Sign out'
+  click_button 'Log out'
 end
 
 def log_in_with_wrong_password

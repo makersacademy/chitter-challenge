@@ -2,23 +2,55 @@
 
 # @Chitter.
 
-### Usage
+### Installation
 
 Visit:
 https://cryptic-citadel-4502.herokuapp.com/
 
-Alternatively, download the files in the repo and run via a Sinatra server via Rackup on your local machine. The main controller is 'app.rb' in the 'app' directory.
+Alternatively, download the files in the repo, install the required Gems and run via a Sinatra server via Rackup on your local machine. You will also need a working PostgreSQL installation (you can install this via Brew).
+The main controller is 'app.rb' in the 'app' directory. You will need a Ruby interpreter (if you are running OS X you already have this) and RVM installed.
 
-From the root folder:
+To clone the repo on your machine, initialise git and clone:
+
 ```
-rackup app/config.ru
+$ git init
+$ git clone https://github.com/forty9er/chitter_challenge
 ```
+
+Then from the root folder, install the Gems, create and initialise the database and finally run the app:
+```
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rackup app/config.ru
+```
+
+Now navigate to http://localhost:9292/ in your browser.
+
+
+### Usage
 
 You can view 'Peeps' simply by navigating to the website, or by clicking on the "@Chitter" logo.
 
-In order to 'Peep' you need to create an account and sign in. You can then hit the Peep! button and submit your peep.
+![Main Peep Feed](https://dl.dropboxusercontent.com/content_link/rV3XnwBQ09NtUf9XSWpFF5uMUIf2l9yPQaWQSFchc8mlfFyaSJcpBbXQksWM61Db/file)
 
-<!-- ![xxxx](https://github.com/forty9er/rps-challenge/blob/master/Rock_paper_scissors_lizard_spock.png) -->
+In order to 'Peep' you need to create an account and log in. 
+
+![Sign up](https://dl.dropboxusercontent.com/content_link/lUa3r7fnkw9nG2mhHVSneXXolB1g7ndv21wOZY9muU2QbIjCGjTy69QtnHiz23h0/file)
+
+You can then hit the Peep! button and submit your Peep.
+
+![Peep](https://www.dropbox.com/s/snudd7s4camv1m8/CHITTER_3.png?raw=1)
+
+Once you are finished 'Peeping' you can log out using the 'Log out' button.
+
+![Feed and log out](https://www.dropbox.com/s/sd3d945xdu25dcm/CHITTER_4.png?raw=1)
+
+
+### Testing
+
+The app was built using TDD, Rspec tests can be run from the root directory simply by running:
+```rspec```
 
 
 ### TODO
