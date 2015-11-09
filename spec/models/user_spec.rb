@@ -2,7 +2,7 @@ require 'spec_helper.rb'
 
 describe User do
 
-  let(:user) do
+  let!(:user) do
     User.create(name: 'spec', username: 'spec', email: 'spec@email.com',
                 password: 'spec123')
   end
