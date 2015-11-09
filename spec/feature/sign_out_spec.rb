@@ -23,5 +23,5 @@ feature 'User sign out' do
     fill_in :password, with: password
     click_button('Sign in')
   end
-  
+
 end

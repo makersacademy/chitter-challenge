@@ -3,6 +3,12 @@
 # I want to sign up for Chitter
 
 feature 'sign up' do
+  scenario 'user input email' do
+    expect{ sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, amy@awesome.com')
+    expect(User.first.email).to eq 'amy@awesome.com'
+  end
+
   scenario 'user input email, password, name and user name' do
     expect{ sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, amy@awesome.com')
@@ -23,3 +29,7 @@ feature 'sign up' do
     click_button('Sign up')
   end
 end
+
+#test for forms email and username field not being empty
+
+#cannot sign up with existing email and user names

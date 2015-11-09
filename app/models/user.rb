@@ -14,6 +14,7 @@ class User
   property :user_name, String
 
   validates_confirmation_of :password
+  # validates_uniqueness_of :email, :user_name
 
   def password=(password)
     @password = password
