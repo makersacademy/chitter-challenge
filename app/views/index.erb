@@ -1,0 +1,14 @@
+CHITTER
+<form action='/sessions/new'>
+  <input type='submit' value='Login'>
+</form>
+
+<form action='/signup'>
+  <input type='submit' value='Sign up'>
+</form>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+  <%= flash[:notice] %>
+  </div>
+<% end %>

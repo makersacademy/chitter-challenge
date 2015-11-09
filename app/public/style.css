@@ -1,0 +1,18 @@
+body {
+  color: #616161;
+  font-size: 20px;
+  font-family: helvetica;
+}
+
+p {
+
+}
+
+.message {
+    width: 300px;
+}
+
+.user {
+  font-style: italic;
+  color: black;
+}
