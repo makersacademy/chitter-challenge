@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+      Hello <%= current_user.user_name %>!
+      <form action='/user/sign_out' method='post'>
+        <input type=submit value='Sign out'>
+      </form>
+    <% end %>
+    <% if flash[:errors] %>
+      Please refer to the following errors below:
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <ul id='peeps'>
+      <% Peep.all.reverse.each do |peep| %>
+        <li>
+          <%= peep.user.user_name %> said
+          <%= peep.text %> at <%= peep.time.strftime("%H:%M")%> on
+          <%= peep.time.strftime("%D") %>
+        </li>
+      <% end %>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

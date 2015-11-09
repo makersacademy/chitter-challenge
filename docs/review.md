@@ -46,6 +46,7 @@ And as we saw in previous weeks you'll want to have screenshots of how the app w
 For more info on embedding images in a README: https://guides.github.com/features/mastering-markdown/
 
 e.g.:
+
 ```
 ![Screenshot](https://path_to_your_image)
 ```
