@@ -20,5 +20,5 @@ gem 'rake'
 gem 'bcrypt'
 gem 'dm-validations'
 gem 'sinatra-flash'
-gem 'dm-timestamps '
+gem 'dm-timestamps'
 
