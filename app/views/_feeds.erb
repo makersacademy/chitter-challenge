@@ -1,4 +1,4 @@
-<div class='feed-container'>
+<section class='feed-container'>
 
   <div class='feeds'>
     <% Peep.all.sort_by{ |peep| peep.created_at }.reverse.each do |peep| %>
@@ -17,4 +17,4 @@
     <% end %>
   </div>
 
-</div>
+</section><!-- section .feed-container -->

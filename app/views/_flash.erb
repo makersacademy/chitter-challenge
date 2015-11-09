@@ -1,9 +1,9 @@
 <% if flash[:errors] %>
-  <div class='signup flash_error'>
+  <section class='signup flash_error'>
     <ul>
       <% flash[:errors].each do |error| %>
       <li><%= error %></li>
       <% end %>
     </ul>
-  </div>
+  </section>
 <% end %>
