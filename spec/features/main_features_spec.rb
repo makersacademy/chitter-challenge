@@ -8,7 +8,7 @@ feature Chitter do
     end
   end
   scenario 'user can sign up' do
-    visit ('/')
+    visit('/')
     click_button('Sign up')
     within "div.sign_up_form" do
       fill_in(:name, with: "John")

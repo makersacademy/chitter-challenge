@@ -28,12 +28,12 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name],
     username: params[:username],
     email: params[:email],
-    password: params[:password])
-    p session[:user_id] = user.id
+    password_digest: params[:password])
+    session[:user_id] = user.id
     user.save
     redirect '/home'
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
