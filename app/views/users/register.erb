@@ -1,0 +1,29 @@
+<h1>Please register</h1>
+
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+	<ul id='errors'>
+	  <% flash[:errors].each do |error| %>
+	    <li><%= error %></li>
+	  <% end %>
+	</ul>
+<% end %>
+
+
+<form action='/users' method='post'>
+	<label for='name'>
+		Name:<input name="name" type='text' value='<%=@user.name%>' required>
+	</label>
+	<label for='username'>
+		Username:<input name='username' type='text' required>
+	</label>
+	<label for='email'>
+		Email:<input name='email' type='email' value='<%@user.email%>' required>
+	</label>
+	<label for='password'>
+		Password:<input name='password' type='password' required>
+	</label>
+	<label for='password_confirmation'>
+		Password Confirmation:<input name='password_confirmation' type='password' required>
+	</label>
+	<input type='submit' value='Sign Up'>
