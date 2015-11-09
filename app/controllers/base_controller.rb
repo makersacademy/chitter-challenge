@@ -22,10 +22,6 @@ module Routes
        Time.parse(peep_time.to_s).ago_in_words
      end
 
-     def current_peep
-       @current_peep ||= Peep.get(session[:peep_id])
-     end
-
     end
 
      run! if app_file == $PROGRAM_NAME
