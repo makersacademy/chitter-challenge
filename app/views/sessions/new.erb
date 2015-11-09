@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <h3>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+        <%= flash[:errors] %>
+    <% end %>
+  </h3>
+  <body>
+    <h1>Please sign in</h1>
+    <form action='/sign-in' method='post'>
+      <label for='email'>
+        Email: <input type='email' name='email'>
+      </label>
+      <label for='password'>
+        Password: <input type='password' name='password'>
+      </label>
+      <input type='submit' value='Sign in'>
+    </form>
+  </body>
+  </html>
