@@ -10,7 +10,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    post = Post.new(peep: params[:peep])
+    time = Time.new
+    post = Post.new(peep: params[:peep],
+                    creation_time: time)
     post.user = current_user
     if post.save
       redirect to '/peeps'

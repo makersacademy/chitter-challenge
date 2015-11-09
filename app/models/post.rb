@@ -6,6 +6,7 @@ class Post
 
   property :id, Serial
   property :peep, Text
+  property :creation_time, DateTime
 
   belongs_to :user
 

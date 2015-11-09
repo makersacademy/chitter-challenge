@@ -1,7 +1,7 @@
 Peeps:
 <% if @posts %>
   <ul id='peeps'>
-    <% @posts.each do |post| %>
+    <% @posts.reverse.each do |post| %>
       <li><%= post.peep %> | <%= post.user.username %> | <%= post.user.name %></li>
     <% end %>
   </ul>
