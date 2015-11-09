@@ -1,14 +1,15 @@
-require 'cucumber/rake/task'
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
+# require 'cucumber/rake/task'
+# require 'rspec/core/rake_task'
+# require 'rubocop/rake_task'
 require 'data_mapper'
 require './app/app.rb'
+require 'dm-postgres-adaptor'
 
-RuboCop::RakeTask.new :cop
-RSpec::Core::RakeTask.new :spec
-Cucumber::Rake::Task.new :cuke
+# RuboCop::RakeTask.new :cop
+# RSpec::Core::RakeTask.new :spec
+# Cucumber::Rake::Task.new :cuke
 
-task default: [:cop, :spec, :cuke]
+# task default: [:cop, :spec, :cuke]
 
 namespace :db do
   desc "Non destructive upgrade"
@@ -19,7 +20,7 @@ namespace :db do
   desc "Destructive upgrade" do
     task :auto_migrate do
       DataMapper.auto_migrate!
-      puts "Auto migrate conplete data was lost"
+      puts "Auto migrate complete data was lost"
     end
   end
 end
