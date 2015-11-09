@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
-  post'/sessions' do
+  post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
@@ -72,7 +72,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message], name: current_user.name, user_name: current_user.user_name, time_stamp: Time.now)
+    Peep.create(message: params[:message], name: current_user.name,
+      user_name: current_user.user_name, time_stamp: Time.now)
     redirect to('/peeps')
   end
 
