@@ -37,7 +37,7 @@ class Maker
 
   def password=(new_password)
     @password = new_password
-    self.password_hash = Password.create(new_password)
+    self.password_hash = BCrypt::Password.create(new_password)
   end
 
   def self.authenticate(username, password)
