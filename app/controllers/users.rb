@@ -20,7 +20,8 @@ class Chitter < Sinatra::Base
 
   patch '/users' do
     user = User.find_by_valid_token(params[:token])
-    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+    if user.update(password: params[:password],
+                   password_confirmation: params[:password_confirmation])
       redirect '/sessions/new'
     else
       flash.next[:errors] = ['Password does not match the confirmation']
