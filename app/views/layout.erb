@@ -6,13 +6,17 @@
 
 	<body>
 		<% if current_user %>
-      		Welcome, <%= current_user.full_name %>!
+      Welcome, <%= current_user.full_name %>!
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log out">
+      </form>
     	<% end %>
     	<ul id='errors'>
-      		<% if flash[:errors] && !flash[:errors].empty? %>
-        		<% flash[:errors].each do |error| %>
-          			<li><%=error%></li>
-        		<% end %>
+      	<% if flash[:errors] && !flash[:errors].empty? %>
+        	<% flash[:errors].each do |error| %>
+          	<li><%=error%></li>
+        	<% end %>
      		<% end %>
     	</ul>
     	<%= yield %>

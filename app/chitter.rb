@@ -55,6 +55,13 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    name = current_user.full_name
+    session[:user_id] = nil
+    flash.next[:notice] = "Goodbye, #{name}!"
+    redirect to('/sessions/new')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end
