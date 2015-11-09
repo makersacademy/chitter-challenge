@@ -8,10 +8,18 @@ feature "creating a peep" do
                   user_name: 'coco')
   end
 
+  before do
+    Timecop.freeze(Time.local(2015))
+  end
+
+  after do
+    Timecop.return
+  end
+
   scenario "as a signed in user" do
     expect{create_peep(email: user.email,password: user.password,content: 'Nadal just won the Roland Garros final')}.to change(Peep, :count).by(1)
     expect(page).to have_content('Nadal just won the Roland Garros final')
     expect(page).to have_content(user.name)
-    expect(page).to have_content(Time.new.strftime("Sent on %d/%m/%Y at %I:%M%p"))
+    expect(page).to have_content("Sent on 01/01/2015 at 12:00AM")
   end
 end

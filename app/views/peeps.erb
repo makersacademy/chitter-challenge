@@ -7,7 +7,7 @@
     <h1>Peeps</h1>
     <ul id='peeps'>
       <% @peeps.each do |peep| %>
-        <textarea type="text" cols="40" rows ="5"><%= peep.content %></textarea><br>
+        <article><%= peep.content %></article><br>
         Author:   <%= peep.user.name %><br>
         Time: <%= peep.time.strftime("Sent on %d/%m/%Y at %I:%M%p") %><br><br>
       <% end %>
