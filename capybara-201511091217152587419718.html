@@ -5,21 +5,19 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.name %>
+    
+      Welcome, 
     <form action="/sessions" method="post" accept-charset="utf-8" class="signout">
       <input name="_method" type="hidden" value="delete"/>
       <input type="submit" value="Sign out">
     </form>
-    <% end %>
+    
 
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:errors] %>
-      <div id='error'><%= flash[:errors] %></div>
-    <% end %>
+    
+      <div id='notice'>Successfully log int.</div>
+    
+    
 
-    <%= yield %>
+    
   </body>
 </html>

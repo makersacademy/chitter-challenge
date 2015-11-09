@@ -14,7 +14,7 @@ feature 'User sign in' do
     visit '/user/login'
     fill_in 'email', with: email
     fill_in :password, with: password
-    click_button 'sing in'
+    click_button 'Sign in'
   end
 
 end

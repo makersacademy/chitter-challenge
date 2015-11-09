@@ -15,6 +15,20 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post '/peep' do
+    peep = Peep.create(peep: params[:peep])
+    redirect to('/peep/all')
+  end
+
+  get '/peep/all' do
+    @peeps = Peep.all
+    erb :'peep/all'
+  end
+
   get '/user/login' do
     erb :'user/login'
   end
@@ -52,6 +66,15 @@ class Chitter < Sinatra::Base
 
   get '/welcome' do
     erb :welcome
+  end
+
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post '/peep/' do
+    peep = Peep.new(peep: params[:peep])
+    redirect('/peep/all')
   end
 
   helpers do

@@ -16,4 +16,5 @@ group :test do
   gem 'capybara'
   gem 'sinatra-flash'
   gem 'database_cleaner'
+  gem 'launchy'
 end
