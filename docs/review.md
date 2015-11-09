@@ -414,7 +414,7 @@ end
 
 ## Views
 
-### Correct semantics for form mark up
+### Correct Semantics for Form MarkUp
 
 Specifically use a for attribute in labels as per (mozilla's guide)[https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form]:
 
@@ -462,7 +462,9 @@ Related links:
 * http://www.w3schools.com/html/html5_semantic_elements.asp
 
 
-### Use Partials within Standard HTML Conventions
+### Use Partials with Standard HTML Conventions
+
+Let's take a look at a mixed bag example that does partials but also breaks some conventions:
 
 ```html
 <link rel="stylesheet" type="text/css" href="../../../public/style.css" />
@@ -506,7 +508,7 @@ Related links:
 a partial for the favicon in the above code seems excessive.  The style sheet ref shouldn't be relative if the public root is being set correctly, and notice that the yield is outside the html body element, and the top level html settings are missing.  Extracting flash_messages to partial okay, but how often will that actually be re-used?  It's justified here because the the flash messages partial is so long, but that's partly because the partial itself is unDRY - it should use flash[:error] and flash[:notice] rather than a separate symbol for every kind of message.
 
 
-## View Helpers
+## Use View Helpers
 
 Avoid the following in your app file:
 
