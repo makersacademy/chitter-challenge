@@ -1,0 +1,8 @@
+Peeps:
+<% if @posts %>
+  <ul id='peeps'>
+    <% @posts.reverse.each do |post| %>
+      <li><%= post.peep %> | <%= post.user.username %> | <%= post.user.name %> | <%= post.creation_time %></li>
+    <% end %>
+  </ul>
+<% end %>
