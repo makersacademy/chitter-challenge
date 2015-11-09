@@ -3,11 +3,20 @@
 <% end %>
 
 <h3>Please Sign In</h3>
-
+<!--
 <form action="/users/sign_in" method="post" class="pure-form">
   <input type="text" name="email" placeholder="Email">
   <input type="password" name="password" placeholder="Password">
   <input type="submit" value="Sign In" class="pure-button pure-button-primary">
 </form>
+ -->
+
+<form action="/users/sign_in" method="post" >
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign In" >
+</form>
+
+
 
 <h4>Don't have an account yet? <a href="/users/sign_up">Sign up here</a></h4>

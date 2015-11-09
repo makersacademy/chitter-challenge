@@ -60,6 +60,8 @@
       <div id="main">
         <% if current_user %>
           <h3>Hi, <%= current_user.name %>!</h3>
+        <% else %>
+          <h3>Hi, you need to sign in/up to post peeps!</h3>
         <% end %>
         <p>
 

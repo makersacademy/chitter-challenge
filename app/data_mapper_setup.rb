@@ -1,5 +1,5 @@
 env = ENV['RACK_ENV'] || 'development'
-p env
+
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
