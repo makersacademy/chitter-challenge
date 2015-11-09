@@ -32,11 +32,11 @@ Now navigate to http://localhost:9292/ in your browser.
 
 You can view 'Peeps' simply by navigating to the website, or by clicking on the "@Chitter" logo.
 
-![Main Peep Feed](https://dl.dropboxusercontent.com/content_link/rV3XnwBQ09NtUf9XSWpFF5uMUIf2l9yPQaWQSFchc8mlfFyaSJcpBbXQksWM61Db/file)
+![Main Peep Feed](https://www.dropbox.com/s/m9pmcm94ssdckeo/CHITTER_1.png?raw=1)
 
 In order to 'Peep' you need to create an account and log in. 
 
-![Sign up](https://dl.dropboxusercontent.com/content_link/lUa3r7fnkw9nG2mhHVSneXXolB1g7ndv21wOZY9muU2QbIjCGjTy69QtnHiz23h0/file)
+![Sign up](https://www.dropbox.com/s/1l1l5hj9a2umjc4/CHITTER_2.png?raw=1)
 
 You can then hit the Peep! button and submit your Peep.
 
@@ -50,7 +50,9 @@ Once you are finished 'Peeping' you can log out using the 'Log out' button.
 ### Testing
 
 The app was built using TDD, Rspec tests can be run from the root directory simply by running:
-```rspec```
+```
+rspec
+```
 
 
 ### TODO
@@ -73,6 +75,9 @@ The app was built using TDD, Rspec tests can be run from the root directory simp
 * Sinatra
 * Heroku
 * Rake
+
+
+
 
 
 # Original instructions
