@@ -1,0 +1,17 @@
+<link href="./../style.css" rel="stylesheet">
+<form action="/post_peeps" method="post">
+  <input type="submit" value="Post peeps">
+</form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li id="text">
+    <p>Peep:
+    <%= peep.text %><br>
+    Time:
+    <%= (peep.time)%><br>
+    User:
+    <%= User.first(id: peep.user_id).username%></p><br>
+  </li>
+  <% end %>
+</ul>

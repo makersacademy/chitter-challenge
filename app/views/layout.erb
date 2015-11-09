@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chitter</title>
+</head>
+
+<body>
+  <heade>
+    <div class="header">
+      <h1>Chitter</h1>
+    </div>
+  </heade>
+  <div id="page">
+    <%=yield%>
+      <br>
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
+          <br>
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            Please refer to the following errors below:
+            <ul id='errors'>
+              <% flash[:errors].each do |error| %>
+                <li>
+                  <%= error %>
+                </li>
+                <% end %>
+            </ul>
+            <% end %>
+  </div>
+</body>
+
+</html>
