@@ -1,7 +1,7 @@
 require 'sinatra/base'
-require 'data_mapper'
-require 'dm-postgres-adapter'
+require './app/models/user.rb'
 require_relative 'data_mapper_setup'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -17,7 +17,12 @@ class Chitter < Sinatra::Base
 
   post '/registration' do
     user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-    redirect to '/chitter'
+    if user.save
+      session[:user_id] = user.id
+      redirect to '/chitter'
+    else
+      erb :registration
+    end
   end
 
   get '/sign_in' do
@@ -25,7 +30,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    erb :homepage
+    erb :layout
   end
 
   helpers do
@@ -33,4 +38,7 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
+
+  run! if app_file == $0
+
 end

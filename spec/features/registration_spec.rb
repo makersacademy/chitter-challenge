@@ -1,5 +1,5 @@
 require "spec_helper.rb"
-require "web_helpers.rb"
+require "./spec/features/web_helpers.rb"
 
 feature "registering as a new user" do
 

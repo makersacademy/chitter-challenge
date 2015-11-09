@@ -9,10 +9,7 @@ class User
   property :id, Serial
   property :username, String
   property :email, String
-  property :password_digest, Text
+  property :password, BCryptHash
 
-  def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
-  end
 
 end

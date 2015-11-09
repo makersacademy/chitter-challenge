@@ -19,8 +19,8 @@ namespace :db do
 
 
     desc "Destructive upgrade"
-    task :auto_mirgate do
-      DataMapper.auto_mirgate!
+    task :auto_migrate do
+      DataMapper.auto_migrate!
       puts "Auto-migrate complete (data was lost)"
     end
   end
