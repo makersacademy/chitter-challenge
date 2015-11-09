@@ -9,6 +9,15 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+    def login
+      user = User.authenticate(params[:username], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect '/home'
+      else
+        redirect '/home'
+      end
+    end
   end
 
   get '/' do
@@ -23,17 +32,23 @@ class Chitter < Sinatra::Base
   get '/sign_up' do
     erb :sign_up
   end
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    login
+  end
 
   post '/home' do
     user = User.create(name: params[:name],
     username: params[:username],
     email: params[:email],
-    password_digest: params[:password])
+    password: params[:password])
     session[:user_id] = user.id
     user.save
     redirect '/home'
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end

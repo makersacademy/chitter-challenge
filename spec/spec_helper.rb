@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'bcrypt'
+require './app/datamapper_setup'
 
 Capybara.app = Chitter
 
