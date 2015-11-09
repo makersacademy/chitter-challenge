@@ -4,12 +4,12 @@ feature "login" do
     Maker.create(name: 'John Wright',
                  email: 'john@gmail.com',
                  username: 'JohnW',
-                 password_hash: '123456',
-                 password_hash_confirmation: '123456')
+                 password: '123456',
+                 password_confirmation: '123456')
   end
 
   scenario "is granted with correct credentials" do
-    login(username: maker.username, password: maker.password_hash)
+    login(username: maker.username, password: maker.password)
     expect(page).to have_content "Welcome, #{maker.name}"
   end
 

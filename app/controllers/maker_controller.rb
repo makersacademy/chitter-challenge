@@ -17,8 +17,8 @@ module Routes
       @maker = Maker.create(name: params[:name],
                     email: params[:email],
                     username: params[:username],
-                    password_hash: params[:password],
-                    password_hash_confirmation: params[:password_confirmation])
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
       if @maker.save
         session[:maker_id] = @maker.id
         redirect to '/home'
@@ -26,8 +26,8 @@ module Routes
         flash.now[:name_error] = @maker.errors[:name].first
         flash.now[:email_error] = @maker.errors[:email].first
         flash.now[:username_error] = @maker.errors[:username].first
-        flash.now[:password_error] = @maker.errors[:password_hash].first
-        flash.now[:cfm_error] = @maker.errors[:password_hash_confirmation].first
+        flash.now[:password_error] = @maker.errors[:password].first
+        flash.now[:cfm_error] = @maker.errors[:password_confirmation].first
         erb :'maker/signup'
       end
     end
