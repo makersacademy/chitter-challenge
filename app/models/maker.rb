@@ -14,7 +14,7 @@ class Maker
   property :password, BCryptHash
 
   validates_confirmation_of :password
-  validates_presence_of :name, :email, :username, :password
+  validates_presence_of :name, :email, :username, :password_confirmation
   validates_uniqueness_of :email, :username
   validates_format_of :email, as: :email_address
 
