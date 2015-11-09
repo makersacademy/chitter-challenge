@@ -1,0 +1,8 @@
+Peeps:
+<% if @posts %>
+  <ul id='peeps'>
+    <% @posts.each do |post| %>
+      <li><%= post.peep %> | <%= post.user.username %> | <%= post.user.name %></li>
+    <% end %>
+  </ul>
+<% end %>

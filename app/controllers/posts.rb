@@ -4,14 +4,16 @@ class Chitter < Sinatra::Base
     erb :'/peeps/new'
   end
 
+  get '/peeps' do
+    @posts = Post.all
+    erb :'/peeps/index'
+  end
+
   post '/peeps' do
-    @post = Post.new(name: current_user.name,
-                username: current_user.username,
-                peep: params[:peep])
-    if @post.save
-      @posts = Post.all
-      session[:user_id] = @user.id
-      redirect to '/'
+    post = Post.new(peep: params[:peep])
+    post.user = current_user
+    if post.save
+      redirect to '/peeps'
     else
       flash.now[:errors] = @post.errors.full_messages
       erb :'peeps/new'
