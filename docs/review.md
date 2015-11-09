@@ -147,7 +147,7 @@ RSpec.configure do |config|
 end
 ```
 
-## Set up database cleaner correctly
+## Set up Database Cleaner Correctly
 
 Set up like so:
 
@@ -199,6 +199,15 @@ Also avoid directly setting the DATABASE_URL like so:
 ENV['DATABASE_URL'] = 'postgres://localhost/chitter_test'
 DataMapper.setup(:default, ENV['DATABASE_URL'])
 ```
+## Ensure Asset Routes are Set Correctly
+
+Set the public folder correctly like so
+
+```ruby
+set :public_folder, Proc.new { File.join(root, 'static') }
+```
+
+To make sure that your web page will be able to load static assets such as CSS, Images, etc.
 
 # Step 3: Tests and \*\_spec.rb files  
 
@@ -284,17 +293,6 @@ module Helpers
 ```
 
 See https://github.com/makersacademy/course/blob/master/pills/spec_helper_methods.md
-
-
-## Ensure Asset Routes are Set Correctly
-
-Set the public folder correctly like so
-
-```ruby
-set :public_folder, Proc.new { File.join(root, 'static') }
-```
-
-To make sure that your web page will be able to load static assets such as CSS, Images, etc.
 
 # Step 4: Application code and \*.rb files
 
