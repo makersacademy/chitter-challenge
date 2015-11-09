@@ -21,7 +21,7 @@ Then from the root folder, install the Gems, create and initialise the database 
 ```
 $ bundle
 $ createdb chitter_development
-$ rake auto_migrate
+$ rake db:auto_migrate RACK_ENV=development
 $ rackup app/config.ru
 ```
 
@@ -49,7 +49,14 @@ Once you are finished 'Peeping' you can log out using the 'Log out' button.
 
 ### Testing
 
-The app was built using TDD, Rspec tests can be run from the root directory simply by running:
+The app was built using TDD. Before running you will need to initialize the test database:
+
+```
+rake db:auto_migrate RACK_ENV=test
+```
+
+Rspec tests can be run from the root directory simply by running:
+
 ```
 rspec
 ```
@@ -59,9 +66,11 @@ rspec
 
 * Consider using partials.
 * Consider whether controllers can be slimmed down further.
+* Use view helpers to remove amount of embedded Ruby and comply with SRP.
 * Integrate tagging other users to create conversations.
+* Rake task for first DB setup.
 * More comprehensive feature testing.
-* More CSS/styling.
+* More CSS/styling (larger buttons, position elements, logo and backdrop.)
 
 
 ### Technologies used
