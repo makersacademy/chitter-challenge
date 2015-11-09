@@ -416,7 +416,7 @@ end
 
 ### Correct Semantics for Form MarkUp
 
-Specifically use a for attribute in labels as per (mozilla's guide)[https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form]:
+Specifically use a for attribute in labels as per [mozilla's guide](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form):
 
 ```html
 <form action='/peeps' method='post'>
@@ -429,6 +429,10 @@ Message
 ```
 
 but please follow the HTML styles described in https://developer.mozilla.org/en-US/docs/Web/Guide/HTML in general.
+
+Related Resources:
+
+* https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form
 
 ### Prefer other Semantic HTML Elements to Divs Where Possible
 
