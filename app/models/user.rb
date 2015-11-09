@@ -20,5 +20,5 @@ class User
     end
   end
 
-  has n, :peeps 
+  has n, :peeps
 end
