@@ -1,0 +1,12 @@
+<%= partial :login %>
+<%= partial :newpeep %>
+
+<ul class='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <% author = User.get(peep.user_id) %>
+    <li>
+      <p><%= author.name %> (<%= author.username %>) | <%= peep.time %></p>
+      <p>   <%= peep.message %></p>
+    </li>
+  <% end %>
+</ul>

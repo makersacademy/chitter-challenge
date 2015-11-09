@@ -1,0 +1,33 @@
+<% if flash[:message] %>
+
+<p><%= flash[:message] %></p>
+
+<% end %>
+
+
+
+<% if current_user %>
+
+<p>Logged in as: <%= current_user.username %></p>
+<p>
+  <form action='sessions' method='post'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='Logout' />
+  </form>
+</p>
+
+<% else %>
+
+<form action='/sessions' method='post' style="display:inline-block;">
+  <label>Username:</label><input type='text' name='username' />
+  <label>Password:</label><input type='password' name='password' />
+  <input type='submit' value='Login' />
+</form>
+
+or:
+
+<form action='/users/new' method='get' style="display:inline-block;">
+  <input type='submit' value='Signup' />
+</form>
+
+<% end %>
