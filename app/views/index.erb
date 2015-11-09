@@ -1,0 +1,15 @@
+
+<% if @peeps.empty? %>
+  <h3>We have no peeps yet...</h3>
+
+<% else %>
+  <ul>
+    <% @peeps.each do |msg| %>
+      <li>
+        <peeps><p><%= msg.message %></p></peeps>
+        <chitterrer><p><%= msg.user.username %></p></chitterrer>
+        <poston><p><%= msg.timestamp.strftime('%d-%m-%Y %H:%M').strip %></p></poston>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

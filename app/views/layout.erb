@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Chitter</title>
+    <link href="/styles/main.css" rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+<!-- -container--------------------------------------------------------- -->
+    <div id="container">
+
+      <div id="header">
+            <h1 id="title">Chitter</h1>
+      </div>
+
+<!-- -content----------------------------------------------------------- -->
+      <div id="content">
+        <div id="nav">
+          <p>
+
+
+          </p>
+          <bt><a class="buttons" href="/">Home</a></bt>
+          <p>
+
+
+          </p>
+          <!-- ------------------------------ -->
+          <% if current_user %>
+            <bt><a id="signout" class="buttons" href="/users/sign_out">Sign Out</a></bt>
+            <p>
+
+
+            </p>
+            <bt><a id="postp" class="buttons" href="/post/peeps">Post Peep</a></bt>
+            <p>
+
+
+            </p>
+          <% end %>
+          <!-- ------------------------------ -->
+          <% if !current_user %>
+            <bt><a id="signin" class="buttons" href="/users/sign_in">Sign In</a></bt>
+            <p>
+
+
+            </p>
+            <bt><a id="signup" class="buttons" href="/users/sign_up">Sign Up</a></bt>
+            <p>
+
+
+            </p>
+          <% end %>
+          <!-- ------------------------------ -->
+        </div>
+      </div>
+<!-- -content----------------------------------------------------------- -->
+<!-- -main-------------------------------------------------------------- -->
+      <div id="main">
+        <% if current_user %>
+          <h3>Hi, <%= current_user.name %>!</h3>
+        <% else %>
+          <h3>Hi, you need to sign in/up to post peeps!</h3>
+        <% end %>
+        <p>
+
+        </p>
+        <%= yield %>
+        <div id="notice">
+          <% if flash[:notice] %>
+            <h3><%= flash[:notice] %></h3>
+          <% end %>
+          <% if flash[:error] %>
+            <h3><%= flash[:notice] %></h3>
+          <% end %>
+        </div>
+      </div>
+<!-- -main-------------------------------------------------------------- -->
+    </div>
+<!-- -container--------------------------------------------------------- -->
+
+    <!-- <div id="footer">
+      <p>
+        copyright &copy; R Hejib. I built this page while learning to code at
+        <a href="http://www.makersacademy.com">Makers Academy</a>
+        , a highly selective 12 week coding course in London
+      </p>
+    </div> -->
+
+  </body>
+
+
+
+</html>
