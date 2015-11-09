@@ -7,6 +7,8 @@ require_relative 'models/user'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
+
   enable 'sessions'
   set :secret_session, 'secrets'
 
@@ -38,12 +40,19 @@ class Chitter < Sinatra::Base
   post '/signin' do
     user = User.authenticate(params[:username], params[:password])
     if user
+      flash[:notice] = ['Sign in successful']
       session[:user_id] = user.id
       redirect '/peeps'
     else
       flash.now[:errors] = ['The username or password is incorrect']
       erb :homepage
     end
+  end
+
+  delete '/signout' do
+    session[:user_id] = nil
+    flash.keep[:notice] = ['You have successfully logged out']
+    redirect '/peeps'
   end
 
   helpers do

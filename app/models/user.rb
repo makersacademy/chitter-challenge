@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
   include DataMapper::Resource
 
@@ -12,12 +14,12 @@ class User
                                              :format => 'Please enter a valid email address' }
   property :password,  BCryptHash
 
-  def self.authenticate(username, password)
-    user = first(username: username)
+  def self.authenticate(email, password)
+    user = first(email: email)
     if user && BCrypt::Password.new(user.password) == password
-      user
+       user
     else
-      nil
+       nil
     end
   end
 end
