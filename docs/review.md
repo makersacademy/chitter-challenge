@@ -26,7 +26,7 @@ Please checkout your reviewee's code and run their tests. Read the code and try 
 
 The relevance of the subsequent steps may depend on how far the reviewee got with their challenge.
 
-# Step 2: Structure and supporting files
+# Step 2: Structure and Supporting files
 
 ## Installation Instructions should be in README
 
@@ -79,7 +79,7 @@ then commit and push.  Please also ensure you follow the Ruby style guide regard
 
 https://github.com/bbatsov/ruby-style-guide
 
-## Ensure Rakefile has appropriate tasks
+## Ensure Rakefile has Appropriate Tasks
 
 For migration and upgrade
 
