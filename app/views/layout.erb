@@ -17,47 +17,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="brand" href="/peeps/index">Chitter
-          <img src="http://zizaza.com/cache/small_wm/iconset/580167/580168/PNG/512/icon_set_png/animal_bird_bird_icon_png_bird_png_bird_icon.png" height="42" width="42"></a>
-        </div>
-
-        <div class="nav-collapse">
-          <ul class="nav navbar-nav">
-            <% if !current_user %>
-              <li><a href="/users/new">Register</a></li>
-              <li><a href="/sessions/new">Sign In</a></li>
-            <% end  %>
-            <% if current_user %>
-              <li><a href="/peeps/new">Post</a></li>
-            <% end %>
-            <li><a href="/peeps/index">Peeps</a></li>
-          </ul>
-          <% if current_user %>
-            <form method='post' action='/sessions' class='navbar-form navbar-right'>
-              <div class='form-group'>
-                <input type='hidden' name='_method' value='delete'>
-              </div>
-              <div class='form-group'>
-                <div class="col-sm-offset-8 col-sm-10">
-                  <button type='submit' class='btn btn-default' value='Sign Out'>Sign Out</button>
-                </div>
-              </div>
-            </form>
-          <% end %>
-        </div><!-- /.nav-collapse -->
-      </div><!-- /.container -->
-    </nav><!-- /.navbar -->
-
+    <%= partial :navbar %>
     <%= partial :flash %>
     <div class='jumbotron'>
       <%= yield %>
