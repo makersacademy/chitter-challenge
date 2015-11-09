@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="layout.css" type="text/css">
+</head>
+<body>
+  <div class="top_bar">
+  <% if current_user %>
+  <h1>Current user: <%=current_user.name%></h1>
+  <%end%>
+    <form action="/sign_up">
+      <input type="submit" value="Sign up" class="round_button">
+    </form>
+  <% if (!(current_user)) %>
+  <form action="/log_in">
+    <input type="submit" value="Log in" class="round_button">
+  </form>
+  <% end %>
+  </div>
+    <%= yield %>
+</body>
+</html>

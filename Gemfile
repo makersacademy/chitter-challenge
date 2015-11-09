@@ -1,6 +1,16 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+gem 'data_mapper'
+gem 'capybara'
+gem 'sinatra'
+gem 'rspec-sinatra'
+gem "dm-postgres-adapter"
+gem "dm-migrations"
+gem "database_cleaner"
+gem 'bcrypt'
+gem 'rake'
+
 group :test do
   gem 'rspec'
   gem 'cucumber'
@@ -8,4 +18,3 @@ group :test do
   gem 'rubocop'
   gem 'coveralls', require: false
 end
-
