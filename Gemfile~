@@ -4,9 +4,12 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'bcrypt'
 gem 'dm-validations'
-gem 'database_cleaner'
 gem 'sinatra-flash'
+gem 'capybara'
+gem 'database_cleaner'
+gem 'rake'
 
 group :test do
   gem 'rspec'
@@ -14,7 +17,6 @@ group :test do
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
-  gem 'capybara'
   gem 'coveralls', require: false
 end
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+      <% if current_user %>
+		    Welcome, <%= current_user.email %>
+		    <form method='post' action='/sign_in'>
+		      <input type='hidden' name='_method' value='delete'>
+		      <input type='submit' value='Sign out'>
+		    </form>
+
+        <form method='get' action='/peep/new'>
+          <input type='submit' value='New peep'>
+        </form>
+		  <% end %>
+    
+    <% if flash[:errors] && !flash[:errors].empty? %>
+  			Please refer to the following errors below:
+  		<ul id='errors'>
+    		<% flash[:errors].each do |error| %>
+    		<li><%= error %></li>
+    	<% end %>
+  		</ul>
+		<% end %>
+
+		 <% if flash[:notice] %>
+		    <div id='notice'>
+		      <%= flash[:notice] %>
+		    </div>
+		  <% end %>
+    
+    <%= yield %>
+  </body>
+</html>
