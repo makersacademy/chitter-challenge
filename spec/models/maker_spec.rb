@@ -9,7 +9,7 @@ describe Maker do
   end
 
   it "authenticates when given a valid username and password" do
-    authenticated_maker = Maker.authenticate(maker.username, maker.password)
+    authenticated_maker = Maker.authenticate('TestW', '123456')
     expect(authenticated_maker).to eq maker
   end
 

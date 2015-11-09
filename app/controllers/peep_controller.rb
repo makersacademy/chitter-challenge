@@ -10,10 +10,9 @@ module Routes
      end
 
      post '/new-peep' do
-       @peep = Peep.create(peep: params[:message], time: Time.now)
-       session[:peep_id] = @peep.id
-       current_maker.peeps << @peep
-       current_maker.save
+       peep = Peep.new(peep: params[:message], time: Time.now)
+       peep.maker = current_maker
+       peep.save!
        redirect '/home'
      end
 

@@ -14,7 +14,7 @@ module Routes
     end
 
     post '/signup-details' do
-      @maker = Maker.create(name: params[:name],
+      @maker = Maker.new(name: params[:name],
                     email: params[:email],
                     username: params[:username],
                     password: params[:password],

@@ -5,8 +5,6 @@ class Maker
   include DataMapper::Resource
   include BCrypt
 
-  has n, :peeps, through: Resource
-
   property :id, Serial
   property :name, String
   property :email, String
@@ -20,12 +18,14 @@ class Maker
 
   def self.authenticate(username, password)
     maker = first(username: username)
-    if maker && BCrypt::Password.create(maker.password) == password
+    if maker && Password.new(maker.password) == password
       maker
     else
       return nil
     end
   end
+
+  has n, :peeps
 
   attr_accessor :password_confirmation
 

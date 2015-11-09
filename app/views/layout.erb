@@ -26,19 +26,18 @@
         <% end %>
       </ul>
     <% end %>
-    
+
       <ul id='peeps'>
         <% if @peeps %>
         <h3>List of Peeps:</h3>
           <% @peeps.sort_by{ |peep| peep.time }.reverse.each do |peep| %>
         <li>
-           <p><%= peep.makers.map(&:username).join %> <em><%= format_time(peep.time) %></em></p>
+           <p><%=peep.maker.username%><em><%=format_time(peep.time)%></em></p>
            <p><%= peep.peep %> </p>
         </li>
           <% end %>
         <% end %>
       </ul>
-
     <%= yield %>
   </body>
 </html>
