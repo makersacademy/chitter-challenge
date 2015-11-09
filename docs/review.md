@@ -4,7 +4,7 @@ Welcome to the code review for the Chitter Challenge!  Again, don't worry - you 
 
 Either way we'd very much appreciate you submitting the form, even if it's just to say that you didn't use it :-)
 
-Please use this form to tick off where your reviewee has successfully has successfully incorporated these guidelines!  This form helps us get an overall picture of how the whole cohort is doing - it's not an assessment of an individual student.
+Please use this form to tick off where your reviewee has successfully incorporated these guidelines!  This form helps us get an overall picture of how the whole cohort is doing - it's not an assessment of an individual student.
 
 # Step 0: Checkout and Run tests
 
@@ -24,13 +24,13 @@ Please checkout your reviewee's code and run their tests. Read the code and try 
   * [ ] Replying to peeps
   * [ ] CSS styling
 
-The relevance of the subsequent steps may depend on how far the reviewee got with their challenge
+The relevance of the subsequent steps may depend on how far the reviewee got with their challenge.
 
 # Step 2: Structure and supporting files
 
-## Installation Instructions in README
+## Installation Instructions should be in README
 
-Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application:
+Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application, e.g.
 
 ```
 $ git clone https://github.com/tansaku/chitter_challenge
@@ -54,13 +54,13 @@ You will need to host your images somewhere, e.g.:
 * http://imgur.com/
 * http://dropbox.com/
 
-## Read Over Your Pull Request Before Submitting
+## Unnecessary Components should be Removed
 
 Always leave a space to check over your pull request before submission.  Please try to check for simple issues like:
 
-* indentation
 * dead code in comments
-* unecessary files
+* unnecessary files
+* indentation
 
 For example if you've been using the [launchy gem](https://github.com/copiousfreetime/launchy) to `save_and_open_page` then you'll have a load of `capybara-<TIMESTAMP>.html` files in your root directory that you don't want committed to git.  Try updating `.gitignore` like so:
 
@@ -75,7 +75,9 @@ and if you already have unwanted files committed to git then delete them from gi
 $ git rm capybara-*.html
 ```
 
-then commit and push
+then commit and push.  Please also ensure you follow the Ruby style guide regarding indentation and layout:
+
+https://github.com/bbatsov/ruby-style-guide
 
 ## Ensure Rakefile has appropriate tasks
 
@@ -95,6 +97,8 @@ task :auto_migrate do
   puts 'Auto-migrate complete (data could have been lost)'
 end
 ```
+
+Clearly these tasks can be run directly from an irb console, but the Rakefile makes it simpler to run common tasks as part of deployment to Heroku and Continuous Integration (C.I.) and other situations where your code runs remotely.
 
 ## Gemfile should use test groups
 
@@ -130,7 +134,7 @@ See http://bundler.io/groups.html for more details
 
 Make sure that your spec_helper pulls in a single app file that requires all the other dependencies required by the app.  Don't pull in the models etc. separately in the spec helper or you risk having the tests pass when the app might be missing a dependency.
 
-Also watch out for spec helpers vs sinatra helpers. They are two very different things.  Don't pull your sinatra helpers into your rspec config:
+Also watch out for spec helpers vs sinatra helpers. They are two very different things.  Don't pull your Sinatra helpers into your RSpec config:
 
 ```
 RSpec.configure do |config|
@@ -169,9 +173,9 @@ related links:
 * https://github.com/DatabaseCleaner/database_cleaner#how-to-use
 * http://stackoverflow.com/a/10906127/316729
 
-## Ensure separate data_mapper setup
+## Ensure Separate DataMapper setup file
 
-All data_mapper setup should be in a separate file and make sure that we're properly adapting to the RACK_ENV environment variable, and ready for Heroku to override with a production db URL:
+All DataMapper setup should be in a separate file and make sure that we're properly adapting to the RACK_ENV environment variable, and ready for Heroku to override with a production db URL:
 
 * Good
 ```
@@ -185,7 +189,7 @@ In particular you want to avoid database security tokens in data_mapper setup
 * Not good
 ```ruby
 DataMapper.setup(:default, ENV['DATABASE_URL'] ||= 'postgres://qsr
-  cwyyergqzvs:dQB7uYe3NCJ7-p_-7iMpTP_SzH@ec2-54-163-228-109.comput
+  cwyasdfvs:dQB7uYe3NCJ7-p_123e-_-P_SzH@ec2-54-163-228-109.comput
   e-1.amazonaws.com:5432/d7khun32k78jic')
 ```
 
@@ -200,7 +204,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'])
 
 ## \*\_spec.rb files (unit tests)
 
-### RSpec features scenarios
+### Avoid RSpec Feature Scenarios organized like Unit Tests
 
 Ensure your feature tests look like feature tests, not unit tests.  Unit tests should have only one expect per it block.  Feature test scenarios can have more than one expect; and should have in order to improve comprehensibility and to avoid excessive running times, but don't go crazy.
 
@@ -240,15 +244,17 @@ end
 ```
 
 
-### Correct location of feature/acceptance and unit tests
+### Ensure Correct Location of Feature/Acceptance and Unit Tests
 
-Ensure that all your acceptance tests are in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.
+All your acceptance tests should be in a separate folder called `features`.  This can be in your `spec` folder or on the root; up to you.  It depends if you want the convenience of running units and features together or the convenience of being able to run them separately (helpful if feature tests run very slowly).
 
-If a test is in the feature folder it should be testing the entire stack, i.e. it should interact with the app via a web page, and then test the results of that action in the web page that gets returned.  It's acceptable to manipulate the database directly to set things up, but note their are risks associated here, i.e. that you will get your database in a state that it couldn't get into via the web interface, and thus when the tests pass it may not reflect precisely the user experience of using the site.
+If a test is in the feature folder it should be testing the entire stack, i.e. it should interact with the app via a web page, and then test the results of that action in the web page that gets returned.  It's acceptable to manipulate the database directly to set things up, but note their are risks associated here, i.e. that you will get your database in a state that it couldn't get into via the web interface, then when the tests pass it may not reflect precisely the user experience of using the site.
 
 Conversely if you are testing your models, with or without database interactions, then these tests should NOT be in your feature folder and should be in the `spec` folder, or in `spec/models`
 
-### Appropriate use of Spec Helpers
+### Use Spec 'Helpers' Appropriately
+
+Extract Spec 'Helpers' into a module and include like so:
 
 ```ruby
 require_relative 'helpers'
@@ -280,13 +286,15 @@ module Helpers
 See https://github.com/makersacademy/course/blob/master/pills/spec_helper_methods.md
 
 
-## Ensure asset routes are set correctly
+## Ensure Asset Routes are Set Correctly
 
 Set the public folder correctly like so
 
 ```ruby
 set :public_folder, Proc.new { File.join(root, 'static') }
 ```
+
+To make sure that your web page will be able to load static assets such as CSS, Images, etc.
 
 # Step 4: Application code and \*.rb files
 
@@ -296,7 +304,7 @@ set :public_folder, Proc.new { File.join(root, 'static') }
 
 * http://www.sinatrarb.com/intro.html#Modular%20vs.%20Classic%20Style
 
-### Be clear about how to use flash.now
+### Use flash.now and flash.next Correctly
 
 Note that you have to register Sinatra Flash before you can use it.
 
@@ -313,9 +321,9 @@ flash.now[:notice]
 
 to only see it immediately.
 
-### Refactor long controller methods
+### Refactor Long Controller Methods
 
-This overly long controller method with business logic spread spread out throughout the method is not ideal.
+This overly long controller method with business logic spread spread out throughout the method is not ideal:
 
 ```ruby
 post '/password_reset' do
@@ -332,7 +340,7 @@ post '/password_reset' do
 end
 ```
 
-It could be refactored like so:
+It could be refactored by adding a class method to User called `User.reset_password` and pulls the business logic into the User object like so:
 
 ```ruby
 post '/password_reset' do
@@ -344,15 +352,29 @@ post '/password_reset' do
     redirect('/password_reset')
   end
 end
+
+# models/user.rb
+class User
+
+  def self.reset_password(email:)
+    user = User.first(email: params[:email])
+    return false unless user
+    user.generate_password_token
+    user.save
+  end
+
+  ...
+end
 ```
 
 Note the much shorter method and the business logic all pulled into the User model.
 
-### Split routes into a controller file/many controller files +
+### Split Routes into Separate Controller files
 
-Rather than
+Rather than:
 
 ```ruby
+# app.rb
 class Chitter < Sinatra::Application
   set :public_folder, Proc.new { File.join(root, 'static') }
 
@@ -394,12 +416,6 @@ end
 # and other controllers for other collections of routes
 ```
 
-## Models
-
-### Not encapsulating business logic in the model
-
-see 'refactor long controller methods' above where business logic is pulled from controller into User model
-
 ## Views
 
 ### Correct semantics for form mark up
@@ -416,9 +432,9 @@ Message
 </form>
 ```
 
-but please follow https://developer.mozilla.org/en-US/docs/Web/Guide/HTML in general
+but please follow the HTML styles described in https://developer.mozilla.org/en-US/docs/Web/Guide/HTML in general.
 
-### Prefer other semantic HTML elements to divs where possible
+### Prefer other Semantic HTML Elements to Divs Where Possible
 
 It's tempting to wrap everything HTML5 in a div.  However we should try to make use of other semantic HTML elements where possible.  Try using this [flowchart](http://html5doctor.com/downloads/h5d-sectioning-flowchart.png).  This flowchart should help us choose item 2 from the following list
 
@@ -436,7 +452,7 @@ It's tempting to wrap everything HTML5 in a div.  However we should try to make 
 </article>
 ```
 
-* 3. Creating your own HTML5 element (avoid id possile)
+* 3. Creating your own HTML5 element (avoid unless really required)
 
 ```html
 <peep>
@@ -445,13 +461,12 @@ It's tempting to wrap everything HTML5 in a div.  However we should try to make 
 
 Related links:
 
-
 * http://html5doctor.com/lets-talk-about-semantics/
 * http://learn.shayhowe.com/advanced-html-css/semantics-accessibility/ ?
 * http://www.w3schools.com/html/html5_semantic_elements.asp
 
 
-### Appropriate use of partials and other HTML conventions
+### Use Partials within Standard HTML Conventions
 
 ```html
 <link rel="stylesheet" type="text/css" href="../../../public/style.css" />
@@ -509,7 +524,7 @@ class Chitter < Sinatra::Base
 end
 ```
 
-Prefer that pulled out to a helpers file like so
+Prefer that pulled out to a view helpers file like so
 
 ```ruby
 require_relative 'helpers'
