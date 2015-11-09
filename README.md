@@ -3,12 +3,12 @@ Andrew Dowell Chitter Challenge
 
 Setup
 -----------------
-*git clone https://github.com/k0zakinio/chitter-challenge.git
-*bundle
-*rake db:chitter_setup
-*rspec
-*rackup -p 4567
-*visit localhost:4567
+* git clone https://github.com/k0zakinio/chitter-challenge.git
+* bundle
+* rake db:chitter_setup
+* rspec
+* rackup -p 4567
+* visit localhost:4567
 
 [Heroku](https://fast-temple-2711.herokuapp.com/)
 
