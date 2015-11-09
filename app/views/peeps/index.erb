@@ -1,0 +1,14 @@
+<ul id='peeps' class='list-unstyled'>
+  <% @peeps.each do |peep| %>
+    <li class="list-group-item">
+      <div class='row'>
+        <div class='col-md-2'></div>
+        <div class='col-md-8'>
+          <p class='lead'><%= peep[:text]  %></p>
+          <p><%= peep[:time] %> <em>Author: <%= peep[:author] %></em></p>
+        </div>
+        <div class='col-md-2'></div>
+      </div>
+    </li>
+  <% end %>
+</ul>

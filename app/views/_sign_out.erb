@@ -1,0 +1,9 @@
+<% if current_user %>
+<form method='post' action='/sessions'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Sign Out'>
+</form>
+<form action="/peeps/new" method="post">
+  <input type="submit" value="Post">
+</form>
+<% end %>

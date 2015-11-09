@@ -1,3 +1,43 @@
+[![Build Status](https://travis-ci.org/DeathRay1977/chitter-challenge.svg)](https://travis-ci.org/DeathRay1977/chitter-challenge)
+
+
+A demo of this site can be found at:
+
+https://enigmatic-fortress-2942.herokuapp.com/peeps/index
+
+My Approach to the challenge
+============================
+
+I started of by getting the first two user stories working. This separated out the User class which was implemnted with DataMapper. Once the User class was complete, I started on the Peep class which encapsulates a message. The dates that the peep was created was implemented using the automatic timestamps ```created_on``` and ```created_at```supplied by Datamapper. A Has many and belongs to relation was established between User and Peep. A user has many peeps. A peep belongs to one user. This is a one to many relationship.
+
+I refactored all the User, Peep and Session routes into their own controllers. Partials have been created and used from within the layout.rb. Simple styling was carried out using Twitter Bootstrap.
+
+Instructions
+============
+
+To run the app, follow the instructions below:
+
+```
+$ git clone git@github.com:DeathRay1977/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ rake db:auto_migrate RACK_ENV=development
+$ rspec
+$ rackup
+```
+
+Screenshots
+===========
+
+![Peeps](https://www.dropbox.com/s/wp45lynzvwsvw1q/home.tiff?dl=0)
+![Log in](https://www.dropbox.com/s/oe3yon6xyndd3qd/log%20in.tiff?dl=0)
+![Register](https://www.dropbox.com/s/hhblgyvg8hhd3rj/register.tiff?dl=0)
+
+
+
+
+
+
 Chitter Challenge
 =================
 

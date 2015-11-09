@@ -1,0 +1,11 @@
+body {
+  padding-top: 60px;
+}
+
+.navbar .brand {
+  color: rgb(255,255,255);
+}
+
+button#signout {
+  margin-top: 10;
+}
