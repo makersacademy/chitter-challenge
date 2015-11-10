@@ -1,0 +1,8 @@
+<h2> Chitter </h2>
+<% if session[:user_id] %>
+<form method='post' action='/sessions'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Logout'>
+</form>
+<% end %>
+<%= yield %>

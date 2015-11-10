@@ -1,0 +1,19 @@
+<h1>Log In:</h1>
+<form action='/sessions/new' method='post'>
+  <% if @login_error %>
+    <div id='login_failed'>
+      Login failed, please confirm you have entered the correct details.</br>
+    </div>
+    <% end %>
+  <div>
+    Please enter your username or email:</br>
+    <input type='text' name='username' value='<%= @username || "username"%>'>
+    </input>
+  </div>
+  <div>
+    Please enter your password:</br>
+    <input type='password' name='password' value='password'>
+    </input>
+  </div>
+  <input type='submit' value='Log in!'>
+</form>
