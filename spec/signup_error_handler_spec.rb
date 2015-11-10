@@ -2,14 +2,14 @@ require 'signup_error_handler'
 
 describe SignupErrorHandler do
   context "when passed an error during sign-up validation" do
-    let(:errors) {
+    let(:errors) do
       [['Username is already taken'],
        ['Username must not be blank'],
        ['Email is already taken'],
        ['Email has an invalid format'],
        ['Email must not be blank'],
        ['Password does not match the confirmation']]
-     }
+     end
 
     it "returns :username_error if the username is already taken" do
       expect(described_class.run(errors, :username_error)).to eq :username_error

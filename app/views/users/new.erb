@@ -4,22 +4,22 @@
   <form action='/users/new' method='post'>
     <div>
       <%= @username_error ? "This username has already been taken, please enter another one:" : "Please enter your username:" %></br>
-      <input type='text' name='username' value='<%= @username || "djtango"%>' required>
+      <input type='text' name='username' value='<%= @username || "username goes here" %>' required>
     </input>
     </div>
     <div>
       <%= @email_error ? "This email address is already taken, please enter another one:" : "Please enter your email address:" %></br>
-      <input type='email' name='email' value='<%= @email || "dj@tan.go"%>'  required>
+      <input type='email' name='email' value='<%= @email || "user.email@domain.com" %>'  required>
       </input>
     </div>
     <div>
       Please enter your name:</br>
-      <input type='text' name='name' value='deon tan' required>
+      <input type='text' name='name' value='your name' required>
       </input>
     </div>
     <div>
       <%= @password_error ? 'Your passwords did not match, please try again:' : 'Please enter your password:' %></br>
-      <input type='password' name='password' value='dtpassword' required>
+      <input type='password' name='password' value='password' required>
       <% if @length_error %>
         Passwords must be at least six characters long.
       <% end %>
@@ -27,7 +27,7 @@
     </div>
     <div>
       Please confirm your password:</br>
-      <input type='password' name='password_confirmation' value='dtpassword' required>
+      <input type='password' name='password_confirmation' value='password_confirmation' required>
       </input>
     </div>
     <input type='submit' name='sign-up' value='Sign up!'>

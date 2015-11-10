@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
-    redirect('/peeps') if not session[:user_id].nil?
+    redirect('/peeps') unless session[:user_id].nil?
     erb :'sessions/new'
   end
 

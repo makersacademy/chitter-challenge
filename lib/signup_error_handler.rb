@@ -9,7 +9,7 @@ class SignupErrorHandler
     select_error(errors, error_type).first
   end
 
-private
+  private
 
   def unpack_errors(errors)
     unpacked_errors = []

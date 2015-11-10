@@ -5,16 +5,15 @@ class TimeAgo
   end
 
   def run(time)
-    p "run #{time}"
     time_ago = largest_denomination(time)
     "#{time_ago.last} #{time_ago.first}#{time_ago.last > 1 ? 's' : ''}"
   end
 
-private
-DENOMINATIONS = {day: 86400,
-                 hour: 3600,
-                 minute: 60,
-                 second: 1}
+  private
+  DENOMINATIONS = {day: 86_400,
+                   hour: 3600,
+                   minute: 60,
+                   second: 1}
 
   def largest_denomination(time)
     time_by_denomination(time).select{|denomination, amount| amount > 0}.first

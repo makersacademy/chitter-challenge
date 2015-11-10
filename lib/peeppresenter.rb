@@ -11,10 +11,10 @@ class PeepPresenter
   def run(peep)
     present(peep)
   end
-private
+  private
 
   def present(peep)
-    "'#{body_text(peep)}' #{time_posted(peep)} ago from #{name_of_peeper(peep)}"
+    "'<strong>#{body_text(peep)}</strong>' <sub>#{time_posted(peep)} ago from #{name_of_peeper(peep)}</sub>"
   end
 
   def body_text(peep)
@@ -22,8 +22,6 @@ private
   end
 
   def time_posted(peep)
-    p "peep: #{peep}"
-    p "created at: #{peep.created_at}"
     @time_ago_klass.run(peep.created_at - 1)
   end
 

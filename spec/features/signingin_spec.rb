@@ -11,10 +11,10 @@ feature "Signing in:" do
     end
 
     scenario "a user should not be created if there is the passwords do not match" do
-      expect{
-      visit('users/new')
-      fill_in('password_confirmation', with: 'wrong')
-        }.not_to change(User, :count)
+      expect do
+        visit('users/new')
+        fill_in('password_confirmation', with: 'wrong')
+      end.not_to change(User, :count)
     end
 
     scenario "the page should not duplicate usernames or emails" do
