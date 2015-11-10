@@ -12,6 +12,7 @@ require './app/controllers/users'
 require './app/controllers/peeps'
 
 require './lib/signup_error_handler'
+require './lib/peeppresenter'
 
 
 class Chitter < Sinatra::Base

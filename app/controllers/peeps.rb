@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
   get '/peeps' do
     redirect('/sessions/new') if session[:user_id].nil?
-    @name ||= User.first_name(session[:user_id])
+    @name ||= current_user.first_name
     @peeps = Peep.all
     erb :'peeps/index'
   end

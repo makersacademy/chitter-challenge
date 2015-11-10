@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
-    @name = User.first_name(session[:user_id])
+    @name = current_user.first_name
     session[:user_id] = nil
     erb :'users/logout'
   end

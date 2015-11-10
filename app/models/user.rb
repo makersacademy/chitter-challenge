@@ -15,8 +15,8 @@ class User
   validates_confirmation_of :password
   # validates_length_of :password_confirmation, min: 6
 
-  def self.first_name(id)
-    User.get(id) ? User.get(id).name.split(' ').first : nil
+  def first_name
+    self.name.split(' ').first
   end
 
   def self.authenticate(email_or_username, password)
