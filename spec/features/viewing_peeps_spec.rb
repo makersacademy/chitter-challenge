@@ -1,11 +1,11 @@
-feature 'Viewing peeps' do
+feature 'Viewing links' do
 
-  scenario 'I can see exisiting peeps on the timeline page' do
-    Peep.create(peeps: 'This is a test', time: 'Thu Jan 1 00:00:00 2015')
+  scenario 'i can see exisiting links on the links page' do
+    Peep.create(peeps: 'this is a test', time: '22/10/15 10:59am')
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do
-      expect(page).to have_content('This is a test', 'Thu Jan 1 00:00:00 2015')
+      expect(page).to have_content 'this is a test'
     end
   end
 end
