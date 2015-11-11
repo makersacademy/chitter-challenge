@@ -21,6 +21,7 @@ feature 'Signing up' do
 
   scenario "won't allow multiple entries of the same email address" do
     sign_up
+    click_button 'Sign out'
     expect{sign_up}.not_to change(User, :count)
   end
 end

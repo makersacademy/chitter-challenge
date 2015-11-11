@@ -23,9 +23,22 @@
       <% Peep.all.reverse.each do |peep| %>
         <li>
           <%= peep.user.user_name %> said
-          <%= peep.text %> at <%= peep.time.strftime("%H:%M")%> on
+          <%= peep.text %>. at <%= peep.time.strftime("%H:%M")%> on
           <%= peep.time.strftime("%D") %>
         </li>
+          <% if current_user %>
+            <form action='/home/reply' method=post>
+              <input type=submit name= '<%= peep.id %>' value='reply'>
+            </form>
+          <% end %>
+            <ul id='replies'>
+                <% peep.replies.reverse.each do |reply| %>
+                  <li>
+                    <%= reply.user.user_name %> replied with:
+                    <%= reply.text %>. at <%= reply.time.strftime("%H:%M")%> on
+                    <%= reply.time.strftime("%D") %>
+                  </li>
+                <% end %>
       <% end %>
     </ul>
     <%= yield %>

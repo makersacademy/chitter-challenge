@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    current_user ? redirect('/home') : erb(:index )
   end
 
   get '/user/sign_up' do
@@ -38,6 +38,24 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     erb :home
+  end
+
+  post '/home/reply' do
+    session[:peep_id] = params.keys.first
+    redirect '/home/new_reply'
+  end
+
+  get '/home/new_reply' do
+    erb :new_reply
+  end
+
+  post '/home/new_reply_post' do
+    peep = Peep.get(session[:peep_id])
+    reply = Reply.new(text: params[:reply_box], time: Time.now)
+    reply.user = current_user
+    reply.peep = peep
+    reply.save!
+    redirect '/home'
   end
 
   post '/home/new_post' do
