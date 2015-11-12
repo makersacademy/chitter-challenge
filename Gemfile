@@ -6,6 +6,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
 # gem 'rspec-sinatra'
 gem 'sinatra'
+gem 'database_cleaner'
 
 group :development, :test do
   gem 'capybara'

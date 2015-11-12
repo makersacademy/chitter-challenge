@@ -1,6 +1,6 @@
 feature 'Viewing links' do
 
-  scenario 'i can see exisiting links on the links page' do
+  scenario 'I can see exisiting links on the links page' do
     Peep.create(peeps: 'this is a test', time: '22/10/15 10:59am')
     visit '/peeps'
     expect(page.status_code).to eq 200
