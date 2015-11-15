@@ -1,7 +1,9 @@
 main {
   flex:1;
   background-color: #FA807F;
-  -webkit-filter: brightness(1.2) saturate(1);
+  background-image: url(../images/london-night.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
   }
 
 footer {
