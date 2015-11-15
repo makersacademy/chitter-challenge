@@ -15,7 +15,7 @@
   </head>
 
   <body>
-
+    <div class="wrapper">
     <header>
       <nav class="navbar-default navbar-fixed-top">
         <div class="container-fluid bg-danger">
@@ -47,8 +47,9 @@
     </header>
 
     <main>
-      <h2>Chitter</h2>
-
+      <br>
+      <br>
+      <br>
       <div id='notice'><%= flash[:logout] if flash[:logout] %></div>
 
       <%= flash[:login_error] if flash[:login_error] %>
@@ -77,8 +78,10 @@
     </main>
 
     <footer>
-
+        © 2015 Chitter by Hamza Sheikh, while at <a href="http://www.makersacademy.com/" target="_blank">Makers Academy</a> | <a href="https://github.com/hsheikhm" target="_blank">GitHub</a> | <a href="https://uk.linkedin.com/in/hamza-sheikh-b111a975" target="_blank">LinkedIn</a> | <a href="https://hsheikhm.wordpress.com/" target="_blank">Blog</a> |
     </footer>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../public/js/bootstrap.min.js"></script>
     <script src="../public/js/npm.js"></script>

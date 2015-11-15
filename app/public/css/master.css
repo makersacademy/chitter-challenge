@@ -1,7 +1,36 @@
+main {
+  flex:1;
+  background-color: #FA807F;
+  -webkit-filter: brightness(1.2) saturate(1);
+  }
+
+footer {
+  height: 28px;
+  background-color: #FFFAFA !important;
+  margin-top: 14px;
+  text-align: center;
+  color: red;
+  font-size: 12px;
+}
+
+footer > a:link {
+  color: red;
+}
+
+footer > a:visited {
+  color: red;
+}
+
 .container-fluid {
   background-color: #FFFAFA !important;
 }
 
 .navbar-brand, .navbar-text {
   color: red !important;
+}
+
+.wrapper {
+  height:100vh;
+  display:flex;
+  flex-direction: column;
 }
