@@ -1,3 +1,7 @@
-button {
-  
+.container-fluid {
+  background-color: white !important;
+}
+
+.navbar-brand, .navbar-text {
+  color: red !important;
 }
