@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chitter</title>
-    <link rel="stylesheet" href="../public/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../public/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="../public/css/master.css">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -20,19 +20,23 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="btn btn-default navbar-btn"><a class="navbar-chitter" href="/signup">Chitter</a></button>
-            <button type="button" class="btn btn-default navbar-btn"><a class="navbar-sign-up" href="/signup">Sign Up</a></button>
-            <button type="button" class="btn btn-default navbar-btn"><a class="navbar-login" href="/login">Login</a></button>
-            <button type="button" class="btn btn-default navbar-btn"><a class="navbar-peeps" href="/home">Peeps</a></button>
-            <form class="navbar-form navbar-right"action="/sessions" method="post">
-              <input type="hidden" name="_method" value="delete">
-              <button class="btn btn-default" type="submit">Logout</button>
-            </form>
-            <form class="navbar-form navbar-right" role="search">
+            <a class="navbar-brand" href="/signup">Chitter</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
               </div>
-              <button type="submit" class="btn btn-default navbar-right">Submit</button>
+              <button type="submit" class="btn btn-default btn-sm">Submit</button>
+            </form>
+            <a href="/signup"><button type="button" class="btn btn-danger btn-sm navbar-btn">Sign Up</button></a>
+            <a href="/login"><button type="button" class="btn btn-danger btn-sm navbar-btn">Login</button></a>
+            <a href="/home"><button type="button" class="btn btn-danger btn-sm navbar-btn">Peeps</button></a>
+            <form class="navbar-form navbar-right" action="/sessions" method="post">
+              <div class="form-group">
+                <input type="hidden" class="form-control" name="_method" value="delete">
+              </div>
+              <button type="submit" class="btn btn-danger btn-sm">Logout</button>
             </form>
             <% if current_maker %>
               <p class="navbar-text navbar-right">Welcome, <%= current_maker.name %></p>
