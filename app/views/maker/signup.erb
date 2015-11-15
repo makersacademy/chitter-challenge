@@ -15,8 +15,26 @@
 
   <body>
 
-    <div id="signup-form">
+    <div class="container">
       <form class="form-horizontal" action="/signup-details" method="post">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label"></label>
+          <div class="col-sm-3">
+            <p style="color: white; font-size: 16px;">Current User?</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a href="/login"><button type="button" class="btn btn-danger">Login to my Account</button></a>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label"></label>
+          <div class="col-sm-3">
+            <p style="color: white; font-size: 16px;">New to Chitter? Sign Up</p>
+          </div>
+        </div>
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label"></label>
           <div class="col-sm-3">
@@ -50,7 +68,7 @@
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
-              <label>
+              <label style="color: white;">
                 <input type="checkbox"> Remember me
               </label>
             </div>
@@ -63,13 +81,6 @@
         </div>
       </form>
     </div>
-
-    <h3>Already have an account? Click below to login</h3>
-
-    <form action="/login">
-      <button type="submit">Login to my account</button>
-    </form>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../public/js/bootstrap.min.js"></script>

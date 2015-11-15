@@ -2974,14 +2974,15 @@ select[multiple].input-lg {
   min-height: 27px;
 }
 .form-horizontal .form-group {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
     padding-top: 7px;
     margin-bottom: 0;
     text-align: right;
+    /*margin-right: 600px;*/
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {

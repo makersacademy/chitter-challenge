@@ -27,6 +27,13 @@ footer > a:visited {
   background-color: #FFFAFA !important;
 }
 
+.container {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  margin-left: 679px !important;
+  margin-top: 51px !important;
+}
+
 .navbar-brand, .navbar-text {
   color: red !important;
 }
@@ -35,4 +42,8 @@ footer > a:visited {
   height:100vh;
   display:flex;
   flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 6px !important;
 }
