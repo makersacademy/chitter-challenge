@@ -15,6 +15,7 @@ class User
   property :user_name, String
 
   has n, :peeps
+  has n, :replies
 
   validates_confirmation_of :password
   validates_presence_of :email

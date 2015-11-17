@@ -10,6 +10,14 @@
         <article><%= peep.content %></article><br>
         Author:   <%= peep.user.name %><br>
         Time: <%= peep.time.strftime("Sent on %d/%m/%Y at %I:%M%p") %><br><br>
+        <form action='/reply/<%=peep.id %>'>
+          <input type='submit' name="submit-reply" value='Reply'>
+        </form><br>
+          <% peep.replies.each do |reply| %>
+            <article><%= reply.content %></article><br>
+            Author:   <%= reply.user.name %><br>
+            Time: <%= reply.time.strftime("Sent on %d/%m/%Y at %I:%M%p") %><br><br>
+          <% end %>
       <% end %>
     </ul>
   </body>

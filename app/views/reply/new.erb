@@ -1,0 +1,17 @@
+<% if current_user %>
+  <div>
+    <form action="/reply/:id/peeps" method="post">
+    <textarea type="text" cols="40" rows ="5" name="content"></textarea><br>
+    <input type="submit" value="Post reply">
+    </form>
+  </div>
+<% else %>
+<p>Please sign in or sign up to reply to peeps</p>
+<form action="/users/new">
+  <input type="submit" value="Sign up">
+</form>
+<br>
+<form action="/sessions/new">
+  <input type="submit" value="Sign in">
+</form>
+<% end %>

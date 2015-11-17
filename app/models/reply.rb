@@ -1,4 +1,4 @@
-class Peep
+class Reply
 
   include DataMapper::Resource
 
@@ -7,6 +7,6 @@ class Peep
   property :time, Time
 
   belongs_to :user
-  has n, :replies
+  belongs_to :peep
 
 end

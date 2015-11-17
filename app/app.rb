@@ -69,6 +69,21 @@ class Chitter < Sinatra::Base
     erb :'peeps'
   end
 
+  get '/reply/:id' do
+    session[:id] = params[:id]
+    erb :'reply/new'
+  end
+
+  post '/reply/:id/peeps' do
+    peep = Peep.first(id: session[:id])
+    reply = Reply.create(content: params[:content], time: Time.now)
+    peep.replies << reply
+    current_user.replies << reply
+    peep.save
+    current_user.save
+    redirect to('/peeps')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
