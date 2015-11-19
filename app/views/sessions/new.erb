@@ -1,17 +1,15 @@
-<body>
-  <section id='sign_in' class="container-fluid col-sm-6 col-sm-offset-2">
-    <div style='margin: 10px'>
-      <h4 class='col-sm-offset-2'>Log in to Chitter</h4>
-      <form action='/sessions/new' method='post'>
-        <input class='input_box col-sm-6 col-sm-offset-2' type='text' name='email' value placeholder="Email">
-        <br>
-        <input class='input_box col-sm-6 col-sm-offset-2' type='password' name='password' value placeholder="Password">
-        <br>
-        <input id='sign_in_button' class='btn btn-primary col-sm-4 col-sm-offset-3' type='submit' value='Sign in'>
-      </form>
-    </div>
-    <div id="log_in_new" class="container-fluid col-sm-12">
-      <p class='col-sm-offset-2'>New to Chitter? <a href='/users/new'>Sign Up Now »</a><p>
-    </div>
-  </section>
-</body>
+<section id='sign_in' class="container-fluid col-sm-6 col-sm-offset-2">
+  <div style='margin: 10px'>
+    <h4 class='col-sm-offset-2'>Log in to Chitter</h4>
+    <form action='/sessions/new' method='post'>
+      <input class='input_box col-sm-6 col-sm-offset-2' type='text' name='email' value placeholder="Email">
+      <br>
+      <input class='input_box col-sm-6 col-sm-offset-2' type='password' name='password' value placeholder="Password">
+      <br>
+      <input id='sign_in_button' class='btn btn-primary col-sm-4 col-sm-offset-3' type='submit' value='Sign in'>
+    </form>
+  </div>
+  <div id="log_in_new" class="container-fluid col-sm-12">
+    <p class='col-sm-offset-2'>New to Chitter? <a href='/users/new'>Sign Up Now »</a><p>
+  </div>
+</section>

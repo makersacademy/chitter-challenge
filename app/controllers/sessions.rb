@@ -14,7 +14,7 @@ module ChitterApp
         if user
           session[:user_id] = user.id
           session[:username] = user.username
-          redirect to('/')
+          redirect to('/peeps')
         else
           flash.now[:errors] = ['The email or password is incorrect']
           erb :'sessions/new'
@@ -23,8 +23,7 @@ module ChitterApp
 
       delete '/sessions' do
         session[:user_id] = nil
-        flash.now[:notice] = "Goodbye!"
-        erb :'sessions/goodbye'
+        redirect to('/')
       end
     end
 

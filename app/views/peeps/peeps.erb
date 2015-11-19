@@ -1,24 +1,26 @@
 <h1>Peeps</h1>
-
-<% if current_user %>
-<form action='/peeps/new'>
-  <input type='submit' value='New Peep'>
-</form>
-<% end %>
 <br>
-<div id='peep' style='width: 502px; height:auto; overflow: auto;'>
+<div id='peep' class="container-fluid col-sm-7 col-sm-offset-3">
+  <% if current_user %>
+    <div id='peep_container' class="user_text container-fluid col-sm-12">
+      <form action="/peeps" method="post">
+      <textarea id='make_a_peep' type="text" class="form-control" placeholder="Text input"></textarea>
+      <input id='submit_a_peep' class='btn btn-primary col-sm-3 col-sm-offset-9' type="submit" value="Create Peep">
+      </form>
+    </div>
+  <% end %>
   <% @peeps.reverse.each do |peep| %>
-    <div class="user_text" style='width: 502px; float: left; background-color: white; border: solid 1px black'>
+    <div class="peep_text user_text container-fluid col-sm-12">
       <div style='width: 500px; float: left'><%= peep.peep %></div>
       <div style='width: 300px; float: left'><%= peep.username.capitalize %></div>
       <div style='width: 200px; float: left'><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %></div>
       <div style='width: 500px; float: left'><a href="/peeps/<%= peep.id %>/reply">reply</a></div>
       </div>
       <% peep.replies.each do |reply| %>
-      <div class="user_text" style='width: 502px; float: left; background-color: white; border: solid 1px black'>
-      <div align="right" style='width: 500px; float: right'><%= reply.reply %></div>
-      <div align="right" style='width: 300px; float: right'><%= reply.username.capitalize %></div>
-      <div align="right" style='width: 200px; float: right'><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %></div>
+      <div class="reply_text user_text container-fluid col-sm-11 col-sm-offset-1">
+      <div style='width: 500px; float: left'><%= reply.reply %></div>
+      <div style='width: 300px; float: left'><%= reply.username.capitalize %></div>
+      <div style='width: 200px; float: left'><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %></div>
       </div>
       <% end %>
     <% end %>
