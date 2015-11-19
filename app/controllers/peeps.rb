@@ -38,6 +38,12 @@ module ChitterApp
         redirect to('/peeps')
       end
 
+      delete '/peeps/:id/delete' do
+        peep = Peep.first(id: params[:id])
+        peep.destroy
+        redirect to('/peeps')
+      end
+
     end
 
   end

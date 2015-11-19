@@ -14,14 +14,22 @@
       <div style='width: 500px; float: left'><%= peep.peep %></div>
       <div style='width: 300px; float: left'><%= peep.username.capitalize %></div>
       <div style='width: 200px; float: left'><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %></div>
-      <div style='width: 500px; float: left'><a href="/peeps/<%= peep.id %>/reply">reply</a></div>
+      <div style='width: 300px; float: left'><a href="/peeps/<%= peep.id %>/reply">reply</a></div>
+      <div style='width: 200px; float: right'>
+        <% if current_user.username == peep.username %>
+          <form action="/peeps/<%= peep.id %>/delete" method="POST">
+            <input name="_method" type="hidden" value="DELETE" />
+            <input type="submit" value="Delete" />
+          </form>
+        <% end %>
       </div>
-      <% peep.replies.each do |reply| %>
+    </div>
+    <% peep.replies.each do |reply| %>
       <div class="reply_text user_text container-fluid col-sm-11 col-sm-offset-1">
       <div style='width: 500px; float: left'><%= reply.reply %></div>
       <div style='width: 300px; float: left'><%= reply.username.capitalize %></div>
       <div style='width: 200px; float: left'><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %></div>
-      </div>
-      <% end %>
+    </div>
     <% end %>
+  <% end %>
 </div>
