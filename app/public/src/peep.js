@@ -8,11 +8,7 @@ $(document).ready(function() {
 
   var inp = $('#make_a_peep').val();
 
-  if (jQuery.trim(inp).length === 0) {
-    $('#make_a_peep').blur(function() {
-      $('#make_a_peep').css('height', '35px');
-      $('#peep_container').animate({height:'55px'});
-      $('#submit_a_peep').hide();
-    });
-  }
+  $('#make_a_peep').keypress(function(e) {
+    $('#submit_a_peep').show();
+  });
 });

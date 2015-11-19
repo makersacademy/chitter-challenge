@@ -4,7 +4,7 @@
   <% if current_user %>
     <div id='peep_container' class="user_text container-fluid col-sm-12">
       <form action="/peeps" method="post">
-      <textarea id='make_a_peep' type="text" class="form-control" placeholder="Text input"></textarea>
+      <textarea id='make_a_peep' name="peep" type="text" class="form-control" placeholder="Text input"></textarea>
       <input id='submit_a_peep' class='btn btn-primary col-sm-3 col-sm-offset-9' type="submit" value="Create Peep">
       </form>
     </div>
