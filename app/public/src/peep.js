@@ -11,4 +11,13 @@ $(document).ready(function() {
   $('#make_a_peep').keypress(function(e) {
     $('#submit_a_peep').show();
   });
+
+var labelID;
+
+  $('label').click(function() {
+    console.log("hello")
+    labelID = $(this).attr('for');
+    console.log(labelID);
+    $('#'+labelID).trigger('click');
+  });
 });

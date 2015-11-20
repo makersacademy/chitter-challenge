@@ -1,4 +1,18 @@
 <% if current_user %>
+  <div class="container-fluid col-sm-7">
+    <div class="peep_text user_text container-fluid col-sm-12">
+      <div style='width: 500px; float: left'><%= @peep.peep %></div>
+      <div style='width: 300px; float: left'><%= @peep.username.capitalize %></div>
+      <div style='width: 200px; float: left'><%= @peep.created_at.strftime("%d/%m/%Y %H:%M") %></div>
+    </div>
+    <% @peep.replies.each do |reply| %>
+      <div class="reply_text user_text container-fluid col-sm-11 col-sm-offset-1">
+      <div style='width: 500px; float: left'><%= reply.reply %></div>
+      <div style='width: 300px; float: left'><%= reply.username.capitalize %></div>
+      <div style='width: 200px; float: left'><%= reply.created_at.strftime("%d/%m/%Y %H:%M") %></div>
+      </div>
+    <% end %>
+  </div>
   <div>
     <form action="/peeps/:id/reply" method="post">
     <textarea name="reply" rows=5 cols=20 placeholder="Reply here">

@@ -106,3 +106,9 @@ section#sign_in_home {
   margin-top: 5px;
   display: none;
 }
+.delete {
+  display: none; !important
+}
+label {
+  cursor: pointer;
+}

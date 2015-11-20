@@ -25,6 +25,7 @@ module ChitterApp
 
       get '/peeps/:id/reply' do
         session[:id] = params[:id]
+        @peep = Peep.first(id: params[:id])
         erb :'reply/new'
       end
 

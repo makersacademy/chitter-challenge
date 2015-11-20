@@ -19,7 +19,9 @@
         <% if current_user.username == peep.username %>
           <form action="/peeps/<%= peep.id %>/delete" method="POST">
             <input name="_method" type="hidden" value="DELETE" />
-            <input type="submit" value="Delete" />
+            <label for="delete_peep_<%= peep.id %>">Delete
+              <input id="delete_peep_<%= peep.id %>" class="delete" type="submit" value="Delete" />
+            </label>
           </form>
         <% end %>
       </div>
