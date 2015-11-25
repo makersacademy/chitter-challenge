@@ -89,9 +89,6 @@ section#sign_in_home {
   min-height: 100%;
   margin-top: 20px;
 }
-#peep {
-  background-color: gray;
-}
 #make_a_peep {
   align-content: top;
   height: 35px;
