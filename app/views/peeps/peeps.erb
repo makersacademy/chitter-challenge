@@ -16,7 +16,7 @@
       <div style='width: 200px; float: left'><%= peep.created_at.strftime("%d/%m/%Y %H:%M") %></div>
       <div style='width: 300px; float: left'><a href="/peeps/<%= peep.id %>/reply">reply</a></div>
       <div style='width: 200px; float: right'>
-        <% if current_user.username == peep.username %>
+        <% if current_user && current_user.username == peep.username %>
           <form action="/peeps/<%= peep.id %>/delete" method="POST">
             <input name="_method" type="hidden" value="DELETE" />
             <label for="delete_peep_<%= peep.id %>">Delete
