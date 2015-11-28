@@ -5,8 +5,7 @@ A twitter clone that allows users to post messages to a public stream
 ## Set Up
 
 ```
-$ git clone
-https://github.com/hvenables/chitter-challenge.git
+$ git clone https://github.com/hvenables/chitter-challenge.git
 bundle
 ```
 
