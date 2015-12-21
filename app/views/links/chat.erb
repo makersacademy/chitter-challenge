@@ -17,7 +17,7 @@
   <ol id='peeps' reversed>
     <% @peeps.reverse_each do |peeps| %>
     <li>
-      <%= user_name.username %> - <%= peeps.message %>
+    <%= peeps.time %>: @<%= user_name.username %> peeped "<%= peeps.message %>"
     </li>
     <% end %>
 </ol>

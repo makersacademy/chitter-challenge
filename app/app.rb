@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
       end
 
       post '/chat' do
-        peep = Peep.create(message: params[:message])
+        peep = Peep.create(message: params[:message], time: Time.new.asctime)
           # params[:].split.each do |tag|
           #   link.tags << Tag.create(tags: tag)
           peep.save
