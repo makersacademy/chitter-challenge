@@ -14,10 +14,10 @@
   <div style='vertical-align: middle'>
 <form action='/users' method='post'>
   <label for='name'>
-   Name: <input name='name' type='text'>
+   Name: <input name='name' type='text' value='<%=flash[:name]%>'>
   </label>
   <label for='username'>
-   Username: <input name='username' type='text'>
+   Username: <input name='username' type='text' value='<%=flash[:username]%>'>
   </label>
   <label for='email'>
     Email: <input name='email' type='email' value='<%=flash[:email]%>'>
@@ -30,5 +30,11 @@
   </label>
   <input type='submit' value='Sign up'>
 </form>
+<br>
+</head><h2> Already a member of Chitter? </h2>
+<h3> Click below to sign in: <form action="/session/new" method="get">
+<input type="submit" value="Sign in">
+</form>  </h3>
+
 </body>
 </html>

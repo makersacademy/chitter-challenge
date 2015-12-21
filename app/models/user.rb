@@ -9,9 +9,9 @@ class User
 
   include DataMapper::Resource
   property :id, Serial
-  property :name, String
-  property :username, String
-  property :email, String, required: true
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, Text
 
   validates_confirmation_of :password, message: 'Password confirmation incorrect'

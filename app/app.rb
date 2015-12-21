@@ -29,6 +29,8 @@ class Chitter < Sinatra::Base
       else
         flash[:error] = user.errors.full_messages.join('. ')
         flash[:email] = params[:email]
+        flash[:name] = params[:name]
+        flash[:username] = params[:username]
         redirect '/users/new'
       end
     end
@@ -36,6 +38,23 @@ class Chitter < Sinatra::Base
       get '/chat' do
         erb :'links/chat'
       end
-      
+
+
+      get '/session/new' do
+        erb :'session/new'
+      end
+
+      post '/session' do
+        user = User.first(email: params[:email])
+        if user.password == params[:password]
+          session[:user_id] = user.id
+          redirect '/chat'
+        else
+          flash[:password] = 'Password incorrect'
+          flash[:email] = params[:email]
+          redirect '/session/new'
+        end
+      end
+
   run! if app_file == $0
   end
