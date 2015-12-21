@@ -10,7 +10,7 @@ def sign_up(name: 'Andrew Htun', username: 'htunny', email: 'andy_htun@hotmail.c
 end
 
 def sign_in(email: 'andy_htun@hotmail.com', password: 'Apples')
-  User.create(email: email, password: password, password_confirmation: password)
+  User.create(email: email, password: password)
   visit '/session/new'
   expect(page.status_code).to eq(200)
   fill_in :email, with: email
@@ -19,5 +19,7 @@ def sign_in(email: 'andy_htun@hotmail.com', password: 'Apples')
 end
 
 def sign_out
+  visit '/chat'
+   expect(page.status_code).to eq(200)
   click_button 'Log out'
 end

@@ -40,7 +40,6 @@ class Chitter < Sinatra::Base
         erb :'links/chat'
       end
 
-
       get '/chat/add' do
         erb :'links/add'
       end
@@ -52,7 +51,6 @@ class Chitter < Sinatra::Base
           peep.save
           redirect '/chat'
        end
-
 
       get '/session/new' do
         erb :'session/new'

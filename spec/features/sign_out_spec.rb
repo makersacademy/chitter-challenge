@@ -1,5 +1,6 @@
 feature 'Signing out' do
   scenario 'user should be able to sign out' do
+    sign_up
     sign_in
     sign_out
     expect(current_path).to eq '/session/new'

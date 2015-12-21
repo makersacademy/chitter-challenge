@@ -1,5 +1,6 @@
 feature 'add a peep' do
   scenario 'add a peep to Chitter' do
+    sign_up
     sign_in
     expect(current_path).to eq('/chat')
     click_button('Peep a new message')
