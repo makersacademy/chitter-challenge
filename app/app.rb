@@ -36,8 +36,22 @@ class Chitter < Sinatra::Base
     end
 
       get '/chat' do
+        @peeps = Peep.all
         erb :'links/chat'
       end
+
+
+      get '/chat/add' do
+        erb :'links/add'
+      end
+
+      post '/chat' do
+        peep = Peep.create(message: params[:message])
+          # params[:].split.each do |tag|
+          #   link.tags << Tag.create(tags: tag)
+          peep.save
+          redirect '/chat'
+       end
 
 
       get '/session/new' do

@@ -9,6 +9,18 @@
   <h2> Welcome, <%= user_name.username %>! </h2>
   <% end %>
 
+  <form action="/chat/add" method="get">
+  <input type="submit" value="Peep a new message">
+  </form>
+
+  <h3> Latest Peeps </h3>
+  <ul id='peeps'>
+    <% @peeps.each do |peeps| %>
+    <li>
+      Peep: <%= peeps.message %>
+    </li>
+    <% end %>
+</ul>
 </body>
 <form action='/session' method='post'>
   <input type='hidden' name='_method' value='delete'>
