@@ -14,13 +14,13 @@
   </form>
 
   <h3> Latest Peeps </h3>
-  <ul id='peeps'>
-    <% @peeps.each do |peeps| %>
+  <ol id='peeps' reversed>
+    <% @peeps.reverse_each do |peeps| %>
     <li>
-      <%= user_name.username %>: <%= peeps.message %>
+      <%= user_name.username %> - <%= peeps.message %>
     </li>
     <% end %>
-</ul>
+</ol>
 </body>
 <form action='/session' method='post'>
   <input type='hidden' name='_method' value='delete'>
