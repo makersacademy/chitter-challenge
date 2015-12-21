@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title> Chitter </title>
+  <h2> <%= flash[:goodbye] %> </h2>
 </head><h1> Please log in </h1>
 <%= flash[:password] %>
 <form action='/session' method='post'>
@@ -14,3 +15,9 @@
   </label>
   <input type='submit' value='Log in'>
 </form>
+<br>
+<h3> Not yet a member? </h3>
+<h4> Click here to sign up:
+<form action="/users/new" method="get">
+<input type="submit" value="Sign up">
+</form> </h4>

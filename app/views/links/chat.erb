@@ -8,4 +8,9 @@
   <% if user_name %>
   <h2> Welcome, <%= user_name.username %>! </h2>
   <% end %>
+
 </body>
+<form action='/session' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Log out'>
+</form>

@@ -17,3 +17,7 @@ def sign_in(email: 'andy_htun@hotmail.com', password: 'Apples')
   fill_in :password, with: password
   click_button 'Log in'
 end
+
+def sign_out
+  click_button 'Log out'
+end
