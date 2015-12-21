@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Chitter </title>
+</head>
+<div style='text-align: center; font-family: Helvetica'>
+<img src='https://d21buns5ku92am.cloudfront.net/46038/images/151145-chitter_logo-fd27ff-medium-1418117906.png'>
+<head>
+<h1>Welcome to Chitter!</h1>
+<h2>Please sign up</h2>
+</head>
+<%= flash[:error] %>
+<body>
+  <div style='vertical-align: middle'>
+<form action='/users' method='post'>
+  <label for='name'>
+   Name: <input name='name' type='text'>
+  </label>
+  <label for='username'>
+   Username: <input name='username' type='text'>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='email' value='<%=flash[:email]%>'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Confirm password: <input name='password_confirmation' type='password'>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>
+</body>
+</html>
