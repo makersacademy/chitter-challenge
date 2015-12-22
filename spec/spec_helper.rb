@@ -101,3 +101,11 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+require_relative 'helpers/session'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
