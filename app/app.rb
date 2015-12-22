@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    current_user.peeps.create(message: params[:message])
     redirect('/peeps')
   end
 
