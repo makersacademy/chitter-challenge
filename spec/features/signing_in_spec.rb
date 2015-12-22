@@ -45,6 +45,10 @@ feature 'signing up to chitter' do
     expect{sign_up(username: nil)}.not_to change{User.count}
   end
 
+  scenario 'I can\'t sign up if i use a wrongly formatted email' do
+    expect{sign_up(email: 'bademail')}.not_to change{User.count}
+  end
+
   def sign_up(name: 'Chris', username: 'Wynndow',
               email: 'chris.wynndow@gmail.com', password: 'password',
               password_confirmation: 'password')
