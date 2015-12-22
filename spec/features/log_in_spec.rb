@@ -10,9 +10,16 @@ feature 'Logging in' do
     expect(page).to have_content('Welcome, Wynndow')
   end
 
-  scenario 'A user can\'t with the incorrect credentials' do
+  scenario 'A user can\'t with an incorrect password' do
     sign_up
     log_in(password: 'wrong')
+    expect(page).to have_content('Incorrect email or password')
+    expect(page).not_to have_content('Welcome, Wynndow')
+  end
+
+  scenario 'A user can\'t with an incorrect email' do
+    sign_up
+    log_in(email: 'wrong@email.com')
     expect(page).to have_content('Incorrect email or password')
     expect(page).not_to have_content('Welcome, Wynndow')
   end

@@ -9,11 +9,11 @@ describe User do
   describe '#authenticate' do
 
     it 'returns the user if credentials are correct' do
-      expect(user.authenticate(user.email, user.password)).to eq user
+      expect(User.authenticate(user.email, user.password)).to eq user
     end
 
     it 'returns nil if credentials are incorrect' do
-      expect(user.authenticate(user.email, 'wrong')).to eq nil
+      expect(User.authenticate(user.email, 'wrong')).to eq nil
     end
 
   end
