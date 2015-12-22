@@ -5,26 +5,34 @@
 feature 'signing up to chitter' do
 
   scenario 'I can sign up and must confirm my password' do
-    visit('/users/new')
-    expect(page.status_code).to eq 200
-    fill_in(:name, with: 'Chris')
-    fill_in(:username, with: 'Wynndow')
-    fill_in(:email, with: 'chris.wynndow@gmail.com')
-    fill_in(:password, with: 'password')
-    fill_in(:password_confirmation, with: 'password')
-    expect{click_button('Sign up')}.to change{ User.count }.by(1)
+    expect{sign_up}.to change{ User.count }.by(1)
     expect(User.first.username).to eq 'Wynndow'
   end
 
   scenario 'I can\'t sign up if confirmation doesn\'t match password' do
+    expect{sign_up(password_confirmation: 'notpassword')}.to change{ User.count }.by(0)
+  end
+
+  scenario 'I receive an error message if passwords don\'t match' do
+    sign_up(password_confirmation: 'notpassword')
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Please enter matching passwords')
+  end
+
+
+
+  def sign_up(name: 'Chris', username: 'Wynndow',
+              email: 'chris.wynndow@gmail.com', password: 'password',
+              password_confirmation: 'password')
     visit('/users/new')
     expect(page.status_code).to eq 200
-    fill_in(:name, with: 'Chris')
-    fill_in(:username, with: 'Wynndow')
-    fill_in(:email, with: 'chris.wynndow@gmail.com')
-    fill_in(:password, with: 'password')
-    fill_in(:password_confirmation, with: 'notpassword')
-    expect{click_button('Sign up')}.to change{ User.count }.by(0)
+    fill_in(:name, with: name)
+    fill_in(:username, with: username)
+    fill_in(:email, with: email)
+    fill_in(:password, with: password)
+    fill_in(:password_confirmation, with: password_confirmation)
+    click_button('Sign up')
   end
+
 
 end
