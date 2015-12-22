@@ -27,4 +27,12 @@ feature 'Signing up to Chitter' do
     expect(current_path).to eq('/users/new')
     expect(page).to have_content 'Email is already taken'
   end
+
+  scenario 'A user can only sign up with a valid email' do
+    user = User.new(name: 'Katie', username: 'Smithy', email: 'myemail.com', password: 'secret', password_confirmation: 'secret')
+    sign_up(user)
+    expect{ click_button 'Submit' }.not_to change(User, :count)
+    expect(current_path).to eq('/users/new')
+    expect(page).to have_content 'Email has an invalid format'
+  end
 end
