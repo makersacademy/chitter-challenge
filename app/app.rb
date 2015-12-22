@@ -6,9 +6,16 @@ require './app/models/user'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
+  enable :sessions
+
+  helpers do
+    def current_user
+      @current_user = User.first(id: session[:user_id])
+    end
+  end
 
   get '/' do
-    'Hello Chitter!'
+    erb :'temp'
   end
 
   get '/users/new' do
@@ -26,6 +33,21 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.first(email: params[:email])
+    if user.authenticate(params[:email], params[:password])
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash.now[:errors] = ['Incorrect email or password']
+      erb :'sessions/new'
     end
   end
 

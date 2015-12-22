@@ -23,6 +23,13 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def authenticate(email, password)
+    user = User.first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    end
+  end
+
 end
 
 DataMapper.setup(:default, 'postgres://localhost/chitter_test' )

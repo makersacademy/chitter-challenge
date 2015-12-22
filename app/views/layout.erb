@@ -5,6 +5,10 @@
 
   <body>
 
+    <%if current_user%>
+      Welcome, <%=@current_user.username%>
+    <%end%>
+
     <%if flash[:errors]%>
     <ul>
       <%flash[:errors].each do |error|%>
