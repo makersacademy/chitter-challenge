@@ -9,8 +9,8 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
-  property :email, String
+  property :username, String, unique: true, message: 'Username is already taken'
+  property :email, String, unique: true
   property :password_digest, Text
 
   attr_reader :password

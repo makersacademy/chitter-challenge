@@ -19,7 +19,19 @@ feature 'signing up to chitter' do
     expect(page).to have_content('Please enter matching passwords')
   end
 
+  scenario 'I can\'t sign up with an existing email address' do
+    sign_up
+    sign_up
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Email is already taken')
+  end
 
+  scenario 'I can\'t sign up with an existing username' do
+    sign_up
+    sign_up(email: 'chris@chris.com')
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Username is already taken')
+    end
 
   def sign_up(name: 'Chris', username: 'Wynndow',
               email: 'chris.wynndow@gmail.com', password: 'password',
