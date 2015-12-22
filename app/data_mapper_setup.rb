@@ -5,6 +5,6 @@ require 'dm-validations'
 require './app/models/user'
 require './app/models/peep'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
