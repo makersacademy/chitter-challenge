@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
 require 'dm-validations'
+require 'dm-timestamps'
 require './app/models/user'
 require './app/models/peep'
 

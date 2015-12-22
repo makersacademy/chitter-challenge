@@ -16,13 +16,6 @@ feature 'Posting Peeps' do
     expect(page).to have_content('You must be logged in to post a peep')
   end
 
-  scenario 'A peep includes the peepers name and username' do
-    sign_up
-    log_in
-    visit('/peeps/new')
-    fill_in(:message, with: 'This is a peep')
-    click_button('Post')
-    expect(page).to have_content("Chris (Wynndow)\nThis is a peep")
-  end
+
 
 end
