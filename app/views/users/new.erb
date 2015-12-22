@@ -2,19 +2,19 @@
 
 <form action='/users' method='post'>
   <label for='name'>Name:<br>
-    <input type='text' name='name'>
+    <input type='text' name='name' required>
   </label><br>
   <label for='username'>Username:<br>
-    <input type='text' name='username'>
+    <input type='text' name='username' required>
   </label><br>
   <label for='email'>Email:<br>
     <input type='email' name='email' required>
   </label><br>
   <label for='password'>Password:<br>
-    <input type='password' name='password'>
+    <input type='password' name='password' required>
   </label><br>
   <label for='password_confirmation'>Confirm password:<br>
-    <input type='password' name='password_confirmation'>
+    <input type='password' name='password_confirmation' required>
   </label><br>
     <input type='submit' value='Sign up'>
 </form>

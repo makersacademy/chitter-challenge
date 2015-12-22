@@ -8,10 +8,10 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
-  property :username, String, unique: true, message: 'Username is already taken'
+  property :name, String, required: true
+  property :username, String, required: true, unique: true, message: 'Username is already taken'
   property :email, String, unique: true, required: true
-  property :password_digest, Text
+  property :password_digest, Text, required: true
 
   attr_reader :password
   attr_accessor :password_confirmation
