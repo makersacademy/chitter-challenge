@@ -1,8 +1,7 @@
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
-require './app/models/user' #This line can probably go (or go somewhere else)
-
+require 'web_helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
