@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-require './app/models/user'
-require './app/models/peep'
+require_relative 'data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
