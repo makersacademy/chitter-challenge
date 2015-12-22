@@ -17,3 +17,12 @@
   </label>
   <input type='submit' value='Submit'>
 </form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Oops! Something went wrong:
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  </ul>
+  <% end %>
+<% end %>
