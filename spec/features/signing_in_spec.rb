@@ -10,7 +10,7 @@ feature 'signing up to chitter' do
   end
 
   scenario 'I can\'t sign up if confirmation doesn\'t match password' do
-    expect{sign_up(password_confirmation: 'notpassword')}.to change{ User.count }.by(0)
+    expect{sign_up(password_confirmation: 'notpassword')}.not_to change{ User.count }
   end
 
   scenario 'I receive an error message if passwords don\'t match' do
@@ -32,6 +32,10 @@ feature 'signing up to chitter' do
     expect(current_path).to eq '/users'
     expect(page).to have_content('Username is already taken')
     end
+
+  scenario 'I can\'t sign up if i leave the email address blank' do
+    expect{sign_up(email: nil)}.not_to change{User.count}
+  end
 
   def sign_up(name: 'Chris', username: 'Wynndow',
               email: 'chris.wynndow@gmail.com', password: 'password',
