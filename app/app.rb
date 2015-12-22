@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './app/models/user'
+require './app/models/peep'
 
 
 class Chitter < Sinatra::Base
@@ -57,6 +58,21 @@ class Chitter < Sinatra::Base
     flash.next[:notice] = "Goodbye"
     redirect('/')
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    Peep.create(message: params[:message])
+    redirect('/peeps')
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
