@@ -1,9 +1,11 @@
+require_relative 'peeps'
+
 class Chitter < Sinatra::Base
 
   get '/' do
     erb :'index'
   end
-  
+
   post '/sessions' do
     @current_user = nil
     flash[:goodbye] = 'Goodbye!'

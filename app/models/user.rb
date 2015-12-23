@@ -13,6 +13,8 @@ class User
   property :email, String, :unique => true
   property :password_digest, Text
 
+  has n, :messages
+
   attr_accessor :password_confirmation
   attr_reader :password
 

@@ -1,3 +1,14 @@
 <% if current_user %>
 Welcome, <%= current_user.username %>!
 <% end %>
+<p>
+<form action='/peeps' method='post'>
+Compose new peep: <input type='text' name='message'>
+  <input type='submit' value='Peep!'>
+</form>
+<p>
+  A list of peeps...
+  <p>
+  <% @messages.each do |message| %>
+  <%= message.message %> <br>
+  <% end %>

@@ -1,3 +1,5 @@
+require_relative 'peeps'
+
 class Chitter < Sinatra::Base
 
   get '/user/new' do
@@ -16,10 +18,6 @@ class Chitter < Sinatra::Base
       flash[:errors] = @user.errors.full_messages
       redirect '/user/new'
     end
-  end
-
-  get '/peeps' do
-    erb :'peeps'
   end
 
 end
