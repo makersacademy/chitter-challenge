@@ -27,11 +27,15 @@ feature 'User signs up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  xscenario 'unsuccessfully as username is already taken' do
-
+  scenario 'unsuccessfully as username is already taken' do
+    sign_up
+    sign_up
+    expect(page).to have_content 'Username is already taken'
   end
 
-  xscenario 'unsuccessfully as email address has already been used' do
-
+  scenario 'unsuccessfully as email address has already been used' do
+    sign_up
+    sign_up
+    expect(page).to have_content 'Email is already taken'
   end
 end

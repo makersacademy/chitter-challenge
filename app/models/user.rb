@@ -9,7 +9,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :username, String, :unique => true
   property :email, String
   property :password_digest, Text
 
@@ -17,8 +17,8 @@ class User
   attr_reader :password
 
   validates_confirmation_of :password, :confirm => :password_confirmation
-  validates_with_method :password
-  
+  # validates_with_method :password
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
