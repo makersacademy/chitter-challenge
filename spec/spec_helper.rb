@@ -11,7 +11,7 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require 'timecop'
-require_relative 'web_helpers'
+require_relative 'helpers/sessions.rb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -40,6 +40,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
