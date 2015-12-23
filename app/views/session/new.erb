@@ -1,11 +1,16 @@
+<div id='background'>
+  <div style='text-align: left; font-family: Helvetica'>
 <img src='https://d21buns5ku92am.cloudfront.net/46038/images/151145-chitter_logo-fd27ff-medium-1418117906.png'>
+<link rel="stylesheet" type="text/css" href="/stylesheet.css">
 <html>
 <head>
   <meta charset="utf-8">
   <title> Chitter </title>
   <h2> <%= flash[:goodbye] %> </h2>
-</head><h1> Please log in </h1>
+</head>
+<h1> Please log in </h1>
 <%= flash[:password] %>
+<body>
 <form action='/session' method='post'>
   <label for='email'>
     Email: <input name='email' type='email' value='<%=flash[:email]%>'>
@@ -21,3 +26,5 @@
 <form action="/users/new" method="get">
 <input type="submit" value="Sign up">
 </form> </h4>
+</div>
+</body>
