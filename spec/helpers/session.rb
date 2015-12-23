@@ -8,4 +8,11 @@ module SessionHelpers
     fill_in(:password_confirmation, with: 'maker123')
     click_button('Sign up')
   end
+
+  def log_in
+    visit '/sessions/new'
+    fill_in(:email, with: 'maker@makerson.com')
+    fill_in(:password, with: 'maker123')
+    click_button('Log in')
+  end
 end

@@ -8,3 +8,10 @@
   <% end %>
   </ul>
 <% end %>
+<% if flash[:password_error] %>
+  Error:
+  <br>
+  <ul>
+  <li><%= flash[:password_error] %></li>
+</ul>
+<% end %>
