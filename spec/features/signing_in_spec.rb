@@ -31,7 +31,7 @@ feature 'signing up to chitter' do
     sign_up(email: 'chris@chris.com')
     expect(current_path).to eq '/users'
     expect(page).to have_content('Username is already taken')
-    end
+  end
 
   scenario 'I can\'t sign up if i leave the email address blank' do
     expect{sign_up(email: nil)}.not_to change{User.count}
