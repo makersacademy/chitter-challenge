@@ -6,6 +6,7 @@ require './data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
 
   get '/' do
@@ -13,8 +14,26 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    redirect '/'
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:errors] = 'There was a problem with your log in'
+      erb :index
+    end
   end
+
+  # post '/sessions' do
+  #   user = User.authenticate(params[:email], params[:password])
+  #   if user
+  #     session[:user_id] = user.id
+  #     redirect to('/links')
+  #   else
+  #     flash.now[:errors] = ['The email or password is incorrect']
+  #     erb :'sessions/new'
+  #   end
+  # end
 
   get '/users/new' do
     erb :'users/new'
