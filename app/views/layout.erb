@@ -1,2 +1,10 @@
 <h1>Chitter</h1>
 <%= yield %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Errors:
+    <ul>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>

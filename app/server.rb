@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   set :root, File.dirname(__FILE__)
   enable :sessions
+  register Sinatra::Flash
 
   helpers do
       def current_user

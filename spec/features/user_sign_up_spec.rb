@@ -16,8 +16,15 @@ feature 'User signs up' do
     expect(page).to have_content 'Congratulations makermakerson, you have signed up to Chitter!'
   end
 
-  xscenario 'unsuccessfully and sees a password confirmation error' do
-
+  scenario 'unsuccessfully and sees a password confirmation error' do
+    visit '/user/new'
+    fill_in(:name, with: 'Maker Makerson')
+    fill_in(:email, with: 'maker@makerson.com')
+    fill_in(:username, with: 'makermakerson')
+    fill_in(:password, with: 'maker123')
+    fill_in(:password_confirmation, with: 'maker456')
+    click_button('Sign up')
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   xscenario 'unsuccessfully as username is already taken' do
