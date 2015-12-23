@@ -1,0 +1,17 @@
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to log in to Chitter
+feature 'User logs in' do
+  scenario 'sucessfully and sees welcome message' do
+    sign_up
+    visit '/sessions/new'
+    fill_in(:email, with: 'maker@makerson.com')
+    fill_in(:password, with: 'maker123')
+    click_button('Log in')
+    expect(page).to have_content 'Welcome, makermakerson!'
+  end
+
+  xscenario 'unsuccessfully due to incorrect password' do
+
+  end
+end

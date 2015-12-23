@@ -22,4 +22,12 @@ class Chitter < Sinatra::Base
     erb :'peeps'
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions/new' do
+    redirect '/peeps'
+  end
+
 end

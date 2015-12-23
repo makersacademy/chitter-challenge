@@ -7,4 +7,11 @@ feature 'Post message' do
     click_button 'takes user from sign up confirmation to posting a message'
   end
 
+  xscenario 'when logged in' do
+
+  end
+
+  xscenario 'cannot happen if logged out' do
+    
+  end
 end

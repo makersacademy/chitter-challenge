@@ -13,7 +13,7 @@ feature 'User signs up' do
 
   scenario 'successfully and sees a confirmation message' do
     sign_up
-    expect(page).to have_content 'Congratulations makermakerson, you have signed up to Chitter!'
+    expect(page).to have_content 'Welcome, makermakerson!'
   end
 
   scenario 'unsuccessfully and sees a password confirmation error' do
