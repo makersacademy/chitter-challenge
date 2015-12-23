@@ -17,7 +17,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # @username = session[:username]
     erb :'peeps'
   end
 
