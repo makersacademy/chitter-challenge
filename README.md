@@ -1,3 +1,14 @@
+This is my solution to the Makers Academy Chitter challenge.
+
+It uses Datamapper to manage a PostgreSQL database, Sinatra as a framework and bcrypt to secure the passwords.
+For testing we're using RSpec, Capybara, Timecop and databasecleaner.
+
+To install, simply clone this repo and then run ```$ Bundle``` from the command line to install all required gem's. You will need to set up two databases with PostgreSQL, one called 'chitter_test' and another called 'chitter_development'. Finally, from the command line use the included Rakefile to generate the tables required using ```$ rake db:auto_migrate```.
+
+To start the app run ```Rackup``` and then visit localhost:9292. To run the tests, simply run ```$ rspec```.
+
+Thanks
+
 Chitter Challenge
 =================
 
@@ -10,7 +21,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_october2015 (if you haven't already)
 * Forking this repo
@@ -80,7 +91,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -98,7 +109,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -108,4 +119,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
