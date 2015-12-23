@@ -9,7 +9,11 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'welcome'
+    erb :index
+  end
+
+  post '/login' do
+    redirect '/'
   end
 
   get '/users/new' do
