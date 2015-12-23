@@ -22,6 +22,6 @@ feature 'Post message' do
   scenario 'displays name and username' do
     post_message
     expect(page).to have_content('My first peep')
-    expect(page).to have_content('Maker Makerson @makermakerson')
+    expect(page).to have_content('Maker Makerson | @makermakerson')
   end
 end

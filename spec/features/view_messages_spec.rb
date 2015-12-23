@@ -23,8 +23,12 @@ feature 'View messages' do
   # So that I can see what others are saying
   # I want to see all peeps in reverse chronological order
 
-  xscenario 'reverse chronological order' do
-
+  scenario 'reverse chronological order' do
+    post_message
+    fill_in(:message, with: 'My second peep')
+    click_button 'Peep!'
+    expect(page).to have_content("My second peep")
+    expect(page).to have_content("My first peep")
   end
 
   # As a maker
@@ -32,7 +36,6 @@ feature 'View messages' do
   # I want to see the time at which it was made
 
   scenario 'with the time they were posted' do
-    visit '/peeps'
     time_stamp = Timecop.freeze(Time.now)
     post_message
     expect(page).to have_content(time_stamp.strftime("%F %T"))
