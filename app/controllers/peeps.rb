@@ -6,7 +6,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    message = Message.create(message: params[:message], user_id: current_user.id)
+    if session[:user_id]
+      message = Message.create(message: params[:message], user_id: current_user.id)
+    else
+      flash[:logged_out] = 'Oops! You need to be logged in to peep.'
+    end
     redirect '/peeps'
   end
 end

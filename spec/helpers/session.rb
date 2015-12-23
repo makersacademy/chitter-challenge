@@ -15,4 +15,5 @@ module SessionHelpers
     fill_in(:password, with: 'maker123')
     click_button('Log in')
   end
+
 end

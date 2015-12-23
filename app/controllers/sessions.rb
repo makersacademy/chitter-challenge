@@ -6,9 +6,9 @@ class Chitter < Sinatra::Base
     erb :'index'
   end
 
-  post '/sessions' do
-    @current_user = nil
-    flash[:goodbye] = 'Goodbye!'
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:goodbye] = 'Goodbye!'
     redirect '/sessions/new'
   end
 

@@ -4,6 +4,10 @@
   <%= flash[:goodbye] %>
 <% end %>
 
+<% if flash[:logged_out] %>
+  <%= flash[:logged_out] %>
+<% end %>
+
 <% if current_user %>
 <form action='/sessions' method='post'>
   <input name="_method" type="hidden" value="delete">
