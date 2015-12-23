@@ -1,5 +1,4 @@
 class Chitter < Sinatra::Base
-  enable :sessions
 
   get '/user/new' do
     erb :'user/new'
@@ -9,15 +8,16 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], email: params[:email],
                 username: params[:username], password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:username] = user.username
-    if user
+
+    if user.save
+      session[:user_id] = user.id
       redirect '/peeps'
     end
 
   end
 
   get '/peeps' do
-    @username = session[:username]
+    # @username = session[:username]
     erb :'peeps'
   end
 
