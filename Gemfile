@@ -13,4 +13,5 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'timecop'
 end

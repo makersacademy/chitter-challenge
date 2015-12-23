@@ -9,6 +9,7 @@ class Message
   property :id, Serial
   property :user_id, Integer
   property :message, Text
+  property :time, DateTime
 
   belongs_to :user
 end

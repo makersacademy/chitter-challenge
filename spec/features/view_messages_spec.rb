@@ -4,6 +4,10 @@ feature 'View messages' do
     log_in
   end
 
+  after do
+    Timecop.return
+  end
+
   scenario 'when logged in' do
     visit('/peeps')
     expect(page).to have_content('Latest peeps')
@@ -29,6 +33,8 @@ feature 'View messages' do
 
   scenario 'with the time they were posted' do
     visit '/peeps'
+    time_stamp = Timecop.freeze(Time.now)
     post_message
+    expect(page).to have_content(time_stamp.strftime("%F %T"))
   end
 end
