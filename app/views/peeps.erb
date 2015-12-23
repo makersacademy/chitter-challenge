@@ -1,9 +1,10 @@
 <% if current_user %>
-Welcome, <%= current_user.username %>!
+  Welcome, <%= current_user.username %>!
 <% end %>
 <p>
 <form action='/peeps' method='post'>
-Compose new peep: <input type='text' name='message'>
+  Compose new peep:
+  <input type='text' name='message'>
   <input type='submit' value='Peep!'>
 </form>
 <p>
@@ -11,7 +12,7 @@ Compose new peep: <input type='text' name='message'>
   <p>
   <% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
   <% sorted_messages.each do |message| %>
-  <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
-  "<%= message.message %>" <br>
-  Posted: <%= message.time.strftime("%F %T") %><p>
+    <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
+    "<%= message.message %>" <br>
+    Posted: <%= message.time.strftime("%F %T") %><p>
   <% end %>

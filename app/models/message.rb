@@ -1,7 +1,4 @@
 require 'data_mapper'
-# require 'dm-validations'
-# require 'dm-postgres-adapter'
-# require 'dm-migrations'
 
 class Message
   include DataMapper::Resource

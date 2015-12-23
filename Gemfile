@@ -10,9 +10,7 @@ gem 'bcrypt'
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rake'
-  gem 'coveralls', require: false
+  gem 'coveralls', require: true
   gem 'database_cleaner'
   gem 'timecop'
-  gem 'orderly'
 end

@@ -1,26 +1,23 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Author: Emma Beynon
 
-Challenge:
--------
+Github: https://github.com/emmabeynon
 
-As usual please start by 
+Email: emma.beynon@gmail.com
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_october2015 (if you haven't already)
-* Forking this repo
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+This is my submission for the Makers Academy Week 4 Weekend Challenge: https://github.com/makersacademy/chitter-challenge
 
-Features:
--------
+Overview
+---------
+We have been asked to create a Twitter clone (Chitter) that will allow users to post messages to a public stream.  Users sign up to chitter with their email, password, name and a user name, and the username and email must be unique.  Users don't have to be logged in to see the peeps, however you only can peep if you are logged in.
 
-```sh
+User Stories
+------------
+
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -46,66 +43,28 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+Instructions
+------------
+1. Fork this repo and clone to your local machine.
+2. Run ```gem install bundle```
+3. Once installation is complete, run ```bundle```
+4. Create a .env file in your root directory and input ```RACK_ENV=development```.  Make sure you add this file to .gitignore.
+5. Run ```psql``` and create the following databases: ```chitter_development```, ```chitter_test```.
+6. To view locally, run ```rackup``` or use your preferred interface. View at: http://localhost:9292
+7. To run the tests, run ```rspec``` in the root directory.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Approach
+---------
+This project was test-driven using RSpec and Capybara to test user interaction.  I started by creating a simple sign-up form to satisfy the first user story.  In order to store the details entered in the sign-up form I created a development and test database with a users table, and used DataMapper to map between the programme and the databases.  At this point I employed the BCrypt gem to ensure that the password is stored securely as a salted hash.  After signing in, the user is displayed a welcome message featuring their username.  If the user enters a mismatching password confirmation then an error is displayed and they are unable to proceed with the sign up process.  Additionally if the user attempts to sign up with an email address or username that is already in use, then an error is displayed and they are unable to sign up.  
 
-Bonus:
------
+With many tests being run already at this point, I decided to use Database Cleaner to remove the contents of the test database after every set of tests is run and ensure it doesn't become too messy.  Next I created log in functionality for users, with a welcome message displayed after successful login.  I then created authentication functionality so that a user can only log in if they enter the correct email address and password.  If they do not, an error message is shown and they are unable to proceed.  The final piece of user management work was to create a log out button that invalidates the session for the user logging out. When the user logs out, they see a goodbye message confirming they have logged out.
 
-If you have time you can implement the following:
+This last piece of functionality is very important for the next step, which is to allow users to post messages to Chitter.  Users should only be able to post a message when they are logged in, so it was important to get the log out functionality right.  I created a simple form for logged in users to post their message, and an error is displayed if a logged out user tries to do so.  If the user successfully posts their message, then it is stored in the messages table of the database and displayed on the page.  In order to identify who has posted which message, I edited the display of the message to include the user's name and username.  Then, I added a time column to the messages table to store the time the message was posted.  I also added this to the display of the message, and altered the sorting of the table so that the messages display in reverse chronological order
 
+Finally, in order to make navigation a bit easier in this programme, I created a homepage with buttons directing users to sign up, log in or view messages.
+
+
+Further Work
+-------------
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+* Styling

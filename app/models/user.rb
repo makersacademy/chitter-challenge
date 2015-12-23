@@ -1,8 +1,5 @@
 require 'data_mapper'
 require 'bcrypt'
-require 'dm-validations'
-require 'dm-postgres-adapter'
-require 'dm-migrations'
 
 class User
   include DataMapper::Resource
@@ -34,4 +31,5 @@ class User
       nil
     end
   end
+  
 end
