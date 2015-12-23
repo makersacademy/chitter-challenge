@@ -12,6 +12,10 @@ feature 'Post message' do
   end
 
   xscenario 'cannot happen if logged out' do
-    
+
+  end
+
+  xscenario 'displays name and username' do
+
   end
 end
