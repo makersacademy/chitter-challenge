@@ -67,4 +67,11 @@ feature 'Signing up to Chitter' do
     expect{ click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_content 'Password confirmation must not be blank'
   end
+
+  scenario 'A user must enter matching passwords' do
+    user = User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'top', password_confirmation: 'secret')
+    sign_up(user)
+    expect{ click_button 'Submit' }.not_to change(User, :count)
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
 end
