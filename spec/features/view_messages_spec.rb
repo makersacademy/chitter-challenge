@@ -1,14 +1,23 @@
-# As a maker
-# So that I can see what others are saying
-# I want to see all peeps in reverse chronological order
 feature 'View messages' do
-  xscenario 'when logged in' do
-
+  before do
+    sign_up
+    log_in
   end
 
-  xscenario 'when logged out' do
-
+  scenario 'when logged in' do
+    visit('/peeps')
+    expect(page).to have_content('Latest peeps')
   end
+
+  scenario 'when logged out' do
+    click_button('Log out')
+    visit '/peeps'
+    expect(page).to have_content('Latest peeps')
+  end
+
+  # As a maker
+  # So that I can see what others are saying
+  # I want to see all peeps in reverse chronological order
 
   xscenario 'reverse chronological order' do
 
@@ -18,7 +27,8 @@ feature 'View messages' do
   # So that I can better appreciate the context of a peep
   # I want to see the time at which it was made
 
-  xscenario 'see time' do
-    
+  scenario 'with the time they were posted' do
+    visit '/peeps'
+    post_message
   end
 end

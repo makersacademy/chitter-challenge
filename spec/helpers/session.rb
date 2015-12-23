@@ -16,4 +16,9 @@ module SessionHelpers
     click_button('Log in')
   end
 
+  def post_message
+    visit '/peeps'
+    fill_in(:message, with: 'My first peep')
+    click_button 'Peep!'
+  end
 end
