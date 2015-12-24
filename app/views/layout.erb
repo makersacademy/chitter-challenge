@@ -1,0 +1,8 @@
+<% if current_user %>
+  <h3>Signed in as: <%= @current_user.username %></h3>
+<% else %>
+  <h3>Not Signed In</h3>
+<% end %>
+
+
+<%= yield %>
