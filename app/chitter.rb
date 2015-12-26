@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  post '/peeps' do
+    redirect to('/peeps')
+  end
+
   delete '/logout' do
     env["rack.session"][:user_id] = nil
     flash.next[:notice] = 'Goodbye!'
