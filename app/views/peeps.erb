@@ -1,0 +1,12 @@
+<!-- You're not logged in
+
+
+Welcome back
+<%= @username %> -->
+
+
+<% if @username %>
+Welcome back <%= @username %>
+<% else %>
+Your're not logged
+<% end %>

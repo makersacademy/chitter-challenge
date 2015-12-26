@@ -1,5 +1,12 @@
 feature 'Signing up to Chitter' do
-  user = User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+
+  let!(:user) do
+    User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+  end
+
+  let!(:user2) do
+    User.new(name: 'Jack', username: 'Jacko', email: 'J@email.com', password: 'blue', password_confirmation: 'blue')
+  end
 
   scenario 'A user can sign up' do
     sign_up(user)
@@ -7,8 +14,7 @@ feature 'Signing up to Chitter' do
   end
 
   scenario 'A user cannot sign up with a username that is already taken' do
-    user2 = User.new(name: 'Jack', username: 'Smithy', email: 'new@email.com', password: 'sky', password_confirmation: 'sky')
-
+    user2[:username] = 'Smithy'
     sign_up(user)
     click_button 'Submit'
     sign_up(user2)
@@ -17,8 +23,7 @@ feature 'Signing up to Chitter' do
   end
 
   scenario 'A user cannot sign up with an email that is already taken' do
-    user2 = User.new(name: 'Jack', username: 'Jack123', email: 'K@email.com', password: 'sky', password_confirmation: 'sky')
-
+    user2[:email] = 'K@email.com'
     sign_up(user)
     click_button 'Submit'
     sign_up(user2)
@@ -27,28 +32,28 @@ feature 'Signing up to Chitter' do
   end
 
   scenario 'A user can only sign up with a valid email' do
-    user = User.new(name: 'Katie', username: 'Smithy', email: 'myemail.com', password: 'secret', password_confirmation: 'secret')
+    user[:email] = 'myemail.com'
     sign_up(user)
     expect{ click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_content 'Email has an invalid format'
   end
 
   scenario 'A user must enter a name' do
-    user = User.new(name: '', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+    user[:name] = ''
     sign_up(user)
     expect{ click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_content 'Name must not be blank'
   end
 
   scenario 'A user must enter a username' do
-    user = User.new(name: 'Katie', username: '', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+    user[:username] = ''
     sign_up(user)
     expect{ click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_content 'Username must not be blank'
   end
 
   scenario 'A user must enter an email' do
-    user = User.new(name: 'Katie', username: 'Smithy', email: '', password: 'secret', password_confirmation: 'secret')
+    user[:email] = ''
     sign_up(user)
     expect{ click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_content 'Email must not be blank'

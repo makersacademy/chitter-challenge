@@ -9,3 +9,12 @@
   </label>
   <input type='submit' value='Submit'>
 </form>
+
+<% if flash[:login_fail] && !flash[:login_fail].empty? %>
+  Oops! Something went wrong:
+  <ul>
+    <% flash[:login_fail].each do |error| %>
+    <li><%= error %></li>
+  </ul>
+  <% end %>
+<% end %>
