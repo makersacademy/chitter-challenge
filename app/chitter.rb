@@ -7,6 +7,7 @@ require './data_mapper_setup'
 class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::Session::Cookie, key: 'rack.session', secret: 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -14,8 +15,14 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     user = User.first(id: env["rack.session"][:user_id])
-    @username = user[:username]
+    @username = (user ? user[:username] : nil)
     erb :peeps
+  end
+
+  delete '/logout' do
+    env["rack.session"][:user_id] = nil
+    flash.next[:notice] = 'Goodbye!'
+    redirect to('/')
   end
 
   post '/login' do

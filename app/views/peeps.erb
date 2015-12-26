@@ -1,12 +1,11 @@
-<!-- You're not logged in
-
-
-Welcome back
-<%= @username %> -->
-
+Testing testing...
 
 <% if @username %>
 Welcome back <%= @username %>
+<form method='post' action='/logout'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Sign out'>
+</form>
 <% else %>
-Your're not logged
+You're not logged in
 <% end %>
