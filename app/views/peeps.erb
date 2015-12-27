@@ -17,6 +17,8 @@ You're not logged in
 <br>
 <div id='peeps'>
   <% @peeps.each do |message| %>
-  <%= message.content %><br>
+  <%= message.created_at %><br>
+  <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %><br>
+  <%= message.content %><br><br>
   <% end %>
 </div>

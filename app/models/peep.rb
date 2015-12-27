@@ -9,7 +9,6 @@ class Peep
   property :id, Serial, key: true
   property :content, Text
   property :created_at, DateTime
-  property :created_on, Date # Maybe remove later
 
   #validates_length_of :content, max: 140
 
