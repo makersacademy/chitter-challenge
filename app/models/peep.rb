@@ -5,7 +5,7 @@ require 'dm-postgres-adapter'
 class Peep
   include DataMapper::Resource
 
-  property :id, Serial
+  property :id, Serial, key: true
   property :content, Text
 
   #validates_length_of :content, max: 140

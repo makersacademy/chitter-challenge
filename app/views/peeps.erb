@@ -14,6 +14,9 @@ Welcome back <%= @username %>
 <% else %>
 You're not logged in
 <% end %>
-
+<br>
 <div id='peeps'>
+  <% @peeps.each do |message| %>
+  <%= message.content %><br>
+  <% end %>
 </div>
