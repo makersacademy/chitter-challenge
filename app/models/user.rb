@@ -16,8 +16,9 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  # def self.authenticate(email, password)
-  #   user = first(email: email)
-  #   user.id if user && BCrypt::Password.new(user.password_digest) == password
-  # end
+  def self.authenticate(user_or_email, password)
+    user = first(username: user_or_email)
+    user = first(email: user_or_email) unless user
+    user.id if user && BCrypt::Password.new(user.password_digest) == password
+  end
 end

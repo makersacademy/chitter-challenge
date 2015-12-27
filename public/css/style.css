@@ -1,0 +1,7 @@
+.navbar-default .btn-link {
+    padding: 15px;
+}
+
+.navbar-default .btn-link:hover {
+    text-decoration: none;
+}
