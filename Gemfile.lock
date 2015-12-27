@@ -72,7 +72,6 @@ GEM
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.0.2)
     extlib (0.9.16)
     fastercsv (1.5.5)
     highline (1.7.8)
@@ -153,7 +152,6 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   dm-transactions
-  dotenv
   rake
   rspec
   rspec-sinatra

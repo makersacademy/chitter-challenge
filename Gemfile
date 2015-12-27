@@ -9,7 +9,6 @@ gem 'rake'
 gem 'bcrypt-ruby'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'dotenv'
 
 group :test, :development do
   gem 'byebug'
