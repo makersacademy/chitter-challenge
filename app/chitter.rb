@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     user = User.first(id: env["rack.session"][:user_id])
     @username = (user ? user[:username] : nil)
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :peeps
   end
 
@@ -25,6 +25,8 @@ class Chitter < Sinatra::Base
     message = Peep.create(content: params[:message], user_id: (env["rack.session"][:user_id]))
     user.peeps << message
     user.save # use save! here instead?
+    # require 'byebug'
+    # byebug
     redirect to('/peeps')
   end
 
