@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   helpers do
     def current_user
@@ -22,16 +23,16 @@ class Chitter < Sinatra::Base
                 email: params[:email],
                 username: params[:username],
                 password: params[:password])
-
-    session[:user_id] = @user.id
-    redirect '/home'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/home'
+    else
+      redirect 'sign_up'
+    end
   end
 
   get '/home' do
     erb(:home)
   end
 
-
-
-  run! if app_file == $0
 end

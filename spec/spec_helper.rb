@@ -1,8 +1,13 @@
-ENV['RACK_ENV'] ||= 'test'
+ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+require_relative 'web_helpers'
+
+RSpec.configure do |config|
+  config.include SessionHelpers
+end
 
 
 Capybara.app = Chitter
