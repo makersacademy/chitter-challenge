@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href='styles.css' rel='stylesheet' />
-  </head>
   <body>
     <a href='/'>
     <header>
@@ -42,12 +37,10 @@
       <br>
       <div id='peeps'>
         <% @peeps.each do |message| %>
-        <!-- <%= message.created_at %><br> -->
+        <%= message.user.name %>, <%= message.user.username %><br>
         <span id='date_font'>
         <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
         <%= message.content %><br><br>
         <% end %>
       </div>
     </div>
-</body>
-</html>

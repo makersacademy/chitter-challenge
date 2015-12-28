@@ -2,10 +2,12 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require './data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::Session::Cookie, key: 'rack.session', secret: 'super secret'
   use Rack::MethodOverride
 
@@ -41,7 +43,7 @@ class Chitter < Sinatra::Base
       redirect to('/peeps')
     else
       flash.next[:login_fail] = ["Either you've not registered, or your password is wrong"]
-      redirect '/'
+      redirect to '/'
     end
   end
 
@@ -52,7 +54,7 @@ class Chitter < Sinatra::Base
   post '/users/new' do
     user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if user.save
-      redirect '/'
+      redirect to '/'
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/new'

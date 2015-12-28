@@ -18,4 +18,12 @@ feature 'Posting a message' do
     click_button 'Peep!'
     expect(page).to have_content('Hi, I am using Chitter!')
   end
+
+  scenario 'the name and username or the user is displayed with their peep' do
+    sign_up(user)
+    log_in(user.username, user.password)
+    fill_in :message, with: 'Hi, I am using Chitter!'
+    click_button 'Peep!'
+    expect(page).to have_content('Katie, Smithy')
+  end
 end
