@@ -1,3 +1,50 @@
+body{
+  background: url('/images/background.jpg') #777 no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Helvetica Neue UltraLight', 'Helvetica', sans-serif;
+  color: #777;
+}
+
+.navbar-center {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  z-index: -1;
+}
+
+.navbar-center li{
+  display: inline-block;
+  margin:0 auto;
+  width: 100px;
+  height: 50px;
+  float:none;
+}
+
+.content{
+  margin-top: 70px;
+}
+
+.index{
+  padding-top: 30px;
+  color: white;
+}
+
+.index a{
+  display: block;
+  padding-top: 20px;
+  font-size: 15px;
+  color: white;
+}
+
+.index p{
+  font-size: 20px;
+  line-height: 1.6em;
+  font-weight: lighter;
+}
+
 .navbar-default .btn-link {
     padding: 15px;
 }
@@ -12,12 +59,22 @@
     padding: 15px;
 }
 
+.peeps .form input, .peeps .form button, .peeps .form textarea{
+  font-size: 13px;
+}
+
 .newpeep{
     max-width: 500px;
 }
 
 .form-heading{
   margin-bottom: 25px;
+  color: white;
+}
+
+.well .form-heading{
+  font-size: 25px;
+  color: #777;
 }
 
 .form-control {
@@ -37,4 +94,8 @@
 
 textarea{
   resize: none;
+}
+
+hr{
+  border-color: #777;
 }

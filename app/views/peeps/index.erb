@@ -1,11 +1,23 @@
-<div class="row">
+<div class="row peeps">
   <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 col-lg-offset-0">
+    <% if current_user %>
     <div class="well">
       <h4><%= current_user.name %></h4>
       <h6>@<%= current_user.username %></h6>
       <hr>
-      <h5><%= current_user.peeps.count %> PEEPS</h5>
+      <h5><%= current_user.peeps.count %> <small>PEEPS</small></h5>
     </div>
+    <% else %>
+    <div class="well">
+    <form class="form" action="/sessions" method="post">
+      <label for="inputUserOrEmail" class="sr-only">Username or Email</label>
+      <input type="text" id="inputUserOrEmail" class="form-control" placeholder="Username or Email" name="user_or_email" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+    </form>
+    </div>
+    <% end %>
   </div>
   <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-lg-6">
     <% @peeps.each do |peep| %>
@@ -16,6 +28,17 @@
       <div class="panel-body">
         <%= peep.content %>
       </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 col-lg-offset-0">
+    <% if current_user %>
+    <div class="well">
+      <form class="form newpeep" action="/peeps" method="post">
+        <label for="inputContent" class="sr-only">What's happening?</label>
+        <textarea maxlength="140" id="inputContent" class="form-control" rows="3" placeholder="What's happening?" name="content" required></textarea>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Peep</button>
+      </form>
     </div>
     <% end %>
   </div>

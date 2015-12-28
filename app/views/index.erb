@@ -1,0 +1,19 @@
+<div class="row index">
+  <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1">
+    <h1>Welcome to Chitter!</h1>
+    <p>Connect with your friends — and other fascinating people.<br>
+      Get in-the-moment updates on the things that interest you.<br>
+      And watch events unfold, in real time, from every angle.</p>
+      <a href="<%= base_url %>/peeps">Have a look at the latest peeps →</a>
+  </div>
+  <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-4 col-lg-4">
+    <form class="form" action="/sessions" method="post">
+      <h2 class="form-heading">Log in to Chitter</h2>
+      <label for="inputUserOrEmail" class="sr-only">Username or Email</label>
+      <input type="text" id="inputUserOrEmail" class="form-control" placeholder="Username or Email" name="user_or_email" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+    </form>
+  </div>
+</div>
