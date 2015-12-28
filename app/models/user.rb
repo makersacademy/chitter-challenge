@@ -9,6 +9,9 @@ class User
   property :name,                String, required: true
   property :email,               String, required: true, format: :email_address, unique: true
   property :password_digest,     Text, lazy: false
+
+  has n, :peeps
+
   attr_reader :password
 
   def password=(password)

@@ -1,3 +1,7 @@
+# As a Maker
+# So that I can avoid others posting messages on Chitter as me
+# I want to log out of Chitter
+
 feature 'Signing out' do
   scenario 'a log in link is displayed in the navbar' do
     sign_out
