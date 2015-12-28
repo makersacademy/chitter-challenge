@@ -1,24 +1,53 @@
-<h1>Peeps Page </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='styles.css' rel='stylesheet' />
+  </head>
+  <body>
+    <a href='/'>
+    <header>
+      <div id='page_title'>
+        <h1>Chitter</h1>
+      </div>
+      <img src='bird.svg' />
+    </header>
+    </a>
+    <div id='main'>
+      <div id='login_bar'>
+        <form action='/login' method='post'>
+          <label for='username'>
+            Username: <input name='username' type='text'>
+          </label>
+          <label for='password'>
+            Password: <input name='password' type='password'>
+          </label>
+          <input id='btn' type='submit' value='Sign in'>
+        </form>
+      </div>
+      <h1>Latest Peeps... </h1>
+      <% if @username %>
+      Welcome back <%= @username %><br><br>
+      <form method='post' action='/logout'>
+        <input type='hidden' name='_method' value='delete'>
+        <input id='btn' type='submit' value='Sign out'>
+      </form><br>
 
-<% if @username %>
-Welcome back <%= @username %>
-<form method='post' action='/logout'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Sign out'>
-</form>
-
-<form method='post' action='/peeps'>
-  <input type='text' name='message'>
-  <input type='submit' value='Peep!'>
-</form>
-<% else %>
-You're not logged in
-<% end %>
-<br>
-<div id='peeps'>
-  <% @peeps.each do |message| %>
-  <%= message.created_at %><br>
-  <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %><br>
-  <%= message.content %><br><br>
-  <% end %>
-</div>
+      <form method='post' action='/peeps'>
+        <input type='text' name='message'>
+        <input id='btn' type='submit' value='Peep!'>
+      </form>
+      <% else %>
+      You're not logged in
+      <% end %>
+      <br>
+      <div id='peeps'>
+        <% @peeps.each do |message| %>
+        <!-- <%= message.created_at %><br> -->
+        <span id='date_font'>
+        <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+        <%= message.content %><br><br>
+        <% end %>
+      </div>
+    </div>
+</body>
+</html>

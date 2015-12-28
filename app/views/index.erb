@@ -1,26 +1,48 @@
-<h1> Chitter </h1>
-<h3> Log in below: </h3>
-<form action='/login' method='post'>
-  <label for='username'>
-    Enter your username: <input name='username' type='text'>
-  </label>
-  <label for='password'>
-    Enter your password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Submit'>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='styles.css' rel='stylesheet' />
+  </head>
+  <body>
+    <a href='/'>
+    <header>
+      <div id='page_title'>
+        <h1>Chitter</h1>
+      </div>
+      <img src='bird.svg' />
+    </header>
+  </a>
+    <div id='main'>
+      <div id='login_bar'>
+        <form action='/login' method='post'>
+          <label for='username'>
+            Username: <input name='username' type='text'>
+          </label>
+          <label for='password'>
+            Password: <input name='password' type='password'>
+          </label>
+          <input id='btn' type='submit' value='Sign in'>
+        </form>
+      </div>
+      <h2>Welcome to Chitter!</h2>
+      <h4>Need an account?</h4>
+        <p>You can sign up <a href='users/new'> here.</a></p>
+        <p>Or <a href='/peeps'>check it out</a> first</p>
 
-<% if flash[:login_fail] && !flash[:login_fail].empty? %>
-  Oops! Something went wrong:
-  <ul>
-    <% flash[:login_fail].each do |error| %>
-    <li><%= error %></li>
-  </ul>
-  <% end %>
-<% end %>
+      <% if flash[:login_fail] && !flash[:login_fail].empty? %>
+        Oops! Something went wrong:
+        <ul>
+          <% flash[:login_fail].each do |error| %>
+          <li><%= error %></li>
+        </ul>
+        <% end %>
+      <% end %>
 
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    </div>
+</body>
+</html>
