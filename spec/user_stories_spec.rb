@@ -27,4 +27,14 @@ feature 'Sign up' do
     expect{ sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email already registered mate')
   end
+
+  scenario 'An existing user can sign in' do
+    sign_up
+    visit '/sign_in'
+    fill_in :email, with: 'chuckypdawg@gmail.com'
+    fill_in :password, with: '12345678'
+    click_button 'Sign in'
+    expect(page).to have_content 'Welcome chuck'
+  end
+
 end

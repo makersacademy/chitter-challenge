@@ -18,6 +18,17 @@ class User
     self.password_digest = BCrypt::Password.create(@password)
   end
 
+  # Authentication
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      # return this user
+      user
+    else
+      nil
+    end
+  end
+
   # Validations
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address, message: 'Please enter a valid email address mate'
