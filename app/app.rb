@@ -7,6 +7,7 @@ require 'tilt/erb'
 
 require_relative 'data_mapper_setup'
 
+require_relative 'helpers'
 require_relative 'server'
 require_relative 'controllers/index'
 require_relative 'controllers/users'

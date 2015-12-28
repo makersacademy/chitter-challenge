@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 col-lg-offset-0">
+    <div class="well">
+      <h4><%= current_user.name %></h4>
+      <h6>@<%= current_user.username %></h6>
+      <hr>
+      <h5><%= current_user.peeps.count %> PEEPS</h5>
+    </div>
+  </div>
+  <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-6 col-lg-6">
+    <% @peeps.each do |peep| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= peep.user.name %> <span class="pull-right"><small><%= peep.created_at.strftime("%d %b %Y - %l:%M %p") %></small></span></h3>
+      </div>
+      <div class="panel-body">
+        <%= peep.content %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
