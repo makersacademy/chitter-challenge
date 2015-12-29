@@ -5,9 +5,8 @@ class User
 
   property :id, Serial
   property :user_name, String
-  property :email,  String, required: true, format: :email_address
+  property :email,  String, required: true, format: :email_address, unique: true
   property :password_digest, Text
-  property :password_confirmation, String
 
   def password=(password)
     @password = password

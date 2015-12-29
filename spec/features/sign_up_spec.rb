@@ -14,7 +14,19 @@ feature 'user sign up' do
 
   scenario 'email must be correct format' do
     expect{ sign_up(email: 'edwardkerry.gmail') }.not_to change(User, :count)
-    expect(page).to have_content 'Password and confirmation do not match'
+    expect(current_path).to eq('/user/new')
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
+  scenario 'password confirmation must match' do
+      expect{ sign_up(password_confirmation: 'badpassword') }.not_to change(User, :count)
+      expect(page).to have_content 'Password does not match the confirmation'
+  end
+
+  scenario 'duplicate emails may not be registered' do
+    sign_up
+    expect{ sign_up }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
   end
 
 end

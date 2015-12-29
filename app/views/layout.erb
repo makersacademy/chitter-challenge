@@ -9,9 +9,14 @@
     <% if current_user %>
       <h1> <%= current_user.user_name%>'s Chitter!</h1>
     <% end %>
-    <% if flash[:notice] %>
-      <div id ='notice'><%=flash[:notice]%></div>
-    <%end%>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Error in registration:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
