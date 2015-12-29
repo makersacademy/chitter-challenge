@@ -1,6 +1,1 @@
-<form class="form newpeep" action="/peeps" method="post">
-  <h2 class="form-heading">Peep now.</h2>
-  <label for="inputContent" class="sr-only">What's happening?</label>
-  <textarea maxlength="140" id="inputContent" class="form-control" rows="3" placeholder="What's happening?" name="content" value="<%= @peep.content %>" required autofocus></textarea>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Peep</button>
-</form>
+<%= partial :'partials/new_peep_form' %>

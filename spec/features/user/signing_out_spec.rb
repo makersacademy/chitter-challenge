@@ -11,8 +11,10 @@ feature 'Signing out' do
     sign_out
     expect(page).to have_content('Sign up')
   end
-  scenario 'redirects to the index page' do
+  scenario 'redirects to the index page with a goodbye message' do
     sign_out
+    msg = 'Giamir Buoncristiani, you logged out successfully'
+    expect(page).to have_content msg
     expect(current_path).to eq '/'
   end
 end

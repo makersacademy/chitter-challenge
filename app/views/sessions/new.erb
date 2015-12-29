@@ -1,8 +1,1 @@
-<form class="form" action="/sessions" method="post">
-  <h2 class="form-heading">Log in to Chitter</h2>
-  <label for="inputUserOrEmail" class="sr-only">Username or Email</label>
-  <input type="text" id="inputUserOrEmail" class="form-control" placeholder="Username or Email" name="user_or_email" required>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-</form>
+<%= partial :'partials/new_session_form' %>

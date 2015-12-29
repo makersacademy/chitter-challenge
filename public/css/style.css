@@ -73,8 +73,7 @@ body{
 }
 
 .well .form-heading{
-  font-size: 25px;
-  color: #777;
+  display:none;
 }
 
 .form-control {
