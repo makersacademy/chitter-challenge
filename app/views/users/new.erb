@@ -8,17 +8,7 @@
     </header>
     </a>
     <div id='main'>
-      <div id='login_bar'>
-        <form action='/login' method='post'>
-          <label for='username'>
-            Username: <input name='username' type='text'>
-          </label>
-          <label for='password'>
-            Password: <input name='password' type='password'>
-          </label>
-          <input id='btn' type='submit' value='Sign in'>
-        </form>
-      </div>
+      <%= erb(:_login) %> 
       <h2>Enter your details below to sign up:</h2>
       <form id='new_user' action='/users/new' method='post'>
         <label for='name'>
