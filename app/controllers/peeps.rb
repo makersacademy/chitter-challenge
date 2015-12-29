@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/peeps/new' do
+    flash.next[:peep_id] = params[:peep_id]
     erb :'peeps/new'
   end
 
@@ -10,7 +11,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    current_user.peeps.create(message: params[:message])
+    current_user.peeps.create(message: params[:message],
+                              parent_peep: flash[:peep_id])
     redirect('/peeps')
   end
 
