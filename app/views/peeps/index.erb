@@ -1,5 +1,8 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li> <%="#{peep.user.name} (#{peep.user.username})"%> <br><%="#{peep.message}"%> <br><%="#{peep.created_at.strftime("%d/%m/%Y at %H:%M")}"%></li>
+    <li> <%="#{peep.user.name} (#{peep.user.username})"%>
+      <br><%="#{peep.message}"%>
+      <br><%="#{peep.created_at.strftime("%d/%m/%Y at %H:%M")}"%>
+      <br><a href="/peeps/new?id=<%=peep.id%>">Reply</a></li>
   <% end %>
 </ul>
