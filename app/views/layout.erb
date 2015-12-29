@@ -9,6 +9,9 @@
     <% if current_user %>
       <h1> <%= current_user.user_name%>'s Chitter!</h1>
     <% end %>
+    <% if flash[:notice] %>
+      <div id ='notice'><%=flash[:notice]%></div>
+    <%end%>
     <%= yield %>
   </body>
 </html>
