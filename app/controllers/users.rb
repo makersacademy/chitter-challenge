@@ -1,9 +1,5 @@
 class Chitter < Sinatra::Base
 
-  get '/' do
-    erb :'temp'
-  end
-
   get '/users/new' do
     erb :'users/new'
   end

@@ -1,13 +1,23 @@
 <html>
   <head>
+    <link type="text/css" rel="stylesheet" href="css/application.css" />
     <title>Chitter!</title>
   </head>
 
   <body>
 
-    <%= partial :welcome %>
-    <%= partial :flash %>
-    <%= yield%>
+    <div id="header">
+      <p> Chitter! </p>
+    </div>
+    <div class="left">
+      <%= partial :welcome %>
+      <%= partial :flash %>
+    </div>
+    <div class="main_content">
+      <%= yield%>
+    </div>
+
+
 
   </body>
 </html>

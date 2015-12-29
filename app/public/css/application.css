@@ -1,0 +1,37 @@
+body  {
+  background-color: #e5ffff;
+}
+
+div {
+  background-color: #ccffff;
+  border-radius: 5px;
+  border: 2px #b3ffff solid;
+  height: 81%;
+  padding: 10px;
+}
+
+#header {
+  height: 10%;
+  margin-bottom: 10px;
+}
+
+#header > p {
+  font-family: Courier;
+  color: white;
+  text-shadow: -1px -1px  #000, 1px -1px  #000, -1px 1px  #000, 1px 1px  #000;
+  font-size: 60px;
+  margin: auto;
+  text-align: center;
+}
+
+.left {
+  width: 15%;
+  float: left;
+}
+
+.left:
+
+.main_content {
+  float: right;
+  width: 80.4%;
+}
