@@ -1,7 +1,11 @@
-<h1>Welcome to Chitter!</h1>
 
+<% if current_user %>
+<h1> <%= current_user.user_name%>, Welcome to Chitter!</h1>
+<% else %>
+<h1>Welcome to Chitter</h1>
 <form action="/user" method="get">
   <label for="sign_up">
     Sign up here!
     <input type="submit" value="Sign Up"
 <\form>
+<% end %>
