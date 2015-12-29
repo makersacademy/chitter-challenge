@@ -19,12 +19,18 @@
   <ol id='peeps' reversed>
     <% @peeps.reverse_each do |peeps| %>
     <li>
-    <%= peeps.time %>: @<%= user_name.username %> peeped "<%= peeps.message %>"
+    <%= peeps.time %>: @<%= peeps.peeper %> peeped "<%= peeps.message %>"
     </li>
     <% end %>
 </ol>
-</body>
+
+
 <form action='/session' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='Log out'>
 </form>
+
+<footer>
+     © 2015 Chitter by Andrew Htun, while at <a href="http://www.makersacademy.com/" target="_blank">Makers Academy</a> | <a href="https://github.com/Htunny" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/andrew-htun-38349b37" target="_blank">LinkedIn</a> | <a href="https://htunnycodes.wordpress.com/" target="_blank">Blog</a> |
+</footer>
+</body>

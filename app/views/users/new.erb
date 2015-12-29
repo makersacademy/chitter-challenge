@@ -1,20 +1,16 @@
-<html>
 <div id='background'>
   <div style='text-align: left; font-family: Helvetica'>
+    <img src='https://d21buns5ku92am.cloudfront.net/46038/images/151145-chitter_logo-fd27ff-medium-1418117906.png'>
     <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+<html>
 <head>
   <meta charset="utf-8">
   <title> Chitter </title>
 </head>
-<div style='text-align: left; font-family: Helvetica'>
-<img src='https://d21buns5ku92am.cloudfront.net/46038/images/151145-chitter_logo-fd27ff-medium-1418117906.png'>
-<head>
 <h1>Welcome to Chitter!</h1>
 <h2>Please sign up</h2>
-</head>
 <%= flash[:error] %>
 <body>
-  <div style='vertical-align: middle'>
 <form action='/users' method='post'>
   <label for='name'>
    Name: <input name='name' type='text' value='<%=flash[:name]%>'>
@@ -34,10 +30,22 @@
   <input type='submit' value='Sign up'>
 </form>
 <br>
-</head><h2> Already a member of Chitter? </h2>
-<h3> Click below to log in: <form action="/session/new" method="get">
+<h3> Already a member of Chitter? </h3>
+<h4> Click below to log in: <form action="/session/new" method="get">
 <input type="submit" value="Log in">
-</form>  </h3>
+</form></h4>
+</div>
+<h4> Latest Peeps </h4>
+<ol id='peeps' reversed>
+  <% @peeps.reverse_each do |peeps| %>
+  <li>
+  <%= peeps.time %>: @<%= peeps.peeper %> peeped "<%= peeps.message %>"
+  </li>
+  <% end %>
+</ol>
+<footer>
+     © 2015 Chitter by Andrew Htun, while at <a href="http://www.makersacademy.com/" target="_blank">Makers Academy</a> | <a href="https://github.com/Htunny" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/andrew-htun-38349b37" target="_blank">LinkedIn</a> | <a href="https://htunnycodes.wordpress.com/" target="_blank">Blog</a> |
+</footer>
 
 </body>
 </html>

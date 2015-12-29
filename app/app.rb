@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
     end
 
     get '/users/new' do
+      @peeps = Peep.all
       erb :'users/new'
     end
 
@@ -45,7 +46,7 @@ class Chitter < Sinatra::Base
       end
 
       post '/chat' do
-        peep = Peep.create(message: params[:message], time: Time.new.asctime)
+        peep = Peep.create(message: params[:message], peeper: user_name.username, time: Time.new.asctime)
           # params[:].split.each do |tag|
           #   link.tags << Tag.create(tags: tag)
           peep.save
@@ -53,6 +54,7 @@ class Chitter < Sinatra::Base
        end
 
       get '/session/new' do
+        @peeps = Peep.all
         erb :'session/new'
       end
 
