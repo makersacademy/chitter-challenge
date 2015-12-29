@@ -1,10 +1,74 @@
-<h1>Please sign in mate!</h1>
-<form action='/sign_in' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='text'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
+<!-- <head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<div id='background'>
+
+  <form action='/sign_up' id='member'>
+    <input type='submit' value="Don't have an account yet?">
+  </form>
+
+  <div id="center">
+
+    <h1>Please sign in mate!</h1>
+    <form action='/sign_in' method='post'>
+      <label for='email'>
+        Email: <br><input name='email' type='text'>
+      </label>
+      <br>
+      <br>
+      <label for='password'>
+        Password: <br><input name='password' type='password'>
+      </label>
+      <br>
+      <br>
+      <input type='submit' value='Sign in'>
+    </form>
+
+  </div>
+</div> -->
+
+
+
+
+<!-- NEW HTML -->
+
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+  <form action='/sign_up' id='member'>
+    <input type='submit' value="Don't have an account?" id='exception'>
+  </form>
+
+  <div id="big_contain">
+    <div id='contain_1'>
+      <h2>Sign in mate!</h2>
+      <form action='/sign_in' method='post'>
+        <label for='email'>
+          Email: <br><input name='email' type='text'>
+        </label>
+        <br>
+        <label for='password'>
+          Password: <br><input name='password' type='password'>
+        </label>
+        <input type='submit' value='Sign in' id='sign_in_button'>
+      </form>
+    </div>
+
+    <div id='contain_2'>
+      <h2>Recent peeps...</h2>
+      <ul id='peeps'>
+        <% array = [] %>
+        <% @peeps.each do |peep| %>
+        <% string = '' %>
+        <% string += peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %>
+        <% array << string + ' ' %>
+        <% end %>
+        <% array.reverse.each do |x| %>
+        <%= x %>
+        <br>
+        <br>
+        <% end %>
+      </ul>
+    </div>
+  </div>

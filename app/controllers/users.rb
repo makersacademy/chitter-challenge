@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   get '/sign_up' do
     @user = User.new
+    @peeps = Peep.all
     erb :'users/sign_up'
   end
 

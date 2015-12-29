@@ -1,6 +1,13 @@
 <ul id='peeps'>
+  <% array = [] %>
   <% @peeps.each do |peep| %>
-  <li><%= peep.time %>  <%= peep.content %></li>
+    <% string = '' %>
+    <% string += peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %>
+    <% array << string + ' ' %>
+  <% end %>
+  <% array.reverse.each do |x| %>
+    <%= x %>
+    <br>
   <% end %>
 </ul>
 

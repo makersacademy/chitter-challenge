@@ -1,3 +1,5 @@
+<div id='background'>
+
 <% if flash[:notice] %>
   <div id='notice'><%= flash[:notice] %></div>
 <% end %>
@@ -9,3 +11,5 @@
   </form>
 <% end %>
 <%= yield %>
+
+</div>

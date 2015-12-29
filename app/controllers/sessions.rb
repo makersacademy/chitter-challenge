@@ -1,5 +1,6 @@
 class Chitter < Sinatra::Base
   get '/sign_in' do
+    @peeps = Peep.all
     erb :'sessions/sign_in'
   end
 

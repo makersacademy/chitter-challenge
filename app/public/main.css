@@ -1,0 +1,63 @@
+#background {
+  background: url('random_grey_variations.png');
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  color: white;
+  text-align: justify;
+  font-family: arial;
+}
+
+#big_contain {
+  padding-top: 50px;
+}
+
+#contain_2 {
+  width: 30%;
+  float: right;
+  margin-right: 20%;
+  display: inline-block;
+}
+
+#contain_1 {
+  width: 20%;
+  margin-left: 20%;
+  display: inline-block;
+}
+
+#center {
+  text-align: center;
+}
+
+input {
+  margin: 7px;
+  width: 80%;
+}
+
+#exception {
+  width: 100%;
+}
+
+#sign_in_button {
+  width: 50%;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#member {
+  float: right;
+  display: inline-block;
+  margin-right: 15%;
+}
+
+#not_member {
+  margin-left: 85%;
+}
+
+ul {
+    list-style:none;
+    padding-left:0;
+}​
