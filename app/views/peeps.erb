@@ -1,36 +1,27 @@
-  <body>
-    <a href='/'>
-    <header>
-      <div id='page_title'>
-        <h1>Chitter</h1>
-      </div>
-      <img src='bird.svg' />
-    </header>
-    </a>
-    <div id='main'>
-      <%= erb(:_login) %>
-      <h1>Latest Peeps... </h1>
-      <% if @username %>
-      Welcome back <%= @username %><br><br>
-      <form method='post' action='/logout'>
-        <input type='hidden' name='_method' value='delete'>
-        <input id='btn' type='submit' value='Sign out'>
-      </form><br>
-
-      <form method='post' action='/peeps'>
-        <input type='text' name='message'>
-        <input id='btn' type='submit' value='Peep!'>
-      </form>
-      <% else %>
-      You're not logged in
+<div id='main'>
+  <%= erb(:_login) %>
+  <h1>Latest Peeps... </h1>
+  <% if @username %>
+  Welcome back <%= @username %><br><br>
+  <form method='post' action='/logout'>
+    <input type='hidden' name='_method' value='delete'>
+    <input id='btn' type='submit' value='Sign out'>
+  </form><br>
+  
+  <form method='post' action='/peeps'>
+    <input type='text' name='message'>
+    <input id='btn' type='submit' value='Peep!'>
+  </form>
+  <% else %>
+  You're not logged in
+  <% end %>
+  <br>
+  <div id='peeps'>
+    <% @peeps.each do |message| %>
+    <%= message.user.name %>, <%= message.user.username %><br>
+    <span id='date_font'>
+      <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+      <%= message.content %><br><br>
       <% end %>
-      <br>
-      <div id='peeps'>
-        <% @peeps.each do |message| %>
-        <%= message.user.name %>, <%= message.user.username %><br>
-        <span id='date_font'>
-        <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
-        <%= message.content %><br><br>
-        <% end %>
-      </div>
-    </div>
+  </div>
+</div>

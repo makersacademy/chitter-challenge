@@ -1,33 +1,24 @@
-  <body>
-    <a href='/'>
-    <header>
-      <div id='page_title'>
-        <h1>Chitter</h1>
-      </div>
-      <img src='bird.svg' />
-    </header>
-  </a>
-    <div id='main'>
-      <%= erb(:_login) %> 
-      <h2>Welcome to Chitter!</h2>
-      <p>Chitter is the place to connect with others.</p>
-      <p>Send a Peep, and see what others are peeping.</p>
-      <h4>Need an account?</h4>
-        <p>You can sign up <a href='users/new'> here.</a></p>
-        <p>Or <a href='/peeps'>check it out</a> first</p>
+<div id='main'>
+  <%= erb(:_login) %>
+  <h2>Welcome to Chitter!</h2>
+    <p>Chitter is the place to connect with others.</p>
+    <p>Send a Peep, and see what others are peeping.</p>
+  <h4>Need an account?</h4>
+    <p>You can sign up <a href='users/new'> here.</a></p>
+    <p>Or <a href='/peeps'>check it out</a> first</p>
+  
+  <% if flash[:login_fail] && !flash[:login_fail].empty? %>
+  Oops! Something went wrong:
+  <ul>
+    <% flash[:login_fail].each do |error| %>
+    <li><%= error %></li>
+  </ul>
+  <% end %>
+  <% end %>
 
-      <% if flash[:login_fail] && !flash[:login_fail].empty? %>
-        Oops! Something went wrong:
-        <ul>
-          <% flash[:login_fail].each do |error| %>
-          <li><%= error %></li>
-        </ul>
-        <% end %>
-      <% end %>
-
-      <% if flash[:notice] %>
-        <div id='notice'>
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-    </div>
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+</div>
