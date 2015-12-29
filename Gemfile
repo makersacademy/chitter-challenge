@@ -7,9 +7,10 @@ source 'https://rubygems.org'
 
 group :test do
   gem 'rspec'
-  gem 'capybara'
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
   gem 'sinatra'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
