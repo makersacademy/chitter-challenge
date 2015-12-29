@@ -7,4 +7,8 @@ feature 'user sign up' do
     expect(page).to have_content "Edward, Welcome to Chitter!"
     expect(User.first.email).to eq ('edwardkerry@gmail.com')
   end
+
+  scenario 'an email is required' do
+    expect{ sign_up(email: nil) }.not_to change(User, :count)
+  end
 end
