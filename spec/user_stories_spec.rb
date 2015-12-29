@@ -35,6 +35,30 @@ feature 'Sign up' do
     fill_in :password, with: '12345678'
     click_button 'Sign in'
     expect(page).to have_content 'Welcome chuck'
+    expect(User.count).to eq(1)
   end
 
+  scenario 'A user cannot sign in without valid credentials' do
+    sign_up
+    visit '/sign_in'
+    fill_in :email, with: 'chuckypdawg@gmail.com'
+    fill_in :password, with: 'wrong password'
+    click_button 'Sign in'
+    expect(page).to have_content('The email or password is incorrect')
+  end
+
+  scenario 'A user can make a peep' do
+    sign_up
+    click_button 'Make a peep'
+    fill_in :peep, with: 'I like to ride donkeys'
+    click_button 'Post'
+    expect(page).to have_content('I like to ride donkeys')
+  end
+
+  scenario 'allow users to log out' do
+    sign_up
+    click_button 'Log out'
+    expect(page).to have_content('goodbye!')
+    expect(page).to_not have_content('Welcome chuck')
+  end
 end
