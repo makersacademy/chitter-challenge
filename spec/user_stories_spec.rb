@@ -25,7 +25,7 @@ feature 'Sign up' do
     sign_up
     visit '/sign_up'
     expect{ sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Email already registered mate')
+    expect(page).to have_content('That email or username is already registered mate')
   end
 
   scenario 'An existing user can sign in' do
@@ -60,5 +60,13 @@ feature 'Sign up' do
     click_button 'Log out'
     expect(page).to have_content('goodbye!')
     expect(page).to_not have_content('Welcome chuck')
+  end
+
+  scenario 'Peeps have time stamps upon creation' do
+    sign_up
+    click_button 'Make a peep'
+    fill_in :peep, with: 'I like to ride donkeys'
+    click_button 'Post'
+    expect(page).to have_content (Time.now.asctime)
   end
 end
