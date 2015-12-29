@@ -6,12 +6,12 @@ feature 'user sign up' do
     visit '/'
     expect(page.status_code).to eq 200
     click_button 'Sign Up'
-    expect(page.status_code).to eq 200
+    # expect(page.status_code).to eq 200
     fill_in :user_name, with: 'Edward'
     fill_in :email, with: 'edwardkerry@gmail.com'
     fill_in :password, with: 'password123'
     fill_in :password_confirmation, with: 'password123'
     click_button 'Submit'
-    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "Edward, Welcome to Chitter!"
   end
 end
