@@ -1,17 +1,6 @@
-/** {
-  border: 1px dotted red;
-}*/
 html {
   margin: 0;
   height: 100%;
-}
-img {
-  height: 10%;
-  width: 10%;
-  position: inline;
-  float: right;
-  vertical-align: bottom;
-  padding: 20px;
 }
 body {
   height: 100%;
@@ -19,6 +8,7 @@ body {
   margin: auto;
   background-color: #99CCCC;
   font-family: sans-serif;
+  color: #505050;
 }
 header {
   font-size: 1.4em;
@@ -28,16 +18,25 @@ header {
   border-radius: 0px 0px 10px 10px;
   background-color: #4682b4;
 }
-h2 {
-  color: #4682b4;
+img {
+  height: 10%;
+  width: 10%;
+  position: inline;
+  float: right;
+  vertical-align: bottom;
+  padding: 20px;
+}
+td, tr {
+  padding: 5px;
 }
 #btn {
   font-size: 100%;
-  width: 100px;
+  width: 110px;
   height: 30px;
   vertical-align: middle;
+  display: inline;
 }
-#page_title {
+#title_bar {
   position: relative;
   float: left;
   width: 200px;
@@ -47,13 +46,16 @@ h2 {
 }
 #main {
   height: 100%;
-  background-color: white;
+  background-color: #e0efef;
   clear: both;
   position: relative;
   top: 20px;
-  padding: 15px 30px;
+  padding: 15px 60px;
   border-radius: 10px 10px 0px 0px;
   overflow: auto;
+}
+#title {
+  font-size: 4em;
 }
 #login_bar {
   clear: both;
@@ -61,13 +63,25 @@ h2 {
   padding: 10px;
   border-radius: 6px;
 }
-#date_font {
-  font-size: 0.8em;
+#notice {
+  font-size: 1.2em;
+  font-style: italic;
+}
+#peep_box {
+  width: 400px;
+}
+.orange {
+  color: #ff9933;
+}
+.blue {
   color: #4682b4;
 }
-/*dark blue:
-background-color: #4682b4;
-light blue:
-background-color: rgb(230, 250, 255);
-orange:
-color: #ffa500;*/
+.dark_green {
+  color: #7aa3a3;
+}
+.small_font {
+  font-size: 0.8em;
+}
+.bold_font {
+  font-weight: bold;
+}

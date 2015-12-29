@@ -1,25 +1,27 @@
 <div id='main'>
   <%= erb(:_login) %>
   <h1>Latest Peeps... </h1>
+
   <% if @username %>
   Welcome back <%= @username %><br><br>
   <form method='post' action='/logout'>
     <input type='hidden' name='_method' value='delete'>
     <input id='btn' type='submit' value='Sign out'>
   </form><br>
-  
+
   <form method='post' action='/peeps'>
-    <input type='text' name='message'>
+    <input id='peep_box' type='text' name='message'>
     <input id='btn' type='submit' value='Peep!'>
   </form>
   <% else %>
   You're not logged in
   <% end %>
-  <br>
+  <br><br>
+  
   <div id='peeps'>
     <% @peeps.each do |message| %>
-    <%= message.user.name %>, <%= message.user.username %><br>
-    <span id='date_font'>
+    <span class='small_font bold_font'><%= message.user.name %>, <%= message.user.username %></span>
+    <span class='blue small_font'>
       <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
       <%= message.content %><br><br>
       <% end %>

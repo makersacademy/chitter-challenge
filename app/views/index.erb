@@ -1,24 +1,26 @@
 <div id='main'>
   <%= erb(:_login) %>
-  <h2>Welcome to Chitter!</h2>
-    <p>Chitter is the place to connect with others.</p>
-    <p>Send a Peep, and see what others are peeping.</p>
-  <h4>Need an account?</h4>
-    <p>You can sign up <a href='users/new'> here.</a></p>
-    <p>Or <a href='/peeps'>check it out</a> first</p>
-  
-  <% if flash[:login_fail] && !flash[:login_fail].empty? %>
+
+  <% if flash[:notice] %><br>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+
+  <% if flash[:login_fail] && !flash[:login_fail].empty? %><br>
   Oops! Something went wrong:
   <ul>
     <% flash[:login_fail].each do |error| %>
     <li><%= error %></li>
   </ul>
-  <% end %>
+    <% end %>
   <% end %>
 
-  <% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-  <% end %>
+  <h1 id='title' class='blue'>Welcome to Chitter!</h1>
+    <h3>Chitter is the place to connect with others.</h3>
+    <h3 class='dark_green'>Sign up, send a Peep, and see what others are peeping.</h3>
+    <h3>It's easy to use, so let's get started!</h3><br>
+    <h1 class='blue'>Ready to go? <a class='orange' href='users/new'>Sign up now</a></h1><br>
+    <h3>Want to check it out first?</h3>
+    <h3 class='dark_green'>Take a look <a class='orange' href='/peeps'>here</a> before signing up</h3>
 </div>
