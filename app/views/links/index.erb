@@ -5,6 +5,11 @@
   <h1>Chitter!</h1>
   <h3>Everyone's favorite social portal :)</h3>
   <br>
+  <% if current_user %>
+  <form action='/posts'>
+    <input type='submit' value='View Posts'>
+  </form>
+  <% else %>
   Sign in:
   <form action='/sign_in' method='post'>
     <input type='email' name='email' placeholder='Email Address'>
@@ -17,4 +22,5 @@
   <form action='/register'>
     <input type='submit' value='Sign up!'>
   </form>
+  <% end %>
 </body>

@@ -1,15 +1,16 @@
 #flash welcome message on sign up!/sign in!
 
-<h1>Chitters of the day!</h1><br><br>
+<h1>Chitters of the day!</h1>
 
 <% if current_user %>
 <h2>New Post</h2>
 <form action='/new_post' method='post'>
-  <input type='text' name='chit' placeholder="What's up?">#text box for chitter post
+  <textarea name="chit" cols="35" rows="3" placeholder="What's up?">
+  </textarea>
   <input type='submit' value='Post!'>
-</form><br><br>
+</form>
 <% else %>
-<h3>You must be signed in to post</h3><br><br>
+<h3>You must be signed in to post</h3>
 <% end %>
 
 <h2>Recent Posts</h2>
