@@ -8,6 +8,7 @@ require 'rspec'
 require 'database_cleaner'
 
 require_relative 'helpers/register'
+require_relative 'helpers/login'
 
 Capybara.app = App
 
@@ -36,6 +37,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  # Database cleaner
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

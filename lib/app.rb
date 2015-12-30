@@ -2,13 +2,16 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require 'rubygems'
 require_relative 'data_mapper_setup'
 
 class App < Sinatra::Base
-
+  register Sinatra::Partial
   register Sinatra::Flash
   set :sessions, true
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   get '/register' do
     erb :register
@@ -22,8 +25,11 @@ class App < Sinatra::Base
       flash.keep[:message] = :welcome
       redirect "/#{@user.username}/peeps"
     else
+      flash[:name] = params[:name]
+      flash[:username] = params[:username]
+      flash[:email] = params[:email]
       flash[:errors] = @user.errors.full_messages
-      erb :register
+      redirect "/register"
     end
   end
 
@@ -41,6 +47,10 @@ class App < Sinatra::Base
     if @user
       flash.keep[:message] = :welcome_back
       redirect "/#{@user.username}/peeps"
+    else
+      flash[:email] = params[:email]
+      flash[:message] = :login_errors
+      redirect '/login'
     end
   end
 
