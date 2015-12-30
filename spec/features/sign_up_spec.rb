@@ -27,12 +27,14 @@ feature 'user sign up' do
 
   scenario 'duplicate emails may not be registered' do
     sign_up
+    click_button 'Sign Out'
     expect{ sign_up }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'duplicate usernames may not be registered' do
     sign_up
+    click_button 'Sign Out'
     expect{ sign_up }.not_to change(User, :count)
     expect(page).to have_content 'User name is already taken'
   end

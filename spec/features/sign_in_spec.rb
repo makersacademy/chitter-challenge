@@ -12,4 +12,9 @@ feature 'user sign in' do
     expect(page).to have_content 'Edward\'s Chitter'
   end
 
+  scenario 'when signed in users may not sign up' do
+    sign_in
+    expect(page).not_to have_button "Sign up"
+  end
+
 end
