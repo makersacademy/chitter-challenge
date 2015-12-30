@@ -9,4 +9,13 @@ feature 'create a peep' do
         expect(page).to have_content 'This is the first peep'
       end
   end
+
+  scenario 'peeps should be assigned to a user' do
+    sign_up
+    fill_in 'peep', with: 'This is Ed\'s peep'
+    click_button 'Peep!'
+    within 'ul#peeps' do
+      expect(page).to have_content 'Edward peeped: This is Ed\'s peep'
+    end
+  end
 end

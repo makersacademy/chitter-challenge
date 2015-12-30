@@ -14,4 +14,5 @@ group :test do
   gem 'sinatra'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'byebug'
 end
