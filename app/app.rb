@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/partial'
+require 'data_mapper'
 
 require_relative 'server'
 
