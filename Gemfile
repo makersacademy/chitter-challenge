@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :development do
-  gem 'bcrypt'
+group :production, :development do
+  gem 'sinatra-base', '~> 1.4'
+  gem 'bcrypt', '~> 3.1', '>= 3.1.10'
+  gem 'data_mapper', '~> 1.2'
+  gem 'dm-postgres-adapter', '~> 1.2'
+  gem 'sinatra-flash', '~> 0.3.0'
+  gem 'dm-validations', '~> 1.2'
 end
 
 group :test do
@@ -11,4 +16,5 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end

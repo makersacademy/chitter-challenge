@@ -8,19 +8,45 @@ This weekend challenge is to create a simplified clone of Twitter!
 
 ## User stories
 
+REGISTER
+
 ```
 As a Maker
 So that I can post messages on Chitter as me
-I want to sign up for Chitter
+I want to register for Chitter
 
+As a Maker
+So that I can understand why I can't register
+I need to be warned the two passwords don't match
+
+As a Maker
+So that I can understand why I can't register
+I need to be warned the email or username already exists
+
+```
+LOG IN
+
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
 As a Maker
+So that I can understand why I can't log in
+I need to be warned the email or password are wrong
+
+```
+LOG OUT
+
+```
+As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+```
+PEEPING
+
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter

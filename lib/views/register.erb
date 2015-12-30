@@ -1,0 +1,17 @@
+<h2>Register your account and start Peeping your friends!</h2>
+<form action='/register' method='post'>
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <input type="password" name="password_confirmation" placeholder="Confirm your password" required>
+  <input type="submit" value="Sign up!">
+</form>
+<% if flash[:errors] %>
+<p> Please check: </p>
+<ul>
+  <% flash[:errors].each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>

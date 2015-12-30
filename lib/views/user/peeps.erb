@@ -1,0 +1,7 @@
+<% if flash[:message] == :welcome %>
+  <p> Welcome <%= @user.name %> </p>
+  <% elsif flash[:message] == :welcome_back %>
+  <p> Welcome back <%= @user.name %> </p>
+<% end %>
+
+<h2> Your peeps </h2>
