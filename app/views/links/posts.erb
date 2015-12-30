@@ -1,3 +1,6 @@
+<% if flash[:welcome] %>
+  <%= flash[:welcome] %>
+<% end %>
 #flash welcome message on sign up!/sign in!
 
 <h1>Chitters of the day!</h1>
@@ -5,8 +8,7 @@
 <% if current_user %>
 <h2>New Post</h2>
 <form action='/new_post' method='post'>
-  <textarea name="chit" cols="35" rows="3" placeholder="What's up?">
-  </textarea>
+  <textarea name="chit" cols="35" rows="3" placeholder="What's up?"></textarea>
   <input type='submit' value='Post!'>
 </form>
 <% else %>
@@ -17,9 +19,14 @@
 
 <% @posts.reverse.each do |post| %>
   <li>
-   #link to a specific user?
-    By: <%= post.user.username%><br>
-    <%= post.chit %><br>
-    Posted: <%= post.time %><br><br>
+     <%= post.username%> posted:<br>
+     <%= post.body %><br>
+     At: <%= post.time %><br><br>
   </li>
+<% end %>
+
+<% unless current_user %>
+<br><form action='/'>
+  <input type='submit' value='Sign In'>
+</form>
 <% end %>

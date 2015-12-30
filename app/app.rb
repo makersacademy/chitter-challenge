@@ -2,12 +2,14 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb(:'links/index')
@@ -18,11 +20,19 @@ class Chitter < Sinatra::Base
     erb(:'links/posts')
   end
 
+  post '/new_post' do
+    time = Time.new.strftime("%H:%M")
+    Post.create(body: params[:chit],
+                username: User.get(session[:user_id]).name,
+                time: "#{time}")
+    redirect '/posts'
+  end
+
   post '/sign_in' do
     @user = User.authenticate(params[:email], params[:password])
     if @user
-      #flash welcome back message
       session[:user_id] = @user.id
+      flash.next[:welcome] = "Welcome back, #{@user.name}"
       redirect '/posts'
     else
       #error message
@@ -42,7 +52,7 @@ class Chitter < Sinatra::Base
                      password: params[:password])
     if @user.save
       session[:user_id] = @user.id
-      #flash.next welcome message
+      flash.next[:welcome] = "Welcome to Chitter, #{@user.name}"
       redirect '/posts'
     else
       #flash.now password error
