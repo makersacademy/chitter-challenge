@@ -1,16 +1,28 @@
-<ul id='peeps'>
-  <% array = [] %>
-  <% @peeps.each do |peep| %>
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<div id='background'>
+<div id='center'>
+  <ul id='peeps'>
+    <% array = [] %>
+    <% @peeps.each do |peep| %>
     <% string = '' %>
     <% string += peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %>
     <% array << string + ' ' %>
-  <% end %>
-  <% array.reverse.each do |x| %>
+    <% end %>
+    <% array.reverse.each do |x| %>
+    <br>
     <%= x %>
     <br>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
 
-<form action='/add_peep'>
-  <input type='submit' value='Make a peep'>
-</form>
+  <form action='/add_peep'>
+    <input type='submit' value='Make a peep'>
+  </form>
+
+
+</div>
+
+</div>
