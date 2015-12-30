@@ -2,8 +2,8 @@ ENV["RACK_ENV"] = "test"
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
-require 'web_helper'
 require 'database_cleaner'
+require_relative 'helpers/session'
 require './app/app'
 require './app/models/user'
 
@@ -17,6 +17,8 @@ Coveralls.wear!
 
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
