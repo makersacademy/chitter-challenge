@@ -155,6 +155,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
+  simplecov
   sinatra
   sinatra-flash
   sinatra-partial
