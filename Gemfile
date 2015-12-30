@@ -9,12 +9,12 @@ gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'bcrypt'
 gem 'byebug'
+gem 'rake'
 
 group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'capybara'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
 end

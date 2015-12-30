@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     user = User.first(id: env["rack.session"][:user_id])
     @username = (user ? user[:username] : nil)
-    @peeps = Peep.all(:order => [:created_at.desc])
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :peeps
   end
 
