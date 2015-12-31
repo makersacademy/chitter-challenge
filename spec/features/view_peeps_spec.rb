@@ -1,9 +1,9 @@
 feature 'viewing a peep' do
-  scenario 'peeps should be assigned to a user' do
+  scenario 'peeps should display user and user_name' do
     sign_up
     peep
     within 'ul#peeps' do
-      expect(page).to have_content 'Edward peeped: This is Ed\'s peep'
+      expect(page).to have_content 'Edward Kerry (Edward) peeped: This is Ed\'s peep'
     end
   end
 

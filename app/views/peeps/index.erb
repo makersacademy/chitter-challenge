@@ -5,7 +5,7 @@
   <ul id="peeps">
     <% @peeps.reverse.each do |peep| %>
       <li>
-        <%= peep.user.user_name %> peeped: <%= peep.peeps %>
+        <%= peep.user.name %> (<%= peep.user.user_name %>) peeped: <%= peep.peeps %>
         <%= peep.time.strftime('%H:%M, %e %B %Y') %>
       </li>
     <% end %>
