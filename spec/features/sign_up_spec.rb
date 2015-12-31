@@ -46,11 +46,11 @@ feature 'User Sign-Up' do
     expect(page).to have_content 'Email is already taken'       
   end
 
-  xscenario 'perisit user info when there is an error' do
+  scenario 'perisit user info when there is an error' do
     sign_up(password_confirmation: 'wrong_password')
-    expect(page).to have_content 'Joe Bloggs'
-    expect(page).to have_content 'joeb'
-    expect(page).to have_content 'joe.bloggs@gmail.com'
+    expect(page).to have_selector("input[value='Joe Bloggs']")
+    expect(page).to have_selector("input[value='joeb']")
+    expect(page).to have_selector("input[value='joe.bloggs@gmail.com']")
   end 
 end
 
