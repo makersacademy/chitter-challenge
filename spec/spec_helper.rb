@@ -9,13 +9,12 @@ Coveralls.wear!
 
 ENV["RACK_ENV"] = "test"
 
-require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'timecop'
-require_relative 'helpers/session'
 require './app/app'
-require './app/models/user'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
