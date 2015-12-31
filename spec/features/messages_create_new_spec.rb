@@ -24,6 +24,18 @@ feature 'Create new message' do
     expect(page).to have_content 'example: This is a test message'
   end
 
+  scenario 'can post two messages' do
+    sign_in(username: user.username,   password: user.password)
+    click_button 'New Message'
+    fill_in 'message', with: 'This is a test message'
+    click_button 'Post'
+    click_button 'New Message'
+    fill_in 'message', with: 'This is a second test message'
+    click_button 'Post'
+    expect(page).to have_content 'example: This is a test message'
+    expect(page).to have_content 'example: This is a second test message'
+  end
+
   def sign_in(username:               'example',
               password:               'password')
       visit '/users/new'

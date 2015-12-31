@@ -58,8 +58,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    @message = params[:message]
-    erb :'messages/index'
+    Message.create(params[:message])
+    Message.save
+    redirect '/messages'
   end
 
 end
