@@ -9,7 +9,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
+  property :email, String, unique: true, format: :email_address, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password
