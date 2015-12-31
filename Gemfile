@@ -5,6 +5,7 @@ source 'https://rubygems.org'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
   gem 'sinatra/flash'
+  gem 'sinatra/patial'
 
 group :test do
   gem 'rspec'

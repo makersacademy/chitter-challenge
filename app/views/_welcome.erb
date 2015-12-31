@@ -1,0 +1,24 @@
+<% if !current_user%>
+<form action="/users/new" method="get">
+  <label for="sign_up">
+    Sign up here!
+    <input type="submit" value="Sign Up">
+</form>
+
+<form action='/sessions/new' method="get">
+<label for="sign_in">
+  Sign in here!
+  <input type="submit" value="Sign In">
+</form>
+<% end %>
+
+<% if current_user %>
+<a href="/peeps/new" class="new_peep">Compose a peep!</a>
+  <h1> <%= current_user.user_name%>'s Chitter!</h1>
+  <form action='/sessions' method="post">
+    <input type="hidden" name="_method" value="delete">
+  <label for="sign_out">
+    Sign out here!
+    <input type="submit" value="Sign Out">
+  </form>
+<% end %>

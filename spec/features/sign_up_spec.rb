@@ -16,7 +16,7 @@ feature 'user sign up' do
 
   scenario 'email must be correct format' do
     expect{ sign_up(email: 'edwardkerry.gmail') }.not_to change(User, :count)
-    expect(current_path).to eq('/user/new')
+    expect(current_path).to eq('/users/new')
     expect(page).to have_content 'Email has an invalid format'
   end
 
