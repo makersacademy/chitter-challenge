@@ -1,9 +1,13 @@
 <% if current_user %>
   Welcome, <%= current_user.name %>
+  <form method='get' action='/peeps/new'>
+    <input type='submit' value='Post a Peep'>
+  </form>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
+    <input type='submit' value='Log out'>
   </form>
 <% else %>
-  <a href='/users/new'>Sign Up</a> <a href='/sessions/new'>Sign In</a>
+  <a href='/users/new'>Sign up</a> <a href='/sessions/new'>Log in</a>
+  <br>
 <% end %>

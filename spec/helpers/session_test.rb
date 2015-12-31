@@ -1,4 +1,4 @@
-module SessionHelpers
+module SessionTestHelpers
   def sign_up(
     name: 'Joe Bloggs', 
     username: 'joeb',
@@ -19,6 +19,6 @@ module SessionHelpers
     visit '/sessions/new'
     fill_in 'username', with: username
     fill_in 'password', with: password
-    click_button 'Sign in'
+    click_button 'Log in'
   end
 end

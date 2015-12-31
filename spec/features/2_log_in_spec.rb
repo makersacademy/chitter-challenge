@@ -16,4 +16,9 @@ feature 'User Log-In' do
     expect(current_path).to eq('/peeps')
     expect(page).to have_content "Welcome, #{user.name}"
   end
+  
+  scenario 'flash error if invalid login' do
+    sign_in(username: user.username, password: 'wrong password')
+    expect(page).to have_content "The email or password is incorrect"
+  end
 end

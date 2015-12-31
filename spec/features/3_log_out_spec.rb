@@ -13,9 +13,15 @@ feature 'User Log-out' do
 
   scenario 'deletes session and displays goodbye message' do
     sign_in(username: user.username, password: user.password)
-    click_button 'Sign out'
+    click_button 'Log out'
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'Goodbye!'
     expect(page).to_not have_content "Welcome, #{user.name}"
   end
+
+  scenario 'button not available if user not logged in' do
+    visit '/'
+    expect(page).to_not have_selector("input[type=submit][value='Log out']")
+  end
+
 end

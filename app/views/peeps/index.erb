@@ -1,1 +1,9 @@
 <h1>Peeps</h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.user.username + ': ' + peep.content %>
+    </li>
+  <% end %>
+</ul>

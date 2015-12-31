@@ -5,6 +5,8 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
+  
+  has n, :peeps
 
   property :id, Serial
   property :name, String
