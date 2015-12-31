@@ -1,6 +1,10 @@
 <h1> Sign up for Chitter</h1>
 
 <form action="/users/new" method="post">
+  <label for="name">
+    Enter your name:
+    <input name="name" type="text" value="<%=@user.name%>" required>
+  </label>
 <label for="user_name">
   Enter your user name:
   <input name="user_name" type="text" value="<%=@user.user_name%>" required>

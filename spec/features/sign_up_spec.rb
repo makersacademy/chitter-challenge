@@ -5,6 +5,10 @@ feature 'user sign up' do
     expect(User.first.email).to eq ('edwardkerry@gmail.com')
   end
 
+  scenario 'a name is required' do
+    expect{ sign_up(name: nil) }.not_to change(User, :count)
+  end
+
   scenario 'a username is required' do
     expect{ sign_up(user_name: nil) }.not_to change(User, :count)
   end

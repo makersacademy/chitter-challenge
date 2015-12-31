@@ -1,12 +1,14 @@
 module SessionHelpers
 
-  def sign_up (user_name: 'Edward',
+  def sign_up (name: 'Edward Kerry',
+              user_name: 'Edward',
               email: 'edwardkerry@gmail.com',
               password: 'password123',
               password_confirmation: 'password123')
 
     visit '/'
     click_button 'Sign Up'
+    fill_in :name, with: name
     fill_in :user_name, with: user_name
     fill_in :email, with: email
     fill_in :password, with: password

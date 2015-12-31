@@ -1,7 +1,8 @@
 feature 'user sign in' do
 
   let(:user) do
-    User.create(user_name: 'Edward',
+    User.create(name: 'Edward Kerry',
+                user_name: 'Edward',
                 email: 'edwardkerry@gmail.com',
                 password: 'password123',
                 password_confirmation: 'password123')
