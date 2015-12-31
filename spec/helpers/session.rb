@@ -23,6 +23,7 @@ module SessionHelpers
   end
 
   def peep
+    click_link 'Compose a peep!'
     fill_in 'peep', with: 'This is Ed\'s peep'
     click_button 'Peep!'
   end
