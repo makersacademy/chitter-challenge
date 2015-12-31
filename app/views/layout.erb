@@ -21,6 +21,7 @@
     <% end %>
 
     <% if current_user %>
+    <a href="/peeps/new" class="new_peep">Compose a peep!</a>
       <h1> <%= current_user.user_name%>'s Chitter!</h1>
       <form action='/sessions' method="post">
         <input type="hidden" name="_method" value="delete">

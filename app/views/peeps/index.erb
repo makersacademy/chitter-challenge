@@ -1,7 +1,7 @@
 <h1>Peeps of the day</h1>
 
   <ul id="peeps">
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
       <li>
          <%= peep.user.user_name %> peeped: <%= peep.peeps %>
       </li>
