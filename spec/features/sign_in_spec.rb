@@ -13,6 +13,16 @@ feature 'user sign in' do
     expect(page).to have_content 'Edward\'s Chitter'
   end
 
+  scenario 'correct email is needed' do
+    sign_in(email: 'lies@lies.com', password: user.password)
+    expect(page).to have_content 'The email or password was incorrect'
+  end
+
+  scenario 'correct password is needed' do
+    sign_in(email:user.email, password: 'lies')
+    expect(page).to have_content 'The email or password was incorrect'
+  end
+
   scenario 'when signed in users may not sign up' do
     sign_in
     expect(page).not_to have_button "Sign up"
