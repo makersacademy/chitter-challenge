@@ -1,0 +1,12 @@
+
+<fieldset>
+  <legend>Messages</legend>
+  <ul>
+    <li><%= current_user.username if current_user %>: <%= @message %></li>
+  </ul>
+</fieldset>
+
+
+<form action='/messages/new' method='get'>
+  <input type='submit' value='New Message'>
+</form>

@@ -38,7 +38,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/messages')
     else
-      flash.now[:errors] = [['The email or password is incorrect']]
+      flash.now[:errors] = [['The username or password is incorrect']]
       erb :'users/new'
     end
   end
@@ -50,6 +50,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
+    erb :'messages/index'
+  end
+
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    @message = params[:message]
     erb :'messages/index'
   end
 
