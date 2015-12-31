@@ -1,0 +1,6 @@
+<h2>Add your peep</h2>
+<form action='/peeps/add' method='post'>
+  <input type="text" size="128" name="content" value="<% flash[:content] %>" placeholder="Write your peep here..." required>
+  <input type="submit" value="Peep!">
+</form>
+<%= partial :'partials/messages' %>

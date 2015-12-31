@@ -1,11 +1,11 @@
-<h2>Register your account</h2>
+<h1>Register and start peeping!</h1>
 <form action='/register' method='post'>
   <input type="text" name="name" value="<%=flash[:name]%>" placeholder="Name" required>
   <input type="text" name="username" value='<%=flash[:username]%>' placeholder="Username" required>
   <input type="email" name="email" value='<%=flash[:email]%>' placeholder="Email" required>
   <input type="password" name="password" placeholder="Password" required>
   <input type="password" name="password_confirmation" placeholder="Confirm your password" required>
-  <input type="submit" value="Sign up!">
+  <input type="submit" value="Register">
 </form>
 <% if flash[:errors] %>
 <p> Please check: </p>
@@ -15,3 +15,4 @@
   <% end %>
 </ul>
 <% end %>
+<p>Already registered? <a href="/login" >Login</a></p>

@@ -12,10 +12,10 @@ group :production, :development do
 end
 
 group :test do
+  gem 'rake', '~> 10.4', '>= 10.4.2'
   gem 'capybara'
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
 end

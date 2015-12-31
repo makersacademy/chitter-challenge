@@ -1,6 +1,15 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'lib/app.rb')
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
@@ -9,6 +18,7 @@ require 'database_cleaner'
 
 require_relative 'helpers/register'
 require_relative 'helpers/login'
+require_relative 'helpers/add_peep'
 
 Capybara.app = App
 

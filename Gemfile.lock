@@ -159,7 +159,7 @@ DEPENDENCIES
   database_cleaner (~> 1.5, >= 1.5.1)
   dm-postgres-adapter (~> 1.2)
   dm-validations (~> 1.2)
-  rake
+  rake (~> 10.4, >= 10.4.2)
   rspec
   sinatra-base (~> 1.4)
   sinatra-flash (~> 0.3.0)

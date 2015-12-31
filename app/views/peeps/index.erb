@@ -1,0 +1,28 @@
+<header>
+  <%= partial :'partials/user' %>
+</header>
+<%= partial :'partials/messages' %>
+<% if @peeps %>
+  <% @peeps.each do |peep| %>
+    <article class="peep">
+      <p> <%= peep.content %> </p>
+      <p class="meta"> by <%= User.first(:id => peep.user_id).username %> on <%= peep.created_at.day %>/<%= peep.created_at.month %>/<%= peep.created_at.year %> -
+          <%= peep.created_at.hour %>:<%= peep.created_at.min %> </p>
+      <form action='/comment/add' method='get'>
+        <input type="hidden" name="peep_id" value="<%= peep.id %>">
+        <input type="submit" value="Comment">
+      </form>
+    </article>
+        <% @comments = Comment.all(:peep_id => peep.id, :order => [ :created_at.desc ]) %>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+          <article class="comment">
+            <p> <%= comment.content %> </p>
+            <p class="meta">by <%= User.first(:id => comment.user_id).username %> on <%= comment.created_at.day %>/<%= comment.created_at.month %>/<%= comment.created_at.year %> - <%= comment.created_at.hour %>:<%= comment.created_at.min %></p>
+          </article>
+          <% end %>
+        <% end %>
+  <% end %>
+<% else %>
+  <p>No peeps yet :(</p>
+<% end %>

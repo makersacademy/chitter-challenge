@@ -1,0 +1,8 @@
+<%= partial :'partials/messages' %>
+<h2>Add a comment</h2>
+<form action='/comment/add' method='post'>
+  <input type="hidden" name="peep_id" value="<%= params[:peep_id] %>">
+  <input type="text" name="content" placeholder="Write your comment..." required>
+  <input type="submit" value="Comment">
+  <a href="/peeps"> Cancel </a>
+</form>

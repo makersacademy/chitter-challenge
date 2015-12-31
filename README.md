@@ -8,7 +8,7 @@ This weekend challenge is to create a simplified clone of Twitter!
 
 ## User stories
 
-REGISTER
+###REGISTER
 
 ```
 As a Maker
@@ -24,7 +24,7 @@ So that I can understand why I can't register
 I need to be warned the email or username already exists
 
 ```
-LOG IN
+###LOG IN
 
 ```
 As a Maker
@@ -36,7 +36,7 @@ So that I can understand why I can't log in
 I need to be warned the email or password are wrong
 
 ```
-LOG OUT
+###LOG OUT
 
 ```
 As a Maker
@@ -44,7 +44,7 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 ```
-PEEPING
+###PEEPING
 
 ```
 As a Maker
@@ -59,6 +59,14 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
+As a maker
+So that I can start a conversation with other users
+I want to comment peeps
+
+As a maker
+So that I can view the most recent content
+I want to see comments on a peep in reverse chronological order
+
 ```
 
 # Implementation
@@ -67,30 +75,52 @@ My implementation was driven by acceptance unit test cycles. The final implement
 
 ## Modules & gems
 
-* Sinatra
-* Rake
-* Bcrypt
+Production and development environment:
+* sinatra-base
+* bcrypt
+* data_mapper
+* dm-postgres-adapter
+* sinatra-flash
+* dm-validations
+* sinatra-partial
 
 Test environment:
-* Rubocop
-* Coveralls
-* Capybara
-* Rspec
+* rake
+* capybara
+* rspec
+* cucumber
+* coveralls
+* database_cleaner
 
 ## How to use it
-Make sure you first have all the necessary gems running
+First download this project to your local machine. Then navigate into the folder that contains it
+```
+$ cd chitter
+```
+Now run bundler to make sure you have all the necessary dependencies
 ```
 $ bundle install
 ```
-Then run the app.rb file
+Then run the app through the config.ru file
 ```
-$ ruby app.rb
+$ rackup
 ```
-Finally visit the game at /localhost:4567. Enjoy! :) (simple things in life are the best)
-
-
-## Classes
-
+Finally visit the app at /localhost:9292 (or any other port you might have configured). Enjoy! :) (simple things in life are the best)
 
 
 ## Future improvements
+
+```
+As a maker
+So that I can log in again
+I want to reset the password I have forgot
+
+As a maker
+So that I can remove unwanted peeps
+I want to delete a peep I made
+
+As a maker
+So that I can more easily understand times
+I want to see the time peeps/comments where posted at in a friendly format (2 days ago, 1 minute ago, 1 hour ago etc.)
+
+```

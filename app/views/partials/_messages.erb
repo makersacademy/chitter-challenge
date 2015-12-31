@@ -2,6 +2,12 @@
   <p> Welcome <%= @user.name %> </p>
   <% elsif flash[:message] == :welcome_back %>
   <p> Welcome back <%= @user.name %> </p>
+  <% elsif flash[:message] == :goodbye %>
+  <p> Goodbye! </p>
   <% elsif flash[:message] == :login_errors %>
   <p> Please double check your email or password </p>
+  <% elsif flash[:message] == :add_peep_error %>
+  <p> Your peep can't be empty! </p>
+  <% elsif flash[:message] == :peep_added %>
+  <p> Nice peep! </p>
 <% end %>

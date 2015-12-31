@@ -1,0 +1,17 @@
+<form id="Peep" action='/peeps/add' method='get'>
+  <input type="submit" value="Peep!">
+</form>
+<% if @user %>
+  <p> Hello, <%= @user.name %> </p>
+  <form action='/logout' method='post'>
+    <input name="_method" type="hidden" value="delete" />
+    <input type="submit" value="Log out">
+  </form>
+<% else %>
+  <form action='/register' method='get'>
+    <input type="submit" value="Register">
+  </form>
+  <form action='/login' method='get'>
+    <input type="submit" value="Log in">
+  </form>
+<% end %>
