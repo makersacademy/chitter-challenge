@@ -22,4 +22,9 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def peep
+    fill_in 'peep', with: 'This is Ed\'s peep'
+    click_button 'Peep!'
+  end
+
 end

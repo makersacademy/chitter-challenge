@@ -6,5 +6,6 @@ class Peep
 
   property :id, Serial
   property :peeps, Text
+  property :time, Time
 
 end

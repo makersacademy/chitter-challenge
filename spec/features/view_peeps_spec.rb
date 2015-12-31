@@ -1,8 +1,7 @@
 feature 'viewing a peep' do
   scenario 'peeps should be assigned to a user' do
     sign_up
-    fill_in 'peep', with: 'This is Ed\'s peep'
-    click_button 'Peep!'
+    peep
     within 'ul#peeps' do
       expect(page).to have_content 'Edward peeped: This is Ed\'s peep'
     end
@@ -10,13 +9,25 @@ feature 'viewing a peep' do
 
   scenario 'peeps should appear in reverse order do' do
     sign_up
-    fill_in 'peep', with: 'Peep 1'
-    click_button 'Peep!'
-    click_link "Compose a peep!"
-    fill_in 'peep', with: 'Peep 2'
-    click_button 'Peep!'
+    3.times do |peep|
+      click_link "Compose a peep!"
+      fill_in 'peep', with: "#{peep + 1}"
+      click_button 'Peep!'
+    end
     within 'ul#peeps' do
-      expect(page).to have_content 'Edward peeped: Peep 2 Edward peeped: Peep 1'
+      expect(page.find('li:nth-child(1)')).to have_content '3'
+      expect(page.find('li:nth-child(2)')).to have_content '2'
+      expect(page.find('li:nth-child(3)')).to have_content '1'
+    end
+  end
+
+  scenario 'peeps should display time of creation' do
+    sign_up
+    Timecop.freeze do
+      peep
+      within 'ul#peeps' do
+        expect(page).to have_content "#{Time.now.strftime('%H:%M, %e %B %Y')}"
+      end
     end
   end
 end
