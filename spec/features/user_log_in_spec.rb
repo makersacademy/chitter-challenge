@@ -8,9 +8,9 @@ feature 'User log in' do
                 password_confirmation:  'password')
   end
 
-  scenario 'There is a log in option' do
+  scenario 'There is a log in button on home page' do
     visit '/users/new'
-    expect(page).to have_content "Log In"
+    expect(page).to have_button "Log in"
   end
 
   scenario 'can log in with correct credentials' do
@@ -23,7 +23,7 @@ feature 'User log in' do
       visit '/users/new'
       fill_in 'existing_username', with: username
       fill_in 'existing_password', with: password
-      click_button('Log In')
+      click_button('Log in')
   end
 
 

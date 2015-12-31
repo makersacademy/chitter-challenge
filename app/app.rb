@@ -43,6 +43,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+      session[:user_id] = nil
+      flash.keep[:notice] = 'Goodbye'
+      redirect to '/users/new'
+  end
+
   get '/messages' do
     erb :'messages/index'
   end
