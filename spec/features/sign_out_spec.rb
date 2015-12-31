@@ -7,7 +7,7 @@ feature 'user sign out' do
                 password_confirmation: 'password123')
   end
 
-  scenario 'when after sign up, a user may sign out' do
+  scenario 'users may sign out' do
     sign_in(email: user.email, password: user.password)
     click_button 'Sign Out'
     expect(page).to have_content 'Goodbye'

@@ -13,7 +13,6 @@ feature 'user sign up' do
     expect{ sign_up(email: nil) }.not_to change(User, :count)
   end
 
-
   scenario 'email must be correct format' do
     expect{ sign_up(email: 'edwardkerry.gmail') }.not_to change(User, :count)
     expect(current_path).to eq('/users/new')

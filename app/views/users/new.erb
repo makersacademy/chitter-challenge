@@ -3,7 +3,7 @@
 <form action="/users/new" method="post">
 <label for="user_name">
   Enter your user name:
-  <input name="user_name" type="text" value="<%=@user.user_name%>">
+  <input name="user_name" type="text" value="<%=@user.user_name%>" required>
 </label>
 <label for="email">
   Enter your email:
@@ -11,7 +11,7 @@
 </label>
 <label for="password">
   Enter your password:
-  <input name="password" type="password">
+  <input name="password" type="password" required>
 </label>
 <label for="password_confirmation">
   Confirm your password:

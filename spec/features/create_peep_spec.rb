@@ -1,7 +1,6 @@
 feature 'create a peep' do
   scenario 'signed in user may create a peep' do
     sign_up
-    expect(current_path).to eq '/'
     peep
     expect(current_path).to eq '/'
     within 'ul#peeps' do
