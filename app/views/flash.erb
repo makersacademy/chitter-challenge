@@ -1,0 +1,14 @@
+<% if flash[:notice] %>
+<div id='notice'>
+  <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% if flash.now[:errors] %>
+<p>Below problems must be resolved:</p>
+<% flash.now[:errors].each do |error| %>
+<ul>
+  <li><%= error.pop %></li>
+</ul>
+<% end %>
+<% end %>

@@ -1,6 +1,7 @@
-<h1>Sign Up</h1>
+<form action='/users' method='post'>
 
-<form action='/messages' method='get'>
+  <fieldset>
+    <legend>Sign Up</legend>
 
   <label for="email">Email:</label>
   <input type="text" name="email">
@@ -18,5 +19,24 @@
   <input type="text" name="password_confirmation">
 
   <input type='submit' value='Sign Up'>
+
+</fieldset>
+
+</form>
+
+<form action='/sessions' method='post'>
+
+  <fieldset>
+    <legend>Log In</legend>
+
+  <label for="existing_username">Username:</label>
+  <input type="text" name="existing_username">
+
+  <label for="existing_password">Password:</label>
+  <input type="text" name="existing_password">
+
+  <input type='submit' value='Log In'>
+
+</fieldset>
 
 </form>
