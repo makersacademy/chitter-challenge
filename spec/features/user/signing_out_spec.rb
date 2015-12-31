@@ -3,6 +3,9 @@
 # I want to log out of Chitter
 
 feature 'Signing out' do
+  before do
+    sign_in
+  end
   scenario 'a log in link is displayed in the navbar' do
     sign_out
     expect(page).to have_content('Log in')

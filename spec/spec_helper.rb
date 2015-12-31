@@ -12,6 +12,7 @@ require 'byebug'
 require 'timecop'
 require 'helpers/session'
 require 'helpers/peep'
+require 'helpers/reply'
 
 Capybara.app = Chitter
 
@@ -25,6 +26,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include SessionHelpers
   config.include PeepHelpers
+  config.include ReplyHelpers
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

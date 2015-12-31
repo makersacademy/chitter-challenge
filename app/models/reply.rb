@@ -1,6 +1,6 @@
 require 'dm-timestamps'
 
-class Peep
+class Reply
   include DataMapper::Resource
 
   property :id,         Serial
@@ -9,5 +9,5 @@ class Peep
   property :updated_at, DateTime
 
   belongs_to :user
-  has n, :replies
+  belongs_to :peep
 end

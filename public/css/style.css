@@ -98,3 +98,58 @@ textarea{
 hr{
   border-color: #777;
 }
+
+li{
+  list-style: none;
+}
+
+.panel .title{
+  margin: 5px 0;
+}
+
+.panel .title a{
+  color: black;
+}
+
+.more .btn-link{
+  font-size: 12px;
+  margin-top: 0;
+  padding: 5px 10px;
+  color: #777;
+}
+
+.more .btn-link:hover{
+  background: transparent;
+  text-decoration: underline;
+}
+
+.replies{
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.panel-footer, .panel-footer ul{
+  padding: 0;
+  margin: 0;
+}
+
+.panel-footer .form{
+  font-size: 12px;
+  max-width: none;
+}
+
+.panel-footer .form button{
+  margin-bottom: 20px;
+}
+
+.clear:before, .clear:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clear:after {
+    clear: both;
+}

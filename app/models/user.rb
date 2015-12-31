@@ -11,6 +11,7 @@ class User
   property :password_digest,     Text, lazy: false
 
   has n, :peeps
+  has n, :replies
 
   attr_reader :password
 

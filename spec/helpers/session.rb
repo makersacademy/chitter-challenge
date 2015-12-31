@@ -23,7 +23,6 @@ module SessionHelpers
   end
 
   def sign_out
-    sign_in
     click_button('Log out')
   end
 end

@@ -17,4 +17,10 @@ class Chitter < Sinatra::Base
       erb :'users/new'
     end
   end
+
+  get '/users/:username' do
+    @user = User.first(username: params[:username])
+    @peeps = @user.peeps
+    erb :'users/user'
+  end
 end
