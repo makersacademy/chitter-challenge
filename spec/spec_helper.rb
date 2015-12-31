@@ -1,5 +1,4 @@
 ENV["RACK_ENV"] = "test"
-require 'byebug'
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'

@@ -6,15 +6,13 @@ ruby '2.2.3'
   gem 'bcrypt'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
+  gem 'sinatra'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
-  gem 'sinatra'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'byebug'
   gem 'timecop'
 end
