@@ -3,6 +3,12 @@ Chitter Challenge
 
 Features:
 -------
+```sh
+
+```
+
+Incomplete:
+-------
 
 ```sh
 As a user
@@ -45,7 +51,7 @@ Notes on functionality:
 * Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
 Bonus:
------
+------
 
 If you have time you can implement the following:
 
@@ -54,3 +60,14 @@ If you have time you can implement the following:
 And/Or:
 
 * Work on the css to make it look good (we all like beautiful things).
+
+Installation:
+------
+```
+git clone https://github.com/hibreez/chitter_challenge
+bundle
+createdb chitter_development
+rake db:auto_migrate
+rspec
+rackup
+```
