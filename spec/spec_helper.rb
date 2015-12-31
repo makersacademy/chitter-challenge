@@ -1,4 +1,3 @@
-ENV["RACK_ENV"] = "test"
 require 'coveralls'
 require 'simplecov'
 
@@ -7,6 +6,8 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
+
+ENV["RACK_ENV"] = "test"
 
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -20,6 +21,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
 
   config.include SessionHelpers
+  config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
