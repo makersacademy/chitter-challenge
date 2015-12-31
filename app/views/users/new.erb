@@ -1,11 +1,31 @@
 <h1>Sign Up for Chitter</h1>
 
 <form action='/users' method='post'>
-  <input type='text' name='name' value='<%= @user.name %>' placeholder='Your Name'>
-  <input type='text' name='username' value='<%= @user.username %>' placeholder='Desired Username'>
-  <input type='email' name='email' value='<%= @user.email %>' placeholder='Your Email'>
-  <input type='password' name='password' placeholder='Your Password'>
-  <input type='password' name='password_confirmation' placeholder='Password Confirmation'>
+  <label for='name'>
+    Name: <input type='text' name='name' value='<%= @user.name %>' 
+    placeholder='Your Name'>
+  </label>
+
+  <label for='username'>
+    Username: <input type='text' name='username' value='<%= @user.username %>' 
+    placeholder='Desired Username'>
+  </label>
+
+  <label for='email'>
+    Email: <input type='email' name='email' value='<%= @user.email %>' 
+    placeholder='Your Email'>
+  </label>
+
+  <label for='password'>
+    Password: <input type='password' name='password' 
+    placeholder='Your Password'>
+  </label>
+
+  <label for='password_confirmation'>
+    Password confirmation: <input type='password' name='password_confirmation' 
+    placeholder='Password Confirmation'>
+  </label>
+
   <input type='submit' value='Sign up'>
 </form>
 <br>
