@@ -24,8 +24,10 @@ feature 'Create new message' do
   scenario 'multiple messages are posted in reverse chronological order' do
     post_message(message: 'This is a test message')
     post_message(message: 'This is a second test message')
-    expect(page).to have_selector "ul#messages li:nth-child(2)", text: 'Example Name(example): This is a test message'
-    expect(page).to have_selector "ul#messages li:nth-child(1)", text: 'Example Name(example): This is a second test message'
+    expect(page).to have_selector "ul#messages li:nth-child(2)",
+      text: 'Example Name(example): This is a test message'
+    expect(page).to have_selector "ul#messages li:nth-child(1)",
+      text: 'Example Name(example): This is a second test message'
   end
 
   scenario 'message comes with time stamp' do
@@ -45,20 +47,5 @@ feature 'Create new message' do
     click_button 'Display Messages'
     click_button 'New Message'
     expect(page).to have_content 'Must log in'
-  end
-
-  def sign_in(username:               'example',
-              password:               'password')
-      visit '/users/new'
-      fill_in 'existing_username', with: username
-      fill_in 'existing_password', with: password
-      click_button('Log in')
-  end
-
-  def post_message(message: 'This is a test message')
-    sign_in(username: user.username,   password: user.password)
-    click_button 'New Message'
-    fill_in 'message', with: message
-    click_button 'Post'
   end
 end

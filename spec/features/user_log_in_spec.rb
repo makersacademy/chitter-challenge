@@ -18,13 +18,5 @@ feature 'User log in' do
     expect(page).to have_content "Welcome #{user.name}"
   end
 
-  def sign_in(username:               'example',
-              password:               'password')
-      visit '/users/new'
-      fill_in 'existing_username', with: username
-      fill_in 'existing_password', with: password
-      click_button('Log in')
-  end
-
 
 end
