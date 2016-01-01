@@ -22,18 +22,18 @@ Then use following URL: [http://localhost:9292/](http://localhost:9292/)
 To see posted messages, click 'Display Messages'. Otherwise, 'Sign Up' if you are
 a new user, or 'Log In' if you are a returning user.
 
-![Home-page](home_page.png)
+![Home-page](app/public/home_page.png)
 
 ###Messages Page
 
 Messages are displayed in reverse chronological order. The time of posting is in
 blue. To post a new message, click 'New Message'.
 
-![Messages](messages.png)
+![Messages](app/public/messages.png)
 
 ###New Message Post Page
 
 Type the text in the box, and then click post. Then your message should be
 displayed.
 
-![New Message Post](new_message_post.png)
+![New Message Post](app/public/new_message_post.png)
