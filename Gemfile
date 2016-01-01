@@ -11,6 +11,9 @@ gem 'sinatra-flash'
 group :test do
   gem 'rspec'
   gem 'cucumber'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'rspec-sinatra'
   gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
