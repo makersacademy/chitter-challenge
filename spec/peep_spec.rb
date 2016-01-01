@@ -1,6 +1,6 @@
 feature 'Posting a message' do
   let!(:user) do
-    User.create(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+    User.create(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
   end
 
   scenario 'a user can have associated peeps' do
@@ -24,6 +24,6 @@ feature 'Posting a message' do
     log_in(user.username, user.password)
     fill_in :message, with: 'Hi, I am using Chitter!'
     click_button 'Peep!'
-    expect(page).to have_content('Katie, Smithy')
+    expect(page).to have_content('Katie, KS')
   end
 end

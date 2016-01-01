@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
     user = User.first(id: env["rack.session"][:user_id])
     message = Peep.create(content: params[:message], user_id: (env["rack.session"][:user_id]))
     user.peeps << message
-    user.save # use save! here instead?
+    user.save
     redirect to('/peeps')
   end
 end

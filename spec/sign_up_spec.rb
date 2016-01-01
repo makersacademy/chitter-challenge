@@ -1,11 +1,11 @@
 feature 'Signing up to Chitter' do
 
   let!(:user) do
-    User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+    User.new(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
   end
 
   let!(:user2) do
-    User.new(name: 'Jack', username: 'Jacko', email: 'J@email.com', password: 'blue', password_confirmation: 'blue')
+    User.new(name: 'Jack', username: 'JBrown', email: 'J@email.com', password: 'blue', password_confirmation: 'blue')
   end
 
   scenario 'A user can sign up' do
@@ -14,7 +14,7 @@ feature 'Signing up to Chitter' do
   end
 
   scenario 'A user cannot sign up with a username that is already taken' do
-    user2[:username] = 'Smithy'
+    user2[:username] = 'KS'
     sign_up(user)
     click_button 'Create account'
     sign_up(user2)
@@ -60,21 +60,21 @@ feature 'Signing up to Chitter' do
   end
 
   scenario 'A user must enter a password' do
-    user = User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: '', password_confirmation: 'secret')
+    user = User.new(name: 'Katie', username: 'KS', email: 'K@email.com', password: '', password_confirmation: 'secret')
     sign_up(user)
     expect{ click_button 'Create account' }.not_to change(User, :count)
     expect(page).to have_content 'Password must not be blank'
   end
 
   scenario 'A user must enter a password_confirmation' do
-    user = User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: '')
+    user = User.new(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: '')
     sign_up(user)
     expect{ click_button 'Create account' }.not_to change(User, :count)
     expect(page).to have_content 'Password confirmation must not be blank'
   end
 
   scenario 'A user must enter matching passwords' do
-    user = User.new(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'top', password_confirmation: 'secret')
+    user = User.new(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'top', password_confirmation: 'secret')
     sign_up(user)
     expect{ click_button 'Create account' }.not_to change(User, :count)
     expect(page).to have_content 'Password does not match the confirmation'

@@ -1,7 +1,7 @@
 describe User do
   context '::authenticate' do
     let!(:user) do
-      User.create(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+      User.create(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
     end
 
     it 'authenticates a valid user' do

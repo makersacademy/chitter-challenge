@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
       env["rack.session"][:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.next[:login_fail] = ["Either you've not registered, or your password is wrong"]
+      flash.next[:login_fail] = ["Either you've not signed up, or your password is wrong"]
       redirect to '/'
     end
   end

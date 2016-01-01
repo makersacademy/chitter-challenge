@@ -1,6 +1,6 @@
 feature 'Logging out of Chitter' do
   let!(:user) do
-    User.create(name: 'Katie', username: 'Smithy', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
+    User.create(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
   end
 
   scenario 'A logged in user can log out' do
@@ -8,6 +8,6 @@ feature 'Logging out of Chitter' do
     log_in(user.username, user.password)
     click_button 'Sign out'
     expect(page).to have_content('Goodbye!')
-    expect(page).not_to have_content('Welcome back Smithy')
+    expect(page).not_to have_content('Welcome back KS')
   end
 end
