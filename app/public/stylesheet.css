@@ -14,3 +14,8 @@ fieldset {
 #time {
   color: blue;
 }
+
+#flash {
+  width:20%;
+  margin:0 auto;
+}

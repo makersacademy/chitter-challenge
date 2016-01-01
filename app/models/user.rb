@@ -10,9 +10,9 @@ class User
   property :id,    Serial
   property :name,  String
   property :username, String, required: true, unique: true,
-  message:'Username taken'
+  message:'Username invalid'
   property :email,  String, required: true, unique: true,
-  message: "Email address taken"
+  message: "Email address invalid"
   property :password , Text
   attr_accessor :password_confirmation
   validates_confirmation_of :password,

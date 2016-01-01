@@ -32,13 +32,13 @@ feature 'User Sign Up' do
   scenario 'user can not sign up with an already registered email address' do
     sign_up(email: 'andy101@gmail.com')
     expect { sign_up(email: 'andy101@gmail.com') }.not_to change(User, :count)
-    expect(page).to have_content 'Email address taken'
+    expect(page).to have_content 'Email address invalid'
   end
 
   scenario 'user can not sign up with an already registered username' do
     sign_up(username: 'andy')
     expect { sign_up(email:'cool@gmail.com', username: 'andy') }.not_to change(User, :count)
-    expect(page).to have_content 'Username taken'
+    expect(page).to have_content 'Username invalid'
   end
 
 
