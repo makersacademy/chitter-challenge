@@ -4,16 +4,22 @@
 feature 'Post message' do
   before do
     sign_up
-    log_in
+  end
+
+  scenario 'after signing up' do
+    post_message
+    expect(page).to have_content('My first peep')
   end
 
   scenario 'when logged in' do
+    log_out
+    log_in
     post_message
     expect(page).to have_content('My first peep')
   end
 
   scenario 'cannot happen if logged out' do
-    click_button('Log out')
+    log_out
     post_message
     expect(page).not_to have_content('My first peep')
     expect(page).to have_content('Oops! You need to be logged in to peep.')

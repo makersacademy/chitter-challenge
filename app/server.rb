@@ -1,8 +1,9 @@
 class Chitter < Sinatra::Base
   set :root, File.dirname(__FILE__)
-  enable :sessions
+  # enable :sessions
   register Sinatra::Flash
   use Rack::MethodOverride
+  use Rack::Session::Pool
 
   helpers do
     def current_user

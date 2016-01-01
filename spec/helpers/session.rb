@@ -16,6 +16,10 @@ module SessionHelpers
     click_button('Log in')
   end
 
+  def log_out
+    click_button('Log out')
+  end
+
   def post_message
     visit '/peeps'
     fill_in(:message, with: 'My first peep')
