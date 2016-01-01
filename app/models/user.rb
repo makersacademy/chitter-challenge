@@ -9,7 +9,8 @@ class User
 
   property :id,    Serial
   property :name,  String
-  property :username, String
+  property :username, String, required: true, unique: true,
+  message:'Username taken'
   property :email,  String, required: true, unique: true,
   message: "Email address taken"
   property :password , Text
