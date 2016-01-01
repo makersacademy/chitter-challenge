@@ -4,7 +4,8 @@
 
   <ul id='messages'>
   <% @messages.reverse.each do |message| %>
-  <li><%=message.sender_name%>(<%=message.sender_username%>): <%= message.message %><br>(<%=message.time_stamp%>)</li>
+  <li><%=message.sender_name%>(<%=message.sender_username%>): <%= message.message %>
+    <span id="time">(<%=message.time_stamp%>)</span></li>
   <% end %>
 </ul>
 
@@ -13,4 +14,4 @@
 
 <form action='/messages/new' method='get'>
   <input type='submit' value='New Message'>
-</form>
+</form><br>

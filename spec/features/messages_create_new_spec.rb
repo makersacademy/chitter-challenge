@@ -9,8 +9,8 @@ feature 'Create new message' do
   end
 
 
-  scenario 'can access new message page from messages page' do
-    visit '/messages'
+  scenario 'when signed in, can access new message page from messages page' do
+    sign_in(username: user.username,   password: user.password)
     click_button 'New Message'
     expect(page.status_code).to be 200
     expect(page).to have_content 'New Message Post'
@@ -38,6 +38,13 @@ feature 'Create new message' do
     post_message(message: 'This is a test message')
     click_button 'Display Messages'
     expect(page).to have_content 'Messages'
+  end
+
+  scenario 'receive warning if try to create message and am not user' do
+    visit '/users/new'
+    click_button 'Display Messages'
+    click_button 'New Message'
+    expect(page).to have_content 'Must log in'
   end
 
   def sign_in(username:               'example',
