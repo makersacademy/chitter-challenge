@@ -3,8 +3,8 @@ language: ruby
 rvm: '2.2.3'
 
 script:
-  - RACK_ENV=test
   - mkdir -p spec && bundle exec rspec spec
+  - rake db:auto_upgrade
 
 before_install:
 - sed -i '2d' Gemfile
