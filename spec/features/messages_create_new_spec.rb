@@ -18,14 +18,14 @@ feature 'Create new message' do
 
   scenario 'can post one new message' do
     expect{post_message(message: 'This is a test message')}.to change(Message, :count)
-    expect(page).to have_content 'example: This is a test message'
+    expect(page).to have_content 'Example Name(example): This is a test message'
   end
 
   scenario 'multiple messages are posted in reverse chronological order' do
     post_message(message: 'This is a test message')
     post_message(message: 'This is a second test message')
-    expect(page).to have_selector "ul#messages li:nth-child(2)", text: 'example: This is a test message'
-    expect(page).to have_selector "ul#messages li:nth-child(1)", text: 'example: This is a second test message'
+    expect(page).to have_selector "ul#messages li:nth-child(2)", text: 'Example Name(example): This is a test message'
+    expect(page).to have_selector "ul#messages li:nth-child(1)", text: 'Example Name(example): This is a second test message'
   end
 
   scenario 'message comes with time stamp' do

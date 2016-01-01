@@ -4,7 +4,7 @@
 
   <ul id='messages'>
   <% @messages.reverse.each do |message| %>
-  <li><%= message.sender%>: <%= message.message %><br>(<%=message.time_stamp%>)</li>
+  <li><%=message.sender_name%>(<%=message.sender_username%>): <%= message.message %><br>(<%=message.time_stamp%>)</li>
   <% end %>
 </ul>
 
