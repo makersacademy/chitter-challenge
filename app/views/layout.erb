@@ -1,34 +1,43 @@
-<h1>Chitter</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Chitter</h1>
+      <% if current_user %>
+      <form action='/sessions' method='post'>
+        <input name="_method" type="hidden" value="delete">
+        <input type="submit" value="Log out">
+      </form>
+      <% end %>
+    </div>
+    <% if flash[:goodbye] %>
+      <%= flash[:goodbye] %>
+    <% end %>
 
-<% if flash[:goodbye] %>
-  <%= flash[:goodbye] %>
-<% end %>
+    <% if flash[:logged_out] %>
+      <%= flash[:logged_out] %>
+    <% end %>
 
-<% if flash[:logged_out] %>
-  <%= flash[:logged_out] %>
-<% end %>
+    <%= yield %>
 
-<% if current_user %>
-<form action='/sessions' method='post'>
-  <input name="_method" type="hidden" value="delete">
-  <input type="submit" value="Log out">
-</form>
-<% end %>
-
-<%= yield %>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Errors:
-    <ul>
-  <% flash[:errors].each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-<% end %>
-<% if flash[:password_error] %>
-  Error:
-  <br>
-  <ul>
-  <li><%= flash[:password_error] %></li>
-</ul>
-<% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Errors:
+        <ul>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    <% if flash[:password_error] %>
+      Error:
+      <br>
+      <ul>
+      <li><%= flash[:password_error] %></li>
+    </ul>
+    <% end %>
+  </body>
+</html>

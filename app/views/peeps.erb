@@ -9,10 +9,12 @@
 </form>
 <p>
   Latest peeps...
+<p>
+<% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
+<% sorted_messages.each do |message| %>
+  <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
+  "<%= message.message %>" <br>
+  Posted: <%= message.time.strftime("%F %T") %> <br>
+  <a href="/reply" method="post">Reply</a>
   <p>
-  <% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
-  <% sorted_messages.each do |message| %>
-    <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
-    "<%= message.message %>" <br>
-    Posted: <%= message.time.strftime("%F %T") %><p>
-  <% end %>
+<% end %>

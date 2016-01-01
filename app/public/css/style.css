@@ -1,0 +1,12 @@
+body {
+  background-color: #e6fce6;
+  font-family: Helvetica;
+}
+
+#header {
+}
+
+#header h1 {
+  color: #b9e0b9;
+  border: 5px dashed #b9e0b9;
+}

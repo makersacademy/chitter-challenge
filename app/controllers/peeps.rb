@@ -16,4 +16,12 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/reply' do
+    erb :'reply'
+  end
+
+  post '/reply' do
+    redirect '/reply'
+  end
+
 end
