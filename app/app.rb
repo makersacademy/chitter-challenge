@@ -59,12 +59,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    @message = Message.create(message: params[:message])
-    if @message.save
+    @message = Message.create(message: params[:message], sender: current_user.username)
     redirect '/messages'
-  else
-    p 'no save'
-  end
   end
 
 end

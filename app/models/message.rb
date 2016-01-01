@@ -3,7 +3,6 @@ class Message
 
   property :id, Serial
   property :message, String
-
-  # belongs_to :user
+  property :sender, String
 
 end

@@ -18,8 +18,6 @@ class User
   message: "Password does not match confirmation"
   validates_format_of :email, :as => :email_address
 
-  # has n, :messages
-
 
   def password_new
     @password_hashed ||= Password.new(password)

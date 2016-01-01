@@ -4,7 +4,7 @@
 
   <ul>
   <% @messages.each do |message| %>
-  <li><%= message.message %></li>
+  <li><%= message.sender%>: <%= message.message %></li>
   <% end %>
 </ul>
 
