@@ -2,8 +2,8 @@
 <fieldset>
   <legend>Messages</legend>
 
-  <ul>
-  <% @messages.each do |message| %>
+  <ul id='messages'>
+  <% @messages.reverse.each do |message| %>
   <li><%= message.sender%>: <%= message.message %></li>
   <% end %>
 </ul>

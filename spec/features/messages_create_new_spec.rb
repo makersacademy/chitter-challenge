@@ -21,11 +21,11 @@ feature 'Create new message' do
     expect(page).to have_content 'example: This is a test message'
   end
 
-  scenario 'can post multiple messages' do
+  scenario 'multiple messages are posted in reverse chronological order' do
     post_message(message: 'This is a test message')
     post_message(message: 'This is a second test message')
-    expect(page).to have_content 'example: This is a test message'
-    expect(page).to have_content 'example: This is a second test message'
+    expect(page).to have_selector "ul#messages li:nth-child(2)", text: 'example: This is a test message'
+    expect(page).to have_selector "ul#messages li:nth-child(1)", text: 'example: This is a second test message'
   end
 
   def sign_in(username:               'example',
