@@ -31,6 +31,12 @@ feature 'User Sign Up' do
     expect(page).to have_content 'Email address taken'
   end
 
+  scenario 'anyone can see messages, even if not signed in' do
+    visit '/'
+    click_button 'Display Messages'
+    expect(page).to have_content 'Messages'
+  end
+
 
   def sign_up(name:                   'Example Name',
               username:               'example',

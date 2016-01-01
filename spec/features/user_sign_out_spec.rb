@@ -9,12 +9,12 @@ feature 'User log out' do
 
   scenario 'There is a log out option on home-page' do
     visit '/users/new'
-    expect(page).to have_button "Log out"
+    expect(page).to have_button "Log out or Sign Up"
   end
 
   scenario 'There is a log out option on messages page' do
     visit '/messages'
-    expect(page).to have_button "Log out"
+    expect(page).to have_button "Log out or Sign Up"
   end
 
   scenario 'can log out' do

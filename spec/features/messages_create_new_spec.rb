@@ -34,6 +34,12 @@ feature 'Create new message' do
     expect(page).to have_content "#{time}"
   end
 
+  scenario 'can quit and return to seeing messages' do
+    post_message(message: 'This is a test message')
+    click_button 'Display Messages'
+    expect(page).to have_content 'Messages'
+  end
+
   def sign_in(username:               'example',
               password:               'password')
       visit '/users/new'
