@@ -1,5 +1,10 @@
 class Chitter < Sinatra::Base
 
+  get '/' do
+    @messages = Message.all
+    erb :'peeps'
+  end
+
   get '/peeps' do
     @messages = Message.all
     erb :'peeps'

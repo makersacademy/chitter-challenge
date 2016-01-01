@@ -36,25 +36,25 @@ a {
 #log-out-button {
   display: inline;
   float:right;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 #log-in-button {
   display: inline;
   float:right;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 #sign-up-button {
   display: inline;
   float:right;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 #view-peeps-button {
   display: inline;
   float:right;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .button {
@@ -126,4 +126,13 @@ a {
 .emphasise-green {
   color: green;
   font-weight: bolder;
+}
+
+.emphasise-black {
+  color: black;
+  font-weight: bolder;
+}
+
+.errors {
+  display: inline-block;
 }

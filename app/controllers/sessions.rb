@@ -2,10 +2,6 @@ require_relative 'peeps'
 
 class Chitter < Sinatra::Base
 
-  get '/' do
-    erb :'index'
-  end
-
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:goodbye] = 'Goodbye!'
