@@ -122,6 +122,7 @@ GEM
       tins (~> 1.0)
     thor (0.19.1)
     tilt (2.0.1)
+    timecop (0.8.0)
     tins (1.6.0)
     unf (0.1.4)
       unf_ext
@@ -139,11 +140,13 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   rake
   rspec
   sinatra
   sinatra-flash
   sinatra-partial
+  timecop
 
 BUNDLED WITH
    1.11.2

@@ -4,5 +4,6 @@ class Peep
   belongs_to :user
 
   property :id, Serial
-  property :content, Text, :length => 1..140
+  property :created_at, Time 
+  property :content, Text, required: true, length: 1..140
 end

@@ -4,6 +4,8 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
+require 'timecop'
+
 require 'helpers/session_test'
 require 'helpers/peep_test'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')

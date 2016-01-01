@@ -11,10 +11,11 @@ describe 'Posting a Peep' do
                 password_confirmation: 'jo3ble0bl3')
   end
 
-  scenario 'redirects to /peeps and adds the peep to the list' do
+  scenario 'redirects to /peeps and adds the peep to the db table' do
     sign_in(username: user.username, password: user.password)
     peep('Test Peep')
-    expect(page).to have_selector('ul#peeps', text: 'joeb: Test Peep')
+    expect(Peep.first.user).to eq user
+    expect(Peep.first.content).to eq 'Test Peep'
   end
 
   scenario 'button not available if user not logged in' do
