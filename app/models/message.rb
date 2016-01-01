@@ -4,5 +4,6 @@ class Message
   property :id, Serial
   property :message, String
   property :sender, String
+  property :time_stamp, String
 
 end

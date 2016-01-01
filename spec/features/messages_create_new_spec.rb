@@ -28,6 +28,12 @@ feature 'Create new message' do
     expect(page).to have_selector "ul#messages li:nth-child(1)", text: 'example: This is a second test message'
   end
 
+  scenario 'message comes with time stamp' do
+    post_message(message: 'This is a test message')
+    time = Time.now.strftime("%H:%M, %d %b '%y")
+    expect(page).to have_content "#{time}"
+  end
+
   def sign_in(username:               'example',
               password:               'password')
       visit '/users/new'
