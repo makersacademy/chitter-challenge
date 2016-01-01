@@ -2,15 +2,12 @@
 <fieldset>
   <legend>Messages</legend>
 
-  <% if current_user %>
-
-  <%current_user.messages.each do |message|%>
   <ul>
-    <li><%= current_user.username%>: <%= @message %></li>
-  </ul>
+  <% @messages.each do |message| %>
+  <li><%= message.message %></li>
   <% end %>
+</ul>
 
-  <%end%>
 </fieldset>
 
 

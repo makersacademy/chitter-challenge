@@ -17,21 +17,13 @@ feature 'Create new message' do
   end
 
   scenario 'can post one new message' do
-    sign_in(username: user.username,   password: user.password)
-    click_button 'New Message'
-    fill_in 'message', with: 'This is a test message'
-    click_button 'Post'
+    expect{post_message(message: 'This is a test message')}.to change(Message, :count)
     expect(page).to have_content 'example: This is a test message'
   end
 
-  scenario 'can post two messages' do
-    sign_in(username: user.username,   password: user.password)
-    click_button 'New Message'
-    fill_in 'message', with: 'This is a test message'
-    click_button 'Post'
-    click_button 'New Message'
-    fill_in 'message', with: 'This is a second test message'
-    click_button 'Post'
+  scenario 'can post multiple messages' do
+    post_message(message: 'This is a test message')
+    post_message(message: 'This is a second test message')
     expect(page).to have_content 'example: This is a test message'
     expect(page).to have_content 'example: This is a second test message'
   end
@@ -42,5 +34,12 @@ feature 'Create new message' do
       fill_in 'existing_username', with: username
       fill_in 'existing_password', with: password
       click_button('Log in')
+  end
+
+  def post_message(message: 'This is a test message')
+    sign_in(username: user.username,   password: user.password)
+    click_button 'New Message'
+    fill_in 'message', with: message
+    click_button 'Post'
   end
 end

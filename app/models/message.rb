@@ -2,8 +2,8 @@ class Message
   include DataMapper::Resource
 
   property :id, Serial
-  property :message, Text
+  property :message, String
 
-  belongs_to :user
+  # belongs_to :user
 
 end
