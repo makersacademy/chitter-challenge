@@ -1,20 +1,32 @@
 <% if current_user %>
-  Welcome, <%= current_user.username %>!
+  Welcome, <font class="emphasise-green"><%= current_user.username %></font>!
 <% end %>
 <p>
-<form action='/peeps' method='post'>
-  Compose new peep:
-  <input type='text' name='message'>
-  <input type='submit' value='Peep!'>
-</form>
+<div class="wrapper">
+  <div id="peep-form">
+    <form action='/peeps' method='post'>
+      <font class="emphasise-green">Compose new peep:</font>
+      <br>
+      <input type='text' name='message'>
+      <p>
+      <input type='submit' value='Peep!' class="button">
+    </form>
+  </div>
+</div>
+
 <p>
-  Latest peeps...
-<p>
-<% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
-<% sorted_messages.each do |message| %>
-  <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
-  "<%= message.message %>" <br>
-  Posted: <%= message.time.strftime("%F %T") %> <br>
-  <a href="/reply" method="post">Reply</a>
-  <p>
-<% end %>
+
+<div class="wrapper">
+  <div id="peep-list">
+    <font class="emphasise-green">Latest peeps...</font>
+    <p>
+    <% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
+    <% sorted_messages.each do |message| %>
+      <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
+      "<%= message.message %>" <br>
+      Posted: <%= message.time.strftime("%F %T") %> <br>
+      <a href="/reply" method="post">Reply</a>
+      <p>
+    <% end %>
+  </div>
+</div>

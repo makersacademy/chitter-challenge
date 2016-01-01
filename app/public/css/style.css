@@ -86,7 +86,44 @@ a {
   width: 220px;
 }
 
+#peep-form {
+  display: inline-block;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#peep-form input[type=text] {
+  padding: 5px;
+  width: 250px;
+}
+
 .user-form input {
   width: 100%;
   clear: both;
+  padding: 5px;
+}
+
+#peep-list {
+  margin: 0 auto;
+  height: auto;
+  width: auto;
+  display: inline-block;
+  overflow: visible;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  border: 4px dashed #b9e0b9;
+  position: relative;
+  text-align: left;
+  padding: 20px;
+}
+
+.emphasise-green {
+  color: green;
+  font-weight: bolder;
 }

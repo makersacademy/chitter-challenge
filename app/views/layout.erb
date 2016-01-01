@@ -5,55 +5,55 @@
     <link type="text/css" rel="stylesheet" href="/css/style.css"/>
   </head>
   <body>
-    <!-- <div id="nav-left"> -->
-        <h1 id="header">Chitter</h1>
-        <a href="/" id="home-link">Home</a>
-    <!-- </div> -->
+    <h1 id="header">Chitter</h1>
+    <a href="/" id="home-link">Home</a>
     <div id="nav-right">
-      <div id="log-in-button">
-        <form action="/sessions/new">
-          <input type="submit" value="Log in" class="button" id="log-in-button">
-        </form>
-      </div>
-      <div id="sign-up-button">
-        <form action="/user/new">
-          <input type="submit" value="Sign up" class="button">
-        </form>
-      </div>
       <div id="log-out-button">
         <% if current_user %>
         <form action='/sessions' method='post'>
           <input name="_method" type="hidden" value="delete">
           <input type="submit" value="Log out" class="button">
         </form>
+        <% else %>
+        <div id="log-in-button">
+          <form action="/sessions/new">
+            <input type="submit" value="Log in" class="button" id="log-in-button">
+          </form>
+        </div>
+        <div id="sign-up-button">
+          <form action="/user/new">
+            <input type="submit" value="Sign up" class="button">
+          </form>
+        </div>
         <% end %>
       </div>
     </div>
-
-    <% if flash[:goodbye] %>
-      <%= flash[:goodbye] %>
-    <% end %>
-
-    <% if flash[:logged_out] %>
-      <%= flash[:logged_out] %>
-    <% end %>
-
-    <%= yield %>
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Errors:
-        <ul>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
+    <div class="wrapper">
+      <% if flash[:goodbye] %>
+        <%= flash[:goodbye] %>
       <% end %>
+
+      <% if flash[:logged_out] %>
+        <%= flash[:logged_out] %>
+      <% end %>
+
+      <%= yield %>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Errors:
+          <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <% if flash[:password_error] %>
+        Error:
+        <br>
+        <ul>
+        <li><%= flash[:password_error] %></li>
       </ul>
-    <% end %>
-    <% if flash[:password_error] %>
-      Error:
-      <br>
-      <ul>
-      <li><%= flash[:password_error] %></li>
-    </ul>
-    <% end %>
+      <% end %>
+    </div>
   </body>
 </html>
