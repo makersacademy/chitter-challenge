@@ -3,8 +3,19 @@ body {
   font-family: Helvetica;
 }
 
-a {
+a:link {
   text-decoration: none;
+  color: green;
+}
+
+a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #b9e0b9;
 }
 
 #nav-left {
@@ -20,6 +31,7 @@ a {
   display: inline-block;
   padding: 10px;
   border: 4px dashed #b9e0b9;
+  color: green;
 }
 
 #home-link {
