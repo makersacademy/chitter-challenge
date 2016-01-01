@@ -11,7 +11,9 @@ class User
   # these property declarations set the column headers in the Link table
   property :id, Serial
   property :email, String
-  property :password_digest, Text
+  property :password, Text
+  property :name, Text
+  property :username, Text
 
 end
 

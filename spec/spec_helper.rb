@@ -1,7 +1,11 @@
 require 'coveralls'
 require 'simplecov'
-require './app/models/user'
+
+require 'web_helper'
 require 'capybara/rspec'
+require './app/models/user'
+require './app/app'
+Capybara.app = Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
