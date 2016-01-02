@@ -2,12 +2,14 @@
 <%= partial :create_peep %>
 
 <label for="display all peeps">
-  <% @peeps.each do |peep| %>
-  <p>
-    <span class="author"><%="#{peep.user.name} "%></span>
-    <span class="username"><%= peep.user.username %></span>
-    <br>
-    <%= peep.message %>
-  </p>
-  <% end %>
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+    <li>
+      <span class="author"><%="#{peep.user.name} "%></span>
+      <span class="username"><%= peep.user.username %></span>
+      <br>
+      <%= peep.message %>
+    </li>
+    <% end %>
+  </ul>
 </label>

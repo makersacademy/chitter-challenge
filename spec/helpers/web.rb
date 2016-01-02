@@ -1,8 +1,8 @@
 module WebHelpers
 
-  def post_peep
+  def post_peep(message)
     visit '/'
-    fill_in('peep', with: 'Hello world')
+    fill_in('peep', with: message)
     click_button 'Peep'
   end
 
