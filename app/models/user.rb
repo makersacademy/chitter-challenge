@@ -8,6 +8,9 @@ class User
   # adds datamapper functionality to this class
   include DataMapper::Resource
 
+  attr_reader :password
+  attr_accessor :password_confirmation
+
   # these property declarations set the column headers in the Link table
   property :id, Serial
   property :email, String
@@ -16,8 +19,11 @@ class User
   property :username, String
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  validates_confirmation_of :password
 
 end
 
