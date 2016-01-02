@@ -1,5 +1,4 @@
 feature 'Signing up to Chitter' do
-
   let!(:user) do
     User.new(name: 'Katie', username: 'KS', email: 'K@email.com', password: 'secret', password_confirmation: 'secret')
   end

@@ -18,4 +18,9 @@ module SessionHelpers
       click_button 'Sign in'
     end
   end
+
+  def peep(text)
+    fill_in :message, with: text
+    click_button 'Peep!'
+  end
 end

@@ -17,13 +17,18 @@
   You're not logged in
   <% end %>
   <br><br>
-  
+
   <div id='peeps'>
     <% @peeps.each do |message| %>
     <span class='small_font bold_font'><%= message.user.name %>, <%= message.user.username %></span>
     <span class='blue small_font'>
       <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
       <%= message.content %><br><br>
-      <% end %>
+      <form method='post' action='/replies'>
+        <input type='hidden' name='source' value='<%= message.id %>'>
+        <input type='text' name='reply'>
+        <input type='submit' value='Reply!'>
+      </form><br>
+    <% end %>
   </div>
 </div>

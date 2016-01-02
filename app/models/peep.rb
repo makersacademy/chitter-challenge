@@ -10,4 +10,6 @@ class Peep
   property :created_at, DateTime
 
   belongs_to :user
+  has n, :replies, 'Peep', child_key: [ :source_id ]
+  belongs_to :source, 'Peep', required: false
 end
