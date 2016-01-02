@@ -66,5 +66,3 @@ Finally, in order to make navigation a bit easier in this programme, I created a
 
 Further Work
 -------------
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-* Styling
