@@ -1,4 +1,4 @@
-feature 'User Signup' do
+feature 'User Sign Up' do
   scenario 'a user can sign up to chitter' do
     expect { sign_up }.to change { User.count }.by 1
     expect(current_path).to eq '/peeps'
@@ -12,14 +12,14 @@ feature 'User Signup' do
   end
 
   scenario 'a user\'s email is unique' do
-    create_user
+    create_test_user
     expect { sign_up(username: 'cat') }.not_to change { User.count }
     expect(current_path).to eq '/users/new'
     expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'a user\'s username is unique' do
-    create_user
+    create_test_user
     expect { sign_up(email: 'green@example.com') }.not_to change { User.count }
     expect(current_path).to eq '/users/new'
     expect(page).to have_content 'Username is already taken'

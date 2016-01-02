@@ -20,4 +20,9 @@ class User
   def password
     @password ||= Password.new(password_digest) if password_digest
   end
+
+  def self.authenticate(email, pass)
+    user = first(email: email)
+    !user.nil? && user.password == pass ? user : nil
+  end
 end
