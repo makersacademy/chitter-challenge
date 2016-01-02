@@ -1,0 +1,15 @@
+<form action="/users" method="post">
+  <label for="email">
+    <p>Email</p>
+    <input type="email" name="email" placeholder="email" value="<%= @user.email %>" required />
+  </label>
+  <label for="password">
+    <p>Password</p>
+    <input type="password" name="password" />
+  </label>
+  <label for="password confirmation">
+    <p>Confirm your password</p>
+    <input type="password" name="password_confirm" />
+  </label>
+  <input type=submit value='Submit' />
+</form>

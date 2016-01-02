@@ -1,0 +1,8 @@
+<% if flash[:error] && !flash[:error].empty? %>
+Please correct the following problems and resubmit your form:
+  <ul id="error messages">
+    <% flash[:error].each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
