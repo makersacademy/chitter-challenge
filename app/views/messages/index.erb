@@ -1,7 +1,7 @@
 <h1> Messages </h1>
 
 <ul id='messages'>
-  <% @messages.each do |message| %>
+  <% @messages.reverse.each do |message| %>
     <li>
       Posted at: <%= message.posted_at %>
       Peep: <%= message.peep %>

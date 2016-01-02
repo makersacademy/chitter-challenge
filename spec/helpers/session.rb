@@ -36,5 +36,13 @@ module SessionHelpers
    fill_in 'username', with: username
    click_button('Submit')
  end
- 
+
+  def post_tweep(
+              message: 'Hello, world!')
+    visit '/messages/new'
+    fill_in 'peep',   with: message
+    click_button 'Post peep'
+  end
+
+
 end

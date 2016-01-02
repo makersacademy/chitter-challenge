@@ -2,9 +2,7 @@ feature 'Creating messages' do
 
   scenario 'while logged in, I can post a message' do
     sign_up
-    visit '/messages/new'
-    fill_in 'peep',   with: 'Hello, world!'
-    click_button 'Post peep'
+    post_tweep
 
     expect(current_path).to eq '/messages'
 
