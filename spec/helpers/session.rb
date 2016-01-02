@@ -16,12 +16,12 @@ module SessionHelpers
     click_button 'Sign up'
   end
 
-  def log_in(email:, password:)
+  def sign_in(email:, password:)
     visit '/sessions/new'
 
     fill_in 'email',    with: email
     fill_in 'password', with: password
 
-    click_button 'Log in'
+    click_button 'Sign in'
   end
 end
