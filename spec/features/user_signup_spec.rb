@@ -43,10 +43,10 @@ feature 'User Signup' do
     expect(page).to have_content 'Name must not be blank'
   end
 
-  xscenario 'a user cannot sign up with no password' do
+  scenario 'a user cannot sign up with no password' do
     expect { sign_up(password: nil, password_confirmation: nil) }.not_to change { User.count }
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'mittens'
+    expect(page).to have_content 'Password must not be blank'
   end
 
   scenario 'a user\'s password and password_confirmation must match' do

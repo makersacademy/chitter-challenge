@@ -11,12 +11,13 @@ class User
   property :password_digest, Text
 
   validates_confirmation_of :password
+  validates_presence_of :password
 
   def password=(password)
-    self.password_digest = Password.create(password)
+    self.password_digest = Password.create(password) if password.size > 0
   end
 
   def password
-    @password ||= Password.new(password_digest)
+    @password ||= Password.new(password_digest) if password_digest
   end
 end
