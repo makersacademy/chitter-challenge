@@ -28,4 +28,10 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign In!'
   end
+
+  def send_peep(peep: 'Oh look I can peep like a pro')
+    visit '/peeps/new'
+    fill_in :message, with: peep
+    click_button 'Peep It!'
+  end
 end
