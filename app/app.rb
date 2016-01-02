@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require_relative 'models/user'
 require 'pry'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
 
