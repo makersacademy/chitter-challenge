@@ -1,6 +1,8 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require_relative '../data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/peep'
 require 'sinatra/flash'
 require 'tilt/erb'
 
@@ -55,6 +57,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/index' do
+    @peeps = Peep.all
     erb(:'peeps/index')
   end
 
