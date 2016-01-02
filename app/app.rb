@@ -10,6 +10,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Partial
 
+  use Rack::MethodOverride
+
   enable :sessions
   enable :partial_underscores
 
@@ -54,6 +56,12 @@ class Chitter < Sinatra::Base
       flash.now[:notice]='The email or password was incorrect'
       erb :'/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice]='You are now signed out'
+    redirect to '/'
   end
 
   helpers do

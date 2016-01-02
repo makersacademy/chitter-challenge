@@ -26,8 +26,14 @@ feature 'sign up for Chitter' do
 
   scenario 'email address has already been registered' do
     sign_up
-    expect{ sign_up }.not_to change{ User.count }
+    expect{ sign_up(username: 'different') }.not_to change{ User.count }
     expect(page).to have_content 'That email address is already registered'
+  end
+
+  scenario 'username has already been taken' do
+    sign_up
+    expect{ sign_up(email: 'diff@email.com') }.not_to change{ User.count }
+    expect(page).to have_content 'Username is already taken'
   end
 
 end

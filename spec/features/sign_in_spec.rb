@@ -3,7 +3,7 @@ feature 'sign in' do
     sign_up
   end
 
-  scenario 'user logs in correctly' do
+  scenario 'user signs in correctly' do
     sign_in
     expect(page).to have_content 'You are now logged in.'
   end

@@ -8,11 +8,11 @@ class User
   property :name, String, required: true
   property :username, String, unique: true, required: true
   property :email, String, unique: true, format: :email_address, required: true,
-  :messages => {
-    :presence => 'Please enter an email address',
-    :is_unique => 'That email address is already registered',
-    :format => 'Please enter a valid email address'
-  }
+           :messages => {
+              :presence => 'Please enter an email address',
+              :is_unique => 'That email address is already registered',
+              :format => 'Please enter a valid email address'
+            }
   property :password_digest, Text
 
   attr_reader :password
@@ -22,7 +22,7 @@ class User
 
   def password=(password)
     @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password) if password.size > 0
   end
 
   def self.authenticate(email, password)
