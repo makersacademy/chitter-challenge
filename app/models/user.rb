@@ -4,6 +4,7 @@ require 'dm-validations'
 class User
 
   include DataMapper::Resource
+
   property :id, Serial
   property :name, String, required: true
   property :username, String, unique: true, required: true
@@ -14,6 +15,8 @@ class User
               :format => 'Please enter a valid email address'
             }
   property :password_digest, Text
+
+  has n, :peeps, :through => Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
