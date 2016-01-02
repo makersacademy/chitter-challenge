@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'data_mapper'
 require_relative 'models/user'
+require_relative 'models/message'
 require 'pry'
 require 'bcrypt'
 
@@ -65,6 +66,17 @@ class Chitter < Sinatra::Base
   get '/messages' do
     @messages = Message.all
     erb :'messages/index'
+  end
+
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    Message.create( peep: params[:peep],
+                    name: current_user.name,
+                    username: current_user.username )
+    redirect to('/messages')
   end
 
   helpers do
