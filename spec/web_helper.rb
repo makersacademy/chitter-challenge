@@ -1,5 +1,5 @@
 def sign_up
-  visit '/user/new'
+  visit '/signup'
   expect(page.status_code).to eq(200)
   fill_in :username,    with: 'foobar'
   fill_in :email,    with: 'foobar@example.com'
