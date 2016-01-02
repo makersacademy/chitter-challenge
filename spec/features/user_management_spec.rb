@@ -7,26 +7,55 @@ feature 'Client sign up' do
     expect { sign_up }.to change { User.count }.by(1)
     expect(User.first.email).to eq('test@email.com')
   end
+  context "I can't sign up" do
+    context 'without' do
+      scenario "username" do
+        expect { sign_up(username: nil) }.not_to change { User.count }
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Username must not be blank')
+      end
 
-  scenario "I can't sign up with wrong password confirmation" do
-    visit('/users/new')
-    expect(page.status_code).to eq(200)
+      scenario "name" do
+        expect { sign_up(name: nil) }.not_to change { User.count }
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Name must not be blank')
+      end
 
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change { User.count }
-    expect(page).to have_content('Password does not match the confirmation')
-  end
+      scenario "email address" do
+        expect { sign_up(email: nil) }.not_to change { User.count }
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Email must not be blank')
+      end
+    end
 
-  scenario "I can't sign up without an email address" do
-    expect { sign_up(email: nil) }.not_to change { User.count }
-    expect(current_path).to eq '/users'
-    expect(page).to have_content('Email must not be blank')
-  end
+    context 'with wrong' do
+      scenario "password confirmation" do
+        visit('/users/new')
+        expect(page.status_code).to eq(200)
 
-  scenario "I can't sign up without name" do
-    expect { sign_up(name: nil) }.not_to change { User.count}
-  end
+        expect { sign_up(password_confirmation: 'wrong') }.not_to change { User.count }
+        expect(page).to have_content('Password does not match the confirmation')
+      end
 
-  scenario "I can't sign up without username" do
-    expect { sign_up(username: nil) }.not_to change { User.count}
+      scenario "email address format" do
+        expect { sign_up(email: 'test@email') }.not_to change { User.count }
+        expect(current_path).to eq '/users'
+        expect(page).to have_content('Email has an invalid format')
+      end
+    end
+
+    scenario "using an email already taken" do
+      sign_up
+      expect { sign_up }.not_to change { User.count }
+      expect(current_path).to eq '/users'
+      expect(page).to have_content('Email is already taken')
+    end
+
+    scenario "using an username already taken" do
+      sign_up
+      expect { sign_up }.not_to change { User.count }
+      expect(current_path).to eq '/users'
+      expect(page).to have_content('Username is already taken')
+    end
   end
 end
