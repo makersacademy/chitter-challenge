@@ -7,6 +7,7 @@ require_relative 'models/user'
 require_relative 'models/message'
 require 'pry'
 require 'bcrypt'
+require 'dm-timestamps'
 
 class Chitter < Sinatra::Base
 
@@ -73,10 +74,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    Message.create( peep: params[:peep],
-                    name: current_user.name,
-                    username: current_user.username )
-    redirect to('/messages')
+    if current_user != nil
+      Message.create( peep: params[:peep],
+                      name: current_user.name,
+                      username: current_user.username,
+                      posted_at: Time.now.strftime("%Y-%m-%d %H:%M:%S") )
+      redirect to('/messages')
+    else
+      redirect to('/users/new')
+    end
   end
 
   helpers do

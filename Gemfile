@@ -9,6 +9,7 @@ gem 'pry'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'dm-timestamps'
 
 group :development, :test do
   gem 'rspec-sinatra'

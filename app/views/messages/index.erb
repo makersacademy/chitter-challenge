@@ -3,6 +3,7 @@
 <ul id='messages'>
   <% @messages.each do |message| %>
     <li>
+      Posted at: <%= message.posted_at %>
       Peep: <%= message.peep %>
       Name:   <%= message.name   %>
       Username: <%= message.username  %>

@@ -9,6 +9,7 @@ class Message
   property :peep, Text
   property :name, String
   property :username, String
+  property :posted_at, Text 
 
 end
 
