@@ -10,7 +10,7 @@ feature 'viewing a peep' do
   scenario 'peeps should appear in reverse order do' do
     sign_up
     3.times do |peep|
-      click_link "Compose a peep!"
+      click_button "Compose a peep!"
       fill_in 'peep', with: "#{peep + 1}"
       click_button 'Peep!'
     end

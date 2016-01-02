@@ -1,25 +1,35 @@
-<h1> Sign up for Chitter</h1>
 
-<form action="/users/new" method="post">
+<form id="sign_in" action="/users/new" method="post">
+  <h2> Sign up for Chitter</h2>
   <label for="name">
-    Enter your name:
-    <input name="name" type="text" value="<%=@user.name%>" required>
+    Enter your name
   </label>
-<label for="user_name">
-  Enter your user name:
-  <input name="user_name" type="text" value="<%=@user.user_name%>" required>
-</label>
-<label for="email">
-  Enter your email:
-  <input name="email" type="email" value="<%=@user.email%>" required>
-</label>
-<label for="password">
-  Enter your password:
-  <input name="password" type="password" required>
-</label>
-<label for="password_confirmation">
-  Confirm your password:
-  <input name="password_confirmation" type="password">
-</label>
-<input type="submit" value="Submit">
+  <br>
+    <input name="name" type="text" value="<%=@user.name%>"  autofocus="autofocus" required>
+  <br>
+  <label for="user_name">
+    Enter your user name
+  </label>
+  <br>
+    <input name="user_name" type="text" value="<%=@user.user_name%>" required>
+  <br>
+  <label for="email">
+    Enter your email
+  </label>
+  <br>
+    <input name="email" type="email" value="<%=@user.email%>" required>
+  <br>
+  <label for="password">
+    Enter your password
+  </label>
+  <br>
+    <input name="password" type="password" required>
+  <br>
+  <label for="password_confirmation">
+    Confirm your password
+  </label>
+  <br>
+    <input name="password_confirmation" type="password">
+  <br>
+    <input class="submit" type="submit" value="Submit">
 </form>

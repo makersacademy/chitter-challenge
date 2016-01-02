@@ -1,25 +1,36 @@
 <% if !current_user%>
-<h1>Welcome to Chitter</h1>
-<form action="/users/new" method="get">
-  <label for="sign_up">
-    Sign up here!
-    <input type="submit" value="Sign Up">
-</form>
 
-<form action='/sessions/new' method="get">
-<label for="sign_in">
-  Sign in here!
-  <input type="submit" value="Sign In">
-</form>
+<div id="header">
+  <h1>Welcome to Chitter</h1>
+
+  <form action="/" method="get">
+    <input class="submit" type="submit" value="Peeps">
+  </form>
+
+  <form action="/users/new" method="get">
+    <input class="submit" type="submit" value="Sign Up">
+  </form>
+
+  <form action='/sessions/new' method="get">
+    <input class="submit"  type="submit" value="Sign In">
+  </form>
+</div>
+
 <% end %>
 
 <% if current_user %>
+<div id="header">
 <h1> <%= current_user.user_name%>'s Chitter!</h1>
-<a href="/peeps/new" class="new_peep">Compose a peep!</a>
+  <form action="/" method="get">
+    <input class="submit" type="submit" value="Peeps">
+  </form>
+
+  <form class="new_peep" action="/peeps/new" method="get" >
+    <input class="submit" type="submit" value="Compose a peep!">
+  </form>
   <form action='/sessions' method="post">
     <input type="hidden" name="_method" value="delete">
-  <label for="sign_out">
-    Sign out here!
-    <input type="submit" value="Sign Out">
+    <input class="submit" type="submit" value="Sign Out">
   </form>
+</div>
 <% end %>

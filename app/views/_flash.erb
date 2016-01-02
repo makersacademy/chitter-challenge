@@ -1,9 +1,12 @@
 <% if flash[:notice] %>
+<br>
   <%= flash[:notice] %>
 <% end %>
 
 <% if flash[:errors] && !flash[:errors].empty? %>
-  Error in registration:
+  <br>
+  Please address these errors:
+  <br>
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
