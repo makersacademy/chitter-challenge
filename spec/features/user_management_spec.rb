@@ -8,13 +8,7 @@ feature 'Client sign up' do
     visit('/users/new')
     expect(page.status_code).to eq(200)
 
-    fill_in 'name',                   with: 'Name-Surname'
-    fill_in 'username',               with: 'nickname'
-    fill_in 'email',                  with: 'test@email.com'
-    fill_in 'password',               with: 'secret_password'
-    fill_in 'password_confirmation',  with: 'wrong_password'
-
-    expect { click_button 'Sign up' }.not_to change(User, :count)
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change { User.count }
     expect(page).to have_content('Password does not match the confirmation')
   end
 end
