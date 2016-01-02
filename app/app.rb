@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'models/data_mapper_setup'
+require 'byebug'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -28,12 +29,28 @@ class Chitter < Sinatra::Base
     @user = User.create(email: params[:email],
                       password: params[:password],
                       password_confirmation: params[:password_confirm])
-    if @user.save
+    if @user.id
       session[:user_id]=@user.id
       redirect '/'
     else
       flash.now[:error]=@user.errors.full_messages
       erb :'/users/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id]=user.id
+      flash.next[:success]='You are now logged in.'
+      redirect '/'
+    else
+      flash.now[:notice]='The email or password was incorrect'
+      erb :'/sessions/new'
     end
   end
 
