@@ -8,6 +8,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'database_cleaner'
 gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :development, :test do
   gem 'rspec-sinatra'

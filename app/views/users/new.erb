@@ -1,9 +1,9 @@
 <h2> Sign up </h2>
 
-<form action='/users/new' method='POST'>
+<form action='/users' method='POST'>
   <label for='email'>
     Email:
-    <input type='text' name='email'>
+    <input type='text' name='email' value='<%= @user.email %>'>
   </label>
   <label for='password'>
     Password:
@@ -15,11 +15,11 @@
   </label>
   <label for='name'>
     Name:
-    <input type='text' name='name'>
+    <input type='text' name='name' value='<%= @user.name %>'>
   </label>
   <label for='username'>
     Username:
-    <input type='text' name='username'>
+    <input type='text' name='username' value='<%= @user.username %>'>
   </label>
   <input type='submit' value='Submit'>
 </form>

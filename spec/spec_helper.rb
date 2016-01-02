@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require './app/models/user'
 require './app/app'
 require 'database_cleaner'
+require 'sinatra/flash'
 Capybara.app = Chitter
 
 SimpleCov.formatters = [
