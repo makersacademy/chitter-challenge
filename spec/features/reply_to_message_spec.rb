@@ -15,9 +15,9 @@ feature 'Reply to a message' do
     expect(page).to have_link 'Reply'
   end
 
-  xscenario 'reply is displayed' do
+  scenario 'reply is displayed' do
     click_link 'Reply'
-    fill_in(:message, with: 'Oh hey there!')
+    fill_in(:message, with: '@makermakerson Oh hey there!')
     click_button 'Peep'
     expect(page).to have_content '@makermakerson Oh hey there!'
   end

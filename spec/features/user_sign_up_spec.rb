@@ -23,7 +23,7 @@ feature 'User signs up' do
     fill_in(:username, with: 'makermakerson')
     fill_in(:password, with: 'maker123')
     fill_in(:password_confirmation, with: 'maker456')
-    click_button('Sign up')
+    click_button('Submit')
     expect(page).to have_content 'Password does not match the confirmation'
   end
 

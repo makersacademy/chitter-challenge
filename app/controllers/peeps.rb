@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/reply' do
+    @username = params[:username]
     erb :'reply'
   end
 

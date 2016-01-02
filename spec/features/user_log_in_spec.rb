@@ -13,7 +13,7 @@ feature 'User logs in' do
     visit '/sessions/new'
     fill_in(:email, with: 'maker@makerson.com')
     fill_in(:password, with: 'maker456')
-    click_button('Log in')
+    click_button('Sign in')
     expect(page).to have_content('Incorrect username or password.')
   end
 end
