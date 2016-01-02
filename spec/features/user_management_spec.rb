@@ -17,4 +17,12 @@ feature 'Client sign up' do
     expect(current_path).to eq '/users'
     expect(page).to have_content('Email must not be blank')
   end
+
+  scenario "I can't sign up without name" do
+    expect { sign_up(name: nil) }.not_to change { User.count}
+  end
+
+  scenario "I can't sign up without username" do
+    expect { sign_up(username: nil) }.not_to change { User.count}
+  end
 end
