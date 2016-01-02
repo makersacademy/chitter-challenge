@@ -56,9 +56,18 @@ class Chitter < Sinatra::Base
     redirect to '/users/new'
   end
 
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
   get '/peeps/index' do
     @peeps = Peep.all
     erb(:'peeps/index')
+  end
+
+  post '/peeps' do
+    Peep.create(content: params[:content])
+    redirect(:'peeps/index')
   end
 
   helpers do
