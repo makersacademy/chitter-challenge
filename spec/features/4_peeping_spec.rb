@@ -11,7 +11,7 @@ describe 'Posting a Peep' do
                 password_confirmation: 'jo3ble0bl3')
   end
 
-  scenario 'redirects to /peeps and adds the peep to the db table' do
+  scenario 'adds the peep to the db table' do
     sign_in(username: user.username, password: user.password)
     peep('Test Peep')
     expect(Peep.first.user).to eq user

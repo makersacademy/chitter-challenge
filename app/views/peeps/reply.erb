@@ -1,0 +1,9 @@
+<h1> Reply to a Peep </h1>
+
+<textarea rows="2" cols="70" name='content' form='reply_form'>
+</textarea>
+
+<form id='reply_form' action='/peeps/reply' method='post'>
+  <input type='hidden' name='peep_id' value='<%= @peep_id %>'>
+  <input type='submit' value='Reply'>
+</form>

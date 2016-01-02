@@ -17,4 +17,21 @@ class Chitter < Sinatra::Base
       erb :'/peeps/new'
     end
   end
+
+  get '/peeps/:peep_id' do
+    @peep_id = params[:peep_id]
+    erb :'/peeps/reply'
+  end
+
+  post '/peeps/reply' do
+    reply = Reply.new(user: current_user, 
+                      peep: Peep.first(id: params[:peep_id]),
+                      content: params[:content])
+    if reply.save
+      redirect '/peeps'
+    else
+      flash.now[:errors] = reply.errors.full_messages
+      erb :'/peeps/reply'
+    end
+  end
 end
