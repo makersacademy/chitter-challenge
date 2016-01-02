@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<meta charset=“UTF-8”>
-<html>
-  <head>
-    <link href="/css/main.css" rel="stylesheet" type="text/css" />
-    <title>Sign up</title>
-  </head>
-  <body>
+
     <h1>Sign up</h1>
-  </body>
-</html>
+      <form action="/signup" method="post" autocomplete="on">
+        Name
+        <br><input type="text" name="name" value='<%= @user.name %>'><br>
+        Username
+        <br><input type="text" name="username" value='<%= @user.username%>'><br>
+        E-mail
+        <br><input type="email" name="email" autocomplete="off"
+                    value='<%= @user.email %>'><br>
+        Password
+        <br><input type="password" name="password" autocomplete="off"><br>
+        Password confirmation
+        <br><input type="password" name="password_confirmation" autocomplete="off"><br>
+        <br><input type='submit' value='Sign up'>
+      </form>
+    <form>
