@@ -1,5 +1,5 @@
 <% if current_user %>
-  Welcome <%= current_user.email %>.
+  Welcome <%= current_user.name %>.
   <%= flash[:success] %>
   <form action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
