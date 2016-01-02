@@ -1,9 +1,5 @@
-<form action="/peeps" method="post">
-  <label for="create peep">
-    <input type="text" id="peep" name="peep" placeholder="What's happening?" />
-    <input type="submit" value="Peep" />
-  </label>
-</form>
+
+<%= partial :create_peep %>
 
 <label for="display all peeps">
   <% @peeps.each do |peep| %>
