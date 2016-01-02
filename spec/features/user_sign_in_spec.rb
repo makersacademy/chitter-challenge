@@ -1,4 +1,4 @@
-feature 'Use Sign In' do
+feature 'User Sign In' do
   scenario 'user can sign in' do
     sign_in
     expect(current_path).to eq '/peeps'

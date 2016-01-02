@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
 <% if flash[:errors] %>
   <ul id='errors'>
     <% flash[:errors].each do |error|%>
