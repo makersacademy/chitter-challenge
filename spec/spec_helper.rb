@@ -3,6 +3,7 @@ ENV["RACK_ENV"] = "test"
 require 'coveralls'
 require 'simplecov'
 
+require_relative 'helpers/session'
 require 'web_helper'
 require 'capybara/rspec'
 require './app/models/user'
@@ -29,9 +30,12 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
 
+  config.include SessionHelpers
+
   # Everything in this block runs once after each individual test
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
 
 end
