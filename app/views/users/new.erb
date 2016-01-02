@@ -1,0 +1,26 @@
+<h1>Please sign up</h1>
+<br><br>
+
+<form action="/users" method="post">
+  <label for="full_name">
+    Full Name<br>
+    <input name="full_name" type="text" value="<%= @user.full_name %>" required autofocus>
+  </label><br><br>
+  <label for="username">
+    Username<br>
+    <input name="username" type="text" value="<%= @user.username %>" required>
+  </label><br><br>
+  <label for="email">
+    Email<br>
+    <input name="email" type="email" value="<%= @user.email %>" required>
+  </label><br><br>
+  <label for="password">
+    Password<br>
+    <input name="password" type="password" required>
+  </label><br><br>
+  <label for="password_confirmation">
+    Password Confirmation<br>
+    <input name="password_confirmation" type="password" required>
+  </label><br><br>
+  <input type="submit" value="Sign up">
+</form>
