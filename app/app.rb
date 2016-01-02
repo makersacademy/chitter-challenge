@@ -62,6 +62,11 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
+  get '/messages' do
+    @messages = Message.all
+    erb :'messages/index'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
