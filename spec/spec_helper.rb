@@ -14,6 +14,7 @@ require 'rspec'
 require 'simplecov'
 require 'timecop'
 
+require './app/models/peep'
 require_relative 'helpers/session'
 
 SimpleCov.formatters = [ SimpleCov::Formatter::HTMLFormatter,

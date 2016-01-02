@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 require './app/models/user'
+require './app/models/peep'
 
 class ChitterChallenge < Sinatra::Base
 
@@ -66,8 +67,18 @@ class ChitterChallenge < Sinatra::Base
     redirect '/peeps'
   end
 
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
+  post '/peeps' do
+    Peep.create(message: params[:message])
+    redirect 'peeps'
+  end
 end
