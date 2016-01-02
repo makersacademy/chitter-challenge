@@ -15,7 +15,6 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'database_cleaner'
 require 'timecop'
 
 Capybara.app = Chitter
@@ -120,19 +119,21 @@ RSpec.configure do |config|
 
 end
 
+require 'database_cleaner'
+
 RSpec.configure do |config|
-
-  # config.use_transactional_fixtures = false
-
+  # Everything in this block runs once before all the tests run
   config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.before(:each) do |example|
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
     DatabaseCleaner.start
   end
 
+  # Everything in this block runs once after each individual test
   config.after(:each) do
     DatabaseCleaner.clean
   end

@@ -26,8 +26,4 @@ class Chitter < Sinatra::Base
     erb :'reply'
   end
 
-  post '/reply' do
-    redirect '/reply'
-  end
-
 end
