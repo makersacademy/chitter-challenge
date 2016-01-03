@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
   get '/users/:username' do
     @user = User.first(username: params[:username])
-    @peeps = @user.peeps
+    @peeps = @user.peeps(order: [ :created_at.desc ])
     erb :'users/user'
   end
 end

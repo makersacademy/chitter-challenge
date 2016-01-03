@@ -1,4 +1,4 @@
-Chitter Challenge [![Build Status](https://travis-ci.org/giamir/chitter-challenge.svg?branch=master)](https://travis-ci.org/giamir/chitter-challenge)
+Chitter Challenge [![Build Status](https://travis-ci.org/giamir/chitter-challenge.svg?branch=master)](https://travis-ci.org/giamir/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/giamir/chitter-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/giamir/chitter-challenge?branch=master)
 =================
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
@@ -32,8 +32,16 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+Screenshot
+----------
+![Alt text](screenshot.jpg 'screenshot app')
+
 Installation
 ------------
+You can try the app remotely:
+>[https://chitter-giamir.herokuapp.com](https://chitter-giamir.herokuapp.com)
+
+or install it locally:
 ```
 $ git clone git@github.com:giamir/chitter-challenge.git
 $ cd chitter-challenge
@@ -42,6 +50,15 @@ $ createdb chitter_development
 $ rake db:migrate
 $ rackup
 ```
+
+Technologies
+-------------
+- Ruby
+- Sinatra
+- Postgres
+- DataMapper
+- Bootstrap
+
 
 Contributors
 -------------
