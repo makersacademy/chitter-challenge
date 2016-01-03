@@ -67,6 +67,10 @@ As a maker
 So that I can view the most recent content
 I want to see comments on a peep in reverse chronological order
 
+As a maker
+So that I can more easily understand times
+I want to see the time peeps/comments where posted at in a friendly format (2 days ago, 1 minute ago, 1 hour ago etc.)
+
 ```
 
 # Implementation
@@ -93,15 +97,24 @@ Test environment:
 * database_cleaner
 
 ## How to use it
-First download this project to your local machine. Then navigate into the folder that contains it
+- First clone this project to your local machine.
+```
+$ git clone
+```
+- Then navigate into the folder that contains it
 ```
 $ cd chitter
 ```
-Now run bundler to make sure you have all the necessary dependencies
+- Now run bundler to make sure you have all the necessary dependencies
 ```
 $ bundle install
 ```
-Then run the app through the config.ru file
+- You need to have the correct database set up for running the app. Set up a POSTGRES database called chitter_development and one chitter_test. Then migrate the two databases.
+```
+$ rake db:migrate RACK_ENV=development
+$ rake db:migrate RACK_ENV=test
+```
+- When done, run the app through the config.ru file
 ```
 $ rackup
 ```
@@ -118,9 +131,5 @@ I want to reset the password I have forgot
 As a maker
 So that I can remove unwanted peeps
 I want to delete a peep I made
-
-As a maker
-So that I can more easily understand times
-I want to see the time peeps/comments where posted at in a friendly format (2 days ago, 1 minute ago, 1 hour ago etc.)
 
 ```

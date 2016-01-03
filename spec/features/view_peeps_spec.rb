@@ -9,6 +9,11 @@ feature 'viewing peeps' do
     Capybara.reset!
   end
 
+  scenario 'when user visits root is redirected to peeps' do
+    visit '/'
+    expect(current_path).to eq '/peeps'
+  end
+
   scenario 'in chronological order' do
     login
     add_peep(content: content1)

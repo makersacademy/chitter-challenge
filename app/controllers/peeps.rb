@@ -30,8 +30,8 @@ class App < Sinatra::Base
     end
   end
 
-  get '/:username' do
-    @user = User.first(username: params[:username])
-    erb :'peeps/index'
-  end
+  # get '/:username' do
+  #   @user = User.first(username: params[:username])
+  #   erb :'peeps/index'
+  # end
 end
