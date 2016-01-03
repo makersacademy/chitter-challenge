@@ -85,6 +85,19 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/users/reset_password' do
+    @user = User.find_by_valid_token(params[:token])
+    if(@user)
+      erb :'users/reset_password'
+    else
+      "Your token is invalid"
+    end
+  end
+
+  patch '/users' do
+   redirect '/sessions/new'
+ end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

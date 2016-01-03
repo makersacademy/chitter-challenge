@@ -12,8 +12,4 @@ feature 'sign in' do
     sign_in(password: 'wrongpassword')
     expect(page).to have_content 'The email or password was incorrect'
   end
-
-  xscenario 'user can reset a forgotten password' do
-    
-  end
 end

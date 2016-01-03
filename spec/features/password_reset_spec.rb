@@ -21,18 +21,22 @@ feature 'resetting password' do
     recover_password
     expect(user.password_token).not_to eq nil
   end
-#
-#   scenario 'it doesn\'t allow you to use the token after an hour' do
-#     recover_password
-#     Timecop.travel(60 * 60 * 60) do
-#       visit("/users/reset_password?token=#{user.password_token}")
-#       expect(page).to have_content "Your token is invalid"
-#     end
-#   end
-#
-#   scenario 'it asks for your new password when your token is valid' do
-#      recover_password
-#      visit("/users/reset_password?token=#{user.password_token}")
-#      expect(page).to have_content("Please enter your new password")
-#   end
+
+  scenario 'it doesn\'t allow you to use the token after an hour' do
+    recover_password
+    Timecop.travel(60 * 60 * 60) do
+      visit("/users/reset_password?token=#{user.password_token}")
+      expect(page).to have_content "Your token is invalid"
+    end
+  end
+
+  scenario 'it lets you enter a new password when your token is valid' do
+     recover_password
+     visit("/users/reset_password?token=#{user.password_token}")
+     expect(page).to have_content("Please enter your new password")
+       fill_in :password, with: "newpassword"
+       fill_in :password_confirmation, with: "newpassword"
+       click_button "Submit"
+     expect(page).to have_content("Please sign in")
+  end
 end
