@@ -1,11 +1,11 @@
 <h4>Peeps</h4>
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <%= "#{peep.user.name} (#{peep.user.username})" %> <br>
-      <%= "#{peep.message}" %>
-      <h5>Inside peeps</h5>
+      <%= "#{peep.message}" %> <br>
+      <%= "#{peep.created_at.strftime("%d%m%Y at %H%M")}" %>
     </li>
   <% end %>
 </ul>

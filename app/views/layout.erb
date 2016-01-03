@@ -4,25 +4,8 @@
   </head>
 
   <body>
-    <div>
-      <% if flash[:errors] %>
-        <%= flash[:errors] %>
-      <% end %>
-    </div>
-
-    <div>
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
-    </div>
-
-    <% if current_user %>
-      Welcome, <%= current_user.username %>
-      <form action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out"
-      </form>
-    <% end %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
 
     <%= yield %>
   </body>
