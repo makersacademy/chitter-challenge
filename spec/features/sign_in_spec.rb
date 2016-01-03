@@ -12,4 +12,10 @@ feature 'sign in' do
     sign_in(password: 'wrongpassword')
     expect(page).to have_content 'The email or password was incorrect'
   end
+
+  scenario 'when user has forgotten password they can request a reset' do
+    visit '/sessions/new'
+    click_link 'I forgot my password'
+    expect(page).to have_content("Please enter your email address")
+  end
 end

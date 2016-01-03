@@ -95,8 +95,11 @@ class Chitter < Sinatra::Base
   end
 
   patch '/users' do
-   redirect '/sessions/new'
- end
+    user = User.find_by_valid_token(params[:token])
+    user.update(password: params[:password],
+                        password_confirmation: params[:password_confirmation])
+    redirect '/sessions/new'
+  end
 
   helpers do
     def current_user
