@@ -1,5 +1,5 @@
 body  {
-  background-color: #0088cc;
+  background-color: #ccebff;
   width: 80%;
   margin: auto;
   font-family: Helvetica;
@@ -7,7 +7,7 @@ body  {
 }
 
 div {
-  background-color: #55acee;
+  background-color: #e5f5ff;
   border-radius: 5px;
   border: 2px #000000 solid;
   height: auto;
@@ -15,8 +15,8 @@ div {
 }
 
 a {
-  color: #cee3f8;
-  text-decoration: none;
+  color: #8c8a8a;
+  text-decoration: underline;
 }
 
 
@@ -34,6 +34,20 @@ a {
   font-size: 60px;
   margin: auto;
   text-align: center;
+}
+
+.user_info  {
+  font-size: 0.75em;
+  color: #999999;
+}
+
+.message  {
+
+}
+
+.time_and_reply{
+  font-size: 0.75em;
+  color: #999999;
 }
 
 .heading {

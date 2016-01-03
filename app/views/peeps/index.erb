@@ -2,14 +2,14 @@
   <% @peeps.reverse.each do |peep| %>
 
     <% if peep.parent_peep == nil %>
-      <li> <%="#{peep.user.name} (#{peep.user.username})"%>
-        <br><%="#{peep.message}"%>
-        <br><%="#{peep.created_at.strftime("%d/%m/%Y at %H:%M")}"%><a href="/peeps/new?peep_id=<%=peep.id%>">   reply</a>
+      <li> <span class="user_info"> <%="#{peep.user.name} (#{peep.user.username})"%></span>
+        <br><span class="message"> <%="#{peep.message}"%> </span>
+        <br><span class="time_and_reply"> <%="#{peep.created_at.strftime("%d/%m/%Y at %H:%M")}   "%><a href="/peeps/new?peep_id=<%=peep.id%>">reply</a> </span>
         <ul class="replies">
           <%if @peeps.first(parent_peep: peep.id)%>
-            <li><%reply = @peeps.first(parent_peep: peep.id)%><%="#{reply.user.name} (#{reply.user.username})"%>
-              <br><%="#{reply.message}"%>
-              <br><%="#{reply.created_at.strftime("%d/%m/%Y at %H:%M")}"%><a href="/peeps/new?id=<%=peep.id%>">  reply</a>
+            <li> <span class="user_info"> <%reply = @peeps.first(parent_peep: peep.id)%><%="#{reply.user.name} (#{reply.user.username})"%> </span>
+              <br> <span class="message"> <%="#{reply.message}"%> </span>
+              <br> <span class="time_and_reply"> <%="#{reply.created_at.strftime("%d/%m/%Y at %H:%M")}   "%><a href="/peeps/new?id=<%=peep.id%>">reply</a> </span>
             </li>
           <%end%>
         </ul>
