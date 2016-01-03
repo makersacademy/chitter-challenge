@@ -41,6 +41,6 @@ feature 'Viewing Peeps' do
     visit '/peeps'
     expect(page).to have_selector("ul#peeps li:nth-child(1)",
       text: (user.username + ' '
-             + Time.now.strftime("on %a, %d %b %Y, at %H:%M:%S ")))
+             + Time.now.strftime("on %a, %d %b %Y at %H:%M:%S ")))
   end
 end
