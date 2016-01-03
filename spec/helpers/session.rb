@@ -29,10 +29,10 @@ module SessionHelpers
     click_button "Submit"
   end
 
-  def set_new_password
+  def set_new_password(password: 'newpassword', password_confirmation: 'newpassword')
     visit("/users/reset_password?token=#{user.password_token}")
-    fill_in :password, with: "newpassword"
-    fill_in :password_confirmation, with: "newpassword"
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
     click_button "Submit"
   end
 

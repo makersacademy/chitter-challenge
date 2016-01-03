@@ -35,6 +35,12 @@ feature 'resetting password' do
   scenario 'it lets you log in with the new password' do
     set_new_password
     sign_in(email: "user@email.com", password: "newpassword")
-    expect(page).to have_content "Welcome New User"
+    expect(page).to have_content "Welcome New User. You are now logged in"
   end
- end
+
+  scenario 'it lets you know if your passwords don\'t match' do
+    recover_password
+    set_new_password(password_confirmation: "wrongpassword")
+    expect(page).to have_content("Passwords did not match")
+  end
+end
