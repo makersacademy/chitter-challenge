@@ -1,10 +1,12 @@
 <h1>Welcome to Chitter!</h1>
 <h3>...where makers like to chitchat...</h3>
 
-<form action="/users/new">
-  <input type="submit" value="Create an account">
-</form>
-<br>
-<form action="/sessions/new">
-  <input type="submit" value="Log in">
-</form>
+<% if current_user == nil %>
+    <form action="/users/new">
+      <input type="submit" value="Create an account">
+    </form>
+    <br>
+    <form action="/sessions/new">
+      <input type="submit" value="Log in">
+    </form>
+<% end %>
