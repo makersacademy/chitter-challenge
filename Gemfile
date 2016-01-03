@@ -8,14 +8,13 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'bcrypt'
-gem 'byebug'
 
 group :test do
+  gem 'byebug'
   gem 'rake'
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'simplecov'
   gem 'database_cleaner'
 end
