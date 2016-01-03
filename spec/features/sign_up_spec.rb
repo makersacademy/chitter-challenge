@@ -2,7 +2,7 @@ feature 'User Sign Up' do
   scenario 'a user can sign up to chitter' do
     expect { sign_up }.to change { User.count }.by 1
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'Welcome, Test User'
+    expect(page).to have_content 'Signed in as Test User'
   end
 
   scenario 'a user\'s email must be formatted correctly' do

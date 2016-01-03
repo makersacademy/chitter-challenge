@@ -2,7 +2,7 @@ feature 'User Sign In' do
   scenario 'user can sign in' do
     sign_in
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'Welcome, Test User'
+    expect(page).to have_content 'Signed in as Test User'
   end
 
   scenario 'user cannot sign in if email is incorrect' do

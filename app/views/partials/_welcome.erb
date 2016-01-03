@@ -1,7 +1,0 @@
-<% if current_user %>
-  Welcome, <%= current_user.name %>
-  <form action='/sessions' method='POST'>
-    <input type='hidden' name='_method' value='DELETE'>
-    <input type='submit' value='Sign Out!'>
-  </form>
-<% end %>

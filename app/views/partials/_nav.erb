@@ -1,0 +1,16 @@
+<div class='container'>
+  <a class="navbar-brand" href="/peeps">Chitter</a>
+  <a role='button' class="btn btn-primary navbar-btn" href="/peeps/new">Peep a Peep</a>
+  <% if current_user %>
+    <form class='navbar-form navbar-right' action='/sessions' method='POST'>
+      <input type='hidden' name='_method' value='DELETE'>
+      <input class='btn btn-default' type='submit' value='Sign Out!'>
+    </form>
+    <p class='navbar-text navbar-right'>Signed in as <%= current_user.name %></p>
+  <% else %>
+    <div class='navbar-right'>
+      <a role='button' class="btn btn-primary navbar-btn" href='/sessions/new'>Sign In!</a>
+      <a role='button' class="btn navbar-btn" href='/users/new'>Sign Up!</a>
+    </div>
+  <% end %>
+</div>

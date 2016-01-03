@@ -1,9 +1,9 @@
-<ul id='peeps'>
+<main id='peeps'>
   <% @peeps.reverse_each do |peep| %>
-    <li>
+    <article>
       <%= peep.message %>
       Peeped By: <%= peep.user.name %> @<%= peep.user.username %>
       on <%= peep.time.strftime("%a at %H:%M") %>
-    </li>
+    </article>
   <% end %>
-</ul>
+</main>

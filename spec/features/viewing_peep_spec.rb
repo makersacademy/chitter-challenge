@@ -7,13 +7,13 @@ feature 'Viewing Peeps' do
 
   scenario 'peeps should be visible at /peeps in reverse chronological order' do
     visit '/peeps'
-    expect(page).to have_css('ul#peeps li:first-child', text: 'second peep')
-    expect(page).to have_css('ul#peeps li:last-child', text: 'first peep')
+    expect(page).to have_css('main#peeps article:first-child', text: 'second peep')
+    expect(page).to have_css('main#peeps article:last-child', text: 'first peep')
   end
 
   scenario 'peeps should display the time created on them' do
     visit '/peeps'
-    within('ul#peeps li:last-child') do
+    within('main#peeps article:last-child') do
       expect(page).to have_content 'on Sun at 12:10'
     end
   end
