@@ -1,5 +1,6 @@
 body  {
   background-color: #e5ffff;
+  font-family: Helvetica;
 }
 
 div {
@@ -29,7 +30,6 @@ div {
   float: left;
 }
 
-.left:
 
 .main_content {
   float: right;
