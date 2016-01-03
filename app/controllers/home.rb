@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/' do
-    redirect '/peeps'
+    erb :temp
   end
 
 

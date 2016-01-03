@@ -3,7 +3,7 @@ feature 'Posting Peeps' do
   scenario 'A user can post a peep and view it if logged in' do
     sign_up
     log_in
-    visit('/peeps/new')
+    click_link('Post a new Peep!')
     fill_in(:message, with: 'This is a peep')
     click_button('Post')
     expect(current_path).to eq '/peeps'
@@ -15,7 +15,5 @@ feature 'Posting Peeps' do
     expect(page).not_to have_content('This is a peep')
     expect(page).to have_content('You must be logged in to post a peep')
   end
-
-
 
 end
