@@ -10,6 +10,7 @@ group :production, :development do
   gem 'dm-validations', '~> 1.2'
   gem 'dm-types', '~> 1.2', '>= 1.2.2'
   gem 'sinatra-partial', '~> 0.4.0'
+  gem 'pg', '~> 0.18.4'
 end
 
 group :test do

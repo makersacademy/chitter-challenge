@@ -1,10 +1,9 @@
 feature 'adding comments' do
   include SessionHelpers
 
-  let(:peep_content) { "Nel mezzo del cammin di nostra vita
-                    mi ritrovai..."}
+  let(:peep_content) { "Some content"}
   let(:username) { "dante_alighieri" }
-  let(:comment_content) { "I've written such a bad peep"}
+  let(:comment_content) { "Some comment"}
 
   before do
     register(username: username)
@@ -15,7 +14,7 @@ feature 'adding comments' do
     login
     add_peep(content: peep_content)
     click_button('Log out')
-    click_button 'Comment'
+    click_button 'Reply'
     expect(current_path).to eq '/register'
   end
 
@@ -23,7 +22,7 @@ feature 'adding comments' do
     login
     add_peep(content: peep_content)
     fill_in('comment_content', with: comment_content)
-    click_button 'Comment'
+    click_button 'Reply'
     expect(current_path).to eq '/peeps'
     expect(page).to have_content comment_content
   end

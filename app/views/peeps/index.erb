@@ -14,7 +14,7 @@
       <form action='/comment/add' method='post'>
         <input type="hidden" name="peep_id" value="<%= peep.id %>">
         <input type="text" name="comment_content" placeholder="Reply to this peep..." required>
-        <input class="secondary-cta" type="submit" value="Comment">
+        <input class="secondary-cta" type="submit" value="Reply">
       </form>
     </article>
           <% @comments = Comment.all(:peep_id => peep.id, :order => [ :created_at.desc ]) %>

@@ -6,14 +6,14 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :name, String, :required => true
-  property :username, String, :required => true, :unique => true
-  property :email, String,  :format => :email_address,
-                            :required => true, :unique => true
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String,  format: :email_address,
+                            required: true, unique: true
   property :password_digest, Text
 
   attr_accessor :password_confirmation
-  validates_confirmation_of :password, :confirm => :password_confirmation
+  validates_confirmation_of :password, confirm: :password_confirmation
 
   def password
     @password ||= Password.new(password_digest)
