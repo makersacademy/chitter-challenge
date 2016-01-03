@@ -20,15 +20,29 @@
 
   <div id='peeps'>
     <% @peeps.each do |message| %>
-    <span class='small_font bold_font'><%= message.user.name %>, <%= message.user.username %></span>
-    <span class='blue small_font'>
-      <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
-      <%= message.content %><br><br>
-      <form method='post' action='/replies'>
-        <input type='hidden' name='source' value='<%= message.id %>'>
-        <input type='text' name='reply'>
-        <input type='submit' value='Reply!'>
-      </form><br>
+      <% unless message.source_id %>
+      <span class='small_font bold_font'><%= message.user.name %>, <%= message.user.username %></span>
+      <span class='blue small_font'>
+        <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+        <%= message.content %><br><br>
+
+        <form method='post' action='/replies'>
+          <input type='hidden' name='source' value='<%= message.id %>'>
+          <input type='text' name='reply'>
+          <input type='submit' value='Reply!'>
+        </form><br>
+
+          <div id='reply'>
+            <% message.replies.each do |reply| %>
+              <span class='small_font bold_font'><%= reply.user.name %>, <%= reply.user.username %></span>
+              <span class='dark_green small_font'>
+                <%= reply.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+                <%= reply.content %><br><br>
+                <% end %>
+          </div>
+          <hr>
+
+      <% end %>
     <% end %>
   </div>
 </div>

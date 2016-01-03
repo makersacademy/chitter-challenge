@@ -70,6 +70,10 @@ td, tr {
 #peep_box {
   width: 400px;
 }
+#reply {
+  padding-left: 40px;
+  font-style: italic;
+}
 .orange {
   color: #ff9933;
 }

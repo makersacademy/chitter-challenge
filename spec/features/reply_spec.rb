@@ -11,6 +11,8 @@ feature 'Replying to a peep' do
     peep(text)
     fill_in :reply, with: "And this is my reply"
     click_button 'Reply!'
-    expect(page).to have_content "And this is my reply"
+    within '#reply' do
+      expect(page).to have_content "And this is my reply"
+    end
   end
 end
