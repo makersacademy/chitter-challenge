@@ -4,16 +4,8 @@
     <title>Chitter</title>
   </head>
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.name %>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul id='errors'>
-        <% flash[:errors].each do |error|%>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= partial :'partials/welcome' %>
+    <%= partial :'partials/flash' %>
     <%= yield %>
   </body>
 </html>
