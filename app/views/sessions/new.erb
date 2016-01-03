@@ -11,3 +11,7 @@
   </label><br><br>
   <input type="submit" value="Log in">
 </form>
+<br><br>
+<% if flash[:login_error] %>
+    <%= flash[:login_error] %>
+<% end %>

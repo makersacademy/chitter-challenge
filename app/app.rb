@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       erb :'index'
     else
-      flash.now[:errors] = 'Incorrect email or password'
+      flash.now[:login_error] = 'Incorrect email or password'
       erb :'sessions/new'
     end
   end
