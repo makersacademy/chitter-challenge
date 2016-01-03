@@ -11,7 +11,8 @@ class Chitter < Sinatra::Base
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
     if user.save
-      "User saved"
+      session[:user_id] = user.id
+      redirect '/peeps'
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/new'

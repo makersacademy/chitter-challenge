@@ -12,6 +12,7 @@ feature 'Logging in' do
 
   scenario 'A user can\'t with an incorrect password' do
     sign_up
+    click_button('Log out')
     log_in(password: 'wrong')
     expect(page).to have_content('Incorrect email or password')
     expect(page).not_to have_content('Welcome, Wynndow')
@@ -19,6 +20,7 @@ feature 'Logging in' do
 
   scenario 'A user can\'t with an incorrect email' do
     sign_up
+    click_button('Log out')
     log_in(email: 'wrong@email.com')
     expect(page).to have_content('Incorrect email or password')
     expect(page).not_to have_content('Welcome, Wynndow')
