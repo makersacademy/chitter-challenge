@@ -1,18 +1,25 @@
 body  {
-  background-color: #e5ffff;
+  background-color: #0088cc;
   width: 80%;
   margin: auto;
   font-family: Helvetica;
-  text-decoration: none;
+
 }
 
 div {
-  background-color: #ccffff;
+  background-color: #55acee;
   border-radius: 5px;
-  border: 2px #b3ffff solid;
+  border: 2px #000000 solid;
   height: auto;
   padding: 10px;
 }
+
+a {
+  color: #cee3f8;
+  text-decoration: none;
+}
+
+
 
 #header {
   height: 10%;
@@ -29,15 +36,20 @@ div {
   text-align: center;
 }
 
+.heading {
+  font-family: Courier;
+  color: white;
+  text-shadow: -1px -1px  #000, 1px -1px  #000, -1px 1px  #000, 1px 1px  #000;
+  font-size: 30px;
+}
+
 .left {
   width: 15%;
   float: left;
-
 }
 
 
 .main_content {
   float: right;
   width: 79%;
-
 }

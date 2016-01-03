@@ -14,7 +14,7 @@ feature 'Replying to peeps' do
                 email: 'vic@gmail.com')
     log_in(email: 'chris.wynndow@gmail.com', password: 'password')
     visit('/peeps')
-    click_link('Reply')
+    click_link('reply')
     fill_in(:message, with: 'This is a test reply.')
     click_button('Post')
     expect(page).to have_content('This is a test reply.')
@@ -31,13 +31,13 @@ feature 'Replying to peeps' do
                 email: 'vic@gmail.com')
     log_in(email: 'chris.wynndow@gmail.com', password: 'password')
     visit('/peeps')
-    click_link('Reply')
+    click_link('reply')
     fill_in(:message, with: 'This is a test reply.')
     click_button('Post')
     within('ul.replies') do
       expect(page).to have_content('This is a test reply.')
     end
-  
+
   end
 
 
