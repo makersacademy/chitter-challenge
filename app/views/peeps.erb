@@ -26,11 +26,13 @@
         <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
         <%= message.content %><br><br>
 
-        <form method='post' action='/replies'>
+        <% if @username %>
+        <form id='reply_form' method='post' action='/replies'>
           <input type='hidden' name='source' value='<%= message.id %>'>
           <input type='text' name='reply'>
           <input type='submit' value='Reply!'>
         </form><br>
+        <% end %>
 
           <div id='reply'>
             <% message.replies.each do |reply| %>
@@ -38,10 +40,9 @@
               <span class='dark_green small_font'>
                 <%= reply.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
                 <%= reply.content %><br><br>
-                <% end %>
+              <% end %>
           </div>
           <hr>
-
       <% end %>
     <% end %>
   </div>

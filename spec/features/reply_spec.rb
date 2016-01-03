@@ -5,7 +5,7 @@ feature 'Replying to a peep' do
 
   let(:text) { "Hi, I am using Chitter!" }
 
-  scenario 'a user can post a reply to a peep' do
+  scenario 'a logged in user can reply to a peep' do
     sign_up(user)
     log_in(user.username, user.password)
     peep(text)
@@ -14,5 +14,14 @@ feature 'Replying to a peep' do
     within '#reply' do
       expect(page).to have_content "And this is my reply"
     end
+  end
+
+  scenario 'the reply box does not appear if not logged in' do
+    sign_up(user)
+    log_in(user.username, user.password)
+    peep(text)
+    click_button('Sign out')
+    visit('/peeps')
+    page.assert_no_selector('#reply_form')
   end
 end
