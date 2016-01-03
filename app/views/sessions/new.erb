@@ -1,9 +1,15 @@
-<form action='/sessions' method='POST'>
-  <label for='email'>Email:</label>
-  <input type='text' name='email' id='email'>
+<form class='col-md-6 col-md-offset-3 well' action='/sessions' method='POST'>
+  <h2 class='text-center'>Sign In and Cheet</h2>
 
-  <label for='password'>Password:</label>
-  <input type='password' name='password' id='password'>
+  <div class="form-group">
+    <label for='email'>Email:</label>
+    <input class="form-control" type='text' name='email' id='email'>
+  </div>
 
-  <input type='submit' value='Sign In!'>
+  <div class="form-group">
+    <label for='password'>Password:</label>
+    <input class="form-control" type='password' name='password' id='password'>
+  </div>
+
+  <input class='btn btn-primary' type='submit' value='Sign In!'>
 </form>
