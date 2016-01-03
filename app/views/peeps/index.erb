@@ -1,1 +1,16 @@
-List of peeps
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter - List of Peeps</title>
+  </head>
+  <body>
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.message %>
+          From: <%= peep.user.name %> - @<%= peep.user.username %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

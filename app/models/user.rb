@@ -14,6 +14,8 @@ class User
   property :email,    String, unique: true, format: :email_address, required: true
   property :password_digest, Text
 
+  has n, :peeps
+
   validates_confirmation_of :password
 
   def password=(password)

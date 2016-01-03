@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <form action='/users' method='POST'>
-    Name:
-    <label for='name'>
-      <input type='text' name='name' id='name' required>
-    </label>
-    Username:
-    <label for='username'>
-      <input type='text' name='username' id='username' required>
-    </label>
-    Email:
-    <label for='email'>
-      <input type='text' name='email' id='email' value='<%= flash[:email] %>' required>
-    </label>
-    Password:
-    <label for='password'>
-      <input type='password' name='password' id='password' required>
-    </label>
-    Confirm Password:
-    <label for='password_confirmation'>
-      <input type='password' name='password_confirmation' id='password_confirmation' required>
-    </label>
-    <button type='submit'> Sign Up </button>
-  </form>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign up to Chitter!</title>
+  </head>
+  <body>
+    <form action='/users' method='POST'>
+      Name:
+      <label for='name'>
+        <input type='text' name='name' id='name' required>
+      </label>
+      Username:
+      <label for='username'>
+        <input type='text' name='username' id='username' required>
+      </label>
+      Email:
+      <label for='email'>
+        <input type='text' name='email' id='email' value='<%= flash[:email] %>' required>
+      </label>
+      Password:
+      <label for='password'>
+        <input type='password' name='password' id='password' required>
+      </label>
+      Confirm Password:
+      <label for='password_confirmation'>
+        <input type='password' name='password_confirmation' id='password_confirmation' required>
+      </label>
+      <button type='submit'> Sign Up </button>
+    </form>
+  </body>
 </html>
