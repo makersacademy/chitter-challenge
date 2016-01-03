@@ -1,6 +1,10 @@
 module SessionHelpers
 
-  def sign_up(name: 'New User', username: 'whoami', email: 'user@email.com', password: 'password', password_confirm: 'password')
+  def sign_up(name: 'New User',
+              username: 'whoami',
+              email: 'user@email.com',
+              password: 'password',
+              password_confirm: 'password')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in('name', with: name)

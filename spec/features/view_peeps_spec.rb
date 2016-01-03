@@ -1,4 +1,8 @@
 feature 'displays peeps' do
+
+  new_time = DateTime.new(2016, 1, 1, 10, 0, 0)
+  Timecop.freeze(new_time)
+
   before(:all) do
     sign_up
     post_peep('1')
@@ -16,6 +20,12 @@ feature 'displays peeps' do
   scenario 'displays name and username for each peep' do
     visit '/'
     expect(page).to have_content("New User whoami\n1")
+  end
+
+  scenario 'displays the time a peep was posted' do
+    visit '/'
+    expect(Peep.first.created_at).to eq new_time
+    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: '10:00AM 01 Jan 2016')
   end
 
 end

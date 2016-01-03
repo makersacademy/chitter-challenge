@@ -9,6 +9,8 @@
       <span class="username"><%= peep.user.username %></span>
       <br>
       <%= peep.message %>
+      <br>
+      <%= peep.created_at.strftime("%I:%M%p %d %b %Y") %>
     </li>
     <% end %>
   </ul>

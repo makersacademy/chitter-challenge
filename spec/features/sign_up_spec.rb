@@ -14,7 +14,7 @@ feature 'sign up for Chitter' do
   scenario 'confirmed password does not match' do
     expect{ sign_up(password_confirm: 'wrongpassword')}.not_to change{ User.count }
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Passwords did not match'
     expect(page).to have_selector("input[value='user@email.com']")
   end
 
