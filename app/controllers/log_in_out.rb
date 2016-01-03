@@ -7,18 +7,18 @@ class App < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      flash.keep[:message] = :welcome_back
+      flash.next[:message] = :welcome_back
       redirect '/peeps'
     else
-      flash[:email] = params[:email]
-      flash[:message] = :login_errors
+      flash.next[:email] = params[:email]
+      flash.next[:message] = :login_errors
       redirect '/login'
     end
   end
 
   delete '/logout' do
     session[:user_id] = nil
-    flash[:message] = :goodbye
+    flash.next[:message] = :goodbye
     redirect '/peeps'
   end
 end

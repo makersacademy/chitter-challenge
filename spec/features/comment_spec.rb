@@ -1,4 +1,5 @@
 feature 'adding comments' do
+  include SessionHelpers
 
   let(:peep_content) { "Nel mezzo del cammin di nostra vita
                     mi ritrovai..."}
@@ -10,23 +11,21 @@ feature 'adding comments' do
     Capybara.reset!
   end
 
-  scenario 'on own peep' do
+  scenario 'is not possible if user is not logged in' do
     login
     add_peep(content: peep_content)
+    click_button('Log out')
     click_button 'Comment'
-    fill_in('content', with: comment_content)
+    expect(current_path).to eq '/register'
+  end
+
+  scenario 'when user is logged in' do
+    login
+    add_peep(content: peep_content)
+    fill_in('comment_content', with: comment_content)
     click_button 'Comment'
     expect(current_path).to eq '/peeps'
     expect(page).to have_content comment_content
   end
 
-  scenario 'cancelling action' do
-    login
-    add_peep(content: peep_content)
-    click_button 'Comment'
-    fill_in('content', with: comment_content)
-    click_link 'Cancel'
-    expect(current_path).to eq '/peeps'
-    expect(page).not_to have_content comment_content
-  end
 end

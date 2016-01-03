@@ -16,9 +16,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
-require_relative 'helpers/register'
-require_relative 'helpers/login'
-require_relative 'helpers/add_peep'
+require_relative 'helpers/session'
 
 Capybara.app = App
 

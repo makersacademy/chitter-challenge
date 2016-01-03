@@ -1,4 +1,5 @@
 feature 'adding peeps' do
+  include SessionHelpers
 
   let(:content) { "Nel mezzo del cammin di nostra vita
                     mi ritrovai per una selva oscura,

@@ -1,4 +1,5 @@
 feature 'log out' do
+  include SessionHelpers
 
   before do
     register

@@ -1,8 +1,12 @@
-<%= partial :'partials/messages' %>
-<h1>Log in</h1>
-<form action='/login' method='post'>
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <input type="submit" value="Login">
-</form>
-<p>Not a peeper yet? <a href="/register" >Register here</a></p>
+<div class="form-page">
+  <section class="form-page">
+    <%= partial :'partials/messages' %>
+    <h1>Log in</h1>
+    <form action='/login' method='post'>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input class="primary-btn" type="submit" value="Login">
+    </form>
+    <p>Not a peeper yet? <a href="/register" >Register here</a></p>
+  </section>
+</div>

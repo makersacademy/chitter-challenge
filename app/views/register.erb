@@ -1,18 +1,24 @@
-<h1>Register and start peeping!</h1>
-<form action='/register' method='post'>
-  <input type="text" name="name" value="<%=flash[:name]%>" placeholder="Name" required>
-  <input type="text" name="username" value='<%=flash[:username]%>' placeholder="Username" required>
-  <input type="email" name="email" value='<%=flash[:email]%>' placeholder="Email" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <input type="password" name="password_confirmation" placeholder="Confirm your password" required>
-  <input type="submit" value="Register">
-</form>
-<% if flash[:errors] %>
-<p> Please check: </p>
-<ul>
-  <% flash[:errors].each do |error| %>
-  <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
-<p>Already registered? <a href="/login" >Login</a></p>
+<div class="form-page">
+  <section class="form-page">
+    <% if flash[:errors] %>
+    <section class="messages errors">
+      <p> Oh no!
+        <ul>
+        <% flash[:errors].each do |error| %>
+        <li> <%= error %> </li>
+        <% end %>
+        </ul>
+    </section>
+    <% end %>
+    <h1>Register and start peeping!</h1>
+    <form action='/register' method='post'>
+      <input type="text" name="name" value="<%=flash[:name]%>" placeholder="Name" required>
+      <input type="text" name="username" value='<%=flash[:username]%>' placeholder="Username" required>
+      <input type="email" name="email" value='<%=flash[:email]%>' placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="password_confirmation" placeholder="Confirm your password" required>
+      <input class="primary-btn" type="submit" value="Register">
+    </form>
+    <p>Already registered? <a href="/login" >Login</a></p>
+  </section>
+</div>

@@ -1,7 +1,7 @@
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   require 'data_mapper'
-  require_relative './lib/app'
+  require_relative './app/app'
 
   RSpec::Core::RakeTask.new :spec
 

@@ -1,4 +1,5 @@
 feature 'log in' do
+  include SessionHelpers
 
   let(:name) { 'Camilla' }
 

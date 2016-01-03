@@ -18,13 +18,13 @@ class App < Sinatra::Base
   end
 
   post '/peeps/add' do
-    @peep = Peep.new(content: params[:content], created_at: Time.now, user_id: session[:user_id])
+    @peep = Peep.new(content: params[:content], created_at: Time.now.to_i, user_id: session[:user_id])
     if @peep.save
-      flash[:message] = :peep_added
+      flash.next[:message] = :peep_added
       redirect '/peeps'
     else
-      flash[:content] = params[:content]
-      flash[:message] = :add_peep_error
+      flash.next[:content] = params[:content]
+      flash.next[:message] = :add_peep_error
       redirect '/peeps/add'
     end
   end

@@ -9,13 +9,13 @@ class App < Sinatra::Base
     @user.password = params[:password]
     if @user.save
       session[:user_id] = @user.id
-      flash.keep[:message] = :welcome
+      flash.next[:message] = :welcome
       redirect '/peeps'
     else
-      flash[:name] = params[:name]
-      flash[:username] = params[:username]
-      flash[:email] = params[:email]
-      flash[:errors] = @user.errors.full_messages
+      flash.next[:name] = params[:name]
+      flash.next[:username] = params[:username]
+      flash.next[:email] = params[:email]
+      flash.next[:errors] = @user.errors.full_messages
       redirect '/register'
     end
   end

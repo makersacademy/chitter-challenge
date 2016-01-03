@@ -1,4 +1,5 @@
 feature 'register' do
+  include SessionHelpers
 
   let(:name) { 'Camilla' }
 
