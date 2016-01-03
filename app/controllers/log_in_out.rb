@@ -1,6 +1,6 @@
 class App < Sinatra::Base
   get '/login' do
-    erb :'login'
+    erb :login
   end
 
   post '/login' do

@@ -8,7 +8,8 @@ describe User do
   let(:password) { 'pass1234' }
 
   it 'returns the user if the autentication is correct' do
-    user = described_class.new(name: name, username: username, email: email, password_confirmation: password)
+    user = described_class.new(name: name, username: username,
+      email: email, password_confirmation: password)
     user.password = password
     user.save
     expect(User.authenticate(email, password)).to eq user

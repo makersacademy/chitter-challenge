@@ -1,6 +1,6 @@
 class App < Sinatra::Base
   get '/register' do
-    erb :'register'
+    erb :register
   end
 
   post '/register' do

@@ -11,9 +11,9 @@ class App < Sinatra::Base
   enable :partial_underscores
 
   def current_user(id)
-    User.first(:id => id)
+    User.first(id: id)
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
