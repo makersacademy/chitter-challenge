@@ -9,10 +9,10 @@ class Message
   property :peep, Text
   property :name, String
   property :username, String
-  property :posted_at, Text 
+  property :posted_at, Text
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!

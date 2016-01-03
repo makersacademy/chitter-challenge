@@ -1,6 +1,6 @@
 feature 'Viewing messages' do
 
-  scenario 'I can see existing messages on the messages page' do
+  scenario 'I can see existing messages without signing in' do
     Message.create( peep: 'Hello world!',
                     name: 'Joe Giant',
                     username: 'jollygreengiant')

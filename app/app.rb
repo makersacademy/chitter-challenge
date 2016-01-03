@@ -39,8 +39,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @name = session[:name]
-    erb :'index'
+    if current_user
+      redirect to ('/messages')
+    else
+      redirect to ('/users/new')
+    end
   end
 
   get '/sessions/new' do
