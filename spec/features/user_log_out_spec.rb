@@ -4,7 +4,7 @@ feature 'User Log Out' do
   # So that I can avoid others posting messages on Chitter as me
   # I want to log out of Chitter
 
-  before(:each) do
+  let(:user) do
     User.create(name:                   'Mr Example',
                 username:               '3xampl3',
                 email:                  'example@example.com',
@@ -12,8 +12,8 @@ feature 'User Log Out' do
                 password_confirmation:  'qwerty')
   end
 
-  xscenario 'while being signed in' do
-    sign_in(username: '3xample3', password: 'qwerty')
+  scenario 'while being signed in' do
+    sign_in(username: user.username, password: user.password)
     click_button 'Sign out'
     expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome to Chitter, Mr Example')
