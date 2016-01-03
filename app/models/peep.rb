@@ -3,4 +3,6 @@ class Peep
 
   property :id,      Serial
   property :message, String
+
+  belongs_to :user
 end

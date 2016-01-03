@@ -16,7 +16,7 @@ module SessionHelpers
     click_button 'Sign up'
   end
 
-  def sign_in(email:, password:)
+  def sign_in(email: 'test@email.com', password: 'secret_password')
     visit '/sessions/new'
 
     fill_in 'email',    with: email

@@ -22,4 +22,6 @@ class User
 
     user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
+
+  has n, :peeps
 end
