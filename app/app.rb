@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative '../data_mapper_setup'
 require_relative "./models/user.rb"
-
+require_relative "./models/peeps.rb"
 
 class Chitter < Sinatra::Base
 	register Sinatra::Flash
@@ -56,6 +56,18 @@ class Chitter < Sinatra::Base
   	erb :homepage
 	end
 
+
+  post "/peep" do
+    Peep.create(peep: params[:peep])
+    redirect "/homepage"
+  end
+
+   helpers do
+   def current_user
+     @current_user ||= User.get(session[:user_id])
+   end
+   
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
