@@ -17,7 +17,7 @@ feature 'adding peeps' do
   end
 
   scenario 'is prevented when user is logged out' do
-    login
+    visit '/'
     click_button "Peep!"
     expect(current_path).to eq '/register'
   end
