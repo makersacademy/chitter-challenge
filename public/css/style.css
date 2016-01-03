@@ -1,0 +1,155 @@
+body{
+  background: url('/images/background.jpg') #777 no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Helvetica Neue UltraLight', 'Helvetica', sans-serif;
+  color: #777;
+}
+
+.navbar-center {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  z-index: -1;
+}
+
+.navbar-center li{
+  display: inline-block;
+  margin:0 auto;
+  width: 100px;
+  height: 50px;
+  float:none;
+}
+
+.content{
+  margin-top: 70px;
+}
+
+.index{
+  padding-top: 30px;
+  color: white;
+}
+
+.index a{
+  display: block;
+  padding-top: 20px;
+  font-size: 15px;
+  color: white;
+}
+
+.index p{
+  font-size: 20px;
+  line-height: 1.6em;
+  font-weight: lighter;
+}
+
+.navbar-default .btn-link {
+    padding: 15px;
+}
+
+.navbar-default .btn-link:hover {
+    text-decoration: none;
+}
+
+.form{
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+}
+
+.peeps .form input, .peeps .form button, .peeps .form textarea{
+  font-size: 13px;
+}
+
+.newpeep{
+    max-width: 500px;
+}
+
+.form-heading{
+  margin-bottom: 25px;
+  color: white;
+}
+
+.well .form-heading{
+  display:none;
+}
+
+.form-control {
+    box-sizing: border-box;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    position: relative;
+}
+.form-control:focus {
+    z-index: 2;
+}
+
+.form  button[type="submit"] {
+    margin-top: 25px;
+}
+
+textarea{
+  resize: none;
+}
+
+hr{
+  border-color: #777;
+}
+
+li{
+  list-style: none;
+}
+
+.panel .title{
+  margin: 5px 0;
+}
+
+.panel .title a{
+  color: black;
+}
+
+.more .btn-link{
+  font-size: 12px;
+  margin-top: 0;
+  padding: 5px 10px;
+  color: #777;
+}
+
+.more .btn-link:hover{
+  background: transparent;
+  text-decoration: underline;
+}
+
+.replies{
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.panel-footer, .panel-footer ul{
+  padding: 0;
+  margin: 0;
+}
+
+.panel-footer .form{
+  font-size: 12px;
+  max-width: none;
+}
+
+.panel-footer .form button{
+  margin-bottom: 20px;
+}
+
+.clear:before, .clear:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clear:after {
+    clear: both;
+}

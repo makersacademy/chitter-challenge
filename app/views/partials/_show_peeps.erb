@@ -1,0 +1,44 @@
+<% @peeps.each do |peep| %>
+<li class="panel panel-default">
+  <div class="panel-heading">
+    <h5 class="title"><strong><a href="<%= base_url %>/users/<%= peep.user.username %>"><%= peep.user.name %></a></strong> <small>@<%= peep.user.username %></small> <span class="pull-right"><small><%= peep.created_at.strftime("%d %b %Y - %l:%M %p") %></small></span></h5>
+  </div>
+  <div class="panel-body">
+    <%= peep.content %>
+    <div class="more">
+      <ul style="display:block" role="tablist" class="nav nav-pills pull-right">
+        <li>
+          <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#replies<%= peep.id %>">
+             Replies (<%= peep.replies.count %>)
+          </button>
+        </li>
+        <li>
+          <a type="button" class="btn btn-link" href="<%= base_url %>/peeps/<%= peep.id %>">Details</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="replies<%= peep.id %>" class="panel-footer replies clear <% if @peeps.size > 1 %>collapse out<% end %>">
+    <ul class="list-group">
+    <% peep.replies.each do |reply| %>
+    <li class="panel panel-default replies">
+      <div class="panel-heading">
+        <h5 class="title"><strong><a href="<%= base_url %>/users/<%= reply.user.username %>"><%= reply.user.name %></a></strong> <small>@<%= reply.user.username %></small> <span class="pull-right"><small><%= reply.created_at.strftime("%d %b %Y - %l:%M %p") %></small></span></h5>
+      </div>
+      <div class="panel-body">
+      <%= reply.content %>
+      </div>
+    </li>
+    <% end %>
+    </ul>
+    <% if current_user %>
+    <form class="form newreply" action="/replies" method="post">
+      <input name="peep_id" type="hidden" value="<%= peep.id %>">
+      <label for="inputContent" class="sr-only">What's happening?</label>
+      <textarea maxlength="140" id="inputContent" class="form-control" rows="3" placeholder="What's happening?" name="content" required></textarea>
+      <button class="btn btn-sm btn-primary pull-right" type="submit">Reply</button>
+    </form>
+    <% end %>
+  </div>
+</li>
+<% end %>

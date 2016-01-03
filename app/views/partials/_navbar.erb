@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <ul class="nav navbar-nav navbar-center">
+    <li><a><img width=50 height=25 src="<%= base_url %>/images/makers-logo.png" /></a></li>
+  </ul>
+ <div class="container">
+   <div class="navbar-header">
+     <a class="navbar-brand" href="<%= base_url %>">Chitter</a>
+   </div>
+   <div id="navbar">
+     <ul class="nav navbar-nav navbar-right">
+       <% if current_user %>
+       <li><a href="<%= base_url %>/users/<%= current_user.username %>"><%= current_user.name %></a></li>
+       <li><a href="<%= base_url %>/peeps/new">Peep!</a></li>
+       <li>
+         <form class="form-inline" style="display:inline-block;" action="/sessions" method="post">
+           <input name="_method" type="hidden" value="delete">
+           <button class="btn btn-link" type="submit">Log out</button>
+         </form>
+       </li>
+       <% else %>
+       <li><a href="<%= base_url %>/users/new">Sign up</a></li>
+       <li><a href="<%= base_url %>/sessions/new">Log in</a></li>
+       <% end %>
+     </ul>
+   </div><!--/.nav-collapse -->
+ </div>
+</nav>

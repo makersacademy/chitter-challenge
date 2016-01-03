@@ -1,0 +1,12 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <div class="alert alert-danger">
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
