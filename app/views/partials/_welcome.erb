@@ -1,6 +1,7 @@
 <% if current_user %>
   Welcome to Chitter, <%= current_user.name %>
-  <br>
-  Username: <%= current_user.username %>
-  <br>
+  <form action='/sessions' method='POST'>
+    <input type='hidden' name='_method' value='DELETE'>
+    <input type='submit' value='Log Out'>
+  </form>
 <% end %>

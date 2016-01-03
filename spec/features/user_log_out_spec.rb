@@ -12,9 +12,9 @@ feature 'User Log Out' do
                 password_confirmation:  'qwerty')
   end
 
-  xscenario 'while being signed in' do
+  scenario 'while being signed in' do
     log_in(username: user.username, password: user.password)
-    click_button 'Sign out'
+    click_button 'Log Out'
     expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome to Chitter, Mr Example')
   end

@@ -14,7 +14,7 @@ feature 'User Log In' do
 
   scenario 'with correct credentials' do
     log_in(username: user.username, password: user.password)
-    # expect(current_path).to eq('/peeps/index')
+    expect(current_path).to eq('/peeps')
     expect(page).to have_content('Welcome to Chitter, Mr Example')
   end
 end
