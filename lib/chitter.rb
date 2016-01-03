@@ -5,6 +5,7 @@ require 'byebug'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+use Rack::MethodOverride
 register Sinatra::Flash
 set :public_folder, File.dirname(__FILE__)
 
@@ -34,7 +35,13 @@ set :public_folder, File.dirname(__FILE__)
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
     end
- end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
+  end
 
   get '/signup' do
     @user = User.new
@@ -56,6 +63,11 @@ set :public_folder, File.dirname(__FILE__)
 
   get '/peeps' do
     erb :peeps
+  end
+
+  post '/peeps' do
+    Peep.create(peep: params[:peep])
+    redirect '/peeps'
   end
 
 
