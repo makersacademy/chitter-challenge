@@ -72,6 +72,19 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
+  get '/users/recover' do
+    erb :'/users/recover'
+  end
+
+  post '/users/recover' do
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
+    end
+    flash.next[:notice]="Please check your inbox to set a new password."
+    redirect '/'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

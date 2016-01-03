@@ -1,5 +1,6 @@
 require 'bcrypt'
 require 'dm-validations'
+require 'securerandom'
 
 class User
 
@@ -15,6 +16,7 @@ class User
               format: 'Please enter a valid email address'
             }
   property :password_digest, Text
+  property :password_token, Text
 
   has n, :peeps, through: Resource
 
@@ -31,6 +33,11 @@ class User
   def self.authenticate(email, password)
     user = first(email: email)
     user if user && BCrypt::Password.new(user.password_digest) == password
+  end
+
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.save
   end
 
 end
