@@ -18,3 +18,7 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
 end
+
+group :production do
+  gem 'pg'
+end
