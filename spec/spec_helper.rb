@@ -14,6 +14,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'timecop'
 require './app/app'
+require './lib/send_recover_link'
 require_relative 'helpers/session'
 
 Capybara.app = Chitter

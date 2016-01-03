@@ -76,7 +76,7 @@ input {
 
 
 /*Peeps*/
-#peeps {
+#peeps, #recover {
   background-color: #f2f2dc ;
   border-radius: 10px;
   padding-left: 0;

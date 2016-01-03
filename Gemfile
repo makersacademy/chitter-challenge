@@ -7,6 +7,8 @@ ruby '2.2.3'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
   gem 'sinatra'
+  gem 'mailgun-ruby'
+  gem 'dotenv'
 
 group :test do
   gem 'rspec'
