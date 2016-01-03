@@ -4,7 +4,7 @@
 <label for="display all peeps">
   <ul id="peeps">
     <% @peeps.reverse.each do |peep| %>
-    <li class="eachpeep">
+    <li class="peep">
       <span class="author"><%="#{peep.user.name} "%></span>
       <span class="username"><%= peep.user.username %></span>
       <br>
