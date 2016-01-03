@@ -1,0 +1,10 @@
+<h1>New to Chitter? Sign up</h1>
+
+<form method="post" action="/users">
+	<input type="text" name="name" placeholder="Full name" value="<%= @user.name %>" autofocus required>
+	<input type="email" name="email" placeholder="Email" value='<%= @user.email %>' required>
+	<input type="text" name="user_name" placeholder="User name" value="<%=@user.user_name%>" required>
+	<input type="password" name="password" placeholder="Password" required>
+	<input type="password" name="passwordconf" placeholder="Password" required>
+	<button type="submit" value="Sign up"><p>Sign up</p></button>
+</form>
