@@ -34,4 +34,8 @@ module SessionHelpers
     fill_in :message, with: peep
     click_button 'Peep It!'
   end
+
+  def create_test_peep(peep: 'Oh look I can peep like a pro', user: nil, time: Time.new)
+    Peep.create!(message: peep, user: user, time: time)
+  end
 end

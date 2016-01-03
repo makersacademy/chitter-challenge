@@ -3,6 +3,7 @@
     <li>
       <%= peep.message %>
       Peeped By: <%= peep.user.name %> @<%= peep.user.username %>
+      on <%= peep.time.strftime("%a at %H:%M") %>
     </li>
   <% end %>
 </ul>

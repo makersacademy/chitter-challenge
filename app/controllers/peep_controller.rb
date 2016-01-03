@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     if current_user
-      Peep.create!(message: params[:message], user: current_user)
+      Peep.create!(message: params[:message], user: current_user, time: Time.new)
       redirect to('/peeps')
     else
       flash[:errors] = ['Please sign in to peep']
