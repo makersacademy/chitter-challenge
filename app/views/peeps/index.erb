@@ -6,13 +6,11 @@
     <% @peeps.reverse.each do |peep| %>
     <article>
     <p>
-      <span class="textleft"><%="#{peep.user.name} "%></span>
-      <span class="username"><%= peep.user.username %></span>
+      <%="#{peep.user.name} "%>
+      <em><%= peep.user.username %></em>
+      <%= peep.created_at.strftime("%I:%M%p %d %b %Y") %>
       <br>
-      <span class="message"><%= peep.message %></span>
-      <br>
-      <span class="peeptime"><%= peep.created_at.strftime("%I:%M%p %d %b %Y") %>
-      </span class>
+      <blockquote><%= peep.message %></blockquote>
     </p>
     </article>
     <% end %>
