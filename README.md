@@ -1,5 +1,71 @@
 Chitter Challenge
 =================
+This is a program written in response to Makers Academy's Weekend Challenge #4.
+
+It is designed to meet the following user stories:-
+
+```sh
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
+
+#### Installation instructions
+
+1. `$ git clone git@github.com:saratateno/chitter-challenge.git`
+2. `$ cd chitter-challenge`
+3. `$ bundle`
+4. `$ createdb chitter_development`
+5. `$ rake db:auto_migrate`
+6. `$ rackup`
+7. Visit `localhost:9292` in your browser
+
+To run the test suite:
+1. `$ createdb chitter_test`
+2. `$ rake db:auto_migrate RACK_ENV=test`
+
+#### Technologies used
+* Sinatra
+* Postgresql
+* DataMapper
+* Sinatra Flash
+* Sinatra Partial
+* Rspec Sinatra
+* Database Cleaner
+* Capybara
+* BCrypt
+
+
+
+
+
+
+
+
+
+
+Original Challenge Instructions (for ref)
+-------------------------------
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
@@ -10,7 +76,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_october2015 (if you haven't already)
 * Forking this repo
@@ -80,7 +146,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -98,7 +164,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -108,4 +174,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-

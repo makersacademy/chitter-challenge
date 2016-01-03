@@ -12,9 +12,9 @@ feature 'displays peeps' do
 
   scenario 'peeps are shown in reverse chronological order' do
     visit '/'
-    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: '3')
-    expect(page).to have_selector("ul#peeps li:nth-child(2)", text: '2')
-    expect(page).to have_selector("ul#peeps li:nth-child(3)", text: '1')
+    expect(page).to have_css("main#peeps article:nth-child(1)", text: '3')
+    expect(page).to have_css("main#peeps article:nth-child(2)", text: '2')
+    expect(page).to have_css("main#peeps article:nth-child(3)", text: '1')
   end
 
   scenario 'displays name and username for each peep' do
@@ -25,7 +25,7 @@ feature 'displays peeps' do
   scenario 'displays the time a peep was posted' do
     visit '/'
     expect(Peep.first.created_at).to eq new_time
-    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: '10:00AM 01 Jan 2016')
+    expect(page).to have_selector("main#peeps article:nth-child(1)", text: '10:00AM 01 Jan 2016')
   end
 
 end

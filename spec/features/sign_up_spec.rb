@@ -1,7 +1,7 @@
 feature 'sign up for Chitter' do
   scenario 'users can choose to sign up' do
     visit '/'
-    click_button 'Sign up'
+    click_link 'Sign up'
     expect(current_path).to eq '/users/new'
   end
 
