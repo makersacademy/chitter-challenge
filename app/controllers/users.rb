@@ -18,5 +18,11 @@ class Chitter < Sinatra::Base
       erb :'/users/new'
     end
   end
+
+  get '/users/:username' do
+    @user = User.first(username: params[:username])
+    @peeps = @user.peeps.sort_by { |peep| peep.created_at }.reverse
+    erb :'/users/profile'
+  end
 end
 

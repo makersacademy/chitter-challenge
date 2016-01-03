@@ -31,6 +31,10 @@ I want to see the time at which it was made
 As a user
 So that I can start a conversation with other users
 I want to reply to a peep
+
+As a user
+So that I can know more about other users
+I want to view their name and all of their peeps on a profile page
 ```
 
 Notes on functionality:

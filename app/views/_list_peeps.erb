@@ -1,0 +1,23 @@
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <a href='/users/<%= peep.user.username %>'>
+        <%= peep.user.username %>
+      </a>
+      <%= peep.created_at.strftime("on %a, %d %b %Y at %H:%M:%S ") %>
+      <%= peep.content %>
+      <a href='/peeps/<%= peep.id %>'>Reply</a>
+      <ul id='replies'>
+        <% peep.replies.each do |reply| %>
+          <li>
+            <a href='/users/<%= reply.user.username %>'>
+              <%= reply.user.username %>
+            </a>
+            <%= reply.created_at.strftime("on %a, %d %b %Y at %H:%M:%S ") %>
+            <%= reply.content %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
