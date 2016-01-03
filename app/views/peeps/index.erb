@@ -1,5 +1,5 @@
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse_each do |peep| %>
     <li>
       <%= peep.message %>
       Peeped By: <%= peep.user.name %> @<%= peep.user.username %>
