@@ -6,15 +6,15 @@
 
   <body>
 
-    <% if current_user %>
+    <!-- <% if current_user %>
       Welcome, <%= current_user.email %>
         <form method='post' action='/sessions'>
           <input type='hidden' name='_method' value='delete'>
           <input type='submit' value='Sign out'>
         </form>
-    <% end %>
+    <% end %> -->
 
-    <% if flash[:notice] %>
+    <!-- <% if flash[:notice] %>
       <div id='notice'>
         <%= flash[:notice] %>
       </div>
@@ -27,9 +27,10 @@
           <li><%= error %></li>
         <% end %>
       </ul>
-    <% end %>
-
+    <% end %> -->
+    <%= partial :welcome %>
+    <%= partial :flash %>
     <%= yield %>
-    
+
   </body>
 </html>
