@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <form action='/users' method='POST'>
-    <label for='name'>Name:</label>
-      <input type='text' name='name' id='name' value='<%= flash[:name] %>' required>
-
-    <label for='username'>Username:</label>
+    Name:
+    <label for='name'>
+      <input type='text' name='name' id='name' required>
+    </label>
+    Username:
+    <label for='username'>
       <input type='text' name='username' id='username' required>
-
-    <label for='email'>Email:</label>
+    </label>
+    Email:
+    <label for='email'>
       <input type='text' name='email' id='email' value='<%= flash[:email] %>' required>
-
-    <label for='password'>Password:</label>
+    </label>
+    Password:
+    <label for='password'>
       <input type='password' name='password' id='password' required>
-
-    <label for='password_confirmation'>Confirm Password:</label>
+    </label>
+    Confirm Password:
+    <label for='password_confirmation'>
       <input type='password' name='password_confirmation' id='password_confirmation' required>
-
-    <input type='submit' value='Sign Up'>
+    </label>
+    <button type='submit'> Sign Up </button>
   </form>
 </html>

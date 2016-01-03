@@ -4,5 +4,7 @@ require 'bcrypt'
 
 require_relative 'models/user'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+env = ENV['RACK_ENV'] || 'development'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 DataMapper.finalize
