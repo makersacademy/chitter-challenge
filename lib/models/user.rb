@@ -1,6 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
+require_relative 'peep'
+
 
 class User
   attr_reader :password
@@ -12,6 +14,8 @@ class User
   property :name, String
   property :email, String
   property :password_digest, Text
+
+  has n, :peep
 
 
   validates_confirmation_of :password
