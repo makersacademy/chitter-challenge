@@ -15,12 +15,29 @@ class User
 
 
   validates_confirmation_of :password
+  validates_presence_of :email, :name, :username
+  validates_length_of :username, :within => 5..15
+  VALID_EMAIL_REGEX = /\A[\w+.\-]+@[a-z\-+.]+\.[a-z]+\z/i
+  validates_format_of :email, with: VALID_EMAIL_REGEX
+
+  property :email, String, required: true, unique: true
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
+
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
 
 end
 

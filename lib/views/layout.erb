@@ -6,8 +6,13 @@
   </head>
   <body>
         <%= yield %>
-        <% if flash[:notice] %>
-        <div id='notice'><%= flash[:notice] %></div>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Sorry some of your imputs were invalid please adress the following:
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
         <% end %>
   </body>
 </html>

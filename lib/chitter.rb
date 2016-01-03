@@ -18,8 +18,23 @@ set :public_folder, File.dirname(__FILE__)
   end
 
   get '/' do
-    'Hello Chitter!'
+
   end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    @user = User.authenticate(params[:username], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'sessions/new'
+    end
+ end
 
   get '/signup' do
     @user = User.new
@@ -34,9 +49,13 @@ set :public_folder, File.dirname(__FILE__)
       session[:user_id] = @user.id
       redirect '/'
     else
-      flash.now[:notice] = "Password and confirmation password don't match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :signup
     end
+  end
+
+  get '/peeps' do
+    erb :peeps
   end
 
 
