@@ -1,0 +1,49 @@
+<div id='main'>
+  <%= erb(:_login) %>
+  <h1>Latest Peeps... </h1>
+
+  <% if @username %>
+  Welcome back <%= @username %><br><br>
+  <form method='post' action='/logout'>
+    <input type='hidden' name='_method' value='delete'>
+    <input id='btn' type='submit' value='Sign out'>
+  </form><br>
+
+  <form method='post' action='/peeps'>
+    <input id='peep_box' type='text' name='message'>
+    <input id='btn' type='submit' value='Peep!'>
+  </form>
+  <% else %>
+  You're not logged in
+  <% end %>
+  <br><br>
+
+  <div id='peeps'>
+    <% @peeps.each do |message| %>
+      <% unless message.source_id %>
+      <span class='small_font bold_font'><%= message.user.name %>, <%= message.user.username %></span>
+      <span class='blue small_font'>
+        <%= message.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+        <%= message.content %><br><br>
+
+        <% if @username %>
+        <form id='reply_form' method='post' action='/replies'>
+          <input type='hidden' name='source' value='<%= message.id %>'>
+          <input type='text' name='reply'>
+          <input type='submit' value='Reply!'>
+        </form><br>
+        <% end %>
+
+          <div id='reply'>
+            <% message.replies.each do |reply| %>
+              <span class='small_font bold_font'><%= reply.user.name %>, <%= reply.user.username %></span>
+              <span class='dark_green small_font'>
+                <%= reply.created_at.strftime("%H:%M, %d-%b-%Y") %></span><br>
+                <%= reply.content %><br><br>
+              <% end %>
+          </div>
+          <hr>
+      <% end %>
+    <% end %>
+  </div>
+</div>

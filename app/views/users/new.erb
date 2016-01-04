@@ -1,0 +1,38 @@
+<div id='main'>
+  <%= erb(:_login) %>
+  <h2>Enter your details below to sign up:</h2>
+  <form id='new_user' action='/users/new' method='post'>
+    <table>
+      <tr>
+        <td><label for='name'>Name:</label></td>
+        <td><input name='name' type='text' required></td>
+      </tr>
+        <td><label for='username'>Username:</label></td>
+        <td><input name='username' type='text' required></td>
+      <tr>
+        <td><label for='email'>Email address:</label></td>
+        <td><input name='email' type='email' required></td>
+      </tr>
+      <tr>
+        <td><label for='password'>Password:</label></td>
+        <td><input name='password' type='password' required></td>
+      </tr>
+      <tr>
+        <td><label for='password_confirmation'>Confirm password:</label></td>
+        <td><input name='password_confirmation' type='password' required></td>
+      </tr>
+      <tr>
+        <td><input id='btn' type='submit' value='Create account'></td>
+      </tr>
+    </table>
+  </form>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Oops! Something went wrong:
+    <% flash[:errors].each do |error| %>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+      <% end %>
+  <% end %>
+</div>
