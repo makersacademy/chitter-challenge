@@ -6,7 +6,27 @@ This is a solution to a challenge given by Makers Academy on week 4, part of Lea
 The aim of the challenge We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 
-Functionalities requested:
+Technologies used
+-----------------
+
+  * Database
+    * DataMapper to interact between Ruby and PostgreSQL
+    * Rake
+
+  * Framework
+    * Sinatra
+
+  * Testing
+    * Rspec
+    * Capybara
+
+  * External gems
+    * bcrypt
+    * timecop
+    * database_cleaner
+
+
+Functionalities requested
 -------------------------
 
 -  Drive the creation of your app using tests - either cucumber or rspec as you prefer.
@@ -26,7 +46,7 @@ Functionalities requested:
 -  You only can peep if you are logged in.
 
 
-Setting up testing and development environments:
+Setting up testing and development environments
 ------------------------------------------------
 
 In order to play around with this app you need to clone the repo shown below and execute the following commands to be complete functional.

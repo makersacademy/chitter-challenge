@@ -14,13 +14,13 @@ require 'rspec'
 require 'simplecov'
 require 'timecop'
 
-require './app/models/peep'
+
 require_relative 'helpers/session'
 
 SimpleCov.formatters = [ SimpleCov::Formatter::HTMLFormatter,
                          Coveralls::SimpleCov::Formatter ]
-# Coveralls.wear!
-SimpleCov.start
+Coveralls.wear!
+
 
 Capybara.app = ChitterChallenge
 
@@ -38,11 +38,11 @@ RSpec.configure do |config|
 
   # DatabaseCleaner gem setup
   config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do |example|
-    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
   end
 

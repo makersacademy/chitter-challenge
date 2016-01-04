@@ -1,4 +1,5 @@
 module SessionHelpers
+
   def sign_up(name: 'Name-Surname', username: 'nickname',
               email: 'test@email.com',
               password: 'secret_password',

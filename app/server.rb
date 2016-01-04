@@ -1,4 +1,7 @@
-class Chitter < Sinatra::Base
+class ChitterChallenge < Sinatra::Base
+
+  # set :views, proc { File.join(root, "../views") }
+
   register Sinatra::Flash
   register Sinatra::Partial
 
@@ -9,7 +12,7 @@ class Chitter < Sinatra::Base
 
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
-  
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
