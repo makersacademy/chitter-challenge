@@ -43,7 +43,7 @@ You will first need to create a database called 'chitter_development'
 
 Next, from the command line:
 
-$ git clone git@github.com:giamir/chitter-challenge.git
+$ git clone git@github.com:jelgar/chitter-challenge.git
 $ mkdir chitter-challenge
 $ cd chitter-challenge
 $ bundle
