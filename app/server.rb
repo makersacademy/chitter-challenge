@@ -2,6 +2,7 @@ class Chitter < Sinatra::Base
   set :root, File.dirname(__FILE__)
   enable :sessions
   register Sinatra::Flash
+  register Sinatra::MultiRoute
   use Rack::MethodOverride
 
   helpers do

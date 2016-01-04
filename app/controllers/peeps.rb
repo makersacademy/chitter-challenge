@@ -1,14 +1,14 @@
 class Chitter < Sinatra::Base
-
-  get '/' do
+register Sinatra::MultiRoute
+  get '/', '/peeps' do
     @messages = Message.all
     erb :'peeps'
   end
 
-  get '/peeps' do
-    @messages = Message.all
-    erb :'peeps'
-  end
+  # get '/peeps' do
+  #   @messages = Message.all
+  #   erb :'peeps'
+  # end
 
   post '/peeps' do
     if session[:user_id]

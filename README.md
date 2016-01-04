@@ -10,6 +10,8 @@ Email: emma.beynon@gmail.com
 
 This is my submission for the Makers Academy Week 4 Weekend Challenge: https://github.com/makersacademy/chitter-challenge
 
+https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master
+
 Overview
 ---------
 We have been asked to create a Twitter clone (Chitter) that will allow users to post messages to a public stream.  Users sign up to chitter with their email, password, name and a user name, and the username and email must be unique.  Users don't have to be logged in to see the peeps, however you only can peep if you are logged in.
@@ -66,3 +68,5 @@ Finally, in order to make navigation a bit easier in this programme, I created a
 
 Further Work
 -------------
+* Forgotten password functionality
+* Partials
