@@ -32,7 +32,7 @@ Enjoy!
 
 ##Usage Instructions
 
-You can either interact with this on your own machine or on the great big internets
+You can either interact with this on your own machine or on the web at [chitter.michaellennox.me](http://chitter.michaellennox.me/).
 
 When you first arrive at Chitter it should look like as follows
 
