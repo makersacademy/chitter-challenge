@@ -5,6 +5,7 @@
   <li>
     <%= peep.user.username %>'s
     Peep: <%= peep.content %>
+    Peep O'clock: <%= "#{peep.created_at.strftime("%d.%m.%Y at %H:%M")}" %>
   </li>
   <% end %>
 </ul>

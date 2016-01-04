@@ -14,7 +14,7 @@ feature 'viewing peeps' do
     end
   end
 
-  xscenario 'to see the time a peep was posted' do
+  scenario 'to see the time a peep was posted' do
     sign_up
     sign_in(email: 'joe_bloggs@gmail.com', password:'12345')
     visit('/peeps/index')
@@ -24,7 +24,7 @@ feature 'viewing peeps' do
 
     Timecop.freeze do
       click_button('Post Peep')
-      expect(page).to have_content("#{Time.now.strftime("%d%m%Y at %H:%M")}")
+      expect(page).to have_content("#{Time.now.strftime("%d.%m.%Y at %H:%M")}")
     end
   end
 
