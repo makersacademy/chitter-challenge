@@ -1,0 +1,23 @@
+<h1>Please log in</h1>
+
+<form action="/sessions" method="post">
+  <label for="email">
+    Email<br>
+    <input name="email" type="email" required autofocus>
+  </label><br><br>
+  <label for="password">
+    Password<br>
+    <input name="password" type="password" required>
+  </label><br><br>
+  <input type="submit" value="Log in">
+</form>
+<br><br>
+<% if flash[:login_error] %>
+    <%= flash[:login_error] %>
+<% end %>
+
+<br><br>
+<h2>Not a member yet?</h2>
+<form action="/users/new">
+  <input type="submit" value="Create an account">
+</form>
