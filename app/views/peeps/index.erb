@@ -1,0 +1,7 @@
+<% @peeps.reverse_each do |peep| %>
+<article class='col-md-6 col-md-offset-3 well'>
+  <p><%= peep.message %></p>
+  <small class='text-right'>Peeped By: <%= peep.user.name %> @<%= peep.user.username %></small>
+  <small class='text-right'>on <%= peep.time.strftime("%a at %H:%M") %></small>
+</article>
+<% end %>

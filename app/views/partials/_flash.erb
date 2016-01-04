@@ -1,0 +1,14 @@
+<% if flash[:notice] %>
+<section class='col-md-4 col-md-offset-4 well'>
+  <%= flash[:notice] %>
+</section>
+<% end %>
+<% if flash[:errors] %>
+<section class='col-md-4 col-md-offset-4 well'>
+  <ul id='errors'>
+    <% flash[:errors].each do |error|%>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
