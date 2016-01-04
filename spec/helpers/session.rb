@@ -25,4 +25,16 @@ module SessionHelpers
     fill_in :message, with: peep
     click_button 'Send Peep!'
   end
+
+  def create_peep(peep: 'This is a peep', user: nil, time: Time.new)
+    Peep.create!(message: peep, user: user, time: time)
+  end
+
+  def create_user
+    User.create(name:                   'Mr Tom',
+                username:               'Tom',
+                email:                  'Tom@example.com',
+                password:               'password',
+                password_confirmation:  'password')
+  end
 end

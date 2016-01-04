@@ -5,10 +5,10 @@
   </head>
   <body>
     <ul id='peeps'>
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse_each do |peep| %>
         <li>
           <%= peep.message %>
-          From: <%= peep.user.name %> - @<%= peep.user.username %>
+          From: <%= peep.user.name %>, @<%= peep.user.username %> at <%= peep.time %>
         </li>
       <% end %>
     </ul>

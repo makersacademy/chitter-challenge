@@ -11,4 +11,8 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   helpers Helpers
+
+  get '/' do
+    redirect to('/peeps')
+  end
 end

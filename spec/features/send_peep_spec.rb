@@ -9,6 +9,6 @@ feature 'Send Peep' do
     send_peep
     expect(current_path).to eq '/peeps'
     expect(page).to have_content('This is my first peep!')
-    expect(page).to have_content('From: Mr Example - @3xampl3')
+    expect(page).to have_content('From: Mr Example, @3xampl3')
   end
 end
