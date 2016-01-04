@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
       flash.next[:welcome] = "Welcome back, #{@user.name}"
       redirect '/posts'
     else
-      #error message
+      flash.next[:errors] = "Email or Password is incorrect"
       redirect '/'
     end
   end
@@ -49,21 +49,23 @@ class Chitter < Sinatra::Base
     @user = User.new(username: params[:username],
                      name: params[:name],
                      email: params[:email],
-                     password: params[:password])
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       flash.next[:welcome] = "Welcome to Chitter, #{@user.name}"
       redirect '/posts'
     else
-      #flash.now password error
-      #flash.now email error
+      flash.now[:password_error] = @user.errors[:password].first
+      flash.now[:email_error] = @user.errors[:email].first
       erb(:'links/register')
     end
   end
 
   post '/log_out' do
+      @name = current_user.name
       session.clear
-      #flash goodbye message
+      flash.next[:goodbye] = "See you soon, #{@name}!"
       redirect '/'
     end
 

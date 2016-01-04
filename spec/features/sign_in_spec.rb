@@ -12,4 +12,9 @@ feature 'User Sign In' do
     sign_in_user
     expect(page).to have_content('New Post')
   end
+  scenario 'Error message when incorrect sign in details' do
+    visit '/'
+    sign_in_user
+    expect(page).to have_content('Email or Password is incorrect')
+  end
 end

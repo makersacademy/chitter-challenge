@@ -1,0 +1,17 @@
+body{
+  background-color: blue;
+}
+
+#left{
+  width: 65%;
+  float: left;
+  margin: 0 0 10px 10px;
+  align: left;
+}
+
+#right{
+  margin-left: 65%;
+  float: right;
+  margin: 0 0 10px 10px;
+  align: right;
+}

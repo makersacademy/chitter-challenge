@@ -1,3 +1,4 @@
+require 'dm-validations'
 class User
   include DataMapper::Resource
 
@@ -6,8 +7,15 @@ class User
   property :id,       Serial
   property :username, String
   property :name,     String
-  property :email,    Text, :format => :email_address
+  property :email,    Text, :required => true, :format => :email_address
   property :password, BCryptHash, length: 255
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password,
+    :message => "Password and confirmation password do not match"
+
+  validates_uniqueness_of :email,
+    :message => "Email address is already in use!"
 
   def self.authenticate(email, password)
       user = first(email: email)

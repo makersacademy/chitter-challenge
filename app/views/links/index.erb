@@ -2,6 +2,9 @@
 <html>
 </html>
 <body>
+  <% if flash[:goodbye] %>
+  <%= flash[:goodbye] %><br>
+  <% end %>
   <h1>Chitter!</h1>
   <h3>Everyone's favorite social portal :)</h3>
   <br>
@@ -16,6 +19,9 @@
     <input type='password' name='password' placeholder='Pasword'>
     <input type='submit' value='Sign In'>
   </form>
+  <% if flash[:errors] %>
+    <%= flash[:errors] %>
+  <% end %>
   <form action='/posts'>
     <input type='submit' value='Continue without sign in'>
   </form>
