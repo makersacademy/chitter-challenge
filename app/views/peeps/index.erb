@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter - List of Peeps</title>
+  </head>
+  <body>
+    <form action='/sessions/new' method='GET'>
+      <input type='submit' value='Log In'>
+    </form>
+    <form action='/users/new' method='GET'>
+      <input type='submit' value='New User?'>
+    </form>
+    <ul id='peeps'>
+      <% @peeps.reverse_each do |peep| %>
+        <li>
+          <%= peep.message %>
+          From: <%= peep.user.name %>, @<%= peep.user.username %> at <%= peep.time %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
