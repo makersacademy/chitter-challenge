@@ -1,0 +1,15 @@
+<h1>Here are your peeps!</h1>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%= peep.user.username %>'s
+    Peep: <%= peep.content %>
+    Peep O'clock: <%= "#{peep.created_at.strftime("%d.%m.%Y at %H:%M")}" %>
+  </li>
+  <% end %>
+</ul>
+
+<form action="/peeps/new">
+  <input type="submit" value="New Peep">
+</form>
