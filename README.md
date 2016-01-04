@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/michaellennox/rps-challenge.svg)](https://travis-ci.org/michaellennox/rps-challenge)
+[![Build Status](https://travis-ci.org/michaellennox/chitter-challenge.svg)](https://travis-ci.org/michaellennox/chitter-challenge)
 
 #Chitter Challenge
 
