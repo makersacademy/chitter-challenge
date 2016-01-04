@@ -24,7 +24,7 @@ h2 {
   position: fixed;
   margin: auto;
   width: 100vw;
-  height: 25vh;
+  height: 20vh;
   z-index: 1;
   padding: 15px;
   background-color: #f7f7eb;
@@ -45,7 +45,7 @@ h2 {
   position: absolute;
   left: 25vw;
   width: 50vw;
-  top: 25vh;
+  top: 30vh;
   overflow:auto;
 }
 
@@ -84,7 +84,7 @@ input {
   position: absolute;
   left: 25vw;
   width: 50vw;
-  top: 25vh;
+  top: 30vh;
   overflow:auto;
 }
 
@@ -117,9 +117,10 @@ input {
 
 /*Flash messages*/
 
-#errors {
+.flash {
   list-style: none;
-  z-index: 1000;
+  z-index: 1000 ;
+  top: 50vh;
 }
 
 /*compose peep*/

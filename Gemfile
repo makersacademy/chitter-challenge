@@ -9,6 +9,7 @@ ruby '2.2.3'
   gem 'sinatra'
   gem 'mailgun-ruby'
   gem 'dotenv'
+  gem 'rake'
 
 group :test do
   gem 'rspec'

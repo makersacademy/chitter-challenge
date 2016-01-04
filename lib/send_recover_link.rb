@@ -16,7 +16,7 @@ class SendRecoverLink
       from: "postmaster@" << ENV['MG_DOMAIN_NAME'],
       to: user.email,
       subject: "Reset your password",
-      text: 'Click here to reset password: http://ultra-chitter.herokuapp.com/reset_password?token=#{user.password_token}'
+      text: "Click here to reset password: http://ultra-chitter.herokuapp.com/reset_password?token=#{user.password_token}"
       )
   end
 
