@@ -10,4 +10,5 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+  - bundle exec rake db:auto_migrate RACK_ENV=test
 
