@@ -43,11 +43,11 @@ class Chitter < Sinatra::Base
   end
 
   patch '/users' do
-    user = User.find_by_valid_token(params[:token])
-    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.find_by_valid_token(params[:token])
+    if @user.update(password: params[:password], password_confirmation: params[:password_confirmation])
       redirect "/sessions/new"
     else
-      flash.now[:errors] = user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/reset_password'
     end
   end

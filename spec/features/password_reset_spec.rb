@@ -59,7 +59,7 @@ feature 'password can be reset' do
    end
 
   scenario 'it lets you know if passwords don\'t match' do
-    recover_password
+     recover_password
      visit("/users/reset_password?token=#{user.password_token}")
      fill_in :password, with: "newpassword"
      fill_in :password_confirmation, with: "wrongpassword"
