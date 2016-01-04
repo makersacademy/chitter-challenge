@@ -12,8 +12,11 @@
     <% array << string + ' ' %>
     <% end %>
     <% array.reverse.each do |x| %>
-    <br>
     <%= x %>
+    <br>
+    <form action='/reply'>
+      <input value='reply' type='submit'>
+    </form>
     <br>
     <% end %>
   </ul>

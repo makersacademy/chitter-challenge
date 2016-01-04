@@ -12,6 +12,10 @@
   padding-top: 10px;
 }
 
+#notice {
+  padding-left: 30px;
+}
+
 #contain_2 {
   width: 30%;
   float: right;

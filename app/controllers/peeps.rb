@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps   = Peep.all
+    @replies = Reply.all
     erb :'peeps/peeps'
   end
 

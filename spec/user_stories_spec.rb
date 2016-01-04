@@ -69,4 +69,14 @@ feature 'Sign up' do
     click_button 'Post'
     expect(page).to have_content (Time.now.asctime)
   end
+
+   scenario 'users can reply to peeps' do
+     sign_up
+     click_button 'Make a peep'
+     fill_in :peep, with: 'I like to ride donkeys'
+     click_button 'Post'
+     click_button 'reply'
+     fill_in :reply, with: 'Me too!'
+     expect(page).to have_content 'Me too!'
+   end
 end

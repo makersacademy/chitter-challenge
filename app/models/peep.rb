@@ -7,5 +7,6 @@ class Peep
   property :peeper, String
 
   has 1, :user, {:through=>DataMapper::Resource}
+  has n, :replies, {:through=>DataMapper::Resource}
 
 end
