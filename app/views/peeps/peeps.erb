@@ -5,19 +5,13 @@
 <div id='background'>
 <div id='center'>
   <ul id='peeps'>
-    <% array = [] %>
-    <% @peeps.each do |peep| %>
-    <% string = '' %>
-    <% string += peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %>
-    <% array << string + ' ' %>
-    <% end %>
-    <% array.reverse.each do |x| %>
-    <%= x %>
-    <br>
+    <% @peeps.reverse.each do |peep| %>
+    <%= peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %><br>
+    <%= '  Replies: ' + peep.replies.map {|reply| "#{reply.replier}: #{reply.text}" }.join("<br>") %>
     <form action='/reply'>
+      <input type="hidden" name='peep_id' value='<%=peep.id%>'>
       <input value='reply' type='submit'>
     </form>
-    <br>
     <% end %>
   </ul>
 

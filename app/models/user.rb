@@ -9,8 +9,6 @@ class User
   property :username, String
   property :password_digest, Text
 
-  has n, :peeps, :through => Resource
-
   # Password encryption
   attr_reader :password
   attr_accessor :password_confirmation

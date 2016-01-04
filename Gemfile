@@ -9,6 +9,7 @@ ruby '2.2.3'
   gem 'rake'
   gem 'bcrypt'
   gem 'sinatra-partial'
+  gem 'byebug'
 
 
 group :test do
