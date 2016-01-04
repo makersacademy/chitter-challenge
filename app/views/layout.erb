@@ -1,0 +1,20 @@
+
+
+<div id='background'>
+  <h1 id='chitter'>Chitter</h1>
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+  <% if current_user %>
+  <div id='welcome_logout'>
+    <div id='welcome'>
+      Welcome <%= current_user.name %>
+    </div>
+    <form method='post' action='/logout' id='logout'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+  </div>
+  <% end %>
+  <%= yield %>
+</div>

@@ -1,0 +1,57 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+
+  <div id="big_contain">
+    <div id='contain_1'>
+      <h2>Register!</h2>
+      <form action='/sign_up' method='post' id='sign_up'>
+        <label for='name'>
+          Name: <br><input name='name' type='text'>
+        </label>
+
+        <br>
+        <label for='email'>
+          Email: <br><input name='email' type='text' value='<%= @user.email %>'>
+        </label>
+
+        <br>
+        <label for='username'>
+          Username: <br><input name='username' type='text'>
+        </label>
+
+        <br>
+        <label for='password'>
+          Password: <br><input name='password' type='password'>
+        </label>
+
+        <br>
+        <label for='password_confirmation'>
+          Confirm password: <br><input name='password_confirmation' type='password'>
+        </label>
+        <br>
+        <input type='submit' value='Submit' id="sign_in_button">
+      </form>
+    </div>
+
+    <div id='contain_2'>
+      <h2>Recent peeps...</h2>
+      <ul id='peeps'>
+        <% array = [] %>
+        <% @peeps.each do |peep| %>
+        <% string = '' %>
+        <% string += peep.peeper + ' peeped ' + peep.content + ' on ' + peep.time %>
+        <% array << string + ' ' %>
+        <% end %>
+        <% array.reverse.each do |x| %>
+        <%= x %>
+        <br>
+        <br>
+        <% end %>
+      </ul>
+      <form action='/sign_in' id='member'>
+        <input type='submit' value='Already have an account?' id='exception'>
+      </form>
+    </div>
+  </div>
