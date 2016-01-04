@@ -1,13 +1,11 @@
 <h1> Messages </h1>
-
-<ul id='messages'>
+<ul class='messages'>
   <% @messages.reverse.each do |message| %>
-    <li>
-      Posted at: <%= message.posted_at %>
-      Peep: <%= message.peep %>
-      Name:   <%= message.name   %>
-      Username: <%= message.username  %>
-    </li>
+    <li>Posted at: <%= message.posted_at %>
+    <br>Peep: <%= message.peep %>
+    <br>Name:   <%= message.name   %>
+    <br>Username: <%= message.username  %></li>
+    <br>
   <% end %>
 </ul>
 <% if !current_user %>
