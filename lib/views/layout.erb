@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+  <body>
+        <%= yield %>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Sorry some of your imputs were invalid please adress the following:
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+          <% end %>
+          <% if flash[:notice] %>
+          <div id='notice'>
+            <%= flash[:notice] %>
+          </div>
+         <% end %>
+  </body>
+</html>

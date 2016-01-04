@@ -1,0 +1,29 @@
+<% if current_user %>
+  <h2>Hello, <%= current_user.username %>!</h2>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+  <br>
+  <h1>SHITTER</h1>
+
+    <form action='/peeps' method='POST'>
+      <label for='peep'>
+        Post a peep:
+        <input type='textarea' name='peep' />
+      </label>
+      <input type='submit' value='post'>
+
+    </form>
+
+<% end %>
+
+<h1>What you peeping?</h1>
+<ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <p><%= peep.peep %></p>
+        <p class="info"><i>Posted by <%= %> at <%= peep.time %></i></p>
+      </div>
+    <% end %>
+</ul>

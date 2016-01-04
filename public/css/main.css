@@ -1,0 +1,25 @@
+body {
+  background-color: #dddfd4;
+  font-family: helvetica, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #173e43;
+}
+
+.info {
+  color: grey;
+  font-size: 12px
+}
+
+.peep {
+  background-color: white;
+  border-radius: 15px;
+}
+
+/*
+#c9c9c9
+#e3e3e3
+#9ad3de
+#89bdd3*/
