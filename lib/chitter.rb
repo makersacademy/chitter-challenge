@@ -50,8 +50,8 @@ set :public_folder, File.dirname(__FILE__)
 
   post '/signup' do
     @user = User.new(name: params[:name], username: params[:username],
-                    email:params[:email], password: params[:password],
-                    password_confirmation: params[:password_confirmation])
+                     email:params[:email], password: params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/'
@@ -62,11 +62,12 @@ set :public_folder, File.dirname(__FILE__)
   end
 
   get '/peeps' do
+    @peeps = Peep.all.reverse
     erb :peeps
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    Peep.create(peep: params[:peep], user_id: session[:user_id], time: Time.now)
     redirect '/peeps'
   end
 
