@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <h2> Sign up </h2>
+
+  <form action='/users' method='POST'>
+    <label for='email'>
+      Email:
+      <input type='email' name='email' value='<%= @user.email %>' required>
+    </label>
+    <label for='password'>
+      Password:
+      <input type='password' name='password'>
+    </label>
+    <label for='password_confirmation'>
+      Retype Password:
+      <input type='password' name='password_confirmation'>
+    </label>
+    <label for='name'>
+      Name:
+      <input type='text' name='name' value='<%= @user.name %>'>
+    </label>
+    <label for='username'>
+      Username:
+      <input type='text' name='username' value='<%= @user.username %>' required>
+    </label>
+    <input type='submit' value='Submit'>
+  </form>
+
+  <p>
+    Already a Chitterer? <a href ='/sessions/new'>Sign in here</a>
+  </p>

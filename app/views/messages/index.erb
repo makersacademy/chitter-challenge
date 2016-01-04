@@ -1,0 +1,13 @@
+<h1> Messages </h1>
+<ul class='messages'>
+  <% @messages.reverse.each do |message| %>
+    <li>Posted at: <%= message.posted_at %>
+    <br>Peep: <%= message.peep %>
+    <br>Name:   <%= message.name   %>
+    <br>Username: <%= message.username  %></li>
+    <br>
+  <% end %>
+</ul>
+<% if !current_user %>
+  <p>Not already a Chitterer? <a href='users/new'>Sign up here</a>
+<% end %>

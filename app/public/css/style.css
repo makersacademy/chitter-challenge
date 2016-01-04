@@ -1,0 +1,25 @@
+body {
+  background-image: url('/images/paisley.png');
+  font-family: 'Helvetica', sans-serif;
+  color: grey;
+  text-align: center;
+}
+
+ul.messages li {
+    width:200px;
+    margin:0 auto;
+    text-align:left;
+    list-style-type: none;
+    background: #3399ff;
+    padding: 10px;
+    opacity: 0.8;
+    color: black;
+    border-radius: 25px;
+}
+
+ul.errors li {
+    width:400px;
+    margin:0 auto;
+    text-align:left;
+    list-style-type: square;
+}
