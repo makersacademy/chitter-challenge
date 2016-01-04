@@ -2,6 +2,8 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :content, String, length: 140, required: true
+  property :content, String
+  # property :created_at, Time
 
+  belongs_to :user
 end

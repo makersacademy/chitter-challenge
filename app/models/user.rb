@@ -15,6 +15,8 @@ class User
 
   validates_confirmation_of :password
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
