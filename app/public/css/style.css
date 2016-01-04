@@ -1,4 +1,4 @@
-/*html, body {
+html, body {
   text-align: center;
   font-family: Helvetica;
   margin:0;
@@ -135,4 +135,4 @@ input {
 #main_message {
   height: 200px;
   width: 400px;
-}*/
+}
