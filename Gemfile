@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :development do
+group :development, :production do
   gem 'bcrypt'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
@@ -15,4 +15,5 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
