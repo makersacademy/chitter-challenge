@@ -40,9 +40,8 @@ feature 'Viewing Profiles' do
   
   scenario 'displays author and time of posting peeps' do
     visit '/users/joeb'
-    expect(page).to have_selector("ul#peeps li:nth-child(1)",
-      text: (user.username + ' '
-             + Time.now.strftime("on %a, %d %b %Y at %H:%M:%S ")))
+    expect(page).to have_selector("ul#peeps li:nth-child(1)", text:
+      "#{user.username} #{Time.now.strftime('on %a, %d %b %Y at %H:%M:%S ')}")
   end
 end
 

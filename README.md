@@ -1,9 +1,11 @@
 Chitter Challenge
 =================
 
-Features:
+A Twitter Clone using Ruby's [Sinatra](http://www.sinatrarb.com/), `erb`, DataMapper, Postgres and BCrypt; tested with [Rspec](http://rspec.info/), [Capybara](https://github.com/jnicklas/capybara) and Timecop.  
+
+User Stories / Features:
 -------
-```sh
+```
 As a user
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -36,22 +38,6 @@ As a user
 So that I can know more about other users
 I want to view their name and all of their peeps on a profile page
 ```
-
-Notes on functionality:
-------
-
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-
-Bonus:
-------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a user I want to reply to a peep from another user.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
 
 Installation:
 ------
