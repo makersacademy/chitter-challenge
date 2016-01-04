@@ -20,7 +20,7 @@ Installation Instructions:
 ```sh
 $ git clone https://github.com/trbradley/chitter_challenge
 $ bundle
-$ create a database chitter_development
+$ create database chitter_development
 $ rake db:auto_migrate
 $ rackup
 ```
