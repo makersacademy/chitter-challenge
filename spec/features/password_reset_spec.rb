@@ -36,12 +36,12 @@ feature 'password can be reset' do
     recover_password
     visit("/users/reset_password?token=#{user.password_token}")
     expect(page).to have_content "Please enter your new password"
-    end
+  end
 
   scenario 'with a valid token, user may reset password' do
     recover_password
     visit("/users/reset_password?token=#{user.password_token}")
-    fill_in  :password, with: "newpassword"
+    fill_in :password, with: "newpassword"
     fill_in :password_confirmation, with: "newpassword"
     click_button "Submit"
     expect(page).to have_content "Sign in to Chitter"
@@ -56,7 +56,7 @@ feature 'password can be reset' do
      click_button "Submit"
      sign_in(email: "edwardkerry@gmail.com", password: "newpassword")
      expect(page).to have_content "Edward's Chitter!"
-   end
+  end
 
   scenario 'it lets you know if passwords don\'t match' do
      recover_password
@@ -67,7 +67,7 @@ feature 'password can be reset' do
      expect(page).to have_content("Password does not match the confirmation")
    end
 
-   scenario 'it calls the SendRecoveryLink service to send the link' do
+  scenario 'it calls the SendRecoveryLink service to send the link' do
     expect(SendRecoverLink).to receive(:call).with(user)
     recover_password
   end

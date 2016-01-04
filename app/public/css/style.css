@@ -33,20 +33,7 @@ h2 {
 
 #header form {
   display: inline-block;
-}
-
-/*Sign In/Up*/
-
-#sign_in {
-  background-color: #f2f2dc ;
-  padding-top: 40px;
-  border-radius: 10px;
-  padding-left: 0;
-  position: absolute;
-  left: 25vw;
-  width: 50vw;
-  top: 30vh;
-  overflow:auto;
+  margin-top: -25vh;
 }
 
 label {
@@ -76,7 +63,7 @@ input {
 
 
 /*Peeps*/
-#peeps, #recover {
+#peeps, #recover, #sign_in {
   background-color: #f2f2dc ;
   border-radius: 10px;
   padding-left: 0;
@@ -109,7 +96,6 @@ input {
   color: black;
 }
 
-
 #message {
   font-size: 25px;
   color: red;
@@ -117,10 +103,22 @@ input {
 
 /*Flash messages*/
 
-.flash {
+#flash {
+  position: relative;
+  text-align: left;
+  background-color: #f2f2dc;
+  color: red;
+  border-radius: 10px;
+  padding-left: 0;
+  z-index: 1000;
+  top: 55vh;
+  left: 30vw;
+  width: 15vw;
+}
+
+#flash ul {
   list-style: none;
-  z-index: 1000 ;
-  top: 50vh;
+  padding-left: 0;
 }
 
 /*compose peep*/

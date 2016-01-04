@@ -1,8 +1,6 @@
 describe SendRecoverLink do
 
-  let(:user) { double :user,
-                email: 'edwardkerry@gmail.com',
-                password_token: '12345678' }
+  let(:user) { double :user, email: 'edwardkerry@gmail.com', password_token: '12345678' }
   let(:mail_gun_client) { double :mail_gun_client }
   let(:sandbox_domain_name) { ENV['MG_DOMAIN_NAME'] }
 

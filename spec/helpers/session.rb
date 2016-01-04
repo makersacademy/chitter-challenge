@@ -26,7 +26,7 @@ module SessionHelpers
 
   def peep
     click_button 'Compose a peep!'
-    fill_in 'peep', with: 'This is Ed\'s peep'
+    fill_in :peep, with: 'This is Ed\'s peep'
     click_button 'Peep!'
   end
 
