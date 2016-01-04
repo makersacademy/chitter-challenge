@@ -2,7 +2,7 @@
 <html>
   <head>
     <title> Chitter</title>
-    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
 <div id='right'>
@@ -11,17 +11,15 @@
 <% else %>
   <h3>Not Signed In</h3>
 <% end %>
+  <% if current_user %>
+  <form action='/log_out' method='post'>
+    <input type='submit' value='Log Out'>
+  </form>
+  <% end %>
 </div>
 
 
 <%= yield %>
-<div id='right'>
-<% if current_user %>
-  <form action='/log_out' method='post'>
-    <input type='submit' value='Log Out'>
-  </form>
-<% end %>
-</div>
 
 </body>
 </html>

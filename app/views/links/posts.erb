@@ -13,19 +13,20 @@
 <% else %>
 <h3>You must be signed in to post</h3>
 <% end %>
+<div id='right'>
+  <% unless current_user %>
+  <br><form action='/'>
+    <input type='submit' value='Sign In'>
+  </form>
+  <% end %>
+</div>
 
 <h2>Recent Posts</h2>
 
 <% @posts.reverse.each do |post| %>
   <li>
-     <%= post.username%> posted:<br>
+     <%= post.username%>:<br>
      <%= post.body %><br>
-     At: <%= post.time %><br><br>
+     Posted at: <%= post.time %><br><br>
   </li>
-<% end %>
-
-<% unless current_user %>
-<br><form action='/'>
-  <input type='submit' value='Sign In'>
-</form>
 <% end %>

@@ -9,6 +9,7 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'chamber of secrets'
   register Sinatra::Flash
 
   get '/' do
@@ -21,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_post' do
-    time = Time.new.strftime("%H:%M")
+    time = Time.new.strftime("%H:%M - %D")
     Post.create(body: params[:chit],
                 username: User.get(session[:user_id]).name,
                 time: "#{time}")

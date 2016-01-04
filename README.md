@@ -10,12 +10,14 @@ what time the post was created!
 To Run:
 -------
 
-1. Fork this repo into your local respository
+1. Fork this repo into your local repository
 2. Run 'bundle' in your terminal to acquire the necessary gems
-3. Use the 'rackup' command to load up the website
-4. Open your browser & visit 'localhost:9292'
-5. Follow the interactive prompts & have fun!
-(If no database is created use 'rake db:migrate' in terminal)
+3. Create a database using 'createdb chitter_development' in terminal
+4. Create database connections using 'rake db:migrate' in terminal
+5. Use the 'rackup' command to load up the website
+6. Open your browser & visit 'localhost:9292'
+7. Follow the interactive prompts & have fun!
+
 
 Testing
 ----
