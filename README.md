@@ -30,6 +30,18 @@ Go to http://localhost:9292/ in your browser, you can log in and start leaving m
 
 Enjoy!
 
+##Usage Instructions
+
+You can either interact with this on your own machine or on the great big internets
+
+When you first arrive at Chitter it should look like as follows
+
+![chitter-page](http://i.imgur.com/AAFmbZM.png)
+
+In the centre are peeps left by other people, you can sign in to your account if you have one on the right, or sign up if you don't.
+
+Once you're signed in, press Peep a Peep to get to the peep creation screen, write what you want and then post away!
+
 ##Brief
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
