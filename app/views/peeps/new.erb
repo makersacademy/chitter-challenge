@@ -1,9 +1,12 @@
+<p class="heading">Post a new Peep!</p>
 
 <%if current_user%>
   <form action='/peeps' method='post'>
     <label for='peep'>Peep:<br>
       <input type='text' autocomplete="off" name='message'><br>
     </label>
+    <br>
+    <br>
       <input type='submit' value='Post'>
   </form>
 <%else%>
