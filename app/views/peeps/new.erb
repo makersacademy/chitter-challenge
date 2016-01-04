@@ -1,0 +1,11 @@
+<% if current_user %>
+  <form action="/peeps" method="post">
+    <label for="peep"> Peep: <br>
+      <input type="text" name="message"> <br>
+    </label>
+
+    <input type="submit" value='Post'>
+  </form>
+<% else %>
+  <% flash.now[:errors] = ['You should be signed in before posting a peep'] %>
+<% end %>
