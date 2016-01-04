@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+</html>
+<body>
+  <% if flash[:goodbye] %>
+  <%= flash[:goodbye] %><br>
+  <% end %>
+  <h1>Chitter!</h1>
+  <h3>Everyone's favorite social portal :)</h3>
+  <br>
+  <% if current_user %>
+  <form action='/posts'>
+    <input type='submit' value='View Posts'>
+  </form>
+  <% else %>
+  Sign in:
+  <form action='/sign_in' method='post'>
+    <input type='email' name='email' placeholder='Email Address'>
+    <input type='password' name='password' placeholder='Pasword'>
+    <input type='submit' value='Sign In'>
+  </form>
+  <% if flash[:errors] %>
+    <%= flash[:errors] %>
+  <% end %>
+  <form action='/posts'>
+    <br><input type='submit' value='Continue without sign in'>
+  </form>
+  <form action='/register'>
+    <br><input type='submit' value='Sign up!'>
+  </form>
+  <% end %>
+</body>

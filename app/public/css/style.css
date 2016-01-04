@@ -1,0 +1,18 @@
+/*body {
+  background: blue;
+}*/
+
+#left{
+  width: 50%;
+  float: left;
+  margin: 0 0 10px 10px;
+  align: center;
+}
+
+#right{
+  margin-right: 5%;
+
+  float: right;
+  /*margin: 0 0 50px 50px;*/
+  align: auto;
+}

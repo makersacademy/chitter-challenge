@@ -1,0 +1,15 @@
+<h1>Register Now!</h1>
+<form action="/welcome" method="post">
+  <input type="text" name="username" value="<%= @user.username %>" placeholder="Username"><br>
+  <input type="text" name="name" value="<%= @user.name %>" placeholder="Name"><br>
+  <input type="email" name="email" value="<%= @user.email %>" placeholder="Email" required><br><br>
+  <input type="password" name="password" placeholder="Password"><br>
+  <input type="password" name="password_confirmation" placeholder="Password Confirmation"><br>
+  <br><input type="submit" value="Sign Up!">
+</form>
+<% if flash[:password_error] %>
+  <br><%= flash[:password_error] %>
+<% end %>
+<% if flash[:email_error] %>
+  <br><%= flash[:email_error] %>
+<% end %>

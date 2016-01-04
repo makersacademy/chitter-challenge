@@ -1,0 +1,32 @@
+<% if flash[:welcome] %>
+  <%= flash[:welcome] %>
+<% end %>
+
+<h1>Chitters of the day!</h1>
+
+<% if current_user %>
+<h2>New Post</h2>
+<form action='/new_post' method='post'>
+  <textarea name="chit" cols="35" rows="3" placeholder="What's up?"></textarea>
+  <input type='submit' value='Post!'>
+</form>
+<% else %>
+<h3>You must be signed in to post</h3>
+<% end %>
+<div id='right'>
+  <% unless current_user %>
+  <br><form action='/'>
+    <input type='submit' value='Sign In'>
+  </form>
+  <% end %>
+</div>
+
+<h2>Recent Posts</h2>
+
+<% @posts.reverse.each do |post| %>
+  <li>
+     <%= post.username%>:<br>
+     <%= post.body %><br>
+     Posted at: <%= post.time %><br><br>
+  </li>
+<% end %>

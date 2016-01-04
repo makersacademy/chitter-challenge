@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+<div id='right'>
+<% if current_user %>
+  <h3>Signed in as: <%= @current_user.username %> (<%= @current_user.name %>)</h3>
+<% else %>
+  <h3>Not Signed In</h3>
+<% end %>
+  <% if current_user %>
+  <form action='/log_out' method='post'>
+    <input type='submit' value='Log Out'>
+  </form>
+  <% end %>
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>
