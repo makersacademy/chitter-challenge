@@ -25,10 +25,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/recover' do
-    user = User.first(email: params[:email])
-    if user
-      user.generate_token
-      SendRecoverLink.call(user)
+    @user = User.first(email: params[:email])
+    if @user
+      @user.generate_token
+      SendRecoverLink.call(@user)
       erb :'users/acknowledgement'
     end
   end
