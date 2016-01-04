@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-A Twitter Clone using Ruby's [Sinatra](http://www.sinatrarb.com/), `erb`, DataMapper, Postgres and BCrypt; tested with [Rspec](http://rspec.info/), [Capybara](https://github.com/jnicklas/capybara) and Timecop.  
+A Twitter Clone using Ruby's [Sinatra](http://www.sinatrarb.com/), erb, DataMapper, Postgres and BCrypt; tested with [Rspec](http://rspec.info/), [Capybara](https://github.com/jnicklas/capybara) and Timecop.  
 
 User Stories / Features:
 -------
