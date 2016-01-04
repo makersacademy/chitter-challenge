@@ -17,7 +17,7 @@ class User
   attr_accessor :password_confirmation
   validates_confirmation_of :password,
   message: "Password does not match confirmation"
-  validates_format_of :email, :as => :email_address
+  validates_format_of :email, as: :email_address
 
 
   def password_new
@@ -31,10 +31,6 @@ class User
 
   def self.authenticate(username, password_given)
     user = first(username: username)
-    if user && password_given == user.password
-      user
-    else
-      nil
-    end
+    user && password_given == user.password ? user : nil
   end
 end

@@ -6,11 +6,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages/new' do
-    unless session[:user_id].nil?
-      erb :'messages/new'
-    else
+    if session[:user_id].nil?
       flash.keep[:notice] = 'Must log in'
       redirect '/messages'
+    else
+      erb :'messages/new'
     end
   end
 
