@@ -1,9 +1,9 @@
-<% if current_user %>
-  <h2>Welcome, <font class="emphasise-green"><%= current_user.username %></font>!</h2>
-<% end %>
-<p>
 <div class="wrapper">
   <div id="peep-form">
+    <% if current_user %>
+    <h2>Welcome, <font class="emphasise-green"><%= current_user.username %></font>!</h2>
+    <% end %>
+    <p>
     <form action='/peeps' method='post'>
       <font class="emphasise-green">Compose new peep:</font>
       <br>

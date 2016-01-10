@@ -5,56 +5,10 @@
     <link type="text/css" rel="stylesheet" href="/css/style.css"/>
   </head>
   <body>
-    <h1 id="header">Chitter</h1>
-    <a href="/" id="home-link">Home</a>
-    <div id="nav-right">
-      <% if current_user %>
-        <div id="log-out-button">
-          <form action='/sessions' method='post'>
-            <input name="_method" type="hidden" value="delete">
-            <input type="submit" value="Log out" class="button">
-          </form>
-        </div>
-      <% else %>
-        <div id="log-in-button">
-          <form action="/sessions/new">
-            <input type="submit" value="Log in" class="button" id="log-in-button">
-          </form>
-        </div>
-        <div id="sign-up-button">
-          <form action="/user/new">
-            <input type="submit" value="Sign up" class="button">
-          </form>
-        </div>
-      <% end %>
-    </div>
-    <div class="wrapper">
-      <% if flash[:goodbye] %>
-        <h2 class="emphasise-black"><%= flash[:goodbye] %></h2>
-      <% end %>
-      <% if flash[:logged_out] %>
-        <%= flash[:logged_out] %>
-      <% end %>
-      <%= yield %>
-    <!-- </div> -->
+    <%= partial :nav %>
+    <%= partial :flash %>
+    <%= yield %>
     <p>
-      <% if flash[:errors] && !flash[:errors].empty? %>
-      <div class="errors">
-        Errors:
-          <ul>
-          <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-          </ul>
-      <% end %>
-      <% if flash[:password_error] %>
-        Error:
-        <br>
-        <ul>
-          <li><%= flash[:password_error] %></li>
-        </ul>
-      </div>
-      <% end %>
-    </div>
+    <%= partial :flash_errors %>
   </body>
 </html>
