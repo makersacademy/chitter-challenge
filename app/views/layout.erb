@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <%= partial :nav %>
+    <%= partial :flash %>
+    <%= yield %>
+    <p>
+    <%= partial :flash_errors %>
+  </body>
+</html>

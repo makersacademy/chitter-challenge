@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <% if flash[:goodbye] %>
+    <h2 class="emphasise-black"><%= flash[:goodbye] %></h2>
+  <% end %>
+  <% if flash[:logged_out] %>
+    <%= flash[:logged_out] %>
+  <% end %>
+<p>
+</div>

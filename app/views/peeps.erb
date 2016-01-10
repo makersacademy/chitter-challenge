@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div id="peep-form">
+    <% if current_user %>
+    <h2>Welcome, <font class="emphasise-green"><%= current_user.username %></font>!</h2>
+    <% end %>
+    <p>
+    <form action='/peeps' method='post'>
+      <font class="emphasise-green">Compose new peep:</font>
+      <br>
+      <input type='text' name='message'>
+      <p>
+      <input type='submit' value='Peep!' class="button">
+    </form>
+  </div>
+</div>
+<p>
+<div class="wrapper">
+  <div id="peep-list">
+    <font class="emphasise-green">Latest peeps...</font>
+    <p>
+    <% sorted_messages = @messages.all(:order => [ :time.desc ]) %>
+    <% sorted_messages.each do |message| %>
+      <b><%= message.user.name %></b> | @<%= message.user.username %> <br>
+      "<%= message.message %>" <br>
+      Posted: <%= message.time.strftime("%F %T") %> <br>
+      <a href="/reply?username=<%=message.user.username%>">Reply</a>
+      <p>
+    <% end %>
+  </div>
+</div>
