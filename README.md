@@ -12,7 +12,7 @@ Contributors
 Introduction
 -------
 
-Technoglogies
+Technologies
 -------
 
 Installation
