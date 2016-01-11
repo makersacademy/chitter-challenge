@@ -1,7 +1,9 @@
 Chitter Challenge
 =================
 ![alt tag](https://cloud.githubusercontent.com/assets/15385627/12234274/badb1db2-b863-11e5-8921-d6e21758f68d.png)
-
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/15385627/12234274/badb1db2-b863-11e5-8921-d6e21758f68d.png" />
+</p>
 a little Twitter clone that allows users to post messages to a public stream.
 
 Features:
