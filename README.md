@@ -6,6 +6,20 @@
 </p>
 a little Twitter clone that allows users to post messages to a public stream.
 
+Contributors:
+-------
+
+Introduction:
+-------
+
+Technoglogies:
+-------
+Installation:
+-------
+
+Testing:
+-------
+
 Features:
 -------
 
@@ -46,3 +60,5 @@ Notes on functionality:
 * Used data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
+Licence:
+-------
