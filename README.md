@@ -1,4 +1,4 @@
-
+[![forthebadge](http://forthebadge.com/images/badges/built-with-ruby.svg)](http://forthebadge.com)
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/15385627/12234274/badb1db2-b863-11e5-8921-d6e21758f68d.png" />
 </p>
