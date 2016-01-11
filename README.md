@@ -1,4 +1,4 @@
-![makersacademy](media/ma_logo.png)
+![makersacademy](https://github.com/allimac/resources/blob/master/ma_logo.png)
 
 **week 4 / weekend challenge**
 
