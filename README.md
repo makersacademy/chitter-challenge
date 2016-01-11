@@ -1,38 +1,52 @@
-Chitter Challenge
-=================
+![makersacademy](https://github.com/allimac/resources/blob/master/ma_logo.png)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+**week 4 / weekend challenge**
 
-Challenge:
--------
+# The challenge
 
-As usual please start by 
+This weekend challenge is to create a simplified clone of Twitter!
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_october2015 (if you haven't already)
-* Forking this repo
+## User stories
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+###REGISTER
 
-Features:
--------
-
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
-I want to sign up for Chitter
+I want to register for Chitter
 
+As a Maker
+So that I can understand why I can't register
+I need to be warned the two passwords don't match
+
+As a Maker
+So that I can understand why I can't register
+I need to be warned the email or username already exists
+
+```
+###LOG IN
+
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
 As a Maker
+So that I can understand why I can't log in
+I need to be warned the email or password are wrong
+
+```
+###LOG OUT
+
+```
+As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+```
+###PEEPING
+
+```
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -44,68 +58,78 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-```
 
-Notes on functionality:
-------
+As a maker
+So that I can start a conversation with other users
+I want to comment peeps
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+As a maker
+So that I can view the most recent content
+I want to see comments on a peep in reverse chronological order
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+As a maker
+So that I can more easily understand times
+I want to see the time peeps/comments where posted at in a friendly format (2 days ago, 1 minute ago, 1 hour ago etc.)
 
 ```
-$ coveralls report
+
+# Implementation
+
+My implementation was driven by acceptance unit test cycles. The final implementation has 3 classes with defined responsabilities.
+
+## Modules & gems
+
+Production and development environment:
+* sinatra-base
+* bcrypt
+* data_mapper
+* dm-postgres-adapter
+* sinatra-flash
+* dm-validations
+* sinatra-partial
+
+Test environment:
+* rake
+* capybara
+* rspec
+* cucumber
+* coveralls
+* database_cleaner
+
+## How to use it
+- First clone this project to your local machine.
 ```
+$ git clone
+```
+- Then navigate into the folder that contains it
+```
+$ cd chitter
+```
+- Now run bundler to make sure you have all the necessary dependencies
+```
+$ bundle install
+```
+- You need to have the correct database set up for running the app. Set up a POSTGRES database called chitter_development and one chitter_test. Then migrate the two databases.
+```
+$ rake db:migrate RACK_ENV=development
+$ rake db:migrate RACK_ENV=test
+```
+- When done, run the app through the config.ru file
+```
+$ rackup
+```
+Finally visit the app at /localhost:9292 (or any other port you might have configured). Enjoy! :) (simple things in life are the best)
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
+## Future improvements
+
+```
+As a maker
+So that I can log in again
+I want to reset the password I have forgot
+
+As a maker
+So that I can remove unwanted peeps
+I want to delete a peep I made
+
+```

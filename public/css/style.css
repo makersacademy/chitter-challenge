@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);
+@import url(https://fonts.googleapis.com/css?family=Francois+One);
+
+body { font-family: 'Didact Gothic', sans-serif; font-size: 16px;
+      padding: 0; margin: 0; color: #5A5A6F; background-color: white; }
+
+
+/* TYPOGRAPHY */
+h1 { font-size: 2em; text-align: center; }
+h2 { font-size: 1.8em; text-align: center; }
+h3 { font-size: 1.4em; text-align: center; font-weight: normal; }
+h4 { font-size: 1.2em; font-weight: normal; }
+
+/* LINKS */
+a, a:visited, a:hover { text-decoration: none; color: #0107e1; }
+
+/* HEADER */
+header { width: 100%; height: 50px; margin: 20px 0 20px 0; position: relative; border-bottom: 1px solid #5A5A6F; }
+header form { display: inline; float: right;}
+#logo { font-family: 'Francois One', sans-serif; font-size: 2.3em; margin: 0; float: left; margin-left: 20px; }
+
+/* FOOTER */
+footer { height: 200px; width: 100%; background-color: #5A5A6F; }
+
+/* PEEPS */
+section.peeps_stream { padding-top: 40px; max-width: 500px; margin: 0 auto; }
+section.peep_container { padding-bottom: 40px; }
+article.peep {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: white;
+  background-color: #5A5A6F;
+  border-radius: 44px 44px 44px 4px;
+  opacity: 0.6;
+}
+article.peep p.user_and_time { font-size: 0.8em; color: #ffffff; }
+
+/* COMMENTS */
+article.comment { background-color: #F6F6F6; text-align: center;
+  margin-bottom: 20px; padding: 10px; border-radius: 44px 44px 4px 44px;}
+article.comment p.user_and_time { font-size: 0.8em; color: #999999; }
+
+/* ALERTS/MESSAGES */
+.messages { border: 1px solid #D1D1D1; text-align: center; background-color: #f6f6f6; }
+.errors { text-align: left; padding-left: 10px; }
+.positive { background-color: green; border-color: }
+
+/* FORMS */
+div.form-page { background-color: #5A5A6F; padding: 60px; height: 100vh; }
+section.form-page { max-width: 400px; padding: 30px; margin: 0 auto; background-color: #ffffff; }
+section.form-page input { width: 100%; margin-bottom: 20px; }
+article.comment input[type=text] { width: 70%; margin-right: 3%; }
+
+input[type=text], input[type=email], input[type=password]   {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 1em;
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* BUTTONS */
+input[type=submit] {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 1em;
+  color: #fff;
+  padding:8px 16px;
+  background: #90ACFB;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 20px;
+}
+input[type=submit].login-btn { background-color: transparent; color: #90ACFB; }
+input[type=submit].main-cta { position: absolute; margin: 0 auto; }
+input[type=submit].secondary-cta { background: transparent; border:2px solid #90ACFB; color: #90ACFB; padding:6px 12px; }

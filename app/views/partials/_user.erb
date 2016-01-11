@@ -1,0 +1,18 @@
+<h1 id="logo"> Chitter </h1>
+<form class="main-cta" action='/peeps/add' method='get'>
+  <input type="submit" value="Peep!">
+</form>
+<% if @user %>
+  <p> Hello, <%= @user.name %> </p>
+  <form action='/logout' method='post'>
+    <input name="_method" type="hidden" value="delete" />
+    <input type="submit" value="Log out">
+  </form>
+<% else %>
+  <form action='/register' method='get'>
+    <input class="login-btn" type="submit" value="Register">
+  </form>
+  <form action='/login' method='get'>
+    <input class="login-btn" type="submit" value="Log in">
+  </form>
+<% end %>

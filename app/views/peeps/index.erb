@@ -1,0 +1,35 @@
+<header>
+  <%= partial :'partials/user' %>
+</header>
+<%= partial :'partials/messages' %>
+<section class="peeps_stream">
+  <% if @peeps %>
+    <% @peeps.each do |peep| %>
+    <section class="peep_container">
+      <article class="peep">
+        <h3> <%= peep.content %> </h3>
+        <p class="user_and_time"> by <%= User.first(:id => peep.user_id).username %> - <%= peep.how_long_ago %> </p>
+      </article>
+      <article class="comment">
+      <form action='/comment/add' method='post'>
+        <input type="hidden" name="peep_id" value="<%= peep.id %>">
+        <input type="text" name="comment_content" placeholder="Reply to this peep..." required>
+        <input class="secondary-cta" type="submit" value="Reply">
+      </form>
+    </article>
+          <% @comments = Comment.all(:peep_id => peep.id, :order => [ :created_at.desc ]) %>
+          <% if @comments.count > 0 %>
+            <p> <%= @comments.count %> replies </p>
+            <% @comments.each do |comment| %>
+            <article class="comment">
+              <p> <%= comment.content %> </p>
+              <p class="user_and_time">by <%= User.first(:id => comment.user_id).username %> - <%= peep.how_long_ago %></p>
+            </article>
+            <% end %>
+          <% end %>
+        </section>
+    <% end %>
+<% else %>
+  <p>No peeps yet :(</p>
+<% end %>
+</section>
