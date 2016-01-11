@@ -1,23 +1,27 @@
-Chitter Challenge
-=================
+![badge](https://img.shields.io/badge/build-passing-green.svg?style=flat-square)
+![badgeruby](https://img.shields.io/badge/ruby-v2.2.3-red.svg?style=flat-square)
+![badgeLicence](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/15385627/12234274/badb1db2-b863-11e5-8921-d6e21758f68d.png" />
+</p>
+a little Twitter clone that allows users to post messages to a public stream.
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Contributors
 -------
 
-As usual please start by 
+Introduction
+-------
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan_october2015 (if you haven't already)
-* Forking this repo
+Technologies
+-------
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Installation
+-------
 
-Features:
+Testing
+-------
+
+Features
 -------
 
 ```sh
@@ -46,66 +50,17 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+Notes on functionality
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+* This app has been created using Rspec for BDD, TDD purposes.
+* Makers sign up to chitter with their email, password, name and a user name (e.g.  joe_bloggs@makers.com, sdf3t, Joe Bloggs, big_joey).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
+* Used bcrypt to secure the passwords.
+* Used data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+Licence
+-------
