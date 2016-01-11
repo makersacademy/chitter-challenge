@@ -6,21 +6,22 @@
 </p>
 a little Twitter clone that allows users to post messages to a public stream.
 
-Contributors:
+Contributors
 -------
 
-Introduction:
+Introduction
 -------
 
-Technoglogies:
--------
-Installation:
+Technoglogies
 -------
 
-Testing:
+Installation
 -------
 
-Features:
+Testing
+-------
+
+Features
 -------
 
 ```sh
@@ -49,7 +50,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+Notes on functionality
 ------
 
 * This app has been created using Rspec for BDD, TDD purposes.
@@ -61,5 +62,5 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 
-Licence:
+Licence
 -------
