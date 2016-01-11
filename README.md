@@ -1,5 +1,5 @@
 ![badge](https://img.shields.io/badge/build-passing-green.svg?style=flat)
-
+![badgeruby](https://img.shields.io/badge/ruby-v2.2.3-red.svg?style=flat)
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/15385627/12234274/badb1db2-b863-11e5-8921-d6e21758f68d.png" />
 </p>
