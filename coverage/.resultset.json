@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/app.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/app.rb": [
         1,
         null,
         1,
@@ -15,32 +15,43 @@
         1,
         null,
         1,
-        11,
+        0,
         null,
         null,
         1,
-        null,
-        11,
-        null,
+        12,
         null,
         null,
+        1,
+        12,
         null,
-        11,
-        3,
-        3,
+        null,
+        null,
+        null,
+        12,
+        4,
+        4,
         null,
         null,
         null,
         1,
         1,
-        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        10,
         null,
         null,
         null,
         1,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/data_mapper_setup.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/data_mapper_setup.rb": [
         1,
         1,
         1,
@@ -52,7 +63,7 @@
         null,
         1
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/models/user.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/models/user.rb": [
         1,
         null,
         1,
@@ -71,12 +82,12 @@
         1,
         null,
         1,
-        11,
-        11,
+        12,
+        12,
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/1_user_sign_up_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/features/1_user_sign_up_spec.rb": [
         1,
         1,
         4,
@@ -126,16 +137,18 @@
         4,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        null
+      ],
+      "/Users/alan/Consolidation/chitter-2/spec/features/2_user_log_in_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1452707829
+    "timestamp": 1452713640
   }
 }
