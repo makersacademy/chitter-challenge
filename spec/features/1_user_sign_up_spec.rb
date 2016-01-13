@@ -28,4 +28,26 @@ feature 'User Sign Up' do
     expect { user_sign_up(password_confirmation: 'not password') }.
     not_to change{ User.count }
   end
+
+  scenario 'fails with already registered email' do
+    user_sign_up(full_name: 'Wilson', username: 'Wade')
+    expect { user_sign_up }.not_to change{ User.count }
+  end
+
+  scenario 'fails with already registered username' do
+    user_sign_up(full_name: 'Wilson', email: 'dead@pool.com')
+    expect { user_sign_up }.not_to change{ User.count }
+  end
+
+  scenario 'fails with invalid email' do
+    expect { user_sign_up(email: 'chimichongas.com') }.
+    not_to change{ User.count }
+  end
 end
+
+
+
+
+
+
+
