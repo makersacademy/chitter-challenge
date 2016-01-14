@@ -1,12 +1,14 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'rubygems'
 require 'tilt/erb'
 
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   set :sessions_secret, 'woobly-doobly'
 
@@ -23,6 +25,9 @@ class Chitter < Sinatra::Base
     if user.save
       session[:user_id] = user.id
       erb(:welcome)
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb(:index)
     end
   end
 
