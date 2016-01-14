@@ -41,12 +41,14 @@ feature 'User Sign Up' do
   feature 'Unique fileds' do
     scenario 'username' do
       user_sign_up(full_name: 'Wilson', email: 'dead@pool.com')
+      click_button('Log out')
       expect { user_sign_up }.not_to change { User.count }
       expect(page).to have_content('Username is already taken')
     end
 
     scenario 'email' do
       user_sign_up(full_name: 'Wilson', username: 'Wade')
+      click_button('Log out')
       expect { user_sign_up }.not_to change { User.count }
       expect(page).to have_content('Email is already taken')
     end

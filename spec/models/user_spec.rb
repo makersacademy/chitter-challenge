@@ -8,12 +8,12 @@ describe User do
   end
 
   describe '#authnticate' do
-    it 'authenticates user with correct details' do
+    it 'user with correct details' do
       existent_user = User.authenticate('Deadpool', 'ihatewolverine92')
       expect(existent_user).to eq user
     end
 
-    it 'authenticates user with incorrect details' do
+    it 'user with incorrect details' do
       non_existent_user = User.authenticate('Deadpool', 'wrongPassword')
       expect(non_existent_user).to be_nil
     end

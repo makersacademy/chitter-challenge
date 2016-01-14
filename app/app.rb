@@ -9,6 +9,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
+
   enable :sessions
   set :sessions_secret, 'woobly-doobly'
 
@@ -24,7 +26,7 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      erb(:welcome)
+      erb(:index)
     else
       flash.now[:errors] = user.errors.full_messages
       erb(:index)
@@ -35,12 +37,18 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      erb(:welcome)
+      erb(:index)
     else
       flash.now[:details_error] = 
       'Incorrect username or password. Check your details or please sign up.'
       erb(:index)
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.now[:notice] = 'Thank you and goodbye!'
+    erb(:index)
   end
 
   helpers do

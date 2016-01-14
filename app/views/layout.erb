@@ -11,6 +11,9 @@
         <% end %>
       </ul>
     <% end %>
+    <% if flash.now[:notice] %>
+      <%= flash.now[:notice] %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
