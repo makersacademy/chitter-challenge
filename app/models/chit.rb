@@ -5,5 +5,5 @@ class Chit
   property :chit_text, Text
   # property :username, String
 
-  belongs_to :user
+  # belongs_to :user
 end

@@ -8,7 +8,7 @@ Welcome <%= current_user.username %>! Chit away!
 
 <form method="post" action="/chits">
   <label for="chit_field">
-    <input type="text" name="chit_field" placeholder="Chit here!" required autofocus>
+    <input type="text" name="chit_text" placeholder="Chit here!" required autofocus>
     <input type="submit" value="Chit!">
   </label>
 </form>
@@ -20,7 +20,7 @@ Welcome <%= current_user.username %>! Chit away!
     <h3>Chits:</h3>
     <% @chits.each do |chit| %>
     <article id="chit">
-      <%= chit.text %>
+      <%= chit.chit_text %>
     </article>
     <% end %>
   </section>
