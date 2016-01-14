@@ -8,10 +8,11 @@ feature 'User Log In' do
   end
 
   feature 'Not registered user' do
-    xscenario 'cannot enter the website' do
+    scenario 'cannot enter the website' do
       user_log_in(username: 'Magneto', password: 'ihateXavier46')
       expect(page).not_to have_content('Welcome Magneto! Chit away!')
-      expect(page).to have_content('Please, sign up!')
+      expect(page).to have_content('Incorrect username or password. 
+        Check your details or please sign up.')
     end
   end
 end

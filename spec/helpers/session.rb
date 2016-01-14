@@ -15,7 +15,7 @@ module SessionHelpers
     end
     click_button('Sign up')
   end
-
+  
   def user_log_in(username:, password:)
     visit '/'
     expect(page.status_code).to eq(200)
