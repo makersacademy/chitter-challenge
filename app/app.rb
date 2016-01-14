@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      erb(:index)
+      erb(:chits)
     else
       flash.now[:errors] = user.errors.full_messages
       erb(:index)
@@ -37,9 +37,9 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      erb(:index)
+      erb(:chits)
     else
-      flash.now[:details_error] = 
+      flash.now[:details_error] =
       'Incorrect username or password. Check your details or please sign up.'
       erb(:index)
     end
@@ -49,6 +49,16 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.now[:notice] = 'Thank you and goodbye!'
     erb(:index)
+  end
+
+  post '/chits' do
+    chit = Chit.create(params[:text])
+    erb(:chits)
+  end
+
+  get '/chits' do
+    @chits = Chit.all
+    erb(:chits)
   end
 
   helpers do

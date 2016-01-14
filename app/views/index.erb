@@ -1,5 +1,3 @@
-<% if current_user == nil %>
-
 <section id="sign_up">
   <form action="/users" method="post">
     <label for="full_name">
@@ -38,12 +36,3 @@
 <% if %>
 <%= flash.now[:details_error] %>
 <% end %>
-
-<% else %>
-Welcome <%= current_user.username %>! Chit away!
-<form method="post" action="/sessions">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Log out">
-</form>
-<% end %>
-

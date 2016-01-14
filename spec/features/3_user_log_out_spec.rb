@@ -1,4 +1,4 @@
-feature 'User Log Out' do 
+feature 'User Log Out' do
   scenario 'can log out' do
     user_sign_up
     expect(page).to have_button('Log out')

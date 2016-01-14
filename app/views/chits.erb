@@ -1,0 +1,27 @@
+Welcome <%= current_user.username %>! Chit away!
+<form method="post" action="/sessions">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Log out">
+</form>
+
+<br>
+
+<form method="post" action="/chits">
+  <label for="chit_field">
+    <input type="text" name="chit_field" placeholder="Chit here!" required autofocus>
+    <input type="submit" value="Chit!">
+  </label>
+</form>
+
+<br>
+
+<% if @chits %>
+  <section id="chits_section">
+    <h3>Chits:</h3>
+    <% @chits.each do |chit| %>
+    <article id="chit">
+      <%= chit.text %>
+    </article>
+    <% end %>
+  </section>
+<% end%>
