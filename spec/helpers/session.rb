@@ -4,7 +4,7 @@ module SessionHelpers
                    email: 'chimichongas@gmail.com',
                    password: 'ihatewolverine92',
                    password_confirmation: 'ihatewolverine92')
-    visit '/users/new'
+    visit '/'
     expect(page.status_code).to eq(200)
     fill_in('full_name', with: full_name)
     within("//section[@id='sign_up']") { fill_in('username', with: username) }
@@ -17,7 +17,7 @@ module SessionHelpers
   end
 
   def user_log_in(username:, password:)
-    visit '/sessions/new'
+    visit '/'
     expect(page.status_code).to eq(200)
     within("//section[@id='log_in']") { fill_in('username', with: username) }
     within("//section[@id='log_in']") { fill_in('password', with: password) }

@@ -14,10 +14,6 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/users/new' do
-    erb(:'/users/new')
-  end
-
   post '/users' do
     user = User.create(full_name:             params[:full_name],
                        username:              params[:username],
@@ -26,16 +22,12 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      erb(:index)
+      erb(:welcome)
     end
   end
 
-  get '/sessions/new' do
-    erb(:'/sessions/new')
-  end
-
   post '/sessions' do
-    erb(:index)
+    erb(:welcome)
   end
 
   helpers do
@@ -44,5 +36,5 @@ class Chitter < Sinatra::Base
     end
   end
 
-  run! if app_file == $0
+  run! if app_file == 'app/app.rb'
 end
