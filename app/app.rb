@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chits' do
-    chit = Chit.create(params[:text])
+    chit = Chit.create(chit_text: params[:chit_field])
     erb(:chits)
   end
 
