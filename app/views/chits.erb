@@ -1,20 +1,20 @@
-Welcome <%= current_user.username %>! Chit away!
-<form method="post" action="/sessions">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Log out">
-</form>
+<% if current_user %>
+  Welcome <%= current_user.username %>! Chit away!
+  <form method="post" action="/sessions">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log out">
+  </form>
 
-<br>
+  <br>
 
-<form method="post" action="/chits">
-  <label for="chit_field">
-    <input type="text" name="chit_text" placeholder="Chit here!" required autofocus>
-    <input type="submit" value="Chit!">
-  </label>
-</form>
-
-<br>
-
+  <form method="post" action="/create_chits">
+    <label for="chit_field">
+      <input type="text" name="chit_text" placeholder="Chit here!" required autofocus>
+      <input type="submit" value="Chit!">
+    </label>
+  </form>
+  <br>
+<% end %>
 <% if @chits %>
   <section id="chits_section">
     <h3>Chits:</h3>
@@ -24,4 +24,5 @@ Welcome <%= current_user.username %>! Chit away!
     </article>
     <% end %>
   </section>
-<% end%>
+<% end %>
+

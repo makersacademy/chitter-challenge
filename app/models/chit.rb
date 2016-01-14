@@ -3,7 +3,7 @@ class Chit
 
   property :id, Serial
   property :chit_text, Text
-  # property :username, String
+  property :chit_time, String
 
   # belongs_to :user
 end

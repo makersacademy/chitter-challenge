@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      erb(:chits)
+      redirect '/chits'
     else
       flash.now[:errors] = user.errors.full_messages
       erb(:index)
@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      erb(:chits)
+      redirect '/chits'
     else
       flash.now[:details_error] =
       'Incorrect username or password. Check your details or please sign up.'
@@ -51,14 +51,14 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  post '/chits' do
-    chit = Chit.create(chit_text: params[:chit_text])
+  post '/create_chits' do
+    chit = Chit.create(chit_text: params[:chit_text], chit_time: Time.now.strftime("%d %b at %H:%M"))
     chit.save
     redirect '/chits'
   end
 
   get '/chits' do
-    @chits = Chit.all
+    @chits = Chit.all.reverse
     erb(:chits)
   end
 
