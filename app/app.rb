@@ -34,9 +34,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:username], params[:password])
-    if user
-      session[:user_id] = user.id
+    @user = User.authenticate(params[:username], params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect '/chits'
     else
       flash.now[:details_error] =
@@ -52,7 +52,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_chits' do
-    chit = Chit.create(chit_text: params[:chit_text], chit_time: Time.now.strftime("%d %b at %H:%M"))
+    chit = Chit.create(chit_text: params[:chit_text],
+                       chit_time: Time.now.strftime("%d %b at %H:%M"),
+                       chit_author: current_user.username)
     chit.save
     redirect '/chits'
   end

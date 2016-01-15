@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/app.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/app.rb": [
         1,
         null,
         1,
@@ -19,18 +19,18 @@
         1,
         null,
         1,
-        17,
+        18,
         null,
         null,
         1,
-        15,
+        16,
         null,
         null,
         null,
         null,
-        15,
-        7,
-        7,
+        16,
+        8,
+        8,
         null,
         8,
         8,
@@ -56,26 +56,28 @@
         null,
         null,
         1,
-        3,
-        3,
-        3,
+        4,
+        null,
+        null,
+        4,
+        4,
         null,
         null,
         1,
-        12,
-        12,
+        14,
+        14,
         null,
         null,
         1,
         1,
-        23,
+        31,
         null,
         null,
         null,
         1,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/data_mapper_setup.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/data_mapper_setup.rb": [
         1,
         1,
         1,
@@ -88,7 +90,7 @@
         null,
         1
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/models/user.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/models/user.rb": [
         1,
         null,
         1,
@@ -109,8 +111,8 @@
         1,
         null,
         1,
-        17,
-        17,
+        18,
+        18,
         null,
         null,
         1,
@@ -123,10 +125,11 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/app/models/chit.rb": [
+      "/Users/alan/Consolidation/chitter-2/app/models/chit.rb": [
         1,
         1,
         null,
+        1,
         1,
         1,
         1,
@@ -134,7 +137,7 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/1_user_sign_up_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/features/1_user_sign_up_spec.rb": [
         1,
         1,
         4,
@@ -192,7 +195,7 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/2_user_log_in_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/features/2_user_log_in_spec.rb": [
         1,
         1,
         1,
@@ -213,7 +216,7 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/3_user_log_out_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/features/3_user_log_out_spec.rb": [
         1,
         1,
         1,
@@ -224,7 +227,7 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/4_posting_chits_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/features/4_posting_chits_spec.rb": [
         1,
         1,
         1,
@@ -234,28 +237,24 @@
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/features/5_seeing_chits_spec.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+      "/Users/alan/Consolidation/chitter-2/spec/features/5_seeing_chits_spec.rb": [
         1,
         1,
         1,
         1,
         1,
         null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         null,
         null,
         null
       ],
-      "/Users/zade/Desktop/Projects/Makers/week4/Chitter/spec/models/user_spec.rb": [
+      "/Users/alan/Consolidation/chitter-2/spec/models/user_spec.rb": [
         1,
         1,
         2,
@@ -279,6 +278,6 @@
         null
       ]
     },
-    "timestamp": 1238580420
+    "timestamp": 1452854187
   }
 }

@@ -1,19 +1,15 @@
 feature 'Not logged in' do
-  first_time = Time.local(2008, 9, 1, 10, 5, 0).strftime("%d %b at %H:%M")
-  second_time = Time.local(2009, 4, 1, 11, 7, 0).strftime("%d %b at %H:%M")
   scenario 'can view chits in reverse chronological order' do
-    user_sign_up
-    Timecop.freeze(Time.local(2008, 9, 1, 10, 5, 0))
-    fill_in('chit_text', with: 'first chit')
-    click_button('Chit!')
-    Timecop.return
-    Timecop.freeze(Time.local(2009, 4, 1, 11, 7, 0))
-    fill_in('chit_text', with: 'second chit')
-    click_button('Chit!')
-    click_button('Log out')
-    click_button('View chits')
+    user_sign_up ; first_chit ; second_chit
+    user_log_out_and_view_chits
     expect(page).to have_content(
-      'second chit' + ' ' + second_time + ' ' +
-      'first chit' + ' ' + first_time)
+      'second chit' + ' ' + @second_time + ' ' + 'Deadpool' + ' ' +
+      'first chit' + ' ' + @first_time + ' ' + 'Deadpool')
+  end
+
+  scenario 'can view chits with author' do
+    user_sign_up; first_chit
+    expect(page).to have_content('first chit' + ' ' + @first_time + ' ' +
+    'Deadpool')
   end
 end

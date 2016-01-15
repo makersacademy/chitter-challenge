@@ -15,12 +15,32 @@ module SessionHelpers
     end
     click_button('Sign up')
   end
-  
+
   def user_log_in(username:, password:)
     visit '/'
     expect(page.status_code).to eq(200)
     within("//section[@id='log_in']") { fill_in('username', with: username) }
     within("//section[@id='log_in']") { fill_in('password', with: password) }
     click_button('Log in')
+  end
+
+  def first_chit
+    @first_time = Time.local(2008, 9, 1, 10, 5, 0).strftime("%d %b at %H:%M")
+    Timecop.freeze(Time.local(2008, 9, 1, 10, 5, 0))
+    fill_in('chit_text', with: 'first chit')
+    click_button('Chit!')
+    Timecop.return
+  end
+
+  def second_chit
+    @second_time = Time.local(2009, 4, 1, 11, 7, 0).strftime("%d %b at %H:%M")
+    Timecop.freeze(Time.local(2009, 4, 1, 11, 7, 0))
+    fill_in('chit_text', with: 'second chit')
+    click_button('Chit!')
+  end
+
+  def user_log_out_and_view_chits
+    click_button('Log out')
+    click_button('View chits')
   end
 end
