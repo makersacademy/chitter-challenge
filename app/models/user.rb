@@ -9,6 +9,9 @@ class User
   property :email, String, required: true, format: :email_address, unique: true
   property :password_digest, Text, required: true
 
+  has n, :chits
+  has n, :replies
+
   attr_reader :password
   attr_accessor :password_confirmation
 

@@ -4,5 +4,7 @@ class Reply
   property :id, Serial
   property :reply_text, Text
   property :reply_time, String
-  property :reply_author, String
+
+  belongs_to :chit
+  belongs_to :user
 end

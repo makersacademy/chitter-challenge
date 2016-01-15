@@ -4,5 +4,7 @@ class Chit
   property :id, Serial
   property :chit_text, Text
   property :chit_time, String
-  property :chit_author, String
+
+  has n, :replies
+  belongs_to :user
 end
