@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
+require 'timecop'
 
 require_relative 'helpers/session'
 
