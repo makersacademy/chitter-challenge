@@ -1,29 +1,47 @@
 <% if current_user %>
-  Welcome <%= current_user.username %>! Chit away!
-  <form method="post" action="/sessions">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Log out">
-  </form>
+Welcome <%= current_user.username %>! Chit away!
+<form method="post" action="/sessions">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Log out">
+</form>
 
-  <br>
+<br>
 
-  <form method="post" action="/create_chits">
-    <label for="chit_field">
-      <input type="text" name="chit_text" placeholder="Chit here!" required autofocus>
-      <input type="submit" value="Chit!">
-    </label>
-  </form>
-  <br>
+<form method="post" action="/create_chits">
+  <label for="chit_field">
+    <input type="text" name="chit_text" placeholder="Chit here!" required autofocus>
+    <input type="submit" value="Chit!">
+  </label>
+</form>
+<br>
 <% end %>
 <% if @chits %>
-  <section id="chits_section">
-    <h3>Chits:</h3>
-    <% @chits.each do |chit| %>
-    <article id="chit">
+<section id="chits_section">
+  <h3>Chits:</h3>
+  <% @chits.each do |chit| %>
+  <article id="chit_and_reply">
+    <div id="chit">
       <%= chit.chit_text %>
       <%= chit.chit_time %>
       <%= chit.chit_author %>
-    </article>
+    </div>
+    <form id="reply_form" method="post" action="create_reply">
+      <label for="reply_field">
+        <input type="text" name="reply_text" placeholder="Reply to <%= chit.chit_author %>">
+        <input type="submit" value="Reply">
+      </label>
+    </form>
+    <% if @replies %>
+    <% @replies.each do |reply| %>
+    <div id="reply">
+      <%= reply.reply_text %>
+      <%= reply.reply_time %>
+      <%= reply.reply_author %>
+    </div>
     <% end %>
-  </section>
+    <% end %>
+  </article>
+  <br>
+  <% end %>
+</section>
 <% end %>

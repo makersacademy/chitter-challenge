@@ -5,6 +5,4 @@ class Chit
   property :chit_text, Text
   property :chit_time, String
   property :chit_author, String
-
-  # belongs_to :user
 end

@@ -61,7 +61,16 @@ class Chitter < Sinatra::Base
 
   get '/chits' do
     @chits = Chit.all.reverse
+    @replies = Reply.all
     erb(:chits)
+  end
+
+  post '/create_reply' do
+    reply = Reply.create(reply_text: params[:reply_text],
+                         reply_time: Time.now.strftime("%d %b at %H:%M"),
+                         reply_author: current_user.username)
+    reply.save
+    redirect '/chits'
   end
 
   helpers do
