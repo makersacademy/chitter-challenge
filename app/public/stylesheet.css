@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+fieldset {
+  margin-bottom: 3em;
+  padding: 1em;
+}
+
+#messages {
+  text-align: left;
+}
+
+#time {
+  color: blue;
+}
+
+#flash {
+  width:20%;
+  margin:0 auto;
+}
