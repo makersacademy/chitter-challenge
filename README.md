@@ -43,3 +43,6 @@ Type the text in the box, and then click post. Then your message should be
 displayed.
 
 ![New Message Post](app/public/new_message_post.png)
+
+##Author
+* [Andrew Burnie](https://github.com/Andrew47)
