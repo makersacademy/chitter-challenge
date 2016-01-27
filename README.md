@@ -2,6 +2,8 @@
 
 This is a solution to Makers Academy's [Chitter Challenge](https://github.com/makersacademy/chitter-challenge). This creates a [Sinatra](http://www.sinatrarb.com) application that mimics Twitter. This uses a test-driven approach with both unit tests using [RSpec](http://rspec.info) and feature tests using [Capybara](https://github.com/jnicklas/capybara).
 
+The development of this application also required the use of [DataMapper](http://datamapper.org) and SQL (using [PostgreSQL](http://postgresapp.com)).
+
 
 ##Installation Instructions
 
