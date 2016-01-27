@@ -1,16 +1,22 @@
-#Week 4: Chitter Challenge
+# Chitter Challenge
+
+This is a solution to Makers Academy's [Chitter Challenge](https://github.com/makersacademy/chitter-challenge). This creates a [Sinatra](http://www.sinatrarb.com) application that mimics Twitter. This uses a test-driven approach with both unit tests using [RSpec](http://rspec.info) and feature tests using [Capybara](https://github.com/jnicklas/capybara).
+
 
 ##Installation Instructions
+
+This program requires a database to operate. [PostgreSQL](http://postgresapp.com) was the database
+used by the author of the program.
 
 Run the following in the command line:
 
 ```
-git clone git@github.com:Andrew47/chitter-challenge.git
-bundle
-createdb chitter_development
-rake auto_migrate
-rspec
-rackup
+$ git clone git@github.com:Andrew47/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
 ```
 
 Then use following URL: [http://localhost:9292/](http://localhost:9292/)
