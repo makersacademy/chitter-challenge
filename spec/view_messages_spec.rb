@@ -1,7 +1,7 @@
 feature 'view messages posted to chitter' do
 
   scenario 'view a message' do
-    Message.create(username:"Tim", text: "I love spam!")
+    Message.create(username:"Tim", text: "I love spam!", time: "#{Time.now.strftime "%R"}")
     visit ('/')
     expect(page.status_code).to eq 200
 

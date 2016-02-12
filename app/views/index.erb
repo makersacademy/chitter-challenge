@@ -1,9 +1,11 @@
-<h1> Messages </h1>
+<center>
+<h1> CHITTER </h1>
+</center>
 
 <ul id='messages'>
   <% @messages.each do |message| %>
   <li>
-     <%= message.username %>
+     <strong><%= message.username %></strong>    <%= message.time %>
      <ul>
      <%= message.text %>
     </ul>
