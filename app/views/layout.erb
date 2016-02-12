@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head> 
+  	<link rel='stylesheet' type='text/css' href="/style.css">
+  	<title> Chitter Chatter </title>
+  </head>
+  
+
+  <body> 
+	  <div class='bar'>
+	<% if current_user %>
+	  <p class='bar'> Welcome, <%= current_user.username %> </p>
+	<% else %>
+	  <p class='bar'> User not found, please <a href='/users/new'>Sign Up</a></p>
+	<% end %>
+  	  </div>
+    <%= yield %> 
+   
+  </body>
+</html>

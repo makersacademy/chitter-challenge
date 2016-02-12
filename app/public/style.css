@@ -1,0 +1,26 @@
+nav {
+	background-color: darkgray;
+}
+
+body {
+	background-color: lightgray;
+	background-image: url('/images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+p {
+	background-color: lightgray;
+	font-family: Times;
+	color: lightgray;
+}
+
+h1 {
+	text-color: red;
+}
+
+.bar {
+	padding: 3px;
+	background-color: black;
+	font-family: Times;
+}
