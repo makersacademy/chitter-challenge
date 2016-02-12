@@ -2,6 +2,14 @@
 <h1> CHITTER </h1>
 </center>
 
+<form method='post' action='/post_message'>
+  <label> Username
+  <input type='text' name='username'></label>
+  <label> Message
+  <input type='text' name='message'></label>
+  <input type='submit' value='Post'>
+</form>
+
 <ul id='messages'>
   <% @messages.each do |message| %>
   <li>
