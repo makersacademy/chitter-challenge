@@ -1,3 +1,5 @@
+# DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+
 require 'data_mapper'
 require 'dm-postgres-adapter'
 

@@ -1,13 +1,22 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', '/app/app.rb')
-
+require 'coveralls'
+require 'simplecov'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './app/models/user.rb'
 require './app/models/peep.rb'
+require './app/app.rb'
+
+require File.join(File.dirname(__FILE__), '..', '/app/app.rb')
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 Capybara.app = Chitter
 
@@ -23,7 +32,7 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
 
-  config.after(:each) do 
+  config.after(:each) do
     DatabaseCleaner.clean
   end
 
