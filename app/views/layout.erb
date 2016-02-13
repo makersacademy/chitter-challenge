@@ -6,6 +6,10 @@
 
   <body>
     <% if current_user %>
+      <form method="post" action="/log_out">
+        <input type="hidden" name="_method", value="delete">
+        <input type="submit" value="Log Out">
+      </form>
       <h4><%= current_user.name %></h4>
       <h6><%= current_user.username %></h6>
     <% else %>

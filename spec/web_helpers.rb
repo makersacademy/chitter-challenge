@@ -10,3 +10,15 @@ def sign_up(name: "Sample", email: "sample@email.com",
   fill_in(:password_confirmation, with: password_confirmation)
   click_button('Sign Up')
 end
+
+def sign_in
+  User.create(name: 'Sample', email: 'sample@email.com',
+    username: 'sample1235', password: 'password1234',
+    password_confirmation: 'password1234')
+  visit('/log_in')
+  fill_in :username, with: 'sample1235'
+  fill_in :password, with: 'password1234'
+  within(:css, "form") do
+    click_button 'Log In'
+  end
+end

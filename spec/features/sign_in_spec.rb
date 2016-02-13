@@ -6,12 +6,7 @@ feature 'Signing In' do
   end
 
   scenario 'can sign in' do
-    visit('/log_in')
-    fill_in :username, with: 'sample1235'
-    fill_in :password, with: 'password1234'
-    within(:css, "form") do
-      click_button 'Log In'
-    end
+    sign_in
     expect(page).to have_content "Sample"
   end
 end
