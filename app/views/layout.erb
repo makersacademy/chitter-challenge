@@ -9,6 +9,7 @@
       <h4><%= current_user.name %></h4>
       <h6><%= current_user.username %></h6>
     <% else %>
+     <a href="/log_in"><button>Log In</button></a>
      <a href="/sign_up"><button>Sign Up!</button></a>
     <% end %>
     <%= yield %>
