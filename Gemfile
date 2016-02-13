@@ -9,13 +9,13 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'sinatra'
+gem 'rake'
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-sinatra'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
 
