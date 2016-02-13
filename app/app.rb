@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 require_relative './models/user'
+require_relative './models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -36,6 +37,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/session' do
+    @peeps = Peep.all.reverse
     erb :session
   end
 
@@ -57,6 +59,21 @@ class Chitter < Sinatra::Base
   get '/session/end' do
     flash[:notice] = "Goodbye #{current_user.name}!"
     session[:user_id] = nil
+    redirect('/session')
+  end
+
+  get '/session/peep' do
+    if current_user
+      erb :post_peep
+    else
+      redirect('/session/new')
+    end
+  end
+
+  post '/session/peep' do
+    time = Time.now
+    peep = Peep.new(user: current_user, content: params[:content], time: time)
+    peep.save!
     redirect('/session')
   end
 
