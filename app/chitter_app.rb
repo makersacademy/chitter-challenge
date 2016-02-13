@@ -14,6 +14,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    @user = User.all
+    @peeps = Peep.all(order: [:time_stamp.desc])
     erb :index
   end
 
@@ -52,6 +54,11 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Error: Wrong Username or Password"
       redirect '/users/login'
     end
+  end
+
+  post '/peeps/new' do
+    Peep.create(peep: params[:peep], time_stamp: Time.now, user_id: current_user.id )
+    redirect '/'
   end
 
   delete '/users/logout' do

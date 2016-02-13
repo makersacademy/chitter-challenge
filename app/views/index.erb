@@ -6,9 +6,28 @@
     <input name="_method" type="hidden" value="delete">
     <input type="submit" value="Logout">
   </form>
+
+  <form action="/peeps/new" method="post" id="peepform">
+    <textarea name="peep">Enter text here...</textarea>
+    <input type="submit" value="Peep">
+  </form>
+
 <% end %>
 
 <% unless current_user %>
   <a href="/users/signup"><button>Signup</button></a>
   <a href="/users/login"><button>Login</button></a>
+<% end %>
+
+<h2> Peeps </h2>
+<% if @peeps %>
+  <% @peeps.each do |p| %>
+  <ul>
+    <li>
+      <strong>PEEP:</strong> <%= p.peep %><br>
+      <strong>Time posted:</strong> <%= p.time_stamp %><br>
+      <strong>Posted by:</strong> <%= @user.get(p.user_id).name %><br>
+    </li>
+  </ul>
+  <% end %>
 <% end %>

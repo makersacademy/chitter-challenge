@@ -10,6 +10,8 @@ class User
   property :username, String, required: true, unique: true
   property :password_digest, BCryptHash
 
+  has n, :peeps
+
   attr_accessor :password_confirmation
   attr_reader :password
 
