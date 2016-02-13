@@ -24,3 +24,8 @@ def sign_in
   fill_in 'Password', with: '1234'
   click_button 'Sign in'
 end
+
+def generate_peep
+  fill_in 'message', with: 'My first peep!'
+  click_button 'Peep!'
+end

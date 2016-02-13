@@ -3,11 +3,6 @@ require 'spec_helper'
 feature 'signing in' do
 
   scenario 'sign in possible' do
-    visit '/'
-    expect(page).to have_button 'Sign in'
-  end
-
-  scenario 'sign in possible' do
     sign_up(true)
     sign_out
     sign_in
@@ -15,6 +10,5 @@ feature 'signing in' do
     expect(page).to have_button 'Peep!'
     expect(page).to have_button 'Sign out'
   end
-
 
 end

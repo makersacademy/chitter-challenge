@@ -18,13 +18,18 @@ class ChitterApp < Sinatra::Base
 
 
   get '/' do
-    redirect to '/peeps' if current_user
-    erb :index
+    erb :peeps
   end
 
-  get '/peeps' do
-    redirect to '/' unless current_user
-    erb :peeps
+  post '/peeps/new' do
+    # move peep into current_user?
+    Peep.create(message: params[:message],
+                author: current_user.real_name,
+                handle: current_user.username,
+                time: Time.now)
+
+    # prevent invalid peep creation?
+    redirect to '/'
   end
 
   get '/users/sign_up' do
@@ -33,16 +38,16 @@ class ChitterApp < Sinatra::Base
 
   post '/users/sign_up' do
     new_user = User.create(
-                        username:   params[:username],
-                        real_name:  params[:real_name],
-                        email:      params[:email],
-                        password:   params[:password],
-                        password_confirmation: params[:password_confirmation]
-    )
+                          username:   params[:username],
+                          real_name:  params[:real_name],
+                          email:      params[:email],
+                          password:   params[:password],
+                          password_confirmation: params[:password_confirmation]
+                          )
 
     if new_user.valid?
       session[:id] = new_user.id
-      redirect to '/peeps'
+      redirect to '/'
     else
       flash.now[:errors] = new_user.errors.full_messages
       erb :sign_up
@@ -65,18 +70,16 @@ class ChitterApp < Sinatra::Base
   post '/users/sessions/new' do
     user = User.authenticate(params[:email],
                              params[:password]
-    )
+                             )
 
     if user
       session[:id] = user.id
-      redirect to '/peeps'
+      redirect to '/'
     else
       flash.now[:invalid_login] = "Login details incorrect"
       erb :sign_in
     end
   end
-
-
 
 
   # start the server if ruby file executed directly

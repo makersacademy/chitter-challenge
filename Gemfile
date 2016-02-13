@@ -12,6 +12,7 @@ gem 'sinatra'
 gem 'rake'
 
 group :test do
+  gem 'timecop'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-sinatra'
