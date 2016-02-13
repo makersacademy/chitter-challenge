@@ -1,6 +1,11 @@
 <h1> Chitter! </h1>
 <% if current_user %>
   <h2>Welcome <%= current_user.name %></h2>
+
+  <form action="/users/logout" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <input type="submit" value="Logout">
+  </form>
 <% end %>
 
 <% unless current_user %>

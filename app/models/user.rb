@@ -25,11 +25,7 @@ class User
   end
 
   def login(password)
-    if self.password == password
-      self
-    else
-      nil
-    end
+    self.password == password ? self : nil
   end
 
 end

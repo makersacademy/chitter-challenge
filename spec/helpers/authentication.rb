@@ -15,4 +15,9 @@ module Authentication
     fill_in('password', with: password)
     click_button("Login")
   end
+
+  def logout
+    click_button('Logout')
+  end
+
 end

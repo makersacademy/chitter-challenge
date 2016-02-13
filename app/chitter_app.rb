@@ -9,6 +9,7 @@ require_relative 'app_helpers/authentication_helper'
 class Chitter < Sinatra::Base
   helpers CurrentUser
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -51,6 +52,12 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Error: Wrong Username or Password"
       redirect '/users/login'
     end
+  end
+
+  delete '/users/logout' do
+    flash[:notice] = "Goodbye #{current_user.name}"
+    session.clear
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
