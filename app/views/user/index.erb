@@ -25,6 +25,9 @@
           <input type="text" name="email">
         </label>
 
+      <% if flash[:password_confirmation_fail] %>
+      <%= flash[:password_confirmation_fail] %>
+      <% end %>
         <label for="password">
           Password:
           <input type="password" name="password">
@@ -38,6 +41,11 @@
         <label for="submit" class="submitform">
           <input type="submit" value='Bizarre Initiation Ceremony This Way'>
         </label>
+      <% if flash[:password_confirmation_fail] %>
+        <label for="submit" class="submitform">
+          <input type="submit" value="I am an idiot">
+        </label>
+      <% end %>
       </form>
     </div>
 
