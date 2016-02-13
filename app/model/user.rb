@@ -7,7 +7,9 @@ class User
   has n, :link, through: Resource
 
   property :id,   Serial
-  property :email, String,  :required => true, :unique => true
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String,  :required => true, :unique => true, format: email_address
   property :password_digest, Text
 
   validates_confirmation_of :password

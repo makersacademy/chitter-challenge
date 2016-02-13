@@ -1,0 +1,18 @@
+<h1> Create an account </h1>
+
+<form action='/users' method='POST'>
+  <label for='email'>
+    Email:
+    <input type='text' name='email' value='<%=
+     @user.email %>'>
+  </label>
+  <label for='password'>
+    Password:
+    <input type='password' name='password'>
+  </label>
+  <label for='password_confirmation'>
+    Confirm password:
+    <input type='password' name='password_confirmation'>
+  </label>
+  <input type='submit' value='Create account'>
+</form>
