@@ -1,6 +1,6 @@
 require 'bcrypt'
+require 'dm-validations'
 
-# User DataMapper class
 class User
   include DataMapper::Resource
   include BCrypt
