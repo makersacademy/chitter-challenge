@@ -10,7 +10,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   get '/' do
-    @peeps = Peep.all
+    peeps = Peep.all
+    @peeps = peeps.reverse
     erb :index
   end
 
@@ -55,7 +56,7 @@ class Chitter < Sinatra::Base
   post '/new_peep' do
     user = current_user
     Peep.create(message: params[:message],
-      username: user.username, user: user.name)
+      username: user.username, user: user.name, time: Time.now)
     redirect('/')
   end
 

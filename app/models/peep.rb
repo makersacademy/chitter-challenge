@@ -8,5 +8,6 @@ class Peep
   property :message, Text
   property :username, String
   property :user, String
+  property :time, Time
 
 end

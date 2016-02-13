@@ -1,6 +1,7 @@
-<% if current_user %>
+<center>
+  <% if current_user %>
   <form action="new_peep" method="post">
-    <label for="message">Post a Peep!</label>
+    <label for="message">Post a Peep!</label></br>
     <textarea name="message" prototype="Write your peep!" cols="20" rows="3">
     </textarea>
     <input type="submit" value="Post">
@@ -11,6 +12,8 @@
   <% @peeps.each do |peep| %>
   <li><%= peep.user %></br>
     <%= peep.username %></br>
-    <%= peep.message %></li>
+    <%= peep.message %>
+    <%= peep.time.asctime %></li>
   <% end %>
 </ul>
+</center>
