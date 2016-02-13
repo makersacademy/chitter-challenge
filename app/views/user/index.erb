@@ -12,22 +12,54 @@
       <h4> Cultivating Banal Chit Chat since 2016 </h4>
     </div>
 
-    <div class='sign_up'>
-      <h4> Join the Cult </h4>
-      <form action="/sign_up" method="post">
+    <div class='sign_in'>
+      <h4> Secret Members' Handshake: </h4>
+      <form action="/sign_in" method="post">
         <label for="user_name">
           User Name:
-          <input type="text" name="user_name">
+          <input type="text" name="user_name" value="<%= flash[:existing_user_user_name_memo] %>">
         </label>
 
         <label for="email">
           Email:
-          <input type="text" name="email">
+          <input type="text" name="email" value="<%= flash[:existing_user_email_memo] %>">
         </label>
 
-      <% if flash[:password_confirmation_fail] %>
-      <%= flash[:password_confirmation_fail] %>
+      <% if flash[:password_error] %>
+      <%= flash[:password_error] %>
       <% end %>
+        <label for="password">
+          Password:
+          <input type="password" name="password">
+        </label>
+        <label for="submit" class="submitform">
+          <input type="submit" value="Secret Member's Handshake">
+        </label>
+      </form>
+
+    <div class='sign_up'>
+      <h4> Join the Cult </h4>
+      <form action="/sign_up" method="post">
+        <% if flash[:error_user_name] %>
+        <%= flash[:error_user_name] %>
+        <% end %>
+        <label for="user_name">
+          User Name:
+          <input type="text" name="user_name" value="<%= flash[:new_user_user_name_memo] %>">
+        </label>
+
+        <% if flash[:error_email] %>
+        <%= flash[:error_email] %>
+        <% end %>
+
+        <label for="email">
+          Email:
+          <input type="text" name="email" value="<%= flash[:new_user_email_memo] %>">
+        </label>
+
+        <% if flash[:error_password] %>
+        <%= flash[:error_password] %>
+        <% end %>
         <label for="password">
           Password:
           <input type="password" name="password">
@@ -38,12 +70,13 @@
           <input type="password" name="password_confirmation">
         </label>
 
-        <label for="submit" class="submitform">
-          <input type="submit" value='Bizarre Initiation Ceremony This Way'>
-        </label>
-      <% if flash[:password_confirmation_fail] %>
+      <% if flash[:error_password] %>
         <label for="submit" class="submitform">
           <input type="submit" value="I am an idiot">
+        </label>
+      <% else %>
+        <label for="submit" class="submitform">
+          <input type="submit" value='Bizarre Initiation Ceremony This Way'>
         </label>
       <% end %>
       </form>

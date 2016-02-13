@@ -24,8 +24,18 @@ feature 'User Sign Up' do
     expect(page).to have_content('Dur-brain, you need to type the SAME password twice')
   end
 
-  scenario 'On sign, if my passwords do not match I am not added to the database' do
+  scenario 'On sign up, if my passwords do not match I am not added to the database' do
     expect{sign_up_bad_password}.not_to change(User, :count)
+  end
+
+  scenario 'On sign up, I need to enter a unique email address' do
+    expect{sign_up_bad_email}.to change(User, :count).by(1)
+    expect(page).to have_content('Friend? Can you not remember that you\'re a member?')
+  end
+
+  scenario 'On sign up, I need to enter a unique username' do
+    expect{sign_up_bad_username}.to change(User, :count).by(1)
+    expect(page).to have_content('We already have a Brother by that name. There can be only one')
   end
 
 
