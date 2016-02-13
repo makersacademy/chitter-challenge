@@ -6,10 +6,10 @@
   <input type='text' name='username' value="<%= @user.username %>"/>
 
   <label for='email'>Email</label>
-  <input type='email' name='email' value="<%= @user.email %>"/>
+  <input type='email' name='email' value="<%= @user.email %>" required/>
   
   <label for='password'>Password</label>
-  <input type='password' name='password' />
+  <input type='password' name='password' required />
 
   <label for='password_confirmation'>Confirm Password</label>
   <input type='password' name='password_confirmation' />

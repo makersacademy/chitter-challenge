@@ -3,8 +3,12 @@
 </head>
 
 <body>
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>  
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul class='errors'></ul>
+       <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+       <% end %>        
+    </ul>
   <% end %>  
 
   <%= yield %>

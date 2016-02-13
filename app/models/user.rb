@@ -5,13 +5,9 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
-  property :email, String, unique: true, required: true, format: :email_address,
-    messages: {
-      unique: "There is already an account with this email address",
-      required: "Email must be filled in"
-  }
-  property :password_digest, Text
+  property :username, String, unique: true, required: true
+  property :email, String, unique: true, required: true, format: :email_address
+  property :password_digest, Text, required: true
 
   attr_reader :password
   attr_accessor :password_confirmation
