@@ -6,8 +6,8 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :username, String
-  property :email, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :name, String
   property :password_digest, String, length: 100
   attr_reader :password
