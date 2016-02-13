@@ -12,5 +12,8 @@
     <div class="peeptime">
       <%= peep.datetime.strftime("%a %b %e %Y %r") %>
     </div>
+    <div class="peepuser">
+      Posted by: <%= peep.user.username %>
+    </div>
   </article>
 <% end %>

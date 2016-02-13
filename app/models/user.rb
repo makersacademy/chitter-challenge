@@ -24,6 +24,8 @@ class User
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
 
+  has n, :peeps
+
   def password=(password)
     @password = Password.create(password)
     self.password_digest = @password
