@@ -4,8 +4,8 @@
 feature 'I want to sign up for Chitter' do
   scenario 'Allows a user to sign up' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, test@mail.com')
-    expect(User.first.email).to eq('test@mail.com')
+    expect(page).to have_content('Welcome, alice@example.com')
+    expect(User.first.email).to eq('alice@example.com')
   end
 end
 
@@ -18,6 +18,20 @@ end
 #As a Maker
 #So that I can avoid others posting messages on Chitter as me
 #I want to log out of Chitter
+feature 'User signs out' do
+  before(:each) do
+    User.create(email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
+  scenario 'while being signed in' do
+    sign_in(email: 'test@test.com', password: 'test')
+    click_button 'Sign Out'
+    expect(page).to have_content('goodbye!')
+    expect(page).to_not have_content('Welcome, test@test.com')
+  end
+end
 
 #As a Maker
 #So that I can let people know what I am doing  

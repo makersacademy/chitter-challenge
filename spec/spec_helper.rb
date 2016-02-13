@@ -19,7 +19,11 @@ require 'database_cleaner'
 
 Capybara.app = Chitter
 
+require_relative 'helpers/session'
+
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

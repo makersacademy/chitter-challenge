@@ -6,6 +6,8 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   enable :sessions
@@ -67,5 +69,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/'
+  end
   run! if app_file == $0
 end
