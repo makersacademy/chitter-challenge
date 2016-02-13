@@ -10,11 +10,7 @@ feature 'Users can log in' do
   end 
 
   scenario 'User can log in with email and password' do
-    visit('/')
-    click_link "Log in"
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button "Log in"
+    log_in(email: user.email, password:  user.password)
     expect(page).to have_content "Welcome, bigbob"
   end
 end

@@ -3,13 +3,7 @@
 </head>
 
 <body>
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    <ul class='errors'></ul>
-       <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-       <% end %>        
-    </ul>
-  <% end %>  
-
+  <%= partial :flash %>
+  <%= partial :user %>
   <%= yield %>
 </body>
