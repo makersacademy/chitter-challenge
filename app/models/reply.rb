@@ -1,4 +1,4 @@
-class Peep
+class Reply
   include DataMapper::Resource
 
   property :id, Serial
@@ -6,5 +6,5 @@ class Peep
   property :datetime, DateTime
 
   belongs_to :user
-  has n, :replys
+  belongs_to :peep
 end

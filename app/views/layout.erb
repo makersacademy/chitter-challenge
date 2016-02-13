@@ -9,9 +9,11 @@
   <div id='header'>
     <nav>
       <ul>
-        <li>Home</li>
-        <li>Contact</li>
-        <li>About Me</li>
+        <li><a href="/peeps">Peeps</a></li>
+        <li><a href="/peeps/new">New Peep</a></li>
+        <ul style="float:right;list-style-type:none;">
+          <li><a href="/session/new">Sign in</a></li>
+        </ul>
       </ul>
     </nav>
   </div>
@@ -24,7 +26,7 @@
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <div class="button">
-          <button type="submit">Sign out</button>
+        <button type="submit">Sign out</button>
       </div>
     </form>
   <% end %>

@@ -4,7 +4,7 @@
 
 <h3>Latest peeps</h3>
 
-<% @peeps.each do |peep| %>
+<% @peeps.reverse_each do |peep| %>
   <article class="peep">
     <div class="message">
       <%= peep.message %>
@@ -15,5 +15,31 @@
     <div class="peepuser">
       Posted by: <%= peep.user.username %>
     </div>
+
+    <% unless peep.replys.empty? %>
+      <% peep.replys.each do |reply| %>
+        <article class="peep_reply">
+          <div class="message">
+            <%= reply.message %>
+          </div>
+          <div class="peeptime">
+            <%= reply.datetime.strftime("%a %b %e %Y %r") %>
+          </div>
+          <div class="peepuser">
+            Posted by: <%= reply.user.username %>
+          </div>
+        </article>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
+      <form action="/peeps/reply" method="post">
+        <input type="hidden" name="peep_id" value="<%=peep.id%>">
+          <div class="button">
+            <button type="submit">Reply</button>
+          </div>
+      </form>
+    <% end %>
+
   </article>
 <% end %>
