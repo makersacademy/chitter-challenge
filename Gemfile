@@ -14,7 +14,6 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
 
