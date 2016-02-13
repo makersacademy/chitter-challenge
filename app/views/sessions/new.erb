@@ -1,0 +1,24 @@
+
+<h3>Please sign in:</h3>
+
+<form action="/sessions/new" method="post">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" required/>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required/>
+    </div>
+    <div class="button">
+        <button type="submit">Sign in</button>
+    </div>
+</form>
+
+<% if flash[:errors] %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

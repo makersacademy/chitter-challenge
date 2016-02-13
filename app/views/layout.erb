@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<!-- <title>My Page</title> -->
+</head>
+<body>
+  <div id='header'>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Contact</li>
+        <li>About Me</li>
+      </ul>
+    </nav>
+  </div>
+
+  <% if current_user %>
+    <div id='welcome'>
+      Welcome <%=current_user.username%>
+    </div>
+  <% end %>
+
+  <div id='main'>
+    <%= yield %>
+  </div>
+</body>
+</html>

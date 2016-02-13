@@ -11,4 +11,11 @@ module UserHelpers
     fill_in :name, with: name
     click_button 'Sign up'
   end
+
+  def sign_in(username: 'amanzano', password: 'pass')
+    visit '/sessions/new'
+    fill_in :username, with: username
+    fill_in :password, with: password
+    click_button 'Sign in'
+  end
 end

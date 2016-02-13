@@ -2,7 +2,7 @@ Chitter Challenge
 =================
 Author: Arnold Manzano (arnoldmanzano)
 [![Build Status](https://travis-ci.org/arnoldmanzano/chitter-challenge.svg?branch=master)](https://travis-ci.org/arnoldmanzano/chitter-challenge)
-
+[![Coverage Status](https://coveralls.io/repos/github/arnoldmanzano/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/arnoldmanzano/chitter-challenge?branch=master)
 
 
 
