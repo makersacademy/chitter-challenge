@@ -14,3 +14,26 @@ feature 'User sign up' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 end
+
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to log in to Chitter
+feature 'User sign in' do
+  let(:user) do
+    User.create(name: 'Samuel Russell Hampden Joseph',
+                username: 'tansaku',
+                email: 'sam@makersacademy.com',
+                password: 's3cr3t',
+                password_confirmation: 's3cr3t')
+  end
+
+  scenario 'with correct credentials' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, #{user.username}"
+  end
+
+  scenario 'with incorrect credentials' do
+    sign_in(email: user.email, password: 'wrong')
+    expect(page).to have_content 'The email or password is incorrect'
+  end
+end
