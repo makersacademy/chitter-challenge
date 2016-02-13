@@ -6,9 +6,10 @@
     <input name="_method" type="hidden" value="delete">
     <input type="submit" value="Logout">
   </form>
-
+  <br>
   <form action="/peeps/new" method="post" id="peepform">
-    <textarea name="peep">Enter text here...</textarea>
+    <label for="peeparea"><strong>Peep here</strong></label><br>
+    <textarea name="peep" id="peeparea" placeholder="Start peeping now..."></textarea><br>
     <input type="submit" value="Peep">
   </form>
 
