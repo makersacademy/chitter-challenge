@@ -9,6 +9,21 @@ feature 'Chitter wall:' do
     expect(page).to have_selector(:button, count: 2)
   end
 
+  scenario 'User can add a new peep' do
+    visit('/')
+    click_button 'Add peep'
+      fill_in('peep_message', :with => 'Peep-peep-peep')
+    click_button 'Peep it!'
+  end
+
+  scenario 'User gets confirmation of new peep added' do
+    visit('/')
+    click_button 'Add peep'
+      fill_in('peep_message', :with => 'Peep-peep-peep')
+    click_button 'Peep it!'
+    expect(page).to have_content 'Peep-peep-peep'
+  end
+
 end
 
 # As a maker
