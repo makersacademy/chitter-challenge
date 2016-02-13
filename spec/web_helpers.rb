@@ -11,5 +11,6 @@ def sign_up
   click_link('Sign Up')
   fill_in :email, with: 'test@mail.com'
   fill_in :password, with: 'abc123'
-  click_button('Submit')
+  fill_in :password_confirmation, with: 'abc123'
+  click_button('Sign Up')
 end
