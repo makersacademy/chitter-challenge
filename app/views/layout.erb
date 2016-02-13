@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+        <div id='error'><%= error %></div>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
