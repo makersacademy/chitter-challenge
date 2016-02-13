@@ -1,11 +1,14 @@
-require 'sinatra/base'
+ENV['RACK_ENV'] ||= 'development'
 
+require 'sinatra/base'
+require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+
   get '/' do
     @new_peep = false
-    @posts = session[:message]
+    @posts = Peep.all 
     erb :index
   end
 
@@ -15,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/update_peeps' do
-    session[:message] = params[:message]
+    Peep.create(message: params[:message]).save
     redirect '/'
   end
 

@@ -18,6 +18,12 @@ feature 'I want to post a message (peep) to chitter' do
   visit_and_peep('Hello, world!')
   expect(page).to have_content('Hello, world!')
  end
+  
+ scenario 'I want to make sure a message gets stored in the database' do
+  visit_and_peep('Message calling database!')
+  peep = Peep.first
+  expect(peep.message).to eq 'Message calling database!'
+ end
 
   scenario 'I want to post another message (peep) and see both messages' do
     visit_and_peep("My first peep")

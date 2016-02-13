@@ -15,7 +15,9 @@
 </form>
 
 <% end %>
-<p>
-<%= @posts %>
-</p>
 
+<% if @posts %>
+  <% @posts.each do |post| %>
+    <p><%= post.message %></p>
+  <% end %>
+<% end %>
