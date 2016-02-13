@@ -1,0 +1,20 @@
+<h1> Sign up to Chitter! </h1>
+
+<form action='/register' method='post'>
+	<label for='First name'>
+	    First Name:
+	<input type='text' name='first_name'> </br>
+	<label for='Last name'>
+	    Last Name:
+	<input type='text' name='last_name'></br>
+	<label for='Username'>
+	    Username:
+	<input type='text' name='username'></br>
+	<label for='Email'>
+	    Email:
+	<input type='email' name='email' required: true, unique: true></br>
+	<label for='Password'>
+	    Password
+	<input type='text' name='password'></br>
+	<input type='submit' value='submit'>
+</form>
