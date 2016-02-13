@@ -1,0 +1,35 @@
+
+<form id="sign_in" action="/users/new" method="post">
+  <h2> Sign up for Chitter</h2>
+  <label for="name">
+    Enter your name
+  </label>
+  <br>
+    <input name="name" type="text" value="<%=@user.name%>"  autofocus="autofocus" required>
+  <br>
+  <label for="user_name">
+    Enter your user name
+  </label>
+  <br>
+    <input name="user_name" type="text" value="<%=@user.user_name%>" required>
+  <br>
+  <label for="email">
+    Enter your email
+  </label>
+  <br>
+    <input name="email" type="email" value="<%=@user.email%>" required>
+  <br>
+  <label for="password">
+    Enter your password
+  </label>
+  <br>
+    <input name="password" type="password" required>
+  <br>
+  <label for="password_confirmation">
+    Confirm your password
+  </label>
+  <br>
+    <input name="password_confirmation" type="password">
+  <br>
+    <input class="submit" type="submit" value="Submit">
+</form>

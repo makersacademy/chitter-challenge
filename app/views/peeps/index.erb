@@ -1,0 +1,12 @@
+  <ul id="peeps">
+    <h2>Peeps of the day</h2>
+    <% @peeps.reverse.each do |peep| %>
+      <li id="peep">
+        <p> <span id="user"> <%= peep.user.name %></span>
+            <span id="username">(<%= peep.user.user_name %>)</span> peeped: </p>
+        <p id ="message"> <%= peep.peeps %> </p>
+        <p id="time"> <%= peep.time.strftime('%H:%M, %e %B %Y') %> </p>
+      </li>
+      <br>
+    <% end %>
+  </ul>
