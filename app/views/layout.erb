@@ -5,6 +5,21 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <a href="/users/sessions/sign_out" id="sign_out" style="text-decoration: none;">
+        <input type="button" value="Sign out"/>
+      </a>
+    <%end%>
+
+    <%= flash[:goodbye] %>
+
     <%= yield %>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <ul>
+          <li><%=error%></li>
+        </ul>
+      <%end%>
+    <%end%>
   </body>
 </html>

@@ -7,9 +7,25 @@ require_relative 'dm_setup'
 
 class ChitterApp < Sinatra::Base
 
+  register Sinatra::Flash
+  enable :sessions
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:id])
+    end
+  end
+
+
+
   get '/' do
+    redirect to '/peeps' if current_user
     erb :index
-    # need to chow peeps on index; check for login
+  end
+
+  get '/peeps' do
+    redirect to '/' unless current_user
+    erb :peeps
   end
 
   get '/users/sign_up' do
@@ -17,18 +33,27 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users/sign_up' do
-    new_user = User.new(
+    new_user = User.create(
                         username:   params[:username],
                         real_name:  params[:real_name],
                         email:      params[:email],
                         password:   params[:password],
+                        password_confirmation: params[:password_confirmation]
                         )
-    new_user.save
-    # if new_user.save
+    if new_user.valid?
+      session[:id] = new_user.id
+      redirect to '/peeps'
+    else
+      flash.now[:errors] = new_user.errors.full_messages
+      erb :sign_up
+    end
+  end
 
-    # end
 
-
+  get '/users/sessions/sign_out' do
+    flash.keep[:goodbye] = "See ya, #{current_user.real_name}"
+    session[:id] = nil
+    redirect to '/'
   end
 
 
