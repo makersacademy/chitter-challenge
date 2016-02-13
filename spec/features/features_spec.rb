@@ -37,10 +37,10 @@ end
 #I want to see all peeps in reverse chronological order
 feature 'I want to see all peeps in reverse chronological order' do
   scenario 'Create three peeps and view them in reverse order' do
-    visit_and_peep('Created first')
-    visit_and_peep('Created second')
-    visit_and_peep('Created third')
-    expect(page).to have_content('Created third Created second Created first')
+    visit_and_peep('Created first ')
+    visit_and_peep('Created second ')
+    visit_and_peep('Created third ')
+    expect(page).to have_content("Created third #{Time.now.strftime('%H:%M')} Created second #{Time.now.strftime('%H:%M')} Created first")
   end
 end 
 
@@ -48,3 +48,10 @@ end
 #As a maker
 #So that I can better appreciate the context of a peep
 #I want to see the time at which it was made
+feature 'I want to see the time at which it was made' do
+  scenario 'View peeps with timestamps' do
+    visit_and_peep('This peep was made at: ')
+    expect(page).to have_content("This peep was made at: #{Time.now.strftime('%H:%M')}")
+  end
+end
+
