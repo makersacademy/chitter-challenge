@@ -1,7 +1,11 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  
-  RSpec::Core::RakeTask.new :spec
-  
-  task default: [:spec]
+require_relative 'app/chitter_app'
+
+task :upgrade do
+  DataMapper.auto_upgrade!
+  puts "Upgrade completed"
+end
+
+task :migrate do
+  DataMapper.auto_migrate!
+  puts "Migrate completed"
 end

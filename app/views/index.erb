@@ -1,0 +1,9 @@
+<h1> Chitter! </h1>
+<% if current_user %>
+  <h2>Welcome <%= current_user.name %></h2>
+<% end %>
+
+<% unless current_user %>
+  <a href="/users/signup"><button>Signup</button></a>
+  <a href="/users/login"><button>Login</button></a>
+<% end %>
