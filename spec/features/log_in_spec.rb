@@ -17,4 +17,22 @@ feature 'log in' do
     expect(page).not_to have_button 'Log In'
     expect(page).not_to have_button 'Sign Up'
   end
+
+  scenario 'send error if unknown username' do
+    sign_up_good
+    click_button 'Log Out'
+    fill_in 'username', with: 'random'
+    fill_in 'password', with: 'password123'
+    click_button 'Log In'
+    expect(page).to have_content 'Invalid Username or Password'
+  end
+
+  scenario 'send error if unknown username' do
+    sign_up_good
+    click_button 'Log Out'
+    fill_in 'username', with: 'SidTheSloth'
+    fill_in 'password', with: 'password'
+    click_button 'Log In'
+    expect(page).to have_content 'Invalid Username or Password'
+  end
 end

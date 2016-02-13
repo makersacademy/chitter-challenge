@@ -32,7 +32,11 @@ class Chitter < Sinatra::Base
 
   post '/log_in' do
     user =  User.authenticate(params[:username], params[:password])
-    session[:user_id] = user.id
+    if user
+      session[:user_id] = user.id
+    else
+      flash.keep[:unknown_username] =  "Invalid Username or Password"
+    end
     redirect '/'
   end
 
