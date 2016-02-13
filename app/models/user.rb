@@ -6,8 +6,16 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :username, String, required: true, unique: true
-  property :email, String, required: true, unique: true
+  property :username, String, required: true, unique: true,
+    messages: {
+      presence: 'Please enter a username',
+      is_unique: 'Username already in use'
+    }
+  property :email, String, required: true, unique: true,
+    messages: {
+      presence: 'Please enter an email address',
+      is_unique: 'Email already registered'
+    }
   property :name, String
   property :password_digest, String, length: 100
   attr_reader :password
