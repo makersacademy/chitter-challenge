@@ -17,7 +17,6 @@ class ChitterApp < Sinatra::Base
   end
 
 
-
   get '/' do
     redirect to '/peeps' if current_user
     erb :index
@@ -39,7 +38,8 @@ class ChitterApp < Sinatra::Base
                         email:      params[:email],
                         password:   params[:password],
                         password_confirmation: params[:password_confirmation]
-                        )
+    )
+
     if new_user.valid?
       session[:id] = new_user.id
       redirect to '/peeps'
@@ -57,6 +57,24 @@ class ChitterApp < Sinatra::Base
   end
 
 
+  get '/users/sessions/new' do
+    erb :sign_in
+  end
+
+
+  post '/users/sessions/new' do
+    user = User.authenticate(params[:email],
+                             params[:password]
+    )
+
+    if user
+      session[:id] = user.id
+      redirect to '/peeps'
+    else
+      flash.now[:invalid_login] = "Login details incorrect"
+      erb :sign_in
+    end
+  end
 
 
 

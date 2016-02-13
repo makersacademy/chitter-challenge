@@ -16,3 +16,11 @@ end
 def sign_out
   find('#sign_out').click
 end
+
+def sign_in
+  visit('/')
+  find('#sign_in').click
+  fill_in 'Email', with: 'rufus@me.com'
+  fill_in 'Password', with: '1234'
+  click_button 'Sign in'
+end

@@ -21,6 +21,16 @@ class User
   validates_confirmation_of :password
   validates_presence_of :email
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user
+      real_password = BCrypt::Password.new(user.password_digest)
+      real_password == password ? user : nil
+    else
+      nil
+    end
+  end
+
   private
 
   attr_reader :password
