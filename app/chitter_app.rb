@@ -6,14 +6,16 @@ require 'sinatra/flash'
 require_relative 'controllers/init'
 require_relative 'models/init'
 require_relative 'app_helpers/authentication'
+require_relative 'app_helpers/notice_redirections'
 
 class Chitter < Sinatra::Base
-  helpers CurrentUser
+  helpers CurrentUser, Redirections
   register Sinatra::Flash
   use Rack::MethodOverride
   enable :sessions
 
   set :views, Proc.new { File.join(root, "../views") }
+  set :public_folder, File.dirname(__FILE__) + '/public'
   set :session_secret, 'super secret'
 
   get '/' do

@@ -1,34 +1,26 @@
-<h1> Chitter! </h1>
-<% if current_user %>
-  <h2>Welcome <%= current_user.name %></h2>
+<div class="col-md-5 col-md-offset-3">
+  <% if current_user %>
+    <h2>Welcome <%= current_user.name %></h2>
+    <br>
+    <form action="/peeps/new" method="post" id="peepform">
+      <label for="peeparea"><strong>Peep here</strong></label><br>
+      <textarea class="form-control" rows="3" name="peep" id="peeparea" placeholder="Start peeping now..."></textarea><br>
+      <button type="submit" class="btn btn-default">Peep</button>
+    </form>
 
-  <form action="/users/logout" method="post">
-    <input name="_method" type="hidden" value="delete">
-    <input type="submit" value="Logout">
-  </form>
-  <br>
-  <form action="/peeps/new" method="post" id="peepform">
-    <label for="peeparea"><strong>Peep here</strong></label><br>
-    <textarea name="peep" id="peeparea" placeholder="Start peeping now..."></textarea><br>
-    <input type="submit" value="Peep">
-  </form>
-
-<% end %>
-
-<% unless current_user %>
-  <a href="/users/signup"><button>Signup</button></a>
-  <a href="/users/login"><button>Login</button></a>
-<% end %>
-
-<h2> Peeps </h2>
-<% if @peeps %>
-  <% @peeps.each do |p| %>
-  <ul>
-    <li>
-      <strong>PEEP:</strong> <%= p.peep %><br>
-      <strong>Time posted:</strong> <%= p.time_stamp %><br>
-      <strong>Posted by:</strong> <%= @user.get(p.user_id).name %><br>
-    </li>
-  </ul>
   <% end %>
-<% end %>
+
+  <h1> Peeps </h1>
+  <% if @peeps %>
+    <% @peeps.each do |p| %>
+    <ul class="list-unstyled">
+      <li>
+        <h3><strong><%= @user.get(p.user_id).name %></strong> <small>peeped:</small></h3>
+        <blockquote><%= p.peep %></blockquote>
+        <strong>Time posted:</strong> <%= p.time_stamp %><br>
+      </li>
+      <hr>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
