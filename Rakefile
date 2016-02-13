@@ -1,8 +1,12 @@
 require 'data_mapper'
 require './app/app.rb'
-require 'rspec/core/rake_task'
+
 task :default => :spec
-RSpec::Core::RakeTask.new
+begin
+    require 'rspec/core/rake_task'
+      RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
 
 namespace :db do
   desc 'DataMapper functions' 
