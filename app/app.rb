@@ -5,10 +5,6 @@ require 'sinatra/flash'
 require 'rest_client'
 require_relative 'dm_setup'
 
-#   TO DO:
-#   - refactor
-#   - styling
-#   - adding comments
 
 class ChitterApp < Sinatra::Base
 
