@@ -30,6 +30,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/log_in' do
+    user =  User.authenticate(params[:username], params[:password])
+    session[:user_id] = user.id
+    redirect '/'
+  end
+
   delete '/goodbye' do
     session[:user_id] = nil
     redirect '/'

@@ -8,6 +8,7 @@ feature 'sign up' do
 
   scenario 'sends error message when email already used' do
     sign_up_good
+    click_button 'Log Out'
     expect {sign_up_good}.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
@@ -26,4 +27,5 @@ feature 'sign up' do
     sign_up_good
     expect(page).to have_content 'SidTheSloth is logged in'
   end
+
 end

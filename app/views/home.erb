@@ -1,13 +1,26 @@
 <h1> Chitter <h1>
-  <% unless @user == nil %>
-    <h2> <%= @user.username %> is logged in </h2>
-  <% end %>
+  <% if @user == nil %>
+    <form action='/log_in' method='post'>
+      <label for="username">
+        Username:
+        <input type="text" name="username">
+      </label>
+      <label for="password">
+        Password:
+        <input type="text" name="password">
+      </label>
+      <input type='submit' value='Log In'>
+    </form>
 
   <form action='/sign_up' >
     <input type='submit' value='Sign Up'>
   </form>
 
-  <form action='/goodbye' method='post'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value="Log Out">
-  </form>
+  <% else %>
+    <h2> <%= @user.username %> is logged in </h2>
+
+    <form action='/goodbye' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value="Log Out">
+    </form>
+  <% end %>
