@@ -1,19 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'rspec'
 gem 'capybara'
 gem "sinatra"
 gem "selenium-webdriver"
-gem "database_cleaner"
-gem "rake"
 gem "bcrypt"
 gem "sinatra-flash"
 gem "rerun"
-
-
+gem "database_cleaner"
 
 group :test do
   gem 'rspec'
