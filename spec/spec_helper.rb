@@ -1,7 +1,17 @@
+ENV['RACK_ENV'] = "test"
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+
 require 'coveralls'
 require 'simplecov'
+require 'capybara'
 require 'capybara/rspec'
-require './app/app'
+require 'database_cleaner'
+require 'rspec'
+
+require_relative '../app/data_mapper_setup'
+require_relative './helpers/users'
+require_relative '../app/models/user'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -14,6 +24,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
 
+  config.include UserHelpers
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -39,33 +50,19 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-  DatabaseCleaner.clean_with(:truncation)
-end
-
-config.before(:each) do
-  DatabaseCleaner.strategy = :transaction
-end
-
-config.before(:each, type: :feature) do
-  # :rack_test driver's Rack app under test shares database connection
-  # with the specs, so continue to use transaction strategy for speed.
-  driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
-
-  if !driver_shares_db_connection_with_specs
-    # Driver is probably for an external browser with an app
-    # under test that does *not* share a database connection with the
-    # specs, so use truncation strategy.
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
-end
 
-config.before(:each) do
-  DatabaseCleaner.start
-end
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-config.append_after(:each) do
-  DatabaseCleaner.clean
-end
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
