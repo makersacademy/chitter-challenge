@@ -2,29 +2,29 @@
 <h3>Please sign up:</h3>
 
 <form action="/users/new" method="post">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" required value="<%=@user.username%>"/>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required/>
-    </div>
-    <div>
-        <label for="password_confirmation">Confirm password:</label>
-        <input type="password" name="password_confirmation" required/>
-    </div>
-    <div>
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" required value="<%=@user.email%>"/>
-    </div>
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" required value="<%=@user.name%>"/>
-    </div>
-    <div class="button">
-        <button type="submit">Sign up</button>
-    </div>
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username" required value="<%=@user.username%>"/>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required/>
+  </div>
+  <div>
+    <label for="password_confirmation">Confirm password:</label>
+    <input type="password" name="password_confirmation" required/>
+  </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" required value="<%=@user.email%>"/>
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="name" required value="<%=@user.name%>"/>
+  </div>
+  <div class="button">
+      <button type="submit">Sign up</button>
+  </div>
 </form>
 
 <% if flash[:errors] %>
