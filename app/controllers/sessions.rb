@@ -9,7 +9,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.now[:errors] = ['Invalid username/password']
+      flash.now[:signinerror] = 'Invalid username/password'
       erb :'sessions/new'
     end
   end

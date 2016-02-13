@@ -16,4 +16,9 @@ feature 'Posting peeps' do
     expect(current_path).to eq('/peeps')
     expect(page).to have_content('This is my peep')
   end
+
+  scenario 'User needs to login before posting' do
+    visit('/peeps/new')
+    expect(page).to have_content('Please sign in to post a peep.')
+  end
 end

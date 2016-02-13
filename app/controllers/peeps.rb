@@ -5,7 +5,11 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'/peeps/new'
+    if current_user
+      erb :'/peeps/new'
+    else
+      flash.now[:nouser] = 'Please sign in to post a peep.'
+    end
   end
 
   post '/peeps/new' do
