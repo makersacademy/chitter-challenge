@@ -4,7 +4,7 @@ class User
   attr_accessor :password_confirmation
   attr_reader :password, :email
 
-  has n, :link, through: Resource
+  # has n, :link, through: Resource
 
   property :id,   Serial
   property :name, String, required: true
