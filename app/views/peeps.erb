@@ -23,7 +23,7 @@
 <%end%>
 
 <% unless Peep.all.empty? %>
-  <% Peep.all.each do |peep| %>
+  <% Peep.all.reverse.each do |peep| %>
     <div class="peep-div">
       <em><%= peep.handle %></em><br>
       <b><%= peep.author %></b> peeps:<br>

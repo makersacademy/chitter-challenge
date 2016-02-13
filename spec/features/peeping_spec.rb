@@ -27,4 +27,14 @@ feature 'peeping' do
 
   end
 
+  scenario 'peeps are listed in reverse chronological order' do
+    2.times {generate_peep}
+    fill_in 'message', with: 'I should be at the top'
+    click_button 'Peep!'
+    expect('I should be at the top').to appear_before 'My first peep!'
+  end
+
+  scenario 'peeps are limited to 140 chars' do
+  end
+
 end
