@@ -8,6 +8,7 @@ require 'rspec'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
+require './spec/features/web_helpers'
 
 Capybara.app = ChitterApp
 
@@ -19,6 +20,8 @@ Coveralls.wear!
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include UserHelpers
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

@@ -1,8 +1,4 @@
-require_relative 'web_helpers'
-
 feature 'Signing in to Chitter' do
-  include UserHelpers
-
   before do
     User.create(
       username: 'amanzano',
@@ -32,8 +28,6 @@ feature 'Signing in to Chitter' do
 end
 
 feature 'Signing out from Chitter' do
-  include UserHelpers
-
   before do
     User.create(
       username: 'amanzano',

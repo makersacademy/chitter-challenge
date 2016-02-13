@@ -1,8 +1,4 @@
-require_relative 'web_helpers'
-
 feature 'Signing up successfully' do
-  include UserHelpers
-
   scenario 'Successful signing up with valid credentials' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(current_path).to eq('/peeps')
@@ -10,8 +6,6 @@ feature 'Signing up successfully' do
 end
 
 feature 'Signing up errors with username' do
-  include UserHelpers
-
   scenario 'Missing username' do
     expect { sign_up(username: '') }.to change(User, :count).by(0)
     expect(current_path).to eq('/users/new')
@@ -27,8 +21,6 @@ feature 'Signing up errors with username' do
 end
 
 feature 'Signing up errors with email' do
-  include UserHelpers
-
   scenario 'Missing email' do
     expect { sign_up(email: '') }.to change(User, :count).by(0)
     expect(current_path).to eq('/users/new')
@@ -50,8 +42,6 @@ feature 'Signing up errors with email' do
 end
 
 feature 'Signing up errors with password' do
-  include UserHelpers
-
   scenario 'Password confirmation mismatch' do
     expect { sign_up(password: 'match', password_confirmation: 'mismatch') }.
       to change(User, :count).by(0)
