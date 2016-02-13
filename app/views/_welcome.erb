@@ -5,16 +5,16 @@
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Sign out'>
   </form>
+<% else %>
+  <form action='/sessions/new'>
+    <input type='submit' value='sign in' />
+  </form>
+
+  <form action='/users/new'>
+    <input type='submit' value='sign up' />
+  </form>
 <% end %>
 
 <form action='/peeps'>
   <input type='submit' value='view peeps' />
-</form>
-
-<form action='/sessions/new'>
-  <input type='submit' value='sign in' />
-</form>
-
-<form action='/users/new'>
-  <input type='submit' value='sign up' />
 </form>
