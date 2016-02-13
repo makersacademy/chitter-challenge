@@ -1,1 +1,10 @@
 Welcome to your account <%= current_user.username %>!
+
+
+<form action="/log_out" method='post'>
+  <input type='hidden' name='_method' value='delete'>  
+  <input type='submit' value='Log Out'>
+</form>
+
+
+
