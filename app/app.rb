@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/peeps')
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.now[:errors] = "The email or password is incorrect"
+      flash.now[:errors] = ["The email or password is incorrect"]
       erb :'sessions/new'
     end
   end
@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
     if current_user
       erb :'peeps/new'
     else
-      flash.now[:errors] = "Please sign in to peep"
+      flash.now[:errors] = ["Please sign in to peep"]
       erb :'sessions/new'
     end
   end

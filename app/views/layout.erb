@@ -18,8 +18,12 @@
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>
 
-    <% if flash[:errors] %>
-      <div id='errors'><%= flash[:errors] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
 
     <%= yield %>

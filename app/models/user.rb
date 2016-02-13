@@ -8,8 +8,8 @@ class User
 
   property :id,               Serial
   property :name,             String
-  property :username,         String, required: true
-  property :email,            String, required: true, format: :email_address
+  property :username,         String, required: true, unique: true
+  property :email,            String, required: true, unique: true, format: :email_address
   property :password_digest,  Text
 
   has n, :peeps

@@ -6,7 +6,6 @@ module SessionHelpers
               password: 's3cr3t',
               password_confirmation: 's3cr3t')
     visit '/users/new'
-    expect(page.status_code).to eq(200)
     fill_in :name, with: name
     fill_in :username, with: username
     fill_in :email, with: email
