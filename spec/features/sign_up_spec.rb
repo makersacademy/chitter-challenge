@@ -16,4 +16,14 @@ feature 'sign up' do
     expect {sign_up_invalid}.not_to change(User, :count)
     expect(page).to have_content 'Email has an invalid format'
   end
+
+  scenario 'sends error message when passwords are inconsistant' do
+    expect {sign_up_password_fail}.not_to change(User, :count)
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
+
+  scenario 'user can see that they are signed in' do
+    sign_up_good
+    expect(page).to have_content 'SidTheSloth is logged in'
+  end
 end

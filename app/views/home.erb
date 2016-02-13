@@ -1,5 +1,13 @@
 <h1> Chitter <h1>
+  <% unless @user == nil %>
+    <h2> <%= @user.username %> is logged in </h2>
+  <% end %>
 
   <form action='/sign_up' >
     <input type='submit' value='Sign Up'>
+  </form>
+
+  <form action='/goodbye' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value="Log Out">
   </form>

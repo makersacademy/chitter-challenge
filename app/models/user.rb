@@ -4,7 +4,7 @@ class User
 include DataMapper::Resource
 
   attr_reader :password
-  attr_accessor :password_confirm
+  attr_accessor :password_confirmation
 
   # def self.authenticate(user_name, password)
   #   user = first(username: username)
@@ -15,8 +15,7 @@ include DataMapper::Resource
   #   end
   # end
 
-  # validates_confirmation_of :password
-  # validates_presence_of :email
+  validates_confirmation_of :password
   validates_format_of :email, as: :email_address
 
     property :id, Serial
