@@ -1,0 +1,19 @@
+<% if current_user %>
+    <h2>Welcome <%= current_user.name %>.</h2>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input id="sign-out" type='submit' value='Sign Out'>
+    </form>
+
+    <form action='/peeps/new' method='get'>
+      <input type='submit' value='New Peep'>
+    </form>
+<% end %>
+
+<% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<%= yield %>
