@@ -8,6 +8,7 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @user =  User.first(id: session[:user_id])
