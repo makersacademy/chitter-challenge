@@ -14,7 +14,17 @@ feature 'User signs up' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 
-  #TODO validate email
+  scenario 'I cannot sign up without a username' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up without a email' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up with an invalid email address' do
+    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+  end
   #TODO prevent duplicate registrations
 
 end
