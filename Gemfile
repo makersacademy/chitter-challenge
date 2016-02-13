@@ -8,3 +8,8 @@ group :test do
   gem 'coveralls', require: false
 end
 
+gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'capybara'
+

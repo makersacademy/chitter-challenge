@@ -16,6 +16,7 @@
 feature 'I want to post a message (peep) to chitter' do
  scenario 'User can post a message and view it on the main page' do
   custom_message = 'Hello, world! This is my first peep!'
+  visit '/'
   click_link('Compose Peep')
   fill_in :message, with: custom_message
   click_button 'Peep'

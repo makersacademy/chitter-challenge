@@ -1,0 +1,21 @@
+<h1>Chitter - Speak your mind!</h1>
+
+
+<% unless @new_peep %>
+
+<a href='/compose_peep'>Compose Peep</a>
+
+<% end %>
+
+<% if @new_peep %>
+
+<form action='/update_peeps' method='post'>
+  <input type='text' name='message'>
+  <input type='submit' value='Peep'>
+</form>
+
+<% end %>
+<p>
+<%= @posts %>
+</p>
+
