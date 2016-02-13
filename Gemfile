@@ -8,6 +8,7 @@ gem 'dm-transactions'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'capybara'
+gem 'rake'
 
 group :test do
   gem 'rspec'

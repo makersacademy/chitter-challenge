@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Chitter - nothing like twitter.
+  </title>
+</head>
+<body>
+  <a href="/signup">Create account</a>
+  <% if current_user %>
+  Welcome, <%= current_user.name %>
+  <% end %>
+</body>
+</html>
