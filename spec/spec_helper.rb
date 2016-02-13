@@ -6,8 +6,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-require './app/models/user.rb'
-require './app/models/peep.rb'
 require './app/app.rb'
 
 require File.join(File.dirname(__FILE__), '..', '/app/app.rb')
