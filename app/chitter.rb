@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @new_peep = false
-    @posts = Peep.all 
+    @posts = Peep.all || []
     erb :index
   end
 
