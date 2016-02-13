@@ -7,7 +7,7 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-ENV['RACK_ENV'] ||= 'test'
+ENV['RACK_ENV'] = 'test'
 
 require './app/app'
 require 'capybara'
