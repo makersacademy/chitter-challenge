@@ -9,15 +9,15 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    erb(:index)
+    erb :index
   end
 
   get '/sign-up' do
     @user = User.new
-    erb(:sign_up)
+    erb :'user/new'
   end
 
-  post '/sign-up' do
+  post '/user/new' do
     @user = User.new(
       name: params[:name],
       username: params[:username],
@@ -30,7 +30,22 @@ class Chitter < Sinatra::Base
       redirect '/home'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :sign_up
+      erb :'user/new'
+    end
+  end
+
+  get '/log_in' do
+    erb :'session/new'
+  end
+
+  post '/session/new' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/home'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'session/new'
     end
   end
 
