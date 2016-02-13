@@ -1,10 +1,13 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 	enable :sessions
-  
+  register Sinatra::Flash
+
+
   get '/' do
     erb :index
   end
@@ -14,7 +17,13 @@ class Chitter < Sinatra::Base
   		username: params[:username], email: params[:email], 
   		password: params[:password])
   	session[:user_id] = user.id
-  	redirect '/peeps'
+	  	 if user.saved?
+	      session[:user_id] = user.id
+	      redirect '/peeps'
+	    else
+	      flash.now[:errors] = user.errors.full_messages
+	      erb :index
+	    end
   end
 
   get '/peeps' do 

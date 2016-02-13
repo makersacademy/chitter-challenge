@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'rake'
+  gem 'database_cleaner'
   gem 'coveralls', require: false
 end
 

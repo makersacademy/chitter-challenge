@@ -4,8 +4,8 @@ class User
     property :id, Serial
     property :first_name, String
     property :last_name, String
-    property :username, String
-    property :email, String
+    property :username, String, unique: true
+    property :email, String, format: :email_address,  required: true, unique: true
     property :password, String
 end
 
