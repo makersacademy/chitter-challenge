@@ -24,4 +24,9 @@ feature 'Posting peeps' do
       expect(page).to have_content 'I am a peep'
     end
   end
+
+  scenario 'I cannot peep if not logged in' do
+    visit '/peeps/new'
+    expect(page).to have_content 'Please sign in to peep'
+  end
 end
