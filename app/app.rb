@@ -6,7 +6,11 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Welcome to Chitter'
+    redirect to '/peeps'
+  end
+
+  get '/peeps' do
+    erb :peeps
   end
 
   run! if app_file == $0
