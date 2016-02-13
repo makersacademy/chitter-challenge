@@ -1,4 +1,3 @@
-# User spec helpers
 module UserHelpers
   def sign_up(
     username: 'amanzano', password: 'pass', password_confirmation: 'pass',

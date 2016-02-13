@@ -17,10 +17,15 @@ feature 'Signing in to Chitter' do
     expect(page).to have_content('Welcome amanzano')
   end
 
-  # scenario 'Invalid username or user does not exist' do
-  # end
-  #
-  # scenario 'Invalid password or wrong password' do
-  # end
+  scenario 'Invalid username or user does not exist' do
+    sign_in(username: 'otheruser')
+    expect(current_path).to eq('/sessions/new')
+    expect(page).to have_content('Invalid username/password')
+  end
 
+  scenario 'Invalid password' do
+    sign_in(password: 'wrong_password')
+    expect(current_path).to eq('/sessions/new')
+    expect(page).to have_content('Invalid username/password')
+  end
 end
