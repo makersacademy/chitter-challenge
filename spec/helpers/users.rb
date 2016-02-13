@@ -10,4 +10,11 @@ module UserHelpers
     click_button('Register')
   end
 
+  def login(username: 'user1', password: "123456")
+    visit('/session/new')
+    fill_in('username', with: username)
+    fill_in('password', with: password)
+    click_button('Login')
+  end
+
 end

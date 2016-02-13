@@ -16,10 +16,20 @@ class User
   attr_reader :password
   validates_confirmation_of :password
 
+  def password
+    @password ||= BCrypt::Password.new(password_digest)
+  end
+
   def password=(password)
     @password = BCrypt::Password.create(password)
     self.password_digest = @password
   end
+
+  def self.authenticate(username, login_password)
+    user = first(username: username)
+    user if user && user.password == login_password
+  end
+
 
 
 end

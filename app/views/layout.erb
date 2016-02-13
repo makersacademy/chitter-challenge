@@ -3,11 +3,17 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+    <p>Hello, <%=current_user.name%></p>
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       <% flash[:errors].each do |error| %>
         <div id='error'><%= error %></div>
       <% end %>
     <% end %>
+    <%= flash[:notice] %>
     <%= yield %>
+
+    <a href='session/end'><button>Logout</button></a>
   </body>
 </html>

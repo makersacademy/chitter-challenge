@@ -10,6 +10,14 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   enable :sessions
+  set :session_secret, 'super secret'
+
+  helpers do
+
+    def current_user
+      @current_user || User.get(session[:user_id])
+    end
+  end
 
   get '/users/new' do
     erb :signup
@@ -19,6 +27,7 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], username: params[:username], email: params[:email],
             password: params[:password], password_confirmation: params[:password_confirmation])
     if user.valid?
+      session[:user_id] = user.id
       redirect('/session')
     else
       flash[:errors] = user.errors.full_messages
@@ -30,5 +39,25 @@ class Chitter < Sinatra::Base
     erb :session
   end
 
+  get '/session/new' do
+    erb :login
+  end
+
+  post '/session/new' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/session')
+    else
+      flash[:errors] = ['The username or password is not correct']
+      redirect('session/new')
+    end
+  end
+
+  get '/session/end' do
+    flash[:notice] = "Goodbye #{current_user.name}!"
+    session[:user_id] = nil
+    redirect('/session')
+  end
 
 end
