@@ -1,4 +1,3 @@
-require './app/app.rb'
 require 'spec_helper'
 
 

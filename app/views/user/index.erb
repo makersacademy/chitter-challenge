@@ -13,29 +13,28 @@
     </div>
 
     <div class='sign_in'>
-      <h4> Secret Members' Handshake: </h4>
-      <form action="/sign_in" method="post">
-        <label for="user_name">
-          User Name:
-          <input type="text" name="user_name" value="<%= flash[:existing_user_user_name_memo] %>">
-        </label>
-
-        <label for="email">
-          Email:
-          <input type="text" name="email" value="<%= flash[:existing_user_email_memo] %>">
-        </label>
-
-      <% if flash[:password_error] %>
-      <%= flash[:password_error] %>
+      <h4> Brother? Is that you? </h4>
+      <% if flash[:authentication_error] %>
+      <%= flash[:authentication_error] %>
       <% end %>
-        <label for="password">
-          Password:
-          <input type="password" name="password">
+
+      <form action="/sign_in" method="post">
+        <label for="existing_user_name">
+          User Name:
+          <input type="text" name="existing_user_name">
         </label>
+
+
+        <label for="existing_password">
+          Password:
+          <input type="password" name="existing_password">
+        </label>
+        
         <label for="submit" class="submitform">
           <input type="submit" value="Secret Member's Handshake">
         </label>
       </form>
+    </div>
 
     <div class='sign_up'>
       <h4> Join the Cult </h4>
