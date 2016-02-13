@@ -35,6 +35,15 @@ end
 #As a maker
 #So that I can see what others are saying  
 #I want to see all peeps in reverse chronological order
+feature 'I want to see all peeps in reverse chronological order' do
+  scenario 'Create three peeps and view them in reverse order' do
+    visit_and_peep('Created first')
+    visit_and_peep('Created second')
+    visit_and_peep('Created third')
+    expect(page).to have_content('Created third Created second Created first')
+  end
+end 
+
 
 #As a maker
 #So that I can better appreciate the context of a peep
