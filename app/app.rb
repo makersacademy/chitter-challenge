@@ -1,8 +1,18 @@
+
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
+require 'sinatra/flash'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+
   get '/' do
-    'Hello Chitter!'
+    erb :'/home'
+  end
+
+  get '/sign_up' do
+    erb :'/sign_up'
   end
 
   # start the server if ruby file executed directly
