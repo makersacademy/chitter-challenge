@@ -12,7 +12,7 @@
   <% @peeps.each do |peep| %>
   <li><%= peep.user %></br>
     <%= peep.username %></br>
-    <%= peep.message %>
+    <%= peep.message %></br>
     <%= peep.time.asctime %></li>
   <% end %>
 </ul>
