@@ -1,10 +1,11 @@
 <h1>Chitter - Speak your mind!</h1>
 
+<% unless @signed_in %>
+  <a href='/sign_up'>Sign Up</a>
+<% end %>
 
 <% unless @new_peep %>
-
 <a href='/compose_peep'>Compose Peep</a>
-
 <% end %>
 
 <% if @new_peep %>

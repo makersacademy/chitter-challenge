@@ -1,6 +1,20 @@
 #As a Maker
 #So that I can post messages on Chitter as me
 #I want to sign up for Chitter
+feature 'I want to sign up for Chitter' do
+  scenario 'Allows a user to sign up' do
+    visit '/'
+    click_link('Sign Up')
+    fill_in :email, with: 'test@mail.com'
+    fill_in :password, with: 'abc123'
+    click_button('Submit')
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, test@mail.com')
+    expect(User.first.email).to eq('test@mail.com')
+  end
+end
+
+
 
 #As a Maker
 #So that I can post messages on Chitter as me
