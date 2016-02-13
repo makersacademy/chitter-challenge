@@ -2,8 +2,8 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
-  # use Rack::MethodOverride
   # register Sinatra::Partial
   # set :partial_template_engine, :erb
   # enable :partial_underscores

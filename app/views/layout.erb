@@ -19,6 +19,13 @@
     <div id='welcome'>
       Welcome <%=current_user.username%>
     </div>
+
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <div class="button">
+          <button type="submit">Sign out</button>
+      </div>
+    </form>
   <% end %>
 
   <div id='main'>

@@ -7,10 +7,16 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['Invalid username/password']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:sign_out] = 'You have successfully signed out'
+    redirect to('/peeps')
   end
 end

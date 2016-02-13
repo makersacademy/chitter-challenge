@@ -5,7 +5,7 @@ feature 'Signing up successfully' do
 
   scenario 'Successful signing up with valid credentials' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/peeps')
   end
 end
 
