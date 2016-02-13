@@ -15,14 +15,16 @@
 #I want to post a message (peep) to chitter
 feature 'I want to post a message (peep) to chitter' do
  scenario 'User can post a message and view it on the main page' do
-  custom_message = 'Hello, world! This is my first peep!'
-  visit '/'
-  click_link('Compose Peep')
-  fill_in :message, with: custom_message
-  click_button 'Peep'
-  expect(page).to have_content(custom_message)
-  
+  visit_and_peep('Hello, world!')
+  expect(page).to have_content('Hello, world!')
  end
+
+  scenario 'I want to post another message (peep) and see both messages' do
+    visit_and_peep("My first peep")
+    visit_and_peep("My second peep")
+    expect(page).to have_content('My first peep')
+    expect(page).to have_content('My second peep')
+  end
 end
 #As a maker
 #So that I can see what others are saying  
