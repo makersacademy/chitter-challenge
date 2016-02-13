@@ -28,4 +28,9 @@ class User
     @password = Password.create(password)
     self.password_digest = @password
   end
+
+  def self.authenticate(username, password)
+    user = first(username: username)
+    user if user && Password.new(user.password_digest) == password
+  end
 end
