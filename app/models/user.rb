@@ -8,13 +8,13 @@ class User
   include BCrypt
 
   property :id,               Serial
-  property :name,             String
-  property :username,         String
-  property :password_digest,  Text
   property :email,            String,
             :required =>      true,
             :unique   =>      true,
             :format   =>      :email_address
+  property :name,             String
+  property :username,         String
+  property :password_digest,  Text
 
   attr_reader :password
   attr_accessor :password_confirmation
