@@ -65,17 +65,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(text: params[:peep], user: current_user, post_time: Time.now)
-    redirect to '/'
+      Peep.create(text: params[:peep], user: current_user, post_time: Time.now)
+      redirect to '/'
   end
 
   post '/responses' do
     peep = Peep.get(params[:current_peep])
     reply = Response.create(text: params[:reply], user: current_user, peep: peep, post_time: Time.now)
     peep.responses << reply
-    p peep.responses
     peep.save
-    p peep
     redirect to '/'
   end
 

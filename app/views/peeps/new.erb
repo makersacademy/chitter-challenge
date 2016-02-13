@@ -1,4 +1,9 @@
+
+<% if current_user %>
 <form action="/peeps" method="post">
   <input type="textarea" name="peep">
   <input type="submit" value="Post Peep">
 </form>
+<% else %>
+<h2>Sorry, you have to be signed in to send a peep</h2>
+<% end %>
