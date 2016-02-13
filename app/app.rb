@@ -40,6 +40,12 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post '/post_peep' do
+    user = User.first(id: session[:user_id])
+    user.peeps << Peep.create(peep: params[:peep_input])
+    redirect '/'
+  end
+
   delete '/goodbye' do
     session[:user_id] = nil
     redirect '/'
