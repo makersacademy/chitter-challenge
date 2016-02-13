@@ -1,3 +1,8 @@
+Reiss Johnson - Initial commit
+--------------------------------
+
+Instructions for user.
+
 Chitter Challenge
 =================
 
