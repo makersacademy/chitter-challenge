@@ -17,6 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/models/user'
+require './app/models/peep'
 require 'database_cleaner'
 require 'web_helpers.rb'
 

@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -48,6 +49,13 @@ class Chitter < Sinatra::Base
 
   delete '/log_out' do
     session[:user_id] = nil
+    redirect('/')
+  end
+
+  post '/new_peep' do
+    user = current_user
+    Peep.create(message: params[:message],
+      username: user.username, user: user.name)
     redirect('/')
   end
 

@@ -1,1 +1,16 @@
-<h1>Chitter</h1>
+<% if current_user %>
+  <form action="new_peep" method="post">
+    <label for="message">Post a Peep!</label>
+    <textarea name="message" prototype="Write your peep!" cols="20" rows="3">
+    </textarea>
+    <input type="submit" value="Post">
+  </form>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+  <li><%= peep.user %></br>
+    <%= peep.username %></br>
+    <%= peep.message %></li>
+  <% end %>
+</ul>
