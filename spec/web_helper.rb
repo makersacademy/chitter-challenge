@@ -7,5 +7,4 @@ def sign_up_good
   fill_in 'password', with: 'hello'
   fill_in 'password_confirm', with: 'hello'
   click_button 'Submit'
-
 end
