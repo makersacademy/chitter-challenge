@@ -11,4 +11,9 @@ feature 'sign up' do
     expect {sign_up_good}.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
+
+  scenario 'sends error message when invalid email' do
+    expect {sign_up_invalid}.not_to change(User, :count)
+    expect(page).to have_content 'Email has an invalid format'
+  end
 end
