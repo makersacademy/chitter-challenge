@@ -12,6 +12,7 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'timecop'
 require_relative 'helpers/session'
 require './app/app'
 

@@ -6,6 +6,7 @@
     <%= peep.user.name %>
     <%= peep.user.username %>
     <%= peep.message %>
+    <%= peep.created_at.strftime("peeped at %H:%M %d.%m.%Y") %>
   </li>
   <% end %>
 </ul>
