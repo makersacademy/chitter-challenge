@@ -1,3 +1,5 @@
+require_relative 'web_helper'
+
 require 'coveralls'
 require 'simplecov'
 
