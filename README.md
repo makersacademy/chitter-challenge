@@ -18,11 +18,23 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 - commenting on other’s Peeps
 - give error message when user tries to submit a peep longer than 50 chars
 
+<b>TECHNOLOGIES USED:</b><br>
+- Ruby 2.2.3
+- Sinatra
+- HTML/CSS
+- Bootstrap
+- jQuery
+- Rspec-Sinatra, Capybara, Coveralls (for testing)
+
 <b>ACKNOWLEDGEMENTS:</b><br>
 Background image taken from <a href="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg">Mindsquirrel</a>.
 
 <b>HOW TO USE:</b><br>
-Clone repo, then run ```bundle``` to install dependencies. From the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```, then visit the corresponding ```localhost``` in your browser.
+- clone repo
+- run ```bundle``` to install dependencies
+- run ```rake db:auto_migrate``` to set up database
+- from the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```
+- visit the corresponding ```localhost``` in your browser
 
 ![Screenshot](/public/images/screenshots/visit-home.png)
 
