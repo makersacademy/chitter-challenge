@@ -27,3 +27,10 @@ def sign_up_bad(email)
   fill_in 'password_confirmation', with: 'abcd'
   click_button 'Sign up'
 end
+
+def login
+  visit '/sessions/new'
+  fill_in 'email', with: 'test@test.com'
+  fill_in 'password', with: 'abcd'
+  click_button 'Login'
+end

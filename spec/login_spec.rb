@@ -9,10 +9,7 @@ feature 'login' do
   end
 
   scenario 'A user can sign in with valid credentials' do
-    visit '/sessions/new'
-    fill_in 'email', with: 'test@test.com'
-    fill_in 'password', with: 'abcd'
-    click_button 'Login'
+    login
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'Welcome, Bobby'
   end
