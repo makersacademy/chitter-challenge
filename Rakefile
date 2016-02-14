@@ -1,3 +1,4 @@
+=begin
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   
@@ -5,6 +6,7 @@ if ENV['RACK_ENV'] != 'production'
   
   task default: [:spec]
 end
+=end
 
 require 'data_mapper'
 require './app/chitter.rb'
