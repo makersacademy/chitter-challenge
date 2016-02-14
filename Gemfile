@@ -11,6 +11,7 @@ gem 'bcrypt'
 
 group :test do
   gem 'rspec'
+  gem 'rack'
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'capybara'

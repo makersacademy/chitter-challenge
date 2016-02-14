@@ -1,0 +1,9 @@
+<form action='peep/new' method='post'>
+    <textarea name='peep' placeholder='Write a new peep'></textarea>
+    <input type='submit' value='Post' />
+</form>
+
+<% @peeps.each do |post| %>
+   <div class='post'><%= post.body %></div>
+<% end %>
+    
