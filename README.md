@@ -65,6 +65,6 @@ Post a Peep
 
 Add a reply
 
-![Screenshot](docs/screenshots/sign_out.jpg)
+![Screenshot](docs/screenshots/sign-out.jpg)
 
 Sign Out

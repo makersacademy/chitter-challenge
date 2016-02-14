@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'chitter';
-    src:    url('fonts/chitter.eot?69an1s');
-    src:    url('fonts/chitter.eot?69an1s#iefix') format('embedded-opentype'),
-        url('fonts/chitter.ttf?69an1s') format('truetype'),
-        url('fonts/chitter.woff?69an1s') format('woff'),
-        url('fonts/chitter.svg?69an1s#chitter') format('svg');
+    src:    url('../fonts/chitter.eot?69an1s');
+    src:    url('../fonts/chitter.eot?69an1s#iefix') format('embedded-opentype'),
+        url('../fonts/chitter.ttf?69an1s') format('truetype'),
+        url('../fonts/chitter.woff?69an1s') format('woff'),
+        url('../fonts/chitter.svg?69an1s#chitter') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -1074,4 +1074,3 @@
 .icon-ruler3:before {
     content: "\ea5d";
 }
-

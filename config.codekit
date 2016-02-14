@@ -212,94 +212,105 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
-	"\/static\/app.css": {
+	"\/static\/css\/app.css": {
 		"fileType": 16,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/static\/app.css",
+		"inputAbbreviatedPath": "\/static\/css\/app.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/static\/app.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/static\/app.js",
-		"outputAbbreviatedPath": "\/static\/min\/app-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/static\/foundation.css": {
+	"\/static\/css\/foundation.css": {
 		"fileType": 16,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/static\/foundation.css",
+		"inputAbbreviatedPath": "\/static\/css\/foundation.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/static\/icons.css": {
+	"\/static\/css\/icons.css": {
 		"fileType": 16,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/static\/icons.css",
+		"inputAbbreviatedPath": "\/static\/css\/icons.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/static\/images\/chair.jpg": {
+	"\/static\/css\/images\/chair.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 90902,
-		"inputAbbreviatedPath": "\/static\/images\/chair.jpg",
-		"outputAbbreviatedPath": "\/static\/images\/chair.jpg",
+		"inputAbbreviatedPath": "\/static\/css\/images\/chair.jpg",
+		"outputAbbreviatedPath": "\/static\/css\/images\/chair.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/static\/images\/clouds.jpg": {
+	"\/static\/css\/images\/clouds.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 40715,
-		"inputAbbreviatedPath": "\/static\/images\/clouds.jpg",
-		"outputAbbreviatedPath": "\/static\/images\/clouds.jpg",
+		"inputAbbreviatedPath": "\/static\/css\/images\/clouds.jpg",
+		"outputAbbreviatedPath": "\/static\/css\/images\/clouds.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/static\/images\/radio.jpg": {
+	"\/static\/css\/images\/radio.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 127794,
-		"inputAbbreviatedPath": "\/static\/images\/radio.jpg",
-		"outputAbbreviatedPath": "\/static\/images\/radio.jpg",
+		"inputAbbreviatedPath": "\/static\/css\/images\/radio.jpg",
+		"outputAbbreviatedPath": "\/static\/css\/images\/radio.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/static\/images\/sky.jpg": {
+	"\/static\/css\/images\/sky.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 61145,
-		"inputAbbreviatedPath": "\/static\/images\/sky.jpg",
-		"outputAbbreviatedPath": "\/static\/images\/sky.jpg",
+		"inputAbbreviatedPath": "\/static\/css\/images\/sky.jpg",
+		"outputAbbreviatedPath": "\/static\/css\/images\/sky.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/static\/min\/app-min.js": {
-		"fileType": 64,
-		"ignore": 1,
+	"\/static\/favicon-16x16.png": {
+		"fileType": 32768,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/static\/min\/app-min.js",
-		"outputAbbreviatedPath": "\/static\/min\/min\/app-min-min.js",
+		"initialSize": 495,
+		"inputAbbreviatedPath": "\/static\/favicon-16x16.png",
+		"outputAbbreviatedPath": "\/static\/favicon-16x16.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/favicon-32x32.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1001,
+		"inputAbbreviatedPath": "\/static\/favicon-32x32.png",
+		"outputAbbreviatedPath": "\/static\/favicon-32x32.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/static\/js\/app.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/static\/js\/app.js",
+		"outputAbbreviatedPath": "\/static\/js\/min\/app-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -313,7 +324,7 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/static\/scss\/app.scss",
-		"outputAbbreviatedPath": "\/static\/app.css",
+		"outputAbbreviatedPath": "\/static\/css\/app.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
@@ -329,7 +340,7 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/static\/scss\/foundation.scss",
-		"outputAbbreviatedPath": "\/static\/foundation.css",
+		"outputAbbreviatedPath": "\/static\/css\/foundation.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
