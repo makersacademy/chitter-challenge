@@ -26,6 +26,11 @@ class ChitterChallenge < Sinatra::Base
       end
     end
 
+  post '/users/sign_up' do
+    @user = User.new
+    erb :'users/sign_up'
+  end
+
   post '/users' do
     @user = User.new(email: params[:email],
                      password: params[:password],
@@ -40,7 +45,6 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/users/new' do
-    @user = User.new
     erb :'users/new'
   end
 

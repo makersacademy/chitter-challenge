@@ -7,7 +7,8 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
-
+  has n, :peeps
+  
   include DataMapper::Resource
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
