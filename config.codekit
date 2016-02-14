@@ -116,6 +116,81 @@
 		"randomFootnoteNumbers": 0,
 		"useCompatibilityMode": 0
 		},
+	"\/docs\/screenshots\/post_peep.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 42079,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/post_peep.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/post_peep.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/docs\/screenshots\/reply.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 35825,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/reply.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/reply.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/docs\/screenshots\/sign-out.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 37470,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/sign-out.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/sign-out.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/docs\/screenshots\/sign_up.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21260,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/sign_up.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/sign_up.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/docs\/screenshots\/visit.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 32736,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/visit.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/visit.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/docs\/screenshots\/write_peep.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 39519,
+		"inputAbbreviatedPath": "\/docs\/screenshots\/write_peep.jpg",
+		"outputAbbreviatedPath": "\/docs\/screenshots\/write_peep.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/README.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/README.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/README.md": {
 		"criticStyle": 0,
 		"enableFootnotes": 1,

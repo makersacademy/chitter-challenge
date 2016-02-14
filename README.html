@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="chitterchallenge">Chitter Challenge</h1>
+
+<h2 id="thechallenge:">The Challenge:</h2>
+
+<p>Build a small twitter-esque messaging service, where users can sign up, log in, post messages and replies, and log out.</p>
+
+<h2 id="myapproach:">My Approach:</h2>
+
+<p>I began by setting up a new Sinatra environment, testing environment and Postgres databases. Using the user stories, I then test-built the app one route at a time, starting with signing-up Users and working towards an app where Users can log in, post content (&#8216;Peeps&#8217; and replies), and log out.</p>
+
+<p>The app uses classes for Users, Peeps and Replies.</p>
+
+<p>The app is (almost) fully feature-tested using Capybara.</p>
+
+<p>Once the functionality was in place I wrote some styles for the site, and used Foundation for some quick structure.</p>
+
+<p>Finally, I deployed the app to Heroku.</p>
+
+<p>The app uses Sinatra, Postgres and DataMapper, with Rspec and Capybara for testing. The front end was built using HTML, SCSS and a tiny bit of jQuery. The typefaces are from TypeKit.</p>
+
+<h2 id="installingtheapp:">Installing the app:</h2>
+
+<ul>
+<li>Fork this repo</li>
+<li>Clone to your local environment</li>
+<li>run <code>bundle install</code></li>
+<li>run <code>createdb chitter_development</code></li>
+<li>run <code>rake db:auto_migrate RACK_ENV=development</code></li>
+<li>run <code>rackup</code> or equivalent</li>
+</ul>
+
+<h2 id="onheroku">On Heroku</h2>
+
+<p>https://sh-chitter.herokuapp.com</p>
+
+<h2 id="usingtheapp:">Using the app:</h2>
+
+<figure>
+<img src="docs/screenshots/visit.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Visit the site</p>
+
+<figure>
+<img src="docs/screenshots/sign_up.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Sign Up</p>
+
+<figure>
+<img src="docs/screenshots/write_peep.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Write a Peep</p>
+
+<figure>
+<img src="docs/screenshots/post_peep.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Post a Peep</p>
+
+<figure>
+<img src="docs/screenshots/reply.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Add a reply</p>
+
+<figure>
+<img src="docs/screenshots/sign_out.jpg" alt="Screenshot" />
+<figcaption>Screenshot</figcaption>
+</figure>
+
+<p>Sign Out</p>
+
+</body>
+</html>
