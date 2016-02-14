@@ -29,4 +29,10 @@
 #     @user = session_user.user_name
 #     erb :'user/welcome'
 #   end
+
+#   delete '/goodbye' do
+#     session[:user_id] = nil
+#     flash.next[:notice_goodbye] = 'We are done... don\'t come crying back'
+#     redirect '/'
+#   end
 # end

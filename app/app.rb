@@ -10,15 +10,11 @@ require_relative 'helpers'
 class Chitter < Sinatra::Base
   helpers Helpers
   register Sinatra::Flash
-
-
   enable :sessions
   set :session_secret, 'super secret'
-
   register Sinatra::Partial
   set :partial_template_engine, :erb
   enable :partial_underscores
-
   use Rack::MethodOverride
 
 
@@ -69,14 +65,20 @@ class Chitter < Sinatra::Base
   end
 
   get "/chitter" do
-    # redirect '/chitter'
+   @peeps = Peep.all.reverse
    erb :session
   end
 
   post "/post_peep" do
-  @message = params[:peep]
-  flash.next[:peep] = @message
-   redirect '/chitter'
+  flash.next[:too_long] = 'Keep it brief' if peep_error?
+    if session_user.nil?
+      flash.next[:no_author] = 'This is a members only cult. IMPOSTER'
+    else
+    @peep = Peep.new(peep_message: params[:peep], author: session_user.user_name)
+      session_user.peeps << @peep
+      session_user.save
+    end
+    redirect '/chitter'
   end
 
  delete '/goodbye' do

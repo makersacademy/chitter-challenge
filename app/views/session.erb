@@ -6,25 +6,35 @@
   </head>
 
   <body>
+  <div>
     <h1> Chitter HQ <h1>
     <%= erb(:'user/logout')%>
     <form action="/post_peep" method="post">
       <label for="peep">
-        Tic:
-
-        <textarea rows="4" cols="50" name="peep" maxlength="140">
+        Make a Peep:
+        <% if flash[:too_long] %>
+        <%= flash[:too_long] %>
+        <% end %>
+        <textarea rows="2" cols="50" name="peep">
         </textarea>
       </label>
-
       <label for="submit" class="submitform">
         <input type="submit" value="Word Vom">
       </label>
+      <% if flash[:no_author] %>
+      <%= flash[:no_author] %>
+      <% end %>
     </form>
   </div>
-  <div class="message" >
-    <%= flash[:peep] %>
-  </div>
 
+  <%@peeps.each do |peep| %>
+  <div class="single_peep" >
+    <p><%= peep.peep_message %></p>
+    <p><%= readable_time(peep.created_at) %></p>
+    <p><%= readable_date(peep.created_on) %></p>
+    <p><%= peep.author %></p>
+  </div>
+  <% end %>
 
   </body>
 </html>

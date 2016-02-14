@@ -20,4 +20,17 @@ module Helpers
       end
     end
 
+    def peep_error?
+      params[:peep].length >140
+    end
+
+
+    def readable_date(created_on_date)
+      created_on_date.strftime("%m/%d/%Y")
+    end
+
+    def readable_time(created_at_time)
+      created_at_time.strftime("%I:%M%p") 
+    end
+
 end

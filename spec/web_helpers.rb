@@ -66,4 +66,35 @@ module SessionHelpers
     end
   end
 
+  def post_peep
+    sign_in_good
+    visit '/chitter'
+    fill_in 'peep', with: 'Here\'s Johny'
+    click_button 'Word Vom'
+    @time = Time.now
+  end
+
+  def post_peep_no_author
+    visit '/chitter'
+    fill_in 'peep', with: 'Here\'s Johny'
+    click_button 'Word Vom'
+    @time = Time.now
+  end
+
+  def post_peep_2
+    sign_in_good
+    visit '/chitter'
+    fill_in 'peep', with: 'Another futile peep'
+    click_button 'Word Vom'
+  end
+
+  def post_peep_long
+    sign_in_good
+    visit '/chitter'
+    long_peep = 'Too long for Hound. Hound is crying' * 5
+    fill_in 'peep', with: long_peep
+    click_button 'Word Vom'
+  end
+
+
 end

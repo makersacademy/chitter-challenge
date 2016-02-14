@@ -13,6 +13,8 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, Text
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -42,5 +44,4 @@ class User
 end
 
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
+# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
