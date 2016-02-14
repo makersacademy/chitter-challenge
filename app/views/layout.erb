@@ -26,9 +26,16 @@
           Welcome, <%= current_user.name %>
           <% end %>
         </p>
-        <% if flash[:notice] %>
-          <div id='notice'><%= flash[:notice] %></div>
+
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Please refer to the following errors below:
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
         <% end %>
+
         <div class="signup-form">
           <p class="text-center">Create a Chitter's account</p>
           <%= yield %>
