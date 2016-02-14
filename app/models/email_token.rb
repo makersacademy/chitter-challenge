@@ -1,6 +1,7 @@
 require 'dotenv'
 Dotenv.load
 require 'mailgun'
+
 class EmailToken
 
  def initialize(mailer: nil)
@@ -12,8 +13,6 @@ class EmailToken
  end
 
  def call(user)
-   p user.email
-   p user.password_token
    message_params = {from: "help@chitterbot.com",
                      to: user.email,
                      subject: "reset your password",

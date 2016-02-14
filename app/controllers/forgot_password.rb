@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/reset-password' do
-    erb :'/users/reset_password'
+    if session[:token] then erb :'/users/reset_password' else redirect '/users/login' end
   end
 
   post '/users/send-token' do

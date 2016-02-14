@@ -10,7 +10,7 @@ feature 'Peeps' do
     signup
     fill_in('peep', with: "Hello chitter")
     click_button('Peep')
-    expect(page).to have_content "Posted by: Alex"
+    expect(page).to have_content "Alex peeped:"
   end
 
 end
