@@ -10,17 +10,11 @@
 </h1>
 
 <h2>
-  <form action="/signup" method="post">
-    Name<br>
-    <input type="text" name="name"><br>
+  <form action="/signin" method="post">
     Username<br>
     <input type="text" name="username"><br>
-    Email:<br>
-    <input type="email" name="email" value="<%= @user.email %>" required><br>
     Password:<br>
     <input type="password" name="password"><br>
-    Confirm Password:<br>
-    <input type="password" name="password_confirmation"><br>
-    <input type="submit" value="Sign up">
+    <input type="submit" value="Sign in">
   </form>
 </h2>

@@ -8,6 +8,8 @@ gem "bcrypt"
 gem "sinatra-flash"
 gem "rerun"
 gem "database_cleaner"
+gem "data_mapper"
+gem 'dm-postgres-adapter'
 
 group :test do
   gem 'rspec'

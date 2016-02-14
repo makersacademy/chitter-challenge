@@ -7,9 +7,10 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
-  register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -22,17 +23,33 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
+    @user = User.new
     erb :signup
   end
 
-  post '/profile' do
+  post '/signup' do
     @user = User.new(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect('/profile')
     else
-      flash.now[:message] = "Passwords do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :signup
+    end
+  end
+
+  get '/signin' do
+    erb :signin
+  end
+
+  post '/signin' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/profile')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :signin
     end
   end
 
