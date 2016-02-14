@@ -16,7 +16,7 @@ feature "Users can fill out a form to log in" do
     expect(page).to have_content "Welcome, David"
   end
 
-   scenario "users cannot log in is username and password don't match" do
+  scenario "users cannot log in is username and password don't match" do
     sign_up
     click_button('Log in')
     fill_in('username', with: 'drjparry')

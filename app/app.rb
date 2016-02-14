@@ -66,16 +66,16 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
-   delete '/log_out' do
-      session[:user_id] = nil
-      flash.keep[:notice] = 'Goodbye!'
-      redirect to('/home')
-    end
+  delete '/log_out' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to('/home')
+  end
 
-helpers do
- def current_user
-   @current_user ||= User.get(session[:user_id])
- end
+  helpers do
+  def current_user
+     @current_user ||= User.get(session[:user_id])
+  end
 end
 
 
