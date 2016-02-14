@@ -19,6 +19,8 @@ feature 'Post Peeps' do
 
 
     scenario 'a user cannot post peeps if not signed in' do
+      visit '/'
+      expect(page).not_to have_content "Post peep"
     end
 
 end

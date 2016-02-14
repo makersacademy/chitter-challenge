@@ -4,6 +4,7 @@ class User
   include DataMapper::Resource
 
   has n, :peeps
+  has n, :responses
 
   property :id, Serial
   property :name, String

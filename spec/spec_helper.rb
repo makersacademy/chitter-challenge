@@ -15,6 +15,7 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'timecop'
 require './app/app'
 
 require_relative 'helpers/session'

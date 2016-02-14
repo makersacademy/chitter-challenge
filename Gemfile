@@ -7,6 +7,7 @@ gem 'sinatra'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
