@@ -7,6 +7,7 @@ gem 'rspec-sinatra'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'orderly'
 
 group :test do
   gem 'rspec'

@@ -11,6 +11,8 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require 'web_helpers'
+require 'orderly'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

@@ -47,6 +47,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/logged_in' do 
+    @user=User.all
     @peeps = Peep.all 
   	erb :logged_in
  	end

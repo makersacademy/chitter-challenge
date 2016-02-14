@@ -1,6 +1,9 @@
+<h1> Welcome to Peeps! <h1>
+
 <ul id='Peeps'>
-<% @peeps.each do |peep|%>
+<% @peeps.reverse.each do |peep|%>
   <p style='font-size:12px;'>
+  	<%= peep.created_at.strftime("%m/%d/%Y") %>
   	<%= peep.time %> </p> 
    <p style='font-size:20px;'><%= peep.content %></p>
   </div>

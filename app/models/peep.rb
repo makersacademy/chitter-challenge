@@ -6,7 +6,7 @@ class Peep
   
   	property :id, Serial
     property :content, String
-    property :created_at, Time
+    property :created_at, DateTime
     property :time, String
 
 end

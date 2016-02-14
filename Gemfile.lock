@@ -96,6 +96,9 @@ GEM
     netrc (0.10.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -160,6 +163,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  orderly
   rake
   rspec
   rspec-sinatra
