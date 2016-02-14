@@ -7,6 +7,7 @@ group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 
@@ -14,7 +15,6 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rack'
 gem 'sinatra'
-gem 'database_cleaner'
 gem 'pg'
 gem 'rake'
 gem 'bcrypt'

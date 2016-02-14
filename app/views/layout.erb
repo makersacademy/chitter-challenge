@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Chitter Chatter</title>
+  </head>
+
+  <body>
+
+    <% if flash[:errors] && !flash[:errors].empty?%>
+    <ul id='errors' style="color:red" >
+      <% flash[:errors].each do |error| %>
+      <li><%=error%></li>
+    <%end%>
+    </ul>
+
+    <% elsif current_user %>
+      Welcome, <%= current_user.name %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+
+      <form method='post' action='/peeps/new_peep.erb'>
+        <input type='submit' value='New peep'>
+      </form>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
