@@ -23,7 +23,7 @@ feature 'User Sign Up' do
     expect(page).to have_content('Dur-brain, you need to type the SAME password twice')
   end
 
-  scenario 'On sign up, if my passwords do not match I am not added to the database' do
+  scenario 'On sign up, mismatched passwords lead to no database changes' do
     expect{sign_up_bad_password}.not_to change(User, :count)
   end
 

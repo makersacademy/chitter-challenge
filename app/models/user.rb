@@ -20,28 +20,24 @@ class User
 
   def self.authenticate(user_name, password)
     user = first(user_name: user_name)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
 
 
   validates_confirmation_of :password,
-  :message => 'Dur-brain, you need to type the SAME password twice'
+  message: 'Dur-brain, you need to type the SAME password twice'
 
   validates_presence_of :email,
-  :message => 'Friend, without an email, how can we contact you again?'
+  message: 'Friend, without an email, how can we contact you again?'
   validates_uniqueness_of :email,
-  :message => 'Friend? Can you not remember that you\'re a member?'
+  message: 'Friend? Can you not remember that you\'re a member?'
   validates_format_of :email, as: :email_address,
-  :message => 'Friend, something looks a bit fishy about your email'
+  message:'Friend, something looks a bit fishy about your email'
 
   validates_presence_of :user_name,
-  :message => 'You may have forgotten something Brother. Something crucial.'
+  message: 'You may have forgotten something Brother. Something crucial.'
   validates_uniqueness_of :user_name,
-  :message => 'We already have a Brother by that name. There can be only one'
+  message: 'We already have a Brother by that name. There can be only one'
 
 end
 

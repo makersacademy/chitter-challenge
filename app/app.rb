@@ -71,7 +71,7 @@ class Chitter < Sinatra::Base
   get "/chitter" do
     # redirect '/chitter'
    erb :session
- end
+  end
 
  delete '/goodbye' do
    session[:user_id] = nil
@@ -79,5 +79,5 @@ class Chitter < Sinatra::Base
    redirect '/'
  end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
