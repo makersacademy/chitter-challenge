@@ -1,12 +1,12 @@
 <form action='/users' method='post'>
   <div class="form-group">
-    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
   </div>
   <div class="form-group">
-    <input type="text" placeholder="Userame" name="username" required>
+    <input type="text" placeholder="Userame" name="username" value="<%= @user.username %>" required>
   </div>
   <div class="form-group">
-      <input type="email" placeholder="Email" name="email" required>
+      <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
   </div>
   <div class="form-group">
       <input type="password" placeholder="Password"  name="password" required>

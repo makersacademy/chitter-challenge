@@ -26,6 +26,9 @@
           Welcome, <%= current_user.name %>
           <% end %>
         </p>
+        <% if flash[:notice] %>
+          <div id='notice'><%= flash[:notice] %></div>
+        <% end %>
         <div class="signup-form">
           <p class="text-center">Create a Chitter's account</p>
           <%= yield %>
