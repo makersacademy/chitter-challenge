@@ -11,8 +11,8 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  attr_accessor :password_confirmation
-  attr_reader :password, :username, :password_token
+  attr_accessor :password_confirmation, :password
+  attr_reader :username, :password_token
 
   has n, :peeps
 

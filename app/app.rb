@@ -128,20 +128,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  # post '/tags' do
-  #   @search = params[:search]
-  #   redirect "/tags/#{@search}"
-  # end
-  #
-  # get '/tags/:search' do
-  #   # check it's a tag
-  #   @user = current_user
-  #   tag = Tag.first(tag: params[:search])
-  #   @list = tag ? tag.links : []
-  #   erb(:links)
-  # end
-
-
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
