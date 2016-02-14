@@ -3,8 +3,8 @@
   <% @peep.reverse.each do |peep| %>
     <ul>
       <li><%= peep.peep %></li>
-      <%= current_user.name %> (<%= current_user.username %>)
-      at <em><%= Time.now %></em>
+      <%= peep.composer %> (@<%= peep.user_name %>)
+      at <em><%= peep.time %></em>
     </ul>
   <%end%>
 

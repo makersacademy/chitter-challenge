@@ -25,8 +25,10 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     if session[:user_id]
-      peep = Peep.create(peep: params[:peep])
-      peep.save
+      peep = Peep.create(peep: params[:peep],
+                         time: Time.now,
+                         composer: current_user.name,
+                         user_name: current_user.username)
       redirect to('/peeps')
     else
       flash.keep[:error] = 'Please log in to compose a peep!'

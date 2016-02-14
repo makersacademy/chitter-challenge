@@ -7,7 +7,7 @@ class User
   has n, :peep, through: Resource
 
   attr_accessor :password_confirmation
-  attr_reader :password, :email, :username
+  attr_reader :password, :email, :username, :name
 
   property :id,       Serial
   property :name,     String
