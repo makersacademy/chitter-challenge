@@ -5,13 +5,16 @@
     Chitter - nothing like twitter.
   </title>
 </head>
-<body>
-  <% if @user == nil %>
+  <body>
+    <% if flash[:unknown_username] %>
+      <%= flash[:unknown_username] %>
+    <% end %>
+
     <form action='/signup' >
       <input type='submit' value='Create Account'> <br>
     </form>
-  <% elsif @user != nil %>
-    <h1>Logged in as: <%= @user.username %></h1>
-  <% end %>
-</body>
+    <% if @user != nil %>
+      <h3>Logged in as: <%= @user.username %></h3>
+    <% end %>
+  </body>
 </html>
