@@ -7,10 +7,12 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
+ENV['RACK_ENV'] = 'test'
+
 require 'capybara'
 require 'capybara/rspec'
-require './spec/web_helper.rb'
-require './app/app.rb'
+require './spec/web_helper'
+require './app/app'
 
 Capybara.app = Chitter
 
