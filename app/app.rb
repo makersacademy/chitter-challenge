@@ -8,7 +8,7 @@ require_relative 'models/user'
 
 
 class Chitter < Sinatra::Base
-  set :public, 'public'
+  set :public_folder, 'public'
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash

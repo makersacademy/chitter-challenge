@@ -1,4 +1,3 @@
-# require_relative '../data_mapper_setup.rb'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative 'user'
@@ -9,10 +8,7 @@ class Peep
 
   attr_reader :body, :created_at
 
-  # has n, :users, through: Resource
-  belongs_to :user#, 'User',
-    # parent_key: [:username],
-    # child_key: [:body]
+  belongs_to :user
 
   property :id, Serial
   property :body, String, required: true

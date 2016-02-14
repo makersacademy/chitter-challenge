@@ -12,9 +12,7 @@ class User
   attr_accessor :password_confirmation
   attr_reader :password, :username
 
-  has n, :peeps#, 'Peep',
-    # parent_key: [:username],
-    # child_key: [:body]
+  has n, :peeps
 
   property :id,   Serial
   property :name, String, required: true
