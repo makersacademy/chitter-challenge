@@ -2,12 +2,19 @@ source 'http://rubygems.org'
 
 ruby '2.2.3'
 
+gem 'bcrypt'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'rerun'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'sinatra-partial'
+
 group :test do
-	gem 'dm-postgres-adapter'
-	gem 'rspec'
-	gem 'capybara'
-	gem 'sinatra'
-	gem 'rspec-sinatra'
-	gem 'data_mapper'
-	gem 'bcrypt'
+  gem 'rspec'
+  gem 'rspec-sinatra'
+  gem 'capybara'
+  gem 'rake'
+  gem 'database_cleaner'
+  gem 'rubocop'
 end
