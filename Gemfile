@@ -6,6 +6,10 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'rest-client'
+gem 'mailgun-ruby'
+gem 'dotenv'
+
 
 group :test do
   gem 'capybara'

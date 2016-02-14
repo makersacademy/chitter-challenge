@@ -1,4 +1,9 @@
 module CurrentUser
+  
+  def h(text)
+    Rack::Utils.escape_html(text)
+  end
+
   def current_user
     @current_user ||= User.get(session[:user_id])
   end

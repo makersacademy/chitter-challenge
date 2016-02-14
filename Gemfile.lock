@@ -84,6 +84,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.0)
     extlib (0.9.16)
     fastercsv (1.5.5)
     ffi (1.9.10)
@@ -93,6 +94,9 @@ GEM
       domain_name (~> 0.5)
     json (1.8.3)
     json_pure (1.8.3)
+    mailgun-ruby (1.0.3)
+      json (~> 1.8)
+      rest-client (~> 1.6)
     mime-types (2.6.2)
     mini_portile2 (2.0.0)
     multi_json (1.11.2)
@@ -183,7 +187,10 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dotenv
+  mailgun-ruby
   rake
+  rest-client
   rspec
   rspec-sinatra
   rubocop

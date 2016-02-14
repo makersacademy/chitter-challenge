@@ -1,4 +1,5 @@
 require 'bcrypt'
+require_relative 'email_token'
 
 class User
   include DataMapper::Resource
@@ -18,7 +19,6 @@ class User
   attr_reader :password
 
   validates_confirmation_of :password
-  validates_presence_of :password_token
 
   def password
     @password ||= Password.new(password_digest)
@@ -57,7 +57,7 @@ class User
    self.password_token = random_password
    self.token_created_at = Time.now
    self.save!
-   #Mailer.create_and_deliver_password_change(self, random_password)
+   EmailToken.call(self)
   end
 
 end

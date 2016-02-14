@@ -19,13 +19,13 @@ class Chitter < Sinatra::Base
     notice_redir(notice: notice, redirection: '/users/login')
   end
 
-  post '/users/token-verification' do
+  get '/token/:token' do
     user = User.first(password_token: params[:token])
     if user && !user.expired_token?
       session[:token] = params[:token]
       redirect '/users/reset-password'
     else
-      notice_redir(notice: "Invalid token", redirection: '/users/token-verification')
+      notice_redir(notice: "Invalid token", redirection: '/users/forgot-password')
     end
   end
 
