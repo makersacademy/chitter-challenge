@@ -7,4 +7,8 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
+require 'capybara'
 require 'capybara/rspec'
+require './app/app.rb'
+
+Capybara.app = Chitter
