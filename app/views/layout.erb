@@ -64,14 +64,8 @@
 
     <%= yield %>
 
-    <%= flash[:invalid_login] %>
-    <% if flash[:errors] %><br>
-      <% flash[:errors].each do |error| %>
-        <ul style="line-height: 0.5;">
-          <li><%=error%></li>
-        </ul>
-      <%end%>
-    <%end%>
+    <%= partial :flash %>
+    
   </div><!-- end middle col -->
   <div class="col-md-4"></div>
   </div><!-- end row -->

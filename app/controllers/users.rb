@@ -7,18 +7,21 @@ class ChitterApp < Sinatra::Base
 
   post '/users/sign_up' do
     new_user = User.create(
-                          username:   params[:username],
-                          real_name:  params[:real_name],
-                          email:      params[:email],
-                          password:   params[:password],
-                          password_confirmation: params[:password_confirmation]
-                          )
+                            username:   params[:username],
+                            real_name:  params[:real_name],
+                            email:      params[:email],
+                            password:   params[:password],
+                            password_confirmation: params[:password_confirmation]
+                           )
 
     if new_user.valid?
       session[:id] = new_user.id
       redirect to '/'
     else
       flash.now[:errors] = new_user.errors.full_messages
+      @real_name = params[:real_name]
+      @username = params[:username]
+      @email = params[:email]
       erb :sign_up
     end
   end
@@ -37,15 +40,14 @@ class ChitterApp < Sinatra::Base
 
 
   post '/users/sessions/new' do
-    user = User.authenticate(params[:email],
-                             params[:password]
-                             )
+    user = User.authenticate(params[:email], params[:password])
 
     if user
       session[:id] = user.id
       redirect to '/'
     else
       flash.now[:invalid_login] = "Login details incorrect"
+      @email = params[:email]
       erb :sign_in
     end
   end

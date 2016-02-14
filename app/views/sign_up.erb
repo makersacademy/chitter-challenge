@@ -1,7 +1,7 @@
 <form action="/users/sign_up" method="post">
-  <input name="username" placeholder="Username" type="text" required/>
-  <input name="real_name" placeholder="Real name" type="text" required/>
-  <input name="email" placeholder="Email" type="email" required/>
+  <input name="username" placeholder="Username" type="text" value="<%=@username%>" required/>
+  <input name="real_name" placeholder="Real name" type="text" value="<%=@real_name%>" required/>
+  <input name="email" placeholder="Email" type="email" value="<%=@email%>" required/>
   <input name="password" placeholder="Password" type="password" required/>
   <input name="password_confirmation" placeholder="Confirm password" type="password" required/>
   <input type="submit" value="Sign up"/>
