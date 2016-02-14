@@ -4,19 +4,19 @@ feature 'user signing up' do
 
   scenario 'fills in form correctly' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Hello, Michael")
+    expect(page).to have_content("Hello, mjcollins86")
   end
 
   scenario 'cannot sign up when the password confirmation is incorrect' do
     expect { sign_up(password_confirmation: 'incorrect') }.not_to change(User, :count)
-    expect(page).not_to have_content("Hello, Michael")
+    expect(page).not_to have_content("Hello, mjcollins86")
     expect(page).to have_content('Password does not match the confirmation')
     expect(current_path).to eq('/signup')
   end
 
   scenario 'cannot sign up when a password is not entered' do
     expect { sign_up(password: nil, password_confirmation: nil) }.not_to change(User, :count)
-    expect(page).not_to have_content("Hello, Michael")
+    expect(page).not_to have_content("Hello, mjcollins86")
     expect(page).to have_content('Password must not be blank')
     expect(current_path).to eq('/signup')
   end
