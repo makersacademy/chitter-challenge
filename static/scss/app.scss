@@ -1,0 +1,208 @@
+
+$colour_one: #444444;
+$colour_two: #FF847C;
+$colour_three: #E0E4CC;
+$colour_four: #FCF9F0;
+
+body {
+  background: $colour_four;
+}
+
+@mixin button {
+  display: inline-block;
+  border: 1px solid $colour_two;
+  border-radius: 5px !important;
+  background: $colour_four;
+  color: $colour_two;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    background: $colour_two;
+    color: $colour_four;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  @include button;
+}
+
+header#masthead {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6em;
+  background: $colour_four;
+  text-align: left;
+  padding: 1em 0;
+  z-index: 100;
+  border-bottom: 4px solid $colour_two;
+  h1 {
+    font-family: "estilo-regular", sans-serif;
+    a {
+      color: $colour_two;
+    }
+  }
+  .user-details, .sign-up {
+    position: absolute;
+    right: 0;
+    top: 1em;
+  }
+}
+
+
+
+main {
+  padding-bottom: 6em;
+}
+
+main#index {
+  position: relative;
+  display: block;
+  margin-top: 2em;
+  padding-top: 4em;
+  width: 100%;
+  background-color: transparentize($colour_four, 0.95);
+    div#welcome {
+      z-index: 10;
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 1.5em 0;
+      background: $colour_one;
+      h1 {
+        font-family: "estilo-regular", sans-serif;
+        color: $colour_four;
+        font-size: 4em;
+        text-transform: uppercase;
+      }
+    }
+    &::after {
+    content: "";
+    background:  url(images/clouds.jpg) no-repeat center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.peep-container {
+  z-index: 10;
+  .peep {
+    background: $colour_four;
+    border-bottom: 2px $colour_three solid;
+    border-radius: 5px;
+    margin-top: 4em;
+    .name {
+      display: block;
+      width: 100%;
+      background: $colour_two;
+      color: $colour_four;
+      margin-bottom: 1em;
+      padding: 1em;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .text {
+      padding: 1em;
+    }
+    .meta {
+      color: #999;
+      margin: 1em 0;
+      padding: 0 1em;
+      display: block;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      .likes {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative;
+        margin-right: 2em;
+        p, form {
+          display: inline;
+          float: left;
+        }
+        form {
+          margin-right: 0.5em;
+        }
+        p {
+          margin: 0 0 0 0;
+          color: $colour_two;
+        }
+      }
+      .reply-toggle {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative;
+      }
+      .time {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative;
+        margin-right: 2em;
+      }
+    }
+  }
+
+  .replies {
+    display: none;
+    bottom: -1em;
+    background-color: $colour_four;
+    color: $colour_two;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0px;
+    padding: 1em;
+    border: 2px solid $colour_two;
+    border-top: 1px solid $colour_four;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    .reply {
+      border-bottom: 1px solid $colour_two;
+      padding: 1em 0;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+aside.user-info {
+  margin-top: 4em;
+  p.history {
+    background: $colour_four;
+    padding: 1em;
+    border-radius: 5px;
+    color: $colour_two;
+  }
+  textarea {
+    background: $colour_four;
+    border-radius: 5px;
+    border-color: $colour_three;
+  }
+  form {
+    .new-peep {
+      float: right;
+    }
+  }
+}
+
+
+footer#colophon {
+  padding: 3em 0;
+  background: $colour_one;
+}

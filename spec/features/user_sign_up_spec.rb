@@ -7,7 +7,7 @@ feature 'A new user signing up' do
     expect(User.first.name).to eq('Sean')
     expect(User.first.username).to eq('seanh')
     expect(User.first.email).to eq('s@s.com')
-    expect(page).to have_content('Welcome Sean.')
+    expect(page).to have_content('Hello, Sean!')
 
   end
 

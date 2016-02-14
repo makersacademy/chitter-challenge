@@ -6,6 +6,7 @@ class Peep
   property :id, Serial
   property :text, Text
   property :post_time, DateTime
+  property :likes, Integer
 
   belongs_to :user
   has n, :responses, through: Resource

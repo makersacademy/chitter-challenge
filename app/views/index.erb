@@ -1,26 +1,98 @@
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.text %>
+<main id="index">
 
-      Posted by <%= peep.user.name %> (<%= peep.user.username %>) on <%= peep.format_time %>
+<div class="background-image"></div>
 
-      <form action="/responses" method="post">
-        <input type="hidden" name="current_peep" value="<%= peep.id %>">
-        <input type="textarea" name="reply">
-        <input type="submit" value="Post Reply">
-      </form>
-
-      <% peep.responses.map do |response| %>
-          <h3>
-            <%= response.text %>
-          </h3>
-          <p>
-            From <%= response.user.name %> (<%= response.user.username %>) on <%= response.format_time %>
-          </p>
-      <% end %>
-
-    </li>
+<div id="welcome">
+  <% if current_user %>
+   <h1>Hello, <%= current_user.name %>!</h1>
+  <% else %>
+   <h1>Hello, Stranger!</h1>
   <% end %>
-</ul>
+</div>
+
+<div id='peeps'>
+  <div class="row">
+    <div class="small-12 medium-8 columns">
+
+      <% @peeps.each do |peep| %>
+
+      <div class="peep-container">
+
+        <article class="peep">
+
+          <div class="name"><%= peep.user.name %> (<%= peep.user.username %>)</div>
+
+            <p class="text"><%= peep.text %></p>
+
+            <footer class="meta">
+
+              <div class="time"><%= peep.format_time %></div>
+
+              <div class="likes">
+
+                <form action="/likes" method="post">
+                  <input type="hidden" name="current_peep" value="<%= peep.id %>">
+                  <input type="submit" value="Like">
+                </form>
+
+                <p><%= peep.likes %></p>
+
+              </div>
+
+              <div class="reply-toggle">
+                replies (<%= peep.responses.count %>) | add new
+              </div>
+
+            </footer>
+
+        </article>
+
+        <div class="replies">
+
+        <% if current_user %>
+          <form action="/responses" method="post">
+            <input type="hidden" name="current_peep" value="<%= peep.id %>">
+            <textarea name="reply"cols="30" rows="5"></textarea>
+            <input type="submit" value="Post Reply">
+          </form>
+          <% end %>
+          <% peep.responses.map do |response| %>
+            <div class="reply">
+              <p><%= response.text %></p>
+              <p>From <%= response.user.name %> (<%= response.user.username %>) on <%= response.format_time %></p>
+            </div>
+          <% end %>
+
+        </div><!-- .replies -->
+
+      </div><!-- peep-container -->
+
+      <% end %>
+      </div><!-- .small-12 .medium-8 -->
+
+      <div class="small-12 medium-4 columns">
+        <aside class="user-info">
+        <% if current_user %>
+         <p class="history">You've posted <%= current_user.peeps.count %> peeps and <%= current_user.responses.count %> replies</p>
+          <form action="/peeps" method="post">
+            <textarea name="peep" cols="30" rows="5"></textarea>
+            <input class="new-peep" type="submit" value="Post Peep">
+          </form>
+        <% else %>
+          <form action='/sessions' method='post'>
+            <label for='email'>
+              Email: <input name='email' type='email'>
+            </label>
+            <label for='password'>
+              Password: <input name='password' type='password'>
+            </label>
+            <input type='submit' value='Sign in'>
+          </form>
+        <% end %>
+        </aside>
+      </div>
+    </div><!-- .row -->
+
+</div>
+</main>

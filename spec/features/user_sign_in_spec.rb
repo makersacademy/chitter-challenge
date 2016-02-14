@@ -12,7 +12,9 @@ feature 'Sign In' do
 
   scenario 'a user can sign in with correct details' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome #{user.name}"
+    expect(page).to have_content "Hello, #{user.name}!"
+    expect(page).not_to have_content "Hello, Stranger!"
+
   end
 
   scenario 'a user can\'t sign in with incorrect details' do

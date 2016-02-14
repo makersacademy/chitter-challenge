@@ -1,0 +1,160 @@
+body {
+  background: #FCF9F0; }
+
+input {
+  display: inline-block;
+  border: 1px solid #FF847C;
+  border-radius: 5px !important;
+  background: #FCF9F0;
+  color: #FF847C;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease; }
+  input:hover {
+    background: #FF847C;
+    color: #FCF9F0; }
+  input:focus {
+    outline: none; }
+
+header#masthead {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6em;
+  background: #FCF9F0;
+  text-align: left;
+  padding: 1em 0;
+  z-index: 100;
+  border-bottom: 4px solid #FF847C; }
+  header#masthead h1 {
+    font-family: "estilo-regular", sans-serif; }
+    header#masthead h1 a {
+      color: #FF847C; }
+  header#masthead .user-details, header#masthead .sign-up {
+    position: absolute;
+    right: 0;
+    top: 1em; }
+
+main {
+  padding-bottom: 6em; }
+
+main#index {
+  position: relative;
+  display: block;
+  margin-top: 2em;
+  padding-top: 4em;
+  width: 100%;
+  background-color: rgba(252, 249, 240, 0.05); }
+  main#index div#welcome {
+    z-index: 10;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 1.5em 0;
+    background: #444444; }
+    main#index div#welcome h1 {
+      font-family: "estilo-regular", sans-serif;
+      color: #FCF9F0;
+      font-size: 4em;
+      text-transform: uppercase; }
+  main#index::after {
+    content: "";
+    background: url(images/clouds.jpg) no-repeat center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; }
+
+.peep-container {
+  z-index: 10; }
+  .peep-container .peep {
+    background: #FCF9F0;
+    border-bottom: 2px #E0E4CC solid;
+    border-radius: 5px;
+    margin-top: 4em; }
+    .peep-container .peep .name {
+      display: block;
+      width: 100%;
+      background: #FF847C;
+      color: #FCF9F0;
+      margin-bottom: 1em;
+      padding: 1em;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; }
+    .peep-container .peep .text {
+      padding: 1em; }
+    .peep-container .peep .meta {
+      color: #999;
+      margin: 1em 0;
+      padding: 0 1em;
+      display: block;
+      width: 100%;
+      position: relative;
+      overflow: hidden; }
+      .peep-container .peep .meta .likes {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative;
+        margin-right: 2em; }
+        .peep-container .peep .meta .likes p, .peep-container .peep .meta .likes form {
+          display: inline;
+          float: left; }
+        .peep-container .peep .meta .likes form {
+          margin-right: 0.5em; }
+        .peep-container .peep .meta .likes p {
+          margin: 0 0 0 0;
+          color: #FF847C; }
+      .peep-container .peep .meta .reply-toggle {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative; }
+      .peep-container .peep .meta .time {
+        display: inline-block;
+        float: left;
+        width: auto;
+        position: relative;
+        margin-right: 2em; }
+  .peep-container .replies {
+    display: none;
+    bottom: -1em;
+    background-color: #FCF9F0;
+    color: #FF847C;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0px;
+    padding: 1em;
+    border: 2px solid #FF847C;
+    border-top: 1px solid #FCF9F0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+    .peep-container .replies .reply {
+      border-bottom: 1px solid #FF847C;
+      padding: 1em 0; }
+      .peep-container .replies .reply:last-child {
+        border-bottom: none; }
+
+aside.user-info {
+  margin-top: 4em; }
+  aside.user-info p.history {
+    background: #FCF9F0;
+    padding: 1em;
+    border-radius: 5px;
+    color: #FF847C; }
+  aside.user-info textarea {
+    background: #FCF9F0;
+    border-radius: 5px;
+    border-color: #E0E4CC; }
+  aside.user-info form .new-peep {
+    float: right; }
+
+footer#colophon {
+  padding: 3em 0;
+  background: #444444; }

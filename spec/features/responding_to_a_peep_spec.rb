@@ -6,7 +6,6 @@ feature 'Responding to a peep' do
     sign_up(name: 'Sean', username: 'seanh', email: 's@s.com',
                   password: 'password',
                   password_confirmation: 'password')
-    click_button('New Peep')
     fill_in :peep, with: 'Lorem ipsum dolor si amet'
     click_button('Post Peep')
     click_button('Sign Out')
