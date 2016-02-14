@@ -4,7 +4,7 @@
 
   <% @list.each do |peep| %>
     <li>
-      Peep: <%= peep.body %>
+      <%="#{peep.user.username}: #{peep.body}"%>
     </li>
   <%end%>
   </ul>

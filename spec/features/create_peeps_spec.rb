@@ -8,9 +8,8 @@ feature 'creating new peeps' do
     fill_in 'peep', with: 'This is one mighty new peep'
     click_button 'Send peep'
     expect(current_path).to eq '/peeps'
-    # within 'ul#peeps' do
-      expect(page).to have_content('This is one mighty new peep')
-      expect(page).to have_content('TestUser1')
-    # end
+    within 'ul#peeps' do
+      expect(page).to have_content('TestUser1: This is one mighty new peep')
+    end
   end
 end
