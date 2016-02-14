@@ -40,6 +40,7 @@ end
   post '/users' do
   user = User.create(email: params[:email],
 		password: params[:password],
+		password_confirmation: params[:password_confirmation],
 		name: params[:name],
 		user_name: params[:user_name])
     session[:user_id] = user.id
