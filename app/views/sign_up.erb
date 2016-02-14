@@ -10,10 +10,20 @@
 <h1> Sign Up </h1>
 
 <form action="/sign_up" method="post">
-<input type='text' name='name'>
-<input type='text' name='username'>
-<input type='text' name='email' required: true>
-<input type='text' name='password'>
-<input type='text' name='password_confirmation'>
+<label for='name'>
+   Name: <input type='text' name='name'>
+</label>
+<label for='username'>
+   Username: <input type='text' name='username'>
+</label>
+<label for='email'>
+   Email: <input type='text' name='email' required: true>
+ </label>
+<label for='password'>
+   Password: <input type='text' name='password'>
+</label>
+<label for='password_confirmation'>
+   Confirm password: <input type='text' name='password_confirmation'>
+</label>
 <input type='submit' value='Submit'>
 </form>

@@ -62,7 +62,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/make_cheet' do
-    Post.create(title: params[:title], body: params[:body])
+    Post.create(title: params[:title], body: params[:body], time: Time.new.strftime("%H:%M"))
     redirect '/home'
   end
 

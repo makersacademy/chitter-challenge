@@ -21,12 +21,15 @@
 
 <% if @posts %>
 <ul id="Cheets">
-  <% @posts.each do |cheet| %>
+  <% @posts.reverse.each do |cheet| %>
   <div>
     Title: <%= cheet.title %>
   </div>
   <div>
     <%= cheet.body %>
+  </div>
+  <div>
+    <%= cheet.time %>
   </div>
   <% end %>
 </ul>
