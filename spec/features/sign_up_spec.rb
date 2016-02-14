@@ -28,4 +28,11 @@ feature 'sign up' do
     expect(page).to have_content 'SidTheSloth is logged in'
   end
 
+  scenario 'usernames are unique' do
+    sign_up_good
+    click_button 'Log Out'
+    expect {sign_up_username}.not_to change(User, :count)
+    expect(page).to have_content 'Username is already taken'
+  end
+
 end

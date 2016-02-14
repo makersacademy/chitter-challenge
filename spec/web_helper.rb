@@ -9,6 +9,17 @@ def sign_up_good
   click_button 'Submit'
 end
 
+def sign_up_username
+  visit '/'
+  click_button 'Sign Up'
+  fill_in 'name', with: 'Harry Gordon'
+  fill_in 'email', with: 'h@g.com'
+  fill_in 'username', with: 'SidTheSloth'
+  fill_in 'password', with: 'password123'
+  fill_in 'password_confirmation', with: 'password123'
+  click_button 'Submit'
+end
+
 def sign_up_invalid
   visit '/'
   click_button 'Sign Up'
