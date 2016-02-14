@@ -1,0 +1,25 @@
+<head>
+  <title>C0D35L4Y3R'S AWESOME SITE</title>
+    <style>
+      h1 {
+        text-align: center;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+  </style>
+</head>
+
+<body>
+  <% if current_user %>
+    <h1>Welcome, <%= current_user.username %>, you legend!</h1>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Oi geezer, check this out:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <%= yield %>
+</body>
