@@ -11,6 +11,7 @@ require 'capybara/rspec'
 require './app/app'
 require 'bcrypt'
 require 'tilt/erb'
+require 'sinatra/flash'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
