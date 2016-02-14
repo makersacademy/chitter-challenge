@@ -8,7 +8,14 @@ def sign_up(username: 'TestUser1', name: 'Bobby Test', email: 'test@testmail.com
   # click_button 'Create account'
 end
 
+def sign_in(username: 'TestUser1', password: 'password')
+  visit 'sessions/new'
+  fill_in 'username', with: username
+  fill_in 'password', with: password
+  click_button 'Sign in'
+end
+
 def sign_out
   visit '/peeps'
-  click_button 'sign out'
+  click_button 'Sign out'
 end

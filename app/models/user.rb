@@ -9,7 +9,7 @@ class User
   include BCrypt
 
   attr_accessor :password_confirmation
-  attr_reader :password, :email
+  attr_reader :password, :username
 
   # has n, :link, through: Resource
 
@@ -30,8 +30,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(email, password)
-    user = first(email: email)
+  def self.authenticate(username, password)
+    user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
