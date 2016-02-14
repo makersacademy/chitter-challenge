@@ -7,5 +7,6 @@ class Reply
   property :id, Serial
   property :reply, Text
   property :time, String
+  property :user_id, Integer
 
 end

@@ -50,7 +50,10 @@
               <% (PeepReply.all(peep_id: peep.id)).each do |reply| %>
                 <ul>
                   <li>
-                    <%= (Reply.first(id: (reply.reply_id))).reply %>
+                    <% reply_route = (Reply.first(id: (reply.reply_id))) %>
+                    <%= reply_route.reply %>
+                    <%= User.first(id: reply_route.user_id).username %>
+                    <%= reply_route.time %>
                   </li>
                 </ul>
               <% end %>

@@ -60,7 +60,7 @@ class Chitter < Sinatra::Base
     peep = Peep.first(id: (params[:peep_id].to_i))
     if user
       time = Time.new
-      peep.replies << Reply.create(reply: params[:reply], time: time.strftime("%H:%M %-d %b %Y"))
+      peep.replies << Reply.create(reply: params[:reply], time: time.strftime("%H:%M %-d %b %Y"), user_id: session[:user_id])
       peep.save
     else
       flash.keep[:unknown_username] =  'You need to login to peep'
