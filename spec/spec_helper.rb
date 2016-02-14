@@ -1,5 +1,6 @@
 require 'coveralls'
 require 'simplecov'
+require 'tilt/erb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -19,7 +20,6 @@ require 'web_helpers'
 
 Capybara.app = Chitter
 
-# TODO: re-enable when db tables are not empty
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
