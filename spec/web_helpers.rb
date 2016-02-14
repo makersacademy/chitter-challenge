@@ -1,5 +1,6 @@
 def register
    visit '/'
+   	click_link('Register here')
 		fill_in('first_name', with: 'Russell')
 		fill_in('last_name', with: 'Vaughan')
 		fill_in('username', with: 'Rusty')

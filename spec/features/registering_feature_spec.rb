@@ -8,6 +8,7 @@ feature 'I want to be able to sign up for Chitter' do
 	scenario 'signing up with already assigned username ' do 
 		register
 		visit '/'
+		click_link('Register here')
 		fill_in('first_name', with: 'Russell')
 		fill_in('last_name', with: 'Vaughan')
 		fill_in('username', with: 'Rusty')
@@ -21,6 +22,7 @@ feature 'I want to be able to sign up for Chitter' do
 	scenario 'signing up with already assigned email ' do 
 		register
 		visit '/'
+		click_link('Register here')
 		fill_in('first_name', with: 'Russell')
 		fill_in('last_name', with: 'Vaughan')
 		fill_in('username', with: 'Rusty')
@@ -35,6 +37,7 @@ feature 'I want to be able to sign up for Chitter' do
   scenario 'requires a matching confirmation password' do
     register
 		visit '/'
+		click_link('Register here')
 		fill_in('first_name', with: 'Russell')
 		fill_in('last_name', with: 'Vaughan')
 		fill_in('username', with: 'Rusty')

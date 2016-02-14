@@ -11,8 +11,14 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
+    @user=User.all
+    @peeps = Peep.all 
     erb :index
   end
+
+  get '/register' do 
+  erb :register
+  end 
 
   post '/register' do 
   	@user = User.create(first_name: params[:first_name], last_name: params[:last_name],
@@ -26,7 +32,6 @@ class Chitter < Sinatra::Base
 	      redirect to('/logged_in')
 	    else
 	      flash.now[:errors] = @user.errors.full_messages
-	      erb :index
 	    end
   end
 
