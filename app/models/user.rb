@@ -30,3 +30,6 @@ class User
     end
   end
 end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!

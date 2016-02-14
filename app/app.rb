@@ -20,7 +20,7 @@ class ChitterChallenge < Sinatra::Base
         @current_user ||= User.get(session[:user_id])
       end
     end
-    
+
   post '/users' do
     @user = User.new(email: params[:email],
                      password: params[:password],
@@ -28,7 +28,7 @@ class ChitterChallenge < Sinatra::Base
     if @user.save
     p 'if'
      session[:user_id] = @user.id
-      #redirect to'/peeps/new')
+      redirect to('/peeps/new')
       erb :'users/new'
     else
     p 'else'
