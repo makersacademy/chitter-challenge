@@ -5,8 +5,8 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
-  property :email, String
+  property :username, String, required: true
+  property :email, String, required: true
   property :name, String
   property :password_digest, Text
 
@@ -20,7 +20,7 @@ class User
       nil
     end
   end
-  
+
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end

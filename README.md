@@ -8,9 +8,20 @@ Chitter Challenge
 Description
 -------
 A simple twitter-like web application that uses databases to store user information and messages.
-Users register by clicking on the "sign up" button and entering their name, username, email and password. Users sign in by clicking the "Log in" button and entering their username and password and can then "peep" (send a message).
+Users register by clicking on the "sign up" button and entering their name, username, email and password. Users sign in by clicking the "Log in" button and entering their username and password, which are then confirmed. Once signed in, users can "peep" (send a message).
+Users are prevented from registering with previously used usernames or emails.
+
 By clicking on the username next to message, that users message history can be seen.
 User passwords are encrypted using Bcrypt.
+
+Installation
+------
+```
+$ git clone https://github.com/markcmhill/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+
+```
 
 Technologies used
 ------

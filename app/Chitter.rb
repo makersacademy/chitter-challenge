@@ -21,9 +21,23 @@ set :session_secret, 'super secret'
   get '/chitter/signup'do
     erb(:chitter_signup)
   end
+
   post '/chitter/users'do
-    User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
-    redirect to('/chitter')
+    if User.first(username: params[:username]) || User.first(email: params[:email])
+      redirect to('/signupfail')
+    else
+    user = User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
+    session[:user_id] = user.id
+    redirect to('/signupsuccess')
+    end
+  end
+
+  get '/signupfail'do
+    erb(:signupfail)
+  end
+
+  get '/signupsuccess'do
+    erb(:signupsuccess)
   end
 
   get '/chitter/login'do
