@@ -6,6 +6,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'selenium-webdriver'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
