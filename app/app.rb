@@ -1,37 +1,26 @@
 ENV['RACK_ENV'] ||= 'development'
+require 'rack'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require_relative 'data_mapper_setup'
-
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+  helpers Helpers
   register Sinatra::Flash
-  set :sessions, true
+
+
+  enable :sessions
   set :session_secret, 'super secret'
 
-  helpers do
-    def session_user
-      @session_user ||= User.get(session[:user_id])
-    end
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
-    def sign_up_errors?
-      @new_user.errors.full_messages.size > 0
-    end
-
-    def sign_up_errors
-      @new_user.errors.full_messages
-    end
-
-    def sign_in_error_type
-      if @user.nil? && User.first(user_name: params[:existing_user_name])
-        'Access Denied Impersonator'
-      else
-        'Brother, is that really you?'
-      end
-    end
+  use Rack::MethodOverride
 
 
-  end
 
   get '/' do
     @new_user = User.new
@@ -78,12 +67,16 @@ class Chitter < Sinatra::Base
     erb :'user/welcome'
   end
 
+  get "/chitter" do
+    # redirect '/chitter'
+   erb :session
+ end
+
+ delete '/goodbye' do
+   session[:user_id] = nil
+   flash.next[:notice_goodbye] = 'We are done... don\'t come crying back'
+   redirect '/'
+ end
 
   run! if app_file == $0
 end
-
-
-# register Sinatra::Partial
-# use Rack::MethodOverride
-# set :partial_template_engine, :erb
-# enable :partial_underscores

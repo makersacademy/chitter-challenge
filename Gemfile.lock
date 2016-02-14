@@ -159,7 +159,6 @@ DEPENDENCIES
   rack
   rake
   rspec
-  sinatra
   sinatra-flash
   sinatra-partial
 
