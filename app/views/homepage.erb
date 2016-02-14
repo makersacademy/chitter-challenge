@@ -1,0 +1,18 @@
+
+
+
+<form method="post" action="peep">
+	<input type="text" name="peep" placeholder="What's happening?">
+	<button>Peep</button> 
+</form>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li><div> <%= peep.peep %></div>
+
+    </p>
+    </li>
+
+  <% end %>
+
+</ul>
+
