@@ -13,6 +13,7 @@ feature "Users can sign up for Chitter" do
     visit '/home'
     click_button('Sign up')
     fill_in('name', with: 'David')
+    fill_in('username', with: 'drjparry')
     fill_in('password', with: 'password')
     fill_in('password_confirmation', with: 'password')
     expect{click_button('Submit')}.not_to change(User, :count)
@@ -24,6 +25,7 @@ feature "Users can sign up for Chitter" do
     visit '/home'
     click_button('Sign up')
     fill_in('name', with: 'David')
+    fill_in('username', with: 'drjparry')
     fill_in('email', with: 'drjparrygmail.com')
     fill_in('password', with: 'password')
     fill_in('password_confirmation', with: 'password')
@@ -35,6 +37,7 @@ feature "Users can sign up for Chitter" do
     visit '/home'
     click_button('Sign up')
     fill_in('name', with: 'David')
+    fill_in('username', with: 'drjparry')
     fill_in('email', with: 'drjparry@gmail.com')
     fill_in('password', with: 'password')
     fill_in('password_confirmation', with: 'apples')
@@ -46,6 +49,18 @@ feature "Users can sign up for Chitter" do
     sign_up
     expect{sign_up}.not_to change(User, :count)
     expect(page).to have_content "Email is already taken"
+  end
+
+  scenario "Users cannot sign up with an existing username" do
+    sign_up
+    click_button('Sign up')
+    fill_in('name', with: 'David')
+    fill_in('username', with: 'drjparry')
+    fill_in('email', with: 'boss@gmail.com')
+    fill_in('password', with: 'password')
+    fill_in('password_confirmation', with: 'password')
+    expect{click_button('Submit')}.not_to change(User, :count)
+    expect(page).to have_content "Username is already taken"
   end
 
 end
