@@ -1,8 +1,9 @@
 rvm: '2.2.3'
 
-bundle exec rake db:auto_migrate RACK_ENV=test
+
 
 script:
+bundle exec rake db:auto_migrate RACK_ENV=test
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
