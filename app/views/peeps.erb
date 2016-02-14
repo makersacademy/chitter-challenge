@@ -1,11 +1,12 @@
 <h1> Recent peeps... </h1>
 
-    <% @peep.reverse.each do |peep| %>
-      <li>
-        <%= peep.peep %>
-        <em><%= Time.now %></em>
-      </li>
-    <%end%>
+  <% @peep.reverse.each do |peep| %>
+    <ul>
+      <li><%= peep.peep %></li>
+      <%= current_user.name %> (<%= current_user.username %>)
+      at <em><%= Time.now %></em>
+    </ul>
+  <%end%>
 
   <form action='/peeps/new'>
     <input type='submit' value='Compose new peep!'>

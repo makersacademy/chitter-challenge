@@ -1,5 +1,6 @@
 feature 'timed peeps' do
   scenario 'user can see time of a peep' do
+    sign_up
     visit '/peeps/new'
     fill_in 'peep', with: 'Hello, world!'
     click_button'Peep!'

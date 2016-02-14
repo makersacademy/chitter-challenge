@@ -1,5 +1,6 @@
 feature 'post peeps' do
   scenario 'user composes and posts a peep' do
+    sign_up
     visit '/peeps/new'
     fill_in 'peep', with: 'Hello, world!'
     click_button'Peep!'

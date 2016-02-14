@@ -7,11 +7,11 @@ class User
   has n, :peep, through: Resource
 
   attr_accessor :password_confirmation
-  attr_reader :password, :email
+  attr_reader :password, :email, :username
 
   property :id,       Serial
   property :name,     String
-  property :username, String
+  property :username, String,  :required => true, :unique => true
   property :email,    String,  :required => true, :unique => true
   property :password_digest, Text
 
@@ -21,6 +21,7 @@ class User
   end
 
   validates_confirmation_of :password
+  validates_presence_of :username
   validates_presence_of :email
   validates_format_of :email, :as => :email_address
   validates_uniqueness_of :email

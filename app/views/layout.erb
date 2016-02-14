@@ -6,12 +6,7 @@
 
   <body>
     <% if current_user %>
-      <p>Welcome, <%= current_user.username%>!
-        <p>
-        <form action="/sessions" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Log out">
-        </form>
+      <p>Welcome, <%= current_user.username%>!</p>
     <% end %>
 
     <%if flash[:error]%>
@@ -23,5 +18,13 @@
     <%end%>
 
     <%=yield%>
+
+    <% if current_user %>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log out">
+      </form>
+    <% end %>
+
   </body>
 </html>
