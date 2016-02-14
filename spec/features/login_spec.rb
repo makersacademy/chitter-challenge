@@ -20,5 +20,4 @@ feature 'user logs in' do
     # expect(page).to have_content "Welcome, #{user.email}"
   end
 
-
 end

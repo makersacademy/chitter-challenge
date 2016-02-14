@@ -36,7 +36,7 @@ class Chitter_challenge < Sinatra::Base
                   password_confirmation: params[:password_confirmation])
       if @user.save
         session[:user_id] = @user.id
-        redirect to ('/home')
+        redirect to('/home')
       else
         flash.now[:errors] = @user.errors.full_messages
         erb :signup
@@ -51,11 +51,17 @@ class Chitter_challenge < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
       if user
         session[:user_id] = user.id
-        redirect to '/home'
+        redirect to('/home')
       else
         flash.now[:errors] = ['The email or password is incorrect']
         erb :login
       end
+  end
+
+  delete '/login' do
+    session[:user_id] = nil
+    # flash.keep[:notice] = 'goodbye'
+    redirect to('/login')
   end
 
 

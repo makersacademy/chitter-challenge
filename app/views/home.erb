@@ -1,1 +1,14 @@
 <h1> Tweets </h1>
+
+<body>
+  <% if current_user %>
+  Welcome, <%= current_user.email %>
+  <% end %>
+
+
+  <form method='post' action='/login'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='log out'>
+  </form>
+
+</body>
