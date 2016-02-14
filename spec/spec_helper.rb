@@ -12,3 +12,7 @@ require 'capybara/rspec'
 require './app/app.rb'
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+  config.include Capybara::DSL
+end

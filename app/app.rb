@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/signup' do
-    'My Way'
+    erb(:signup)
   end
 
   run! if app_file == $0
