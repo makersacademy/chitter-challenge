@@ -45,7 +45,7 @@ class Chitter < Sinatra::Base
 
   post '/update_peeps' do
     Peep.new(message: params[:message],
-             time: "#{Time.now.strftime('%H:%M')}",
+             time: "#{Time.now.strftime('%H:%M %d-%b-%y')}",
              user: current_user).save
     redirect '/'
   end

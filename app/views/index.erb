@@ -16,6 +16,6 @@
 
 <% if @posts %>
   <% @posts.reverse!.each do |post| %>
-    <p><%= post.message %><br><%= post.time %><br><%= post.user.email%></p>
+    <p><%= post.message %><br><%= post.time %><br><%= post.user.email.split('@').first%></p>
   <% end %>
 <% end %>
