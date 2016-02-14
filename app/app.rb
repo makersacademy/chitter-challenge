@@ -64,6 +64,9 @@ class Chitter_challenge < Sinatra::Base
     redirect to('/login')
   end
 
+  get '/post_tweet' do
+    erb :post_tweet  
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
