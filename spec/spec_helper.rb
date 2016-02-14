@@ -1,3 +1,6 @@
+require 'coveralls'
+require 'simplecov'
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
@@ -15,8 +18,6 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'rspec'
 require 'web_helper.rb'
-require 'coveralls'
-require 'simplecov'
 
 RSpec.configure do |config|
   config.include Capybara::DSL
