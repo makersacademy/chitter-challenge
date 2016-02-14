@@ -23,32 +23,37 @@
 
             <p><%= peep.likes %></p>
 
-          </div>
+          </div><!-- .likes -->
 
           <div class="reply-toggle">
             replies (<%= peep.responses.count %>) <% if current_user %> | add new <% end %>
           </div>
 
           <% if current_user %>
+
             <form class="delete" action="/delete" method="post">
               <input type="hidden" name="current_peep" value="<%= peep.id %>">
               <input class="delete" type="submit" value="Delete">
             </form>
+            
           <% end %>
 
-        </footer>
+        </footer><!-- .meta -->
 
-    </article>
+    </article><!-- .peep -->
 
     <div class="replies">
 
     <% if current_user %>
+
       <form action="/responses" method="post">
         <input type="hidden" name="current_peep" value="<%= peep.id %>">
         <textarea placeholder="Remember: be nice!" name="reply" cols="30" rows="5"></textarea>
         <input type="submit" value="Post Reply">
       </form>
+
       <% end %>
+
       <% peep.responses.map do |response| %>
         <div class="reply">
           <p><%= response.text %></p>
@@ -58,9 +63,8 @@
 
     </div><!-- .replies -->
 
-
-
   </div><!-- peep-container -->
 
   <% end %>
-  </div><!-- .small-12 .medium-8 -->
+
+</div><!-- .small-12 .medium-8 -->

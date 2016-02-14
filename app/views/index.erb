@@ -1,27 +1,26 @@
 
 <main id="index">
 
-<div class="background-image"></div>
+  <div id="welcome">
+    <% if current_user %>
+     <h1>Hello, <%= current_user.name %>!</h1>
+    <% else %>
+     <h1>Hello, Stranger!</h1>
+    <% end %>
+  </div><!-- #welcome -->
 
-<div id="welcome">
-  <% if current_user %>
-   <h1>Hello, <%= current_user.name %>!</h1>
-  <% else %>
-   <h1>Hello, Stranger!</h1>
-  <% end %>
-</div>
+  <%= erb :'partials/flash' %>
 
-<%= partial :flash %>
+  <div id='peeps'>
 
-<div id='peeps'>
+    <div class="row">
 
-  <div class="row">
+      <%= erb :'partials/peeps' %>
 
-    <%= partial :peeps %>
-    
-    <%= partial :user_actions %>
+      <%= erb :'partials/user_actions' %>
 
-  </div><!-- .row -->
+    </div><!-- .row -->
 
-</div>
-</main>
+  </div><!-- #peeps -->
+
+</main><!-- #index -->

@@ -1,13 +1,18 @@
 <div class="small-12 medium-4 columns">
+
   <aside class="user-actions">
+
   <% if current_user %>
    <p>You're signed in as <%= current_user.username %>. So far you've posted <%= current_user.peeps.count %> peeps and <%= current_user.responses.count %> replies</p>
     <h2>new peep:</h2>
+
     <form id="new-peep" action="/peeps" method="post">
       <textarea placeholder="Peep Peep!" name="peep" cols="30" rows="5"></textarea>
       <input class="new-peep" type="submit" value="Post Peep">
     </form>
+
   <% else %>
+
     <form id="sign-in" action='/sessions' method='post'>
       <label for='email'>
         Email: <input name='email' type='email'>
@@ -17,6 +22,9 @@
       </label>
       <input type='submit' value='Sign in'>
     </form>
+
   <% end %>
-  </aside>
-</div>
+
+</aside><!-- .uers-actions -->
+
+</div><!-- .small-12 -->
