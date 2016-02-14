@@ -1,5 +1,9 @@
+<h1>Peeps</h1>
 <ul id="peeps">
   <%@peeps.reverse.each do |peep| %>
-  <li><%= peep.message %></li>
+  <li>
+  <span style="font-size:0.8em"><%= (peep.time).strftime("%b %e, %l:%M %p")%></span>
+  <p><%= peep.message %></p>
+  </li>
   <% end %>
 </ul>

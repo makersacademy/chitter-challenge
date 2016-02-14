@@ -3,8 +3,8 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  has n, :peeps, through: Resource
-
+  has n, :peeps
+  
   property :id,               Serial
   property :name,             String
   property :email,            String, required: true, unique: true

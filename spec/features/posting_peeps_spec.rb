@@ -9,4 +9,9 @@ feature 'posting a peep' do
       expect(page).to have_content 'First peep'
     end
   end
+
+  scenario 'cant post a peep when not logged in' do
+    visit '/peeps/new'
+    expect(page).to have_content 'First login in order to post a peep'
+  end
 end

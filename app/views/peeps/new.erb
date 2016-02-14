@@ -1,6 +1,10 @@
+<% if current_user %>
 <form action="/peeps" method="post">
   <label for="peep">
     <input type="text" name="peep" required>
   </label>
-    <button type="submit">Post peep</button
+    <button type="submit">Post peep</button>
 </form>
+<% else %>
+<p>First login in order to post a peep</p>
+<% end %>
