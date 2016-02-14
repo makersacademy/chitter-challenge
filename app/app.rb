@@ -7,11 +7,14 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 require_relative 'models/user'
+require_relative 'helpers/current_user'
 
 class Chitter < Sinatra::Base
+  helpers Helpers
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     redirect 'sessions/new'
@@ -64,10 +67,10 @@ class Chitter < Sinatra::Base
     end
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/peeps'
   end
 
   run! if app_file == $0

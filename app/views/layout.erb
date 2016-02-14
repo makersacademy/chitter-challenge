@@ -7,6 +7,17 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.name %>
+
+      <form id="sign out" action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign Out">
+      </form>
+
+      <form id="peeps button" action="/peeps/new" method="get">
+        <label for="click here to peep">
+        <input type="submit" value="Peeps">
+      </form>
+
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>

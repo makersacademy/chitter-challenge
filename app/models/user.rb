@@ -5,7 +5,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :username, String, unique: true
   property :email, String, required: true, format: :email_address, unique: true
   property :password_digest, BCryptHash
 
