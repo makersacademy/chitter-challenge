@@ -1,0 +1,10 @@
+<h1> Reply to peep</h1>
+
+<%=@peep.content%>
+
+
+
+<form action='/session/reply' method='post'>
+  <input type="text" name="content" placeholder="Write your peep here" required>
+  <input type="submit" value="Reply">
+</form>

@@ -10,6 +10,7 @@ require 'rspec'
 
 require_relative '../app/data_mapper_setup'
 require_relative './helpers/users'
+require_relative './helpers/peeps'
 require_relative '../app/models/user'
 
 
@@ -24,8 +25,11 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
 
-  config.include UserHelpers
   config.include Capybara::DSL
+
+  config.include PeepHelpers
+  config.include UserHelpers
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

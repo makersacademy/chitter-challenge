@@ -5,6 +5,7 @@ require 'sinatra/flash'
 
 require_relative './models/user'
 require_relative './models/peep'
+require_relative './models/reply'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -78,5 +79,26 @@ class Chitter < Sinatra::Base
     peep.save!
     redirect('/session')
   end
+
+  get '/session/reply/:peepid' do
+    session[:peep_id] = params[:peepid]
+    if current_user
+      @peep = Peep.get(session[:peep_id])
+      erb :reply
+    else
+      redirect('/session/new')
+    end
+  end
+
+  post '/session/reply' do
+    @peep = Peep.get(session[:peep_id])
+    time = Time.now
+    reply = Reply.new(peep: @peep, user: current_user, content: params[:content], time: time)
+    reply.save!
+    redirect('/session')
+    erb :reply
+  end
+
+
 
 end

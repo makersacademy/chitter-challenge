@@ -1,11 +1,22 @@
 <h1> Peeps </h1>
 
 
-<ul id="links">
+<ul id="peeps">
   <% @peeps.each do |peep| %>
   <li>
     <%= peep.user.username %>: <%= peep.content %>
     -posted @:<%= (peep.time).strftime("%d-%m-%Y -- %H:%M:%S")%>
-  </li>
+    <% if peep.replies %>
+      <ol id='reply'>
+        <% peep.replies.each do |reply| %>
+        <li>   <%= reply.user.username %>: <%= reply.content %>
+          -posted @:<%= (reply.time).strftime("%d-%m-%Y -- %H:%M:%S")%>
+        </li>
+        <% end %>
+      </ol>
+      </li>
+      <a href='/session/reply/<%="#{peep.id}"%>'>Reply</a>
+      <p></p>
+    <% end %>
   <% end %>
 </ul>

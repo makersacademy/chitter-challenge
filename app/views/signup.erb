@@ -1,6 +1,6 @@
 <h1> Sign up</h1>
 
-<form action:'users/new' method='post'>
+<form action='/users/new' method='post'>
   <input type="text" name="name" placeholder="name" value='<%= @user.name %>' required>
   <input type="text" name="username" placeholder="username" value='<%= @user.username %>' required>
   <input type="email" name="email" placeholder="email" value='<%= @user.email %>'required>
