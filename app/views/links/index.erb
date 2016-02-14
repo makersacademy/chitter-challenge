@@ -1,0 +1,37 @@
+<html>
+<body bgcolor="#81DAF5">
+
+<% if flash[:notice] %>
+<div id='notice'>
+<%= flash[:notice] %>
+</div>
+<form action='/sessions' method='post'>
+	<label for='mail'>
+		Mail: 
+	<input name='mail' type='mail'>
+	</label>
+	<label for='password'>
+		Password: 
+	<input name='password' type='password'>
+	</label>
+	<input type='submit' value='Sign in'>
+</form>
+<% end %>
+<% if @current_user%>
+<form method='post' action='/log-out'>
+<input type='hidden' name='_method' value='delete'>
+<input type='submit' value='Sign out'>
+</form>
+<h1 style="color:blue;">Welcome <%= @current_user%>!</h1>
+<form method='post' action='/wall'>
+Post a Peep:
+<input name='peep' type='text'>
+<input type='submit' value='Post'>
+</form>
+<form method='post' action='/wall'>
+<input type='submit' value='wall'>
+</form>
+<%end%>
+</body>
+</html>
+

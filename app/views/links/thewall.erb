@@ -1,0 +1,27 @@
+<html>
+<body bgcolor="#81DAF5">
+
+<form method='post' action='/log-out'>
+<input type='hidden' name='_method' value='delete'>
+<input type='submit' value='Sign out'>
+</form>
+
+</form>
+<form method='post' action='/wall'>
+Post a Peep:
+<input name='peep' type='text'>
+<input type='submit' value='Post'>
+</form>
+
+      
+
+<% @peep.reverse.each do |peep| %>
+<li>
+<%= peep.name %>:
+<%= peep.peep %>
+(<%= peep.time %>)
+<li>
+<% end %>
+
+</body>
+</html>
