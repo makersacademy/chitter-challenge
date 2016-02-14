@@ -16,5 +16,5 @@
 <%end%>
 <% @peeps.each do |peep| %>
   <li>
-    <%=peep.username%>: <%= peep.text %>
+    <a href="/users/<%=peep.username%>"><%=peep.username%></a>: <b><%= peep.text %></b> ______ Time: <%= peep.time %>
     <% end%>

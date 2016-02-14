@@ -5,6 +5,7 @@ feature 'Sign up' do
     #expect(page).to have_content('You have registered for chitter')
   end
 end
+
 feature 'Log in'do
   scenario 'visit and log in to chitter'do
     signup
@@ -13,6 +14,7 @@ feature 'Log in'do
     expect(page).to have_content('Welcome JohnSmith3000')
   end
 end
+
 feature 'Peeping'do
   scenario 'first peep'do
     signup
@@ -21,5 +23,17 @@ feature 'Peeping'do
     fill_in('peep', :with => 'This is a peep, dudes!')
     click_button('Peep!')
     expect(page).to have_content 'This is a peep, dudes!'
+  end
+end
+
+feature 'Check peep profiles'do
+  scenario 'click on a name to see a peep history'do
+  signup
+  login
+  click_button('Peep!')
+  fill_in('peep', :with => 'This is a peep, dudes!')
+  click_button('Peep!')
+  click_link('JohnSmith3000')
+  expect(page).to have_content 'This is a peep, dudes!'
   end
 end

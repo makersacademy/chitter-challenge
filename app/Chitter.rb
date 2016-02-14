@@ -50,9 +50,16 @@ set :session_secret, 'super secret'
   end
 
   post '/peep'do
-    @user = session[:user_id]
-    Peep.create(text: params[:peep], username: @username = User.first(:id => @user).username,  time: Time.now)
+    user = User.first(:id => session[:user_id])
+    peep = Peep.create(text: params[:peep], username: user.username, time: DateTime.now.strftime('%H:%M, %d %b %Y'))
+    user.peeps << peep
+    user.save
     redirect to('/chitter')
+  end
+
+  get '/users/:user'do
+    @user = User.first(username: params['user'])
+    erb(:user_page)
   end
 
 run! if app_file == $0

@@ -8,4 +8,6 @@ property :text, String
 property :time, String
 property :username, String
 
+has n, :users, :through => Resource
+
 end
