@@ -1,4 +1,4 @@
 <h2>Chitter Peeps</h2>
 <ul>
-<% @peeps.each { |peep| %><li><%= "#{peep.name} says: #{peep.content}" %></li><% }%>
+<% @peeps.reverse_each { |peep| %><li><%= "#{peep.name} says: #{peep.content}" %></li><% }%>
 </ul>
