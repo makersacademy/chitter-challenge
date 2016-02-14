@@ -1,12 +1,15 @@
-<p> Welcome, <%= @user %> </p>
 
-
-<form action='/users' method='post'>
-	Email: <input name='email'>
-	Password: <input name='password'>
-	Name: <input name='name'>
-	UserName: <input name='username'>
-	<input type='submit' value='Sign Up'>
-</form>
+<section class='form'>
+    <form action='/users' method='post'></br>
+	  <fieldset>
+    	<p> Email: <input name='email' type='text' value='<%= @user.email %>' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> </p></br>
+    	<p> Password: <input name='password' type='password' required></p></br>
+    	<p> Password: <input name='password_confirmation' type='password' required></p></br>
+    	<p> Name:    <input name='name'></p></br>
+    	<p> UserName: <input name='username' required></p></br>
+    	<input type='submit' value='Sign Up'>
+	 </fieldset>
+    </form>
+</section>
 	
 	

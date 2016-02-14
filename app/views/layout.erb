@@ -9,12 +9,17 @@
 
   <body> 
 	  <div class='bar'>
+		   <% if flash[:warning] %>
+		     <div id='warning'><%= flash[:warning] %></div><hr />
+	  	   <% end %>
 	<% if current_user %>
-	  <p class='bar'> Welcome, <%= current_user.username %> </p>
+	  <p> Welcome, <%= current_user.username %> </p>
 	<% else %>
-	  <p class='bar'> User not found, please <a href='/users/new'>Sign Up</a></p>
+	  
+	  <div class='bar'> User not found, please <a href='/users/new'>Sign Up</a></div>
 	<% end %>
   	  </div>
+	  
     <%= yield %> 
    
   </body>

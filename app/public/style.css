@@ -1,26 +1,65 @@
 nav {
-	background-color: darkgray;
+	background-color: #a9a91c;
 }
 
 body {
-	background-color: lightgray;
+	background-color: #a9c9ba;
 	background-image: url('/images/background.jpg');
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 60%;
+	background-position: 250px 150px;
 }
 
 p {
-	background-color: lightgray;
+	background-color: #a9c9ba;
 	font-family: Times;
-	color: lightgray;
+}
+
+div {
+	font-family: Times;
+	background-color: #feddbe;
 }
 
 h1 {
 	text-color: red;
 }
 
-.bar {
-	padding: 3px;
-	background-color: black;
+hr {
+	height: 5px;
+}
+
+div.bar {
+	padding: 1px;
+	background-color: #feddbe;
 	font-family: Times;
+	font-size: 18px;
+}
+
+div.warning {
+	padding: 1px;
+	background-color: #feddbe;
+	font-family: Times;
+	font-size: 20px;
+}
+
+section.form {
+	text-align: center;
+	float: left;
+	width: 12%;
+	background-color: #a9c9ba;
+	margin-left: 50px;
+	cursor: pointer;
+	
+}
+
+input:invalid {
+	border: 1px solid red;
+}
+
+input:valid {
+	border: 1px solid green;
+}
+
+fieldset {
+	border: ridge black 3px;
 }
