@@ -14,8 +14,8 @@ feature 'Creating a new peep' do
   end
 
   scenario 'can\'t send a peep if you\'re not signed in' do
-    visit('peeps/new')
-    expect(page).to have_content('Sorry, you have to be signed in to send a peep')
+    visit('/')
+    expect(page).to_not have_content('Post Peep')
   end
 
 end

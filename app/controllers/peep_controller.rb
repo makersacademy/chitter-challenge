@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
       Peep.create(text: params[:peep], user: current_user, post_time: Time.now, likes: 0)
+      flash.keep[:notice] = 'Peep posted!'
       redirect to '/'
   end
 
@@ -26,6 +27,7 @@ class Chitter < Sinatra::Base
     reply = Response.create(text: params[:reply], user: current_user, peep: peep, post_time: Time.now)
     peep.responses << reply
     peep.save
+    flash.keep[:notice] = 'Reply posted!'
     redirect to '/'
   end
 

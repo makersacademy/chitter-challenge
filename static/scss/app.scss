@@ -27,7 +27,7 @@ body {
   }
 }
 
-input {
+input[type=submit] {
   @include button;
 }
 
@@ -40,31 +40,59 @@ header#masthead {
   text-align: left;
   padding: 1em 0;
   z-index: 100;
-  border-bottom: 4px solid $colour_two;
+  border-bottom: 3px solid $colour_two;
   h1 {
+    display: inline-block;
     font-family: "estilo-regular", sans-serif;
+    margin-top: 0;
     a {
       color: $colour_two;
     }
   }
   .user-details, .sign-up {
-    position: absolute;
-    right: 0;
-    top: 1em;
+    float: right;
+  }
+  .user-details {
+    margin-top: 1em;
+    p, form {
+      display: inline;
+      float: left;
+    }
+    .icon {
+      float: left;
+      margin-right: 0.3em;
+      font-size: 2em;
+      line-height: 0.9;
+      color: $colour_two;
+    }
+    p {
+      font-size: 1.2em;
+      color: $colour_two;
+      margin-right: 2em;
+      margin-top: 0;
+      vertical-align: top;
+      line-height: 1.2em;
+    }
+  }
+  .sign-up a{
+    @include button;
+    margin-top: 1em;
+    padding: 0 0.4em;
   }
 }
 
 
 
+
 main {
+  margin-top: 2em;
   padding-bottom: 6em;
+  padding-top: 4em;
 }
 
 main#index {
   position: relative;
   display: block;
-  margin-top: 2em;
-  padding-top: 4em;
   width: 100%;
   background-color: transparentize($colour_four, 0.95);
     div#welcome {
@@ -74,6 +102,7 @@ main#index {
       text-align: center;
       padding: 1.5em 0;
       background: $colour_one;
+      border-bottom: 3px solid $colour_two;
       h1 {
         font-family: "estilo-regular", sans-serif;
         color: $colour_four;
@@ -96,13 +125,15 @@ main#index {
   }
 }
 
-.peep-container {
+#peeps {
+  padding-top: 2em;
+  .peep-container {
   z-index: 10;
   .peep {
     background: $colour_four;
     border-bottom: 2px $colour_three solid;
     border-radius: 5px;
-    margin-top: 4em;
+    margin-top: 2em;
     .name {
       display: block;
       width: 100%;
@@ -110,8 +141,15 @@ main#index {
       color: $colour_four;
       margin-bottom: 1em;
       padding: 1em;
+      line-height: 1.5;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
+      .icon {
+        margin-right: 0.5em;
+        font-size: 1.4em;
+        line-height: 0;
+        vertical-align: baseline;
+      }
     }
     .text {
       padding: 1em;
@@ -136,6 +174,11 @@ main#index {
         }
         form {
           margin-right: 0.5em;
+          .like-this {
+            &:before {
+              content: "\ea19";
+            }
+          }
         }
         p {
           margin: 0 0 0 0;
@@ -147,6 +190,7 @@ main#index {
         float: left;
         width: auto;
         position: relative;
+        cursor: pointer;
       }
       .time {
         display: inline-block;
@@ -171,6 +215,11 @@ main#index {
     border-top: 1px solid $colour_four;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    textarea {
+      resize: none;
+      border-radius: 5px;
+      border-color: $colour_three;
+    }
     .reply {
       border-bottom: 1px solid $colour_two;
       padding: 1em 0;
@@ -180,9 +229,10 @@ main#index {
     }
   }
 }
+}
 
 aside.user-info {
-  margin-top: 4em;
+  margin-top: 2em;
   p.history {
     background: $colour_four;
     padding: 1em;
@@ -193,12 +243,47 @@ aside.user-info {
     background: $colour_four;
     border-radius: 5px;
     border-color: $colour_three;
+    resize: none;
   }
   form {
     .new-peep {
       float: right;
     }
   }
+  form#sign-in {
+    label {
+      color: $colour_two;
+      font-size: 1.2em;
+    }
+    input[type=email], input[type=password]  {
+      background: $colour_four;
+      color: $colour_one;
+      &:hover {
+        background: $colour_four;
+        color: $colour_one;
+      }
+    }
+  }
+}
+
+main#sign-up {
+  padding-top: 8em;
+  label {
+    color: $colour_two;
+    font-size: 1.2em;
+  }
+}
+
+#notice, ul#errors {
+  position: relative;
+  top: 0;
+  background: $colour_two;
+  color: $colour_four;
+  width: 100%;
+  padding: 1em 3em;
+  margin: 0 0 0 0;
+  text-align: center;
+  list-style: none;
 }
 
 

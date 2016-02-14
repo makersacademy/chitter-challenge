@@ -1,13 +1,32 @@
-<form action="/users" method="post">
-  Name
-  <input type="text" name="name">
-  Username
-  <input type="text" name="username">
-  Email:
-  <input type="email" name="email" value="<%= @user.email %>" required>
-  Password:
-  <input type="password" name="password">
-  Confirm Password:
-  <input type="password" name="password_confirmation">
-  <input type="submit" value="Sign Up">
-</form>
+
+<main id="sign-up">
+  <div class="row">
+    <div class="small-12 medium-7 medium-centered columns">
+      <form action="/users" method="post">
+        <label for="name">
+          Name
+          <input type="text" name="name" required>
+        </label>
+        <label for="username">
+          Username
+          <input type="text" name="username" required>
+        </label>
+        <label for="email">
+          Email:
+          <input type="email" name="email" value="<%= @user.email %>" required>
+        </label>
+        <label for="password">
+          Password:
+          <input type="password" name="password" required>
+        </label>
+        <label for="password_confirmation">
+          Confirm Password:
+          <input type="password" name="password_confirmation" required>
+        </label>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+</main>
+
+<%= partial :flash %>

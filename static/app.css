@@ -1,7 +1,7 @@
 body {
   background: #FCF9F0; }
 
-input {
+input[type=submit] {
   display: inline-block;
   border: 1px solid #FF847C;
   border-radius: 5px !important;
@@ -11,10 +11,10 @@ input {
   margin-bottom: 0.5em;
   cursor: pointer;
   transition: all 0.2s ease; }
-  input:hover {
+  input[type=submit]:hover {
     background: #FF847C;
     color: #FCF9F0; }
-  input:focus {
+  input[type=submit]:focus {
     outline: none; }
 
 header#masthead {
@@ -26,24 +26,59 @@ header#masthead {
   text-align: left;
   padding: 1em 0;
   z-index: 100;
-  border-bottom: 4px solid #FF847C; }
+  border-bottom: 3px solid #FF847C; }
   header#masthead h1 {
-    font-family: "estilo-regular", sans-serif; }
+    display: inline-block;
+    font-family: "estilo-regular", sans-serif;
+    margin-top: 0; }
     header#masthead h1 a {
       color: #FF847C; }
   header#masthead .user-details, header#masthead .sign-up {
-    position: absolute;
-    right: 0;
-    top: 1em; }
+    float: right; }
+  header#masthead .user-details {
+    margin-top: 1em; }
+    header#masthead .user-details p, header#masthead .user-details form {
+      display: inline;
+      float: left; }
+    header#masthead .user-details .icon {
+      float: left;
+      margin-right: 0.3em;
+      font-size: 2em;
+      line-height: 0.9;
+      color: #FF847C; }
+    header#masthead .user-details p {
+      font-size: 1.2em;
+      color: #FF847C;
+      margin-right: 2em;
+      margin-top: 0;
+      vertical-align: top;
+      line-height: 1.2em; }
+  header#masthead .sign-up a {
+    display: inline-block;
+    border: 1px solid #FF847C;
+    border-radius: 5px !important;
+    background: #FCF9F0;
+    color: #FF847C;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1em;
+    padding: 0 0.4em; }
+    header#masthead .sign-up a:hover {
+      background: #FF847C;
+      color: #FCF9F0; }
+    header#masthead .sign-up a:focus {
+      outline: none; }
 
 main {
-  padding-bottom: 6em; }
+  margin-top: 2em;
+  padding-bottom: 6em;
+  padding-top: 4em; }
 
 main#index {
   position: relative;
   display: block;
-  margin-top: 2em;
-  padding-top: 4em;
   width: 100%;
   background-color: rgba(252, 249, 240, 0.05); }
   main#index div#welcome {
@@ -52,7 +87,8 @@ main#index {
     display: block;
     text-align: center;
     padding: 1.5em 0;
-    background: #444444; }
+    background: #444444;
+    border-bottom: 3px solid #FF847C; }
     main#index div#welcome h1 {
       font-family: "estilo-regular", sans-serif;
       color: #FCF9F0;
@@ -71,78 +107,93 @@ main#index {
     position: absolute;
     z-index: -1; }
 
-.peep-container {
-  z-index: 10; }
-  .peep-container .peep {
-    background: #FCF9F0;
-    border-bottom: 2px #E0E4CC solid;
-    border-radius: 5px;
-    margin-top: 4em; }
-    .peep-container .peep .name {
-      display: block;
-      width: 100%;
-      background: #FF847C;
-      color: #FCF9F0;
-      margin-bottom: 1em;
+#peeps {
+  padding-top: 2em; }
+  #peeps .peep-container {
+    z-index: 10; }
+    #peeps .peep-container .peep {
+      background: #FCF9F0;
+      border-bottom: 2px #E0E4CC solid;
+      border-radius: 5px;
+      margin-top: 2em; }
+      #peeps .peep-container .peep .name {
+        display: block;
+        width: 100%;
+        background: #FF847C;
+        color: #FCF9F0;
+        margin-bottom: 1em;
+        padding: 1em;
+        line-height: 1.5;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+        #peeps .peep-container .peep .name .icon {
+          margin-right: 0.5em;
+          font-size: 1.4em;
+          line-height: 0;
+          vertical-align: baseline; }
+      #peeps .peep-container .peep .text {
+        padding: 1em; }
+      #peeps .peep-container .peep .meta {
+        color: #999;
+        margin: 1em 0;
+        padding: 0 1em;
+        display: block;
+        width: 100%;
+        position: relative;
+        overflow: hidden; }
+        #peeps .peep-container .peep .meta .likes {
+          display: inline-block;
+          float: left;
+          width: auto;
+          position: relative;
+          margin-right: 2em; }
+          #peeps .peep-container .peep .meta .likes p, #peeps .peep-container .peep .meta .likes form {
+            display: inline;
+            float: left; }
+          #peeps .peep-container .peep .meta .likes form {
+            margin-right: 0.5em; }
+            #peeps .peep-container .peep .meta .likes form .like-this:before {
+              content: "\ea19"; }
+          #peeps .peep-container .peep .meta .likes p {
+            margin: 0 0 0 0;
+            color: #FF847C; }
+        #peeps .peep-container .peep .meta .reply-toggle {
+          display: inline-block;
+          float: left;
+          width: auto;
+          position: relative;
+          cursor: pointer; }
+        #peeps .peep-container .peep .meta .time {
+          display: inline-block;
+          float: left;
+          width: auto;
+          position: relative;
+          margin-right: 2em; }
+    #peeps .peep-container .replies {
+      display: none;
+      bottom: -1em;
+      background-color: #FCF9F0;
+      color: #FF847C;
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 0px;
       padding: 1em;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px; }
-    .peep-container .peep .text {
-      padding: 1em; }
-    .peep-container .peep .meta {
-      color: #999;
-      margin: 1em 0;
-      padding: 0 1em;
-      display: block;
-      width: 100%;
-      position: relative;
-      overflow: hidden; }
-      .peep-container .peep .meta .likes {
-        display: inline-block;
-        float: left;
-        width: auto;
-        position: relative;
-        margin-right: 2em; }
-        .peep-container .peep .meta .likes p, .peep-container .peep .meta .likes form {
-          display: inline;
-          float: left; }
-        .peep-container .peep .meta .likes form {
-          margin-right: 0.5em; }
-        .peep-container .peep .meta .likes p {
-          margin: 0 0 0 0;
-          color: #FF847C; }
-      .peep-container .peep .meta .reply-toggle {
-        display: inline-block;
-        float: left;
-        width: auto;
-        position: relative; }
-      .peep-container .peep .meta .time {
-        display: inline-block;
-        float: left;
-        width: auto;
-        position: relative;
-        margin-right: 2em; }
-  .peep-container .replies {
-    display: none;
-    bottom: -1em;
-    background-color: #FCF9F0;
-    color: #FF847C;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 0px;
-    padding: 1em;
-    border: 2px solid #FF847C;
-    border-top: 1px solid #FCF9F0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px; }
-    .peep-container .replies .reply {
-      border-bottom: 1px solid #FF847C;
-      padding: 1em 0; }
-      .peep-container .replies .reply:last-child {
-        border-bottom: none; }
+      border: 2px solid #FF847C;
+      border-top: 1px solid #FCF9F0;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+      #peeps .peep-container .replies textarea {
+        resize: none;
+        border-radius: 5px;
+        border-color: #E0E4CC; }
+      #peeps .peep-container .replies .reply {
+        border-bottom: 1px solid #FF847C;
+        padding: 1em 0; }
+        #peeps .peep-container .replies .reply:last-child {
+          border-bottom: none; }
 
 aside.user-info {
-  margin-top: 4em; }
+  margin-top: 2em; }
   aside.user-info p.history {
     background: #FCF9F0;
     padding: 1em;
@@ -151,9 +202,36 @@ aside.user-info {
   aside.user-info textarea {
     background: #FCF9F0;
     border-radius: 5px;
-    border-color: #E0E4CC; }
+    border-color: #E0E4CC;
+    resize: none; }
   aside.user-info form .new-peep {
     float: right; }
+  aside.user-info form#sign-in label {
+    color: #FF847C;
+    font-size: 1.2em; }
+  aside.user-info form#sign-in input[type=email], aside.user-info form#sign-in input[type=password] {
+    background: #FCF9F0;
+    color: #444444; }
+    aside.user-info form#sign-in input[type=email]:hover, aside.user-info form#sign-in input[type=password]:hover {
+      background: #FCF9F0;
+      color: #444444; }
+
+main#sign-up {
+  padding-top: 8em; }
+  main#sign-up label {
+    color: #FF847C;
+    font-size: 1.2em; }
+
+#notice, ul#errors {
+  position: relative;
+  top: 0;
+  background: #FF847C;
+  color: #FCF9F0;
+  width: 100%;
+  padding: 1em 3em;
+  margin: 0 0 0 0;
+  text-align: center;
+  list-style: none; }
 
 footer#colophon {
   padding: 3em 0;
