@@ -10,6 +10,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'bcrypt'
 
 Capybara.app = ChitterChallenge
 
