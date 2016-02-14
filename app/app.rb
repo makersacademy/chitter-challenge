@@ -68,19 +68,31 @@ class Chitter < Sinatra::Base
     redirect to '/peeps'
   end
 
-  # get '/links/new' do
-  #   erb(:new_link)
-  # end
-  #
-  # post '/links' do
-  #   @link = Link.create(:title => params[:title], :url => params[:url])
-  #   params[:tag].split(",").map(&:strip).each do |tag|
-  #         @link.tags << Tag.first_or_create(tag: tag)
-  #     end
-  #     @link.save
-  #   redirect '/links'
-  # end
-  #
+  get '/peeps/new' do
+    if current_user
+      @peep = current_user.peeps.new
+      erb :'peeps/new'
+    else
+      flash.next[:errors] = 'Sign in to peep'
+      redirect 'sessions/new'
+    end
+  end
+
+  post '/peeps' do
+    if current_user
+      @peep = current_user.peeps.new(body: params[:peep])
+      if @peep.save
+        redirect '/peeps'
+      else
+        flash.now[:errors] = @peep.errors.full_messages
+        erb :'peeps/new'
+      end
+    else
+      flash.next[:errors] = 'Sign in to peep'
+      redirect 'sessions/new'
+    end
+  end
+
   # post '/tags' do
   #   @search = params[:search]
   #   redirect "/tags/#{@search}"

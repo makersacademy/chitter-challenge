@@ -4,8 +4,7 @@
 
   <% @list.each do |peep| %>
     <li>
-      Username:  <%= peep.user.map{|user| user.username}.join('') %>
-      Peep: <%= peep.peep %>
+      Peep: <%= peep.body %>
     </li>
   <%end%>
   </ul>

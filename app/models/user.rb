@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
 require 'dm-validations'
+require_relative 'peep'
 
 
 class User
@@ -11,7 +12,9 @@ class User
   attr_accessor :password_confirmation
   attr_reader :password, :username
 
-  # has n, :link, through: Resource
+  has n, :peeps#, 'Peep',
+    # parent_key: [:username],
+    # child_key: [:body]
 
   property :id,   Serial
   property :name, String, required: true
