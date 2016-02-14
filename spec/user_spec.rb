@@ -6,7 +6,6 @@ xdescribe 'User' do
   describe '#authenticate' do
 
     it 'returns the user if the username is matched and the password entered matches that in database' do
-      p user.password
       expect(user.authenticate('emmab', 'password')).to eq(subject)
     end
 
