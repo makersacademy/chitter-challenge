@@ -13,5 +13,5 @@ feature 'User Sign Up' do
      fill_in :password, with: password
      fill_in :password_confirmation, with: password_confirmation
      click_button('Save')
-   end
+  end
 end
