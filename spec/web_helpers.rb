@@ -17,3 +17,15 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def double_sign_up_with_peep
+  sign_up(name: 'Sean', username: 'seanh', email: 's@s.com',
+                password: 'password',
+                password_confirmation: 'password')
+  fill_in :peep, with: 'Lorem ipsum dolor si amet'
+  click_button('Post Peep')
+  click_button('Sign Out')
+  sign_up(name: 'Steve', username: 'steve', email: 'st@s.com',
+                password: 'password',
+                password_confirmation: 'password')
+end
