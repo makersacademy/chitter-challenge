@@ -1,8 +1,8 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-# require_relative 'data_mapper_setup'
-require 'data_mapper'
+require_relative 'data_mapper_setup'
+# require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/flash'
 require_relative 'models/user'
