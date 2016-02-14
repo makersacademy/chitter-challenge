@@ -5,6 +5,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require 'time'
+require 'tilt/erb'
 
 class Chitter < Sinatra::Base
   enable :sessions
