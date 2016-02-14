@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/sign_up' do
-    erb :'/signup'
+    erb :'./signup'
   end
 
   post '/sign_up' do
@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
     user.password_confirmation = params['password_confirmation']
     if user.save
       session[:id] = user.id
-      redirect './'
+      redirect '/'
     else
       flash.now[:errors] = user.errors.full_messages
       flash.now[:email] = params['Email']

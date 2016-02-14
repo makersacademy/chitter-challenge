@@ -16,3 +16,10 @@
     fill_in('password', with: password)
     click_button('Submit')
   end
+
+  def create_peep(peep)
+    visit '/'
+    click_button('Create Peep')
+    fill_in('peep', with: peep)
+    click_button 'Submit'
+  end

@@ -1,3 +1,4 @@
+require_relative 'peep'
 require 'bcrypt'
 
 class User
@@ -10,9 +11,11 @@ class User
   property :username, String, unique: true, required: true, messages: {presence: 'You need to enter a username', format: 'Not a valid email address', is_unique: 'Username already taken'}
   property :email, String, unique: true, required: true, format: :email_address, messages: {presence: 'You need to enter an email address', format: 'Not a valid email address', is_unique: 'Email address already in use'}
   property :password_digest, String, length: 100
+  has n, :peeps
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, message: 'Passwords do not match, please try again'
+
 
   def password
     @password ||= Password.new(password_digest)

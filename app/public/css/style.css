@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #292f33;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  background-color: #f5f8fa;
+}
+
+header{
+	background-color: #fff;
+  color: #292f33;
+	height: 90px;
+	position: fixed;
+	top: 0;
+  left: 0;
+	width: 100%;
+  vertical-align: middle;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+header h1{
+  vertical-align: middle;
+}
+
+nav{
+}
+
+nav form{
+  display: inline;
+}
+
+nav button{
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 10px 10px 10px;
+	display: inline;
+  background-color: #0083b6;
+  border-radius: 10px;
+  border: none;
+  display:inline;
+}
+
+
+button{
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+  display: inline;
+  background-color: #0083b6;
+  border-radius: 10px;
+  border: none;
+}
+
+nav button:hover, button:hover{
+  background-color: #059ff5;
+}
+
+.main {
+  align-items: center;
+  margin-top: 120px;
+  text-align: center;
+}
+
+.peeps{
+  background-color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  width: auto;
+  margin: 20px 100px 20px 100px;
+  padding: 20px 0 20px 0;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.peeps {}
+
+h1 {
+  font-size: 150%;
+  font-weight: 700;
+}
+
+
+h2 {
+  font-size: 100%;
+}
+
+input{
+	padding: 10px;
+	border-radius: 3px;
+	border: 5px
+  display: block;
+}
+
+input[type="text"]{
+  width:auto;
+}
+
+input[type="submit"]{
+  text-decoration: none;
+	color: #fff;
+	padding: 5px 10px 5px 10px;
+	display: inline;
+  background-color: #0083b6;
+  border-radius: 15px;
+  border: none;
+  display:inline;
+}
+
+input[type="submit"]:hover{
+
+}
+
+input:hover{
+}
+
+.namesub{
+  padding: 10px
+}

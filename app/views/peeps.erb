@@ -6,3 +6,25 @@
 <div>
 <h1> Peeps </h1>
 </div>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
+<% if session[:id] %>
+  <form action='/create_peep' method='get'>
+    <button type='submit' value=submit>Create Peep</button>
+  </form>
+<% end %>
+
+<br>
+<div class=container>
+    <% @peeps.each do |peep| %>
+    <div class='peeps'>
+      <h3> <%= peep.user.name %>  @<%= peep.user.username %> </h3>
+      <p> <%= peep.content %> </p>
+      <h4><%= peep.creation.strftime("Written on %m/%d/%Y")%><%= peep.creation.strftime(" at %I:%M%p")%></h4>
+    </div>
+    <% end %>
+</div>
+<br>

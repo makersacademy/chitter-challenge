@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/signin' do
-    erb :'/signin'
+    erb :'./signin'
   end
 
   post '/signin' do
@@ -9,10 +9,11 @@ class Chitter < Sinatra::Base
     password = params['password']
     if user = User.authenticate(username, password)
       session['id'] = user.id
+      p user.valid?
       redirect '/'
     else
       login_error
-      erb :'/signin'
+      erb :'./signin'
     end
   end
 

@@ -6,7 +6,7 @@
 		<meta name="description" content="An online bookmark manager">
 		<link href="css/lanes.css" rel="stylesheet">
     <link href="css/reset.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
+		<link href="../../css/style.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width">
 	</head>
 
@@ -16,14 +16,15 @@
       <h1>Chitter</h1>
 
       <nav>
+				<form action='/signout' method='post'>
+					<input type='hidden' name='_method' value='delete'>
+					<button type='submit' value=submit>Sign Out</button>
+	      </form>
         <form action='/sign_up' method='get'>
           <button type='submit' value=submit>Sign Up</button>
         </form>
 				<form action='/signin' method='get'>
 					<button type='submit' value=submit>Sign In</button>
-				</form>
-				<form action='/signout' method='post'>
-					<button type='submit' name="_method" value="delete" id='logout'>Log out</button>
 				</form>
       </nav>
 		</header>
