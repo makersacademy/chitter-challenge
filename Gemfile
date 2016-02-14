@@ -3,19 +3,20 @@ ruby '2.2.3'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'rspec-sinatra'
 gem 'sinatra'
+gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'timecop'
+gem 'sinatra-partial'
 gem 'orderly'
-gem 'simplecov-rcov'
 
 group :test do
   gem 'rspec'
-  gem 'capybara'
+  gem 'rspec-sinatra'
   gem 'cucumber'
+  gem 'capybara'
   gem 'rake'
-  gem 'database_cleaner'
   gem 'coveralls', require: false
 end
 # gem "rails"

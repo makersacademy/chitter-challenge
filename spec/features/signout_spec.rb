@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require_relative 'web_helper'
+require 'web_helper'
 
 feature 'User signs out!' do 
 	before(:each) do 
