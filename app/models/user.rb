@@ -10,7 +10,7 @@ class User
   property :password_digest, Text, required: true
   
   has n, :peeps
-
+  has n, :replies
   attr_reader :password
   attr_accessor :password_confirmation
 

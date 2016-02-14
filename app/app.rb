@@ -8,6 +8,7 @@ require_relative 'server'
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/peeps'
+require_relative 'controllers/replies'
 
 class Chitter < Sinatra::Base
 

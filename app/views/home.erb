@@ -11,6 +11,14 @@
                 <%= post.user.name %>
                 <%= post.user.username %>
                 <%= post.formatted_time %>
+                <a href='/<%= post.id %>/reply'>Reply</a> 
+                <% post.replies.each do  |reply| %>
+                      <div class='reply'> 
+                              <%= reply.body %>
+                              <%= reply.user.username %>
+                              <%= reply.formatted_time %>
+                      </div>
+                <% end %>
         </div>
 <% end %>
     

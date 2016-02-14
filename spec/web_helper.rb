@@ -21,3 +21,9 @@ def log_in(email:, password:)
   click_button "Log in"
 end
  
+def create_peep
+  sign_up
+  fill_in :peep, with: "Hello, world!"
+  click_button 'Post'
+  click_button 'Log out'
+end
