@@ -10,26 +10,13 @@ feature 'Chitter wall:' do
   end
 
   scenario 'User can add a new peep' do
-    visit('/')
-    click_button 'Add peep'
-      fill_in('peep_message', :with => 'Peep-peep-peep')
-    click_button 'Peep it!'
+    fill_form
   end
 
   scenario 'User gets confirmation of new peep added' do
-    visit('/')
-    click_button 'Add peep'
-      fill_in('peep_message', :with => 'Peep-peep-peep')
-    click_button 'Peep it!'
-    expect(page).to have_content 'Peep-peep-peep'
+    fill_form
+    expect(page).to have_content 'Peep saved!'
   end
 
 end
 
-# As a maker
-# So that I can see what others are saying  
-# I want to see all peeps in reverse chronological order
-
-# As a maker
-# So that I can better appreciate the context of a peep
-# I want to see the time at which it was made

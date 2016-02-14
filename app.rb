@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require './models/peep.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -10,12 +11,13 @@ class Chitter < Sinatra::Base
     erb(:add)
   end
 
-  post '/peeps/add' do
-    redirect '/peeps/added'
+  post '/peeps/added' do
+    peep = Peep.create(peep: params['peep_message'])
+    peep.save
+    redirect '/peeps/confirmed'
   end
 
-  get '/peeps/added' do
-    peep = params['peep_message']
+  get '/peeps/confirmed' do
     erb(:confirmation)
   end
 
