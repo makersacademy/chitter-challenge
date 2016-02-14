@@ -19,6 +19,6 @@ end
   desc "Destructive upgrade"
   task :auto_migrate do
     DataMapper.auto_migrate!
-    puts "Auto-migrate complete (date lost!)"
+    puts "Auto-migrate complete (data lost!)"
   end
 end
