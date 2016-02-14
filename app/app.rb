@@ -34,7 +34,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    Peep.create(user: current_user, content: params[:content])
+    flash.next[:notice] = 'Your peep has been posted!'
     redirect to '/peeps/all'
   end
 
