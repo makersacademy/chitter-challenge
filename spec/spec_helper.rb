@@ -5,6 +5,10 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './app/models/chitter'
+require 'capybara/rspec'
+require './app/app'
+
+Capybara.app = Chitter
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

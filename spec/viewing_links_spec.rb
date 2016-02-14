@@ -5,8 +5,8 @@ feature 'Viewing chits' do
 
     visit '/chits'
     expect(page.status_code).to eq 200
-    
-    within 'ul#chits' do
+
+    within 'ul#posts' do
       expect(page).to have_content('ZEF TO DEF')
     end
   end

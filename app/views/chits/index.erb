@@ -1,0 +1,11 @@
+
+<h1> Chitter </h1>
+
+<ul id='posts'>
+  <% @chits.each do |posted_chits| %>
+    <li>
+      User: <%= posted_chits.user %>
+      Chit:   <%= posted_chits.chitter_post %>
+    </li>
+  <% end %>
+</ul>
