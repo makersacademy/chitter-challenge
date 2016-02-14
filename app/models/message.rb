@@ -8,4 +8,6 @@ class Message
   property :text, String
   property :time, String
 
+  has n, :users, :through => Resource
+
 end

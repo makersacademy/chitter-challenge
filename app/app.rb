@@ -13,19 +13,23 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/post_message' do
-    message = Message.create(text: params[:message], time: "#{Time.now.strftime "%R"}")
-    redirect '/'
-  end
-
   post '/sign_up' do
     user = User.create(name: params[:name],
                        username: params[:username],
                        email: params[:email],
-                       password: params[:password])
-    session[:user_id] = user.id
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
+     session[:user_id] = user.id
+     redirect '/'
+  end
+
+  post '/post_message' do
+     message = Message.create(text: params[:message], time: "#{Time.now.strftime "%R"}")
+
     redirect '/'
   end
+
+
 
   helpers do
     def current_user

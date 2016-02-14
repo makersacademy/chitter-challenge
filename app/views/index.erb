@@ -16,13 +16,15 @@
 <body>
   <% if current_user %>
     Welcome, <%= current_user.username %>
+    <br >
+    <br >
     <form method='post' action='/post_message'>
       <label> Message
       <input type='text' name='message'></label>
       <input type='submit' value='Post'>
     </form>
 
-    <%else %>
+    <% else %>
 
 
 <fieldset>
@@ -36,6 +38,8 @@
    <input type='text' name='email'></label><br >
   <label>Password:<br >
    <input type='password' name='password'></label><br >
+   <label> Password:<br >
+     <input name='password_confirmation' type='password'></label>
    <br >
   <input type='submit' value='Sign Up!'>
 </form>
@@ -46,7 +50,7 @@
 <ul id='messages'>
   <% @messages.each do |message| %>
   <li>
-      <%= message.time %>
+   <%= message.time %>
      <ul>
      <%= message.text %>
     </ul>
