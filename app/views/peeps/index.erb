@@ -1,32 +1,39 @@
 <div class='flashmsg'>
   <%= flash[:sign_out] %>
+  <%= flash[:nouser] %>
 </div>
 
 <h3>Latest peeps</h3>
 
 <% @peeps.reverse_each do |peep| %>
   <article class="peep">
-    <div class="message">
-      <%= peep.message %>
-    </div>
-    <div class="peeptime">
-      <%= peep.datetime.strftime("%a %b %e %Y %r") %>
+    <div class="peeplogo">
+      <%= peep.user.username[0] %>
     </div>
     <div class="peepuser">
-      Posted by: <%= peep.user.username %>
+      @<%= peep.user.username %>
+    </div>
+    <div class="peeptime">
+      <%= peep.datetime.strftime("%I:%M%p %a %b %e") %>
+    </div>
+    <div class="message">
+      <%= peep.message %>
     </div>
 
     <% unless peep.replys.empty? %>
       <% peep.replys.each do |reply| %>
         <article class="peep_reply">
-          <div class="message">
-            <%= reply.message %>
-          </div>
-          <div class="peeptime">
-            <%= reply.datetime.strftime("%a %b %e %Y %r") %>
+          <div class="peeplogo">
+            <%= reply.user.username[0] %>
           </div>
           <div class="peepuser">
-            Posted by: <%= reply.user.username %>
+            @<%= reply.user.username %>
+          </div>
+          <div class="peeptime">
+            <%= reply.datetime.strftime("%I:%M%p %a %b %e") %>
+          </div>
+          <div class="message">
+            <%= reply.message %>
           </div>
         </article>
       <% end %>
@@ -35,11 +42,10 @@
     <% if current_user %>
       <form action="/peeps/reply" method="post">
         <input type="hidden" name="peep_id" value="<%=peep.id%>">
-          <div class="button">
-            <button type="submit">Reply</button>
-          </div>
+        <div>
+          <button type="submit">Reply</button>
+        </div>
       </form>
     <% end %>
-
   </article>
 <% end %>

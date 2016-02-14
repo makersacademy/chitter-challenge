@@ -8,7 +8,8 @@ class ChitterApp < Sinatra::Base
     if current_user
       erb :'/peeps/new'
     else
-      flash.now[:nouser] = 'Please sign in to post a peep.'
+      flash.keep[:nouser] = 'Please sign in to post a peep.'
+      redirect to('/peeps')
     end
   end
 

@@ -11,7 +11,7 @@ feature 'Signing in to Chitter' do
   scenario 'Signing in successfully' do
     sign_in
     expect(current_path).to eq('/peeps')
-    expect(page).to have_content('Welcome amanzano')
+    expect(page).to have_content('logged in as amanzano')
   end
 
   scenario 'Invalid username or user does not exist' do

@@ -1,24 +1,31 @@
 <article class="peep">
+  <div class="peeplogo">
+    <%= @peep.user.username[0] %>
+  </div>
+  <div class="peepuser">
+    @<%= @peep.user.username %>
+  </div>
+  <div class="peeptime">
+    <%= @peep.datetime.strftime("%I:%M%p %a %b %e") %>
+  </div>
   <div class="message">
     <%= @peep.message %>
   </div>
-  <div class="peeptime">
-    <%= @peep.datetime.strftime("%a %b %e %Y %r") %>
-  </div>
-  <div class="peepuser">
-    Posted by: <%= @peep.user.username %>
-  </div>
+
   <% unless @peep.replys.empty? %>
     <% @peep.replys.each do |reply| %>
       <article class="peep_reply">
-        <div class="message">
-          <%= reply.message %>
-        </div>
-        <div class="peeptime">
-          <%= reply.datetime.strftime("%a %b %e %Y %r") %>
+        <div class="peeplogo">
+          <%= reply.user.username[0] %>
         </div>
         <div class="peepuser">
-          Posted by: <%= reply.user.username %>
+          @<%= reply.user.username %>
+        </div>
+        <div class="peeptime">
+          <%= reply.datetime.strftime("%I:%M%p %a %b %e") %>
+        </div>
+        <div class="message">
+          <%= reply.message %>
         </div>
       </article>
     <% end %>
@@ -27,12 +34,12 @@
 
 <h3>Post your reply</h3>
 
-<form action="/peeps/newreply" method="post">
+<form class="signform" action="/peeps/newreply" method="post">
   <div>
     <label for="message">Message:</label>
-    <textarea name="message"></textarea>
+    <textarea name="message" maxlength="150"></textarea>
   </div>
-  <div class="button">
+  <div>
     <button type="submit">Post</button>
   </div>
 </form>

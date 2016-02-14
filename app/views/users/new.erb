@@ -1,7 +1,7 @@
 
 <h3>Please sign up:</h3>
 
-<form action="/users/new" method="post">
+<form class="signform" action="/users/new" method="post">
   <div>
     <label for="username">Username:</label>
     <input type="text" name="username" required value="<%=@user.username%>"/>
@@ -22,8 +22,8 @@
     <label for="name">Name:</label>
     <input type="text" name="name" required value="<%=@user.name%>"/>
   </div>
-  <div class="button">
-      <button type="submit">Sign up</button>
+  <div>
+    <button type="submit">Sign up</button>
   </div>
 </form>
 
