@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -64,7 +65,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :index # FIXME need to add proper erb file
+    @peeps = Peep.all
+    erb :'peeps/index' # FIXME need to add proper erb file
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    current_user.peeps.create(message: params[:peep])
+    redirect '/peeps'
   end
 
 
