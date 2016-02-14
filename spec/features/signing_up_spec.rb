@@ -5,6 +5,10 @@ feature 'Users sign up' do
     expect(current_path).to eq('/users')
     expect(page).to have_content('Sorry password & confirmation do not match!')
   end
+
+  scenario 'user can not sign up with an invalid email' do
+    expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
+  end
   
   def sign_up(email: 'reiss94@gmail.com',
 	      name: 'reiss',
