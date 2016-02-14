@@ -1,5 +1,4 @@
-<b>Chitr - a Twitter clone!</b>
-—————————————————
+<h1><b>Chitr - a Twitter clone!</b></h1><br>
 Makers Academy week 03 weekend challenge (Chitter Challenge)<br>
 Rufus Raghunath<br>
 Feb 2016<br>
