@@ -46,8 +46,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/recover' do
-    erb :'users/acknowledgement'
-  end
+     user = User.first(email: params[:email])
+     if user
+       user.generate_token
+     end
+     erb :'users/acknowledgement'
+   end
 
 
 

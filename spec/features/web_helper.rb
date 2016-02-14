@@ -19,3 +19,9 @@ def sign_out
   visit '/peeps'
   click_button 'Sign out'
 end
+
+def recover_password
+  visit '/users/recover'
+  fill_in :email, with: "test@test.com"
+  click_button "Submit"
+end
