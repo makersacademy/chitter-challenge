@@ -7,6 +7,7 @@ require_relative 'models/user'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -34,7 +35,7 @@ class Chitter < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/'
+      redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :signup
@@ -49,11 +50,21 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/'
+      redirect '/peeps'
     else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
+      flash.next[:errors] = ['The email or password is incorrect']
+      redirect 'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.next[:notice] = 'Goodbye!'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    erb :index # FIXME need to add proper erb file
   end
 
 
