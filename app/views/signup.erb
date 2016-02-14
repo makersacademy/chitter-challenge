@@ -1,13 +1,13 @@
-<form action="/users" method="post">
+<form action="/signup" method="post">
   <ul style="list-style-type:none">
     <label for="name">
-      <li>Name: <input type="text" name="name" required /></li>
+      <li>Name: <input type="text" name="name" value='<%= @user.name %>'required /></li>
     </label>
     <label for="email">
-      <li>Email: <input type="email" name="email" required /></li>
+      <li>Email: <input type="email" name="email" value='<%= @user.email %>' required /></li>
     </label>
     <label for="username">
-      <li>Username: <input type="text" name="username" required /></li>
+      <li>Username: <input type="text" name="username" value='<%= @user.username %>' required /></li>
     </label>
     <label for="password">
       <li>Password: <input type="password" name="password" required /></li>
