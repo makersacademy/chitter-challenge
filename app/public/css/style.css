@@ -43,14 +43,14 @@ nav button{
   display:inline;
 }
 
-
-button{
+.main button{
   color: #fff;
   padding: 10px 10px 10px 10px;
   display: inline;
   background-color: #0083b6;
   border-radius: 10px;
   border: none;
+  width: 20%;
 }
 
 nav button:hover, button:hover{
@@ -73,7 +73,9 @@ nav button:hover, button:hover{
 	border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-.peeps {}
+#peeps_title {
+  margin: 15px 15px 15px 15px
+}
 
 h1 {
   font-size: 150%;
@@ -85,35 +87,28 @@ h2 {
   font-size: 100%;
 }
 
-input{
-	padding: 10px;
-	border-radius: 3px;
-	border: 5px
-  display: block;
-}
 
-input[type="text"]{
-  width:auto;
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 10px 20px 10px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 input[type="submit"]{
   text-decoration: none;
 	color: #fff;
 	padding: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 10px;
 	display: inline;
   background-color: #0083b6;
   border-radius: 15px;
   border: none;
-  display:inline;
 }
 
 input[type="submit"]:hover{
-
-}
-
-input:hover{
-}
-
-.namesub{
-  padding: 10px
+  background-color: #059ff5;
 }
