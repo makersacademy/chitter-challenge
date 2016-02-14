@@ -14,4 +14,12 @@ feature "Users can fill out a form to log in" do
     expect(page).to have_content "The username and password do not match"
   end
 
+  scenario "users are able to log out after logging in" do
+    sign_up
+    log_in
+    click_button('Log out')
+    expect(page).not_to have_content "Welcome to Chitter David"
+    expect(page).to have_content "Welcome to Chitter"
+  end
+
 end

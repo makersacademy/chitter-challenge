@@ -50,6 +50,13 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/log_out' do
+    session[:user_id] = nil
+    redirect '/home'
+  end
+
+
+
 
 
 
