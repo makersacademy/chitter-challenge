@@ -43,11 +43,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/compose_peep' do
-    current_user
-    erb :index
-  end
-
   post '/update_peeps' do
     Peep.new(message: params[:message],
              time: "#{Time.now.strftime('%H:%M')}",

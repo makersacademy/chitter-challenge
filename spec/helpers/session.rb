@@ -18,7 +18,6 @@ module SessionHelpers
   end
   
   def add_peep(message:)
-    click_link 'Compose Peep'
     fill_in :message, with: message
     click_button 'Peep'
   end
