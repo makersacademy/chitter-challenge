@@ -17,7 +17,7 @@ I want to log in to Chitter
 ```
 
 ```
-USER STORY 3
+USER STORY THREE
 
 As a Maker
 So that I can avoid others posting messages on Chitter as me
@@ -25,7 +25,7 @@ I want to log out of Chitter
 ```
 
 ```
-USER STORY 4
+USER STORY FOUR
 
 As a Maker
 So that I can let people know what I am doing  
