@@ -22,7 +22,8 @@ class Chitter < Sinatra::Base
     user = User.create(username: params[:username],
                            name: params[:name],
                           email: params[:email_address],
-                       password: params[:password])
+                       password: params[:password],
+          password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to('/users/new')
     erb :layout
