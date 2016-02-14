@@ -1,5 +1,5 @@
-feature 'sign_in' do
-  scenario 'user can sign-in' do
+feature 'log in' do
+  scenario 'user can log in' do
     sign_up
     visit('sessions/new')
     fill_in 'email', with: 'example@example.com'

@@ -1,9 +1,11 @@
-<h1> Compose a peep... </h1>
+<h1> Recent peeps... </h1>
 
-<form action='/peep' method='POST'>
-  <label for='peep'>
-    Peep:
-    <input type='text' name='peep'>
-  </label>
-  <input type='submit' value='Peep!'>
-</form>
+    <% @peep.each do |peep| %>
+      <li>
+        <%= peep.peep %>
+      </li>
+    <%end%>
+
+  <form action='/peeps/new'>
+    <input type='submit' value='Compose new peep!'>
+  </form>

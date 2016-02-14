@@ -10,8 +10,23 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get '/' do
+    redirect to('/users/new')
+  end
+
   get '/peeps' do
+    @peep = Peep.all
     erb :peeps
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(peep: params[:peep])
+    peep.save
+    redirect to('/peeps')
   end
 
   get '/users/new' do
