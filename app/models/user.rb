@@ -3,11 +3,14 @@ class User
 
   include DataMapper::Resource
 
+  has n, :peeps
+
   property :id, Serial
   property :name, String
   property :username, String, unique: true
   property :email, String, required: true, format: :email_address, unique: true
   property :password_digest, BCryptHash
+
 
   attr_accessor :password_confirmation
   attr_reader :password

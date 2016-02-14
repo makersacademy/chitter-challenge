@@ -17,7 +17,11 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    redirect 'sessions/new'
+    if session[:user_id]
+      redirect to '/peeps'
+    else
+      redirect 'sessions/new'
+    end
   end
 
   get '/peeps' do
@@ -30,8 +34,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(name: params[:name], username: params[:username],
-                    content: params[:content])
+    Peep.create(user: current_user, #username: current_user.username,
+                content: params[:content])
     redirect to '/peeps'
   end
 
