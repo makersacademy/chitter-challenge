@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="<%= url("/css/application.css")%>" />
+    <title>Chitter!</title>
+  </head>
+
+  <body>
+
+    <div id="header">
+      <p> Chitter! </p>
+    </div>
+    <div class="left">
+      <%= partial :flash %>
+      <br>
+      <br>
+      <%= partial :welcome %>
+      <br>
+      <br>
+    </div>
+    <div class="main_content">
+      <%= yield%>
+    </div>
+
+
+
+  </body>
+</html>

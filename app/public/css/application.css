@@ -1,0 +1,69 @@
+body  {
+  background-color: #ccebff;
+  width: 80%;
+  margin: auto;
+  font-family: Helvetica;
+
+}
+
+div {
+  background-color: #e5f5ff;
+  border-radius: 5px;
+  border: 2px #000000 solid;
+  height: auto;
+  padding: 10px;
+}
+
+a {
+  color: #8c8a8a;
+  text-decoration: underline;
+}
+
+
+
+#header {
+  height: 10%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#header > p {
+  font-family: Courier;
+  color: white;
+  text-shadow: -1px -1px  #000, 1px -1px  #000, -1px 1px  #000, 1px 1px  #000;
+  font-size: 60px;
+  margin: auto;
+  text-align: center;
+}
+
+.user_info  {
+  font-size: 0.75em;
+  color: #999999;
+}
+
+.message  {
+
+}
+
+.time_and_reply{
+  font-size: 0.75em;
+  color: #999999;
+}
+
+.heading {
+  font-family: Courier;
+  color: white;
+  text-shadow: -1px -1px  #000, 1px -1px  #000, -1px 1px  #000, 1px 1px  #000;
+  font-size: 30px;
+}
+
+.left {
+  width: 15%;
+  float: left;
+}
+
+
+.main_content {
+  float: right;
+  width: 79%;
+}
