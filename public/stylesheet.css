@@ -1,0 +1,35 @@
+
+html, body {
+    background-image: url('ecailles.png');
+    background-repeat: repeat;
+    display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+    height:100%;
+}
+
+h1, h2 {
+  color: #EBEBEB
+}
+
+h1{
+  font-size: 45px;
+}
+
+<img source="file://public/logo.png">
+.bold{
+  font-weight: bold;
+  font-size: 20px;
+}
+.dark-container{
+  height:100%;
+  width:50%;
+  background-color:#4f5ba8;
+}
+.padding-50 {
+  padding-top: 50px;
+}
+
+.top-buffer {
+  margin-top:20px;
+}

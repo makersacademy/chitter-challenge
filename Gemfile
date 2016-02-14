@@ -8,3 +8,11 @@ group :test do
   gem 'coveralls', require: false
 end
 
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'rubocop'
+gem 'database_cleaner'
+gem 'dm-transactions'

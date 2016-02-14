@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+   Chitter
+  </title>
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+
+<div class="container-fluid dark-container">
+    <div class="row text-center top-buffer"">
+      <div class="col-md-12 col-xs-8">
+      <img src="logo.png" alt="Chitter logo" height="105" width="105">
+      <div class="absolute_center">
+        <h1>Chitter</h1>
+            <h2>Hello <%=@name%></h2>
+            <form class="top-buffer" action="/new" method="post">
+            <p class="top-buffer">
+              <textarea name="text" class="peep-form form-control" style="width:250px;height:150px;"></textarea>
+            </p>
+              <input class="btn btn-warning btn-lg" type="submit" value="Peep">
+            </form>
+            <ul>
+              <% Peep.each do |peep| %>
+              <li>
+                Peep: <%= peep.text %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
