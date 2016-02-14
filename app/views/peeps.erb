@@ -1,8 +1,9 @@
 <h1> Recent peeps... </h1>
 
-    <% @peep.each do |peep| %>
+    <% @peep.reverse.each do |peep| %>
       <li>
         <%= peep.peep %>
+        <em><%= Time.now %></em>
       </li>
     <%end%>
 
