@@ -1,0 +1,13 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+#background {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: url("Minimalism.jpg") no-repeat;
+  background-size: cover;
+}

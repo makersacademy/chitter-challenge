@@ -1,0 +1,42 @@
+<div id='background'>
+  <div style='text-align: left; font-family: Helvetica'>
+<img src='https://d21buns5ku92am.cloudfront.net/46038/images/151145-chitter_logo-fd27ff-medium-1418117906.png'>
+<link rel="stylesheet" type="text/css" href="/stylesheet.css">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Chitter </title>
+  <h2> <%= flash[:goodbye] %> </h2>
+</head>
+<h1> Please log in </h1>
+<%= flash[:password] %>
+<body>
+<form action='/session' method='post'>
+  <label for='email'>
+    Email: <input name='email' type='email' value='<%=flash[:email]%>'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <input type='submit' value='Log in'>
+</form>
+<br>
+<h3> Not yet a member? </h3>
+<h4> Click here to sign up:
+<form action="/users/new" method="get">
+<input type="submit" value="Sign up">
+</form> </h4>
+</div>
+<h3> Latest Peeps </h3>
+<ol id='peeps' reversed>
+  <% @peeps.reverse_each do |peeps| %>
+  <li>
+  <%= peeps.time %>: @<%= peeps.peeper %> peeped "<%= peeps.message %>"
+  </li>
+  <% end %>
+</ol>
+<footer>
+     © 2015 Chitter by Andrew Htun, while at <a href="http://www.makersacademy.com/" target="_blank">Makers Academy</a> | <a href="https://github.com/Htunny" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/andrew-htun-38349b37" target="_blank">LinkedIn</a> | <a href="https://htunnycodes.wordpress.com/" target="_blank">Blog</a> |
+</footer>
+</body>
+</html>
