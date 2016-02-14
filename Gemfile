@@ -11,6 +11,8 @@ ruby '2.2.3'
 group :test do
   gem 'rake'
   gem 'rspec'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
   gem 'capybara'

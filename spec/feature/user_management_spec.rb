@@ -22,7 +22,7 @@ feature 'User sign up' do
     expect(page).to have_content('Username must not be blank')
   end
 
- scenario 'I cannot sign up without an email address' do
+  scenario 'I cannot sign up without an email address' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email must not be blank')
@@ -47,7 +47,11 @@ end
 feature 'User log in' do
 
   let(:user) do
-    User.create(name: 'Iryna', username: 'irisha', email: 'iryna@mail.com', password: 'chitter!', password_confirmation: 'chitter!')
+    User.create(name: 'Iryna',
+                username: 'irisha',
+                email: 'iryna@mail.com',
+                password: 'chitter!',
+                password_confirmation: 'chitter!')
   end
 
   scenario 'existing user with correct email/password pair can log in' do

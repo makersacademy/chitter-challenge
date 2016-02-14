@@ -1,111 +1,76 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/irynahowarth/chitter-challenge.svg?branch=master)](https://travis-ci.org/irynahowarth/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/irynahowarth/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/irynahowarth/chitter-challenge?branch=master)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
+Week 4 weekend challenge to create a web application - twitter clone - which will allow user to signup,login and post messages to the public stream.
+More information about the task can be found [here](INSTRUCTIONS.md)
 
-As usual please start by 
+Features
+--------
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+* user should be able to sign up for Chitter
+* user should be able to log in to Chitter
+* user should be able to log out of Chitter
+* user should be able to post a message (peep) to Chitter
+* user should be able to see all peeps in reverse chronological order even if not logged in
+* user should be able to see the time at which each message (peep) was posted
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Technologies & Principles
+-------------------------
 
-Features:
--------
+* Ruby
+* Sinatra
+* Capybara
+* OOD, TDD, SOLID
+* Testing with RSpec
 
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+Installing & Testing
+-----------------------------
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+$ git clone https://github.com/irynahowarth/chitter-challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
 ```
+To see application online use [this heroku link](https://chitre.herokuapp.com/)
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+Example of using the System
+-----------------------------
+| | |
+|-----------------|---------------|
+| ![Step1](images/Step1.png) | ![Step2](images/Step2.png) |
+| ![Step3](images/Step3.png) | ![Step4](images/Step4.png) |
+| ![Step5](images/Step5.png) | ![Step6](images/Step6.png) |
 
-```
-$ coveralls report
-```
+Implementation
+-----------------
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+Code is finished with basic functionality.
+
+Main functionality implemented:
+
+### User
+| Functionality | Descriprion |
+|-----------------|---------------|
+| Sign up | Register to use Chitter with name/username/email/password |
+| Log in | Authorise in a system to be able to post messages |
+| Log out | Exit the system so no one can post messages from my username|
+| View peeps | View messages(peeps) from other system users|
+| Post peep | Post a message(peep) so people can read what user wants to say|
+
+### Peep
+| Functionality | Descriprion |
+|-----------------|---------------|
+| Has User | Associated  with peep |
+| Has time | of creation |
+
+What can be improved
+-----------------------
+
+* reply to a peep from another user
+* provide password restore prompt
 
