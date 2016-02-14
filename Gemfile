@@ -1,20 +1,22 @@
-# A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 ruby '2.2.3'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'rspec-sinatra'
 gem 'sinatra'
-gem 'dm-validations'
+gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'orderly'
 
-group :test do 
-	gem 'rake'
-	gem 'rspec'
-	gem 'database_cleaner'
-	gem 'capybara'
-	gem 'coveralls', require: false
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'rake'
+  gem 'database_cleaner'
+  gem 'coveralls', require: false
 end
 
 # gem "rails"

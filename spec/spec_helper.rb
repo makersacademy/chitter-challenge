@@ -1,3 +1,4 @@
+ENV["RACK_ENV"] = "test"
 require 'capybara/rspec'
 require './app/models/user'
 require './app/app'

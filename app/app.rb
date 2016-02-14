@@ -6,7 +6,9 @@ require_relative 'models/user'
 require_relative 'models/peep'
 require 'tilt/erb'
 require 'sinatra/flash'
-require_relative 'data_mapper_setup'
+require_relative 'data_mapper_setup.rb'
+
+
 
 class Chitter < Sinatra::Base
     use Rack::MethodOverride
