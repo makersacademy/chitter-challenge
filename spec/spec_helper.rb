@@ -20,17 +20,17 @@ require 'web_helpers'
 Capybara.app = Chitter
 
 # TODO: re-enable when db tables are not empty
-# RSpec.configure do |config|
-#   config.before(:suite) do
-#     DatabaseCleaner.strategy = :transaction
-#     DatabaseCleaner.clean_with(:truncation)
-#   end
-#
-#   config.before(:each) do
-#     DatabaseCleaner.start
-#   end
-#
-#   config.after(:each) do
-#     DatabaseCleaner.clean
-#   end
-# end
+RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
