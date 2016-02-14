@@ -7,6 +7,10 @@
 <body>
   <% if current_user %>
     Welcome, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
     <br >
     <br >
     <form method='post' action='/post_message'>
@@ -16,6 +20,10 @@
     </form>
 <% else %>
  <a href="users/new">Sign Up</a>
+ <br >
+ or
+ <br >
+ <a href='/sessions/new'>Sign In</a>
   <% end %>
 <% if @messages != nil %>
 <ul id='messages'>
@@ -31,3 +39,9 @@
 <% end %>
 </body>
 </html>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>

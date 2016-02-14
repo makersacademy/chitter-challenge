@@ -9,3 +9,8 @@
   </label>
   <input type='submit' value='Sign in'>
 </form>
+
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
