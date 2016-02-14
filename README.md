@@ -1,6 +1,9 @@
 Chitter Challenge
 =================
 
+[![Coverage Status](https://coveralls.io/repos/github/seanhawkridge/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/seanhawkridge/chitter-challenge?branch=master)
+[![Build Status](https://travis-ci.org/seanhawkridge/chitter-challenge.svg?branch=master)](https://travis-ci.org/seanhawkridge/chitter-challenge)
+
 The Challenge:
 -------
 
