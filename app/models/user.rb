@@ -22,7 +22,7 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def authenticate(username_email,password)
+  def self.authenticate(username_email,password)
     first(username: username_email) || first(email: username_email)
   end
 end
