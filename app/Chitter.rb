@@ -9,9 +9,8 @@ set :session_secret, 'super secret'
 
   get '/chitter' do
     @user = session[:user_id]
-    if @user
-    @username = User.first(:id => @user).name
-    end
+    @user ? @username = User.first(:id => @user).username : nil
+    @peeps = Peep.all.reverse
     erb(:chitter_main_page)
   end
 
@@ -20,6 +19,7 @@ set :session_secret, 'super secret'
   end
   post '/chitter/users'do
     User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password])
+    redirect to('/chitter')
   end
 
   get '/chitter/login'do
@@ -36,8 +36,17 @@ set :session_secret, 'super secret'
       session[:user_id] = user.id
       redirect to('/chitter')
     else
-      erb :'chitter_login'
+      erb :chitter_login
     end
+  end
+
+  get '/peep'do
+    erb :peep
+  end
+
+  post '/peep'do
+    Peep.create(text: params[:peep], time: Time.now)
+    redirect to('/chitter')
   end
 
 run! if app_file == $0

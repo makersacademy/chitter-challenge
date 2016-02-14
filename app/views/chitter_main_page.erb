@@ -1,7 +1,10 @@
 <%if @user%>
-  <h1> welcome <%= @username %> </h1>
+  <h1> Welcome <%= @username %> </h1>
   <form action='/chitter/logout' method = 'post'>
     <input type='submit' value='Log out'>
+  </form>
+  <form action='/peep'>
+    <input type='submit' value='Peep!'>
   </form>
 <%else%>
 <form action='chitter/signup'>
@@ -11,3 +14,7 @@
   <input type='submit' value='Log in'>
 </form>
 <%end%>
+<% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.text %>
+    <% end%>

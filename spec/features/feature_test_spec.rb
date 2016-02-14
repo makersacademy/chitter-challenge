@@ -8,11 +8,18 @@ end
 feature 'Log in'do
   scenario 'visit and log in to chitter'do
     signup
-    visit('/chitter')
-    click_button('Log in')
-    fill_in('username', :with => 'JohnSmith3000')
-    fill_in('password', :with => 'password')
-    click_button('Log in')
+    login
     expect(page.status_code).to eq 200
+    expect(page).to have_content('Welcome JohnSmith3000')
+  end
+end
+feature 'Peeping'do
+  scenario 'first peep'do
+    signup
+    login
+    click_button('Peep!')
+    fill_in('peep', :with => 'This is a peep, dudes!')
+    click_button('Peep!')
+    expect(page).to have_content 'This is a peep, dudes!'
   end
 end

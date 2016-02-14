@@ -7,3 +7,10 @@ def signup
   fill_in('password', :with => 'password')
   click_button('Register')
 end
+def login
+  visit('/chitter')
+  click_button('Log in')
+  fill_in('username', :with => 'JohnSmith3000')
+  fill_in('password', :with => 'password')
+  click_button('Log in')
+end
