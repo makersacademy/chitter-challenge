@@ -6,3 +6,13 @@ click_button 'Add peep'
 click_button 'Peep it!'
 
 end
+
+
+
+
+def see_wall
+
+visit('/')
+click_button 'Show peeps'
+
+end

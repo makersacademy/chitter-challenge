@@ -21,6 +21,11 @@ class Chitter < Sinatra::Base
     erb(:confirmation)
   end
 
+  get '/peeps/wall' do
+    @peeps = Peep.all
+    erb(:wall)
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
