@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   	session[:user_id] = @user.id
 	  	 if @user.saved?
 	      session[:user_id] = @user.id
-	      redirect '/peeps'
+	      redirect to('/logged_in')
 	    else
 	      flash.now[:errors] = @user.errors.full_messages
 	      erb :index
