@@ -7,6 +7,10 @@ class Chitter < Sinatra::Base
 enable :sessions
 set :session_secret, 'super secret'
 
+  get'/'do
+    redirect to('/chitter')
+  end
+
   get '/chitter' do
     @user = session[:user_id]
     @user ? @username = User.first(:id => @user).username : nil
