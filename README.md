@@ -40,35 +40,35 @@ Instructions:
 -------
 
 1. Front page. We first need to sign up for an account.
-![image](/img/1.png?raw=true)
+![sign up](/img/1.png?raw=true) 
 
 2. If an invalid email is submitted, a user error will be raised.
-![image](/img/2.png?raw=true) 
+![invalid email error](/img/2.png?raw=true) 
 
 3. If the password and confirmation password do not match, an error is raised.
-![image](/img/3.png?raw=true) 
+![password mismatch error](/img/3.png?raw=true) 
 
 4. Successfully signed up, and auto signed in. You can now peep.
-![image](/img/4.png?raw=true) 
+![successful sign up and sign in](/img/4.png?raw=true) 
 
 5. Peep is submitted, and now appears in the current view.
-![image](/img/5.png?raw=true)
+![submitted peep](/img/5.png?raw=true) 
 
 6. Successfully signed out, and can still view peeps, but cannot submit new
    peep.
-![image](/img/6.png?raw=true) 
+![successful sign out](/img/6.png?raw=true) 
 
 7. An unsucessful attempt at signing in with incorrect user credentials.
-![image](/img/7.png?raw=true) 
+![unsuccesful sign in attempt](/img/7.png?raw=true) 
 
 8. Logged back in again, peeped second time to show reverse chronological order
    and persisting of previous peeps.
-![image](/img/8.png?raw=true) 
+![second user session](/img/8.png?raw=true) 
 
 
 Features:
 -------
-
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -82,13 +82,14 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+```
