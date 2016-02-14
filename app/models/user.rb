@@ -1,10 +1,13 @@
 # require 'data_mapper'
 # require 'dm-postgres-adapter'
 require 'bcrypt'
+require 'dm-validations'
 
 class User
 
   include DataMapper::Resource
+
+  has n, :tweets
 
   attr_reader :password
   attr_accessor :password_confirmation

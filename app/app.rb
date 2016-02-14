@@ -65,7 +65,13 @@ class Chitter_challenge < Sinatra::Base
   end
 
   get '/post_tweet' do
-    erb :post_tweet  
+    erb :post_tweet
+  end
+
+  post '/post_tweet' do
+    tweet = Tweet.new(message: params[:message])
+    tweet.save
+    redirect to('/home')
   end
 
   # start the server if ruby file executed directly
