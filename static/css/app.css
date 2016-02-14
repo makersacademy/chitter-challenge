@@ -177,8 +177,9 @@ main#index {
         border-radius: 5px;
         border-color: #E0E4CC; }
       #peeps .peep-container .replies .reply {
-        border-bottom: 1px solid #FF847C;
-        padding: 1em 0; }
+        border-top: 1px solid #FF847C;
+        margin: 1em 0 0;
+        padding: 1em 0 0; }
         #peeps .peep-container .replies .reply p {
           color: #444444; }
           #peeps .peep-container .replies .reply p.details {

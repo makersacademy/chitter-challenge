@@ -212,8 +212,9 @@ main#index {
       border-color: $colour_three;
     }
     .reply {
-      border-bottom: 1px solid $colour_two;
-      padding: 1em 0;
+      border-top: 1px solid $colour_two;
+      margin: 1em 0 0;
+      padding: 1em 0 0;
       p {
         color: $colour_one;
         &.details {
