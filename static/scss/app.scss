@@ -271,7 +271,10 @@ aside.user-actions {
 }
 
 main#sign-up {
-  padding-top: 8em;
+  padding-top: 4em;
+  form.sign-up {
+    margin-top: 4em;
+  }
   label {
     color: $colour_two;
     font-size: 1.2em;
