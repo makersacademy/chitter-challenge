@@ -10,6 +10,19 @@ class Chitter < Sinatra::Base
     'Hello Chitter!'
   end
 
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/users' do
+    @user = User.create(name: params[:name],
+                     email: params[:email],
+                     username: params[:username],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
+    redirect '/'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
