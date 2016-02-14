@@ -29,8 +29,24 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/home'
     else
-      flash.now[:errors] = "Password and confirmation password don't match"
+      flash.now[:errors] = @user.errors.full_messages # "Password and confirmation password don't match"
       erb :signup
+    end
+  end
+
+  get '/home/log-in' do
+    @user = User.new
+    erb :login
+  end
+
+  post '/home/log-in' do
+    user = User.authenticate(params[:username_or_email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/home'
+    else
+      flash.now[:errors] = 'Username or password is incorrect.'
+      erb :login
     end
   end
 

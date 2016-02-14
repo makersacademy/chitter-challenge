@@ -1,0 +1,11 @@
+<form action="/home/log-in" method="post">
+  <ul>
+    <label for="username_or_email">
+      Username or Email: <input type="text" name="username_or_email" required value="<%= @user.username %>">
+    </label>
+    <label for="password">
+      Password: <input type="password" name="password">
+    </label>
+    <input type="submit" value="Log into Chitter">
+  </ul>
+</form>
