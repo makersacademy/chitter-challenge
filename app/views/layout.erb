@@ -13,28 +13,36 @@
         <div class="logo"><a href="/">Chitter</a></div>
         <nav>
           <ul>
-            <li class="nav-link login-user"><span>Logged in as</span> David Matter</li>
-            <li class="nav-link"><a href="/users/new">Sign up</a></li>
-            <li class="nav-link"><a href="login.html">Log in</a></li>
+            <% if current_user %>
+            <li class="nav-link login-user">
+              <span>Logged in as</span>
+              <b><%= current_user.name %></b>
+            </li>
+            <li class="nav-link">
+              <form method='post' action='/sessions'>
+                <input type='hidden' name='_method' value='delete'>
+                <button type='submit'>Log out</button>
+              </form>
+            <% end %>
+            </li>
+           <% if flash[:notice] || !current_user  %>
+             <li class="nav-link login-user">
+              <span><%= flash[:notice] %></span>
+            </li>
+           <% end %>
+            <li class="nav-link">
+              <a href="/users/new">Sign up</a>
+            </li>
+          <% if flash[:notice] || !current_user  %>
+            <li class="nav-link">
+              <a href="/sessions/new">Log in</a>
+            </li>
+        <% end %>
           </ul>
         </nav>
       </div>
     </header>
     <main class="col-3 center">
-        <p>
-          <% if current_user %>
-            Welcome, <%= current_user.name %>
-            <form method='post' action='/sessions'>
-              <input type='hidden' name='_method' value='delete'>
-              <input type='submit' value='Log out'>
-            </form>
-          <% end %>
-          <% if flash[:notice] %>
-            <div id='notice'>
-              <%= flash[:notice] %>
-            </div>
-          <% end %>
-        </p>
 
         <% if flash[:errors] && !flash[:errors].empty? %>
           Please refer to the following errors below:

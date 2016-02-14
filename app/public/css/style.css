@@ -51,13 +51,15 @@ nav{
   margin-right: 40px;
 }
 .nav-link {float: left;}
+
 .login-user{
   line-height: 80px;
   font-weight: 600;
   margin-right: 30px;
 }
 .login-user span{ font-weight: 300; }
-.nav-link a{
+.nav-link a,
+.nav-link button{
   position: relative;
   display: block;
   line-height: 80px;
@@ -65,8 +67,19 @@ nav{
   font-weight: 600;
   color: #5f5f5f;
 }
-.nav-link a:hover{
+.nav-link a:hover,
+.nav-link button:hover{
   color: #22BAA0;
+}
+
+.nav-link button{
+  background: none;
+  font-size: 13px;
+  border: 0;
+  padding: 0;
+  line-height: 80px;
+  cursor: pointer;
+  margin: 0 0 0 20px;
 }
 
 .center{

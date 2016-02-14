@@ -6,7 +6,7 @@ feature 'User sign up' do
 
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, Iryna')
+    expect(page).to have_content('Logged in as Iryna')
     expect(User.first.email).to eq('iryna@mail.com')
   end
 
@@ -52,7 +52,7 @@ feature 'User log in' do
 
   scenario 'existing user with correct email/password pair can log in' do
     log_in(user.email, user.password)
-    expect(page).to have_content "Welcome, #{user.name}"
+    expect(page).to have_content "Logged in as #{user.name}"
   end
 
   scenario 'not existing user can not log in' do
@@ -92,8 +92,8 @@ feature 'User log out' do
   scenario 'when user logged in he can log out' do
     log_in('iryna@mail.com', 'chitter!')
     click_button 'Log out'
-    expect(page).to have_content('goodbye!')
-    expect(page).not_to have_content('Welcome, Iryna')
+    expect(page).to have_content('Not logged in')
+    expect(page).not_to have_content('Logged in as Iryna')
   end
 
 end
