@@ -3,5 +3,10 @@ class Peep
 
   property :id, Serial
   property :body, Text
-
+  property :time, DateTime
+  belongs_to :user
+  
+  def formatted_time
+    self.time.strftime("%F, at %H:%M")
+  end
 end

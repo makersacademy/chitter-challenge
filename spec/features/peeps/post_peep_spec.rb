@@ -9,10 +9,10 @@ feature 'Post a peep' do
     )
   end
 
-  scenario 'users can post a peep' do
+  scenario 'users can post a peep and see their username, name' do
     log_in(email: "Bob@email.com", password: "123abc")
     fill_in :peep, with: "Hello, world!"
     click_button 'Post'
-    expect(page).to have_content "Hello, world!"
+    expect(page).to have_content "Hello, world! Bob bigbob"
   end
 end

@@ -1,9 +1,16 @@
+<% if current_user %>
 <form action='peep/new' method='post'>
     <textarea name='peep' placeholder='Write a new peep'></textarea>
     <input type='submit' value='Post' />
 </form>
+<% end %>
 
-<% @peeps.each do |post| %>
-   <div class='post'><%= post.body %></div>
+<% @peeps.reverse_each do |post| %>
+        <div class='post'>
+                <%= post.body %>
+                <%= post.user.name %>
+                <%= post.user.username %>
+                <%= post.formatted_time %>
+        </div>
 <% end %>
     
