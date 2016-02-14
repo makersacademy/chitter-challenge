@@ -10,8 +10,6 @@ require './app/models/chitter'
 require 'capybara/rspec'
 require './app/app'
 
-Capybara.app = Chitter
-
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
@@ -36,6 +34,8 @@ RSpec.configure do |config|
   end
 
 end
+
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
