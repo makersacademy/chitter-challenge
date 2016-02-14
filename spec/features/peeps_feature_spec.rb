@@ -8,22 +8,12 @@ feature 'Public Peeps' do
     expect(page).to have_content 'Here\'s Johny'
   end
 
-  scenario 'Users can see everyone\'s peeps to the chitter homepage' do
-    post_peep
-    post_peep_2
-    expect(page).to have_content 'Another futile peep'
-  end
-
-  scenario 'peeps are listed in reverse chronological order' do
+  scenario 'Users can see everyons\'s in reverse chronological order' do
     post_peep
     post_peep_2
     expect('Another futile peep').to appear_before 'Here\'s Johny'
   end
 
-  scenario 'Users can see which peeps belong to them' do
-    post_peep
-    expect(page).to have_content 'Le Jockey'
-  end
 
   context 'Date and timestamping peeps'do
     before do
@@ -35,15 +25,13 @@ feature 'Public Peeps' do
     end
 
 
-    scenario 'Users can see what time peeps were posted' do
+    scenario 'Users can see what date and time peeps were posted and who by' do
       post_peep
       expect(page).to have_content '12:00AM'
+      expect(page).to have_content '01/01/1990'
+      expect(page).to have_content 'Le Jockey'
     end
 
-    scenario 'Users can see what day peeps were posted' do
-      post_peep
-      expect(page).to have_content '01/01/1990'
-    end
   end
 
   context 'Invalid peeps' do

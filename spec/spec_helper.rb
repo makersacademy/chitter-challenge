@@ -8,11 +8,12 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app.rb'
-require 'database_cleaner'
 require './spec/web_helpers.rb'
+
+
+require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
-require './app/data_mapper_setup.rb'
 require 'orderly'
 
 

@@ -12,8 +12,8 @@
     <form action="/post_peep" method="post">
       <label for="peep">
         Make a Peep:
-        <% if flash[:too_long] %>
-        <%= flash[:too_long] %>
+        <% if flash[:peep_error] %>
+        <%= flash[:peep_error] %>
         <% end %>
         <textarea rows="2" cols="50" name="peep">
         </textarea>
@@ -21,18 +21,21 @@
       <label for="submit" class="submitform">
         <input type="submit" value="Word Vom">
       </label>
-      <% if flash[:no_author] %>
-      <%= flash[:no_author] %>
-      <% end %>
     </form>
   </div>
 
   <%@peeps.each do |peep| %>
   <div class="single_peep" >
-    <p><%= peep.peep_message %></p>
-    <p><%= readable_time(peep.created_at) %></p>
-    <p><%= readable_date(peep.created_on) %></p>
-    <p><%= peep.author %></p>
+    <div class="peep_text" >
+      <h2><%= peep.peep_message %></h2>
+    </div>
+    <div class="peep_footer" >
+      <p><%= readable_time(peep.created_at) %></p>
+      <p><%= readable_date(peep.created_on) %></p>
+    </div>
+    <div class="author_info">
+      <p><%= peep.author %></p>
+    </div>
   </div>
   <% end %>
 

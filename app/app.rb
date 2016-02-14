@@ -20,28 +20,19 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
-    @new_user = User.new
+    # @new_user = User.new
     erb :'user/index'
   end
 
   post '/sign_up' do
-    @new_user = User.new(user_name: params[:user_name],
-    email: params[:email],
-    password: params[:password],
-    password_confirmation: params[:password_confirmation])
-
+    @new_user = User.new(user_name: params[:user_name], password: params[:password],
+    password_confirmation: params[:password_confirmation], email: params[:email])
     if @new_user.save
       session[:user_id] = @new_user.id
       redirect '/welcome'
     else
-      flash.now[:error_password] =
-      sign_up_errors.select {|message| message.include? 'Dur-brain'}.join("/n")
-      flash.now[:error_user_name] =
-      sign_up_errors.select {|message| message.include? 'Brother'}.join("/n")
-      flash.now[:error_email] =
-      sign_up_errors.select {|message| message.include? 'Friend'}.join("/n")
-      flash.now[:new_user_email_memo] = @new_user.email
-      flash.now[:new_user_user_name_memo] = @new_user.user_name
+      sign_up_error_type
+      memo_flashes
     end
     erb :'user/index'
   end
@@ -70,11 +61,11 @@ class Chitter < Sinatra::Base
   end
 
   post "/post_peep" do
-  flash.next[:too_long] = 'Keep it brief' if peep_error?
-    if session_user.nil?
-      flash.next[:no_author] = 'This is a members only cult. IMPOSTER'
+    if peep_error?
+      flash.next[:peep_error] = peep_error_message
     else
-    @peep = Peep.new(peep_message: params[:peep], author: session_user.user_name)
+      @peep =
+        Peep.new(peep_message: params[:peep], author: session_user.user_name)
       session_user.peeps << @peep
       session_user.save
     end

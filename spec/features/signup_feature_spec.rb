@@ -9,23 +9,18 @@ feature 'User Sign Up' do
     expect(page).to have_button('Bizarre Initiation Ceremony This Way')
   end
 
-  scenario 'On sign up I see a personalized welcome message' do
-    sign_up_good
+  scenario 'On sign up I\'m welcomed and I\'m added to the database' do
+    expect{sign_up_good}.to change(User, :count).by(1)
+    expect(current_path).to eq '/welcome'
     expect(page).to have_content("Welcome to Chitter Le Jockey")
   end
 
-  scenario 'On sign up my details are added to the database' do
-    expect{sign_up_good}.to change(User, :count).by(1)
-  end
 
-  scenario 'On sign up, if my passwords do not match I am served a message' do
-    sign_up_bad_password
+  scenario 'Sign up, I am alerted of mismatched password and not added to db' do
+    expect{sign_up_bad_password}.not_to change(User, :count)
     expect(page).to have_content('Dur-brain, you need to type the SAME password twice')
   end
 
-  scenario 'On sign up, mismatched passwords lead to no database changes' do
-    expect{sign_up_bad_password}.not_to change(User, :count)
-  end
 
   scenario 'On sign up, I need to enter a unique email address' do
     expect{sign_up_bad_email}.to change(User, :count).by(1)
