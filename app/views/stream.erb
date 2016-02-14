@@ -1,10 +1,14 @@
 <section class='stream'>
-	<% @global_stream.each do |user| %> 
-	  <%user.messages.each do |mess|%>
+	<% @users.each do |user| %> 
+	
+	    <%@global_stream.each do |mess|%>
 	<p class='peep'>
+		
 	 <%= user.username %> said: </br> <%= mess.body %> </br>
-	on: <%= mess.date.strftime( "%d/%m/%Y at %I:%M%p" )%> </br>
+	 on: <%= mess.date.strftime( "%d/%m/%Y at %I:%M%p" )%> </br>
     </p>
+	
 	  <% end %>
+	  
 	<% end %>
 </section>

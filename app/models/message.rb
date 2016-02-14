@@ -8,5 +8,4 @@ class Message
   property :date, DateTime
   
   belongs_to :user
-  belongs_to :messagestream
 end

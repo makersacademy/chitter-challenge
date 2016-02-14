@@ -17,10 +17,6 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-    
-    def stream
-     @stream ||= Messagestream.create message: "Welcome to Chitter"
-    end
   end
   
   run! if app_file == $0
