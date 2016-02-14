@@ -1,10 +1,18 @@
-<h1>Peeps</h1>
+<h2>Peeps</h2>
 
 <ul id='peeps'>
 
   <% @list.each do |peep| %>
-    <li>
-      <%="#{peep.user.username}: #{peep.body}"%>
+    <li id='indiv_peep'>
+      <section class="peep_container">
+        <div class="top">
+          <div class='username'><%= peep.user.username %></div>
+          <div class='date'><%= peep.created_at.strftime('%H:%M:%S, %d %b %Y') %></div>
+        </div>
+        <div class="bottom">
+          <div class='body'><%= peep.body %></div>
+        </div>
+    </section>
     </li>
   <%end%>
   </ul>

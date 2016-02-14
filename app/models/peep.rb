@@ -7,7 +7,7 @@ require 'dm-timestamps'
 class Peep
   include DataMapper::Resource
 
-  attr_reader :body
+  attr_reader :body, :created_at
 
   # has n, :users, through: Resource
   belongs_to :user#, 'User',

@@ -8,6 +8,7 @@ require_relative 'models/user'
 
 
 class Chitter < Sinatra::Base
+  set :public, 'public'
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @list = Peep.all
+    @list = Peep.all(order: [ :created_at.desc ])
     @user = current_user
     erb :index
   end

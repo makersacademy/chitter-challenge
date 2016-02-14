@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="/css/stylesheet.css" rel="stylesheet" type="text/css" />
+    <script src="//use.edgefonts.net/rock-salt.js"></script>
     <title>Chitter</title>
   </head>
 
+  <header>
+    <h1 class='title'>Chitter</h1>
+    <nav>
+      <% if current_user %>
+        <p>Welcome, <%= current_user.username %>!
+          <ul id='nav'>
+            <li>
+              <form action="/sessions" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Sign out">
+              </form>
+            </li>
+            <li>
+              <form action="/peeps/new">
+                <input type="submit" value="Peep">
+              </form>
+            </li>
+          </ul>
+      <% end %>
+
+      <% if !current_user %>
+        <ul id='nav'>
+          <li>
+            <form action="/sessions/new">
+              <input type="submit" value="Login">
+            </form>
+          </li>
+          <li>
+            <form action="/users/new">
+              <input type="submit" value="Sign up">
+            </form>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+  </header>
+
   <body>
-    <% if current_user %>
-      <p>Welcome, <%= current_user.username %>!
-        <p>
-        <form action="/sessions" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Sign out">
-        </form>
-        <form action="/peeps/new">
-          <input type="submit" value="Peep">
-        </form>
-    <% end %>
+    <section class="messages">
+      <%if flash[:error]%>
+        <div id='error'><%= flash[:error] %></div>
+      <%end%>
 
-    <% if !current_user %>
-      <p>
-      <form action="/sessions/new">
-        <input type="submit" value="Login">
-      </form>
-      <form action="/users/new">
-        <input type="submit" value="Sign up">
-      </form>
-    <% end %>
-
-    <%if flash[:error]%>
-      <div id='error'><%= flash[:error] %></div>
-    <%end%>
-
-    <% if flash[:notice]%>
-      <div id='notice'><%= flash[:notice] %></div>
-    <%end%>
+      <% if flash[:notice]%>
+        <div id='notice'><%= flash[:notice] %></div>
+      <%end%>
+    </section>
 
     <%=yield%>
   </body>

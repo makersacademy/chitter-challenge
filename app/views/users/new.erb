@@ -1,25 +1,27 @@
-<h1> Create an account </h1>
+<h2> Create an account </h2>
 
-<form action='/users' method='POST'>
-  <label for='username'>
+<form class="form" action='/users' method='POST'>
+  <p><label for='username'>
     Username:
     <input type='text' name='username' value='<%= @user.username %>'>
   </label>
-  <label for='email'>
+  <p><label for='email'>
     Name:
     <input type='text' name='name' value='<%= @user.name %>'>
   </label>
-  <label for='email'>
+  <p><label for='email'>
     Email:
     <input type='text' name='email' value='<%= @user.email %>'>
   </label>
-  <label for='password'>
+  <p><label for='password'>
     Password:
     <input type='password' name='password'>
   </label>
-  <label for='password_confirmation'>
+  <p><label for='password_confirmation'>
     Confirm password:
     <input type='password' name='password_confirmation'>
   </label>
-  <input type='submit' value='Create account'>
+  <p><label for="submit">
+    <input class="submit" type='submit' value='Create account'>
+  </label>
 </form>
