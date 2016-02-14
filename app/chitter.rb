@@ -20,9 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @new_peep = false
-    @signed_in = false
     @posts = Peep.all
+    current_user
     erb :index
   end
   
@@ -45,12 +44,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/compose_peep' do
-    @new_peep = true
+    current_user
     erb :index
   end
 
   post '/update_peeps' do
-    Peep.new(message: params[:message], time: "#{Time.now.strftime('%H:%M')}").save
+    Peep.new(message: params[:message],
+             time: "#{Time.now.strftime('%H:%M')}",
+             user: current_user).save
     redirect '/'
   end
 

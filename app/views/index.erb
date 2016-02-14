@@ -1,14 +1,15 @@
 <h1>Chitter - Speak your mind!</h1>
 
-<% unless @signed_in %>
+<% unless @current_user %>
   <a href='/users/new'>Sign Up</a>
+  <a href='/sessions/new'>Sign In</a>
 <% end %>
 
-<% unless @new_peep %>
+<% if @current_user %>
 <a href='/compose_peep'>Compose Peep</a>
 <% end %>
 
-<% if @new_peep %>
+<% if @current_user%>
 
 <form action='/update_peeps' method='post'>
   <input type='text' name='message'>
@@ -19,6 +20,6 @@
 
 <% if @posts %>
   <% @posts.reverse!.each do |post| %>
-    <p><%= post.message %><br><%= post.time %></p>
+    <p><%= post.message %><br><%= post.time %><br><%= post.user.email%></p>
   <% end %>
 <% end %>
