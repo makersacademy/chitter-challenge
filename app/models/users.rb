@@ -10,7 +10,14 @@ class User
   property :email, String
   property :name, String
   property :password, Text
-
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && user.password == password
+      user
+    else
+      nil
+    end
+  end
   #def password=(password)
     #self.password_digest = Bcrypt::Password.create(password)
   #end
