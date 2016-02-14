@@ -6,9 +6,18 @@
     to Chitter
   <% end %>
 </h1>
+
 <% if current_user %>
   <a href="/peeps/new"><button>New peep</button></a>
 <% end %>
+
+<!-- TODO: extract to partial -->
+<% if flash[:notice] %>
+  <div id="notice">
+    <% flash[:notice] %>
+  </div>
+<% end %>
+
 <section id="peeps">
   Recent activity:
   <% @peeps.each do |peep| %>

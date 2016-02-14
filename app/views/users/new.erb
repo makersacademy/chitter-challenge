@@ -1,4 +1,5 @@
 <h1>Sign up to Chitter</h1>
+
 <!-- TODO: extract to partial -->
 <% if flash[:errors] && !flash[:errors].empty? %>
   <ul id="errors">
@@ -7,6 +8,7 @@
     <% end %>
   </ul>
 <% end %>
+
 <form action="/users" method="post">
   <label for="username">Username:</label>
   <input type="text" name="username" value="<%= @user.username %>" required  />

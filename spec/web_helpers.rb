@@ -13,3 +13,13 @@ def sign_up(username: 'User',
   fill_in 'pwd_conf', with: password_confirmation
   click_button 'Submit'
 end
+
+def log_in( email: 'user@nomail.com',
+            password: 's3cr3t')
+  visit '/'
+
+  click_link 'Log in'
+  fill_in 'email',    with:email
+  fill_in 'password', with: password
+  click_button 'Submit'
+end

@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/all' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :'peeps/all'
   end
 
@@ -34,9 +34,30 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(user: current_user, content: params[:content])
-    flash.next[:notice] = 'Your peep has been posted!'
-    redirect to '/peeps/all'
+    @peep = Peep.new(user: current_user, content: params[:content])
+    if @peep.save
+      # TODO: fix flash
+      # flash[:notice] = 'Your peep has been posted!'
+      redirect to '/peeps/all'
+    else
+      flash.now[:errors] = current_user.errors.full_messages
+      erb :'peeps/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/peeps/all'
+    else
+      flash.now[:errors] = ['The email or password are incorrect']
+      erb :'sessions/new'
+    end
   end
 
   get '/users/new' do
