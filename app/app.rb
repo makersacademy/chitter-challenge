@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user =  User.first(id: session[:user_id])
+    @peep = Peep.all.reverse
     erb :'/home'
   end
 
@@ -42,8 +43,12 @@ class Chitter < Sinatra::Base
 
   post '/post_peep' do
     user = User.first(id: session[:user_id])
-    user.peeps << Peep.create(peep: params[:peep_input])
-    user.save
+    if user
+      user.peeps << Peep.create(peep: params[:peep_input])
+      user.save
+    else
+      flash.keep[:unknown_username] =  'You need to login to peep'
+    end
     redirect '/'
   end
 

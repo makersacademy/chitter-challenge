@@ -2,10 +2,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    ast (2.1.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     builder (3.2.2)
+    byebug (6.0.2)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -96,11 +100,15 @@ GEM
     netrc (0.10.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    parser (2.2.3.0)
+      ast (>= 1.1, < 3.0)
+    powerpack (0.1.1)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rainbow (2.0.0)
     rake (10.4.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -121,6 +129,14 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.3.0)
+    rubocop (0.34.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.2.5, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.4)
+    rubocop-rspec (1.3.1)
+    ruby-progressbar (1.7.5)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -154,6 +170,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  byebug
   capybara
   coveralls
   cucumber
@@ -164,6 +181,9 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
+  rubocop
+  rubocop-rspec
+  simplecov
   sinatra
   sinatra-flash
 

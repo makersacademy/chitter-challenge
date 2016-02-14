@@ -34,3 +34,13 @@
   <input type="text" name="peep_input">
   <input type='submit' value="Peep">
 </form>
+
+
+<!-- <div class="title"> -->
+      <ul id="peep_list">
+        <h1> Peeps: </h1>
+        <%@peep.each do |peep| %>
+          <li><%= peep.peep %></li>
+        <% end %>
+      </ul>
+    <!-- </div> -->

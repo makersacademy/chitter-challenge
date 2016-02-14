@@ -8,6 +8,10 @@ group :test do
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'rspec-sinatra'
+  gem 'simplecov'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'byebug'
 
 end
 
