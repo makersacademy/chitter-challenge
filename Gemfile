@@ -13,5 +13,6 @@ group :test do
   gem 'rake'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
