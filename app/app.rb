@@ -1,7 +1,6 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require 'dm-validations'
 require 'sinatra/flash'
 require_relative '../data_mapper_setup'
 require_relative 'models/user'
@@ -51,7 +50,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps/peeplist' do
-      @peeps = Peep.all
+      peeps = Peep.all
+      @peeps = peeps.sort_by {|peep| peep.created_at}.reverse
       erb :'peeps/peeplist'
     end
 
