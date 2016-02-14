@@ -37,15 +37,13 @@ class Chitter < Sinatra::Base
                      password: params[:password], 
                      password_confirmation: params[:password_confirmation])
 
-    if @user.save # #save returns true/false depending on whether the model is successfully saved to the database.
-      session[:user_id] = @user.id
-      redirect to('/chits')
-    # if it's not valid,
-    # we'll render the sign up form again
-    else
-      flash.now[:notice] = "Password and confirmation password do not match"
-      erb :'users/new'
-    end
+    if @user.save
+  session[:user_id] = @user.id
+  redirect to('/chits')
+else
+  flash.now[:errors] = @user.errors.full_messages
+  erb :'users/new'
+end
   end
 
   helpers do
