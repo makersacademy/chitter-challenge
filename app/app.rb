@@ -9,6 +9,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
 
@@ -17,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @current_user = session[:name]
+    current_user
     @posts = Post.all
     erb :home_page
 
@@ -31,6 +32,8 @@ class Chitter < Sinatra::Base
     @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
         session[:name] = @user.name
+        session[:user_id] = @user.id
+        puts "sign up #{@user.name}"
         redirect '/home'
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -45,8 +48,8 @@ class Chitter < Sinatra::Base
   post '/log_in' do
     @user = User.authenticate(params[:username], params[:password])
     if @user
-      session[:name] = @user.name
-      session[:user_session] = @user
+      session[:user_id] = @user.id
+      puts "log in #{@user.name}"
       redirect to('/home')
     else
       flash.now[:errors] = ["The username and password do not match"]
@@ -59,19 +62,21 @@ class Chitter < Sinatra::Base
   end
 
   post '/make_cheet' do
-    cheet = Post.create(title: params[:title], body: params[:body])
-    @user = session[:user_session]
-    @user.posts << cheet
+    Post.create(title: params[:title], body: params[:body])
     redirect '/home'
   end
 
    delete '/log_out' do
       session[:user_id] = nil
-      session[:name] = nil
+      flash.keep[:notice] = 'Goodbye!'
       redirect to('/home')
     end
 
-
+helpers do
+ def current_user
+   @current_user ||= User.get(session[:user_id])
+ end
+end
 
 
   # start the server if ruby file executed directly

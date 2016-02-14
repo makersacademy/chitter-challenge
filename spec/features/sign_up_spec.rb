@@ -5,7 +5,7 @@
 feature "Users can sign up for Chitter" do
   scenario "Users can fill out a form and sign up" do
     expect{sign_up}.to change(User, :count).by 1
-    expect(page).to have_content "Welcome to Chitter David"
+    expect(page).to have_content "Welcome, David"
     expect(User.first.email).to eq 'parry@gmail.com'
   end
 

@@ -13,7 +13,7 @@ feature "Users can fill out a form to log in" do
   scenario "users are able to log in" do
     sign_up
     log_in
-    expect(page).to have_content "Welcome to Chitter David"
+    expect(page).to have_content "Welcome, David"
   end
 
    scenario "users cannot log in is username and password don't match" do
@@ -30,7 +30,7 @@ feature "Users can fill out a form to log in" do
     log_in
     click_button('Log out')
     expect(page).not_to have_content "Welcome to Chitter David"
-    expect(page).to have_content "Welcome to Chitter"
+    expect(page).to have_content "Goodbye!"
   end
 
 end
