@@ -40,30 +40,46 @@ Instructions:
 -------
 
 1. Front page. We first need to sign up for an account.
+
 ![sign up](/img/1.png?raw=true) 
+-----------------
 
 2. If an invalid email is submitted, a user error will be raised.
+
 ![invalid email error](/img/2.png?raw=true) 
+ -----------------
 
 3. If the password and confirmation password do not match, an error is raised.
+
 ![password mismatch error](/img/3.png?raw=true) 
+ -----------------
 
 4. Successfully signed up, and auto signed in. You can now peep.
+
 ![successful sign up and sign in](/img/4.png?raw=true) 
+ -----------------
 
 5. Peep is submitted, and now appears in the current view.
+
 ![submitted peep](/img/5.png?raw=true) 
+ -----------------
 
 6. Successfully signed out, and can still view peeps, but cannot submit new
    peep.
+
 ![successful sign out](/img/6.png?raw=true) 
+ -----------------
 
 7. An unsucessful attempt at signing in with incorrect user credentials.
+
 ![unsuccesful sign in attempt](/img/7.png?raw=true) 
+ -----------------
 
 8. Logged back in again, peeped second time to show reverse chronological order
    and persisting of previous peeps.
+
 ![second user session](/img/8.png?raw=true) 
+ -----------------
 
 
 Features:
