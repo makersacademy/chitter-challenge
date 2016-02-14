@@ -1,11 +1,10 @@
 <h1>Peeps</h1>
 
-<ul id='peep'>
+<ul id='peeps'>
 
-  <% @peep.each do |peep| %>
+  <% @list.each do |peep| %>
     <li>
-      <!-- Title: <%= link.bookmark_name %> -->
-      Username:  <%= peep.user.map{|user| user.username}..join('') %>
+      Username:  <%= peep.user.map{|user| user.username}.join('') %>
       Peep: <%= peep.peep %>
     </li>
   <%end%>

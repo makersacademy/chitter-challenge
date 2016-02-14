@@ -1,9 +1,9 @@
 <h1> Please sign-in... </h1>
 
 <form action='/sessions' method='POST'>
-  <label for='email'>
+  <label for='username'>
     <p>Username:
-    <input type='text' name='username'>
+    <input type='text' name='username' value='<%= @user.name %>'>
   </label>
   <label for='password'>
     <p>Password:
