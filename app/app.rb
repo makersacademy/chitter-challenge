@@ -17,7 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @username = session[:current_user] || 'friend'
+    @username = session[:current_user]
+    @logged_in = !!@username
     erb(:index)
   end
 

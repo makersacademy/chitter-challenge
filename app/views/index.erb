@@ -1,1 +1,12 @@
-<article id="header">Welcome, <%= @username %>!</article>
+<header>
+  <h2 style="text-align: left">Welcome<%= ", #{@username}" if @logged_in %>!</h2>
+  <form method="GET" style="text-align: right">
+    <% if @logged_in %>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" formaction="/" formmethod="POST">Log out</button>
+    <% else %>
+      <button type="submit" formaction="/login">Log in</button>
+      <button type="submit" formaction="/signup">Sign up</button>
+    <% end %>
+  </form>
+</header>
