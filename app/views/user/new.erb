@@ -1,19 +1,21 @@
-<form action='/user/new' method='post'>
-  <label for='name'>Name</label>
-  <input type='text' name='name' value="<%= @user.name %>"/>
+<div class='container'>
+        <h3>Sign-up</h3>
+        <form action='/user/new' method='post' class='form-group'>
+          <label for='name'>Name</label>
+          <input type='text' name='name' value="<%= @user.name %>" class='form-control'/ >
 
-  <label for='username'>Username</label>
-  <input type='text' name='username' value="<%= @user.username %>"/>
+          <label for='username'>Username</label>
+          <input type='text' name='username' value="<%= @user.username %>" class='form-control'/>
 
-  <label for='email'>Email</label>
-  <input type='email' name='email' value="<%= @user.email %>" required/>
-  
-  <label for='password'>Password</label>
-  <input type='password' name='password' required />
+          <label for='email'>Email</label>
+          <input type='email' name='email' value="<%= @user.email %>" class='form-control' required />
+          
+          <label for='password'>Password</label>
+          <input type='password' name='password' class='form-control' required />
 
-  <label for='password_confirmation'>Confirm Password</label>
-  <input type='password' name='password_confirmation' />
+          <label for='password_confirmation'>Confirm Password</label>
+          <input type='password' name='password_confirmation' class='form-control' />
 
-  <button type='submit'>Sign-up</button>
-</form>
-
+          <input type='submit' value='Sign-up' class='btn btn-default'>
+        </form>
+</div>

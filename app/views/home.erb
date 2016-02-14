@@ -1,19 +1,25 @@
 <% if current_user %>
-<form action='peep/new' method='post'>
-    <textarea name='peep' placeholder='Write a new peep'></textarea>
-    <input type='submit' value='Post' />
-</form>
+   <div class='container'>
+       <form action='peep/new' method='post' class='form-group'>
+           <textarea name='peep' placeholder='Write a new peep' class='form-control'></textarea>
+           <input type='submit' value='Post' class='btn btn-default'/>
+       </form>
+   </div>
 <% end %>
 
+<main class='peeps container'>
 <% @peeps.reverse_each do |post| %>
         <div class='post'>
-                <%= post.body %>
-                <%= post.user.name %>
-                <%= post.user.username %>
-                <%= post.formatted_time %>
+                <p id="body"><%= post.body %></p>
+                <br/>
+                <p>
+                        Posted by: <%= post.user.name %>
+                        (<%= post.user.username %>)
+                        <%= post.formatted_time %>
                 <a href='/<%= post.id %>/reply'>Reply</a> 
                 <% post.replies.each do  |reply| %>
                       <div class='reply'> 
+                              Replies: <br/>  
                               <%= reply.body %>
                               <%= reply.user.username %>
                               <%= reply.formatted_time %>
@@ -21,4 +27,4 @@
                 <% end %>
         </div>
 <% end %>
-    
+</main>    

@@ -1,8 +1,43 @@
 <% if current_user %>
-   <h4> Welcome, <%= current_user.username %></h4>
-  <form action='/session' method='post'>
-    <input type='hidden' name='_method' value='delete'>      
-    <input type='submit' value='Log out'>
-  </form>
+       <nav class='navbar navbar-default'>
+        <div class="container-fluid">
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#logout-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+        </div>
+
+        <div class='collapse navbar-collapse' id="logout-collapse">
+                <h4 class="navbar-left"> Welcome, <%= current_user.username %></h4>
+                <h3 class="navbar-center">Chitter</h3>
+                <form action='/session' method='post' class='navbar-form navbar-right' >
+                       <input type='hidden' name='_method' value='delete' />      
+                       <input type='submit' value='Log out' class='btn btn-default' />
+               </form>
+       </div>
+       </div>
+       </nav>
+<% else %>
+        <nav class='navbar navbar-default'>
+        <div class="container-fluid">
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#logout-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+        </div>
+
+        <div class='collapse navbar-collapse' id="logout-collapse">
+                <h3 class="navbar-center">Chitter</h3>
+                <a href="/log_in" class="btn btn-default navbar-right">Log-in</a>
+       </div>
+       </div>
+       </nav>
+
 <% end %>
  

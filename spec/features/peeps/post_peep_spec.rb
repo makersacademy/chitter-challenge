@@ -13,6 +13,8 @@ feature 'Post a peep' do
     log_in(email: "Bob@email.com", password: "123abc")
     fill_in :peep, with: "Hello, world!"
     click_button 'Post'
-    expect(page).to have_content "Hello, world! Bob bigbob"
+    within("#body") do
+      expect(page).to have_content "Hello, world!"
+    end
   end
 end

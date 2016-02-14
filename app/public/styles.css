@@ -1,0 +1,60 @@
+nav {
+  text-align: center;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 47%;
+}
+
+label {
+  font-size: 22px;
+}
+
+input[type="submit"] {
+  margin-top: 20px; 
+}
+
+textarea {
+  resize: none;
+}
+
+.welcome-box {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  top: 50%;
+  margin-top: -200px;
+  border-radius: 28px 28px 28px 28px;
+  -moz-border-radius: 28px 28px 28px 28px;
+  -webkit-border-radius: 28px 28px 28px 28px;
+  background-color: #00CD94; 
+}
+
+.buttons {
+  text-align: center;
+  padding: 40px;
+}
+
+.large {
+  margin: 20px;
+  width: 100px;
+}
+
+.home-link {
+  position: absolute;
+  width: 200px;
+  bottom: 70px; 
+  right: 10px;
+}
+
+.post {
+  border: 1px solid black;
+  padding: 10px 10px;
+  margin: 10px;  
+}
+
+.reply {
+  border-top: 1px solid black;
+  padding: 20px;
+}

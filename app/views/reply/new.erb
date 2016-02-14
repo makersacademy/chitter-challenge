@@ -1,11 +1,11 @@
-<div class='message'>
+<div class='container message'>
         <h4>Reply to, <%= @peep.user.name %></h4>
         <br>
         <%= @peep.body %>
 </div>
 
-<form action='reply/new' method='post'>
-        <textarea name='reply' placeholder='Write a response'></textarea> 
-        <input type='submit' value='Reply' />
+<form action='reply/new' method='post' class='form-group'>
+        <textarea name='reply' placeholder='Write a response' class='form-control'></textarea> 
+        <input type='submit' value='Reply' class='btn btn-default' />
 </form>
 
