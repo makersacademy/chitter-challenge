@@ -5,6 +5,6 @@ class Peep
   property :message, String
   property :time, String
 
-  belongs_to :user
+  belongs_to :user, :required => false
 end
 
