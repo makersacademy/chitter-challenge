@@ -35,6 +35,21 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.name
+      redirect '/home'
+    else
+      flash.now[:errors] = ["The username and password do not match"]
+      erb :log_in
+    end
+  end
+
 
 
 

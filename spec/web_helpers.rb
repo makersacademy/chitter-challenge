@@ -8,3 +8,10 @@ def sign_up
   fill_in('password_confirmation', with: 'password')
   click_button("Submit")
 end
+
+def log_in
+  visit '/log_in'
+  fill_in('username', with: 'drjparry')
+  fill_in('password', with: 'password')
+  click_button("Submit")
+end
