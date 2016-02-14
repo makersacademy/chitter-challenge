@@ -3,7 +3,8 @@ Makers Academy week 03 weekend challenge (Chitter Challenge)<br>
 Rufus Raghunath<br>
 Feb 2016<br>
 Travis CI: [![Build Status](https://travis-ci.org/rufusraghunath/chitter-challenge.svg?branch=master)](https://travis-ci.org/rufusraghunath/chitter-challenge)<br>
-Coveralls: <br>
+Coveralls: [![Coverage Status](https://coveralls.io/repos/github/rufusraghunath/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/rufusraghunath/chitter-challenge?branch=master)
+<br>
 <a href=“HEROKU”>Deployed to Heroku 14/02/16</a>
 ---
 
@@ -18,3 +19,5 @@ TO DO:<br>
 
 HOW TO USE:<br>
 Clone repo, then run ```bundle``` to install dependencies. From the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```, then visit the corresponding ```localhost``` in your browser.
+
+![Screenshot](/public/images/screenshots/visit-home.png)
