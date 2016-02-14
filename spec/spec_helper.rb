@@ -4,8 +4,9 @@ require 'capybara/rspec'
 require 'coveralls'
 require 'simplecov'
 
-require './app/models/message'
+#require './app/models/message'
 require './app/app'
+require './app/data_mapper_setup'
 
 Capybara.app = Chitter
 
