@@ -6,6 +6,6 @@ feature 'post message' do
     fill_in('peep', with: 'Peep peep')
     click_button 'Submit'
 
-    expect(page).to have_content "The Shoveler says: Peep peep"
+    expect(page).to have_content "The Shoveler says, \"Peep peep\""
   end
 end
