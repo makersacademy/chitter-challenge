@@ -13,6 +13,12 @@ class Chitter < Sinatra::Base
   get '/' do
     @user =  User.first(id: session[:user_id])
     @peep = Peep.all.reverse
+    # @peep.each do |peep|
+    #   p users_id = PeepUser.first(peep_id: peep.id).user_id
+    #   p username = User.first(id: (PeepUser.first(peep_id: peep.id).user_id)).username
+    # end
+    # # @username = User.all
+    # # @link = UserPeep.all
     erb :'/home'
   end
 

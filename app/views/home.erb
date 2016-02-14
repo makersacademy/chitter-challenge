@@ -12,7 +12,7 @@
     </label>
     <label for="password">
       Password:
-      <input type="text" name="password">
+      <input type="password" name="password">
     </label>
     <input type='submit' value='Log In'>
   </form>
@@ -40,7 +40,11 @@
       <ul id="peep_list">
         <h1> Peeps: </h1>
         <%@peep.each do |peep| %>
-          <li><%= peep.peep %></li>
+
+          <li><%= peep.peep %>
+              <% @username = User.first(id: (PeepUser.first(peep_id: peep.id).user_id)).username %>
+              <%= @username %>
+          </li>
         <% end %>
       </ul>
     <!-- </div> -->

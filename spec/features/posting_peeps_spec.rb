@@ -21,6 +21,13 @@ feature 'posting peeps' do
     click_button 'Peep'
     fill_in 'peep_input', with: 'this is the second peep'
     click_button 'Peep'
-    expect(page).to have_content 'this is the second peep Hello this is my peep'
+    expect(page).to have_content 'this is the second peep SidTheSloth Hello this is my peep SidTheSloth'
+  end
+
+  scenario 'will show the user name of the person who made the peep' do
+    sign_up_good
+    fill_in 'peep_input', with: 'Hello this is my peep'
+    click_button 'Peep'
+    expect(page).to have_content 'Hello this is my peep SidTheSloth'
   end
 end
