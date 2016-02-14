@@ -231,24 +231,30 @@ main#index {
 }
 }
 
-aside.user-info {
+aside.user-actions {
   margin-top: 2em;
-  p.history {
-    background: $colour_four;
-    padding: 1em;
-    border-radius: 5px;
+  background: $colour_four;
+  padding: 1em;
+  border-radius: 5px;
+  color: $colour_two;
+  display: block;
+  overflow: visible;
+  position: relative;
+  p {
+
+  }
+  h2 {
+    font-family: "estilo-regular", sans-serif;
     color: $colour_two;
   }
   textarea {
-    background: $colour_four;
+    background: #fff;
     border-radius: 5px;
     border-color: $colour_three;
     resize: none;
   }
   form {
-    .new-peep {
-      float: right;
-    }
+    
   }
   form#sign-in {
     label {
@@ -288,6 +294,19 @@ main#sign-up {
 
 
 footer#colophon {
-  padding: 3em 0;
+  padding: 3em 0 1em;
   background: $colour_one;
+  text-align: center;
+  .site-info {
+    border-top: 3px solid $colour_two;
+    padding-top: 1em;
+    p {
+      color: $colour_two;
+      margin-bottom: 0.5em;
+      a {
+        color: $colour_four;
+      }
+    }
+  }
+
 }

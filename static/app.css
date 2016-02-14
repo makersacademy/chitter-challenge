@@ -192,27 +192,30 @@ main#index {
         #peeps .peep-container .replies .reply:last-child {
           border-bottom: none; }
 
-aside.user-info {
-  margin-top: 2em; }
-  aside.user-info p.history {
-    background: #FCF9F0;
-    padding: 1em;
-    border-radius: 5px;
+aside.user-actions {
+  margin-top: 2em;
+  background: #FCF9F0;
+  padding: 1em;
+  border-radius: 5px;
+  color: #FF847C;
+  display: block;
+  overflow: visible;
+  position: relative; }
+  aside.user-actions h2 {
+    font-family: "estilo-regular", sans-serif;
     color: #FF847C; }
-  aside.user-info textarea {
-    background: #FCF9F0;
+  aside.user-actions textarea {
+    background: #fff;
     border-radius: 5px;
     border-color: #E0E4CC;
     resize: none; }
-  aside.user-info form .new-peep {
-    float: right; }
-  aside.user-info form#sign-in label {
+  aside.user-actions form#sign-in label {
     color: #FF847C;
     font-size: 1.2em; }
-  aside.user-info form#sign-in input[type=email], aside.user-info form#sign-in input[type=password] {
+  aside.user-actions form#sign-in input[type=email], aside.user-actions form#sign-in input[type=password] {
     background: #FCF9F0;
     color: #444444; }
-    aside.user-info form#sign-in input[type=email]:hover, aside.user-info form#sign-in input[type=password]:hover {
+    aside.user-actions form#sign-in input[type=email]:hover, aside.user-actions form#sign-in input[type=password]:hover {
       background: #FCF9F0;
       color: #444444; }
 
@@ -234,5 +237,14 @@ main#sign-up {
   list-style: none; }
 
 footer#colophon {
-  padding: 3em 0;
-  background: #444444; }
+  padding: 3em 0 1em;
+  background: #444444;
+  text-align: center; }
+  footer#colophon .site-info {
+    border-top: 3px solid #FF847C;
+    padding-top: 1em; }
+    footer#colophon .site-info p {
+      color: #FF847C;
+      margin-bottom: 0.5em; }
+      footer#colophon .site-info p a {
+        color: #FCF9F0; }
