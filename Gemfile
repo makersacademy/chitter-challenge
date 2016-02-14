@@ -5,8 +5,7 @@ ruby '2.2.3'
   gem 'dm-postgres-adapter'
   gem 'dm-transactions'
   gem 'sinatra'
-  gem 'shotgun'
-  gem 'rake'
+  gem 'sinatra-flash'
   gem 'bcrypt'
 
 group :test do
@@ -16,4 +15,3 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
-

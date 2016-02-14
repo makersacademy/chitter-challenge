@@ -42,8 +42,6 @@
         </nav>
       </div>
     </header>
-    <main class="col-3 center">
-
         <% if flash[:errors] && !flash[:errors].empty? %>
           Please refer to the following errors below:
           <ul id='errors'>
@@ -52,8 +50,7 @@
             <% end %>
           </ul>
         <% end %>
-          <%= yield %>
-    </main>
+        <%= yield %>
   </body>
 
 </html>

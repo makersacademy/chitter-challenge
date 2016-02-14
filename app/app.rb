@@ -1,9 +1,10 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -14,7 +15,17 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all(order:[:posted_at.desc])
     erb :index
+  end
+
+  post '/peep' do
+    post_time = Time.now
+    post_time = post_time.strftime("%m/%d/%Y at %I:%M:%S%p")
+    peep = Peep.create(message: params[:peep],
+                        posted_at: post_time,
+                        user_id: current_user.id)
+    redirect to('/')
   end
 
   get '/users/new' do
