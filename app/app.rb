@@ -7,9 +7,10 @@ require './app/helpers.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
+  # set :session_secret, 'super secret'
 
   get '/' do
+    @user = User.first(id: session[:user_id])
     erb :index
   end
 
@@ -18,11 +19,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/signupinfo' do
-    user = User.create(email: params[:email],
+    @user = User.new(email: params[:email],
                        password: params[:password],
                        name: params[:name],
                        username: params[:username])
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
+    @user.save
     redirect '/'
   end
 

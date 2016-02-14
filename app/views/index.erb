@@ -6,9 +6,12 @@
   </title>
 </head>
 <body>
-  <a href="/signup">Create account</a>
-  <% if current_user %>
-  Welcome, <%= current_user.name %>
+  <% if @user == nil %>
+    <form action='/signup' >
+      <input type='submit' value='Create Account'> <br>
+    </form>
+  <% elsif @user != nil %>
+    <h1>Logged in as: <%= @user.username %></h1>
   <% end %>
 </body>
 </html>
