@@ -15,6 +15,12 @@ feature 'Peeps' do
     expect(page).to have_content('Peep 1')
   end
 
+  scenario 'I cannot create a new peep if Im not signed in' do
+    visit '/peeps/new_peep'
+    expect(page).to have_content('Sorry, you need to be signed in to make a new peep.')
+    expect(page).not_to have_content('Peep!')
+  end
+
   # scenario 'peeps display the username of the person that created them' do
   #   sign_up
   #   sign_in
