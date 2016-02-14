@@ -8,7 +8,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    @name = session[:name]
     @user_id = session[:user_id]
     erb(:index)
   end
@@ -19,25 +18,25 @@ class Chitter < Sinatra::Base
                        email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])
-    session[:name] = user.name
     session[:user_id] = user.id
     redirect("/peep")
   end
 
   post '/new' do
     p params
-    peep = Peep.create(text: params[:text])
-    @peeps = Peep.all
+    peep = Peep.create(text: params[:text], user: current_user)
     redirect(:peep)
   end
 
   get '/peep' do
+    @user_id = session[:user_id]
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb(:peep)
   end
 
   helpers do
     def current_user
-      @current_user || User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 

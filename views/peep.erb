@@ -9,29 +9,35 @@
 </head>
 <body>
 
-<div class="container-fluid dark-container">
+  <div class="container-fluid dark-container">
     <div class="row text-center top-buffer"">
       <div class="col-md-12 col-xs-8">
       <img src="logo.png" alt="Chitter logo" height="105" width="105">
       <div class="absolute_center">
         <h1>Chitter</h1>
-            <h2>Hello <%=@name%></h2>
-            <form class="top-buffer" action="/new" method="post">
-            <p class="top-buffer">
-              <textarea name="text" class="peep-form form-control" style="width:250px;height:150px;"></textarea>
-            </p>
+          <% if current_user %>
+            <h2>Hello <%= current_user.name %></h2>
+            <form class="top-buffer padding-bot-50" action="/new" method="post">
+              <p class="top-buffer">
+              <textarea name="text" class="peep-form form-control" style="width:250px;height:150px;" placeholder="peep" required></textarea>
+              </p>
               <input class="btn btn-warning btn-lg" type="submit" value="Peep">
             </form>
-            <ul>
-              <% Peep.each do |peep| %>
-              <li>
-                Peep: <%= peep.text %>
-              </li>
+          <% end %>
+          <div class="peeps padding-25 col-md-10 rounded col-md-offset-1">
+            <ul class="col-md-12">
+              <% @peeps.each do |peep| %>
+                <li class="peep col-md-12">
+                  <span class="col-md-3"><h4><%= peep.user.name %></h4></span>
+                  <span class="col-md-2"><h4><%= peep.created_at.asctime %></h4></span>
+                  <span class="col-md-7"><h4><%= peep.text %></h4></span>
+                </li>
               <% end %>
             </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </body>
 </html>

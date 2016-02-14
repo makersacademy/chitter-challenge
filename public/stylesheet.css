@@ -16,7 +16,6 @@ h1{
   font-size: 45px;
 }
 
-<img source="file://public/logo.png">
 .bold{
   font-weight: bold;
   font-size: 20px;
@@ -26,10 +25,43 @@ h1{
   width:50%;
   background-color:#4f5ba8;
 }
+
 .padding-50 {
   padding-top: 50px;
 }
 
+.padding-bot-50 {
+  padding-bottom: 50px;
+}
+
+.rounded{
+  border-radius: 10px;
+  background-color:#e8e8e8;
+}
+
 .top-buffer {
   margin-top:20px;
+}
+
+.peep-form {
+  margin:auto;
+}
+
+.peeps {
+  padding-top: 10px;
+}
+
+.peep {
+  list-style-type: none;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #282828;
+}
+
+.peep h4 {
+  color: #282828;
+}
+
+.peep:last-child {
+  border-bottom: none;
 }
