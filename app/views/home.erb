@@ -44,6 +44,7 @@
           <li><%= peep.peep %>
               <% @username = User.first(id: (PeepUser.first(peep_id: peep.id).user_id)).username %>
               <%= @username %>
+              <%= peep.time %>
           </li>
         <% end %>
       </ul>

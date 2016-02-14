@@ -4,6 +4,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require 'time'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -13,12 +14,6 @@ class Chitter < Sinatra::Base
   get '/' do
     @user =  User.first(id: session[:user_id])
     @peep = Peep.all.reverse
-    # @peep.each do |peep|
-    #   p users_id = PeepUser.first(peep_id: peep.id).user_id
-    #   p username = User.first(id: (PeepUser.first(peep_id: peep.id).user_id)).username
-    # end
-    # # @username = User.all
-    # # @link = UserPeep.all
     erb :'/home'
   end
 
@@ -50,7 +45,8 @@ class Chitter < Sinatra::Base
   post '/post_peep' do
     user = User.first(id: session[:user_id])
     if user
-      user.peeps << Peep.create(peep: params[:peep_input])
+      time = Time.new
+      user.peeps << Peep.create(peep: params[:peep_input], time: time.strftime("%H:%M %-d %b %Y"))
       user.save
     else
       flash.keep[:unknown_username] =  'You need to login to peep'
