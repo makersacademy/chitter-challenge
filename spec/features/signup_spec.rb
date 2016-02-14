@@ -41,5 +41,5 @@ require 'spec_helper'
       expect{signup}.not_to change(User, :count)
       expect(page).to have_content('Email is already taken')
     end
-    
+
   end
