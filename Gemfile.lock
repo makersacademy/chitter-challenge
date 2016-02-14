@@ -121,8 +121,6 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.3.0)
-    shotgun (0.9.1)
-      rack (>= 1.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -165,7 +163,6 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
-  shotgun
   sinatra
   sinatra-flash
 

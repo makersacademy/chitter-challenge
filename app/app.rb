@@ -9,7 +9,6 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, "My session secret"
   register Sinatra::Flash
   use Rack::MethodOverride
 
@@ -18,8 +17,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts session[:name]
     @current_user = session[:name]
     @posts = Post.all
     erb :home_page
@@ -49,8 +46,6 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:username], params[:password])
     if @user
       session[:name] = @user.name
-      puts "((((((((((()))))))))))"
-      puts session[:name]
       session[:user_session] = @user
       redirect to('/home')
     else
@@ -59,31 +54,22 @@ class Chitter < Sinatra::Base
     end
   end
 
-
-
   get '/make_cheet' do
     erb :make_cheet
   end
 
   post '/make_cheet' do
-    puts ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-    puts session[:user_session].nil?
-    puts ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
     cheet = Post.create(title: params[:title], body: params[:body])
-    puts "_____________________________"
-    puts cheet
-    puts "_____________________________"
-    @user = session[:user_id]
-    session[:user_id]
+    @user = session[:user_session]
     @user.posts << cheet
     redirect '/home'
   end
 
-   # delete '/log_out' do
-   #    session[:user_id] = nil
-   #    session[:name] = nil
-   #    redirect to('/home')
-   #  end
+   delete '/log_out' do
+      session[:user_id] = nil
+      session[:name] = nil
+      redirect to('/home')
+    end
 
 
 
