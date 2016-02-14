@@ -1,10 +1,30 @@
-Welcome to your account <%= current_user.username %>!
 
+Welcome to your account!
+
+<h1> Create Peep </h1>
+
+<form action='/peeps' method='POST'>
+  <label for='content'>
+    Peep your thoughts!
+    <input type='text' name='content'>
+    <input type='hidden' name='created_at' value= <%= Time.new %> >
+     <input type='hidden' name='time' value= <%= Time.new.strftime("%H:%M") %> > 
+     <input type='submit' value='Peep!'>
+</form>
+
+
+<ul id='Peeps'>
+<% @peeps.each do |peep|%>
+  <p style='font-size:12px;'>
+  	<%= peep.time %> </p> 
+   <p style='font-size:20px;'><%= peep.content %></p>
+  </div>
+  <%end%>
+</ul>
 
 <form action="/log_out" method='post'>
   <input type='hidden' name='_method' value='delete'>  
   <input type='submit' value='Log Out'>
 </form>
-
 
 

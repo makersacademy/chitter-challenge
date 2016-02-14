@@ -16,3 +16,9 @@ def log_in
 	fill_in('password', with: 'secert_password123')
 	click_button('submit')
 end
+
+def peep
+fill_in('content', with: "This is my first peep")
+		click_button('Peep!')
+    expect(page).to have_content("This is my first peep")
+end

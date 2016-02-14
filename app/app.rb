@@ -35,6 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do 
+
 		
 		user = User.authenticate(params[:email], params[:password])
     if user
@@ -46,12 +47,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/logged_in' do 
+    @peeps = Peep.all 
   	erb :logged_in
  	end
 
-  get '/peeps' do 
+  get '/peeps' do
+    @peeps = Peep.all 
   	erb :peeps
   end
+
+  post '/peeps' do 
+  peep = Peep.new(content: params[:content], time: params[:time], 
+  created_at: params[:created_at])
+  peep.user = User.get(session[:user_id])
+  peep.save
+  redirect to('/logged_in')
+  end
+
 
   delete '/log_out' do
    	session[:user_id] = nil
