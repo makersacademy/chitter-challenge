@@ -25,7 +25,7 @@ require 'orderly'
 
 
 
-Capybara.app = Chitter
+ Capybara.app = Chitter
 
 
 
