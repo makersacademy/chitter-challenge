@@ -1,18 +1,21 @@
-<form action='/users' method='post'>
-  <div class="form-group">
-    <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
-  </div>
-  <div class="form-group">
-    <input type="text" placeholder="Userame" name="username" value="<%= @user.username %>" required>
-  </div>
-  <div class="form-group">
-      <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
-  </div>
-  <div class="form-group">
-      <input type="password" placeholder="Password"  name="password" required>
-  </div>
-  <div class="form-group">
-      <input type="password" placeholder="Password confirm"  name="password_confirmation" required>
-  </div>
-  <button type="submit" class="btn btn-color block">Sign up</button>
-</form>
+<div class="signup-form">
+  <p class="text-center">Create a Chitter's account</p>
+  <form action='/users' method='post'>
+    <div class="form-group">
+      <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Userame" name="username" value="<%= @user.username %>" required>
+    </div>
+    <div class="form-group">
+        <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password"  name="password" required>
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password confirm"  name="password_confirmation" required>
+    </div>
+    <button type="submit" class="btn btn-color block">Sign up</button>
+  </form>
+</div>

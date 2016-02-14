@@ -38,6 +38,39 @@ feature 'User sign up' do
     expect(page).to have_content('Email is already taken')
     expect(page).to have_content('Username is already taken')
   end
+end
 
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to log in to Chitter
+
+feature 'User log in' do
+
+  let(:user) do
+    User.create(name: 'Iryna', username: 'irisha', email: 'iryna@mail.com', password: 'chitter!', password_confirmation: 'chitter!')
+  end
+
+  scenario 'existing user with correct email/password pair can log in' do
+    log_in(user.email, user.password)
+    expect(page).to have_content "Welcome, #{user.name}"
+  end
+
+  scenario 'not existing user can not log in' do
+    log_in('dave@dave.com', 'super')
+    expect(page).not_to have_content "Welcome, Dave"
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
+  scenario 'existing user can not log in with incorrect password' do
+    log_in('iryna@mail.com', 'super')
+    expect(page).not_to have_content "Welcome, Iryna"
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
+  scenario 'existing user can not log in with incorrect email' do
+    log_in('dave@dave.com', 'chitter!')
+    expect(page).not_to have_content "Welcome, Iryna"
+    expect(page).to have_content "The email or password is incorrect"
+  end
 
 end
