@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="index.html">Chitter</a></div>
+        <nav>
+          <ul>
+            <li class="nav-link login-user"><span>Logged in as</span> David Matter</li>
+            <li class="nav-link"><a href="signup.html">Sign up</a></li>
+            <li class="nav-link"><a href="login.html">Log in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="col-3 center">
+        <p>
+          <% if current_user %>
+          Welcome, <%= current_user.name %>
+          <% end %>
+        </p>
+        <div class="signup-form">
+          <p class="text-center">Create a Chitter's account</p>
+          <%= yield %>
+        </div>
+    </main>
+  </body>
+
+</html>
+

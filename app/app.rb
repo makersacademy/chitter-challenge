@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Welcome, '
+    erb :index
   end
 
   get '/users/new' do
@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
                 email: params[:email],
                 password: params[:password])
     session[:user_id] = user.id
-    redirect to('/')
+    redirect to('/users/new')
   end
 
   helpers do
