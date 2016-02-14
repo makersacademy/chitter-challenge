@@ -1,4 +1,4 @@
-require_relative 'web_helper'
+
 
 require 'coveralls'
 require 'simplecov'
@@ -12,6 +12,14 @@ Coveralls.wear!
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+
+require_relative 'helpers/user'
+
+RSpec.configure do |config|
+
+  config.include UserHelper
+
+end
 
 
 
