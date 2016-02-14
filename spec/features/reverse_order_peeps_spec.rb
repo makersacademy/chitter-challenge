@@ -1,5 +1,5 @@
-feature  'see peeps in reverse order' do 
-	scenario 'reverse order' do 
+feature  'see peeps in reverse chronological order' do 
+	scenario 'reverse chronological order' do 
 		register
   	log_in
   	peep
