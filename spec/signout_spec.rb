@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 require_relative 'web_helper'
 
 feature 'User signs out!' do 

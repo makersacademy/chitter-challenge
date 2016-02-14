@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'User Logs in' do 
 	
 	let(:user) do 

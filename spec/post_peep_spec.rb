@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'posting peeps' do 
 	
 		before(:each) do 

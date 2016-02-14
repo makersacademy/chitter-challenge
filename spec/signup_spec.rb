@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'signing up' do 
 	scenario 'sign up' do
 		visit '/user/new'

@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe User do 
 	let!(:user) do 
 		User.create(name: 'Edu',

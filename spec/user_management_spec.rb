@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature feature 'signing up' do 
 	scenario 'requires a matching passwords' do 
 		expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
