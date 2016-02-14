@@ -10,6 +10,9 @@ class User
   property :email, String
   property :name, String
   property :password, Text
+
+  has n, :peeps, :through => Resource
+
   def self.authenticate(username, password)
     user = first(username: username)
     if user && user.password == password

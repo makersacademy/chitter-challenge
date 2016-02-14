@@ -28,6 +28,7 @@ set :session_secret, 'super secret'
 
   post '/chitter/logout'do
     session[:user_id] = nil
+    redirect to('/chitter')
   end
 
   post '/sessions'do
@@ -45,7 +46,8 @@ set :session_secret, 'super secret'
   end
 
   post '/peep'do
-    Peep.create(text: params[:peep], time: Time.now)
+    @user = session[:user_id]
+    Peep.create(text: params[:peep], username: @username = User.first(:id => @user).username,  time: Time.now)
     redirect to('/chitter')
   end
 
