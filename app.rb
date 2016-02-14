@@ -50,7 +50,7 @@ end
     session[:user_id] = @user.id
     redirect to('/homepage')
     else
-      flash.now[:notice] = "Sorry password & confirmation do not match!"
+      flash.now[:errors] = @user.errors.full_messages 
       erb :new_user 
     end
   end
