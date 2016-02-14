@@ -7,7 +7,6 @@ gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'mime-types', '2.6.2'
 
 group :test do
   gem 'rspec'
