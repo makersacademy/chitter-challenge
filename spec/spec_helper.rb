@@ -2,6 +2,15 @@
 
 ENV['RACK_ENV'] = 'test'
 
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'database_cleaner'
 require 'capybara'
