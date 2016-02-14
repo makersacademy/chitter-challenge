@@ -9,5 +9,5 @@ require_relative 'models/peep'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-DataMapper.auto_upgrade!
-DataMapper::Logger.new($stdout, :debug)
+
+#DataMapper::Logger.new($stdout, :debug)
