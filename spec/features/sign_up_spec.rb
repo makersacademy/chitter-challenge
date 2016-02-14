@@ -14,4 +14,26 @@ feature "Users can sign up for Chitter" do
     expect(page).to have_content "Welcome to Chitter David"
     expect(User.first.email).to eq 'drjparry@gmail.com'
   end
+
+  scenario "Users cannot sign up without an email address" do
+    visit '/home'
+    click_button('Sign up')
+    fill_in('name', with: 'David')
+    fill_in('password', with: 'password')
+    fill_in('password_confirmation', with: 'password')
+    expect{click_button('Submit')}.not_to change(User, :count)
+    expect(page).to have_content "Email must not be blank"
+  end
+
+
+  scenario "Users cannot set up without a valid email address" do
+    visit '/home'
+    click_button('Sign up')
+    fill_in('name', with: 'David')
+    fill_in('email', with: 'drjparrygmail.com')
+    fill_in('password', with: 'password')
+    fill_in('password_confirmation', with: 'password')
+    expect{click_button('Submit')}.not_to change(User, :count)
+    expect(page).to have_content "Email has an invalid format"
+  end
 end

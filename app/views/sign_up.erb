@@ -1,8 +1,17 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Pleaser refer to the following errors below:
+  <ul id='errors'>
+  <%flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h1> Sign Up </h1>
 
 <form action="/sign_up" method="post">
 <input type='text' name='name'>
-<input type='text' name='email'>
+<input type='text' name='email' required: true>
 <input type='text' name='password'>
 <input type='text' name='password_confirmation'>
 <input type='submit' value='Submit'>
