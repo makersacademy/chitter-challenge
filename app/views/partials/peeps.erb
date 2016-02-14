@@ -35,7 +35,7 @@
               <input type="hidden" name="current_peep" value="<%= peep.id %>">
               <input class="delete" type="submit" value="Delete">
             </form>
-            
+
           <% end %>
 
         </footer><!-- .meta -->
@@ -57,7 +57,7 @@
       <% peep.responses.map do |response| %>
         <div class="reply">
           <p><%= response.text %></p>
-          <p>From <%= response.user.name %> (<%= response.user.username %>) on <%= response.format_time %></p>
+          <p class="details">From <%= response.user.name %> (<%= response.user.username %>) on <%= response.format_time %></p>
         </div>
       <% end %>
 

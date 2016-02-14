@@ -214,6 +214,12 @@ main#index {
     .reply {
       border-bottom: 1px solid $colour_two;
       padding: 1em 0;
+      p {
+        color: $colour_one;
+        &.details {
+          color: #999;
+        }
+      }
       &:last-child {
         border-bottom: none;
       }

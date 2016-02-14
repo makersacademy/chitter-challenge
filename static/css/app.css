@@ -179,6 +179,10 @@ main#index {
       #peeps .peep-container .replies .reply {
         border-bottom: 1px solid #FF847C;
         padding: 1em 0; }
+        #peeps .peep-container .replies .reply p {
+          color: #444444; }
+          #peeps .peep-container .replies .reply p.details {
+            color: #999; }
         #peeps .peep-container .replies .reply:last-child {
           border-bottom: none; }
 
