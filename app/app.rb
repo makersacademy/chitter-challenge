@@ -22,6 +22,7 @@ class Chitter_challenge < Sinatra::Base
   end
 
   get '/home' do
+    @tweet = Tweet.all
     erb :home
   end
 
@@ -70,6 +71,7 @@ class Chitter_challenge < Sinatra::Base
 
   post '/post_tweet' do
     tweet = Tweet.new(message: params[:message])
+    # , datetime: Time.now
     tweet.save
     redirect to('/home')
   end

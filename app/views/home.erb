@@ -5,6 +5,13 @@
   Welcome, <%= current_user.email %>
   <% end %>
 
+    <h3>Latest tweets</h3>
+    <% @tweet.reverse.each do |tweet| %>
+    <li>
+      Tweet: <%=tweet.message %>
+    </li>
+    <%end%>
+
 
   <form method='post' action='/login'>
     <input type='hidden' name='_method' value='delete'>
