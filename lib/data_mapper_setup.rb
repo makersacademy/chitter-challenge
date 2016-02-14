@@ -6,4 +6,5 @@ require_relative 'models/user'
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ ENV['RACK_ENV']}")
 
 DataMapper.finalize
+#DataMapper.auto_migrate! #needed to activate not null in DB
 DataMapper.auto_upgrade!

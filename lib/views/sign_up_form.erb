@@ -1,10 +1,10 @@
-<form action='/user/new' method='post'>
+<form action='/users' method='post'>
   <label>Name:
-  <input type='text' name='name'></label><br>
+  <input type='text' name='name' value='<%= @user.name %>'></label><br>
   <label>Email Address:
-  <input type='text' name='email'></label><br>
+  <input type='text' name='email' value='<%= @user.email %>' required></label><br>
   <label>Username:
-  <input type="text" name="username"></label><br>
+  <input type="text" name="username" value='<%= @user.username %>'></label><br>
   <label>Password:
   <input type="password" name="password"></label><br>
   <label>Confirm Password:
