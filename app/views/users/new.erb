@@ -1,0 +1,23 @@
+<form action="/users" method="post">
+  <label for="name">
+    <p>Name</p>
+    <input type="text" name="name" placeholder="name" value="<%= @user.name %>" required />
+  </label>
+  <label for="username">
+    <p>Choose a username</p>
+    <input type="text" name="username" placeholder="username" value="<%= @user.username %>" required />
+  </label>
+  <label for="email">
+    <p>Email</p>
+    <input type="email" name="email" placeholder="email" value="<%= @user.email %>" required />
+  </label>
+  <label for="password">
+    <p>Password</p>
+    <input type="password" name="password" required />
+  </label>
+  <label for="password confirmation">
+    <p>Confirm your password</p>
+    <input type="password" name="password_confirm" required />
+  </label>
+  <input type=submit value='Submit' />
+</form>

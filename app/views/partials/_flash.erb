@@ -1,0 +1,14 @@
+<% if flash[:error] && !flash[:error].empty? %>
+<label for="Sign up error messages">
+  Please correct the following problems and resubmit your form:
+    <ul id="error messages">
+      <% flash[:error].each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </label>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id="notice"><%= flash[:notice] %></div>
+<% end %>

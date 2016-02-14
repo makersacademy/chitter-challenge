@@ -1,0 +1,18 @@
+
+<%= partial :'partials/create_peep' %>
+
+<label for="display all peeps">
+  <main id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+    <article>
+    <p>
+      <%="#{peep.user.name} "%>
+      <em><%= peep.user.username %></em>
+      <%= peep.created_at.strftime("%I:%M%p %d %b %Y") %>
+      <br>
+      <blockquote><%= peep.message %></blockquote>
+    </p>
+    </article>
+    <% end %>
+  </main>
+</label>

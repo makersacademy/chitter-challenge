@@ -1,0 +1,10 @@
+<% if current_user %>
+
+<form action="/peeps" method="post">
+  <label for="create peep">
+    <input type="text" id="peep" name="peep" placeholder="What's happening?" />
+    <input class='btn btn-default' type="submit" value="Peep" />
+  </label>
+</form>
+
+<% end %>
