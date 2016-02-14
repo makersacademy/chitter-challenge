@@ -1,4 +1,7 @@
+require_relative '../helpers/users'
+
 feature 'I want to be able to post a peep' do
+  include UserHelpers
 
   scenario 'I can post a peep' do
     signup

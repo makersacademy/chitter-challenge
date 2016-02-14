@@ -7,19 +7,16 @@ require_relative './models/user'
 require_relative './models/peep'
 require_relative './models/reply'
 require_relative 'data_mapper_setup'
+require_relative './helpers/helpers'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
 
+  include Helpers
+
   enable :sessions
   set :session_secret, 'super secret'
-
-  helpers do
-
-    def current_user
-      @current_user || User.get(session[:user_id])
-    end
-  end
+  set :public_folder, 'static'
 
   get '/users/new' do
     @user = User.new
@@ -35,7 +32,6 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :signup
-      # redirect('users/new')
     end
   end
 
@@ -98,7 +94,4 @@ class Chitter < Sinatra::Base
     redirect('/session')
     erb :reply
   end
-
-
-
 end

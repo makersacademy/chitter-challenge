@@ -1,4 +1,7 @@
+require_relative '../helpers/users'
+
 feature 'I can login into chitter as me' do
+  include UserHelpers
 
   scenario 'I am not logged in if my password is not correct' do
     signup

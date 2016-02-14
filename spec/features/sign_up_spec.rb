@@ -1,5 +1,7 @@
+require_relative '../helpers/users'
 
 feature 'I can sign up to chitter' do
+  include UserHelpers
   scenario 'My details are stored and I am welcomed' do
     expect{signup}.to change{User.count}.by(1)
     expect(current_path).to eq '/session'
@@ -8,10 +10,8 @@ feature 'I can sign up to chitter' do
 
   scenario 'I cannot sign up without a username' do
     signup(username:'')
-    # expect(current_path).to eq '/users/new'
     expect(page).to have_content('Username must not')
   end
-
 
   scenario 'I cannot sign up without an email' do
     signup(email:'')

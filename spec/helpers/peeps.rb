@@ -1,4 +1,7 @@
+require_relative 'users'
+
 module PeepHelpers
+  include UserHelpers
 
   def post_a_peep
     signup

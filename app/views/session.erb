@@ -1,22 +1,27 @@
-<h1> Peeps </h1>
 
-
-<ul id="peeps">
+<section class='peep_container'>
+<ul>
   <% @peeps.each do |peep| %>
-  <li>
-    <%= peep.user.username %>: <%= peep.content %>
-    -posted @:<%= (peep.time).strftime("%d-%m-%Y -- %H:%M:%S")%>
+  <li class='peeps'>
+
+    <div class='posted'>Posted @<%= (peep.time).strftime("%d-%m-%Y -- %H:%M:%S")%></div>
+    <div class='user_name'><%= peep.user.username %>:</div>
+    <div class='content'><%= peep.content %></div>
+    <a href='/session/reply/<%="#{peep.id}"%>' class='reply_link'>Reply</a>
+    </li>
     <% if peep.replies %>
-      <ol id='reply'>
+      <ol>
         <% peep.replies.each do |reply| %>
-        <li>   <%= reply.user.username %>: <%= reply.content %>
-          -posted @:<%= (reply.time).strftime("%d-%m-%Y -- %H:%M:%S")%>
+        <li class='replies'>
+          <div class='posted'> Posted @<%= (reply.time).strftime("%d-%m-%Y -- %H:%M:%S")%></div>
+          <div class='user_name'><%= reply.user.username %>:</div>
+             <div class='content'><%= reply.content %></div>
         </li>
         <% end %>
       </ol>
-      </li>
-      <a href='/session/reply/<%="#{peep.id}"%>'>Reply</a>
-      <p></p>
+
     <% end %>
   <% end %>
+</section>
+</section>
 </ul>

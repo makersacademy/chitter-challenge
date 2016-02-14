@@ -1,10 +1,30 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
     <title>Chitter</title>
   </head>
   <body>
+  <header>
+
+
+    <div id='session_controls'>
     <% if current_user %>
-    <p>Hello, <%=current_user.name%></p>
+    <a href='session/end'><button class='in_out'>Logout</button></a>
+    <% else %>
+    <a href='users/new'><button class='in_out'>Sign-up</button></a>
+    <a href='session/new'><button class='in_out'>Login</button></a>
+    <% end %>
+    </div>
+    <div id='logo'> Chitter </div>
+    <div id='peep_controls'>
+      <a href='session/peep'><button class='peep'>Peep</button></a>
+    </div>
+  </header>
+  <section class='user_info'>
+    <% if current_user %>
+    <span id='welcome-message'> Hello, <%=current_user.name%></span>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       <% flash[:errors].each do |error| %>
@@ -12,8 +32,7 @@
       <% end %>
     <% end %>
     <%= flash[:notice] %>
+  </section>
     <%= yield %>
-    <a href='session/peep'><button>Peep</button></a>
-    <a href='session/end'><button>Logout</button></a>
   </body>
 </html>

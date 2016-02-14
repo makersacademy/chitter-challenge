@@ -1,0 +1,191 @@
+header {
+  vertical-align: top;
+  width: 100%;
+  height: 50px;
+  background-color: #248bc1;
+  color: white;
+  display: flex;
+  padding: 0 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+header > * {
+  margin:auto 0;
+}
+
+header #logo {
+  margin: auto 0;
+  display: flex;
+  font-family: Helvetica, Arial, Sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+header #user-links{
+  flex: 1;
+  -webkit-flex: 1;
+  text-align: right;
+}
+#session_controls{
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+#peep_controls{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+#logo{
+  position: absolute;
+  left: 45%;
+  top: 10px;
+  text-align: center;
+  font-size: 200%;
+  font-family: helvetica-light;
+
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: #f8fcfe;
+}
+
+.in_out{
+  display: inline-block;
+  width: 100px;
+  background-color: #df8252;
+  border: 0.5px solid white;
+  color: white;
+  font-size: 90%;
+  text-decoration: none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+}
+
+.reply_link{
+  display: inline-block;
+  width: 50px;
+  background-color: #df5269;
+  border: 0.1px solid white;
+  color: white;
+  font-size: 90%;
+  text-decoration: none;
+  padding: 5px 5px;
+  text-align: center;
+  border-radius: 4px;
+  /*margin-left: 5px;*/
+  margin-right: 5px;
+}
+
+.user_info{
+  float:left;
+  margin-left: 30px;
+  background-color: white;
+  margin-top: 5px;
+  width: 22%;
+  height: 100px;
+  border: 0.1px solid rgba(223,130,82,0.4);
+  border-radius: 4px;
+  text-decoration:none;
+  padding: 5px 10px;
+  font-family: Helvetica-light;
+  font-weight: bold;
+}
+.user_info .errors{
+  color: #df8252;
+}
+
+.peep{
+  display: inline-block;
+  width: 100px;
+  background-color: #df5269;
+  border: 0.5px solid white;
+  color: white;
+  font-size: 90%;
+  text-decoration:none;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0 auto;
+  text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+}
+.peep_container{
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.peeps{
+  background-color: white;
+  font-family: Helvetica-light;
+  color: black;
+  border: 0.1px solid rgba(223,82,105, 0.4);
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 3px;
+  /*box-shadow: 0 0 5px rgba(0,0,0,0.2);*/
+  padding: 15px 10px;
+  margin-bottom: 1px;
+
+}
+
+.peeps .user_name {
+    /* to make it slightly more prominent */
+    color: rgb(223,82,105);
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .peeps .content {
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+  .peeps .posted {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right;
+    font-size: 12px;
+  }
+
+  .replies{
+    background-color: white;
+    font-family: Helvetica-light;
+    border: 0.1px solid #a5d5ee;
+    border-radius: 3px;
+    padding: 15px 10px;
+    margin-left: 5%;
+    width: 95%;
+    margin-bottom: 1px;
+  }
+  .replies .user_name {
+      /* to make it slightly more prominent */
+      color: #0e364b;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .replies .content {
+      margin-top: 2px;
+    }
+    .replies .posted {
+      /* http://learnlayout.com/float.html and the next 4 sections */
+      float: right;
+      font-size: 12px;
+    }
+
+
+ul{
+  color: black;
+}
+h1{
+  color: blue;
+}
