@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'tilt/erb'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -8,8 +9,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    @name = current_user.name if current_user
-    @welcome = "Welcome, #{@name}" if @name
     erb(:index)
   end
 
@@ -19,11 +18,22 @@ class Chitter < Sinatra::Base
 
   post '/user/new' do
     user = User.create(name: params[:name],
-                       email: params[:email],
-                       username: params[:username],
-                       password: params[:password])
+             email: params[:email],
+             username: params[:username],
+             password: params[:password],
+             password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/user/logged_in'
+  end
+
+  get '/user/login' do
+    erb(:login_form)
+  end
+
+  get '/user/logged_in' do
+    @name = current_user.name if current_user
+    @welcome = "Welcome, #{@name}" if @name
+    erb(:logged_in)
   end
 
   helpers do
