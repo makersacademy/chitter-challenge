@@ -141,34 +141,24 @@ main#index {
         width: 100%;
         position: relative;
         overflow: hidden; }
-        #peeps .peep-container .peep .meta .likes {
+        #peeps .peep-container .peep .meta .likes, #peeps .peep-container .peep .meta .reply-toggle, #peeps .peep-container .peep .meta .time, #peeps .peep-container .peep .meta .delete {
           display: inline-block;
           float: left;
           width: auto;
           position: relative;
-          margin-right: 2em; }
-          #peeps .peep-container .peep .meta .likes p, #peeps .peep-container .peep .meta .likes form {
-            display: inline;
-            float: left; }
-          #peeps .peep-container .peep .meta .likes form {
-            margin-right: 0.5em; }
-            #peeps .peep-container .peep .meta .likes form .like-this:before {
-              content: "\ea19"; }
-          #peeps .peep-container .peep .meta .likes p {
-            margin: 0 0 0 0;
-            color: #FF847C; }
+          margin-right: 1.5em; }
+        #peeps .peep-container .peep .meta .likes p, #peeps .peep-container .peep .meta .likes form {
+          display: inline;
+          float: left; }
+        #peeps .peep-container .peep .meta .likes form {
+          margin-right: 0.5em; }
+          #peeps .peep-container .peep .meta .likes form .like-this:before {
+            content: "\ea19"; }
+        #peeps .peep-container .peep .meta .likes p {
+          margin: 0 0 0 0;
+          color: #FF847C; }
         #peeps .peep-container .peep .meta .reply-toggle {
-          display: inline-block;
-          float: left;
-          width: auto;
-          position: relative;
           cursor: pointer; }
-        #peeps .peep-container .peep .meta .time {
-          display: inline-block;
-          float: left;
-          width: auto;
-          position: relative;
-          margin-right: 2em; }
     #peeps .peep-container .replies {
       display: none;
       bottom: -1em;

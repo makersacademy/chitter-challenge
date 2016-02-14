@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  set :public, 'static'
+  set :public_folder, 'static'
 
   register Sinatra::Flash
   register Sinatra::Partial

@@ -162,12 +162,14 @@ main#index {
       width: 100%;
       position: relative;
       overflow: hidden;
-      .likes {
+      .likes, .reply-toggle, .time, .delete {
         display: inline-block;
         float: left;
         width: auto;
         position: relative;
-        margin-right: 2em;
+        margin-right: 1.5em;
+      }
+      .likes {
         p, form {
           display: inline;
           float: left;
@@ -184,20 +186,9 @@ main#index {
           margin: 0 0 0 0;
           color: $colour_two;
         }
-      }
+      }  
       .reply-toggle {
-        display: inline-block;
-        float: left;
-        width: auto;
-        position: relative;
         cursor: pointer;
-      }
-      .time {
-        display: inline-block;
-        float: left;
-        width: auto;
-        position: relative;
-        margin-right: 2em;
       }
     }
   }
@@ -254,7 +245,7 @@ aside.user-actions {
     resize: none;
   }
   form {
-    
+
   }
   form#sign-in {
     label {

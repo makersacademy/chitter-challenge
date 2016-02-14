@@ -26,8 +26,15 @@
           </div>
 
           <div class="reply-toggle">
-            replies (<%= peep.responses.count %>) | add new
+            replies (<%= peep.responses.count %>) <% if current_user %> | add new <% end %>
           </div>
+
+          <% if current_user %>
+            <form class="delete" action="/delete" method="post">
+              <input type="hidden" name="current_peep" value="<%= peep.id %>">
+              <input class="delete" type="submit" value="Delete">
+            </form>
+          <% end %>
 
         </footer>
 

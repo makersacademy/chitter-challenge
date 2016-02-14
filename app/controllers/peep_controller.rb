@@ -18,6 +18,13 @@ class Chitter < Sinatra::Base
       redirect to '/'
   end
 
+  post '/delete' do
+      peep = Peep.get(params[:current_peep])
+      peep.destroy
+      flash.keep[:notice] = 'Peep deleted!'
+      redirect to '/'
+  end
+
   post '/responses' do
     peep = Peep.get(params[:current_peep])
     reply = Response.create(text: params[:reply], user: current_user, peep: peep, post_time: Time.now)
