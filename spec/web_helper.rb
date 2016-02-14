@@ -4,7 +4,7 @@ def sign_up(name: 'Steve',
             password: 'bananas',
             password_confirmation: 'bananas'
             )
-  visit '/'
+  visit '/users/new'
   fill_in :name, with: name
   fill_in :username, with: username
   fill_in :email, with: email

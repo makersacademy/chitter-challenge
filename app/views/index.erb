@@ -4,19 +4,6 @@
 <h1> CHITTER </h1>
 </center>
 
-<% if flash[:notice] %>
-  <div id='notice'><%= flash[:notice] %></div>
-<% end %>
-
-<!-- <a href='/sign_up'>Sign Up</a>
-
-<form method='post' action='/post_message'>
-  <label> Username
-  <input type='text' name='username'></label>
-  <label> Message
-  <input type='text' name='message'></label>
-  <input type='submit' value='Post'>
-</form> -->
 <body>
   <% if current_user %>
     Welcome, <%= current_user.username %>
@@ -27,29 +14,8 @@
       <input type='text' name='message'></label>
       <input type='submit' value='Post'>
     </form>
-
-    <% else %>
-
-
-
-<fieldset>
-<legend> Sign Up to Post</legend>
-<form action='/sign_up' method='post'>
-  <label>Name:<br >
-   <input type='text' name='name' value='<%= @user.name%>'></label><br >
-   <label>Username:<br >
-    <input type='text' name='username' value='<%= @user.username%>'></label><br >
-  <label>Email:<br >
-   <input type='email' name='email' value='<%= @user.email%>' required></label><br >
-  <label>Password:<br >
-   <input type='password' name='password'></label><br >
-   <label> Confirm Password:<br >
-     <input name='password_confirmation' type='password'></label>
-   <br >
-  <input type='submit' value='Sign Up!'>
-</form>
-</fieldset>
-
+<% else %>
+ <a href="users/new">Sign Up</a>
   <% end %>
 <% if @messages != nil %>
 <ul id='messages'>

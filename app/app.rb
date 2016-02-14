@@ -13,11 +13,15 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @messages = Message.all.reverse
-    @user = User.new
     erb :index
   end
 
-  post '/sign_up' do
+  get '/users/new' do
+    @user = User.new
+    erb :sign_up
+  end
+
+  post '/users' do
     @user = User.create(name: params[:name],
                        username: params[:username],
                        email: params[:email],
@@ -28,7 +32,7 @@ class Chitter < Sinatra::Base
      redirect '/'
      else
        flash.now[:notice] = "Password and confirmation password do not match"
-       erb :index
+       erb :sign_up
      end
   end
 
@@ -37,6 +41,21 @@ class Chitter < Sinatra::Base
 
     redirect '/'
   end
+
+  get '/sessions/new' do
+    erb :sign_in
+  end
+
+  post '/sessions' do
+  user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :sign_in
+  end
+end
 
 
 
