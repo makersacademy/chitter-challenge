@@ -26,12 +26,14 @@
  <a href='/sessions/new'>Sign In</a>
   <% end %>
 <% if @messages != nil %>
+<%= @current_user %>
+
 <ul id='messages'>
   <% @messages.each do |message| %>
   <li>
-   <%= message.time %>
+     <strong><%= message.username %> &nbsp </strong><%= message.time %>
      <ul>
-     <%= message.text %>
+     <em><%= message.text %></em>
     </ul>
   </li>
   <% end %>

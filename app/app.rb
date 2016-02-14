@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   enable :sessions
-  set :session_secret, 'super secret'
+  #set :session_secret, 'super secret'
 
   get '/' do
     @messages = Message.all.reverse
@@ -39,8 +39,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_message' do
-     message = Message.create(text: params[:message], time: "#{Time.now.strftime "%R"}")
-
+    message = Message.create(text: params[:message], username: "#{current_user.username}", time: "#{Time.now.strftime "%R"}")
     redirect '/'
   end
 
