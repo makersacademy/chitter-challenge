@@ -17,6 +17,9 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 <b>TO DO:</b><br>
 - commenting on other’s Peeps
 
+<b>ACKNOWLEDGEMENTS:</b><br>
+Background image taken from <a href=“https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg”>Mindsquirrel</a>.
+
 <b>HOW TO USE:</b><br>
 Clone repo, then run ```bundle``` to install dependencies. From the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```, then visit the corresponding ```localhost``` in your browser.
 
