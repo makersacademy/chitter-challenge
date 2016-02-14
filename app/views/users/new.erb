@@ -2,12 +2,12 @@
 <section class='form'>
     <form action='/users' method='post'></br>
 	  <fieldset>
-    	<p> Email: <input name='email' type='text' value='<%= @user.email %>' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required placeholder="Please enter a valid email address"> </p></br>
-    	<p> Password: <input name='password' type='password' required></p></br>
-    	<p> Password: <input name='password_confirmation' type='password' required></p></br>
-    	<p> Name:    <input name='name'></p></br>
-    	<p> UserName: <input name='username' required></p></br>
-    	<input type='submit' value='Sign Up'>
+    	<p class='in_main'> Email: <input name='email' type='text' value='<%= @user.email %>' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required placeholder="Please enter a valid email address"> </p></br>
+    	<p class='in_main'> Password: <input name='password' type='password' required></p></br>
+    	<p class='in_main'> Password: <input name='password_confirmation' type='password' required></p></br>
+    	<p class='in_main'> Name:    <input name='name'></p></br>
+    	<p class='in_main'> UserName: <input name='username' required></p></br>
+    	<input class='button' type='submit' value='Sign Up'>
 	 </fieldset>
     </form>
 </section>

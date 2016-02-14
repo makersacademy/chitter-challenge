@@ -7,21 +7,51 @@ body {
 	background-image: url('/images/background.jpg');
 	background-repeat: no-repeat;
 	background-size: 30%;
-	background-position: 450px 150px;
+	background-position: 800px 155px;
 }
 
 p {
+	background-color: #feddbe;
+	font-family: Times;
+	padding: 3px;
+}
+
+p.in_main {
 	background-color: #a9c9ba;
 	font-family: Times;
+	padding: 3px;
 }
+
+p.in_bar {
+	background-color: #feddbe;
+	font-family: Times;
+	font-size: 20px;
+	text-align: center;
+	padding: 3px;
+}
+
+p.peep {
+	background-color: white;
+	font-family: Times;
+	font-size: 16px;
+	text-align: left;
+	padding: 9px;
+}
+
 
 div {
 	font-family: Times;
 	background-color: #feddbe;
 }
 
+
 h1 {
 	text-color: red;
+}
+
+h1.main {
+	text-align: center;
+	font-family: Times;
 }
 
 hr {
@@ -33,6 +63,7 @@ div.bar {
 	background-color: #feddbe;
 	font-family: Times;
 	font-size: 18px;
+	text-align: center;
 }
 
 div.warning {
@@ -43,6 +74,7 @@ div.warning {
 }
 
 section.form {
+	border: none;
 	text-align: center;
 	float: left;
 	width: 12%;
@@ -50,6 +82,34 @@ section.form {
 	margin-left: 50px;
 	cursor: pointer;
 	
+}
+
+section.form2 {
+	border: none;
+	text-align: center;
+	float: left;
+	width: 12%;
+	background-color: #a9c9ba;
+	margin-left: 300px;
+	margin-top: 160px;
+	cursor: pointer;
+	
+}
+
+section.message {
+	text-align: center;
+	cursor: pointer;
+}
+
+section.stream {
+	float: left;
+	width: 450px;
+	height: 200px;
+}
+
+textarea.message {
+	width: 150px;
+	height: 75px;
 }
 
 input:invalid {
@@ -61,5 +121,16 @@ input:valid {
 }
 
 fieldset {
-	border: ridge black 3px;
+	border: none;
+}
+
+input.button {
+	    background-color: #a9c9ba ;
+	    border: none;
+	    padding: 5px 10px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+		cursor: pointer;
 }
