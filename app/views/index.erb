@@ -40,10 +40,10 @@
    <label>Username:<br >
     <input type='text' name='username' value='<%= @user.username%>'></label><br >
   <label>Email:<br >
-   <input type='text' name='email' value='<%= @user.email%>' ></label><br >
+   <input type='email' name='email' value='<%= @user.email%>' required></label><br >
   <label>Password:<br >
    <input type='password' name='password'></label><br >
-   <label> Password:<br >
+   <label> Confirm Password:<br >
      <input name='password_confirmation' type='password'></label>
    <br >
   <input type='submit' value='Sign Up!'>

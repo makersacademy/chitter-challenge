@@ -4,11 +4,11 @@ class User
 
   include DataMapper::Resource
 
-  property :id, Serial
-  property :name, String
-  property :username, String
-  property :email, String
-  property :password_digest, Text
+  property :id, Serial, required: true
+  property :name, String, required: true
+  property :username, String, required: true
+  property :email, String, required: true
+  property :password_digest, Text, required: true
 
   has n, :messages, :through => Resource
 
@@ -21,5 +21,6 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_format_of :email, as: :email_address
 
 end
