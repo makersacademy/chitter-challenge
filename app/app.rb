@@ -73,6 +73,12 @@ class Chitter < Sinatra::Base
    erb :session
   end
 
+  post "/post_peep" do
+  @message = params[:peep]
+  flash.next[:peep] = @message
+   redirect '/chitter'
+  end
+
  delete '/goodbye' do
    session[:user_id] = nil
    flash.next[:notice_goodbye] = 'We are done... don\'t come crying back'

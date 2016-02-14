@@ -8,5 +8,23 @@
   <body>
     <h1> Chitter HQ <h1>
     <%= erb(:'user/logout')%>
+    <form action="/post_peep" method="post">
+      <label for="peep">
+        Tic:
+
+        <textarea rows="4" cols="50" name="peep" maxlength="140">
+        </textarea>
+      </label>
+
+      <label for="submit" class="submitform">
+        <input type="submit" value="Word Vom">
+      </label>
+    </form>
+  </div>
+  <div class="message" >
+    <%= flash[:peep] %>
+  </div>
+
+
   </body>
 </html>
