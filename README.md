@@ -5,7 +5,7 @@ Feb 2016<br>
 Travis CI: [![Build Status](https://travis-ci.org/rufusraghunath/chitter-challenge.svg?branch=master)](https://travis-ci.org/rufusraghunath/chitter-challenge)<br>
 Coveralls: [![Coverage Status](https://coveralls.io/repos/github/rufusraghunath/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/rufusraghunath/chitter-challenge?branch=master)
 <br>
-<a href=“https:www.chitr-chatter.herokuapp.com”>Deployed to Heroku 14/02/16</a>
+<a href="https:www.chitr-chatter.herokuapp.com">Deployed to Heroku 14/02/16</a>
 ---
 
 <b>BASIC TASK:</b><br>
@@ -16,9 +16,10 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 
 <b>TO DO:</b><br>
 - commenting on other’s Peeps
+- give error message when user tries to submit a peep longer than 50 chars
 
 <b>ACKNOWLEDGEMENTS:</b><br>
-Background image taken from <a href=“https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg”>Mindsquirrel</a>.
+Background image taken from <a href="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg">Mindsquirrel</a>.
 
 <b>HOW TO USE:</b><br>
 Clone repo, then run ```bundle``` to install dependencies. From the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```, then visit the corresponding ```localhost``` in your browser.
