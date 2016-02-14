@@ -29,7 +29,7 @@
             replies (<%= peep.responses.count %>) <% if current_user %> | add new <% end %>
           </div>
 
-          <% if current_user %>
+          <% if current_user.id == peep.user.id %>
 
             <form class="delete" action="/delete" method="post">
               <input type="hidden" name="current_peep" value="<%= peep.id %>">
