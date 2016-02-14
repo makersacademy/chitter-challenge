@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
       redirect to('/')
       erb :layout
     else
-      flash.now[:notice] = "Soz mate, that password ain\'t right!"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
   end

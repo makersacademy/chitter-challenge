@@ -10,7 +10,7 @@ class User
   property :id,                    Serial
   property :username,              Text
   property :name,                  Text
-  property :email,                 Text
+  property :email,                 Text, required: true, unique: true
   property :password_digest,       Text
 
   def password=(password)
