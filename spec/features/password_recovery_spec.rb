@@ -44,7 +44,7 @@ feature 'Resetting Password' do
     fill_in :password, with: "newpassword"
     fill_in :password_confirmation, with: "newpassword"
     click_button "Submit"
-    expect(page).to have_content("Please sign in")
+    expect(page).to have_content("Please sign-in")
   end
 
   scenario 'it lets you sign in after password reset' do

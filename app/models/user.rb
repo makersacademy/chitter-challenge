@@ -21,7 +21,7 @@ class User
   property :username, String, required: true, unique: true
   property :email, String,  :required => true, :unique => true
   property :password_digest, Text
-  property :password_token, Text
+  property :password_token, String
   property :password_token_time, Time
 
   validates_confirmation_of :password
