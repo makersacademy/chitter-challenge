@@ -1,0 +1,6 @@
+<h1>PEEPLIST</h1>
+<ul id='peeps'>
+    <% @peeps.each do |peep| %>
+        <p><%= peep.username %> PEEPED: <%= peep.content %></p>
+    <% end %>
+</ul>
