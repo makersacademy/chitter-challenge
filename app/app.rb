@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/post_message' do
-    message = Message.create(text: params[:message], username: params[:username], time: "#{Time.now.strftime "%R"}")
+    message = Message.create(text: params[:message], time: "#{Time.now.strftime "%R"}")
     redirect '/'
   end
 

@@ -16,11 +16,17 @@
 <body>
   <% if current_user %>
     Welcome, <%= current_user.username %>
+    <form method='post' action='/post_message'>
+      <label> Message
+      <input type='text' name='message'></label>
+      <input type='submit' value='Post'>
+    </form>
+
     <%else %>
 
 
 <fieldset>
-<legend> Sign Up to send peeps</legend>
+<legend> Sign Up to Post</legend>
 <form action='/sign_up' method='post'>
   <label>Name:<br >
    <input type='text' name='name'></label><br >
@@ -40,7 +46,7 @@
 <ul id='messages'>
   <% @messages.each do |message| %>
   <li>
-     <strong><%= message.username %></strong>    <%= message.time %>
+      <%= message.time %>
      <ul>
      <%= message.text %>
     </ul>
