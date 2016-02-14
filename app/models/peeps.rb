@@ -5,7 +5,7 @@ class Peep
   property :id, Serial
   property :peep, Text
 
-  has n, :users, through: Resource
+  #has n, :users, through: Resource
 
 
 end
