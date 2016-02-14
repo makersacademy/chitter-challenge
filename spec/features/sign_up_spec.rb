@@ -60,7 +60,8 @@ feature 'Sign up' do
 
   context 'when passwords don\'t match' do
     scenario 'displays an error message' do
-      expect { sign_up(pwd_conf: 'wrong') }.not_to change(User, :count)
+      expect { sign_up(password_confirmation: 'wrong') }
+      .not_to change(User, :count)
       expect(current_path).to eq '/users'
       within('ul#errors') do
         expect(page).to have_content 'Password does not match the confirmation'

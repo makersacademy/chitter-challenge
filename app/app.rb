@@ -3,6 +3,11 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative 'models/user'
+require_relative 'models/peep'
+
+# TODO: separate into different controller files
+# TODO: separate into helpers file
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -16,11 +21,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect to '/peeps'
+    redirect to '/peeps/all'
   end
 
-  get '/peeps' do
-    erb :peeps
+  get '/peeps/all' do
+    @peeps = Peep.all
+    erb :'peeps/all'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(content: params[:content])
+    redirect to '/peeps/all'
   end
 
   get '/users/new' do
@@ -36,7 +51,7 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:pwd_conf])
     if @user.save
       session[:user_id] = @user.id
-      redirect to '/peeps'
+      redirect to '/peeps/all'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'

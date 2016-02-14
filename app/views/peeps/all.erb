@@ -1,0 +1,19 @@
+<h1>
+  Welcome
+  <% if current_user %>
+    <%= current_user.username %>
+  <% else %>
+    to Chitter
+  <% end %>
+</h1>
+<% if current_user %>
+  <a href="/peeps/new"><button>New peep</button></a>
+<% end %>
+<section id="peeps">
+  Recent activity:
+  <% @peeps.each do |peep| %>
+    <div class="peep">
+      <%= peep.content %>
+    </div>
+  <% end %>
+</section>

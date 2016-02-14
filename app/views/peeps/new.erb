@@ -1,0 +1,12 @@
+<!-- TODO: extract to partial -->
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<form action="/peeps" method="post">
+  <textarea name="content" rows="3" cols="80"></textarea>
+  <input type="submit" name="submit" value="Submit" />
+</form>
