@@ -1,6 +1,6 @@
 feature 'Logging into Chitter' do
 
-  let!(:user) do
+  before(:each) do
     User.create(email: 'alice@example.com',
                 password: 'aliali',
                 username: 'useruser',

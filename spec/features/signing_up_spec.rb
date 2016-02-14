@@ -14,14 +14,14 @@ feature 'signing up' do
   scenario 'I cannot sign up with an existing username' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
-    expect(current_path).to eq('/users/registration_failed')
+    expect(current_path).to eq('/users/failed')
     expect(page.status_code).to eq(200)
   end
 
   scenario 'I cannot sign up with an existing email' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
-    expect(current_path).to eq('/users/registration_failed')
+    expect(current_path).to eq('/users/failed')
     expect(page.status_code).to eq(200)
   end
 

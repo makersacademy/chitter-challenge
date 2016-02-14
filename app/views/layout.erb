@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <%= partial :flash %>
+    <% if current_user %>
+      <form action='/sessions' method='POST'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>

@@ -2,11 +2,15 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-
+require 'rack-flash'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
 
    enable :sessions
+   use Rack::Flash
+   register Sinatra::Partial
+   set :partial_template_engine, :erb
 
    get '/sessions/new' do
      erb :'sessions/new'
@@ -27,10 +31,16 @@ class Chitter < Sinatra::Base
      erb :'sessions/welcome'
    end
 
-
    get '/sessions/failed' do
      erb :'sessions/failed'
    end
+
+   post '/sessions' do
+     session[:id] = nil
+     flash[:notice] = 'goodbye!'
+     redirect to '/users/new'
+   end
+
 
    get '/users/new' do
     erb :'users/new'
@@ -42,7 +52,7 @@ class Chitter < Sinatra::Base
      session[:id] = user.id
      redirect to('/users/welcome') unless user.id.nil?
      #TODO use Sinatra::flash instead then reg_failed
-     redirect to('/users/registration_failed')
+     redirect to('/users/failed')
    end
 
    get '/users/welcome' do
@@ -50,8 +60,8 @@ class Chitter < Sinatra::Base
      erb :'users/welcome'
    end
 
-   get '/users/registration_failed' do
-     erb :'users/registration_failed'
+   get '/users/failed' do
+     erb :'users/failed'
    end
 
    helpers do

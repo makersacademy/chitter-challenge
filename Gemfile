@@ -6,6 +6,8 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'data_mapper'
+gem 'sinatra-partial'
+gem 'rack-flash3'
 gem 'dm-postgres-adapter'
 
 group :test do
