@@ -145,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bundle
   capybara
   coveralls

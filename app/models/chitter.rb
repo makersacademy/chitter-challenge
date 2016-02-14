@@ -2,6 +2,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
+
 class Chit
 
   include DataMapper::Resource
@@ -12,5 +13,3 @@ class Chit
 
 end
 
-DataMapper.setup(:default,  ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize

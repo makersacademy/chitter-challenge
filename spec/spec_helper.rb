@@ -9,6 +9,8 @@ require 'database_cleaner'
 require './app/models/chitter'
 require 'capybara/rspec'
 require './app/app'
+require 'bcrypt'
+require 'tilt/erb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
