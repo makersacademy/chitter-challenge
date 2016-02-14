@@ -8,6 +8,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'database_cleaner'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

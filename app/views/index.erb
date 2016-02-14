@@ -1,6 +1,10 @@
+<! DOCTYPE html>
+<html>
 <center>
 <h1> CHITTER </h1>
 </center>
+
+<!-- <a href='/sign_up'>Sign Up</a>
 
 <form method='post' action='/post_message'>
   <label> Username
@@ -8,7 +12,30 @@
   <label> Message
   <input type='text' name='message'></label>
   <input type='submit' value='Post'>
+</form> -->
+<body>
+  <% if current_user %>
+    Welcome, <%= current_user.username %>
+    <%else %>
+
+
+<fieldset>
+<legend> Sign Up to send peeps</legend>
+<form action='/sign_up' method='post'>
+  <label>Name:<br >
+   <input type='text' name='name'></label><br >
+   <label>Username:<br >
+    <input type='text' name='username'></label><br >
+  <label>Email:<br >
+   <input type='text' name='email'></label><br >
+  <label>Password:<br >
+   <input type='password' name='password'></label><br >
+   <br >
+  <input type='submit' value='Sign Up!'>
 </form>
+</fieldset>
+
+  <% end %>
 
 <ul id='messages'>
   <% @messages.each do |message| %>
@@ -20,3 +47,5 @@
   </li>
   <% end %>
 </ul>
+</body>
+</html>

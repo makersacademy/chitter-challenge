@@ -23,8 +23,7 @@ feature 'view messages posted to chitter' do
     Message.create(username:"James", text: "I love cats!", time: "#{Time.now.strftime "%R"}")
     Message.create(username:"James", text: "She hates dogs!", time: "#{Time.now.strftime "%R"}")
     visit ('/')
-
-   expect(page).to have_selector("ul#messages li:nth-child(1)", text: "She hates dogs!")
-
+    expect(page).to have_selector("ul#messages li:nth-child(1)", text: "She hates dogs!")
+    expect(page).to have_selector("ul#messages li:nth-child(2)", text: "I love cats!")
   end
 end
