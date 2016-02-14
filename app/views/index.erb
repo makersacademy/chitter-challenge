@@ -1,21 +1,23 @@
 <h1>Chitter - Speak your mind!</h1>
 
 <% unless @current_user %>
-  <a href='/users/new'>Sign Up</a>
-  <a href='/sessions/new'>Sign In</a>
+  <a class="btn btn-primary" href='/users/new'>Sign Up</a>
+  <a class="btn btn-primary" href='/sessions/new'>Sign In</a>
 <% end %>
 
 <% if @current_user%>
 
 <form action='/update_peeps' method='post'>
   <input type='text' name='message'>
-  <input type='submit' value='Peep'>
+  <input class="btn btn-primary" type='submit' value='Peep'>
 </form>
 
 <% end %>
 
 <% if @posts %>
   <% @posts.reverse!.each do |post| %>
-    <p><%= post.message %><br><%= post.time %><br><%= post.user.email.split('@').first%></p>
+    <ul class="list-group">     <li class="list-group-item"><%= post.message %></li><li class="list-group-item"><%= post.time %></li><li class="list-group-item"><%= post.user.email.split('@').first%></li></ul>
   <% end %>
 <% end %>
+
+

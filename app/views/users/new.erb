@@ -3,12 +3,12 @@
 <form action='/users' method='post'>
   <label for='email'>E-Mail:
     <input type='email' name='email' value='<%= @user.email %>'>
-  </label><br>
+  </label>
   <label for='password'>Password:
     <input type='password' name='password'>
-  </label><br>
+  </label>
   <label for='password_confirmation'>Confirm Password:
     <input type='password' name='password_confirmation'>
-  </label><br>
-  <input type='submit' value='Sign Up'>
+  </label>
+  <input class="btn btn-primary" type='submit' value='Sign Up'>
 </form>
