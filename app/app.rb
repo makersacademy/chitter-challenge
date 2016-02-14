@@ -41,6 +41,17 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/recover' do
+    erb :'users/recover'
+  end
+
+  post '/users/recover' do
+    erb :'users/acknowledgement'
+  end
+
+
+
+
   get '/peeps' do
     @list = Peep.all(order: [ :created_at.desc ])
     @user = current_user
