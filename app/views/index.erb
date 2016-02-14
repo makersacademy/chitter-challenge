@@ -4,4 +4,16 @@
 
 <h1>Welcome, <%=current_user.email%></h1>
 
+<a href="/peeps/new">Add peep</a><br>
+<a href="/user/new">Create an account</a><br>
+<a href="/sessions/new">Sign in</a>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
+
 </html>

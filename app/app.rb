@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -52,6 +53,16 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  get '/peeps/new' do
+    erb :new_peep
+  end
+
+  post '/peeps/new' do
+    peep = Peep.new(message: params[:message])
+    peep.save
+    redirect to('/')
   end
 
   # start the server if ruby file executed directly
