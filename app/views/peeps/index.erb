@@ -1,0 +1,11 @@
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peep.each do |peep| %>
+    <li>
+      Name: <%= peep.name %>
+      Username: <%= peep.username %>
+      Content: <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
