@@ -4,6 +4,7 @@ require 'bcrypt'
 require 'dm-validations'
 require_relative 'peep'
 require 'securerandom'
+require 'timecop'
 
 
 class User
@@ -11,7 +12,7 @@ class User
   include BCrypt
 
   attr_accessor :password_confirmation
-  attr_reader :password, :username
+  attr_reader :password, :username, :password_token
 
   has n, :peeps
 
@@ -52,10 +53,6 @@ class User
     self.password_token = SecureRandom.hex
     self.password_token_time = Time.now
     self.save
-  end
-
-  def self.find_by_valid_token(token)
-    first(password_token: token)
   end
 
   def self.find_by_valid_token(token)

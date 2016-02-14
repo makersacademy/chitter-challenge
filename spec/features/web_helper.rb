@@ -20,8 +20,8 @@ def sign_out
   click_button 'Sign out'
 end
 
-def recover_password
+def recover_password(email: 'test@testmail.com')
   visit '/users/recover'
-  fill_in :email, with: "test@test.com"
+  fill_in :email, with: email
   click_button "Submit"
 end
