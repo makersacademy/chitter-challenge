@@ -12,13 +12,16 @@
   <h1> Peeps </h1>
   <% if @peeps %>
     <% @peeps.each do |p| %>
-    <ul class="list-unstyled">
-      <li>
-        <h3><strong><%= @user.get(p.user_id).name %></strong> <small>peeped:</small></h3>
-        <blockquote><%= p.peep %></blockquote>
-        <strong>Time posted:</strong> <%= p.time_stamp %><br>
-      </li>
-      <hr>
-    </ul>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+       <h3 class="panel-title"><strong><%= @user.get(p.user_id).name %></strong> <small>peeped:</small></h3>
+      </div>
+      <div class="panel-body">
+        <p class="lead"><%= p.peep %></p>
+      </div>
+      <div class="panel-footer">
+        <small><strong>Date posted:</strong> <%= p.time_stamp %></small>
+      </div>
+    </div>
     <% end %>
   <% end %>
