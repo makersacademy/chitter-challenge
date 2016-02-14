@@ -39,6 +39,9 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a maker
+In order to start a conversation as a maker I want to reply to a peep from another maker.
 ```
 
 MY APPROACH:
@@ -89,7 +92,11 @@ FUNCTIONALITY, SCREEN SHOTS AND USAGE:
 ```
 ![Screenshot](https://path_to_your_image)
 ```
+* Peep comments are seen in chronological order underneath peeps, stamped with their date, time and author.
 
+```
+![Screenshot](https://path_to_your_image)
+```
 
 TO DO
 
@@ -97,7 +104,7 @@ TO DO
 
 2. Further User stories
 
-3.
+
 FURTHER USER STORIES
 
 ```sh
@@ -142,29 +149,32 @@ PROJECT CONTENTS:
       README_FROM_AUTHOR.md - my readme
 
       app directory
-      app.rb
-      config.ru
-      data_mapper_setup.rb
-      helpers.rb - to keep the controller skinnier, I have made a module of helper methods.
-        controllers
-          currently empty, but WIP to get Sinatra to co-operate with refactor.
-        models
-          peep.rb
-          user.rb
-        public
-          Will evenutally contain CSS style sheets
-        views
-          index.erb - contains sign up and sign in forms
-          welcome.erb - contains a welcome message for new and old users
-          logout.erb - is a sinatra/partial so that a logout option can be included anywhere on the site easily
-        session.erb - the main messageboard view
+        app.rb
+        config.ru
+        data_mapper_setup.rb
+        helpers.rb - to keep the controller skinnier, I have made a module of helper methods.
+          controllers
+            currently empty, but WIP to get Sinatra to co-operate with refactor.
+          models
+            peep.rb
+            user.rb
+          public
+            Will evenutally contain CSS style sheets
+          views
+            index.erb - contains sign up and sign in forms
+            welcome.erb - contains a welcome message for new and old users
+            logout.erb - is a sinatra/partial so that a logout option can be included anywhere on the site easily
+          session.erb - the main messageboard view
 			spec directory
-				feature_spec directory
-          peeps_feature_spec.rb
-          signin_feature_spec.rb
-          Signout_feature_spec.rb
         spec_helper.rb
         web_helper.rb
+				    features directory
+              peeps_feature_spec.rb
+              signin_feature_spec.rb
+              Signout_feature_spec.rb
+            units directory
+              user_spec.rb
+
       WIP
         This file contains snippets of code I am working on, including an attempt to refactor to a multiple controller set up.
 

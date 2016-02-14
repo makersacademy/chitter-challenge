@@ -2,7 +2,8 @@ require 'dm-timestamps'
 
 class Peep
   include DataMapper::Resource
-  belongs_to :user, :key => true
+  belongs_to :user, key: true
+  has n, :comments
 
     property :id, Serial
     property :peep_message, String, length: 140

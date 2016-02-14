@@ -55,20 +55,41 @@ class Chitter < Sinatra::Base
     erb :'user/welcome'
   end
 
-  get "/chitter" do
+  get '/chitter' do
+    # @peep_update = Peep.all
    @peeps = Peep.all.reverse
    erb :session
   end
 
-  post "/post_peep" do
+  post '/post_peep' do
     if peep_error?
       flash.next[:peep_error] = peep_error_message
     else
       @peep =
-        Peep.new(peep_message: params[:peep], author: session_user.user_name)
+        Peep.create(peep_message: params[:peep], author: session_user.user_name)
       session_user.peeps << @peep
       session_user.save
     end
+    redirect '/chitter'
+  end
+
+  post '/comment' do
+    # if peep_error?
+    #   flash.next[:peep_error] = peep_error_message
+    # else
+
+  current_peep = Peep.first(id: params[:peep_id].to_i, author: params[:peep_author])
+  # this_peep_owner = peep_owner(current_peep.user_id)
+
+      @comment =
+        current_peep.comments.create(comment_message: params[:peep],
+        author: session_user.user_name, peep_id: current_peep.id)
+        # current_peep.comments << @comment
+        current_peep.save
+
+        # require 'pry'; binding.pry
+
+        # this_peep_owner.peeps << current_peep
     redirect '/chitter'
   end
 

@@ -15,7 +15,7 @@ require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
 require 'orderly'
-
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

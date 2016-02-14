@@ -49,4 +49,10 @@ module Helpers
   def readable_time(created_at_time)
     created_at_time.strftime("%I:%M%p")
   end
+
+
+  def peep_owner(peep_author)
+    User.get(peep_author)
+  end
+
 end
