@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :time.desc ])
     erb :'peeps/home'
   end
 
@@ -28,7 +28,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(message: params[:message], title: params[:title], )
+    t = Time.new
+    display_time = "#{t.day}.#{t.month}.#{t.year} #{t.hour}:#{t.min}"
+    peep = Peep.create(message: params[:message], title: params[:title], time: Time.new, dis_time: display_time)
     peep.save
     redirect '/'
   end

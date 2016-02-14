@@ -8,6 +8,8 @@ class Peep
   property :id,     Serial
   property :title,  String
   property :message,  Text
+  property :time, String
+  property :dis_time, String
   #will need property time created and user relationship
 
 end

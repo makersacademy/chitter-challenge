@@ -29,4 +29,13 @@ feature 'Viewing peeps' do
 
   end
 
+  scenario 'exisiting peeps display in reverse chronological order' do
+    sign_up
+    sign_in
+    create_peep('I am the first peep', 'Peep 1')
+    create_peep('I am the second peep', 'Peep 2')
+    create_peep('I am the third peep', 'Peep 3')
+    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: 'Peep 3')
+  end
+
 end
