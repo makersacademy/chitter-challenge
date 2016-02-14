@@ -1,0 +1,6 @@
+<h1> User:<%= @user.username %></h1>
+<ul>
+<% @user.peeps.reverse.each do |peep| %>
+    <li><b><%=peep.text%></b> _______ <%=peep.time%></li>
+<% end %>
+</ul>

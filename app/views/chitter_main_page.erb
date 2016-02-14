@@ -1,0 +1,20 @@
+<%if @user%>
+  <h1> Welcome <%= @username %> </h1>
+  <form action='/chitter/logout' method = 'post'>
+    <input type='submit' value='Log out'>
+  </form>
+  <form action='/peep'>
+    <input type='submit' value='Peep!'>
+  </form>
+<%else%>
+<form action='chitter/signup'>
+  <input type='submit' value='Sign up'>
+</form>
+<form action='chitter/login'>
+  <input type='submit' value='Log in'>
+</form>
+<%end%>
+<% @peeps.each do |peep| %>
+  <li>
+    <a href="/users/<%=peep.username%>"><%=peep.username%></a>: <b><%= peep.text %></b> ______ Time: <%= peep.time %>
+    <% end%>
