@@ -12,6 +12,13 @@ require './app/app'
 require 'bcrypt'
 require 'tilt/erb'
 require 'sinatra/flash'
+require_relative 'helpers/session'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
