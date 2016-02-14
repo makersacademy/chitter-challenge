@@ -14,6 +14,10 @@ feature 'Users can post to Chitter' do
     expect(page).to have_content "Hello Chitter world!"
   end
 
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
+
   scenario "Users can see cheets is reverse chronological order" do
     sign_up
     log_in
@@ -28,7 +32,9 @@ feature 'Users can post to Chitter' do
     expect("My second post").to appear_before("My first post")
   end
 
-
+# As a maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
 
 
   scenario "Users can see the time that they posted" do
