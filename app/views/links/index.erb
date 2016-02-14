@@ -1,4 +1,29 @@
+<form method='post' action='/log-out'>
+<input type='hidden' name='_method' value='delete'>
+<input type='submit' value='Sign out'>
+</form>
 <html>
+<head>
+<style>
+body {
+    font-family: ".fa", sans-serif;
+    background: #1F1F1F;
+}
+h4 {
+    padding-top:10px;
+}
+#page-wrapper {
+    padding: 30px 15px;
+    padding-left: 300px;
+    min-height: 10px;
+    background: #E8E8E8;
+    color: #ff9900;
+}
+</style>
+</head>
+
+<body>
+<div id="page-wrapper">
 <body bgcolor="#81DAF5">
 
 <% if flash[:notice] %>
@@ -18,11 +43,8 @@
 </form>
 <% end %>
 <% if @current_user%>
-<form method='post' action='/log-out'>
-<input type='hidden' name='_method' value='delete'>
-<input type='submit' value='Sign out'>
-</form>
-<h1 style="color:blue;">Welcome <%= @current_user%>!</h1>
+
+<h1> Welcome <%= @current_user%>!</h1>
 <form method='post' action='/wall'>
 Post a Peep:
 <input name='peep' type='text'>
