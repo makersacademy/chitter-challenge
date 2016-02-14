@@ -9,4 +9,5 @@ group :test do
 	gem 'sinatra'
 	gem 'rspec-sinatra'
 	gem 'data_mapper'
+	gem 'bcrypt'
 end
