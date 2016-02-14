@@ -74,3 +74,26 @@ feature 'User log in' do
   end
 
 end
+
+# As a Maker
+# So that I can avoid others posting messages on Chitter as me
+# I want to log out of Chitter
+
+feature 'User log out' do
+
+  before(:each) do
+    User.create(name: 'Iryna',
+                username: 'irisha',
+                email: 'iryna@mail.com',
+                password: 'chitter!',
+                password_confirmation: 'chitter!')
+  end
+
+  scenario 'when user logged in he can log out' do
+    log_in('iryna@mail.com', 'chitter!')
+    click_button 'Log out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, Iryna')
+  end
+
+end
