@@ -1,21 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Chitter</title>
+    <meta charset="utf-8">
+    <!-- Setting responsive screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <% if current_user %>
-      <a href="/users/sessions/sign_out" id="sign_out" style="text-decoration: none;">
-        <input type="button" value="Sign out"/>
-      </a>
-      <br>
-    <%end%>
+  <body style="position: relative;" >
 
-    <%= flash[:goodbye] %>
-    <%= flash[:invalid_login] %>
+    <img id="background"
+    style="position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;" src="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg"/>
+
+
+    <nav class="navbar navbar-default" class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-brand">Chitr</div>
+      </div>
+
+      <div><!-- buttons -->
+
+      <% if current_user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/users/sessions/sign_out" id="sign_out" style="text-decoration: none; margin-right: 20px">Sign out</a>
+          </li>
+        </ul><!-- end navbar-right -->
+
+      <% else %>
+        <ul class="nav navbar-nav">
+          <li>
+            <a id="sign_in" href="/users/sessions/new" style="text-decoration: none;">Sign in</a>
+          </li>
+          <li>
+            <a id="sign_up" href="/users/sign_up" style="text-decoration: none;">Sign up</a>
+          </li>
+        </ul>
+      <% end %>
+
+      </ul>
+      </div><!-- buttons -->
+    </nav>
+
+
+    <div class="container-fluid">
+
+
+    <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="background-color: rgba(245, 245, 245, 0.6); padding: 20px;">
+
+    <% if current_user %>
+      <%= "Welcome, #{current_user.real_name}!" %>
+    <%end%>
+      <%= flash[:goodbye] %>
 
     <%= yield %>
+
+    <%= flash[:invalid_login] %>
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
         <ul>
@@ -23,5 +79,10 @@
         </ul>
       <%end%>
     <%end%>
+  </div><!-- end middle col -->
+  <div class="col-md-4"></div>
+  </div><!-- end row -->
+  </div><!-- end container-fluid -->
+
   </body>
 </html>

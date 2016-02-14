@@ -1,22 +1,12 @@
-<% if current_user %>
-  <%= "Welcome, #{current_user.real_name}!" %>
-<% else %>
-  <a id="sign_in" href="/users/sessions/new" style="text-decoration: none;">
-    <input type="button" value="Sign in"/>
-  </a>
-  <a id="sign_up" href="/users/sign_up" style="text-decoration: none;">
-    <input type="button" value="Sign up"/>
-  </a>
-<% end %>
 
-<h1>Chitter chatter:</h1>
-<h3><em>It's sweet to peep</em></h3>
+<h1 style="margin-bottom: 0;">Chitr chatter:</h1>
+<h3 style="margin-top: 0;"><em>It's sweet to peep</em></h3>
 <br>
 
 <% if current_user %>
   <form action="/peeps/new" method="post">
     <input type="text" name="message"
-    placeholder="Your message here (140 chars max)" required/>
+    placeholder="Your message here" required/>
     <input type="submit" value="Peep!"/>
   </form>
   <br>

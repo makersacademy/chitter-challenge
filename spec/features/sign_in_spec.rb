@@ -8,7 +8,7 @@ feature 'signing in' do
     sign_in
     expect(page).to have_content 'Welcome, Rufus Raghunath!'
     expect(page).to have_button 'Peep!'
-    expect(page).to have_button 'Sign out'
+    expect(page).to have_css '#sign_out'
   end
 
 end
