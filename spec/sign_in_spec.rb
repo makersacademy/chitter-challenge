@@ -7,10 +7,10 @@ feature 'User sign in' do
                 )
     end
 
-    # scenario 'with correct credentials' do
-    #   sign_in(email: user.email,   password: user.password)
-    #   expect(page).to have_content "Welcome, #{user.email}"
-    # end
+    scenario 'with correct credentials' do
+      sign_in(email: user.email,   password: user.password)
+      expect(page).to have_content "Welcome, #{user.email}"
+    end
 
     def sign_in(email:, password:)
       visit '/sessions/new'

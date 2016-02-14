@@ -1,4 +1,3 @@
-require './spec/helpers/session'
 
 feature 'User signs out' do
 
