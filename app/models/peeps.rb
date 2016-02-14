@@ -6,6 +6,7 @@ class Peep
   property :name, String
   property :username, String
   property :content, Text
+  property :created_at, Text
 end
 
 DataMapper.finalize
