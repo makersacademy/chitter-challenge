@@ -8,6 +8,27 @@
   <input type='submit' value='Log in'>
 </form>
 
-<form action='/log_out' method='get'>
+<form action='/log_out' method='post'>
+  <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='Log out'>
 </form>
+
+<form action='/make_cheet' method='get'>
+  <input type='submit' value='Cheet!'>
+</form>
+
+
+<h2> Cheets </h2>
+
+<% if @posts %>
+<ul id="Cheets">
+  <% @posts.each do |cheet| %>
+  <div>
+    Title: <%= cheet.title %>
+  </div>
+  <div>
+    <%= cheet.body %>
+  </div>
+  <% end %>
+</ul>
+<% end %>

@@ -1,3 +1,14 @@
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to log in to Chitter
+
+# As a Maker
+# So that I can avoid others posting messages on Chitter as me
+# I want to log out of Chitter
+
+
+
+
 feature "Users can fill out a form to log in" do
   scenario "users are able to log in" do
     sign_up
