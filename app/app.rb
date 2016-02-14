@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
   get '/' do
     @user =  User.first(id: session[:user_id])
     @peep = Peep.all.reverse
+    @reply = Reply.all
     erb :'/home'
   end
 
@@ -48,6 +49,19 @@ class Chitter < Sinatra::Base
       time = Time.new
       user.peeps << Peep.create(peep: params[:peep_input], time: time.strftime("%H:%M %-d %b %Y"))
       user.save
+    else
+      flash.keep[:unknown_username] =  'You need to login to peep'
+    end
+    redirect '/'
+  end
+
+  post '/reply' do
+    user = User.first(id: session[:user_id])
+    peep = Peep.first(id: (params[:peep_id].to_i))
+    if user
+      time = Time.new
+      peep.replies << Reply.create(reply: params[:reply], time: time.strftime("%H:%M %-d %b %Y"))
+      peep.save
     else
       flash.keep[:unknown_username] =  'You need to login to peep'
     end

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <h1> Chitter </h1>
 
 <% if flash[:unknown_username] %>
@@ -45,6 +47,18 @@
               <% @username = User.first(id: (PeepUser.first(peep_id: peep.id).user_id)).username %>
               <%= @username %>
               <%= peep.time %>
+              <% (PeepReply.all(peep_id: peep.id)).each do |reply| %>
+                <ul>
+                  <li>
+                    <%= (Reply.first(id: (reply.reply_id))).reply %>
+                  </li>
+                </ul>
+              <% end %>
+                <form action='/reply' method='post'>
+                  <input name="peep_id" type="hidden" value="<%= peep.id %>" />
+                  <input type="text" name="reply">
+                  <input type='submit' value="Reply">
+                </form>
           </li>
         <% end %>
       </ul>
