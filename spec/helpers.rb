@@ -1,4 +1,4 @@
-module WebHelpers
+module Helpers
   def sign_up(username: 'User',
               email: 'user@nomail.com',
               name: 'Firstname Lastname',

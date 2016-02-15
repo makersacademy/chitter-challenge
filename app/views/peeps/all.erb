@@ -21,7 +21,7 @@
 <section id="peeps">
   Recent activity:
   <% @peeps.each do |peep| %>
-    <div class="peep">
+    <article class="peep">
       <span class="name"><%= peep.user.name %></span>
       <span class="handle">@<%= peep.user.username %></span>
       <p>
@@ -30,6 +30,6 @@
       <span class="timestamp">
         <%= peep.created_at.strftime('%a, %d %b %Y at %l:%M %p') %>
       </span>
-    </div>
+    </article>
   <% end %>
 </section>

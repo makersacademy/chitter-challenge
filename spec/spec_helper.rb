@@ -15,13 +15,13 @@ require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'rspec'
-require_relative 'support/helpers/web_helpers'
+require_relative 'helpers'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-  config.include WebHelpers
+  config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
