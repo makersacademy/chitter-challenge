@@ -1,4 +1,4 @@
-require_relative '../../app/models/peep.rb'
+
 
 feature 'viewing peeps' do 
 	scenario 'I can see a list of peeps' do
