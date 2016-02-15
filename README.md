@@ -13,6 +13,11 @@ Technology Used
 
 * Ruby, Sinatra, Rspec, Capybara, Data Mapper, Database Cleaner, Bcrypt, Heroku. 
 
+Main Page
+---------
+
+![Screen Shot] (https://github.com/MarcoCode/chitter-challenge/tree/master/app/public/images/Screen Shot1.png?raw=true)
+
 
 Instructions
 ------------
