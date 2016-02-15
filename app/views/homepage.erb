@@ -1,0 +1,10 @@
+<h1> Chitter </h1>
+
+<ul id='peeps'>
+	<% @peeps.each do |peep| %>
+		<li>
+			Name:        <%= peep.username %>
+			Chitter: 	 <%= peep.chitter %>
+		</li> 
+		<%end%>
+</ul>	 	
