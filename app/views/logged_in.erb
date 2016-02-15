@@ -19,10 +19,24 @@ Welcome to your account page
   	<%= peep.created_at.strftime("%m/%d/%Y") %>
   	<%= peep.time %> </p> 
    <p style='font-size:20px;'><%= peep.content %></p>
-
+    <ul id='Comments'>
+    <% @comments.each do |reply|%>
+    <% if reply.peep_id == peep.id %>
+    <p style='font-size:12px;'> <%= reply.comment %> </p>
+    <%end%>
+    <%end%>
+  
+  <form action="/comment" method='post'>
+  <input type='text' name='comment'> 
+  <input type='hidden' name='peep' value=<%= peep.id %> > 
+  <input type='submit' value='reply'>
+  </form>
+  
   </div>  
   <%end%>
+
 </ul>
+
 
 
    

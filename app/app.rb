@@ -55,6 +55,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/logged_in' do 
+    @comments=Comment.all
     @user=User.all
     @peeps = Peep.all 
   	erb :logged_in
@@ -70,6 +71,16 @@ class Chitter < Sinatra::Base
   created_at: params[:created_at])
   @peep.user = User.get(session[:user_id])
   @peep.save
+  redirect to('/logged_in')
+  end
+
+  post '/comment' do 
+  puts '-----'
+  @comment = Comment.new(comment: params[:comment])
+  session[:peep_id] = params[:peep]
+  @comment.peep = Peep.get(params[:peep])
+  @comment.save
+  puts @comment.saved?
   redirect to('/logged_in')
   end
 
