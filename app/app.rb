@@ -37,6 +37,7 @@ class Chitter < Sinatra::Base
     end
 
     get '/welcome' do 
+        @peep = Peep.all
     	@current_user = session[:username]
     	erb :'links/index'
     end
