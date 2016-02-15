@@ -1,4 +1,4 @@
-[https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master]
+[logo]: https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master
 
 
 
