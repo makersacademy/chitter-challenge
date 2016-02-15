@@ -20,7 +20,6 @@ feature 'posting a peep' do
      password_confirmation: 'password')
     log_in(email:'user@email.com',password:'password')
     visit '/peeps/new'
-    click_button'Post your peep!'
-    expect(page).to have_content('Please log in to post a peep')
+    expect{click_button'Post your peep!'}.not_to change(Peep, :count)
   end
 end
