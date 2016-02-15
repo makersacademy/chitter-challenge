@@ -1,10 +1,9 @@
-<h1> Write a new peep!</h1>
-
 <% if User.get(session[:user_id]) == nil %>
   <div>
     <h2>Please sign up or sign in to peep!</h2>
   </div>
 <% else %>
+  <h1>Write a new peep!</h1>
 <form action = '/homepage' method = 'post'>
   <label for="peep">
     What do you want to say?:
