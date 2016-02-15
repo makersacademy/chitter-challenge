@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Welcome <%= @user %> </title>
+    <link rel="stylesheet" href='welcome.css' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gruppo|Poppins|Open+Sans|Jura|Audiowide|Playball' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div class="wrapper">
+    <div class="title">
+    <h1> Welcome to Chitter Brother <%= @user %> </h1>
+    </div>
+    <!-- <div class="enter"> -->
+    <form action="/chitter" method="get">
+      <input type="submit" value="Take Me To My Brethrin">
+    </form>
+  </div>
+  </div>
+  </body>
+</html>

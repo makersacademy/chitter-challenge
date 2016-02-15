@@ -1,0 +1,200 @@
+
+body {
+  font-family: 'Playball';
+  font-size: 40px;
+  background-color: rgb(179, 255, 217);
+  background-size: cover;
+  padding-top: 10px;
+
+}
+
+div.header {
+  font-family: 'Playball';
+  font-size: 90px;
+  float: top;
+  text-align: center;
+  color: white;
+  text-shadow:
+   10px 10px rgb(255, 140, 26),
+   1px -1px rgb(255, 140, 26),
+   -1px 1px rgb(255, 140, 26),
+   1px 1px rgb(255, 140, 26);
+}
+
+
+.wrapper {
+  margin: 10px auto;
+  background-color: rgb(255, 218, 179);
+  display: webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+
+.logout {
+  position:fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+  width: 15%;
+  height: 10%;
+  text-align: center;
+  font-family: 'Gruppo';
+  font-size: 50%;
+  color: rgb(51, 204, 204);
+  border-radius: 10px;
+  border-style: groove;
+  border-color: rgb(255, 218, 179);
+}
+
+input[type=submit] {
+  background-color: rgb(51, 204, 204);
+  font-size: 70%;
+  font-family: 'Gruppo';
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+textarea {
+ background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+ width: 75%;
+ max-width: 800px;
+ height: 75%;
+ font-family: 'Gruppo';
+ font-size: 100%;
+ line-height: 200%;
+ /*padding: 2px 10px;*/
+}
+
+
+textarea.comment_box{
+  font-size: 50%;
+  max-width: 500px;
+  width: 100%;
+  height: 50%;
+  float: right;
+}
+
+
+.wrapper>div.post_peep {
+  /*position: absolute;*/
+   flex: 1;
+   align-self: center;
+   min-width: 1000px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10px;
+  font-family: 'Gruppo';
+  border-radius: 10px;
+  border-style: groove;
+  border-color: rgb(255, 218, 179);
+  text-align: center;
+}
+
+
+.wrapper>div.single_peep {
+  /*position: absolute;*/
+ flex: 1;
+   min-width: 1000px;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: rgb(255, 218, 179);
+}
+
+
+.message {
+   flex: 1;
+    text-align: left;
+  background-color: rgb(179, 255, 217);
+  margin: 10px auto;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: rgb(255, 218, 179);
+  color: rgb(51, 204, 204);
+  text-align: justify;
+}
+
+
+.single_peep>div.footer {
+   flex: 1;
+   text-align: right;
+   font-family: 'Gruppo';
+  /*position:absolute;*/
+  font-size: 60%;
+  margin: 5px auto;
+}
+
+.single_peep>div.author_info {
+   flex: 1;
+   text-align: right;
+   font-family: 'Playball';
+  color: rgb(51, 204, 204);
+  font-size: 80%;
+  margin: 5px auto;
+}
+
+.comment_feed {
+  flex: 1;
+  border-radius: 10px;
+  border-style: groove;
+  border-color: rgb(255, 218, 179);
+
+}
+
+.comment_feed>h1 {
+  font-size: 100%;
+  text-shadow:
+   3px 3px rgb(255, 140, 26),
+   1px -1px rgb(255, 140, 26),
+   -1px 1px rgb(255, 140, 26),
+   1px 1px rgb(255, 140, 26);
+  color: white;
+}
+
+.single_comment>div.message {
+  flex: 1;
+   text-align: right;
+ background-color: rgb(179, 255, 217);
+ margin: 10px auto;
+ border-radius: 10px;
+ border-style: groove;
+ border-color: rgb(255, 218, 179);
+ color: rgb(51, 204, 204);
+ text-align: justify;
+}
+
+.comment_feed>div.single_comment{
+  flex: 1;
+  text-align: right;
+  font-family: 'Playball';
+ color: rgb(51, 204, 204);
+ font-size: 90%;
+ margin: 5px auto;
+}
+
+.single_comment>div.author_info {
+  flex: 1;
+  text-align: right;
+  font-family: 'Playball';
+ color: rgb(51, 204, 204);
+ font-size: 80%;
+ margin: 5px auto;
+}
+
+.single_comment>div.footer{
+  flex: 1;
+  text-align: right;
+  font-family: 'Gruppo';
+ /*position:absolute;*/
+ font-size: 60%;
+ margin: 5px auto;
+ color: black;
+}
