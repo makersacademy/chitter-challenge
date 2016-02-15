@@ -20,13 +20,20 @@ class Chitter < Sinatra::Base
     end
 
     get '/user/new' do 
+        @peep = Peep.all
     	erb :'links/signup'
     end
 
     post '/users' do 
        	@user = User.create(name: params[:name], mail: params[:mailup], password: params[:passwordup], password_confirmation: params[:password_confirmation]) 
-        session[:username] = @user.name
-    	redirect('/welcome')   	
+        if @user.save
+            session[:username] = @user.name
+    	   redirect('/welcome')
+        else 
+            flash.now[:erros] = ['The email or password is incorrect']
+            erb :'links/log-in'
+        end
+
     end
 
     get '/welcome' do 
@@ -46,7 +53,6 @@ class Chitter < Sinatra::Base
     post'/wall' do 
         time = Time.now.to_s[0,20]
         Peep.create(name: session[:username], peep: params[:peep], time: time)
-        
         redirect to('/mywall')
     end
 
@@ -66,7 +72,5 @@ class Chitter < Sinatra::Base
         flash.keep[:notice] = 'See you sOon!'
         redirect('/welcome')
     end
-
-
 run! if app_file == $0
 end

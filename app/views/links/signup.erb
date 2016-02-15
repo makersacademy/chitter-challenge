@@ -25,6 +25,14 @@ h4 {
   border-radius: 25px;
   padding-right: 50px;
 }
+.boxed1 {
+  background-color: white;
+  border: 4px solid white ;
+  height: 50px;
+  padding: 30px 30px;
+  border-radius: 25px;
+  padding-right: 50px;
+}
 </style>
 </head>
 
@@ -70,6 +78,14 @@ h4 {
   <input type='submit' value='Sign up'>
 </form>
 </div>
+<% @peep.reverse.each do |peep| %>
+<li>
+<div class='boxed1'>  
+<%= peep.name %>:
+<%= peep.peep %><br>
+(<%= peep.time %>)
+ </div>
+ <%end%>
 </body>
 
 </html>

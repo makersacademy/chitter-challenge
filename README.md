@@ -1,5 +1,13 @@
-Chitter Challenge
-=================
+https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master
+
+
+
+
+
+
+
+Welcome to Chitter! My little Twit!
+===================================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own

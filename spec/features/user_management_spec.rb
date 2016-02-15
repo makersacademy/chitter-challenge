@@ -5,7 +5,7 @@ feature feature 'signing up' do
 		expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
 	end
 
-	def sign_up(name: 'Edu', email: 'hedu.delgado@gmail.com', password: '12345', password_confirmation: '12345' )
+	def sign_up(name: 'Edu', email: 'hedu.delgado@gmail.com', password: '12345', password_confirmation: '123456' )
 		visit '/user/new'
 		fill_in :name,			with: name
 		fill_in :mailup,			with: email
