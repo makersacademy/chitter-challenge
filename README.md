@@ -13,11 +13,11 @@ On this app, as a `mini twiter`, you will be able to `LOG IN`, `SIGN APP`, `LOG 
 
 Keys of the projects implemented: 
 
--TEST, DEVELOPMENT and PRODUCTION database environments.
--Secure password.
--Password matching.
--Twits displayed, chronological order and it's dates, without been logded in.
--Some CSS.
+TEST, DEVELOPMENT and PRODUCTION database environments.
+Secure password.
+Password matching.
+Twits displayed, chronological order and it's dates, without been logded in.
+Some CSS.
 
 Features:
 -------
