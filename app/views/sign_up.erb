@@ -1,0 +1,20 @@
+
+<h1> Sign Up to Post</h1>
+<form action='/users' method='post'>
+  <label>Name:<br >
+   <input type='text' name='name'></label><br >
+   <label>Username:<br >
+    <input type='text' name='username'></label><br >
+  <label>Email:<br >
+   <input type='email' name='email' required></label><br >
+  <label>Password:<br >
+   <input type='password' name='password'></label><br >
+   <label> Confirm Password:<br >
+     <input name='password_confirmation' type='password'></label>
+   <br >
+  <input type='submit' value='Sign Up!'>
+</form>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
