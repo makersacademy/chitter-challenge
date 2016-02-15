@@ -1,20 +1,20 @@
-<h1> Sign In </h1>
+<div class="headings">
 
-<form action="/sessions" method="post">
-  <label for="email">
-    email:
-    <input type="email" name="email" required>
-  </label>
+  <h1> Sign In </h1>
+</div>
 
-  <label for="password">
-    password:
-    <input type="password" name="password" required>
-  </label>
+<div class="container">
+  <form action="/sessions" method="post">
+    <label for="email">
+      email:
+  <p>    <input type="email" name="email"> </p>
+    </label>
 
-  <input type="submit" value="Sign In" required>
+    <label for="password">
+      password:
+  <p>    <input type="password" name="password"> </p>
+    </label>
 
-<form id="view_peeps" action="/peeps" method="get">
+    <input type="submit" value="Sign In">
 
-    <input type="submit" value="View Peeps" required>
-
-</form>
+</div>

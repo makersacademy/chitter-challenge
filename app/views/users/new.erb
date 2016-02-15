@@ -1,37 +1,74 @@
 
-<h1> Welcome to Chitter </h1>
+<div class="headings">
+  <h1> Welcome to Chitter </h1>
 
-<h3> Enter your details below to sign up or click the button below </h3>
+  <h3> Enter your details below to sign up or click the button below </h3>
+</div>
+<div class="sign_in_button">
+  <form action='/sessions/new' method='get'>
+    <input type="submit" value="Sign In">
+  </form>
+  <p></p>
+   <form action="/peeps" method="get">
 
-<form action="/users" method="post">
-  <label for="email">
-    email:
-    <input type="email" name="email" required>
-  </label>
+    <input type="submit" value="View Peeps">
 
-  <label for="password">
-    password:
-    <input type="password" name="password" required>
-  </label>
+  </form>
 
-  <label for="password confirmation">
-    password confirmation:
-    <input type="password" name="password_confirmation" required>
-  </label>
+</div>
 
-  <label for="name">
-    name:
-    <input type="text" name="name" required>
-  </label>
 
-  <label for="username">
-    username:
-    <input type="text" name="username" required>
-  </label>
 
-  <input type="submit" value="Submit" required>
-</form>
+<div class="home_container">
 
-<form action='/sessions/new' method='get'>
-  <input type="submit" value="Sign In">
-</form>
+  <div class="sign_up">
+
+  <form action="/users" method="post">
+    <label for="email">
+      email:
+      <div class="sign_up_input">
+        <input type="email" name="email" required>
+      </div>
+
+    </label>
+
+    <p><label for="password">
+      password:
+      <div class="sign_up_input">
+        <input type="password" name="password" required>
+      </div>
+
+    </label></p>
+
+    <p><label for="password confirmation">
+      password confirmation:
+      <div class="sign_up_input">
+        <input type="password" name="password_confirmation" required>
+      </div>
+
+    </label></p>
+
+    <p><label for="name">
+      name:
+      <div class="sign_up_input">
+        <input type="text" name="name" required>
+      </div>
+
+    </label></p>
+
+    <p><label for="username">
+      username:
+      <div class="sign_up_input">
+
+        <input type="text" name="username" required>
+      </div>
+
+    </label><p>
+      <div class="sign_up_input">
+
+        <input type="submit" value="Submit" required>
+      </div>
+
+  </form>
+  </div>
+</div>

@@ -9,11 +9,8 @@ feature 'Post Peeps' do
     fill_in "content", with: "I am posting a test peep"
     click_button "Post peep"
     expect(current_path).to eq '/peeps'
+    expect(page).to have_content('I am posting a test peep')
 
-
-    within 'ul#peeps' do
-      expect(page).to have_content('I am posting a test peep')
-    end
 
   end
 

@@ -14,11 +14,9 @@ feature 'View Peeps' do
     scenario 'a user visits the feed and can see posted peeps' do
       visit '/peeps'
       expect(page.status_code).to eq 200
-
-      within 'ul#peeps' do
-        expect(page).to have_content('hello, this is a test peep and it consists of a message')
-        expect(page).to have_content Time.now.strftime("%H:%M, %d %b %y")
-      end
+      expect(page).to have_content('hello, this is a test peep and it consists of a message')
+      expect(page).to have_content Time.now.strftime("%H:%M, %d %b %y")
+      
 
     end
 
@@ -26,11 +24,9 @@ feature 'View Peeps' do
       click_button "Sign Out"
       visit '/peeps'
       expect(page.status_code).to eq 200
+      expect(page).to have_content('hello, this is a test peep and it consists of a message')
+      expect(page).to have_content Time.now.strftime("%H:%M, %d %b %y")
 
-      within 'ul#peeps' do
-        expect(page).to have_content('hello, this is a test peep and it consists of a message')
-        expect(page).to have_content Time.now.strftime("%H:%M, %d %b %y")
-      end
 
     end
   end

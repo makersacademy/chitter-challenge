@@ -1,6 +1,7 @@
 <% if current_user %>
   Welcome, <%= current_user.name %>
 
+<div class="nav_bar">
   <form id="sign out" action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign Out">
@@ -15,5 +16,5 @@
     <label for="click here to view peeps">
     <input type="submit" value="View Peeps">
   </form>
-
+</div>
 <% end %>

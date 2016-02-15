@@ -19,29 +19,17 @@ feature 'User sign up' do
     expect{ sign_up(email: "bob@bob" ) }.not_to change(User, :count)
   end
 
-  scenario 'User cannot sign up with an existing email address' do
+  scenario 'User cannot sign up with an existing email address and username' do
     User.create(name: "Bob", username: "Bob",email: "Bob@gmail.com", password: "password", password_confirmation: "password")
     visit '/users/new'
     fill_in "email", with: "Bob@gmail.com"
     fill_in "password", with: "hello"
     fill_in "password confirmation", with: "hello"
     fill_in "name", with: "Alex"
-    fill_in "username", with: "alex321"
-    expect{ click_button "Submit" }.not_to change(User, :count)
-    expect(current_path). to eq '/users'
-    expect(page).to have_content "Email is already taken"
-  end
-
-  scenario 'User cannot sign up with an existing username' do
-    User.create(name: "Bob", username: "Bob",email: "Bob@gmail.com", password: "password", password_confirmation: "password")
-    visit '/users/new'
-    fill_in "email", with: "Alex@gmail.com"
-    fill_in "password", with: "hello"
-    fill_in "password confirmation", with: "hello"
-    fill_in "name", with: "Alex"
     fill_in "username", with: "Bob"
     expect{ click_button "Submit" }.not_to change(User, :count)
     expect(current_path). to eq '/users'
+    expect(page).to have_content "Email is already taken"
     expect(page).to have_content "Username is already taken"
   end
 

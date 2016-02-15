@@ -1,12 +1,17 @@
-<h1> Peeps </h1>
+<div class="headings">
+  <h1> Peeps </h1>
+</div>
 
-<ul id='peeps'>
+<div id='peeps'>
   <% @peep.each do |peep| %>
     <li>
-    <p>  Name: <%= peep.user.name %> </p>
-    <p>  Username: @<%= peep.user.username %> </p>
+  <div class="peep_header">
+    <p>  Name: <%= peep.user.name %>
+     Username: @<%= peep.user.username %>
+     Time: <%= peep.display_time_format %> </p>
+  </div>
     <p>  Content: <%= peep.content %> </p>
-    <p>  Time: <%= peep.display_time_format %> </p>
+
 
    <% if current_user %>
 
@@ -19,9 +24,11 @@
      <% end %>
 
      <% peep.responses.each do |response| %>
+     <div class="peep_header">
       <p>  Reply by <%= response.user.name %> (@<%= response.user.username %>) Time: <%= response.display_time_format %></p>
+    </div>
       <p>   <%= response.content %> </p>
      <% end %>
     </li>
   <% end %>
-</ul>
+</div>
