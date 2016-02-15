@@ -7,4 +7,5 @@ feature 'a user can signout' do
     expect(page).to have_content 'Goodbye!'
   end
 
+
 end

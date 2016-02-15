@@ -7,9 +7,10 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
+  gem 'rspec-sinatra'
+  gem 'timecop'
 end
 
-  gem 'rspec-sinatra'
   gem 'dm-postgres-adapter'
   gem 'data_mapper'
   gem 'dm-migrations'
@@ -19,5 +20,3 @@ end
   gem 'bcrypt'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
-  gem 'timecop'
-  # gem 'dm-noisy-failures'
