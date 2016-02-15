@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Chitter</title>
-    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <link href='styles.css' rel='stylesheet'>
   </head>
 
   <body>
@@ -12,7 +12,7 @@
         <h1><%= current_user.name %></h1>
         <h2><%= current_user.username %></h2>
       </div>
-      <div ckass="sign_in">
+      <div class="sign_in">
         <form method="post" action="/log_out">
           <input type="hidden" name="_method", value="delete">
           <input type="submit" value="Log Out">
