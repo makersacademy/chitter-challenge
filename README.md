@@ -1,20 +1,15 @@
 Chitter-Challenge
 
 set by MakersAcademy.
-
 Technologies used
 
 Postico to view, monitor and edit databases.
-
 DataMapper to interact between Ruby and PostgreSQL
-
 Framework was Sinatra
-
 Rspec and Capybara for testing
-
 bcrypt for encryption
-
 database_cleaner
+
 
 Specific user stories given!
 
@@ -36,21 +31,18 @@ You only can peep if you are logged in.
 
 Setting up testing and development environments
 
+
+
 In order to use this app, I recommend cloning it, by following these instructions.
 
 $ git clone
 https://github.com/ScottGledhill/chitter-challenge.git
 $ bundle install
-
 $ psql
 $ create database chitter-test;
 $ create database chitter-development;
-
-
 To check tests you may use $ rspec
-
 To run in a localhost setting use $ rackup and visit http://localhost:9292/
 
-Contributors
-
+Created by
 Scott Gledhill
