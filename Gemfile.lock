@@ -40,6 +40,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.5.1)
     diff-lcs (1.2.5)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -146,6 +147,7 @@ DEPENDENCIES
   coveralls
   cucumber
   data_mapper
+  database_cleaner
   dm-postgres-adapter
   rake
   rspec

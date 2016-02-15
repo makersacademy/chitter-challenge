@@ -3,7 +3,7 @@
   <form method="GET" style="text-align: right">
     <% if @logged_in %>
       <input type="hidden" name="_method" value="delete">
-      <button type="submit" formaction="/" formmethod="POST">Log out</button>
+      <button type="submit" formaction="/sessions" formmethod="POST">Log out</button>
     <% else %>
       <button type="submit" formaction="/login">Log in</button>
       <button type="submit" formaction="/signup">Sign up</button>
