@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if flash.now[:notice] %>
+      <%= flash.now[:notice] %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
