@@ -1,4 +1,9 @@
 feature 'Forgot Password' do
+
+  before do
+    allow(EmailToken).to receive(:call)
+  end
+
   scenario 'When click forgot Password, gets redirected to forgot password page' do
     visit('/users/login')
     click_link('Forgot Password?')
