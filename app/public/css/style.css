@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #292f33;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  background-color: #f5f8fa;
+}
+
+header{
+	background-color: #fff;
+  color: #292f33;
+	height: 90px;
+	position: fixed;
+	top: 0;
+  left: 0;
+	width: 100%;
+  vertical-align: middle;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+header h1{
+  vertical-align: middle;
+}
+
+nav{
+}
+
+nav form{
+  display: inline;
+}
+
+nav button{
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 10px 10px 10px;
+	display: inline;
+  background-color: #0083b6;
+  border-radius: 10px;
+  border: none;
+  display:inline;
+}
+
+.main button{
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+  display: inline;
+  background-color: #0083b6;
+  border-radius: 10px;
+  border: none;
+  width: 20%;
+}
+
+nav button:hover, button:hover{
+  background-color: #059ff5;
+}
+
+.main {
+  align-items: center;
+  margin-top: 120px;
+  text-align: center;
+}
+
+.peeps{
+  background-color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  width: auto;
+  margin: 20px 100px 20px 100px;
+  padding: 20px 0 20px 0;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+#peeps_title {
+  margin: 15px 15px 15px 15px
+}
+
+h1 {
+  font-size: 150%;
+  font-weight: 700;
+}
+
+
+h2 {
+  font-size: 100%;
+}
+
+
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 10px 20px 10px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"]{
+  text-decoration: none;
+	color: #fff;
+	padding: 5px 10px 5px 10px;
+  margin: 5px 10px 5px 10px;
+	display: inline;
+  background-color: #0083b6;
+  border-radius: 15px;
+  border: none;
+}
+
+input[type="submit"]:hover{
+  background-color: #059ff5;
+}

@@ -1,0 +1,15 @@
+<h1> Sign In </h1>
+
+<h2> Please enter your username and password to sign in <h2>
+
+  <form action="/signin" method="POST">
+    Username <input type=text name='username' required>
+    Password <input type=password name='password'>
+    <input type="submit" value='Submit'>
+  </form>
+
+<% if flash['login_error'] %>
+  <div class=error >
+    <%= flash['login_error'] %>
+  <div>
+<% end %>
