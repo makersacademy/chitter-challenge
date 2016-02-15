@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="/">Chitter</a></div>
+        <nav>
+          <ul>
+            <% if current_user %>
+            <li class="nav-link login-user">
+              <span>Logged in as</span>
+              <b><%= current_user.name %></b>
+            </li>
+            <li class="nav-link">
+              <form method='post' action='/sessions'>
+                <input type='hidden' name='_method' value='delete'>
+                <button type='submit'>Log out</button>
+              </form>
+            <% end %>
+            </li>
+           <% if flash[:notice] || !current_user  %>
+             <li class="nav-link login-user">
+              <span><%= flash[:notice] %></span>
+            </li>
+           <% end %>
+            <li class="nav-link">
+              <a href="/users/new">Sign up</a>
+            </li>
+          <% if flash[:notice] || !current_user  %>
+            <li class="nav-link">
+              <a href="/sessions/new">Log in</a>
+            </li>
+        <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Please refer to the following errors below:
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= yield %>
+  </body>
+
+</html>
+
