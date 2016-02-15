@@ -4,7 +4,14 @@ Author: Arnold Manzano (arnoldmanzano)
 [![Build Status](https://travis-ci.org/arnoldmanzano/chitter-challenge.svg?branch=master)](https://travis-ci.org/arnoldmanzano/chitter-challenge)
 [![Coverage Status](https://coveralls.io/repos/github/arnoldmanzano/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/arnoldmanzano/chitter-challenge?branch=master)
 
-
+```sh
+$ git clone <repo address>
+$ bundle
+$ createdb chitter_development; createdb chitter_test
+$ rake db:auto_migrate
+$ rspec
+$ rackup
+```sh
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own

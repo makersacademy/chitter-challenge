@@ -1,20 +1,10 @@
 feature 'Viewing peeps' do
-  before do
-    user = User.create(
-      username: 'amanzano',
-      password: 'pass',
-      password_confirmation: 'pass',
-      email: 'arnold@myemail.com',
-      name: 'Arnold Manzano')
-    Peep.create(
-      message: 'This is my peep',
-      datetime: Time.now,
-      user: user)
-  end
+  let(:user) { user = create(:user) }
 
   scenario 'People can view peeps' do
-    visit('/peeps')
-    expect(page).to have_content('This is my peep')
-    expect(page).to have_content('@amanzano')
+    peep = create(:peep, user: user)
+    visit '/peeps'
+    expect(page).to have_content peep.message
+    expect(page).to have_content "@#{peep.user.username}"
   end
 end
