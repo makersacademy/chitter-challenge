@@ -15,10 +15,12 @@
 <% unless Peep.all.empty? %>
   <% Peep.all.reverse.each do |peep| %>
     <div class="peep-div">
-      <em><%= peep.handle %></em><br>
-      <b><%= peep.author %></b> peeps:<br>
-      "<%= peep.message %>"<br>
-      <%= peep.time %><br><br>
+      <em style="font-size: 10pt;"><%= peep.handle %></em><br>
+      <b style="font-size: 10pt;"><%= peep.author %></b> peeps:
+      <hr style="border-color:grey; margin: 5px 0 5px 0; width:70%">
+      <p style="font-size: 14pt; margin-bottom:0;">"<%= peep.message %>"</p>
+      <hr style="border-color:grey; margin: 5px 0 5px 0; width:70%">
+      <p style="font-size: 10pt;margin-bottom:20px;"><%= peep.format_time %></p>
     </div>
   <% end %>
 <% end %>

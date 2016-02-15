@@ -14,7 +14,7 @@ feature 'peeping' do
       expect(page).to have_content "My first peep!"
       expect(page).to have_content "Rufus Raghunath"
       expect(page).to have_content "rufusraghunath"
-      expect(page).to have_content Time.now
+      expect(page).to have_content Time.now.strftime("at %l:%M%P, %B %-d, %Y")
     end
 
     scenario 'log in not required to see peeps' do
@@ -22,7 +22,7 @@ feature 'peeping' do
       expect(page).to have_content "My first peep!"
       expect(page).to have_content "Rufus Raghunath"
       expect(page).to have_content "rufusraghunath"
-      expect(page).to have_content Time.now
+      expect(page).to have_content Time.now.strftime("at %l:%M%P, %B %-d, %Y")
     end
 
   end

@@ -9,4 +9,8 @@ class Peep
   property :handle,   String
   property :time,     Time
 
+  def format_time
+    time.strftime("at %l:%M%P, %B %-d, %Y")
+  end
+
 end
