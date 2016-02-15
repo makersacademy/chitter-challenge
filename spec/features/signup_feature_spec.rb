@@ -12,7 +12,7 @@ feature 'User Sign Up' do
   scenario 'On sign up I\'m welcomed and I\'m added to the database' do
     expect{sign_up_good}.to change(User, :count).by(1)
     expect(current_path).to eq '/welcome'
-    expect(page).to have_content("Welcome to Chitter Le Jockey")
+    expect(page).to have_content("Welcome to Chitter Brother Le Jockey")
   end
 
 

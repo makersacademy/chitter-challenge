@@ -1,23 +1,4 @@
 
-@font-face {
-    font-family: 'Playball';
-    src: url('https://fonts.googleapis.com/css?family=Playball'); /*URL to font*/
-}
-
-@font-face {
-    font-family: 'Audiowide';
-    src: url('https://fonts.googleapis.com/css?family=Audiowide'); /*URL to font*/
-}
-
-@font-face {
-    font-family: 'Gruppo';
-    src: url('https://fonts.googleapis.com/css?family=Gruppo'); /*URL to font*/
-}
-
-
-
-
-
 body {
   font-family: 'Playball';
   font-size: 40px;
@@ -100,18 +81,6 @@ textarea.comment_box{
   float: right;
 }
 
-
-/*.flex-container {
-
-    background-color: lightgrey;
-}
-
-.flex-item {
-    background-color: cornflowerblue;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-}*/
 
 .wrapper>div.post_peep {
   /*position: absolute;*/

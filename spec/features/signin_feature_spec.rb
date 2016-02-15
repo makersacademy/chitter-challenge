@@ -21,7 +21,7 @@ feature 'User Sign In' do
     sign_up_good
     sign_in_good
     expect(page.status_code).to eq 200
-    expect(page).to have_content('Welcome to Chitter Le Jockey')
+    expect(page).to have_content('Welcome to Chitter Brother Le Jockey')
   end
 
 end

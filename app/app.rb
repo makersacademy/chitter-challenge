@@ -1,5 +1,4 @@
 ENV['RACK_ENV'] ||= 'development'
-require 'rack'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
@@ -23,8 +22,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    @new_user = User.new(user_name: params[:user_name], password: params[:password],
-    password_confirmation: params[:password_confirmation], email: params[:email])
+    @new_user = User.new(user_name: params[:user_name],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation],
+    email: params[:email])
+
     if @new_user.save
       session[:user_id] = @new_user.id
       redirect '/welcome'

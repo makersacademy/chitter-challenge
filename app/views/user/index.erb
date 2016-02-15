@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title> Chitter </title>
-    <!-- <link rel="stylesheet" href='sign_up.css' type='text/css'> -->
+    <link rel="stylesheet" href='index.css' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gruppo|Poppins|Open+Sans|Jura|Audiowide|Playball' rel='stylesheet' type='text/css'>
   </head>
 
 <body>
@@ -44,7 +45,7 @@
         <% end %>
         <label for="user_name">
           User Name:
-          <input type="text" name="user_name" value="<%= flash[:new_user_user_name_memo] %>">
+          <input type="text" name="user_name" value="<%= flash[:new_user_user_name_memo] %>"><br></br>
         </label>
 
         <% if flash[:error_email] %>
@@ -53,7 +54,7 @@
 
         <label for="email">
           Email:
-          <input type="text" name="email" value="<%= flash[:new_user_email_memo] %>">
+          <input type="text" name="email" value="<%= flash[:new_user_email_memo] %>"><br></br>
         </label>
 
         <% if flash[:error_password] %>
@@ -61,7 +62,7 @@
         <% end %>
         <label for="password">
           Password:
-          <input type="password" name="password">
+          <input type="password" name="password"><br></br>
         </label>
 
         <label for="password_confirmation">

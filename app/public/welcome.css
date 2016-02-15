@@ -1,0 +1,51 @@
+body {
+  font-family: 'Playball';
+  font-size: 40px;
+  background-color: rgb(179, 255, 217);
+  background-size: cover;
+  padding-top: 10px;
+
+}
+.wrapper {
+  margin: 10px auto;
+  background-color: rgb(255, 218, 179);
+  display: webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.title {
+  font-family: 'Playball';
+  font-size: 90px;
+  flex: 1;
+  float: top;
+  text-align: center;
+  align-items: center;
+  color: white;
+  text-shadow:
+   10px 10px rgb(255, 140, 26),
+   1px -1px rgb(255, 140, 26),
+   -1px 1px rgb(255, 140, 26),
+   1px 1px rgb(255, 140, 26);
+}
+
+/*div.enter {
+  flex: 1;
+  align-items: center;
+}*/
+
+input[type=submit] {
+  background-color: rgb(51, 204, 204);
+  font-size: 150%;
+  font-family: 'Gruppo';
+  border: none;
+  color: white;
+  margin: 20% auto;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
