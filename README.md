@@ -31,7 +31,7 @@ I want to see the time at which it was made
 ```
 To build the website I used the ```sinatra```and ```rackup``` gems to build, ```rspec``` and ```capybara``` to test, and ```DataMapper``` to communicate with a PostgreSQL database. The web app is hosted by [Heroku](https://www.heroku.com/) and can be visited at https://chitterchattering.herokuapp.com/. The user can sign up or sign in to post a message which can be viewed by all on the homepage.
 
-![Imgur](http://i.imgur.com/1YVsv3D.png)
+![Imgur](http://i.imgur.com/EbAGonr.png)
 ![Imgur](http://i.imgur.com/1YVsv3D.png)
 ![Imgur](http://i.imgur.com/wPkLXrA.png)
 ![Imgur](http://i.imgur.com/QjU86BW.png)
