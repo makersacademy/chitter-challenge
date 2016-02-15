@@ -1,0 +1,247 @@
+body {
+  background: #FCF9F0; }
+
+input[type=submit] {
+  display: inline-block;
+  border: 1px solid #FF847C;
+  border-radius: 5px !important;
+  background: #FCF9F0;
+  color: #FF847C;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease; }
+  input[type=submit]:hover {
+    background: #FF847C;
+    color: #FCF9F0; }
+  input[type=submit]:focus {
+    outline: none; }
+
+header#masthead {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 6em;
+  background: #FCF9F0;
+  text-align: left;
+  padding: 1em 0;
+  z-index: 100;
+  border-bottom: 3px solid #FF847C; }
+  header#masthead h1 {
+    display: inline-block;
+    font-family: "estilo-regular", sans-serif;
+    margin-top: 0; }
+    header#masthead h1 a {
+      color: #FF847C; }
+  header#masthead .user-details, header#masthead .sign-up {
+    float: right; }
+  header#masthead .user-details {
+    margin-top: 1em; }
+    header#masthead .user-details p, header#masthead .user-details form {
+      display: inline;
+      float: left; }
+    header#masthead .user-details .icon {
+      float: left;
+      margin-right: 0.3em;
+      font-size: 2em;
+      line-height: 0.9;
+      color: #FF847C; }
+    header#masthead .user-details p {
+      font-size: 1.2em;
+      color: #FF847C;
+      margin-right: 2em;
+      margin-top: 0;
+      vertical-align: top;
+      line-height: 1.2em; }
+  header#masthead .sign-up a {
+    display: inline-block;
+    border: 1px solid #FF847C;
+    border-radius: 5px !important;
+    background: #FCF9F0;
+    color: #FF847C;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1em;
+    padding: 0 0.4em; }
+    header#masthead .sign-up a:hover {
+      background: #FF847C;
+      color: #FCF9F0; }
+    header#masthead .sign-up a:focus {
+      outline: none; }
+
+main {
+  margin-top: 2em;
+  padding-bottom: 6em;
+  padding-top: 4em; }
+
+main#index {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: rgba(252, 249, 240, 0.05); }
+  main#index div#welcome {
+    z-index: 10;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 1.5em 0;
+    background: #444444;
+    border-bottom: 3px solid #FF847C; }
+    main#index div#welcome h1 {
+      font-family: "estilo-regular", sans-serif;
+      color: #FCF9F0;
+      font-size: 4em;
+      text-transform: uppercase; }
+  main#index::after {
+    content: "";
+    background: url(images/clouds.jpg) no-repeat center bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; }
+
+#peeps {
+  padding-top: 2em; }
+  #peeps .peep-container {
+    z-index: 10; }
+    #peeps .peep-container .peep {
+      background: #FCF9F0;
+      border-bottom: 2px #E0E4CC solid;
+      border-radius: 5px;
+      margin-top: 2em; }
+      #peeps .peep-container .peep .name {
+        display: block;
+        width: 100%;
+        background: #FF847C;
+        color: #FCF9F0;
+        margin-bottom: 1em;
+        padding: 1em;
+        line-height: 1.5;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+        #peeps .peep-container .peep .name .icon {
+          margin-right: 0.5em;
+          font-size: 1.4em;
+          line-height: 0;
+          vertical-align: baseline; }
+      #peeps .peep-container .peep .text {
+        padding: 1em; }
+      #peeps .peep-container .peep .meta {
+        color: #999;
+        margin: 1em 0;
+        padding: 0 1em;
+        display: block;
+        width: 100%;
+        position: relative;
+        overflow: hidden; }
+        #peeps .peep-container .peep .meta .likes, #peeps .peep-container .peep .meta .reply-toggle, #peeps .peep-container .peep .meta .time, #peeps .peep-container .peep .meta .delete {
+          display: inline-block;
+          float: left;
+          width: auto;
+          position: relative;
+          margin-right: 1.5em; }
+        #peeps .peep-container .peep .meta .likes p, #peeps .peep-container .peep .meta .likes form {
+          display: inline;
+          float: left; }
+        #peeps .peep-container .peep .meta .likes form {
+          margin-right: 0.5em; }
+          #peeps .peep-container .peep .meta .likes form .like-this:before {
+            content: "\ea19"; }
+        #peeps .peep-container .peep .meta .likes p {
+          margin: 0 0 0 0;
+          color: #FF847C; }
+        #peeps .peep-container .peep .meta .reply-toggle {
+          cursor: pointer; }
+    #peeps .peep-container .replies {
+      display: none;
+      bottom: -1em;
+      background-color: #FCF9F0;
+      color: #FF847C;
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 0px;
+      padding: 1em;
+      border: 2px solid #FF847C;
+      border-top: 1px solid #FCF9F0;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+      #peeps .peep-container .replies textarea {
+        resize: none;
+        border-radius: 5px;
+        border-color: #E0E4CC; }
+      #peeps .peep-container .replies .reply {
+        border-top: 1px solid #FF847C;
+        margin: 1em 0 0;
+        padding: 1em 0 0; }
+        #peeps .peep-container .replies .reply p {
+          color: #444444; }
+          #peeps .peep-container .replies .reply p.details {
+            color: #999; }
+        #peeps .peep-container .replies .reply:last-child {
+          border-bottom: none; }
+
+aside.user-actions {
+  margin-top: 2em;
+  background: #FCF9F0;
+  padding: 1em;
+  border-radius: 5px;
+  color: #FF847C;
+  display: block;
+  overflow: visible;
+  position: relative; }
+  aside.user-actions h2 {
+    font-family: "estilo-regular", sans-serif;
+    color: #FF847C; }
+  aside.user-actions textarea {
+    background: #fff;
+    border-radius: 5px;
+    border-color: #E0E4CC;
+    resize: none; }
+  aside.user-actions form#sign-in label {
+    color: #FF847C;
+    font-size: 1.2em; }
+  aside.user-actions form#sign-in input[type=email], aside.user-actions form#sign-in input[type=password] {
+    background: #FCF9F0;
+    color: #444444; }
+    aside.user-actions form#sign-in input[type=email]:hover, aside.user-actions form#sign-in input[type=password]:hover {
+      background: #FCF9F0;
+      color: #444444; }
+
+main#sign-up {
+  padding-top: 4em; }
+  main#sign-up form.sign-up {
+    margin-top: 4em; }
+  main#sign-up label {
+    color: #FF847C;
+    font-size: 1.2em; }
+
+#notice, ul#errors {
+  position: relative;
+  top: 0;
+  background: #FF847C;
+  color: #FCF9F0;
+  width: 100%;
+  padding: 1em 3em;
+  margin: 0 0 0 0;
+  text-align: center;
+  list-style: none; }
+
+footer#colophon {
+  padding: 3em 0 1em;
+  background: #444444;
+  text-align: center; }
+  footer#colophon .site-info {
+    border-top: 3px solid #FCF9F0;
+    padding-top: 1em; }
+    footer#colophon .site-info p {
+      color: #FF847C;
+      margin-bottom: 0.5em; }
+      footer#colophon .site-info p a {
+        color: #FCF9F0; }

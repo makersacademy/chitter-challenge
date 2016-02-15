@@ -1,0 +1,36 @@
+<header id="masthead">
+
+  <div class="row">
+
+    <div class="small-12 columns">
+
+      <h1><a href="/">Chitter</a></h1>
+
+        <% if current_user %>
+
+          <div class="user-details">
+
+            <span aria-hidden="true" class="icon icon-marvin"></span>
+
+            <p><%= current_user.username %> (<%= current_user.email %>)</p>
+
+            <form action='/sessions' method='post'>
+              <input type='hidden' name='_method' value='delete'>
+              <input id="sign-out" type='submit' value='Sign Out'>
+            </form>
+
+          </div><!-- .user-details -->
+
+        <% else %>
+
+          <div class="sign-up">
+            <a href="/users/new">Sign up</a>
+          </div>
+
+        <% end %>
+
+    </div><!-- .small-12 -->
+
+  </div><!-- .row -->
+  
+</header><!-- #masthead -->

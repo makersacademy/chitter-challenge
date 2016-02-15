@@ -1,0 +1,34 @@
+
+
+<main id="sign-up">
+
+  <%= erb :'partials/flash' %>
+
+  <div class="row">
+    <div class="small-12 medium-7 medium-centered columns">
+      <form class="sign-up" action="/users" method="post">
+        <label for="name">
+          Name
+          <input type="text" name="name" required>
+        </label>
+        <label for="username">
+          Username
+          <input type="text" name="username" required>
+        </label>
+        <label for="email">
+          Email:
+          <input type="email" name="email" value="<%= @user.email %>" required>
+        </label>
+        <label for="password">
+          Password:
+          <input type="password" name="password" required>
+        </label>
+        <label for="password_confirmation">
+          Confirm Password:
+          <input type="password" name="password_confirmation" required>
+        </label>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+</main>

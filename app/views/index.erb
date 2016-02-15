@@ -1,0 +1,26 @@
+
+<main id="index">
+
+  <div id="welcome">
+    <% if current_user %>
+     <h1>Hello, <%= current_user.name %>!</h1>
+    <% else %>
+     <h1>Hello, Stranger!</h1>
+    <% end %>
+  </div><!-- #welcome -->
+
+  <%= erb :'partials/flash' %>
+
+  <div id='peeps'>
+
+    <div class="row">
+
+      <%= erb :'partials/peeps' %>
+
+      <%= erb :'partials/user_actions' %>
+
+    </div><!-- .row -->
+
+  </div><!-- #peeps -->
+
+</main><!-- #index -->

@@ -1,2 +1,6 @@
 /**/.DS_Store
 /coverage
+/static/scss/.sass-cache
+/app/views/config.codekit
+/app/config.codekit
+config.codekit
