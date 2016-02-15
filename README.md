@@ -49,8 +49,15 @@ $ rspec
 $ rackup
 
 ```
+##Screenshots
 
-![sign up](/img/Bad sign up.....png "Bad sign up)
+###Bad sign up
 
-![alt text](http://i.imgur.com/Tz4G6T2.png "Logo Title Text 1")
+![alt text]http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
+
+===================================================================
+###Bad sign result
+
+![alt text]http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
+
 
