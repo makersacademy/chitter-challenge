@@ -1,1 +1,29 @@
 <h1> Welcome, <%= current_user.username %> </h1>
+
+<h2> Sign out </h2>
+<h2>
+   <form method='post' action='/profile'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign out'>
+   </form>
+</h2>
+<h3>
+  <form action="/profile" method="post">
+     <label for="peep">
+       Peep:
+       <textarea rows="2" cols="50" name="peep">
+       </textarea>
+     </label>
+     <label for="submit" class="submitform">
+       <input type="submit" value="Peep">
+     </label>
+   </form>
+</h3>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Title: <%= peep.peep_text %>
+    </li>
+  <% end %>
+</ul>

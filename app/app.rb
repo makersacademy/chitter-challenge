@@ -54,7 +54,20 @@ class Chitter < Sinatra::Base
   end
 
   get '/profile' do
+    @peeps = Peep.all
     erb :profile
+  end
+
+  post '/profile' do
+      @peep = Peep.new(peep_text: params[:peep])
+      @current_user.peeps << @peep
+      @current_user.save
+  end
+
+  delete '/profile' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/'
   end
 
   # start the server if ruby file executed directly

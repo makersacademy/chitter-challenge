@@ -21,3 +21,17 @@ def sign_in(username: 'marc_1',
   fill_in :password, with: password
   click_button('Sign in')
 end
+
+def sign_in_1(username:, password:)
+  visit('/')
+  click_button('Sign in')
+  fill_in :username, with: username
+  fill_in :password, with: password
+  click_button('Sign in')
+end
+
+def peep
+  visit('/profile')
+  fill_in :peep, with: 'Look at my breakfast'
+  click_button('peep')
+end

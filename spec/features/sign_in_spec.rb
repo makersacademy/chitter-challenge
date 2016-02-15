@@ -13,12 +13,6 @@ feature 'SIGN IN' do
     expect(page).to have_content("Welcome, #{user.username}")
   end
 
-  def sign_in_1(username:, password:)
-    visit('/')
-    click_button('Sign in')
-    fill_in :username, with: username
-    fill_in :password, with: password
-    click_button('Sign in')
-  end
+
 
 end

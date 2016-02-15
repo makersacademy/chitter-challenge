@@ -10,7 +10,9 @@ class User
   property :email, String, required: true, unique: true
   property :password_hash, Text
 
-  attr_reader :password, :email, :name, :username 
+  has n, :peeps, through: Resource
+
+  attr_reader :password, :email, :name, :username
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
@@ -22,7 +24,12 @@ class User
   end
 
   def self.authenticate(username, password)
-    first(username: username)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_hash) == password
+      user
+    else
+      nil
+    end
   end
 
 end
