@@ -1,0 +1,12 @@
+<section class='stream'>
+		
+	    <%@global_stream.each do |mess|%>
+	<p class='peep'>
+		
+	 <%= @users.all(id: mess.user_id).first.username %> said: </br> <%= mess.body %> </br>
+	 on: <%= mess.date.strftime( "%d/%m/%Y at %I:%M%p" )%> </br>
+    </p>
+	
+	  <% end %>
+	  
+</section>

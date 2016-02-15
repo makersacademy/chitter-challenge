@@ -1,0 +1,136 @@
+nav {
+	background-color: #00b1dc;
+}
+
+body {
+	background-color: #00b1dc;
+	background-image: url('/images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: 70%;
+	background-position: 400px 130px;
+}
+
+p {
+	background-color: #00b1dc;
+	font-family: Times;
+	padding: 3px;
+}
+
+p.in_main {
+	background-color: #00b1dc;
+	font-family: Times;
+	padding: 3px;
+}
+
+p.in_bar {
+	background-color: #00b1dc;
+	font-family: Times;
+	font-size: 20px;
+	text-align: center;
+	padding: 3px;
+}
+
+p.peep {
+	background-color: white;
+	font-family: Times;
+	font-size: 16px;
+	text-align: left;
+	padding: 9px;
+}
+
+
+div {
+	font-family: Times;
+	background-color: #00b1dc;
+}
+
+
+h1 {
+	text-color: red;
+}
+
+h1.main {
+	text-align: center;
+	font-family: Times;
+}
+
+hr {
+	height: 5px;
+}
+
+div.bar {
+	padding: 1px;
+	background-color: #00b1dc;
+	font-family: Times;
+	font-size: 18px;
+	text-align: center;
+}
+
+div.warning {
+	padding: 1px;
+	background-color: #00b1dc;
+	font-family: Times;
+	font-size: 20px;
+}
+
+section.form {
+	border: none;
+	text-align: right;
+	float: left;
+	width: 30%;
+	background-color: #00b1dc;
+	margin-left: 50px;
+	cursor: pointer;
+	
+}
+
+section.form2 {
+	border: none;
+	text-align: center;
+	float: left;
+	width: 12%;
+	background-color: #00b1dc;
+	margin-left: 300px;
+	margin-top: 50px;
+	cursor: pointer;
+	
+}
+
+section.message {
+	text-align: center;
+	cursor: pointer;
+}
+
+section.stream {
+	float: left;
+	width: 450px;
+	height: 200px;
+}
+
+textarea.message {
+	width: 150px;
+	height: 75px;
+}
+
+input:invalid {
+	border: 1px solid red;
+}
+
+input:valid {
+	border: 1px solid green;
+}
+
+fieldset {
+	border: none;
+}
+
+input.button {
+	    background-color: #00b1dc;
+	    border: none;
+	    padding: 5px 10px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+		cursor: pointer;
+}

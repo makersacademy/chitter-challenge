@@ -1,0 +1,9 @@
+		   <% if flash[:errors] && !flash[:errors].empty? %>
+		     <div id='errors'>
+				 <p> Please double check the info provided:</p>
+				<ul> <% flash[:errors].each do |error| %>
+					<li> <%= error %> </li>
+					 <% end %>
+				</ul>
+			 </div><hr />
+	  	   <% end %>
