@@ -1,21 +1,21 @@
-<center>
-  <ul>
-    <% if flash[:errors] %>
+<ul>
+  <% if flash[:errors] %>
     <div class='errors'>
-        <% flash[:errors].each do |error| %>
+      <% flash[:errors].each do |error| %>
         <li><%= error %></li>
-        <% end %>
+      <% end %>
     </div>
   <% end %>
 
 
-  <li> <h1>Log In</h1><h2></h2>
+  <li>
+    <h1>Log In</h1><h2></h2>
     <form action="/new_session" method="post">
-    <label for="username">Username:</label>
-    <input type="text" name="username" required></br>
-    <label for "password">Password:</label>
-    <input type="password" name="password" required></br>
-    <h6><input type="submit" value="Log In"></h6>
-  </form></li>
+      <label for="username">Username:</label>
+      <input type="text" name="username" required></br>
+      <label for "password">Password:</label>
+      <input type="password" name="password" required></br>
+      <h6><input type="submit" value="Log In"></h6>
+    </form>
+  </li>
 </ul>
-</center>
