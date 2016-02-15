@@ -10,8 +10,7 @@ feature 'New peep' do
 
       expect { click_button 'Submit' }.to change(Peep, :count).by 1
       expect(current_path).to eq '/peeps/all'
-      # FIXME: flash not displaying
-      # expect(page).to have_content 'Your peep has been posted!'
+      expect(page).to have_content 'Your peep has been posted!'
       expect(page).to have_content 'My first peep!'
     end
   end
@@ -24,8 +23,7 @@ feature 'New peep' do
 
       expect { click_button 'Submit' }.not_to change(Peep, :count)
       expect(current_path).to eq '/peeps'
-      # FIXME: flash not displaying
-      # expect(page).to have_content 'Content cannot be empty'
+      expect(page).to have_content 'Content must not be blank'
     end
   end
 end

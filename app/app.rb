@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'tilt/erb'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
 require_relative 'models/peep'
@@ -13,6 +14,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -24,6 +26,7 @@ class Chitter < Sinatra::Base
     redirect to '/peeps/all'
   end
 
+  # TODO: refactor to '/peeps'
   get '/peeps/all' do
     @peeps = Peep.all(order: [:created_at.desc])
     erb :'peeps/all'
@@ -36,11 +39,10 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @peep = Peep.new(user: current_user, content: params[:content])
     if @peep.save
-      # TODO: fix flash
-      # flash[:notice] = 'Your peep has been posted!'
+      flash.next[:notice] = 'Your peep has been posted!'
       redirect to '/peeps/all'
     else
-      flash.now[:errors] = current_user.errors.full_messages
+      flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
     end
   end
@@ -58,6 +60,11 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password are incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/peeps/all'
   end
 
   get '/users/new' do

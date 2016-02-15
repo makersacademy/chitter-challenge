@@ -11,7 +11,8 @@ feature 'View peeps' do
   end
 
   before do
-    Peep.create(user: user, content: 'My first peep!')
+    Peep.create(user: user, content: 'My first peep!', created_at: Time.now-10)
+    Peep.create(user: user, content: 'My second peep!', created_at: Time.now)
     visit '/'
   end
 
@@ -19,8 +20,7 @@ feature 'View peeps' do
     scenario 'user sees a list of peeps in reverse chronological order' do
       within('section#peeps') do
         expect(page).to have_content(Peep.first.content)
-        # FIXME: test reverse chronological order
-        # expect(Peep.last.content).to appear_before(Peep.first.content)
+        expect(Peep.last.content).to appear_before(Peep.first.content)
       end
     end
 

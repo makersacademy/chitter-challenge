@@ -16,11 +16,17 @@ feature 'Log in' do
       expect(authenticated_user).to eq user
     end
 
-    scenario 'authenticates the user' do
+    scenario 'logs the user in' do
       log_in
-      # expect(current_path).to eq '/peeps/all'
-      # expect(current_user).not_to be_nil
+
+      expect(current_path).to eq '/peeps/all'
       expect(page).to have_content "Welcome #{user.username}"
+
+      within('header') do
+        expect(page).to have_button('Log out')
+        expect(page).not_to have_content('Log in')
+        expect(page).not_to have_content('Sign up')
+      end
     end
   end
 
@@ -31,9 +37,9 @@ feature 'Log in' do
     end
 
     scenario 'displays an error message' do
-      log_in
+      log_in(password: 'wrong')
+
       expect(current_path).to eq '/sessions'
-      # expect(current_user).to be_nil
       expect(page).not_to have_content "Welcome #{user.username}"
     end
   end
