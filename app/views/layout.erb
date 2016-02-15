@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+  <a href='/register'><p style='font-size:10px;'> Desperate to Peep? Register here </a> </p> 
+  <a href='/login'> <p style='font-size:10px;'> Already a Peeper? Login Here </p></a>
+    <% if current_user %>
+      Hello <%= current_user.username %>!
+    <% end %>
+
+
+	<% if flash[:errors] && !flash[:errors].empty? %>
+	  Please refer to the following errors below:
+	  <ul id='errors'>
+	  <% flash[:errors].each do |error| %>
+	    <li><%= error %></li>
+	    <% end %>
+	  </ul>
+	<% end %>
+
+
+    <%= yield %>  
+
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<h1> Welcome to Chitter! <h1>
+
+<% @peeps.reverse.each do |peep|%>
+  <p style='font-size:12px;'>
+  	<%= peep.created_at.strftime("%m/%d/%Y") %>
+  	<%= peep.time %>  from  <%= peep.user.username %> </p>
+   <p style='font-size:20px;'><%= peep.content %></p>
+    <% @comments.each do |reply|%>
+    <% if reply.peep_id == peep.id %>
+    <p style='font-size:12px;'> <%= reply.comment %> from  <%= reply.peep.user.username %> </p>
+    <%end%>
+    <%end%>
+
+  </div>  
+  <%end%>
+
+</ul>
