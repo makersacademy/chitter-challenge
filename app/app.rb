@@ -33,7 +33,6 @@ class Chitter < Sinatra::Base
     if @user.save
         session[:name] = @user.name
         session[:user_id] = @user.id
-        puts "sign up #{@user.name}"
         redirect '/home'
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -49,7 +48,6 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:username], params[:password])
     if @user
       session[:user_id] = @user.id
-      puts "log in #{@user.name}"
       redirect to('/home')
     else
       flash.now[:errors] = ["The username and password do not match"]

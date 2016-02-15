@@ -5,9 +5,11 @@
   </head>
 
   <body>
-    <h1> Chitter </h1>
+
     <% if @current_user %>
-      Welcome, <%= @current_user.name %>
+      <h1>Welcome back to Chitter, <%= @current_user.name %></h1>
+      <% else %>
+       <h1> Welcome to Chitter </h1>
     <% end %>
      <% if flash[:notice] %>
     <div id='notice'>

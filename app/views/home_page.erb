@@ -1,35 +1,45 @@
-
-<form action='/sign_up' method='get'>
+<TABLE BORDER="0">
+<TR>
+<TD><form action='/sign_up' method='get'>
   <input type='submit' value='Sign up'>
-</form>
+</form></TD>
 
-<form action='/log_in' method='get'>
+<TD><form action='/log_in' method='get'>
   <input type='submit' value='Log in'>
-</form>
+</form></TD>
 
-<form action='/log_out' method='post'>
+<TD><form action='/log_out' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='Log out'>
-</form>
+</form></TD>
 
-<form action='/make_cheet' method='get'>
+<TD><form action='/make_cheet' method='get'>
   <input type='submit' value='Cheet!'>
-</form>
+</form></TD>
+
+</TR>
+
+</TABLE>
 
 
-<h2> Cheets </h2>
+
+
 
 <% if @posts %>
 <ul id="Cheets">
+  <h2> Cheets </h2>
   <% @posts.reverse.each do |cheet| %>
   <div>
-    Title: <%= cheet.title %>
+   <h4> Title: <%= cheet.title %> </h4>
   </div>
   <div>
-    <%= cheet.body %>
+    <p>
+<textarea style="width: 400px; height: 150px" rows="10" cols="80"<><%= cheet.body %></textarea>
+</p>
+
   </div>
   <div>
-    <%= cheet.time %>
+    <h5>Cheeted at - <%= cheet.time %></h5>
   </div>
   <% end %>
 </ul>
