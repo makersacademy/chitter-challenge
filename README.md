@@ -6,6 +6,7 @@ https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master
 
 
 
+
 Welcome to Chitter! My little Twit!
 ===================================
 
@@ -17,7 +18,11 @@ TEST, DEVELOPMENT and PRODUCTION database environments.
 Secure password.
 Password matching.
 Twits displayed, chronological order and it's dates, without been logded in.
-Some CSS.
+Some basic CSS.
+
+
+have a look at the app!
+<https://mylittletwit.herokuapp.com/>
 
 Features:
 -------
