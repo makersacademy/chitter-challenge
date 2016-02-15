@@ -47,7 +47,7 @@ feature 'Viewing peeps' do
     user.peeps.create(message: message)
     visit '/peeps'
     within 'ul#peeps' do
-      expect(page).to have_content('peeped at 20:45 13.02.2016')
+      expect(page).to have_content('peeped at 20:45 on 13.02.2016')
     end
   end
 end

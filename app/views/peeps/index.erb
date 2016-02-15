@@ -2,17 +2,21 @@
 
 <% if current_user %>
   <form action='/peeps/new'>
-    <input type='submit' value='new peep' />
+    <input class="button new-peep" type='submit' value='new peep' />
   </form>
 <% end %>
 
-<ul id='peeps'>
+<ul id="peeps">
   <% @peeps.each do |peep| %>
   <li>
-    <%= peep.user.name %>
-    <%= peep.user.username %>
-    <%= peep.message %>
-    <%= peep.created_at.strftime("peeped at %H:%M %d.%m.%Y") %>
+    <span class="name"><%= peep.user.name %>:</span>
+    <p><%= peep.message %></p>
+    <span class="stamp">
+      <%= peep.user.username %>
+      <%= peep.created_at.strftime("peeped at %H:%M on %d.%m.%Y") %>
+    </span>
   </li>
   <% end %>
 </ul>
+
+<p id="to-top"><a href="/peeps">to top</a></p>

@@ -1,20 +1,16 @@
 <% if current_user %>
-  Welcome, <%= current_user.username %>
+  <h2>Welcome, <%= current_user.username %></h2>
 
   <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
+    <input class="button right" type='submit' value='sign out'>
   </form>
 <% else %>
   <form action='/sessions/new'>
-    <input type='submit' value='sign in' />
+    <input class="button right" type='submit' value='sign in' />
   </form>
 
   <form action='/users/new'>
-    <input type='submit' value='sign up' />
+    <input class="button right" type='submit' value='sign up' />
   </form>
 <% end %>
-
-<form action='/peeps'>
-  <input type='submit' value='view peeps' />
-</form>
