@@ -1,5 +1,4 @@
-config.assets.initialize_on_precompile = false
-#ENV["RACK_ENV"] ||= "development"
+ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'rubygems'
 require 'data_mapper'
