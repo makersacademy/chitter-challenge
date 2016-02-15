@@ -7,6 +7,11 @@ Author:
 
 Marco Bagnasco, @Makers Academy (Ronin) - Week 04
 
+Technology Used
+---------------
+
+* Ruby, Sinatra, Rspec, Capybara, Data Mapper, Database Cleaner, Bcrypt. 
+
 
 Features:
 --------
@@ -49,7 +54,6 @@ $ git clone https://github.com/MarcoCode/chitter-challenge.git (HTTPS)
 
 $ bundle 
 $ createdb chitter-development
-$ rake db:auto_upgrade
 $ rspec
 $ rackup
 ```

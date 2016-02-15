@@ -12,8 +12,8 @@ class Chitter < Sinatra::Base
   end
   
   get '/stream' do
-    @global_stream = User.all.messages(:order => [:date.desc])
     @users = User.all
+    @global_stream = Message.all(:order => [:date.desc])
     erb :stream
   end
 end
