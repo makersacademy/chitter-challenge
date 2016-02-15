@@ -26,7 +26,7 @@
           <button class="btn btn-info-outline btn-sm">Reply</button>
         </a>
         <a href="/peeps/view-replies?peep_id=<%= peep.id %>">
-          <button class="btn btn-info-outline btn-sm">View Replies</button>
+          <button class="btn btn-info-outline btn-sm">View Replies <strong>(<%= peep.replies.count %>)</strong></button>
         </a>
       <% end %>
     </div>
