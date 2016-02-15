@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-This is a weekend challeng (week 4) at Makers Academy. It is a little Twitter clone that allows the users to post messages to a public stream.
+This is a weekend challenge (week 4) at Makers Academy forked from [Maker Academy Chitter Challenge] (https://github.com/makersacademy/chitter-challenge). It is a little Twitter clone that allows the users to post messages to a public stream.
 
 
 Author
@@ -10,7 +10,8 @@ This code and README.md are prepared by Valentina Monetta at Makers Academy (Feb
 
 Instructions:
 ------------
-This program is designed to be ran from the command line with Ruby and accessed through a web-browser. It is built on Sinatra and using Capybara/Rspec for testing.
+This program is designed to be ran from the command line with Ruby and accessed through a web-browser. It is built on Sinatra and Rackup, Capybara/Rspec for testing and DataMapper to communicate with a PostgrSQL database.
+
 To istall the web-app:
 $ git clone https://github.com/valogopedina/chitter-challenge.git
 $ bundle
@@ -19,11 +20,11 @@ $ rake auto_migrate
 $ rspec
 $ rackup
 
-(to update)
+The web is hosted by Heroku (https://www.heroku.com/) and can be visited at https://chitter-valentina.herokuapp.com/. The user can sign in or sign up to post a message viewed by all on the homepage.
 
 
-Features:
--------
+User stories implemented:
+-------------------------
 
 ```sh
 As a Maker
