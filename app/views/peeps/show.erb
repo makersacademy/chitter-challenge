@@ -1,5 +1,5 @@
 <ul id='peeps'>
-  <% Peep.all.each do |peep| %>
+  <% Peep.all(:order => [ :date.desc ]).each do |peep| %>
     <li>
       Username: <%= peep.user.username %>
       Date    : <%= peep.date %>
