@@ -1,0 +1,23 @@
+<h2>Log In</h2>
+<h3 id="alert" style="color: red">
+  <%= @alert %>
+</h3>
+<form action="/login" method="POST">
+  <ul style="list-style-type: none">
+    <li>
+      <label for="username">
+        <strong>Username</strong>
+        <input type="text" name="username">
+      </label>
+    </li>
+    <li>
+      <label for="password">
+        <strong>Password</strong>
+        <input type="text" name="password">
+      </label>
+    </li>
+    <li>
+      <input type="submit" value="Log in">
+    </li>
+  </ul>
+</form>
