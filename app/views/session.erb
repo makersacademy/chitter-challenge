@@ -2,79 +2,87 @@
 <html lang="en">
   <head>
     <title> Chitter </title>
-    <!-- <link rel="stylesheet" href='sign_up.css' type='text/css'> -->
+    <link rel="stylesheet" href='session.css' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gruppo|Poppins|Open+Sans|Jura|Audiowide|Playball' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
-  <div class="header">
-    <h1> Chitter HQ <h1>
+    <div class="header">
+      <h1> Chitter HQ <h1>
+    </div>
+
     <%= erb(:'user/_logout')%>
-  </div>
 
-  <div class="post_peep">
-    <form action="/post_peep" method="post">
-      <label for="peep_post">
-        Make a Peep:
-        <% if flash[:peep_error] %>
-        <%= flash[:peep_error] %>
-        <% end %>
-        <textarea rows="2" cols="50" name="peep"></textarea>
-        <label for="submit" class="submitform">
-          <input type="submit" value="Word Vom">
+  <div class="wrapper">
+    <div class="post_peep">
+      <form action="/post_peep" method="post">
+        <label for="peep_post">
+          <% if flash[:peep_error] %>
+          <%= flash[:peep_error] %>
+          <% end %>
+          <textarea rows="2" cols="50" name="peep">@<%= session_user.user_name %></textarea>
+          <label for="submit" class="submitform">
+            <input type="submit" value="Word Vom">
+          </label>
         </label>
-      </label>
-    </form>
-  </div>
-
-  <%@peeps.each do |peep| %>
-  <div class="single_peep" id="<% peep.id %>">
-    <div class="message" >
-      <h2><%= peep.peep_message %></h2>
+      </form>
     </div>
 
-    <div class="footer" >
-      <p><%= readable_time(peep.created_at) %></p>
-      <p><%= readable_date(peep.created_on) %></p>
-    </div>
-
-    <div class="author_info">
-      <p><%= peep.author %></p>
-    </div>
-
-    <div class="comment_feed">
-      <% peep.comments.each do |comment| %>
-      <div class="single_comment">
-        <div class="message">
-          <%= comment.comment_message %>
-        </div>
-
-        <div class="footer">
-          <p><%= readable_time(comment.created_at) %></p>
-          <p><%= readable_date(comment.created_on) %></p>
-        </div>
-
-        <div class="author_info">
-          <p><%= comment.author %></p>
-        </div>
+    <%@peeps.each do |peep| %>
+    <div class="single_peep" id="<% peep.id %>">
+      <div class="message" >
+        <h2><%= peep.peep_message %></h2>
       </div>
-      <% end %>
-    </div>
 
-    <div class="comment_box">
-      <label for="comment_box">
-        <form action="/comment" method="post">
-        <p> Got a comment <%= session_user.user_name %> ?</p>
-        <textarea rows="2" cols="30" name="peep"></textarea>
-        <label for="submit" class="submitform">
-          <input type="hidden" name="peep_id" value="<%= peep.id %>">
-          <input type="hidden" name="peep_author" value="<%= peep.author %>">
-          <input type="submit" value="Boom Baby">
+      <div class="author_info">
+        <p><%= peep.author %></p>
+      </div>
+
+      <div class="footer" >
+        <p><%= readable_time(peep.created_at) %></p>
+        <p><%= readable_date(peep.created_on) %></p>
+      </div>
+
+
+
+      <div class="comment_feed">
+        <h1> Comments on <%= peep.author %>'s Peep </h1>
+        <% peep.comments.each do |comment| %>
+        <div class="single_comment">
+          <div class="message">
+            <%= comment.comment_message %>
+          </div>
+
+          <div class="author_info">
+            <%= comment.author %>
+          </div>
+
+          <div class="footer">
+            <p><%= readable_time(comment.created_at) %></p>
+            <p><%= readable_date(comment.created_on) %></p>
+          </div>
+
+
+        </div>
+        <% end %>
+      </div>
+
+      <div class="comment_box">
+        <label for="comment_box">
+          <form action="/comment" method="post">
+          <textarea rows="2" cols="30" name="peep" class="comment_box">
+            Got a comment <%= session_user.user_name %> ?
+          </textarea>
+          <label for="submit" class="submitform">
+            <input type="hidden" name="peep_id" value="<%= peep.id %>">
+            <input type="hidden" name="peep_author" value="<%= peep.author %>">
+            <input type="submit" value="Boom Baby">
+          </label>
+          </form>
         </label>
-        </form>
-      </label>
+      </div>
     </div>
-  </div>
-  <% end %>
-
+    <% end %>
   </body>
+  </div>
 </html>

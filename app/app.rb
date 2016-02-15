@@ -18,9 +18,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
 
-
   get '/' do
-    # @new_user = User.new
     erb :'user/index'
   end
 
@@ -56,7 +54,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    # @peep_update = Peep.all
    @peeps = Peep.all.reverse
    erb :session
   end
@@ -74,30 +71,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/comment' do
-    # if peep_error?
-    #   flash.next[:peep_error] = peep_error_message
-    # else
-
-  current_peep = Peep.first(id: params[:peep_id].to_i, author: params[:peep_author])
-  # this_peep_owner = peep_owner(current_peep.user_id)
-
-      @comment =
-        current_peep.comments.create(comment_message: params[:peep],
-        author: session_user.user_name, peep_id: current_peep.id)
-        # current_peep.comments << @comment
-        current_peep.save
-
-        # require 'pry'; binding.pry
-
-        # this_peep_owner.peeps << current_peep
+  current_peep =
+    Peep.first(id: params[:peep_id].to_i, author: params[:peep_author])
+  @comment =
+    current_peep.comments.create(comment_message: params[:peep],
+    author: session_user.user_name, peep_id: current_peep.id)
+    current_peep.save
     redirect '/chitter'
   end
 
- delete '/goodbye' do
+  delete '/goodbye' do
    session[:user_id] = nil
    flash.next[:notice_goodbye] = 'We are done... don\'t come crying back'
    redirect '/'
- end
+  end
 
   run! if app_file == $PROGRAM_NAME
 end
