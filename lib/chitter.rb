@@ -38,6 +38,17 @@ class Chitter < Sinatra::Base
     erb(:login_form)
   end
 
+  post '/user/login' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['Username or password is incorrect']
+      erb(:login_form)
+    end
+  end
+
   helpers do
    def current_user
      @current_user ||= User.get(session[:user_id])

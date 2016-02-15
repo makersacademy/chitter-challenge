@@ -40,10 +40,10 @@ end
 # So that I can post messages on Chitter as me
 # I want to log in to Chitter
 
-# feature 'logging in to chitter' do
-#   scenario "I can login" do
-#     create_user
-#     login
-#     expect(page).to have_content('Welcome, Piet Jansen')
-#   end
-# end
+feature 'logging in to chitter' do
+  scenario "I can login" do
+    create_user
+    login
+    expect(page).to have_content('Welcome, Piet Jansen')
+  end
+end
