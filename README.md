@@ -53,11 +53,12 @@ $ rackup
 
 ###Bad sign up
 
-![alt text]http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
+![alt text](http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
+
 
 ===================================================================
 ###Bad sign result
 
-![alt text]http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
+![alt text](http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
 
 
