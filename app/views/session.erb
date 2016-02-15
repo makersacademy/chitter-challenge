@@ -20,7 +20,7 @@
           <% if flash[:peep_error] %>
           <%= flash[:peep_error] %>
           <% end %>
-          <textarea rows="2" cols="50" name="peep">@<%= session_user.user_name %></textarea>
+          <textarea rows="2" cols="50" name="peep">@<%= @user %></textarea>
           <label for="submit" class="submitform">
             <input type="submit" value="Word Vom">
           </label>
