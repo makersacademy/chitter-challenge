@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+<style>
+body {
+  background-image:url('/img/wov.png');
+}
+h1 { color: #0275d8 
+}
+</style>
+  </head>
+
+  <body>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' class="btn btn-primary" value='Sign Out'>
+    </form>
+  <% end %> 
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= yield %>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+    </div>
+  <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

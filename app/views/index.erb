@@ -1,0 +1,27 @@
+<h1>Chitter - Speak your mind!</h1>
+
+<% unless @current_user %>
+  <a class="btn btn-primary" href='/users/new'>Sign Up</a>
+  <a class="btn btn-primary" href='/sessions/new'>Sign In</a>
+<% end %>
+
+<% if @current_user%>
+<form action='/update_peeps' method='post'>
+  <input type='text' name='message'>
+  <input class="btn btn-primary" type='submit' value='Peep'>
+</form>
+<% end %>
+
+<div class="container">
+  <h3>Peeps</h3>
+<% if @posts %>
+  <% @posts.reverse!.each do |post| %>
+    <ul class="list-group">
+      <li class="list-group-item"><%= post.message %></li>
+      <li class="list-group-item"><%= post.time %></li>
+      <li class="list-group-item"><%= post.user.email.split('@').first%></li>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+

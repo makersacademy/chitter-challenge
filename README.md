@@ -1,26 +1,90 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Build Badges:
+-------
+[![Build
+Status](https://travis-ci.org/ggwc82/chitter-challenge.svg?branch=master)](https://travis-ci.org/ggwc82/chitter-challenge)
+[![Coverage
+Status](https://coveralls.io/repos/github/ggwc82/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/ggwc82/chitter-challenge?branch=master)
 
-Challenge:
+Implementation:
+-------
+Chitter challenge was implemented with the complete set of user stories
+described below using TDD and RSpec driving the design. The application is built with Ruby and Sinatra, with user
+accounts and peeps (in a one-to-many relationship) stored in a Postgresql relational database with DataMapper as
+the chosen ORM. The live development web application is hosted by Heroku, and
+can be viewed at:
+
+[https://chitter-ggwc82.herokuapp.com/](https://chitter-ggwc82.herokuapp.com/).
+
+Peeps can be viewed by all users, whether signed in or not. In order to peep, a
+user must be signed in with a valid account. Users can sign up, sign in and sign
+out. Implementation of validations of form input takes place at a rudimentary
+level at the view level with HTML5, however more robust methods are enabled at
+the model level utilizing DataMapper, which handles a range of authentication of
+user credentials.
+
+DataMapper validations for account creation include checking for valid email address
+input, duplicates and mismatches between password and confirmation password. For
+signing in, users are required to enter both email and password correctly for an
+existing account.
+
+Error messages are raised in the above mentioned cases using Sinatra Flash, and user password
+encryption is handled by BCrypt. User sign outs are implemented via a DELETE
+request, which relies on an MethodOverride function within Rack to provide this
+functionality. 
+
+
+Instructions:
 -------
 
-As usual please start by 
+a). Front page. We first need to sign up for an account.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+![sign up](/img/1.png?raw=true) 
+-----------------
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+b). If an invalid email is submitted, a user error will be raised.
+
+![invalid email error](/img/2.png?raw=true) 
+ -----------------
+
+c). If the password and confirmation password do not match, an error is raised.
+
+![password mismatch error](/img/3.png?raw=true) 
+ -----------------
+
+d). Successfully signed up, and auto signed in. You can now peep.
+
+![successful sign up and sign in](/img/4.png?raw=true) 
+ -----------------
+
+e). Peep is submitted, and now appears in the current view.
+
+![submitted peep](/img/5.png?raw=true) 
+ -----------------
+
+f). Successfully signed out, and can still view peeps, but cannot submit new
+   peep.
+
+![successful sign out](/img/6.png?raw=true) 
+ -----------------
+
+g). An unsucessful attempt at signing in with incorrect user credentials.
+
+![unsuccesful sign in attempt](/img/7.png?raw=true) 
+ -----------------
+
+h). Logged back in again, peeped second time to show reverse chronological order
+   and persisting of previous peeps.
+
+![second user session](/img/8.png?raw=true) 
+ -----------------
+
 
 Features:
 -------
-
-```sh
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -34,78 +98,14 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
