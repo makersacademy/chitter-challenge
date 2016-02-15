@@ -1,6 +1,4 @@
-Chitter-Challenge
-
-set by MakersAcademy.
+Chitter-Challenge set by MakersAcademy.
 
 
 Technologies used
