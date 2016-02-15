@@ -20,7 +20,10 @@ feature 'User sign up' do
   end
 
   scenario 'User cannot sign up with an existing email address and username' do
-    User.create(name: "Bob", username: "Bob",email: "Bob@gmail.com", password: "password", password_confirmation: "password")
+    User.create(name: "Bob", username: "Bob",
+                email: "Bob@gmail.com",
+                password: "password",
+                password_confirmation: "password")
     visit '/users/new'
     fill_in "email", with: "Bob@gmail.com"
     fill_in "password", with: "hello"

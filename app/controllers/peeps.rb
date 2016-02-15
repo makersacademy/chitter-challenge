@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peep = Peep.all(:order => [ :time.desc ])
+    @peep = Peep.all(order: [ :time.desc ])
     erb :'peeps/index'
   end
 
@@ -30,7 +30,9 @@ class Chitter < Sinatra::Base
 
   post '/response' do
     peep = Peep.get(params[:current_peep])
-    reply = Response.create(user: current_user, content: params[:content], peep: peep, time: Time.now)
+    reply = Response.create(user: current_user,
+                            content: params[:content],
+                            peep: peep, time: Time.now)
     peep.responses << reply
     peep.save
     redirect to '/'
