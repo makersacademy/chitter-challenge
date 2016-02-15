@@ -22,7 +22,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-require './app/models/user'
 
 require 'database_cleaner'
 

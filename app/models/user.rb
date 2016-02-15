@@ -6,6 +6,10 @@ require 'dm-postgres-adapter'
 class User
   include DataMapper::Resource
 
+  attr_reader :username
+
+  has n, :peeps
+
   property :id, Serial
   property :email, String, required: true, unique: true
   property :name, String, required: true

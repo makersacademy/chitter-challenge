@@ -7,6 +7,18 @@
   <body>
     <%= partial :flash %>
     <% if current_user %>
+      <form action='/peep/new' method='POST'>
+        <fieldset>
+          <legend>
+            What are you thinking:
+          </legend>
+          <label>Text:<br/>
+            <input name='peep' type='text' />
+          </label>
+          <br/>
+          <input type='submit' value='Peep me' />
+        </fieldset>
+      </form>
       <form action='/sessions' method='POST'>
         <input type='submit' value='Sign out'>
       </form>

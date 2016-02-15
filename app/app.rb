@@ -4,6 +4,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'rack-flash'
 require 'sinatra/partial'
+require 'time'
 
 class Chitter < Sinatra::Base
 
@@ -11,6 +12,16 @@ class Chitter < Sinatra::Base
    use Rack::Flash
    register Sinatra::Partial
    set :partial_template_engine, :erb
+
+   get '/' do
+     erb :'peeps/show'
+   end
+
+   post '/peep/new' do
+     peep = Peep.create(user: current_user,
+      date: Time.now, text: params[:peep])
+     redirect to('/')
+   end
 
    get '/sessions/new' do
      erb :'sessions/new'
@@ -38,7 +49,7 @@ class Chitter < Sinatra::Base
    post '/sessions' do
      session[:id] = nil
      flash[:notice] = 'goodbye!'
-     redirect to '/users/new'
+     redirect to '/'
    end
 
 
