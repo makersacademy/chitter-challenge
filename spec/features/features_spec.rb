@@ -33,8 +33,8 @@ feature 'Sign in and do' do
     add_peep(message: 'Created first ')
     add_peep(message: 'Created second ')
     add_peep(message: 'Created third ')
-    expect(page).to have_content("Created third #{Time.now.strftime('%H:%M %d-%b-%y')}"\
-    "test Created second #{Time.now.strftime('%H:%M %d-%b-%y')}"\
+    expect(page).to have_content("Created third #{Time.now.strftime('%H:%M %d-%b-%y')} "\
+    "test Created second #{Time.now.strftime('%H:%M %d-%b-%y')} "\
     "test Created first")
   end
 
