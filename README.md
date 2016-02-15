@@ -4,6 +4,8 @@ Makers Academy Week 4 weekend challenge
 
 The task is to build a Twitter clone that will allow users to post messages to a public stream.
 
+App is available at: http://chitter-example.herokuapp.com/
+
 Functionality:
 * Users sign up to chitter with their email, password, name and a user name
 * The username and email are unique.
