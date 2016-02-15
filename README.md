@@ -33,7 +33,7 @@ $ cd chitter-challenge
 $ bundle
 $ createdb chitter_development
 $ rake db:auto_migrate
-$ rakeup
+$ rackup
 ```
 
 This will create a database named `chitter_development` using Postgres, and run this app on a local web server. You can then peep using a browser at `http://localhost:9292/`.
