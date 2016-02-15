@@ -1,6 +1,7 @@
-Chitter Challenge
+Chitter Challenge       
 =================
 
+[![Build Status](https://travis-ci.org/MarcoCode/chitter-challenge.svg?branch=master)](https://travis-ci.org/MarcoCode/chitter-challenge)
 
 Author:
 -------
@@ -10,7 +11,28 @@ Marco Bagnasco, @Makers Academy (Ronin) - Week 04
 Technology Used
 ---------------
 
-* Ruby, Sinatra, Rspec, Capybara, Data Mapper, Database Cleaner, Bcrypt. 
+* Ruby, Sinatra, Rspec, Capybara, Data Mapper, Database Cleaner, Bcrypt, Heroku. 
+
+
+Instructions
+------------
+
+```
+$ git clone git@github.com:MarcoCode/chitter-challenge.git (SSH)
+
+   or
+
+$ git clone https://github.com/MarcoCode/chitter-challenge.git (HTTPS)
+
+$ bundle 
+$ createdb chitter-development
+$ rspec
+$ rackup
+
+
+Deployed on Heroku at : https://chitter-test.herokuapp.com/
+```
+
 
 
 Features:
@@ -42,21 +64,6 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Instructions
-------------
-
-```
-$ git clone git@github.com:MarcoCode/chitter-challenge.git (SSH)
-
-   or
-
-$ git clone https://github.com/MarcoCode/chitter-challenge.git (HTTPS)
-
-$ bundle 
-$ createdb chitter-development
-$ rspec
-$ rackup
-```
 
 
 
