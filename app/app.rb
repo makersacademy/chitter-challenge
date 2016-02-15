@@ -76,12 +76,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/comment' do 
-  puts '-----'
   @comment = Comment.new(comment: params[:comment])
   session[:peep_id] = params[:peep]
-  @comment.peep = Peep.get(params[:peep])
+  @comment.peep= Peep.get(params[:peep])
   @comment.save
-  puts @comment.saved?
   redirect to('/logged_in')
   end
 

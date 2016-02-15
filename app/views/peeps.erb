@@ -1,24 +1,16 @@
 <h1> Welcome to Chitter! <h1>
 
-<ul id='Peeps'>
 <% @peeps.reverse.each do |peep|%>
   <p style='font-size:12px;'>
   	<%= peep.created_at.strftime("%m/%d/%Y") %>
-  	<%= peep.time %> </p> 
+  	<%= peep.time %>  from  <%= peep.user.username %> </p>
    <p style='font-size:20px;'><%= peep.content %></p>
-    <ul id='Comments'>
     <% @comments.each do |reply|%>
     <% if reply.peep_id == peep.id %>
-    <p style='font-size:12px;'> <%= reply.comment %> </p>
+    <p style='font-size:12px;'> <%= reply.comment %> from  <%= reply.peep.user.username %> </p>
     <%end%>
     <%end%>
-  
-  <form action="/comment" method='post'>
-  <input type='text' name='comment'> 
-  <input type='hidden' name='peep' value=<%= peep.id %> > 
-  <input type='submit' value='reply'>
-  </form>
-  
+
   </div>  
   <%end%>
 
