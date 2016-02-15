@@ -6,6 +6,7 @@ require_relative 'database_mapper_setup'
 require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
 
 enable :sessions
@@ -68,6 +69,12 @@ end
       flash.now[:errors] = ['The user name or password is incorrect']
       erb :sessions_new
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id]=nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/homepage'
   end
 
   # start the server if ruby file executed directly

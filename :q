@@ -3,6 +3,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'web_helper'
 require './models/peep'
 require 'capybara'
 require 'capybara/rspec'
@@ -10,11 +11,6 @@ require 'rspec'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
-require 'session_helper'
-
-RSpec.configure do |config|
-  config.include SessionHelpers
-end
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
