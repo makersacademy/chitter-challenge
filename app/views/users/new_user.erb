@@ -1,0 +1,21 @@
+<h1>Please sign up</h1>
+
+<form action='/users' method='post'>
+  <label for='name'>
+    Name: <input name='name' type='text' placeholder="Enter your name" required>
+  </label>
+  <label for='username'>
+    Username: <input name='username' type='text' placeholder="Enter your username" required>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='text' placeholder="Enter your e-mail" required>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password' placeholder="Enter your password" required>
+  </label>
+  <label for="password_confirmation">
+    <h1> Confirm password </h1>
+    <input type="password" name="password_confirmation" placeholder="One more time please" required/>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>
