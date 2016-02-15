@@ -61,4 +61,13 @@ $ rackup
 
 ![alt text](http://i.imgur.com/5dsO2EV.png "Logo Title Text 1")
 
+===================================================================
+###My first cheet
+
+![alt text](http://i.imgur.com/SrYW8G8.png"Logo Title Text 1")
+
+===================================================================
+###Cheat homepage
+
+![alt text](http://i.imgur.com/sW8INWS.png"Logo Title Text 1")
 
