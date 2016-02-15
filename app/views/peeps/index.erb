@@ -1,0 +1,22 @@
+<h1> Peeps </h1>
+
+<% if current_user %>
+  <form action='/peeps/new'>
+    <button class="new-peep" type='submit'>new peep</button>
+  </form>
+<% end %>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    <span class="name"><%= peep.user.name %>:</span>
+    <p><%= peep.message %></p>
+    <span class="stamp">
+      <%= peep.user.username %>
+      <%= peep.created_at.strftime("peeped at %H:%M on %d.%m.%Y") %>
+    </span>
+  </li>
+  <% end %>
+</ul>
+
+<p id="to-top"><a href="/peeps">to top</a></p>

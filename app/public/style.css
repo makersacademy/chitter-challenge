@@ -1,0 +1,179 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: rgb(255, 99, 71);
+}
+
+header > h1 {
+  margin-top: 0;
+  padding: 30px;
+}
+
+h1.logo a {
+  font-size: 40px;
+  color: #fff;
+}
+
+.github {
+  position: relative;
+  left: 90%;
+  top: 20px;
+}
+
+.github:hover {
+  opacity: 0.75;
+}
+
+main {
+  padding: 0 20px;
+}
+
+main > h1, h2 {
+  margin: 10px 20px;
+  padding: 40px 20px 0;
+  font-family: sans-serif;
+  text-transform: lowercase;
+  color: #aaa;
+}
+
+main > h2 {
+  margin: 0 20px;
+  padding: 20px 20px 0;
+  font: 20px sans-serif;
+  color: #aaa;
+}
+
+main > ul li {
+  margin: 50px;
+  padding: 0;
+  list-style: none;
+  font: 12px Helvetica, Arial, sans-serif;
+}
+
+main > ul li:last-child {
+  margin: 50px 50px 100px;
+}
+
+main > ul li p {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  color: #444;
+}
+
+span.name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+span.stamp {
+  display: inline-block;
+  float: right;
+  color: #eeaaaa;
+}
+
+form {
+  position: relative;
+  margin: 10px 0;
+  padding: 10px 0;
+  font: 15px Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+label {
+  width: 150px;
+  display: block;
+  margin: 20px;
+  padding: 5px;
+  text-align: right;
+  color: #555;
+}
+
+input {
+  position: absolute;
+  height: 20px;
+  width: 220px;
+  padding: 5px 8px;
+  margin: 0 8px;
+  border: 1px solid #dedede;
+}
+
+#to-top {
+  position: relative;
+  bottom: 30px;
+  left: 50%;
+  font-size: 18px;
+}
+
+#to-top a {
+  color: #bbb;
+}
+
+#to-top a:hover {
+  color: #999;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  color: rgb(255, 99, 71);
+  font-size: 12px;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #eaa;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin: 0 10px;
+  padding: 0;
+  width: 100px;
+  float: right;
+}
+
+.new-peep {
+  position: absolute;
+  right: 45px;
+}
+
+.submit {
+  position: absolute;
+  left: 325px;
+  margin-top: 15px
+}
+
+#errors {
+  margin: 20px;
+  padding: 10px;
+  list-style: none;
+}
+
+#error-list {
+  margin: 15px;
+  color: #f55;
+  font: 15px Helvetica, Arial, sans-serif;
+}
+
+#notice {
+  margin: 20px 20px;
+  padding: 20px 20px 0;
+  font: 20px sans-serif;
+  color: #aaa;
+}

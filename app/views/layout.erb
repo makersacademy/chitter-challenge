@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a class ="github" href="https://github.com/yyl29/chitter-challenge"><img src="/GitHub-Mark-Light-32px.png" alt="GitHub" /></a>
+      <h1 class="logo"><a href="/peeps">Chitter</a></h1>
+    </header>
+    <main>
+      <%= partial :welcome %>
+      <%= partial :flash %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
