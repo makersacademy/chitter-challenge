@@ -17,12 +17,20 @@
         <%  if !@current_user%>
         <div class="absolute_center">
           <form class="form-inline padding-50" action="/names" method="post">
-            <p class="top-buffer"><input class="form-control" type="text" name="name" placeholder="name" required></p>
-            <p class="top-buffer"><input class="form-control" type="text" name="email" placeholder="email" required></p>
+            <p class="top-buffer"><input class="form-control" type="text" name="name" placeholder="name" value="<%= @user.name %>" required></p>
+            <p class="top-buffer"><input class="form-control" type="text" name="email" placeholder="email" value="<%= @user.email %>" required></p>
             <p class="top-buffer"><input class="form-control" type="password" name="password" placeholder="password" required></p>
             <p class="top-buffer"><input class="form-control" type="password" name="password_confirmation" placeholder="password_confirmation" required></p>
             <p class="padding-50"><input class="btn btn-warning btn-lg" type="submit" value="Submit"></p>
           </form>
+
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            <ul id='errors'>
+             <% flash[:errors].each do |error| %>
+               <li><%= error %></li>
+             <% end %>
+            </ul>
+          <% end %>
         </div>
         <% end %>
         </div>
