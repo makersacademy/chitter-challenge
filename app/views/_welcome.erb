@@ -1,16 +1,22 @@
 <% if current_user %>
+  <span class="buttons">
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <button class="right" type='submit'>sign out</button>
+    </form>
+  </span>
+
   <h2>Welcome, <%= current_user.username %></h2>
-
-  <form action='/sessions' method='post'>
-    <input type='hidden' name='_method' value='delete'>
-    <input class="button right" type='submit' value='sign out'>
-  </form>
 <% else %>
-  <form action='/sessions/new'>
-    <input class="button right" type='submit' value='sign in' />
-  </form>
+  <span class="buttons">
+    <form action='/users/new'>
+      <button type='submit'>sign up</button>
+    </form>
+  </span>
 
-  <form action='/users/new'>
-    <input class="button right" type='submit' value='sign up' />
-  </form>
+  <span class="buttons">
+    <form action='/sessions/new'>
+      <button type='submit'>sign in</button>
+    </form>
+  </span>
 <% end %>

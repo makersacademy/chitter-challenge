@@ -32,14 +32,21 @@ h1.logo a {
 }
 
 main {
-  padding: 10px;
+  padding: 0 20px;
 }
 
 main > h1, h2 {
   margin: 10px 20px;
-  padding: 10px;
+  padding: 40px 20px 0;
   font-family: sans-serif;
   text-transform: lowercase;
+  color: #aaa;
+}
+
+main > h2 {
+  margin: 0 20px;
+  padding: 20px 20px 0;
+  font: 20px sans-serif;
   color: #aaa;
 }
 
@@ -115,15 +122,29 @@ input {
   color: #999;
 }
 
-.button {
-  display: block;
+button {
+  width: 100px;
+  height: 40px;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
   color: rgb(255, 99, 71);
-  width: 80px;
+  font-size: 12px;
 }
 
-.right {
-  position: absolute;
-  right: 10px;
+button:hover {
+  color: #fff;
+  background-color: #eaa;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin: 0 10px;
+  padding: 0;
+  width: 100px;
+  float: right;
 }
 
 .new-peep {
@@ -133,37 +154,25 @@ input {
 
 .submit {
   position: absolute;
-  left: 335px;
+  left: 325px;
   margin-top: 15px
 }
 
-.button:active {
-  color: rgb(255, 99, 71);
-}
-
-input[type=submit]:hover {
-  color: #fff;
-  background-color: #eaa;
-  text-shadow: none !important;
-  border: none;
-}
-
 #errors {
-  margin: 30px;
-  padding: 0;
+  margin: 20px;
+  padding: 10px;
   list-style: none;
-  font: 15px Helvetica, Arial, sans-serif;
-  color: #f55;
-  text-align: center;
 }
 
 #error-list {
-  margin: 10px;
+  margin: 15px;
+  color: #f55;
+  font: 15px Helvetica, Arial, sans-serif;
 }
 
 #notice {
-  margin: 0 50px;
-  padding: 0;
+  margin: 20px 20px;
+  padding: 20px 20px 0;
   font: 20px sans-serif;
   color: #aaa;
 }

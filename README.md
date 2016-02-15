@@ -25,7 +25,7 @@ Features
 Usage
 ------
 
-First make sure PostgreSQL was installed properly. Then download and run the app in command line.
+First make sure PostgreSQL was installed properly. Then download and run the app in command line:
 
 ```
 $ git clone https://github.com/yyl29/chitter-challenge.git
