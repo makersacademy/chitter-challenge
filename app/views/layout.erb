@@ -11,13 +11,15 @@
 
   <body style="position: relative;" >
 
+
     <img id="background"
     style="position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 1300px;
     height: auto;
     opacity: 0.6;" src="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg"/>
+
 
 
     <nav class="navbar navbar-default" class="container-fluid">
@@ -36,10 +38,10 @@
 
       <% else %>
         <ul class="nav navbar-nav">
-          <li>
+          <li style="padding-left:15px;">
             <a id="sign_in" href="/users/sessions/new" style="text-decoration: none;">Sign in</a>
           </li>
-          <li>
+          <li style="padding-left:15px;">
             <a id="sign_up" href="/users/sign_up" style="text-decoration: none;">Sign up</a>
           </li>
         </ul>
@@ -65,7 +67,7 @@
     <%= yield %>
 
     <%= partial :flash %>
-    
+
   </div><!-- end middle col -->
   <div class="col-md-4"></div>
   </div><!-- end row -->
