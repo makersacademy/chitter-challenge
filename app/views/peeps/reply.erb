@@ -1,0 +1,7 @@
+<h1> Reply </h1>
+<form action="/peeps/reply" method="post" id="replyform">
+  <input type="hidden" name="peep_id" value="<%= @peep_id %>">
+  <label for="peeparea"><strong>Reply to the peep</strong></label><br>
+  <textarea class="form-control" rows="3" name="reply" id="peeparea" placeholder="Reply to that peep..."></textarea><br>
+  <button type="submit" class="btn btn-default">Reply</button>
+</form>

@@ -1,0 +1,35 @@
+<% if current_user %>
+  <h2>Welcome <%= current_user.name %></h2>
+  <br>
+  <form action="/peeps/new" method="post" id="peepform">
+    <label for="peeparea"><strong>Peep here</strong></label><br>
+    <textarea class="form-control" rows="3" name="peep" id="peeparea" placeholder="Start peeping now..."></textarea><br>
+    <button type="submit" class="btn btn-default">Peep</button>
+  </form>
+
+<% end %>
+
+<h1> Peeps </h1>
+<% if @peeps %>
+  <% @peeps.each do |peep| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+     <h3 class="panel-title"><strong><%= @user.get(peep.user_id).name %></strong> <small>peeped:</small></h3>
+    </div>
+    <div class="panel-body">
+      <p class="lead"><%= peep.peep %></p>
+    </div>
+    <div class="panel-footer">
+      <small><strong>Date posted:</strong> <%= peep.time_stamp %></small>
+      <% if current_user %>
+        <a href="/peeps/reply?peep_id=<%= peep.id %>">
+          <button class="btn btn-info-outline btn-sm">Reply</button>
+        </a>
+        <a href="/peeps/view-replies?peep_id=<%= peep.id %>">
+          <button class="btn btn-info-outline btn-sm">View Replies <strong>(<%= peep.replies.count %>)</strong></button>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
