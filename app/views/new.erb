@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <head>
+  </head>
+
+  <h1>Please sign up</h1>
+
+  <body>
+    <form action='/user/new' method='post'>
+      <input type="email" name="email" placeholder="email" value="<%=@user.email%>" required><br><br>
+      <input type='text' name='name' placeholder="name" value="<%=@user.name%>" required><br><br>
+      <input type='text' name='username' placeholder="username" value="<%=@user.username%>" required><br><br>
+      <input type="password" name="password" placeholder="password"><br><br>
+      <input type="password" name="password_confirmation" placeholder="confirm password"><br><br>
+      <input type="submit" name="submit" value="Sign up">
+    </form>
+  </body>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+</head>
+
+<h1>Please sign in</h1>
+
+<form action='/sessions' method='post'>
+  <input name='email' type='email' placeholder="email">
+  <input name='password' type='password' placeholder="password">
+  <input type='submit' value='Sign in'>
+</form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+Please refer to the following errors below:
+<ul id='errors'>
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+</html>
