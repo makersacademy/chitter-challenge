@@ -62,6 +62,7 @@ class Chitter < Sinatra::Base
  	end
 
   get '/peeps' do
+    @comments=Comment.all
     @peeps = Peep.all 
   	erb :peeps
   end
