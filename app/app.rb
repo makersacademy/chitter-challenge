@@ -2,10 +2,13 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative 'helpers'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 	enable :sessions
+  set :public_folder, Proc.new { File.join(root, 'static') }
+  helpers Helpers
 	use Rack::MethodOverride
   register Sinatra::Flash
 
@@ -76,11 +79,6 @@ class Chitter < Sinatra::Base
   	redirect '/peeps'
   end
 
-	helpers do
-		def current_user
-			@current_user ||= User.get(session[:user_id]) 
-		end
-	end
 
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
