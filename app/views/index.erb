@@ -5,7 +5,7 @@
 
 <body>
   <% if current_user %>
-    Welcome, <%= current_user.username %> <%= current_user.email %>
+    Welcome, <%= current_user.username %> (<%= current_user.email %>)
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
@@ -18,22 +18,18 @@
       <input type='submit' value='Post'>
     </form>
 <% else %>
- <a href="users/new">Sign Up</a>
- <br >
- or
- <br >
- <a href='/sessions/new'>Sign In</a>
+ <a href="users/new">Sign Up</a> or <a href='/sessions/new'>Sign In</a>
   <% end %>
 <% if @messages != nil %>
-<%= @current_user %>
 
-<ul id='messages'>
+<ul id='messages' style="list-style-type:none">
   <% @messages.each do |message| %>
   <li>
-     <strong><%= message.username %> &nbsp </strong><%= message.time %>
+      <strong><%= message.username %> &nbsp </strong><%= message.time %>
      <ul>
-     <em><%= message.text %></em>
-    </ul>
+       <em><%= message.text %></em> &nbsp <a href="/reply">Reply</a>
+     </ul>
+     <br >
   </li>
   <% end %>
 </ul>
