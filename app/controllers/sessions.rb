@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:notice] = "error"
+      flash.now[:notice] = "Incorrect email or password. Please try again or sign up."
       erb :'sessions/new'
     end
   end

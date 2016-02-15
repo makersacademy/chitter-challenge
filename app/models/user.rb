@@ -5,10 +5,14 @@ class User
   include BCrypt
   include DataMapper::Resource
 
+  has n, :peeps
+
   property :id,       Serial, required: true
-property :name,     String, required: true
-property :email,    String, format: :email_address, required: true, unique: true
-property :password_digest, BCryptHash
+  property :name,     String, required: true
+  property :email,    String, format: :email_address, required: true, unique: true
+  property :password_digest, BCryptHash
+
+
 
   attr_reader :password
   attr_accessor :password_confirmation

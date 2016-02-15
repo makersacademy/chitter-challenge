@@ -1,4 +1,13 @@
-
+<h1> Look at everyone's peeps </h1>
 <body>
-
+  <ol id = 'peeps'>
+    <% @peeps.each do |peep|%>
+      <li>
+        <%=peep.user.name%> posted:
+        <%=peep.input%>
+        <br>
+        Posted at <%=peep.created_at%>
+      </li>
+    <%end%>
+  </ol>
 </body>
