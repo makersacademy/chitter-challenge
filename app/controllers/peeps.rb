@@ -27,7 +27,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/peeps/newreply' do
-    @peep = Peep.get(session[:peep_id])
+    @peeps = [Peep.get(session[:peep_id])]
     erb :'/peeps/newreply'
   end
 

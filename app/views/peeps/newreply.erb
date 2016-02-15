@@ -1,36 +1,4 @@
-<article class="peep">
-  <div class="peeplogo">
-    <%= @peep.user.username[0] %>
-  </div>
-  <div class="peepuser">
-    @<%= @peep.user.username %>
-  </div>
-  <div class="peeptime">
-    <%= @peep.datetime.strftime("%I:%M%p %a %b %e") %>
-  </div>
-  <div class="message">
-    <%= @peep.message %>
-  </div>
-
-  <% unless @peep.replys.empty? %>
-    <% @peep.replys.each do |reply| %>
-      <article class="peep_reply">
-        <div class="peeplogo">
-          <%= reply.user.username[0] %>
-        </div>
-        <div class="peepuser">
-          @<%= reply.user.username %>
-        </div>
-        <div class="peeptime">
-          <%= reply.datetime.strftime("%I:%M%p %a %b %e") %>
-        </div>
-        <div class="message">
-          <%= reply.message %>
-        </div>
-      </article>
-    <% end %>
-  <% end %>
-</article>
+<%= partial :'peeps/peeps' %>
 
 <h3>Post your reply</h3>
 

@@ -46,7 +46,7 @@ h3 {
 }
 
 header {
-  height: 80px;
+  height: 50px;
   background-color: #413c29;
   /*background: linear-gradient(#7d744f, #413c29);*/
   background: linear-gradient(#5e573b, #1f1d14);
@@ -64,13 +64,14 @@ header {
     padding-left: 10px;
     margin-right: 100px;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    background: #5e573b;
+    width: 40px;
+    height: 40px;
+    /*background: #5e573b;*/
+    background: orange;
     border: 2px solid yellowgreen;
     color: white;
     /*text-align: center;*/
-    font-size: 38px;
+    font-size: 36px;
      /*font: 32px Arial, sans-serif;*/
     text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 
@@ -99,7 +100,7 @@ header {
   text-align: center;
   margin: 5px;
   padding: 5px;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   box-shadow: 0 0 3px rgba(0,0,0,0.4);
   color: white;
 }
@@ -122,7 +123,7 @@ header {
   color: white; /*text colour*/
   padding: 5px 10px;
   text-align: center;
-  border-radius: 4px; /*rounded corners*/
+  /*border-radius: 4px;*/
   margin-left: 5px;
   margin-right: 5px;
   text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
@@ -143,7 +144,7 @@ button {
     color: white; /*text colour*/
     padding: 5px 10px;
     text-align: center;
-    border-radius: 4px; /*rounded corners*/
+    /*border-radius: 4px;*/
     /*margin-left: 5px;*/
     /*margin-right: 5px;*/
     float: right;
@@ -159,11 +160,11 @@ button:hover {
   width: 600px;
   border: 1px solid #f4fbd0;
   padding: 5px 10px;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
   margin: 20px auto;
   padding-bottom: 40px;
-  /*background: linear-gradient(#a7bb11, #68750b);*/
-  background: linear-gradient(#92a30f, #3f4606);
+  background: linear-gradient(#a7bb11, #68750b);
+  /*background: linear-gradient(#92a30f, #3f4606);*/
 }
 
 .peeplogo {
@@ -171,7 +172,8 @@ button:hover {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  background: #5e573b;
+  /*background: #5e573b;*/
+  background: orange;
   border: 2px solid yellowgreen;
   color: white;
   text-align: center;
@@ -195,7 +197,7 @@ button:hover {
   display: inline-block;
 }
 
-.peep.message {
+.peep .message {
   padding-left: 44px;
   padding-top: 2px;
   font-size: 24px;
@@ -206,15 +208,15 @@ button:hover {
     width: 480px;
     border: 1px solid #f4fbd0;
     padding: 5px 10px;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     margin: 10px;
     margin-left: 100px;
     padding-bottom: 10px;
-    /*background: linear-gradient(#a7bb11, #68750b);*/
-    background: linear-gradient(#92a30f, #3f4606);
+    background: linear-gradient(#a7bb11, #68750b);
+    /*background: linear-gradient(#92a30f, #3f4606);*/
 }
 
-.peep_reply.peeptime {
+.peep_reply .peeptime {
   width: 200px;
   font-size: 14px;
   text-align: right;
@@ -223,11 +225,11 @@ button:hover {
 }
 
 .signform {
-    margin: 0 auto;
+    margin: 10px auto;
     width: 600px;
     padding: 1em;
     border: 3px solid #CCC;
-    border-radius: 0.5em;
+    /*border-radius: 0.5em;*/
     overflow: hidden;
 }
 
@@ -256,60 +258,3 @@ textarea {
     height: 5em;
     resize: vertical;
 }
-
-
-
-/*ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-/*
-.welcome {
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%;
-  color: white;
-  text-align: right;
-  padding: 14px;
-  padding-right: 155px;
-}*/
-
-
-
-
-/*.peep {
-  width: 600px;
-  margin: 20px auto;
-  padding: 5px;
-  border: 5px solid #021a40;
-  background-color:lightblue;
-}*/
