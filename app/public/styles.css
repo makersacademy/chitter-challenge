@@ -113,8 +113,6 @@ li input {
   margin-bottom: 4px;
   width: 50%;
   padding: 2px;
-  background-color: #ffffff;
-  border: solid 1px #9f249f;
 }
 
 li textarea {
@@ -170,6 +168,8 @@ li h6 input {
   width: 50px;
   padding: 2px;
   background-color: #ffffff;
+  border: solid 2px #9f249f;
+  border-radius: 8px;
 }
 
 li h6 input:hover {
