@@ -1,6 +1,6 @@
 # Chitter Challenge - Week 4
 
-This is a program writen by <a href="https://github.com/michaeljcollinsuk">Michael Collins</a>. It is a clone of Twitter.
+This is a program writen by <a href="https://github.com/michaeljcollinsuk">Michael Collins</a>.
 
 It allows a user to sign up, where they can then post 'peep' messages. The program allows a user to sign in and out, and 'peeps' can only be posted when logged in. Peeps are displayed in reverse chronological order, and include the time and date they were posted.
 
