@@ -5,7 +5,7 @@ require './app/app.rb'
 
 
   RSpec::Core::RakeTask.new :spec
-  Cucumber::Rake::Task.new :cuke
+  #Cucumber::Rake::Task.new :cuke
 
 
  task default: [:cop, :spec, :cuke]

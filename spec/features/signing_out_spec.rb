@@ -1,4 +1,4 @@
-feature 'signing out:' do
+feature 'signing out' do
    scenario 'User sign out' do
      sign_up
      sign_in

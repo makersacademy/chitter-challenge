@@ -19,6 +19,12 @@ def sign_up(name: 'Donald Trump',
    click_button 'Sign in'
  end
 
+ def peep
+   visit '/peeps/new'
+   fill_in :peep, with: 'Test peep'
+   click_button 'Peep'
+   end
+
  def sign_out
    click_button 'Sign out'
  end

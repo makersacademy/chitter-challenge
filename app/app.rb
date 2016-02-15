@@ -1,7 +1,6 @@
 ENV["RACK_ENV"] ||= "development"
 
  require 'sinatra/base'
- require 'tilt/erb'
  require_relative 'data_mapper_setup'
  require 'sinatra/flash'
 
@@ -23,29 +22,48 @@ ENV["RACK_ENV"] ||= "development"
     erb :index
   end
 
+  get '/peeps/new' do
+      if current_user
+        @user = current_user
+        erb :'peeps/new'
+      else
+        redirect to('/sessions/none')
+     end
+    end
+
+    post '/peeps/new' do
+      peep = Peep.new(message: params[:peep],
+        name: params[:name],
+        username: params[:username])
+      peep.save
+      p params
+      redirect to('/chitter')
+    end
+
+
 get '/users/new' do
      @user = User.new
      erb :'users/new'
 end
 
-post '/users' do
-@user = User.new(name: params[:name],
-                      username: params[:username],
-                      email: params[:email],
-                      password: params[:password],
-                      password_confirmation: params[:password_confirmation])
-if @user.save
-       session[:user_id] = @user.id
-redirect to('/chitter')
+  post '/users' do
+    @user = User.new(name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+    redirect to('/chitter')
      else
        error_string = ''
        @user.errors.each_value do |error|
-         error_string << "#{error.first} "
+        error_string << "#{error.first} "
        end
        flash.now[:notice] = error_string
        erb :'users/new'
      end
-   end
+  end
 
    get '/sessions/new' do
     erb :'sessions/new'
@@ -53,7 +71,7 @@ redirect to('/chitter')
 
   post '/sessions/new' do
     if User.authenticate(params[:username],
-                         params[:password])
+      params[:password])
       user = User.first(username: params[:username])
       session[:user_id] = user.id
       redirect to('/chitter')
@@ -62,6 +80,9 @@ redirect to('/chitter')
       redirect to('/sessions/new')
     end
   end
+  get '/sessions/none' do
+       erb :'sessions/none'
+     end
 
   delete '/sessions' do
     name = current_user.name
