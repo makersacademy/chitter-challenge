@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chitter</title>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/css/application.css">
+</head>
+<body>
+  <%= partial :header %>
+  <%= partial :flash %>
+  <div id='main'>
+    <%= yield %>
+  </div>
+</body>
+</html>

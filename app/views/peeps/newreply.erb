@@ -1,0 +1,13 @@
+<%= partial :'peeps/peeps' %>
+
+<h3>Post your reply</h3>
+
+<form class="signform" action="/peeps/newreply" method="post">
+  <div>
+    <label for="message">Message:</label>
+    <textarea name="message" maxlength="150"></textarea>
+  </div>
+  <div>
+    <button type="submit">Post</button>
+  </div>
+</form>

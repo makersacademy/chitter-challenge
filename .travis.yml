@@ -1,5 +1,8 @@
 rvm: '2.2.3'
 
+services:
+  - postgresql
+
 script:
   - mkdir -p spec && bundle exec rspec spec
 
@@ -10,4 +13,4 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-
+  - bundle exec rake db:auto_migrate RACK_ENV=test

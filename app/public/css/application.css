@@ -1,0 +1,260 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arimo', sans-serif;
+  /*background-image: url(/images/extra_clean_paper.png);*/
+  /*background-color: #a7bb11;*/
+  color: white;
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+}
+
+html, body {
+  height: 100%;
+}
+
+#main {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -70px;
+}
+
+/* no links should be underlined */
+a {
+  text-decoration: none;
+  color: #b77843;
+}
+
+h3 {
+  font-size: 24px;
+  padding-top: 10px;
+  margin: auto;
+  width: 700px;
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+header {
+  height: 50px;
+  background-color: #413c29;
+  /*background: linear-gradient(#7d744f, #413c29);*/
+  background: linear-gradient(#5e573b, #1f1d14);
+  color: white;
+  display: flex; /* http://learnlayout.com/flexbox.html */
+  padding: 0 20px;
+}
+
+  /* every immediate child to be vertically centered */
+  header > * {
+    margin: auto 0;
+  }
+  header #logo {
+    display: flex;
+    padding-left: 10px;
+    margin-right: 100px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    /*background: #5e573b;*/
+    background: orange;
+    border: 2px solid yellowgreen;
+    color: white;
+    /*text-align: center;*/
+    font-size: 36px;
+     /*font: 32px Arial, sans-serif;*/
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+
+  }
+
+  header a {
+    color: white;
+  }
+
+  header #user-links {
+    flex: 1; /* http://learnlayout.com/flexbox.html */
+    -webkit-flex: 1;
+    text-align: right;
+  }
+
+  header #user-links > * {
+    display: inline-block;
+  }
+
+  header #welcome {
+    font-size: 16px;
+  }
+
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  /*border-radius: 4px;*/
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75);
+  }
+
+.button {
+  display: inline-block; /* display inline but have dimensions */
+  width: 110px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #82B743;
+  border: 2px solid white;
+  color: white; /*text colour*/
+  padding: 5px 10px;
+  text-align: center;
+  /*border-radius: 4px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+}
+
+.button:hover {
+    background-color: white;
+    color: #4CAF50; /* Green */
+}
+
+button {
+    display: inline-block; /* display inline but have dimensions */
+    width: 110px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #82B743;
+    border: 2px solid white;
+    color: white; /*text colour*/
+    padding: 5px 10px;
+    text-align: center;
+    /*border-radius: 4px;*/
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+    float: right;
+    text-shadow: 0 0 2px rgba(0,0,0,0.4); /*for readability*/
+}
+
+button:hover {
+    background-color: white;
+    color: #4CAF50; /* Green */
+}
+
+.peep {
+  width: 600px;
+  border: 1px solid #f4fbd0;
+  padding: 5px 10px;
+  /*border-radius: 6px;*/
+  margin: 20px auto;
+  padding-bottom: 40px;
+  background: linear-gradient(#a7bb11, #68750b);
+  /*background: linear-gradient(#92a30f, #3f4606);*/
+}
+
+.peeplogo {
+  float: left;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  /*background: #5e573b;*/
+  background: orange;
+  border: 2px solid yellowgreen;
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.peepuser {
+  width: 200px;
+  padding-left: 4px;
+  font-size: 14px;
+  color: black;
+  display: inline-block;
+}
+
+.peeptime {
+  width: 320px;
+  font-size: 14px;
+  text-align: right;
+  color: black;
+  display: inline-block;
+}
+
+.peep .message {
+  padding-left: 44px;
+  padding-top: 2px;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.peep_reply {
+    width: 480px;
+    border: 1px solid #f4fbd0;
+    padding: 5px 10px;
+    /*border-radius: 6px;*/
+    margin: 10px;
+    margin-left: 100px;
+    padding-bottom: 10px;
+    background: linear-gradient(#a7bb11, #68750b);
+    /*background: linear-gradient(#92a30f, #3f4606);*/
+}
+
+.peep_reply .peeptime {
+  width: 200px;
+  font-size: 14px;
+  text-align: right;
+  color: black;
+  display: inline-block;
+}
+
+.signform {
+    margin: 10px auto;
+    width: 600px;
+    padding: 1em;
+    border: 3px solid #CCC;
+    /*border-radius: 0.5em;*/
+    overflow: hidden;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 10em;
+    text-align: right;
+}
+
+input, textarea {
+    font: 1em sans-serif;
+    width: 300px;
+    border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 5em;
+    resize: vertical;
+}
