@@ -1,29 +1,29 @@
 nav {
-	background-color: #a9a91c;
+	background-color: #00b1dc;
 }
 
 body {
-	background-color: #a9c9ba;
+	background-color: #00b1dc;
 	background-image: url('/images/background.jpg');
 	background-repeat: no-repeat;
-	background-size: 30%;
-	background-position: 800px 155px;
+	background-size: 70%;
+	background-position: 400px 130px;
 }
 
 p {
-	background-color: #feddbe;
+	background-color: #00b1dc;
 	font-family: Times;
 	padding: 3px;
 }
 
 p.in_main {
-	background-color: #a9c9ba;
+	background-color: #00b1dc;
 	font-family: Times;
 	padding: 3px;
 }
 
 p.in_bar {
-	background-color: #feddbe;
+	background-color: #00b1dc;
 	font-family: Times;
 	font-size: 20px;
 	text-align: center;
@@ -41,7 +41,7 @@ p.peep {
 
 div {
 	font-family: Times;
-	background-color: #feddbe;
+	background-color: #00b1dc;
 }
 
 
@@ -60,7 +60,7 @@ hr {
 
 div.bar {
 	padding: 1px;
-	background-color: #feddbe;
+	background-color: #00b1dc;
 	font-family: Times;
 	font-size: 18px;
 	text-align: center;
@@ -68,17 +68,17 @@ div.bar {
 
 div.warning {
 	padding: 1px;
-	background-color: #feddbe;
+	background-color: #00b1dc;
 	font-family: Times;
 	font-size: 20px;
 }
 
 section.form {
 	border: none;
-	text-align: center;
+	text-align: right;
 	float: left;
-	width: 12%;
-	background-color: #a9c9ba;
+	width: 30%;
+	background-color: #00b1dc;
 	margin-left: 50px;
 	cursor: pointer;
 	
@@ -89,9 +89,9 @@ section.form2 {
 	text-align: center;
 	float: left;
 	width: 12%;
-	background-color: #a9c9ba;
+	background-color: #00b1dc;
 	margin-left: 300px;
-	margin-top: 160px;
+	margin-top: 50px;
 	cursor: pointer;
 	
 }
@@ -125,7 +125,7 @@ fieldset {
 }
 
 input.button {
-	    background-color: #a9c9ba ;
+	    background-color: #00b1dc;
 	    border: none;
 	    padding: 5px 10px;
 	    text-align: center;
