@@ -70,7 +70,8 @@ email, also the token expires after an hour and gets deleted if they use it.
 Used Bootstrap CSS for fast and easy css styling.
 Separated my DBs to test and development, to isolate tests from the actual data.
 Used database cleaner gem for my test environment, to ensure every test has a
-clean database.
+clean database. Used the BCrypt gem to handle the password encryption.
+
 
 **Helpful resources:**
 * http://getbootstrap.com/
