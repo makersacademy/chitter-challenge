@@ -1,1 +1,7 @@
 <h1> Peeps </h1>
+
+<ul id="peeps">
+  <%@peeps.sort_by{|x| x[2]}.reverse.each do |peep| %>
+    <li><%= peep.peep %> <%= peep.posted %> <%= peep.user.username%></li>
+  <% end %>
+</ul>

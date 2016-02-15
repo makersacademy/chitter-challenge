@@ -34,3 +34,9 @@ def login
   fill_in 'password', with: 'abcd'
   click_button 'Login'
 end
+
+def new_peep
+  visit '/peeps/new'
+  fill_in 'peep', with: 'Peep this'
+  click_button 'Add Peep'
+end

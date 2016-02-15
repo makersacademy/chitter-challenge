@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -18,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -60,6 +62,17 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye'
     redirect to '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(peep: params[:peep], posted: Time.now.strftime("%d/%m/%Y %H:%M"))
+    peep.user_id = session[:user_id]
+    peep.save
+    redirect to('/peeps')
   end
 
 

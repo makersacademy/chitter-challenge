@@ -18,6 +18,18 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+      <form action="/peeps/new">
+       <input type="submit" value="Add a Peep">
+      </form>
+    <% end %>
+
+    <% if current_user == nil %>
+    <form action="/sessions/new">
+     <input type="submit" value="Sign in">
+    </form>
+    <form action="/users/new">
+     <input type="submit" value="Join Chitter">
+    </form>
     <% end %>
 
     <% if flash[:notice] %>
