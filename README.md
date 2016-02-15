@@ -1,111 +1,78 @@
-Chitter Challenge
-=================
+# Chitter Challenge
+--------
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+**Deployed on Heroku: https://alexavlonitis-chitter.herokuapp.com**
 
-Challenge:
--------
+How to Use:
+-----------
 
-As usual please start by 
+```
+* git clone https://github.com/AlexAvlonitis/chitter-challenge.git
+* cd chitter-challenge
+* bundle
+* create database chitter_development; (Postgres SQL)
+* rake db:auto_migrate
+* rackup (will run a web server on localhost:9292)
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+```
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+What is it?
+---------
 
-Features:
--------
+Chitter challenge is a simple clone of the famous website Twitter.
+Technologies used: Ruby/Sinatra, datamapper, postgresql, Capybara/RSpec for TDD,
+Bootstrap/CSS for some styling and Mailgun API to send emails.
+A user creates an account and then he can post a peep(tweet),
+he can reply to other peeps and view all the replies.
 
-```sh
-As a Maker
+Stories:
+
+```
+As a User
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+As a User
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-As a Maker
+As a User
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a User
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a maker
+As a User
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
 Bonus:
 -----
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
+```
+* In order to start a conversation as a user I want to reply to a peep from another user.
 
 * Work on the css to make it look good (we all like beautiful things).
 
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
 ```
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+Build Process
+-----
 
-```
-$ coveralls report
-```
+Used TDD with Capybara/RSpec, implemented all aspects of a basic authentication
+from scratch, Signup, Login, Forgot password with token generation send via
+email, also the token expires after an hour and gets deleted if they use it.
+Used Bootstrap CSS for fast and easy css styling.
+Separated my DBs to test and development, to isolate tests from the actual data.
+Used database cleaner gem for my test environment, to ensure every test has a
+clean database.
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+**Helpful resources:**
+* http://getbootstrap.com/
+* http://www.sinatrarb.com/intro.html
+* https://mailgun.com/
