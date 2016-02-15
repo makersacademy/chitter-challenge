@@ -18,8 +18,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'sinatra/flash'
-require './app/models/peep.rb'
-require './app/models/user.rb'
+require './app/app.rb'
 require_relative 'features/web_helper'
 
 

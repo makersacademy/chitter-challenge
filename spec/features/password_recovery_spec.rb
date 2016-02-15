@@ -1,13 +1,16 @@
+require 'pry'
+
 require_relative 'web_helper'
 
 feature 'Resetting Password' do
 
+let(:user) { User.first }
+
   before do
    sign_up
    click_button 'Create account'
-   Capybara.reset!
+  #  Capybara.reset!
  end
- let(:user) { User.first }
 
  scenario 'When I forget my password I can see a link to reset' do
    visit '/sessions/new'
@@ -21,7 +24,7 @@ feature 'Resetting Password' do
  end
 
   scenario 'assigned a reset token to the user when they recover' do
-    expect{recover_password}.to change{user.password_token}
+    expect{recover_password}.to change{user.reload.password_token}
   end
 
   scenario 'it doesn\'t allow you to use the token after an hour' do

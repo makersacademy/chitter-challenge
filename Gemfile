@@ -9,6 +9,7 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'coveralls', require: false
+  gem 'pry'
 end
 
 gem 'data_mapper'

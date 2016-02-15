@@ -13,6 +13,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.0)
     coveralls (0.8.2)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
@@ -89,6 +90,7 @@ GEM
       domain_name (~> 0.5)
     json (1.8.3)
     json_pure (1.8.3)
+    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile2 (2.0.0)
     multi_json (1.11.2)
@@ -96,6 +98,10 @@ GEM
     netrc (0.10.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -134,6 +140,7 @@ GEM
       sinatra (>= 1.0.0)
     sinatra-partial (0.4.0)
       sinatra
+    slop (3.6.0)
     stringex (1.5.1)
     templater (1.0.0)
       diff-lcs (>= 1.1.2)
@@ -163,6 +170,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  pry
   rack
   rake
   rspec
