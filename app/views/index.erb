@@ -1,6 +1,6 @@
 <header>
-  <h2 style="text-align: left">Welcome<%= ", #{@username}" if @logged_in %>!</h2>
-  <form method="GET" style="text-align: right">
+  <h2>Welcome<%= ", #{@name}" if @logged_in %>!</h2>
+  <form method="GET">
     <% if @logged_in %>
       <input type="hidden" name="_method" value="delete">
       <button type="submit" formaction="/sessions" formmethod="POST">Log out</button>

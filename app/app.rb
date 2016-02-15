@@ -8,13 +8,25 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/signup' do
+    @alert = session[:alert]
     erb(:signup)
   end
 
   post '/signup' do
-    User.create(username: params[:username], password: params[:password])
-    session[:current_user] = params[:username]
-    redirect('/')
+    used_email = User.first(email: params[:email])
+    used_username = User.first(username: params[:username])
+    
+    if used_email
+      session[:alert] = 'Email address is registered to another account'
+      redirect('/signup')
+    elsif used_username
+      session[:alert] = 'Username is already in use'
+      redirect('/signup')
+    else
+      User.create(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
+      session[:current_user] = User.first(username: params[:username])
+      redirect('/')
+    end
   end
 
   get '/login' do
@@ -28,15 +40,14 @@ class Chitter < Sinatra::Base
     if valid_username
       valid_password = valid_username.password == params[:password]
       if valid_password
-        session[:alert] = nil
-        session[:current_user] = params[:username]
+        session[:current_user] = valid_username
         redirect('/')  
       else
-        session[:alert] = 'Incorrect password!'
+        session[:alert] = 'Incorrect password'
         redirect('/login')
       end  
     else
-      session[:alert] = 'User account does not exist!'
+      session[:alert] = 'User account does not exist'
       redirect('/login')
     end
   end
@@ -47,8 +58,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @username = session[:current_user]
-    @logged_in = !!@username
+    session[:alert] = nil
+    @logged_in = !!session[:current_user]
+    @name = session[:current_user].name if @logged_in
     erb(:index)
   end
 

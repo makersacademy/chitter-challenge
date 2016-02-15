@@ -3,15 +3,21 @@
   <%= @alert %>
 </h3>
 <form action="/login" method="POST">
-  <label for="username">
-    <strong>Username</strong>
-    <input type="text" name="username">
-  </label>
-  <br />
-  <label for="password">
-    <strong>Password</strong>
-    <input type="text" name="password">
-  </label>
-  <br />
-  <input type="submit" value="Log in">
+  <ul style="list-style-type: none">
+    <li>
+      <label for="username">
+        <strong>Username</strong>
+        <input type="text" name="username">
+      </label>
+    </li>
+    <li>
+      <label for="password">
+        <strong>Password</strong>
+        <input type="text" name="password">
+      </label>
+    </li>
+    <li>
+      <input type="submit" value="Log in">
+    </li>
+  </ul>
 </form>

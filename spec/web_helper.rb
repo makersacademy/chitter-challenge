@@ -1,8 +1,10 @@
-def create_account(username, password)
+def create_account(name, email, username, password)
   visit('/signup')
+  fill_in(:name, with: name)
+  fill_in(:email, with: email)
   fill_in(:username, with: username)
   fill_in(:password, with: password)
-  click_button('Sign up!')
+  click_button('Sign up')
 end
 
 def log_in(username, password)
