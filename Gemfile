@@ -8,7 +8,6 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
-
 end
 
 gem 'data_mapper'

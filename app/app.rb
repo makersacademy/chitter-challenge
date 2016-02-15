@@ -5,7 +5,8 @@ require_relative 'data_mapper_setup'
 # require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/flash'
-require_relative 'models/user'
+# require_relative 'models/user'
+# require_relative 'models/tweet'
 
 
 class Chitter_challenge < Sinatra::Base
@@ -70,9 +71,10 @@ class Chitter_challenge < Sinatra::Base
   end
 
   post '/post_tweet' do
-    tweet = Tweet.new(message: params[:message])
+    Tweet.create!(message: params[:message], user_id: current_user.id)
     # , datetime: Time.now
-    tweet.save
+    # tweet.save
+    p current_user
     redirect to('/home')
   end
 
