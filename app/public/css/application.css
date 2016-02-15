@@ -94,6 +94,24 @@ header {
     font-size: 16px;
   }
 
+
+.flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+  .flash.notice {
+    background-color: rgba(67,183,120,0.75);
+  }
+
+  .flash.error {
+   background-color: rgba(169,29,42,0.75);
+  }
+
 .button {
   display: inline-block; /* display inline but have dimensions */
   width: 110px;
@@ -177,7 +195,7 @@ button:hover {
   display: inline-block;
 }
 
-.peep .message {
+.peep.message {
   padding-left: 44px;
   padding-top: 2px;
   font-size: 24px;
@@ -196,14 +214,13 @@ button:hover {
     background: linear-gradient(#92a30f, #3f4606);
 }
 
-.peep_reply .peeptime {
+.peep_reply.peeptime {
   width: 200px;
   font-size: 14px;
   text-align: right;
   color: black;
   display: inline-block;
 }
-
 
 .signform {
     margin: 0 auto;

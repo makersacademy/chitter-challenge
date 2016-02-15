@@ -1,12 +1,11 @@
 class ChitterApp < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::MethodOverride
-
-  # register Sinatra::Partial
-  # set :partial_template_engine, :erb
-  # enable :partial_underscores
+  set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   helpers do
     def current_user
@@ -15,9 +14,8 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    redirect to('/peeps')
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end

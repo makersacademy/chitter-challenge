@@ -26,11 +26,3 @@
     <button type="submit">Sign up</button>
   </div>
 </form>
-
-<% if flash[:errors] %>
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
