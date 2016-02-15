@@ -5,9 +5,10 @@ require 'dm-timestamps'
 
 require_relative 'models/user'
 require_relative 'models/peep'
+require_relative 'models/comment'
 
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 DataMapper::Logger.new($stdout, :debug)

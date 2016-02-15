@@ -19,9 +19,13 @@ Welcome to your account page
   	<%= peep.created_at.strftime("%m/%d/%Y") %>
   	<%= peep.time %> </p> 
    <p style='font-size:20px;'><%= peep.content %></p>
-  </div>
+
+  </div>  
   <%end%>
 </ul>
+
+
+   
 
 <form action="/log_out" method='post'>
   <input type='hidden' name='_method' value='delete'>  
