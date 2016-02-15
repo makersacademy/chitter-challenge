@@ -19,3 +19,7 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
 end
+
+group :development, :test do
+  gem 'byebug'
+end

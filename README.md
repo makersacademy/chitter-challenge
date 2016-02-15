@@ -10,7 +10,7 @@ To run this program enter the following from the command line:
 
 ```
 $ git clone https://github.com/michaeljcollinsuk/chitter-challenge.git
-$ cd rps-challenge
+$ cd chitter-challenge
 $ creatdb chitter_development
 $ creatdb chitter_test
 $ bundle

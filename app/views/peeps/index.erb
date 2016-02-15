@@ -2,7 +2,10 @@
 <ul id="peeps">
   <%@peeps.reverse.each do |peep| %>
   <li>
-  <span style="font-size:0.8em"><%= (peep.time).strftime("%b %e, %l:%M %p")%></span>
+  <span style="font-size:0.8em">
+  Posted by <%= peep.user.username %>
+  at <%= (peep.time).strftime("%b %e, %l:%M %p")%>
+  </span>
   <p><%= peep.message %></p>
   </li>
   <% end %>

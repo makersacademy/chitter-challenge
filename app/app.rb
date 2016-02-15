@@ -6,6 +6,7 @@ require 'dm-postgres-adapter'
 require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'data_mapper_setup'
+require 'byebug'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -66,6 +67,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    # byebug
     erb :'peeps/index'
   end
 
@@ -74,7 +76,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    current_user.peeps.create(message: params[:peep], time: Time.now)
+    Peep.create(message: params[:peep], time: Time.now, user_id: current_user.id)
     redirect '/peeps'
   end
 
