@@ -36,16 +36,16 @@ Background image taken from <a href="https://mindsquirrel.files.wordpress.com/20
 - from the ```chitter-challenge``` root directory in the command line, start Sinatra using ```ruby app.rb``` or ```rackup```
 - visit the corresponding ```localhost``` in your browser
 
-![Screenshot](/public/images/screenshots/visit-home.png)
+![Screenshot](/app/public/images/screenshots/visit-home.png)
 
 Once users start to submit peeps, they will be shown here. Click on ‘sign up’ to create an account. Fill in your desired username, real name, email address, and password.
 
-![Screenshot](/public/images/screenshots/sign-up.png)
+![Screenshot](/app/public/images/screenshots/sign-up.png)
 
 You are now all set to send your first peep. Enter your peep into the message field (50 chars max) and hit ‘Peep!’.
 
-![Screenshot](/public/images/screenshots/list-peeps.png)
+![Screenshot](/app/public/images/screenshots/list-peeps.png)
 
 Your peep will now be displayed for all to see. Click ‘sign out’ to exit your account and your will be redirected to the home page, with your peep still visible. Once others start contributing their messages, peeps will all be listed together in reverse chronological order. That way, you can always see the newest messages first!
 
-![Screenshot](/public/images/screenshots/sign-out.png)
+![Screenshot](/app/public/images/screenshots/sign-out.png)
