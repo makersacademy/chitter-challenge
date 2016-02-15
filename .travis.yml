@@ -1,8 +1,9 @@
 rvm: '2.2.3'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
   - bundle exec rake db:migrate RACK_ENV=test
+  - mkdir -p spec && bundle exec rspec spec
+
 before_install:
 - sed -i '2d' Gemfile
 - sudo apt-get update -qq
