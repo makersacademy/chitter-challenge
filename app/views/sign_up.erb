@@ -1,15 +1,13 @@
 <center>
-  <h2>Sign Up For Chitter!</h2>
+  <ul>
   <% if flash[:errors] %>
     <div class='errors'>
-      <ul>
         <% flash[:errors].each do |error| %>
         <li><%= error %></li>
         <% end %>
-      </ul>
     </div>
   <% end %>
-
+  <li><h1>Sign Up For Chitter!</h1><h2></h2>
   <form action="/new_user" method="post">
     <label for="name">Name:</label>
     <input type="text" name="name" value="<%= @user.name %>", required></br>
@@ -21,6 +19,6 @@
     <input type="password" name="password", required></br>
     <label for="password_confirmation">Confirm Password:</label>
     <input type="password" name="password_confirmation", required></br>
-    <input type="submit" value="Sign Up">
+    <h6><input type="submit" value="Sign Up"></h6>
   </form>
 </center>

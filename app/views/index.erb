@@ -1,17 +1,17 @@
+<ul>
   <% if current_user %>
-  <form action="new_peep" method="post">
-    <label for="message">Post a Peep!</label></br>
+  <li><form action="new_peep" method="post">
+    <label for="message"><h1>Post a Peep!</h1><h2></h2></label>
     <textarea name="message" prototype="Write your peep!" cols="20" rows="3">
-    </textarea></br>
-    <input type="submit" value="Post">
-  </form>
+    </textarea>
+    <h6><input type="submit" value="Post"></h6>
+  </form></li>
 <% end %>
 
-<ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep.user %></br>
-    <%= peep.username %></br>
-    <%= peep.message %></br>
-    <%= peep.time.asctime %></li>
+  <li><h1><%= peep.user %></h1>
+    <h2><%= peep.username %></h2>
+    <p><%= peep.message %></p>
+    <h6><%= peep.time.asctime %></h6></li>
   <% end %>
 </ul>

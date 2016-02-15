@@ -1,22 +1,21 @@
 <center>
-  <h2>Log In</h2>
-
+  <ul>
     <% if flash[:errors] %>
     <div class='errors'>
-      <ul>
         <% flash[:errors].each do |error| %>
         <li><%= error %></li>
         <% end %>
-      </ul>
     </div>
   <% end %>
 
 
-  <form action="/new_session" method="post">
+  <li> <h1>Log In</h1><h2></h2>
+    <form action="/new_session" method="post">
     <label for="username">Username:</label>
     <input type="text" name="username" required></br>
     <label for "password">Password:</label>
     <input type="password" name="password" required></br>
-    <input type="submit" value="Log In">
-  </form>
+    <h6><input type="submit" value="Log In"></h6>
+  </form></li>
+</ul>
 </center>

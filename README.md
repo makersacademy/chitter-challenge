@@ -8,7 +8,7 @@ For the fourth weekend challenge, I had to create a web application similar to T
 
 The web application can be found [here](http://ch1tter.herokuapp.com).
 
-Given more time, I would like to make it possible to reply to peeps as well as work on the CSS so that it looked much, much better.
+Given more time, I would like to make it possible to reply to peeps.
 
 -----
 Author: [Rebecca Piper](https://github.com/RPiper93)

@@ -2,20 +2,29 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
-    <% if current_user %>
-      <form method="post" action="/log_out">
-        <input type="hidden" name="_method", value="delete">
-        <input type="submit" value="Log Out">
-      </form>
-      <h4><%= current_user.name %></h4>
-      <h6><%= current_user.username %></h6>
+    <header>
+      <% if current_user %>
+      <div class="current_user">
+        <h1><%= current_user.name %></h1>
+        <h2><%= current_user.username %></h2>
+      </div>
+      <div ckass="sign_in">
+        <form method="post" action="/log_out">
+          <input type="hidden" name="_method", value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
     <% else %>
-     <a href="/log_in"><button>Log In</button></a>
-     <a href="/sign_up"><button>Sign Up!</button></a>
+      <div class="sign_in">
+       <a href="/log_in"><button>Log In</button></a>
+       <a href="/sign_up"><button>Sign Up!</button></a>
+      </div>
     <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>
