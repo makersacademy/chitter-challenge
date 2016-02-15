@@ -98,23 +98,20 @@ li form {
 }
 
 li label {
-  display: inline-block;
   background-color: #ffffff;
   float: left;
-  width: 50%;
+  width: 40%;
   text-align: right;
 }
 
 
 li input {
-  display: inline-block;
-  float: left;
   color: #9f249f;
   font-weight: bold;
   font-size: 12px;
   margin-top: 2px;
   margin-bottom: 4px;
-  width: 30%;
+  width: 50%;
   padding: 2px;
   background-color: #ffffff;
   border: solid 1px #9f249f;
