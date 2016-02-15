@@ -5,6 +5,6 @@ class Tweet
   belongs_to :user
 
   property :id, Serial
-  property :message, Text
+  property :message, String
 
 end
