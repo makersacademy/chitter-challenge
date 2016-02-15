@@ -1,4 +1,5 @@
 class Response
+
   include DataMapper::Resource
 
   belongs_to :user

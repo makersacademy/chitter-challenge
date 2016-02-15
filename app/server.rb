@@ -11,4 +11,5 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   run! if app_file == $0
+  
 end

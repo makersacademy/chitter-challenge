@@ -6,7 +6,7 @@ This is the Week 3 Chitter Challenge by Zeshan Rasul
 
 This application is available to use on Heroku at http://zr-chitter.herokuapp.com.
 
-## Instalation instructions
+## Installation instructions
 
 To install the application on your local system, run the following commands in your command line.
 
@@ -25,7 +25,9 @@ You may need to `$ gem install bundle` if the `$ bundle` does not work.
 
 You may need to also install psql using homebrew, if you are unable to create the database.  Instructions to install homebrew can be found here: http://brew.sh/.
 
-Tests can be run by running `$ rspec` while in the chitter-challenge root directory.  Capybara feature tests have been used to the test the various features of the application and test coverage is currently over 99%.
+Tests can be run by running `$ rspec` while in the chitter-challenge root directory.  
+
+Capybara feature tests have been used to the test the various features of the application and test coverage is currently over 99%.
 
 Screenshots of the application can be found below.
 
@@ -67,18 +69,17 @@ If you have time you can implement the following:
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
-And/Or:
-
 * Work on the css to make it look good (we all like beautiful things).
 
 ## Technologies used
 
 I used numerous gems in order to develop and improve the functionality of this application.  These included
+
 * DataMapper
 * Sinatra
-* BCrypt
 * Sinatra Flash
 * Sinatra Partial
+* BCrypt
 * Timecop
 * Database Cleaner
 * Rspec
@@ -87,9 +88,7 @@ I used numerous gems in order to develop and improve the functionality of this a
 
 ## Future improvements
 
-Future improvements would mainly revolve around the user interface and improved design of the application.  
-
-I would also plan to implement password and account recovery using email tokens and potentially the Mailgun API.
+Future improvements would mainly revolve around the user interface and improved design of the application as well as password and account recovery using tokens emailed to the user.
 
 ## Screenshots
 

@@ -1,20 +1,20 @@
 <% if current_user %>
   Welcome, <%= current_user.name %>
 
-<div class="nav_bar">
-  <form id="sign out" action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign Out">
-  </form>
+  <div class="nav_bar">
+    <form id="sign out" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign Out">
+    </form>
 
-  <form id="postpeeps button" action="/peeps/new" method="get">
-    <label for="click here to peep">
-    <input type="submit" value="Post a Peep">
-  </form>
+    <form id="postpeeps button" action="/peeps/new" method="get">
+      <label for="click here to peep">
+      <input type="submit" value="Post a Peep">
+    </form>
 
-  <form id="viewpeeps button" action="/peeps" method="get">
-    <label for="click here to view peeps">
-    <input type="submit" value="View Peeps">
-  </form>
-</div>
+    <form id="viewpeeps button" action="/peeps" method="get">
+      <label for="click here to view peeps">
+      <input type="submit" value="View Peeps">
+    </form>
+  </div>
 <% end %>
