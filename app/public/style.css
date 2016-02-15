@@ -1,0 +1,51 @@
+body {
+  font-family: 'Copperplate / Copperplate Gothic Light', sans-serif;
+  background-image: url("img/p4.png");}
+
+#peeps {
+  text-align: center;
+}
+
+.nav_bar {
+  display: inline;
+  text-align: center;
+}
+
+div.peep_header {
+  font-weight: bold;
+}
+
+div.headings {
+  text-align: center;
+}
+
+div.sign_up {
+  margin-left: 180px;
+}
+
+div.sign_up_input {
+  margin-left: 50px;
+}
+
+div.sign_in_button {
+  text-align: right;
+  margin-right: 150px;
+}
+
+div.view_peeps{
+  text-align: center;
+}
+
+div.home_container{
+  width:300px;
+  text-align: left;
+  position: relative;
+}
+
+div.container{
+  width:300px;
+  height: 200px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
