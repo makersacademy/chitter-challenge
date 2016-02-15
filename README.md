@@ -1,3 +1,25 @@
+# Chitter Challenge - Week 4
+
+This is a program writen by <a href="https://github.com/michaeljcollinsuk">Michael Collins</a>. It is a clone of Twitter.
+
+It allows a user to sign up, where they can then post 'peep' messages. The program allows a user to sign in and out, and 'peeps' can only be posted when logged in. Peeps are displayed in reverse chronological order, and include the time and date they were posted.
+
+I followed a TDD approach when creating this program, using Rspec for unit tests and Capybara for feature tests.
+
+To run this program enter the following from the command line:
+
+```
+$ git clone https://github.com/michaeljcollinsuk/chitter-challenge.git
+$ cd rps-challenge
+$ creatdb chitter_development
+$ creatdb chitter_test
+$ bundle
+$ rackup
+```
+
+Visit http://localhost:9292 in your browser to sign up and start posting 'peeps'. Below are the original challenge instructions.
+
+
 Chitter Challenge
 =================
 
@@ -10,7 +32,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
@@ -80,7 +102,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -98,7 +120,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -108,4 +130,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-

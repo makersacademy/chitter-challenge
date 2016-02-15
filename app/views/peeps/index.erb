@@ -7,3 +7,9 @@
   </li>
   <% end %>
 </ul>
+<% if current_user %>
+<a href="/peeps/new"><button>Post a peep</button></a>
+<% else %>
+<a href="/signup"><button>Sign up</button></a>
+<a href="/sessions/new"><button>Log in</button></a>
+<% end %>
