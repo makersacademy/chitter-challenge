@@ -18,7 +18,7 @@ feature 'Log out' do
     scenario 'logs the user out' do
       log_out
 
-      expect(current_path).to eq '/peeps/all'
+      expect(current_path).to eq '/peeps'
       expect(page).to have_content 'Welcome to Chitter'
       expect(page).not_to have_content 'Welcome User'
     end

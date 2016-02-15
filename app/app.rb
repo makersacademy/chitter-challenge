@@ -23,11 +23,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect to '/peeps/all'
+    redirect to '/peeps'
   end
 
-  # TODO: refactor to '/peeps'
-  get '/peeps/all' do
+  get '/peeps' do
     @peeps = Peep.all(order: [:created_at.desc])
     erb :'peeps/all'
   end
@@ -40,7 +39,7 @@ class Chitter < Sinatra::Base
     @peep = Peep.new(user: current_user, content: params[:content])
     if @peep.save
       flash.next[:notice] = 'Your peep has been posted!'
-      redirect to '/peeps/all'
+      redirect to '/peeps'
     else
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
@@ -55,7 +54,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to '/peeps/all'
+      redirect to '/peeps'
     else
       flash.now[:errors] = ['The email or password are incorrect']
       erb :'sessions/new'
@@ -64,7 +63,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    redirect to '/peeps/all'
+    redirect to '/peeps'
   end
 
   get '/users/new' do
@@ -80,7 +79,7 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:pwd_conf])
     if @user.save
       session[:user_id] = @user.id
-      redirect to '/peeps/all'
+      redirect to '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'

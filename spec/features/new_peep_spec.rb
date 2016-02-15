@@ -9,7 +9,7 @@ feature 'New peep' do
       fill_in 'content', with: 'My first peep!'
 
       expect { click_button 'Submit' }.to change(Peep, :count).by 1
-      expect(current_path).to eq '/peeps/all'
+      expect(current_path).to eq '/peeps'
       expect(page).to have_content 'Your peep has been posted!'
       expect(page).to have_content 'My first peep!'
     end

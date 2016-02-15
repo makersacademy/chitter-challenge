@@ -19,7 +19,7 @@ feature 'Log in' do
     scenario 'logs the user in' do
       log_in
 
-      expect(current_path).to eq '/peeps/all'
+      expect(current_path).to eq '/peeps'
       expect(page).to have_content "Welcome #{user.username}"
 
       within('header') do
