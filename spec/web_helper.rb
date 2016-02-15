@@ -1,5 +1,5 @@
 
-def sign_up
+def sign_up(user)
   visit '/users/new'
   expect(page.status_code).to eq(200)
   fill_in :email,    with: 'alice@example.com'

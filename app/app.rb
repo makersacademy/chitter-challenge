@@ -12,8 +12,13 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+  set :public_folder, Proc.new { File.join(root, 'static') }
+
+  enable :partial_underscores
 
   register Sinatra::Flash
+  #
 
   get '/chits' do
     @chits = Chit.all
@@ -73,6 +78,10 @@ delete '/sessions' do
   flash.keep[:notice] = 'goodbye!'
   redirect to '/chits'
 end
+
+ get '/users/recover' do
+    "Please enter your email address"
+  end
 
 
 
