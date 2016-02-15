@@ -6,6 +6,7 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   use Rack::Session::Pool, :expire_after => 4000000
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
@@ -13,6 +14,11 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
+  post '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye."
+    redirect to '/home'
+  end
 
   get '/home/sign-up' do
     @user = User.new
@@ -27,9 +33,9 @@ class Chitter < Sinatra::Base
                         password_confirmation: params[:confirm_password])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect to '/home'
     else
-      flash.now[:errors] = @user.errors.full_messages # "Password and confirmation password don't match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :signup
     end
   end
@@ -43,7 +49,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username_or_email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/home'
+      redirect to '/home'
     else
       flash.now[:errors] = 'Username or password is incorrect.'
       erb :login

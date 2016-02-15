@@ -24,3 +24,7 @@ def log_in(name: 'Jeremy',
   fill_in 'password', with: password
   click_button 'Log into Chitter'
 end
+
+def log_out
+  click_button 'Log out'
+end
