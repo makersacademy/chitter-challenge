@@ -7,7 +7,6 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear! 
 
-Capybara.app = Chitter
 
 ENV['RACK_ENV'] = 'test'
 
@@ -19,6 +18,8 @@ require 'database_cleaner'
 require 'rspec'
 require 'web_helper.rb'
 
+
+Capybara.app = Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   

@@ -13,6 +13,7 @@ group :test do
   gem 'rspec'
   gem 'rack'
   gem 'coveralls', require: false
+  gem 'simplecov'
   gem 'database_cleaner'
   gem 'capybara'
 end
