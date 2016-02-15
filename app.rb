@@ -55,6 +55,21 @@ end
     end
   end
 
+  get '/sessions/new' do
+    erb :sessions_new
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:user_name],params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to ('/homepage')
+    else
+      flash.now[:errors] = ['The user name or password is incorrect']
+      erb :sessions_new
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
