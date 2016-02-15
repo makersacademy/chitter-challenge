@@ -38,7 +38,7 @@ $ rakeup
 
 This will create a database named `chitter_development` using Postgres, and run this app on a local web server. You can then peep using a browser at `http://localhost:9292/`.
 
-**Issues and Bug Reports**
+###Issues and Bug Reports
 
 Feature requests and bug reports can be made here at https://github.com/yyl29/chitter-challenge/issues
 
