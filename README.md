@@ -37,12 +37,19 @@ In order to use this app, I recommend cloning it, by following these instruction
 
 $ git clone
 https://github.com/ScottGledhill/chitter-challenge.git
+
 $ bundle install
+
 $ psql
+
 $ create database chitter-test;
+
 $ create database chitter-development;
+
 To check tests you may use $ rspec
-To run in a localhost setting use $ rackup and visit http://localhost:9292/
+
+To run in a localhost setting use $ rackup and visit
+ http://localhost:9292/
 
 Created by
 Scott Gledhill
