@@ -1,3 +1,8 @@
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 
@@ -14,12 +19,6 @@ require 'bcrypt'
 require_relative '../data_mapper_setup'
 
 Capybara.app = ChitterChallenge
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
