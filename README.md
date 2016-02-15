@@ -33,7 +33,7 @@ Screenshots:
 (http://i.imgur.com/cSpHP0T.png)
 
 ![Image of Peeps]
-(http://i.imgur.com/xydnt5Y.png)
+(http://i.imgur.com/m6Qu9DV.png)
 
 
 Key Learnings:
