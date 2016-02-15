@@ -4,7 +4,7 @@ This is the Week 3 Chitter Challenge by Zeshan Rasul
 
 ## Using the site on Heroku
 
-This application is available to use on Heroku at
+This application is available to use on Heroku at http://zr-chitter.herokuapp.com.
 
 ## Instalation instructions
 
@@ -92,3 +92,18 @@ Future improvements would mainly revolve around the user interface and improved 
 I would also plan to implement password and account recovery using email tokens and potentially the Mailgun API.
 
 ## Screenshots
+
+### Homepage/Sign Up
+![Screenshot](https://raw.githubusercontent.com/ZeshanRasul/chitter-challenge/master/docs/homepage.png)
+
+### Sign In
+![Screenshot](https://raw.githubusercontent.com/ZeshanRasul/chitter-challenge/master/docs/signin.png)
+
+### Peep Page
+![Screenshot](https://raw.githubusercontent.com/ZeshanRasul/chitter-challenge/master/docs/peeppage.png)
+
+### Test Peep
+![Screenshot](https://raw.githubusercontent.com/ZeshanRasul/chitter-challenge/master/docs/testpeep.png)
+
+### Test Response
+![Screenshot](https://raw.githubusercontent.com/ZeshanRasul/chitter-challenge/master/docs/testreply.png)
