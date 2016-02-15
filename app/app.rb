@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index' # FIXME need to add proper erb file
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do
@@ -79,6 +79,5 @@ class Chitter < Sinatra::Base
   end
 
 
-  # start the server if ruby file executed directly
-  run! if app_file == $0
+  # run! if app_file == $0
 end
