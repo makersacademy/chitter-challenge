@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   set :public_folder, 'static'
+  # set :public_folder, Proc.new { File.join(root,'static') }
 
   get '/users/new' do
     @user = User.new

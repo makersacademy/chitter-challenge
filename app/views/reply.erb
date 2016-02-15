@@ -1,10 +1,13 @@
-<h1> Reply to peep</h1>
+<h1> Reply!</h1>
+<section class='post'>
+<p>Replying to:</p>
 
-<%=@peep.content%>
+<p><%=@peep.content%></p>
 
 
 
 <form action='/session/reply' method='post'>
-  <input type="text" name="content" placeholder="Write your peep here" required>
-  <input type="submit" value="Reply">
+  <textarea cols='50' rows='3'  name="content" placeholder="Write your reply here - 140 characters" required></textarea>
+  <input type="submit" class='peep' value="Reply">
 </form>
+</section>

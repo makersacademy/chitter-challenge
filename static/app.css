@@ -23,6 +23,23 @@ header #logo {
   box-sizing: border-box;
 }
 
+h1{
+  margin-top: 150px;
+  clear: left;
+  font-family: Helvetica;
+  font-size: 150%;
+  color: #248bc1;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.errors{
+  position: relative;
+  top: 100px;
+  font-family: Helvetica;
+  clear: left;
+  text-align: center;
+  }
 
 header #user-links{
   flex: 1;
@@ -32,7 +49,7 @@ header #user-links{
 #session_controls{
   position: absolute;
   top: 0px;
-  left: 50px;
+  left: 30px;
   margin-left: 30px;
   margin-top: 10px;
 }
@@ -182,10 +199,93 @@ body {
       font-size: 12px;
     }
 
+  .signup{
+    clear: left;
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    font-family: Helvetica-light;
+    border: 0.1px solid #a5d5ee;
+    border-radius: 3px;
+    padding: 15px 10px;
+    display: block;
+    text-align: center;
+  }
+
+  .signup input{
+    display:block;
+    background-color: white;
+    font-family: Helvetica-light;
+    border: 0.1px solid #df8252;
+    border-radius: 3px;
+    padding: 5px 5px;
+    margin: 0 auto;
+    margin-bottom: 4px;
+    font-size: 150%;
+    color: black;
+    align-content: center;
+  }
+  .signup .in_out{
+    display: inline-block;
+    width: 100px;
+    background-color: #df8252;
+    border: 0.5px solid white;
+    color: white;
+    font-size: 90%;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+  }
+
+  .post{
+    clear: left;
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    font-family: Helvetica-light;
+    border: 0.1px solid #a5d5ee;
+    border-radius: 3px;
+    padding: 15px 10px;
+    display: block;
+    text-align: center;
+  }
+  .post textarea{
+    display:block;
+    background-color: white;
+    font-family: Helvetica-light;
+    border: 0.1px solid #df5269;
+    border-radius: 3px;
+    padding: 5px 5px;
+    margin: 0 auto;
+    margin-bottom: 4px;
+    font-size: 100%;
+    color: black;
+    align-content: center;
+  }
+
+  .post .peep{
+    display: inline-block;
+    width: 100px;
+    background-color: #df5269;
+    border: 0.5px solid white;
+    color: white;
+    font-size: 90%;
+    text-decoration:none;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0 auto;
+    text-shadow: 0 0 2px rgba(0,0,0, 0.4);
+  }
 
 ul{
   color: black;
 }
-h1{
-  color: blue;
+p{
+  font-family: Helvetica-light;
+  margin-bottom: 2px;
 }

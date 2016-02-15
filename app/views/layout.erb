@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="/reset.css">
+    <link rel="stylesheet" type="text/css" href="/app.css">
     <title>Chitter</title>
   </head>
   <body>
@@ -11,28 +11,28 @@
 
     <div id='session_controls'>
     <% if current_user %>
-    <a href='session/end'><button class='in_out'>Logout</button></a>
+    <a href='/session/end'><button class='in_out'>Logout</button></a>
+    <span id='welcome-message'> Hello, <%=current_user.name%></span>
     <% else %>
-    <a href='users/new'><button class='in_out'>Sign-up</button></a>
-    <a href='session/new'><button class='in_out'>Login</button></a>
+    <a href='/users/new'><button class='in_out'>Sign-up</button></a>
+    <a href='/session/new'><button class='in_out'>Login</button></a>
+    <%= flash[:notice] %>
     <% end %>
     </div>
     <div id='logo'> Chitter </div>
     <div id='peep_controls'>
-      <a href='session/peep'><button class='peep'>Peep</button></a>
+      <a href='/session/peep'><button class='peep'>Peep</button></a>
     </div>
   </header>
-  <section class='user_info'>
-    <% if current_user %>
-    <span id='welcome-message'> Hello, <%=current_user.name%></span>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
+
+  <section class='errors'>
+ <% if flash[:errors] && !flash[:errors].empty? %>
       <% flash[:errors].each do |error| %>
         <div id='error'><%= error %></div>
       <% end %>
     <% end %>
-    <%= flash[:notice] %>
   </section>
+
     <%= yield %>
   </body>
 </html>
