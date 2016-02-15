@@ -1,6 +1,6 @@
 ![Build Status](https://travis-ci.org/tcpickard94/chitter-challenge.svg?branch=master)
 
-[![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)]
+[![Coverage Status](https://coveralls.io/repos/github/tcpickard94/chitter-challenge/badge.svg?branch=master)]
 
 Chitter
 =======
