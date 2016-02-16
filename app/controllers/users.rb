@@ -7,8 +7,8 @@ class ChitterApp < Sinatra::Base
 
   post '/users/sign_up' do
     new_user = User.create(
-                            username:   URI.escape(params[:username]),
-                            real_name:  URI.escape(params[:real_name]),
+                            username:   sanitize(params[:username]),
+                            real_name:  sanitize(params[:real_name]),
                             email:      params[:email],
                             password:   params[:password],
                             password_confirmation: params[:password_confirmation]

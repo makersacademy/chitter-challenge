@@ -10,6 +10,10 @@ class ChitterApp < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:id])
     end
+
+    def sanitize string
+      string.gsub(/<[^>]*>/, '')
+    end
   end
 
 
