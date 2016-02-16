@@ -5,6 +5,7 @@ class ChitterApp < Sinatra::Base
     end
 
     post '/peeps/new' do
+      flash.keep[:length] = "Message too long!" if params[:message].length > 140
       # move peep into current_user?
       Peep.create(message: params[:message],
                   author: current_user.real_name,

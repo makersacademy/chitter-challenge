@@ -9,12 +9,14 @@
     placeholder="Your message here" required/>
     <input type="submit" value="Peep!"/>
   </form>
+  <p style="font-size:10px;padding-bottom:0;margin-bottom:0;"><em>140 chars max</em></p>
+  <p style="font-size:10px;color:red;margin-top:0;padding-top:0;"><em><%= flash[:length] %></em></p>
   <br>
 <%end%>
 
 <% unless Peep.all.empty? %>
   <% Peep.all.reverse.each do |peep| %>
-    <div class="peep-div">
+    <div class="peep-div" style="word-wrap: break-word;">
       <em style="font-size: 10pt;"><%= peep.handle %></em><br>
       <b style="font-size: 10pt;"><%= peep.author %></b> peeps:
       <hr style="border-color:grey; margin: 5px 0 5px 0; width:70%">

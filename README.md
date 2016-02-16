@@ -13,10 +13,10 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 
 <b>BONUS FEATURES IMPLEMENTED:</b><br>
 - pretty styling
+- max peep length of 140 chars
 
 <b>TO DO:</b><br>
 - commenting on other’s Peeps
-- give error message when user tries to submit a peep longer than 50 chars
 
 <b>TECHNOLOGIES USED:</b><br>
 - Ruby 2.2.3
@@ -27,7 +27,8 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 - Rspec-Sinatra, Capybara, Coveralls (for testing)
 
 <b>ACKNOWLEDGEMENTS:</b><br>
-Background image taken from <a href="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg">Mindsquirrel</a>.
+- background image taken from <a href="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg">Mindsquirrel</a>.
+- favicon adapted from http://resultsbusinesscoach.com/wp-content/uploads/2014/08/acorn.jpg
 
 <b>HOW TO USE:</b><br>
 - clone repo

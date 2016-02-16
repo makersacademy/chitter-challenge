@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Chitter</title>
+    <title>Chitr</title>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="/images/chitr-icon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
 
-  <body style="position: relative; height:100%;" >
+  <body style="position: relative; height:100%; padding-bottom: 70px;" >
 
     <div id="bg-div" style="
     position: fixed;
@@ -24,8 +25,12 @@
 </div>
 
     <nav class="navbar navbar-default" class="container-fluid">
-      <div class="navbar-header">
-        <div class="navbar-brand"><a href="/" style="text-decoration:none; color:grey;">Chitr</a></div>
+      <div class="navbar-header" style="vertical-align:middle;">
+        <a href="/" style="text-decoration:none;">
+          <div class="navbar-brand">
+            <img src="/images/chitr-logo.png" style="height:100%;"/>
+          </div>
+        </a>
       </div>
 
       <div><!-- buttons -->
@@ -58,7 +63,7 @@
 
     <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4" style="background-color: rgba(245, 245, 245, 0.6); padding: 20px;">
+    <div class="col-md-4" style="border-radius:10px;background-color: rgba(245, 245, 245, 0.6); padding: 20px;">
 
     <% if current_user %>
       <%= "Welcome, #{current_user.real_name}!" %>
