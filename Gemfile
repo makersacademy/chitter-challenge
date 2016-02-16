@@ -7,5 +7,7 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
 end
 
