@@ -7,4 +7,3 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_
 require './app/models/peep.rb'
 
 DataMapper.finalize
-DataMapper.auto_upgrade!
