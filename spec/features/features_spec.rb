@@ -15,6 +15,7 @@ feature 'Viewing peeps' do
     fill_in :name, with: 'My Name'
     fill_in :username, with: 'My Username'
     fill_in :text, with: 'Testing Again'
+    fill_in :time, with: 'Now'
     click_button('Post Peep')
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
