@@ -8,7 +8,9 @@ feature 'Viewing peeps' do
       expect(page).to have_content('Testing')
     end
   end
+end
 
+feature 'Creating peeps' do
   scenario 'I can create a peep' do
     visit '/peeps'
     click_button('New Peep')
@@ -21,5 +23,13 @@ feature 'Viewing peeps' do
     within 'ul#peeps' do
       expect(page).to have_content('Testing Again')
     end
+  end
+end
+
+feature 'User sign up' do
+  scenario 'I can sign up as a new user' do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, barry@example.com')
+    expect(User.first.email).to eq('barry@example.com')
   end
 end

@@ -13,6 +13,7 @@ require 'coveralls'
 require 'simplecov'
 require './app/models/peep'
 require 'database_cleaner'
+require 'web_helper'
 
 Capybara.app = Chitter
 
