@@ -13,4 +13,5 @@ ruby '2.2.3'
   gem 'rspec-sinatra'
   gem 'database_cleaner'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 # end
