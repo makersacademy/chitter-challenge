@@ -5,7 +5,7 @@ class User
 
   property :id, Serial
   property :username, String
-  property :email, String
+  property :email, String, format: :email_address, required: true
   property :password_digest, Text
 
 	def password=(password)
@@ -23,5 +23,5 @@ class User
   # read more about it in the documentation
   # http://datamapper.org/docs/validations.html
   validates_confirmation_of :password
-
+  validates_presence_of :email
 end

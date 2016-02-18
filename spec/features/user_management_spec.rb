@@ -33,4 +33,17 @@ feature 'User Sign-up' do
   
   end
 
+  scenario 'need a valid email account to sign up' do
+
+    def signup_wrong_email
+      visit('/signup')
+      fill_in 'username', with: 'cooluser_123'
+      fill_in 'password', with: 'secretpassword'
+      fill_in 'password_confirmation', with: 'secretpassword'
+      click_button 'Sign Up'
+    end
+
+    expect { signup_wrong_email }.not_to change(User, :count)
+  end
+
 end
