@@ -3,6 +3,6 @@
 <ul>
   <% @peeps.reverse_each { |peep| %>
   <li><%= "#{peep.name} says, \"#{peep.content}\""%>
-  <h6><%= "#{peep.time_submitted.strftime("%a, %b, %y at %I:%M%p") }" %></h6>
+  <h6><%= "#{peep.time_submitted.strftime("%a, %b %e, %Y at %I:%M%p") }" %></h6>
   </li><% }%>
 </ul>

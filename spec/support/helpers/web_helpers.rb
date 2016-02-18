@@ -1,7 +1,8 @@
-def sign_up
-	visit('/signup')
-		fill_in 'username', with: 'cooluser_123'
-		fill_in 'email', with: 'cool@me.com'
-		fill_in 'password', with: 'secretpassword'
-		click_button 'Sign Up'
+def visual_debug
+require 'capybara/dsl'
+
+Capybara.default_driver = :selenium
+
+include Capybara::DSL
+
 end

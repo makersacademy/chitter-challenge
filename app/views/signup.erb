@@ -1,14 +1,17 @@
 <h2>Sign up for Chitter</h2>
 <form action="/users" method="POST">
 	<label for:"username">
-		Username: <input type="text" name="username">
+		Username: <input name='username' type='text' value='<%= @user.username %>'>
 	</label>
 	<label for:"email">
-		Email: <input type="text" name="email">
+		Email: <input name='email' type='text' value='<%= @user.email %>'>
 	</label>	
 	<label for:"password">
 		Password: <input type="password" name="password">
 	</label>	
+  <label for:"password_confirmation">
+  Password: <input name="password_confirmation" type="password">
+  </label>
 	<input type="submit" value="Sign Up">	
 </form>
 
