@@ -14,6 +14,7 @@ require 'simplecov'
 require './app/models/peep'
 require 'database_cleaner'
 require 'web_helper'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -129,4 +130,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+config.include SessionHelpers
 end

@@ -40,15 +40,15 @@ feature 'User sign up' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
-  def sign_up(email: 'barry@example.com',
-              password: '12345678',
-              password_confirmation: '12345678')
-    visit '/users/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
-  end
+  # def sign_up(email: 'barry@example.com',
+  #             password: '12345678',
+  #             password_confirmation: '12345678')
+  #   visit '/users/new'
+  #   fill_in :email, with: email
+  #   fill_in :password, with: password
+  #   fill_in :password_confirmation, with: password_confirmation
+  #   click_button 'Sign up'
+  # end
 
   scenario 'with a password that does not match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
@@ -89,12 +89,12 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
-  end
+  # def sign_in(email:, password:)
+  #   visit '/sessions/new'
+  #   fill_in :email, with: email
+  #   fill_in :password, with: password
+  #   click_button 'Sign in'
+  # end
 
 end
 
@@ -116,5 +116,22 @@ describe User do
   it 'does not authenticate when given an incorrect password' do
   expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
 end
+
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
+  scenario 'while being signed in' do
+    sign_in(email: 'test@test.com', password: 'test')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, test@test.com')
+  end
 
 end
