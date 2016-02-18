@@ -11,6 +11,8 @@
   <% end %>
 </ul>
 
+<% if current_user %>
 <form action='/peeps/new' method='POST'>
   <input type='submit' value='New Peep'>
 </form>
+<% end %>
