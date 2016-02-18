@@ -1,17 +1,18 @@
 <h1> New Peep </h1>
 <% if current_user %>
 <form action='/peeps' method='POST'>
-  <label for='name'>
+  <!-- <label for='name'>
     Name:
     <input type='text' name='name' />
   </label>
   <label for='username'>
     Username:
     <input type='text' name='username' />
-  </label>
+  </label> -->
   <label for='text'>
     Text:
-    <input type='text' name='text' />
+    <textarea type='text' name='text'>Enter Text</textarea>
+    <!-- <input type='text' name='text' /> -->
   </label>
   <label for='time'>
     Time:
