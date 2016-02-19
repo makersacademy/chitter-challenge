@@ -8,6 +8,24 @@ For the fourth weekend challenge, I had to create a web application similar to T
 
 The web application can be found [here](http://ch1tter.herokuapp.com).
 
+###### Screenshots:
+
+Home Page:
+
+![home page](/img/home_page.png)
+
+Sign Up Page:
+
+![sign up](/img/sign_up.png)
+
+Log In Page:
+
+![log in](/img/log_in.png)
+
+Logged In Home Page:
+
+![logged in home page](/img/logged_in home_page.png)
+
 Given more time, I would like to make it possible to reply to peeps.
 
 -----
