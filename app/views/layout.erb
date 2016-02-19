@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href='styles.css' rel='stylesheet'>
+  </head>
+
+  <body>
+    <header>
+      <% if current_user %>
+      <div class="current_user">
+        <h1><%= current_user.name %></h1>
+        <h2><%= current_user.username %></h2>
+      </div>
+      <div class="sign_in">
+        <form method="post" action="/log_out">
+          <input type="hidden" name="_method", value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
+    <% else %>
+      <div class="sign_in">
+       <a href="/log_in"><button>Log In</button></a>
+       <a href="/sign_up"><button>Sign Up!</button></a>
+      </div>
+    <% end %>
+  </header>
+    <%= yield %>
+  </body>
+</html>

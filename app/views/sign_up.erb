@@ -1,0 +1,23 @@
+<ul>
+  <% if flash[:errors] %>
+    <div class='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+    </div>
+  <% end %>
+  <li><h1>Sign Up For Chitter!</h1><h2></h2>
+  <form action="/new_user" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= @user.name %>", required></br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="<%= @user.email %>", required></br>
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="<%= @user.username %>", required></br>
+    <label for="password">Password:</label>
+    <input type="password" name="password", required></br>
+    <label for="password_confirmation">Confirm Password:</label>
+    <input type="password" name="password_confirmation", required></br>
+    <h6><input type="submit" value="Sign Up"></h6>
+  </form></li>
+</ul>
