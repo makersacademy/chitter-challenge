@@ -1,6 +1,6 @@
 Makers week 4: Chitter Challenge
 =================
-[![Build Status](https://travis-ci.org/innlouvate/chitter-challenge.svg?branch=master)](https://travis-ci.org/innlouvate/chitter-challenge)
+<!--[![Build Status](https://travis-ci.org/innlouvate/chitter-challenge.svg?branch=master)](https://travis-ci.org/innlouvate/chitter-challenge)-->
 
 Task:
 -------
