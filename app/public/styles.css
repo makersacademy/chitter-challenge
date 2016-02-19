@@ -1,5 +1,5 @@
 * {
-  background-color: #95ec65;
+  background-color: #D9FFBE;
   font-family: Calibri, sans-serif;
 }
 
@@ -27,7 +27,7 @@ header {
   margin-bottom: 0px;
   font-style: italic;
   font-size: 20px;
-  color: #9f249f;
+  color: #AE62B2;
 }
 
 .current_user h2 {
@@ -35,7 +35,7 @@ header {
   margin-top: -3px;
   font-style: italic;
   font-size: 14px;
-  color: #9f249f;
+  color: #AE62B2;
 }
 
 .sign_in {
@@ -52,12 +52,12 @@ header {
   width: 90px;
   padding: 5px;
   background-color: #000000;
-  border: solid 2px #9f249f;
+  border: solid 2px #AE62B2;
 }
 
 .sign_in input:hover {
   background-color: #111111;
-  color: #9f249f;
+  color: #AE62B2;
 }
 
 button {
@@ -67,13 +67,13 @@ button {
   width: 80px;
   padding: 5px;
   background-color: #000000;
-  border: solid 2px #9f249f;
+  border: solid 2px #AE62B2;
   border-radius: 8px;
 }
 
 button:hover {
   background-color: #111111;
-  color: #9f249f;
+  color: #AE62B2;
 }
 
 ul {
@@ -89,7 +89,7 @@ li {
   width: 45%;
   padding: 10px;
   margin: 15px;
-  border: solid 2px #b1ff87;
+  border: solid 2px #E8FFD8;
   border-radius: 20px;
 }
 
@@ -107,7 +107,7 @@ li label {
 
 
 li input {
-  color: #9f249f;
+  color: #AE62B2;
   font-weight: bold;
   font-size: 12px;
   margin-top: 2px;
@@ -133,7 +133,7 @@ li h1 {
   margin-bottom: 0px;
   font-style: italic;
   font-size: 20px;
-  color: #9f249f;
+  color: #AE62B2;
 }
 
 li h2 {
@@ -142,7 +142,7 @@ li h2 {
   margin-top: -3px;
   font-style: italic;
   font-size: 14px;
-  color: #9f249f;
+  color: #AE62B2;
   border-bottom: solid 1px #bbbbbb;
 }
 
@@ -162,14 +162,14 @@ li h6 {
 }
 
 li h6 input {
-  color: #9f249f;
+  color: #AE62B2;
   font-weight: bold;
   font-size: 12px;
   margin-top: 5px;
   width: 50px;
   padding: 2px;
   background-color: #ffffff;
-  border: solid 2px #9f249f;
+  border: solid 2px #AE62B2;
   border-radius: 8px;
 }
 
