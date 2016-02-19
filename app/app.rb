@@ -37,11 +37,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      if @user.password != @user.password_confirmation
-        flash.now[:notice] = "Password and confirmation password do not match"
-      else
-        flash.now[:notice] = "Provided email is invalid"
-      end
+      flash.now[:errors] = @user.errors.full_messages
       erb :signup
     end
   end
