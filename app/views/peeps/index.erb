@@ -2,17 +2,17 @@
 
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li>
-      Name: <%= peep.name %>
-      Username: <%= peep.username %>
-      Text: <%= peep.text %>
-      Time: <%= peep.time %>
-    </li>
+    <section id="peep-container">
+      <li id="peep-name">Name: <%= peep.name %></li>
+      <li id="peep-username">Username: <%= peep.username %></li>
+      <li id="peep-text">Text: <%= peep.text %></li>
+      <li id="peep-time">Time: <%= peep.time %></li>
+    </section>
   <% end %>
 </ul>
 
 <% if current_user %>
-<form action='/peeps/new' method='POST'>
-  <input type='submit' value='New Peep'>
-</form>
+  <form action='/peeps/new' method='POST'>
+    <input type='submit' value='New Peep'>
+  </form>
 <% end %>

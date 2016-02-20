@@ -4,6 +4,12 @@ require 'sinatra/base'
 require_relative 'models/peep'
 require 'sinatra/flash'
 
+# require 'capybara/dsl'
+# require 'selenium-webdriver'
+#
+# include Capybara::DSL
+# Capybara.default_driver = :selenium
+
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
   register Sinatra::Flash
@@ -18,8 +24,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peep.create(name: current_user.name, username: current_user.username, text: params[:text], time: "#{Time.now.strftime('%H:%M %d-%b-%y')}")
-    # Peep.create(name: params[:name], username: params[:username], text: params[:text], time: params[:time])
-    # current_user.email
     redirect to('/peeps')
   end
 
@@ -72,11 +76,11 @@ delete '/sessions' do
   redirect to '/peeps'
 end
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id])
   end
+end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

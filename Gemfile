@@ -14,4 +14,5 @@ ruby '2.2.3'
   gem 'database_cleaner'
   gem 'bcrypt'
   gem 'sinatra-flash'
+  gem 'selenium-webdriver'
 # end

@@ -1,26 +1,12 @@
 <h1> New Peep </h1>
 <% if current_user %>
-<form action='/peeps' method='POST'>
-  <!-- <label for='name'>
-    Name:
-    <input type='text' name='name' />
-  </label>
-  <label for='username'>
-    Username:
-    <input type='text' name='username' />
-  </label> -->
-  <label for='text'>
+  <form action='/peeps' method='POST'>
+    <label for='text'>
     Text:
     <textarea type='text' name='text'>Enter Text</textarea>
-    <!-- <input type='text' name='text' /> -->
-  </label>
-  <!-- <label for='time'>
-    Time:
-    <input type='text' name='time' />
-  </label> -->
-  <input type='submit' value='Post Peep'>
-
-</form>
+    </label>
+    <input type='submit' value='Post Peep'>
+  </form>
 <% else %>
-Please sign in
+  Please sign in
 <% end %>
