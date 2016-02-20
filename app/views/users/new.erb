@@ -1,20 +1,24 @@
-<h1>Please sign up</h1>
-
-<form action='/users' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email' value='<%= @user.email %>' required>
-  </label>
-  <label for='name'>
-    Name: <input name='name' type='text'>
-  </label>
-  <label for='username'>
-    Username: <input name='username' type='text'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <label for='password_confirmation'>
-    Confirm Password: <input name='password_confirmation' type='password'>
-  </label>
-  <input type='submit' value='Sign up'>
+<h1 id="content_header">Sign up to join the conversation!</h1>
+<section id="form_element_container">
+  <form action='/users' method='post'>
+      <label for='email'>
+        <input name='email' placeholder='Email' type='email' value='<%= @user.email %>' required>
+      </label>
+      <label for='name'>
+        <input name='name' placeholder='Name'type='text'>
+      </label>
+      <label for='username'>
+        <input name='username' placeholder='Username'type='text'>
+      </label>
+      <label for='password'>
+        <input name='password' placeholder='Password'type='password'>
+      </label>
+      <label for='password_confirmation'>
+        <input name='password_confirmation' placeholder='Confirm Password' type='password'>
+      </label>
+    <input id="form_button" type='submit' value='Sign up'>
+  </section>
 </form>
+<section id="footer">
+<p>By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use. Others will be able to find you by email when provided.</p>
+</section>

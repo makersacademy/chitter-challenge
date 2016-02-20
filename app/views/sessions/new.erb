@@ -1,11 +1,12 @@
-<h1>Please sign in</h1>
-
-<form action='/sessions' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
+<h1 id="content_header">Sign in now to start Peeping!</h1>
+<section id="form_element_container">
+  <form action='/sessions' method='post'>
+    <label for='email'>
+      <input name='email' placeholder="Email"type='email'>
+    </label>
+    <label for='password'>
+      <input name='password' placeholder="Password" type='password'>
+    </label>
+    <input id="form_button" type='submit' value='Sign in'>
+  </form>
+</section>
