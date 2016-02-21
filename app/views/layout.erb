@@ -12,7 +12,7 @@
       <% if current_user %>
         <form method='post' action='/sessions'>
           <input type='hidden' name='_method' value='delete'>
-          <input id="header_button" type='submit' value='Sign out'>
+          <input id="header_button" type='submit' value='Log out'>
         </form>
         <h1 id="welcome">Welcome, <%= current_user.name %>.</h1>
       <% else %>
@@ -23,7 +23,7 @@
         <% end %>
         <% if request.path_info != '/sessions/new' %>
           <form action='/sessions/new' method='GET'>
-            <input id="header_button" type='submit' value='Sign in'>
+            <input id="header_button" type='submit' value='Log in'>
           </form>
         <% end %>
       <% end %>
