@@ -52,7 +52,7 @@ Note that the below instructions describe the process of installing and running 
 
 ![7_peeps_logged_in_new_peep](img/7_peeps_logged_in_new_peep.png)
 
-* When you are done adding peeps, click the 'Log out' button to be signed out of Chitter, as shown below. A 'Goodbye!' message will be shown in the top left corner. Notice that once logged out you will no longer be able to add any new peeps until you have logged back in again, but you may still view all peeps on the Peeps page.
+* When you are done adding peeps, click the 'Log out' button to be signed out of Chitter, as shown below. A 'Goodbye!' message will be shown in the top left corner. Notice that once logged out you will no longer be able to add any new peeps until you have logged back in again, but you may still view all peeps on the peeps page.
 
 ![8_logged out](img/8_logged out.png)
 
@@ -71,3 +71,17 @@ Points of interest
 * The buttons in the header are smart enough to appear and disappear when necessary, so for example once logged in the 'Log in' and 'Sign up' buttons disappear, so that only the 'Log out' and 'New Peep' buttons are visible. Once logged out the 'Log in and Sign up' buttons will appear, but not the 'Log out' and 'New Peep' buttons. This is designed to safeguard against users doing things that they should not be able to, for example attempting to add a peep whilst not logged in. However it may be noted that the 'New Peep' button simply takes the user to the '/peeps/new' path, which if known can be entered manually in to the browser address bar, bypassing the disappearing button safeguard. Due to this further checks have been put in place, so that upon visiting the '/peeps/new' path whilst not logged in, a 'Please Log in' message will be shown in the top left corner, and the new peep form will not be accessible, as shown below.
 
 ![11_new_peep_page_not_logged_in](img/11_new_peep_page_not_logged_in.png)
+
+Testing
+-------
+* Providing that a local version of the application has been setup as per the instructions above, the Rspec tests can be run in order to view the feature and unit tests that were written for this project. In order to run these tests, from the terminal and at the project root directory run `rspec`. The tests will run, and will return the pass status for each of the project's tests.
+
+* The front-end testing capability has been provided by Capybara. Selenium WebDriver has also been implemented, which upon running `rspec` will open the Firefox browser and visually run all tests. This capability has been commented out of the committed code due to the fact that running the tests in the browser each time is a lot slower than running them in the terminal only. In order to turn on this feature uncomment the below lines in 'app/app.rb'.
+
+```
+### Uncomment the below to use Selenium Webdriver during Rspec testing ###
+# require 'capybara/dsl'
+# require 'selenium-webdriver'
+# include Capybara::DSL
+# Capybara.default_driver = :selenium
+```
