@@ -1,111 +1,87 @@
 Chitter Challenge
-=================
-
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+==================
+[![Build Status](https://travis-ci.org/barrygrubb/chitter-challenge.svg?branch=master)](https://travis-ci.org/barrygrubb/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/barrygrubb/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/barrygrubb/chitter-challenge?branch=master)
+Introduction
 -------
+The purpose of this challenge was to build a basic twitter clone. This was a solo project created for the Makers Academy week 4 weekend challenge. The app has been built using Ruby and the [Sinatra](http://www.sinatrarb.com/) framework, with a HTML and CSS front-end. The [PostreSQL](http://www.postgresql.org/) database management system has been utilized to provide data persistence of user accounts and peeps (Chitter's equivalent of tweets). [bcrypt](https://rubygems.org/gems/bcrypt) has been implemented to provide password security by encrypting user passwords before they are stored in the database, and validating login passwords against the encrypted data. [Rspec](http://rspec.info/) was implemented to provide feature and unit testing of the Ruby code, with [Capybara](https://github.com/jnicklas/capybara) added to test the front-end interactions. [Selenium WebDriver](http://www.seleniumhq.org/) was also utilized in order to visualize the capybara tests in the Firefox browser.
 
-As usual please start by 
+Features modeled include the following:
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+* Ability to sign up to Chitter with an email address, name, username, password and password confirmation.
+* Ability to view the latest peeps in descending chronological order even when not logged in.
+* Once logged in, the ability to create a new peep is provided.
+* Upon adding a new peep it is saved to the database, and its text is displayed on the peeps page, along with the name and username of the user who added the peep, plus the date and time that the peep was added.
+* The user is greeted with their name upon logging in. Similarly a 'Goodbye!' message is shown upon log out.
+* Various front-end and back-end validations exist to ensure that all user data is filled in upon signing up, and that the password and confirmation passwords match. Similar validations are provided for the logging in procedure. In the event that any data is withheld upon sign up or log in a message will appear explaining which data is missing.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Instructions
 -------
+Note that the below instructions describe the process of installing and running a local copy of the project, which will require a working PostgreSQL installation, and the requisite databases to be created. In order to simply test the project from a user perspective consider visiting the [online version](https://chitter-challenge-bkg.herokuapp.com/peeps).
 
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+* Open the terminal and clone the repository locally using `git clone https://github.com/barrygrubb/chitter-challenge.git`.
+* `cd` in to the project directory and use the `bundle` command to install all required dependencies.
+* Run `psql` to gain access to the PostgreSQL databases and commands. Use `create database chitter_challenge_test;`, and `create database chitter_challenge_development;` to create both of the required databases.
+* Use `\l` to list all databases, and ensure that the two databases created in the previous step are listed. You may then have to use `q` to regain control of the terminal. Use `\q` to quit psql.
+* Run `ruby app/app.rb` to start the local server, and browse to the location mentioned in the terminal logs (likely localhost:4567). Be sure to append '/peeps' to the end of the path. The peeps page was added at '/peeps', because presumably for a final production application the root page would be reserved for a home page or similar.
+* You should be greeted by the page below, displaying all peeps in reverse chronological order.
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+![1_peeps_logged_out](img/1_peeps_logged_out.png)
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+* Clicking the 'Sign up' button will take you to the new user page, as shown below.
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+![2_new_user_page](img/2_new_user_page.png)
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+* Fill out your user details as shown below and press the 'Sign up' button to sign up to Chitter.
 
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
+![3_new_user_details](img/3_new_user_details.png)
 
-Notes on functionality:
-------
+* In the event that an error was made during signup an error message will be shown describing the problem, as shown below.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+![4_new_user_error_message](img/4_new_user_error_message.png)
 
-Bonus:
------
+* Once the signup details are entered correctly the new user account will be created and automatically logged in. You will be taken back to the peeps page, and a greeting will appear in the top left corner.
 
-If you have time you can implement the following:
+![5_peeps_logged_in](img/5_peeps_logged_in.png)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Notice that now you are logged in a 'New Peep' button has appeared at the top of the peep list. Click the 'New Peep' button, to be taken to the new peep page, as shown below. You can enter a peep of up to 140 characters long (just like twitter).
 
-And/Or:
+![6_new_peep_page](img/6_new_peep_page.png)
 
-* Work on the css to make it look good (we all like beautiful things).
+* Once you have entered your Peep and clicked the 'Post Peep' button, you will be returned to the peeps page, and will notice your newly created peep at the top of the list, proudly displaying not only its text, but also your name, username and the time and date that the peep was created.
 
-Good luck and let the chitter begin!
+![7_peeps_logged_in_new_peep](img/7_peeps_logged_in_new_peep.png)
 
-Code Review
------------
+* When you are done adding peeps, click the 'Log out' button to be signed out of Chitter, as shown below. A 'Goodbye!' message will be shown in the top left corner. Notice that once logged out you will no longer be able to add any new peeps until you have logged back in again, but you may still view all peeps on the peeps page.
 
-In code review we'll be hoping to see:
+![8_logged out](img/8_logged out.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* In order to log in again, click the 'Log in' button, which will take you to the log in page, as shown below.
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+![9_log_in_page](img/9_log_in_page.png)
 
-Notes on test coverage
-----------------------
+* Enter your previously registered email address and password before clicking the 'Log in' button, to log in to Chitter. If any errors are made during the login process a message will appear alerting the user to the error, as shown below.
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+![10_log_in_error_message](img/10_log_in_error_message.png)
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+Points of interest
+-------
+* From any page and at any time you can click the 'Welcome to Chitter!' title in the top bar to return to the peeps page.
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+* The buttons in the header are smart enough to appear and disappear when necessary, so for example once logged in the 'Log in' and 'Sign up' buttons disappear, so that only the 'Log out' and 'New Peep' buttons are visible. Once logged out the 'Log in and Sign up' buttons will appear, but not the 'Log out' and 'New Peep' buttons. This is designed to safeguard against users doing things that they should not be able to, for example attempting to add a peep whilst not logged in. However it may be noted that the 'New Peep' button simply takes the user to the '/peeps/new' path, which if known can be entered manually in to the browser address bar, bypassing the disappearing button safeguard. Due to this further checks have been put in place, so that upon visiting the '/peeps/new' path whilst not logged in, a 'Please Log in' message will be shown in the top left corner, and the new peep form will not be accessible, as shown below.
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+![11_new_peep_page_not_logged_in](img/11_new_peep_page_not_logged_in.png)
+
+Testing
+-------
+* Providing that a local version of the application has been setup as per the instructions above, the Rspec tests can be run in order to view the feature and unit tests that were written for this project. In order to run these tests, from the terminal and at the project root directory run `rspec`. The tests will run, and will return the pass status for each of the project's tests.
+
+* The front-end testing capability has been provided by Capybara. Selenium WebDriver has also been implemented, which upon running `rspec` will open the Firefox browser and visually run all tests. This capability has been commented out of the committed code due to the fact that running the tests in the browser each time is a lot slower than running them in the terminal only. In order to turn on this feature uncomment the below lines in 'app/app.rb'.
 
 ```
-$ coveralls report
+### Uncomment the below to use Selenium Webdriver during Rspec testing ###
+# require 'capybara/dsl'
+# require 'selenium-webdriver'
+# include Capybara::DSL
+# Capybara.default_driver = :selenium
 ```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-

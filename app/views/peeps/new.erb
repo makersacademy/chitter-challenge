@@ -1,0 +1,16 @@
+<% if current_user %>
+<h1 id="content_header"> New Peep! </h1>
+
+  <section id="form_element_container">
+    <form action='/peeps' method='POST'>
+      <label for='text'>
+      <textarea rows="3" maxlength="140" type='text' placeholder="Write your Peep here..." name='text'></textarea>
+      </label>
+      <input id="form_button" type='submit' value='Post Peep'>
+    </form>
+  </section>
+<% else %>
+  <div id='sign_in'>
+    <p>Please Log in</p>
+  </div>
+<% end %>
