@@ -3,51 +3,46 @@
   <head>
     <link href="<%= url('reset.css') %>" rel="stylesheet" type="text/css" />
     <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
-     <title>Welcome to Chitter!</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <title>Welcome to Chitter!</title>
   </head>
   <body>
-
-<section id="top_bar">
-  <a href="/peeps" id="header_text">Welcome to Chitter!</a>
-
-    <% if current_user %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input id="header_button" type='submit' value='Sign out'>
-      </form>
-      <h1 id="welcome">Welcome, <%= current_user.name %>.</h1>
-    <% else %>
-      <% if request.path_info != '/users/new' %>
-        <form action='/users/new' method='GET'>
-          <input id="header_button"type='submit' value='Sign up'>
+    <section id="top_bar">
+      <a href="/peeps" id="header_text">Welcome to Chitter!</a>
+      <% if current_user %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input id="header_button" type='submit' value='Sign out'>
         </form>
+        <h1 id="welcome">Welcome, <%= current_user.name %>.</h1>
+      <% else %>
+        <% if request.path_info != '/users/new' %>
+          <form action='/users/new' method='GET'>
+            <input id="header_button"type='submit' value='Sign up'>
+          </form>
+        <% end %>
+        <% if request.path_info != '/sessions/new' %>
+          <form action='/sessions/new' method='GET'>
+            <input id="header_button" type='submit' value='Sign in'>
+          </form>
+        <% end %>
       <% end %>
-      <% if request.path_info != '/sessions/new' %>
-        <form action='/sessions/new' method='GET'>
-          <input id="header_button" type='submit' value='Sign in'>
-        </form>
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
       <% end %>
-    <% end %>
-
-</section>
-
+    </section>
     <%= yield %>
-
     <% if flash[:errors] && !flash[:errors].empty? %>
       <section id="footer">
-        Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
+        <p>Please refer to the following errors below:</p>
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </section>
     <% end %>
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    </section>
-    <% end %>
-
   </body>
 </html>

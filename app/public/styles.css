@@ -1,6 +1,9 @@
 body{
-background-color: #bdc3c7;
+background-color: #FFFFFF;
+}
 
+html{
+font-family: 'Open Sans', sans-serif;
 }
 
 #top_bar {
@@ -11,14 +14,19 @@ background-color: #bdc3c7;
   padding: 0px;
   padding-top: 40px;
   position:fixed;
-  background-color: #34495e;
+  background: rgba(12,168,211,1);
+  background: -moz-linear-gradient(top, rgba(12,168,211,1) 0%, rgba(19,200,245,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(12,168,211,1)), color-stop(100%, rgba(19,200,245,1)));
+  background: -webkit-linear-gradient(top, rgba(12,168,211,1) 0%, rgba(19,200,245,1) 100%);
+  background: -o-linear-gradient(top, rgba(12,168,211,1) 0%, rgba(19,200,245,1) 100%);
+  background: -ms-linear-gradient(top, rgba(12,168,211,1) 0%, rgba(19,200,245,1) 100%);
+  background: linear-gradient(to bottom, rgba(12,168,211,1) 0%, rgba(19,200,245,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0ca8d3', endColorstr='#13c8f5', GradientType=0 );
 }
 
 a#header_text {
   display: block;
-  font-family: arial;
   font-size: 2em;
-  text-shadow: 0px 2px #2c3e50;
   text-align: center;
   color: white;
   text-decoration: none;
@@ -27,84 +35,79 @@ a#header_text {
 #header_button {
   float:right;
   height: 50px;
-  background-color: #2c3e50;
-  border: none;
+  background-color: rgba(255, 0, 0, 0);;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF;
   padding-bottom: 20px;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 5px;
-  text-align: center center;
+  border-radius: 2px;
+  text-align: center;
   font-size: 1em;
   font-weight: 100;
-  color: #f39c12;
-  margin: 5px 10px;
+  color: white;
+  margin: 20px 5px;
   margin-left: 0px;
-
+  height: 40px;
 }
 
 #header_button:hover {
-  background-color: #f39c12;
-  color: #2c3e50;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 #content_header {
-
   padding-top: 180px;
   padding-bottom: 40px;
   text-align: center;
   font-size: 2em;
-  font-family: arial;
-  color: #ecf0f1;
-  text-shadow: 0px 2px #7f8c8d;
+  color: #0CA7D3;
 }
 
 #peep_container{
-width: 100%;
-padding: 0px;
-padding-top: 10px;
-padding-bottom: 30px;
-margin-left: auto;
-margin-right: auto;
-background-color: #ecf0f1;
-border: none;
-border-color: #d9d9d9;
-margin-bottom: 0px;
+  width: 100%;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: none;
+  border-color: #DCDCDC;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 0px;
+  word-wrap: break-word;
 }
 
 #peep_name{
-  color: #2c3e50;
+  color: #044C62;
   display:inline;
-  font-family: arial;
   font-size: 1.5em;
-  text-shadow: 0px 1px #7f8c8d;
   margin-left: 10px;
-
 }
 
 #peep_username{
-  color: #7f8c8d;
+  color:  #0084AB;
   display:inline;
-  font-family: arial;
   font-size: 1em;
 }
 
 #peep_text{
-font-family: sans-serif;
-padding-top: 20px;
-padding-bottom: 20px;
-color: #2c3e50;
-margin-left: 30px;
-margin-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #6C7A89;
+  margin-left: 30px;
+  margin-right: 10px;
 }
 
 #peep_time{
-  font-family: sans-serif;
-  color: #f39c12;
+  color: #0084AB;
   float:right;
   margin-right: 10px;
 }
@@ -115,7 +118,7 @@ margin-right: 10px;
 
 #form_element_container{
   display: block;
-  background-color: #95a5a6;
+  background-color: #F5F8FA;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -128,7 +131,6 @@ margin-right: 10px;
 
 #footer{
   display: block;
-  font-family: sans-serif;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -137,7 +139,7 @@ margin-right: 10px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
-  color: #7f8c8d;
+  color: #6C7A89;
   font-size: 0.9em;
   line-height: 150%;
   text-align: center;
@@ -145,7 +147,6 @@ margin-right: 10px;
 
 #new_peep_button_container{
   display: block;
-  font-family: sans-serif;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -158,17 +159,17 @@ margin-right: 10px;
   font-size: 0.9em;
   line-height: 150%;
   text-align: center;
-  background-color: #95a5a6;
+  background-color: #F5F8FA;
 }
 
 input[type="email"], input[type="text"], input[type="password"], textarea{
-  color: #34495e;
+  color: #6C7A89;
   width: 98%;
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 1em;
-  background-color: #ecf0f1;
+  background-color: white;
   margin-bottom: 20px;
   padding-left: 10px;
 }
@@ -176,38 +177,43 @@ input[type="email"], input[type="text"], input[type="password"], textarea{
 #form_button {
   height: 50px;
   width: 100%;
-  background-color: #2c3e50;
+  background-color: #e26a6a;
   border: none;
   padding-bottom: 20px;
   padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
-  text-align: center center;
+  text-align: center;
   font-size: 1em;
   font-weight: 100;
-  color: #f39c12;
+  color: white;
   margin: 5px 10px;
   margin-left: 0px;
 }
 
 #form_button:hover {
-  background-color: #f39c12;
-  color: #2c3e50;
+  background-color: rgba(226, 106, 106, 0.75);
 }
 
-#welcome{
-  font-family: sans-serif;
+#welcome, #notice{
   font-size: 1em;
   text-align: left;
   padding-left: 20px;
   padding-top: 80px;
-  color: #ecf0f1;
-  text-shadow: 0px 2px #7f8c8d;
+  color: #0CA7D3;
+}
+
+#sign_in{
+  font-size: 1em;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 150px;
+  color: #0CA7D3;
 }
 
 #errors{
-color: #2c3e50;
-margin-top: 10px;
-margin-bottom: 20px;
+  color: #e26a6a;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

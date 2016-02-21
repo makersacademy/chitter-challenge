@@ -1,23 +1,21 @@
 
   <h1 id="content_header"> Latest Peeps </h1>
-
   <% if current_user %>
-  <section id="new_peep_button_container">
-    <form action='/peeps/new' method='POST'>
-      <input id="form_button" type='submit' value='New Peep'>
-    </form>
-  </section>
+    <section id="new_peep_button_container">
+      <form action='/peeps/new' method='POST'>
+        <input id="form_button" type='submit' value='New Peep'>
+      </form>
+    </section>
   <% end %>
-
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-  <section id="form_element_container">
-    <section id="peep_container">
-      <li id="peep_name"><%= peep.name %></li>
-      <li id="peep_username">@<%= peep.username %></li>
-      <li id="peep_text"><%= peep.text %></li>
-      <li id="peep_time"><%= peep.time %></li>
+    <section id="form_element_container">
+      <section id="peep_container">
+        <li id="peep_name"><%= peep.name %></li>
+        <li id="peep_username">@<%= peep.username %></li>
+        <li id="peep_text"><%= peep.text %></li>
+        <li id="peep_time"><%= peep.time %></li>
+      </section>
     </section>
-  </section>
   <% end %>
 </ul>

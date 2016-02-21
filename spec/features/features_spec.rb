@@ -8,7 +8,6 @@ feature 'Viewing peeps' do
   end
 end
 
-
 feature 'Creating peeps' do
   scenario 'I can create a peep' do
     sign_up
@@ -30,9 +29,7 @@ feature 'User sign up' do
     expect(page).to have_content('Welcome, Barry.')
     expect(User.first.email).to eq('barry@example.com')
   end
-end
 
-feature 'User sign up' do
   scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
@@ -49,6 +46,12 @@ feature 'User sign up' do
     expect(page).to have_content('Email must not be blank')
   end
 
+  scenario 'I cannot sign up without a password' do
+    expect { sign_up(password: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Password must not be blank')
+  end
+
   scenario 'I cannot sign up with an invalid email address' do
     expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -60,7 +63,6 @@ feature 'User sign up' do
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
   end
-
 end
 
 feature 'User sign in' do
@@ -90,7 +92,7 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     sign_in(email: 'test@test.com', password: 'test')
     click_button 'Sign out'
-    expect(page).to have_content('goodbye!')
-    expect(page).not_to have_content('Welcome, test@test.com')
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content('Welcome, test')
   end
 end

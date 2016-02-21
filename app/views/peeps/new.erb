@@ -1,13 +1,16 @@
-<h1 id="content_header"> New Peep! </h1>
 <% if current_user %>
-<section id="form_element_container">
-  <form action='/peeps' method='POST'>
-    <label for='text'>
-    <textarea type='text' placeholder="Write your Peep here..." name='text'></textarea>
-    </label>
-    <input id="form_button" type='submit' value='Post Peep'>
-  </form>
-</section>
+<h1 id="content_header"> New Peep! </h1>
+
+  <section id="form_element_container">
+    <form action='/peeps' method='POST'>
+      <label for='text'>
+      <textarea rows="3" maxlength="140" type='text' placeholder="Write your Peep here..." name='text'></textarea>
+      </label>
+      <input id="form_button" type='submit' value='Post Peep'>
+    </form>
+  </section>
 <% else %>
-  Please sign in
+  <div id='sign_in'>
+    <p>Please sign in</p>
+  </div>
 <% end %>

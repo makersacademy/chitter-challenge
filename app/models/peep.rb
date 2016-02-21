@@ -9,7 +9,7 @@ class Peep
   property :id, Serial
   property :name, String
   property :username, String
-  property :text, String
+  property :text, String, :length => 140
   property :time, String
 end
 
