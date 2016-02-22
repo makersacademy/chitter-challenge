@@ -19,12 +19,11 @@ Create a web app that allows users to post short messages (called ‘peeps’) a
 - commenting on other’s Peeps
 
 <b>TECHNOLOGIES USED:</b><br>
-- Ruby 2.2.3
-- Sinatra
-- HTML/CSS
-- Bootstrap
-- jQuery
-- Rspec-Sinatra, Capybara, Coveralls (for testing)
+- Ruby 2.2.3 (server-side scripting and business logic)
+- Sinatra (server flow)
+- PostgreSQL (database)
+- HTML/CSS, Bootstrap (styling)
+- Rspec-Sinatra, Capybara, Coveralls (testing)
 
 <b>ACKNOWLEDGEMENTS:</b><br>
 - background image taken from <a href="https://mindsquirrel.files.wordpress.com/2013/08/1239080_595835303792436_526432645_o.jpg">Mindsquirrel</a>.
