@@ -1,0 +1,8 @@
+<%= flash[:invalid_login] %>
+<% if flash[:errors] %><br>
+  <% flash[:errors].each do |error| %>
+    <ul style="line-height: 0.5;">
+      <li><%=error%></li>
+    </ul>
+  <%end%>
+<%end%>
