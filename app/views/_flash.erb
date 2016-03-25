@@ -1,7 +1,8 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
-  <div id="errors">Sign up failed. Please refer to following error(s) and try again:
+  <div id="errors">
     <% flash[:errors].each do |error| %>
       <ul><%= error %></ul>
     <% end %>
+    Please try again! :)
   </div>
 <% end %>

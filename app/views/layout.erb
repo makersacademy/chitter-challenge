@@ -5,11 +5,7 @@
   </head>
 
   <body>
-    <p>
-      <% if current_user %>
-        Welcome <%= current_user.name %>
-      <% end %>
-    </p>
+    <%= partial :welcome %>
     <%= partial :flash %>
     <%= yield %>
   </body>
