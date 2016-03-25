@@ -16,18 +16,12 @@
   	<div>
   	<% @posts.each do |peep| %>
   		<div>
-  			<table>
-  				<tr>
-  					<td><%= peep.time %></td>
-  					<td><%= find_user_name(peep.user_id) %></td>
-  				</tr>
-  				<tr>
-  					</td> <%= peep.post %> </td>
-  				</tr>
-  			</table>
+  			<p><%= peep.time %>   <%= find_user_name(peep.user_id) %></p>
+  		</div>
   		<div>
+  			<%= peep.post %> 
+  		</div>
   	<% end %>
-
   	</div>
  	</div>
 </body>
