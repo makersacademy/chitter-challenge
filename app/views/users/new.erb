@@ -1,14 +1,14 @@
 <h1>Sign up for Chitter</h1>
 
-<form action="/users" method="post">
+<form action="/users/new" method="post">
   <p>
-    <input type="text" name="name" placeholder="Full name" required>
+    <input type="text" name="name" value="<%= @user.name %>" placeholder="Full name" required>
   </p>
   <p>
-    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="username" value="<%= @user.username %>" placeholder="Username" required>
   </p>
   <p>
-    <input type="email" name="email" placeholder="Email" required>
+    <input type="email" name="email" value="<%= @user.email %>" placeholder="Email" required>
   </p>
   <p>
     <input type="password" name="password" placeholder="Password" required>

@@ -10,7 +10,7 @@
         Welcome <%= current_user.name %>
       <% end %>
     </p>
-
+    <%= partial :flash %>
     <%= yield %>
   </body>
 </html>
