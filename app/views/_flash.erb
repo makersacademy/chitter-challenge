@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <h2>Please refer to the following errors below:</h2>
+  <ul class="list-group" id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li class="list-group-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
