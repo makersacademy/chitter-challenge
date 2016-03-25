@@ -1,5 +1,5 @@
 <% if current_user %>
-  <p>Welcome, <%= current_user.email %></p>
+  <p>Welcome, <%= current_user.name %></p>
   <form action='/sessions' method="post">
     <div class="form-group">
       <input type="hidden" name="_method" value="delete">

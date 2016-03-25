@@ -7,6 +7,6 @@ feature 'Sign in' do
     fill_in('password', with: SessionHelpers::PASSWORD)
     click_button('Sign In')
 
-    expect(page).to have_content("Welcome, #{SessionHelpers::EMAIL}")
+    expect(page).to have_content("Welcome, #{SessionHelpers::NAME}")
   end
 end

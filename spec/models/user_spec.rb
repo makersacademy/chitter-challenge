@@ -1,7 +1,11 @@
 describe User do
 
   let!(:user) do
-    User.create(email: 'terry@fuckwit.com', password: 'password', password_confirmation: 'password')
+    User.create(email: SessionHelpers::EMAIL,
+                username: SessionHelpers::USERNAME,
+                name: SessionHelpers::NAME,
+                password: SessionHelpers::PASSWORD,
+                password_confirmation: SessionHelpers::PASSWORD)
   end
 
   describe '#authenticate' do
@@ -12,7 +16,6 @@ describe User do
     it 'fails to authenticates when given an invalid email address and password' do
       authenticated_user = User.authenticate(user.email, 'garbage')
       expect(authenticated_user).to eq nil
-      p User.instance_variables
     end
   end
 end

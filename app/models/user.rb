@@ -33,6 +33,15 @@ class User
       :format => 'Please enter a valid email address',
       :is_unique => 'This user already exists'
     }
+    property :name, String, :required => true,
+      :messages => {
+        :presence => 'Please enter your name'
+    }
+    property :username, String, :required => true,
+      :messages => {
+        :presence => 'Please enter a username'
+    }
+
   property :password_hash, String, :length => 128
 
 end
