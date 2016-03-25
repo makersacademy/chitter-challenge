@@ -4,7 +4,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
 
-require_relative 'chit'
+require_relative 'peep'
 require_relative 'user'
 
 connection_string = "postgres://localhost/#{DB}_#{ENV['RACK_ENV']}"

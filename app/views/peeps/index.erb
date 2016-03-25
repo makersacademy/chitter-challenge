@@ -1,0 +1,15 @@
+<h2>Peeps</h2>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li><%= peep.creation_timedate %>: <%= peep.content %>***</li>
+  <% end %>
+</ul>
+
+<form action='/peeps/add' method="get">
+  <div class="form-group">
+    <input type="submit" class="btn btn-default" id="add" value="Create Peep">
+  </div>
+</form>
+
+<p><a href="/users/new">Sign Up</a></p>
+<p><a href="/sessions/new">Sign In</a></p>

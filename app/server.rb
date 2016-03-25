@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    redirect '/chits'
+    redirect '/peeps'
   end
 
   helpers do

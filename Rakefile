@@ -24,7 +24,7 @@ namespace :db do
     puts "Auto-migrate complete (data was lost)"
   end
 
-  task :update_migrate => [:auto_upgrade, :auto_migrate] do
+  task :update_migrate => [:auto_migrate, :auto_upgrade] do
     puts "updating database..."
   end
 end

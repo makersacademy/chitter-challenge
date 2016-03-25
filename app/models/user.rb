@@ -7,6 +7,7 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :confirm => :password_confirmation, :message => 'Password and confirmation password do not match'
+  validates_length_of :password, :min => 4
 
   def self.authenticate(email, password)
     user = first(email:email)
@@ -44,4 +45,5 @@ class User
 
   property :password_hash, String, :length => 128
 
+  has n, :peeps
 end
