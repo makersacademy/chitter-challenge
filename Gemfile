@@ -8,6 +8,7 @@ gem 'rspec-sinatra'
 gem 'sinatra'
 gem 'capybara'
 gem 'selenium-webdriver'
+gem 'sinatra-flash'
 group :test do
 	gem 'database_cleaner'
   gem 'rspec'
