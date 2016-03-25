@@ -1,8 +1,8 @@
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all
-    p @peeps
+    @peeps = Peep.all(:order => [ :creation_timedate.desc ])
+    @peeps.each{|p| p p.user}
     erb(:'peeps/index')
   end
 

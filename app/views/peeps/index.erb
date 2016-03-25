@@ -1,7 +1,7 @@
 <h2>Peeps</h2>
-<ul id="peeps">
+<ul class="list-group" id="peeps">
   <% @peeps.each do |peep| %>
-    <li><%= peep.creation_timedate %>: <%= peep.content %>***</li>
+    <li class="list-group-item"><%= peep.creation_timedate.strftime("%m/%d/%Y %I:%M%p") %>: <%= peep.content %>: <%= peep.user.username %></li>
   <% end %>
 </ul>
 
