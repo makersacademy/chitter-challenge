@@ -44,8 +44,8 @@ class Chitter < Sinatra::Base
         flash.now[:notice] = 'This email address has already been used...'
       else
         flash.now[:notice] = 'Password did not match...'
-        erb(:'users/new')
       end
+      erb(:'users/new')
     end
   end
 
