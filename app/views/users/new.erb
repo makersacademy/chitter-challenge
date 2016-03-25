@@ -13,7 +13,7 @@
   <% end %>
 
   <form action='/users' method='post'>
-    <input type='text' name='username' placeholder='username'  value='<%= @user.user_name %>' required>
+    <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
     <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
     <input type='password' name='password' placeholder='password'>
     <input type='password' name='password_confirmation' placeholder='password_confirmation'>
