@@ -4,11 +4,13 @@
  	<h2>Welcome <% if current_user %><%= current_user.user_name %><% end%>!</h2>
  	<div>
  		<% if current_user %>
- 		<form class="add_form" action="/create-peep" >
-  		<div>
-    		<input type="submit" value="Create Peep">
-  		</div>
-  	</form>	
+ 		<form action='/create-peep' method="post">
+			<textarea name = "wordbox" rows="3" cols="50">
+			</textarea>
+			<div>
+				<input type="submit" value="Post your peep">
+			</div>
+		</form>
   	<% end %>
  	</div>
 </body>

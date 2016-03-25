@@ -40,6 +40,10 @@ class Chitter < Sinatra::Base
   	erb :'chitter-feed'
   end
 
+  post '/create-peep' do
+
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
