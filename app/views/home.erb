@@ -1,2 +1,6 @@
 <font face="Futura">
-  <h2>Welcome to Chitter, <%= @current_user.user_name %>!</h2>
+  <% if current_user == nil %>
+    <h2>Welcome to Chitter!</h2>
+  <% else %>
+    <h2>Welcome to Chitter, <%= @current_user.user_name %>!</h2>
+  <% end %>

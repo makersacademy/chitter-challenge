@@ -3,9 +3,14 @@
     <h2>Create a Chitter account</h2>
   </div>
 
+  <% if flash[:notice] %>
+    <div id='notice'><h3><%= flash[:notice] %></h3></div>
+  <% end %>
+
   <form action='/users' method='post'>
-    <input type='text' name='user_name' placeholder='user name'>
-    <input type='text' name='email' placeholder='email address'>
-    <input type='text' name='password' placeholder='password'>
+    <input type='text' name='user_name' placeholder='user name'  value='<%= @user.user_name %>' required>
+    <input type='text' name='email' placeholder='email address' value='<%= @user.email %>'required>
+    <input type='password' name='password' placeholder='password'>
+    <input type='password' name='password_confirmation' placeholder='password_confirmation'>
     <input type='submit' value='Sign up'>
   </form>
