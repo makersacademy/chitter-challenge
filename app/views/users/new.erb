@@ -1,0 +1,25 @@
+<h1>User sign up</h1>
+<h2>All fields are required</h2>
+<form action="/users" method="post">
+  <label for='name'>
+    Name:
+    <input type='text' name='name' required/>
+  </label>
+  <label for='username'>
+    User name:
+    <input type='text' name='username' required/>
+  </label>
+  <label for='email'>
+    email:
+    <input type='text' name='email' required/>
+  </label>
+  <label for='password'>
+    Password:
+    <input type='password' name='password' required/>
+  </label>
+  <label for='confirmation'>
+    Confirm password:
+    <input type='password' name='confirmation' required/>
+  </label>
+  <button id='sign_up'>Sign up</button>
+</form>

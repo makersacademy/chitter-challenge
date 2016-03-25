@@ -1,4 +1,4 @@
 require 'rubygems'
-require File.join(File.dirname(__FILE__), 'lib/chitter.rb')
+require File.join(File.dirname(__FILE__), 'app/chitter.rb')
 
 run Chitter
