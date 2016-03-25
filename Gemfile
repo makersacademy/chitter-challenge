@@ -8,6 +8,8 @@ gem 'dm-transactions'
 gem 'dm-validations'
 gem 'dm-migrations'
 gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec-sinatra'
