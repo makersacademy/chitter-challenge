@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/user'
 require './lib/peep'
+require './data_mapper_setup'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
