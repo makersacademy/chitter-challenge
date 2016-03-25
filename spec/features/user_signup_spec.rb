@@ -1,4 +1,4 @@
-feature 'User management' do
+feature 'User management: sign up' do
 
   scenario 'User can sign up' do
     expect{ sign_up }.to change(User, :count).by(1)

@@ -15,7 +15,16 @@
   <form action='/users' method='post'>
     <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
     <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
-    <input type='password' name='password' placeholder='password'>
-    <input type='password' name='password_confirmation' placeholder='password_confirmation'>
+    <input type='password' name='password' placeholder='password' required>
+    <input type='password' name='password_confirmation' placeholder='password_confirmation' required>
     <input type='submit' value='Sign up'>
+  </form>
+
+  <br>
+  <div>
+    <h2><p>Or... already have an account?</h2>
+  </div>
+
+  <form action='/sessions/new'>
+    <input type='submit' value='Jump to login page'>
   </form>

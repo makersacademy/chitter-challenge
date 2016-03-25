@@ -9,3 +9,11 @@ def sign_up(username: 'jinis',
   fill_in('password_confirmation', with: password_confirmation)
   click_button('Sign up')
 end
+
+def sign_in(email: 'jinis@aol.jp',
+            password: 'jinis1219')
+  visit'/sessions/new'
+  fill_in('email', with: email)
+  fill_in('password', with: password)
+  click_button('Log in')
+end
