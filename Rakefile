@@ -1,11 +1,6 @@
-require 'rspec/core/rake_task'
 require './app/chitter'
 # require 'data_mapper'
 # require './app/data_mapper_setup'
-
-RSpec::Core::RakeTask.new :spec
-
-task default: [:spec]
 
 namespace :db do
   desc 'Non destructive upgrade'
