@@ -16,8 +16,9 @@ feature 'chitter feed page' do
 
   	scenario 'can create a peep which then appears on the chitter feed' do
 			sign_up
-			fill_in('wordbox', with: 'This is my first post!' )
+			fill_in('post', with: 'This is my first post!' )
 			click_button 'Post your peep'
+			expect(page).to have_content('This is my first post!')
 	  end
 
   end

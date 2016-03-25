@@ -1,16 +1,32 @@
-<html style="text-align: center"> </html>
+<html style="text-align: center; font-family: Tahoma"> </html>
 <body>
   <h1>- Chitter -</h1>
  	<h2>Welcome <% if current_user %><%= current_user.user_name %><% end%>!</h2>
  	<div>
  		<% if current_user %>
- 		<form action='/create-peep' method="post">
-			<textarea name = "wordbox" rows="3" cols="50">
+ 		<form action='/create-peep' method="post" >
+			<textarea name="post" rows="3" cols="50">
+			Enter text here
 			</textarea>
 			<div>
 				<input type="submit" value="Post your peep">
 			</div>
 		</form>
   	<% end %>
+  	<div>
+  	<% @posts.each do |peep| %>
+  		<div>
+  			<table>
+  				<tr>
+  					<td><%= peep.time %></td>
+  				</tr>
+  				<tr>
+  					</td> <%= peep.post %> </td>
+  				</tr>
+  			</table>
+  		<div>
+  	<% end %>
+
+  	</div>
  	</div>
 </body>
