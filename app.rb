@@ -36,6 +36,10 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def find_user_name(user_id)
+    	User.get(user_id).user_name
+    end
   end
 
   get '/chitter-feed' do
@@ -46,7 +50,6 @@ class Chitter < Sinatra::Base
   post '/create-peep' do
   	Peep.create(post: params[:post], time: Time.now.strftime("%Y-%m-%d %H:%M"), user_id: session[:user_id])
   	redirect '/chitter-feed'
-
   end
 
   # start the server if ruby file executed directly
