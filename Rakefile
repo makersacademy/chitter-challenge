@@ -1,5 +1,5 @@
 require 'data_mapper'
-require 'app/chitter.rb'
+require './app/chitter.rb'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
