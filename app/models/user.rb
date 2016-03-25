@@ -8,11 +8,11 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-  validates_uniqueness_of :email
+  validates_format_of :email, :as => :email_address
 
   property :id,        Serial
-  property :user_name, String
-  property :email,     String
+  property :username, String, required: true
+  property :email,     String, required: true, unique: true
   property :password_digest,  Text
 
   def password=(password)
