@@ -1,6 +1,4 @@
 require './app/chitter'
-# require 'data_mapper'
-# require './app/data_mapper_setup'
 
 namespace :db do
   desc 'Non destructive upgrade'
