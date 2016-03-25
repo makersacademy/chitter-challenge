@@ -23,8 +23,8 @@ feature 'signing up' do
 
   scenario 'Existing email' do
     create(:user)
-    user2 = build(:user)
-    expect { sign_up(user2) }.not_to change(User, :count)
+    user = build(:user)
+    expect { sign_up(user) }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
 end

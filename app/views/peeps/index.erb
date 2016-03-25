@@ -1,0 +1,8 @@
+<% unless current_user %>
+<form action="/users/new">
+  <button>Sign up</button>
+</form>
+<form action="/sessions/new">
+  <button>Sign in</button>
+</form>
+<% end %>
