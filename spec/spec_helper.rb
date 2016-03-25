@@ -5,7 +5,9 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear!
+
+# Coveralls.wear!
+SimpleCov.start
 
 ENV['RACK_ENV'] = 'test'
 
