@@ -1,4 +1,6 @@
-<font face="Futura">
+<center>
+  <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="100" height="100" >
+  <font face="Futura">
   <div>
     <h2>Create a Chitter account</h2>
   </div>
@@ -13,10 +15,16 @@
   <% end %>
 
   <form action='/users' method='post'>
-    <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
-    <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
-    <input type='password' name='password' placeholder='password' required>
-    <input type='password' name='password_confirmation' placeholder='password_confirmation' required>
+    <div>
+      <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
+      <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
+    </div>
+    <br>
+    <div>
+      <input type='password' name='password' placeholder='password' required>
+      <input type='password' name='password_confirmation' placeholder='password_confirmation' required>
+    </div>
+    <br>
     <input type='submit' value='Sign up'>
   </form>
 
@@ -28,3 +36,4 @@
   <form action='/sessions/new'>
     <input type='submit' value='Jump to login page'>
   </form>
+</center>
