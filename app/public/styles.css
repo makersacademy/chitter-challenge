@@ -19,11 +19,44 @@
   font-size: 50px;
 }
 
-#sign_up {
-  margin:auto;
+#sign_up_sign_in {
   position: absolute;
-  bottom:50%;right:50px;
+  border: 1px solid;
+  top:0px;left:0px;
+  height:80px;
+  width:200px;
 }
+#signin {
+  margin:0;
+  position:absolute;
+  font-size: 16px;
+  font-style: italic;
+  top: 30%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+#signup {
+  margin:0;
+  position:absolute;
+  font-size: 16px;
+  font-style: italic;
+  top: 70%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+#welcome {
+  margin:0;
+  position:absolute;
+  font-size: 16px;
+  font-style: italic;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)}
 
 #peepscontent {
   margin-top: 80px;

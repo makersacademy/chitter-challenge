@@ -9,4 +9,10 @@ feature 'User Sign Up' do
     expect(User.count).to eq 0
   end
 
+  scenario 'Informs user if passwords do not match' do
+    sign_up_incorrect_password
+    expect(current_path).to eq('/signup')
+    expect(page).to have_content('Passwords did not match.')
+  end
+
 end
