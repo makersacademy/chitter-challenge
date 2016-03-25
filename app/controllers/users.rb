@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
   get "/" do
-    redirect "/users/new"
+    "Hello Chitter!"
   end
 
   get "/users/new" do
@@ -8,11 +8,14 @@ class Chitter < Sinatra::Base
   end
 
   post "/users" do
-    @user = User.new(name: params[:name],
+    user = User.new(name: params[:name],
                      username: params[:username],
                      email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
-    "Welcome #{@user.name}" if @user.save
+    if user.save
+      session[:user_id] = user.id
+      redirect "/users/new"
+    end
   end
 end
