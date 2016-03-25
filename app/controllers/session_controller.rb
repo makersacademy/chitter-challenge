@@ -1,4 +1,4 @@
-class Chitter < Sinatra::Base
+class SessionController < Sinatra::Base
   get "/sessions/new" do
     erb :"sessions/new"
   end

@@ -1,4 +1,4 @@
-class Chitter < Sinatra::Base
+class UserController < Sinatra::Base
   get "/" do
     erb :index
   end
