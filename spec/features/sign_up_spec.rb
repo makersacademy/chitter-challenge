@@ -2,15 +2,11 @@ feature 'Sign up' do
 	
 	scenario 'with email, password, name and a user name' do
 		sign_up
-  	fill_in('email', with: 'bob@gmail.com' )
-  	fill_in('password', with: 'bobByg' )
-  	fill_in('password_confirmation', with: 'bobByg' )
-		click_button 'Sign up'
 		expect(page).to have_content 'Welcome BBy!'
   end
 
   scenario 'with an email is required' do
-		sign_up
+		half_sign_up
 	 	fill_in('password', with: 'bobByg' )
 	 	fill_in('password_confirmation', with: 'bobByg' )
 		click_button 'Sign up'
@@ -18,7 +14,7 @@ feature 'Sign up' do
   end
 
   scenario 'with non-matching passwords is not allowed' do
-		sign_up
+		half_sign_up
   	fill_in('email', with: 'bob@gmail.com' )
   	fill_in('password', with: 'bobByg' )
   	fill_in('password_confirmation', with: 'bobB' )
@@ -27,14 +23,14 @@ feature 'Sign up' do
   end
 
   scenario 'with no password is not allowed' do
-		sign_up
+		half_sign_up
   	fill_in('email', with: 'bob@gmail.com' )
 		click_button 'Sign up'
 		expect(page).to have_content 'Password must not be blank'
   end
 
    scenario 'will not accept invalid email' do
-		sign_up
+		half_sign_up
     fill_in('email', with: 'bob@gmail' )
     fill_in('password', with: 'bobByg' )
     fill_in('password_confirmation', with: 'bobByg' )

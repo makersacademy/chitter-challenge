@@ -5,10 +5,10 @@
   <h5><% if flash[:error] %><%= flash[:error][0] %><% end %></h5>
   <form class="add_form" action="/sign-up" method="post">
   <div>
-    <input type="text" name="name" placeholder="Name" value="<%if @user%><%=@user.first_name%><%end%>" >
+    <input type="text" name="name" placeholder="Name" value="<%if @user%><%=@user.name%><%end%>" >
   </div>
   <div>
-    <input type="text" name="user_name" placeholder="User Name" value="<%if @user%><%=@user.last_name%><%end%>">
+    <input type="text" name="user_name" placeholder="User Name" value="<%if @user%><%=@user.user_name%><%end%>">
   </div>
   <div>
 

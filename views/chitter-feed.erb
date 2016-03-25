@@ -1,5 +1,14 @@
 <html style="text-align: center"> </html>
 <body>
   <h1>- Chitter -</h1>
-  <h2>Welcome <%= current_user.user_name %>!</h2>
+ 	<h2>Welcome <% if current_user %><%= current_user.user_name %><% end%>!</h2>
+ 	<div>
+ 		<% if current_user %>
+ 		<form class="add_form" action="/create-peep" >
+  		<div>
+    		<input type="submit" value="Create Peep">
+  		</div>
+  	</form>	
+  	<% end %>
+ 	</div>
 </body>

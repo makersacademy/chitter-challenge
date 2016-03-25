@@ -18,14 +18,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-  	user = User.new(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-  	if user.save
-  		session[:user_id] = user.id
-  		redirect to('/chitter-feed')
-  	else
-  		flash.now[:error] = user.errors.full_messages
-  		erb :'sign-up'
-  	end
+  	@user = User.new(name: params[:name], user_name: params[:user_name],
+      email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/chitter-feed')
+    else
+      flash.now[:error] = @user.errors.full_messages
+      erb(:'sign-up')
+    end
+
   end
 
   helpers do
