@@ -11,4 +11,11 @@ feature 'User management' do
     expect(current_path).to eq('/users')
     expect(page).to have_content('Password did not match...')
   end
+
+  # scenario 'User can\'t sign up if email already exist' do
+  #   sign_up
+  #   expect{ sign_up }.not_to change(User, :count)
+  #   expect(current_path).to eq('/users')
+  #   expect(page).to have_content('This email address has already been used...')
+  # end
 end
