@@ -17,4 +17,30 @@ feature "User sign up" do
       expect(page).to have_content "Password does not match the confirmation"
     end
   end
+
+  context "invalid sign up: username" do
+    scenario "user cannot sign up with an already registered username" do
+      sign_up
+      expect { sign_up(email: "darth@vader.com") }.not_to change { User.count }
+      expect(page).to have_content "Username is already taken"
+    end
+  end
+
+  context "invalid sign up: email" do
+    scenario "user cannot sign up without entering an email" do
+      expect { sign_up(email: nil) }.not_to change { User. count }
+      expect(page).to have_content "Email must not be blank"
+    end
+
+    scenario "user cannot sign up with invalid email format" do
+      expect { sign_up(email: "invalid@email") }.not_to change { User.count }
+      expect(page).to have_content "Email has an invalid format"
+    end
+
+    scenario "user cannot sign up with an already registered email" do
+      sign_up
+      expect { sign_up(username: "other_luke") }.not_to change { User.count }
+      expect(page).to have_content "Email is already taken"
+    end
+  end
 end
