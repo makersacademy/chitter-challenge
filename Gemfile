@@ -10,8 +10,6 @@ gem "dm-transactions"
 gem "database_cleaner"
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'sinatra-flash'
-
 
 group :test do
   gem 'rspec'
