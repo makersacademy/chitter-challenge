@@ -13,8 +13,6 @@ class Chitter < Sinatra::Base
                      email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
-    if @user.save
-      "Welcome Luke"
-    end
+    "Welcome #{@user.name}" if @user.save
   end
 end
