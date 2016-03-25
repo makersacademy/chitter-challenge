@@ -11,6 +11,6 @@ feature 'User management: log in' do
     sign_up
     sign_in(password: 'wrong')
     expect(current_path).to eq('/sessions')
-    expect(page).to have_content('incorrect email or password')
+    expect(page).to have_content('Incorrect email or password')
   end
 end

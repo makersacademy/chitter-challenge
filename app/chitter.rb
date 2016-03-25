@@ -46,7 +46,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    @user = User.new
     erb(:'sessions/new')
   end
 
@@ -56,7 +55,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/home')
     else
-      flash.now[:errors] = 'incorrect email or password'
+      flash.now[:errors] = 'Incorrect email or password'
       erb(:'sessions/new')
     end
   end

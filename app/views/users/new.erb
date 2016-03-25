@@ -4,7 +4,7 @@
   </div>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
-    <h3>Oops... errors in following areas...</h3>
+    <h3>Oops, errors in following areas...</h3>
     <ul id='errors'><h4>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>

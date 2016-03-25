@@ -4,7 +4,7 @@
   </div>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
-    <h3>Oops, <%= flash[:errors] %>... try again</h3>
+    <h3><%= flash[:errors] %>... try again</h3>
   <% end %>
 
   <form action='/sessions' method='post'>
