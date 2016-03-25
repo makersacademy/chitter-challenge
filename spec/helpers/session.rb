@@ -13,10 +13,10 @@ module SessionHelpers
     click_button "Sign up"
   end
 
-  def sign_in(email: "luke@starwars.com", password: "skywalker")
+  def sign_in(email: "luke@starwars.com", password: "j3di_temple")
     visit "/sessions/new"
     fill_in :email, with: email
     fill_in :password, with: password
-    click_button "Sign in"
+    click_button "Log in"
   end
 end
