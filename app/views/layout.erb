@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to Chitter!</title>
+    <link rel="stylesheet" type="text/css" href="<%= url('/styles.css') %>"/>
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id='mainbar'>Welcome to Chitter!
+        <div id='sign_up'>
+          <form action='/signup'>
+            <input type='submit' value='Sign Up'/>
+          </form>
+        </div>
+      </div>
+      <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+
+    </div>
+
+
+  </body>
+</html>
