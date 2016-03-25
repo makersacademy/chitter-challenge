@@ -17,7 +17,7 @@ require './app/app'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require 'helpers/session.rb'
+require 'helpers/session.rb'
 require 'database_cleaner'
 require 'timecop'
 
@@ -42,7 +42,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
-  # config.include SessionHelpers
+  config.include SessionHelpers
 
   config.backtrace_exclusion_patterns = [
     /\/lib\d*\/ruby\//,

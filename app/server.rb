@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super_secret'
+  set :session_secret, "super_secret"
 
   register Sinatra::Flash
   register Sinatra::Partial
