@@ -1,4 +1,4 @@
 Chitter Challenge
 =================
 
-Nick Mountjoy Week 4 weekend challenge Makers Academy
+NickMountjoy Week 4 weekend challenge Makers Academy
