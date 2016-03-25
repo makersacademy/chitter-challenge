@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     current_user
-    erb(:'home')
+    erb(:home)
   end
 
   get '/users/new' do
