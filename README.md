@@ -1,3 +1,3 @@
-Chitter Challemge
+Chitter Challenge
 
 Misa Ogura
