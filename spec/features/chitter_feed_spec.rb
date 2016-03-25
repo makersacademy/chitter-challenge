@@ -23,4 +23,13 @@ feature 'chitter feed page' do
 
   end
 
+  scenario 'each post has its author\'s username and a time stamp'	do
+  	allow(Time).to receive(:now).and_return(DateTime.new(2016,3,25,15,56))
+		create_post
+		within 'p.stamp' do
+    expect(page).to have_content 'BBy'
+    expect(page).to have_content '2016-03-25 15:56'
+    end
+	end
+
 end

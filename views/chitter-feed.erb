@@ -16,9 +16,9 @@
   	<div>
   	<% @posts.each do |peep| %>
   		<div>
-  			<p><%= peep.time %>   <%= find_user_name(peep.user_id) %></p>
+  			<p class='stamp'><%= peep.time %>   <%= find_user_name(peep.user_id) %></p>
   		</div>
-  		<div>
+  		<div class="a_peep">
   			<%= peep.post %> 
   		</div>
   	<% end %>

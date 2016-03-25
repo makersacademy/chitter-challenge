@@ -26,3 +26,9 @@ def sign_up_with_taken_username
   	fill_in('password_confirmation', with: 'bob' )
 		click_button 'Sign up'
 end
+
+def create_post
+	sign_up
+	fill_in('post', with: 'This is my first post!' )
+	click_button 'Post your peep'
+end

@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter-feed' do
-  	@posts = Peep.all
+  	@posts = Peep.all.reverse
   	erb :'chitter-feed'
   end
 
