@@ -20,6 +20,15 @@ class User
     self.password_digest = BCrypt::Password.create(new_password)
   end
 
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+
   #has n, :links, :through => Resource
 
 end

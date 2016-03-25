@@ -35,6 +35,21 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/signin' do
+    erb :'signin/signin'
+  end
+
+  post '/signin' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:failsignin] = "Invalid username or password"
+      erb :'signin/signin'
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

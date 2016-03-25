@@ -1,0 +1,25 @@
+<div id='pleasesignin'>
+  <h3>Enter your sign in information:</h3>
+</div>
+
+<div id='signinform'>
+
+<form action='/signin' method='post'>
+  <% if flash[:notice] %>
+    <div id='loginfail'><%= flash[:notice] %></div>
+    Username:<br>
+    <input type='text' name='username'/><br>
+    Password:<br>
+    <input type='text' name='password'/><br>
+  <% else %>
+    Username:<br>
+    <input type='text' name='username'/><br>
+    Password:<br>
+    <input type='text' name='password'/><br>
+  <% end %>
+  <input id='signinbutton' type='submit' value='Sign In'/>
+
+</form>
+
+
+</div>
