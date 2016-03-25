@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/home')
     else
-      if User.get(params[:email])
+      if User.first(:email => params[:email])
         flash.now[:notice] = 'This email address has already been used...'
       else
         flash.now[:notice] = 'Password did not match...'
