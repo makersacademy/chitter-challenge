@@ -8,8 +8,7 @@ feature 'User management' do
     click_button('Sign up')
     expect(page).to have_content('Welcome to Chitter, jinis!')
   end
-end
 
 #   scenario 'User needs to confirm password before signing up' do
 #
-# end
+end
