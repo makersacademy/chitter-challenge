@@ -1,7 +1,4 @@
-require_relative '../helpers/session'
-
 feature 'signing up' do
-  include Helpers
   scenario 'With correct credentials' do
     user = build(:user)
     expect { sign_up(user) }.to change(User, :count).by(1)

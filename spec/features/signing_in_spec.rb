@@ -1,7 +1,4 @@
-require_relative '../helpers/session'
-
 feature 'Signing in' do
-  include Helpers
   scenario 'With correct credentials' do
     user = create(:user)
     sign_in(user)
