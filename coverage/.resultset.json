@@ -1,12 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/hanfak/Dropbox/MA/Projects/chitter1/app/chitter.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/app/chitter.rb": [
         1,
         null,
         1,
         1,
-        null,
         1,
         null,
         1,
@@ -54,7 +53,7 @@
         1,
         null
       ],
-      "/Users/hanfak/Dropbox/MA/Projects/chitter1/app/data_mapper_setup.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/app/data_mapper_setup.rb": [
         1,
         1,
         null,
@@ -63,7 +62,7 @@
         1,
         1
       ],
-      "/Users/hanfak/Dropbox/MA/Projects/chitter1/app/models/user.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/app/models/user.rb": [
         null,
         1,
         1,
@@ -93,7 +92,7 @@
         null,
         null
       ],
-      "/Users/hanfak/Dropbox/MA/Projects/chitter1/spec/web_helper.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/spec/web_helper.rb": [
         1,
         null,
         null,
@@ -110,7 +109,7 @@
         null,
         null
       ],
-      "/Users/hanfak/Dropbox/MA/Projects/chitter1/spec/features/user_management_spec.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/spec/features/user_management_spec.rb": [
         1,
         1,
         2,
@@ -151,6 +150,6 @@
         null
       ]
     },
-    "timestamp": 1459013292
+    "timestamp": 1459023331
   }
 }
