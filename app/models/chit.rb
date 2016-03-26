@@ -9,8 +9,6 @@ class Chit
   property :post,  String
   property :time,    String
 
-end
+  has n, :tags, through: Resource
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
+end

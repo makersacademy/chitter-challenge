@@ -4,6 +4,7 @@ require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
 require './app/models/chit'
+require './app/models/tag'
 require './app/app'
 require 'database_cleaner'
 Capybara.app = Chitter
