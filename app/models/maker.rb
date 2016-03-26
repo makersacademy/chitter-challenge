@@ -9,15 +9,27 @@ class Maker
     self.password_hash = Password.create(new_password)
   end
 
+  def self.authenticate(username, password)
+    maker = first(username: username)
+    if maker && BCrypt::Password.new(maker.password_hash) == password
+      maker
+    else
+      nil
+    end
+  end
+
   property :id,            Serial
   property :name,          String
   property :username,      String,
-            unique: true,
+            unique:   true,
+            required: true,
             messages: {
-              is_unique: "Someone else beat you to this incredible username. Sorry."
+              is_unique: "Someone else beat you to this incredible username. Sorry.",
+              presence: "You need a username."
             }
   property :email,         String,
-            unique: true,
+            unique:   true,
+            required: true,
             messages: {
               is_unique: "You've already signed up with this email.",
               presence:  "Seriously. Gotta put in an email address.",
@@ -27,7 +39,4 @@ class Maker
 
 validates_confirmation_of :password,
   message: "Your passwords don't match!"
-
-# validates_uniqueness_of :email
-# validates_uniqueness_of :username
 end

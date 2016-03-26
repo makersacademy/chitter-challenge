@@ -17,8 +17,28 @@ class Chitter < Sinatra::Base
     erb :'/maker/new'
   end
 
+  get '/session/new' do
+    erb :'/session/new'
+  end
+
+  post '/session' do
+    maker = Maker.authenticate(params[:username], params[:password])
+    if maker
+      session[:maker_id] = maker.id
+      redirect '/peeps'
+    else
+      flash.now[:error] = ['Email & Password combo is wrong!']
+      erb :'/session/new'
+    end
+  end
+
+  get '/peeps' do
+    @maker = Maker.first
+    erb :peeps
+  end
+
   post '/register' do
-    @maker = Maker.create(name:     params[:name],
+    @maker = Maker.create(name: params[:name],
                  username: params[:username],
                  email:    params[:email],
                  password: params[:password],
