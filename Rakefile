@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'data_mapper'
 require_relative './app/app'
 
@@ -23,3 +24,12 @@ namespace :db do
     puts 'Auto-migrate complete (data was lost)'
   end
 end
+=======
+if ENV['RACK_ENV'] != 'production'
+  require 'rspec/core/rake_task'
+  
+  RSpec::Core::RakeTask.new :spec
+  
+  task default: [:spec]
+end
+>>>>>>> 1ec1413865ab4e5dd0990904025289af31194cc3
