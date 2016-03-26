@@ -1,5 +1,27 @@
 <div id='peepscontent'>
 
-<h1>Hi</h1>
+<h2>Hi</h2>
+
+<div id='newpeep'>
+  <% if current_user %>
+    New peep:<br>
+    <form action='/postpeep' method='post'>
+      <input type='text' name='new_peep'>
+      <input type='submit' value='Submit'>
+    </form>
+  <% end %>
+</div>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <div id='peep'>
+        [Time] <%= peep.users.first.username %> says:<br> <%= peep.text %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+
 
 </div>

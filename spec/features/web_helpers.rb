@@ -31,3 +31,8 @@ def sign_in_correctly
   fill_in(:password, with: "password")
   click_button("signinbutton")
 end
+
+def write_peep
+  fill_in(:new_peep, with: "Test peep!")
+  click_button("Submit")
+end

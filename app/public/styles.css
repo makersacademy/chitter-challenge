@@ -114,3 +114,18 @@
 #signinnotice{
   width:200px;
 }
+#peeps{
+  margin: auto;
+  margin-top: 20px;
+  position:absolute;
+  vertical-align: top;
+  left:35%;
+}
+#peeps div{
+  margin:0;
+  margin-bottom: 5px;
+  border: 2px solid white;
+  border-style: dashed;
+  border-radius: 10px;
+  width:250px;
+}

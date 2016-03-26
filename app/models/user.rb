@@ -29,6 +29,6 @@ class User
     end
   end
 
-  #has n, :links, :through => Resource
+  has n, :peeps, :through => Resource
 
 end
