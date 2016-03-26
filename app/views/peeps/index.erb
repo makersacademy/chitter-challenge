@@ -13,9 +13,9 @@
 
 <h1>List of Peeps</h1>
 <ul id="peeps">
-    <li>
       <% @peeps.each do |peep| %>
-        "<%= peep.content %>" posted by <%= peep.user.name %>(@<%= peep.user.username %>)
+        <li>
+          "<%= peep.content %>" posted by <%= peep.user.name %>(@<%= peep.user.username %>)
+        </li>
       <% end %>
-    </li>
 </ul>
