@@ -33,18 +33,22 @@
   			<div class="a_peep" >
  					<%= peep.post %> 
  					<% @comments.each do |comment| %>
- 						<div class="posts">
-  						<p class='stamp'><%= comment.time %></p>
-	 						<p class='stamp'> <%= find_user_name(comment.user_id) %></p>
-  						<div class="a_peep" >
- 								<%= comment.post %> 
- 							</div>
- 						</div>
+	 					<% if comment.peep_id == peep.id %>
+	 						<div class="posts">
+	  						<p class='stamp'><%= comment.time %></p>
+		 						<p class='stamp'> <%= find_user_name(comment.user_id) %></p>
+	  						<div class="a_peep" >
+	 								<%= comment.post %> 
+	 							</div>
+	 						</div>
+	 					<% end %>
  					<% end %>
  				</div>
- 				<form action='/comment/<%=peep.id%>' method="post" >  
-  				<input type="submit" value="+" style="border: none; background-color: #1b053a; color: white">
-    		</form>
+ 				<% if current_user %>
+	 				<form action='/comment/<%=peep.id%>' method="post" >  
+	  				<input type="submit" value="+" style="border: none; background-color: #1b053a; color: white">
+	    		</form>
+	    	<% end %>
  			</div>
  			<% if @comment == peep && current_user %>
  				<form action='/create-comment' method="post" >
