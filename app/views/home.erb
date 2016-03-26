@@ -24,25 +24,31 @@
   <% if current_user %>
     <div id='post'>
       <form action='/chitter/new' method='post'>
-        <input style='width: 250px' type='text' name='message' placeholder="What's up today?" required>
+        <input style='width: 250px' type='text' name='message' placeholder="What's up today?">
         <input type='submit' value='Peep'>
+      </form>
     </div>
   <% end %>
 
   <div id='chitters'>
     <% if !Post.all.empty? %>
       <% Post.all.reverse.each do |post| %>
-        <p id='<%= post.id %>' style="margin-bottom: 40px;"><font color="Teal">
+        <p style="margin-bottom: 40px;"><font color="Teal">
           <h3><%= post.message %></h3>
+          <font color="CadetBlue">
+          <h5><%= post.user.username %> peeped @ <%= post.timestamp %></h5>
+          <% if !post.comments.empty? %>
+            <% post.comments.reverse.each do |comment| %>
+              <font color="Coral"><h4><%= comment.comment %></h4>
+              <font color="DarkSalmon"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
+            <% end %>
+          <% end %>
+          <form id='<% post.id %>' action='/comments/new' method='post'>
+            <input type='hidden' name='id' value='<%= post.id %>'>
+            <input style='width: 200px' type='text' name='comment' placeholder='Write a comment to this post'>
+            <input type='submit' value='Comment'>
+          </form>
         </p>
-        <p><font color="CadetBlue">
-          <h6><%= post.user.username %> peeped @ <%= post.timestamp %></h6>
-        </p>
-        <form action='comments/new' method='post'>
-          <input type='hidden' name='id' value="<%= post.id %>">
-          <input type='text' name='comment' placeholder='Write a comment'>
-          <input type='submit' value='Comment'>
-        </form>
       <% end %>
     <% else %>
       <p style="margin-bottom: 40px;"><font color="Teal">

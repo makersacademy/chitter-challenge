@@ -31,4 +31,5 @@ class User
   end
 
   has n, :posts
+  has n, :comments
 end

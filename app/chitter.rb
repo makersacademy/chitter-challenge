@@ -77,7 +77,19 @@ class Chitter < Sinatra::Base
     current_user.posts << post
     current_user.save
     post.save
-    p @post_id = post.id
+    erb(:home)
+  end
+
+  post '/comments/new' do
+    comment = Comment.create(comment: params[:comment],
+                             timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
+    current_user = User.get(session[:user_id])
+    post = Post.get(params[:id])
+    current_user.comments << comment
+    current_user.save
+    post.comments << comment
+    post.save
+    comment.save
     erb(:home)
   end
 

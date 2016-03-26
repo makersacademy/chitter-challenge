@@ -8,4 +8,5 @@ class Post
   property :timestamp, Text, required: true
 
   belongs_to :user
+  has n, :comments
 end

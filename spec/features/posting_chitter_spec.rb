@@ -3,7 +3,7 @@ feature 'Posting a chitter' do
   scenario 'User can post a chitter when logged in' do
     sign_up
     log_in
-    post_peep
+    expect{ post_peep }.to change(Post, :count).by(1)
     timestamp = Time.now.strftime("%I:%M%p %m/%d/%Y")
 
     within 'div#chitters' do
