@@ -12,4 +12,10 @@ class Chitter < Sinatra::Base
     erb :signup_page
   end
 
+  post '/signup' do
+    #redir get signup if validation = false
+    user = User.create(username: params[:username] , password: params[:password], email: params[:email])
+    redirect '/peeps'
+  end
+
 end
