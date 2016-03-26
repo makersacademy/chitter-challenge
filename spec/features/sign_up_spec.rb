@@ -22,7 +22,7 @@ feature 'Sign Up' do
     sign_up
     fill_in :username, with: 'Not_Thelo'
     expect{ click_button 'Register' }.not_to change{ Maker.count }
-    expect(page).to have_content "You've already signed up with this email. Forgot about that, huh?"
+    expect(page).to have_content "You've already signed up with this email."
     expect(current_path).to eq '/register'
   end
 
