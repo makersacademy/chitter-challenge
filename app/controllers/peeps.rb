@@ -9,9 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps/new" do
-    if current_user
-      erb :"peeps/new"
-    end
+    erb :"peeps/new" if current_user
   end
 
   post "/peeps" do
