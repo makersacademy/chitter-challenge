@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'sinatra'
@@ -10,14 +9,11 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-end
 
-group :development do
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'bcrypt' 
   gem 'sinatra-flash'
   gem 'rack'
-end
  
 
