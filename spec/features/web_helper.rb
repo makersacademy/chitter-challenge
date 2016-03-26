@@ -37,3 +37,10 @@ def sign_up_without_email
   fill_in(:password_confirmation, with: "password")
   click_button("Sign Up")
 end
+
+  def sign_in(username:, password:)
+    visit '/sessions/new'
+    fill_in(:username, with: "user")
+    fill_in(:password, with: "secret1234")
+    click_button 'Sign in'
+  end

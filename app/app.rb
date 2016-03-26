@@ -27,15 +27,30 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps/index'
+      redirect '/peeps'
     else
       flash.now[:notice] = "Password and confirmation password do not match"
       erb :'/users/new'
     end
   end
 
-  get '/peeps/index' do
+  get '/peeps' do
     erb :'peeps/index'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
   end
 
    helpers do

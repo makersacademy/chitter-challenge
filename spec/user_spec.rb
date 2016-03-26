@@ -26,4 +26,15 @@ describe User do
     expect(subject.send(:properties).map(&:name)).to include :username
   end
 
+
+  let!(:user) do
+    User.create(name: 'test', email: 'test@test.com', username: 'test', password: 'secret1234',
+               password_confirmation: 'secret1234')
+  end
+
+  it 'authenticates when given a valid email address and password' do
+    authenticated_user = User.authenticate(user.username, user.password)
+    expect(authenticated_user).to eq user
+  end
+
 end
