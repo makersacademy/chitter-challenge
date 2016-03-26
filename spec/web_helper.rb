@@ -20,6 +20,7 @@ def log_in(email: 'jinis@aol.jp',
   click_button('Log in')
 end
 
-def log_out
+def log_in_and_out
+  log_in
   click_button('Log out')
 end
