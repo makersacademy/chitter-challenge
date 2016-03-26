@@ -4,6 +4,7 @@ ruby '2.2.3'
 
 gem 'sinatra'
 gem 'data_mapper'
+gem 'bcrypt'
 
 group :test do
 
