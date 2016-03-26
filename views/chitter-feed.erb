@@ -1,37 +1,39 @@
-<html style="text-align: center; font-family: Tahoma"> </html>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
 	<% if current_user %>
   	<form action='/sessions' method="post">  
   		<input type="hidden" name="_method" value="delete">	
-    	<input type="submit" value="Sign out">
+    	<input id="sign_out" type="submit" value="Sign out">
     </form>
   <% else %>
-  	<a href="/log-in" style="border: 1px solid black; display: inline-block; width: 100px; padding: 3px 10px; border-radius: 9px; text-decoration: none">Log in</a>
-  	<a href="/sign-up" style="border: 1px solid black; display: inline-block; width: 100px; padding: 3px 10px; border-radius: 9px; text-decoration: none"> Sign up</a> 
-  <% end %>
-  
+  	<a href="/log-in">Log in</a>
+  	<a href="/sign-up"> Sign up</a> 
+  <% end %>  
   <h1>- Chitter -</h1>
- 	<h2>Welcome <% if current_user %><%= current_user.user_name %><% end%>!</h2>
+ 	<h2>
+ 		<% if current_user %>
+ 			Welcome <%= current_user.user_name %>!
+ 		<% end%>
+ 	</h2>
  	<div>
  		<% if current_user %>
- 		<form action='/create-peep' method="post" >
-			<textarea name="post" rows="3" cols="50">
-			Enter text here
-			</textarea>
-			<div>
-				<input type="submit" value="Post your peep">
-			</div>
-		</form>
+ 			<form action='/create-peep' method="post" >
+				<textarea name="post" rows="3" cols="50"></textarea>
+				<div>
+					<input class="submit_peep" type="submit" value="Post a peep">
+				</div>
+			</form>
   	<% end %>
-  	<div>
   	<% @posts.each do |peep| %>
-  		<div>
-  			<p class='stamp'><%= peep.time %>   <%= find_user_name(peep.user_id) %></p>
-  		</div>
-  		<div class="a_peep">
-  			<%= peep.post %> 
-  		</div>
-  	<% end %>
-  	</div>
+  		<div class="peeps">
+  			<p class='stamp'><%= peep.time %></p>
+	 			<p class='stamp'> <%= find_user_name(peep.user_id) %></p>
+  			<div class="a_peep" >
+ 					<%= peep.post %> 
+ 				</div>
+ 			</div>
+ 		<% end %>
  	</div>
 </body>

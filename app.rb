@@ -64,15 +64,14 @@ class Chitter < Sinatra::Base
 
   post '/log-in' do
   	user = User.first(email: params[:email])
-  	p user
 		if user.nil?
-      flash.now[:error] = ["User does not exist!"]
+      flash.now[:error] = ["User does not exist"]
       erb :"log-in"
     elsif user.authenticate(params[:password])
     	session[:user_id] = user.id
       redirect to('/chitter-feed')
     else
-      p flash.now[:error] = ["Incorrect password"]
+      flash.now[:error] = ["Incorrect password"]
       erb(:"log-in")
     end
   end

@@ -1,4 +1,7 @@
-<html style="text-align: center"> </html>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
 <body>
   <h1>- Chitter -</h1> 
   <% if flash[:notice] %>
@@ -7,12 +10,8 @@
     </div>
   <% else %>
     <h2>Welcome</h2>
+     <a href="/sign-up"> Sign up</a> 
+     <a href="/chitter-feed">Chitter feed</a>  
   <% end %>
-  </br>
-  <form action='/sign-up' method="get">
-    <input type="submit" value="Sign up">
-  </form>
-  <form action='/log-in' method="get">
-    <input type="submit" value="Log in">
-  </form>
+	<a href="/log-in">Log in</a>
 </body>

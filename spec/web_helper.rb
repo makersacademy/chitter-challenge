@@ -1,6 +1,6 @@
 def half_sign_up
 	visit '/'
-	click_button 'Sign up'
+	click_link 'Sign up'
 	fill_in('name', with: 'Bob')
   fill_in('user_name', with: 'BBy')
 end
@@ -30,5 +30,5 @@ end
 def create_post
 	sign_up
 	fill_in('post', with: 'This is my first post!' )
-	click_button 'Post your peep'
+	click_button 'Post a peep'
 end

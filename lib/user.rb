@@ -26,11 +26,7 @@ class User
   end
 
   def authenticate(password)
-  	if BCrypt::Password.new(self.password_digest) == password
-  		true
-  	else
-  		false
-  	end
+  	BCrypt::Password.new(self.password_digest) == password
   end
 
 
