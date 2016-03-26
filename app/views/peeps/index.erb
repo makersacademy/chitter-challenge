@@ -1,7 +1,7 @@
 <center>
 <div id='peeps'>
   <% @peeps.each do |peep| %>
-    <p><h3><%= peep.content %></h3></p>
+    <p><h2><%= peep.content %></h2></p>
     <p><h6><%= User.get(peep.user_id).username %> peeped @
       <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
   <% end %>
