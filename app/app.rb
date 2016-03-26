@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @maker = Maker.first
+    @maker = current_maker
     erb :peeps
   end
 
@@ -44,6 +44,7 @@ class Chitter < Sinatra::Base
     flash.keep[:message] = 'Bye!'
     redirect '/'
   end
+
   post '/register' do
     @maker = Maker.create(name: params[:name],
                  username: params[:username],
