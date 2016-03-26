@@ -6,3 +6,10 @@ def signup(name=nil, email=nil, password=nil, password_confirm = nil)
   fill_in(:password_confirm, with: password_confirm)
   click_button("Sign up")
 end
+
+def signin(email=nil, password=nil)
+  visit('/session/new')
+  fill_in(:email, with: email)
+  fill_in(:password, with: password)
+  click_button('Sign in')
+end
