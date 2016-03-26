@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :test do
+
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
@@ -12,4 +12,3 @@ group :test do
   gem 'rspec-sinatra'
   gem 'sinatra'
   gem 'database_cleaner'
-end
