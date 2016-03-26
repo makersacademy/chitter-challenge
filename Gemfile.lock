@@ -161,10 +161,7 @@ DEPENDENCIES
   coveralls
   data_mapper
   database_cleaner
-  dm-migrations
   dm-postgres-adapter
-  dm-transactions
-  dm-validations
   factory_girl
   rake
   rspec
