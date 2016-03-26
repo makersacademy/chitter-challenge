@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/user'
 require './lib/peep'
+require './lib/comment'
 require './data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -43,7 +44,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter-feed' do
+  	@comments = Comment.all
   	@posts = Peep.all.reverse
+  	@comment = session[:comment]
   	erb :'chitter-feed'
   end
 
@@ -52,8 +55,22 @@ class Chitter < Sinatra::Base
   	redirect '/chitter-feed'
   end
 
+  post '/comment/:id' do
+  	id = params[:id].to_i
+    peep = Peep.get(id)
+  	session[:comment] = peep
+  	redirect '/chitter-feed'
+  end
+
+  post '/create-comment' do
+  	Comment.create(post: params[:post], time: Time.now.strftime("%Y-%m-%d %H:%M"), peep_id: session[:comment].id, user_id: session[:user_id])
+  	session[:comment] = nil
+  	redirect '/chitter-feed'
+  end
+
   delete '/sessions' do
   	session[:user_id] = nil
+  	session[:comment] = nil
   	flash.keep[:notice] = 'Goodbye'
   	redirect to '/'
   end

@@ -32,8 +32,28 @@
 	 			<p class='stamp'> <%= find_user_name(peep.user_id) %></p>
   			<div class="a_peep" >
  					<%= peep.post %> 
+ 					<% @comments.each do |comment| %>
+ 						<div class="posts">
+  						<p class='stamp'><%= comment.time %></p>
+	 						<p class='stamp'> <%= find_user_name(comment.user_id) %></p>
+  						<div class="a_peep" >
+ 								<%= comment.post %> 
+ 							</div>
+ 						</div>
+ 					<% end %>
  				</div>
+ 				<form action='/comment/<%=peep.id%>' method="post" >  
+  				<input type="submit" value="+" style="border: none; background-color: #1b053a; color: white">
+    		</form>
  			</div>
+ 			<% if @comment == peep && current_user %>
+ 				<form action='/create-comment' method="post" >
+					<textarea name="post" rows="3" cols="50"></textarea>
+					<div>
+						<input class="submit_peep" type="submit" value="Submit">
+					</div>
+				</form>
+ 			<% end %>
  		<% end %>
  	</div>
 </body>

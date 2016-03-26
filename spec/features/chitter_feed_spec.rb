@@ -1,11 +1,14 @@
 feature 'chitter feed page' do
 	
 	
+	feature 'not logged in' do
 
-  scenario 'if not logged in, cannot create a peep' do
-		visit '/chitter-feed'
-		expect(page).not_to have_selector "input[type=submit][value='Post a peep']"
-  end
+	  scenario 'if not logged in, cannot create a peep' do
+			visit '/chitter-feed'
+			expect(page).not_to have_selector "input[type=submit][value='Post a peep']"
+	  end
+
+	end
 
   feature 'logged in user' do
 
@@ -19,6 +22,13 @@ feature 'chitter feed page' do
 			fill_in('post', with: 'This is my first post!' )
 			click_button 'Post a peep'
 			expect(page).to have_content('This is my first post!')
+	  end
+
+	  scenario 'can comment on a peep' do 
+	  	sign_up
+			fill_in('post', with: 'This is my first post!' )
+			click_button 'Post a peep'
+			
 	  end
 
   end

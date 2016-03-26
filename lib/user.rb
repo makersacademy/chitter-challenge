@@ -31,6 +31,7 @@ class User
 
 
 	has n, :peeps
+	has n, :comments
 
 end
 
