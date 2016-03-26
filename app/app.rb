@@ -1,11 +1,11 @@
-require 'byebug'
-require 'sinatra'
-require 'data_mapper'
-require 'pry'
-
 ENV['RACK_ENV'] ||= 'development'
 
-class Chitter < Sinatra::Application
+require 'sinatra/base'
+require 'pry'
+require_relative 'data_mapper_setup'
+
+
+class Chitter < Sinatra::Base
 
   USERS = []
 
@@ -13,17 +13,31 @@ class Chitter < Sinatra::Application
     erb :index
   end
 
+    get '/users/new' do
+     # @user = User.new
+     erb :'/users/new'
+    end
+
+
   post '/signup' do
-    # if params[:signup]
-    # User.create email: params[:email]
-    "welcome #{params['email']}"
+      @user = User.new(name: params[:name],
+      email: params[:email],
+      username: params[:username],
+      password: params[:password],
+     )
+      @user.save
+    # "welcome #{params['email']}"
     # else
     #   if User.find params[:email]
     #     "welcome #{params['email']}"
     #   else
     #     'Sorry, you have not signed up'
     #   end
-    # end
+    # # end
+    redirect '/'
   end
+
+
+    run! if app_file == $0
 
 end

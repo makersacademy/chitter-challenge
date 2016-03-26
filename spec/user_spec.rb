@@ -1,4 +1,4 @@
-require 'user'
+require_relative '../app/lib/user'
 
 describe User do
 
@@ -16,6 +16,14 @@ describe User do
 
   it 'has an email' do
     expect(subject.send(:properties).map(&:name)).to include :email
+  end
+
+    it 'has an name' do
+    expect(subject.send(:properties).map(&:name)).to include :name
+  end
+
+    it 'has an username' do
+    expect(subject.send(:properties).map(&:name)).to include :username
   end
 
 end
