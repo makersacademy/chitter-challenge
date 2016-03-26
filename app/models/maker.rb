@@ -19,7 +19,7 @@ class Maker
   property :email,         String,
             unique: true,
             messages: {
-              is_unique: "You've already signed up with this email. Forgot about that, huh?",
+              is_unique: "You've already signed up with this email.",
               presence:  "Seriously. Gotta put in an email address.",
               format:    "Does that look like an email addres to you!?"
             }
