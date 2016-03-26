@@ -1,6 +1,15 @@
-<<<<<<< HEAD
+
 ENV['RACK_ENV'] = "test"
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 require 'coveralls'
 require 'simplecov'
@@ -13,17 +22,6 @@ require_relative '../app/data_mapper_setup'
 require_relative './web_helper'
 # require_relative './helpers/users'
 # require_relative './helpers/peeps'
-=======
-require 'coveralls'
-require 'simplecov'
->>>>>>> 1ec1413865ab4e5dd0990904025289af31194cc3
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-<<<<<<< HEAD
 
 Capybara.app = Chitter
 
@@ -54,5 +52,3 @@ RSpec.configure do |config|
 
 
 end
-=======
->>>>>>> 1ec1413865ab4e5dd0990904025289af31194cc3

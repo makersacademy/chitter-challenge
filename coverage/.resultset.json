@@ -1,6 +1,18 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/web_helper.rb": [
+        1,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        null
+      ],
       "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/features/new_user_spec.rb": [
         1,
         1,
@@ -12,10 +24,22 @@
       ],
       "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/features/user_management_spec.rb": [
         1,
+        null,
         1,
         2,
         1,
         1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        1,
+        1,
+        null,
         null,
         null
       ],
@@ -23,6 +47,6 @@
 
       ]
     },
-    "timestamp": 1459007906
+    "timestamp": 1459010661
   }
 }
