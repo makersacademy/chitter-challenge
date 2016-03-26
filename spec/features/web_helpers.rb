@@ -11,5 +11,6 @@ def sign_up
   fill_in :username, with: 'AngryAndrew'
   fill_in :email,    with: 'test@test.com'
   fill_in :password, with: 'password123'
+  fill_in :password_confirmation, with: 'password123'
   click_button 'Sign up'
 end

@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/chit'
 require_relative 'models/tag'
 require_relative 'models/user'
@@ -14,6 +15,7 @@ class Chitter < Sinatra::Base
     end
   end
 
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -27,13 +29,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/welcome')
+    @user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session['user_id'] = @user.id
+      redirect '/weclome'
+    else
+      flash.now[:error] = "Passwords don't match."
+      erb :'signup/new'
+    end
   end
 
   get '/welcome' do
-    current_user
     erb :'signup/welcome'
   end
 

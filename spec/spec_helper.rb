@@ -9,6 +9,7 @@ require './app/models/user'
 require './app/app'
 require 'database_cleaner'
 require 'features/web_helpers'
+require 'sinatra/flash'
 
 Capybara.app = Chitter
 
