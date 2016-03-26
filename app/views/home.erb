@@ -35,6 +35,10 @@
         <p style="margin-bottom: 40px;"><font color="Teal"><h3><%= post.message %></h3></p>
         <p><font color="CadetBlue"><h6><%= post.user.username %> peeped @ <%= post.timestamp %></h6></p>
       <% end %>
+    <% else %>
+      <p style="margin-bottom: 40px;"><font color="Teal">
+        <h3>No peeps has been posted...</h3>
+      </p>
     <% end %>
   </div>
 </center>
