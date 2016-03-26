@@ -1,7 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
-
+require_relative '../data_mapper_setup'
 class User
 
   include DataMapper::Resource
@@ -29,6 +29,8 @@ class User
     end
   end
 end
+
+
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{RACK_ENV}")
 DataMapper.finalize
 DataMapper.auto_upgrade!

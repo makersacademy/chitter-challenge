@@ -1,0 +1,12 @@
+<h1> Poops </h1>
+
+<ul id='poops'>
+  <% @poops.reverse.each do |poop| %>
+    <li>
+    <%= poop.poop_msg %>
+    <%= poop.username %>
+    <%= poop.time_posted %>
+    </li>
+  <% end %>
+</ul>
+

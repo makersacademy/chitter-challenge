@@ -1,10 +1,15 @@
 ENV['RACK_ENV'] ||= 'development'
 RACK_ENV = ENV['RACK_ENV']
-
+require 'sinatra'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './models/user'
+require_relative 'data_mapper_setup'
+require_relative './models/poop'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super_secret'
 
@@ -30,8 +35,8 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username]
     )
-      session[:user_id] = user.id
-      redirect '/'
+    session[:user_id] = user.id
+    redirect '/'
   end
 
   get '/sessions/new' do
@@ -42,15 +47,41 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to '/'
     else
       flash.now[:notice] = "email and password is not recognized"
       erb :'sessions/new'
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye'
+    redirect to '/'
+  end
+
+  get '/poops/new' do
+    if session[:user_id]
+      erb :'poops/new'
+    else
+      redirect '/'
+    end
+  end
+    post '/poops' do
+      poop = Poop.new(
+        poop_msg: params[:poop_msg],
+        username: current_user.username, 
+        time_posted: Time.now 
+      )
+      poop.save
+      redirect '/poops/index'
+    end
 
 
-  # start the server if ruby file executed directly
-  run! if app_file == $0
-end
+    get '/poops/index' do
+      @poops = Poop.all
+      erb :'poops/index'
+    end
+    # start the server if ruby file executed directly
+    run! if app_file == $0
+  end
