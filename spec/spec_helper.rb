@@ -22,7 +22,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
-  config.include Helpers
+  config.include TestHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

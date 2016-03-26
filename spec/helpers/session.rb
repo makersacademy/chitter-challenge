@@ -1,4 +1,4 @@
-module Helpers
+module TestHelpers
   def sign_in(user)
     visit('/sessions/new')
     expect(page.status_code).to eq(200)

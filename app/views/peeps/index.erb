@@ -1,18 +1,21 @@
-<% unless current_user %>
-<form action="/users/new">
-  <button>Sign up</button>
-</form>
-<form action="/sessions/new">
-  <button>Sign in</button>
-</form>
-<% end %>
-<h1>Chitter</h1>
-<ul id='peeps'>
+<center>
+<div id='peeps'>
   <% @peeps.each do |peep| %>
-    <li>
-      Peep: <%= peep.content %>
-      Time:   <%= peep.time.strftime('%a, %e %b %Y %H:%M:%S %z')   %>
-      By:   <%= User.get(peep.user_id).username %>
-    </li>
+    <p><h3><%= peep.content %></h3></p>
+    <p><h6><%= User.get(peep.user_id).username %> peeped @
+      <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
   <% end %>
-</ul>
+</div>
+
+<% if current_user %>
+  <form action='/peeps' method='post'>
+    <textarea name='content' required maxlength="140">
+    </textarea>
+    <button>Peep!</button>
+  </form>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <button>Sign out<button>
+  </form>
+<% end %>
+</center>

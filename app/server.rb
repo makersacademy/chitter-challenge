@@ -7,19 +7,5 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
   set :public_folder, proc { File.join(root, 'static') }
   enable :partial_underscores
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-
-    def can_save(peep)
-      if peep.save
-        redirect '/'
-      else
-        flash.now[:errors] = peep.errors.full_messages
-        erb :'peeps/new'
-      end
-    end
-  end
+  include Helpers
 end

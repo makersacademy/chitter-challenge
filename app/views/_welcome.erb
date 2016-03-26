@@ -1,13 +1,11 @@
 <% if current_user %>
-  Welcome to Chitter, <%= current_user.name %>!
-  <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <button>Sign out</button>
-  </form>
-  <form action="/peeps/new">
-    <button>New peep</button>
-  </form>
-  <form action="/peeps/me">
-    <button>My peeps</button>
-  </form>
+  <ul class="topnav">
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/peeps/me">My peeps</a></li>
+  </ul>
+
+  <center><div style="padding:0 16px;">
+    <h1>Chitter</h1>
+    <h2>Welcome to Chitter, <%= current_user.name %>!</h2>
+  </div></center>
 <% end %>
