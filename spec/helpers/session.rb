@@ -19,9 +19,9 @@ module TestHelpers
   end
 
   def post_peep(peep)
-    visit '/peeps/new'
+    visit '/'
     expect(page.status_code).to eq(200)
-    fill_in :content, with: peep.content
+    fill_in 'peep', with: peep.content
     click_button 'Peep!'
   end
 end

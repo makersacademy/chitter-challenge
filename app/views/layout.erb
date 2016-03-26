@@ -6,9 +6,11 @@
   </head>
 
   <body>
-    <%= partial :welcome %>
-    <%= partial :flash %>
+    <%= partial :logged_in %>
+    <%= partial :guest %>
     <%= partial :notice %>
+    <%= partial :flash %>
     <%= yield %>
+    <%= partial :footer %>
   </body>
 </html>

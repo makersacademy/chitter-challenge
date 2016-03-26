@@ -12,12 +12,6 @@ feature 'Posting peeps' do
     expect(Peep.first.content).to eq(peep.content)
   end
 
-  scenario 'Create new message while not logged in' do
-    peep = build(:peep)
-    expect { post_peep(peep) }.not_to change(Peep, :count)
-    expect(page).to have_content 'You must be logged in to peep!'
-  end
-
   scenario 'creates peep above character limit' do
     message = 'This is a peep containing more than 140 characters.'\
     'DataMapper should not add it to the peeps table.'\

@@ -1,25 +1,21 @@
-<h1>User sign up</h1>
-<h2>All fields are required</h2>
+<center>
+<h3>All fields are required</h3>
 <form action="/users" method="post">
-  <label for='name'>
-    Name:
-    <input type='text' name='name' value='<%= @user.name %>' required/>
-  </label>
-  <label for='username'>
-    User name:
-    <input type='text' name='username' value='<%= @user.username %>' required/>
-  </label>
-  <label for='email'>
-    email:
-    <input type='text' name='email' value='<%= @user.email %>' required/>
-  </label>
-  <label for='password'>
-    Password:
-    <input type='password' name='password' required/>
-  </label>
-  <label for='confirmation'>
-    Confirm password:
-    <input type='password' name='confirmation' required/>
-  </label>
+    <div style="vertical-align: middle">
+      <input type='text' name='name' placeholder='Name' value='<%= @user.name %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='text' placeholder='Username' name='username' value='<%= @user.username %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='text' placeholder='email' name='email' value='<%= @user.email %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='password' placeholder='Password' name='password' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='password' placeholder='Confirm password' name='confirmation' required/>
+    </div>
   <button id='sign_up'>Sign up</button>
 </form>
+</center>

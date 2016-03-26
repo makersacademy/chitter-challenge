@@ -1,0 +1,10 @@
+<% unless current_user %>
+  <ul class="topnav">
+    <li><a class="active" href="/">Home</a></li>
+    <li class="right"><a href="/users/new">Sign up</a></li>
+    <li class="right"><a href="/sessions/new">Sign in</a></li>
+  </ul>
+  <center><div style="padding:0 16px;">
+    <h1>Welcome to Chitter!</h1>
+  </div></center>
+<% end %>

@@ -9,13 +9,11 @@
 
 <% if current_user %>
   <form action='/peeps' method='post'>
-    <textarea name='content' required maxlength="140">
+    <textarea id='peep' rows="4" cols="50" name='content' required maxlength="140">
     </textarea>
-    <button>Peep!</button>
-  </form>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <button>Sign out<button>
+    <div style="vertical-align: middle">
+      <button>Peep!</button>
+    </div>
   </form>
 <% end %>
 </center>

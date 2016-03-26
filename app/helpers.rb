@@ -8,7 +8,8 @@ module Helpers
       redirect '/'
     else
       flash.now[:errors] = peep.errors.full_messages
-      erb :'peeps/new'
+      @peeps = Peep.all(order: [:id.desc])
+      erb :'peeps/index'
     end
   end
 end
