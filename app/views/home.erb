@@ -1,3 +1,4 @@
+<body bgcolor='LemonChiffon'>
 <div align='right'>
   <% if current_user %>
     <form action='/sessions' method='post'>
@@ -33,14 +34,14 @@
   <div id='chitters'>
     <% if !Post.all.empty? %>
       <% Post.all.reverse.each do |post| %>
-        <p style="margin-bottom: 40px;"><font color="Teal">
+        <p style="margin-bottom: 40px;"><font color="IndianRed">
           <h3><%= post.message %></h3>
-          <font color="CadetBlue">
+          <font color="DarkSalmon">
           <h5><%= post.user.username %> peeped @ <%= post.timestamp %></h5>
           <% if !post.comments.empty? %>
             <% post.comments.reverse.each do |comment| %>
-              <font color="Coral"><h4><%= comment.comment %></h4>
-              <font color="DarkSalmon"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
+              <font color="Teal"><h4><%= comment.comment %></h4>
+              <font color="CadetBlue"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
             <% end %>
           <% end %>
           <% if current_user %>
@@ -59,3 +60,4 @@
     <% end %>
   </div>
 </center>
+</body>
