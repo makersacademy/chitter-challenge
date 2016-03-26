@@ -13,12 +13,7 @@ class Chitter < Sinatra::Base
                     time: DateTime.now)
     if current_user
       current_user.peeps << peep
-      if peep.save
-        redirect '/'
-      else
-        flash.now[:errors] = ['Your peep must be between 1 and 140 characters']
-        erb :'peeps/new'
-      end
+      can_save peep
     else
       flash.now[:errors] = ['You must be logged in to peep!']
       erb :'peeps/new'
