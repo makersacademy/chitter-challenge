@@ -52,6 +52,16 @@ class Chitter < Sinatra::Base
   	redirect '/chitter-feed'
   end
 
+  delete '/sessions' do
+  	session[:user_id] = nil
+  	flash.keep[:notice] = 'Goodbye'
+  	redirect to '/'
+  end
+
+  get '/sign-in' do
+  	erb :'sign-in'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -1,8 +1,18 @@
 <html style="text-align: center"> </html>
 <body>
-  <h1>- Chitter -</h1>
-  <h2>Welcome</h2>
+  <h1>- Chitter -</h1> 
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% else %>
+    <h2>Welcome</h2>
+  <% end %>
+  </br>
   <form action='/sign-up' method="get">
     <input type="submit" value="Sign up">
+  </form>
+  <form action='/sign-in' method="get">
+    <input type="submit" value="Log in">
   </form>
 </body>

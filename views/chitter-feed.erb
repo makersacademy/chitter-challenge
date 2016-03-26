@@ -1,7 +1,8 @@
 <html style="text-align: center; font-family: Tahoma"> </html>
 <body>
 	<% if current_user %>
-  	<form action='/sign-up' method="get">  	
+  	<form action='/sessions' method="post">  
+  		<input type="hidden" name="_method" value="delete">	
     	<input type="submit" value="Sign out">
     </form>
   <% else %>
