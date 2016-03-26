@@ -16,7 +16,7 @@ feature 'User management: log in' do
 
   scenario 'User can jump to sign up page' do
     visit('/sessions/new')
-    click_button('Jump to sign up page')
+    click_button('Sign up here')
     expect(current_path).to eq('/users/new')
   end
 end
