@@ -19,4 +19,9 @@ class Chitter <Sinatra::Base
     end
   end
 
+  delete '/session' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect('/feed')
+  end
 end
