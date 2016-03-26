@@ -1,8 +1,5 @@
 feature 'Posting a chitter' do
 
-  # scenario 'User can\'t post a chitter unless logged in' do
-  # end
-
   scenario 'User can post a chitter when logged in' do
     sign_up
     log_in
@@ -26,5 +23,12 @@ feature 'Posting a chitter' do
   scenario 'User can\'t post without logging in' do
     visit('/home')
     expect(page).not_to have_xpath('//div[@id = "post"]')
+  end
+
+  scenario 'User can see posts when visiting as a guest' do
+    visit('/')
+    click_button('Continue as guest')
+    expect(current_path).to eq('/home')
+    expect(page).to have_xpath('//div[@id = "chitters"]')
   end
 end

@@ -3,16 +3,25 @@
   <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
   <font face="Futura">
 
+  <br>
   <% if flash[:notice] %>
     <div id='notice'>
+      <br>
       <h2><%= flash[:notice] %></h2>
     </div>
+  <% else %>
+    <br>
+    <h2>↓ Choose an option below ↓</h2>
   <% end %>
 
+  <br>
   <form action='/sessions/new'>
     <input type='submit' value='Back to log in page'>
   </form>
   <form action='/users/new'>
     <input type='submit' value='Create a new account'>
+  </form>
+  <form action='/home'>
+    <input type='submit' value='Continue as guest'>
   </form>
 </center>

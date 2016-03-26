@@ -29,10 +29,16 @@
   </form>
 
   <div>
-    <h2><p>Already have an account?</h2>
+    <h2>Already have an account?</h2>
+    <form action='/sessions/new'>
+      <input type='submit' value='Log in here'>
+    </form>
   </div>
-
-  <form action='/sessions/new'>
-    <input type='submit' value='Log in here'>
-  </form>
+  
+  <div>
+    <h2>Just want to see the peeps?</h2>
+    <form action='/home'>
+      <input type='submit' value='Continue as guest'>
+    </form>
+  </div>
 </center>
