@@ -4,8 +4,9 @@ require "securerandom"
 
 class User
   include DataMapper::Resource
+
   property :id, Serial
-  property :name, String
+  property :name, String, required: true
   property :username, String,
             required: true,
             unique: true

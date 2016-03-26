@@ -1,0 +1,19 @@
+<% if current_user %>
+  <form action="/peeps/new">
+    <button type="submit">Post a new peep</button>
+  </form>
+<% else %>
+  <form action="/sessions/new">
+    <button type="submit">Log in</button>
+  </form>
+  <form action="/users/new">
+    <button type="submit">Sign up</button>
+  </form>
+<% end %>
+
+<h1>List of Peeps</h1>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %><li>
+  <% end %>
+</ul>

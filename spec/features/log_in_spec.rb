@@ -1,5 +1,7 @@
 feature "User log in" do
-  before { sign_up }
+  before do
+    sign_up
+  end
 
   scenario "an existing user can log in" do
     sign_in
