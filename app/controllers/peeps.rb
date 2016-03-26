@@ -19,4 +19,9 @@ class Chitter < Sinatra::Base
       erb :'peeps/new'
     end
   end
+
+  get '/peeps/me' do
+    @peeps = Peep.all(user_id: current_user.id, order: [:id.desc])
+    erb :'peeps/index'
+  end
 end

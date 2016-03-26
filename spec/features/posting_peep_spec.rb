@@ -22,11 +22,9 @@ feature 'Posting peeps' do
     message = 'This is a peep containing more than 140 characters.'\
     'DataMapper should not add it to the peeps table.'\
     'The user should get the appropriate error message.'
-    error_message = 'New peep Content must be between 1 and 140 characters long'
     peep = build(:peep, content: message)
     user = create(:user)
     sign_in(user)
     expect { post_peep(peep) }.not_to change(Peep, :count)
-    expect(page).to have_content error_message
   end
 end
