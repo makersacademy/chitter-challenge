@@ -45,6 +45,11 @@ RSpec.configure do |config|
       email 'myemail@email.com'
       password '12345'
     end
+
+    factory :peep do
+      content 'Hello, world! This is a test peep.'
+      time DateTime.now
+    end
   end
 
   config.backtrace_exclusion_patterns = [

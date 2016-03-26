@@ -5,4 +5,15 @@
 <form action="/sessions/new">
   <button>Sign in</button>
 </form>
+<form action="/peeps/new">
+  <button>New peep</button>
+</form>
 <% end %>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <%= peep.content %>
+      Time:   <%= peep.time.strftime('%a, %e %b %Y %H:%M:%S %z')   %>
+    </li>
+  <% end %>
+</ul>

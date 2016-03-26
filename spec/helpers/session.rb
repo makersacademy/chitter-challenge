@@ -17,4 +17,11 @@ module Helpers
     fill_in :confirmation, with: user.password
     click_button 'Sign up'
   end
+
+  def post_peep(peep)
+    visit '/peeps/new'
+    expect(page.status_code).to eq(200)
+    fill_in :content, with: peep.content
+    click_button 'Peep!'
+  end
 end

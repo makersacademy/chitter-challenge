@@ -9,12 +9,14 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :name, String
-  property :username, String
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
   validates_confirmation_of :password
+
+  has n, :peeps
 
   def password=(password)
     @password = password
