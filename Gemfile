@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-
+  gem 'bcrypt'
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'

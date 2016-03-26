@@ -5,9 +5,11 @@ require 'simplecov'
 require 'capybara/rspec'
 require './app/models/chit'
 require './app/models/tag'
+require './app/models/user'
 require './app/app'
 require 'database_cleaner'
 require 'features/web_helpers'
+
 Capybara.app = Chitter
 
 
