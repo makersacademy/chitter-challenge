@@ -1,6 +1,6 @@
 module SessionHelpers
 
-  def sign_up(username: 'user1'
+  def sign_up(username: 'user1',
               email: 'user1@email.com',
               password: '1234',
               password_confirmation: '1234')

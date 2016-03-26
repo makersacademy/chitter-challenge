@@ -1,5 +1,5 @@
 require 'data_mapper'
-require 'app/app.rb'
+require './app/app.rb'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
@@ -22,5 +22,5 @@ namespace :db do
     DataMapper.auto_migrate!
     puts 'auto_migrate complete, data was lost'
   end
-  
+
 end
