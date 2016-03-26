@@ -1,4 +1,4 @@
-feature 'User management: log in' do
+feature 'User management -log in:' do
 
   scenario 'User can log in with correct credsentials' do
     sign_up

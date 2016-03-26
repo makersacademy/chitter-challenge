@@ -1,4 +1,4 @@
-feature 'Posting a chitter' do
+feature 'Posting a chitter:' do
 
   scenario 'User can post a chitter when logged in' do
     sign_up

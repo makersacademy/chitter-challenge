@@ -1,4 +1,4 @@
-feature 'User management: log out' do
+feature 'User management -log out:' do
 
   scenario 'User is greeted upon log out' do
     sign_up

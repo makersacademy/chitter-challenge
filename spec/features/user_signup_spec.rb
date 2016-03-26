@@ -1,4 +1,4 @@
-feature 'User management: sign up' do
+feature 'User management -sign up:' do
 
   scenario 'User is asked to signup/login when visiting /home w/o loging in' do
     visit'/home'
