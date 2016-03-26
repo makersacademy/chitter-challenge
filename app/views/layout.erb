@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTAH</title>
+  </head>
+
+  <body>
+    <% if flash[:error] %>
+    <ul>
+      <% flash[:error].each do |error| %>
+       <li><%= error %></li>
+      <% end %>
+    </ul
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
