@@ -1,6 +1,6 @@
 module Helpers
 
-  def sign_up_as(user)
+  def sign_up(user)
     visit '/users/new'
     fill_in :name,     with: user.name
     fill_in :username, with: user.username
