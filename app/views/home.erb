@@ -43,11 +43,13 @@
               <font color="DarkSalmon"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
             <% end %>
           <% end %>
-          <form id='<% post.id %>' action='/comments/new' method='post'>
-            <input type='hidden' name='id' value='<%= post.id %>'>
-            <input style='width: 200px' type='text' name='comment' placeholder='Write a comment to this post'>
-            <input type='submit' value='Comment'>
-          </form>
+          <% if current_user %>
+            <form id='<% post.id %>' action='/comments/new' method='post'>
+              <input type='hidden' name='id' value='<%= post.id %>'>
+              <input style='width: 200px' type='text' name='comment' placeholder='Write a comment to this post'>
+              <input type='submit' value='Comment'>
+            </form>
+          <% end %>
         </p>
       <% end %>
     <% else %>
