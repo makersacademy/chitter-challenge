@@ -43,15 +43,15 @@ feature 'signup route and process' do
 
     before :each do
       visit '/'
-      register_to_site
     end
 
     scenario 'successful signup leads to the peeps page' do
+      register_to_site
       expect(current_path).to eq '/peeps'
     end
 
     scenario 'successful signup add a user entry in the database' do
-      expect{register_to_site}.to(change User, :count).by 1
+      expect{register_to_site}.to change(User, :count).by 1
     end
 
     feature 'signup validation: TODO wrong form etc' do

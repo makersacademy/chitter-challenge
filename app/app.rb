@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'bcrypt'
 
+require './app/dm_models_setup'
+
 class Chitter < Sinatra::Base
   enable :sessions
 
@@ -17,5 +19,11 @@ class Chitter < Sinatra::Base
     user = User.create(username: params[:username] , password: params[:password], email: params[:email])
     redirect '/peeps'
   end
+
+  get '/peeps' do
+    
+  end
+
+
 
 end
