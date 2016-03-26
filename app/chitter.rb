@@ -2,7 +2,6 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative 'models/user'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -78,6 +77,7 @@ class Chitter < Sinatra::Base
     current_user.posts << post
     current_user.save
     post.save
+    p @post_id = post.id
     erb(:home)
   end
 

@@ -24,7 +24,7 @@
   <% if current_user %>
     <div id='post'>
       <form action='/chitter/new' method='post'>
-        <input style='width: 250px' type='text' name='message' placeholder="what's up today?" required>
+        <input style='width: 250px' type='text' name='message' placeholder="What's up today?" required>
         <input type='submit' value='Peep'>
     </div>
   <% end %>
@@ -32,8 +32,17 @@
   <div id='chitters'>
     <% if !Post.all.empty? %>
       <% Post.all.reverse.each do |post| %>
-        <p style="margin-bottom: 40px;"><font color="Teal"><h3><%= post.message %></h3></p>
-        <p><font color="CadetBlue"><h6><%= post.user.username %> peeped @ <%= post.timestamp %></h6></p>
+        <p id='<%= post.id %>' style="margin-bottom: 40px;"><font color="Teal">
+          <h3><%= post.message %></h3>
+        </p>
+        <p><font color="CadetBlue">
+          <h6><%= post.user.username %> peeped @ <%= post.timestamp %></h6>
+        </p>
+        <form action='comments/new' method='post'>
+          <input type='hidden' name='id' value="<%= post.id %>">
+          <input type='text' name='comment' placeholder='Write a comment'>
+          <input type='submit' value='Comment'>
+        </form>
       <% end %>
     <% else %>
       <p style="margin-bottom: 40px;"><font color="Teal">

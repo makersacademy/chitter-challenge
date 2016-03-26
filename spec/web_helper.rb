@@ -23,3 +23,8 @@ end
 def log_out
   click_button('Log out')
 end
+
+def post_peep(message: 'Test post')
+  fill_in('message', with: message)
+  click_button('Peep')
+end

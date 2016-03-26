@@ -3,8 +3,7 @@ feature 'Posting a chitter' do
   scenario 'User can post a chitter when logged in' do
     sign_up
     log_in
-    fill_in('message', with: 'Test post')
-    click_button('Peep')
+    post_peep
     timestamp = Time.now.strftime("%I:%M%p %m/%d/%Y")
 
     within 'div#chitters' do
@@ -29,6 +28,6 @@ feature 'Posting a chitter' do
     visit('/')
     click_button('Continue as guest')
     expect(current_path).to eq('/home')
-    expect(page).to have_xpath('//div[@id = "chitters"]')
+    expect(page).to have_xpath('//div[@id="chitters"]')
   end
 end

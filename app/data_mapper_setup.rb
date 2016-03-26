@@ -6,3 +6,5 @@ require_relative 'models/post'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
+
+DataMapper.auto_migrate! if ENV['RACK_ENV'] == 'test'
