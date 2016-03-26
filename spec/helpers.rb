@@ -17,4 +17,10 @@ module Helpers
     click_button 'Sign in'
   end
 
+  def add_peep
+    visit '/peeps/new'
+    fill_in :message, with: 'Ouch! My head hurts!'
+    click_button 'Peep'
+  end
+
 end
