@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative 'models/data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -45,9 +46,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
-      flash.now[:failsignin] = "Invalid username or password"
+      flash.now[:notice] = "Invalid username or password"
       erb :'signin/signin'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
   # start the server if ruby file executed directly

@@ -20,4 +20,13 @@ feature 'User Log In' do
     end
   end
 
+  scenario 'Failed sign in' do
+    sign_up_correctly
+    sign_in_incorrect_password
+    expect(current_path).to eq('/signin')
+    within 'div#signinform' do
+      expect(page).to have_content("Invalid username or password")
+    end
+  end
+
 end

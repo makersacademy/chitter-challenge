@@ -1,4 +1,4 @@
-<div id='pleasesignin'>
+<div class='pageheading' id='pleasesignin'>
   <h3>Enter your sign in information:</h3>
 </div>
 
@@ -6,11 +6,13 @@
 
 <form action='/signin' method='post'>
   <% if flash[:notice] %>
-    <div id='loginfail'><%= flash[:notice] %></div>
-    Username:<br>
-    <input type='text' name='username'/><br>
-    Password:<br>
-    <input type='text' name='password'/><br>
+    <div class='noticebox' id='signinnotice'>
+      <div id='notice'><%= flash[:notice] %></div>
+      Username:<br>
+      <input type='text' name='username'/><br>
+      Password:<br>
+      <input type='text' name='password'/><br>
+    </div>
   <% else %>
     Username:<br>
     <input type='text' name='username'/><br>

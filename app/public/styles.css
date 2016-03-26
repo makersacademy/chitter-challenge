@@ -36,7 +36,6 @@
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
-
 #signup {
   margin:0;
   position:absolute;
@@ -56,7 +55,11 @@
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)}
+  transform: translate(-50%, -50%)
+}
+#signout{
+  font-size: 12px;
+}
 
 #peepscontent {
   margin-top: 80px;
@@ -65,7 +68,7 @@
   border:2px solid yellow;
 }
 
-#pleasesignup {
+.pageheading {
   margin-top: 80px;
   height: 80px;
   position: absolute;
@@ -73,7 +76,7 @@
   border:2px solid red;
   font-size: 30px;
 }
-#pleasesignup h3 {
+.pageheading h3 {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -88,20 +91,26 @@
   top:0;bottom:0;right:0;left:0;
   border:2px solid yellow;
 }
-#noticebox {
+#signinform{
+  margin-top: 160px;
+  position: absolute;
+  top:0;bottom:0;right:0;left:0;
+  border:2px solid yellow;
+}
+.noticebox {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
+  bottom: 0px;left: 0px;right: 0px;top: 0px;
   border: 1px solid red;
   width:190px;
   height:125px;
 }
-#noticebox div{
+.noticebox div{
   font-style: italic;
   font-size: 14px;
   color: red;
+}
+#signinnotice{
+  width:200px;
 }
