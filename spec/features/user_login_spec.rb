@@ -13,4 +13,10 @@ feature 'User management: log in' do
     expect(current_path).to eq('/sessions')
     expect(page).to have_content('Incorrect email or password')
   end
+
+  scenario 'User can jump to sign up page' do
+    visit('/sessions/new')
+    click_button('Jump to sign up page')
+    expect(current_path).to eq('/users/new')
+  end
 end
