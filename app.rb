@@ -58,8 +58,23 @@ class Chitter < Sinatra::Base
   	redirect to '/'
   end
 
-  get '/sign-in' do
-  	erb :'sign-in'
+  get '/log-in' do
+  	erb :'log-in'
+  end
+
+  post '/log-in' do
+  	user = User.first(email: params[:email])
+  	p user
+		if user.nil?
+      flash.now[:error] = ["User does not exist!"]
+      erb :"log-in"
+    elsif user.authenticate(params[:password])
+    	session[:user_id] = user.id
+      redirect to('/chitter-feed')
+    else
+      p flash.now[:error] = ["Incorrect password"]
+      erb(:"log-in")
+    end
   end
 
   # start the server if ruby file executed directly

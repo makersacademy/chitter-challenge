@@ -6,8 +6,8 @@ feature 'sign in' do
 		click_button ("Log in")
 		fill_in('email', with: 'bob@gmail.com' )
     fill_in('password', with: 'bobByg' )
-    click_button ("Log-in")
-  	expect(page).to have_button('Welcome BBY')
+    click_button ("Log in")
+  	expect(page).to have_content('Welcome BBy')
   end
 
 end

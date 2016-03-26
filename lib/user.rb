@@ -25,7 +25,16 @@ class User
   	self.password_digest = BCrypt::Password.create(password)
   end
 
+  def authenticate(password)
+  	if BCrypt::Password.new(self.password_digest) == password
+  		true
+  	else
+  		false
+  	end
+  end
+
+
 	has n, :peeps
-	
+
 end
 
