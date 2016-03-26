@@ -17,6 +17,7 @@ group :development do
   gem 'dm-postgres-adapter'
   gem 'bcrypt' 
   gem 'sinatra-flash'
+  gem 'rack'
 end
  
 
