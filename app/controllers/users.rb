@@ -2,7 +2,7 @@
 class Chitter < Sinatra::Base
 
   get '/users/sign_up' do
-    # @user = User.new
+    @user = User.new
     erb :'users/sign_up'
   end
 
@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/links')
     else
-      # flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/sign_up'
     end
   end
