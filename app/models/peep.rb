@@ -4,7 +4,7 @@ class Peep
   property :id, Serial
   property :content, Text, length: 140, required: true
   property :time_posted, Time,
-           default: Proc.new { Time.now }
+           default: proc { Time.now }
 
   belongs_to :user
 

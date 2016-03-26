@@ -3,7 +3,7 @@ require_relative "helpers"
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, "super_secret"
-  
+
   use Rack::MethodOverride
 
   register Sinatra::Flash
