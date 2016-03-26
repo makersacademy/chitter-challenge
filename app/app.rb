@@ -5,6 +5,8 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+
   enable :sessions
   register Sinatra::Flash
 
@@ -37,6 +39,11 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  delete '/session' do
+    session[:maker_id] = nil
+    flash.keep[:message] = 'Bye!'
+    redirect '/'
+  end
   post '/register' do
     @maker = Maker.create(name: params[:name],
                  username: params[:username],

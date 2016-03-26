@@ -5,12 +5,24 @@
   </head>
 
   <body>
+    <% if current_maker %>
+    Oh hey <%= @maker.name %>, what will you peep about today?
+    <form action='/session' method='post'>
+      <input type=hidden name='_method' value='delete'>
+      <input type=submit value='Log Out'>
+    </form>
+    <% end %>
+
+    <% if flash[:message] %>
+      <%= flash[:message] %>
+    <% end %>
+
     <% if flash[:error] %>
     <ul>
       <% flash[:error].each do |error| %>
        <li><%= error %></li>
       <% end %>
-    </ul
+    </ul>
     <% end %>
 
     <%= yield %>

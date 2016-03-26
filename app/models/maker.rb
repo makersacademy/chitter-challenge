@@ -1,6 +1,6 @@
 class Maker
   include DataMapper::Resource
-  include BCrypt
+  include BCrypt  
   attr_reader   :password
   attr_accessor :password_confirmation
 
@@ -13,8 +13,6 @@ class Maker
     maker = first(username: username)
     if maker && BCrypt::Password.new(maker.password_hash) == password
       maker
-    else
-      nil
     end
   end
 
