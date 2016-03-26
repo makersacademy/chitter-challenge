@@ -15,5 +15,6 @@ group :test do
   gem 'capybara'
   gem 'rspec-sinatra'
   gem 'rake'
+  gem 'pry'
   gem 'coveralls', require: false
 end
