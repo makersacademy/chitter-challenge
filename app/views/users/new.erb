@@ -1,0 +1,18 @@
+<h2>Sign up</h2>
+<form class="add_form" action="/users" method="post">
+  <div>
+    <input type="text" name="first_name" placeholder="First Name" value="<%=@user.first_name%>" required>
+  </div>
+  <div>
+    <input type="text" name="last_name" placeholder="Last Name" value="<%=@user.last_name%>" required>
+  </div>
+  <div>
+    <input type="email" name="email" placeholder="Email" value="<%=@user.email%>" required>
+  </div>
+  <div>
+    <input type="password" name="password" placeholder="Password" required>
+  </div>
+  <div>
+    <input type="submit" value="Sign up">
+  </div>
+</form>

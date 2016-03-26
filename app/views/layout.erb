@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <!-- <link rel="stylesheet" href="/styles.css"> -->
+</head>
+
+<body>
+  <h1>- Chitter -</h1>
+  <% if flash[:notice] %>
+    <% flash[:notice].each do |message|%>
+      <div class='notice'>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if flash[:error] %>
+    <% flash[:error].each do |message|%>
+      <div class='error'>
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if current_user %>
+      <h2>Welcome <%= current_user.first_name %>!</h2>
+    <% end %>
+  <%= yield %>
+</body>
+</html>
