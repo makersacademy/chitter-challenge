@@ -29,4 +29,6 @@ class User
   def self.password_match?(password)
     BCrypt::Password.new(@user.password_digest) == password
   end
+
+  has n, :posts
 end

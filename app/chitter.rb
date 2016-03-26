@@ -72,6 +72,15 @@ class Chitter < Sinatra::Base
     erb(:'sessions/end')
   end
 
+  post '/chitter/new' do
+    post = Post.create(message: params[:message], timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
+    current_user = User.get(session[:user_id])
+    current_user.posts << post
+    current_user.save
+    post.save
+    erb(:home)
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

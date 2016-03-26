@@ -12,14 +12,29 @@
   <font face="Futura">
   <% if current_user == nil %>
     <div><h2>Welcome to Chitter!</h2></div>
-    <div><h2>↓ Please sign up or log in ↓</h2></div>
-    <form action='/users/new'>
-      <input type='submit' value='Sign up'>
-    </form>
-    <form action='/sessions/new'>
-      <input type='submit' value='Log in'>
+    <div><h3>↓ Please sign up or log in to peep↓</h3></div>
+    <form>
+      <input formaction="/users/new" type='submit' value='Sign up'>
+      <input formaction="/sessions/new" type='submit' value='Log in'>
     </form>
   <% else %>
     <h2>Welcome to Chitter, <%= @current_user.username %>!</h2>
   <% end %>
+
+  <% if current_user %>
+    <div id='post'>
+      <form action='/chitter/new' method='post'>
+        <input style='width: 250px' type='text' name='message' placeholder="what's up today?" required>
+        <input type='submit' value='Peep'>
+    </div>
+  <% end %>
+
+  <div id='chitters'>
+    <% if !Post.all.empty? %>
+      <% Post.all.reverse.each do |post| %>
+        <p style="margin-bottom: 50px;"><font color="Teal"><h3><%= post.message %></h3></p>
+        <p><font color="CadetBlue"><h6><%= post.user.username %> peeped @ <%= post.timestamp %></h6></p>
+      <% end %>
+    <% end %>
+  </div>
 </center>
