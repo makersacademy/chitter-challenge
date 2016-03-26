@@ -18,7 +18,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/app'
 require 'features/web_helper'
-# require './database_cleaner'
+require 'database_cleaner'
 require_relative 'helpers/session'
 
 RSpec.configure do |config|
@@ -59,18 +59,18 @@ RSpec.configure do |config|
     #   # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
 
-    # config.before(:suite) do
-    #   DatabaseCleaner.strategy = :transaction
-    #   DatabaseCleaner.clean_with(:truncation)
-    # end
-    #
-    # config.before(:each) do
-    #   DatabaseCleaner.start
-    # end
-    #
-    # config.after(:each) do
-    #   DatabaseCleaner.clean
-    # end
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
