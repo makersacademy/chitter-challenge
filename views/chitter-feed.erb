@@ -1,5 +1,14 @@
 <html style="text-align: center; font-family: Tahoma"> </html>
 <body>
+	<% if current_user %>
+  	<form action='/sign-up' method="get">  	
+    	<input type="submit" value="Sign out">
+    </form>
+  <% else %>
+  	<a href="/sign-in" style="border: 1px solid black; display: inline-block; width: 100px; padding: 3px 10px; border-radius: 9px; text-decoration: none">Sign in</a>
+  	<a href="/sign-up" style="border: 1px solid black; display: inline-block; width: 100px; padding: 3px 10px; border-radius: 9px; text-decoration: none"> Sign up</a> 
+  <% end %>
+  
   <h1>- Chitter -</h1>
  	<h2>Welcome <% if current_user %><%= current_user.user_name %><% end%>!</h2>
  	<div>
