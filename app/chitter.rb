@@ -53,6 +53,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session.clear
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
+  end
+
   get '/peeps' do
     erb :'peeps/all'
   end
