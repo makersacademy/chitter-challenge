@@ -5,7 +5,7 @@ feature 'signup route and process' do
   feature 'signup screen' do
 
     before :each do
-      visit '/'
+      visit '/signup'
     end
 
     scenario 'root redirect to signup route' do
@@ -42,7 +42,7 @@ feature 'signup route and process' do
   feature 'signup process' do
 
     before :each do
-      visit '/'
+      visit '/signup'
     end
 
     scenario 'successful signup leads to the peeps page' do

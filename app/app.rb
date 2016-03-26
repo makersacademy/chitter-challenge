@@ -21,7 +21,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    
+    @signed_in = true
+    @user = User.last.username
+    @mail = User.last.email
+    erb :main_page
   end
 
 
