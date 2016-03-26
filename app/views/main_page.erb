@@ -2,8 +2,7 @@
 
 <% if @signed_in %>
 <p>you're signed in as <%= @user %> with <%= @mail %>
-
 <% else %>
-<% erb :login_form %>
-
+<%= erb :login_form %>
 <% end %>
+<%= erb :peeps_list %>

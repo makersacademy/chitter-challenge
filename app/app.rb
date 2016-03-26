@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    redirect '/signup'
+    redirect '/peeps'
   end
 
   get '/signup' do
@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @signed_in = true
+    @signed_in = false
     @user = User.last.username
     @mail = User.last.email
     erb :main_page
