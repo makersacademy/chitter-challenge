@@ -19,7 +19,7 @@ require 'database_cleaner'
 require 'rspec'
 
 require_relative '../app/data_mapper_setup'
-require_relative './web_helper'
+require_relative 'helpers/session'
 # require_relative './helpers/users'
 # require_relative './helpers/peeps'
 
@@ -28,6 +28,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
 
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
