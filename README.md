@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-Makers Academy Week 04 Weekend Challenge
+Makers Academy Week 04 Weekend Challenge<br>
 Author: Rhiannon Lolley Neville
 
 [![Build Status](https://travis-ci.org/rhiannonruth/chitter-challenge.svg?branch=master)](https://travis-ci.org/rhiannonruth/chitter-challenge)
