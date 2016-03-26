@@ -5,12 +5,16 @@ require 'bcrypt'
 class User
 
   include DataMapper::Resource
+  
+  attr_reader :password
+  validates_format_of :emails, as: :email_address
+  
 
   property :id, Serial
-  property :email, String
-  property :password_digest, Text
-  property :name, String
-  property :username, String
+  property :email, String, format: :email_address, required: true
+  property :password_digest, Text, required: true
+  property :name, String, required: true
+  property :username, String, required: true
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)

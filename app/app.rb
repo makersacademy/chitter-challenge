@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
@@ -42,6 +43,9 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect to('/')
+    else
+      flash.now[:notice] = "email and password is not recognized"
+      erb :'sessions/new'
     end
   end
 
