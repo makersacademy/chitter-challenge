@@ -7,6 +7,7 @@ require './app/models/chit'
 require './app/models/tag'
 require './app/app'
 require 'database_cleaner'
+require 'features/web_helpers'
 Capybara.app = Chitter
 
 

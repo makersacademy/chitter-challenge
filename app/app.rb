@@ -18,10 +18,18 @@ class Chitter < Sinatra::Base
 
   post '/new' do
     chit = Chit.create(post: params[:post], time: Time.now.strftime("%d/%m/%Y %H:%M"))
-    tag = Tag.create(name: params[:tags])
-    chit.tags << tag
+    params[:tags].split.each do |tag|
+      chit.tags << Tag.create(name: params[:tags])
+    end
     chit.save
     redirect('/chits')
   end
+
+  get '/search/:name' do
+    tag = Tag.all(name: params[:name])
+    @chits = tag ? tag.chits : []
+    erb :'chits/index'
+  end
+
 
 end
