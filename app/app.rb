@@ -1,3 +1,4 @@
+require 'tilt/erb'
 require 'sinatra/base'
 require 'bcrypt'
 
@@ -29,12 +30,13 @@ class Chitter < Sinatra::Base
     redirect '/peeps' #+warn if validation = false
   end
 
-
-
   get '/peeps' do
-    puts @signed_in = !session[:user_id].nil?
-    @user = User.last.username
-    @mail = User.last.email
+    current_user = User.first(id: session[:user_id])
+    @signed_in = !current_user.nil?
+    if @signed_in
+      @user = current_user.username
+      @mail = current_user.email
+    end
     erb :main_page
   end
 

@@ -37,10 +37,6 @@ feature 'signup route and process' do
 
   feature 'signup process' do
 
-    before :each do
-      visit '/signup'
-    end
-
     scenario 'successful signup leads to the peeps page' do
       register_to_site
       expect(current_path).to eq '/peeps'
