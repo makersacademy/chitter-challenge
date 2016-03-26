@@ -1,0 +1,10 @@
+<h1> Chits </h1>
+
+<ul id='chits'>
+  <% @chits.each do |chit| %>
+    <li>
+      Chit: <%= chit.post %>
+      Time:   <%= chit.time   %>
+    </li>
+  <% end %>
+</ul>
