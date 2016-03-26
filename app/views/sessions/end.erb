@@ -1,0 +1,15 @@
+<center>
+  <br>
+  <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
+  <font face="Futura">
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <h2><%= flash[:notice] %></h2>
+    </div>
+  <% end %>
+
+  <form action='/users/new'>
+    <input type='submit' value='Back to log in page'>
+  </form>
+</center>

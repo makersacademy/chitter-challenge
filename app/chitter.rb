@@ -7,6 +7,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
@@ -18,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect('/users/new')
+    redirect to '/users/new'
   end
 
   get '/home' do
@@ -32,13 +33,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(username: params[:username],
-                       email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name],
+                        username: params[:username],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect('/home')
+      redirect to '/home'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb(:'users/new')
@@ -53,11 +55,21 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect('/home')
+      redirect to '/home'
     else
       flash.now[:errors] = 'Incorrect email or password'
       erb(:'sessions/new')
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "You are logged out. See you next time!"
+    redirect to '/sessions/end'
+  end
+
+  get '/sessions/end' do
+    erb(:'sessions/end')
   end
 
   # start the server if ruby file executed directly

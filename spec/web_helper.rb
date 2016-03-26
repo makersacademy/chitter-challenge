@@ -1,8 +1,10 @@
-def sign_up(username: 'jinis',
+def sign_up(name: 'Misa Ogura',
+            username: 'jinis',
             email: 'jinis@aol.jp',
             password: 'jinis1219',
             password_confirmation: 'jinis1219')
   visit('/')
+  fill_in('name', with: name)
   fill_in('username', with: username)
   fill_in('email', with: email)
   fill_in('password', with: password)
@@ -10,10 +12,14 @@ def sign_up(username: 'jinis',
   click_button('Sign up')
 end
 
-def sign_in(email: 'jinis@aol.jp',
-            password: 'jinis1219')
-  visit'/sessions/new'
+def log_in(email: 'jinis@aol.jp',
+           password: 'jinis1219')
+  visit('/sessions/new')
   fill_in('email', with: email)
   fill_in('password', with: password)
   click_button('Log in')
+end
+
+def log_out
+  click_button('Log out')
 end

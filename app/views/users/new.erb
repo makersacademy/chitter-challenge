@@ -15,6 +15,7 @@
 
   <form action='/users' method='post'>
     <div>
+      <input type='text' name='name' placeholder='name'  value='<%= @user.name %>' required>
       <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
       <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
     </div>
@@ -28,10 +29,10 @@
   </form>
 
   <div>
-    <h2><p>Or... already have an account?</h2>
+    <h2><p>Already have an account?</h2>
   </div>
 
   <form action='/sessions/new'>
-    <input type='submit' value='Jump to login page'>
+    <input type='submit' value='Jump to log in page'>
   </form>
 </center>

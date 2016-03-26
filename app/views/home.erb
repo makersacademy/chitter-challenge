@@ -1,9 +1,24 @@
+<div align='right'>
+  <% if current_user %>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+  <% end %>
+</div>
+
 <center>
-  <br>
   <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
   <font face="Futura">
   <% if current_user == nil %>
-    <h2>Welcome to Chitter!</h2>
+    <div><h2>Welcome to Chitter!</h2></div>
+    <div><h2>↓ Please sign up or log in ↓</h2></div>
+    <form action='/users/new'>
+      <input type='submit' value='Sign up'>
+    </form>
+    <form action='/sessions/new'>
+      <input type='submit' value='Log in'>
+    </form>
   <% else %>
     <h2>Welcome to Chitter, <%= @current_user.username %>!</h2>
   <% end %>
