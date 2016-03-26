@@ -1,7 +1,8 @@
 <h1>Welcome to Chitter, a clone of a social network which is going down the drain. </h1>
 
 <% if @signed_in %>
-<p>you're signed in as <%= @user %> with <%= @mail %>
+<p>you're signed in as <%= @user %></p>
+<%= erb :new_peep_form %>
 <% else %>
 <%= erb :login_form %>
 <% end %>
