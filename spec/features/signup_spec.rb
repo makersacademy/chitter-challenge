@@ -8,10 +8,6 @@ feature 'signup route and process' do
       visit '/signup'
     end
 
-    scenario 'root redirect to signup route' do
-      expect(current_path).to eq '/signup'
-    end
-
     scenario 'signup route has a welcome message' do
       expect(page).to have_content 'Welcome to the registration page.'
     end
@@ -52,6 +48,11 @@ feature 'signup route and process' do
 
     scenario 'successful signup add a user entry in the database' do
       expect{register_to_site}.to change(User, :count).by 1
+    end
+
+    scenario 'successful signup automatically logs in as the new user' do
+      register_to_site
+      expect(page).to have_content "you're signed in as test_user"
     end
 
     feature 'signup validation: TODO wrong form etc' do
