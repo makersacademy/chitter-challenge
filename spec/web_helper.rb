@@ -1,7 +1,15 @@
-def sign_up
-  visit('/')
-  fill_in('username', with: 'jon snow')
-  fill_in('email', with: 'jon_snow@nightswatch.com')
-  fill_in('password', with: 'ygritte')
-  click_button('Sign up')
+def sign_up(name: 'jon',
+            username: 'ghost',
+            email: 'jon_snow@nightswatch.com',
+            password: 'ygritte',
+            password_confirmation: 'ygritte')
+
+            visit('/')
+            fill_in('name', with: name)
+            fill_in('username', with: username)
+            fill_in('email', with: email)
+            fill_in('password', with: password)
+            fill_in('password_confirmation', with: password_confirmation)
+            click_button('Sign up')
+
 end
