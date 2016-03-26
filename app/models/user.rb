@@ -20,6 +20,8 @@ class User
   attr_reader :password
   validates_confirmation_of :password
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_hash = BCrypt::Password.create(password)

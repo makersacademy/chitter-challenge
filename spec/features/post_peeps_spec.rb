@@ -6,5 +6,6 @@ feature "Post peeps" do
     click_button "Peep!"
     expect(page.current_path).to eq "/peeps"
     expect(page).to have_content "I have an emo nephew."
+    expect(page).to have_content "posted by Luke(@skywalker)"
   end
 end
