@@ -6,16 +6,13 @@ class User
 
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password, :confirm => :password_confirmation, :message => 'Password and confirmation password do not match'
-  validates_length_of :password, :min => 4
+  validates_confirmation_of :password, confirm: :password_confirmation,
+    message: 'Password and confirmation password do not match'
+  validates_length_of :password, min: 4
 
   def self.authenticate(email, password)
     user = first(email:email)
-    if user && BCrypt::Password.new(user.password_hash) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_hash) == password
   end
 
   def password
@@ -28,22 +25,23 @@ class User
   end
 
   property :id, Serial
-  property :email, String, :required => true, :format => :email_address, :unique => true,
-    :messages => {
-      :presence => 'Please enter an email address',
-      :format => 'Please enter a valid email address',
-      :is_unique => 'This user already exists'
+  property :email, String, required: true, format: :email_address,
+    unique: true,
+    messages: {
+      presence: 'Please enter an email address',
+      format: 'Please enter a valid email address',
+      is_unique: 'This user already exists'
     }
-    property :name, String, :required => true,
-      :messages => {
-        :presence => 'Please enter your name'
+    property :name, String, required: true,
+      messages: {
+        presence: 'Please enter your name'
     }
-    property :username, String, :required => true,
-      :messages => {
-        :presence => 'Please enter a username'
+    property :username, String, required: true,
+      messages: {
+        presence: 'Please enter a username'
     }
 
-  property :password_hash, String, :length => 128
+  property :password_hash, String, length: 128
 
   has n, :peeps
 end

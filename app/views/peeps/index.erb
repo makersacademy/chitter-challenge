@@ -4,9 +4,10 @@
     <li class="list-group-item"><%= peep.creation_timedate.strftime("%m/%d/%Y %I:%M%p") %>: <%= peep.content %>: <%= peep.user.username %></li>
   <% end %>
 </ul>
-
-<form action='/peeps/add' method="get">
-  <div class="form-group">
-    <input type="submit" class="btn btn-default" id="add" value="Create Peep">
-  </div>
-</form>
+<% if current_user %>
+  <form action='/peeps/add' method="get">
+    <div class="form-group">
+      <input type="submit" class="btn btn-default" id="add" value="Create Peep">
+    </div>
+  </form>
+<% end %>

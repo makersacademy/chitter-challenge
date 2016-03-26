@@ -13,7 +13,7 @@ describe User do
       authenticated_user = User.authenticate(user.email, user.password)
       expect(authenticated_user).to eq user
     end
-    it 'fails to authenticates when given an invalid email address and password' do
+    it 'fails to authenticates with invalid email address and password' do
       authenticated_user = User.authenticate(user.email, 'garbage')
       expect(authenticated_user).to eq nil
     end

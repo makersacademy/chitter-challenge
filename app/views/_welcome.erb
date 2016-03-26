@@ -3,20 +3,17 @@
   <form action='/sessions' method="post">
     <div class="form-group">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" class="btn btn-default" id="sign_out" value="Sign Out">
+      <button type="submit" class="btn btn-default" id="sign_out">
+        <span class="glyphicon glyphicon-log-out"></span> Sign Out</button>
     </div>
   </form>
 <% else %>
-<div class="button-group">
-  <form action='/sessions/new' method="get">
-    <div class="form-group">
-      <input type="submit" class="btn btn-default" id="sign_in" value="Sign In">
+  <form method="get">
+    <div class="button-group">
+      <button type="submit" class="btn btn-default" formaction='/sessions/new'>
+        <span class="glyphicon glyphicon-log-in"></span> Sign In</button>
+      <button type="submit" class="btn btn-default" formaction='/users/new'>
+        <span class="glyphicon glyphicon-user"></span> Create Account</button>
     </div>
   </form>
-  <form action='/users/new' method="get">
-    <div class="form-group">
-      <input type="submit" class="btn btn-default" id="new_user" value="Create Account">
-    </div>
-  </form>
-</div>
 <% end %>
