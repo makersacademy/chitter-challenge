@@ -1,16 +1,15 @@
-<h1> Chitter feed: </h1>
-<% if session[:user_id] != nil %>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-
-  <h4>Peep to the world of Chitter:</h4>
-  <form action='/peeps/new' method='post'>
-    <input type='text' name='message' placeholder='Peep peep...' maxlength='150'>
-    <input type='submit' value='Peep!'>
-  </form>
-<% end %>
+<div class='top-header2'>
+  <h1 id='header'> Chitter feed: </h1>
+  <% if session[:user_id] != nil %>
+    <div id='header'>
+      <h4>Peep to the world of Chitter:</h4>
+      <form action='/peeps/new' method='post'>
+        <input type='text' name='message' placeholder='Peep peep...' maxlength='150'>
+        <input type='submit' value='Peep!'>
+      </form>
+    </div>
+  <% end %>
+</div>
 
 <% if session[:user_id] == nil %>
   <h4>Please log in or sign up to peep!</h4>
@@ -25,7 +24,10 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      @<%= peep.user.username %> peeped: <%= peep.message %> at <%= peep.time_stamp %>
+      <p id='user_handle'> @<%= peep.user.username %>:</p>
+      <p id ='peep_message'>"<%= peep.message %>"</p>
+      <p id='time_stamp'><%= peep.time_stamp %></p>
     </li>
+    <hr>
   <% end %>
 </ul>

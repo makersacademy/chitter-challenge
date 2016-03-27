@@ -2,7 +2,7 @@
   <div id='notice'><%= flash[:notice] %></div>
 <% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
-  There is something wrong with your application:
+  <p>There is something wrong with your application:</p>
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>

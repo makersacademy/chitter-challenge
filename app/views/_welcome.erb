@@ -1,3 +1,10 @@
 <% if current_user %>
-  <h1>Welcome <%= current_user.username %>!</h1>
+  <div class='top-header'>
+    <form method='post' action='/sessions'>
+      <label for='Sign out' id='welcome'>
+        Welcome <%= current_user.username %>!<input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </label>
+    </form>
+  </div>
 <% end %>
