@@ -25,6 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'signup/new'
   end
 
@@ -40,6 +41,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/welcome' do
+    current_user
+    p @user.username
     erb :'signup/welcome'
   end
 
