@@ -16,6 +16,7 @@
 <article id="peeps">
   <h1>Chitter</h1>
   <h1>Current Peeps</h1>
+  <ul>
     <% @peeps.each do |peep| %>
       <li class="peep">
         <div class="user" id="name">
@@ -27,4 +28,5 @@
         <p id="content">"<%= peep.content %>"</p>
       </li>
     <% end %>
+  </ul>
 </article>
