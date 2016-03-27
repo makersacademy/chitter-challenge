@@ -18,6 +18,9 @@ class Chitter < Sinatra::Base
     end
   end
 
+# After peeps in /home, can redirect to /home
+# will have sign in and sign out
+# can remove guest
   get '/' do
     # redirect('/users/new')
     erb(:start)
@@ -59,7 +62,7 @@ class Chitter < Sinatra::Base
       redirect to('/home')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb(:'sessions/finish')
+      erb(:'sessions/new')
     end
   end
 
@@ -70,10 +73,6 @@ class Chitter < Sinatra::Base
 
   end
 
-  get '/sessions/finish' do
-    erb(:home)
-  end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
