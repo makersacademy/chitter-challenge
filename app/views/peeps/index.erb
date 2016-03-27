@@ -19,13 +19,7 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep">
-        <div class="user" id="name">
-          <%= peep.user.name %>
-        </div>
-        <div class="user" id="username-time">
-          @<%= peep.user.username %> <%= peep.time %>
-        </div>
-        <p><%= peep.content %></p>
+        <%= partial :post, locals: { post: peep } %>    
         <a href="/<%= peep.id %>/comments">Comments (<%= peep.comments.count %>)</a>
         <hr />
       </li>
