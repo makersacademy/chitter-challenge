@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
       redirect to('/home')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
+      erb(:'sessions/new')
     end
   end
 

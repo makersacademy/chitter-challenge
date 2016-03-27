@@ -1,4 +1,8 @@
+require 'web_helper'
+
 feature 'User management' do
+  include Helpers
+
   scenario 'User can sign up with name, username, email, password' do
     expect{ sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome to Chitter, ghost!')
@@ -10,7 +14,7 @@ feature 'User management' do
     expect(current_path).to eq('/users')
     expect(page).to have_content('Password does not match the confirmation')
   end
-  
+
   context 'email' do
     scenario 'entering no email will not update database' do
       expect do
