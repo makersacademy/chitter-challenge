@@ -23,6 +23,10 @@
   <% end %>
   <% if current_user %>
       <h2>Welcome <%= current_user.first_name %>!</h2>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
     <% end %>
   <%= yield %>
 </body>

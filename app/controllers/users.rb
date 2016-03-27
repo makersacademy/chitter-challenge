@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
     @user = User.new(user_details)
     if @user.save
       session[:user_id] = @user.id
-      "Welcome #{@user.first_name}!"
+      erb :home
     else
       flash.now[:error] = @user.errors.full_messages
       erb :'users/new'

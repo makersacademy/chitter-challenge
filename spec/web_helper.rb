@@ -13,3 +13,10 @@ def create_user
   User.create(first_name: 'Bob', last_name: 'By', password: 'bobByg',
     email:'bob.by@gmail.com')
 end
+
+def sign_in
+  visit '/sessions/new'
+  fill_in :email, with: 'bob.by@gmail.com'
+  fill_in :password, with: 'bobByg'
+  click_button 'Sign in'
+end

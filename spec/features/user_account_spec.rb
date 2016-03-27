@@ -16,10 +16,7 @@ end
 feature 'User sign in' do
   scenario 'with the correct details' do
     create_user
-    visit '/sessions/new'
-    fill_in :email, with: 'bob.by@gmail.com'
-    fill_in :password, with: 'bobByg'
-    click_button 'Sign in'
+    sign_in
     expect(page).to have_content 'Welcome Bob!'
   end
 
@@ -27,7 +24,7 @@ feature 'User sign in' do
     create_user
     visit '/sessions/new'
     fill_in :email, with: 'bob.by@gmail.com'
-    fill_in :password, with: 'wrong-password'
+    fill_in :password, with: 'wrong password'
     click_button 'Sign in'
     expect(page).to have_content 'Login details do not match :('
   end
@@ -40,4 +37,14 @@ feature 'User sign in' do
     click_button 'Sign in'
     expect(page).to have_content 'Login details do not match :('
   end
+end
+
+feature 'User sign out' do
+ scenario 'while being signed in' do
+   create_user
+   sign_in
+   click_button 'Sign out'
+   expect(page).to have_content('Goodbye')
+   expect(page).not_to have_content 'Welcome Bob!'
+ end
 end
