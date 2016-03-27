@@ -5,7 +5,7 @@ module Helpers
               password: 'ygritte',
               password_confirmation: 'ygritte')
 
-              visit('/')
+              visit('/users/new')
               fill_in('name', with: name)
               fill_in('username', with: username)
               fill_in('email', with: email)

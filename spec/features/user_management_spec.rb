@@ -18,7 +18,7 @@ feature 'User management' do
   context 'email' do
     scenario 'entering no email will not update database' do
       expect do
-         visit '/'
+         visit '/users/new'
          click_button 'Sign up'
        end.not_to change(User, :count)
       expect(page).to have_content('Email must not be blank')
@@ -26,7 +26,7 @@ feature 'User management' do
 
     scenario ' entering invalid email will not update database' do
       expect do
-        visit '/'
+        visit '/users/new'
         fill_in 'email', with: 'johnsmithgmail.com'
         click_button 'Sign up'
       end.not_to change(User, :count)
