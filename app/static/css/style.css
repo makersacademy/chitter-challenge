@@ -32,7 +32,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   margin: 5px;
 }
 
-input[type="text"]:focus {
+input:focus {
   box-shadow: inset 1px 1px 2px 0 #c9c9c9;
 }
 
@@ -102,7 +102,8 @@ p#commentbottom {
 }
 
 input.search {
-  height: 13px;
+  height: 16px;
+  font-size: 12pt;
 }
 
 input#comment {
@@ -117,6 +118,7 @@ ul.topnav {
     padding: 0;
     overflow: hidden;
     background-color: #FFB300;
+    font-size: 12pt;
 }
 
 ul.topnav li {float: left;}

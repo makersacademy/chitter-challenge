@@ -43,8 +43,7 @@
 
 <% if current_user %>
   <form action='/peeps' method='post'>
-    <textarea id='peep' rows="5" cols="60" name='content' required maxlength="140">
-    </textarea>
+    <textarea placeholder="What's crackin'?" id='peep' rows="5" cols="60" name='content' required maxlength="140"></textarea>
     <div style="vertical-align: middle">
       <button id='peep'>Purr!</button>
     </div>
