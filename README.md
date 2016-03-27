@@ -38,7 +38,7 @@ Features/languages used:
 * RSpec unit testing
 * Capybara feature testing.
 
-I completed the app by following each user story above in order. I started by creating two databases, "chitter_test" and "chitter_development". The test database was used for testing and uses a gem called `database_cleaner` to wipe the database after each test. The development database was for running the web app on a local server. The gem `data_mapper` is used to use basic SQL commands in the Ruby code.
+I completed the app by following each user story above in order. I started by creating two databases, `chitter_test` and `chitter_development`. The test database was used for testing and uses a gem called `database_cleaner` to wipe the database after each test. The development database was for running the web app on a local server. The gem `data_mapper` is used to use basic SQL commands in the Ruby code.
 
 In the databases are two models: `User` and `Peep`. The User model contains the following properties:
 * id
