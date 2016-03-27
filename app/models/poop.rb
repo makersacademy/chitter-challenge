@@ -1,8 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require_relative '../data_mapper_setup'
 require 'dm-timestamps'
-require_relative 'user'
 
 class Poop
   include DataMapper::Resource
@@ -12,9 +8,9 @@ class Poop
   property :poop_msg, String
   property :username, String
   property :name, String
-  property :time_posted, Date
   property :created_at, DateTime
 
+  belongs_to :user
 end
 
 

@@ -71,7 +71,6 @@ class Chitter < Sinatra::Base
         poop_msg: params[:poop_msg],
         name: current_user.name,
         username: current_user.username 
-       # time_posted: Time.now 
       )
       poop.save
       redirect '/poops/index'
