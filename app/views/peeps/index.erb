@@ -2,14 +2,31 @@
 <div id='peeps'>
   <% @peeps.each do |peep| %>
     <p><h2><%= peep.content %></h2></p>
-    <p><h6><%= User.get(peep.user_id).username %> peeped @
-      <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
+    <p><h5><%= User.get(peep.user_id).username %> peeped @
+    <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
+
+    <% unless peep.comments.empty? %>
+      <% peep.comments.each do |comment| %>
+        <p><h3><%= comment.content %></h3></p>
+        <p><h6><%= User.get(comment.user_id).username %> commented @
+        <%= comment.time.strftime('%b %e, %l:%M %p') %></h6></p>
+      <% end %>
+    <% end %>
+
+    <% if current_user %>
+      <form action='/comments' method='post'>
+        <input type='hidden' name='id' value='<%= peep.id %>'>
+        <input id='comment' type='text' name='content' placeholder='Write a comment' required maxlength="140">
+        <button id='comment'>Comment</button>
+      </form>
+    <% end %>
+
   <% end %>
 </div>
 
 <% if current_user %>
   <form action='/peeps' method='post'>
-    <textarea id='peep' rows="4" cols="50" name='content' required maxlength="140">
+    <textarea id='peep' rows="5" cols="60" name='content' required maxlength="140">
     </textarea>
     <div style="vertical-align: middle">
       <button>Peep!</button>

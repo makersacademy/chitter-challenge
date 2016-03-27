@@ -25,16 +25,32 @@ input:focus {
 }
 
 button {
-  color: #000;
+  color: white;
   border: none;
-  background-color: inherit;
+  background-color: #B7F1FF;
   margin: 10px;
   font-size: 20pt;
+  border-radius: 15px;
 }
 
 button#signout {
   float: right;
   font-size: 10pt;
+  background-color: inherit;;
+  color: black;
+}
+
+button#comment {
+  font-size: 8pt;
+  background-color: inherit;;
+  color: black;
+  margin: 0;
+}
+
+input#comment {
+  width: 150px;
+  height: 10px;
+  margin: 5px;
 }
 
 ul.topnav {
@@ -42,7 +58,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #EEE;
+    background-color: #E6F7FF;
 }
 
 
@@ -56,7 +72,7 @@ ul.topnav li a {
     text-decoration: none;
 }
 
-ul.topnav li a:hover:not(.active) {background-color: #59B9D9;}
+ul.topnav li a:hover:not(.active) {background-color: #C7F1FF;}
 
 ul.topnav li a.active {background-color: #59B9D9;}
 

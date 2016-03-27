@@ -1,4 +1,4 @@
-class Peep
+class Comment
   include DataMapper::Resource
 
   property :id, Serial
@@ -6,5 +6,5 @@ class Peep
   property :time, DateTime, required: true
 
   belongs_to :user
-  has n, :comments
+  belongs_to :peep
 end

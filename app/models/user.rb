@@ -1,6 +1,6 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require 'dm-validations'
+# require 'data_mapper'
+# require 'dm-postgres-adapter'
+# require 'dm-validations'
 require 'bcrypt'
 
 class User
@@ -17,6 +17,7 @@ class User
   validates_confirmation_of :password
 
   has n, :peeps
+  has n, :comments
 
   def password=(password)
     @password = password
