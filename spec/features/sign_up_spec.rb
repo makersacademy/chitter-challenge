@@ -11,5 +11,9 @@ feature 'Sign up' do
     expect(page).to have_content("Welcome, Anne")
   end
 
+  scenario 'user gets saved in database' do
+    expect { sign_up }.to change{ User.count}
+  end
 
+  
 end
