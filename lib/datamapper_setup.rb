@@ -1,7 +1,8 @@
-require 'datampper'
+require 'data_mapper'
 require 'dm-postgres-adapter'
 
-Datamapper::Logger.new($stdout, :debug)
-Datamapper.setup(:default, 'postgres://localhost/chitter_test')
-Datamapper.finalize
-Datamapper.auto_upgrade!
+require_relative 'user'
+
+DataMapper::Logger.new($stdout, :debug)
+DataMapper.setup(:default, 'postgres://localhost/chitter_test')
+DataMapper.finalize

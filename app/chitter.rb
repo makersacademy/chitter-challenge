@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require '../lib/datamapper_setup.rb'
+require_relative '../lib/datamapper_setup'
 class Chitter < Sinatra::Base
   get '/' do
     'Hello chitter!'
