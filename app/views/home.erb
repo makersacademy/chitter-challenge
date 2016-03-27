@@ -1,6 +1,11 @@
 <h1>Chitter</h1>
 <% if current_user == nil %>
-  Welcome to (Tw)(Ch)itter,
+  Welcome to Chitter,
   <form method='get' action='/user/new'>
-  <a href='/users/new'>Sign up</a>
+    <form method='get' action='/users/new'>
+          <input type='submit' value='Sign up'>
+        </form>
+        <form method='get' action='/sessions/new'>
+          <input type='submit' value='Sign in'>
+        </form>
 <% end %>

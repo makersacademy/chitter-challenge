@@ -9,9 +9,14 @@
       Welcome <%= current_user.username %>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
-        <button type='submit'>Sign out</button>
+        <input type='submit' value='Sign out'>
       </form>
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

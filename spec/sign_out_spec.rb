@@ -12,9 +12,9 @@ feature 'User signs out' do
   end
 
   scenario 'can sign out in' do
-    visit '/users/new'
+    visit '/sessions/new'
     fill_in :email, with: 'joe@example.com'
-    fill_in :password, with: '123'
+    fill_in :password, with: 'joe123'
     click_button 'Sign in'
     click_button 'Sign out'
     expect(page).to have_content 'goodbye'

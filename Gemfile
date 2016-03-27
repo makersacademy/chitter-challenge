@@ -10,11 +10,12 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'sinatra-flash'
+
 end
 
 group :development do
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 end
