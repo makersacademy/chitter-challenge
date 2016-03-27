@@ -30,6 +30,7 @@ GEM
       gherkin3 (~> 3.1.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.5.1)
     datamapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -156,6 +157,7 @@ DEPENDENCIES
   capybara
   coveralls
   cucumber
+  database_cleaner
   datamapper
   dm-postgres-adapter
   rake
