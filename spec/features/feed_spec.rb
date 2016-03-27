@@ -17,7 +17,7 @@ feature 'Feed' do
     signin("factory@girl.com", "1234")
     peep("This is a time test")
     expect(current_path).to eq '/feed'
-    expect(page).to have_content(Feed.first.created_at)
+    expect(page).to have_content(Feed.first.created_at.strftime("%R %a %d/%m"))
   end
 
   scenario 'I can only peep if I am logged in' do

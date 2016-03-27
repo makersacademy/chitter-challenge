@@ -1,6 +1,6 @@
 <h2> Latest Peeps!</h2>
 <ul>
   <%@feed.reverse.each do |peep|%>
-    <li><%=peep.peep%> at <%=peep.created_at.strftime("%R %a %d/%m")%> <br><%=peep.user.name%></li>
+    <li><%=peep.peep%><br><%=peep.user.name%> - <%=peep.created_at.strftime("%R %a %d/%m")%></li><br>
   <%end%>
 </ul>
