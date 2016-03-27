@@ -32,12 +32,19 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     current_user = User.first(id: session[:user_id])
+    @peep_list = Peep.all
     @signed_in = !current_user.nil?
     if @signed_in
       @user = current_user.username
       @mail = current_user.email
     end
     erb :main_page
+  end
+
+  post '/add_peep' do
+    text = params[:peep_text] #+warn if size > 200
+    new_peep = Peep.create(content: text, date: DateTime.now)
+    redirect '/peeps'
   end
 
 

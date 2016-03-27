@@ -32,6 +32,27 @@ feature 'creation of new peeps' do
 
   end
 
+  feature 'sending a new peep ' do
 
+    before :each do
+      register_to_site
+
+    end
+
+    scenario 'stores it in the database' do
+      expect{send_new_peep}.to change {Peep.count}.by 1
+    end
+
+    scenario 'send the user back to the peeps page' do
+      send_new_peep
+      expect(current_path).to eq '/peeps'
+    end
+
+    scenario 'visualize the new peep' do
+      send_new_peep
+      expect(page).to have_content 'test_peep_text'
+    end
+
+  end
 
 end

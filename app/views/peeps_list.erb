@@ -1,4 +1,6 @@
-<p> peep number 00 </p>
-<p> peep number 01 </p>
-<p> peep number 10 </p>
-<p> peep number 11 </p>
+<ul name="peep_list">
+  <% @peep_list.each do |peep| %>
+    <li><%= peep.content %> with tags: <%= 'TODO' %>
+    </li>
+  <% end %>
+</ul>
