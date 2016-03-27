@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFD79E;
+  font-family: monospace;
+}
+
+div#peeps {
+  width: auto;
+}
+
+div.welcome {
+  font-size: 30pt;
+}
+
+textarea {
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 10px;
+  border: none;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+  border-radius: 5px;
+  outline: none;
+  display: inline-block;
+  width: 200px;
+  height: 20px;
+  margin: 5px;
+}
+
+input[type="text"]:focus {
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}
+
+button {
+  color: black;
+  border: none;
+  background-color: #FFB300;
+  margin: 10px;
+  font-size: 25pt;
+  font-family: monospace;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+input#signout {
+  float: right;
+  font-size: 10pt;
+  background-color: #FFD79E;
+  color: black;
+  padding: 10px;
+  border: none;
+}
+
+button#comment, button#rmpeep, button#rmcomment {
+  font-size: 10pt;
+  background-color: #FFB300;
+  color: black;
+  padding: 5px;
+}
+
+button#rmpeep, button#rmcomment {
+  margin-bottom: 25px;
+  margin-top: 0px;
+}
+
+p#peepcontent, p#peepbottom, p#commentcontent, p#commentbottom {
+   word-wrap: break-word;
+   width: 400px;
+}
+
+p#peepcontent {
+  font-size: 20pt;
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+p#peepbottom {
+  color: grey;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  padding-bottom: 5px;
+}
+
+p#commentcontent {
+  font-size: 13pt;
+  color: #B86F09;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+p#commentbottom {
+  color: grey;
+}
+
+input.search {
+  height: 13px;
+}
+
+input#comment {
+  width: 200px;
+  height: 10px;
+  margin: 5px;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FFB300;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #FFCB82;}
+
+ul.topnav li a.active {background-color: #B86F09;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}

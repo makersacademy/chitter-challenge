@@ -1,24 +1,24 @@
 <center>
 <div id='peeps'>
   <% @peeps.each do |peep| %>
-    <p><h2><%= peep.content %></h2></p>
-    <p><h5><a href='/users/<%= User.get(peep.user_id).username %>'>
-      <%= User.get(peep.user_id).username %></a> peeped @
-    <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
+    <p id='peepcontent'><%= peep.content %></p>
+    <p id='peepbottom'><a href='/users/<%= User.get(peep.user_id).username %>'>
+      <%= User.get(peep.user_id).username %></a> purred @
+    <%= peep.time.strftime('%b %e, %l:%M %p') %></p>
 
     <% if current_user && current_user.id == peep.user_id %>
       <form method='post' action='/peeps/remove'>
         <input type='hidden' name='id' value='<%= peep.id %>'>
-        <button id='rmpeep'>Remove peep</button>
+        <button id='rmpeep'>Remove purr</button>
       </form>
     <% end %>
 
     <% unless peep.comments.empty? %>
       <% peep.comments.each do |comment| %>
-        <p><h3><%= comment.content %></h3></p>
-        <p><h6><a href='/users/<%= User.get(comment.user_id).username %>'>
+        <p id='commentcontent'><%= comment.content %></p>
+        <p id='commentbottom'><a href='/users/<%= User.get(comment.user_id).username %>'>
           <%= User.get(comment.user_id).username %></a> commented @
-        <%= comment.time.strftime('%b %e, %l:%M %p') %></h6></p>
+        <%= comment.time.strftime('%b %e, %l:%M %p') %></p>
 
         <% if current_user && current_user.id == comment.user_id %>
           <form method='post' action='/comments/remove'>
@@ -46,7 +46,7 @@
     <textarea id='peep' rows="5" cols="60" name='content' required maxlength="140">
     </textarea>
     <div style="vertical-align: middle">
-      <button id='peep'>Peep!</button>
+      <button id='peep'>Purr!</button>
     </div>
   </form>
 <% end %>

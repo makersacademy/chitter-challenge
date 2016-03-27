@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
 
   get '/users/:username' do
     user = User.first(username: params[:username])
-    @peeps = user.peeps
+    @peeps = user.peeps.reverse!
     erb :'peeps/index'
   end
 end

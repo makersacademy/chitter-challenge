@@ -2,7 +2,7 @@ feature 'Signing in' do
   scenario 'With correct credentials' do
     user = create(:user)
     sign_in(user)
-    expect(page).to have_content "Welcome to Chitter, #{user.name}!"
+    expect(page).to have_content "Welcome to Cheetah, #{user.name}!"
   end
 
   scenario 'With incorrect credentials' do
