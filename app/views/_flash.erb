@@ -4,3 +4,6 @@ Please check the following errors
  <ul><li><%= error %></li></ul>
 <% end %>
 <% end %>
+<% if flash.now[:login_error] %>
+<%= flash.now[:login_error] %>
+<% end %>

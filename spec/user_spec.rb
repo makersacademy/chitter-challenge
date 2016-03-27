@@ -13,7 +13,6 @@ describe User do
     end
 
     it 'returns the user if successfully authenticated using email as login' do
-      p user.email
       expect(User.authenticate(user.email,'qwerty123')).to eq user
     end
 
