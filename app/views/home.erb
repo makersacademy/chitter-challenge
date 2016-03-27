@@ -16,7 +16,7 @@
     <div><h3>↓ Please sign up or log in to peep↓</h3></div>
     <form>
       <input formaction="/users/new" type='submit' value='Sign up'>
-      <input formaction="/sessions/new" type='submit' value='Log in'>
+      <input formaction="/sessions" type='submit' value='Log in'>
     </form>
   <% else %>
     <h2>Welcome to Chitter, <%= @current_user.username %>!</h2>
