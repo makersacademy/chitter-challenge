@@ -4,14 +4,14 @@
   <% if current_user %>
     New peep:<br>
     <form action='/postpeep' method='post'>
-      <input type='text' name='new_peep'>
+      <input type='text' name='new_peep'><br>
       <input type='submit' value='Submit'>
     </form>
   <% end %>
 </div>
 
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <article id='peep'>
         <article id='peepheader'>

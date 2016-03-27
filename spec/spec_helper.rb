@@ -11,6 +11,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'database_cleaner'
 require 'features/web_helpers'
+require 'pry'
 
 Capybara.app = Chitter
 

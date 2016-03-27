@@ -56,13 +56,9 @@ class Chitter < Sinatra::Base
 
   post '/postpeep' do
     peep = Peep.new(text:params[:new_peep], time:Time.new)
-    p peep
     current_user.peeps << peep
-    p current_user.peeps
     peep.save
     current_user.save
-    p peep
-    p current_user.peeps
     redirect '/'
   end
 
