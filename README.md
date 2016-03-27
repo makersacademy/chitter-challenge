@@ -4,11 +4,13 @@ Chitter Challenge
 ## Enhancements
 * Contextual 'flash' messages
 * Eliminate password confirmation
-* Add the ability to log in with either email or username. 
+* Add the ability to log in with either email or username.
 
 ## Testing
 * Test error messages for properties that do not have explicit messages.
-*
+
+## Bugs
+* How to handle someone logging out, hitting back and getting an error. 
 
 Features:
 -------

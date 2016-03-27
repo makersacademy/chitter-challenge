@@ -5,4 +5,10 @@
       <span class='ProfileCard-username'><%= current_user.username %></span>
     </div>
   </div>
+  <div class="logout-button">
+    <form action='/sessions' method='POST'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+    </form>
+  </div>
 </div>

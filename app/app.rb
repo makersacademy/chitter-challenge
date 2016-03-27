@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   # server
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   register Sinatra::Flash
 
@@ -47,7 +48,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to '/home'
     else
-      flash.next[:notice] = 'The email or password is incorrect.'
+      flash.next[:notice] = 'The username or password is incorrect.'
       redirect to '/'
     end
   end
@@ -55,6 +56,15 @@ class Chitter < Sinatra::Base
   get '/home' do
     current_user = User.get(session[:user_id])
     erb :'home/index'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/logout'
+  end
+
+  get '/logout' do
+    erb :logout
   end
 
   # start the server if ruby file executed directly
