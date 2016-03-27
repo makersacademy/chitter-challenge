@@ -8,3 +8,8 @@ def sign_up(first_name: 'Bob', last_name: 'By', password: 'bobByg',
   fill_in :password, with: password
   click_button 'Sign up'
 end
+
+def create_user
+  User.create(first_name: 'Bob', last_name: 'By', password: 'bobByg',
+    email:'bob.by@gmail.com')
+end
