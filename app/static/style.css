@@ -40,15 +40,20 @@ button#signout {
   color: black;
 }
 
-button#comment {
+button#comment, button#rmpeep, button#rmcomment {
   font-size: 8pt;
   background-color: inherit;;
   color: black;
   margin: 0;
 }
 
+p, h3, h2 {
+   word-wrap: break-word;
+   width: 400px;
+}
+
 input#comment {
-  width: 150px;
+  width: 200px;
   height: 10px;
   margin: 5px;
 }

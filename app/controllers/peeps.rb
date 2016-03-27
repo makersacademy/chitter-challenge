@@ -16,8 +16,9 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/peeps/me' do
-    @peeps = Peep.all(user_id: current_user.id, order: [:id.desc])
-    erb :'peeps/index'
+  post '/peeps/remove' do
+    peep = Peep.get(params[:id])
+    peep.destroy
+    redirect '/'
   end
 end

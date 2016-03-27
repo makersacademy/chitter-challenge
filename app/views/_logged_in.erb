@@ -1,7 +1,7 @@
 <% if current_user %>
   <ul class="topnav">
     <li><a class="active" href="/">Home</a></li>
-    <li><a href="/peeps/me">My peeps</a></li>
+    <li><a href='/users/<%= current_user.username %>'>My peeps</a></li>
   </ul>
 
   <center><div style="padding:0 16px;">

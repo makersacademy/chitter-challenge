@@ -9,8 +9,14 @@ class Chitter < Sinatra::Base
       current_user.save
       can_save comment
     else
-      flash.now[:errors] = ['You must be logged in to peep!']
+      flash.now[:errors] = ['You must be logged in to comment!']
       erb :'peeps/new'
     end
+  end
+
+  post '/comments/remove' do
+    comment = Comment.get(params[:id])
+    comment.destroy
+    redirect '/'
   end
 end

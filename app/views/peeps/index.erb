@@ -2,14 +2,31 @@
 <div id='peeps'>
   <% @peeps.each do |peep| %>
     <p><h2><%= peep.content %></h2></p>
-    <p><h5><%= User.get(peep.user_id).username %> peeped @
+    <p><h5><a href='/users/<%= User.get(peep.user_id).username %>'>
+      <%= User.get(peep.user_id).username %></a> peeped @
     <%= peep.time.strftime('%b %e, %l:%M %p') %></h6></p>
+
+    <% if current_user && current_user.id == peep.user_id %>
+      <form method='post' action='/peeps/remove'>
+        <input type='hidden' name='id' value='<%= peep.id %>'>
+        <button id='rmpeep'>Remove peep</button>
+      </form>
+    <% end %>
 
     <% unless peep.comments.empty? %>
       <% peep.comments.each do |comment| %>
         <p><h3><%= comment.content %></h3></p>
-        <p><h6><%= User.get(comment.user_id).username %> commented @
+        <p><h6><a href='/users/<%= User.get(comment.user_id).username %>'>
+          <%= User.get(comment.user_id).username %></a> commented @
         <%= comment.time.strftime('%b %e, %l:%M %p') %></h6></p>
+
+        <% if current_user && current_user.id == comment.user_id %>
+          <form method='post' action='/comments/remove'>
+            <input type='hidden' name='id' value='<%= comment.id %>'>
+            <button id='rmcomment'>Remove comment</button>
+          </form>
+        <% end %>
+
       <% end %>
     <% end %>
 
