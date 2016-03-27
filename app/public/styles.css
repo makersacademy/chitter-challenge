@@ -1,0 +1,97 @@
+
+  ul#peeps{
+    font-family: 'Futura', sans-serif;
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 5;
+  }
+  a {
+    background-color:transparent; text-decoration:none
+  }
+
+  html {
+    font-family: 'Futura', sans-serif;
+    text-align: center;
+    background-color: #ffb3ff;
+  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  div.peeps-box {
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+    width: 30%;
+    min-width: 310;
+    background-image: url("http://www.themesltd.com/backgrounds/ice-cream/ice_creams_ice_creams_ice_creams.jpg");
+    overflow:auto;
+  }
+  
+  ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+  border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+  background: #88ba1c;
+  }
+
+  div.peep-box {
+    border: 1px solid black;
+    padding: 10px 0px;
+	  margin: 20px 50px;
+	  position: relative;
+    background-color: #ff66ff;
+    -webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+  }
+
+  li {
+    padding-top: 5
+  }
+
+  input {
+    width: 32.5%;
+    min-width: 310;
+    max-width: 410;
+    height: 26;
+    margin-bottom: 5;
+    font-family: Futura;
+    padding-left: 5;
+    letter-spacing: 1;
+    border: none;
+    cursor:pointer;
+  }
+
+input[type="submit" i] {
+    width: 32.5%;
+    min-width: 310;
+    max-width: 410;
+    border: none;
+    background-color: transparent;
+    font-family: Futura;
+    text-transform: uppercase;
+    color: black;
+    font-size: 0.9em;
+    border: 1px solid black;
+    padding-left: 0;
+}
+input[type="submit" i]:hover {
+
+}

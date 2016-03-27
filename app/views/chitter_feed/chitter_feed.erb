@@ -1,0 +1,33 @@
+<body>
+  <center>
+<h1> Welcome <% if current_user %> <%= current_user.username %><% end%>!</h1>
+  <h2> Welcome to the chitter feed! </h2>
+
+  <form action='/chitter_feed/new' method="get">
+    <input type="submit" value="Add peep">
+  </form>
+<br>
+<div class="peeps-box">
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+        <li>
+          <div class="peep-box">
+            <%=peep.user.username%><br>
+            <% t = peep.time %>
+            <%=peep.message %><br>
+            <%=t.strftime("Posted on %m/%d/%Y at %I:%M%p")%><br>
+            <form action='/chitter_feed/like' method='post'>
+              <button id='like' type='submit' name='like' value="<%=peep.id%>">♥</button> <%=peep.likes.count%></form>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
+<br>
+  <div>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type="submit" value="Log out">
+    </form>
+  </div>
+</body>

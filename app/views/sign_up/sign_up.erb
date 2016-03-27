@@ -1,0 +1,23 @@
+<body>
+  <h2>Sign up</h2>
+  <h3><%if flash[:error]%><%= flash[:error][0]%><%end%></h3>
+  <form class="add_form" action="/sign-up" method="post">
+  <div>
+    <input type="text" name="username" placeholder="Username" value="<%if @user%><%=@user.username%><%end%>" >
+  </div>
+  <div>
+    <input type="email" name="email" placeholder="Email" value="<%if @user%><%=@user.email%><%end%>">
+  </div>
+    <div>
+    <input type="password" name="password" placeholder="Password">
+  </div>
+    <div>
+    <input type="password" name="password_confirmation" placeholder="Write Password Again">
+  </div>
+<br>
+  <div>
+    <input type="submit" value="Sign up">
+  </div>
+
+  </form>
+</body>
