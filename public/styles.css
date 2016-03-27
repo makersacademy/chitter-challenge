@@ -1,0 +1,82 @@
+
+  ul#links{
+    font-family: 'Futura', sans-serif;
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 5
+    /*background-color: #0D81FF;*/
+  }
+  a {
+    background-color:transparent; text-decoration:none
+  }
+  a.tag:link {
+    color: black;
+  }
+  a.tag:hover {
+    color: white
+  }
+
+  .tag:visited {
+    color: black;
+  }
+  a:link    {color: white;}
+  a:visited {color: white;}
+  a:hover   {color:#ff0066;}
+  a:active  {color:#b30047;}
+
+  html {
+    font-family: 'Futura', sans-serif;
+    text-align: center;
+    background-color: #ffb3ff;
+  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  div.link-box {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #990099;
+    width: 30%;
+    min-width: 310;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+  }
+
+  li {
+    padding-top: 5
+  }
+
+  input {
+    width: 32.5%;
+    min-width: 310;
+    max-width: 410;
+    height: 26;
+    margin-bottom: 5;
+    font-family: Futura;
+    padding-left: 5;
+    letter-spacing: 1;
+    border: none;
+    cursor:pointer;
+  }
+
+input[type="submit" i] {
+    width: 32.5%;
+    min-width: 310;
+    max-width: 410;
+    border: none;
+    background-color: transparent;
+    font-family: Futura;
+    text-transform: uppercase;
+    color: black;
+    font-size: 0.9em;
+    border: 1px solid black;
+    padding-left: 0;
+}
+input[type="submit" i]:hover {
+
+}
