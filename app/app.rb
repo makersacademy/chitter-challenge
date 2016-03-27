@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
                  password: params[:password],
                  password_confirmation: params[:password_confirmation])
     if @maker.save
-      session[:maker_id] = current_maker
+      session[:maker_id] = @maker.id
       redirect '/peeps/read'
     else
       flash.now[:error] = @maker.errors.full_messages
@@ -49,6 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/read' do
+    # Maker.get(session[:maker_id])
     @maker = current_maker
     erb :'peeps/read'
   end
