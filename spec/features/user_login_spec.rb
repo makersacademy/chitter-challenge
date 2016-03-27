@@ -14,6 +14,13 @@ feature 'User management -log in:' do
     expect(page).to have_content('Incorrect email or password')
   end
 
+  scenario "Logged in user is redirected to home when visiting '/'" do
+    sign_up
+    log_in
+    visit '/'
+    expect(current_path).to eq('/home')
+  end
+
   scenario 'User can jump to sign up page' do
     visit('/sessions')
     click_button('Sign up here')
