@@ -1,15 +1,14 @@
 feature 'can see peeps' do
   doubles
+  let(:time) { Time.now.strftime("%H:%M") }
+
   scenario 'user sees peeps displayed on homepage' do
-    log_in(username: maker.username, password: maker.password)
-    fill_in :text, with: 'First peep!'
+    peep
     expect(page).to have_content 'First peep!'
   end
 
   scenario 'shows owner of peep' do
-    log_in(username: maker.username, password: maker.password)
-    fill_in :text, with: 'First peep!'
-    click_button 'Peep!'
+    peep
     expect(page).to have_content "#{maker.username} peeped"
   end
 
@@ -17,5 +16,10 @@ feature 'can see peeps' do
     visit '/'
     click_button "Read peeps as Guest"
     expect(page).not_to have_field 'What will you peep about today?'
+  end
+
+  scenario 'peep has timestamp' do
+    peep
+    expect(Peep.first.time).to include time
   end
 end

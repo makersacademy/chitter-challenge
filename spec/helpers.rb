@@ -29,3 +29,9 @@ def log_in(username:, password:)
   fill_in :password, with: password
   click_button 'Log in!'
 end
+
+def peep
+  log_in(username: maker.username, password: maker.password)
+  fill_in :text, with: 'First peep!'
+  click_button 'Peep!'
+end
