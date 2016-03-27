@@ -6,4 +6,8 @@ class Peep
   property :time, DateTime, default: DateTime.now
 
   belongs_to :user
+
+  def self.desc
+    all(:order => [ :time.desc ])
+  end
 end

@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/peeps/new' do
-    @peeps = Peep.all
+    @peeps = Peep.desc
     erb :'/peeps/new'
   end
 

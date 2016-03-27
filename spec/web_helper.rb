@@ -21,3 +21,10 @@ def sign_in
   fill_in :password, with: 'bobByg'
   click_button 'Sign in'
 end
+
+def create_peep(text: , time:)
+  user = User.first
+  peep = Peep.new(text: text, time: time)
+  peep.user = user
+  peep.save
+end
