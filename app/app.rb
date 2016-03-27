@@ -50,12 +50,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps/read' do
     @maker = current_maker
-    @peeps = Peep.all
     erb :'peeps/read'
   end
 
   post '/peeps/new' do
-    Peep.create(text: params[:text])
+    maker = Maker.get(session[:maker_id])
+    maker.peeps.create(text: params[:text])
     redirect '/peeps/read'
   end
 

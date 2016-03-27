@@ -1,6 +1,6 @@
 class Maker
   include DataMapper::Resource
-  include BCrypt  
+  include BCrypt
   attr_reader   :password
   attr_accessor :password_confirmation
 
@@ -35,6 +35,8 @@ class Maker
             }
   property :password_hash, Text
 
-validates_confirmation_of :password,
+  validates_confirmation_of :password,
   message: "Your passwords don't match!"
+
+  has n, :peeps
 end

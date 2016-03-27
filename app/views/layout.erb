@@ -5,14 +5,16 @@
   </head>
 
   <body>
-    <% if current_maker %>
+    <% if current_maker%>
          Oh hey <%= @maker.name %>!
-         <p>
+      <p>
         <form action='/session' method='post'>
         <input type=hidden name='_method' value='delete'>
-        <input type=submit value='Log Out'>
+        <button>Log Out</button>
       </p>
     </form>
+    <% else %>
+      Hey guest!
     <% end %>
 
     <% if flash[:message] %>

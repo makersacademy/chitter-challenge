@@ -1,10 +1,24 @@
-<form action='/peeps/new' method="post">
-  <textarea cols="50" rows="3" name='text'>What will you peep about today?</textarea>
-  <p>
-    <button>Peep!</button>
-  </p>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <% if @maker %>
+      <form action='/peeps/new' method="post">
+        <textarea cols="50" rows="3" name='text'>What will you peep about today?</textarea>
+        <p>
+          <button>Peep!</button>
+        </p>
+      </form>
+    <% end %>
 
-<% @peeps.each do |peep| %>
-  <%= peep.text %>
-<% end%>
+    <% if !Peep.all.empty? %>
+      <% Peep.all.reverse.each do |peep| %>
+        <li><%= peep.maker.username %> peeped <%= peep.text %>
+        </li>
+        <% end %>
+    <% else %>
+      No peeps here!
+    <% end%>
+  </body>
+</html>
