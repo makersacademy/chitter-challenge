@@ -38,15 +38,15 @@ Features/languages used:
 * RSpec unit testing
 * Capybara feature testing.
 
-I completed the app by following each user story above in order. I started by creating two databases, "chitter_test" and "chitter_development". The test database was used for testing and uses a gem called Database Cleaner to wipe the database after each test (gem can be found in Gemfile). The development database was for running the web app on a local server. The gem "DataMapper" (also in Gemfile) is used to use basic SQL commands in the Ruby code.
+I completed the app by following each user story above in order. I started by creating two databases, "chitter_test" and "chitter_development". The test database was used for testing and uses a gem called `database_cleaner` to wipe the database after each test. The development database was for running the web app on a local server. The gem `data_mapper` is used to use basic SQL commands in the Ruby code.
 
-In the databases are two models: User and Peep. The User model contains the following properties:
+In the databases are two models: `User` and `Peep`. The User model contains the following properties:
 * id
 * username
 * email
 * password.
 
-It also has a one-to-many relationship to the Peep model (user can have many peeps). The Peep model has the following properties:
+It also has a *one-to-many relationship* to the `Peep` model (user can have many peeps). The Peep model has the following properties:
 * id
 * message
 * time_stamp
@@ -54,7 +54,7 @@ It also has a one-to-many relationship to the Peep model (user can have many pee
 
 The controller is split from one large controller to four small controllers: *home, peeps, sessions and users*. Each controller has many view files including `layout.erb`, the main layout which yields all of the views. The flash error messages are implemented with the `sinatra/flash` gem and are implemented in the layout.erb using partials.
 
-When a user signs up to a new account, DataMapper validations gem (`dm-validations`) is used to validate the password and password confirmation given. It is also used to validate a correct email address. Additionally, both the username and email have to be unique. If the username given is already taken an error message pops up using the `sinatra/flash` gem.
+When a user signs up to a new account, DataMapper validations gem `dm-validations` is used to validate the password and password confirmation given. It is also used to validate a correct email address. Additionally, both the username and email have to be unique. If the username given is already taken an error message pops up using the `sinatra/flash` gem.
 
 
 Test driven development was used with the BDD cycle to complete the app. Feature testing is implemented with Capybara and unit testing of the models is with RSpec.
