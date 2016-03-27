@@ -20,6 +20,8 @@ nav { width: 70%; }
   overflow: scroll;
 }
 
+/*elements within list of peeps*/
+
 h1 {
   font-family: "Stencil", "Britannic Bold", "helvetica neue", helvetica;
   font-size: 30pt;
@@ -45,6 +47,8 @@ li { list-style: none; }
   font-style: italic;
 }
 
+/*header*/
+
 .inline {
   display: inline-block;
   float: right;
@@ -60,6 +64,8 @@ li { list-style: none; }
   margin-top: 5px;
   margin-right: 10px;
 }
+
+/*forms*/
 
 .form-title { text-align: left; }
 
@@ -92,7 +98,7 @@ textarea {
   font-size: 15pt;
 }
 
-/*button styles*/
+/*buttons*/
 
 button {
   background-color: black;
