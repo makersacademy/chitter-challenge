@@ -12,6 +12,7 @@ feature 'can see peeps' do
     click_button 'Peep!'
     expect(page).to have_content "#{maker.username} peeped"
   end
+
   scenario 'guest cannot peep' do
     visit '/'
     click_button "Read peeps as Guest"

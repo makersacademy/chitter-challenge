@@ -49,7 +49,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/read' do
-    # Maker.get(session[:maker_id])
     @maker = current_maker
     erb :'peeps/read'
   end
