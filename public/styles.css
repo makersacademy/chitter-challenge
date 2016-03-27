@@ -1,0 +1,73 @@
+body {
+	text-align: center;
+	font-family: 'Futura';
+	background-color: #301157;
+	color: white ;
+}
+
+a {
+	border: 1px solid black; 
+	display: inline-block; 
+	width: 100px; 
+	padding: 3px 10px; 
+	border-radius: 9px; 
+	text-decoration: none;
+	margin: 10px 10px;
+	color: white;
+	background-color: #1b053a;
+}
+
+input {
+  margin: 2px 0px;
+	width: 310;
+  height: 30;
+
+}
+
+input[type="submit"]:focus {
+  background-color: #8e79ad;
+
+}
+
+input[type="submit"] {  
+	font-size: 1em;
+}
+
+input.submit_peep {
+	width: 100;
+}
+
+input#sign_out {
+	width: 100;
+	border-radius: 9px; 
+}
+
+div.peeps {
+	background-color: #1b053a;
+	border: none; 
+	width: 500px; 
+	margin: 10px auto; 
+	border-radius: 20px;
+	padding: 10px 0px
+}
+
+p {
+	padding: 10px 20px;
+	display: inline; 
+	margin: 10px 50px;
+	position: relative;
+	color: #9e79ad;
+}
+
+div.a_peep {
+	padding: 10px 0px
+}
+
+h1 {
+    letter-spacing: 5px;
+  }
+
+h2 {
+	color: #9e79ad;
+}
+

@@ -1,0 +1,39 @@
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+	<% if current_user %>
+  	<form action='/sessions' method="post">  
+  		<input type="hidden" name="_method" value="delete">	
+    	<input id="sign_out" type="submit" value="Sign out">
+    </form>
+  <% else %>
+  	<a href="/log-in">Log in</a>
+  	<a href="/sign-up"> Sign up</a> 
+  <% end %>  
+  <h1>- Chitter -</h1>
+ 	<h2>
+ 		<% if current_user %>
+ 			Welcome <%= current_user.user_name %>!
+ 		<% end%>
+ 	</h2>
+ 	<div>
+ 		<% if current_user %>
+ 			<form action='/create-peep' method="post" >
+				<textarea name="post" rows="3" cols="50"></textarea>
+				<div>
+					<input class="submit_peep" type="submit" value="Post a peep">
+				</div>
+			</form>
+  	<% end %>
+  	<% @posts.each do |peep| %>
+  		<div class="peeps">
+  			<p class='stamp'><%= peep.time %></p>
+	 			<p class='stamp'> <%= find_user_name(peep.user_id) %></p>
+  			<div class="a_peep" >
+ 					<%= peep.post %> 
+ 				</div>
+ 			</div>
+ 		<% end %>
+ 	</div>
+</body>
