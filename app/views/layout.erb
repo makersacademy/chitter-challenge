@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <h1>~ Chitter ~</h1>
+    <% if current_user %>
+    <h2><%= current_user.username %></h2>
+    <% end %>
+    <%= yield %>
+</body>
+</html>
