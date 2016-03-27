@@ -16,6 +16,8 @@
             <% t = peep.time %>
             <%=peep.message %><br>
             <%=t.strftime("Posted on %m/%d/%Y at %I:%M%p")%><br>
+            <form action='/chitter_feed/like' method='post'>
+              <button type='submit' name='like' value="<%=peep.id%>">♥</button> <%=peep.likes.count%></form>
           </div>
         </li>
     <% end %>

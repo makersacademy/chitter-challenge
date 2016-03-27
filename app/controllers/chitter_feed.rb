@@ -25,4 +25,12 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     redirect to '/'
   end
+
+  post '/chitter_feed/like' do
+    peep = Peep.get(params[:like])
+    like = Like.new
+    peep.likes << like
+    like.save
+    redirect to '/chitter_feed'
+  end
 end
