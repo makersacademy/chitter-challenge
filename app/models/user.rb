@@ -5,11 +5,11 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :first_name, String
-  property :last_name, String
-  property :username, String
-  property :email, String
-  property :password_digest, Text
+  property :first_name, String, required: true
+  property :last_name, String, required: true
+  property :username, String, required: true
+  property :email, String, required: true
+  property :password_digest, Text, required: true
 
   attr_reader :password
 
