@@ -6,8 +6,15 @@ class Peep
 
   property :id, Serial
   property :text, String
+  property :time, DateTime
 
 
-  has n, :users, :through => Resource
+  def time_string
+    self.time.strftime("%H:%M:%S")
+  end
+
+
+  #has n, :users, :through => Resource
+  belongs_to :user
 
 end

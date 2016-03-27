@@ -7,6 +7,8 @@
   text-align: center;
   background-color: #33B6FF;
   font-family: 'Comic Sans MS';
+  border: 5px solid;
+  overflow:scroll;
 }
 
 #mainbar {
@@ -63,9 +65,10 @@
 
 #peepscontent {
   margin-top: 80px;
+  height:100%;
   position: absolute;
   top:0;bottom:0;right:0;left:0;
-  border:2px solid yellow;
+  border:3px solid yellow;
 }
 
 .pageheading {
@@ -120,12 +123,38 @@
   position:absolute;
   vertical-align: top;
   left:35%;
+  list-style-type: none;
 }
-#peeps div{
+#peep{
   margin:0;
   margin-bottom: 5px;
   border: 2px solid white;
-  border-style: dashed;
+  border-style: ridge;
   border-radius: 10px;
   width:250px;
+  height:100px;
+  background-color: #2D91E3;
+}
+#peeptitle{
+  position: relative;
+  width:100%;
+  height:25%;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: left;
+  background-color: #2D91E3;
+}
+#time{
+  font-size: 12px;
+  font-style: italic;
+}
+#peepbody{
+  margin: auto;
+  position: relative;
+  border: 1px solid red;
+  width:250px;
+  height:75%;
+  border-radius: 10px;
+  text-align: left;
+  word-wrap: break-word;
 }

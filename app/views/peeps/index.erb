@@ -1,7 +1,5 @@
 <div id='peepscontent'>
 
-<h2>Hi</h2>
-
 <div id='newpeep'>
   <% if current_user %>
     New peep:<br>
@@ -15,9 +13,18 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      <div id='peep'>
-        [Time] <%= peep.users.first.username %> says:<br> <%= peep.text %>
-      </div>
+      <article id='peep'>
+        <article id='peepheader'>
+          <strong id='peeptitle'><%= peep.user.name %> (<%= peep.user.username %>)
+          </strong>
+          <span id='time'>@ <%= peep.time_string %></span>
+        </article>
+        <div id='peepbody'>
+          <%= peep.text %>
+        </div>
+
+
+      </article>
     </li>
   <% end %>
 </ul>
