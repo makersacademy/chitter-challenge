@@ -16,6 +16,6 @@ class User
 
   def self.authenticate(email:, password:)
     user = first(email: email)
-    (user && (user.password == password)) ? user : nil
+    user && user.password == password ? user : nil
   end
 end
