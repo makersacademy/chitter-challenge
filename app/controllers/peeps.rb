@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
     peep = Peep.create(message: params[:message], time: Time.now)
     if current_user
       current_user.peeps << peep
+      peep.save
       redirect '/peeps'
     else
       flash.now[:errors] = ['You must be logged in to peep!']
