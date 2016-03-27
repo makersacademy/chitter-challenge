@@ -10,21 +10,19 @@ class Chitter <Sinatra::Base
     erb(:'user/new')
   end
 
-   post '/user/signup' do
-     user = User.new(name: params[:name],
+  post '/user/signup' do
+    @user = User.new(name: params[:name],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirm])
 
-
-    
-     if user.save
-      session[:user_id] = user.id
+    if @user.save
+      session[:user_id] = @user.id
       redirect('/feed')
     else
-      flash.now[:errors]=user.errors.full_messages
+      flash.now[:errors]=@user.errors.full_messages
       erb(:'user/new')
     end
-   end
+  end
 
 end
