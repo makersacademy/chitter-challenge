@@ -23,7 +23,7 @@
 
     <% if !Peep.all.empty? %>
       <% Peep.all.reverse.each do |peep| %>
-        <li><%= peep.maker.username %> peeped "<%= peep.text %>" at <%= peep.time %>
+        <li><span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>at <%= peep.time %></span>
         </li>
         <% end %>
     <% else %>

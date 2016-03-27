@@ -1,13 +1,19 @@
 div {
   border-radius: 5px;
-  background-color: #adebad;
-  height: 300px;
-  width: 100px;
+  background-color: #00ff80;
+  height: 450px;
+  width: 200px;
   margin: auto;
+  padding-top: 20px;
   text-align: center;
-  font-family: Arial;
+  font-family: futura;
+  font-size: 14px;
 }
-
+span {
+  color: grey;
+}
 body {
-  font-family: Arial;
+  font-family: futura;
+  margin: 100px;
+  background-color: #00cc66;
 }
