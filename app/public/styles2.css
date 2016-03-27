@@ -1,0 +1,62 @@
+/* Main Content */
+
+#container{
+  margin:auto;
+  background-color: #FFC366;
+  font-family: "Courier";
+  text-align: center;
+  min-height:1000px;
+}
+#mainbar{
+  text-align: left;
+}
+#mainbar p{
+  position: relative;
+  margin: auto;
+  font-size:70px;
+  text-align: center;
+  height:80px;
+}
+#sign_up_sign_in{
+  position: absolute;
+  left:30px;top:30px;
+  text-align: left;
+}
+#sign_up_sign_in p{
+  font-size: 14px;
+}
+#sign_up_sign_in form{
+  left:0px;
+  font-size: 12px;
+}
+.signbutton{
+  background-color: #66BDFF;
+  border-radius: 10px;
+  font-family: inherit;
+}
+.signbutton:hover{
+  background-color: #6688FF;
+}
+.peeplist{
+  background-color: #ECB45E;
+  margin:30px;
+}
+#peeps{
+  padding-left: 0;
+  list-style-type: none;
+  display: inline-block;
+}
+#peeps span{
+  font-size: 10px;
+}
+#peep{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+  border-color: #D9F3FF;
+  border-style: dotted;
+  border-radius: 50px;
+  border-width: 2px;
+}
+
+/* Sign Up */

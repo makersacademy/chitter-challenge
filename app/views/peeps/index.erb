@@ -10,24 +10,24 @@
   <% end %>
 </div>
 
+<div class='peeplist'>
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li>
-      <article id='peep'>
-        <article id='peepheader'>
+    <li id='peep'>
+
+        <p id='peepheader'>
           <strong id='peeptitle'><%= peep.user.name %> (<%= peep.user.username %>)
           </strong>
           <span id='time'>@ <%= peep.time_string %></span>
-        </article>
-        <div id='peepbody'>
-          <%= peep.text %>
-        </div>
 
+        <p id='peepbody'>
+          "<%= peep.text %>"
+        </p>
 
-      </article>
     </li>
   <% end %>
 </ul>
+</div>
 
 
 

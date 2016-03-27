@@ -6,26 +6,26 @@
 
 <form action='/signup' method='post'>
   Name:<br>
-  <input type='text' name='name' value='<%=@user.name%>'/><br>
+  <input type='text' name='name' value='<%=@user.name%>' required/><br>
   Username:<br>
-  <input type='text' name='username' value='<%=@user.username%>'/><br>
+  <input type='text' name='username' value='<%=@user.username%>' required/><br>
   Email:<br>
-  <input type='text' name='email' value='<%=@user.email%>'/><br>
+  <input type='text' name='email' value='<%=@user.email%>' required/><br>
   <% if flash[:notice] %>
     <div class='noticebox'>
       <div id='notice'><%= flash[:notice] %></div>
       Password:<br>
       <input type='text' name='password'/><br>
-      Retype your password:<br>
+      Confirm password:<br>
       <input type='text' name='password_confirmation'/><br>
     </div>
   <% else %>
       Password:<br>
       <input type='text' name='password'/><br>
-      Retype your password:<br>
+      Confirm password:<br>
       <input type='text' name='password_confirmation'/><br>
   <% end %>
-  <input type='submit' value='Register'/>
+  <input class='signbutton' type='submit' value='Register'/>
 
 </form>
 
