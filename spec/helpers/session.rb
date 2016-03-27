@@ -16,4 +16,10 @@ module SessionHelpers
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
   end
+
+  def post_peep(message: 'This is a test')
+    visit '/peeps/new'
+    fill_in('content', with: message)
+    click_button('Post peep!')
+  end
 end

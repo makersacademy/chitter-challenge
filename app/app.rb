@@ -5,6 +5,7 @@ require 'sinatra/flash'
 
 require_relative 'data_mapper_setup'
 require_relative './models/user'
+require_relative './models/peep'
 
 
 
@@ -26,12 +27,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email],
-                      password: params[:password],
+    @user = User.create(name: params[:name], username: params[:username],
+                      email: params[:email], password: params[:password],
                       password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/session')
+      redirect to '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -50,7 +51,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to '/session'
+      redirect to '/peeps'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -59,8 +60,28 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye!'
-    redirect to '/session'
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/peeps'
+  end
+
+  get '/peeps' do
+    peeps = Peep.all
+    erb :peeps
+  end
+
+  get '/peeps/new' do
+    if current_user
+      erb :'peeps/new'
+    else
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/peeps/new' do
+    time = Time.now
+    peep = Peep.new(user: current_user, content: params[:content], time: time)
+    peep.save!
+    redirect('/peeps')
   end
 
 end

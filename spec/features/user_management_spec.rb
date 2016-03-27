@@ -2,7 +2,7 @@ feature 'User sign up' do
 
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, test@test.com')
+    expect(page).to have_content('Welcome, Test Test')
     expect(User.first.email).to eq('test@test.com')
   end
 
@@ -39,12 +39,12 @@ end
 feature 'User sign in' do
 
   let(:user) do
-    User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test')
+    User.create(name: 'Test Test', username: 'Test_test', email: 'test@test.com', password: 'test', password_confirmation: 'test')
   end
 
   scenario 'with correct credentials' do
     sign_in(email: user.email,   password: user.password)
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content "Welcome, #{user.name}"
   end
 
 end
@@ -52,13 +52,13 @@ end
 feature 'User signs out' do
 
   before(:each) do
-    User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test')
+    User.create(name: 'Test Test', username: 'Test_test', email: 'test@test.com', password: 'test', password_confirmation: 'test')
   end
 
   scenario 'while being signed in' do
     sign_in(email: 'test@test.com', password: 'test')
     click_button 'Sign out'
-    expect(page).to have_content('Goodbye!')
+    expect(page).to have_content("Goodbye!")
     expect(page).not_to have_content('Welcome, test@test.com')
   end
 

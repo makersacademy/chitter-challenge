@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-require 'data_mapper'
-require_relative './app/app'
-
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
 
@@ -9,6 +5,9 @@ if ENV['RACK_ENV'] != 'production'
 
   task default: [:spec]
 end
+
+require 'data_mapper'
+require_relative './app/app'
 
 
 namespace :db do
@@ -24,12 +23,11 @@ namespace :db do
     puts 'Auto-migrate complete (data was lost)'
   end
 end
-=======
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  
-  RSpec::Core::RakeTask.new :spec
-  
-  task default: [:spec]
-end
->>>>>>> 1ec1413865ab4e5dd0990904025289af31194cc3
+
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+#
+#   task default: [:spec]
+# end
