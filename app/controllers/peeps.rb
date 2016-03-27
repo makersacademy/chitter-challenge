@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: :time.desc)
     erb :'peeps/all'
   end
 
@@ -16,11 +16,13 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.create(message: params[:message], time: Time.now)
-    current_user = User.get(session[:user_id])
-    current_user.peeps << peep
-    current_user.save
-    peep.save
-    redirect '/peeps'
+    if current_user
+      current_user.peeps << peep
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['You must be logged in to peep!']
+      erb :'/sessions/new'
+    end
   end
 
   # start the server if ruby file executed directly

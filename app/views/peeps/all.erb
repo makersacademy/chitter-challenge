@@ -1,9 +1,14 @@
-Welcome <%= current_user.name %>!
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+<% end %>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
-  <li>
-    <%= peep.message %>
-  </li>
+  <ul>
+    <%= peep.user.username %>:<br>
+    <%= peep.message %> <br>
+    <%= peep.time %><br>
+    <br>
+  </ul>
   <% end %>
 </ul>

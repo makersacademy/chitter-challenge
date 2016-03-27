@@ -10,7 +10,21 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+      <form action="/peeps/new" >
+        <input type="submit" value="New Peep"</input>
+      </form>
     <% end %>
+    <% unless current_user %>
+      <form action="/users/new" >
+        <input type="submit" value='Sign up'</input>
+      </form>
+      <form action="/sessions/new" >
+        <input type="submit" value="Sign in"</input>
+      </form>
+    <% end %>
+    <form action="/peeps" >
+      <input type="submit" value='Peeps'</input>
+    </form>
     <%= partial :flash %>
     <%= yield %>
   </body>
