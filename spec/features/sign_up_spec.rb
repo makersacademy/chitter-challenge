@@ -26,6 +26,10 @@ feature 'Sign up' do
 
   scenario 'email must be unique' do
     sign_up(email: 'CrazyKid@fun.com')
-    expect { sign_up(email: 'CrazyKid@fun.com') }.to_not change{ User.count}
+    expect { sign_up(email: 'CrazyKid@fun.com') }.to_not change{ User.count }
+  end
+
+  scenario 'email must have valid format' do
+    expect { sign_up(email: 'CrazyKid-fun.com') }.to_not change{ User.count }
   end
 end

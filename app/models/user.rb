@@ -8,7 +8,7 @@ class User
   property :first_name, String, required: true
   property :last_name, String, required: true
   property :username, String, required: true, unique: true
-  property :email, String, required: true, unique: true
+  property :email, String, required: true, unique: true, format: :email_address
   property :password_digest, Text, required: true
 
   attr_reader :password
