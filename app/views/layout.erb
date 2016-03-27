@@ -5,13 +5,40 @@
   </head>
 
   <body>
-    <h1>~ Chitter ~</h1>
-    <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
+    <h1>Chitter</h1>
+    <h1>~</h1>
+    <h2><%= @title %></h2>
+
+
     <% if current_user %>
     <h2><%= current_user.username %></h2>
+      <form class="add_form" action="/sessions" method="post">
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+      <form class="add_form" action="/peep/new" method="post">
+      <div class="">
+        <input type="text" name="peep" placeholder="peep" >
+      </div>
+      <div class="">
+        <input type="submit" value="Peep!">
+      </div>
     <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty?%>
+    <div id='error'><% flash[:errors].each do |error| %>
+      <%= error %>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+      <% end %>
+    </div>
+
+
 
     <%= yield %>
 </body>

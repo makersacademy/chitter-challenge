@@ -1,1 +1,7 @@
-
+<div class="peep-box">
+  <ul id="peeps">
+    <% @peeps.each do |peep| %>
+      <li><%= peep.created_at.strftime("%I:%M%p %m/%d/%Y") %>: <%= peep.peep %></li>
+    <% end %>
+  </ul>
+</div>
