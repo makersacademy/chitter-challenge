@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'tilt/erb'
 
 
 require_relative './models/user'
