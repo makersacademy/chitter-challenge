@@ -13,3 +13,10 @@ def signin(email=nil, password=nil)
   fill_in(:password, with: password)
   click_button('Sign in')
 end
+
+
+def peep(peep=nil)
+  visit('/feed/new')
+  fill_in(:peep, with: peep)
+  click_button('Peep now')
+end

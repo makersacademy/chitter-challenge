@@ -1,0 +1,6 @@
+<h2> Latest Peeps!</h2>
+<ul>
+  <%@feed.each do |peep|%>
+    <li><%=peep.peep%> at <%=peep.created_at%></li>
+  <%end%>
+</ul>

@@ -4,6 +4,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative 'server'
 require_relative 'models/user'
+require_relative 'models/feed'
 
 
 
