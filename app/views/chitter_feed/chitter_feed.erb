@@ -6,7 +6,7 @@
   <form action='/chitter_feed/new' method="get">
     <input type="submit" value="Add peep">
   </form>
-
+<br>
 <div class="peeps-box">
   <ul id="peeps">
     <% @peeps.reverse.each do |peep| %>
@@ -23,7 +23,7 @@
     <% end %>
   </ul>
 </div>
-
+<br>
   <div>
     <form action='/sessions' method='post'>
       <input type='hidden' name='_method' value='delete'>

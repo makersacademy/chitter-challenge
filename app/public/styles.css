@@ -20,10 +20,31 @@
   }
   div.peeps-box {
     width: 50%;
+    height: 300px;
     margin: 0 auto;
     width: 30%;
     min-width: 310;
     background-image: url("http://www.themesltd.com/backgrounds/ice-cream/ice_creams_ice_creams_ice_creams.jpg");
+    overflow:auto;
+  }
+  
+  ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+  background: yellowgreen;
+  border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+  background: #88ba1c;
   }
 
   div.peep-box {
