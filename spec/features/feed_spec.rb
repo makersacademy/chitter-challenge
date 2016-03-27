@@ -5,10 +5,9 @@ feature 'Feed' do
     expect(page).to have_content('This is my first peep!')
   end
 
-  # scenario 'I want to see when the peep was created' do
-  #   time= Time.now
-  #   peep("This is a time test")
-  #   expect(current_path).to eq '/feed'
-  #   expect(page).to have_content(time)
-  # end
+  scenario 'I want to see when the peep was created' do
+    peep("This is a time test")
+    expect(current_path).to eq '/feed'
+    expect(page).to have_content(Feed.first.created_at)
+  end
 end
