@@ -18,19 +18,15 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   get '/sms' do
-    # peep = Peep.new(text:params[:Body], time:Time.new)
-    # current_user.peeps << peep
-    # peep.save
-    # current_user.save
-    # response = "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
-    # twiml = Twilio::TwiML::Response.new do |r|
-    #   r.Message response
-    # end
-    # twiml.text
+    peep = Peep.new(text:params[:Body], time:Time.new)
+    current_user.peeps << peep
+    peep.save
+    current_user.save
+    response = "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
     twiml = Twilio::TwiML::Response.new do |r|
-    r.Message "Hey Monkey. Thanks for the message!"
-  end
-  twiml.text
+      r.Message response
+    end
+    twiml.text
   end
 
   get '/' do
