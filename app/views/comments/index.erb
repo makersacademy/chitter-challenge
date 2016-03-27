@@ -6,7 +6,7 @@
     <div class="user" id="username-time">
       @<%= @peep.user.username %> <%= @peep.time %>
     </div>
-    <p>"<%= @peep.content %>"</p>
+    <p><%= @peep.content %></p>
   </div>
 
   <h3>Comments</h3>
@@ -19,7 +19,7 @@
         <div class="user" id="username-time">
           @<%= comment.user.username %> <%= comment.time %>
         </div>
-        <p>"<%= comment.content %>"</p>
+        <p><%= comment.content %></p>
         <hr />
       </li>
     <% end %>
