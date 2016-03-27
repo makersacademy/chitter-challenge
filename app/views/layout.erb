@@ -17,7 +17,7 @@
     Welcome <%= current_user.username %>
   </div>
   <form method='get' action='/poops/new'>
-    <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' name='Do a poop'><img src="http://i.imgur.com/1GBirxr.png" title="source: imgur.com" /></button>
+    <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' value='Do a poop'><img src="http://i.imgur.com/1GBirxr.png" title="source: imgur.com" /></button>
   </form>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
@@ -33,7 +33,7 @@
 
 <% end %>
 <form method='get' action='/poops/index'>
-  <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' name='Do a poop'><img src="http://i.imgur.com/nbj30tO.png?1" title="source: imgur.com" /></button>
+  <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' name='View poops'><img src="http://i.imgur.com/nbj30tO.png?1" title="source: imgur.com" /></button>
 </form>
 
 

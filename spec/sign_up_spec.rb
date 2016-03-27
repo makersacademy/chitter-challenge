@@ -8,14 +8,14 @@ feature 'can sign up' do
     fill_in :password, with: 'adampw'
     fill_in :name, with: 'adam'
     fill_in :username, with: 'adamu'
-    expect { click_button 'Sign up' }.to change(User, :count).by(1)    
+    expect { click_button 'Create account' }.to change(User, :count).by(1)    
    end
 
   scenario 'cannot sign up without including all details' do
     visit '/users/new'
     fill_in :password, with: 'adampw'
     fill_in :username, with: 'adamu'
-    expect { click_button 'Sign up' }.to_not change(User, :count)
+    expect { click_button 'Create account' }.to_not change(User, :count)
   end
     
   scenario 'cannot sign in with invalid email' do
@@ -24,7 +24,7 @@ feature 'can sign up' do
     fill_in :password, with: 'adampw'
     fill_in :name, with: 'adam'
     fill_in :username, with: 'adamu'
-    expect { click_button 'Sign up' }.to_not change(User, :count)
+    expect { click_button 'Create account' }.to_not change(User, :count)
   end
 end
 

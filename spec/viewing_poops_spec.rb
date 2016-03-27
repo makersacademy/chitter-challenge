@@ -9,7 +9,7 @@ feature 'Viewing poops' do
     fill_in :password, with: 'adampw'
     fill_in :name, with: 'adam'
     fill_in :username, with: 'adamu'
-    click_button 'Sign up'
+    click_button 'Create account'
     click_button 'Do a poop'
     fill_in :poop_msg, with: 'first poop'
     click_button 'Poop' 
