@@ -19,8 +19,8 @@
   <ul>
     <% @peeps.each do |peep| %>
       <li class="peep">
-        <%= partial :post, locals: { post: peep } %>    
-        <a href="/<%= peep.id %>/comments">Comments (<%= peep.comments.count %>)</a>
+        <%= partial :post, locals: { post: peep } %>
+        <a href="/<%= peep.id %>/comments" id="comments-link">Comments (<%= peep.comments.count %>)</a>
         <hr />
       </li>
     <% end %>

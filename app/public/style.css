@@ -48,7 +48,7 @@ li { list-style: none; }
   font-style: italic;
 }
 
-a {
+#comments-link {
   font-size: 10pt;
   font-weight: lighter;
   font-style: italic;
@@ -58,7 +58,7 @@ a {
   margin-top: -30px;
 }
 
-a:hover {
+#comments-link:hover {
   font-style: normal;
 }
 
@@ -178,7 +178,8 @@ button:hover{
 
 #new-peep {
   width: 220px;
-  margin-right: 557px;
+  float: left;
+  margin-right: 155px;
   background-color: black;
   color: white;
   font-size: 17pt;
@@ -187,3 +188,15 @@ button:hover{
 }
 
 #new-peep:hover{ opacity: 0.7; }
+
+/*footer*/
+
+footer {
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  color: black;
+}
