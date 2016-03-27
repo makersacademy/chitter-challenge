@@ -15,34 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/maker/new' do
-    # require 'pry'; binding.pry
     erb :'/maker/new'
-  end
-
-  get '/session/new' do
-    erb :'/session/new'
-  end
-
-  post '/session' do
-    maker = Maker.authenticate(params[:username], params[:password])
-    if maker
-      session[:maker_id] = maker.id
-      redirect '/peeps'
-    else
-      flash.now[:error] = ['Email & Password combo is wrong!']
-      erb :'/session/new'
-    end
-  end
-
-  get '/peeps' do
-    @maker = current_maker
-    erb :peeps
-  end
-
-  delete '/session' do
-    session[:maker_id] = nil
-    flash.keep[:message] = 'Bye!'
-    redirect '/'
   end
 
   post '/register' do
@@ -53,11 +26,43 @@ class Chitter < Sinatra::Base
                  password_confirmation: params[:password_confirmation])
     if @maker.save
       session[:maker_id] = current_maker
-      redirect '/'
+      redirect '/peeps/read'
     else
       flash.now[:error] = @maker.errors.full_messages
       erb :'maker/new'
     end
+  end
+
+  get '/session/new' do
+    erb :'/session/new'
+  end
+
+  post '/session' do
+    maker = Maker.authenticate(params[:username], params[:password])
+    if maker
+      session[:maker_id] = maker.id
+      redirect '/peeps/read'
+    else
+      flash.now[:error] = ['Email & Password combo is wrong!']
+      erb :'/session/new'
+    end
+  end
+
+  get '/peeps/read' do
+    @maker = current_maker
+    @peeps = Peep.all
+    erb :'peeps/read'
+  end
+
+  post '/peeps/new' do
+    Peep.create(text: params[:text])
+    redirect '/peeps/read'
+  end
+
+  delete '/session' do
+    session[:maker_id] = nil
+    flash.keep[:message] = 'Bye!'
+    redirect '/'
   end
 
   helpers do

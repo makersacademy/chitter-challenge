@@ -1,0 +1,10 @@
+<form action='/peeps/new' method="post">
+  <textarea cols="50" rows="3" name='text'>What will you peep about today?</textarea>
+  <p>
+    <button>Peep!</button>
+  </p>
+</form>
+
+<% @peeps.each do |peep| %>
+  <%= peep.text %>
+<% end%>

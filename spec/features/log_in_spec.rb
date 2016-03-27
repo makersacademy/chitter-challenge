@@ -1,9 +1,9 @@
 feature 'allows login' do
   doubles
-  
+
   scenario 'has correct credentials' do
     log_in(username: maker.username, password: maker.password)
-    expect(page).to have_content "Oh hey #{maker.name}, what will you peep about today?"
+    expect(page).to have_content "Oh hey #{maker.name}!"
   end
 
   scenario 'authenticates user log in with valid email and password' do

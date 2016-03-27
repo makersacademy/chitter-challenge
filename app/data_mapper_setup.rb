@@ -4,6 +4,7 @@ require 'dm-validations'
 require 'bcrypt'
 
 require_relative 'models/maker'
+require_relative 'models/peep'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
