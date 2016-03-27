@@ -7,7 +7,7 @@
     <% if current_maker %>
     Oh hey <%= @maker.name %>!
       <form action='/peeps/new' method="post">
-        <textarea cols="50" rows="3" name='text'>What will you peep about today?</textarea>
+        <textarea cols="50" rows="3" name='text' placeholder='What will you peep about today?'/></textarea>
         <p> <button>Peep!</button> </p>
       </form>
         <form action='/session' method='post'>
