@@ -9,6 +9,8 @@ class User
     property :email, String, format: :email_address, required: true
     property :password_hash, Text
 
+    has n, :feed
+
     attr_reader :password
     attr_accessor :password_confirmation
 

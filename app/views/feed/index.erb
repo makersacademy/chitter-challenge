@@ -1,6 +1,6 @@
 <h2> Latest Peeps!</h2>
 <ul>
   <%@feed.each do |peep|%>
-    <li><%=peep.peep%> at <%=peep.created_at%></li>
+    <li><%=peep.peep%> at <%=peep.created_at%> <%=peep.user.name%></li>
   <%end%>
 </ul>

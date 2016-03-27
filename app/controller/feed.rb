@@ -11,13 +11,21 @@ class Chitter <Sinatra::Base
 
   post '/feed/new' do
    
-    feed = Feed.new(peep: params[:peep])
-
-
+   user=  User.get(session[:user_id])
+        
+    if user
       
-    if User.get(session[:user_id])
-      feed.save  
-      redirect(:'/feed')
+      peep=(params[:peep])
+      
+      if peep
+        feed = user.feed.new(peep: peep)
+        feed.save
+        redirect(:'/feed')
+      else
+        flash.now[:errors] = ["Please enter peep"]
+        erb (:'feed/new')
+      end
+    
     else
       flash.now[:errors] = ["Please sign in to peep"]
       erb (:'feed/new')

@@ -21,8 +21,7 @@ class Chitter <Sinatra::Base
       redirect('/feed')
     else
       flash.now[:errors]=@user.errors.full_messages
-      erb(:'user/new')
+      erb(:'user/new') 
     end
   end
-
 end
