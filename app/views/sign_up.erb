@@ -1,13 +1,12 @@
-
 <form action='/sign-up' method = 'post'>
   <label for='name'>
-    Name: <input type='text' name='name'>
+    Name: <input type='text' name='name' value='<%= params[:name] %>'>
   </label>
   <label for='email'>
-    Email: <input type='text' name='email'>
+    Email: <input type='text' name='email' value='<%= params[:email] %>'>
   </label>
   <label for='password'>
-    Password: <input type='password' name='password'>
+    Password: <input type='password' name='password' >
   </label>
   <label for='password_confirmation'>
     Confirm password: <input type='password' name='password_confirmation'>

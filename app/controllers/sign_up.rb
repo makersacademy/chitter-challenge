@@ -13,8 +13,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.next[:errors] = user.errors.full_messages
-      redirect '/sign-up'
+      flash.now[:errors] = user.errors.full_messages
+      erb :sign_up
     end
   end
 end
