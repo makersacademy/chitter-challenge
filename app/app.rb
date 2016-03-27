@@ -3,6 +3,8 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'twilio-ruby'
+require 'dotenv'
+Dotenv.load
 require_relative 'models/data_mapper_setup'
 require_relative 'helpers'
 
@@ -23,6 +25,7 @@ class Chitter < Sinatra::Base
       r.Message "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
     end
     twiml.text
+    redirect '/'
   end
 
   get '/' do
@@ -67,7 +70,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/postpeep' do
+    #client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
     peep = Peep.new(text:params[:new_peep], time:Time.new)
+    # client.messages.create(
+    # to: "+447709344456",
+    # from: "+441233800814",
+    # body: "#{peep.text}"
+    # )
     current_user.peeps << peep
     peep.save
     current_user.save
