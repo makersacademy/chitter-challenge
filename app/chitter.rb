@@ -72,7 +72,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new' do
-    post = Post.create(message: params[:message], timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
+    post = Post.create(message: params[:message],
+                       timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
     current_user = User.get(session[:user_id])
     current_user.posts << post
     current_user.save

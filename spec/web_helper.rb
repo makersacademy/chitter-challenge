@@ -28,3 +28,8 @@ def post_peep(message: 'Test post')
   fill_in('message', with: message)
   click_button('Peep')
 end
+
+def comment
+  fill_in('comment', with: 'Test comment')
+  expect{ click_button('Comment') }.to change(Comment, :count).by(1)
+end

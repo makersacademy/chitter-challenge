@@ -1,4 +1,3 @@
-require 'data_mapper'
 require 'bcrypt'
 
 class User

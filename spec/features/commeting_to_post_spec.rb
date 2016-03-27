@@ -13,8 +13,7 @@ feature 'Commeting to a post:' do
   end
 
   scenario 'Same user can comment to an existing post' do
-    fill_in('comment', with: 'Test comment')
-    expect{ click_button('Comment') }.to change(Comment, :count).by(1)
+    comment
     timestamp = Time.now.strftime("%I:%M%p %m/%d/%Y")
     expect(page).to have_content('Test comment')
     expect(page).to have_content("jinis commented @ #{timestamp}")
@@ -27,11 +26,9 @@ feature 'Commeting to a post:' do
             email: 'clemence.guill@gmail.com',
             password: 'clems',
             password_confirmation: 'clems')
-
-    fill_in('comment', with: 'Test comment2')
-    expect{ click_button('Comment') }.to change(Comment, :count).by(1)
+    comment
     timestamp = Time.now.strftime("%I:%M%p %m/%d/%Y")
-    expect(page).to have_content('Test comment2')
+    expect(page).to have_content('Test comment')
     expect(page).to have_content("clems commented @ #{timestamp}")
   end
 end
