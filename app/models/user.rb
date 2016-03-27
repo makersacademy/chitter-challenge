@@ -23,4 +23,11 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def authenticate(attempted_password)
+  	if BCrypt::Password.new(self.password_digest) == attempted_password
+  		true
+  	else
+  		false
+  	end
+  end
 end

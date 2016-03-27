@@ -1,0 +1,21 @@
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h1>- Chitter -</h1>
+  <h2>Log in</h2>
+  <h3><%if flash[:error]%><%= flash[:error][0]%><%end%></h3>
+  <form class="add_form" action="/log-in" method="post">
+  <div>
+      <input type="email" name="email" placeholder="Email" value="<%if @user%><%=@user.email%><%end%>">
+  </div>
+  <div>
+    <input type="password" name="password" placeholder="Password">
+  </div>
+  <div>
+    <input type="submit" value="Log in">
+  </div>
+
+  </form>
+</body>

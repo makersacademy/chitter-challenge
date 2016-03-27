@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign-up' do
-    erb :'sign_up'
+    erb :sign_up
   end
 
   post '/sign-up' do
@@ -31,7 +31,24 @@ class Chitter < Sinatra::Base
       redirect to('/chitter_feed')
     else
       flash.now[:error] = @user.errors.full_messages
-      erb :'sign_up'
+      erb :sign_up
+    end
+  end
+
+  get '/log-in' do
+    erb :log_in
+  end
+
+  post '/log-in' do
+    user = User.first(email: params[:email])
+    if user.nil?
+      flash.now[:error] = ["User does not exist!"]
+      erb :log_in
+    elsif user.authenticate(params[:password])
+      redirect to('/chitter_feed')
+    else
+      flash.now[:error] = user.errors.full_messages
+      erb :log_in
     end
   end
 
