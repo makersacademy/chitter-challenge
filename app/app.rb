@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
 
   helpers Helpers
 
-  post '/sms' do
+  get '/sms' do
     peep = Peep.new(text:params[:Body], time:Time.new)
     current_user.peeps << peep
     peep.save
@@ -25,7 +25,6 @@ class Chitter < Sinatra::Base
       r.Message "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
     end
     twiml.text
-    redirect '/'
   end
 
   get '/' do
