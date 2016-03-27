@@ -1,0 +1,10 @@
+<h1>Chitter</h1>
+<div class="Login-wrapper">
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+<div class="Signupcallout">
+  <h2>New to Chitter?</h2>
+  <p>Sign up to join the fun.</p>
+  <a href='/signup'>Sign up</a>
+</div>

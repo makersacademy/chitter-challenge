@@ -1,0 +1,21 @@
+<h1>Chitter</h1>
+<div class='signup-wrapper'>
+  <h2>Join Chitter today.</h2>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Please correct the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <a href='/'>Log in</a>
+  <% end %>
+  <form action='/account/create' method='POST'>
+    <input id='name' type='text' autocomplete='off' name='name' placeholder='Full name' required>
+    <input id='username' type='text' autocomplete='off' name='username' placeholder='User name' required>
+    <input id='email' type='email' autocomplete='off' name='email' placeholder='Email address' required>
+    <input id='password' type='password' autocomplete='off' name='password' placeholder='Password' required>
+    <input id='password_confirmation' type='password' autocomplete='off' name='password_confirmation' placeholder='Confirm password' required>
+    <input class='input' type='submit' id='submit_button' value='Sign up'>
+  </form>
+</div>
