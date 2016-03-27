@@ -6,4 +6,10 @@
 <h1> Welcome <% if current_user %> <%= current_user.username %><% end%>!</h1>
   <h1>- Bookmarks -</h1>
 
+  <div>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type="submit" value="Log out">
+    </form>
+  </div>
 </body>
