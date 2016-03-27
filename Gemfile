@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.2.3'
 
 gem 'sinatra'             # a DSL for creating web apps in Ruby
 gem 'rake'                # a Make-like program for tasks and dependencies

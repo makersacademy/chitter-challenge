@@ -10,7 +10,17 @@ feature 'sign_in_spec: Signing in' do
 
   scenario 'user can sign in with correct credentials' do
     sign_in(username: user.username, password: user.password)
-    expect(page).to have_content('Welcome Test. Let\'s peep!')
+    expect(page).to have_content('Test')
+  end
+
+  scenario 'user cannot sign with incorrect username' do
+    sign_in(username: 'boo', password: user.password)
+    expect(page).to have_content('The username or password is incorrect.')
+  end
+
+  scenario 'user cannot sign with incorrect password' do
+    sign_in(username: user.username, password: 't')
+    expect(page).to have_content('The username or password is incorrect.')
   end
 
 end

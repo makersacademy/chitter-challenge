@@ -1,10 +1,23 @@
-<h1>Chitter</h1>
+<div class="hero-wrapper">
+  <h1>Chitter</h1>
+  <h2>See who's peeping now.</h2>
+  <h3>Find lunacy, mindlessness, and drivel.</h3>
+</div>
+
 <div class="Login-wrapper">
   <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
   <% end %>
+  <h1>Log in to Chitter.</h1>
+  <form action='/sessions' method='POST'>
+    <input type='text' class='text-input' name='username' placeholder='Username'>
+    <input type='password' class='text-input' name='password' placeholder='password'>
+    <input type='submit' class='submit' value='Log in'>
+  </form>
+</div>
+
 <div class="Signupcallout">
-  <h2>New to Chitter?</h2>
+  <h2>New to Chitter? Don't have an account?</h2>
   <p>Sign up to join the fun.</p>
   <a href='/signup'>Sign up</a>
 </div>
