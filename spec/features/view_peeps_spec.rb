@@ -12,12 +12,12 @@ feature "View peeps" do
   end
 
   scenario "show peeps in reverse chronological order" do
-    within "li:first-child" do
+    within "li.peep:first-child" do
       expect(page).to have_content "I love flying!"
       expect(page).to have_content "14:59 26/03/2016"
     end
 
-    within "li:last-child" do
+    within "li#peep:last-child" do
       expect(page).to have_content "I have an emo nephew."
       expect(page).to have_content "14:58 26/03/2016"
     end
