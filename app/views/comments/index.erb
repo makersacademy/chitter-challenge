@@ -1,28 +1,35 @@
-<div class="peep">
-  <div class="user" id="name">
-    <%= @peep.user.name %>
+<article id="comments">
+  <div class="peep">
+    <div class="user" id="name">
+      <%= @peep.user.name %>
+    </div>
+    <div class="user" id="username-time">
+      @<%= @peep.user.username %> <%= @peep.time %>
+    </div>
+    <p>"<%= @peep.content %>"</p>
   </div>
-  <div class="user" id="username-time">
-    @<%= @peep.user.username %> <%= @peep.time %>
-  </div>
-  <p>"<%= @peep.content %>"</p>
+
+  <h3>Comments</h3>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li class="comment">
+        <div class="user" id="name">
+          <%= comment.user.name %>
+        </div>
+        <div class="user" id="username-time">
+          @<%= comment.user.username %> <%= comment.time %>
+        </div>
+        <p>"<%= comment.content %>"</p>
+        <hr />
+      </li>
+    <% end %>
+  </ul>
 
   <% if current_user %>
-    <a href="/<%= @peep.id %>/comments/new">Add comment</a>
+    <%= erb :"comments/new" %>
   <% end %>
-</div>
+</article>
 
-<h3>Comments</h3>
-<ul>
-  <% @comments.each do |comment| %>
-    <li class="comment">
-      <div class="user" id="name">
-        <%= comment.user.name %>
-      </div>
-      <div class="user" id="username-time">
-        @<%= comment.user.username %> <%= comment.time %>
-      </div>
-      <p>"<%= comment.content %>"</p>
-    </li>
-  <% end %>
-</ul>
+<form action="/peeps">
+  <button type="submit"  class="white-button">Back</button>
+</form>

@@ -1,7 +1,9 @@
 class Chitter < Sinatra::Base
-  get "/:peep_id/comments/new" do
+  get "/:peep_id/comments" do
     @peep_id = params[:peep_id]
-    erb :"comments/new" if current_user
+    @peep = Peep.get(params[:peep_id])
+    @comments = @peep.comments.reverse
+    erb :"comments/index"
   end
 
   post "/comments" do
@@ -10,11 +12,4 @@ class Chitter < Sinatra::Base
                    peep_id: params[:peep_id])
     redirect "/#{params[:peep_id]}/comments"
   end
-
-  get "/:peep_id/comments" do
-    @peep = Peep.get(params[:peep_id])
-    @comments = @peep.comments.reverse
-    erb :"comments/index"
-  end
-
 end

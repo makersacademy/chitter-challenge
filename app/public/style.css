@@ -18,6 +18,7 @@ nav { width: 70%; }
   margin-top: 9px;
   margin-bottom: 20px;
   overflow: scroll;
+  -webkit-border-radius: 8px;
 }
 
 /*elements within list of peeps*/
@@ -45,6 +46,53 @@ li { list-style: none; }
   font-size: 10pt;
   font-weight: lighter;
   font-style: italic;
+}
+
+a {
+  font-size: 10pt;
+  font-weight: lighter;
+  font-style: italic;
+  color: #484848;
+  float: right;
+  display: inline-block;
+  margin-top: -30px;
+}
+
+a:hover {
+  font-style: normal;
+}
+
+hr {
+  height: 3px;
+  border: 0;
+  box-shadow: inset -0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  width: 85%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/*comments*/
+
+#comments {
+  background: rgba(248,248,248,0.78);
+  width: 45%;
+  height: 550px;
+  padding: 30px 30px 10px 30px;
+  margin-top: 9px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  -webkit-border-radius: 8px;
+}
+
+h3 {
+  font-family: "Stencil", "Britannic Bold", "helvetica neue", helvetica;
+  font-size: 15pt;
+  font-style: oblique;
+  margin-top: 30px;
+}
+
+#comment-box {
+  height: 80px;
 }
 
 /*header*/

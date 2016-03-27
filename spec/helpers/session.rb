@@ -26,8 +26,7 @@ module SessionHelpers
     click_button "Peep!"
   end
 
-  def comment(content)
-    click_link "Add comment"
+  def add_comment(content)
     fill_in :content, with: content
     click_button "Add"
   end
