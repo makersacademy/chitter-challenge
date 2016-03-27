@@ -1,7 +1,19 @@
 <div id='peep_controls'>
   <a href='/peeps/new'><button name='Peep'>Peep</button></a>
 </div>
-
-<div>
-  <%= Peep.all %>
+<div id='sign_up'>
+  <a href='/users/new'><button name='sign_up'>Sign up</button></a>
 </div>
+<div id='sign_in'>
+  <a href='/sessions/new'><button name='sign_in'>Sign in</button></a>
+</div>
+
+<% @peeps.reverse.each do |peep| %>
+  <ul id="feed-box">
+    <ol class="peep">
+      <b class="peep-user"><%= peep.user.name %></b>  @<%= peep.user.username %>:
+      <div><%= peep.content %></div>
+      <div class="peep-time"><%= peep.time.strftime("%m/%d/%Y %I:%M%p") %></div>
+    </ol>
+  </ul>
+<% end %>

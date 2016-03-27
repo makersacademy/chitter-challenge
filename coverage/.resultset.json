@@ -4,10 +4,10 @@
       "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/helpers/session.rb": [
         1,
         1,
-        3,
-        3,
-        3,
-        3,
+        4,
+        4,
+        4,
+        4,
         null,
         null,
         1,
@@ -119,6 +119,24 @@
         null,
         null
       ],
+      "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/features/viewing_peeps_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/claudiagreen/Google Drive/Makers/week4/chitter-challenge/spec/models/user_spec.rb": [
         1,
         null,
@@ -138,6 +156,6 @@
         null
       ]
     },
-    "timestamp": 1459085983
+    "timestamp": 1459095189
   }
 }

@@ -23,11 +23,3 @@ namespace :db do
     puts 'Auto-migrate complete (data was lost)'
   end
 end
-
-# if ENV['RACK_ENV'] != 'production'
-#   require 'rspec/core/rake_task'
-#
-#   RSpec::Core::RakeTask.new :spec
-#
-#   task default: [:spec]
-# end
