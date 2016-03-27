@@ -62,21 +62,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/poops/new' do
-    @poop = Poop.new
-   # if session[:user_id]
+    if session[:user_id]
       erb :'poops/new'
-    #else
-      #redirect '/'
-   # end
+    else
+      redirect '/'
+    end
   end
 
   post '/poops' do
     p "THIS THIS THIS THIS"
-    poop = Poop.create(poop_msg: params[:poop_msg])
     poop = current_user.poops.create(
       poop_msg: params[:poop_msg]
     )
-    p "WHAT THE FUCK"
    redirect '/poops/index'
   end
 

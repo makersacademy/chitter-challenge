@@ -15,15 +15,25 @@
 
     <% if current_user %>
       Welcome <%= current_user.username %>
+  </div>
+      <method='get' action='/poops/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' value='Do a poop'><img src="http://i.imgur.com/1GBirxr.png" title="source: imgur.com" /></button>
+
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' value='Sign out'><img src="http://i.imgur.com/kKjU2LS.png?1" title="source: imgur.com" /></button>
       </form>
-      <form method='get' action='/poops/new'>
-        <input type='submit' value='Do a poop'>
+    <% else %>
+      <form method='get' action='/users/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' name='Sign up'><img src="http://i.imgur.com/ZjslkEL.png?1" title="source: imgur.com" /></button>
+      <method='get' action='/sessions/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' name='Sign in'><img src="http://i.imgur.com/YsWqIEy.png?1" title="source: imgur.com" /></button>
       </form>
+
     <% end %>
-  </div>
+      <form method='get' action='/poops/index'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' name='Do a poop'><img src="http://i.imgur.com/nbj30tO.png?1" title="source: imgur.com" /></button>
+      </form>
    
 
     <% if flash[:notice] %>
