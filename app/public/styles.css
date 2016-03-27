@@ -1,0 +1,75 @@
+
+  ul#links{
+    font-family: 'Futura', sans-serif;
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 5
+    list-style-type: none;
+    -webkit-padding-start: 0px;
+  }
+  a {
+    background-color:transparent; text-decoration:none
+  }
+  a:link    {color: white;}
+  a:visited {color: white;}
+  a:hover   {color:#ff0066;}
+  a:active  {color:#b30047;}
+
+  html {
+    font-family: 'Futura', sans-serif;
+    text-align: center;
+    background-color: #0DFF74
+  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+  div.link-box {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0.1);
+    width: 30%;
+    min-width: 310px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+  }
+
+  li {
+    padding-bottom: 5px
+  }
+
+  input {
+    width: 32.5%;
+    min-width: 310px;
+    max-width: 410px;
+    height: 26px;
+    margin-bottom: 5px;
+    font-family: Futura;
+    padding-left: 5px;
+    letter-spacing: 1px;
+    border: none;
+    padding-bottom: 5px
+    margin: 5px
+  }
+
+input[type="submit" i] {
+    width: 32.5%;
+    min-width: 310px;
+    max-width: 410px;
+    border: none;
+    background-color: transparent;
+    font-family: Futura;
+    text-transform: uppercase;
+    color: black;
+    font-size: 0.9em;
+    border: 1px solid black;
+    padding-left: 0;
+    padding-bottom: : 5px
+}
+input[type="submit" i]:hover {
+
+}
