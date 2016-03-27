@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class chitter < Sinatra::Base
+class Chitter < Sinatra::Base
   get '/' do
     'Hello chitter!'
   end
