@@ -2,17 +2,16 @@ feature 'User can sign in' do
 
   let(:user) do
     User.create(name: 'John Doe',
+                username: 'john123',
                 email:'me@email.com',
                 password: 'asd123',
                 password_confirmation: 'asd123s')
   end
 
-  scenario do
+  scenario 'user can sign in with username' do
     visit '/session/new'
-    fill_in :name, with: user.name
-    fill_in :email, with: user.email
+    fill_in :username_or_email, with: user.name
     fill_in :password, with: user.password
-    fill_in :password_confirmation, with: user.password
     click_button 'Sign in'
     expect(page.status_code).to eq 200
     expect(current_path).to eq '/peeps'

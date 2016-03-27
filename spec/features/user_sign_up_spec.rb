@@ -27,12 +27,14 @@ feature 'User Sign up' do
 
   scenario 'Cannot sign up when email is taken' do
     User.create(name:'John Doe',
+          username: 'john123',
           email: 'me@email.com',
           password:'asd123',
           password_confirmation:'asd123')
     sign_up
-    expect { sign_up_registered_email }.to change { User.count }.by 0
+    expect { sign_up_registered_email_or_username }.to change { User.count }.by 0
     expect(current_path).to eq '/sign-up'
     expect(page).to have_content 'Email is already taken'
+    expect(page).to have_content 'Username is already taken'
   end
 end
