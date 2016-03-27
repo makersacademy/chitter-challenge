@@ -1,0 +1,13 @@
+div {
+  border-radius: 5px;
+  background-color: #adebad;
+  height: 300px;
+  width: 100px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial;
+}
+
+body {
+  font-family: Arial;
+}

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link type='text/css' rel='stylesheet' href='stylesheet.css'/>
     <title>CHITTAH</title>
   </head>
 
   <body>
     <% if current_maker %>
-    Oh hey <%= @maker.name %>, what will you peep about today?
-    <form action='/session' method='post'>
-      <input type=hidden name='_method' value='delete'>
-      <input type=submit value='Log Out'>
+         Oh hey <%= @maker.name %>, what will you peep about today?
+        <form action='/session' method='post'>
+        <input type=hidden name='_method' value='delete'>
+        <input type=submit value='Log Out'>
     </form>
     <% end %>
 
