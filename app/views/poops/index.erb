@@ -1,11 +1,13 @@
+
 <h1> Poops </h1>
 
 <ul id='poops'>
   <% @poops.reverse.each do |poop| %>
     <li>
-    <%= poop.poop_msg %>
-    <%= poop.username %>
-    <%= poop.time_posted %>
+    <b><%= poop.name %></b> 
+    <font size=2 color='#C0C0C0'>  @<%= poop.username %>
+    - pooped at <%= poop.created_at.strftime("%H-%M  %d-%b-%Y") %> </font>
+    <h3> <%= poop.poop_msg %></h3>
     </li>
   <% end %>
 </ul>

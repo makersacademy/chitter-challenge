@@ -16,5 +16,5 @@ ruby '2.2.3'
   gem 'sinatra-flash'
   gem 'rack'
   gem 'tilt'
- 
-
+  gem 'dm-timestamps' 
+  gem 'activesupport'

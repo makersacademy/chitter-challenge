@@ -1,13 +1,10 @@
 ENV['RACK_ENV'] ||= 'development'
 RACK_ENV = ENV['RACK_ENV']
-require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'tilt/erb'
-
-require_relative './models/user'
 require_relative 'data_mapper_setup'
-require_relative './models/poop'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -72,8 +69,9 @@ class Chitter < Sinatra::Base
     post '/poops' do
       poop = Poop.new(
         poop_msg: params[:poop_msg],
-        username: current_user.username, 
-        time_posted: Time.now 
+        name: current_user.name,
+        username: current_user.username 
+       # time_posted: Time.now 
       )
       poop.save
       redirect '/poops/index'
