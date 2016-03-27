@@ -26,7 +26,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    current_user
     erb(:home)
   end
 

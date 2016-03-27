@@ -6,7 +6,7 @@ feature 'User management -sign up:' do
     expect(current_path).to eq('/users/new')
     visit'/home'
     click_button('Log in')
-    expect(current_path).to eq('/sessions/new')
+    expect(current_path).to eq('/sessions')
   end
 
   scenario 'User can sign up' do

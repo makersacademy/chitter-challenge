@@ -13,7 +13,7 @@ feature 'User management -log out:' do
 
   scenario 'User can go back to log in page upon log out' do
     click_button('Back to log in page')
-    expect(current_path).to eq('/sessions/new')
+    expect(current_path).to eq('/sessions')
   end
 
   scenario 'User can create a new account upon log out' do
