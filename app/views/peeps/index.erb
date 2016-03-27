@@ -26,6 +26,10 @@
           @<%= peep.user.username %> <%= peep.time %>
         </div>
         <p>"<%= peep.content %>"</p>
+
+        <% if current_user %>
+          <a href="/<%= peep.id %>/comments/new">Add comment</a>
+        <% end %>
       </li>
     <% end %>
   </ul>

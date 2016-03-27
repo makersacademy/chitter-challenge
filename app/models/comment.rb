@@ -1,4 +1,4 @@
-class Peep
+class Comment
   include DataMapper::Resource
 
   property :id, Serial
@@ -6,8 +6,8 @@ class Peep
   property :time_posted, Time,
            default: proc { Time.now }
 
-  has n, :comments
   belongs_to :user
+  belongs_to :peep
 
   def time
     self.time_posted.strftime("%R %d/%m/%Y")

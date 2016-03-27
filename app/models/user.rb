@@ -21,6 +21,7 @@ class User
   validates_confirmation_of :password
 
   has n, :peeps
+  has n, :comments
 
   def password=(password)
     @password = password
