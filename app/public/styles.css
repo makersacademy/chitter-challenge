@@ -67,9 +67,9 @@
     }
 
 input[type="submit" i] {
-    width: 32.5%;
-    min-width: 310px;
-    max-width: 410px;
+    /*width: 12.5%;*/
+    min-width: 100px;
+    max-width: 100px;
     border: none;
     background-color: transparent;
     font-family: Futura;
