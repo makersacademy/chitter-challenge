@@ -5,6 +5,7 @@ require 'sinatra/base'
 require_relative './models/user'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super_secret'
 
@@ -44,6 +45,12 @@ class Chitter < Sinatra::Base
       redirect to('/')
     end
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/links'
+end
 
 
 

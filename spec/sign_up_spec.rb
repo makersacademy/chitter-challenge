@@ -12,13 +12,4 @@ feature 'can sign up' do
 
    end
 
-#  scenario 'cannot sign up without including all details' do
-#    visit '/users/new'
-#    fill_in :email, with: 'adam@adam.com'
-#    fill_in :password, with: 'adampw'
-#    fill_in :username, with: 'adamu'
-#    click_button 'Sign up'
-#    expect(page).to have_content 'Please fill in this field'
-#  end
-
 end
