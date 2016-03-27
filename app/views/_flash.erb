@@ -1,0 +1,6 @@
+<% if flash[:errors] %>
+Please check the following errors
+<% flash[:errors].each do |error| %>
+ <ul><li><%= error %></li></ul>
+<% end %>
+<% end %>

@@ -1,9 +1,4 @@
-<% if flash[:errors] %>
-Please check the following errors
-<% flash[:errors].each do |error| %>
- <ul><li><%= error %></li></ul>
-<% end %>
-<% end %>
+
 <form action='/sign-up' method = 'post'>
   <label for='name'>
     Name: <input type='text' name='name'>

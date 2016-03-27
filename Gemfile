@@ -7,6 +7,7 @@ gem 'datamapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-partial'
+gem 'shotgun'
 
 group :test do
   gem 'rspec'

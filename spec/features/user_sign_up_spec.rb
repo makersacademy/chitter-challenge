@@ -7,10 +7,6 @@ feature 'User Sign up' do
     expect { sign_up }.to change { User.count }.by 1
   end
 
-  # scenario 'User count increases by 1 when user signs up' do
-  #   expect { sign_up }.to change { User.count }.by 1
-  # end
-
   scenario 'Cannot sign up when password is not matching' do
     expect { sign_up_pw_mismatch }.to change { User.count }.by 0
     expect(current_path).to eq '/sign-up'
