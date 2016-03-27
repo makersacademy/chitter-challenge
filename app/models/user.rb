@@ -12,6 +12,9 @@ class User
   property :password_digest, Text, required: true
 
   attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
 
   def password=(new_password)
     @password = Password.create(new_password)
