@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <h1>~ Chitter ~</h1>
+
+
+
+
+<body>
+  <h2><%= @title %></h2>
+  <form class="add_form" action="/user/new" method="post">
+  <div class="">
+    <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+  </div>
+  <div class="">
+    <input type="email" name="email" placeholder="Email" value="<%= @user.email %>" required>
+  </div>
+  <div class="">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+</body>
