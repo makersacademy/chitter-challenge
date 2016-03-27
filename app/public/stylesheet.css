@@ -18,17 +18,16 @@ h3 {
   color: #24335C;
 }
 
-input[type="submit"] {
-  font-size: 1em;
-}
-
 input[type="submit"]:hover {
   color: #F57708;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"]  {
   color: #24335C;
   font-family: Futura;
+  font-size: 1em;
+  height: 2em;
+  padding: 1em;
 }
 
 body {
@@ -93,11 +92,6 @@ hr {
   z-index: -1;
 }
 
-/*#header {
-  text-align: center;
-  left: 20px;
-}*/
-
 #welcome {
   position: relative;
   float: left;
@@ -109,15 +103,32 @@ hr {
 
 .top-header {
   position: fixed;
+  left: 1%;
+  z-index: 2;
+  top: 2%;
 }
 
 .top-header2 {
   position: fixed;
-  left: 38%;
+  left: 32.5%;
   display: block;
   background-color: #AEEBD9;
-  /*background-color: #F57708;*/
+  /*background-color: purple;*/
   top: 0px;
   z-index: 1;
-  width: 27%;
+  width: 40%;
+}
+
+#peeps {
+  position: relative;
+  top: 18%;
+}
+
+#secondary-header {
+  font-weight: bold;
+}
+
+.signin-boxes {
+  display: block;
+  padding: 10px;
 }

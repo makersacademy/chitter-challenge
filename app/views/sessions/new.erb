@@ -1,26 +1,33 @@
 <h1>Sign in to Chitter:</h1>
 
 <form action='/users/sign_up'>
-  <label for='Sign up'>
+  <label for='Sign up' id='secondary-header'>
     Don't have an account? <input type='submit' value='Sign up'>
   </label>
 </form>
 <form action='/peeps'>
-  <label for='Continue as guest'>
+  <label for='Continue as guest' id='secondary-header'>
     See Chitter feed as guest: <input type='submit' value='Continue as guest'>
   </label>
 </form><br><br>
 
 <form action='/sessions' method='post'>
-  <label for='username'>
-    Username: <input type='text' name='username' required>
-  </label>
+  <div class='signin-boxes'>
+    <label for='username'>
+      <input type='text' name='username' placeholder='Username' required>
+    </label>
+  </div>
 
-  <label for='password'>
-    Password: <input type='password' name='password'>
-  </label>
+  <div class='signin-boxes'>
+    <label for='password'>
+      <input type='password' name='password' placeholder='Password'>
+    </label>
+  </div>
 
-  <label for='sign in'>
-    <input type='submit' value='Sign in'>
-  </label>
+  <div class='signin-boxes'>
+    <label for='sign in'>
+      <input type='submit' value='Sign in'>
+    </label>
+  </div>
+
 </form>

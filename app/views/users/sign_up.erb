@@ -1,35 +1,48 @@
 <h1>Sign up to Chitter:</h1>
 
 <form action='/sessions/new'>
-  <label for='Sign in'>
+  <label for='Sign in' id='secondary-header'>
     Already have an account? <input type='submit' value='Sign in'>
   </label>
 </form>
 <form action='/peeps'>
-  <label for='Continue as guest'>
+  <label for='Continue as guest' id='secondary-header'>
     See Chitter feed as guest: <input type='submit' value='Continue as guest'>
   </label>
 </form><br><br>
 
 <form action='/users' method='post'>
-  <label for='username'>
-    Username: <input type='text' name='username' required>
-  </label>
+  <div class='signin-boxes'>
+    <label for='username'>
+      <input type='text' name='username' placeholder='Username' required>
+    </label>
+  </div>
 
-  <label for='email'>
-    Email: <input type='email' name='email' required>
-  </label>
+  <div class='signin-boxes'>
+    <label for='email'>
+      <input type='email' name='email' placeholder='Email' required>
+    </label>
+  </div>
 
-  <label for='password'>
-    Password: <input type='password' name='password'>
-  </label>
+  <div class='signin-boxes'>
+    <label for='password'>
+      <input type='password' name='password' placeholder='Password'>
+    </label>
+  </div>
 
-  <label for='password_confirmation'>
-    Confirm password: <input type='password' name='password_confirmation'>
-  </label>
+  <div class='signin-boxes'>
+    <label for='password_confirmation'>
+      <input type='password' name='password_confirmation' placeholder='Confirm password'>
+    </label>
+  </div>
 
-  <label for='sign up'>
-    <input type='submit' value='Sign up'>
-  </label>
+  <div class='signin-boxes'>
+    <label for='sign up'>
+      <input type='submit' value='Sign up'>
+    </label>
+  </div>
+
+
+
 
 </form>
