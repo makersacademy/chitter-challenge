@@ -1,2 +1,6 @@
 <% if current_user %>Welcome, <%= current_user.name %><% end %>
-Peep page
+<% if current_user %><form method='post' action='/session/end'>
+  <input type='hidden' name='_method' value='delete'>
+  <button type='submit'>Log out</button>
+</form>
+<% end %>
