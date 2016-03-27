@@ -1,8 +1,7 @@
 Chitter Challenge
 =================
 
-Functionality:
-------
+Try it on: https://aqueous-brushlands-38395.herokuapp.com/
 
 User Stories:
 -------
@@ -41,3 +40,6 @@ $ cd rps-challenge
 $ bundle
 $ rackup
 ```
+Author
+-------
+Erika Pheby
