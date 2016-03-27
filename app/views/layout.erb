@@ -21,20 +21,26 @@
     Welcome <%= current_user.name %>
       <form action='/session' method=post>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <button type='submit'>Sign out</button>
       </form>
 
       <div id='add'>
-        <form action='feed/new'>
+        <form action='/feed/new'>
           <button type='submit'>New Peep</button>
         </form>
       </div>
     
     <%else%>
 
-      <div id='sigin'>
-        <form action='session/new'>
+      <div id='signin'>
+        <form action='/session/new'>
           <button type='submit'>Login</button>
+        </form>
+      </div>
+
+      <div id='signup'>
+        <form action='/user'>
+          <button type='submit'>Register</button>
         </form>
       </div>
 
