@@ -2,7 +2,8 @@ Chitter Challenge
 -------------------
 --------------------
 
-Makers Academy Week 04 Weekend Challenge
+Makers Academy Week 04 Weekend Challenge  
+
 Author: Phoebe Greig
 
 Task
@@ -53,12 +54,14 @@ Instructions
 * Clone this repo
 * Run bundle to install dependencies
 * Using brew, install the postgresql package and follow the instructions carefully
-* Create two databases in Postgres: 
+* Create two databases in Postgres:  
+
 		- chitterplus_development      
  		- chitterplus_test 
 
 Note: The above tables are for the sessions branch. 
-For the master branch, create the databases:
+For the master branch, create the databases:  
+
 		- chitter_development      
  		- chitter_test 
 * From the root directory in the command line, run Sinatra using ruby app.rb
