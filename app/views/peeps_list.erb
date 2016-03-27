@@ -1,6 +1,7 @@
 <ul name="peep_list">
   <% @peep_list.each do |peep| %>
-    <li><%= peep.content %> with tags: <%= 'TODO' %>
+    <li><%= peep.content %> with tags:
+      <%= peep.tags.map(&:name).join(', ') %>
     </li>
   <% end %>
 </ul>
