@@ -19,10 +19,18 @@
     text-transform: uppercase;
     letter-spacing: 5px;
   }
-  div.peep-box {
+  div.peeps-box {
     width: 50%;
     margin: 0 auto;
     background-color: #990099;
+    width: 30%;
+    min-width: 310;
+  }
+
+  div.peeps-box {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #ff66ff;
     width: 30%;
     min-width: 310;
   }
