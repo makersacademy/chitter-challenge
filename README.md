@@ -37,8 +37,8 @@ I want to see the time at which it was made
 Installation Instructions
 -------
 ```
-$ git clone https://github.com/eripheebs/rps-challenge.git
-$ cd rps-challenge
+$ git clone https://github.com/eripheebs/chitter-challenge.git
+$ cd chitter-challenge
 $ bundle
 $ rackup
 ```
