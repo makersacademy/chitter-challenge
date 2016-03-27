@@ -5,6 +5,7 @@
 <body>
   <h1>- Chitter -</h1>
   <h2>Sign up</h2>
+  <h3><%if flash[:error]%><%= flash[:error][0]%><%end%></h3>
   <form class="add_form" action="/sign-up" method="post">
   <div>
     <input type="text" name="username" placeholder="Username" value="<%if @user%><%=@user.username%><%end%>" >
