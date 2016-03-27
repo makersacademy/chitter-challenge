@@ -14,11 +14,11 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+# SimpleCov.formatters = [
+#   SimpleCov::Formatter::HTMLFormatter,
+#   Coveralls::SimpleCov::Formatter
+# ]
+# Coveralls.wear!
 
 Capybara.app = Chittr
 
