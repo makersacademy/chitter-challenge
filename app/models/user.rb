@@ -20,4 +20,9 @@ class User
     @password = Password.create(password)
     self.password_hash = @password
   end
+
+  def self.authenticate(username_or_email,attempted_password)
+    user = User.first(username: username_or_email) || User.first(email: username_or_email)
+    return user if user && BCrypt::Password.new(user.password_hash) == attempted_password
+  end
 end
