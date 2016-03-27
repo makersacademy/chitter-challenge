@@ -1,11 +1,27 @@
 <h1>Sign up</h1>
 
 <form action="/users" method="post">
-  <input type="text" name="first_name">
-  <input type="text" name="last_name">
-  <input type="text" name="username">
-  <input type="email" name="email">
-  <input type="password" name="password">
-  <input type="password" name="password_confirmation">
-  <button type="submit" name="Sign up">Sign up</button>
+  <ul>
+    <li>
+      <input type="text" name="first_name" placeholder="First name" required>
+    </li>
+    <li>
+      <input type="text" name="last_name" placeholder="Last name" required>
+    </li>
+    <li>
+      <input type="text" name="username" placeholder="Username" required>
+    </li>
+    <li>
+      <input type="email" name="email" placeholder="Email" required>
+    </li>
+    <li>
+      <input type="password" name="password" placeholder="Password" required>
+    </li>
+    <li>
+      <input type="password" name="password_confirmation" placeholder="Confirm password" required>
+    </li>
+  </ul>
+  <p>
+    <input type="submit" name="sign_up" value="Sign up" /> 
+  </p>
 </form>
