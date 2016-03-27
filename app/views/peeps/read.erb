@@ -3,7 +3,7 @@
   <head>
   </head>
   <body>
-    <div>
+    <div id='peeps'>
     <% if current_maker %>
     Oh hey <%= @maker.name %>!
       <form action='/peeps/new' method="post">
@@ -26,6 +26,7 @@
       <% Peep.all.reverse.each do |peep| %>
         <li><span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>at <%= peep.time %></span>
         </li>
+        <hr>
         <% end %>
     <% else %>
       No peeps here!
