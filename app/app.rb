@@ -22,9 +22,10 @@ class Chitter < Sinatra::Base
       r.Message "Thanks for the message: #{params[:Body]}"
     end
     peep = Peep.new(text:params[:Body], time:Time.new)
-    User.first(name:"Paul").peeps << peep
+    user = User.first(name:"Paul")
+    user.peeps << peep
     peep.save
-    current_user.save
+    user.save
     twiml.text
   end
 
