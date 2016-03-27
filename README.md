@@ -76,26 +76,34 @@ Test driven development was used with the BDD cycle to complete the app. Feature
 
 #### Screenshots:
 
+
 *Home Page:*
 ![Imgur](http://i.imgur.com/QYLnI0s.jpg)
+
 
 *Viewing feed as a guest:*
 ![Imgur](http://i.imgur.com/ogDJHbm.jpg)
 
+
 *Signing up for an account:*
 ![Imgur](http://i.imgur.com/1tJMbHD.jpg)
+
 
 *Signing in to an account:*
 ![Imgur](http://i.imgur.com/DRd9I11.jpg)
 
+
 *Signing in/up allows you to post a peep:*
 ![Imgur](http://i.imgur.com/BulpYYg.jpg)
+
 
 *Error message on sign up:*
 ![Imgur](http://i.imgur.com/CwkNPTK.jpg)
 
+
 *Error message on sign in:*
 ![Imgur](http://i.imgur.com/rl67etA.jpg)
+
 
 
 
