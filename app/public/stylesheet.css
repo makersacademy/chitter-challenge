@@ -11,9 +11,8 @@ button:hover {
 textarea {
   border-radius: 5px;
   text-align: center;
-  color: grey;
 }
-textarea::placeholder{
+textarea:placeholder{
   color: grey;
 }
 #peeps {
