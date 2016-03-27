@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
     peep = Peep.all
     peep.each {|chit| @peeps << chit}
     @peeps.reverse!
-    @user = User.get(session[:user_id])
+    # @user = User.get(session[:user_id])
     erb :'peeps/index'
   end
 

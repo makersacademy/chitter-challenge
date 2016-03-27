@@ -1,19 +1,25 @@
 <h1> Peeps! </h1>
-<form method='post' action='/sessions'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Sign out'>
-</form>
+<% if session[:user_id] != nil %>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
 
-<h4>Peep to the world of Chitter:</h4>
-<form action='/peeps/new' method='post'>
-  <input type='text' name='message' placeholder='Peep peep...' maxlength='150'>
-  <input type='submit' value='Peep!'>
-</form>
+  <h4>Peep to the world of Chitter:</h4>
+  <form action='/peeps/new' method='post'>
+    <input type='text' name='message' placeholder='Peep peep...' maxlength='150'>
+    <input type='submit' value='Peep!'>
+  </form>
+<% end %>
+
+<% if session[:user_id] == nil %>
+  <h4>Please log in or sign up to peep!</h4>
+<% end %>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      @<%= @user.username %> peeped: <%= peep.message %> at <%= peep.time_stamp %>
+      @<%= peep.user.username %> peeped: <%= peep.message %> at <%= peep.time_stamp %>
     </li>
   <% end %>
 </ul>

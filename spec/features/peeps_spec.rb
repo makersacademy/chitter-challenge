@@ -11,7 +11,6 @@ feature 'peeps_spec' do
     sign_in(username: user.username,
             password: user.password)
     submit_peep
-    submit_peep2
     expect(page).to have_content("@#{user.username} peeped: I'm on Chitter!")
   end
 
