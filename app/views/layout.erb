@@ -1,23 +1,17 @@
-<% if current_user %>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
 
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-  </ul>
-<% end %>
-
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<%= yield %>
+  <body>
+    <% if current_user %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>
