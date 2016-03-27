@@ -17,9 +17,9 @@ class Chitter < Sinatra::Base
 
   helpers Helpers
 
-  get '/sms' do
+  post '/sms' do
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "Thanks for the message!"
+      r.Message "Thanks for the message: #{params[:Body]}"
     end
     # peep = Peep.new(text:params[:Body], time:Time.new)
     # current_user.peeps << peep
