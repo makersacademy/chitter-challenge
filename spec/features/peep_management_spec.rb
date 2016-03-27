@@ -22,3 +22,15 @@ feature 'Peeps show up in reverse chronological order' do
     expect(find('.peep-list > div:nth-child(2)')).to have_content 'First Peep'
   end
 end
+
+feature 'Peeps shows the time it was made' do
+  scenario 'Users view the time a peep was posted' do
+    create_user
+    sign_in
+    create_peep(text: 'First Peep', time: Time.mktime(1))
+    visit '/peeps/new'
+    time = '01 01, 0001, 00:00'
+    expect(find('.peep-list div:nth-child(1)')).to have_content 'First Peep'
+    expect(find('.peep-list div:nth-child(1)')).to have_content time
+  end
+end

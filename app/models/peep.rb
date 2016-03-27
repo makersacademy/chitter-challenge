@@ -10,4 +10,8 @@ class Peep
   def self.desc
     all(:order => [ :time.desc ])
   end
+
+  def time_ts
+    time.strftime("%m %d, %Y, %H:%M")
+  end
 end
