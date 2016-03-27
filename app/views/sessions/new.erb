@@ -1,8 +1,14 @@
 <h1>Sign in to Chitter:</h1>
 
 <form action='/users/sign_up'>
-  <h4>Don't have an account?</h4>
-  <input type='submit' value='Sign up'>
+  <label for='Sign up'>
+    Don't have an account? <input type='submit' value='Sign up'>
+  </label>
+</form>
+<form action='/peeps'>
+  <label for='Continue as guest'>
+    See Chitter feed as guest: <input type='submit' value='Continue as guest'>
+  </label>
 </form><br><br>
 
 <form action='/sessions' method='post'>

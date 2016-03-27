@@ -1,4 +1,4 @@
-<h1> Peeps! </h1>
+<h1> Chitter feed: </h1>
 <% if session[:user_id] != nil %>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
@@ -14,6 +14,12 @@
 
 <% if session[:user_id] == nil %>
   <h4>Please log in or sign up to peep!</h4>
+  <form action='/users/sign_up'>
+    <input type='submit' value='Sign up'>
+  </form>
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
 <% end %>
 
 <ul id='peeps'>
