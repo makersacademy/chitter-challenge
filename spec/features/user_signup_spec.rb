@@ -29,6 +29,7 @@ feature 'User management -sign up:' do
 
   scenario 'User can\'t sign up if username is alreay taken' do
     sign_up
+    log_out
     expect{ sign_up }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Username is already taken')
@@ -42,6 +43,7 @@ feature 'User management -sign up:' do
 
   scenario 'User can\'t sign up if email is already taken' do
     sign_up
+    log_out
     expect{ sign_up }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email is already taken')

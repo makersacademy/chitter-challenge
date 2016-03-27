@@ -18,7 +18,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect to '/users/new'
+    if current_user
+      redirect to '/home'
+    else
+      redirect to '/users/new'
+    end
   end
 
   get '/home' do
@@ -46,18 +50,18 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions/new' do
-    erb(:'sessions/new')
+  get '/sessions' do
+    erb(:'sessions/index')
   end
 
-  post '/sessions' do
+  post '/sessions/new' do
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
       redirect to '/home'
     else
       flash.now[:errors] = 'Incorrect email or password'
-      erb(:'sessions/new')
+      erb(:'sessions/index')
     end
   end
 
@@ -75,7 +79,7 @@ class Chitter < Sinatra::Base
     current_user = User.get(session[:user_id])
     current_user.posts.create(message: params[:message],
                               timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
-    erb(:home)
+    redirect to '/home'
   end
 
   post '/comments/new' do
@@ -87,7 +91,7 @@ class Chitter < Sinatra::Base
     current_user.save
     post.comments << comment
     post.save
-    erb(:home)
+    redirect to '/home'
   end
 
   # start the server if ruby file executed directly

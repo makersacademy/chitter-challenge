@@ -14,7 +14,7 @@ end
 
 def log_in(email: 'jinis@aol.jp',
            password: 'jinis1219')
-  visit('/sessions/new')
+  visit('/sessions')
   fill_in('email', with: email)
   fill_in('password', with: password)
   click_button('Log in')
