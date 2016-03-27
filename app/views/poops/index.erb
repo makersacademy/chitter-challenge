@@ -1,13 +1,19 @@
-
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<body align='left'>
 <h1> Poops </h1>
 
-<ul id='poops'>
+<ul style='list-style: none;'id='poops'>
   <% Poop.all.reverse.each do |poop| %>
     <li>
+    <%= poop.user.name %>
     <font size=2 color='#C0C0C0'> 
-    - pooped at <%= poop.created_at.strftime("%H-%M  %d-%b-%Y") %> </font>
-  -->    <h3> <%= poop.poop_msg %></h3>
+     @<%= poop.user.username %>
+    - pooped at <%= poop.created_at.strftime("%H:%M  %d-%b-%Y") %> </font>
+  <div>
+  <%= poop.poop_msg %>
+  </div>
+  ___________________________________________
     </li>
   <% end %>
 </ul>
-
+</body>
