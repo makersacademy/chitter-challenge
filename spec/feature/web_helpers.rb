@@ -18,3 +18,13 @@ def sign_up_not_matching_password
   fill_in :password_confirmation, with: '155'
   click_button 'Submit'
 end
+
+def sign_up_no_email
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in :username, with: 'Simon'
+  fill_in :email,    with: ''
+  fill_in :password, with: '123'
+  fill_in :password_confirmation, with: '123'
+  click_button 'Submit'
+end

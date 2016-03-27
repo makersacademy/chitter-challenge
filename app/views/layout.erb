@@ -6,9 +6,13 @@
 
   <body>
     <h1>~ Chitter ~</h1>
+    <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
     <% if current_user %>
     <h2><%= current_user.username %></h2>
     <% end %>
+
     <%= yield %>
 </body>
 </html>
