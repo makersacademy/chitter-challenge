@@ -12,7 +12,7 @@ feature 'peeps_spec' do
             password: user.password)
     submit_peep
     submit_peep2
-    expect(page).to have_content("@#{user.username} peeped: I'm on Chitter!")
+    expect(page).to have_content("I'm on Chitter!")
   end
 
 end
