@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   #session secret
 
+
   get '/' do
     redirect '/peeps'
   end
@@ -32,7 +33,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     current_user = User.first(id: session[:user_id])
-    @peep_list = Peep.all
+    @peep_list = Peep.all.sort {|a,b| a.date <=> b.date}
     @signed_in = !current_user.nil?
     if @signed_in
       @user = current_user.username
