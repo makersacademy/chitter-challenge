@@ -1,16 +1,19 @@
+button:hover {
+  color: #00e64d;
+}
 div {
   border-radius: 5px;
   background-color: #00ff80;
   height: 450px;
   width: 200px;
   margin: auto;
-  padding-top: 20px;
+  padding: 30px;
   text-align: center;
   font-family: futura;
   font-size: 14px;
 }
 span {
-  color: grey;
+  color: #00802b;
 }
 body {
   font-family: futura;

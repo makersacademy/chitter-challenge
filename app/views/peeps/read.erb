@@ -3,6 +3,7 @@
   <head>
   </head>
   <body>
+    <div>
     <% if current_maker %>
     Oh hey <%= @maker.name %>!
       <form action='/peeps/new' method="post">
@@ -29,5 +30,6 @@
     <% else %>
       No peeps here!
     <% end%>
+  </div>
   </body>
 </html>
