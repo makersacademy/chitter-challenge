@@ -1,28 +1,14 @@
 
-  ul#links{
+  ul#peeps{
     font-family: 'Futura', sans-serif;
     list-style: none;
     padding-left: 0;
-    padding-bottom: 5
-    /*background-color: #0D81FF;*/
+    padding-bottom: 5;
+    background-color: #0D81FF;
   }
   a {
     background-color:transparent; text-decoration:none
   }
-  a.tag:link {
-    color: black;
-  }
-  a.tag:hover {
-    color: white
-  }
-
-  .tag:visited {
-    color: black;
-  }
-  a:link    {color: white;}
-  a:visited {color: white;}
-  a:hover   {color:#ff0066;}
-  a:active  {color:#b30047;}
 
   html {
     font-family: 'Futura', sans-serif;
@@ -33,7 +19,7 @@
     text-transform: uppercase;
     letter-spacing: 5px;
   }
-  div.link-box {
+  div.peep-box {
     width: 50%;
     margin: 0 auto;
     background-color: #990099;

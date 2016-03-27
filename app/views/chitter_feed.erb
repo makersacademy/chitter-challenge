@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  <center>
 <h1> Welcome <% if current_user %> <%= current_user.username %><% end%>!</h1>
   <h1>- Chitter -</h1>
   <h2> Welcome to the chitter feed! </h2>
@@ -11,19 +12,20 @@
     <input type="submit" value="Add peep">
   </form>
 
-  <div class="peep-box">
-    <ul id="peeps">
-      <% @peeps.each do |peep| %>
-        <div>
-          <li>
-            Author:<%=peep.user.username%><br>
-            Time:<%=peep.time%><br>
-            <%=peep.message %><br>
-          </li>
-        </div>
-      <% end %>
-    </ul>
-  </div>
+<div class="peep-box">
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+      <div>
+        <li>
+          <%=peep.user.username%><br>
+          <% t = peep.time %>
+          <%=peep.message %><br>
+          <%=t.strftime("Posted on %m/%d/%Y at %I:%M%p")%><br>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
 
   <div>
     <form action='/sessions' method='post'>

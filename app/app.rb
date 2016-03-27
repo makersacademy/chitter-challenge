@@ -46,6 +46,7 @@ class Chitter < Sinatra::Base
       flash.now[:error] = ["User does not exist!"]
       erb :log_in
     elsif user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect to('/chitter_feed')
     else
       flash.now[:error] = user.errors.full_messages
