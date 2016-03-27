@@ -7,8 +7,8 @@ class User
   property :id, Serial
   property :first_name, String, required: true
   property :last_name, String, required: true
-  property :username, String, required: true
-  property :email, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, Text, required: true
 
   attr_reader :password

@@ -15,5 +15,17 @@ feature 'Sign up' do
     expect { sign_up }.to change{ User.count}
   end
 
-  
+  scenario 'login fields can\'t be empty' do
+    expect { sign_up(first_name: nil) }.to_not change{ User.count}
+  end
+
+  scenario 'username must be unique' do
+    sign_up(username: 'CrazyKid')
+    expect { sign_up(username: 'CrazyKid') }.to_not change{ User.count}
+  end
+
+  scenario 'email must be unique' do
+    sign_up(email: 'CrazyKid@fun.com')
+    expect { sign_up(email: 'CrazyKid@fun.com') }.to_not change{ User.count}
+  end
 end
