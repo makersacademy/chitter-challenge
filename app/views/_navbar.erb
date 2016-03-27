@@ -2,6 +2,9 @@
   <ul class="topnav">
     <li><a class="active" href="/">Home</a></li>
     <li><a href='/users/<%= current_user.username %>'>My peeps</a></li>
+    <li><form action='/peeps/search'>
+        <input name='query' placeholder='search' type='text'>
+    </form></li>
   </ul>
 
   <center><div style="padding:0 16px;">
@@ -12,6 +15,9 @@
     <li><a class="active" href="/">Home</a></li>
     <li class="right"><a href="/users/new">Sign up</a></li>
     <li class="right"><a href="/sessions/new">Sign in</a></li>
+    <li><form action='/peeps/search'>
+        <input name='query' placeholder='search' type='text'>
+    </form></li>
   </ul>
   <center><div style="padding:0 16px;">
     <h1>Welcome to Chitter!</h1>

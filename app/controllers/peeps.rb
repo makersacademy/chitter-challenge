@@ -21,4 +21,9 @@ class Chitter < Sinatra::Base
     peep.destroy
     redirect '/'
   end
+
+  get '/peeps/:search' do
+    @peeps = Peep.all(:content.like => "%#{params[:query]}%")
+    erb :'peeps/index'
+  end
 end
