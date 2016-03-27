@@ -166,6 +166,7 @@ DEPENDENCIES
   rspec-sinatra
   sinatra
   sinatra-flash
+  tilt
 
 BUNDLED WITH
    1.11.2

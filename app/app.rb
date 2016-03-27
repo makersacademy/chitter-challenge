@@ -3,6 +3,8 @@ RACK_ENV = ENV['RACK_ENV']
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'tilt/erb'
+
 require_relative './models/user'
 require_relative 'data_mapper_setup'
 require_relative './models/poop'

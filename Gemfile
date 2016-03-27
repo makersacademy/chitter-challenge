@@ -15,5 +15,6 @@ ruby '2.2.3'
   gem 'bcrypt' 
   gem 'sinatra-flash'
   gem 'rack'
+  gem 'tilt'
  
 
