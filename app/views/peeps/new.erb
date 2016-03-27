@@ -1,0 +1,21 @@
+<h2>Peep</h2>
+<form action="/peeps" method="post">
+  <div>
+    <input type="text" name="message" placeholder="peep" required>
+  </div>
+  <div>
+    <input type="submit" value="Peep">
+  </div>
+</form>
+<div class="peep-list">
+  <% @peeps.each do |peep|%>
+    <div class="peep">
+      <p>
+        <%= peep.text %>
+      </p>
+      <p>
+        <%= peep.user.username %>
+      </p>
+    </div>
+  <% end %>
+</div>

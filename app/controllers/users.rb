@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user_details = {
+      username: params[:username],
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],

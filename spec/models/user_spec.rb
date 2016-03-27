@@ -5,7 +5,8 @@ describe User do
       first_name: 'Bob',
       last_name: 'By',
       password: 'bobByg',
-      email: 'bob.by@gmail.com'
+      email: 'bob.by@gmail.com',
+      username: 'bob.byg'
     }
     user_c.create(user_details)
   end
