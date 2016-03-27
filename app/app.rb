@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'twilio-ruby'
 require_relative 'models/data_mapper_setup'
 require_relative 'helpers'
 
@@ -12,6 +13,17 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   helpers Helpers
+
+  post '/sms' do
+    peep = Peep.new(text:params[:Body], time:Time.new)
+    current_user.peeps << peep
+    peep.save
+    current_user.save
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Message "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
+    end
+    twiml.text
+  end
 
   get '/' do
     @peeps = Peep.all
