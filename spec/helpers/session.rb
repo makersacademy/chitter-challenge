@@ -25,4 +25,18 @@ module SessionHelpers
     fill_in :content, with: content
     click_button "Peep!"
   end
+
+  def comment(content)
+    click_link "Add comment"
+    fill_in :content, with: content
+    click_button "Add"
+  end
+
+  def earlier
+    Time.parse("2016-03-26 14:58:20 +0000")
+  end
+
+  def later
+    Time.parse("2016-03-26 14:59:20 +0000")
+  end
 end

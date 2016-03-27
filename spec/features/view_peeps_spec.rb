@@ -2,11 +2,9 @@ feature "View peeps" do
   before do
     sign_up
 
-    earlier = Time.parse("2016-03-26 14:58:20 +0000")
     allow(Time).to receive(:now).and_return(earlier)
     post "I have an emo nephew."
 
-    later = Time.parse("2016-03-26 14:59:20 +0000")
     allow(Time).to receive(:now).and_return(later)
     post "I love flying!"
   end

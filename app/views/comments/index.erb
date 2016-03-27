@@ -13,14 +13,16 @@
 </div>
 
 <h3>Comments</h3>
-<% @comments.each do |comment| %>
-  <li>
-    <div class="user" id="name">
-      <%= comment.user.name %>
-    </div>
-    <div class="user" id="username-time">
-      @<%= comment.user.username %> <%= comment.time %>
-    </div>
-    <p>"<%= comment.content %>"</p>
-  </li>
-<% end %>
+<ul>
+  <% @comments.each do |comment| %>
+    <li class="comment">
+      <div class="user" id="name">
+        <%= comment.user.name %>
+      </div>
+      <div class="user" id="username-time">
+        @<%= comment.user.username %> <%= comment.time %>
+      </div>
+      <p>"<%= comment.content %>"</p>
+    </li>
+  <% end %>
+</ul>

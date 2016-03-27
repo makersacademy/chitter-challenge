@@ -7,9 +7,7 @@ feature "Add comments" do
             email: "han@starwars.com",
             password: "falcon1000",
             password_confirmation: "falcon1000")
-    click_link "Add comment"
-    fill_in :content, with: "You're welcome."
-    click_button "Add"
+    comment "You're welcome."
     expect(page).to have_content "You're welcome."
     expect(page).to have_content "Han @solo"
   end
