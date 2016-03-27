@@ -36,7 +36,7 @@ button {
 button#signout {
   float: right;
   font-size: 10pt;
-  background-color: inherit;;
+  background-color: #f5f8fa;
   color: black;
 }
 
