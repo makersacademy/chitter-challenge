@@ -21,6 +21,14 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
 
+  config.backtrace_exclusion_patterns = [
+   /\/lib\d*\/ruby\//,
+   /bin\//,
+   /gems/,
+   /spec\/spec_helper\.rb/,
+   /lib\/rspec\/(core|expectations|matchers|mocks)/
+  ]
+
   config.before :suite do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
