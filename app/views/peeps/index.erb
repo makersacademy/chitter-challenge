@@ -13,7 +13,7 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      @<%= @user.username %> peeped: <%= peep.message %> at <%= peep.created_at %>
+      @<%= @user.username %> peeped: <%= peep.message %> at <%= peep.time_stamp %>
     </li>
   <% end %>
 </ul>

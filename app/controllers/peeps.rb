@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     user = User.get(session[:user_id])
-    peep = user.peeps.create(message: params[:message])
+    peep = user.peeps.create(message: params[:message], time_stamp: Time.now.strftime("%d/%m/%Y %H:%M"))
     redirect '/peeps'
   end
 

@@ -7,7 +7,7 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :created_at, DateTime
+  property :time_stamp, String
   property :message, Text
 
   belongs_to :user
