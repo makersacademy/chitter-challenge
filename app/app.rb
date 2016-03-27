@@ -21,13 +21,11 @@ class Chitter < Sinatra::Base
     twiml = Twilio::TwiML::Response.new do |r|
       r.Message "Thanks for the message: #{params[:Body]}"
     end
-    # peep = Peep.new(text:params[:Body], time:Time.new)
-    # current_user.peeps << peep
-    # peep.save
-    # current_user.save
-    # response = "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
-
-  twiml.text
+    peep = Peep.new(text:params[:Body], time:Time.new)
+    current_user.peeps << peep
+    peep.save
+    current_user.save
+    twiml.text
   end
 
   get '/' do
