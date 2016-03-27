@@ -21,8 +21,9 @@ class Chitter < Sinatra::Base
     current_user.peeps << peep
     peep.save
     current_user.save
+    response = "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "Thanks for your peep - view it at https://pauly-chitter.herokuapp.com"
+      r.Message response
     end
     twiml.text
   end
