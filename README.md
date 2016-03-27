@@ -75,6 +75,7 @@ Test driven development was used with the BDD cycle to complete the app. Feature
   * alternatively, see screenshots below.
 
 #### Screenshots:
+
 *Home Page:*
 ![Imgur](http://i.imgur.com/QYLnI0s.jpg)
 
