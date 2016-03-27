@@ -1,17 +1,17 @@
-<header>
+<nav>
   <% if current_user %>
     <form action="/peeps/new">
-      <button type="submit">Post a new peep</button>
+      <button type="submit" class="inline" id="new-peep">Post a new peep</button>
     </form>
   <% else %>
     <form action="/sessions/new">
-      <button type="submit">Log in</button>
+      <button type="submit" class="inline">Log in</button>
     </form>
     <form action="/users/new">
-      <button type="submit">Sign up</button>
+      <button type="submit" class="inline" id="sign-up">Sign up</button>
     </form>
   <% end %>
-</header>
+</nav>
 
 <article id="peeps">
   <h1>Chitter</h1>
@@ -22,10 +22,10 @@
         <div class="user" id="name">
           <%= peep.user.name %>
         </div>
-        <div class="user" id="username_time">
+        <div class="user" id="username-time">
           @<%= peep.user.username %> <%= peep.time %>
         </div>
-        <p id="content">"<%= peep.content %>"</p>
+        <p>"<%= peep.content %>"</p>
       </li>
     <% end %>
   </ul>

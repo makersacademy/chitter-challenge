@@ -8,13 +8,18 @@ body {
   left: 15%;
 }
 
+nav {
+  width: 70%;
+}
+
 #peeps {
-  /*background-color: gray;*/
   background: rgba(248,248,248,0.78);
   width: 70%;
+  height: 620px;
   padding: 8px 30px 10px 30px;
   margin-top: 9px;
   margin-bottom: 20px;
+  overflow: scroll;
 }
 
 h1 {
@@ -41,13 +46,56 @@ li {
   font-family: "Britannic Bold";
 }
 
-#username_time {
+#username-time {
   color: #484848;
   font-size: 10pt;
   font-weight: lighter;
   font-style: italic;
 }
 
-#content {
+.inline {
+  display: inline-block;
+  float: right;
+  margin-bottom: 20px;
+  margin-right: -59px;
+}
 
+#sign-up {
+  margin-right: 10px;
+}
+
+#welcome {
+  margin-top: 7px;
+}
+
+#log-out {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+button {
+  width: 80px;
+  font-size: 12pt;
+  font-family: "Century Gothic", sans-serif;
+  border: none;
+  background: rgba(248,248,248,0.78);
+  -webkit-border-radius: 8px;
+}
+
+#new-peep {
+  width: 220px;
+  margin-right: 557px;
+  background-color: black;
+  color: white;
+  font-size: 17pt;
+  font-family: "Stencil";
+  padding: 10px 10px 5px 10px;
+}
+
+#new-peep:hover{
+  opacity: 0.8;
+}
+
+#please-sign-in {
+  text-align: left;
 }
