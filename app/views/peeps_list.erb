@@ -7,7 +7,7 @@
       <% peep.tags.map(&:name).each do |tag| %>
         <a href="/peeps/<%=tag %>">#<%= tag %></a>
       <% end %>
-      at: <%= peep.date.strftime("%H:%M:%S") %>
+      at: <%= peep.date.strftime("%H:%M:%S on %d-%m") %>
       by_id: <%= peep.user_id %>
     </li>
   <% end %>

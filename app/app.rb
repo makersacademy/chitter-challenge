@@ -21,14 +21,19 @@ class Chitter < Sinatra::Base
     #redir get signup if validation = false
     user = User.create(username: params[:username] , password: params[:password], email: params[:email])
     session[:user_id] = user.id
-    redirect '/peeps'
+    redirect back
   end
 
   post '/login' do
     declared_user = User.first(username: params[:username])
     raise "nil user" if declared_user.nil?
     session[:user_id] = declared_user.id if declared_user.password == params[:password]
-    redirect '/peeps' #+warn if validation = false
+    redirect back #+warn if validation = false
+  end
+
+  get '/logout' do
+    session[:user_id] = nil
+    redirect back
   end
 
   get '/peeps' do
@@ -55,7 +60,7 @@ class Chitter < Sinatra::Base
   get '/peeps/:tag' do
     tag = Tag.first(name: params[:tag])
     @peep_list = tag.peeps
-    @filter_type
+    @filter_type = 'Tag'
     current_user = User.first(id: session[:user_id])
     @signed_in = !current_user.nil?
     if @signed_in
