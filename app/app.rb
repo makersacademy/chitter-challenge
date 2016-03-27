@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 
 class Chittr < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb :'/peeps/index'
