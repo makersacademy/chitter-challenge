@@ -57,8 +57,7 @@ Instructions
   * chitterplus_development 
   * chitterplus_test 
 
-Note: The above tables are for the sessions branch. 
-For the master branch, create the databases:  
+Note: The above tables are for the sessions branch. For the master branch, create the databases:  
   * chitter_development 
   * chitter_test 
 
