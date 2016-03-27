@@ -1,9 +1,12 @@
-<h1>Post a peep:</h1>
+<h1 class="form-title">Post a peep</h1>
 <form action="/peeps" method="post">
   <p>
-    <input type="text" name="content" placeholder="What's happening today?" required>
+    <textarea type="text" name="content" placeholder="What's happening today?" required></textarea>
   </p>
   <p>
-    <button type="submit">Peep!</button>
+    <button type="submit" class="form-button" id="peep">Peep!</button>
   </p>
+</form>
+<form action="/peeps">
+  <button type="submit" class="form-button" id="see-all-peeps">See all peeps</button>
 </form>

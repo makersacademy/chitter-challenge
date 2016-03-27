@@ -1,5 +1,4 @@
-<h1>Sign up for Chitter</h1>
-
+<h1 class="form-title">Join Chitter</h1>
 <form action="/users/new" method="post">
   <p>
     <input type="text" name="name" value="<%= @user.name %>" placeholder="Full name" required>
@@ -19,4 +18,8 @@
   <p>
     <button type="submit">Sign up</button>
   </p>
+</form>
+
+<form action="/peeps">
+  <button type="submit"  class="white-button">Back</button>
 </form>

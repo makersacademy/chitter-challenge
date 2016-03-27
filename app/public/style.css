@@ -8,9 +8,7 @@ body {
   left: 15%;
 }
 
-nav {
-  width: 70%;
-}
+nav { width: 70%; }
 
 #peeps {
   background: rgba(248,248,248,0.78);
@@ -34,17 +32,11 @@ h1:nth-child(2) {
   font-style: normal;
 }
 
-li {
-  list-style: none;
-}
+li { list-style: none; }
 
-.user {
-  display: inline-block;
-}
+.user { display: inline-block; }
 
-#name {
-  font-family: "Britannic Bold";
-}
+#name { font-family: "Britannic Bold"; }
 
 #username-time {
   color: #484848;
@@ -60,26 +52,78 @@ li {
   margin-right: -59px;
 }
 
-#sign-up {
-  margin-right: 10px;
-}
+#sign-up { margin-right: 10px; }
 
-#welcome {
-  margin-top: 7px;
-}
+#welcome { margin-top: 8px; }
 
 #log-out {
   margin-top: 5px;
   margin-right: 10px;
 }
 
+.form-title { text-align: left; }
+
+input {
+  width: 210px;
+  font-size: 12pt;
+  font-family: "Century Gothic", sans-serif;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: dotted 1px black;
+  outline: none;
+}
+
+textarea {
+  background: rgba(248,248,248,0.78);
+  width: 350px;
+  height: 140px;
+  font-size: 12pt;
+  border: none;
+  -webkit-border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+  resize: none;
+  outline: none;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#notice {
+  font-family: "Britannic Bold";
+  font-size: 15pt;
+}
+
+/*button styles*/
+
 button {
+  background-color: black;
+  color: white;
   width: 80px;
   font-size: 12pt;
   font-family: "Century Gothic", sans-serif;
+  margin-top: 5px;
   border: none;
-  background: rgba(248,248,248,0.78);
+  padding: 3px 0 5px 0;
   -webkit-border-radius: 8px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+button:hover{
+  background: rgba(248,248,248,0.78);
+  color: black
+}
+
+.white-button {
+  background: rgba(248,248,248,0.78);
+  color: black
+}
+
+.white-button:hover{
+  background-color: black;
+  color: white;
+}
+
+#see-all-peeps {
+  width: 130px;
 }
 
 #new-peep {
@@ -92,10 +136,4 @@ button {
   padding: 10px 10px 5px 10px;
 }
 
-#new-peep:hover{
-  opacity: 0.8;
-}
-
-#please-sign-in {
-  text-align: left;
-}
+#new-peep:hover{ opacity: 0.7; }
