@@ -22,6 +22,6 @@ module TestHelpers
     visit '/'
     expect(page.status_code).to eq(200)
     fill_in 'peep', with: peep.content
-    click_button 'Peep!'
+    click_button 'Purr!'
   end
 end
