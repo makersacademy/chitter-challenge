@@ -52,4 +52,17 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/peeps/:tag' do
+    tag = Tag.first(name: params[:tag])
+    @peep_list = tag.peeps
+    @filter_type
+    current_user = User.first(id: session[:user_id])
+    @signed_in = !current_user.nil?
+    if @signed_in
+      @user = current_user.username
+      @mail = current_user.email
+    end
+    erb :main_page
+  end
+
 end

@@ -1,7 +1,14 @@
+<% unless @filter_type.nil? %>
+<%= erb :filtered_list %>
+<% end %>
 <ul name="peep_list">
-  <% @peep_list.each do |peep| %>
-    <li><%= peep.content %> with tags:
-      <%= peep.tags.map(&:name).join(', ') %>
+  <% @peep_list.reverse.each do |peep| %>
+    <li><%= peep.content %> tags:
+      <% peep.tags.map(&:name).each do |tag| %>
+        <a href="/peeps/<%=tag %>">#<%= tag %></a>
+      <% end %>
+      at: <%= peep.date.strftime("%H:%M:%S") %>
+      by_id: <%= peep.user_id %>
     </li>
   <% end %>
 </ul>
