@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user'
+require_relative './models/peep'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -53,6 +54,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter_feed' do
+    @peeps = Peep.all
     erb :chitter_feed
   end
 
@@ -60,6 +62,22 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = "Goodbye!"
     session[:user_id] = nil
     redirect to '/'
+  end
+
+  get '/chitter_feed/new' do
+    erb :new_peep
+  end
+
+  post '/chitter_feed/new' do
+    peep = Peep.new(message: params[:message], time: Time.now)
+    if current_user
+      current_user.peeps << peep
+      peep.save
+      redirect to '/chitter_feed'
+    else
+      flash.now[:error] = ["Log in to peep!"]
+      erb :log_in
+    end
   end
 
   run! if app_file == $0

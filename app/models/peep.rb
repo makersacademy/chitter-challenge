@@ -1,5 +1,4 @@
-require 'bcrypt'
-# require 'dm-validations'
+require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class Peep

@@ -18,7 +18,7 @@ feature 'Sign up' do
 
   scenario '> cannot sign up if email left empty' do
   expect{sign_up_no_email}.to change{User.count}.by 0
-  expect(page).to have_content("Email must not be blank")
+  expect(page).to have_content "Email must not be blank"
   end
 
   scenario '> will not accept invalid email' do
