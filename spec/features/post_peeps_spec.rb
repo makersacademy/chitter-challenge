@@ -4,6 +4,6 @@ feature "Post peeps" do
     post "I have an emo nephew."
     expect(page.current_path).to eq "/peeps"
     expect(page).to have_content "I have an emo nephew."
-    expect(page).to have_content "posted by Luke(@skywalker)"
+    expect(page).to have_content "Luke(@skywalker)"
   end
 end

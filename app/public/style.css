@@ -1,3 +1,54 @@
 body {
-  background: gray;
+  background-image: url("http://i.imgur.com/SZqTPcR.jpg");
+  background-size: cover;
+  font-family: "Century Gothic", sans-serif;
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  left: 15%;
+}
+
+#peeps {
+  /*background-color: gray;*/
+  background: rgba(248,248,248,0.78);
+  width: 70%;
+  padding: 8px 30px 10px 30px;
+  margin-top: 9px;
+  margin-bottom: 20px;
+   "Lucida Bright",
+}
+
+h1 {
+  font-family: "Stencil", "Britannic Bold", "helvetica neue", helvetica;
+  font-size: 30pt;
+  font-style: oblique;
+  text-align: center;
+}
+
+h1:nth-child(2) {
+  font-size: 18pt;
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+.user {
+  display: inline-block;
+}
+
+#name {
+  font-family: "Britannic Bold";
+}
+
+#username_time {
+  color: #484848;
+  font-size: 10pt;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+#content {
+
 }
