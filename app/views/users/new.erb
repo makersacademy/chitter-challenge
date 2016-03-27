@@ -2,15 +2,6 @@
   <h2>Create a Chitter account</h2>
 </div>
 
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-  </ul>
-<% end %>
-
 <form action='/users' method='post'>
   <input type='text' name='name' placeholder='name'  value='<%= @user.name %>' required>
   <input type='text' name='username' placeholder='user name'  value='<%= @user.username %>' required>

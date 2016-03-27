@@ -13,3 +13,10 @@ def sign_up(name: 'jon',
             click_button('Sign up')
 
 end
+
+def sign_in(email: 'jon_snow@nightswatch.com', password: 'ygritte')
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
