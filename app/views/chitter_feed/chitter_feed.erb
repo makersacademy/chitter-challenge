@@ -1,11 +1,6 @@
-<head>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-
 <body>
   <center>
 <h1> Welcome <% if current_user %> <%= current_user.username %><% end%>!</h1>
-  <h1>- Chitter -</h1>
   <h2> Welcome to the chitter feed! </h2>
 
   <form action='/chitter_feed/new' method="get">
