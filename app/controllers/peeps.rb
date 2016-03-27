@@ -1,7 +1,8 @@
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    # @peeps = Peep.all
+    @peeps = Peep.all
+    @user = User.get(session[:user_id])
     erb :'peeps/index'
   end
 
