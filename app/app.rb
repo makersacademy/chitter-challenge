@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
       r.Message "Thanks for the message: #{params[:Body]}"
     end
     peep = Peep.new(text:params[:Body], time:Time.new)
-    current_user.peeps << peep
+    User.first(name:"Paul").peeps << peep
     peep.save
     current_user.save
     twiml.text
@@ -70,13 +70,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/postpeep' do
-    #client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
     peep = Peep.new(text:params[:new_peep], time:Time.new)
-    # client.messages.create(
-    # to: "+447709344456",
-    # from: "+441233800814",
-    # body: "#{peep.text}"
-    # )
     current_user.peeps << peep
     peep.save
     current_user.save
