@@ -6,6 +6,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
