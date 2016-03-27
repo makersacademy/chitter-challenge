@@ -12,7 +12,12 @@
       <p><label for="password"></label>Password:</p>
         <input type=password name="password">
 
-      <button>Log in!</button>
+      <p><button>Log in!</button></p>
     </form>
+    <% if flash[:error]%>
+      <form action='/maker/new'>
+        <button>Whoops! Take me to sign up</button>
+      </form>
+    <% end %>
   </body>
 </html>

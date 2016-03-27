@@ -10,6 +10,11 @@
           <button>Peep!</button>
         </p>
       </form>
+      <% else %>
+      Hey guest! Check out the chitter:
+      <form action='/'>
+        <button>I want in!</button>
+      </form>
     <% end %>
 
     <% if !Peep.all.empty? %>
