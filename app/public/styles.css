@@ -4,7 +4,6 @@
     list-style: none;
     padding-left: 0;
     padding-bottom: 5;
-    background-color: #FF1493;
   }
   a {
     background-color:transparent; text-decoration:none
@@ -22,17 +21,18 @@
   div.peeps-box {
     width: 50%;
     margin: 0 auto;
-    background-color: #990099;
     width: 30%;
     min-width: 310;
+    background-image: url("http://www.themesltd.com/backgrounds/ice-cream/ice_creams_ice_creams_ice_creams.jpg");
   }
 
-  div.peeps-box {
-    width: 40%;
-    margin: 0 auto;
+  div.peep-box {
+    border: 1px solid black;
+    padding: 10px 0px;
+	  margin: 20px 50px;
+	  position: relative;
     background-color: #ff66ff;
-    width: 30%;
-    min-width: 310;
+    -webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.2);
   }
 
   h2 {

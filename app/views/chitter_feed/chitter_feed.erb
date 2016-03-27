@@ -10,14 +10,14 @@
 <div class="peeps-box">
   <ul id="peeps">
     <% @peeps.reverse.each do |peep| %>
-      <div>
         <li>
-          <%=peep.user.username%><br>
-          <% t = peep.time %>
-          <%=peep.message %><br>
-          <%=t.strftime("Posted on %m/%d/%Y at %I:%M%p")%><br>
+          <div class="peep-box">
+            <%=peep.user.username%><br>
+            <% t = peep.time %>
+            <%=peep.message %><br>
+            <%=t.strftime("Posted on %m/%d/%Y at %I:%M%p")%><br>
+          </div>
         </li>
-      </div>
     <% end %>
   </ul>
 </div>

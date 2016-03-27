@@ -1,5 +1,7 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/eripheebs/chitter-challenge.svg?branch=master)](https://travis-ci.org/eripheebs/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/eripheebs/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/eripheebs/chitter-challenge?branch=master)
 
 Try it on: https://aqueous-brushlands-38395.herokuapp.com/
 
