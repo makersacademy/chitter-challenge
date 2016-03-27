@@ -5,7 +5,9 @@ class Chitter < Sinatra::Base
   end
 
   post "/comments" do
-    Comment.create(content: params[:content], user_id: current_user.id, peep_id: params[:peep_id])
+    Comment.create(content: params[:content],
+                   user_id: current_user.id,
+                   peep_id: params[:peep_id])
     redirect "/#{params[:peep_id]}/comments"
   end
 
