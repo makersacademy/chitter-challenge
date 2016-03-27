@@ -6,8 +6,6 @@ class User
   attr_reader :password
   validates_format_of :emails, as: :email_address
   
-  has n, :poops, through: Resource
-
   property :id, Serial
   property :email, String, format: :email_address, required: true
   property :password_digest, Text, required: true
@@ -26,6 +24,7 @@ class User
       nil
     end
   end
+  has n, :poops
 end
 
 

@@ -5,6 +5,8 @@ require 'sinatra/flash'
 require 'tilt/erb'
 require_relative 'data_mapper_setup'
 require 'bcrypt'
+require_relative './models/poop'
+require_relative './models/user'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -23,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    @user = User.new
+#    @user = User.new
     erb :'users/new'
   end
 
@@ -60,27 +62,28 @@ class Chitter < Sinatra::Base
   end
 
   get '/poops/new' do
-    if session[:user_id]
+    @poop = Poop.new
+   # if session[:user_id]
       erb :'poops/new'
-    else
-      redirect '/'
-    end
+    #else
+      #redirect '/'
+   # end
   end
-    post '/poops' do
-      poop = Poop.new(
-        poop_msg: params[:poop_msg],
-        name: current_user.name,
-        username: current_user.username 
-      )
-      poop.save
-      redirect '/poops/index'
-    end
+
+  post '/poops' do
+    p "THIS THIS THIS THIS"
+    poop = Poop.create(poop_msg: params[:poop_msg])
+    poop = current_user.poops.create(
+      poop_msg: params[:poop_msg]
+    )
+    p "WHAT THE FUCK"
+   redirect '/poops/index'
+  end
 
 
-    get '/poops/index' do
-      @poops = Poop.all
-      erb :'poops/index'
-    end
-    # start the server if ruby file executed directly
-    run! if app_file == $0
+  get '/poops/index' do
+    erb :'poops/index'
   end
+  # start the server if ruby file executed directly
+  run! if app_file == $0
+end
