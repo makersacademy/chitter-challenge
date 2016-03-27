@@ -72,12 +72,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new' do
-    post = Post.create(message: params[:message],
-                       timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
     current_user = User.get(session[:user_id])
-    current_user.posts << post
-    current_user.save
-    post.save
+    current_user.posts.create(message: params[:message],
+                              timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
     erb(:home)
   end
 
@@ -90,7 +87,6 @@ class Chitter < Sinatra::Base
     current_user.save
     post.comments << comment
     post.save
-    comment.save
     erb(:home)
   end
 
