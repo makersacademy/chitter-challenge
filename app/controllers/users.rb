@@ -14,12 +14,13 @@ class Chittr < Sinatra::Base
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
-    # if @user.save
+    if @user.save
       session[:user_id] = @user.id
       redirect to '/'
-    # else
-    #   erb :'/users/new'
-    # end
+    else
+      flash.now[:error] = @user.errors.full_messages
+      erb :'/users/new'
+    end
   end
 
 end

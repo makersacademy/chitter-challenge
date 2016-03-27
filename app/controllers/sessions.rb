@@ -10,6 +10,7 @@ class Chittr < Sinatra::Base
       session[:user_id] = user.id
       redirect to :'/'
     else
+      flash.now[:error] = 'Your log in details weren\'t correct.'
       erb :'/sessions/new'
     end
   end

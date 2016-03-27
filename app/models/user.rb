@@ -5,10 +5,20 @@ class User
   include BCrypt
 
   property :id, Serial
-  property :first_name, String, required: true
-  property :last_name, String, required: true
-  property :username, String, required: true, unique: true
-  property :email, String, required: true, unique: true, format: :email_address
+  property :first_name, String, required: true,
+            messages: {presence: "We need your first name"}
+  property :last_name, String, required: true,
+            messages: {presence: "We need your last name"}
+  property :username, String, required: true, unique: true,
+            messages: {
+                presence: "We need a username",
+                is_unique: "Username is already registered"}
+  property :email, String, required: true, unique: true, format: :email_address,
+            messages: {
+                presence: "We need your email address",
+                is_unique: "Email address is already registered",
+                format: "Please make sure to enter your email address in the right format"}
+
   property :password_digest, Text, required: true
 
   attr_reader :password

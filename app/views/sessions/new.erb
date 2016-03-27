@@ -1,5 +1,11 @@
 <h1>Sign in</h1>
 
+<% if flash[:error] %>
+  <ul  class="error">
+      <li><%= flash[:error] %></li>
+  </ul>
+<% end %>
+
 <form action="/sessions" method="post">
   <ul>
     <li><input type="email" name="email" placeholder="email"></li>

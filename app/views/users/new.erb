@@ -1,5 +1,14 @@
 <h1>Sign up</h1>
 
+<% if flash[:error] %>
+  Please refer to the following errors below:
+  <ul  class="error">
+    <% flash[:error].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action="/users" method="post">
   <ul>
     <li>
