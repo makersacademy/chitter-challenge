@@ -138,6 +138,8 @@ GEM
       tilt (>= 1.3, < 3)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-partial (0.4.0)
+      sinatra
     slop (3.6.0)
     stringex (1.5.1)
     templater (1.0.0)
@@ -175,6 +177,7 @@ DEPENDENCIES
   rspec-sinatra
   sinatra
   sinatra-flash
+  sinatra-partial
 
 BUNDLED WITH
    1.11.2

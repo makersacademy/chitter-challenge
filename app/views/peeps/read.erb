@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
   <body>
     <div id='peeps'>
-    <% if current_maker %>
-    Oh hey <%= @maker.name %>!
-      <form action='/peeps/new' method="post">
-        <textarea cols="50" rows="3" name='text' placeholder='What will you peep about today?'/></textarea>
-        <p> <button>Peep!</button> </p>
-      </form>
-        <form action='/session' method='post'>
-            <input type=hidden name='_method' value='delete'>
-            <button>Log Out</button>
-          </p>
-        </form>
-    <% else %>
+      <% if current_maker %>
+        Oh hey <%= @maker.name %>!
+          <form action='/session' method='post'>
+                <input type=hidden name='_method' value='delete'>
+                <button id='second'>Log Out</button>
+          </form>
+          <form action='/peeps/new' method="post">
+            <textarea cols="50" rows="3" name='text'
+               placeholder='What will you peep about today?'></textarea>
+            <p> <button id='first'>Peep!</button> </p>
+          </form>
+
+      <% else %>
       Hey guest! Check out the chitter:
       <form action='/'>
         <button>I want in!</button>
       </form>
-    <% end %>
-
-    <% if !Peep.all.empty? %>
-      <% Peep.all.reverse.each do |peep| %>
-        <li><span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>at <%= peep.time %></span>
-        </li>
-        <hr>
-        <% end %>
-    <% else %>
-      No peeps here!
-    <% end%>
-  </div>
+      <% end %>
+      <% if !Peep.all.empty? %>
+        <% Peep.all.reverse.each do |peep| %>
+          <li><span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>at <%= peep.time %></span>
+          </li>
+          <hr>
+          <% end %>
+      <% else %>
+        No peeps here!
+      <% end%>
+    </div>
   </body>
 </html>

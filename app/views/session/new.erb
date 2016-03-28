@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CHITTAH</title>
-  </head>
-
   <body>
     <div class='entry'>
       Log in to get chittering!
@@ -14,11 +10,12 @@
         <input type=password name="password">
       <p><button>Log in!</button></p>
     </form>
-  </div>
+
     <% if flash[:error]%>
       <form action='/maker/new'>
         <button>Whoops! Take me to sign up</button>
       </form>
     <% end %>
+    </div>
   </body>
 </html>

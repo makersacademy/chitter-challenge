@@ -6,19 +6,7 @@
   </head>
 
   <body>
-    <% if flash[:message] %>
-      <%= flash[:message] %>
-    <% end %>
-
-    <% if flash[:error] %>
-    <ul>
-      <% flash[:error].each do |error| %>
-       <li><%= error %></li>
-       
-      <% end %>
-    </ul>
-    <% end %>
-
+    <%= partial :flash %>
     <%= yield %>
   </body>
 </html>

@@ -8,13 +8,34 @@ button:hover {
   color: #00e64d;
 }
 
+.peep {
+  position: relative;
+  margin: auto;
+}
+
+#error {
+  border-radius: 5px;
+  background-color: #e6ffe6;
+  height: relative;
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  font-family: HelveticaNeue-light, Helvetica, Arial;
+  font-size: 14px;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 textarea {
   border-radius: 5px;
   text-align: center;
 }
-textarea:placeholder{
-  color: grey;
-}
+
 #peeps {
   border-radius: 5px;
   background-color: #00ff80;
@@ -23,7 +44,7 @@ textarea:placeholder{
   margin: auto;
   padding: 50px;
   text-align: center;
-  font-family: futura;
+  font-family: HelveticaNeue-bold;
   font-size: 14px;
 }
 
@@ -35,16 +56,17 @@ textarea:placeholder{
   margin: auto;
   padding: 50px;
   text-align: center;
-  font-family: futura;
+  font-family: HelveticaNeue-light;
   font-size: 14px;
 }
 
 span {
   color: #00802b;
+  font-family: HelveticaNeue-light;
   font-size: 12px
 }
 body {
-  font-family: futura;
+  font-family: HelveticaNeue;
   margin: 100px;
   background-color: #00cc66;
 }

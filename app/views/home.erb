@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CHITTAH</title>
-  </head>
+<div class='entry'>
+  <h3>Welcome to Chitter!</h3>
 
-  <body>
-      <div class='entry'>
-          <h3>Welcome to Chitter!</h3>
+  <form action='/maker/new'>
+    <button id='first'>Sign Up</button>
+  </form>
 
-        <form action='/maker/new'>
-        <button style='float:left;'>Sign Up</button>
-      </form>
+  <form action='/session/new'>
+    <button id='second'>Log in</button>
+  </form>
 
-      <form action='/session/new'>
-        <button style='float: right;'>Log in</button>
-      </form>
-
-      <form action='/peeps/read'>
-        <button> Read peeps as Guest </button>
-      </form>
-    </div>
-  </body>
-</html>
+  <form action='/peeps/read'>
+    <button> Read peeps as Guest </button>
+  </form>
+</div>
