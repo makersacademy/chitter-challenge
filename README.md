@@ -55,3 +55,21 @@ Alternatively, visit the production env [here](http://chittah.herokuapp.com).
 
 Screenshots
 --
+_homepage:_
+
+![Imgur](http://imgur.com/QSnrbWD)
+
+_sign up:_
+
+![Imgur](http://imgur.com/Gc21bPc)
+_log in:_
+
+![Imgur](http://imgur.com/7qyom1D)
+
+_log in error message:_
+
+![Imgur](http://imgur.com/WQziv9U)
+
+_peeps page as logged in user_
+
+![Imgur](http://imgur.com/mv5QZZv)
