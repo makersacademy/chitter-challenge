@@ -18,14 +18,16 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   post '/sms' do
-    twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "Thanks for the message: #{params[:Body]}"
+    user = User.all(phonenumber:params[:From]).first
+    if user
+      twiml = Twilio::TwiML::Response.new do |r|
+        r.Message "Thanks for the message: #{params[:Body]}"
+      end
+      peep = Peep.new(text:params[:Body], time:Time.new)
+      user.peeps << peep
+      peep.save
+      user.save
     end
-    peep = Peep.new(text:params[:Body], time:Time.new)
-    user = User.first(name:"Paul")
-    user.peeps << peep
-    peep.save
-    user.save
     twiml.text
   end
 
@@ -40,7 +42,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.new(name:params['name'], username:params['username'],email:params['email'], password:params['password'], password_confirmation:params['password_confirmation'])
+    @user = User.new(name:params['name'], username:params['username'],email:params['email'],phone:params['phone'],password:params['password'], password_confirmation:params['password_confirmation'])
     if @user.save
       session[:user_id] = @user.id
       redirect '/'

@@ -9,8 +9,10 @@ class User
   property :name, String, required: true
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true, format: :email_address
+  property :phonenumber, String, unique: true
   property :password_digest, Text
   attr_reader :password
+  attr_reader :phone
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
@@ -18,6 +20,10 @@ class User
   def password=(new_password)
     @password = new_password
     self.password_digest = BCrypt::Password.create(new_password)
+  end
+
+  def phone=(phone_number)
+    self.phonenumber = phone_number.gsub(/^0/,"+44")
   end
 
   def self.authenticate(username, password)
