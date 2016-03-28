@@ -19,6 +19,9 @@ class User
 
   property :password, BCryptHash, required: true
 
+
+  has n, :peeps, through: Resource
+
   def self.authenticate(username, password)
     user = first(username: username)
 

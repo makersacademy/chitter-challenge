@@ -4,4 +4,6 @@ class Peep
   property :id,     Serial
   property :body,   Text
   property :time,   DateTime
+
+  has 1, :user, through: Resource
 end

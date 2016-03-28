@@ -21,7 +21,7 @@
           <%= peep.body %>
         </div>
         <div>
-          <p>Peeped <%= peep.time.strftime("at %I:%M%p on %m/%d/%Y") %></p>
+          <p>Peeped by <%= "#{current_user.username} #{peep.time.strftime("at %I:%M%p on %m/%d/%Y")}" %></p>
         </div>
       </li>
     <% end %>

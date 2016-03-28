@@ -21,7 +21,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(body: params[:body], time: Time.now)
+    current_user.peeps << Peep.create(body: params[:body], time: Time.now)
+    current_user.save
     redirect '/'
   end
 
