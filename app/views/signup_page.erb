@@ -1,9 +1,12 @@
 <h1>Welcome to the registration page. please enter your info</h1>
 
 <form action='/signup' method='post'>
+    <% if flash[:pass_mismatch] %>
+      <div class="form_error">Passwords fields do not match, try again</div>
+    <% end %>
     <input type='text' name='username' placeholder="Username">
     <input type='text' name='email' placeholder="Email">
-    <input type='text' name='password' placeholder="Password">
-    <input type='text' name='confirm' placeholder="Password">
+    <input type='password' name='password' placeholder="Password">
+    <input type='password' name='confirm' placeholder="Password">
     <button type ='submit' value='register'>Register on this Awesome Site</button>
 </form>

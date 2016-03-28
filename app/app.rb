@@ -1,11 +1,13 @@
 require 'tilt/erb'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 require './app/dm_models_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
   #session secret
+  register Sinatra::Flash
 
 
   get '/' do
@@ -17,19 +19,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    redirect '/signup' unless params[:password] == params[:confirm] #add flash
-    puts "beep"
+    unless params[:password] == params[:confirm]
+      flash.next[:pass_mismatch] = true
+      redirect '/signup'
+    end
     user = User.create(username: params[:username] , pass: params[:password], email: params[:email])
-    puts "boop"
     session[:user_id] = user.id
     redirect '/peeps'
   end
 
   post '/login' do
     user_id = User.login params[:username] , params[:password]
-
-    session[:user_id] = user_id unless user_id.nil?
-    redirect '/peeps' #add flash success/failure
+    if user_id.nil?
+      flash.next[:wrong_login] = true
+    else
+      session[:user_id] = user_id
+    end
+    redirect '/peeps'
   end
 
   get '/logout' do

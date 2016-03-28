@@ -30,6 +30,12 @@ body {
   font-size: 12px;
 }
 
+.form_error {
+  color: red;
+  font-style: italic;
+  text-align: center;
+}
+
 .login_text {
   width: 180px;
   height: 20px;

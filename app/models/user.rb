@@ -8,7 +8,6 @@ class User
     property :pwd_hash, String, length: 60
 
     def pass= password
-      puts "baap"
       self.pwd_hash = BCrypt::Password.create password
     end
 

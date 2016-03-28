@@ -1,7 +1,10 @@
 <form action='/login' method='post' id="login_form">
   <div>Login over here!</div>
+  <% if flash[:wrong_login] %>
+    <div class="form_error">Wrong User or password, try again</div>
+  <% end %>
   <div><input type='text' name='username' placeholder="Username" class="login_text"></div>
-  <div><input type='text' name='password' placeholder="Password" class="login_text"></div>
+  <div><input type='password' name='password' placeholder="Password" class="login_text"></div>
   <a href="/signup" id="register_link">Not registered yet? Sign up, it's free</a>
   <button type ='submit' value='login'>Log In</button>
 </form>
