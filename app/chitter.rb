@@ -18,12 +18,8 @@ class Chitter < Sinatra::Base
     end
   end
 
-# After peeps in /home, can redirect to /home
-# will have sign in and sign out
-# can remove guest
   get '/' do
-    # redirect('/users/new')
-    erb(:start)
+    erb(:home)
   end
 
   get '/home' do
