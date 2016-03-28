@@ -14,4 +14,5 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'factory_girl'
+  gem 'pry'
 end

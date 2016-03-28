@@ -1,20 +1,23 @@
 require 'bcrypt'
+require 'pry'
 
 class User
   include BCrypt
   include DataMapper::Resource
-
+  attr_reader :password
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :confirm => :password_confirmation, :message => 'Password and confirmation password do not match'
 
-  def password
-    @password ||= Password.new(password_hash)
-  end
 
   def password=(new_password)
     @password = Password.create(new_password)
     self.password_hash = @password
+  end
+
+  def self.authenticate(email,password)
+    user = User.first(email: email)
+    user && BCrypt::Password.new(user.password_hash) == password ? user : nil
   end
 
   property :id, Serial

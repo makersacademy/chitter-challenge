@@ -12,6 +12,21 @@ class Chitter < Sinatra::Base
     'Hello chitter!'
   end
 
+  get '/sessions/new' do
+    erb(:'sessions/new')
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['The email or password was incorrect']
+      erb(:'sessions/new')
+    end
+  end
+
   get '/users/new' do
     erb(:'users/new')
   end
