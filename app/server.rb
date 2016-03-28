@@ -9,7 +9,11 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
 
   get '/' do
-    redirect '/sign-up'
+    if current_user
+      redirect '/chitter-feed/peeps'
+    else
+      erb :index
+    end
   end
 
   helpers do
