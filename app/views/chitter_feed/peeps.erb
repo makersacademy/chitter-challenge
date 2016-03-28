@@ -1,7 +1,5 @@
 <% if current_user %>Welcome, <%= current_user.name %><% end %>
-<% @peeps.each do |peep| %>
-<ul><%= peep.content %> @ <%= peep.time_created.strftime("%c") %></ul>
-<% end %>
+
 <% if current_user %>
 <form method='get' action='/chitter-feed/new'>
   <button type='submit'>Add peep</button>
@@ -13,3 +11,7 @@
 <% end %>
 
 Working?
+
+<% @peeps.each do |peep| %>
+<ul><%= peep.content %> @ <%= peep.time_created.strftime("%c") %></ul>
+<% end %>
