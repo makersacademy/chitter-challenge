@@ -1,6 +1,10 @@
 <div>
   <% if current_user %>
     <%= "Welcome #{current_user.username}" %>
+    <form action='/session' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <button>Sign out</button>
+    </form>
   <% else %>
     <a href='/session/new'><button>Sign in</button></a>
     or
@@ -11,9 +15,14 @@
 <% unless @peeps.all.empty? %>
   Current peeps
   <ul>
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
       <li>
-        <%= peep.body %>
+        <div>
+          <%= peep.body %>
+        </div>
+        <div>
+          <p>Peeped <%= peep.time.strftime("at %I:%M%p on %m/%d/%Y") %></p>
+        </div>
       </li>
     <% end %>
   </ul>
