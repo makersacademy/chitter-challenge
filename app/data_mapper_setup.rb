@@ -9,7 +9,7 @@ env = ENV['RACK_ENV'] || 'development'
 
 # DataMapper::Logger.new($stdout, :debug)
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
 DataMapper.auto_migrate! if ENV['RACK_ENV'] == 'test'
 
