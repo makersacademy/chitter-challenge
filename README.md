@@ -5,7 +5,12 @@
 ### 1. Introduction
 Chitter is a user-friendly web browser-based application that allows you to communicate with fellow chitters. You can choose to use it either as a guest or a registered user. As a guest, you can see others' peeps and comments. As a user, you are able to post and comment on peeps.
 
-### 2. Installation & How to use
+### 2. Development
+Chitter is written in **Ruby 2.2.3** and has been developed using **Sinatra 1.4.7** ( https://github.com/sinatra/sinatra ). It uses **RSpec 3.2.2** as a platform for behaviour-driven development (BDD) in conjunction with **Capybara 2.6.2** ( https://github.com/jnicklas/capybara#using-capybara-with-rspec ) as an acceptance test framework. The continuous integration is assessed through Travis-CI with the latest test coverage of 100%.
+
+Password encryption for safer services is provided by **bcrypt** ( https://github.com/codahale/bcrypt-ruby ). The Database is managed by **PostgreSQL** ( http://www.postgresql.org/ ), an open-source Object-Relational Database Management System (ORDBMS). The communication between the database and the application is performed via **DataMapper** ( http://datamapper.org/ ). Online version is supported by a cloud application platform **Heroku** ( https://www.heroku.com/ ).
+
+### 3. Installation & How to use
 #### Local mode :
 1. Fork this repo
 2. Copy the URL of the forked repo
@@ -80,11 +85,5 @@ Below is a quick demonstration of what your first chitter experience will look l
   <img src="./app/public/6_guest_mode.png" width="300" height="320">
 
 
-### Development
-Chitter is written in **Ruby 2.2.3** and has been developed using **Sinatra 1.4.7** ( https://github.com/sinatra/sinatra ). It uses **RSpec 3.2.2** as a platform for behaviour-driven development (BDD) in conjunction with **Capybara 2.6.2** ( https://github.com/jnicklas/capybara#using-capybara-with-rspec ) as an acceptance test framework. The continuous integration is assessed through Travis-CI with the latest test coverage of 100%.
-
-Password encryption for safer services is provided by **bcrypt** ( https://github.com/codahale/bcrypt-ruby ). The Database is managed by **PostgreSQL** ( http://www.postgresql.org/ ), an open-source Object-Relational Database Management System (ORDBMS). The communication between the database and the application is performed via **DataMapper** ( http://datamapper.org/ ). Online version is supported by a cloud application platform **Heroku** ( https://www.heroku.com/ ).
-
-
-### Authour
+### 4. Authour
 Misa Ogura
