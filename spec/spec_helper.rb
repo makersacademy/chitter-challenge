@@ -15,6 +15,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './web_helpers'
 require_relative '../app/models/user'
 require_relative '../app/models/poop'
 

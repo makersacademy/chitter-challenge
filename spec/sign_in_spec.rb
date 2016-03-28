@@ -3,12 +3,7 @@ require 'spec_helper'
 feature 'User can sign in' do
 
   before do
-    User.create(
-      email: 'colin@colin.com',
-      password: 'colinpw',
-      name: 'colin',
-      username: 'colinu'
-    )
+    create_user
   end
 
   scenario 'with correct password and email' do
