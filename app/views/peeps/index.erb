@@ -5,3 +5,25 @@
 <% end %>
 
 <h1>Chittr</h1>
+<% if current_user %>
+<h2>Make a peep</h2>
+<form action="/peep" method="post">
+  <input type="text" name="body">
+  <input type="submit" value="Peep it">
+</form>
+<% end %>
+
+<h2>What do others peep?</h2>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <p>
+          <%= peep.body %>
+        </p>
+        <p>
+          <%= peep.time %> |
+          <%= peep.user.username %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
