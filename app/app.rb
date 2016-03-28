@@ -20,6 +20,11 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  get '/' do
+    @chits = Chit.all
+    erb :'chits/index'
+  end
+
   get '/chits' do
     @chits = Chit.all
     erb :'chits/index'
@@ -68,7 +73,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/new' do
-    erb :'chits/new'
+    @user = current_user
+    if @user
+      erb :'chits/new'
+    else
+      p @user
+      redirect('/sessions/new')
+    end
   end
 
   post '/new' do

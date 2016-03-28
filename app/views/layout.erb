@@ -5,20 +5,37 @@
   </head>
 
   <body>
+    <link rel="stylesheet" href="/styles.css" type="text/css" />
     <% if flash[:notice] %>
       <div id='notice'>
         <%= flash[:notice] %>
       </div>
     <% end %>
 
-    <% if current_user %>
-      Welcome back, <%= current_user.username %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
-    <%= yield %>
+    <div id='header'>
+
+      <% if current_user %>
+          <span class='welcome'>Welcome back, <%= current_user.username %></span>
+          <div id='signout'>
+            <a href="/new">
+              <button class='new-chit'>New Chit</button>
+            </a>
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input class='signout-button' type='submit' value='Sign out'>
+            </form>
+          </div>
+        <% else %>
+          <div id='signin'>
+            <a href="/sessions/new">
+            <button class='signin-button'>Sign in </button>
+          </a>
+          </div>
+      <% end %>
+
+    </div>
+      <%= yield %>
+
   </body>
 
 
