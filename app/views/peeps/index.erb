@@ -3,7 +3,7 @@
 <div id='newpeep'>
   <% if current_user %>
     <form action='/postpeep' method='post'>
-      <textarea placeholder='Write a new peep' type='text' name='new_peep'></textarea><br>
+      <textarea placeholder='Write a new peep' type='text' name='new_peep' required></textarea><br>
       <input class='signbutton' type='submit' value='Submit'>
     </form>
   <% end %>
@@ -12,12 +12,19 @@
 <div class='peeplist'>
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-    <li id='peep'>
+    <% if peep.id.odd? %>
+      <li class='peep' id='oddpeep'>
+    <% else %>
+      <li class='peep' id='evenpeep'>
+    <% end %>
 
         <p id='peepheader'>
           <strong id='peeptitle'><%= peep.user.name %> (<%= peep.user.username %>)
           </strong>
           <span id='time'>@ <%= peep.time_string %></span>
+          <% if peep.user == @user %>
+          <img id='img' src="<%= url('/images/trash.png') %>"/>
+          <% end %>
 
         <p id='peepbody'>
           "<%= peep.text %>"
