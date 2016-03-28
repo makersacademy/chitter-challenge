@@ -2,19 +2,37 @@
 [![Coverage Status](https://coveralls.io/repos/github/kevinpmcc/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/kevinpmcc/chitter-challenge?branch=master)
 
 [![Imgur](http://i.imgur.com/DU5Vd1y.png?3)](http://i.imgur.com/DU5Vd1y.png?3)
-Chitter Challenge
+Shitter
 =================
+Shitter is a very basic Twitter rip-off.
+Instead of tweeting you can poop.
+You can see the live website https://like-twitter-but-shitter.herokuapp.com/
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Installation Instructions
 -------
+```git clone https://github.com/kevinpmcc/chitter-challenge.git
 
-As usual please start by 
+cd chitter-challenge
+
+bundle
+
+psql
+
+CREATE DATABASE chitter_test;
+CREATE DATABASE chitter_development;
+\q```
+
+To run tests 
+
+```rspec```
+
+To run on local server
+
+```rackup```
+
+then go to **localhost:9292** in your browser
+
+
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
