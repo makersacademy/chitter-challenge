@@ -1,0 +1,44 @@
+<% if current_user %>
+  <div class='center'>
+    <p id='welcome'>
+      Welcome, <%= current_user.name %>
+    </p>
+  </div>
+<% end %>
+
+
+<% if current_user %>
+  <div class='center'>
+    <form method='get' action='/chitter-feed/new'>
+      <button type='submit'>Add peep</button>
+    </form>
+  </div>
+<% end %>
+
+
+<% if !current_user %>
+  <div class='center'>
+    <form method='get' action='/session/new'>
+      <button type='submit'>Log in</button>
+    </form>
+  <br>
+  </div>
+<% end %>
+
+<div class='peepbox-container'>
+  <% @peeps.each do |peep| %>
+    <ul id='peeplist'>
+      <li id='peep'><%= peep.content %></li>
+      <article><%= peep.user.username %></article><%= peep.time_created.strftime("peeped on %D at %T") %>
+    </ul>
+  <% end %>
+</div>
+
+<% if current_user %>
+  <div class='center'>
+    <form method='post' action='/session/end'>
+      <input type='hidden' name='_method' value='delete'>
+      <button type='submit'>Log out</button>
+    </form>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="center">
+  Please enter your details to register
+  <br>
+  <br>
+  <form action='/sign-up' method = 'post'>
+
+      <label for='name'>
+        Name: <input type='text' name='name' placeholder="Your name" value='<%= params[:name] %>'>
+      </label>
+      <br>
+
+      <label for='username'>
+        Username: <input type='text' name='username'  placeholder="Your username" value='<%= params[:username] %>'>
+      </label>
+      <br>
+
+      <label for='email'>
+        Email: <input type='text' name='email'  placeholder="Your email" value='<%= params[:email] %>'>
+      </label>
+      <br>
+
+      <label for='password'>
+        Password: <input type='password'  placeholder="Password" name='password' >
+      </label>
+      <br>
+
+      <label for='password_confirmation'>
+        Confirm password: <input type='password'  placeholder="Re-type your password" name='password_confirmation'>
+      </label>
+      <br>
+      <br>
+
+    <button type='submit'>Sign up</button>
+  </form>
+</div>
