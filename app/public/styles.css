@@ -19,6 +19,10 @@ body {
   margin: auto;
 }
 
+#sidebar {
+  position: fixed;
+}
+
 .form_error {
   color: red;
   font-size: 14px;
