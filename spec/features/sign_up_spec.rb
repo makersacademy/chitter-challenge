@@ -3,7 +3,7 @@ require './spec/web_helper'
 feature 'register user' do
   scenario 'I can sign up as a new user' do
     expect{ sign_up }.to change(User, :count).by 1
-    expect(User.first.email).to eq 'shane@test.com'
+    expect(User.first.email).to eq 'pat@test.com'
   end
 end
 
