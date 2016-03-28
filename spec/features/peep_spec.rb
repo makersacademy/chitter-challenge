@@ -21,4 +21,8 @@ feature 'peeps' do
   xscenario 'displays peeps in reverse cronological order' do
 
   end
+
+  xscenario 'organise peeps by user' do
+    
+  end
 end
