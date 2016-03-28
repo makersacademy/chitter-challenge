@@ -26,6 +26,6 @@ namespace :db do
   desc "finalize"
   task :finalize do
     DataMapper.finalize
-    puts "Auto-migrate complete (data was lost)"
+    puts "Finalize complete (no data loss)"
   end
 end

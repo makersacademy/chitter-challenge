@@ -7,27 +7,8 @@
 
 <body>
   <h1>- Chitter -</h1>
-  <% if flash[:notice] %>
-    <% flash[:notice].each do |message|%>
-      <div class='notice'>
-        <%= message %>
-      </div>
-    <% end %>
-  <% end %>
-  <% if flash[:error] %>
-    <% flash[:error].each do |message|%>
-      <div class='error'>
-        <%= message %>
-      </div>
-    <% end %>
-  <% end %>
-  <% if current_user %>
-      <h2>Welcome <%= current_user.first_name %>!</h2>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-    <% end %>
+  <%= partial :welcome %>
+  <%= partial :flash %>
   <%= yield %>
 </body>
 </html>

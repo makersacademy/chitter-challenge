@@ -1,0 +1,16 @@
+<section class="peep-list">
+  <h4>Peeps</h4>
+  <% @peeps.each do |peep|%>
+    <article class="peep">
+      <p>
+        <%= peep.text %>
+      </p>
+      <p>
+        <%= peep.user.username %>
+      </p>
+      <p>
+        <%= peep.time_ts %>
+      </p>
+    </article>
+  <% end %>
+</section>
