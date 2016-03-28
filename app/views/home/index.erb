@@ -1,8 +1,9 @@
+<% if current_user %>
 <div class='ProfileCard'>
   <div class='ProfileCard-userfields'>
     <div class='ProfileCard-name'>
-      <h2><%= current_user.name %></h2>
-      <span class='ProfileCard-username'><%= current_user.username %></span>
+      <p>Welcome <%= current_user.name %><span class='ProfileCard-username'>@<%= current_user.username %></span></p>
+
     </div>
   </div>
   <div class="logout-button">
@@ -12,3 +13,4 @@
     </form>
   </div>
 </div>
+<% end %>
