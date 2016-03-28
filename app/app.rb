@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     #current_user = User.get(session[:user_id])
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'home/index'
   end
 

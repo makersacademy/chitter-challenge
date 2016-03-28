@@ -21,4 +21,14 @@ feature 'peep_spec: Peeping' do
       expect(page).to have_content('Test peep. Keep peeping.')
     end
   end
+
+  scenario 'peeps are listed in reverse chronological order' do
+    sign_in(username: 'shane', password: 'test1234')
+    fill_in 'message', :with => 'Peep1'
+    click_button 'Peep'
+    fill_in 'message', :with => 'Peep2'
+    click_button 'Peep'
+    page.body.index('Peep2').should < page.body.index('Peep1')
+  end
+
 end
