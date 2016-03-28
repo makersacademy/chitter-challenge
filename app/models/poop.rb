@@ -5,7 +5,7 @@ class Poop
   
 
   property :id, Serial
-  property :poop_msg, String
+  property :poop_msg, Text
   property :created_at, DateTime
 
   belongs_to :user
