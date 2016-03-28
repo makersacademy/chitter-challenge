@@ -6,7 +6,7 @@ feature 'Sign in' do
 
   scenario 'user can go to sign in page' do
     visit '/'
-    click_link 'Sign in'
+    click_button 'Sign in'
     expect(current_path).to eq '/sessions/new'
   end
 

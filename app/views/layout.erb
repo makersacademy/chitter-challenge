@@ -3,14 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Chittr</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <% unless current_user %>
       <nav>
-        <ul>
-          <li><a href="/users/new">Sign up</a></li>
-          <li><a href="/sessions/new">Sign in</a></li>
-        </ul>
+        <form action="/users/new">
+          <button type="submit" name="sign_up">Sign up</button>
+        </form>
+        <form action="/sessions/new">
+          <button type="submit" name="sign_up">Sign in</button>
+        </form>        
       </nav>
     <% else %>
       <nav>

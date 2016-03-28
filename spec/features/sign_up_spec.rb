@@ -1,7 +1,7 @@
 feature 'Sign up' do
   scenario 'user can go to registration page' do
     visit '/'
-    click_link 'Sign up'
+    click_button 'Sign up'
     expect(current_path).to eq '/users/new'
   end
 
