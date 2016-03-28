@@ -6,7 +6,6 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'tilt/erb'
 
-
 require_relative './models/user'
 require_relative './models/peep'
 require_relative './helpers/view_helper'
