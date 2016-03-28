@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Chitter</title>
-      <p></p><center>
+      <br><br><center>
         <img src="http://bit.ly/1RI9rlt">
-      <p></p>
+      <br><br>
     </center>
   </head>
 
@@ -23,7 +23,7 @@
         <%= yield %>
 
         <% if current_user %>
-          <p> </p>
+          <br>
           <form method='post' action='/sessions'>
             <input type='hidden' name='_method' value='delete'>
             <input type='submit' value='Sign out'/>
