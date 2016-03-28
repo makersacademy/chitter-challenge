@@ -1,0 +1,17 @@
+Complete the following to get started on Chitter:
+<p></p>
+<form action='/users/new' method='post'>
+  <input type='text' name='username' placeholder="<%= @user.username ||='username' %>">
+
+  <input type='email' name='email' placeholder="<%= @user.email ||='email address' %>" required>
+
+  <input type='password' name='password' placeholder='password'>
+
+  <input type='password' name='pw_confirm' placeholder='confirm password'>
+  <p> </p>
+  <input type='submit' value='Register'>
+</form>
+<p></p>
+<form action='/'>
+  <input type='submit' value='Go back'>
+</form>

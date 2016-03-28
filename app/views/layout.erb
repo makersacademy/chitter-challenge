@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+      <p></p><center>
+        <img src="http://bit.ly/1RI9rlt">
+      <p></p>
+    </center>
+  </head>
+
+  <body bgcolor="#F5F5F5">
+    <center>
+      <font face="verdana">
+        
+        <% if flash[:errors] && !flash[:errors].empty? %>
+        Refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li> <%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= yield %>
+      </font>
+    </center>
+  </body>
+</html>
