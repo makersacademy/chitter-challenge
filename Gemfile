@@ -9,7 +9,7 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'database_cleaner'
 gem 'pry'
-
+gem 'rake'
 
 
 group :test do
@@ -17,7 +17,6 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'simplecov'
 end
