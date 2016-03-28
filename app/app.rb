@@ -1,8 +1,10 @@
-ENV['ENV_RACK'] ||= 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require 'sinatra/partial'
+require_relative 'data_mapper_setup'
+
 
 class Chitter < Sinatra::Base
 
@@ -54,8 +56,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    current_user = User.get(session[:user_id])
+    #current_user = User.get(session[:user_id])
+    @peeps = Peep.all
     erb :'home/index'
+  end
+
+  post '/peep/new' do
+    peep = Peep.new(message: params[:message])
+    current_user.peeps << peep
+    peep.save
+    redirect to '/home'
   end
 
   delete '/sessions' do

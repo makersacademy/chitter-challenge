@@ -13,4 +13,25 @@
     </form>
   </div>
 </div>
+<div class='peep-add'>
+  <div class='peep-box'>
+    <form class='peep-form' action='/peep/new' method='POST'>
+      <input class='peep-content' type="textarea" name='message' placeholder="what's going on?" maxlength='140'>
+      <input class='peep-button' type='submit' value='Peep'>
+    </form>
+  </div>
+</div>
 <% end %>
+
+<div class='peep-stream'>
+  <ul class='stream-items' id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li class='stream-item'>
+      <p class='peep-name'><%= peep.user.name %></p>
+      <p class='peep-username'><%= peep.user.username %></p>
+      <p class='peep-message'><%= peep.message %></p>
+      <p class="peep-time"><%= peep.created_at %></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
