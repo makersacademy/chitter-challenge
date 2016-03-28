@@ -39,19 +39,19 @@ then go to **localhost:9292** in your browser
 
 Technologies Used
 -------
-Ruby (basis of most of it)
-Sinatra (good for making micro-apps, including sinatra-flash, rspec-sinatra, sinatra-partial)
-Postgresql (to create the databases)
-Datamapper (to talk to the databases)
-Heroku (to host)
-HTML (to do the basic website content)
-Bcrypt (for encrypting the passwords)
-DatabaseCleaner (for testing)
-Rspec (for testing)
-Capybara (for acceptance testing)
-Coveralls (test code coverage)
-Sketchbook (for touching up the pictures)
-Imgur (for hosting images)
+Ruby (basis of most of it)  
+Sinatra (good for making micro-apps, including sinatra-flash, rspec-sinatra, sinatra-partial)  
+Postgresql (to create the databases)  
+Datamapper (to talk to the databases)  
+Heroku (to host)  
+HTML (to do the basic website content)  
+Bcrypt (for encrypting the passwords)  
+DatabaseCleaner (for testing)  
+Rspec (for testing)  
+Capybara (for acceptance testing)  
+Coveralls (test code coverage)  
+Sketchbook (for touching up the pictures)  
+Imgur (for hosting images)  
 
 Author
 -------
