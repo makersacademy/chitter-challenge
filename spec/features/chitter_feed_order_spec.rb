@@ -2,14 +2,11 @@ feature 'Chitter feed are reverse chronological order' do
   scenario 'Peeps appear in reverse chronological order' do
     sign_up
     click_button 'Add peep'
-    fill_in :message, with: 'First!'
+    fill_in :message, with: 'First peep!'
     click_button 'Peep!'
     click_button 'Add peep'
-    fill_in :message, with: 'Second!'
+    fill_in :message, with: 'Second peep!'
     click_button 'Peep!'
-    click_button 'Add peep'
-    fill_in :message, with: 'Third!'
-    click_button 'Peep!'
-    expect(page).to have_content("First!")
+    expect('Second peep!').to appear_before 'First peep!'
   end
 end

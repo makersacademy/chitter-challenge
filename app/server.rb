@@ -8,15 +8,6 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
-
-  get '/' do
-    if current_user
-      redirect '/chitter-feed/peeps'
-    else
-      erb :index
-    end
-  end
-
   helpers do
     def current_user
       @current_user = User.get(session[:user_id])
@@ -24,6 +15,5 @@ class Chitter < Sinatra::Base
   end
 #
 # # start the server if ruby file executed directly
-#   run! if app_file == $0
-
+  run! if app_file == $0
 end

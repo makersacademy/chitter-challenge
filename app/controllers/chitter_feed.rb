@@ -1,4 +1,13 @@
 class Chitter < Sinatra::Base
+
+    get '/' do
+      if current_user
+        redirect '/chitter-feed/peeps'
+      else
+        erb :index
+      end
+    end
+
     get '/chitter-feed/peeps' do
       @peeps = Peep.all.reverse
       erb :'chitter_feed/peeps'
