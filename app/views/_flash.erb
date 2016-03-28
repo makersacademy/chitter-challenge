@@ -1,0 +1,13 @@
+<% if flash[:message] %>
+  <div id='error'><%= flash[:message] %></div>
+  <p></p>
+<% end %>
+
+<% if flash[:error] %>
+  <ul id='error'>
+    <% flash[:error].each do |error| %>
+     <li><%= error %></li>
+    <% end %>
+  </ul>
+  <p></p>
+<% end %>

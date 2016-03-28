@@ -1,0 +1,30 @@
+<div id='message'>
+  <% if current_maker %>
+    <h3>Oh hey <%= @maker.name %>!</h3>
+      <form action='/peeps/new' method="post">
+        <textarea cols="30" rows="3" name='text'
+          placeholder='What will you peep about today?'></textarea>
+        <p> <button id='first'>Peep!</button> </p>
+      </form>
+      <form action='/session' method='post'>
+            <input type=hidden name='_method' value='delete'>
+            <button id='second'>Log Out</button>
+      </form>
+  <% else %>
+    <h3>Hey guest!</h3>
+      Check out the chitter:
+    <p ><form action='/'>
+      <button style='margin-left: 40px;'>I want in!</button>
+    </form></p>
+  <% end %>
+</div>
+
+  <% if !Peep.all.empty? %>
+    <% Peep.all.reverse.each do |peep| %>
+      <p><li class='peep'>
+        <span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>on <%= peep.date %> at <%= peep.time %></span>
+      </li></p>
+      <% end %>
+  <% else %>
+    No peeps here!
+  <% end%>

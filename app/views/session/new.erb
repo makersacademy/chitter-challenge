@@ -1,0 +1,16 @@
+<div class='creds'>
+  <h3>Log in to get chittering!</h3>
+    <form action='/session' method='post'>
+      <p><label for="username">Username:</label></p>
+        <input type=text name="username">
+      <p><label for="password"></label>Password:</p>
+        <input type=password name="password">
+      <p><button>Log in!</button></p>
+    </form>
+
+  <% if flash[:error]%>
+    <form action='/maker/new'>
+      <button>Whoops! Take me to sign up</button>
+    </form>
+  <% end %>
+</div>
