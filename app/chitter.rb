@@ -74,7 +74,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitter/new' do
-    peep = Peep.create(message: params[:message])
+    peep = Peep.create(message: params[:message], time: Time.now)
     current_user = User.get(session[:user_id])
     current_user.peeps << peep
     current_user.save

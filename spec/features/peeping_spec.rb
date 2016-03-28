@@ -1,4 +1,3 @@
-# require 'web_helper'
 
 feature 'User chitter experience' do
   include Helpers
@@ -17,9 +16,6 @@ feature 'User chitter experience' do
         expect(page).to have_content("ghost peeped")
       end
     end
-
-    # scenario 'peeps are limited to 140 chars' do
-    # end
   end
 
   context 'User cannot peep' do
@@ -36,15 +32,28 @@ feature 'User chitter experience' do
     end
   end
 
-  scenario 'peeps are displayed in reversed order' do
-    visit '/'
-    sign_up
-    sign_in
-    fill_in('message', with: 'Winter is comming!')
-    click_button('Peep')
-    fill_in('message', with: 'Who is my mother?')
-    click_button('Peep')
-    expect('Who is my mother?').to appear_before 'Winter is comming!'
+  feature 'Users can see peeps' do
+    before(:each) do
+      visit '/'
+      sign_up
+      sign_in
+      fill_in('message', with: 'Winter is comming!')
+      click_button('Peep')
+    end
+
+    scenario 'peeps are displayed in reversed order' do
+      fill_in('message', with: 'Who is my mother?')
+      click_button('Peep')
+      expect('Who is my mother?').to appear_before 'Winter is comming!'
+    end
+
+    scenario 'All peeps have the time they were created' do
+      time = Time.now.strftime("%Y-%m-%d %H:%M")
+      within 'article#peeps' do
+        expect(page).to have_content('Winter is comming!')
+        expect(page).to have_content("ghost peeped @ #{time}")
+      end
+    end
   end
 
   feature 'On Chitter page' do

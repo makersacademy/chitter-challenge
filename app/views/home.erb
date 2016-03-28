@@ -1,6 +1,5 @@
   <h2>This is Chitter!</h2>
 
-<!-- if not signed in, put sign in and sign up buttons -->
 <% unless current_user %>
   <form action='/users/new'>
     <input type='submit' value='Sign up'>
@@ -25,8 +24,8 @@
 <article id='peeps'>
   <% unless Peep.all.empty? %>
     <% Peep.all.reverse.each do |one_post| %>
-      <%= one_post.message %>
-      <%= one_post.user.username %> peeped
+      <p><%= one_post.message %></p>
+      <p><%= one_post.user.username %> peeped @ <%= one_post.time %></p>
     <% end %>
   <% end %>
 </article>

@@ -42,6 +42,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+
 Installation and use
 ----------------------
 
@@ -62,6 +63,10 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
+
+Future Features
+-------
+* Max character length of each peep is 140
 
 Author
 ------
