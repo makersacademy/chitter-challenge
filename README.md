@@ -1,6 +1,7 @@
 Chitter Challenge - Author Harsheet Patel
 [![Build Status](https://travis-ci.org/hkp108/chitter-challenge.svg?branch=master)](https://travis-ci.org/hkp108/chitter-challenge
-[![Coverage Status](https://coveralls.io/repos/github/hkp108/chitter-challenge/badge.svg?branch=master)]
+[![Coverage Status](https://coveralls.io/repos/github/hkp108/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/hkp108/chitter-challenge?branch=master)
+
 =================
 
 Instructions
