@@ -15,4 +15,10 @@ class Chittr < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Thanks for your visit. Have a good day!"
+    redirect to :'/'
+  end
+
 end

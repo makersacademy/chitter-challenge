@@ -13,6 +13,16 @@
         </ul>
       </nav>
     <% else %>
+      <nav>
+        <ul>
+          <li>
+            <form action="/sessions" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" name="sign_out" value="Sign out">
+            </form>
+          </li>
+        </ul>
+      </nav>
       <head>
         <h1>Welcome, <%= current_user.username %></h1>
       </head>
