@@ -1,14 +1,19 @@
 <% unless @filter_type.nil? %>
 <%= erb :filtered_list %>
 <% end %>
-<ul name="peep_list">
+
+<div name="peep_list">
+  <div>Hottest peeps right now:</div>
   <% @peep_list.reverse.each do |peep| %>
-    <li><%= peep.content %> tags:
+    <div class="peep_block">
+      <div class="peep_text"><%= peep.content %>
       <% peep.tags.map(&:name).each do |tag| %>
         <a href="/peeps/<%=tag %>">#<%= tag %></a>
       <% end %>
-      at: <%= peep.date.strftime("%H:%M:%S on %d-%m") %>
-      by_id: <%= peep.user_id %>
-    </li>
+      </div>
+      <div class="peep_info">
+        posted by <%= peep.user_id %> at <%= peep.date.strftime("%H:%M:%S on %d-%m") %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

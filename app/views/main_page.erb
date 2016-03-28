@@ -3,6 +3,6 @@
 <%= erb :new_peep_form %>
 <% else %>
 <%= erb :login_form %>
-<p><i>You can not peep until you log in</i></p>
+<div id="not_logged"><i>You can not peep until you log in</i></div>
 <% end %>
 <%= erb :peeps_list %>

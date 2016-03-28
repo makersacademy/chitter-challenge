@@ -1,9 +1,7 @@
-<h4>You're browsing as an anonymous user..please sign up!</h4>
-
-<form action='/login' method='post'>
-    <input type='text' name='username' placeholder="Username">
-    <input type='text' name='password' placeholder="Password">
-    <button type ='submit' value='login'>Log In</button>
+<form action='/login' method='post' id="login_form">
+  <div>Login over here!</div>
+  <div><input type='text' name='username' placeholder="Username" class="login_text"></div>
+  <div><input type='text' name='password' placeholder="Password" class="login_text"></div>
+  <a href="/signup" id="register_link">Not registered yet? Sign up, it's free</a>
+  <button type ='submit' value='login'>Log In</button>
 </form>
-
-<p><a href="/signup">Not registered yet? Sign up, it's free</a></p>
