@@ -1,8 +1,8 @@
 Chitter Challenge
 =================
-[![Build Status](https://travis-ci.org/shaneoston72/chitter-challenge.svg?branch=master)](https://travis-ci.org/shaneoston72/chitter-challenge)
+[![Build Status](https://travis-ci.org/shaneoston72/chitter-challenge.png?branch=master)](https://travis-ci.org/shaneoston72/chitter-challenge)
  --------		 
- [![Coverage Status](https://coveralls.io/repos/github/shaneoston72/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/shaneoston72/chitter-challenge?branch=master)
+
 ## Instructions to use and run tests
 1. Fork repository.
 2. Clone repository to your local machine.
