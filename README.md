@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tobenna/chitter-challenge.svg?branch=master)](https://travis-ci.org/tobenna/chitter-challenge)[![Coverage Status](https://coveralls.io/repos/github/tobenna/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/tobenna/chitter-challenge?branch=master)
+[![Build Status](https://travis-ci.org/tobenna/chitter-challenge.svg?branch=master)](https://travis-ci.org/tobenna/chitter-challenge)  [![Coverage Status](https://coveralls.io/repos/github/tobenna/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/tobenna/chitter-challenge?branch=master)
 Chitter
 ==================
 
