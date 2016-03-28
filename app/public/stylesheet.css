@@ -1,4 +1,70 @@
 body {
-  background-color:#eef7f7;
+
   font-family:OpenSans;
+  background-image:url("http://image.pstune.com/photos/ynjjfdgfpow/hfsuonskyly_middle.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #132E16;
+}
+
+table {
+
+  margin:auto;
+  width: 350px;
+
+}
+
+
+th {
+  text-decoration:underline;
+  margin-bottom: -5px;
+  color:#15521D;
+}
+
+
+.peep_info {
+  color:rgba(21, 82, 29, 0.6);
+}
+#peep_text {
+  background: rgba(21, 82, 29, 0.6);
+  color:#ffffff;
+}
+
+.button {
+
+  background-color:transparent;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:3px;
+  border:1px solid #15521D;
+  display:inline-block;
+  cursor:pointer;
+  color:#15521D;
+  font-family: OpenSans;
+  font-size:1em;
+  text-decoration:none;
+  float:right;
+
+}
+
+#navbar {
+  margin-right: 10%;
+  display: block;
+
+}
+
+#peeps {
+  margin-top: 200px;
+  display:block;
+  clear:right;
+}
+
+
+#title {
+
+font-size: 3em;
+font-family: OpenSans;
+  color:rgba(21, 82, 29, 0.6);
+text-align: center;
+    
 }

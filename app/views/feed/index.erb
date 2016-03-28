@@ -1,19 +1,19 @@
-<table border="1px">
+<table>
   <thead >
-    <th colspan="3">
+    <th colspan="3" id="tb_title">
       <h2> Latest Peeps!</h2> 
     </th>
   </thead>
   <tbody>
     <%@feed.reverse.each do |peep|%>
       <tr> 
-        <td colspan="3"><%=peep.peep%> </td>
+        <td colspan="3" id="peep_text"><%=peep.peep%> </td>
       </tr>
 
       <tr>
-        <td><%=peep.user.name%></td>
-        <td><%=peep.user.username %></td>
-        <td><%=peep.created_at.strftime("%R %a %d/%m")%></td>
+        <td class="peep_info"><%=peep.user.name%></td>
+        <td class="peep_info">@<%=peep.user.username %></td>
+        <td class="peep_info" style="text-align: right"><%=peep.created_at.strftime("%R %a %d/%m")%></td>
       </tr>
     <%end%>
   </tbody>
