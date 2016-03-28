@@ -22,17 +22,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    @peeps = Peep.all(order: [:created_at.desc])
-    erb(:home)
   end
   get '/' do
+    @peeps = Peep.all(order: [:created_at.desc])
     @title = "Hello"
-    erb(:user_options)
+    erb(:home)
   end
 
   get '/sessions/new' do
     @title = 'Sign-in'
-
     erb(:'sessions/new')
   end
 
@@ -40,7 +38,7 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect to('/home')
+      redirect to('/')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb(:'sessions/new')
@@ -52,8 +50,6 @@ class Chitter < Sinatra::Base
       flash.keep[:notice] = 'Over and Out!'
       redirect to('/')
   end
-
-
 
 
   get '/users/new' do
@@ -69,7 +65,7 @@ class Chitter < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/home')
+      redirect to('/')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb(:'/users/new')
@@ -78,7 +74,7 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
     peep = Peep.create(peep: params[:peep], created_at: DateTime.now)
-    redirect to('/home')
+    redirect to('/')
   end
 
 

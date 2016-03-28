@@ -10,7 +10,16 @@
     <h2><%= @title %></h2>
 
 
-    <% if current_user %>
+    <% if !current_user %>
+    <body>
+        <form class="" action='/users/new' method="get">
+          <input type="submit" value="Sign up">
+        </form>
+        <form class="" action='/sessions/new' method="get">
+          <input type="submit" value="Sign in">
+        </form>
+    </body>
+    <% else %>
     <h2><%= current_user.username %></h2>
       <form class="add_form" action="/sessions" method="post">
         <input type='hidden' name='_method' value='delete'>
@@ -21,7 +30,6 @@
         <input type="text" name="peep" placeholder="peep" > <input type="submit" value="Peep!">
       </div>
       <div class="">
-
       </div>
     <% end %>
 
