@@ -18,7 +18,10 @@
         null,
         1,
         1,
-        66,
+        79,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -74,6 +77,13 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -135,7 +145,7 @@
         null,
         null
       ],
-      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/app/models/peeps.rb": [
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/app/models/peep.rb": [
         1,
         null,
         1,
@@ -157,10 +167,13 @@
         1,
         1,
         1,
-        0,
-        0,
-        0,
-        0,
+        null,
+        null,
+        1,
+        2,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -201,6 +214,12 @@
         5,
         5,
         5,
+        null,
+        null
+      ],
+      "/Users/hanfak/Dropbox/MA/Projects/chitter-challenge/spec/features/peeps_list_spec.rb": [
+        null,
+        null,
         null,
         null
       ],
@@ -340,6 +359,6 @@
         null
       ]
     },
-    "timestamp": 1459092971
+    "timestamp": 1459150085
   }
 }

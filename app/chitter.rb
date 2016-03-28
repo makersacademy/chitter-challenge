@@ -73,6 +73,15 @@ class Chitter < Sinatra::Base
 
   end
 
+  post '/chitter/new' do
+    peep = Peep.create(message: params[:message])
+    current_user = User.get(session[:user_id])
+    current_user.peeps << peep
+    current_user.save
+    peep.save
+    erb(:home)
+  end
+
 
   run! if app_file == $0
 end

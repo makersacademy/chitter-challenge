@@ -1,3 +1,19 @@
   <h2>This is Chitter!</h2>
 
 <!-- if not signed in, put sign in and sign up buttons -->
+
+  <% if current_user %>
+    <div id='post'>
+      <form action='/chitter/new' method='post'>
+        Peep something
+        <input style='width: 250px' type='text' name='message' required>
+        <input type='submit' value='Peep'>
+    </div>
+  <% end %>
+
+  <article id='peeps'>
+    <% if !Peep.all.empty? %>
+      <%= Peep.all.first.message %>
+      <%= Peep.all.first.user.username %> peeped
+    <% end %>
+  </article>

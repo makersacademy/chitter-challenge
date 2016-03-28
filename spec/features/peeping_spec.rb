@@ -3,13 +3,16 @@ require 'web_helper'
 feature 'User can peep' do
   include Helpers
 
-  scenario ' when logged in' do
+  before do
     sign_up
     sign_in
-    fill_in('message', with: 'Test post')
-    click_button('Peep')
-    within 'div#chitters' do
-      expect(page).to have_content('Test post')
+    fill_in('message', with: 'Winter is comming!')
+  end
+
+  scenario ' when logged in' do
+    expect{ click_button('Peep') }.to change(Peep, :count).by(1)
+    within 'article#peeps' do
+      expect(page).to have_content('Winter is comming!')
       expect(page).to have_content("ghost peeped")
     end
   end
