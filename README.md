@@ -5,12 +5,13 @@ Chitter Challenge
 * Contextual 'flash' messages
 * Eliminate password confirmation
 * Add the ability to log in with either email or username.
+* add or change Rack::Session::Cookie to prevent session from staying up if user does not click "Log out" (see [http://fonicmonkey.net/2013/08/12/banish-your-session-has-expired/])
 
 ## Testing
 * Test error messages for properties that do not have explicit messages.
 
 ## Bugs
-* How to handle someone logging out, hitting back and getting an error. 
+* How to handle someone logging out, hitting back and getting an error.
 
 Features:
 -------

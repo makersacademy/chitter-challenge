@@ -1,10 +1,10 @@
-<div class="hero-wrapper">
+<div class='hero-wrapper'>
   <h1>Chitter</h1>
   <h2>See who's peeping now.</h2>
   <h3>Find lunacy, mindlessness, and drivel.</h3>
 </div>
 
-<div class="Login-wrapper">
+<div class='Login-wrapper'>
   <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
   <% end %>
@@ -16,8 +16,13 @@
   </form>
 </div>
 
-<div class="Signup-callout">
+<div class='Signup-callout'>
   <h2>New to Chitter? Don't have an account?</h2>
   <p>Sign up to join the fun.</p>
   <a href='/signup'>Sign up</a>
+</div>
+
+<div class='guest-wrapper'>
+  <h2>Take a look without an account.</h2>
+  <a href='/home'>See Peeps</a>
 </div>
