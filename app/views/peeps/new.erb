@@ -1,0 +1,23 @@
+Hi <%= current_user.username %>
+<p> </p>
+What's new today?
+<p> </p>
+<form action='/peeps/new' method='post'>
+  <input type='text' name='peep' placeholder='Share your thoughts'>
+  <input type='submit' value='Post peep'/>
+</form>
+
+<p></p>
+Chitter feed:
+<p></p>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%=peep.username%>:
+    <%=peep.peep%>
+    (at: <%=peep.time%>)
+    <p></p>
+  </li>
+</ul>
+<% end %>

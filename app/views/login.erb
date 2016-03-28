@@ -1,9 +1,17 @@
-Hello.
-<p> </p>
-<form action='/users/new' method='get'>
-    <input type='submit' value='Sign up'/>
-</form>
-<p> </p>
-<form action='/sessions/new'>
-    <input type='submit' value='Sign in'/>
-</form>
+<% if current_user %>
+  Welcome back <%= current_user.username %>
+  <p> </p>
+    <form action='/peeps/new'>
+      <input type='submit' value='Show feed'/>
+    </form>
+  <% else %>
+  Hello.
+  <p> </p>
+    <form action='/users/new' method='get'>
+        <input type='submit' value='Sign up'/>
+    </form>
+  <p> </p>
+    <form action='/sessions/new'>
+        <input type='submit' value='Sign in'/>
+    </form>
+<% end %>

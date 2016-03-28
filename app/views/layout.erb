@@ -11,7 +11,7 @@
   <body bgcolor="#F5F5F5">
     <center>
       <font face="verdana">
-        
+
         <% if flash[:errors] && !flash[:errors].empty? %>
         Refer to the following errors below:
         <ul id='errors'>
@@ -21,6 +21,14 @@
           </ul>
         <% end %>
         <%= yield %>
+
+        <% if current_user %>
+          <p> </p>
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'/>
+          </form>
+        <% end %>
       </font>
     </center>
   </body>

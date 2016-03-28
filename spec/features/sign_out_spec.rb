@@ -1,3 +1,5 @@
+require 'pry'
+
 feature "User can sign out" do
 
   scenario "while signed in" do

@@ -9,13 +9,12 @@ feature "New user sign up" do
   end
 
   scenario "increases user count by one" do
-    # binding.pry
     expect{ register }.to change(User, :count).by(1)
   end
 
   scenario "redirects signed in user to welcome page" do
     register
-    expect(page).to have_content("Welcome")
+    expect(page).to have_content("Hi")
   end
 
   scenario "with mismatching password and confirmation" do
