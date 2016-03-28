@@ -12,6 +12,6 @@ class Peep
   belongs_to :user
 
   def time
-    @created_at.strftime('%T %v')
+    @created_at.strftime('%H:%M - %d %B %Y')
   end
 end
