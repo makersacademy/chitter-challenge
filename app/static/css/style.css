@@ -48,6 +48,14 @@ button {
 }
 
 input#signout {
+  float: left;
+}
+
+p#copyright {
+  float: left;
+}
+
+input#signout {
   float: right;
   font-size: 10pt;
   background-color: #FFD79E;
