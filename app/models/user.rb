@@ -1,5 +1,4 @@
 require 'bcrypt'
-require 'pry'
 
 class User
   include BCrypt
@@ -25,5 +24,5 @@ class User
   property :name, String, :required => true
   property :username, String, :required => true, :unique => true
   property :password_hash, String, length: 128
-
+  has n, :peeps
 end

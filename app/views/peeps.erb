@@ -1,1 +1,9 @@
-PEEPS
+<form action='/peeps/new' method='post'>
+  <input name='peep' type='text'>
+  <input type='submit' value='Peep!'>
+</form>
+
+<% @peeps.each do |peep| %>
+  <%= User.first(id: peep.user_id).username %> peeped:
+  <%= peep.message %> 
+<% end %>
