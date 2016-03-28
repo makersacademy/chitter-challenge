@@ -1,0 +1,46 @@
+<body bgcolor='LemonChiffon'>
+<center>
+  <br>
+  <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
+  <font face="Futura">
+  <div>
+    <h2>Create a Chitter account</h2>
+  </div>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <h3>↓ Oops, errors in following areas... ↓</h3>
+      <h4><% flash[:errors].each do |error| %>
+        <div>* <%= error %></div>
+      <% end %></h4>
+  <% end %>
+
+  <form action='/users' method='post'>
+    <div>
+      <input type='text' name='name' placeholder='name'  value='<%= @user.name %>' required>
+      <input type='text' name='username' placeholder='username'  value='<%= @user.username %>' required>
+      <input type='email' name='email' placeholder='email address' value='<%= @user.email %>'required>
+    </div>
+    <br>
+    <div>
+      <input type='password' name='password' placeholder='password' required>
+      <input type='password' name='password_confirmation' placeholder='confirm password' required>
+    </div>
+    <br>
+    <input type='submit' value='Sign up'>
+  </form>
+
+  <div>
+    <h2>Already have an account?</h2>
+    <form action='/sessions'>
+      <input type='submit' value='Log in here'>
+    </form>
+  </div>
+
+  <div>
+    <h2>Just want to see the peeps?</h2>
+    <form action='/home'>
+      <input type='submit' value='Continue as guest'>
+    </form>
+  </div>
+</center>
+</body>

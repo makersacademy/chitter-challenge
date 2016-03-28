@@ -1,111 +1,89 @@
-Chitter Challenge
-=================
+#### Makers Academy Week4 - Chitter challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+### Forget about twitter, use Chitter! [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
-Challenge:
--------
+### 1. Introduction
+Chitter is a user-friendly web browser-based application that allows you to communicate with fellow chitters. You can choose to use it either as a guest or a registered user. As a guest, you can see others' peeps and comments. As a user, you are able to post and comment on peeps.
 
-As usual please start by 
+### 2. Development
+Chitter is written in **Ruby 2.2.3** and has been developed using **Sinatra 1.4.7** ( https://github.com/sinatra/sinatra ). It uses **RSpec 3.2.2** as a platform for behaviour-driven development (BDD) in conjunction with **Capybara 2.6.2** ( https://github.com/jnicklas/capybara#using-capybara-with-rspec ) as an acceptance test framework. The continuous integration is assessed through Travis-CI with the latest test coverage of 100%.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+Password encryption for safer services is provided by **bcrypt** ( https://github.com/codahale/bcrypt-ruby ). The Database is managed by **PostgreSQL** ( http://www.postgresql.org/ ), an open-source Object-Relational Database Management System (ORDBMS). The communication between the database and the application is performed via **DataMapper** ( http://datamapper.org/ ). Online version is supported by a cloud application platform **Heroku** ( https://www.heroku.com/ ).
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+### 3. Installation & How to use
+#### Local mode :
+1. Fork this repo
+2. Copy the URL of the forked repo
+3. Fire up terminal ( or equivalent ) and move to the desired directory, in which you want to create a clone of Chitter
+4. Clone the forked repo : ```$ git clone URL```
+5. Run bundle to install relevant gems : ```$ bundle install```
+6. Run the programme with this command : ```$ rackup```
+7. Check the port number in the terminal output. In the example below, it is *port=4567*
+8. Open a preferred browser and type ```localhost:port number``` into the URL bar. ( e.g. ```localhost:9292``` if port number is 9292 )
+9. The browser should display the sign-up page
 
-Features:
--------
-
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+Example of terminal output upon running ```$ rackup``` :
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+$ ruby mb_rpsls.rb
+[2016-03-28 11:51:17] INFO  WEBrick 1.3.1
+[2016-03-28 11:51:17] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-03-28 11:51:17] INFO  WEBrick::HTTPServer#start: pid=65398 port=9292
+                                                                     ↑
+                                                     This is the port number you need
+                                                         to type into the URL bar
 ```
+#### Remote mode :
+The real fun comes with online version of Chitters! Sign up today and join the pack of friendly people. Available here:
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+https://chitter-app-misa.herokuapp.com
 
-```
-$ coveralls report
-```
+#### How to use :
+Below is a quick demonstration of what your first chitter experience will look like.
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+1. Sign-up :
 
+  Upon visiting the above link, you will be automatically redirected to sign-up page.
+
+  Few things to consider :
+  - username and email must be unique, so can't be used twice
+  - password and password confirmation have to match
+
+    <img src="./app/public/1_signup.png" width="300" height="320">
+
+2. Home :
+
+  Once you sign-up, you will be able to post your own peeps and/or comment on others posts.
+
+  Please note :
+  - peeps and comments can't be longer than 50 characters
+  - be considerate to others... no nasty words please!
+
+    <img src="./app/public/2_home.png" width="300" height="320">
+
+3. Posting a peep :
+
+  Now it's time to post your first peep and introduce yourself to the pack :)
+
+  <img src="./app/public/3_post_peep.png" width="300" height="320">
+
+4. Commenting on a peep :
+
+  Chitter is a place for two-way communication! Expand your circle by commenting on others posts and getting to know each other.
+
+  <img src="./app/public/4_comment.png" width="300" height="320">
+
+5. Log out :
+
+  Once you're satisfied with your session, you can log out from the button on the top-right corner.
+
+  <img src="./app/public/5_logout.png" width="300" height="320">
+
+6. Guest mode :
+
+  As a guest, you are not able to post but you can still see others' peeps and comments.
+
+  <img src="./app/public/6_guest_mode.png" width="300" height="320">
+
+
+### 4. Authour
+Misa Ogura

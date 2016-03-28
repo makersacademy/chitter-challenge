@@ -1,0 +1,77 @@
+<body bgcolor='LemonChiffon'>
+<div align='right'>
+  <% if current_user %>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+  <% end %>
+</div>
+
+<center>
+  <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
+  <font face="Futura">
+  <% if current_user == nil %>
+    <div><h2>Welcome to Chitter, guest!</h2></div>
+    <div><h3>↓ Please sign up or log in to peep↓</h3></div>
+    <form>
+      <input formaction="/users/new" type='submit' value='Sign up'>
+      <input formaction="/sessions" type='submit' value='Log in'>
+    </form>
+  <% else %>
+    <h2>Welcome to Chitter, <%= @current_user.username %>!</h2>
+  <% end %>
+
+  <% if current_user %>
+    <div id='post'>
+      <form action='/chitters/new' method='post'>
+        <input style='width: 310px' type='text' name='message' placeholder="     Peep your feelings in 50 characters... no essay please!" maxlength="50" required>
+        <input type='submit' value='Peep'>
+      </form>
+    </div>
+  <% end %>
+
+  <div id='chitters'>
+    <% if !Post.all.empty? %>
+      <% Post.all.reverse.each do |post| %>
+        <p style="margin-bottom: 40px;"><font color="IndianRed">
+          <h3><%= post.message %></h3>
+          <font color="DarkSalmon">
+          <h5><%= post.user.username %> peeped @ <%= post.timestamp %></h5>
+          <% if !current_user.nil? && current_user.id == post.user.id %>
+            <form action='/chitters/delete' method='post'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='hidden' name='delete_id' value='<%= post.id %>'>
+              <input id='delete_post_<%= post.id %>' type='submit' value='Delete this peep' onclick="return confirm('Are you sure to delete this peep? It is irreversible!!')">
+            </form>
+          <% end %>
+          <% if !post.comments.empty? %>
+            <% post.comments.reverse.each do |comment| %>
+              <font color="Teal"><h4><%= comment.comment %></h4>
+              <font color="CadetBlue"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
+              <% if !current_user.nil? && current_user.id == comment.user.id %>
+                <form action='/comments/delete' method='post'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input type='hidden' name='delete_id' value='<%= comment.id %>'>
+                  <input id='delete_comment_<%= comment.id %>' type='submit' value='Delete this comment' onclick="return confirm('Are you sure to delete this comment? It is irreversible!!')">
+                </form>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if current_user %>
+            <form id='<%= post.id %>' action='/comments/new' method='post'>
+              <input type='hidden' name='id' value='<%= post.id %>'>
+              <input style='width: 220px' type='text' name='comment' placeholder='  Comment on this peep... (50 characters)' maxlength="50" required>
+              <input type='submit' value='Comment'>
+            </form>
+          <% end %>
+        </p>
+      <% end %>
+    <% else %>
+      <p style="margin-bottom: 40px;"><font color="Teal">
+        <h3>No peeps has been posted...</h3>
+      </p>
+    <% end %>
+  </div>
+</center>
+</body>

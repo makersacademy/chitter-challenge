@@ -1,0 +1,29 @@
+<body bgcolor='LemonChiffon'>
+<center>
+  <br>
+  <img src='http://megaicons.net/static/img/icons_sizes/8/178/256/pets-bird-icon.png' width="80" height="80" >
+
+  <font face="Futura">
+  <div>
+    <h2>Log in below:</h2>
+  </div>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <h3><%= flash[:errors] %>... try again</h3>
+  <% end %>
+
+  <form action='/sessions/new' method='post'>
+    <input type='text' name='email' placeholder='email' required>
+    <input type='password' name='password' placeholder='password' required>
+    <input type='submit' value='Log in'>
+  </form>
+
+  <div>
+    <h2><p>Don't have an account?</h2>
+  </div>
+
+  <form action='/users/new'>
+    <input type='submit' value='Sign up here'>
+  </form>
+</center>
+</body>
