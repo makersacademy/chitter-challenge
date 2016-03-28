@@ -2,6 +2,8 @@
 Cheetah
 =================
 
+[![Build Status](https://travis-ci.org/MuriloDalRi/chitter-challenge.svg?branch=master)](https://travis-ci.org/MuriloDalRi/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/MuriloDalRi/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/MuriloDalRi/chitter-challenge?branch=master)
+
 * Cheetah is live [here](https://murilo-cheetah.herokuapp.com)
 * Alternatively you can fork this repository and follow this instructions:
 
