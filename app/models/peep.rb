@@ -6,5 +6,5 @@ class Peep
   property :time, DateTime, required: true
 
   belongs_to :user
-  has n, :comments
+  has n, :comments, constraint: :destroy
 end

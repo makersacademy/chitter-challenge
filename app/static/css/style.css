@@ -71,7 +71,7 @@ button#comment, button#rmpeep, button#rmcomment {
   padding: 5px;
 }
 
-button#rmpeep, button#rmcomment {
+button.rmpeep, button#rmcomment {
   margin-bottom: 25px;
   margin-top: 0px;
 }

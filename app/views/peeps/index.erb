@@ -9,7 +9,7 @@
     <% if current_user && current_user.id == peep.user_id %>
       <form method='post' action='/peeps/remove'>
         <input type='hidden' name='id' value='<%= peep.id %>'>
-        <button id='rmpeep'>Remove purr</button>
+        <button class='rmpeep'>Remove purr</button>
       </form>
     <% end %>
 
