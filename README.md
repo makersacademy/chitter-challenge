@@ -48,7 +48,7 @@ Or make a comment:
 
 ![Imgur](http://i.imgur.com/CAvJdNn.png)
 
-Enjoy! :sunglasses:
+Or, you can click [here](https://bonjour-chitter.herokuapp.com/peeps) to use Chitter online. Enjoy! :sunglasses:
 
 Testing :white_check_mark:
 -------
