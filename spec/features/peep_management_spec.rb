@@ -18,8 +18,8 @@ feature 'Peeps show up in reverse chronological order' do
     create_peep(text: 'First Peep', time: Time.mktime(1))
     create_peep(text: 'Second Peep', time: Time.now)
     visit '/peeps/new'
-    expect(find('.peep-list > div:nth-child(1)')).to have_content 'Second Peep'
-    expect(find('.peep-list > div:nth-child(2)')).to have_content 'First Peep'
+    expect(find('.peep-list > article:nth-child(2)')).to have_content 'Second Peep'
+    expect(find('.peep-list > article:nth-child(3)')).to have_content 'First Peep'
   end
 end
 
@@ -30,7 +30,7 @@ feature 'Peeps shows the time it was made' do
     create_peep(text: 'First Peep', time: Time.mktime(1))
     visit '/peeps/new'
     time = '01 01, 0001, 00:00'
-    expect(find('.peep-list div:nth-child(1)')).to have_content 'First Peep'
-    expect(find('.peep-list div:nth-child(1)')).to have_content time
+    expect(find('.peep-list article:nth-child(2)')).to have_content 'First Peep'
+    expect(find('.peep-list article:nth-child(2)')).to have_content time
   end
 end
