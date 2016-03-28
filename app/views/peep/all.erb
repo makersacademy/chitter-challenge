@@ -1,0 +1,13 @@
+<% if @peeps %>
+  Current peeps
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.body %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  There are no peeps yet
+<% end %>
