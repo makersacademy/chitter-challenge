@@ -17,14 +17,4 @@
   <div>
     <%= yield %>
   </div>
-
-  <div>
-    <% if current_user %>
-      <%= "Welcome #{current_user.username}" %>
-    <% else %>
-      <a href='/user/sign_in'><button>Sign in</button></a>
-      or
-      <a href='/user/new'><button>Sign Up</button></a>
-    <% end %>
-  </div>
 </body>

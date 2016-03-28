@@ -43,6 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/sign_in' do
+    @user = User.new
     erb :'/user/sign_in'
   end
 
