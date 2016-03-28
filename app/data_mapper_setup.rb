@@ -11,6 +11,6 @@ env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 
-DataMapper.auto_migrate! if ENV['RACK_ENV'] == 'test'
+# DataMapper.auto_migrate! if ENV['RACK_ENV'] == 'test'
 
 DataMapper.finalize
