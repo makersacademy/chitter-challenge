@@ -8,5 +8,4 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   helpers ViewHelper
-
 end
