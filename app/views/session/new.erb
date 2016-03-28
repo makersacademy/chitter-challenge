@@ -1,9 +1,10 @@
-<form method='post' action='/session'>
-  Username: <input type='text' name='username' required>
-  Password: <input type='password' name='password' required>
-  <button type='submit'>Sign in!</button>
-</form>
-
+<div class='form'>
+  <form method='post' action='/session'>
+    <label>Username:</label><input type='text' name='username' required>
+    <label>Password:</label><input type='password' name='password' required>
+    <button type='submit'>Sign in!</button>
+  </form>
+</div>
 <div>
   Not got an account?
   <a href='/user/new'><button>Sign Up</button></a>

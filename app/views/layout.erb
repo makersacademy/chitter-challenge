@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <head>
+  <title>Chitter</title>
+  <meta charset="utf-8">
+  <link href='/css/stylesheet.css' rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <% if flash[:error_messages] %>
-    <h2>Please refer to the following errors:</h2>
-    <p>
-      <ul>
-        <% flash[:error_messages].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    </p>
-  <% end %>
+  <div class='content'>
+    <div class='header'>
+      <a href='/'><img src='/images/chitter.jpg' width=100px></a>
+    </div>
 
-  <div>
-    <%= yield %>
+    <% if flash[:error_messages] %>
+      <h2>Please refer to the following errors:</h2>
+        <ul>
+          <% flash[:error_messages].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+    <div>
+      <%= yield %>
+    </div>
   </div>
 </body>

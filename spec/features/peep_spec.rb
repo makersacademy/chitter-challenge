@@ -1,8 +1,8 @@
 feature 'peeps' do
   scenario 'homepage shows all peeps' do
     sign_in
-    Peep.create(body: 'This is my first peep!', time: Time.now)
-    Peep.create(body: 'This is my second peep!', time: Time.now)
+    create_peep 'This is my first peep!'
+    create_peep 'This is my second peep!'
     visit '/'
     expect(page).to have_content 'This is my first peep!'
     expect(page).to have_content 'This is my second peep!'
@@ -27,17 +27,26 @@ feature 'peeps' do
 
   scenario 'displays peeps in reverse cronological order' do
     sign_in
-    Peep.create(body: 'This is my first peep!', time: Time.now)
-    Peep.create(body: 'This is my second peep!', time: (Time.now + 3600))
+    create_peep 'This is my first peep!'
+    create_peep 'This is my second peep!'
     visit '/'
     expect('This is my second peep!').to appear_before 'This is my first peep!'
   end
 
-  scenario 'organise peeps by user' do
+  scenario 'peeps include posters name' do
     sign_in
     visit '/peep/new'
     fill_in :body, with: 'This is a peep'
     click_button 'Peep!'
     expect(page).to have_content "Peeped by JohnDude"
+  end
+
+  scenario 'organise peeps by user' do
+    sign_in
+    visit '/peep/new'
+    create_peep 'This is a peep'
+    click_link('JohnDude')
+    expect(page).to have_content "JohnDude"
+    expect(page).to have_content "This is a peep"
   end
 end

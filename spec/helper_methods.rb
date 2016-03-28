@@ -20,3 +20,9 @@ def sign_up
   fill_in :password, with: 'J0hn123!'
   click_button 'Sign in!'
 end
+
+def create_peep message
+  visit '/peep/new'
+  fill_in :body, with: message
+  click_button 'Peep!'
+end

@@ -45,6 +45,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/:username' do
+    @peeps = User.first(username: params[:username]).peeps
+    erb :'peep/all'
+  end
+
   get '/session/new' do
     erb :'/session/new'
   end
