@@ -35,6 +35,6 @@ feature 'Commeting to a post:' do
   scenario 'Comments are desiplayed in reverse chronological order' do
     comment
     comment2
-    page.body.index('Test comment 2') < page.body.index('Test comment')
+    page.body.index('Commenting number 2') < page.body.index('Test comment')
   end
 end

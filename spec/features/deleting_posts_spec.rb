@@ -11,11 +11,11 @@ feature 'Deleting a peep:' do
     post_peep2
     expect(page).to have_content('Test post')
     expect(page).to have_xpath('//input[@type="hidden"][@name="delete_id"]')
-    expect{ delete_peep }.to change(Post, :count).by(-1)
+    expect{ click_button('delete_post_8') }.to change(Post, :count).by(-1)
     expect(page).not_to have_content('Test post')
   end
 
-  scenario 'Other users can\'t delete others\' post' do
+  scenario 'Other users can\'t delete others\' posts' do
     log_out
     sign_up(name: 'Clemence Guillaume',
             username: 'clems',
@@ -25,7 +25,7 @@ feature 'Deleting a peep:' do
     expect(page).not_to have_button('Delete this peep')
   end
 
-  scenario 'Guest can\'t delete others\'post' do
+  scenario 'Guest can\'t delete others\' posts' do
     log_out
     visit('/')
     click_button('Continue as guest')

@@ -11,4 +11,9 @@ class Chitter < Sinatra::Base
     post.save
     redirect to '/home'
   end
+
+  delete '/comments/delete' do
+    Comment.get(params[:delete_id]).destroy
+    redirect to '/home'
+  end
 end

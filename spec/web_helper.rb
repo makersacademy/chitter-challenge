@@ -40,10 +40,6 @@ def comment
 end
 
 def comment2
-  fill_in('comment', with: 'Test comment 2')
+  fill_in('comment', with: 'Commenting number 2')
   expect{ click_button('Comment') }.to change(Comment, :count).by(1)
-end
-
-def delete_peep
-  click_button('delete_5')
 end

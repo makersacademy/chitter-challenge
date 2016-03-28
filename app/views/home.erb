@@ -42,13 +42,20 @@
             <form action='/chitters/delete' method='post'>
               <input type='hidden' name='_method' value='delete'>
               <input type='hidden' name='delete_id' value='<%= post.id %>'>
-              <input id='delete_<%= post.id %>' type='submit' value='Delete this peep'>
+              <input id='delete_post_<%= post.id %>' type='submit' value='Delete this peep' onclick="return confirm('Are you sure to delete this peep? It is irreversible!!')">
             </form>
           <% end %>
           <% if !post.comments.empty? %>
             <% post.comments.reverse.each do |comment| %>
               <font color="Teal"><h4><%= comment.comment %></h4>
               <font color="CadetBlue"><h6><%= comment.user.username %> commented @ <%= comment.timestamp %></h6>
+              <% if !current_user.nil? && current_user.id == comment.user.id %>
+                <form action='/comments/delete' method='post'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input type='hidden' name='delete_id' value='<%= comment.id %>'>
+                  <input id='delete_comment_<%= comment.id %>' type='submit' value='Delete this comment' onclick="return confirm('Are you sure to delete this comment? It is irreversible!!')">
+                </form>
+              <% end %>
             <% end %>
           <% end %>
           <% if current_user %>
