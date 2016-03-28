@@ -10,17 +10,17 @@ You can see the live website https://like-twitter-but-shitter.herokuapp.com/
 
 Installation Instructions
 -------
-```git clone https://github.com/kevinpmcc/chitter-challenge.git
+`git clone https://github.com/kevinpmcc/chitter-challenge.git`
 
-cd chitter-challenge
+`cd chitter-challenge`
 
-bundle
+`bundle`
 
-psql
+`psql`
 
-CREATE DATABASE chitter_test;
-CREATE DATABASE chitter_development;
-\q```
+`CREATE DATABASE chitter_test;`
+`CREATE DATABASE chitter_development;`
+`\q`
 
 To run tests 
 
@@ -28,7 +28,8 @@ To run tests
 
 To run on local server
 
-```rackup```
+``rackup``
+
 
 then go to **localhost:9292** in your browser
 
