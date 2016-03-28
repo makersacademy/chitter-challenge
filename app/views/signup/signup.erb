@@ -14,17 +14,14 @@
   <% if flash[:notice] %>
     <div class='noticebox'>
       <div id='notice'><%= flash[:notice] %></div>
-      Password:<br>
-      <input type='text' name='password'/><br>
-      Confirm password:<br>
-      <input type='text' name='password_confirmation'/><br>
     </div>
-  <% else %>
-      Password:<br>
-      <input type='text' name='password'/><br>
-      Confirm password:<br>
-      <input type='text' name='password_confirmation'/><br>
   <% end %>
+      Password:<br>
+      <input type='password' name='password'/><br>
+      Confirm password:<br>
+      <input type='password' name='password_confirmation'/><br>
+
+
   <input class='signbutton' type='submit' value='Register'/>
 
 </form>

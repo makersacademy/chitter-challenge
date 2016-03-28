@@ -8,17 +8,14 @@
   <% if flash[:notice] %>
     <div class='noticebox' id='signinnotice'>
       <div id='notice'><%= flash[:notice] %></div>
+    </div>
+    <% end %>
       Username:<br>
       <input type='text' name='username'/><br>
       Password:<br>
-      <input type='text' name='password'/><br>
-    </div>
-  <% else %>
-    Username:<br>
-    <input type='text' name='username'/><br>
-    Password:<br>
-    <input type='text' name='password'/><br>
-  <% end %>
+      <input type='password' name='password'/><br>
+
+
   <input class='signbutton' type='submit' value='Sign In'/>
 
 </form>
