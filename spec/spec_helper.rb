@@ -10,6 +10,7 @@ require './app/app'
 require 'database_cleaner'
 require 'features/web_helpers'
 require 'sinatra/flash'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -21,6 +22,9 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

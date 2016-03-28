@@ -14,7 +14,7 @@ feature 'User sign up' do
     fill_in :password, with: 'password123'
     fill_in :password_confirmation, with: 'password124'
     expect {click_button 'Sign up'}.to change(User, :count).by(0)
-    expect(page).to have_content("Passwords don't match")
+    expect(page).to have_content("Password does not match the confirmation")
   end
 
   scenario "I can't sign up without an email address" do
@@ -33,6 +33,17 @@ feature 'User sign up' do
     fill_in :password, with: 'password123'
     fill_in :password_confirmation, with: 'password123'
     expect {click_button 'Sign up'}.to change(User, :count).by(0)
+  end
+
+  scenario 'I cannot sign up with an existing email' do
+    sign_up
+    visit('/users/new')
+    fill_in :username, with: 'AngryAndrew'
+    fill_in :email,    with: 'test@test.com'
+    fill_in :password, with: 'password123'
+    fill_in :password_confirmation, with: 'password123'
+    click_button 'Sign up'
+    expect(page).to have_content('Email is already taken')
   end
 
 end
