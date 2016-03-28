@@ -5,7 +5,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
   use Rack::MethodOverride
-
   enable :partial_underscores
 
   helpers ViewHelper

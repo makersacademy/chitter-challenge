@@ -1,7 +1,6 @@
 class Chitter < Sinatra::Base
 
   get '/peeps/new' do
-    @peeps = Peep.desc
     erb :'/peeps/new'
   end
 
@@ -11,5 +10,4 @@ class Chitter < Sinatra::Base
     peep.save
     redirect to '/peeps/new'
   end
-
 end
