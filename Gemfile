@@ -7,6 +7,9 @@ gem 'data_mapper'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'dm-postgres-adapter'
+gem 'database_cleaner'
+gem 'rspec-sinatra'
 
 group :test do
 
@@ -17,9 +20,8 @@ group :test do
   gem 'rubocop'
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'dm-postgres-adapter'
   gem 'rake'
   gem 'pry'
-  gem 'database_cleaner'
-  gem 'rspec-sinatra'
+
+
 end
