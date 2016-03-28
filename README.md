@@ -2,8 +2,12 @@ TAGS: coveralls travis and stuff.
 
 Instructions:
 ------
-* how it works
-* how to Dl and install
+* This is a clone of twitter
+* Download, check ruby version, run $ bundle
+* Create a clean database, and set its address to $DATABASE_URL
+* Run $ Rake migPro once before starting, and again if you want to scrub the DB
+* Run $ rackup and connect to localhost:9292
+* Instance available at https://frozen-fortress-63985.herokuapp.com/
 
 Description:
 ------
@@ -12,6 +16,20 @@ Description:
 Notes:
 ------
 * rambling
+complete testing
+flash overuse
+controllers
+actual partials
+layout not needed anymore (single page)
+input validation
+guards (fat controller for now)
+where to test what
+extremely easy to get 100% coveralls
+too much logic in views (especially presenting peeps)
+require chains
+travis
+
+
 
 TODO:
 ------
@@ -23,9 +41,5 @@ TODO:
   - user/mail already taken on register
   - empty user/pwd/mail
   - more edges
-* write test for everything
-* write unit test when/if i have a model
-* display link to usernames next to peep (currently user_id, dangerous)
-* filter by user
 * followers
 * display random peeps when not logged, follower(s) ones+few random ones when logged in
