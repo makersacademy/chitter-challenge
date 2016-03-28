@@ -38,6 +38,11 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  post '/peeps/new' do
+   peep = Peep.ceate(message: params[:message])
+   redirect '/peeps'
+ end
+
   get '/sessions/new' do
     erb :'sessions/new'
   end

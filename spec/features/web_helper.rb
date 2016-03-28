@@ -44,3 +44,9 @@ end
     fill_in(:password, with: "secret1234")
     click_button 'Sign in'
   end
+
+def new_peep
+  visit '/peeps/index'
+  fill_in(:message, with: "This is a test peep")
+  click_button 'Post peep'
+end
