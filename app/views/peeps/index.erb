@@ -2,10 +2,9 @@
 
 <div id='newpeep'>
   <% if current_user %>
-    New peep:<br>
     <form action='/postpeep' method='post'>
-      <input type='text' name='new_peep'><br>
-      <input type='submit' value='Submit'>
+      <textarea placeholder='Write a new peep' type='text' name='new_peep'></textarea><br>
+      <input class='signbutton' type='submit' value='Submit'>
     </form>
   <% end %>
 </div>

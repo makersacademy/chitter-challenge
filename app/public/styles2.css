@@ -41,6 +41,18 @@
   background-color: #ECB45E;
   margin:30px;
 }
+
+/* Peep entry box */
+#newpeep textarea{
+  margin-top: 20px;
+  font-family: "Courier";
+  font-size: 12px;
+  border:none;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+}
+
 #peeps{
   padding-left: 0;
   list-style-type: none;
