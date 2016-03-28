@@ -6,5 +6,5 @@ require_relative 'models/peep'
 require_relative 'models/tag'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-puts "SUP #{ENV['RACK_ENV']} SUP" #show current database. wtf..connecting to dev even with no reference. black magic?
+puts "SUP #{ENV['RACK_ENV']} SUP" #show current database. connecting to dev even with no reference. black magic?
 DataMapper.finalize

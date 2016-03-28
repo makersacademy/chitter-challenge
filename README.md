@@ -23,8 +23,6 @@ TODO:
   - user/mail already taken on register
   - empty user/pwd/mail
   - more edges
-  - peep char limit
-* flash views on actions (login/logout/newpeep)
 * write test for everything
 * write unit test when/if i have a model
 * display link to usernames next to peep (currently user_id, dangerous)
