@@ -22,14 +22,18 @@ def sign_in_incorrect_password
   visit '/signin'
   fill_in(:username, with: "Bottycrap")
   fill_in(:password, with: "wrongpassword")
-  click_button("signinbutton")
+  within '#signinform' do
+    click_button("Sign In")
+  end
 end
 
 def sign_in_correctly
   visit '/signin'
   fill_in(:username, with: "Bottycrap")
   fill_in(:password, with: "password")
-  click_button("signinbutton")
+  within '#signinform' do
+    click_button("Sign In")
+  end
 end
 
 def write_peep

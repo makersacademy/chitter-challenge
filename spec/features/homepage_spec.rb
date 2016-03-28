@@ -1,7 +1,7 @@
 feature 'Chitter Home Page' do
   scenario 'Index page is the peeps list' do
     visit '/'
-    expect(page).to have_content "Welcome to Chitter!"
+    expect(page).to have_content "chitter"
   end
 
   scenario 'Shows sign up and sign in buttons' do
