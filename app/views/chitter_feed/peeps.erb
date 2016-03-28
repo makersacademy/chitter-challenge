@@ -27,9 +27,9 @@
 
 <div class='peepbox-container'>
   <% @peeps.each do |peep| %>
-    <ul>
-      <li><%= peep.content %></li>
-      <%= peep.time_created.strftime("Peeped on %D at %T") %>
+    <ul id='peeplist'>
+      <li id='peep'><%= peep.content %></li>
+      <article><%= peep.user.username %></article><%= peep.time_created.strftime("peeped on %D at %T") %>
     </ul>
   <% end %>
 </div>

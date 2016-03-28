@@ -1,6 +1,6 @@
 <div class='center'>
   <% if flash.now[:errors] %>
-Please check the following errors
+The following errors were encountered:
 <% flash.now[:errors].each do |error| %>
  <ul><li><%= error %></li></ul>
 <% end %>
@@ -10,5 +10,6 @@ Please check the following errors
 <% end %>
 <% if flash.now[:logged_out] %>
 <%= flash.now[:logged_out] %>
+<br><br><br><br>
 <% end %>
 </div>

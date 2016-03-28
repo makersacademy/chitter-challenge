@@ -1,9 +1,8 @@
 html {
   font-family: sans-serif;
-  /*text-align: center;*/
   background-color: #1d8eee;
   color:white;
-  font-size: 25px
+  font-size: 14px
 }
 
 button {
@@ -47,17 +46,15 @@ p#welcome {
 div.peepbox-container {
   width: 20%;
   margin: 0 auto;
-  /*padding: 10px;*/
-  /*radius: 1px;*/
 }
 
-ul {
+ul#peeplist {
    color:rgba(255,255,255,.5);
    font-size: 12px;
    text-align: center;
 }
 
-li {
+li#peep {
    color: white;
    font-size: 24px;
    text-align: center;
