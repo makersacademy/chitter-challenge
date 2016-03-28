@@ -7,6 +7,7 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
+SimpleCov.start
 
 ENV["RACK_ENV"] = "test"
 
