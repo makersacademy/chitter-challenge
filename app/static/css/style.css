@@ -76,6 +76,10 @@ button#rmpeep, button#rmcomment {
   margin-top: 0px;
 }
 
+button:hover, button#rmpeep:hover, button#rmcomment:hover, button#comment:hover {
+  background-color: #FFCB82;
+}
+
 p#peepcontent, p#peepbottom, p#commentcontent, p#commentbottom {
    word-wrap: break-word;
    width: 400px;
