@@ -1,5 +1,7 @@
 feature 'search tags' do
   scenario 'Being able to search for different tags' do
+    sign_up
+    sign_in
     add_chit('hey','hello')
     add_chit('omg, second tweet','shock')
     add_chit('chitter is amazing','amazing')

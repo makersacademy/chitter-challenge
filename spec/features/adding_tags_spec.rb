@@ -7,5 +7,4 @@ feature 'Adding tags' do
     chit = Chit.first
     expect(chit.tags.map(&:name)).to include('#Lads')
   end
-
 end

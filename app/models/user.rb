@@ -27,5 +27,6 @@ class User
     end
   end
 
+  has n, :chits
 
 end

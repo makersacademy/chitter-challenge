@@ -10,7 +10,7 @@ def sign_up(username='AngryAndrew',email='test@test.com',password='password123',
   click_button 'Sign up'
 end
 
-def sign_in(email, password)
+def sign_in(email='test@test.com', password='password123')
   visit('/sessions/new')
   fill_in :email, with: email
   fill_in :password, with: password

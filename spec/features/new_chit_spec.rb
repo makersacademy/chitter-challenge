@@ -1,5 +1,7 @@
 feature 'Create a new chit' do
   scenario 'Creates a new chit' do
+    sign_up
+    sign_in
     visit('/new')
     fill_in(:post, with: 'This is my first ever chit')
     fill_in(:tags, with: '#Lads')

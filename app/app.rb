@@ -72,11 +72,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    chit = Chit.create(post: params[:post], time: Time.now.strftime("%d/%m/%Y %H:%M"))
+    chit = Chit.create(user: current_user, post: params[:post], time: Time.now.strftime("%d/%m/%Y %H:%M"))
     params[:tags].split.each do |tag|
       chit.tags << Tag.create(name: params[:tags])
     end
-    chit.save
+    chit.save!
     redirect('/chits')
   end
 

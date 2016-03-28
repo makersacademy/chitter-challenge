@@ -10,5 +10,5 @@ class Chit
   property :time,    String
 
   has n, :tags, through: Resource
-
+  belongs_to :user
 end
