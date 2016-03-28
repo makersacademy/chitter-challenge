@@ -1,8 +1,10 @@
 <h1>Peeps</h1>
+<% if current_user %>
 <form action='/peeps/new' method = 'post'>
   <input type='text' name='message'>
   <input type='submit' value='Post Peep'>
 </form>
+<% end %>
 
 
 

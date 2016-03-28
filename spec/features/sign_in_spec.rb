@@ -3,9 +3,9 @@ feature 'User signs in' do
   let(:user) do
     User.create(name: 'user',
                 email: 'user@example.com',
-                username: 'user',
-                password: 'secret1234',
-                password_confirmation: 'secret1234')
+                username: 'sachinkaria',
+                password: 'password',
+                password_confirmation: 'password')
   end
 
   scenario 'with correct credentials' do

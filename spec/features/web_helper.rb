@@ -40,13 +40,13 @@ end
 
   def sign_in(username:, password:)
     visit '/sessions/new'
-    fill_in(:username, with: "user")
-    fill_in(:password, with: "secret1234")
+    fill_in(:username, with: "sachinkaria")
+    fill_in(:password, with: "password")
     click_button 'Sign in'
   end
 
 def new_peep
-  visit '/peeps/index'
+  visit '/peeps'
   fill_in(:message, with: "This is a test peep")
   click_button 'Post peep'
 end

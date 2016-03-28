@@ -39,7 +39,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-   peep = Peep.ceate(message: params[:message])
+   peep = Peep.new(message: params[:message])
+    current_user.peeps << peep
+    peep.save
+    current_user.save
    redirect '/peeps'
  end
 
