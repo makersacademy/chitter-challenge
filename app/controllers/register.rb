@@ -18,5 +18,5 @@ class Chitter < Sinatra::Base
       redirect to '/signup'
     end
   end
-
+  
 end

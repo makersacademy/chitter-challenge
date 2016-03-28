@@ -4,5 +4,5 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all.reverse
     erb :'home/index'
   end
-
+  
 end
