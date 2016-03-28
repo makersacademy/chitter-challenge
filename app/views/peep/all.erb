@@ -1,4 +1,4 @@
-<% if @peeps %>
+<% unless @peeps.all.empty? %>
   Current peeps
   <ul>
     <% @peeps.each do |peep| %>
@@ -11,3 +11,7 @@
 <% else %>
   There are no peeps yet
 <% end %>
+
+<div>
+  <a href='/peep/new'><button>New Peep</button></a>
+</div>

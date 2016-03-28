@@ -1,14 +1,12 @@
 feature 'users' do
-  scenario 'sign up as new user' do
-    visit '/user/new'
-    fill_in :name, with: 'John'
-    fill_in :username, with: 'JohnDude'
-    fill_in :email, with: 'john@john.com'
-    fill_in :password, with: 'J0hn123!'
-    click_button 'Start Peeping!'
-    expect(User.count).to change_by 1
+  scenario 'sign up to increase user count' do
+    expect{ sign_up }.to change{ User.count }.by 1
+  end
+
+  scenario 'welcome user on homepage when signed up' do
+    sign_up
     expect(page).to have_content 'Welcome JohnDude'
-    expect(page_path).to be '/'
+    expect(current_path).to eq '/'
   end
 
   xscenario 'don\'t allow multiple sign ups for same mail' do

@@ -3,5 +3,11 @@
 </head>
 
 <body>
-  <%= yield %>
+  <div>
+    <%= "Welcome #{current_user.username}" if current_user %>
+  </div>
+
+  <div>
+    <%= yield %>
+  </div>
 </body>

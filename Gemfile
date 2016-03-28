@@ -8,6 +8,8 @@ gem 'dm-transactions'
 gem 'dm-validations'
 gem 'bcrypt'
 gem 'rake'
+gem 'bcrypt'
+gem ''
 
 group :test do
   gem 'rspec'
