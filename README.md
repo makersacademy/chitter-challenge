@@ -1,3 +1,23 @@
+# Chitter
+
+Chiter is a twitter clone.
+
+To begin, run the following.
+
+```
+$ bundle
+
+```
+
+## Heroku Link
+
+## My Github link
+https://github.com/olmesm/chitter-challenge
+
+## Original Link
+https://github.com/makersacademy/chitter-challenge
+
+
 Chitter Challenge
 =================
 
@@ -10,7 +30,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
+As usual please start by
 
 * Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
 * Forking this repo
@@ -80,7 +100,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -98,7 +118,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -108,4 +128,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
