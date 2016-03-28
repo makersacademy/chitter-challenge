@@ -1,7 +1,6 @@
 rvm: '2.3.0'
 
 env:
-- RACK_ENV=test
 - HELLOTRAVIS=true
 
 script:

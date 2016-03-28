@@ -1,4 +1,5 @@
-TAGS: coveralls travis and stuff.
+[![Build Status](https://travis-ci.org/lorenzoturrino/chitter-challenge.svg?branch=master)](https://travis-ci.org/lorenzoturrino/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/lorenzoturrino/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/lorenzoturrino/chitter-challenge?branch=master)
 
 Instructions:
 ------
@@ -9,9 +10,6 @@ Instructions:
 * Run $ rackup and connect to localhost:9292
 * Instance available at https://frozen-fortress-63985.herokuapp.com/
 
-Description:
-------
-* stuff
 
 Notes:
 ------
@@ -28,18 +26,5 @@ extremely easy to get 100% coveralls
 too much logic in views (especially presenting peeps)
 require chains
 travis
-
-
-
-TODO:
-------
-* remove this section before last commit
-* html5
-* extract from controller to model
-* extract from view to...somewhere
-* edge cases and validation
-  - user/mail already taken on register
-  - empty user/pwd/mail
-  - more edges
-* followers
-* display random peeps when not logged, follower(s) ones+few random ones when logged in
+check against several edges
+features
