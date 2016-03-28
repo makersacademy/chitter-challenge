@@ -1,111 +1,33 @@
-Chitter Challenge
-=================
+[![Build Status](https://travis-ci.org/lorenzoturrino/chitter-challenge.svg?branch=master)](https://travis-ci.org/lorenzoturrino/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/lorenzoturrino/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/lorenzoturrino/chitter-challenge?branch=master)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-
-Notes on functionality:
+Instructions:
 ------
+* This is a clone of twitter
+* Download, check ruby version, run $ bundle
+* Create a clean database, and set its address to $DATABASE_URL
+* Run $ rake migPro once before starting, and again if you want to scrub the DB
+* Run $ rackup and connect to localhost:9292
+* Instance available at https://frozen-fortress-63985.herokuapp.com/
+* If you want to use rspec, you need a localhost/chitter_test db, create one and run $ rake migTest
+* For dev enviroment, the database is localhost/chitter_development, use $ rake migDev before starting.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Description:
+------
+* This program uses Sinatra to handle the webserver and Datamapper on top of a psql database
+* All passwords are encrypted with the BCrypt gem, but all info is sent over the web with post methods. So hi man in the middle attacks.
+* Testing is done with Capybara(+Orderly) on top of rspec, using DatabaseCleaner and Coveralls
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+Notes:
+------
+* Time is never enough
+* Many features have been implemented in a...homegrown way (see validation) and need to be refactored
+* Similarly, there is a need to extract all the logic from the controller and the views and delegate to the model
+* Sinatra Flash is really nice, but I feel like I've abused it too much to be able to keep everything in the same page.
+* Testing for the main features is complete, but using capybara makes harder to gauge how solid those tests are (it is extremely easy to get 100% coverage and you don't have 'single functions' to test)
+* A layout file is nice, but is it needed when I only have one (displayed) page?
+* Security: all info is sent in clear over the web.
+* Input validation is not completed (nil user/pwd/mail), mostly because of time and avoiding a even bigger app.rb file
+* Several edge cases and possible attacks (see being able to post raw html, or worse.) needs to be examined and tackled.
+* Along a general refactoring, a check of the 'require' chain is needed, to make sure there are no extra or unnecessarily complicated relations
+* Travis work, but using a env var set in travis.yml to trigger a datamapper automigrate in the dm_models_setup file feels like a bad hack. I tried to run a rake command in the before_script section but it fails on requiring datamapper.
