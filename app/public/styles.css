@@ -134,6 +134,18 @@ body {
   border-radius: 10px;
 }
 
-#chit {
+.username {
+  position: absolute;
+  font-weight: bold;
+  color: #9999ff;
+}
 
+.a-chit {
+  position: absolute;
+  padding-top: 20px;
+}
+
+.time  {
+  position: absolute;
+  padding-top: 20px;
 }

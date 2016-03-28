@@ -1,8 +1,8 @@
 <form action='/signup' method='post'>
-  <input type='text' name='username'/>
-  <input type='email' name='email' value='<%= @user.email%>' required/>
-  <input type='password' name='password'/>
-  <input type='password' name='password_confirmation'/>
+  <input type='text' placeholder='Username' name='username'/>
+  <input type='email' name='email' placeholder='email' value='<%= @user.email%>' required/>
+  <input type='password' placeholder='password' name='password'/>
+  <input type='password' placeholder='password confirmation' name='password_confirmation'/>
   <input type='submit' value='Sign up'/>
 </form>
 

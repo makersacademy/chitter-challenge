@@ -9,6 +9,7 @@ class Chit
   property :post,  String
   property :time,    String
 
+
   has n, :tags, through: Resource
   belongs_to :user
 end
