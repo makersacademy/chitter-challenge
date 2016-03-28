@@ -10,6 +10,7 @@ gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
+  gem 'orderly'
   gem 'rspec'
   gem 'cucumber'
   gem 'database_cleaner'

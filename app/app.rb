@@ -6,9 +6,7 @@ require './app/dm_models_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  #session secret
   register Sinatra::Flash
-
 
   get '/' do
     redirect '/peeps'
@@ -22,6 +20,11 @@ class Chitter < Sinatra::Base
   post '/signup' do
     unless params[:password] == params[:confirm]
       flash.next[:pass_mismatch] = true
+      flash.next[:register_user] = true
+      redirect '/peeps'
+    end
+    unless User.first(username: params[:username]).nil?
+      flash.next[:user_exists] = true
       flash.next[:register_user] = true
       redirect '/peeps'
     end
