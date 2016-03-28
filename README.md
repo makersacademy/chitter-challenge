@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tobenna/chitter-challenge.svg?branch=master)](https://travis-ci.org/tobenna/chitter-challenge)
 Chitter
 ==================
 
@@ -21,7 +22,8 @@ Installation Instructions
 Running the application
 -----
 
-* In the root directory run `rackup`. This should start a Server on your local computer
+* In the root directory run `rackup`. This should start a Server on your local
+
 * In your browser navigate to http://localhost:9292
 * Create an account
 * Click Save
