@@ -1,3 +1,6 @@
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
 <h1> Sign In Here! </h1>
 
 <form action='/sessions' method='post'>
