@@ -1,6 +1,5 @@
 require 'tilt/erb'
 require 'sinatra/base'
-require 'bcrypt'
 
 require './app/dm_models_setup'
 
@@ -18,17 +17,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    #redir get signup if validation = false
-    user = User.create(username: params[:username] , password: params[:password], email: params[:email])
+    redirect '/signup' unless params[:password] == params[:confirm] #add flash
+    puts "beep"
+    user = User.create(username: params[:username] , pass: params[:password], email: params[:email])
+    puts "boop"
     session[:user_id] = user.id
     redirect '/peeps'
   end
 
   post '/login' do
-    declared_user = User.first(username: params[:username])
-    raise "nil user" if declared_user.nil?
-    session[:user_id] = declared_user.id if declared_user.password == params[:password]
-    redirect '/peeps' #+warn if validation = false
+    user_id = User.login params[:username] , params[:password]
+
+    session[:user_id] = user_id unless user_id.nil?
+    redirect '/peeps' #add flash success/failure
   end
 
   get '/logout' do
