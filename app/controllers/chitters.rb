@@ -6,4 +6,11 @@ class Chitter < Sinatra::Base
                               timestamp: Time.now.strftime("%I:%M%p %m/%d/%Y"))
     redirect to '/home'
   end
+
+  delete '/chitters/delete' do
+    post = Post.get(params[:delete_id])
+    post.comments.destroy
+    post.destroy
+    redirect to '/home'
+  end
 end

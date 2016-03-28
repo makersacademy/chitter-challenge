@@ -38,6 +38,13 @@
           <h3><%= post.message %></h3>
           <font color="DarkSalmon">
           <h5><%= post.user.username %> peeped @ <%= post.timestamp %></h5>
+          <% if !current_user.nil? && current_user.id == post.user.id %>
+            <form action='/chitters/delete' method='post'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='hidden' name='delete_id' value='<%= post.id %>'>
+              <input id='delete_<%= post.id %>' type='submit' value='Delete this peep'>
+            </form>
+          <% end %>
           <% if !post.comments.empty? %>
             <% post.comments.reverse.each do |comment| %>
               <font color="Teal"><h4><%= comment.comment %></h4>
@@ -45,7 +52,7 @@
             <% end %>
           <% end %>
           <% if current_user %>
-            <form id='<% post.id %>' action='/comments/new' method='post'>
+            <form id='<%= post.id %>' action='/comments/new' method='post'>
               <input type='hidden' name='id' value='<%= post.id %>'>
               <input style='width: 220px' type='text' name='comment' placeholder='  Comment on this peep... (50 characters)' maxlength="50" required>
               <input type='submit' value='Comment'>

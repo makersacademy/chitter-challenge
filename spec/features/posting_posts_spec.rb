@@ -17,7 +17,7 @@ feature 'Posting a chitter:' do
     log_in
     post_peep
     post_peep2
-    page.body.index('Test post 2') < page.body.index('Test post')
+    page.body.index('Posting number 2') < page.body.index('Test post')
   end
 
   scenario 'User can\'t post without a message' do
