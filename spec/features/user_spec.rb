@@ -24,9 +24,10 @@ feature 'users' do
                 username: 'JohnDude',
                 email: 'john@john.com',
                 password: 'J0hn123!')
-    visit '/user/sign_in'
+    visit '/session/new'
     fill_in :username, with: 'JohnDude'
     fill_in :password, with: 'J0hn123!'
+    click_button 'Sign in!'
     expect(page).to have_content 'Welcome JohnDude'
     expect(current_path).to eq '/'
   end
