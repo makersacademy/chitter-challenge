@@ -12,7 +12,7 @@ feature 'User Sign Up' do
   scenario 'does not redirect when password does not match' do
     expect{ sign_up_incorrect_password }.not_to change{User.count}
     expect(current_path).to eq('/signup')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Passwords do not match'
   end
 
   scenario "I can't sign up without an email address" do

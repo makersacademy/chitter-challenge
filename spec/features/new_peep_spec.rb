@@ -1,3 +1,4 @@
+require 'pry'
 feature 'new peep' do
 
   let(:user) do
@@ -6,6 +7,10 @@ feature 'new peep' do
                 username: 'sachinkaria',
                 password: 'password',
                 password_confirmation: 'password')
+  end
+
+  scenario 'peep table exists' do
+    expect{user.peeps.create(message: "This is the first peep")}.to change{Peep.count}.by(1)
   end
 
   scenario 'creates a new peep' do

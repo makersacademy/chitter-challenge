@@ -2,9 +2,20 @@
 <% if current_user %>
 <form action='/peeps/new' method = 'post'>
   <input type='text' name='message'>
-  <input type='submit' value='Post Peep'>
+  <input type='submit' value='Post peep'>
 </form>
 <% end %>
+
+<ul id='links'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <%= peep.message %>
+<!--       User:   <%= peep.user %>
+      Added: <%= peep.created_at %> -->
+    </li>
+  <% end %>
+</ul>
+
 
 
 
