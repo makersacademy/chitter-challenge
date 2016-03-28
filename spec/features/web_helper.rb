@@ -16,3 +16,9 @@ def sign_in(email: 'anne@chittr.com', password: 'dog')
   fill_in :password, with: password
   click_button 'Log in'
 end
+
+def peep
+  sign_in
+  fill_in :body, with: 'Hi my name is.. Please stand up!'
+  click_button 'Peep it'
+end

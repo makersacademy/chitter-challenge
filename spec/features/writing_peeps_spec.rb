@@ -5,10 +5,18 @@ feature 'Post peeps' do
   end
 
   scenario 'when user logged in they can post peeps' do
-    sign_in
-    fill_in :body, with: 'Hi my name is.. Please stand up!'
+    peep
+    expect(current_path).to eq '/'
+    expect(page).to have_content('Hi my name is.. Please stand up!')
+  end
+
+  scenario 'peeps are displayed newest to oldest' do
+    peep
+    expect(current_path).to eq '/'
+    fill_in :body, with: 'No water in the water fountain'
     click_button 'Peep it'
     expect(current_path).to eq '/'
+    expect(page).to have_content('No water in the water fountain')
     expect(page).to have_content('Hi my name is.. Please stand up!')
   end
 end
