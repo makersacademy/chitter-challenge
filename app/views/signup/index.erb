@@ -1,7 +1,10 @@
-<h1>Chitter</h1>
-<div class='signup-wrapper'>
+<header class="other-pages">
+  <h1>Chitter</h1>
+</header>
+<div class='signup-wrapper wrapper'>
   <h2>Join Chitter today.</h2>
-  <% if flash[:errors] && !flash[:errors].empty? %>
+  <%= partial :flash %>
+  <!-- <% if flash[:errors] && !flash[:errors].empty? %>
     Please correct the following errors below:
     <ul id='errors'>
       <% flash[:errors].each do |error| %>
@@ -9,8 +12,8 @@
       <% end %>
     </ul>
     <a href='/'>Have an account? Log in</a>
-  <% end %>
-  <form action='/account/create' method='POST'>
+  <% end %> -->
+  <form action='/account/create' method='POST' class='pure pure-form-stacked'>
     <input id='name' type='text' autocomplete='off' name='name' placeholder='Full name' required>
     <input id='username' type='text' autocomplete='off' name='username' placeholder='User name' required>
     <input id='email' type='email' autocomplete='off' name='email' placeholder='Email address' required>

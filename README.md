@@ -19,7 +19,8 @@ The Rakefile has two tasks for maintenance of the DB schema  -- db:auto_migrate 
 * Contextual 'flash' messages
 * Eliminate password confirmation
 * Add the ability to log in with either email or username.
-* add or change Rack::Session::Cookie to prevent session from staying up if user does not click "Log out" (see [http://fonicmonkey.net/2013/08/12/banish-your-session-has-expired/])
+* Add or change Rack::Session::Cookie to prevent session from staying up if user does not click "Log out" (see [http://fonicmonkey.net/2013/08/12/banish-your-session-has-expired/])
+* Add error message for "User does exist" when username is not found.
 
 ## Testing
 * Test error messages for properties that do not have explicit messages.

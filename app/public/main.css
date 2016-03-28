@@ -1,0 +1,106 @@
+body {
+  font-family: 'Inconsolata', Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+header.landing {
+  display: block;
+  min-height: 150px;
+  background: black;
+  position: relative;
+}
+
+.hero-wrapper {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-wrapper h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #909090;
+  margin: 0.75rem 0;
+}
+
+.hero-wrapper h2 {
+  font-size: 1.5rem;
+}
+
+.hero-wrapper h3 {
+  font-size: 1.75rem;
+}
+
+.wrappers {
+  display: flex;
+  height: 300px;
+  align-items: top;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrapper {
+  min-width: 266.67px;
+  margin-top: 1.5rem;
+}
+
+.wrapper h2 {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper:nth-of-type(2) {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.wrapper:last-of-type h2 {
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  color: white;
+  font-size: 20px;
+  background: black;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+input[type=submit] {
+  color: white;
+  font-size: 1rem;
+  background: black;
+  padding: 0.625rem;
+  text-decoration: none;
+  width: 171px;
+}
+
+header.other-pages {
+  display: block;
+  min-height: 60px;
+  background: black;
+  position: relative;
+}
+
+.other-pages h1 {
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+}
+
+.signup-wrapper {
+  margin-left: 1rem;
+}

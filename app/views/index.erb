@@ -1,28 +1,28 @@
-<div class='hero-wrapper'>
-  <h1>Chitter</h1>
-  <h2>See who's peeping now.</h2>
-  <h3>Find lunacy, mindlessness, and drivel.</h3>
-</div>
+<header class="landing">
+  <div class='hero-wrapper'>
+    <h1>Chitter</h1>
+    <h3>Find lunacy, mindlessness, and drivel.</h3>
+  </div>
+</header>
 
-<div class='Login-wrapper'>
-  <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
-  <% end %>
-  <h1>Log in to Chitter.</h1>
-  <form action='/sessions' method='POST'>
-    <input type='text' class='text-input' name='username' placeholder='Username'>
-    <input type='password' class='text-input' name='password' placeholder='password'>
-    <input type='submit' class='submit' value='Log in'>
-  </form>
-</div>
+<article class='wrappers'>
+  <div class='Signup-callout wrapper'>
+    <h2>Don't have an account?</h2>
+    <a href='/signup' class="btn">Sign up</a>
+  </div>
 
-<div class='Signup-callout'>
-  <h2>New to Chitter? Don't have an account?</h2>
-  <p>Sign up to join the fun.</p>
-  <a href='/signup'>Sign up</a>
-</div>
+  <div class='guest-wrapper wrapper'>
+    <h2>See what's happening.</h2>
+    <a href='/home' class='btn'>See Peeps</a>
+  </div>
 
-<div class='guest-wrapper'>
-  <h2>Take a look without an account.</h2>
-  <a href='/home'>See Peeps</a>
-</div>
+  <div class='Login-wrapper wrapper'>
+    <h2>Log in to Chitter.</h2>
+    <%= partial :flash %>
+    <form action='/sessions' method='POST' class='pure pure-form-stacked'>
+      <input type='text' class='text-input' name='username' placeholder='Username'>
+      <input type='password' class='text-input' name='password' placeholder='password'>
+      <input type='submit' class='submit' value='Log in' class='btn'>
+    </form>
+  </div>
+</article>
