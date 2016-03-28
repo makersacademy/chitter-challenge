@@ -12,11 +12,11 @@ class Chitter < Sinatra::Base
     'Hello chitter!'
   end
 
-  get '/user/sign_up' do
-    erb(:sign_up)
+  get '/users/new' do
+    erb(:'users/new')
   end
 
-  post '/user/sign_up' do
+  post '/users/new' do
     @user = User.new(email: params[:email], name: params[:name], username: params[:username])
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:errors] = @user.errors.full_messages
-      redirect '/user/sign_up'
+      redirect '/users/new'
     end
   end
 

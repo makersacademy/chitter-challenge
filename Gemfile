@@ -6,7 +6,6 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'bcrypt'
 
 group :test do
   gem 'capybara'
@@ -14,4 +13,5 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'factory_girl'
 end
