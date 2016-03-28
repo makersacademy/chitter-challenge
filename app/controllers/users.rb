@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   post '/users/new' do
     @user = User.new( username: params[:username],
                       email: params[:email],
+                      realname: params[:realname],
                       password: params[:password],
                       password_confirmation: params[:pw_confirm] )
 

@@ -15,6 +15,7 @@ class User
   property :id, Serial
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
+  property :realname, String
   property :password_digest, Text
 
   def password=(password)
