@@ -9,7 +9,7 @@ gem 'dm-validations'
 gem 'bcrypt'
 gem 'rake'
 gem 'bcrypt'
-gem ''
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
