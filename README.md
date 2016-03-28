@@ -1,5 +1,16 @@
 Chitter Challenge
 =================
+## Instructions to use and run tests
+1. Fork repository.
+2. Clone repository to your local machine.
+3. Run bundle (note this may require changing your Ruby version).
+4. Create two Postgresql databases called 'chitter_test' and 'chitter_development'.
+5. Have fun!
+
+## Note on databases
+The app uses two databases; 'chitter_test' is for testing and 'chitter_development' is used to local development. Rspec will remove all data each time it is run through Datamapper config in spec_helper.
+
+The Rakefile has two tasks for maintenance of the DB schema  -- db:auto_migrate and db:auto_upgrade. You should know the difference between the two and when it is appropriate to use each. Any changes to the model(s) will require one of these. 
 
 ## Enhancements
 * Contextual 'flash' messages
