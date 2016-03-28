@@ -3,7 +3,7 @@
 <!-- if not signed in, put sign in and sign up buttons -->
 
   <% if current_user %>
-    <div id='new-message'>
+    <div id='post'>
       <form action='/chitter/new' method='post'>
         Peep something
         <input style='width: 250px' type='text' name='message' required>
@@ -12,7 +12,7 @@
   <% end %>
 
   <article id='peeps'>
-    <% if !Peep.all.empty? %>
+    <% unless Peep.all.empty? %>
       <%= Peep.all.first.message %>
       <%= Peep.all.first.user.username %> peeped
     <% end %>
