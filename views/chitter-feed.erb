@@ -1,0 +1,63 @@
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+	<% if current_user %>
+  	<form action='/sessions' method="post">  
+  		<input type="hidden" name="_method" value="delete">	
+    	<input id="sign_out" type="submit" value="Sign out">
+    </form>
+  <% else %>
+  	<a href="/log-in">Log in</a>
+  	<a href="/sign-up"> Sign up</a> 
+  <% end %>  
+  <h1>- Chitter -</h1>
+ 	<h2>
+ 		<% if current_user %>
+ 			Welcome <%= current_user.user_name %>!
+ 		<% end%>
+ 	</h2>
+ 	<div>
+ 		<% if current_user %>
+ 			<form action='/create-peep' method="post" >
+				<textarea name="post" rows="3" cols="50"></textarea>
+				<div>
+					<input class="submit_peep" type="submit" value="Post a peep">
+				</div>
+			</form>
+  	<% end %>
+  	<% @posts.each do |peep| %>
+  		<div class="peeps">
+  			<p class='stamp'><%= peep.time %></p>
+	 			<p class='stamp'> <%= find_user_name(peep.user_id) %></p>
+  			<div class="a_peep" style="word-wrap: break-word">
+ 					<%= peep.post %> 
+ 					<% @comments.each do |comment| %>
+	 					<% if comment.peep_id == peep.id %>
+	 						<div class="posts">
+	  						<p class='stamp'><%= comment.time %></p>
+		 						<p class='stamp'> <%= find_user_name(comment.user_id) %></p>
+	  						<div class="a_peep" style="word-wrap: break-word">
+	 								<%= comment.post %> 
+	 							</div>
+	 						</div>
+	 					<% end %>
+ 					<% end %>
+ 				</div>
+ 				<% if current_user %>
+	 				<form action='/comment/<%=peep.id%>' method="post" >  
+	  				<input type="submit" value="+" style="border: none; background-color: #1b053a; color: white">
+	    		</form>
+	    	<% end %>
+ 			</div>
+ 			<% if @comment == peep && current_user %>
+ 				<form action='/create-comment' method="post" >
+					<textarea name="comment" rows="3" cols="50" ></textarea>
+					<div>
+						<input class="submit_peep" type="submit" value="Submit">
+					</div>
+				</form>
+ 			<% end %>
+ 		<% end %>
+ 	</div>
+</body>

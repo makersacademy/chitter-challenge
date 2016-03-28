@@ -1,0 +1,17 @@
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h1>- Chitter -</h1> 
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% else %>
+    <h2>Welcome</h2>
+     <a href="/sign-up"> Sign up</a>   
+  <% end %>
+	  <a href="/chitter-feed">Chitter feed</a>
+    <a href="/log-in">Log in</a>
+</body>

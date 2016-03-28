@@ -1,0 +1,34 @@
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body style="background-color: #1b053a">
+  <h1>- Chitter -</h1>
+  <h2>Sign up</h2>
+  <h5>
+    <% if flash[:error] %>
+      <%= flash[:error][0] %>
+    <% end %>
+  </h5>
+  <form class="add_form" action="/sign-up" method="post">
+    <div>
+      <input type="text" name="name" placeholder="Name" value="<%if @user%><%=@user.name%><%end%>" >
+    </div>
+    <div>
+      <input type="text" name="user_name" placeholder="User Name" value="<%if @user%><%=@user.user_name%><%end%>">
+    </div>
+    <div>
+      <input type="email" name="email" placeholder="Email" value="<%if @user%><%=@user.email%><%end%>">
+    </div>
+    <div>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <div>
+      <input type="password" name="password_confirmation" placeholder="Confirm Password">
+    </div>
+    </br>
+    <div>
+      <input type="submit" value="Sign up">
+    </div>
+  </form>
+</body>
