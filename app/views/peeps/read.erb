@@ -11,17 +11,18 @@
             <button id='second'>Log Out</button>
       </form>
   <% else %>
-    <h3>Hey guest! Check out the chitter:</h3>
-    <form action='/'>
-      <button>I want in!</button>
-    </form>
+    <h3>Hey guest!</h3>
+      Check out the chitter:
+    <p ><form action='/'>
+      <button style='margin-left: 40px;'>I want in!</button>
+    </form></p>
   <% end %>
 </div>
 
   <% if !Peep.all.empty? %>
     <% Peep.all.reverse.each do |peep| %>
       <p><li class='peep'>
-        <span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>at <%= peep.time %></span>
+        <span>@<%= peep.maker.username %> peeped</span> "<%= peep.text %>" <span>on <%= peep.date %> at <%= peep.time %></span>
       </li></p>
       <% end %>
   <% else %>

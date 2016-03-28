@@ -17,13 +17,13 @@ span {
 }
 
 body {
-  font-family: HelveticaNeue, Helvetica, Arial;
+  font-family: HelveticaNeue-light, Helvetica, Arial;
   margin: 100px;
   background-color: #00b294;
 }
 
 h3 {
-  font-family: HelveticaNeue-book, Helvetica, Arial;
+  font-family: HelveticaNeue-medium, Helvetica, Arial;
   text-align: center;
 }
 

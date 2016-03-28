@@ -7,7 +7,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     maker = Maker.get(session[:maker_id])
-    maker.peeps.create(text: params[:text], time: Time.now.strftime("%H:%M"))
+    maker.peeps.create(text: params[:text],
+                       time: Time.now.strftime("%H:%M"),
+                       date: Time.now.strftime("%d/%m/%y"))
     redirect '/peeps/read'
   end
 end

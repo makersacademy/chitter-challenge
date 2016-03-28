@@ -1,6 +1,7 @@
 feature 'can see peeps' do
   doubles
   let(:time) { Time.now.strftime("%H:%M") }
+  let(:date) { Time.now.strftime("%d/%m/%y")}
 
   scenario 'user sees peeps displayed on homepage' do
     peep
@@ -21,5 +22,10 @@ feature 'can see peeps' do
   scenario 'peep has timestamp' do
     peep
     expect(Peep.first.time).to include time
+  end
+
+  scenario 'peep has timestamp' do
+    peep
+    expect(Peep.first.date).to include date
   end
 end
