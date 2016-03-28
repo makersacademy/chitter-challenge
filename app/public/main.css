@@ -1,4 +1,40 @@
 body {
   font-family: Tahoma;
-  
+
+}
+
+.inline {
+  display: inline;
+}
+
+.nav-brand {
+  font-size: 1.2em;
+}
+
+nav button {
+  color: red;
+}
+
+.error {
+  border: 1px rgba(168, 0, 0, 0.48) solid;
+  border-radius: 8px;
+  background-color: #A80000;
+  background-color: rgba(168, 0, 0, 0.2);
+  color: rgba(168, 0, 0, 0.48);
+  font-weight: bold;
+  width: 40%;
+  padding: 15px;
+  list-style: none;
+}
+
+.notice {
+  border: 1px rgba(0, 47, 168, 0.8) solid;
+  border-radius: 8px;
+  background-color: #002FA8;
+  background-color: rgba(0, 47, 168, 0.2);
+  color: rgba(0, 47, 168, 0.8);
+  font-weight: bold;
+  width: 40%;
+  padding: 15px;
+  list-style: none;
 }
