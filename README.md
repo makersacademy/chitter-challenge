@@ -21,6 +21,7 @@ TODO:
 * extract from view to...somewhere
 * edge cases and validation
   - user/mail already taken on register
+  - empty user/pwd/mail
   - more edges
   - peep char limit
 * flash views on actions (login/logout/newpeep)

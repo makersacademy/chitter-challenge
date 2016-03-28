@@ -19,6 +19,27 @@ body {
   margin: auto;
 }
 
+#register_link {
+  font-style: italic;
+  font-size: 12px;
+}
+
+#abort_link {
+  font-style: italic;
+  font-size: 12px;
+}
+
+#logout_link {
+  font-style: italic;
+  font-size: 12px;
+}
+
+#unfilter_link {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 #login_form {
   background-color: #99ccff;
   position: fixed;
@@ -27,6 +48,15 @@ body {
   padding: 10px;
 }
 
+#register_form {
+  background-color: #99ccff;
+  position: fixed;
+  text-align: right;
+  right: 40px;
+  padding: 10px;
+}
+
+
 #peep_form {
   background-color: #99ccff;
   position: fixed;
@@ -34,16 +64,6 @@ body {
   padding: 10px;
   font-size: 30px;
   right: 40px;
-}
-
-#register_link {
-  font-style: italic;
-  font-size: 12px;
-}
-
-.logout_reminder {
-  font-size: 12px;
-  font-style: italic;
 }
 
 .form_error {

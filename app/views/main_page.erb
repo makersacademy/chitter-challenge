@@ -1,6 +1,9 @@
 <% if @signed_in %>
-<%= erb :new_peep_form %>
+  <%= erb :new_peep_form %>
+<% elsif flash[:register_user] %>
+  <%= erb :register_form %>
 <% else %>
-<%= erb :login_form %>
+  <%= erb :login_form %>
 <% end %>
+
 <%= erb :peeps_list %>

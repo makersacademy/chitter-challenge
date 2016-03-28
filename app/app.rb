@@ -15,13 +15,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
-    erb :signup_page
+    flash.next[:register_user] = true
+    redirect '/peeps'
   end
 
   post '/signup' do
     unless params[:password] == params[:confirm]
       flash.next[:pass_mismatch] = true
-      redirect '/signup'
+      flash.next[:register_user] = true
+      redirect '/peeps'
     end
     user = User.create(username: params[:username] , pass: params[:password], email: params[:email])
     session[:user_id] = user.id

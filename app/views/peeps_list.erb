@@ -1,9 +1,8 @@
-<% unless @filter_type.nil? %>
-<%= erb :filtered_list %>
-<% end %>
-
 <div name="peep_list">
   <div>Hottest peeps right now:</div>
+  <% unless @filter_type.nil? %>
+    <a href="/peeps" id="unfilter_link">You're visualizing a list filtered by <%= @filter_type %> click here to get back to the main page</a>
+  <% end %>
   <% @peep_list.reverse.each do |peep| %>
     <div class="peep_block">
       <div class="peep_text"><%= peep.content %>

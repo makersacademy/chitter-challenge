@@ -1,0 +1,12 @@
+<form action='/signup' method='post' id="register_form">
+  <div>Fill in the form to register for the site</div>
+  <% if flash[:pass_mismatch] %>
+    <div class="form_error">Password do not match, try again</div>
+  <% end %>
+  <div><input type='text' name='username' placeholder="Username" class="login_text"></div>
+  <div><input type='text' name='email' placeholder="Email" class="login_text"></div>
+  <div><input type='password' name='password' placeholder="Password" class="login_text"></div>
+  <div><input type='password' name='confirm' placeholder="Password" class="login_text"></div>
+  <a href="/peeps" id="abort_link">Go back to login form</a>
+  <button type ='submit' value='login'>Register</button>
+</form>
