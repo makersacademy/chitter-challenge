@@ -1,4 +1,6 @@
 require 'bcrypt'
+require 'data_mapper'
+
 
 class User
   include DataMapper::Resource

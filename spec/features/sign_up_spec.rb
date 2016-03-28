@@ -14,7 +14,7 @@ feature 'requires maching password' do
       expect(current_path).to eq '/users/new'
     end
 
-    xscenario 'returns an error message' do
+    scenario 'returns an error message' do
       sign_up( password_confirmation: 'wrong')
       expect(page).to have_content "Password and confirmation password do not match"
     end

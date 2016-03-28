@@ -1,0 +1,14 @@
+<h1>Create your account</h1>
+<% if flash[:error] %>
+<p>
+  <%= flash[:error] %>
+</p>
+<% end %>
+
+<form action="/users" method="post">
+  <input name="name" type="text" placeholder="Name">
+  <input name="password" type="password" placeholder="Password">
+  <input name="password_confirmation" type="password" placeholder="Password">
+  <input name="email" type="email" placeholder="Email address" value="<%= @user.email %>" required>
+  <input value="Sign up" type="submit">
+</form>
