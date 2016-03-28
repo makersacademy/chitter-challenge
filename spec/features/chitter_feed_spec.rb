@@ -26,9 +26,12 @@ feature 'chitter feed page' do
 
 	  scenario 'can comment on a peep' do 
 	  	sign_up
-			fill_in('post', with: 'This is my first post!' )
+	  	fill_in('post', with: 'This is my first post!' )
 			click_button 'Post a peep'
-			
+	  	click_button '+'
+			fill_in('comment', with: 'This is my first comment!' )
+			click_button 'Submit'
+			expect(page).to have_content('This is my first comment!')
 	  end
 
   end

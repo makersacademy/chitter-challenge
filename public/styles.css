@@ -62,7 +62,8 @@ p {
 }
 
 div.a_peep {
-	padding: 10px 0px
+	padding: 10px 0px;
+	word-wrap: break-word;
 }
 
 h1 {

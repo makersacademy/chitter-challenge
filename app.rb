@@ -63,7 +63,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create-comment' do
-  	Comment.create(post: params[:post], time: Time.now.strftime("%Y-%m-%d %H:%M"), peep_id: session[:comment].id, user_id: session[:user_id])
+  	Comment.create(post: params[:comment], time: Time.now.strftime("%Y-%m-%d %H:%M"), peep_id: session[:comment].id, user_id: session[:user_id])
   	session[:comment] = nil
   	redirect '/chitter-feed'
   end
