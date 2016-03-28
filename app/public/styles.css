@@ -20,14 +20,30 @@ body {
 }
 
 #login_form {
+  background-color: #99ccff;
   position: fixed;
   text-align: right;
+  right: 40px;
+  padding: 10px;
+}
+
+#peep_form {
+  background-color: #99ccff;
+  position: fixed;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
   right: 40px;
 }
 
 #register_link {
   font-style: italic;
   font-size: 12px;
+}
+
+.logout_reminder {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .form_error {
@@ -59,6 +75,13 @@ body {
   font-size: 15px;
   text-align: right;
   padding: 5px;
+}
+
+[name=peep_text] {
+  text-align: justify;
+  width: 240px;
+  height: 100px;
+  margin-top: 5px;
 }
 
 [name=peep_list] {

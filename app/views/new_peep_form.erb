@@ -1,6 +1,7 @@
-<p>Use the form below if you want to enter a new peep</p>
-<form action='/add_peep' method="post">
-  <input type='text' name='peep_text'>
-  <input type='text' name='tags'>
+<form action='/add_peep' method="post" id="peep_form">
+  <div>Enter a new peep</div>
+  <div><textarea name='peep_text' placeholder="Peep Text"></textarea></div>
+  <div><input type='text' name='tags' placeholder="Tags"></div>
   <button type ='submit' value='peep'>Peep!</button>
+  <div class='logout_reminder'>you're signed in as <%= @user %>,<a href="/logout">click here to log out</a></div>
 </form>

@@ -1,8 +1,6 @@
 <% if @signed_in %>
-<p>you're signed in as <%= @user %>,<a href="/logout">click here to log out</a></p>
 <%= erb :new_peep_form %>
 <% else %>
 <%= erb :login_form %>
-<div id="not_logged"><i>You can not peep until you log in</i></div>
 <% end %>
 <%= erb :peeps_list %>
