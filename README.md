@@ -4,9 +4,9 @@
 [![Imgur](http://i.imgur.com/DU5Vd1y.png?3)](http://i.imgur.com/DU5Vd1y.png?3)
 Shitter
 =================
-Shitter is a very basic Twitter rip-off.
-Instead of tweeting you can poop.
-You can see the live website https://like-twitter-but-shitter.herokuapp.com/
+Shitter is a very basic Twitter rip-off.  
+Instead of tweeting you can poop.  
+You can see the live website https://like-twitter-but-shitter.herokuapp.com/  
 
 Installation Instructions
 -------
