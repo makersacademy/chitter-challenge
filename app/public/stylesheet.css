@@ -1,16 +1,46 @@
-hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-
 button:hover {
-  color: #00e64d;
+  color: #b2001e;
 }
 
-.peep {
-  position: relative;
+#first {
+  float:left;
+}
+
+#second {
+  float: right;
+}
+
+span {
+  color: #00b294;
+  font-family: HelveticaNeue-light, Helvetica, Arial;
+  font-size: 12px
+}
+
+body {
+  font-family: HelveticaNeue, Helvetica, Arial;
+  margin: 100px;
+  background-color: #00b294;
+}
+
+h3 {
+  font-family: HelveticaNeue-book, Helvetica, Arial;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  text-align: center;
+}
+
+#message {
   margin: auto;
+  position: fixed;
 }
 
 #error {
@@ -25,48 +55,28 @@ button:hover {
   font-size: 14px;
 }
 
-li {
-  list-style-type: none;
-  padding: 10px;
+.creds {
   border-radius: 5px;
-}
-
-textarea {
-  border-radius: 5px;
-  text-align: center;
-}
-
-#peeps {
-  border-radius: 5px;
-  background-color: #00ff80;
-  height: relative;
-  width: 500px;
-  margin: auto;
-  padding: 50px;
-  text-align: center;
-  font-family: HelveticaNeue-bold;
-  font-size: 14px;
-}
-
-.entry {
-  border-radius: 5px;
-  background-color: #00ff80;
+  background-color: #C7ECFA;
   height: relative;
   width: 200px;
   margin: auto;
-  padding: 50px;
+  padding: 40px;
   text-align: center;
   font-family: HelveticaNeue-light;
   font-size: 14px;
 }
 
-span {
-  color: #00802b;
-  font-family: HelveticaNeue-light;
-  font-size: 12px
-}
-body {
-  font-family: HelveticaNeue;
-  margin: 100px;
-  background-color: #00cc66;
+.peep {
+  position:relative;
+  top: 18%;
+  border-radius: 5px;
+  background-color: #C7ECFA;
+  height: relative;
+  width: 500px;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+  font-family: HelveticaNeue-bold;
+  font-size: 14px;
 }
