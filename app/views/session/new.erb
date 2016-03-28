@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <div class='creds'>
-      <h3>Log in to get chittering!</h3>
+<div class='creds'>
+  <h3>Log in to get chittering!</h3>
     <form action='/session' method='post'>
       <p><label for="username">Username:</label></p>
         <input type=text name="username">
@@ -11,11 +8,9 @@
       <p><button>Log in!</button></p>
     </form>
 
-    <% if flash[:error]%>
-      <form action='/maker/new'>
-        <button>Whoops! Take me to sign up</button>
-      </form>
-    <% end %>
-    </div>
-  </body>
-</html>
+  <% if flash[:error]%>
+    <form action='/maker/new'>
+      <button>Whoops! Take me to sign up</button>
+    </form>
+  <% end %>
+</div>
