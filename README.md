@@ -57,19 +57,20 @@ Screenshots
 --
 _homepage:_
 
-![Imgur](http://imgur.com/QSnrbWD)
+![Imgur](http://i.imgur.com/QSnrbWD.png)
 
 _sign up:_
 
-![Imgur](http://imgur.com/Gc21bPc)
+![Imgur](http://i.imgur.com/Gc21bPc.png)
+
 _log in:_
 
-![Imgur](http://imgur.com/7qyom1D)
+![Imgur](http://i.imgur.com/7qyom1D.png)
 
 _log in error message:_
 
-![Imgur](http://imgur.com/WQziv9U)
+![Imgur](http://i.imgur.com/WQziv9U.png)
 
 _peeps page as logged in user_
 
-![Imgur](http://imgur.com/mv5QZZv)
+![Imgur](http://i.imgur.com/mv5QZZv.png)
