@@ -7,13 +7,23 @@
 <form action='/signup' method='post'>
   Name:<br>
   <input type='text' name='name' value='<%=@user.name%>' required/><br>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class='noticebox'>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Username"} %></div>
+    </div>
+  <% end %>
   Username:<br>
   <input type='text' name='username' value='<%=@user.username%>' required/><br>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class='noticebox'>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Email"} %></div>
+    </div>
+  <% end %>
   Email:<br>
   <input type='text' name='email' value='<%=@user.email%>' required/><br>
-  <% if flash[:notice] %>
+  <% if flash[:errors] && !flash[:errors].empty? %>
     <div class='noticebox'>
-      <div id='notice'><%= flash[:notice] %></div>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Password"} %></div>
     </div>
   <% end %>
       Password:<br>
