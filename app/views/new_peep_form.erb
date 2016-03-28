@@ -1,5 +1,8 @@
 <form action='/add_peep' method="post" id="peep_form">
-  <div>Enter a new peep</div>
+  <div>Peep a new peep</div>
+  <% if flash[:peep_too_long] %>
+    <div class="form_error">A peep can be no more than 200char</div>
+  <% end %>
   <div><textarea name='peep_text' placeholder="Peep Text"></textarea></div>
   <div><input type='text' name='tags' placeholder="Tags"></div>
   <button type ='submit' value='peep'>Peep!</button>

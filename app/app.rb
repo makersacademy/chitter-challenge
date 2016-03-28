@@ -57,8 +57,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    raise "not logged in" if session[:user_id].nil?
-    text = params[:peep_text] #+warn if size > 200
+    text = params[:peep_text]
+    if text.size > 200
+      flash.next[:peep_too_long] = true
+      redirect '/peeps'
+    end
     new_peep = Peep.create(content: text, date: DateTime.now, user_id: session[:user_id])
     tags = params[:tags].split(',')
     tags.each { |tag| new_peep.tags << Tag.first_or_create(name: tag) }

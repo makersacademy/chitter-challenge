@@ -19,6 +19,13 @@ body {
   margin: auto;
 }
 
+.form_error {
+  color: red;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
 #register_link {
   font-style: italic;
   font-size: 12px;
@@ -62,14 +69,8 @@ body {
   position: fixed;
   text-align: center;
   padding: 10px;
-  font-size: 30px;
+  font-size: 26px;
   right: 40px;
-}
-
-.form_error {
-  color: red;
-  font-style: italic;
-  text-align: center;
 }
 
 .login_text {
