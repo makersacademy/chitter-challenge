@@ -1,0 +1,10 @@
+<h3>Add a comment</h3>
+<form action="/comments" method="post">
+  <input type="hidden" name="peep_id" value="<%= @peep_id %>">
+  <p>
+    <textarea type="text" name="content" id="comment-box" placeholder="Write a comment..." required></textarea>
+  </p>
+  <p>
+    <button type="submit" id="peep">Add</button>
+  </p>
+</form>

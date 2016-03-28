@@ -1,0 +1,9 @@
+<nav>
+  <% if current_user %>
+      <div class="inline" id="welcome">Welcome <%= current_user.name %></div>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit" class="inline" id="log-out">Log out</button>
+      </form>
+  <% end %>
+</nav>

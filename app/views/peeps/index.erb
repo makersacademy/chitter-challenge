@@ -1,0 +1,29 @@
+<nav>
+  <% if current_user %>
+    <form action="/peeps/new">
+      <button type="submit" class="inline" id="new-peep">Post a new peep</button>
+    </form>
+  <% else %>
+    <form action="/sessions/new">
+      <button type="submit" class="inline">Log in</button>
+    </form>
+    <form action="/users/new">
+      <button type="submit" class="inline" id="sign-up">Sign up</button>
+    </form>
+  <% end %>
+</nav>
+
+<article id="peeps">
+  <h1>Chitter</h1>
+  <h1>Current Peeps</h1>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class="peep">
+        <%= partial :post, locals: { post: peep } %>
+        <a href="/<%= peep.id %>/comments" id="comments-link">Comments (<%= peep.comments.count %>)</a>
+        <hr />
+      </li>
+    <% end %>
+  </ul>
+</article>
+<%= partial :footer %>

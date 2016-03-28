@@ -1,0 +1,20 @@
+<article id="comments">
+  <div class="peep">
+    <%= partial :post, locals: { post: @peep } %>
+  </div>
+
+  <h3>Comments</h3>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li class="comment">
+        <%= partial :post, locals: { post: comment } %>
+        <hr />
+      </li>
+    <% end %>
+  </ul>
+
+  <% if current_user %>
+    <%= erb :"comments/new" %>
+  <% end %>
+</article>
+<%= partial :back %>

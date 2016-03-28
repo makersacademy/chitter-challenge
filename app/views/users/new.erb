@@ -1,0 +1,22 @@
+<h1 class="form-title">Join Chitter</h1>
+<form action="/users/new" method="post">
+  <p>
+    <input type="text" name="name" value="<%= @user.name %>" placeholder="Full name" required>
+  </p>
+  <p>
+    <input type="text" name="username" value="<%= @user.username %>" placeholder="Username" required>
+  </p>
+  <p>
+    <input type="email" name="email" value="<%= @user.email %>" placeholder="Email" required>
+  </p>
+  <p>
+    <input type="password" name="password" placeholder="Password" required>
+  </p>
+  <p>
+    <input type="password" name="password_confirmation" placeholder="Confirm password" required>
+  </p>
+  <p>
+    <button type="submit">Sign up</button>
+  </p>
+</form>
+<%= partial :back %>

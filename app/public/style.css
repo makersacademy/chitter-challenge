@@ -1,0 +1,201 @@
+body {
+  background-image: url("http://i.imgur.com/SZqTPcR.jpg");
+  background-size: cover;
+  font-family: "Century Gothic", sans-serif;
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  left: 15%;
+}
+
+nav { width: 70%; }
+
+#peeps {
+  background: rgba(248,248,248,0.78);
+  width: 70%;
+  height: 620px;
+  padding: 8px 30px 10px 30px;
+  margin-top: 9px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  -webkit-border-radius: 8px;
+}
+
+/*elements within list of peeps*/
+
+h1 {
+  font-family: "Stencil", "Britannic Bold", "helvetica neue", helvetica;
+  font-size: 30pt;
+  font-style: oblique;
+  text-align: center;
+}
+
+h1:nth-child(2) {
+  font-size: 18pt;
+  font-style: normal;
+}
+
+li { list-style: none; }
+
+.user { display: inline-block; }
+
+#name { font-family: "Britannic Bold"; }
+
+#username-time {
+  color: #484848;
+  font-size: 10pt;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+#comments-link {
+  font-size: 10pt;
+  font-weight: lighter;
+  font-style: italic;
+  color: #484848;
+  float: right;
+  display: inline-block;
+  margin-top: -30px;
+}
+
+#comments-link:hover {
+  font-style: normal;
+}
+
+hr {
+  height: 3px;
+  border: 0;
+  box-shadow: inset -0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  width: 85%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/*comments*/
+
+#comments {
+  background: rgba(248,248,248,0.78);
+  width: 45%;
+  height: 550px;
+  padding: 30px 30px 10px 30px;
+  margin-top: 9px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  -webkit-border-radius: 8px;
+}
+
+h3 {
+  font-family: "Stencil", "Britannic Bold", "helvetica neue", helvetica;
+  font-size: 15pt;
+  font-style: oblique;
+  margin-top: 30px;
+}
+
+#comment-box {
+  height: 80px;
+}
+
+/*header*/
+
+.inline {
+  display: inline-block;
+  float: right;
+  margin-bottom: 20px;
+  margin-right: -59px;
+}
+
+#sign-up { margin-right: 10px; }
+
+#welcome { margin-top: 8px; }
+
+#log-out {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+/*forms*/
+
+.form-title { text-align: left; }
+
+input {
+  width: 210px;
+  font-size: 12pt;
+  font-family: "Century Gothic", sans-serif;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: dotted 1px black;
+  outline: none;
+}
+
+textarea {
+  background: rgba(248,248,248,0.78);
+  width: 350px;
+  height: 140px;
+  font-size: 12pt;
+  border: none;
+  -webkit-border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+  resize: none;
+  outline: none;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#notice {
+  font-family: "Britannic Bold";
+  font-size: 15pt;
+}
+
+/*buttons*/
+
+button {
+  background-color: black;
+  color: white;
+  width: 80px;
+  font-size: 12pt;
+  font-family: "Century Gothic", sans-serif;
+  margin-top: 5px;
+  border: none;
+  padding: 3px 0 5px 0;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+button:hover{
+  background: rgba(248,248,248,0.78);
+  color: black
+}
+
+.white-button {
+  background: rgba(248,248,248,0.78);
+  color: black
+}
+
+.white-button:hover{
+  background-color: black;
+  color: white;
+}
+
+#new-peep {
+  width: 220px;
+  float: left;
+  margin-right: 155px;
+  background-color: black;
+  color: white;
+  font-size: 17pt;
+  font-family: "Stencil";
+  padding: 10px 10px 5px 10px;
+}
+
+#new-peep:hover{ opacity: 0.7; }
+
+/*footer*/
+
+footer {
+  display: inline-block;
+  font-size: 12px;
+}
+
+footer a {
+  color: black;
+}
