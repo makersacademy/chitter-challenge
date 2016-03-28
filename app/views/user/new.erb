@@ -1,5 +1,6 @@
 <form action='/user/signup' method=post>
   Name: <input type='text' name='name' value ='<%= @user.name %>' >
+  Usernamer: <input type='text' name='username' value='<%=@user.username %>' >
   E-Mail: <input type='email' name='email' value='<%=@user.email%>' >
   Password: <input type='password' name='password' required>
   Confirm Password <input type='password' name='password_confirm' required>
