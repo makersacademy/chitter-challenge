@@ -24,6 +24,8 @@
   li {
     align-self: center;
     list-style: none;
+    text-align: left;
+    font-size: 0.8em;
     height: 25%;
     width: 50%;
     margin: 10px auto;
@@ -35,9 +37,20 @@
     padding: 15px
     }
 
-  a {
-    background-color:transparent; text-decoration:none
+input.a {
+    text-transform: none;
+    border: none;
+    padding: 0px;
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
     }
+
+    .a:link    {color: white;}
+    .a:visited {color: white;}
+    .a:hover   {color:#ff0066;}
+    .a:active  {color:#b30047;}
 
   h1 {
     text-transform: uppercase;
@@ -53,6 +66,7 @@
     }
 
   input {
+
     width: 32.5%;
     min-width: 310px;
     max-width: 410px;
@@ -63,7 +77,7 @@
     letter-spacing: 1px;
     border: none;
     padding-bottom: 5px
-    margin: 5px
+    margin: 15px
     }
 
 input[type="submit" i] {
@@ -80,6 +94,15 @@ input[type="submit" i] {
     padding-left: 0;
     padding-bottom: : 5px
     }
+
+
+
+.peep-box {
+    min-width: 250px;
+    max-width: 80px;
+    height: 25px;
+    max-height: 60px
+}
 
 input[type="submit" i]:hover {
     }

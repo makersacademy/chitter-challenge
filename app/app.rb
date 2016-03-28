@@ -19,10 +19,12 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def get_username(peep)
+      @username = User.get(peep.created_by)
+    end
   end
 
-  get '/home' do
-  end
   get '/' do
     @peeps = Peep.all(order: [:created_at.desc])
     @title = "Hello"
@@ -73,7 +75,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    peep = Peep.create(peep: params[:peep], created_at: DateTime.now)
+    current_user.peeps.create(peep: params[:peep],
+                       created_at: DateTime.now)
+    redirect to('/')
+  end
+
+  post '/peep/comment' do
+    peep = Peeps.get(params[:id])
+    comment = Comment.create(body: params[:peep],
+                       created_at: DateTime.now)
+    peep.comments << comment
+    peep.save
     redirect to('/')
   end
 

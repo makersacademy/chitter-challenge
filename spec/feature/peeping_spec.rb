@@ -7,6 +7,14 @@ feature 'peeping' do
     expect(page).to have_content('this is my #first peep')
   end
 
+  scenario 'a peep contains the user name' do
+    visit('/')
+    sign_up
+    peep('this is my #first peep')
+    expect(current_path).to eq('/')
+    expect(page).to have_content('@Simon peeped: this is my #first peep')
+  end
+
   scenario 'I can see peeps in correct order' do
     visit('/')
     sign_up
@@ -26,5 +34,16 @@ feature 'peeping' do
     expect(page).to have_content('this is my #second peep')
     expect(page).to have_content("#{time}")
   end
+end
 
+  feature 'commenting' do
+    scenario 'I can comment on a peep' do
+      visit('/')
+      sign_up
+      peep('this is my #first peep')
+      sign_up2
+      click_link("comment")
+      expect(current_path).to eq('/peeps/comment')
+      expect(page).to have_content('this is my #first peep')
+    end
 end

@@ -1,7 +1,18 @@
-<div class="peep-box">
+<div class="peep">
   <ul id="peeps">
     <% @peeps.each do |peep| %>
-      <li><%= peep.created_at.strftime("%I:%M%p %m/%d/%Y") %>: <%= peep.peep %></li>
+      <li><%= peep.created_at.strftime("%I:%M%p %m/%d/%Y") %>| @<%= peep.user.username %> peeped: <%= peep.peep %>
+      <a ><form id='<%=peep.id%>' class='a' action="/peep/comment" method="post">
+        <input type='hidden' name='id' value='<%= peep.id %>'>
+        <input  type='text' name='comment' placeholder='...'>
+        <input type="submit" value="comment">
+      </a></li>
+      <% @peeps.comments.each do |comment| %>
+      <%= comment.body %>
+      <%end%>
+
     <% end %>
+
+
   </ul>
 </div>
