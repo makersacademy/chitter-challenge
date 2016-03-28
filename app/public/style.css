@@ -1,0 +1,70 @@
+html {
+  font-family: sans-serif;
+  /*text-align: center;*/
+  background-color: #1d8eee;
+  color:white;
+  font-size: 25px
+}
+
+button {
+    padding: 6px 50px;
+    text-decoration: none;
+    border-radius: 3px;
+    border-color: white;
+    border-style: solid;
+    background-color: #ffffff;
+    color: #93cef8;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 2px
+}
+
+input[type=text], input[type=password], input[type=email] {
+  width: 250px;
+}
+
+
+h1 {
+  color: white;
+  margin: auto;
+  width: 100%;
+  align-content: center;
+}
+
+p#welcome {
+  color:white;
+  font-size: 25px
+}
+
+
+.center {
+  margin: auto;
+  width: 20%;
+  text-align: center;
+
+}
+
+div.peepbox-container {
+  width: 20%;
+  margin: 0 auto;
+  /*padding: 10px;*/
+  /*radius: 1px;*/
+}
+
+ul {
+   color:rgba(255,255,255,.5);
+   font-size: 12px;
+   text-align: center;
+}
+
+li {
+   color: white;
+   font-size: 24px;
+   text-align: center;
+}
+
+label {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+}

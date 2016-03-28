@@ -1,17 +1,44 @@
-<% if current_user %>Welcome, <%= current_user.name %><% end %>
-
 <% if current_user %>
-<form method='get' action='/chitter-feed/new'>
-  <button type='submit'>Add peep</button>
-</form>
-<form method='post' action='/session/end'>
-  <input type='hidden' name='_method' value='delete'>
-  <button type='submit'>Log out</button>
-</form>
+  <div class='center'>
+    <p id='welcome'>
+      Welcome, <%= current_user.name %>
+    </p>
+  </div>
 <% end %>
 
 
+<% if current_user %>
+  <div class='center'>
+    <form method='get' action='/chitter-feed/new'>
+      <button type='submit'>Add peep</button>
+    </form>
+  </div>
+<% end %>
 
-<% @peeps.each do |peep| %>
-<ul><%= peep.content %> @ <%= peep.time_created.strftime("%c") %></ul>
+
+<% if !current_user %>
+  <div class='log_inbutton'>
+    <form method='get' action='/session/new'>
+      <button type='submit'>Log in</button>
+    </form>
+  <br>
+  </div>
+<% end %>
+
+<div class='peepbox-container'>
+  <% @peeps.each do |peep| %>
+    <ul>
+      <li><%= peep.content %></li>
+      <%= peep.time_created.strftime("Peeped on %D at %T") %>
+    </ul>
+  <% end %>
+</div>
+
+<% if current_user %>
+  <div class='center'>
+    <form method='post' action='/session/end'>
+      <input type='hidden' name='_method' value='delete'>
+      <button type='submit'>Log out</button>
+    </form>
+  </div>
 <% end %>
