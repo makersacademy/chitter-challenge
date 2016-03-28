@@ -1,5 +1,5 @@
 <div name="peep_list">
-  <div>Hottest peeps right now:</div>
+  <div>Newest peeps right now:</div>
   <% unless @filter_type.nil? %>
     <a href="/peeps" id="unfilter_link">You're visualizing a list filtered by <%= @filter_type %> click here to get back to the main page</a>
   <% end %>
@@ -7,11 +7,11 @@
     <div class="peep_block">
       <div class="peep_text"><%= peep.content %>
       <% peep.tags.map(&:name).each do |tag| %>
-        <a href="/peeps/<%=tag %>">#<%= tag %></a>
+        <a href="/peeps/t/<%= tag %>">#<%= tag %></a>
       <% end %>
       </div>
       <div class="peep_info">
-        posted by <%= peep.user_id %> at <%= peep.date.strftime("%H:%M:%S on %d-%m") %>
+        posted by <a href="/peeps/u/<%= peep.user.username %>"><%= peep.user.username %></a> at <%= peep.date.strftime("%H:%M:%S on %d-%m") %>
       </div>
     </div>
   <% end %>

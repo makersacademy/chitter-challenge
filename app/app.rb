@@ -69,10 +69,23 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/peeps/:tag' do
+  get '/peeps/t/:tag' do
     tag = Tag.first(name: params[:tag])
     @peep_list = tag.peeps
     @filter_type = 'Tag'
+    current_user = User.first(id: session[:user_id])
+    @signed_in = !current_user.nil?
+    if @signed_in
+      @user = current_user.username
+      @mail = current_user.email
+    end
+    erb :main_page
+  end
+
+  get '/peeps/u/:name' do
+    user = User.first(username: params[:name])
+    @peep_list = user.peep
+    @filter_type = 'Name'
     current_user = User.first(id: session[:user_id])
     @signed_in = !current_user.nil?
     if @signed_in
