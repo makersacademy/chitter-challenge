@@ -20,4 +20,5 @@ end
   gem 'dm-timestamps' 
   gem 'activesupport'
   gem 'sinatra'
+  gem 'sinatra-partial'
 

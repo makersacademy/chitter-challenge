@@ -14,6 +14,8 @@ feature 'Viewing poops' do
     fill_in :poop_msg, with: 'first poop'
     click_button 'Poop' 
     expect(page).to have_content 'first poop'
+    expect(page).to have_content 'adam'
+    expect(page).to have_content 'adamu'
   end
 end
 

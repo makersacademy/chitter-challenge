@@ -26,6 +26,13 @@ feature 'can sign up' do
     fill_in :username, with: 'adamu'
     expect { click_button 'Create account' }.to_not change(User, :count)
   end
+
+  scenario 'only with a non-registered email and non-registered username' do
+    create_user
+    expect { create_user }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content('Username is already taken')
+  end 
 end
 
     
