@@ -1,27 +1,35 @@
 <% if current_user %>
-  <ul class="topnav">
-    <li><a class="active" href="/">Home</a></li>
-    <li><a href='/users/<%= current_user.username %>'>My purrs</a></li>
-    <li><form action='/peeps/search'>
-        <input class='search' name='query' placeholder='Search purrs' type='text'>
-    </form></li>
-  </ul>
+  <div class="navWrap">
+    <div class="nav">
+      <ul class="topnav">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href='/users/<%= current_user.username %>'>My purrs</a></li>
+        <li><form action='/peeps/search'>
+            <input class='search' name='query' placeholder='Search purrs' type='text'>
+        </form></li>
+      </ul>
+    </div>
+  </div>
 
   <center><div style="padding:0 16px;">
-    <img src="/images/logo.png">
+    <img class='logo' src="/images/logo.png">
     <div class='welcome'>Welcome to Cheetah, <%= current_user.name %>!</div>
   </div></center>
 <% else %>
-  <ul class="topnav">
-    <li><a class="active" href="/">Home</a></li>
-    <li class="right"><a href="/users/new">Sign up</a></li>
-    <li class="right"><a href="/sessions/new">Sign in</a></li>
-    <li><form action='/peeps/search'>
-        <input class='search' name='query' placeholder='Search purrs' type='text'>
-    </form></li>
-  </ul>
-  <center><div style="padding:0 16px;">
-    <img src="/images/logo.png">
-    <div class="welcome">Welcome to Cheetah!</div>
-  </div></center>
+  <div class="navWrap">
+    <div class="nav">
+      <ul class="topnav">
+        <li><a class="active" href="/">Home</a></li>
+        <li class="right"><a href="/users/new">Sign up</a></li>
+        <li class="right"><a href="/sessions/new">Sign in</a></li>
+        <li><form action='/peeps/search'>
+            <input class='search' name='query' placeholder='Search purrs' type='text'>
+        </form></li>
+      </ul>
+    </div>
+  </div>
+      <center><div style="padding:0 16px;">
+        <img class='logo' src="/images/logo.png">
+        <div class="welcome">Welcome to Cheetah!</div>
+      </div></center>
 <% end %>

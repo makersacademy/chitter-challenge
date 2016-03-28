@@ -112,6 +112,10 @@ input#comment {
   margin: 5px;
 }
 
+div.navWrap {
+   height: 46px;
+}
+
 ul.topnav {
     list-style-type: none;
     margin: 0;
