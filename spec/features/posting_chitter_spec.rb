@@ -12,6 +12,14 @@ feature 'Posting a chitter:' do
     end
   end
 
+  scenario 'Posts are desiplayed in reverse chronological order' do
+    sign_up
+    log_in
+    post_peep
+    post_peep2
+    page.body.index('Test post 2') < page.body.index('Test post')
+  end
+
   scenario 'User can\'t post without a message' do
     sign_up
     log_in

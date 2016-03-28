@@ -31,4 +31,10 @@ feature 'Commeting to a post:' do
     expect(page).to have_content('Test comment')
     expect(page).to have_content("clems commented @ #{timestamp}")
   end
+
+  scenario 'Comments are desiplayed in reverse chronological order' do
+    comment
+    comment2
+    page.body.index('Test comment 2') < page.body.index('Test comment')
+  end
 end
