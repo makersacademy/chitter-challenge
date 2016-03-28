@@ -1,4 +1,4 @@
-require 'web_helper'
+# require 'web_helper'
 
 feature 'User management' do
   include Helpers

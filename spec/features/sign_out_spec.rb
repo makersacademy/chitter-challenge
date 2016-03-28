@@ -1,4 +1,4 @@
-require 'web_helper'
+# require 'web_helper'
 feature 'User signs out' do
   include Helpers
   before(:each) do
