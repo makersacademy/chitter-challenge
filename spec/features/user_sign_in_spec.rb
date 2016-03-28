@@ -14,7 +14,7 @@ feature 'User can sign in' do
     fill_in :password, with: 'asd123'
     click_button 'Sign in'
     expect(page.status_code).to eq 200
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/chitter-feed/peeps'
     expect(page).to have_content "Welcome, #{user.name}"
   end
 
@@ -24,7 +24,7 @@ feature 'User can sign in' do
     fill_in :password, with: 'asd123'
     click_button 'Sign in'
     expect(page.status_code).to eq 200
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/chitter-feed/peeps'
     expect(page).to have_content "Welcome, #{user.name}"
   end
 

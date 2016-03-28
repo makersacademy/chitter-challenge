@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username_or_email],params[:password])
     if user
       session[:user_id] = [user.id]
-      redirect '/peeps'
+      redirect '/chitter-feed/peeps'
     else
       flash.now[:login_error] = "Wrong username/email or password!"
       erb :'session/new'

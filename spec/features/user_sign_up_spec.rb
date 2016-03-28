@@ -1,7 +1,7 @@
 feature 'User Sign up' do
   scenario 'User can sign up' do
     sign_up
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/chitter-feed/peeps'
     expect(page.status_code).to eq 200
     expect(page).to have_content('Welcome, John Doe')
     expect(User.count).to eq 1
