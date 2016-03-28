@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/kevinpmcc/chitter-challenge.svg?branch=master)](https://travis-ci.org/kevinpmcc/chitter-challenge)
-
+[![Coverage Status](https://coveralls.io/repos/github/kevinpmcc/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/kevinpmcc/chitter-challenge?branch=master)
 Chitter Challenge
 =================
 
