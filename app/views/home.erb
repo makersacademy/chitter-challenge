@@ -1,15 +1,33 @@
 <html>
-  <head>
-    <style>
-      @font-face { font-family: 'MR ROBOT'; src: url('MR ROBOT.TTF'); }
-      h1 {
-      font-family: 'futura'
-    }
-  </style>
-</head>
-<body>
-  <br><br><br><br>
+  <body>
 
-</body>
-</html>
+    <% if current_user %>
+      <form method='get' action='/poops/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent" type='submit' value='Do a poop'><img src="http://i.imgur.com/1GBirxr.png" title="source: imgur.com" /></button>
+      </form>
+    <% else %>
+      <form method='get' action='/sessions/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' name='Sign in'><img src="http://i.imgur.com/ZjslkEL.png?1" title="source: imgur.com" /></button>
+      </form>
+      <form method='get' action='/users/new'>
+        <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' name='Sign out'><img src="http://i.imgur.com/YsWqIEy.png?1" title="source: imgur.com" /></button>
+      </form>
+    <% end %>
+
+    <ul style='list-style: none;'id='poops'>
+      <% Poop.all.reverse.each do |poop| %>
+        <li>
+        <%= poop.user.name %>
+        <font size=2 color='#C0C0C0'> 
+          @<%= poop.user.username %>
+          - pooped at <%= poop.created_at.strftime("%H:%M  %d-%b-%Y") %> </font>
+        <div>
+          <big><%= poop.poop_msg %></big>
+        </div>
+        ___________________________________________
+        </li>
+      <% end %>
+      </ul>
+    </body>
+  </html>
 
