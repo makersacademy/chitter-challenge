@@ -19,10 +19,6 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-
-    def get_username(peep)
-      @username = User.get(peep.created_by)
-    end
   end
 
   get '/' do
@@ -81,11 +77,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/comment' do
-    peep = Peeps.get(params[:id])
-    comment = Comment.create(body: params[:peep],
-                       created_at: DateTime.now)
-    peep.comments << comment
-    peep.save
+    comment = Comment.create(body: params[:comment],
+                       created_at: DateTime.now,peep_id: params[:peep_id],user_id: session[:user_id])
+    # peep = Peep.get(params[:id])
+    # current_user.comments << comment
+    # current_user.save
+    # peep.comments << comment
+    # peep.save
     redirect to('/')
   end
 

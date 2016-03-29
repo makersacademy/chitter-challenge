@@ -26,11 +26,8 @@
         <input type='submit' value='Sign out'>
       </form>
       <form class="add_form" action="/peep/new" method="post">
-      <div class="">
         <input class="peep-box" type="text" name="peep" placeholder="peep" > <input type="submit" value="Peep!">
-      </div>
-      <div class="">
-      </div>
+      </form>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty?%>

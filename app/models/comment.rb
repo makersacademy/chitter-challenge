@@ -4,8 +4,6 @@ require 'dm-postgres-adapter'
 class Comment
   include DataMapper::Resource
 
-
-
   property :id, Serial
   property :body, Text, :lazy => false
   property :created_at, DateTime
