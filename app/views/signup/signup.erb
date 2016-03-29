@@ -1,0 +1,47 @@
+<div class='pageheading' id='pleasesignup'>
+  <h3>Register your details:</h3>
+</div>
+
+<div id='signupform'>
+
+<form action='/signup' method='post'>
+  Name:<br>
+  <input type='text' name='name' value='<%=@user.name%>' required/><br>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class='noticebox'>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Username"} %></div>
+    </div>
+  <% end %>
+  Username:<br>
+  <input type='text' name='username' value='<%=@user.username%>' required/><br>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class='noticebox'>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Email"} %></div>
+    </div>
+  <% end %>
+  Email:<br>
+  <input type='text' name='email' value='<%=@user.email%>' required/><br>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class='noticebox'>
+      <div id='notice'><%= flash[:errors].find{|x|x.include?"Password"} %></div>
+    </div>
+  <% end %>
+      Password:<br>
+      <input type='password' name='password'/><br>
+      Confirm password:<br>
+      <input type='password' name='password_confirmation'/><br>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        <div class='noticebox'>
+          <div id='notice'><%= flash[:errors].find{|x|x.include?"Phonenumber"} %></div>
+        </div>
+      <% end %>
+      If you want to text in your peeps, enter your phone number:<br>
+      <input maxlength='11' placeholder='Leave blank otherwise' type='text' name='phone'/><br>
+
+
+  <input class='signbutton' type='submit' value='Register'/>
+
+</form>
+
+
+</div>

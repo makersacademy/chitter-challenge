@@ -1,0 +1,93 @@
+/* Main Content */
+
+#container{
+  margin:auto;
+  background-color: #FFC366;
+  font-family: "Courier";
+  text-align: center;
+  min-height:1000px;
+}
+#mainbar{
+  text-align: left;
+}
+#mainbar p{
+  position: relative;
+  margin: auto;
+  font-size:70px;
+  text-align: center;
+  height:80px;
+}
+#sign_up_sign_in{
+  position: absolute;
+  left:30px;top:30px;
+  text-align: left;
+}
+#sign_up_sign_in p{
+  font-size: 14px;
+}
+#sign_up_sign_in form{
+  left:0px;
+  font-size: 12px;
+}
+.signbutton{
+  background-color: #66BDFF;
+  border-radius: 10px;
+  font-family: inherit;
+}
+.signbutton:hover{
+  background-color: #6688FF;
+}
+.peeplist{
+
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left:250px;
+  margin-right: 250px;
+}
+
+/* Peep entry box */
+#newpeep textarea{
+  margin-top: 20px;
+  font-family: "Courier";
+  font-size: 12px;
+  border:none;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+}
+/* Peep list */
+#peeps{
+  padding-left: 0;
+  list-style-type: none;
+  display: inline-block;
+}
+#peeps span{
+  font-size: 10px;
+}
+.peep{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+  border-style: dotted;
+  border-radius: 50px;
+  border-width: 2px;
+}
+#oddpeep{
+  border-color: #D9F3FF;
+  background-color: #ECB45E;
+}
+#evenpeep{
+  background-color: #FFDFAE;
+}
+#img{
+  height: 25px;
+  width:25px;
+  vertical-align: middle;
+}
+
+/* Sign Up */
+
+#notice{
+  color: red;
+}

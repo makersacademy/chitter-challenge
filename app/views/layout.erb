@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>chitter</title>
+    <link rel="stylesheet" type="text/css" href="<%= url('/styles2.css') %>"/>
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id='mainbar'><p>chitter</p>
+
+        <div id='sign_up_sign_in'>
+          <% if current_user %>
+             Hi, <%= current_user.name %>!<br>
+
+                Not <%= current_user.name %>?
+                <form action='/sessions' method='post'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input type='submit' value='Sign Out' class='signbutton'>
+                </form>
+
+
+
+          <% else %>
+            <div id='signup'>
+              <form action='/signup'><input type='submit' value='Sign Up' class='signbutton'/></form>
+            </div>
+            <div id='signin'>
+              <form action='/signin'><input type='submit' value='Sign In' class='signbutton'/></form>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+
+    </div>
+
+
+  </body>
+</html>
