@@ -1,0 +1,17 @@
+<form action='/signup' method='post'>
+  <input type='text' placeholder='Username' name='username'/>
+  <input type='email' name='email' placeholder='email' value='<%= @user.email%>' required/>
+  <input type='password' placeholder='password' name='password'/>
+  <input type='password' placeholder='password confirmation' name='password_confirmation'/>
+  <input type='submit' value='Sign up'/>
+</form>
+
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
