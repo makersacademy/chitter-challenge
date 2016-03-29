@@ -20,14 +20,15 @@ set :session_secret, 'notsosecret'
     redirect to('/home')
   end
 
-  post '/home' do
-      user = Users.get(session[:user_id])
-      redirect to('/home')
-  end
+  # post '/home' do
+  #     user = Users.get(session[:user_id])
+  #     redirect to('/home')
+  # end
 
   get '/home' do
     user = Users.get(session[:user_id])
-    @peeps = Peep.all(users_id: user.id) || []
+    # @peeps = Peep.all(users_id: user.id) || []
+    @peeps = Peep.all() || []
     @username = user.username
     @user_id = user.id
     erb :index
