@@ -34,7 +34,7 @@
 * Rund bundle
 * Initalize databases chitter_test & chitter_development
 * run rake db:migrate RACK_ENV=test && RACK_ENV=development
-``
+```
 ### App
 #### Live Version: 
 https://chittercaspar.herokuapp.com/feed
