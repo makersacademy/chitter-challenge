@@ -46,27 +46,64 @@ I want to see the time at which it was made
 Installation and use
 ----------------------
 
+#### Local mode :
+1. Fork this repo
+2. Copy the URL of the forked repo
+3. Open terminal ( or equivalent ) and move to the desired directory, in which you want to create a clone of Chitter
+4. Clone the forked repo : ```$ git clone URL```
+5. Run bundle to install relevant gems : ```$ bundle install```
+6. Run the program with this command : ```$ rackup```
+7. Check the port number in the terminal output. In the example below, it is *port=4567*
+8. Open a preferred browser and type ```localhost:port number``` into the URL bar. ( e.g. ```localhost:4567``` if port number is 4567 )
+9. The browser should display the sign-up page
+
+Example of terminal output upon running ```$ rackup``` :
+```
+$ ruby app/chitter.rb
+[2016-03-28 11:51:17] INFO  WEBrick 1.3.1
+[2016-03-28 11:51:17] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-03-28 11:51:17] INFO  WEBrick::HTTPServer#start: pid=65398 port=929
+```
+
+#### Remote mode :
+The site is live here temporarily
+
+https://shielded-lowlands-92800.herokuapp.com/
+
+How to use
+----------
+
+
 Technologies
 ------------
 
+Written in Ruby
 
+Using the web framework Sinatra
 
-Notes on functionality:
-------
+Developed using Behaviour Driven Development using  
+*  rspec
+*  rspec-sinatra
+*  capybara
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
+Database used is postgreSQL
+
+Use of datamapper to link database with web app
+
+Online host is Heroku
 
 Future Features
 -------
-* Max character length of each peep is 140
+* Max character length of each peep is 140 to feel like twitter
+
+* Add CSS and images to improve user experience
+
+* Ability to add to comments to each peeps to improve user interaction
+
+* Refactor controllers (skinny controllers and separate features) and tests to improve readability and ease of future expansion
+
+
+
 
 Author
 ------

@@ -1,9 +1,6 @@
-
-
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
-require_relative 'models/user'
 
 class Chitter < Sinatra::Base
 
@@ -66,7 +63,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
     redirect to '/'
-
   end
 
   post '/chitter/new' do
@@ -77,7 +73,6 @@ class Chitter < Sinatra::Base
     peep.save
     erb(:home)
   end
-
 
   run! if app_file == $0
 end

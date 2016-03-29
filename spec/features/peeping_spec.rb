@@ -1,6 +1,6 @@
-
 feature 'User chitter experience' do
   include Helpers
+
   context 'User can peep' do
     before do
       visit '/'
@@ -41,13 +41,13 @@ feature 'User chitter experience' do
       click_button('Peep')
     end
 
-    scenario 'peeps are displayed in reversed order' do
+    scenario 'in reversed order' do
       fill_in('message', with: 'Who is my mother?')
       click_button('Peep')
       expect('Who is my mother?').to appear_before 'Winter is comming!'
     end
 
-    scenario 'All peeps have the time they were created' do
+    scenario 'with the time of creation' do
       time = Time.now.strftime("%Y-%m-%d %H:%M")
       within 'article#peeps' do
         expect(page).to have_content('Winter is comming!')
@@ -57,11 +57,11 @@ feature 'User chitter experience' do
   end
 
   feature 'On Chitter page' do
-    context 'Not logged in' do
-      before(:each) do
-        visit('/home')
-      end
+    before(:each) do
+      visit('/home')
+    end
 
+    context 'Not logged in' do
       scenario 'User can sign in' do
         click_button('Sign in')
         expect(current_path).to eq('/sessions/new')
@@ -71,7 +71,16 @@ feature 'User chitter experience' do
         click_button('Sign up')
         expect(current_path).to eq('/users/new')
       end
+    end
 
+    context 'Not logged in' do
+      scenario 'User can sign out' do
+        visit '/'
+        sign_up
+        sign_in
+        click_button('Sign out')
+        expect(current_path).to eq('/')
+      end
     end
   end
 end

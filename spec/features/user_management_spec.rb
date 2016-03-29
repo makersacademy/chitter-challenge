@@ -1,5 +1,3 @@
-# require 'web_helper'
-
 feature 'User management' do
   include Helpers
 
@@ -9,13 +7,13 @@ feature 'User management' do
     expect(User.first.username).to eq('ghost')
   end
 
-  scenario 'mismatch of passwords' do
+  scenario 'User cannot sign up if password does not match password confirmation' do
     expect{sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Password does not match the confirmation')
   end
 
-  context 'email' do
+  context 'email requirements' do
     scenario 'entering no email will not update database' do
       expect do
          visit '/users/new'

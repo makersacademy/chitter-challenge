@@ -1,8 +1,7 @@
 describe User do
-
   let!(:user) do
-    User.create(email: 'test@test.com', password: 'secret1234',
-               password_confirmation: 'secret1234')
+    User.create(email: 'cersei@house_lannister.co.we', password: 'jamie',
+             password_confirmation: 'jamie')
   end
 
   it 'authenticates when given a valid email address and password' do
@@ -10,4 +9,7 @@ describe User do
     expect(authenticated_user).to eq user
   end
 
+  it 'doesnt match user in database' do
+    expect(User.authenticate(user.email, 'robert')).to be_nil
+  end
 end

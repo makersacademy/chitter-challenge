@@ -1,5 +1,3 @@
-
-
 require 'bcrypt'
 
 class User

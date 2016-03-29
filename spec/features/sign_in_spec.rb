@@ -1,5 +1,3 @@
-# require 'web_helper'
-
 feature 'User can sign in' do
   include Helpers
   scenario 'with correct credentials' do
@@ -27,5 +25,4 @@ feature 'User can sign in' do
     click_button('Sign up')
     expect(current_path).to eq('/users/new')
   end
-
 end
