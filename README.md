@@ -1,111 +1,111 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
--------
+----------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+To write a little Twitter clone (aka Chitter) that will allow the users to post messages to a public stream.
 
 Features:
 -------
 
-```sh
+```
+
+User Story 1 (US1)
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
+User Story 2 (US2)
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
+User Story 3 (US3)
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
+User Story 4 (US4)
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+User Story 5 (US5)
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
+User Story 6 (US6)
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
+Installation and use
 ----------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+#### Local mode :
+1. Fork this repo
+2. Copy the URL of the forked repo
+3. Open terminal ( or equivalent ) and move to the desired directory, in which you want to create a clone of Chitter
+4. Clone the forked repo : ```$ git clone URL```
+5. Run bundle to install relevant gems : ```$ bundle install```
+6. Run the program with this command : ```$ rackup```
+7. Check the port number in the terminal output. In the example below, it is *port=4567*
+8. Open a preferred browser and type ```localhost:port number``` into the URL bar. ( e.g. ```localhost:4567``` if port number is 4567 )
+9. The browser should display the sign-up page
 
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+Example of terminal output upon running ```$ rackup``` :
+```
+$ ruby app/chitter.rb
+[2016-03-28 11:51:17] INFO  WEBrick 1.3.1
+[2016-03-28 11:51:17] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-03-28 11:51:17] INFO  WEBrick::HTTPServer#start: pid=65398 port=929
 ```
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+#### Remote mode :
+The site is live here temporarily
 
-```
-$ coveralls report
-```
+https://shielded-lowlands-92800.herokuapp.com/
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+How to use
+----------
 
+
+Technologies
+------------
+
+Written in Ruby
+
+Using the web framework Sinatra
+
+Developed using Behaviour Driven Development using  
+*  rspec
+*  rspec-sinatra
+*  capybara
+
+Database used is postgreSQL
+
+Use of datamapper to link database with web app
+
+Online host is Heroku
+
+Future Features
+-------
+* Max character length of each peep is 140 to feel like twitter
+
+* Add CSS and images to improve user experience
+
+* Ability to add to comments to each peeps to improve user interaction
+
+* Refactor controllers (skinny controllers and separate features) and tests to improve readability and ease of future expansion
+
+
+
+
+Author
+------
+
+Hanif Fakira
