@@ -1,0 +1,62 @@
+body {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Questrial', sans-serif;
+  background: #FFEB3B;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.content {
+  background: white;
+  padding: 10px;
+  border: solid black 1px;
+}
+
+.peep {
+  text-align: left;
+  margin: 5px 20px 5px 20px;
+  background-color: white;
+  padding: 5px 5px 5px 5px;
+  border: #828282 1px solid;
+  box-shadow: rgba(128, 124, 124, 0.42) 2px 2px;
+}
+
+.peep_details {
+  text-align: right;
+  font-size: 12px;
+  padding: -12px
+}
+
+.header {
+  display: inline;
+  text-align: left;
+  margin-left: 20px;
+}
+
+button {
+  padding: 6px;
+}
+
+.form {
+    width: 50%;
+    margin: auto;
+}
+
+.form label {
+  display:inline-block;
+  text-align: right;
+  width: 35%;
+  margin-right: 5%;
+}
+
+.form button {
+  margin: 5px
+}
+
+.error_list {
+  margin: auto;
+  text-align: left;
+  width: 65%;
+}

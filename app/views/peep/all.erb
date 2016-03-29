@@ -1,0 +1,33 @@
+<div>
+  <% if current_user %>
+    <%= "Welcome #{current_user.username}" %>
+    <form action='/session' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <button>Sign out</button>
+    </form>
+  <% else %>
+    <a href='/session/new'><button>Sign in</button></a>
+    or
+    <a href='/user/new'><button>Sign Up</button></a>
+  <% end %>
+</div>
+
+<% unless @peeps.all.empty? %>
+  Current peeps
+  <% @peeps.reverse.each do |peep| %>
+    <div class='peep'>
+      <div>
+        <%= peep.body %>
+      </div>
+      <div class='peep_details'>
+        <p>Peeped by <%= "<a href='/#{peep.user.username}'>#{peep.user.username}</a> #{peep.time.strftime("at %I:%M%p on %m/%d/%Y")}" %></p>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  There are no peeps yet
+<% end %>
+
+<div>
+  <a href='/peep/new'><button>New Peep</button></a>
+</div>

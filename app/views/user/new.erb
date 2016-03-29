@@ -1,0 +1,10 @@
+<h1>Sign up</h1>
+<div class='form'>
+  <form method='post' action='/user'>
+    <label>Name:</label><input type='text' name='name' value='<%= @user.name %>' required>
+    <label>Username:</label><input type='text' name='username' value='<%= @user.username %>' required>
+    <label>Email:</label><input type='email' name='email' value='<%= @user.email %>' required>
+    <label>Password:</label><input type='password' name='password' required>
+    <button type='submit'>Start Peeping!</button>
+  </form>
+</div>
