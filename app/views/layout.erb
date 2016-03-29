@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+      <br><br><center>
+        <img src="http://bit.ly/1RI9rlt">
+      <br><br>
+    </center>
+  </head>
+
+  <body bgcolor="#F5F5F5">
+    <center>
+      <font face="verdana">
+
+        <% if flash[:errors] && !flash[:errors].empty? %>
+        Refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li> <%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= yield %>
+
+        <% if current_user %>
+          <br>
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'/>
+          </form>
+        <% end %>
+      </font>
+    </center>
+  </body>
+</html>
