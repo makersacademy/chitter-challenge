@@ -22,8 +22,7 @@ Installation Instructions
 Running the application
 -----
 
-* In the root directory run `rackup`. This should start a Server on your local
-
+* In the root directory run `rackup`. This should start a Server on your local machine
 * In your browser navigate to http://localhost:9292
 * Create an account
 * Click Save
