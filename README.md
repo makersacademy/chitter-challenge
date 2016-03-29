@@ -36,6 +36,6 @@ h3 Installation
 
 h3 Screenshots
 
-![screenshots](/screenshots/1.png?raw=true "One")
-![screenshots](/screenshots/2.png?raw=true "Two")
-![screenshots](/screenshots/3.png?raw=true "Three")
+![screenshots](https://www.dropbox.com/s/xo2ntk8te93alw2/1.png?dl=0)
+![screenshots](https://www.dropbox.com/s/dyrdxg7s6852dj4/2.png?dl=0)
+![screenshots](https://www.dropbox.com/s/8fv7e45q5d5x0e7/3.png?dl=0)
