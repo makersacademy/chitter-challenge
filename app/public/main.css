@@ -1,5 +1,7 @@
 body {
   font-family: Tahoma;
+  margin: 70px 0 0 10px;
+  padding: 0;
 
 }
 
@@ -7,12 +9,47 @@ body {
   display: inline;
 }
 
-.nav-brand {
-  font-size: 1.2em;
+.right {
+  float: right;
+}
+
+.clear {
+  clear:both;
+}
+
+.margin_right {
+  margin-right: 20px;
+}
+
+nav {
+  background-color: #E8E2E2;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px dotted #782F2F;
+}
+
+a.nav-brand {
+    color: #782F2F;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.8em;
 }
 
 nav button {
-  color: red;
+  color: #782F2F;
+  border: 1px solid #782F2F;
+  border-radius: 2px;
+  margin: 5px;
+  font-size: 1em;
+  background-color: #D8AFAF;
+}
+
+nav button:hover {
+  background-color: #F0C6C6;
+  cursor: pointer;
 }
 
 .error {

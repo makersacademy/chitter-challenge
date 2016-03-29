@@ -1,17 +1,18 @@
 <nav>
   <a class="nav-brand" href="/">Chittr</a>
 <% unless current_user %>
-  <form class="inline" action="/users/new">
-    <button type="submit" name="sign_up">Sign up</button>
+  <form class="inline right" action="/users/new">
+    <button type="submit" name="sign_up" class="margin_right">Sign up</button>
   </form>
-  <form class="inline" action="/sessions/new">
+  <form class="inline right" action="/sessions/new">
     <button type="submit" name="sign_up">Sign in</button>
   </form>
 </nav>
 <% else %>
-  <form class="inline" action="/sessions" method="post">
+  <form class="inline right" action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button type="submit" name="sign_out">Sign out</button>
+    <button type="submit" name="sign_out" class="margin_right">Sign out</button>
   </form>
 </nav>
 <% end %>
+<div class="clear"></div>
