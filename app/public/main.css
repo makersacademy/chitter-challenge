@@ -75,3 +75,30 @@ nav button:hover {
   padding: 15px;
   list-style: none;
 }
+
+.wrapper {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.peep {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.peep-body {
+  margin-bottom: 5px;
+}
+
+.peep-footer {
+  color: #D4B9B9;
+  font-size: 0.7em;
+}
+
+.peep-box {
+  width: 100%;
+  height: 100px;
+}
