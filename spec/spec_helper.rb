@@ -1,7 +1,17 @@
-ENV['RACK_ENV'] ||= 'test'
-
 require 'coveralls'
 require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+SimpleCov.start
+
+ENV["RACK_ENV"] = "test"
+
+require 'capybara'
+
 require 'capybara/rspec'
 require './app/app'
 require 'tilt/erb'
@@ -12,11 +22,6 @@ require 'features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 Capybara.app = Chittr
 
