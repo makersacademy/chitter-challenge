@@ -34,11 +34,11 @@
 * Rund bundle
 * Initalize databases chitter_test & chitter_development
 * run rake db:migrate RACK_ENV=test && RACK_ENV=development
-```
+``
 ### App
 #### Live Version: 
 https://chittercaspar.herokuapp.com/feed
 #### Screenshots
-![screenshots](https://github.com/ccfz/chitter-challenge/master/screenshots/1.png?raw=true)
-![screenshots](https://github.com/ccfz/chitter-challenge/master/screenshots/2.png?raw=true)
-![screenshots](https://github.com/ccfz/chitter-challenge/master/screenshots/3.png?raw=true)
+![screenshots](https://github.com/ccfz/chitter-challenge/blob/master/screenshots/1.png?raw=true)
+![screenshots](https://github.com/ccfz/chitter-challenge/blob/master/screenshots/2.png?raw=true)
+![screenshots](https://github.com/ccfz/chitter-challenge/blob/master/screenshots/3.png?raw=true)
