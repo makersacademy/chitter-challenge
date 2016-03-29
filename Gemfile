@@ -15,4 +15,5 @@ group :test do
   gem 'database_cleaner'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'simplecov'
 end
