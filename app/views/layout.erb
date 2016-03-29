@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="<%=url('/stylesheet.css')%>"/>
+    <title>Chitter</title>
+  </head>
+  <body>
+
+
+  <div id="navbar">
+    <%=partial :navbar %> 
+  </div>
+  <div id="peeps">
+    <%=partial :flash%>
+</div>
+    <%= yield %>
+
+  </body>
+</html>
