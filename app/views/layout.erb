@@ -11,16 +11,16 @@
     <div class='header'>
       <a href='/'><img src='/images/chitter.jpg' width=100px></a>
     </div>
-
-    <% if flash[:error_messages] %>
-      <h2>Please refer to the following errors:</h2>
-        <ul>
-          <% flash[:error_messages].each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-    <% end %>
-
+    <div class='error_list'>
+      <% if flash[:error_messages] %>
+        <h2>Please refer to the following errors:</h2>
+          <ul>
+            <% flash[:error_messages].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+      <% end %>
+    </div>
     <div>
       <%= yield %>
     </div>

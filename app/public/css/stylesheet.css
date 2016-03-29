@@ -54,3 +54,9 @@ button {
 .form button {
   margin: 5px
 }
+
+.error_list {
+  margin: auto;
+  text-align: left;
+  width: 65%;
+}
