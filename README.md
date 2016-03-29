@@ -6,10 +6,13 @@ To begin, run the following.
 
 ```
 $ bundle
-
+$ ruby './app/chitter'
+$ open 'http://localhost:4567'
 ```
 
 ## Heroku Link
+
+https://serene-lowlands-22090.herokuapp.com
 
 ## My Github link
 https://github.com/olmesm/chitter-challenge
