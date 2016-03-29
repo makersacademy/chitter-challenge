@@ -40,6 +40,11 @@ header.landing {
   font-size: 1.75rem;
 }
 
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
 .wrappers {
   display: flex;
   height: 300px;
@@ -79,6 +84,10 @@ header.landing {
   text-decoration: none;
 }
 
+.actions .btn {
+  font-size: 1rem;
+  padding: 10px;
+}
 input[type=submit] {
   color: white;
   font-size: 1rem;
@@ -101,6 +110,65 @@ header.other-pages {
   padding: 1rem;
 }
 
+.actions {
+  margin-top: 1.5rem;
+}
+
+.actions p {
+  margin: 1rem 0;
+}
+.sign-up-link {
+  /*float: right;*/
+}
+
 .signup-wrapper {
   margin-left: 1rem;
+}
+
+.peep-stream {
+  margin: -75px 0 0 250px;
+  width: 400px;
+}
+
+.stream-item {
+  margin-bottom: 10px;
+  border-bottom: 1px #707070 solid;
+}
+
+.ProfileCard {
+  margin: 10px 0 20px 0;
+}
+.ProfileCard-name p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.ProfileCard-name p span {
+  font-size: 0.80rem;
+  color: #707070;
+}
+.peep-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.peep-name span {
+  font-size: 0.80rem;
+  color: #707070;
+}
+
+.peep-message {
+  padding: 0.5rem 0;
+}
+
+.peep-time {
+  font-size: 0.7rem;
+  font-color: #707070;
+}
+
+.Login-wrapper {
+  width: 700px;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
 }
