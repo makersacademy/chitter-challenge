@@ -7,8 +7,6 @@ gem 'sinatra'
 gem 'sinatra-partial'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'database_cleaner'
-gem 'capybara'
 gem 'pry'
 
 
@@ -19,5 +17,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'rspec-sinatra'
+  gem 'database_cleaner'
+  gem 'capybara'
 end
 

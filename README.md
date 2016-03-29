@@ -1,10 +1,10 @@
 [![Coverage Status](https://coveralls.io/repos/github/ccfz/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/ccfz/chitter-challenge?branch=master)
 [![Build Status](https://travis-ci.org/ccfz/chitter-challenge.svg?branch=master)](https://travis-ci.org/ccfz/chitter-challenge)
 
-h1 Chitter
-h2 A simple social network
+H1 Chitter
+H2 A simple social network
 
-h3 Overview
+H3 Overview
 
   The objective of this project was to create a social media network, on which people can post to a public news feed. The challenges covered were:
 
@@ -14,7 +14,7 @@ h3 Overview
   * Project deployment
   * Test-driven with RSPEC
 
-h3 Technology
+H3 Technology
 
 * BCrypt
   * Password hashing
@@ -27,14 +27,14 @@ h3 Technology
 * Rspec
 * Rake
 
-h3 Installation
+H3 Installation
 
 * Fork repo
 * Rund bundle
 * Initalize databases chitter_test & chitter_development
 * run rake db:migrate RACK_ENV=test && RACK_ENV=development
 
-h3 Screenshots
+H3 Screenshots
 
 ![screenshots](https://www.dropbox.com/s/xo2ntk8te93alw2/1.png?dl=0)
 ![screenshots](https://www.dropbox.com/s/dyrdxg7s6852dj4/2.png?dl=0)
