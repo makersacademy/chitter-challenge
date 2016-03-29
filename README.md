@@ -1,68 +1,27 @@
-Chitter Challenge
-=================
+CHITTER
 
-* Challenge time: Friday afternoon (+ weekend if you need it)
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Summary
 
-Challenge:
--------
+Chitter is a twitter clone where users can read and write peeps!
+Access to my Chitter is availible at https://ultimate-chitter.herokuapp.com/
 
-As usual please start by 
+Installation
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+1. The user model was created enabling users to signup, signin and signout of Chitter.
+2. Every user must enter a unique and valid email address and username to sign up. This was implemented using validations.
+3. The peep model was created to allow users to post peeps.
+4. A many to one relationship between a user and peeps was created requiring every peep to belong to a user and every user to post multiple peeps.
+5. Guests are allowed to see peeps however cannot post a peep as a peep should belong to a registered user.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
--------
+Usage
 
-```sh
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
+1. https://ultimate-chitter.herokuapp.com/
+2. To continue as a guest please click 'Guest'. This will enable you to see user peeps but not post peeps.
+3. To sign up please click 'Sign Up'.
+4. Enter your details ensuring your username and email are valid and unique, and your passwords match.
+5. Click 'Sign Up'.
+6. Once you have successfully signed up you will be redirected to the Peeps homepage.
+7. To sign in simply click 'Sign In' and enter your credentials.
+8. To post a peep, enter your message and click 'Post peep'.
+9. To logout click 'Log Out'
