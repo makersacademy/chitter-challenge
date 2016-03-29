@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>    
+  <link rel="icon" type="image/png" href="http://i.imgur.com/DU5Vd1y.png?3" title="source: imgur.com" />
+   </head>
+<html>
+  <head>
+    <body align = 'center'>
+      <a href="http://imgur.com/DU5Vd1y"><img src="http://i.imgur.com/DU5Vd1y.png" title="source: imgur.com" /></a>
+      <div>
+        <img src="http://i.imgur.com/Bh7ILbk.png?1" title="source: imgur.com" /></a>
+    </div>
+    <div>
+      <img src="http://i.imgur.com/cN3J6G5.png?1" title="source: imgur.com" /></a>
+  </div>
+  <div>
+  </head>
+
+
+  <% if current_user %>
+    Welcome <%= current_user.username %>
+  </div>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <button style="color: transparent; background-color: transparent; border-color: transparent;" type='submit' value='Sign out'><img src="http://i.imgur.com/kKjU2LS.png?1" title="source: imgur.com" /></button>
+  </form>
+
+  <% end %>
+
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<%= yield %>
+  </body>
+</html>
+
