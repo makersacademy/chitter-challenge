@@ -1,1 +1,2 @@
 [![Coverage Status](https://coveralls.io/repos/github/ccfz/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/ccfz/chitter-challenge?branch=master)
+[![Build Status](https://travis-ci.org/ccfz/chitter-challenge.svg?branch=master)](https://travis-ci.org/ccfz/chitter-challenge)
