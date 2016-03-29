@@ -15,6 +15,15 @@ require 'rspec'
 require 'database_cleaner'
 require_relative 'features/web_helper'
 
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'data_mapper'
+require 'dm-postgres-adapter'
+require 'database_cleaner'
+require 'features/web_helper'
+require 'sinatra/flash'
+
 require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 
 Capybara.app = Chitter
