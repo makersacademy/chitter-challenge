@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <% if current_user %>
+  <h2>Make a peep</h2>
+  <form action="/peep" method="post">
+    <input type="text" name="body" class="peep-box" maxlength="140">
+    <p>
+      <button type="submit" name="peep_it">Peep it</button>
+    </p>
+
+  </form>
+  <% end %>
+
+  <h2>What do others peep?</h2>
+    <% @peeps.each do |peep| %>
+    <div class="peep">
+      <div class="peep-body">
+        <%= peep.body %>
+      </div>
+      <div class="peep-footer">
+        @ <%= peep.time %> by <%= peep.user.username %>
+      </div>
+    </div>
+    <% end %>
+
+</div>
