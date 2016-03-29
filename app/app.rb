@@ -33,15 +33,6 @@ set :session_secret, 'notsosecret'
     erb :index
   end
 
-  # <ul id="peeps">
-  #   <% @peeps.each do |peep| %>
-  #     <li>
-  #       Peep: <%= peep.content %>
-  #       Username: <%= @username %>
-  #     </li>
-  #   <% end %>
-  # </ul>
-
   get '/post' do
     erb :peep
   end
