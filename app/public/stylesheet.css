@@ -132,11 +132,18 @@ hr {
   padding: 10px;
 }
 
-#bird_pic {
+#bird_homepage {
   height: 100px;
   width: auto;
   position: absolute;
   top: 5px;
   right: 350px;
   opacity: 0;
+}
+
+#bird_speech {
+  position: relative;
+  right: 160px;
+  top: 125px;
+  font-size: 1em;
 }
