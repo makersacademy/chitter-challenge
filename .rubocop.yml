@@ -2,7 +2,7 @@ AllCops:
   DisabledByDefault: true
   DisplayCopNames: true
   DisplayStyleGuide: true
-  RunRailsCops: false
+  # RunRailsCops: false
   Exclude:
     - 'spec/spec_helper.rb'
 
@@ -49,4 +49,3 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Max: 7
-

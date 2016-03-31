@@ -1,0 +1,21 @@
+<center>
+<h3>All fields are required</h3>
+<form action="/users" method="post">
+    <div style="vertical-align: middle">
+      <input type='text' name='name' placeholder='Name' value='<%= @user.name %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='text' placeholder='Username' name='username' value='<%= @user.username %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='text' placeholder='email' name='email' value='<%= @user.email %>' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='password' placeholder='Password' name='password' required/>
+    </div>
+    <div style="vertical-align: middle">
+      <input type='password' placeholder='Confirm password' name='confirmation' required/>
+    </div>
+  <button id='sign_up'>Sign up</button>
+</form>
+</center>

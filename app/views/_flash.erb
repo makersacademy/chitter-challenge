@@ -1,0 +1,7 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+<center><div id='errors'>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+</div></center>
+<% end %>
