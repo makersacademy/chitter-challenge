@@ -13,10 +13,11 @@ div.welcome {
   font-size: 30pt;
 }
 
-textarea {
+#peep {
   border-radius: 20px;
   padding: 10px;
   margin-top: 20px;
+  outline: none;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -122,6 +123,10 @@ input#comment {
   width: 200px;
   height: 10px;
   margin: 5px;
+}
+
+.nav {
+  width: 100%;
 }
 
 div.navWrap {
