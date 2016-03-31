@@ -113,7 +113,6 @@ hr {
   left: 32.5%;
   display: block;
   background-color: #AEEBD9;
-  /*background-color: purple;*/
   top: 0px;
   z-index: 1;
   width: 40%;
@@ -131,4 +130,13 @@ hr {
 .signin-boxes {
   display: block;
   padding: 10px;
+}
+
+#bird_pic {
+  height: 100px;
+  width: auto;
+  position: absolute;
+  top: 5px;
+  right: 350px;
+  opacity: 0;
 }
