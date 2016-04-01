@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.2.3'
 
 gem 'sinatra'             # a DSL for creating web apps in Ruby
 gem 'data_mapper'          # a ORM written in Ruby
