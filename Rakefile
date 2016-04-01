@@ -3,7 +3,7 @@ if ENV['RACK_ENV'] != 'production'
 
   RSpec::Core::RakeTask.new :spec
 
-  task default: [:spec]
+  task default: 'db:auto_migrate'
 end
 
 require 'data_mapper'
