@@ -1,21 +1,32 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/shaneoston72/chitter-challenge.png?branch=master)](https://travis-ci.org/shaneoston72/chitter-challenge)
+ --------		 
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Instructions to use and run tests
+1. Fork repository.
+2. Clone repository to your local machine.
+3. Run bundle (note this may require changing your Ruby version).
+4. Create two Postgresql databases called 'chitter_test' and 'chitter_development'.
+5. Have fun!
 
-Challenge:
--------
+## Note on databases
+The app uses two databases; 'chitter_test' is for testing and 'chitter_development' is used to local development. Rspec will remove all data each time it is run through Datamapper config in spec_helper.
 
-As usual please start by 
+The Rakefile has two tasks for maintenance of the DB schema  -- db:auto_migrate and db:auto_upgrade. You should know the difference between the two and when it is appropriate to use each. Any changes to the model(s) will require one of these.
 
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+## Enhancements
+* Contextual 'flash' messages
+* Eliminate password confirmation
+* Add the ability to log in with either email or username.
+* Add or change Rack::Session::Cookie to prevent session from staying up if user does not click "Log out" (see [http://fonicmonkey.net/2013/08/12/banish-your-session-has-expired/])
+* Add error message for "User does exist" when username is not found.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+## Testing
+* Test error messages for properties that do not have explicit messages.
+
+## Bugs
+* How to handle someone logging out, hitting back and getting an error.
 
 Features:
 -------
@@ -80,7 +91,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -98,7 +109,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -108,4 +119,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
