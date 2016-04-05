@@ -1,26 +1,7 @@
-Chitter Challenge
-=================
+# Chitter Challenge [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```sh
+#### User stories:
+```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
@@ -46,66 +27,90 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+### Design and implementation:
+Features/languages used:
+* Ruby
+* HTML                        
+* CSS
+* Sinatra
+* Postgres database
+* DataMapper
+* RSpec unit testing
+* Capybara feature testing.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+I completed the app by following each user story above in order. I started by creating two databases, `chitter_test` and `chitter_development`. The test database was used for testing and uses a gem called `database_cleaner` to wipe the database after each test. The development database was for running the web app on a local server. The gem `data_mapper` is used to use basic SQL commands in the Ruby code.
 
-Bonus:
------
+In the databases are two models: `User` and `Peep`. The `User` model contains the following properties:
+* id
+* username
+* email
+* password.
 
-If you have time you can implement the following:
+It also has a *one-to-many relationship* to the `Peep` model (user can have many peeps). The `Peep` model has the following properties:
+* id
+* message
+* time_stamp
+* user_id.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+The controller is split from one large controller to four small controllers: *home, peeps, sessions and users*. Each controller has many view files including `layout.erb`, the main layout which yields all of the views. The flash error messages are implemented with the `sinatra/flash` gem and are implemented in the layout.erb using partials.
 
-And/Or:
+When a user signs up to a new account, DataMapper validations gem `dm-validations` is used to validate the password and password confirmation given. It is also used to validate the format of an email address inputted. Additionally, both the username and email have to be unique. If the username given is already taken an error message pops up using the `sinatra/flash` gem.
 
-* Work on the css to make it look good (we all like beautiful things).
 
-Good luck and let the chitter begin!
+Test driven development was used with the BDD cycle to complete the app. Feature testing is implemented with Capybara and unit testing of the models is with RSpec.
+**Testing coveralls are currently at 100%.**
 
-Code Review
------------
+#### Installation and usage instructions:
 
-In code review we'll be hoping to see:
+* **Setup:**
+  * git clone https://github.com/yasgreen93/chitter-challenge.git
+  * run `bundle install`
+* **Testing with RSpec:**
+  * to test, run `rspec`
+  * to see coveralls report, run `coveralls report`
+* **To view web app:**
+  * run `rackup` in your terminal
+  * in your browser visit `localhost:9292`
+  * or visit the live version on heroku [here](https://chitter-better-than-twitter.herokuapp.com/)
+  * alternatively, see screenshots below.
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+#### Screenshots:
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+*Home Page:*
 
-Notes on test coverage
-----------------------
+![Imgur](http://i.imgur.com/QYLnI0s.jpg)
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+*Viewing feed as a guest:*
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+![Imgur](http://i.imgur.com/ogDJHbm.jpg)
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
 
-```
-$ coveralls report
-```
+*Signing up for an account:*
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+![Imgur](http://i.imgur.com/1tJMbHD.jpg)
 
+
+*Signing in to an account:*
+
+![Imgur](http://i.imgur.com/DRd9I11.jpg)
+
+
+*Signing in/up allows you to post a peep:*
+
+![Imgur](http://i.imgur.com/BulpYYg.jpg)
+
+
+*Error message on sign up:*
+
+![Imgur](http://i.imgur.com/CwkNPTK.jpg)
+
+
+*Error message on sign in:*
+
+![Imgur](http://i.imgur.com/rl67etA.jpg)
+
+
+
+
+**Author: Yasmin Green**

@@ -1,0 +1,149 @@
+h1 {
+  color: #F57708;
+  font-family: Futura;
+}
+
+h2 {
+  color: #F57708;
+  font-family: Futura;
+}
+
+h4 {
+  font-family: Futura;
+  color: #24335C;
+}
+
+h3 {
+  font-family: Futura;
+  color: #24335C;
+}
+
+input[type="submit"]:hover {
+  color: #F57708;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"]  {
+  color: #24335C;
+  font-family: Futura;
+  font-size: 1em;
+  height: 2em;
+  padding: 1em;
+}
+
+body {
+  text-align: center;
+  background-color: #AEEBD9;
+}
+
+ul {
+  list-style-type: none;
+  font-family: Futura;
+  color: #24335C;
+}
+
+li {
+  padding: 2px;
+}
+
+label {
+  font-family: Futura;
+  color: #24335C;
+}
+
+#notice {
+  font-family: Futura;
+  color: #F57708;
+}
+
+#errors {
+  font-family: Futura;
+  color: #F57708;
+}
+
+p {
+  font-family: Futura;
+  color: #F57708;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#peep_message {
+  font-weight: normal;
+  color: #24335C;
+  font-size: 1.6em;
+}
+
+#time_stamp {
+  font-weight: normal;
+  color: #24335C;
+  font-size: 0.8em;
+}
+
+#user_handle {
+  font-size: 1em;
+}
+
+hr {
+  width: 25%;
+  background: #F57708;
+  height: 2px;
+  border-radius: 2px;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+#welcome {
+  position: relative;
+  float: left;
+  left: 20px;
+  font-size: 22px;
+  color: #F57708;
+  font-weight: bold;
+}
+
+.top-header {
+  position: fixed;
+  left: 1%;
+  z-index: 2;
+  top: 2%;
+}
+
+.top-header2 {
+  position: fixed;
+  left: 32.5%;
+  display: block;
+  background-color: #AEEBD9;
+  top: 0px;
+  z-index: 1;
+  width: 40%;
+}
+
+#peeps {
+  position: relative;
+  top: 18%;
+}
+
+#secondary-header {
+  font-weight: bold;
+}
+
+.signin-boxes {
+  display: block;
+  padding: 10px;
+}
+
+#bird_homepage {
+  height: 100px;
+  width: auto;
+  position: absolute;
+  top: 5px;
+  right: 350px;
+  opacity: 0;
+}
+
+#bird_speech {
+  position: relative;
+  right: 160px;
+  top: 125px;
+  font-size: 1em;
+}
