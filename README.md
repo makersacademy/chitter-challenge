@@ -3,15 +3,14 @@ Chitter Challenge
 
 ##What is it?
 
-My attempt at Makers Academy's Chitter Challenge, an online app that mimics the basic functionality of Twitter. Users can sign up, sign in and sign out. While signed in, users can post 'cheets' with an automatic time stamp built in. Users can view all previous cheets in reverse chronological order. 
+My attempt at the Makers Academy Chitter Challenge, an online app that mimics the basic functionality of Twitter. Users can sign up, sign in and sign out. While signed in, users can post 'cheets' with an automatic time stamp built in. Users can view all previous cheets in reverse chronological order. 
 
 ##Technologies and learning objectives
 
-The aim of the challenge was to practice using ORM's with databases, in this case Datamapper with Postresql, and deploying to Heroku. The app is built in Ruby, using Sinatra for the server/controller and Capybara/RSPEC for testing (99% covered). The app also uses a Rakefile for running upgrades and migrations, and Database Cleaner to keep testing clean. 
+The aim of the challenge was to practice using ORMs with databases, in this case Datamapper with Postresql, and deploying to Heroku. The app is built in Ruby, using Sinatra for the server/controller and Capybara/RSPEC for testing (99% covered). The app also uses a Rakefile for running upgrades and migrations, and Database Cleaner to keep testing clean. 
 
 ##My approach
 The app is based on two related classes, User and Post, connected through the database. 
-
 
 ##User stories
 ```
