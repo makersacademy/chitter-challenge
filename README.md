@@ -46,7 +46,7 @@ Notes on functionality:
 * Data mapper and postgres are used to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* A user can reset their password (functionality not fully implemented - still to add token emailing)
+* A user can reset their password (functionality not fully implemented - reset token is generated but not currently emailed to user)
 
 
 To download & install
