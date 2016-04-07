@@ -1,0 +1,136 @@
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #183300;
+  width: 100%;
+  height: 100px;
+  color: #e4ffcc;
+}
+
+.title {
+  position: fixed;
+  top: -40px;
+  left: 0px;
+  padding: 0px 20px;
+  font-family: rock-salt, sans-serif;
+  font-size: 50px;
+  color: #e4ffcc;
+}
+
+nav {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 5px 20px;
+}
+#nav {
+	width: 100%;
+	float: right;
+	margin: 0 0 3em 0;
+	padding: 0;
+	list-style: none; }
+#nav li {
+	float: right;
+  margin: 0 5px 0 0;
+}
+
+body {
+  position: relative;
+  top: 100px;
+  background-color: #e4ffcc;
+  width: 100%;
+}
+
+h1 {
+  color: #183300;
+}
+
+h2 {
+  color: #183300;
+  padding: 5px 20px;
+}
+
+#indiv_peep {
+  list-style: none;
+  padding: 15px 0px;
+}
+.peep_container {
+  list-style: none;
+	width: 75%;
+  /*align-self: center;*/
+  /*background-color: #f1ffe6;*/
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #4db300;
+}
+
+.top{
+  float: left;
+  width: 100%;
+  background-color: #4db300;
+}
+.username {
+  float: left;
+  padding: 3px 5px;
+  font-weight: bold;
+}
+.date {
+  float: right;
+  padding: 3px 5px;
+}
+
+.bottom {
+  clear: both;
+  background-color: #f1ffe6;
+}
+.body {
+  clear: both;
+  padding: 3px 5px;
+}
+
+.messages {
+  width: 100%;
+  text-align: center;
+  color: #990000;
+}
+
+.form {
+  width: 50%;
+  align-self: center;
+}
+.form label {
+width: 100%;
+/*float: left;*/
+text-align: right;
+margin-right: 0.5em;
+display: block
+}
+
+/*input[type=submit] {
+  padding:5px 15px;
+  border:0 none;
+  border-radius: 5px;
+  height: 3em;
+  width: 10em;
+  background-color: red;
+}*/
+
+input[type=submit] {
+	background: #4db300;
+	/*background: -moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+	background: -webkit-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -o-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: -ms-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background: linear-gradient(top,#25A6E1 0%,#188BC0 100%);*/
+	/*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);*/
+	padding:8px 10px;
+	color: #e4ffcc;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:14px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	/*border:1px solid #1A87B9*/
+}

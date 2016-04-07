@@ -1,0 +1,27 @@
+<h2> Create an account </h2>
+
+<form class="form" action='/users' method='POST'>
+  <p><label for='username'>
+    Username:
+    <input type='text' name='username' value='<%= @user.username %>'>
+  </label>
+  <p><label for='email'>
+    Name:
+    <input type='text' name='name' value='<%= @user.name %>'>
+  </label>
+  <p><label for='email'>
+    Email:
+    <input type='text' name='email' value='<%= @user.email %>'>
+  </label>
+  <p><label for='password'>
+    Password:
+    <input type='password' name='password'>
+  </label>
+  <p><label for='password_confirmation'>
+    Confirm password:
+    <input type='password' name='password_confirmation'>
+  </label>
+  <p><label for="submit">
+    <input class="submit" type='submit' value='Create account'>
+  </label>
+</form>
