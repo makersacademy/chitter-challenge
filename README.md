@@ -1,5 +1,6 @@
-Chitter Challenge - week 4 Makers Academy
+Chitter Challenge 
 =================
+####- Week 4 Makers Academy
 
 ##What is it?
 
