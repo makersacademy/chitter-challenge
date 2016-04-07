@@ -1,0 +1,46 @@
+<TABLE BORDER="0">
+<TR>
+<TD><form action='/sign_up' method='get'>
+  <input type='submit' value='Sign up'>
+</form></TD>
+
+<TD><form action='/log_in' method='get'>
+  <input type='submit' value='Log in'>
+</form></TD>
+
+<TD><form action='/log_out' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Log out'>
+</form></TD>
+
+<TD><form action='/make_cheet' method='get'>
+  <input type='submit' value='Cheet!'>
+</form></TD>
+
+</TR>
+
+</TABLE>
+
+
+
+
+
+<% if @posts %>
+<ul id="Cheets">
+  <h2> Cheets </h2>
+  <% @posts.reverse.each do |cheet| %>
+  <div>
+   <h4> Title: <%= cheet.title %> </h4>
+  </div>
+  <div>
+    <p>
+<textarea style="width: 400px; height: 150px" rows="10" cols="80"<><%= cheet.body %></textarea>
+</p>
+
+  </div>
+  <div>
+    <h5>Cheeted at - <%= cheet.time %></h5>
+  </div>
+  <% end %>
+</ul>
+<% end %>

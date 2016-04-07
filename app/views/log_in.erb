@@ -1,0 +1,15 @@
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
+
+<h1> Log in </h1>
+
+<form action="/log_in" method="post">
+<label for='username'>
+ Username: <input type='text' name='username'>
+</label>
+ <label for='password'>
+ Password: <input type='password' name='password'>
+ </label>
+<input type='submit' value='Submit'>
+</form>
