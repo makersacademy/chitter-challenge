@@ -10,10 +10,7 @@ Chitter Challenge
 Challenge:
 -------
 
-As usual please start by 
-
-* Filling out your learning plan self review for the week: https://github.com/makersacademy/learning_plan (if you haven't already)
-* Forking this repo
+As usual please start by forking this repo.
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
