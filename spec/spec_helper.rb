@@ -48,7 +48,7 @@ RSpec.configure do |config|
   # CLEAR TEST DATABASE
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    #DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   # Everything in this block runs once before each individual test

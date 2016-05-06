@@ -17,13 +17,6 @@ namespace :db do
   end
 end
 
-namespace :poopy do
-  desc "poopy face"
-  task :face do
-    puts "Poopy face!"
-  end
-end
-
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
