@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-
-
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'database_cleaner'
-gem 'byebug'
-gem 'coveralls'
+gem 'sinatra'
+gem 'sinatra-partial'
+gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'rspec'
-gem 'rspec-sinatra'
-gem 'capybara'
-gem 'sinatra'
+
+group :test do
+  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'rspec'
+end
