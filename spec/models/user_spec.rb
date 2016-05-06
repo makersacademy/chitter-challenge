@@ -1,8 +1,7 @@
 describe User do
 
   let!(:user) do
-    User.create(email: 'test@test.com', password: 'secret1234',
-               password_confirmation: 'secret1234')
+    User.create(SessionHelpers::PARAMS_CORRECT)
   end
 
   it 'authenticates when given a valid email address and password' do
@@ -11,6 +10,6 @@ describe User do
   end
 
   it 'does not authenticate when given an incorrect password' do
-    expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+    expect(User.authenticate(user.email, 'wrong_pwd')).to be_nil
   end
 end

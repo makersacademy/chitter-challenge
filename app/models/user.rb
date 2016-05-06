@@ -1,5 +1,3 @@
-require 'securerandom'
-
 class User
   include DataMapper::Resource
 
@@ -7,6 +5,8 @@ class User
   property :count,            Integer
   property :email, String, required: true, format: :email_address, unique: true
   property :password_digest,  Text
+  property :name, String, required: true
+  property :username, String, required: true
 
   # property :password_token, Text
   # property :password_token_time, Time
