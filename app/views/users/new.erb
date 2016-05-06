@@ -1,0 +1,17 @@
+<form action='/users' method=POST>
+
+  <p>Your name:</p>
+  <input type='text' name='name'>
+
+  <p>Your user name:</p>
+  <input type='text' name='user_name' required>
+
+  <p>Your email:</p>
+  <input name='email' type='email' value='<%= @user.email %>' required>
+
+  <p>Your password, twice please:</p>
+  <input name='password' type='password'>
+  <input name="password_confirmation" type='password'>
+
+  <input type='submit' value='Sign up!'>
+</form>
