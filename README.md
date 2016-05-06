@@ -21,26 +21,62 @@ Features:
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+Acceptance Criteria
+Sign up page exists with form
+Database to save user information - email, password, username, name
+password saved with salt
+a new instance of a user is created and stored into database via form
+confirm sign out
+Cannot sign up twice with same username or email
 
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
+Acceptance Criteria
+A page to login into exists with form
+Able to login with email/username and password
+Does not login if username/email and password is incorrect
+confirmation that logged in
+
 
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+Acceptance Criteria
+log out button exists
+clicking log out button should redirect you
+should no longer display user info on page
+
 
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
+Acceptance Criteria
+a form on a page exists to post a message
+the form saves to a database
+new message appears in feed
+the message is linked to the logged in user
+can only peep if logged in
+
+
 
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+Acceptance Criteria
+Messages are displayed in reverse chronilogical order
+can see peepss if not logged in
+
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+Acceptance Criteria
+Time stamp saved in database
+Time stamps are displayed with message
+Time stamp should not be able to be changed 
+
+
 ```
 
 Notes on functionality:
