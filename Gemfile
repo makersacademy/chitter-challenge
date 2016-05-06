@@ -4,7 +4,20 @@ ruby '2.2.3'
 group :test do
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
+  gem 'rspec-sinatra'
 end
+
+group :utility do
+  gem 'rake'
+  gem 'database_cleaner'
+end
+
+group :database do
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+end
+
+gem 'sinatra'
+gem 'sinatra-flash'
 
