@@ -1,0 +1,23 @@
+<% if @user.errors.full_messages && !@user.errors.full_messages.empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Please sign up</h1>
+
+<form action='/users' method='post'>
+  <label for='email'>
+    Email: <input type='email' name='email'  value='<%= @user.email %>' required>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Password: <input name='password_confirmation' type='password'>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmark Manager</title>
+  </head>
+
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+
+<!--     <% if current_user %>
+    Welcome, <%= current_user.email %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+    <% end %> -->
+
+<!--     <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+    <% if flash[:users] %>
+    <div id='notice'><%= flash[:users] %></div>
+    <% end %> -->
+
+
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
