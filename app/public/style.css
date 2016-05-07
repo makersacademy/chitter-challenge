@@ -3,7 +3,3 @@ display:block;
 position:relative;
 padding-left:0px; /* adjust if necessary */
 }
-label > span {
-position:absolute;
-left:0;
-}
