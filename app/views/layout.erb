@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bookmark Manager</title>
+	</head>
+	<body>
+		<% if flash[:notice] %>
+			<div id="flash"><%= flash[:notice] %></div>
+		<% end %>
+		<% if current_user %>
+			<h1>Welcome, <%= current_user.email %></h1>
+		<% end %>
+		<%= yield %>
+	</body>
+</html>
