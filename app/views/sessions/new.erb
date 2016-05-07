@@ -1,0 +1,19 @@
+<div class="container"> 
+
+  <h1>Please sign in!</h1>
+
+  <form action='/sessions' method='post'>
+    <label for='email'>Email:</label>
+      <input name='email' type='email'><br>
+
+    <label for='password'>Password:</label>
+      <input name='password' type='password'><br>
+
+    <input type='submit' value='Sign in' class="btn btn-medium btn-primary">
+  </form>
+
+
+  <% if flash[:sessions] %>
+    <div id='notice'><%= flash[:sessions] %></div>
+  <% end %>
+</div>
