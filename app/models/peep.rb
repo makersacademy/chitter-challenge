@@ -10,6 +10,7 @@ class Peep
   property :title, String
   property :content, String
   property :lastmodified, String
+  property :username, String
 
-  #  has n, :users
+  # belongs_to :user
 end

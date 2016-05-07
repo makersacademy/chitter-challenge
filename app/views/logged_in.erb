@@ -23,8 +23,13 @@
   <% Peep.reverse_each do |peep| %>
   <li>
     Title: <%= peep.title %>
+    <br>
     Content: <%= peep.content %>
+    <br>
+    User: <%= peep.username %>
+    <br>
     Time: <%= peep.lastmodified %>
+    <br>
   </li>
   <% end %>
 </ul>

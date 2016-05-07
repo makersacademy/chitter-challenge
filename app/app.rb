@@ -52,11 +52,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    peep = Peep.create(title: params[:title], content: params[:content])
     user = User.get(session[:user_id])
-    # peep.users << user
-    # peep.save
-    # p peep.users
+    peep = Peep.create(title: params[:title], content: params[:content], username: user.username)
     redirect '/logged_in'
   end
 
