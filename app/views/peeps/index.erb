@@ -2,8 +2,8 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
     <li id="msgs">
-      Message:<%=peep.user.name%> " " <%= peep.user.username %>" "
-      <%=peep.timestamp.strftime('%e-%b, %k:%M') %> <br>
+      <%=peep.user.name%> (<%= peep.user.username %>) chitted on
+       <%=peep.timestamp.strftime('%e-%b, %k:%M') %> <br>
       <%= peep.message %>
     </li>
   <% end %>
