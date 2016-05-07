@@ -9,7 +9,6 @@ if ENV["RACK_ENV"] != "production"
 end
 
 require "data_mapper"
-require "./app/app.rb"
 
 namespace :db do
   desc "Non destructive upgrade"
