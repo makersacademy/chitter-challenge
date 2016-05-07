@@ -27,20 +27,20 @@ feature 'Sign up' do
   scenario 'user must validate password' do
     expect { sign_up(confirm_password:'different') }.not_to change(User, :count)
     expect(current_path).to eq '/users/new'
-    # expect(page).to have_content('Passwords don\'t match')
+    expect(page).to have_content('Passwords don\'t match')
   end
 
   scenario 'handle must be unique' do
     sign_up
     expect { sign_up(email:'different@email.com') }.not_to change(User, :count)
     expect(current_path).to eq '/users/new'
-    # expect(page).to have_content('Handle is taken')
+    expect(page).to have_content('Handle is taken')
   end
 
   scenario 'email must be unique' do
     sign_up
     expect { sign_up(handle:'different') }.not_to change(User, :count)
     expect(current_path).to eq '/users/new'
-    # expect(page).to have_content('Email is taken')
+    expect(page).to have_content('Email is taken')
   end
 end
