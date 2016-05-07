@@ -1,7 +1,6 @@
 body {
-  font: 20px Montserrat, sans-serif;
+  font: 16px Montserrat, sans-serif;
   line-height: 1.8;
-  color: red;
 }
 
 p {font-size: 16px;}
@@ -48,9 +47,15 @@ p {font-size: 16px;}
 }
 
 input {
-  color: black;
+  color: #2F2F2F;
 }
 
 textarea {
   resize: none;
+  color: #2F2F2F;
+}
+
+#errors li{
+  text-align: left;
+  font-size: 15px;
 }

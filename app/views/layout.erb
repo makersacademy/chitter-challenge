@@ -12,7 +12,11 @@
 <body>
   <%= partial :navigation_bar %>
 
-  <!-- First Container -->
+  <div class="container-fluid bg-1 text-center">
+    <%= partial :welcome %>
+    <%= partial :flash %>
+  </div>
+
   <div class="container-fluid bg-1 text-center">
     <%= yield %>
   </div>

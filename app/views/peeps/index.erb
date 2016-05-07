@@ -1,7 +1,15 @@
 <h1> Peeps </h1>
 
+<% if current_user %>
+<form action="/peeps" method='post'>
+  <textarea name='content' maxlength="140" placeholder="Write your peep here..." cols='50' rows='3'></textarea><br>
+  <input type='submit' value='Post'>
+</form>
+<% end %>
+
 <div id='peeps'>
   <% @peeps.each do |p| %>
+    Author: <p> <%= p.user.name %> </p>
     Content: <p> <%= p.content %> </p>
     Time: <p> <%= p.time_format %> </p>
   <% end %>

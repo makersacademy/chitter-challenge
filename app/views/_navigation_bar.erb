@@ -2,17 +2,21 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Chitter</a><br>
-      <% if current_user %>
-        <p> Welcome, <%= current_user.name %></p>
-      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <% unless current_user %>
-          <li><a href="#">Sign in</a></li>
-          <li><a href="#">Sign up</a></li>
+        <form action="/sessions/new">
+          <input type="submit" value="Sign in">
+        </form>
+        <form action="/users/new">
+          <input type="submit" value="Sign up">
+        </form>
         <% else %>
-          <li><a href="#">Sign out</a></li>
+        <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
         <% end %>
       </ul>
     </div>
