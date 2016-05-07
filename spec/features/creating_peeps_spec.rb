@@ -7,14 +7,9 @@ feature 'Creating peeps' do
   end
 
   scenario 'user can create a new peep when logged in' do
-    post_peep
+    sign_in(email: 'ana@mile.com', password: '123')
     expect(current_path).to eq '/'
-    expect(page).to have_content('Test')
-  end
-
-  scenario 'peeps are displayed in descendent chronological order' do
-  	post_peep
-    expect(current_path).to eq '/'
-    expect(page).to have_content('Test')
+    fill_in 'peep', with: 'Hola que ase?'
+    expect(page).to have_content('Hola que ase?')
   end
 end

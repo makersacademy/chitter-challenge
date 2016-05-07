@@ -2,7 +2,7 @@
 
 <% if current_user %>
 <form action="/peeps" method='post'>
-  <textarea name='content' maxlength="140" placeholder="Write your peep here..." cols='50' rows='3'></textarea><br>
+  <textarea id='peep' name='content' maxlength="140" placeholder="Write your peep here..." cols='50' rows='3'></textarea><br>
   <input type='submit' value='Post'>
 </form>
 <% end %>
