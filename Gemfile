@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+gem 'sinatra'
+
 group :test do
   gem 'rspec'
-  gem 'cucumber'
+  gem 'rspec-sinatra'
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rake'
   gem 'coveralls', require: false
 end
