@@ -7,6 +7,9 @@ require './app/datamapper_setup'
 class Chitter < Sinatra::Base
   register Sinatra::Flash
 
+  enable :sessions
+  set :sessions_secret, 'super secret'
+
   get '/' do
     erb :index
   end
@@ -27,12 +30,24 @@ class Chitter < Sinatra::Base
                 password: params[:pwd],
                 password_confirmation: params[:pwd_confirm])
     if user.save
+      session[:user_id] = user.id
       redirect "/users/#{user.handle}"
     else
       flash.next[:pwd] = 'Passwords don\'t match' unless params[:pwd] == params[:pwd_confirm]
       flash.next[:handle] = 'Handle is taken' if User.first(handle: params[:handle])
       flash.next[:email] = 'Email is taken' if User.first(email: params[:email])
       redirect '/users/new'
+    end
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:pwd])
+    if user
+      session[:user_id] = user.id
+      redirect "/users/#{user.handle}"
+    else
+      flash.next[:sign_in] = 'The email or password is incorrect'
+      redirect '/'
     end
   end
 

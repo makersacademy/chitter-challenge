@@ -5,7 +5,21 @@
   </head>
 
   <body>
-    <h1>CHITTER</h1>
+    <header>
+      <h1>CHITTER</h1>
+
+      <form id='sign_in' action='/sessions' method='post'>
+        <label for='email'>Email:
+          <input type='email' name='email' required />
+        </label>
+        <label for='pwd'>Password:
+          <input type='password' name='pwd' required />
+        </label>
+        <input type='submit' value='Sign in' />
+      </form>
+
+    </header>
+
       <% flash.each_key do |key| %>
         <%= flash[key] %>
       <% end %>
