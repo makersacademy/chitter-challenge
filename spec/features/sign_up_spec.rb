@@ -3,7 +3,9 @@ feature 'User sign up' do
     expect { sign_up(SessionHelpers::PARAMS_CORRECT) }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, pepe@gmail.com')
     expect(User.first.email).to eq('pepe@gmail.com')
-    #expect(User.first.name).to eq("Pepe Domingo Castaño")
+    expect(User.first.name).to eq("Pepe Domingo Castaño")
+    expect(User.first.username).to eq("pepe1purito!")
+
   end
 
   scenario 'Requires a matching confirmation password' do

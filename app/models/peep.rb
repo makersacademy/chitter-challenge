@@ -6,7 +6,7 @@ class Peep
   # has n, :tags, through: Resource
 
   property :id,     Serial
-  property :title,  String
-  property :url,    String
+  property :message,  String
+  # property :timestamp, Time
 end
 

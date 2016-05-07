@@ -1,5 +1,3 @@
-
-
 feature 'User sign in and out' do
 
   let(:user) do

@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(url: params[:url], title: params[:title])
+    peep = Peep.new(message: params[:message])
     # tag_list = params[:tags].split.each do |tag|
     #   peep.tags << Tag.create(name: tag)
     # end
@@ -19,6 +19,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :new
+    if session[:user_id]
+      erb :new
+    else
+      redirect to '/sessions/new'
+    end
   end
 end
