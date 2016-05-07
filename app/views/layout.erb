@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <header>
+      <% if current_user %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Log out" />
+        </form>
+      <% else %>
+        <a href="../sessions/new"><button>Log in</button></a>
+        <a href="../users/new"><button>Sign up</button></a>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

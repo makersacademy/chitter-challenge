@@ -1,0 +1,24 @@
+<h1>Sign up to Chitter</h1>
+
+<!-- TODO: extract to partial -->
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/users" method="post">
+  <label for="username">Username:</label>
+  <input type="text" name="username" value="<%= @user.username %>" required  />
+  <label for="email">Email:</label>
+  <input type="email" name="email" value="<%= @user.email %>" required  />
+  <label for="name">Name:</label>
+  <input type="text" name="name" value="<%= @user.name %>" required  />
+  <label for="password">Password:</label>
+  <input type="password" name="password" required  />
+  <label for="pwd_conf">Please confirm your password:</label>
+  <input type="password" name="pwd_conf" required  />
+  <input type="submit" name="submit" value="Submit" />
+</form>
