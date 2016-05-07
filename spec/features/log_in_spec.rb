@@ -1,12 +1,17 @@
 feature 'user can log in' do
 
+  before(:each) do
+    create_user_alice
+  end
+
   scenario 'user can log in' do
-    User.create(email: 'alice@example.com', password: 'orange', password_confirmation: 'orange')
-    visit '/sessions/new'
-    fill_in :email,    with: 'alice@example.com'
-    fill_in :password, with: 'orange'
-    click_button 'Log in'
+    log_in('alice@example.com', 'orange')
     expect(page).to have_content('Welcome, alice@example.com')
+  end
+
+  scenario 'user cannot log in with with incorrect password' do
+    log_in('alice@example.com', 'apple')
+    expect(page).not_to have_content('Welcome, alice@example.com')
   end
 
 end
