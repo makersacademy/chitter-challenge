@@ -9,7 +9,7 @@ def sign_up(password='password')
 end
 
 def sign_in(username, password)
-  visit '/sessions/new'
+  visit '/sign-in'
   fill_in 'username', with: username
   fill_in 'password', with: password
   click_button 'Sign in'

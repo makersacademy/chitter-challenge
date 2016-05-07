@@ -9,7 +9,7 @@ feature 'User sign in' do
 
   scenario 'User can sign in to Chitter' do
     sign_in(user.username, user.password)
-    expect(page).to have_content "Welcome #{user.username}"
+    expect(page).to have_content "Hey #{user.username}!"
   end
 
 end

@@ -1,0 +1,8 @@
+<h1>Feed</h1>
+<h3>Hey <%= @user %>!</h3>
+<p>Check out your feed below</p>
+
+<form action="/sign-out" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Sign out">
+</form>

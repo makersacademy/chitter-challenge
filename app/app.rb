@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @user = session[:username]
     erb :index
   end
 
@@ -23,37 +24,49 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/sign-in' do
+    erb :'sign_in'
+  end
+
   post '/register_user' do
-    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    user = User.create(name: params[:name],
+           username: params[:username],
+           email: params[:email],
+           password: params[:password],
+           password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
-    redirect '/'
+    session[:username] = user.username
+    redirect '/feed'
   end
 
-  get '/sessions/new' do
-    erb :'sessions/new'
+  get '/feed' do
+    @user = session[:username]
+    erb :'feed/index'
   end
 
-  post '/sessions' do
+  post '/sign-in' do
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
       session[:username] = user.username
-      redirect "/users"
+      redirect '/feed'
     else
       redirect '/'
     end
   end
 
-  get '/users' do
-    @user = session[:username]
-    erb :'users/userpage'
-  end
-
-  post '/signout' do
+  post '/sign-out' do
     session[:user_id] = nil
     session[:username] = nil
-    redirect '/users'
+    redirect '/'
   end
+
+  # get '/users' do
+  #   @user = session[:username]
+  #   erb :'users/userpage'
+  # end
+
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
