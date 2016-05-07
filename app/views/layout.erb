@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+  <link href="/css/application.css" rel="stylesheet" type="text/css">
+  <title>Chitter by omajul</title>
+</head>
+<body>
+  <%= partial :navigation_bar %>
+
+  <!-- First Container -->
+  <div class="container-fluid bg-1 text-center">
+    <%= yield %>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container-fluid bg-4 text-center">
+    <p>Bootstrap Theme Made By <a href="http://www.w3schools.com" target="_blank">www.w3schools.com</a></p> 
+  </footer>
+  
+</body>
+</html>
