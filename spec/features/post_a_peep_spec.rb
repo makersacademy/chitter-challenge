@@ -38,8 +38,17 @@ feature 'Post a peep' do
     peep('newest peep')
 
     li = page.all('li')
-    expect(li[0]).to have_content'newest peep'
-    expect(li[1]).to have_content'oldest peep'
+    expect(li[0]).to have_content 'newest peep'
+    expect(li[1]).to have_content 'oldest peep'
+  end
+
+  scenario 'Peeps show the time they were posted' do
+    allow_any_instance_of(Time).to receive(:strftime) { "12:00AM, 1 Jan 2000" }
+    sign_in(user.username, user.password)
+    peep("Peep")
+
+    li = page.all('li')
+    expect(li[0]).to have_content "12:00AM, 1 Jan 2000"
   end
 
 

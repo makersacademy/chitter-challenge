@@ -42,7 +42,9 @@ class Chitter < Sinatra::Base
       session[:username] = user.username
       redirect '/feed'
     else
-      flash.now[:notice] = "Passwords did not match"
+      flash.now[:notice] = 'Passwords did not match' unless params[:password] == params[:password_confirmation]
+      flash.now[:notice] = 'An account already exists with that email' if User.first(email: params[:email])
+      flash.now[:notice] = 'An account already exists with that username' if User.first(username: params[:username])
       erb :sign_up
     end
   end
@@ -77,7 +79,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/peep' do
-    Peep.create(user: session[:username], message: params[:peep])
+    peep = Peep.create(user: session[:username], message: params[:peep], time_posted: Peep.time)
     redirect 'feed'
   end
 
