@@ -8,7 +8,7 @@ class User
   property :id, Serial
   property :name, Text
   property :username, String
-  property :email, String, format: :email_address, required: true
+  property :email, String, format: :email_address, unique: true, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password
@@ -19,7 +19,3 @@ class User
   end
 
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
