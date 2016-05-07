@@ -1,22 +1,25 @@
 <center>
-  <form action='/users' method="post">
-    <label for='username'>
-      Username:
-      <input type="text" name="username">
-    </label><br>
-    <label for='email'>
-      Email Address:
-      <input type="email" name="email">
-    </label><br>
-    <label for='password'>
-      Password:
-      <input type="password" name="password">
-    </label>
-    <label for='password_confirmation'>
-      Confirm Password:
-      <input type="password" name="password_confirmation">
-    </label>
-    <br><br>
-    <input type='submit' value='Sign up'>
-  </form>
+  <fieldset width='500'>
+    <legend>Registration</legend>
+    <form action='/users' method="post">
+      <label for='username'>
+        Username:
+        <input type="text" name="username">
+      </label><br><br>
+      <label for='email'>
+        Email Address:
+        <input type="email" name="email">
+      </label><br><br>
+      <label for='password'>
+        Password:
+        <input type="password" name="password">
+      </label>
+      <label for='password_confirmation'>
+        Confirm Password:
+        <input type="password" name="password_confirmation">
+      </label>
+      <br><br>
+      <input type='submit' value='Sign up'>
+    </form>
+  </fieldset>
 </center>

@@ -5,6 +5,9 @@ ruby '2.2.3'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
 gem 'sinatra'
+gem 'sinatra-flash'
+gem 'rake'
+
 
 group :test do
   gem 'rspec'
