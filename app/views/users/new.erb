@@ -2,7 +2,7 @@
 
 <form action='/users' method='post'>
   <label for='email'>Email: </label>
-    <input name='email' type='text'>
+    <input name='email' type='text' value='<%= @user.email %>'>
   <label for='password'>Password: </label>
     <input name='password' type='password'>
   <label for='password_confirmation'>Confirm Password: </label>
