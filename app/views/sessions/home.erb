@@ -1,1 +1,19 @@
+<center>
+  <form action="/peeps" method="post">
+    <label for='peep'>What's on your mind:</label>
+    <input type="text" name="peep">
+    <input type='submit' value='Post'>
+  </form>
+</center>
 
+<h1> Peeps </h1>
+<ol reversed>
+  <ul id='peeps'>
+    <% @peeps.each do |post| %>
+      <li>
+        At <%= "#{post.time} #{post.user.user_name}" %> wrote:
+        <%= post.post   %>
+      </li>
+    <% end %>
+  </ul>
+</ol>

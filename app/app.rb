@@ -14,11 +14,24 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.new
+    @peeps = Peep.all
     erb :'sessions/index'
   end
 
+  post '/peeps' do
+    time = Time.now
+    peep = Peep.create(post: params[:peep], time: time.strftime('%H:%M'), user: User.get(session[:user_id]))
+    peep.save
+    redirect to('/home')
+  end
+
   get '/home' do
-    erb :'sessions/home'
+    if session[:user_id] == nil
+      redirect to('/')
+    else
+      @peeps = Peep.all
+      erb :'sessions/home'
+    end
   end
 
   get '/users/new' do
@@ -69,5 +82,5 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
