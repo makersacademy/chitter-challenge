@@ -11,6 +11,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-sinatra'
   gem 'sinatra'
+  gem 'bcrypt'
   gem 'dm-migrations'
   gem 'database_cleaner'
   gem 'coveralls', require: false
