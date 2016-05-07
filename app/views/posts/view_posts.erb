@@ -1,0 +1,10 @@
+<h1> Posts </h1>
+  <ul id='posts'>
+    <% @peeps.each do |peep| %>
+      <li>
+      Time: <%= Time.new.strftime "%H:%M" %>
+      Title: <%= peep.title %>
+      Message: <%= peep.message %>
+    </li>
+    <%end %>
+  </ul>
