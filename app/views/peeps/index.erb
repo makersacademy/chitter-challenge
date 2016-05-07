@@ -1,0 +1,10 @@
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+  	<li>
+      <%= peep.peep %> <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
+<a href='/peeps/new'>Create a new peep</a>
