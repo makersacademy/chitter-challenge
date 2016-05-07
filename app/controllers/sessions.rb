@@ -11,4 +11,11 @@ class Chitter < Sinatra::Base
       redirect '/users/login'
     end
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Peep to you later!'
+    redirect to '/'
+  end
+
 end

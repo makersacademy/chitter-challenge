@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   register Sinatra::Partial
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   set :partial_template_engine, :erb
   enable :sessions

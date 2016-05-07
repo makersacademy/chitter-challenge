@@ -18,6 +18,7 @@ feature 'Users can sign up for chitter' do
   end
   scenario 'User can not sign up with an existing email or username' do
     sign_up
+    click_button 'Sign out'
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content 'Email is already taken'
     expect(page).to have_content 'Username is already taken'
