@@ -13,6 +13,31 @@ h2 {
   margin-right: auto;
 }
 
+#welcome {
+  color: royalblue;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#error,
+#error li {
+  color: red;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  list-style: none;
+}
+
+#errors {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  list-style: none;
+}
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -38,11 +63,7 @@ label {
   margin-right: 10px;
 }
 
-.welcome-message {
-  color: royalblue;
-  margin: 10px;
-  float: left;
-}
+
 
 #flash {
   color: red;

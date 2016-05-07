@@ -8,19 +8,21 @@
   </head>
 
   <body>
+
+    <%= yield %>  
+
     <% if current_user %>
-      Welcome, <%= current_user.email %>!
+      <p id="welcome">Welcome, <%= current_user.email %>!</p>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
+      <p id="errors">Please fix the following errors:</p>
+      <ul id="error">
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
         <% end %>
       </ul>
     <% end %>
-
-    <%= yield %>  
+    
   </body>
 </html>
