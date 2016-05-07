@@ -8,10 +8,10 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'rake'
 
 group :test do
   gem 'rspec'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'rspec-sinatra'
