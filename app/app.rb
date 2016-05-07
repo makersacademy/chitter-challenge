@@ -12,6 +12,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  use Rack::MethodOverride
+
   get '/home' do
     erb :home
   end
@@ -49,6 +51,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    flash.keep[:goodbye] = "Till next time #{current_user.username}"
+    session[:user_id] = nil
+    redirect '/goodbye'
+  end
+
+  get '/goodbye' do
+    erb :goodbye
+  end
 
 
 

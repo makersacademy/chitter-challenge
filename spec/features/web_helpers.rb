@@ -9,7 +9,7 @@ def sign_up(username: 'Megatron', email: 'megatron@decepticons.cyb',
   fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
-  click_button 'Sign up'
+  click_button 'Sign Up'
 end
 
 def sign_in(username: 'Megatron', password: 'optimussucks')
@@ -17,5 +17,5 @@ def sign_in(username: 'Megatron', password: 'optimussucks')
   expect(page.status_code).to eq(200)
   fill_in :username, with: username
   fill_in :password, with: password
-  click_button 'Sign in'
+  click_button 'Sign In'
 end
