@@ -1,0 +1,49 @@
+*, body {
+  background-color: #f2f8fd;
+}
+
+h2 {
+  color: #1da1f2;
+  text-align: center;
+}
+
+#sign-up-block {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn {
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+label {
+  color: darkgray;
+}
+
+.add-bookmark {
+  float: right;
+  margin-right: 10px;
+}
+
+.sign-out {
+  float: right;
+  margin-right: 10px;
+}
+
+.welcome-message {
+  color: royalblue;
+  margin: 10px;
+  float: left;
+}
+
+#flash {
+  color: red;
+}

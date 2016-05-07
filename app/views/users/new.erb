@@ -1,12 +1,14 @@
-<h1>Please sign up</h1>
+<div id="sign-up-block">
+  <h2>Sign up to Chitter!</h2>
 
-<form action='/users' method='post'>
-  <label for='email'>Email: </label>
-    <input name='email' type='email' value='<%= @user.email %>' required>
-  <label for='password'>Password: </label>
-    <input name='password' type='password'>
-  <label for='password_confirmation'>Confirm Password: </label>
-    <input name='password_confirmation' type='password'>
-
-  <input type='submit' value='Sign up'>
-</form>
+  <form action='/users' method='post'>
+    <label for='email'>Email: </label>
+      <input name='email' type='email' value='<%= @user.email %>' required>
+    <label for='password'>Password: </label>
+      <input name='password' type='password'>
+    <label for='password_confirmation'>Confirm Password: </label>
+      <input name='password_confirmation' type='password'>
+    <br>
+    <input type='submit' value='Sign up' class="btn btn-medium btn-primary">
+  </form>
+</div>

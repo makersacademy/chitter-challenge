@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   
   get '/' do 
     'Hello Chitter!'
+    redirect to '/peeps'
   end
 
   get '/sessions/new' do 
