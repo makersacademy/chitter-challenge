@@ -14,13 +14,7 @@ class Chitter < Sinatra::Base
 
 
    post '/usercreate'do
-
-
-    User.create(name: params[:name],
-             username: params[:username],
-             email: params[:email]#,
-              # password: params[:password]
-              )
+    User.create(name: params[:name], username: params[:username], email: params[:email])
    redirect '/confirm'
  end
 

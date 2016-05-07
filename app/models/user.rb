@@ -9,7 +9,7 @@ class User
   property :name, String
   property :username, String
   property :email, String
-  # propety :password, Password
+  # property :password, Password
 
 end
 
