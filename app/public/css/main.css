@@ -80,6 +80,20 @@ h3 {
   font-size: 25px;
 }
 
+h2 {
+  background-color: #5A8076;
+  color: rgba(255,255,255,0.7);
+  display:inline-block;
+  font-weight: 200;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.green {
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+}
+
 p {
   color: rgba(255,255,255,0.9);
   font-weight: 200;

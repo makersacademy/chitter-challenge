@@ -13,10 +13,12 @@
           <h1>
             Peeped by: <%= peep.user_handle %></h1>
             <br>
+            <p class="green">
             <%= peep.created_at.strftime("Created on %A")%>
             <%= peep.created_at.strftime("at %I:%M%p")%>
-            <br>
-            <%= peep.body   %>
+          </p>
+            
+          <h2>  <%= peep.body   %></h2>
           </div>
           <% end %>
         </div>
