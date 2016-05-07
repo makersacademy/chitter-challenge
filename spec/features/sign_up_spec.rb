@@ -10,9 +10,11 @@ feature 'User sign up' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
-  def sign_up(username: 'Luni',
-              password: '1234',
-              pasword_confirmation: '1234')
+  def sign_up(name: 'Marley',
+              username: 'Luni',
+              email: 'marley@cat.com',
+              password: 'dreamies',
+              password_confirmation: 'dreamies')
       visit '/users/new'
       fill_in :name, with: name
       fill_in :username, with: username
@@ -55,7 +57,7 @@ feature 'User sign up' do
   scenario 'Already existing email address' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Email is already registered')
+    expect(page).to have_content('Email is already taken')
   end
 
   scenario 'Already existing username' do

@@ -22,4 +22,15 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(name, username, email, password)
+    #first(name: name)
+    user = first(username: username)
+    #first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+
 end
