@@ -10,7 +10,11 @@ feature 'Post a peep' do
 
   scenario 'User can post a message' do
     sign_in(user.username, user.password)
-    expect { peep(message)}.to change(Peep, :count).by 1
+    expect { peep(message) }.to change(Peep, :count).by 1
+  end
+
+  scenario 'Only signed in users can peep' do
+    expect { Peep.create(message: 'peep') }.not_to change Peep, :count
   end
 
   scenario 'Peep is visible when posted' do
@@ -27,5 +31,16 @@ feature 'Post a peep' do
       expect(page).to have_content user.username
     end
   end
+
+  scenario 'Peeps are in reverse chronological order' do
+    sign_in(user.username, user.password)
+    peep('oldest peep')
+    peep('newest peep')
+
+    li = page.all('li')
+    expect(li[0]).to have_content'newest peep'
+    expect(li[1]).to have_content'oldest peep'
+  end
+
 
 end

@@ -48,7 +48,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    redirect '/sign-in' unless session[:user_id]
     @user = session[:username]
     @peeps = Peep.all
     erb :'feed/index'
@@ -73,6 +72,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/peep' do
+    redirect '/feed' unless session[:user_id]
     erb :'user/peep'
   end
 

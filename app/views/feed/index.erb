@@ -1,5 +1,9 @@
 <h1>Feed</h1>
-<h3>Hey <%= @user %>!</h3>
+
+<h3>Hey <%= @user ? @user : 'there' %>!</h3>
+
+<% if @user %>
+
 <p>Check out your feed below</p>
 
 <form action='/sign-out' method='post'>
@@ -8,10 +12,17 @@
 </form>
 
 <p><a href='/user/peep'>Post a peep</a></p>
+<% end %>
 
-<% if @user %>
+<% if !@user %>
+
+<p>New user? Why not <a href='/sign-up'>sign up</a>, or <a href='/sign-in'>sign in</a> if you're already registered</p>
+
+<% end %>
+
+
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
   <li>
     <div>
     <%= peep.message %>
@@ -22,4 +33,3 @@
   </li>
 <% end %>
 </ul>
-<% end %>
