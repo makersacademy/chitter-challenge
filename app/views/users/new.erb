@@ -2,12 +2,12 @@
 <html>
   <body>
     <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
-    <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    </ul>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <h1>Sign up to Chitter</h1>
     <form action="/users" method="post">

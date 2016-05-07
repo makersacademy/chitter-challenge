@@ -1,3 +1,5 @@
+module SessionHelpers
+
 def new_user(username: 'OMGDuke', name: 'Alex',
             email: 'name@email.com', password: '12345',
             password_confirmation: '12345')
@@ -16,4 +18,6 @@ def sign_in(username: 'OMGDuke', password: '12345')
   fill_in :username, with: username
   fill_in :password, with: password
   click_button 'Sign in'
+end
+
 end

@@ -4,14 +4,15 @@
     <h1>Welcome to Chitter</h1>
     <% if !current_user %>
     <form action="/users/new" method="get">
-      <button type="submit">Sign up</button>
+      <input type="submit" value='Sign up'></input>
     </form>
     <form action="/sessions/new" method="get">
-      <button type="submit">Sign in</button>
+      <input type="submit" value='Sign in'></input>
     </form>
     <% else %>
-      <form action="/sessions/end" method="get">
-        <button type="submit">Sign out</button>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value='Sign out'></input>
       </form>
     <% end %>
   </body>
