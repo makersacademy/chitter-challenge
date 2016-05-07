@@ -408,8 +408,28 @@ make layout.erb
 ```
 sign in feature test
 ```
-
+feature 'User sign in' do
+  scenario 'with correct credentials' do
+    sign_up
+    sign_in
+    expect(page).to have_content 'alice@example.com'
+  end
+end
 ```
+sign out feature test
+```
+feature 'User signs out' do
+  scenario 'while being signed in' do
+    sign_up
+    sign_in
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('alice@example.com')
+  end
+
+end
+```
+
 
 
 
