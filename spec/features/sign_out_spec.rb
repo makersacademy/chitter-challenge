@@ -8,7 +8,6 @@ feature 'Sign out' do
   scenario 'doesn\'t allow user to remain signed in after log out' do
     sign_up
     click_button 'Sign out'
-    visit '/home'
     expect(current_path).to eq('/')
   end
 end

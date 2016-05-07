@@ -1,11 +1,3 @@
-<% if flash[:errors] %>
-Please correct the following errors:
-<ul id='errors'>
-  <% flash[:errors].each do |error| %>
-  <li><%= error %> </li>
-  <% end %>
-</ul>
-<% end %>
 <center>
   <form action="/users" method="post">
     <table>

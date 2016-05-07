@@ -13,6 +13,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @user = User.new
     erb :'sessions/index'
   end
 
@@ -53,6 +54,12 @@ class Chitter < Sinatra::Base
       flash.now[:error] = 'The username and/or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
   end
 
   helpers do

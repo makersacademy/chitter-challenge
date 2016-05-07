@@ -32,6 +32,7 @@ def invalid_email
 end
 
 def sign_in
+  sign_up
   visit '/'
   click_button 'Sign in'
   fill_in :user_name, with: 'nmrichards'
