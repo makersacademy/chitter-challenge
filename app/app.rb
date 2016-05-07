@@ -5,6 +5,10 @@ class Chitter < Sinatra::Base
     'Hello world!'
   end
 
+  get '/peeps' do
+  	@peeps = Peep.all
+  	erb :'peeps/index'
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -3,6 +3,7 @@ require 'simplecov'
 require  'capybara'
 require 'capybara/rspec'
 require './app/app'
+require './app/models/peep'
 
 Capybara.app = Chitter
 
