@@ -32,13 +32,13 @@ class Chitter < Sinatra::Base
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-  if @user.save
-    session[:user_id] = @user.id
-    redirect to('/peeps')
-  else
-    flash.now[:errors] = @user.errors.full_messages
-    erb :'users/sign_up'
-  end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to :'/peeps'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/sign_up'
+    end
   end
 
   get '/peeps' do
