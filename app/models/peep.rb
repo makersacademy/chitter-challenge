@@ -4,6 +4,8 @@ class Peep
   property :id, Serial
   property :maker, String
   property :user_handle, String
-  property :body, Text,   :lazy => false  # Isn't lazy, will load by default
+  property :body, Text, lazy: false  # Isn't lazy, will load by default
+  property :created_at, DateTime
+
 
 end
