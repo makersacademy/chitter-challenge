@@ -1,3 +1,11 @@
+def sign_in(email, password)
+  visit '/users/login'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Log in'
+end
+
+
 def sign_up
   visit '/users/new'
   fill_in :name, with: 'User McUser'

@@ -6,9 +6,6 @@ class Chitter < Sinatra::Base
   enable :sessions
   enable :partial_underscores
 
-  get '/' do
-  end
-
   # start the server if ruby file executed directly (not... !)
   # run! if app_file == $0
 
