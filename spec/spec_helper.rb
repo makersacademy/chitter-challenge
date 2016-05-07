@@ -7,10 +7,10 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'tilt/erb'
-require './app/models/link'
+require './app/data_mapper_setup'
 require 'web_helper'
 
-Capybara.app = BookmarkManager
+Capybara.app = Chitter
 
 require 'database_cleaner'
 

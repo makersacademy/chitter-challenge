@@ -78,6 +78,8 @@ require_relative 'models/user'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
+DataMapper.auto_upgrade!
+
 ```
 replaced spec_helper.rb this way i can clean my tests
 ```
@@ -94,7 +96,7 @@ require 'tilt/erb'
 require './app/data_mapper_setup'
 require 'web_helper'
 
-Capybara.app = BookmarkManager
+Capybara.app = Chitter
 
 require 'database_cleaner'
 
@@ -230,7 +232,7 @@ end
 
 ```
 
-
+make my feature tests
 add my web_helper.rb from BookmarkManager
 ```
 def sign_up(email:'alice@example.com', password:'oranges!', password_confirmation:'oranges!')
@@ -250,6 +252,162 @@ def sign_in(email:'alice@example.com', password:'oranges!')
 end
 
 ```
+then add my sign_up feature test
+```
+feature 'user sign up' do
+  scenario 'I can sign up as a new user' do
+    sign_up
+    expect(User.first.email).to eq('alice@example.com')
+  end
+  scenario 'confirmation of password' do
+    expect{sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Password does not match the confirmation')
+  end
+  scenario "can't sign up without an email address" do
+    expect { sign_up(email:nil, password:nil) }.not_to change(User, :count)
+  end
+  scenario "can't sign up with an invalid email address" do
+    expect { sign_up(email:"invalid@email") }.not_to change(User, :count)
+    expect { sign_up(email:"invalidemail.") }.not_to change(User, :count)
+  end
+  scenario "can't sign up with the same email address twice" do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content('Email is already taken')
+  end
+end
+```
+need to make my user model which i will take form BookmarkManager
+```
+class User
+  include DataMapper::Resource
+
+  attr_reader :password
+  attr_accessor :password_confirmation
+  validates_format_of :email, :as => /^.+@.+\..+$/
+  validates_confirmation_of :password
+  property :id,       Serial
+  property :email,    String, required: true, unique: true
+  property :password_digest, Text, required: true
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+end
+
+```
+oh yeah almost frogot my unit test for user_spec.rb authenticate
+```
+describe User do
+
+  let!(:user) do
+    User.create(email: 'test@test.com', password: 'secret1234',
+               password_confirmation: 'secret1234')
+  end
+
+  it 'authenticates when given a valid email address and password' do
+    authenticated_user = User.authenticate(user.email, user.password)
+    expect(authenticated_user).to eq user
+  end
+  it 'does not authenticate when given an incorrect password' do
+    expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+  end
+
+end
+```
+need make my routes which i took from BookmarkManager so some will be furher ahead
+```
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id])
+  end
+end
+
+get '/users/new' do
+  @user = User.new
+  erb :'users/new'
+end
+
+post '/users' do
+  @user = User.new(password:params[:password], password_confirmation:params[:password_confirmation], email:params[:email])
+  if @user.save
+    redirect '/sessions/new'
+  else
+    flash.now[:errors] = @user.errors.full_messages
+    erb :'users/new'
+  end
+end
+
+get '/sessions/new' do
+  erb :'sessions/new'
+end
+
+post '/sessions' do
+user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect to('/links')
+  else
+    flash.now[:errors] = [['The email or password is incorrect']]
+    erb :'sessions/new'
+  end
+end
+
+delete '/sessions' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'goodbye!'
+  redirect to '/links'
+end
+```
+make layout.erb
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:errors] %>
+    <ul>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+   <% end %>
+   <% if current_user %>
+     Welcome, <%= current_user.email %>
+     <form method='post' action='/sessions'>
+       <input type='hidden' name='_method' value='delete'>
+       <input type='submit' value='Sign out'>
+     </form>
+   <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+```
+
+
 
 
 
