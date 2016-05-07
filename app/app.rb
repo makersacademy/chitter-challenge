@@ -1,13 +1,16 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
+require 'sinatra/flash'
+require 'bcrypt'
 require './app/data_mapper_setup'
 require './app/models/user'
-require 'bcrypt'
-
-ENV['RACK_ENV'] ||= 'development'
+require './app/models/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :sesion_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -28,19 +31,26 @@ class Chitter < Sinatra::Base
     erb :'sign_in'
   end
 
-  post '/register_user' do
+  post '/sign-up' do
     user = User.create(name: params[:name],
            username: params[:username],
            email: params[:email],
            password: params[:password],
            password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    session[:username] = user.username
-    redirect '/feed'
+    if user.save
+      session[:user_id] = user.id
+      session[:username] = user.username
+      redirect '/feed'
+    else
+      flash.now[:notice] = "Passwords did not match"
+      erb :sign_up
+    end
   end
 
   get '/feed' do
+    redirect '/sign-in' unless session[:user_id] 
     @user = session[:username]
+    @peeps = Peep.all
     erb :'feed/index'
   end
 
@@ -58,14 +68,18 @@ class Chitter < Sinatra::Base
   post '/sign-out' do
     session[:user_id] = nil
     session[:username] = nil
+    flash.next[:notice] = 'You have signed out'
     redirect '/'
   end
 
-  # get '/users' do
-  #   @user = session[:username]
-  #   erb :'users/userpage'
-  # end
+  get '/user/peep' do
+    erb :'user/peep'
+  end
 
+  post '/user/peep' do
+    Peep.create(message: params[:peep])
+    redirect 'feed'
+  end
 
 
   # start the server if ruby file executed directly

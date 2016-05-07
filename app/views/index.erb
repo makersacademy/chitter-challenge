@@ -1,10 +1,13 @@
+<% if flash[:notice] %>
+<div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
 <h1>Chitter</h1>
-<h1>Welcome <%= @user ? @user : 'Guest' %></h1>
 
 <ul>
-  <li><a href="/sign-up">Click here to sign up</a></li>
-  <li><a href="/sign-in">Click here to sign in</a></li>
+  <li><a href='/sign-up'>Click here to sign up</a></li>
+  <li><a href='/sign-in'>Click here to sign in</a></li>
   <% if @user %>
-  <li><a href="/feed">View your feed</a></li>
+  <li><a href='/feed'>View your feed</a></li>
   <% end %>
 </ul>

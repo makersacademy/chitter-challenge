@@ -10,6 +10,6 @@ feature 'User sign out' do
   scenario 'User can sign out of Chitter' do
     sign_in('user', 'test')
     click_button 'Sign out'
-    expect(page).to have_content "Welcome Guest"
+    expect(page).to have_content "You have signed out"
   end
 end

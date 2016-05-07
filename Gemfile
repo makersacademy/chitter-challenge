@@ -5,8 +5,8 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
-gem 'coveralls'
 gem 'simplecov'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

@@ -19,4 +19,10 @@ feature 'User sign up' do
   scenario 'Both password input must match' do
     expect { sign_up('incorrect') }.not_to change(User, :count)
   end
+
+  scenario 'Sign up fails if passwords mismatch' do
+    sign_up('incorrect')
+    expect(current_path).to eq '/sign-up'
+    expect(page).to have_content 'Passwords did not match'
+  end
 end

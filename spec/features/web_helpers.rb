@@ -14,3 +14,9 @@ def sign_in(username, password)
   fill_in 'password', with: password
   click_button 'Sign in'
 end
+
+def peep(message)
+  visit '/user/peep'
+  fill_in 'peep', with: 'This is my first peep!'
+  click_button 'Peep!'
+end
