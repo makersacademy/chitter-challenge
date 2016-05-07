@@ -8,4 +8,6 @@ class Peep
   property :body, String, length: 140, required: true
   property :time_posted, Time
 
+  belongs_to :user
+
 end

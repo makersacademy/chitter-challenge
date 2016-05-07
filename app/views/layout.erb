@@ -3,13 +3,17 @@
 
   <body>
     <% if current_user %>
-      <header align = "right">
-      <h4>Signed in as: <%= current_user.username %></h4>
-      </header>
+        <header align = "right">
+          <h4>Signed in as: <%= current_user.username %></h4>
+            <form method='post' action='/users/sign_in'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Sign out'>
+            </form>
+        </header>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
+      You naughty minx:
       <ul id='errors'>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
