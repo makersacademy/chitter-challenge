@@ -3,7 +3,8 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      Title: <%= peep.content %>
+      Title: <%=peep.content%> 
+      Posted: <%=peep.time%>
     </li>
   <% end %>
 </ul>

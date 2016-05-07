@@ -5,5 +5,6 @@ feature 'Adding peeps' do
     click_button 'Peep!'
     expect(current_path).to eq '/peeps'
     expect(page).to have_content("I'm peeping!")
+    # expect(page).to have_content(Time.now.strftime("%H:%M:%S %d-%m-%Y"))
   end
 end
