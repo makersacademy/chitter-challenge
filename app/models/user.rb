@@ -6,10 +6,15 @@ class User
   
   include DataMapper::Resource
 
-  has n, :links, through: Resource
+  # has n, :links, through: Resource
 
   property :id,                   Serial
-  property :email,                String, required: true, format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  property :name,                 String, required: true
+  property :username,             String, required: true, unique: true
+  property :email,                String, 
+                                  required: true, 
+                                  unique: true, 
+                                  format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   property :password_digest,      Text
 
   attr_reader :password

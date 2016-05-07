@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Bookmark Manager</title>
+		<title>Chitter</title>
 	</head>
 	<body>
-		<% if flash[:notice] %>
-			<div id="flash"><%= flash[:notice] %></div>
+		<% if flash[:errors] && !flash[:errors].empty? %>
+			Please refer to the following errors below:
+			<div id="flash">
+				<ul id="error" >
+					<% flash[:errors].each do |error| %>
+					<li><%= error %></li>
+					<% end %>
+				</div>
+			</ul>
 		<% end %>
 		<% if current_user %>
-			<h1>Welcome, <%= current_user.email %></h1>
+			<h1>Welcome, <%= current_user.name %></h1> 
 		<% end %>
 		<%= yield %>
 	</body>
