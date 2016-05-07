@@ -12,6 +12,9 @@ feature 'Sign up' do
 
   scenario 'fails if user enters mismatched password and password confirmation fields' do
     expect {sign_up(password_confirmation: 'optimusrules')}.not_to change(User, :count)
+
   end
+
+
 
 end
