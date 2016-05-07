@@ -4,6 +4,11 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.body %>
+      <%= peep.time_posted %>
     </li>
   <% end %>
 </ul>
+
+<form action='/peeps/post'>
+  <input type='submit' value='peep'>
+</form>

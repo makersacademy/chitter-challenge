@@ -1,7 +1,7 @@
 feature 'Posting peeps' do
 
   scenario 'I can post a new peep' do
-    visit '/peeps/new'
+    visit '/peeps/post'
     fill_in 'body',   with: 'I like peeping!'
     click_button 'Post peep!'
 
