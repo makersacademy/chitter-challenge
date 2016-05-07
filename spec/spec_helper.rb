@@ -12,6 +12,7 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require './spec/web_helpers'
+require 'orderly'
 
 
 SimpleCov.formatters = [

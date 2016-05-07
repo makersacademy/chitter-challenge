@@ -17,5 +17,6 @@ group :test do
   gem 'rspec-sinatra'
   gem 'database_cleaner'
   gem 'byebug'
+  gem 'orderly'
 
 end

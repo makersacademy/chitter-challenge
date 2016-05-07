@@ -1,6 +1,6 @@
 <%if @peeps %>
 <ul id=peeps>
-  <%@peeps.each do |peep|%>
+  <%@peeps.reverse.each do |peep|%>
   <li>
     <%=peep.content%>
     <%=peep.user.handle%>

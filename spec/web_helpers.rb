@@ -17,3 +17,9 @@ def sign_in_sign_out name, handle, email, password
   click_button "Sign up"
   click_button "Sign out"
 end
+
+def peep message
+  visit '/peep/new'
+  fill_in :content, with: message
+  click_button 'peep'
+end
