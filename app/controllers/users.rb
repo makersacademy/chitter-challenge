@@ -11,9 +11,9 @@ class Chitter < Sinatra::Base
      name: params[:name], username: params[:username])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/links')
+      redirect to('/peeps')
     else
-      #flash.now[:users] = @user.errors.full_messages
+      #flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end

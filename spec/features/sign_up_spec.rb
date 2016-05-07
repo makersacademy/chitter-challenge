@@ -29,4 +29,12 @@ feature 'User sign up' do
     expect(current_path).to eq '/users'
     expect(page).to have_content "Email is already taken"
   end
+
+  scenario "user can't sign up if username already registered" do
+    sign_up(SessionHelpers::PARAMS_CORRECT)
+    params = set_params({email: "rep_username@gmail.com", password: "dos", password_confirmation: "dos"})
+    expect { sign_up(params) }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content "Username is already taken"
+  end
 end

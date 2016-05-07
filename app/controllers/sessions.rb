@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect '/links'
+      redirect '/peeps'
     else
       flash.now[:sessions] = ['The email or password is incorrect']
       # redirect "/"  # why the flash does not work???
@@ -18,6 +18,6 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = "goodbye!"
-    redirect to '/links'
+    redirect to '/peeps'
   end
 end
