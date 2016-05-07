@@ -38,10 +38,10 @@ module SessionHelpers
    click_button "Submit"
  end
 
- def sign_in_and_peep
+ def sign_in_and_peep(message)
   sign_in(email: user.email, password: user.password)
   visit '/peeps/new'
-  fill_in :message, with: 'Google'
+  fill_in :message, with: message
   click_button "Submit"
  end
 end
