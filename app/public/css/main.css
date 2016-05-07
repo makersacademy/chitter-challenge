@@ -11,12 +11,11 @@ body {
 .bg-img {
   background: url('/images/tree_bark.png') top;
   background-repeat: repeat;
-  background-size: 20  %;
   position: fixed;
   top: 100px;
-  left: 0;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
   z-index: -1;
 }
 

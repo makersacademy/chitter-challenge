@@ -4,8 +4,8 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="bg-img">
+  <div class="bg-img">
+    <div class="container">
 
       <ul id="peeps">
         <% @peeps.reverse.each do |peep| %>
@@ -14,11 +14,10 @@
             Peeped by: <%= peep.user_handle %></h1>
             <br>
             <p class="green">
-            <%= peep.created_at.strftime("Created on %A")%>
-            <%= peep.created_at.strftime("at %I:%M%p")%>
-          </p>
-            
-          <h2>  <%= peep.body   %></h2>
+              <%= peep.created_at.strftime("Created on %A")%>
+              <%= peep.created_at.strftime("at %I:%M%p")%>
+            </p>
+            <h2>  <%= peep.body   %></h2>
           </div>
           <% end %>
         </div>
