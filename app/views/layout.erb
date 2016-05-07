@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter Challenge</title>
+  </head>
+
+  <body>
+    <%if flash[:errors]%>
+      <% flash[:errors].each do |error|%>
+        <%=error%>
+      <%end%>
+    <%elsif current_user %>
+      Hello <%= current_user.name%>!
+    <%end%>
+    
+    <%=yield%>
+  </body>
+</html>
