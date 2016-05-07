@@ -22,6 +22,14 @@ def blank_email
   click_button 'Sign up'
 end
 
+def invalid_email
+  visit '/users/new'
+  fill_in :email, with: 'johnsmith@gmail'
+  fill_in :password, with: 'banana!'
+  fill_in :password_confirmation, with: 'banana!'
+  click_button 'Sign up'
+end
+
 feature 'User sign up' do 
   scenario 'User can sign up' do
     expect{sign_up}.to change(User, :count).by(1)
@@ -35,7 +43,11 @@ feature 'User sign up' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 
-  scenario 'User must not enter a blank email' do 
+  scenario 'User enters a blank email' do 
     expect{blank_email}.not_to change(User, :count)
+  end
+
+  scenario 'User enters an invalid email' do 
+    expect{invalid_email}.not_to change(User, :count)
   end
 end
