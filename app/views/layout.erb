@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter-Chatter</title>
+  </head>
+  <body>
+    <% if current_user %>
+    <header>
+      Signed in as: <%= @user.user_name %>
+    </header>
+    <% end %>
+
+
+
+    <% if flash[:errors] %>
+      <div id='errors'> <%=flash[:errors]%> </div>
+    <% end %>
+
+
+    <%= yield %>
+  </body>
+</html>
