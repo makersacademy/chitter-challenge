@@ -17,13 +17,22 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/messages'
+  end
+
+  get '/messages' do
+    # @messsages = Messages.all
+    erb :'messages/index'
+  end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    @user = User.new(password:params[:password], password_confirmation:params[:password_confirmation], email:params[:email])
+    @user = User.new(password:params[:password], password_confirmation:params[:password_confirmation], email:params[:email], username:params[:username], name:params[:name])
     if @user.save
       redirect '/sessions/new'
     else
@@ -40,7 +49,7 @@ class Chitter < Sinatra::Base
   user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/links')
+      redirect to('/')
     else
       flash.now[:errors] = [['The email or password is incorrect']]
       erb :'sessions/new'
@@ -50,7 +59,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect to '/links'
+    redirect to '/'
   end
 
 end

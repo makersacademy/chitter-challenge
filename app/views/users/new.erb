@@ -1,5 +1,15 @@
 <h1> Please sign up </h1>
 <form action="/users" method="post">
+  <label for="username">
+    Username:<br><br>
+    <input type="text" name="username" required>
+  </label>
+  <br><br>
+  <label for="name">
+    Name:<br><br>
+    <input type="text" name="name" required>
+  </label>
+  <br><br>
   <label for="email">
     Email:<br><br>
     <input type="text" name="email" value="<%= @user.email %>" pattern="^.+@.+\..+$" required>
