@@ -10,10 +10,15 @@
 <p><a href='/user/peep'>Post a peep</a></p>
 
 <% if @user %>
-<ul>
+<ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
+    <div>
     <%= peep.message %>
+  </div>
+  <div>
+    Posted by: <%= peep.user %>
+  </div>
   </li>
 <% end %>
 </ul>

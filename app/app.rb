@@ -48,7 +48,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    redirect '/sign-in' unless session[:user_id] 
+    redirect '/sign-in' unless session[:user_id]
     @user = session[:username]
     @peeps = Peep.all
     erb :'feed/index'
@@ -77,7 +77,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/peep' do
-    Peep.create(message: params[:peep])
+    Peep.create(user: session[:username], message: params[:peep])
     redirect 'feed'
   end
 

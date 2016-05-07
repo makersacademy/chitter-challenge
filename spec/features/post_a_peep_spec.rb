@@ -19,4 +19,13 @@ feature 'Post a peep' do
     expect(page).to have_content message
   end
 
+  scenario 'Peeps show which user they were posted by' do
+    sign_in(user.username, user.password)
+    peep(message)
+
+    within 'ul#peeps' do
+      expect(page).to have_content user.username
+    end
+  end
+
 end
