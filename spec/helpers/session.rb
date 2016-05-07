@@ -32,17 +32,16 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-  def sign_out(email:, password:)
-    sign_in(email: user.email, password: user.password)
-    expect(page.status_code).to eq(200)
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
-  end
-
   def recover_password
    visit '/users/recover'
    fill_in :email, with: "alice@example.com"
    click_button "Submit"
+ end
+
+ def sign_in_and_peep
+  sign_in(email: user.email, password: user.password)
+  visit '/peeps/new'
+  fill_in :message, with: 'Google'
+  click_button "Submit"
  end
 end

@@ -9,19 +9,19 @@ feature 'User sign up' do
   end
 
   scenario 'Requires a matching confirmation password' do
-    params = set_params({password_confirmation: "321"})
+    params = set_params(password_confirmation: "321")
     expect { sign_up(params) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content "Password does not match the confirmation"
   end
 
   scenario 'Requires a non-empty email address' do
-    params = set_params({email: ""})
+    params = set_params(email: "")
     expect { sign_up(params) }.not_to change(User, :count)
   end
 
   scenario "user can't sign up with invalid format email" do
-    params = set_params({email: "pep@gma"})
+    params = set_params(email: "pep@gma")
     expect { sign_up(params) }.not_to change(User, :count)
   end
 
@@ -34,7 +34,7 @@ feature 'User sign up' do
 
   scenario "user can't sign up if username already registered" do
     sign_up(SessionHelpers::PARAMS_CORRECT)
-    params = set_params({email: "rep_username@gmail.com", password: "dos", password_confirmation: "dos"})
+    params = set_params(email: "rep_username@gmail.com", password: "dos", password_confirmation: "dos")
     expect { sign_up(params) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content "Username is already taken"
