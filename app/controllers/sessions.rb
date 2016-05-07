@@ -17,5 +17,5 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = 'Peep to you later!'
     redirect to '/'
   end
-
+  
 end
