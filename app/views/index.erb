@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Welcome to Chitter!</title>
+
+    <%if current_user%>
+      Hi, <%=current_user.name%>!
+    <%end%>
+    <title>Welcome Chitter!</title>
+
   </head>
+
   <body>
+
     <form action="/users/new" method='get'>
         <button type="submit" name="New Account">New Account</button>
     </form>
+
+    <%if current_user%>
+      <form action='/sessions' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <button type="button" name="Logout">Logout</button>
+      </form>
+    <%else%>
+      <form action="/sessions/new">
+        <button type="button" name="Login">Login</button>
+      </form>
+    <%end%>
+
+    <% if flash[:goodbye] %>
+      <div id='googbye'>
+        <%= flash[:goodbye] %>
+      </div>
+    <% end %>
+
   </body>
 </html>
