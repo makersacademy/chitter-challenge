@@ -28,15 +28,16 @@ feature 'Add peeps' do
   end
 
   scenario 'I can add peeps to chitter when logged in' do
-    sign_in(email: user.email, password: user.password)
-    visit '/peeps/new'
-    fill_in :message, with: 'Google'
-    click_button "Submit"
+    sign_in_and_peep
     expect(current_path).to eq '/peeps'
     expect(page).to have_content "Google"
+
   end
 
   scenario 'peeps contain name, username, and timestamp' do
+    sign_in_and_peep
+    expect(page).to have_content(user.name)
+    # expect(page).to have_content(user.username)
 
   end
 

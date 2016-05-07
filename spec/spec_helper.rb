@@ -1,3 +1,4 @@
+ENV["RACK_ENV"] = "test"
 require 'coveralls'
 require 'simplecov'
 
@@ -8,7 +9,7 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 
-ENV["RACK_ENV"] = "test"
+# ENV["RACK_ENV"] = "test"
 
 require 'capybara'
 require 'capybara/rspec'

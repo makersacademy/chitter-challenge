@@ -1,21 +1,21 @@
 class User
   include DataMapper::Resource
 
-  property :id,               Serial
-  property :count,            Integer
+  property :id, Serial
+  property :count, Integer
   property :email, String, required: true, format: :email_address, unique: true
   property :password_digest,  Text
   property :name, String, required: true
   property :username, String, required: true, unique: true
 
-  # property :password_token, Text
-  # property :password_token_time, Time
 
   attr_reader :password
   attr_accessor :password_confirmation
 
   validates_presence_of :email
   validates_confirmation_of :password
+
+  has n, :peeps
 
 
   def password=(password)
