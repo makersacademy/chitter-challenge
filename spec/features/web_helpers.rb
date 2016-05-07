@@ -1,4 +1,4 @@
-# User.create(username: 'Megatron', email: 'megatron@decepticons.cyb', password: 'optimussucks', password_confirmation: 'optimussucks')
+User.create(username: 'Megatron', email: 'megatron@decepticons.cyb', password: 'optimussucks', password_confirmation: 'optimussucks')
 
 def sign_up(username: 'Megatron', email: 'megatron@decepticons.cyb',
  password: 'optimussucks', password_confirmation: 'optimussucks')
@@ -10,4 +10,12 @@ def sign_up(username: 'Megatron', email: 'megatron@decepticons.cyb',
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
+end
+
+def sign_in(username: 'Megatron', password: 'optimussucks')
+  visit '/sessions/new'
+  expect(page.status_code).to eq(200)
+  fill_in :username, with: username
+  fill_in :password, with: password
+  click_button 'Sign in'
 end
