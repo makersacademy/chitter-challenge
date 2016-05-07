@@ -1,0 +1,24 @@
+<head>
+  <title>Chitter</title>
+</head>
+
+<h1> Chitter </h1>
+
+<form action='/sign_up' method='get'>
+  <input type='submit' value="sign up">
+</form>
+
+<form action='/log_in' method='get'>
+  <input type='submit' value="log in">
+</form>
+
+<ul id='peeps'>
+
+  <% Peep.reverse_each do |peep| %>
+  <li>
+    Title: <%= peep.title %>
+    Content: <%= peep.content %>
+    Time: <%= peep.lastmodified %>
+  </li>
+  <% end %>
+</ul>

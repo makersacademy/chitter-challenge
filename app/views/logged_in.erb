@@ -1,0 +1,30 @@
+<h1> Welcome <%= !!@user ? @user.username : "guest" %> </h1>
+
+<form action='/' method='get'>
+  <input type='submit' value="log out">
+</form>
+
+<form action='/add_peep' method='post'>
+  <label for='title'> Title </label>
+  <input type='text' name='title'>
+
+  <br>
+
+  <label for='content'> Content </label>
+  <input type='text' name='content'>
+
+  <br>
+
+  <input type='submit' value='submit'>
+</form>
+
+<ul id='peeps'>
+
+  <% Peep.reverse_each do |peep| %>
+  <li>
+    Title: <%= peep.title %>
+    Content: <%= peep.content %>
+    Time: <%= peep.lastmodified %>
+  </li>
+  <% end %>
+</ul>
