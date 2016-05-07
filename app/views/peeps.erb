@@ -1,0 +1,17 @@
+<form action='/users/new'>
+<input type='submit' value='sign up'>
+</form>
+<form action='/sessions/new'>
+<input type='submit' value='sign in'>
+</form>
+
+<h1> Peeps </h1>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Title: <%= peep.title %>
+    Text:   <%= peep.text   %>
+    Context: <%= peep.context  %>
+  </li>
+<% end %>
+</ul>
