@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'Viewing peeps' do
 
   scenario 'user can see existing peeps on the peeps page' do
