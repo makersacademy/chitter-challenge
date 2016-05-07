@@ -12,15 +12,17 @@ describe User do
               password_confirmation: password
   end
 
-  it {is_expected.to respond_to(:authenticate).with(3).arguments}
   describe '#authenticate' do
-    it "returns nil if user name or email do not match" do
-      expect(user.authenticate 'wrong', email, password).to be_nil
-      expect(user.authenticate user_name, 'wrong', password).to be_nil
+    xit 'returns user if username and password match' do
+      expect(User.authenticate user_name, password).to eq user
+    end
+
+    it "returns nil if user name does not match" do
+      expect(User.authenticate 'wrong', password).to be_nil
     end
 
     it "returns nil if password doesn't match" do
-      expect(user.authenticate user_name, email, 'wrong').to be_nil
+      expect(User.authenticate user_name, 'wrong').to be_nil
     end
   end
 

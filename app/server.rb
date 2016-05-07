@@ -3,7 +3,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   register Sinatra::Flash
-
   use Rack::MethodOverride
 
 
