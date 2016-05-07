@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <h1>Please sign in</h1>
 
 <form action='/sessions' method='post'>

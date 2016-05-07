@@ -2,6 +2,7 @@ require 'coveralls'
 require 'simplecov'
 require 'web_helpers'
 require 'database_cleaner'
+require 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -38,6 +39,13 @@ Capybara.app = Chitter
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
+
 RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
