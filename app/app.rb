@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require "sinatra/base"
 require "sinatra/flash"
 require_relative "models/user"
+require_relative "models/peep"
 require_relative "data_mapper_setup"
 
 class ChitterChallenge < Sinatra::Base
@@ -26,7 +27,24 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get "/peeps" do
+    @peeps = Peep.all
     erb :"peeps/index"
+  end
+
+  get "/peeps/new" do
+    erb :"peeps/new"
+  end
+
+  post "/peeps" do
+    peep = Peep.create(user: current_user,
+                       message: params[:message],
+                       created_at: Time.now)
+    if peep.id.nil?
+      flash[:errors] = peep.errors.full_messages
+      redirect to "/peeps/new"
+    else
+      redirect to "/peeps"
+    end
   end
 
   helpers do
@@ -35,5 +53,5 @@ class ChitterChallenge < Sinatra::Base
     end
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

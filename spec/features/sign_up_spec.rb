@@ -1,11 +1,9 @@
 feature "signing up" do
+
   scenario "sign up with valid credentials" do
-    params = {name: "Amy",
-              username: "amynic",
-              email: "amy@gmail.com",
-              password: "my_password"}
-    sign_up(params)
+    expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content "Hello Amy!"
+    expect(User.first.email).to eq("amy@gmail.com")
   end
 
   scenario "sign up with blank fields" do
@@ -13,7 +11,7 @@ feature "signing up" do
               username: nil,
               email: nil,
               password: "my_password"}
-    sign_up(params)
+    expect { sign_up(params) }.to change(User, :count).by(0)
     expect(current_path).to eq '/users/new'
     expect(page).to have_content "Name must not be blank Username must not be blank"\
                                  " Email must not be blank"
@@ -24,17 +22,13 @@ feature "signing up" do
               username: "amynic",
               email: "amy@gmail",
               password: "my_password"}
-    sign_up(params)
+    expect { sign_up(params) }.to change(User, :count).by(0)
     expect(page).to have_content "Email has an invalid format"
   end
 
   scenario "sign up with already taken email and username" do
-    params = {name: "Amy",
-              username: "amynic",
-              email: "amy@gmail.com",
-              password: "my_password"}
-    sign_up(params)
-    sign_up(params)
+    sign_up
+    expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content "Username is already taken Email is already taken"
   end
 end
