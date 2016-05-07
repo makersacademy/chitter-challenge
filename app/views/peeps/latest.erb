@@ -1,1 +1,11 @@
-Peeps goes here!
+Latest peeps: 
+
+<body>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    Peeped by: <%= peep.user_handle %><br>
+    <%= peep.body   %>
+  </li>
+  <% end %>
+</body>
