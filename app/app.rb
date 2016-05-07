@@ -34,12 +34,12 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/'
     else
-      flash.now[:notice] = 'Passwords do not match'
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
 
-
+  'Passwords do not match'
 
   # start the server if ruby file executed directly
   run! if app_file == $0
