@@ -1,4 +1,21 @@
 
+def user
+    User.create(name: 'User McUser',
+    username: 'alias',
+    email: 'user@example.com',
+    password: 'secret1234',
+    password_confirmation: 'secret1234')
+end
+
+#PEEP
+def peep_once
+  sign_up
+  click_button 'Peep!'
+  fill_in :body, with: 'first peep!'
+  click_button 'Peep it!'
+end
+
+
 # LOG IN
 def sign_in(email, password)
   visit '/'
