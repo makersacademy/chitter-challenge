@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'rake'
+gem 'dm-validations'
 
 
 group :test do

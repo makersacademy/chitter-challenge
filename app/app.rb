@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/home' do
+    @cheeps = Cheep.all
     erb :home
   end
 
@@ -23,10 +24,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(username: params[:username],
-                       email: params[:email],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name],
+                        username: params[:username],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/home'
@@ -61,6 +63,17 @@ class Chitter < Sinatra::Base
     erb :goodbye
   end
 
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts' do
+    message = Cheep.create(message: params[:msg])
+    message.save
+    if message.save
+      redirect '/home'
+    end
+  end
 
 
   helpers do

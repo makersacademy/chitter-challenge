@@ -1,6 +1,6 @@
 <% if current_user %>
 
-  <h1>Welcome <%= current_user.username %></h1>
+  <h1>Hello <%= current_user.name %>!</h1>
 
   <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>

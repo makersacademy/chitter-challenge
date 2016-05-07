@@ -1,7 +1,8 @@
 feature 'Sign Out' do
 
   before(:each) do
-    User.create(username: 'Megatron',
+    User.create(name: 'Megatron',
+                username: 'Megatron',
                 email: 'megatron@decepticons.cyb',
                 password: 'optimussucks',
                 password_confirmation: 'optimussucks')

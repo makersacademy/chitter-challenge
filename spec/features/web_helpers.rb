@@ -1,10 +1,10 @@
-User.create(username: 'Megatron', email: 'megatron@decepticons.cyb', password: 'optimussucks', password_confirmation: 'optimussucks')
 
-def sign_up(username: 'Megatron', email: 'megatron@decepticons.cyb',
+def sign_up(name: 'Megatron', username: 'Megatron', email: 'megatron@decepticons.cyb',
  password: 'optimussucks', password_confirmation: 'optimussucks')
 
   visit "/users/new"
   expect(page.status_code).to eq(200)
+  fill_in :name, with: name
   fill_in :username, with: username
   fill_in :email, with: email
   fill_in :password, with: password
@@ -18,4 +18,12 @@ def sign_in(username: 'Megatron', password: 'optimussucks')
   fill_in :username, with: username
   fill_in :password, with: password
   click_button 'Sign In'
+end
+
+def post_message
+  visit '/home'
+  click_button 'Make a Cheep'
+  expect(page.status_code).to eq(200)
+  fill_in :msg, with: 'Hello everyone, this is my first "Cheep"!'
+  click_button 'Cheep'
 end
