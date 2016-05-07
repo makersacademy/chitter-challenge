@@ -1,15 +1,17 @@
 module SessionHelpers
 
-  def sign_up(email, password, password_confirmation)
+  def sign_up(email:, name:, username:, password:, password_confirmation:)
     visit '/users/new'
     fill_in :email,    with: email
+    fill_in :name,  with: name
+    fill_in :username,  with: username
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
   end
 
   def create_user_alice
-    User.create(email: 'alice@example.com', password: 'orange', password_confirmation: 'orange')
+    User.create(email: 'alice@example.com', name: 'Alice', username: 'Wonderland',password: 'orange', password_confirmation: 'orange')
   end
 
   def log_in(email, password)

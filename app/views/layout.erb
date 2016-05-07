@@ -7,16 +7,18 @@
   <body>
   <h1>Chitter, this week in stupid</h1>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.name %>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Log out'>
       </form>
     <% end %>
 
-    <% if flash[:error] %>
-      <div id='error'>
-        <%= flash[:error] %>
+    <% if flash[:errors] %>
+      <div id='errors'>
+        <% flash[:errors].each do |error| %>
+          <p> <%= error %> </p>]
+        <% end %>
       </div>
     <% end %>
 
