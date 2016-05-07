@@ -1,0 +1,8 @@
+<h1> Peeps </h1>
+
+<div id='peeps'>
+  <% @peeps.each do |p| %>
+    Content: <p> <%= p.content %> </p>
+    Time: <p> <%= p.time %> </p>
+  <% end %>
+</div>
