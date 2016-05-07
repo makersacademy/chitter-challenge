@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
 
   post '/user/new' do
     user = User.create(name: params[:name],
-                       user_name: params[:user_name],
+                       handle: params[:handle],
                        email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])

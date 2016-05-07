@@ -12,7 +12,7 @@ feature "Sign up" do
     click_button "Sign up"
     sign_up("Man DacCarthy","Dannylou","danMac@email.com","53cR3T")
     expect{click_button "Sign up"}.not_to change(User, :count)
-    expect(page).to have_content("User name is already taken")
+    expect(page).to have_content("Handle is already taken")
     expect(page).to have_content("Email is already taken")
   end
 

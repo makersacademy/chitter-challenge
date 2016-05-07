@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -23,8 +24,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    p params[:peep]
-    redirect '/peep'
+    peep = Peep.create(content: params[:content])
+    peep.user = current_user
+    if peep.save
+      redirect '/peep'
+    else
+      flash.keep[:errors] = "only users can peep"
+      redirect '/session/new'
+    end
   end
   # start the server if ruby file executed directly
   run! if app_file == $0

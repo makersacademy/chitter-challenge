@@ -1,21 +1,31 @@
 feature 'posting peeps' do
-  scenario 'users can post peeps' do
+  scenario "non-users can't post peeps" do
     visit '/peep/new'
-    fill_in :peep, with: "My life is sooooo interesting"
-    click_button 'peep'
+    fill_in :content, with: "Look at my dinner...."
+    expect{click_button 'peep'}.not_to change(Peep, :count)
+    expect(page).to have_content "only users can peep"
+    expect(page).to have_content "log in here"
+  end
+
+  scenario 'peeps posted by users are time stamped and show username' do
+    sign_in
+    visit '/peep/new'
+    fill_in :content, with: "My life is sooooo interesting"
+    expect{click_button 'peep'}.to change(Peep, :count).by 1
+    peep = Peep.first(content: "My life is sooooo interesting")
     within "ul#peeps" do
       expect(page).to have_content "My life is sooooo interesting"
+      expect(page).to have_content "MacDaNNy"
+      expect(page).to have_content peep.created_at
     end
   end
 
-  xscenario "if not signed in can't post peep" do
-    visit '/peep/new'
-    fill_in :peep, with: "Look at my dinner...."
-    click_button 'peep'
-    expect(page).not_to have_content "Look at my dinner...."
-    expect(page).to have_content "Please sign in to post peeps"
-  end
 
   xscenario "max peep length of 144 chars" do
+    # peep = 'p' * 144
+    # sign_in
+    # visit '/peep/new'
+    # fill_in :content, with: peep
+    # expect{click_button 'peep'}.to change(Peep, :count).by 1
   end
 end

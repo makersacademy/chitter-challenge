@@ -8,9 +8,11 @@ class User
 
   property :id, Serial
   property :name, String
-  property :user_name, String, unique: true
+  property :handle, String, unique: true
   property :email, String, format: :email_address, unique: true
   property :password_digest, String, length: 60
+
+  has n, :peeps
 
   attr_reader :password
   attr_accessor :password_confirmation
@@ -21,8 +23,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate user_name, password
-    user = User.first(user_name: user_name)
+  def self.authenticate handle, password
+    user = User.first(handle: handle)
     user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
 

@@ -1,7 +1,7 @@
 require './app/models/user'
 
 describe User do
-  user_name = 'the_user'
+  handle = 'the_user'
   email = 'user@example.com'
   password = 'secret1234'
 
@@ -9,7 +9,7 @@ describe User do
 
     before do
       user = User.create(name: "user 1",
-                        user_name: user_name,
+                        handle: handle,
                         email: email,
                         password: password,
                         password_confirmation: password)
@@ -17,13 +17,13 @@ describe User do
 
       describe '#authenticate' do
       it 'returns user if username and password match' do
-        user = User.authenticate user_name, password
-        expect(user.user_name).to eq user_name
+        user = User.authenticate handle, password
+        expect(user.handle).to eq handle
       end
 
       it "returns nil if user name or password does not match" do
         expect(User.authenticate 'wrong', password).to be_nil
-        expect(User.authenticate user_name, 'wrong').to be_nil
+        expect(User.authenticate handle, 'wrong').to be_nil
       end
     end
   end
