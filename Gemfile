@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'pg'
 gem 'database_cleaner'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
