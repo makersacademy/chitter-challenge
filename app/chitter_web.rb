@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
     if user.save
       redirect "/users/#{user.handle}"
     else
-      flash[:pwd] = 'Passwords don\'t match' unless params[:pwd] == params[:pwd_confirm]
+      flash.next[:pwd] = 'Passwords don\'t match' unless params[:pwd] == params[:pwd_confirm]
       flash.next[:handle] = 'Handle is taken' if User.first(handle: params[:handle])
       flash.next[:email] = 'Email is taken' if User.first(email: params[:email])
       redirect '/users/new'
