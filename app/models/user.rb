@@ -10,7 +10,7 @@ class User
   property :name, String
   property :user_name, String, unique: true
   property :email, String, format: :email_address, unique: true
-  property :password_digest, Text
+  property :password_digest, String, length: 60
 
   attr_reader :password
   attr_accessor :password_confirmation

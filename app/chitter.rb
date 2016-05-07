@@ -14,6 +14,18 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peep' do
+    erb :index
+  end
+
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post '/peep/new' do
+    p params[:peep]
+    redirect '/peep'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
