@@ -17,6 +17,6 @@ feature 'User sign up' do
   end
 
   scenario 'Both password input must match' do
-    expect { incorrect_sign_up }.not_to change(User, :count)
+    expect { sign_up('incorrect') }.not_to change(User, :count)
   end
 end
