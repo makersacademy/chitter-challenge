@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [ :timestamp.desc])
     @user = User.first
     erb :'peeps/index'
   end

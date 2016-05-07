@@ -3,6 +3,13 @@ feature 'Peeps' do
     User.create(SessionHelpers::PARAMS_CORRECT)
   end
 
+  context 'main page ' do
+    scenario 'on main page I am welcomed' do
+      visit '/'
+      expect(page).to have_content "Welcome"
+    end
+  end
+
   context 'Viewing peeps' do
     scenario 'I can see existing peeps on the peeps page' do
       sign_in_and_peep("what a chit!")
@@ -29,7 +36,17 @@ feature 'Peeps' do
     scenario 'peeps contain name, username, and timestamp' do
       sign_in_and_peep("test Message")
       expect(page).to have_content(user.name)
-      # expect(page).to have_content(user.username)
+      expect(page).to have_content(user.username)
+    end
+  end
+
+  context 'sorting peeps' do
+    scenario 'peeps are sorted in reversed chrono order' do
+      sign_in_and_peep("older peep")
+      visit '/peeps/new'
+      fill_in :message, with: "newer peep"
+      click_button "Submit"
+      expect(user.peeps.first.message).to eq "older peep"
     end
   end
 end
