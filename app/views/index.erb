@@ -2,14 +2,17 @@
 <html>
   <body>
     <h1>Welcome to Chitter</h1>
-    <% if !@current_user %>
+    <% if !current_user %>
     <form action="/users/new" method="get">
       <button type="submit">Sign up</button>
     </form>
-    <% else %>
     <form action="/sessions/new" method="get">
       <button type="submit">Sign in</button>
     </form>
+    <% else %>
+      <form action="/sessions/end" method="get">
+        <button type="submit">Sign out</button>
+      </form>
     <% end %>
   </body>
 </html>
