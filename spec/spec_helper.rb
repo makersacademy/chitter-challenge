@@ -2,13 +2,18 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app/chitter-web.rb')
+require File.join(File.dirname(__FILE__), '..', 'app/chitter_web.rb')
 
 require 'capybara'
 require 'capybara/rspec'
-require 'rspec'
 require 'coveralls'
+require 'database_cleaner'
+require 'rspec'
 require 'simplecov'
+require 'tilt/erb'
+
+require './app/datamapper_setup'
+require './spec/features/web_helpers'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -58,6 +63,24 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  #database_cleaner config
+  #before each suite, truncate the tables
+  #set default cleaning strategy as transaction
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  #before each test, start transaction
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  #after each test, clean with default strategy
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
 # The settings below are suggested to provide a good initial experience
