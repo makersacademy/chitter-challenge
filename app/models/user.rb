@@ -8,7 +8,7 @@ class User
   property :id, Serial
   property :name, Text
   property :username, String
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password
