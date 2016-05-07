@@ -1,0 +1,87 @@
+body {
+  margin: 10;
+  background: #f1f1f1;
+  height: 100%;
+}
+
+.logo {
+  background: url('/images/chitter_bird.png') no-repeat, top, center;
+}
+
+.bg-img {
+  background: url('/images/tree_bark.png') top;
+  background-repeat: repeat;
+  background-size: 20  %;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.box {
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+  width: 450px;
+  margin: 4% auto 50px auto;
+}
+
+.signup {
+  width: 500px;
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+.login {
+  width: 500px;
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+.peep {
+  width: 500px;
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+input[type=submit]  {
+  color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0);
+  font-weight: 800;
+  border: 4px solid rgba(0,0,0,0.4);
+  padding: 20px;*/
+}
+
+
+input[type=submit]:hover {
+  color: rgba(255,255,255,0.9);
+  background-color: rgba(0,0,0,0.6);
+}
+
+
+input, textarea {
+  background-color: #5A8076;
+  border: 5px solid #5A8076;
+  margin: 10px;
+}
+
+h1 {
+  color: rgba(255,255,255,0.6);
+  font-weight: 800;
+  font-size: 39px;
+  margin: 0px;
+  margin-bottom: 0px;
+}
+
+h3 {
+  color: rgba(0,0,0,0.4);
+  font-weight: 200;
+  font-size: 25px;
+}
+
+p {
+  color: rgba(255,255,255,0.9);
+  font-weight: 200;
+  font-size: 25px;
+}

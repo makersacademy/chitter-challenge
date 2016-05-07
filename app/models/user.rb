@@ -11,7 +11,7 @@ class User
   property :name, String
   property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
-  property :password_digest, Text
+  property :password_digest, Text, required: true
 
   def password=(password)
     @password = password

@@ -1,5 +1,4 @@
 ENV["RACK_ENV"] ||= "development"
-
 require 'sinatra/base'
 require 'sinatra/partial'
 require 'sinatra/flash'

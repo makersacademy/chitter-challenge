@@ -1,15 +1,25 @@
-Latest peeps:
-
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
+</head>
 <body>
-<ul id="peeps">
-  <% @peeps.reverse.each do |peep| %>
-  <li>
-    Peeped by: <%= peep.user_handle %>
-    <br>
-    <%= peep.created_at.strftime("Created on %A")%>
-    <%= peep.created_at.strftime("at %I:%M%p")%>
-    <br>
-    <%= peep.body   %>
-  </li>
-  <% end %>
-</body>
+
+  <div class="container">
+    <div class="bg-img">
+
+      <ul id="peeps">
+        <% @peeps.reverse.each do |peep| %>
+        <div class=box>
+          <h1>
+            Peeped by: <%= peep.user_handle %></h1>
+            <br>
+            <%= peep.created_at.strftime("Created on %A")%>
+            <%= peep.created_at.strftime("at %I:%M%p")%>
+            <br>
+            <%= peep.body   %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+    </body>
