@@ -6,7 +6,9 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
+
 
   helpers do
    def current_user
@@ -35,7 +37,7 @@ class Chitter < Sinatra::Base
       else flash.now[:errors] = @user.errors.full_messages
         erb :'users/new'
       end
-    end
+  end
   get '/sessions/new' do
     erb :'sessions/new'
   end
@@ -45,11 +47,17 @@ class Chitter < Sinatra::Base
       if user
         session[:user_id] = user.id
         redirect to('/peeps')
-      else
+      elsif
         flash.now[:errors] = ['The email or password is incorrect']
         erb :'sessions/new'
       end
-    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/sessions/new'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end
