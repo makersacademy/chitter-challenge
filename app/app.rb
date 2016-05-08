@@ -11,6 +11,7 @@ class Kwitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @kweets = Kweet.all
     erb :index
   end
 
@@ -49,6 +50,26 @@ class Kwitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
     redirect to '/'
+  end
+
+  get '/kweet/new' do
+    erb :'kweet/new'
+  end
+
+  get '/kweet' do
+    @kweets = Kweet.all
+    erb :kweets
+  end
+
+  post '/kweet' do
+    owner = @user
+    kweet = Kweet.create(message: params[:message], owner: owner)
+    if kweet.save
+      redirect to('/user')
+    else
+      flash.now[:errors] = kweet.errors.full_messages
+      erb :'kweet/new'
+    end
   end
 
   helpers do

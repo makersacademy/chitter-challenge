@@ -2,3 +2,15 @@
 
 <a href="/users/new">Sign up to Kwitter</a>
 <a href="/sessions/new">Sign in</a>
+
+
+<h1>Kweets</h1>
+
+<ul id='kweets'>
+  <% @kweets.each do |kweet| %>
+    <li>
+      Kweet <%= kweets.message %>
+      User <%= kweets.user %>
+    </li>
+  <% end %>
+</ul>

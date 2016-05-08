@@ -8,6 +8,7 @@ gem 'sinatra-partial'
 gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'dm-sqlite-adapter'
 
 
 group :test do
