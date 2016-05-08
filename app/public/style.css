@@ -1,5 +1,9 @@
-header {
+.header {
   background-color: black;
   color: white;
-  height: 45px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #1DA1F2;
+  display: block;
+  border-bottom: 1px solid #e5e5e5;
 }

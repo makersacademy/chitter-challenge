@@ -7,8 +7,8 @@ def sign_up name, handle, email, password, password_confirmation=password
   fill_in :password_confirmation, with: password_confirmation
 end
 
-def sign_in
-  sign_up "Dan Macarthy", "MacDaNNy", "iam@hotmail.com", "123"
+def sign_in handle = "MacDaNNy", email = "iam@hotmail.com"
+  sign_up "Dan Macarthy", handle, email, "123"
   click_button "Sign up"
 end
 
