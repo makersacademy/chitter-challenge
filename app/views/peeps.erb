@@ -23,13 +23,20 @@
 									@<%= peep.user.username %>
 									- <%= peep.created_at.strftime("%H:%M  %d-%b-%Y")%>
 								</div>
-								<div style="color: #428bca;" class="lead">"<%= peep.message %>"</div>
-								<div><%= peep.comments %></div>
+								<div style="color: #428bca;" class="lead">
+									"<%= peep.message %>"
+								</div>
+								<% peep.comments.each do |comment| %>
+									<div>
+									<%= comment.message %>
+								<!-- 	- <%= current_user.username %>	 -->
+									</div>
+								<% end %>
 							</div>
 							<% if current_user %>
-					            <form id='<%= peep.id %>' action='/comments' method='post'>
-					              <input type='hidden' name='id' value='<%= peep.id %>'>
-					              <input style='width: 220px' type='text' name='comment' placeholder='Comment on this peep...' maxlength="50" required>
+					            <form action='/comments' method='post'>
+					              <input type='hidden' name='peep_id' value='<%= peep.id %>'>
+					              <input style='width: 220px' type='text' name='message' placeholder='Comment on this peep...' maxlength="50" required>
 					              <input type='submit' value='Comment'>
 					            </form>
 				        	<% end %>

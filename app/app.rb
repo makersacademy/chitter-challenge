@@ -74,13 +74,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/comments' do
-    comment = Comment.create(comment: params[:comment])
-    peep = Peep.get(params[:id])
-    current_user.comments << comment
-    current_user.save
-    peep.comments << comment
-    peep.save
-
+    Comment.create(message: params[:message], user_id: current_user.id,
+                              peep_id: params[:peep_id])
     redirect '/peeps'
   end
 
