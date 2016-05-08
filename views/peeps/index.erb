@@ -1,3 +1,21 @@
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
+<% if current_user %>
+	<form action='/peeps' method='post'>
+		<label for='content'>
+			<p>What do you want to post?</p>
+			<input type='text' name='content'>
+		</label>
+		<input type='submit' value='Post'>
+	</form>
 <% end %>
+
+<% @peeps.each do |peep| %>
+	<ul class='feed'>
+		<li>
+			<%= peep.content %>
+			<%= peep.user.name %>
+			<%= peep.user.username %>
+			<%= peep.created_at_formatted %>
+		</li>
+	</ul>
+<% end %>
+
