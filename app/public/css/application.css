@@ -1,5 +1,4 @@
 body {
-  font: 16px Montserrat, sans-serif;
   line-height: 1.8;
   font-family: 'Architects Daughter', cursive;
 }
@@ -11,21 +10,6 @@ p {font-size: 16px;}
 .bg-1 { 
   background-color: #1abc9c; /* Green */
   color: #ffffff;
-}
-
-.bg-2 { 
-  background-color: #474e5d; /* Dark Blue */
-  color: #ffffff;
-}
-
-.bg-3 { 
-  background-color: #ffffff; /* White */
-  color: #555555;
-}
-
-.bg-4 { 
-  background-color: #2f2f2f; /* Black Gray */
-  color: #fff;
 }
 
 .container-fluid {
@@ -59,4 +43,30 @@ textarea {
 #errors li{
   text-align: left;
   font-size: 15px;
+}
+
+#peeps {
+  background-color: white;
+  border: solid;
+  border-radius: 10px;
+  border-color: #2F2F2F;
+  color: #2F2F2F;
+  margin-top: 10px;
+}
+
+#peeps h3 { 
+  float: left;
+  margin: 10px; 
+}
+
+#peep_content {
+  text-align: justify;
+  margin: 10px;
+  color: ;
+}
+
+#peep_time {
+  text-align: right;
+  margin-right: 10px;
+  color: #e6005c;
 }

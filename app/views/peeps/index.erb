@@ -9,7 +9,7 @@
 
 <div id='peeps'>
   <% @peeps.each do |p| %>
-    <h3> @<%= p.user.username %> </h3>
+    <h3> @<%= p.user.username %></h3>
     <p id="peep_content"> <%= p.content %> </p>
     <p id="peep_time"> <%= p.time_format %> </p>
   <% end %>
