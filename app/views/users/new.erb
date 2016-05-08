@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <h1>Sign up to Chitter</h1>
+    <form action="/users" method="post">
+      <label for="username">Username:
+      <input type="text" name="username" value='<%= @user.username %>'></label><br>
+      <label for="name">Name:
+      <input type="text" name="name" value='<%= @user.name %>'></label><br>
+      <label for="email">Email:
+      <input type="text" name="email" value='<%= @user.email %>'></label><br>
+      <label for="password">Password:
+      <input type="password" name="password"></label><br>
+      <label for="password_confirmation">Confirm Password:
+      <input type="password" name="password_confirmation"></label><br>
+      <input type='submit' value='submit'>
+    </form>
+  </body>
+</html>

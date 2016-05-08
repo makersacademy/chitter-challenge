@@ -1,0 +1,18 @@
+<h1>Please Sign in</h1>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/sessions" method="post">
+  <label for="username">Username:
+  <input type="text" name="username"></label>
+  <label for="password">Password:
+  <input type="password" name="password"></label>
+  <input type="submit" value="Sign in">
+</form>
