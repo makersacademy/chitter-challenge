@@ -14,7 +14,7 @@ module SessionHelpers
     User.create(email: 'alice@example.com', name: 'Alice', username: 'Wonderland',password: 'orange', password_confirmation: 'orange')
   end
 
-  def log_in(email, password)
+  def log_in(email:, password:)
     visit '/sessions/new'
     fill_in :email,    with: email
     fill_in :password, with: password

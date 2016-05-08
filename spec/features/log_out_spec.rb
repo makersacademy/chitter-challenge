@@ -2,7 +2,7 @@ feature 'user can log out' do
 
   before(:each) do
     create_user_alice
-    log_in('alice@example.com', 'orange')
+    log_in(email:'alice@example.com', password: 'orange')
   end
 
   scenario 'user can log out of current session' do
