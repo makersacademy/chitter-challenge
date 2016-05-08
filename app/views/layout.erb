@@ -6,7 +6,7 @@
 
   <body>
     <header>
-      <h1><a href="/<%= "users/#{session[:user_handle]}" %>">CHITTER</a></h1>
+      <h1><a href='/'>CHITTER</a></h1>
       <form id='sign_in_out' action='/sessions' method='post'>
         <% if session[:user_handle] %>
           <input type='hidden' name='_method' value='delete'>
