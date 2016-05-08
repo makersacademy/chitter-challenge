@@ -5,8 +5,12 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      Title: <%= peep.title %>
-      Content: <%= peep.content %>
+      <div>
+        Posted by <%= peep.username %> at <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
+      </div>
+      <div>
+        Content: <%= peep.content %>
+      </div>
     </li>
     <% end %>
   </ul>

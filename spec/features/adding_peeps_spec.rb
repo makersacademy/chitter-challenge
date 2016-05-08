@@ -12,7 +12,7 @@ feature 'Adding peeps' do
     log_in(username: 'Luni', password: 'dreamies')
     click_button 'Add peep'
     expect(current_path).to eq '/peeps/new'
-    fill_in 'title', with: 'Cats'
+    # fill_in 'title', with: 'Cats'
     fill_in 'content', with: 'Sleeping peacefully!'
     click_button 'Post peep'
     expect(current_path).to eq '/peeps'
