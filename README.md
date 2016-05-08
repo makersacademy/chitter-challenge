@@ -3,6 +3,9 @@ Chitter Challenge
 
 Makers Academy - Week 4 - Weekend Challenge
 
+[![Build Status](https://travis-ci.org/harrim91/chitter-challenge.svg?branch=master)](https://travis-ci.org/harrim91/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/harrim91/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/harrim91/chitter-challenge?branch=master)
+
 Challenge:
 -------
 
