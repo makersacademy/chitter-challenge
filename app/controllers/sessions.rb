@@ -21,4 +21,5 @@ class Chitter < Sinatra::Base
     redirect '/session/new'
   end
 
+
 end

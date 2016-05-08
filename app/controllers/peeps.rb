@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
     if peep.save
       redirect '/peep'
     else
-      flash.keep[:errors] = "only users can peep"
+      flash.next[:errors] = "only users can peep"
       redirect '/session/new'
     end
   end

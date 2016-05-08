@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'tilt/erb'
 
 require_relative 'data_mapper_setup'
 require_relative 'server'
@@ -17,5 +18,5 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
