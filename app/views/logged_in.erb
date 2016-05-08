@@ -18,17 +18,16 @@
   <input type='submit' value='submit'>
 </form>
 
-<ul id='peeps'>
-
+<ul>
   <% Peep.reverse_each do |peep| %>
   <li>
     Title: <%= peep.title %>
     <br>
     Content: <%= peep.content %>
     <br>
-    User: <%= peep.username %>
-    <br>
     Time: <%= peep.lastmodified %>
+    <br>
+    Author: <%= peep.user.username %>
     <br>
   </li>
   <% end %>

@@ -13,7 +13,7 @@ class User
   property :email, String
   property :password, String
 
-  # has n, :peeps
+  has n, :peeps
 
   def self.authenticate(username, password)
     self.first(username: username, password: password)

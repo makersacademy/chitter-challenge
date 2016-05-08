@@ -10,12 +10,6 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
-
   get '/' do
     erb :index
   end
@@ -26,7 +20,6 @@ class Chitter < Sinatra::Base
 
   post '/sign_up' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    user.save
     session[:user_id] = user.id
     redirect '/'
   end
@@ -53,7 +46,10 @@ class Chitter < Sinatra::Base
 
   post '/add_peep' do
     user = User.get(session[:user_id])
-    peep = Peep.create(title: params[:title], content: params[:content], username: user.username)
+    peep = Peep.create(title: params[:title], content: params[:content])
+    user.peeps << peep
+    user.save
+    p peep.user.username
     redirect '/logged_in'
   end
 

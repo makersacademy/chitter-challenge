@@ -23,10 +23,11 @@ feature 'signing in to chitter' do
   end
 
   scenario 'user cannot sign in with incorrect password' do
+    User.create(name: "jack",username: "jackhardy1",email:"jackhardy1@gmail.com",password:"jackhardy2110")
     visit '/'
     click_button 'log in'
-    fill_in 'username', with: 'jackhardy1'
-    fill_in 'password', with: 'jackhardy2110'
+    fill_in 'username', with: 'max202'
+    fill_in 'password', with: 'max202'
     click_button 'submit'
     expect(current_path).to eq '/log_in'
   end
@@ -45,6 +46,6 @@ feature 'peeping' do
     click_button 'submit'
     expect(page).to have_content "Title: Makers"
     expect(page).to have_content "Content: Makers is great"
-    expect(page).to have_content "User: jackhardy1"
+    expect(page).to have_content "Author: jackhardy1"
   end
 end
