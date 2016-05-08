@@ -2,7 +2,7 @@ Chitter Challenge
 =================
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
-[![Coverage Status](https://coveralls.io/repos/github/RobinHeathcote/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/RobinHeathcote/chitter-challenge?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/RobinHeathcote/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/jobs/14274285)
 
 Approach
 -------
