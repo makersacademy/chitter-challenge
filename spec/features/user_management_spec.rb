@@ -25,3 +25,21 @@ feature 'Password confirmation' do
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 end
+
+feature 'Can\'t create an account if fields are blank' do
+  scenario "name field is blank" do
+    expect { create_an_account(name: nil) }.not_to change(User, :count)
+  end
+  scenario "email address field is blank" do
+    expect { create_an_account(email: nil) }.not_to change(User, :count)
+  end
+  scenario "handle field is blank" do
+    expect { create_an_account(handle: nil) }.not_to change(User, :count)
+  end
+end
+
+feature 'Email address must be valid' do
+  scenario "I can't sign up with an invalid email address" do
+    expect { create_an_account(email: "invalid@email") }.not_to change(User, :count)
+  end
+end
