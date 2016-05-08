@@ -60,6 +60,7 @@ input[type=submit]:hover {
 
 
 input, textarea {
+  color: rgba(255,255,255,0.9);
   background-color: #5A8076;
   border: 5px solid #5A8076;
   margin: 10px;
