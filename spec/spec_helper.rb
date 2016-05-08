@@ -11,6 +11,7 @@ Coveralls.wear!
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
 require './app/app'
 require './app/models/peep'
 require_relative 'helpers/session'
