@@ -1,10 +1,19 @@
 <%if @peeps %>
 <ul id=peeps>
   <%@peeps.reverse.each do |peep|%>
-  <li>
+  <li class="peep" id='<%=peep.id%>'>
+    <%if peep.in_response_to %>
+    in response to <%=User.get(Peep.get(peep.in_response_to).user_id).handle%>
+    <% end %>
     <%=peep.content%>
     <%=peep.user.handle%>
     <%=peep.created_at%>
+    <%if peep.user.id != current_user.id%>
+    <form action="/peep/reply" method="get">
+      <input type="hidden" name="id" value="<%=peep.id%>">
+      <button type="submit" name="reply">reply</button>
+    </form>
+    <% end %>
   </li>
   <% end %>
 </ul>

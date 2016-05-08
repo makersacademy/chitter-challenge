@@ -17,6 +17,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peep/reply' do
+    @reply = Peep.get(params[:id])
+    @peep = Peep.new
+    erb :'peep/reply'
+  end
+
+
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
 end

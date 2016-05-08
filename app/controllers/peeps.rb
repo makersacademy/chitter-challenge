@@ -6,7 +6,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = Peep.create(content: params[:content])
+    @peep = Peep.create(content: params[:content],
+                        in_response_to: params[:in_response_to])
     @peep.user = current_user
     if @peep.save
       redirect '/'

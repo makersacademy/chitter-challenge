@@ -15,7 +15,7 @@ describe User do
                         password_confirmation: password)
     end
 
-      describe '#authenticate' do
+    describe '#authenticate' do
       it 'returns user if username and password match' do
         user = User.authenticate handle, password
         expect(user.handle).to eq handle

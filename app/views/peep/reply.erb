@@ -1,0 +1,10 @@
+<div>
+  original peep
+  <%=@reply.content%>
+</div>
+
+<form action="/peep" method="post" id="peep_input">
+  <textarea rows="4" cols="40" form="peep_input" name="content"><%=@peep.content%></textarea>
+  <input type="hidden" name="in_response_to" value="<%=@reply.id%>">
+  <button type="submit" name="peep">reply</button>
+</form>
