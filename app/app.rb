@@ -2,23 +2,40 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
+
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
-  use Rack::MethodOverride
-  register Sinatra::Flash
   enable :sessions
+  register Sinatra::Flash
+  register Sinatra::Partial
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   get '/' do
+    @peeps = Peeps.all
     erb :index
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+  Peeps.create(peep: params[:peep])
+  redirect to('/')
+end
+
 
   get '/users/new' do
      @user = User.new
