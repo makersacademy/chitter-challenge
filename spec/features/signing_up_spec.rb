@@ -1,5 +1,5 @@
 feature 'signing up' do
-  scenario 'As a user I can sign up on the webpage' do
+  xscenario 'As a user I can sign up on the webpage' do
     def sign_up
       visit '/users/new'
       expect(page.status_code).to eq 200
