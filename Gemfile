@@ -17,6 +17,7 @@ group :test do
   gem 'database_cleaner'
   gem 'timecop'
   gem 'coveralls', require: false
+  gem 'orderly'
 end
 
 
