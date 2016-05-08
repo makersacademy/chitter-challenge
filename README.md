@@ -49,10 +49,21 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 
+Technologies used:
+-----------------
+
+* View - HTML, CSS, Embedded Ruby
+* Controller - Ruby
+* Model - Ruby
+* ORM - Datamapper
+* Database - PostgreSQL
+* Testing - Rspec, Capybara, Sinatra
+* Others - BCrypt (Password security), Database Cleaner 
+
 To use:
 ------
 
-If you don't already have a local database set up in postgres, please use the steps described here:
+If you don't already have a local PostgreSQL database set up, please use the steps outlined here:
 https://github.com/makersacademy/course/blob/master/bookmark_manager/03_setting_up_a_database.md
 
 Please type the following commands in a terminal window:
