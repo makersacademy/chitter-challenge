@@ -10,7 +10,6 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:sessions] = ['The email or password is incorrect']
-      # redirect "/"  # why the flash does not work???
       erb :'sessions/new'
     end
   end

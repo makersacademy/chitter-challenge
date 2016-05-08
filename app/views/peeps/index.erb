@@ -4,7 +4,8 @@
     <li id="msgs">
       <%=peep.user.name%> (<%= peep.user.username %>) chitted on
        <%=peep.timestamp.strftime('%e-%b, %k:%M') %> <br>
-      <%= peep.message %>
+      <%= peep.message %> <br>
+      <a href="/reply?username=<%=peep.user.username%>">reply to peep</a>
     </li>
   <% end %>
 </ul>

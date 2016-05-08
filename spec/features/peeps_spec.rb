@@ -12,7 +12,7 @@ feature 'Peeps' do
 
   context 'Viewing peeps' do
     scenario 'I can see existing peeps on the peeps page' do
-      sign_in_and_peep("what a chit!")
+      sign_in_and_peep(user, "what a chit!")
       visit '/peeps'
       expect(page.status_code).to eq 200
       within 'ul#peeps' do
@@ -28,13 +28,13 @@ feature 'Peeps' do
     end
 
     scenario 'I can add peeps to chitter when logged in' do
-      sign_in_and_peep("hey I am chitting")
+      sign_in_and_peep(user, "hey I am chitting")
       expect(current_path).to eq '/peeps'
       expect(page).to have_content "hey I am chitting"
     end
 
     scenario 'peeps contain name, username, and timestamp' do
-      sign_in_and_peep("test Message")
+      sign_in_and_peep(user, "test Message")
       expect(page).to have_content(user.name)
       expect(page).to have_content(user.username)
     end
@@ -42,7 +42,7 @@ feature 'Peeps' do
 
   context 'sorting peeps' do
     scenario 'peeps are sorted in reversed chrono order' do
-      sign_in_and_peep("older peep")
+      sign_in_and_peep(user, "older peep")
       Kernel.sleep(0.3)
       visit '/peeps/new'
       fill_in :message, with: "newer peep"

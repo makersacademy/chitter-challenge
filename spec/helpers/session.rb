@@ -8,6 +8,14 @@ module SessionHelpers
                     username: "pepe1purito!"
                     }
 
+  PARAMS_CORRECT_OTHER = {
+                    email: "paco@gmail.com",
+                    password: "321",
+                    password_confirmation: "321",
+                    name: "Paco Jones",
+                    username: "pj00"
+                    }
+
   def set_params(h)
     params = PARAMS_CORRECT.dup
     params.merge!(h)
@@ -38,7 +46,7 @@ module SessionHelpers
    click_button "Submit"
  end
 
- def sign_in_and_peep(message)
+ def sign_in_and_peep(user, message)
   sign_in(email: user.email, password: user.password)
   visit '/peeps/new'
   fill_in :message, with: message
