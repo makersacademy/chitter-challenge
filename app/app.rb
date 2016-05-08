@@ -14,9 +14,8 @@ class Chitter < Sinatra::Base
 
   use Rack::MethodOverride
 
-  get '/home' do
-    @cheeps = Cheep.all
-    erb :home
+  get '/' do
+    erb :index
   end
 
   get '/users/new' do
@@ -31,7 +30,7 @@ class Chitter < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect '/posts/view'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
@@ -46,7 +45,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/home'
+      redirect '/posts/view'
     else
       flash.now[:errors] = ['Your Username or password is incorrect']
       erb :'sessions/new'
@@ -54,7 +53,7 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
-    flash.keep[:goodbye] = "Till next time #{current_user.username}"
+    flash.keep[:goodbye] = "Till next time #{current_user.name}"
     session[:user_id] = nil
     redirect '/goodbye'
   end
@@ -68,11 +67,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    message = Cheep.create(message: params[:msg])
+    message = Cheep.create(message: params[:msg], created: Time.now)
     current_user.cheeps << message
     if message.save
-      redirect '/home'
+      redirect '/posts/view'
     end
+  end
+
+  get '/posts/view' do
+    @cheeps = Cheep.all
+    erb :'posts/view'
   end
 
 

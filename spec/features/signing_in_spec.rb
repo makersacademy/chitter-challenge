@@ -2,7 +2,7 @@ feature 'Sign in' do
 
   let!(:user) do
     User.create(name: 'Megatron',
-                username: 'Megatron',
+                username: 'best_bot',
                 email: 'megatron@decepticons.cyb',
                 password: 'optimussucks',
                 password_confirmation: 'optimussucks')
@@ -10,7 +10,7 @@ feature 'Sign in' do
 
   scenario 'succeeds with correct information' do
     sign_in
-    expect(current_path).to eq '/home'
+    expect(current_path).to eq '/posts/view'
     expect(page).to have_content "Hello Megatron!"
   end
 
