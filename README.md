@@ -2,6 +2,8 @@ Chitter Challenge
 =================
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
+[![Coverage Status](https://coveralls.io/repos/github/RobinHeathcote/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/RobinHeathcote/chitter-challenge?branch=master)
+
 Approach
 -------
 
@@ -14,7 +16,7 @@ The app utilises CRUD in order to add users to the database and to sign up, sign
 
 To run locally, clone this repository and run bundle from the command line. You will need to install postgress on your local machine and create two databases (chitter_test and chitter_development). The app is being hosted on heroku and can be found at https://rh-chitter.herokuapp.com/users/new.
 
-You will need to sign up and click new peep if you want to start chittering. Click sign out when you are done. 
+You will need to sign up and click new peep if you want to start chittering. Click sign out when you are done.
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
