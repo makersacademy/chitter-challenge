@@ -3,7 +3,6 @@ ENV["RACK_ENV"] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
-# require_relative 'models/link'
 require_relative 'models/data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -65,22 +64,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    # @peeps = Peep.all
+    @peeps = Peep.all
     erb :peeps
   end
 
-  # post '/links' do
-  #   link = Link.new( title: params[:title], url: params[:url])
-  #   params[:tags].split(/,\s*/).each do |tag|
-  #     link.tags << Tag.create(name: tag)
-  #   end
-  #   link.save
-  #   redirect '/links'
-  # end
-
-  # get '/links/new' do
-  #   erb :new
-  # end
+  post '/peeps' do
+    current_user.peeps.create(message: params[:message])
+    redirect '/peeps'
+  end
 
   # get '/links/tags/:name' do
   #   @links = Tag.all(name: params[:name]).links
