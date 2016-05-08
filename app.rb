@@ -68,7 +68,7 @@ class Chitter < Sinatra::Base
   #peeps
   
   get '/peeps/index' do
-    @peeps = Peep.all(:order => [:created_at.desc])
+    @peeps = Peep.all(:order => [:created_at.desc], :reply_to => nil)
   	erb :'peeps/index'
   end
 
@@ -88,8 +88,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:username' do
-    @peeps = User.first(username: params[:username]).peeps
+    @peeps = User.first(username: params[:username]).peeps(:order => [:created_at.desc], :reply_to => nil)
     erb :'peeps/index'
+  end
+
+  #replying
+
+  get '/peeps/reply/:reply_to' do
+    @reply_to = params[:reply_to]
+    erb :'peeps/reply'
+  end
+
+  post '/peeps/reply/:reply_to' do
+    reply = Peep.create(content: params[:content], created_at: Time.now, user_id: current_user.id)
+    reply_to = Peep.get(params[:reply_to])
+    reply_to.replies << reply
+    reply_to.save
+    redirect '/peeps/index'
   end
 
   run! if app_file == $0

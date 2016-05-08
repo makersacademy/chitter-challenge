@@ -9,13 +9,24 @@
 	<a href='/peeps/<%=current_user.username%>'>My peeps only</a>
 <% end %>
 
+
 <% @peeps.each do |peep| %>
 	<ul class='feed'>
 		<li>
 			<%= peep.content %>
-			<%= peep.user.name %>
-			<a href='/peeps/<%=peep.user.username%>'><%= peep.user.username %></a>
 			<%= peep.created_at_formatted %>
+			<a href='/peeps/<%=peep.user.username%>'><%= peep.user.username %></a>
+			<a href='/peeps/reply/<%=peep.id%>'>Reply</a>
+			<% peep.replies.each do |reply| %>
+				<p>Replies:</p>
+				<ul class='replies'>
+					<li>
+						<%= reply.content %>
+						<%= reply.created_at_formatted %>
+						<a href='/peeps/<%=reply.user.username%>'><%= reply.user.username %></a>
+					</li>
+				</ul>
+			<% end %>
 		</li>
 	</ul>
 <% end %>

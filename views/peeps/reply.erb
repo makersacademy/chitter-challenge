@@ -1,0 +1,9 @@
+<% if current_user %>
+	<form action='/peeps/reply/<%=@reply_to%>' method='post'>
+		<label for='content'>
+			<p>What do you want to reply?</p>
+			<input type='text' name='content'>
+		</label>
+		<input type='submit' value='Post'>
+	</form>
+<% end %>

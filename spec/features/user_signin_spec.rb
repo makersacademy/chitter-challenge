@@ -4,6 +4,7 @@ feature 'User Signin' do
 		sign_up
 		sign_in
 		expect(page).to have_content('Hello username')
+		expect(page).not_to have_content('Sorry, username is already signed in')
 	end
 
 	scenario '- signin fails with incorrect details and user receives error message, not welcome' do
