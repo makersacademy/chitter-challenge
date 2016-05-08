@@ -47,7 +47,7 @@ feature 'Peeps' do
       visit '/peeps/new'
       fill_in :message, with: "newer peep"
       click_button "Submit"
-      expect(user.peeps.last.message).to eq "newer peep"
+      expect("newer peep").to appear_before("older peep")
     end
   end
 end

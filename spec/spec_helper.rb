@@ -20,6 +20,7 @@ require './app/app'
 require 'database_cleaner'
 # require 'web_helper'
 require_relative 'helpers/session'
+require 'orderly'
 
 Capybara.app = Chitter
 
