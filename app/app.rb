@@ -26,9 +26,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(peep: params[:peep], user: current_user)
-    peep.save
-    redirect to('/peeps')
+    peep = Peep.create(peep: params[:peep], user: current_user)
+    if peep.id.nil?
+       flash[:errors] = peep.errors.full_messages
+     redirect to "/peeps/new"
+     else
+       redirect to "/peeps"
+     end
   end
 
   get '/users/new' do
