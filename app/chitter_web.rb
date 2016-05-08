@@ -21,7 +21,11 @@ class Chitter < Sinatra::Base
 
   get '/users/:handle' do
     @user = User.first(handle: params[:handle])
-    erb :'users/index'
+    if @user
+      erb :'users/index'
+    else
+      redirect '/'
+    end
   end
 
   post '/users' do
@@ -31,6 +35,7 @@ class Chitter < Sinatra::Base
                 password: params[:pwd],
                 password_confirmation: params[:pwd_confirm])
     if user.save
+      session[:user_id] = user.id
       session[:user_handle] = user.handle
       redirect "/users/#{user.handle}"
     else
@@ -44,6 +49,7 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:pwd])
     if user
+      session[:user_id] = user.id
       session[:user_handle] = user.handle
       redirect "/users/#{user.handle}"
     else
@@ -53,9 +59,16 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
+    session[:user_id] = nil
     session[:user_handle] = nil
     flash.next[:sign_out] = 'You have signed out'
     redirect '/'
+  end
+
+  post '/peeps' do
+    p params
+    Peep.create(user_id: session[:user_id], message: params[:peep_text])
+    redirect "/users/#{session[:user_handle]}"
   end
 
   run! if app_file == $0
