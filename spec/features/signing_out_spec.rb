@@ -3,10 +3,10 @@ require 'spec_helper'
 feature 'Signing out' do
   before(:each) do
     User.create(name: 'Foo Bar',
-                username: 'fooby',
-                email: 'foo@bar.com',
-                password: 'foobar',
-                password_confirmation: 'foobar')
+      username: 'fooby',
+      email: 'foo@bar.com',
+      password: 'foobar',
+      password_confirmation: 'foobar')
   end
 
   scenario 'user can sign out while being signed in' do
