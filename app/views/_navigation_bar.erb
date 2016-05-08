@@ -6,16 +6,16 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <% unless current_user %>
-        <form action="/sessions/new">
-          <input type="submit" value="Sign in">
+        <form class='nav' action="/sessions/new">
+          <input class='navbar_button' type="submit" value="Sign in">
         </form>
-        <form action="/users/new">
-          <input type="submit" value="Sign up">
+        <form class='nav' action="/users/new">
+          <input class='navbar_button' type="submit" value="Sign up">
         </form>
         <% else %>
-        <form action='/sessions' method='post'>
+        <form class='nav' action='/sessions' method='post'>
           <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Sign out'>
+          <input class='navbar_button' type='submit' value='Sign out'>
         </form>
         <% end %>
       </ul>

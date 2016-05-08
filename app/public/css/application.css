@@ -34,12 +34,26 @@ p {font-size: 16px;}
   letter-spacing: 5px;
 }
 
-.navbar-nav  li a:hover {
-  color: #1abc9c !important;
-}
-
 input {
   color: #2F2F2F;
+}
+
+.navbar_button {
+  background:transparent; 
+  border:0 none;
+  cursor:pointer;
+}
+
+.navbar_button:hover {
+  color: #e6005c;
+  font-size: 18px;
+}
+
+form.nav {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 16px;
 }
 
 textarea {
@@ -71,7 +85,6 @@ textarea {
 #peep_content {
   text-align: justify;
   margin: 10px;
-  color: ;
 }
 
 #peep_time {
