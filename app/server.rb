@@ -1,7 +1,8 @@
 class ChitterChallenge < Sinatra::Base
+  use Rack::MethodOverride
+
   enable :sessions
   register Sinatra::Flash
-  use Rack::MethodOverride
 
   helpers do
     def current_user
