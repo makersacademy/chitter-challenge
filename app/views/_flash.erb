@@ -1,7 +1,5 @@
 <% if flash[:notice] %>
-<div id='notice'>
-	<%= flash[:notice] %>
-</div>
+<h2><%= flash[:notice] %></h2>
 <% end %>
 
 <% if flash[:errors] && flash[:errors].any? %>
