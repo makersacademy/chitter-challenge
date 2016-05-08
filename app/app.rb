@@ -64,7 +64,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :peeps
   end
 
@@ -72,11 +72,6 @@ class Chitter < Sinatra::Base
     current_user.peeps.create(message: params[:message])
     redirect '/peeps'
   end
-
-  # get '/links/tags/:name' do
-  #   @links = Tag.all(name: params[:name]).links
-  #   erb :links
-  # end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

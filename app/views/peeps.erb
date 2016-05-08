@@ -1,18 +1,26 @@
-<h1>Peeps</h1>
-
 <% if current_user %>
-	<form action="/peeps" method="post">
-		<input type="text" name="message" placeholder="Write something..."><br>
-
-		<input type="submit" value="Submit">
-	</form>
+	<div class="container">
+	  	<div class="row">
+	  		<form action="/peeps" method="post">
+	  			<div class="col-md-6">
+		           <input class="form-control" type="text" name="message" placeholder="Write something..."> 
+		        </div>
+		        <div>
+				   <button type="submit" class="btn btn-primary" value='Submit'>Submit</button>
+				</div>
+			</form>
+	  	</div>
+	</div>
 <% end %>
 
-<ul id="peeps">
+<div style="text-align: center;" id="peeps">
 	<% @peeps.each do |peep| %>
-		<li>
-			<div>Message: <%= peep.message %></div>
-			<div>Posted at: <%= peep.created_at %></div>
-		</li>
+		<div>
+			<div>
+				@<%= peep.user.username %>
+				- <%= peep.created_at.strftime("%H:%M  %d-%b-%Y")%>
+			</div>
+			<div><%= peep.message %></div>
+		</div>
 	<% end %>
-</ul>
+</div>

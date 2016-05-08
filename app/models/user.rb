@@ -7,6 +7,7 @@ class User
   include DataMapper::Resource
 
   has n, :peeps
+  has n, :comments
 
   property :id,                   Serial
   property :name,                 String, required: true

@@ -1,7 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-# require_relative 'tag'
+require_relative 'comment'
 require_relative 'peep'
 require_relative 'user'
 
