@@ -14,7 +14,7 @@
 <ul id='peeps'>
   <% @peeps.each do |post| %>
     <li>
-      <%= post.user.user_name %> wrote:
+      At <%= "#{post.time} #{post.user.user_name}" %> wrote:
       <%= post.post   %>
     </li>
   <% end %>
