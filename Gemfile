@@ -7,7 +7,7 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
-  gem 'sinatra-rspec'
+  gem 'rspec-sinatra'
 end
 
 group :data do
@@ -15,4 +15,6 @@ group :data do
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
+  gem 'bcrypt'
+  gem 'sinatra-flash'
 end
