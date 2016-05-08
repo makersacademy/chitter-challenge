@@ -8,7 +8,7 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-require  'capybara'
+require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require './app/app'

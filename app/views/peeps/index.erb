@@ -7,10 +7,10 @@
 </form>
 <% end %>
 
-<% @peeps.each do |p| %>
-<div id='peeps'>
+<% @peeps.each_with_index do |p, i| %>
+<div id='peep_<%= i%>' class='peeps'>
 <h3> @<%= p.user.username %></h3>
-	<p id="peep_content"> <%= p.content %> </p>
-	<p id="peep_time"> <%= p.time_format %> </p>
+	<p class="peep_content"> <%= p.content %> </p>
+	<p class="peep_time"> <%= p.time_format %> </p>
 </div>
 <% end %>
