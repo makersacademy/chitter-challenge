@@ -22,10 +22,6 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  # get '/peeps/new' do
-  #   erb :'peeps/new'
-  # end
-
   post '/peeps/new' do
     erb :'peeps/new'
   end
@@ -36,7 +32,7 @@ class Chitter < Sinatra::Base
     redirect :'peeps'
   end
 
-  get '/users/new' do
+  post '/users/new' do
     @user = User.new
     erb :'users/new'
   end
@@ -63,11 +59,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    erb :'session/new'
+  end
+
+  post '/sessions/new' do
     erb :'sessions/new'
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:name], params[:username], params[:email], params[:password])
+    user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
       redirect :'/peeps'
@@ -85,6 +85,3 @@ class Chitter < Sinatra::Base
 
   run! if app_file == $0
 end
-
-
-#rake db:auto_upgrade RACK_ENV=test

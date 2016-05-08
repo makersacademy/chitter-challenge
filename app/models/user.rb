@@ -9,7 +9,6 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
   validates_confirmation_of :password
-  #validates_format_of :email, as: :email_address
 
   property :id, Serial
   property :name, String, required: true
@@ -22,10 +21,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(name, username, email, password)
-    #first(name: name)
+  def self.authenticate(username, password)
     user = first(username: username)
-    #first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else

@@ -9,7 +9,7 @@ feature 'User log in' do
   end
 
   scenario 'Correct credentials' do
-    log_in(name: user.name, username: user.username, email: user.email, password: user.password)
+    log_in(username: user.username, password: user.password)
     expect(page).to have_content "Welcome, #{user.username}!"
   end
 

@@ -9,7 +9,7 @@ feature 'Adding peeps' do
     end
 
   scenario 'I can add a new peep' do
-    log_in(name: 'Marley', username: 'Luni', email: 'marley@cat.com', password: 'dreamies')
+    log_in(username: 'Luni', password: 'dreamies')
     click_button 'Add peep'
     expect(current_path).to eq '/peeps/new'
     fill_in 'title', with: 'Cats'

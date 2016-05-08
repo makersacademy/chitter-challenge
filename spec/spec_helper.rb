@@ -13,8 +13,12 @@ require 'rspec'
 require 'simplecov'
 require 'coveralls'
 require 'database_cleaner'
-require 'web_helper'
+require_relative 'web_helper'
 require_relative 'helpers/session'
+
+RSpec.configure do |config|
+  config.include SessionHelpers
+end
 
 Capybara.app = Chitter
 
@@ -32,9 +36,7 @@ Coveralls.wear!
 # file to always be loaded, without a need to explicitly require it in any files.
 #
 
-RSpec.configure do |config|
-  config.include SessionHelpers
-end
+
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
 # will add to the boot time of your test suite on EVERY test run, even for an
