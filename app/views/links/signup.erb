@@ -1,0 +1,78 @@
+
+<html>
+<head>
+<style>
+body {
+    font-family: ".fa", sans-serif;
+    background: #1F1F1F;
+}
+h4 {
+    padding-top:10px;
+}
+#page-wrapper {
+    padding: 30px 15px;
+    padding-left: 150px;
+    padding-right: 150px;
+    min-height: 10px;
+    background: #E8E8E8;
+    color: #ff9900;
+}
+.boxed {
+  background-color: white;
+  border: 4px solid white ;
+  height: 200px;
+  padding: 30px 30px;
+  border-radius: 25px;
+  padding-right: 50px;
+}
+</style>
+</head>
+
+<body>
+<div id="page-wrapper">
+<h1> Welcome To Chitter!</h1>
+
+<form action="/sessions" method="POST">
+  </label>
+  <label for='mail'>
+    Mail:
+    <input type='text' name='mail'/>
+  </label>
+  <label for='password'>
+   Password:
+    <input type='password' name='password' />
+  </label>
+  <input type='submit' value='Sign in'>
+  </form>
+
+
+
+
+<div class="boxed">
+<p>New User <br>
+  <form action="/users" method="POST">
+    </label>
+  <p><label for='name'>
+    Name:
+    <input type='text' name='name'/><br>
+  </label>
+  <label for='mail'>
+    <p>Mail:
+    <input type='text' name='mailup'/><br>
+  </label>
+  <label for='password'>
+    <p>Password:
+    <input type='password' name='passwordup' /><br>
+  </label>
+  <p>Password confirmation:
+    <input type='password' name='password_confirmation' /><br>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>
+</div>
+</body>
+
+</html>
+
+
+
