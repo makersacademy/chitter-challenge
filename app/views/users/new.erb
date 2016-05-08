@@ -6,10 +6,14 @@
   <h2>Sign up to Chitter!</h2>
 
   <form action='/users' method='post'>
+    <label for='name'>Name: </label>
+      <input name='name' type='text' value='<%= @user.name%>' required>
+    <label for='username'>Preferred Username: </label>
+      <input name='username' type='text' value='<%= @user.username%>' required>
     <label for='email'>Email: </label>
       <input name='email' type='email' value='<%= @user.email %>' required>
     <label for='password'>Password: </label>
-      <input name='password' type='password'>
+      <input name='password' type='password' required>
     <label for='password_confirmation'>Confirm Password: </label>
       <input name='password_confirmation' type='password'>
     <br>

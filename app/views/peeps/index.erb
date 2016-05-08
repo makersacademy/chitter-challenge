@@ -19,7 +19,9 @@
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        <p><%=peep.content%></p>
+        <h6><%=peep.username%></h6>
+        <p><%=peep.user.name%></p>
+        <p>"<%=peep.content%></p>"
         <p class="posted">Posted: <%=peep.time%></p>
       </li>
     <% end %>

@@ -40,7 +40,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do 
-    Peep.create(content: params[:peep] , time: Time.now.strftime("%H:%M:%S %Y-%m-%d"))
+    time = Time.now.strftime("%H:%M:%S %Y-%m-%d")
+    Peep.create(content: params[:peep] , time: time)
     redirect to('/peeps')
   end
 
@@ -54,7 +55,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do 
-    @user = User.create(email: params[:email],
+    @user = User.create(name: params[:name],
+                        username: params[:username],
+                        email: params[:email],
                         password: params[:password], 
                         password_confirmation: params[:password_confirmation])
     if @user.save

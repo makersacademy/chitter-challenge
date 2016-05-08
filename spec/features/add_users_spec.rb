@@ -1,5 +1,7 @@
 def sign_up
   visit '/users/new'
+  fill_in :name, with: 'John Smith'
+  fill_in :username, with: 'johnsmith'
   fill_in :email, with: 'johnsmith@gmail.com'
   fill_in :password, with: 'banana!'
   fill_in :password_confirmation, with: 'banana!'
@@ -8,6 +10,8 @@ end
 
 def bad_password
   visit '/users/new'
+  fill_in :name, with: 'John Smith'
+  fill_in :username, with: 'johnsmith'
   fill_in :email, with: 'johnsmith@gmail.com'
   fill_in :password, with: 'banana!'
   fill_in :password_confirmation, with: 'banadsfadfaasdfadfna!'
@@ -16,6 +20,8 @@ end
 
 def blank_email
   visit '/users/new'
+  fill_in :name, with: 'John Smith'
+  fill_in :username, with: 'johnsmith'
   fill_in :email, with: ''
   fill_in :password, with: 'banana!'
   fill_in :password_confirmation, with: 'banana!'
@@ -24,6 +30,8 @@ end
 
 def invalid_email
   visit '/users/new'
+  fill_in :name, with: 'John Smith'
+  fill_in :username, with: 'johnsmith'
   fill_in :email, with: 'johnsmith@gmail'
   fill_in :password, with: 'banana!'
   fill_in :password_confirmation, with: 'banana!'
