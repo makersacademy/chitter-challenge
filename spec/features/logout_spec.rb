@@ -9,7 +9,7 @@ feature 'User logs out' do
   end
 
   scenario 'While logged in' do
-    sign_in(username: 'bobross', password: 'bobross')
+    login(username: user.username, password: user.password)
     click_button "Logout"
     expect(page).to have_content('See ya later!')
     expect(page).not_to have_content('Hi, Bob!')

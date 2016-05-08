@@ -10,10 +10,9 @@ def sign_up(email: 'bob@ross.com', password: 'bobross', password_confirmation: '
   click_button 'Sign me up!'
 end
 
-def sign_in(username: 'bobross', password: 'bobross')
+def login(username: 'bobross', password: 'bobross')
   visit '/'
   click_button 'Login'
-  expect(current_path).to eq 'sessions/new'
   fill_in :username, with: username
   fill_in :password, with: password
   click_button 'Login'

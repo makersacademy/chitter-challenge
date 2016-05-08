@@ -6,7 +6,8 @@
   <label for='password'>
     Password: <input name='password' type='password'>
   </label>
-  <input type='submit' value='Login'>
+  <button type="submit" name="Login">Login</button>
+
 
   <% if flash[:login_error] && !flash[:login_error].empty? %>
     <ul id='login_error'>

@@ -87,6 +87,7 @@ GEM
     highline (1.7.8)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httpclient (2.8.0)
     json (1.8.3)
     json_pure (1.8.3)
     mime-types (2.6.2)
@@ -97,6 +98,11 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
+    pusher (0.17.0)
+      httpclient (~> 2.7)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -162,6 +168,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   pg
+  pusher
   rake
   rspec
   rspec-sinatra

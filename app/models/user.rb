@@ -1,7 +1,5 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require 'bcrypt'
-
+require 'data_mapper'
 
 class User
 
@@ -28,8 +26,5 @@ class User
     user = first(username: username)
     user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
-  
-end
 
-DataMapper.setup(:default, "postgres://localhost/user_manager_test")
-DataMapper.finalize
+end
