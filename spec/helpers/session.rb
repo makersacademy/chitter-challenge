@@ -20,5 +20,4 @@ module SessionHelpers
    fill_in :password_confirmation, with: password_confirmation
    click_button 'Sign up'
  end
-
 end

@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    'Hello Chitter!'
+    erb :index
   end
   get '/peeps' do
     @peeps = Peep.all
@@ -45,6 +45,7 @@ class Chitter < Sinatra::Base
   get '/sessions/new' do
     erb :'sessions/new'
   end
+
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
   if user
@@ -55,10 +56,12 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
   end
-  delete '/session' do
+
+  delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Bye!'
+    flash.keep[:notice] = 'goodbye!'
     redirect '/peeps'
+
  end
 
   post '/peeps' do

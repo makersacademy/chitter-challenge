@@ -19,5 +19,4 @@ feature 'User sign in' do
     fill_in :password, with: password
     click_button 'Sign in'
   end
-
 end

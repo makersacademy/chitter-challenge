@@ -14,6 +14,12 @@ require 'database_cleaner'
 
 Capybara.app = Chitter
 
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
+
 # RSpec.configure do |config|
 #
 #   config.include SessionHelpers
