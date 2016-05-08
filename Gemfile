@@ -11,6 +11,7 @@ gem "dm-postgres-adapter"
 gem "pg"
 gem "database_cleaner"
 gem "rake"
+gem 'timecop'
 
 
 group :test do
