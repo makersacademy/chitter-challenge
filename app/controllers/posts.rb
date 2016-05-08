@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/posts/view' do
     @cheeps = Cheep.all
+    @user = current_user.username if current_user
     erb :'posts/view'
   end
 end

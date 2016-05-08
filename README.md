@@ -1,3 +1,38 @@
+```
+Installation Instructions:
+  (in terminal)
+$ git clone https://github.com/MaxProvin/chitter-challenge.git
+$ bundle
+    (gems used in this project can be viewed by opening the Gemfile with your preferred text editor)
+
+  * using `brew`install the `postgresql` package and follow the installation instructions carefully (if you don't have brew go to the homebrew website to find out how to install it)
+  * check your installation by running `psql` in the terminal. Refer to the following link if you see any errors http://www.postgresql.org/docs/9.5/static/tutorial-createdb.html
+  * Connect to the default postgres database with <psql postgres>
+  * Using the <CREATE DATABASE yourusername> command, create a database with your username.
+
+$ psql
+username=# create database chitter_test
+username=# create database chitter_development
+username=# \q
+
+$ rspec
+  * runs tests
+
+$rackup
+  * starts server
+  * website can be viewed on https://localhost:9292 by default
+  * if this fails check the port your server is running
+    Luizs-Mac-mini:chitter_challenge Luiz (master) $ rackup
+[2016-05-08 18:37:43] INFO  WEBrick 1.3.1
+[2016-05-08 18:37:43] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-05-08 18:37:43] INFO  WEBrick::HTTPServer#start: pid=5111 __port=9292__
+
+$ ctrl + c
+  * ends server session
+
+```
+
+
 Chitter Challenge
 =================
 
@@ -105,24 +140,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
-
-
-```
-Installation Instructions
-
-$ git clone https://github.com/MaxProvin/chitter-challenge.git
-$ bundle
-    (gems used in this project can be viewed by opening the Gemfile with your preferred text editor)
-
-  * using `brew`install the `postgresql` package and follow the installation instructions carefully (if you don't have brew go to the homebrew website to find out how to install it)
-  * check your installation by running `psql` in the terminal. Refer to the following link if you see any errors http://www.postgresql.org/docs/9.5/static/tutorial-createdb.html
-  * Connect to the default postgres database with `psql postgres`
-  * Using the `create database 'yourusername' command`, create a database with your username.
-
-$ psql
-username=# create database chitter_test
-username=# create database chitter_development
-username=# \q
-
-```

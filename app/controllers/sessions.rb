@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     flash.keep[:goodbye] = "Till next time #{current_user.name}"
     session[:user_id] = nil
-    redirect '/goodbye'
+    redirect '/sessions/goodbye'
+  end
+
+  get '/sessions/goodbye' do
+    erb :'/sessions/goodbye'
   end
 end

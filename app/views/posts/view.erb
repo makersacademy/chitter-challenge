@@ -13,8 +13,10 @@
 
 <div id='cheeps'>
   <% @cheeps.reverse.each do |cheep| %>
-      Posted by <%= cheep.user.name %> (<%= cheep.user.username%>, <%= cheep.created %>)<br>
-      <%= cheep.message %>
+      <div id='messages'>
+        <strong>Posted by <%= cheep.user.name %></strong> <em>(<%= cheep.user.username%>, <%= cheep.created %>)</em><br>
+        <%= cheep.message %>
+      </div>
       <br><br>
   <% end %>
 </div>

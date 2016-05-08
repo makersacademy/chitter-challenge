@@ -8,13 +8,8 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
 
-
   get '/' do
     erb :index
-  end
-
-  get '/goodbye' do
-    erb :goodbye
   end
 
 
