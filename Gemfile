@@ -10,6 +10,7 @@ gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'selenium-webdriver'
 gem 'database_cleaner'
+gem 'bcrypt'
 group :test do
   gem 'cucumber'
   gem 'coveralls', require: false
