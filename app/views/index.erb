@@ -17,21 +17,20 @@
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value='Sign out'></input>
       </form>
-
-      <h2> Peeps </h2>
-      <ul id='messages'>
-        <% @peeps.reverse.each do |peep| %>
-          <li>
-            Peep: <%= peep.message %>
-            <br>
-            Peeper: <%= peep.owner %>
-            <br>
-            Time Posted: <%= peep.time.strftime("%d/%m/%Y %I:%M%p") %>
-            <br>
-            <br>
-          </li>
-        <% end %>
-      </ul>
     <% end %>
+    <h2> Peeps </h2>
+    <ul id='messages'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          Peep: <%= peep.message %>
+          <br>
+          Peeper: <%= peep.owner %>
+          <br>
+          Time Posted: <%= peep.time.strftime("%d/%m/%Y %I:%M%p") %>
+          <br>
+          <br>
+        </li>
+      <% end %>
+    </ul>
   </body>
 </html>
