@@ -10,7 +10,8 @@ feature "signing up" do
     params = {name: nil,
               username: nil,
               email: nil,
-              password: "my_password"}
+              password: "my_password",
+              password_confirmation: "my_password"}
     expect { sign_up(params) }.to change(User, :count).by(0)
     expect(current_path).to eq '/users/new'
     expect(page).to have_content "Name must not be blank Username must not be blank"\
@@ -21,7 +22,8 @@ feature "signing up" do
     params = {name: "Amy",
               username: "amynic",
               email: "amy@gmail",
-              password: "my_password"}
+              password: "my_password",
+              password_confirmation: "my_password"}
     expect { sign_up(params) }.to change(User, :count).by(0)
     expect(page).to have_content "Email has an invalid format"
   end
@@ -30,7 +32,8 @@ feature "signing up" do
     params = {name: "Amy1",
               username: "amynic",
               email: "amy@gmail1.com",
-              password: "my_password"}
+              password: "my_password",
+              password_confirmation: "my_password"}
     sign_up(params)
     expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content "Username is already taken"
@@ -40,9 +43,20 @@ feature "signing up" do
     params = {name: "Amy",
               username: "amynic1",
               email: "amy@gmail.com",
-              password: "my_password"}
+              password: "my_password",
+              password_confirmation: "my_password"}
     sign_up(params)
     expect { sign_up }.to change(User, :count).by(0)
     expect(page).to have_content "Email is already taken"
+  end
+
+  scenario "sign up with mismateched passwords" do
+    params = {name: "Amy",
+              username: "amynic1",
+              email: "amy@gmail.com",
+              password: "my_password",
+              password_confirmation: "not_my_password"}
+    expect { sign_up(params) }.to change(User, :count).by(0)
+    expect(page).to have_content "Password does not match the confirmation"
   end
 end

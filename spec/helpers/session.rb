@@ -2,13 +2,15 @@ module SessionHelpers
   def sign_up(params = {name: "Amy",
                         username: "amynic",
                         email: "amy@gmail.com",
-                        password: "my_password"})
+                        password: "my_password",
+                        password_confirmation: "my_password"})
 
     visit("/users/new")
     fill_in :name, with: params[:name]
     fill_in :username, with: params[:username]
     fill_in :email, with: params[:email]
     fill_in :password, with: params[:password]
+    fill_in :password_confirmation, with: params[:password_confirmation]
     click_button "Sign up"
   end
 

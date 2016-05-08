@@ -6,7 +6,8 @@ describe User do
     User.create(name: "Amy",
                 username: "amynic",
                 email: "amy@gmail.com",
-                password: "my_password")
+                password: "my_password",
+                password_confirmation: "my_password")
   end
 
   describe "authenticating user on login" do
