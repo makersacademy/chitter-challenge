@@ -4,7 +4,7 @@ services:
   - postgresql
 
 script:
-  - rake db:auto_upgrade
+  - bundle exec rake db:auto_migrate RACK_ENV=test
   - mkdir -p spec && bundle exec rspec spec
 
 before_install:
