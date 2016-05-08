@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
   get '/' do
-    'Welcome to Chitter!'
+    redirect '/users/new'
   end
 
   get '/users/new' do
@@ -17,8 +17,7 @@ class Chitter < Sinatra::Base
                         )
     if @user.save
       session[:user_id] = @user.id
-      'Welcome, alice@example.com'
-      # redirect '/peeps'
+      redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
