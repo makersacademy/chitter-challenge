@@ -11,6 +11,5 @@ feature 'Sign out' do
     sign_in(email: 'hello@example.com', password: 'secret')
     click_button 'Sign out'
     expect(page).to have_content "See you next time!"
-    expect(page).not_to have_content "Welcome, Hello"
   end
 end

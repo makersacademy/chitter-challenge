@@ -21,8 +21,7 @@
 		  </div>
 		</nav>
 		<% if flash[:errors] && !flash[:errors].empty? %>
-			Please refer to the following errors below:
-			<div id="flash">
+			<div id="flash" class="alert alert-danger">
 				<ul id="error" >
 					<% flash[:errors].each do |error| %>
 					<li><%= error %></li>
@@ -31,7 +30,7 @@
 			</ul>
 		<% end %>
 		<% if flash[:notice] %>
-			<div id="notice">
+			<div id="notice" class="alert alert-success">
 				<%= flash[:notice] %>
 			</div>
 		<% end %>
