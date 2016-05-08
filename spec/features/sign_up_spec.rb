@@ -23,25 +23,45 @@ feature 'Users can sign up' do
 
   scenario 'I cannot sign up without an email address' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/usercreate')
+    expect(page).to have_content('Email must not be blank')
   end
 
   scenario 'I cannot sign up without a name' do
     expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/usercreate')
+    expect(page).to have_content('Username must not be blank')
   end
 
   scenario 'I cannot sign up without a username' do
     expect { sign_up(name: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/usercreate')
+    expect(page).to have_content('Name must not be blank')
   end
 
   xscenario 'I cannot sign up without a password' do
     expect {sign_up(password: nil, password_confirmation: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/usercreate')
+    expect(page).to have_content('Password must not be blank')
   end
 
   scenario 'I cannot sign up with an invalid email address' do
     expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
+    expect(current_path).to eq('/usercreate')
+    expect(page).to have_content('Email has an invalid format')
   end
 
+  scenario 'I cannot sign up with an existing email' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+  end
 
+  scenario 'I cannot sign up with an existing username' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Username is already taken')
+  end
 
 
 
