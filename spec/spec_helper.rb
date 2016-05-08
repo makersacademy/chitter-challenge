@@ -2,6 +2,12 @@ ENV['RACK_ENV'] = 'test'
 
 require 'coveralls'
 require 'simplecov'
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 require  'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -9,13 +15,8 @@ require './app/app'
 require './app/models/peep'
 require_relative 'helpers/session'
 
-Capybara.app = Chitter
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+Capybara.app = Chitter
 
 RSpec.configure do |config|
 
