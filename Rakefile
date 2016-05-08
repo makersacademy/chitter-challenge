@@ -5,4 +5,3 @@ if ENV['RACK_ENV'] != 'production'
   
   task default: [:spec]
 end
-
