@@ -3,22 +3,19 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Chitter</a><br>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <% unless current_user %>
-        <form class='nav' action="/sessions/new">
-          <input class='navbar_button' type="submit" value="Sign in">
-        </form>
-        <form class='nav' action="/users/new">
-          <input class='navbar_button' type="submit" value="Sign up">
-        </form>
-        <% else %>
-        <form class='nav' action='/sessions' method='post'>
-          <input type='hidden' name='_method' value='delete'>
-          <input class='navbar_button' type='submit' value='Sign out'>
-        </form>
-        <% end %>
-      </ul>
+    <div>
+      <% unless current_user %>
+      <form class='nav' action="/sessions/new">
+        <input class='navbar_button' type="submit" value="Sign in">
+      </form>
+      <form class='nav' action="/users/new">
+        <input class='navbar_button' type="submit" value="Sign up">
+      </form>
+      <% else %>
+      <form class='nav' action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input class='navbar_button' type='submit' value='Sign out'>
+      </form>
+      <% end %>
     </div>
-  </div>
-</nav>
+  </nav>
