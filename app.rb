@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   #peeps
-
+  
   get '/peeps/index' do
     @peeps = Peep.all(:order => [:created_at.desc])
   	erb :'peeps/index'
