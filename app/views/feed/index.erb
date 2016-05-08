@@ -1,35 +1,74 @@
-<h1>Feed</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='main.css' />
+  <title>Your Chitter Feed</title>
+</head>
 
-<h3>Hey <%= @user ? @user : 'there' %>!</h3>
+<body>
+  <header class='header'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-xs-12 col-md-12'>
+          <% if @user %>
+            <div class='sign-out'>
+              <form action='/sign-out' method='post'>
+                <input type='hidden' name='_method' value='delete'>
+                <input type='submit' value='Sign out' class='btn'>
+              </form>
+            </div>
+          <% end %>
+          <h1 class='text-center'><a href='/'>Chitter</a></h1>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<% if @user %>
+  <section class='main'>
+    <div class='container'>
+      <div class='row'>
+        <h1 class='text-center'>Your Chitter Feed</h1>
+        <div class='main-content'>
+          <div class='welcome-message col-sm-6 col-xs-12 text-center'>
+            <h3>Hey <%= @user ? @user : 'there' %>!</h3>
 
-<p>Check out your feed below</p>
+            <% if @user %>
 
-<form action='/sign-out' method='post'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Sign out'>
-</form>
+            <p>Got something to say?</p>
 
-<p><a href='/user/peep'>Post a peep</a></p>
-<% end %>
+            <form action='/user/peep' method='get'>
+              <input type='submit' value='Post a peep' class='btn btn-lg peep-button'>
+            </form>
+            <% end %>
 
-<% if !@user %>
+            <% if !@user %>
 
-<p>New user? Why not <a href='/sign-up'>sign up</a>, or <a href='/sign-in'>sign in</a> if you're already registered</p>
+            <p>New user? Why not <a href='/sign-up'>sign up</a>, or <a href='/sign-in'>sign in</a> if you're already registered</p>
 
-<% end %>
+            <% end %>
+          </div>
+          <div class='col-sm-6 col-xs-12 peep-feed'>
+            <ul id='peeps'>
+              <% @peeps.reverse.each do |peep| %>
+              <li>
+                <div class='each-peep'>
+                  <div class='peep-message'>
+                    <%= peep.message %>
+                  </div>
+                  <div class='peep-poster'>
+                    Posted by: <%= peep.username %> Time: <%= peep.time_posted.strftime("%I:%M%p,%e %b %Y") %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-<ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
-  <li>
-    <div>
-    <%= peep.message %>
-  </div>
-  <div>
-    Posted by: <%= peep.username %> Time: <%= peep.time_posted.strftime("%I:%M%p,%e %b %Y") %>
-  </div>
-  </li>
-<% end %>
-</ul>
+  </body>
+  </html>

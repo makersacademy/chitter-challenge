@@ -1,22 +1,71 @@
-<% if flash[:notice] %>
-<div id='notice'><%= flash[:notice] %></div>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='main.css' />
+  <title>Chitter Sign Up</title>
+</head>
 
-<form action='/sign-up' method='post'>
-  <label for='name'>Name</label>
-  <input type='text' name='name'>
+<body>
 
-  <label for='name'>Username</label>
-  <input type='text' name='username'>
+<header class='header'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-12 col-md-12'>
+        <h1 class='text-center'><a href='/'>Chitter</a></h1>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <label for='name'>Email</label>
-  <input type='text' name='email'>
+<section class='main'>
 
-  <label for='name'>Password</label>
-  <input type='password' name='password'>
+  <div class='container'>
 
-  <label for='name'>Password Confirmation</label>
-  <input type='password' name='password_confirmation'>
+    <% if flash[:notice] %>
+      <div id='flash-message' class='text-center'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
-  <input type='submit' value='Sign up'>
-</form>
+    <div class='row'>
+        <div class='col-sm-4 col-sm-offset-4 sign-up-content sign-back text-center'>
+          <h1> Please sign up</h1>
+          <form action='/sign-up' method='post'>
+            <div class='form-group'>
+              <label for='name'>Name</label>
+              <input type='text' name='name' class='form-control'>
+            </div>
+
+            <div class='form-group'>
+              <label for='username'>Username</label>
+              <input type='text' name='username' class='form-control'>
+            </div>
+
+            <div class='form-group'>
+              <label for='email'>Email</label>
+              <input type='text' name='email' class='form-control'>
+            </div>
+
+            <div class='form-group'>
+              <label for='password'>Password</label>
+              <input type='text' name='password' class='form-control'>
+            </div>
+
+            <div class='form-group'>
+              <label for='password_confirmation'>Password Confirmation</label>
+              <input type='text' name='password_confirmation' class='form-control'>
+            </div>
+
+            <input type='submit' value='Sign up' class='btn'>
+          </form>
+
+        </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

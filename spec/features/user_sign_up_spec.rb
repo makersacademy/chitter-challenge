@@ -30,5 +30,4 @@ feature 'User sign up' do
     expect(page).to have_content 'Passwords did not match'
   end
 
-
 end
