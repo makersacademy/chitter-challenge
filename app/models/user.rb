@@ -24,7 +24,8 @@ class User
             presence: "We need your username"
                                               }
 
-  validates_confirmation_of :password, message: "Password and confirmation password do not match"
+  validates_confirmation_of :password,
+                             message: "Password and confirmation password do not match"
 
   has n, :peeps
 
@@ -37,8 +38,6 @@ class User
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
 end
