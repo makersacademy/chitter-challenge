@@ -16,11 +16,28 @@ feature 'Users can sign up' do
 
   scenario 'data saved if password confirmation is incorrect' do
     sign_up_incorrectly
-
     expect(find_field('email').value).to eq('user@email.com')
     expect(find_field('username').value).to eq('number1')
     expect(find_field('name').value).to eq('First User')
   end
+
+  scenario 'I cannot sign up without an email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up without a name' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'I cannot sign up without a username' do
+    expect { sign_up(name: nil) }.not_to change(User, :count)
+  end
+
+  xscenario 'I cannot sign up without a password' do
+    expect {sign_up(password: nil, password_confirmation: nil) }.not_to change(User, :count)
+  end
+
+
 
 
 

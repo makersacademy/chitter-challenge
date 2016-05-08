@@ -3,19 +3,19 @@
 
   <form action='/usercreate' method='POST'>
     <label for='name'>
-      Name: <input name='name' type='text' value='<%= @user.name%>'/>
+      Name: <input name='name' type='text' value='<%= @user.name%>' required/>
     </label>
     <label for='username'>
-      Username: <input name='username' type='text' value='<%= @user.username%>'/>
+      Username: <input name='username' type='text' value='<%= @user.username%>'required/>
     </label>
     <label for='email'>
-      Email: <input name='email'type='text'value='<%= @user.email %>'/>
+      Email: <input name='email'type='text'value='<%= @user.email %>' required />
     </label>
     <label for ='password'>
-      Password: <input type='password' name='password'/>
+      Password: <input type='password' name='password' required/>
     </label>
     <label for='password_confirmation'>
-    Confirm your password: <input type='password' name='password_confirmation'/>
+    Confirm your password: <input type='password' name='password_confirmation' required/>
 
     </label>
     <input type='submit' value='Sign up'>
