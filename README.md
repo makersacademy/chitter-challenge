@@ -7,7 +7,7 @@ Author: Sergio Enrech Trillo
 
 
 * The app is deployed [here](https://cheeter-challenge-sergio.herokuapp.com)
-* Or you can fork this repository and follow the instructions:
+* If you want to run it locally, fork this repository and follow the instructions:
 
 ```sh
 git clone https://github.com/tigretoncio/chitter-challenge
@@ -31,22 +31,36 @@ About Chitter:
 What has been used
 ------
 TEST
+
 * RSpec
 * Capybara
 * Orderly
 * Coveralls
 * Orderly
+
 DATABASES
+
 * Database Cleaner
+* Postgres
+
 ORM
+
 * DataMapper
+
 MVC
+
 * Sinatra, (modular and with partials)
+
 SECURITY
+
 * BCrypt
+
 CONTINUOUS INTEGRATION
+
 * Travis CI
+
 OTHERS
+
 * Rake
 
 
@@ -54,6 +68,6 @@ OTHERS
 Pending improvements
 -------------
 * Forgotten password functionality
-* Delete posts
-* Beauty makeup
+* Delete posts functionality
+* Presentation using bootstrap
 

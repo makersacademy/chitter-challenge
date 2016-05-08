@@ -2,11 +2,11 @@
 <a href="/" id="home-link">Home</a>
 <div id="nav-right">
   <% if current_user %>
-    Welcome, <%= current_user.name.split.first%>
+    <p id="welcome">Welcome, <%= current_user.name.split.first%> </p>
     <div id="log-out-button">
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <input type='submit' value='Sign out' class="button" id="log-out-button">
       </form>
     </div>
   <% else %>
