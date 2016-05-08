@@ -2,11 +2,13 @@ ENV["RACK_ENV"] ||= "development"
 
 require "sinatra/base"
 require "sinatra/flash"
+require "tilt/erb"
 require_relative "models/user"
 require_relative "models/peep"
 require_relative "data_mapper_setup"
 
 class ChitterChallenge < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
 
@@ -43,7 +45,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get "/peeps" do
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :"peeps/index"
   end
 
