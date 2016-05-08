@@ -22,7 +22,7 @@ feature 'Password confirmation' do
   scenario 'requires a matching confirmation password' do
     expect { create_an_account(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/new_account')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 end
 
@@ -41,5 +41,14 @@ end
 feature 'Email address must be valid' do
   scenario "I can't sign up with an invalid email address" do
     expect { create_an_account(email: "invalid@email") }.not_to change(User, :count)
+  end
+end
+
+feature 'New user fields must be unique' do
+  scenario 'I cannot sign up with an existing email' do
+    create_an_account
+    expect { create_an_account }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content('Handle is already taken')
   end
 end

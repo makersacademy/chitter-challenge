@@ -1,9 +1,17 @@
 <head>
-
+  <title>your account details</title>
 </head>
 
 <body>
-  <h1>your account details</h1>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <form action='/new_account' method='post'>
     <div id='fields'>
