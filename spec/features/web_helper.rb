@@ -1,9 +1,9 @@
 
 def sign_up(name: 'elia',
   username: 'elia-uk',
-  email: "elia@gmail.com",
-password: "Obp23",
- password_confirmation: "Obp23")
+  email: 'elia@gmail.com',
+password: 'Obp23',
+ password_confirmation: 'Obp23')
   visit('/users/new')
   expect(page.status_code).to eq 200
   fill_in :name, with: name

@@ -1,5 +1,5 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+# require 'data_mapper'
+# require 'dm-postgres-adapter'
 
 
 
@@ -11,6 +11,7 @@ class Peep
   property :title, Text
   property :text, String
   property :context, String
-
+  property :time, String
+  property :date, String
   belongs_to :user
 end
