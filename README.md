@@ -53,7 +53,7 @@ $ rackup
 ```
 Technologies Used
 -----------------
-* Ruby 2.3.0 
+* Ruby 2.2.3 
 * Rspec 3.3.2
 * Sinatra
 * Capybara
