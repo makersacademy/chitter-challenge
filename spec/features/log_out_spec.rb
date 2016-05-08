@@ -6,7 +6,7 @@ feature 'User log out' do
                 email: 'marley@cat.com',
                 password: 'dreamies',
                 password_confirmation: 'dreamies')
-    end
+  end
 
     scenario 'While logged in' do
       log_in(username: 'Luni', password: 'dreamies')
@@ -15,4 +15,4 @@ feature 'User log out' do
       expect(page).not_to have_content('Welcome, Luni!')
     end
 
-  end
+end
