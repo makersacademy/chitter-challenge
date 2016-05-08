@@ -22,4 +22,4 @@ end
 
 gem 'sinatra'
 gem 'sinatra-flash'
-
+gem 'sinatra-partial'

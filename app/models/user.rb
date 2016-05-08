@@ -8,23 +8,23 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :email, String, :required => true, :unique => true,
-    :format  => :email_address, :messages => {
-      :presence  => "We need your email address",
-      :is_unique => "This email has been registered",
-      :format    => "Invalid email address"
+  property :email, String, required: true, unique: true,
+    format: :email_address, messages: {
+      presence: "We need your email address",
+      is_unique: "This email has been registered",
+      format:  "Invalid email address"
     }
   property :password_digest, Text
-  property :name, String, :required => true, :messages => {
-      :presence  => "We need your name"
+  property :name, String, required: true, messages: {
+      presence: "We need your name"
    }
-  property :username, String, required: true, :unique => true,
-                                              :messages => {
-           :is_unique => "This username has been registered",
-           :presence => "We need your username"
+  property :username, String, required: true, unique: true,
+            messages: {
+            is_unique: "This username has been registered",
+            presence: => "We need your username"
                                               }
 
-  validates_confirmation_of :password, :message => "Password and confirmation password do not match"
+  validates_confirmation_of :password, message: "Password and confirmation password do not match"
 
   has n, :peeps
 
