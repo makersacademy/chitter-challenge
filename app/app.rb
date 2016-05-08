@@ -1,13 +1,15 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
-
-ENV["RACK_ENV"] ||= "development"
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
   enable :sessions
+  set :session_secret, 'super secret'
 
   register Sinatra::Flash
 
@@ -15,6 +17,10 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+  end
+
+  get '/' do
+    redirect 'peeps'
   end
 
   #sign up
@@ -63,7 +69,18 @@ class Chitter < Sinatra::Base
 
   #user's homepage
   get '/peeps' do
-    erb :'peeps/index'
+    @peeps = Peep.all
+    erb :'peeps/peeps'
+  end
+
+  #posting a new peep
+  post '/peeps' do
+    peep = Peep.new(content: params[:content])
+    user = current_user
+    user.peeps << peep
+    user.save
+    peep.save
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly
