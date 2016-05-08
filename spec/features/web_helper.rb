@@ -29,3 +29,10 @@ def sign_up_invalid_email
   fill_in :email, with: "dhfgo.@com"
   click_button 'Sign up'
 end
+
+def sign_in(email:, password:)
+  visit '/'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
