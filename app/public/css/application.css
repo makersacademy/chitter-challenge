@@ -83,12 +83,12 @@ textarea {
   color: black;
 }
 
-#peep_content {
+.peep_content {
   text-align: justify;
   margin: 10px;
 }
 
-#peep_time {
+.peep_time {
   text-align: right;
   margin-right: 10px;
   color: #e6005c;
