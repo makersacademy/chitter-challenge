@@ -13,6 +13,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    commonjs (0.2.7)
     coveralls (0.8.2)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
@@ -83,12 +84,16 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     extlib (0.9.16)
     fastercsv (1.5.5)
+    font-awesome-less (4.6.2)
+      less (>= 2.4.0)
     gherkin3 (3.1.1)
     highline (1.7.8)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     json (1.8.3)
     json_pure (1.8.3)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
     mime-types (2.6.2)
     mini_portile2 (2.0.0)
     multi_json (1.11.2)
@@ -161,6 +166,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  font-awesome-less
   rake
   rspec
   rspec-sinatra

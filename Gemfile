@@ -14,5 +14,6 @@ group :test do
   gem 'dm-migrations'
   gem 'database_cleaner'
   gem 'sinatra-flash'
+  gem 'font-awesome-less'
   gem 'coveralls', require: false
 end

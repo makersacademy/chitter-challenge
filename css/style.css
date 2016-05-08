@@ -1,0 +1,22 @@
+li {
+  color: #ff704d;
+  
+}
+
+body {
+	font-family: Georgia, serif;
+	height: 100%;
+	margin: 0;
+	text-align: center;
+	width: 100%;
+}
+
+form {
+	color: #ffffff;
+	font-size: 2em;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 2em;
+}

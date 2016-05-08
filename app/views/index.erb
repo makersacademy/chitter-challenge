@@ -1,19 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
 <head>
   <title>Chitter</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <style type="text/css">
+
+  li {
+    background-color: #ff704d;
+    border-style: dotted;
+  }
+
+  body {
+  	font-family: Georgia, serif;
+    background-color: #FFFF00;
+  	height: 100%;
+  	margin: 0;
+  	text-align: center;
+  	width: 100%;
+  }
+
+  form {
+  	background-color: #ffffff;
+  	font-size: 2em;
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 2em;
+  }
+  </style>
+
 </head>
 
-<h1> Chitter </h1>
+<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA3B-W_3tRNsLbLWaIX4bLiOyItNAgnfOsW4eSQtC5ckFQPLn8cw" width='400' height='250' align = 'middle'/>
+
+<h1> Welcome to Chittttter </h1>
 
 <form action='/sign_up' method='get'>
+  <i class="fa fa-sign-in" aria-hidden="true"></i>
   <input type='submit' value="sign up">
 </form>
 
 <form action='/log_in' method='get'>
+  <i class="fa fa-sign-in" aria-hidden="true"></i>
   <input type='submit' value="log in">
 </form>
 
-<ul id='peeps'>
+<i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+<br>
 
+<ul id='peeps'>
+  <h2>  Most recent peeps... </h2>
+  <span class="sr-only">Loading...</span>
   <% Peep.reverse_each do |peep| %>
   <li>
     Title: <%= peep.title %>
@@ -23,7 +62,8 @@
     Author: <%= peep.user.username %>
     <br>
     Time: <%= peep.lastmodified %>
-    <br>
   </li>
   <% end %>
 </ul>
+</body>
+</html>
