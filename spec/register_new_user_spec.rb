@@ -1,13 +1,9 @@
-xfeature 'Registering new users' do
+feature 'Registering new users' do
   scenario 'User\'s details are saved and username is displayed' do
-    User.create(
-      username: 'flimflamjim',
-      email: 'billandben@hotmail.com',
-      password: 'banana')
 
     visit '/users/new'
-    expect(page.status_code).to eq 200
 
+    fill_in 'name', with: 'Emmett'
     fill_in 'username', with: 'flimflamjim'
     fill_in 'email', with: 'billandben@hotmail.com'
     fill_in 'password', with: 'banana'
