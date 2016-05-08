@@ -9,7 +9,7 @@ class User
 
   property :id, Serial
   property :email, String, required: true, unique: true,
-    format: :email_address, messages: {
+      format: :email_address, messages: {
       presence: "We need your email address",
       is_unique: "This email has been registered",
       format:  "Invalid email address"
@@ -21,7 +21,7 @@ class User
   property :username, String, required: true, unique: true,
             messages: {
             is_unique: "This username has been registered",
-            presence: => "We need your username"
+            presence: "We need your username"
                                               }
 
   validates_confirmation_of :password, message: "Password and confirmation password do not match"

@@ -1,6 +1,8 @@
 module SessionHelpers
 
-  def sign_up(email:, name:, username:, password:, password_confirmation:)
+  def sign_up(email:'alice@example.com', name:'Alice',
+              username:'Wonderland', password:'orange',
+              password_confirmation:'orange')
     visit '/users/new'
     fill_in :email,    with: email
     fill_in :name,  with: name
@@ -11,8 +13,9 @@ module SessionHelpers
   end
 
   def create_user_alice
-    User.create(email: 'alice@example.com', name: 'Alice', username: 'Wonderland',
-                password: 'orange', password_confirmation: 'orange')
+    User.create(email: 'alice@example.com', name: 'Alice',
+                username: 'Wonderland',password: 'orange',
+                password_confirmation: 'orange')
   end
 
   def log_in(email:'alice@example.com', password:'orange')
