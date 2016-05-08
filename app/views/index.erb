@@ -17,7 +17,7 @@
     ID: <%= peep.id %>
     User: <%= peep.handle %>
     Peep: <%= peep.text %>
-    Time: <%= peep.time %>
+    Time: <%= peep.created_at.strftime('%Y-%-m-%-d [%H:%M]') %>
   </li>
   <% end %>
 </ul>

@@ -6,6 +6,11 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :sessions
 
+  def list_peeps 
+    @peeps = Peep.all(:order => [ :created_at.desc ])
+    erb :index     
+  end
+
   before do
     @user = nil
     search = User.first(:handle => session[:handle])
@@ -15,8 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all
-    erb :index 
+    list_peeps
   end
 
   post '/new' do
@@ -27,8 +31,7 @@ class Chitter < Sinatra::Base
       redirect to '/'
     rescue => error
       @message = error.message
-      @peeps = Peep.all
-      erb :index
+      list_peeps
     end
   end
 
@@ -56,17 +59,16 @@ class Chitter < Sinatra::Base
 
   post '/login' do
     begin
-      user = User.first(:handle => params[:handle], 
-        :password => params[:password])
+      user = User.first(:handle => params[:handle])
+      fail "Don't have an account? Register below." if user == nil
+      fail "Don't have an account? Register below." if user.password != params[:password]
 
-      fail "Don't have an account? Register below" if user == nil
       session[:handle] = user.handle
 
       redirect to '/'
     rescue => error
       @message = error.message
-      @peeps = Peep.all
-      erb :index
+      list_peeps
     end
   end
 

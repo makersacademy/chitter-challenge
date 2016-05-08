@@ -5,6 +5,6 @@ class Peep
   property :id, Serial
   property :handle, String, :required => true
   property :text, String, :required => true
-  property :time, Serial, :required => true
+  property :created_at, DateTime
 
 end

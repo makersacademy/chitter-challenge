@@ -1,4 +1,5 @@
 require 'web_helpers'
+require 'spec_helper'
 
 feature 'new user sign up' do
   scenario 'allow new user to sign up to chitter' do
