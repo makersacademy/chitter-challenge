@@ -7,14 +7,17 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'rake'
+gem 'rspec-sinatra'
+gem 'capybara'
 
 group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
-  gem 'rspec-sinatra'
-  gem 'capybara'
+  gem 'byebug'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
 end
-

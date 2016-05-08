@@ -30,6 +30,7 @@ class User
 
 	validates_confirmation_of :password
 	validates_presence_of :password
+	validates_format_of :email, with: /[0-9a-zA-Z_\.]+@[0-9a-zA-Z_]+\.[a-zA-Z.]+/
 
 	has n, :peeps
 

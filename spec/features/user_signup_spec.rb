@@ -44,4 +44,8 @@ feature 'User Signup' do
 		expect(page).to have_content 'Username must not be blank'
 	end
 
+	scenario '- signup fails if email is in wrong format' do
+		expect{ sign_up(email: 'user@name') }.not_to change{ User.count }
+	end
+
 end
