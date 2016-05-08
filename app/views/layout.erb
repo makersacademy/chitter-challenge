@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter-Chatter</title>
-    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="icon" href="/peep_favicon.png">
   </head>
   <body>
-    <div class="header">
-      <div align="right">
+    <article class="header">
+      <div>
       <% if current_user %>
         Signed in as: <%= @user.handle %>
         <form action="/session" method="post">
@@ -19,7 +21,7 @@
         <a href='/session/new'>Log in or sign up</a>
       <% end %>
     </div>
-    </div>
+    </article>
 
     <% if flash[:errors] %>
       <div id="popup1" class="overlay">

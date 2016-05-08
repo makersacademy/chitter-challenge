@@ -17,4 +17,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peep/reply' do
+    @reply = Peep.get(params[:id])
+    @peep = Peep.new
+    erb :'peep/reply'
+  end
+
 end

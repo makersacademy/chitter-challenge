@@ -1,17 +1,71 @@
+
+
 .header {
+  position: relative;
   background-color: black;
   color: white;
+  font-size: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #1DA1F2;
   display: block;
   border-bottom: 1px solid #e5e5e5;
+  height: 50px;
+}
+
+.header div {
+  position: absolute;
+  right: 15px;
+}
+
+.header input {
+  color: black;
 }
 
 .peep_box {
   width: 150px;
   height: 55px;
   word-wrap: break-word;
+}
+
+.peep {
+  position:relative;
+  width: 60%;
+  height: 100px;
+  border: solid black 1px;
+  margin: 10px;
+  padding: 2px;
+}
+
+.peep .content {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+.peep .details {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+.peep .response {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.peep .reply_to {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+
 }
 
 .popup .close {
