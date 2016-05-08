@@ -55,14 +55,17 @@ Technologies Used
 -----------------
 * Ruby 2.3.0 
 * Rspec 3.3.2
-* sinatra gem
-* capybara gem
+* Sinatra
+* Capybara
 * PostgreSQL
+* DataMapper
 * Heroku
 
 Approach and Refactoring
 ------------------------
-* I'll cover this later ;)
+* Classes for Peep and User 
+* Seperate testing environments for development and production
+* No fancy CSS to show off but will fix that with Bootstrap in due time
 
 Author
 ------
