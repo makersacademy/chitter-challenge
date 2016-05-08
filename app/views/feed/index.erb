@@ -32,39 +32,43 @@
       <div class='row'>
         <h1 class='text-center'>Your Chitter Feed</h1>
         <div class='main-content'>
-          <div class='welcome-message col-sm-6 col-xs-12 text-center'>
-            <h3>Hey <%= @user ? @user : 'there' %>!</h3>
+          <div class='col-sm-6 col-xs-12 text-center'>
+            <div class='welcome-message col-sm-12'>
+              <h3>Hey <%= @user ? @user : 'there' %>!</h3>
 
-            <% if @user %>
+              <% if @user %>
 
-            <p>Got something to say?</p>
+              <p>Got something to say?</p>
 
-            <form action='/user/peep' method='get'>
-              <input type='submit' value='Post a peep' class='btn btn-lg peep-button'>
-            </form>
-            <% end %>
+              <form action='/user/peep' method='get'>
+                <input type='submit' value='Post a peep' class='btn btn-lg peep-button'>
+              </form>
+              <% end %>
 
-            <% if !@user %>
+              <% if !@user %>
 
-            <p>New user? Why not <a href='/sign-up'>sign up</a>, or <a href='/sign-in'>sign in</a> if you're already registered</p>
+              <p>New user? Why not <a href='/sign-up'>sign up</a>, or <a href='/sign-in'>sign in</a> if you're already registered</p>
 
-            <% end %>
+              <% end %>
+            </div>
           </div>
-          <div class='col-sm-6 col-xs-12 peep-feed'>
-            <ul id='peeps'>
-              <% @peeps.reverse.each do |peep| %>
-              <li>
-                <div class='each-peep'>
-                  <div class='peep-message'>
-                    <%= peep.message %>
+          <div class='col-sm-6 col-xs-12'>
+            <div class='col-sm-12 peep-feed'>
+              <ul id='peeps'>
+                <% @peeps.reverse.each do |peep| %>
+                <li>
+                  <div class='each-peep'>
+                    <div class='peep-message'>
+                      <%= peep.message %>
+                    </div>
+                    <div class='peep-poster'>
+                      Posted by: <%= peep.username %> Time: <%= peep.time_posted.strftime("%I:%M%p,%e %b %Y") %>
+                    </div>
                   </div>
-                  <div class='peep-poster'>
-                    Posted by: <%= peep.username %> Time: <%= peep.time_posted.strftime("%I:%M%p,%e %b %Y") %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-            </ul>
+                </li>
+              <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
