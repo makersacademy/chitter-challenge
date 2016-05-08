@@ -73,6 +73,17 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/comments' do
+    comment = Comment.create(comment: params[:comment])
+    peep = Peep.get(params[:id])
+    current_user.comments << comment
+    current_user.save
+    peep.comments << comment
+    peep.save
+
+    redirect '/peeps'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

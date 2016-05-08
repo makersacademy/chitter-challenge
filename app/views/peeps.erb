@@ -24,7 +24,15 @@
 									- <%= peep.created_at.strftime("%H:%M  %d-%b-%Y")%>
 								</div>
 								<div style="color: #428bca;" class="lead">"<%= peep.message %>"</div>
+								<div><%= peep.comments %></div>
 							</div>
+							<% if current_user %>
+					            <form id='<%= peep.id %>' action='/comments' method='post'>
+					              <input type='hidden' name='id' value='<%= peep.id %>'>
+					              <input style='width: 220px' type='text' name='comment' placeholder='Comment on this peep...' maxlength="50" required>
+					              <input type='submit' value='Comment'>
+					            </form>
+				        	<% end %>
 						<% end %>
 					</div>
 				</div>
