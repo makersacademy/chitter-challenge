@@ -47,4 +47,4 @@ coveralls report will run all rspec tests, and return a coverage report. Note th
 
 rackup -p 4567 starts Sinatra on a Webrick server in a development environment, the result of which you can see, and interact with, in your browser on localhost:4567
 
-Check out the current version of this project on heroku:
+Check out the current version of this project on heroku: https://chittermitter.herokuapp.com
