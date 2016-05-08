@@ -11,10 +11,6 @@
 
     <%= yield %>  
 
-    <% if current_user %>
-      <p id="welcome">Welcome, <%= current_user.email %>!</p>
-    <% end %>
-
     <% if flash[:errors] && !flash[:errors].empty? %>
       <p id="errors">Please fix the following errors:</p>
       <ul id="error">

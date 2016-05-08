@@ -7,6 +7,12 @@ h2 {
   text-align: center;
 }
 
+nav, 
+.navbar-inner:before, 
+.navbar-inner:after {
+  background-color: #b0f4d3;
+}
+
 #sign-up-block {
   width: 250px;
   margin-left: auto;
@@ -15,9 +21,7 @@ h2 {
 
 #welcome {
   color: royalblue;
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
+  left: 20px;
 }
 
 #error,
@@ -38,6 +42,38 @@ h2 {
   list-style: none;
 }
 
+.topnav {
+  left: 0; right: 0;
+  border-radius: 0px;
+}
+
+#new-peep {
+  right: 10px;
+}
+
+#peeps {
+  list-style: none;
+}
+
+#peeps li {
+  padding: 10px;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: -25px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #b0d4f3;
+}
+
+
+
+
+
+
+
+
+
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -49,7 +85,7 @@ h2 {
           border-radius: 5px;
 }
 
-label {
+label, .posted {
   color: darkgray;
 }
 
