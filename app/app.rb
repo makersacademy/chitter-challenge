@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
 
   #user's homepage
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort {|peep1, peep2| peep2.created_at <=> peep1.created_at}
     erb :'peeps/peeps'
   end
 

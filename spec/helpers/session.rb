@@ -14,11 +14,16 @@ module SessionHelpers
     User.create(email: 'alice@example.com', name: 'Alice', username: 'Wonderland',password: 'orange', password_confirmation: 'orange')
   end
 
-  def log_in(email:, password:)
+  def log_in(email:'alice@example.com', password:'orange')
     visit '/sessions/new'
     fill_in :email,    with: email
     fill_in :password, with: password
     click_button 'Log in'
+  end
+
+  def post(content:)
+    fill_in :content, with: content
+    click_button 'peep'
   end
 
 end
