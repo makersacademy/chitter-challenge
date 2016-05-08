@@ -1,4 +1,5 @@
 require 'bcrypt'
+# require_relative 'peep'
 
 class User
 
@@ -18,6 +19,8 @@ class User
   validates_presence_of :email
   validates_confirmation_of :password 
   validates_format_of :email, as: :email_address
+
+  # has n, :peeps
 
   def password=(password)
     @password = password
