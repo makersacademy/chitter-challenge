@@ -20,4 +20,8 @@ feature 'User can create a new peep' do
       expect(page.body.index('second peep')).to be < page.body.index('first peep')
     end
   end
+  scenario 'User is redirected to sign up page if not logged in' do
+    visit '/peeps/new'
+    expect(current_path).to eq '/users/new'
+  end
 end

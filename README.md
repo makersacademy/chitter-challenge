@@ -167,4 +167,4 @@ This repository is using coveralls to ensure great test coverage. To see the cur
 
 ```
 $ coveralls report
-``
+```

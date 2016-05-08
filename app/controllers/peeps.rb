@@ -6,17 +6,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    redirect '/users/new' unless current_user
     erb :'peeps/new'
   end
 
-  post '/peeps/new' do #Add error message when user not logged in and somwhow goes here
-    peep = Peep.create(maker: current_user.name,
-    user_handle: current_user.username,
-    body: params[:body])
-    current_user.peeps << peep
+  post '/peeps/new' do
+    current_user.peeps << new_peep
     current_user.save
     redirect '/'
   end
-
-
+    
 end
