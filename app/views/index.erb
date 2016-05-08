@@ -57,7 +57,7 @@
       </div>
     <% end %>
 
-    <% @peeps.each do |peep| %>
+    <% @peeps.reverse.each do |peep| %>
       <li><%= peep.username %> peeped:- <%= peep.message %> at <%= peep.time %></li>
     <% end %>
 
