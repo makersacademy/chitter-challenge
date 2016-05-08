@@ -63,8 +63,19 @@ feature 'Posting peeps' do
     within 'div#peeps' do
       expect(page).not_to have_content('Hello world')
     end
-
   end
 
+  scenario 'peeps are listed in reverse chronological order' do
+    sign_in(email: user.email, password: user.password)
+    fill_in(:peep_text, with: 'First')
+    click_button('Post peep')
+    fill_in(:peep_text, with: 'Second')
+    click_button('Post peep')
+
+    within first('.peep') do
+      expect(page).to have_content('Second')
+      expect(page).not_to have_content('First')
+    end
+  end
 
 end

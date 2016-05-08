@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
   get '/users/:handle' do
     @user = User.first(handle: params[:handle])
     if @user
+      @peeps = @user.peeps(order: [:id.desc])
       erb :'users/index'
     else
       redirect '/'
