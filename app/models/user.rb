@@ -11,7 +11,7 @@ class User
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
-  #has n, :messages, :through => Resource
+  has n, :cheeps
 
 
   attr_reader :password

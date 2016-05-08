@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     message = Cheep.create(message: params[:msg])
-    message.save
+    current_user.cheeps << message
     if message.save
       redirect '/home'
     end

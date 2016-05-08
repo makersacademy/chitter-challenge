@@ -6,6 +6,5 @@ class Cheep
   property :id, Serial
   property :message, Text
 
-  #belongs_to :user
-
+  belongs_to :user
 end
