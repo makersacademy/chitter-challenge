@@ -1,5 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
+require "./app/models/peep"
+require "./app/models/user"
 require 'coveralls'
 require 'simplecov'
 require 'capybara'
