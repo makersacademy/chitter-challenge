@@ -13,6 +13,7 @@ end
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
+gem 'sinatra-partial'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'dm-validations'

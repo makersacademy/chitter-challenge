@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bookmark Manager</title>
-</head>
+	<title>Bookmark Manager</title></head>
+
 <body>
-  <% if flash[:notice] %>
-   <div id='notice'>
-     <%= flash[:notice] %>
-   </div>
- <% end %>
+  <%= partial :welcome %>
+  <%= partial :flash %>
 
-  <% if current_user %>
-  		Welcome, <%= current_user.username %>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-    <form method='get' action='/peeps/new'>
-      <input type='submit' value='New Peep'>
-    </form>
-    <% end %>
-
-  <% if flash[:errors] && !flash[:errors].empty? %>
-        Please refer to the following errors below:
-        <ul id='errors'>
-          <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-  <% end %>
- </ul>
- <% end %>
 
   <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
 </body>

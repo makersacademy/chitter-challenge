@@ -14,9 +14,63 @@ This challenge has been written in Ruby and test driven using RSpec and capybara
 
 The app utilises CRUD in order to add users to the database and to sign up, sign them in and sign them out. It uses two models User and Peeps to allow users to post and view peeps. A user can view peeps even if they are not signed but they cannot post a new peep without logging in. Emails and usernames are validated on signup for uniqueness and formatting. Passwords are confirmed by asking a user to enter their password twice.
 
+
 To run locally, clone this repository and run bundle from the command line. You will need to install postgress on your local machine and create two databases (chitter_test and chitter_development). The app is being hosted on heroku and can be found at https://rh-chitter.herokuapp.com/users/new.
 
 You will need to sign up and click new peep if you want to start chittering. Click sign out when you are done.
+
+File structure
+
+```.
+├── CONTRIBUTING.md
+├── Gemfile
+├── Gemfile.lock
+├── README.md
+├── Rakefile
+├── app
+│   ├── app.rb
+│   ├── controllers
+│   │   ├── peeps.rb
+│   │   ├── sessions.rb
+│   │   └── users.rb
+│   ├── data_mapper_setup.rb
+│   ├── models
+│   │   ├── peep.rb
+│   │   └── user.rb
+│   ├── server.rb
+│   └── views
+│       ├── _flash.erb
+│       ├── _welcome.erb
+│       ├── layout.erb
+│       ├── peeps
+│       │   ├── index.erb
+│       │   └── new.erb
+│       ├── sessions
+│       │   └── new.erb
+│       └── users
+│           └── new.erb
+├── config.ru
+├── coverage
+├── disabled.yml
+├── docs
+│   └── review.md
+├── enabled.yml
+└── spec
+    ├── features
+    │   ├── email_vaildation_spec.rb
+    │   ├── new_peep_spec.rb
+    │   ├── password_confirmation_spec.rb
+    │   ├── sign_in_spec.rb
+    │   ├── sign_out_spec.rb
+    │   ├── user_managements_spec.rb
+    │   └── view_all_peeps_spec.rb
+    ├── helpers
+    │   └── session.rb
+    ├── models
+    │   └── user_spec.rb
+    └── spec_helper.rb
+
+    ```
 
 
 * Challenge time: rest of the day and weekend, until Monday 9am
