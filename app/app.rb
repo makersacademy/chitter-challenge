@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/sign_up' do
+     @user = User.new
     erb :'users/user_sign_up_form'
   end
 

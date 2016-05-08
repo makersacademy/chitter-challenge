@@ -14,6 +14,14 @@ feature 'Users can sign up' do
 
   end
 
+  scenario 'data saved if password confirmation is incorrect' do
+    sign_up_incorrectly
+
+    expect(find_field('email').value).to eq('user@email.com')
+    expect(find_field('username').value).to eq('number1')
+    expect(find_field('name').value).to eq('First User')
+  end
+
 
 
 end
