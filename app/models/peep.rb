@@ -9,4 +9,6 @@ class Peep
 
   belongs_to :user
 
+  validates_presence_of :user, message: "only users can peep"
+
 end

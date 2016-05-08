@@ -1,22 +1,18 @@
 class Chitter < Sinatra::Base
 
   get '/peep' do
-    @peeps = Peep.all
-    erb :index
-  end
-
-  get '/peep/new' do
+    @peep = Peep.new
     erb :'peep/new'
   end
 
-  post '/peep/new' do
-    peep = Peep.create(content: params[:content])
-    peep.user = current_user
-    if peep.save
-      redirect '/peep'
+  post '/peep' do
+    @peep = Peep.create(content: params[:content])
+    @peep.user = current_user
+    if @peep.save
+      redirect '/'
     else
-      flash.next[:errors] = "only users can peep"
-      redirect '/session/new'
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :'peep/new'
     end
   end
 
