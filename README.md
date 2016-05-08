@@ -6,7 +6,7 @@ We are going to write a little Twitter clone that will allow the users to post m
 Features:
 -------
 
-```Users can, among other things: 
+Users can, among other things: 
 
 * Post messages on Chitter.
 
@@ -15,4 +15,3 @@ Features:
 * See all peeps.
 
 * See the time at which a message was made
-```
