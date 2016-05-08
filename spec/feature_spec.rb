@@ -3,6 +3,7 @@ require 'web_helpers'
 
 feature 'new user sign up' do
   scenario 'dont allow duplicate users' do
+    create_user_and_peep
     visit ('/register')
     fill_in "name", with: "Mara"
     fill_in "email", with: "mara@gmail.com"
@@ -42,10 +43,6 @@ feature 'display all peeps' do
         expect(page).to have_content "Sunday Funday"
       end
   end
-
-  # scenario 'display in reverse chronological order' do
-  #   create_user_and_peep
-  # end
 
   scenario 'display the time a peep was posted' do
     create_user_and_peep
