@@ -12,6 +12,10 @@ class Chitter < Sinatra::Base
   set :sesion_secret, 'super secret'
   register Sinatra::Flash
 
+  PASSWORD_FLASH = 'Passwords did not match'
+  EMAIL_FLASH = 'An account already exists with that email'
+  USERNAME_FLASH = 'An account already exists with that username'
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -42,9 +46,9 @@ class Chitter < Sinatra::Base
       session[:username] = user.username
       redirect '/feed'
     else
-      flash.now[:notice] = 'Passwords did not match' unless params[:password] == params[:password_confirmation]
-      flash.now[:notice] = 'An account already exists with that email' if User.first(email: params[:email])
-      flash.now[:notice] = 'An account already exists with that username' if User.first(username: params[:username])
+      flash.now[:notice] = PASSWORD_FLASH unless params[:password] == params[:password_confirmation]
+      flash.now[:notice] = EMAIL_FLASH if User.first(email: params[:email])
+      flash.now[:notice] = USERNAME_FLASH if User.first(username: params[:username])
       erb :sign_up
     end
   end
