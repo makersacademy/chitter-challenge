@@ -22,9 +22,16 @@
     </div>
 
     <% if flash[:errors] %>
-      <div id='errors'> <%=flash[:errors]%> </div>
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <a class="close" href="#popup1">&times;</a>
+          <div class="content">
+            <%=flash[:errors]%>
+          </div>
+        </div>
     <% end %>
 
     <%= yield %>
+
   </body>
 </html>

@@ -5,7 +5,7 @@ class Peep
 
   property :id, Serial
   property :content, String, length: 144,
-            message: {length: 'your peep is too long'}
+            message: 'your peep is too long'
   property :created_at, DateTime
 
   belongs_to :user
