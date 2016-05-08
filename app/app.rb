@@ -18,6 +18,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all
+    @message = params[:message]
+    # @owner = User.get(session[:user_id])
     erb :index
   end
 
@@ -59,6 +62,21 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye'
+    redirect '/'
+  end
+
+  get '/peeps/new' do
+    if !!User.get(session[:user_id])
+      erb :'peeps/new'
+    else
+      flash.now[:errors] = ['You must be logged in to Peep']
+      erb :'sessions/new'
+    end
+  end
+
+  post '/' do
+    peep = Peep.create(message: params[:message], owner: User.get(session[:user_id]).username, time: Time.now)
+    peep.save
     redirect '/'
   end
 

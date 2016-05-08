@@ -10,10 +10,28 @@
       <input type="submit" value='Sign in'></input>
     </form>
     <% else %>
+    <form action="/peeps/new" method="get">
+      <input type="submit" value='New Peep'></input>
+    </form>
       <form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value='Sign out'></input>
       </form>
+
+      <h2> Peeps </h2>
+      <ul id='messages'>
+        <% @peeps.reverse.each do |peep| %>
+          <li>
+            Peep: <%= peep.message %>
+            <br>
+            Peeper: <%= peep.owner %>
+            <br>
+            Time Posted: <%= peep.time.strftime("%d/%m/%Y %I:%M%p") %>
+            <br>
+            <br>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
   </body>
 </html>
