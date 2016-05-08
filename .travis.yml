@@ -4,7 +4,6 @@ rvm: '2.2.3'
 script:
   - mkdir -p spec && bundle exec rspec spec
 
-
 before_install:
 - sed -i '2d' Gemfile
 - sudo apt-get update -qq
@@ -12,3 +11,6 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
+
+services:
+  - postgresql
