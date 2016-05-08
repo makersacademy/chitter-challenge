@@ -57,6 +57,7 @@ https://github.com/makersacademy/course/blob/master/bookmark_manager/03_setting_
 
 Please type the following commands in a terminal window:
 
+```
 $ git clone https://github.com/rahulrama/chitter-challenge
 $ cd chitter-challenge
 $ bundle
@@ -64,6 +65,7 @@ $ createdb chitter_development
 $ rake db:auto_migrate
 $ rspec
 $ rackup -p 4567
+```
 
 Open up a browser and go to http://localhost:4567/
 
