@@ -76,9 +76,7 @@ class Chitter < Sinatra::Base
   #posting a new peep
   post '/peeps' do
     peep = Peep.new(content: params[:content])
-    user = current_user
-    user.peeps << peep
-    user.save
+    current_user.peeps << peep
     peep.save
     redirect '/peeps'
   end
