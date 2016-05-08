@@ -13,7 +13,7 @@ feature "signing up" do
               password: "my_password",
               password_confirmation: "my_password"}
     expect { sign_up(params) }.to change(User, :count).by(0)
-    expect(current_path).to eq '/users/new'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content "Name must not be blank Username must not be blank"\
                                  " Email must not be blank"
   end

@@ -3,3 +3,9 @@
     <%=error%>
   <%end%>
 <%end%>
+
+<%if flash[:password]%>
+  <% flash[:password].each do |password|%>
+    <%=password%>
+  <%end%>
+<%end%>

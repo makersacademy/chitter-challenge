@@ -31,9 +31,27 @@ describe User do
     end
   end
 
-  describe "setting password attribute" do
-    it "expects password attribute to equal given password" do
-      expect(user.password).to eq "my_password"
+  describe "generating a password token" do
+    it "stores a token in the database" do
+      expect{user.store_token}.to change{user.password_token}
+    end
+  end
+
+  describe "find a user by their token" do
+    context "when token is valid" do
+      it "returns a user" do
+        user.store_token
+        expect(User.find_by_token(user.password_token)).to eq user
+      end
+    end
+
+    context "when token is invalid (over an hour since generated)" do
+      it "returns nil" do
+        user.store_token
+        Timecop.travel(60 * 60 + 1) do
+          expect(User.find_by_token(user.password_token)).to eq nil
+        end
+      end
     end
   end
 end

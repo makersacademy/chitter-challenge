@@ -17,6 +17,7 @@ require "capybara/rspec"
 require "rspec"
 require "./app/app"
 require "database_cleaner"
+require "timecop"
 require_relative "helpers/session"
 
 Capybara.app = ChitterChallenge

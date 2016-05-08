@@ -1,6 +1,12 @@
-require 'timecop'
-
 feature "view peeps" do
+
+  scenario "view list of peeps as the homepage" do
+    sign_up
+    create_peep
+    visit "/"
+    expect(page).to have_content "My first peep"
+  end
+
   scenario "view list of peeps" do
     sign_up
     create_peep
