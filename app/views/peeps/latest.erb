@@ -10,17 +10,20 @@
       <ul id="peeps">
         <% @peeps.reverse.each do |peep| %>
         <div class=box>
-          <h1>
-            Peeped by: <%= peep.user_handle %></h1>
-            <br>
-            <p class="green">
-              <%= peep.created_at.strftime("Created on %A")%>
-              <%= peep.created_at.strftime("at %I:%M%p")%>
-            </p>
-            <h2>  <%= peep.body   %></h2>
-          </div>
-          <% end %>
+          <h2>
+            <span class="quote">”</span>
+            <%= peep.body %>
+          </h2>
+          <p class="user">
+            - <%= peep.user_handle %>
+          </p>
+          <p class="dateTime">
+            <b><%= peep.created_at.strftime("%A")%></b>
+            <%= peep.created_at.strftime("at %I:%M%p")%>
+          </p>
         </div>
+        <% end %>
       </div>
+    </div>
 
-    </body>
+  </body>

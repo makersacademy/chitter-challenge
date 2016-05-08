@@ -6,7 +6,7 @@ feature 'User can create a new peep' do
     time = d.strftime("%I:%M%p")
     within 'ul#peeps' do
       expect(page).to have_content 'first peep'
-      expect(page).to have_content 'Peeped by: alias'
+      expect(page).to have_content '- alias'
       expect(page).to have_content day
       expect(page).to have_content time
     end
