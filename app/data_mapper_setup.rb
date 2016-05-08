@@ -9,6 +9,4 @@ DataMapper.setup(:default,
                   "postgres://localhost/chitter_challenge_#{ENV["RACK_ENV"]}")
 DataMapper.finalize
 
-if ENV['RACK_ENV'] == 'test'
-  DataMapper.auto_migrate!
-end
+DataMapper.auto_migrate! if ENV['RACK_ENV'] == 'test'
