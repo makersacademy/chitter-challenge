@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require './app/data_mapper_setup'
+require_relative 'helpers/sessions'
 
 Capybara.app = ChitterChatter
 
@@ -59,23 +60,23 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-# RSpec.configure do |config|
-#
-#   config.before(:suite) do
-#     DatabaseCleaner.strategy = :transaction
-#     DatabaseCleaner.clean_with :truncation
-#   end
-#
-#   config.before :each do
-#     DatabaseCleaner.start
-#   end
-#
-#   config.after :each do
-#     DatabaseCleaner.clean
-#   end
-#   #config.include SessionHelpers
-#
-# end
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before :each do
+    DatabaseCleaner.start
+  end
+
+  config.after :each do
+    DatabaseCleaner.clean
+  end
+  config.include SessionHelpers
+
+end
 
 
 
