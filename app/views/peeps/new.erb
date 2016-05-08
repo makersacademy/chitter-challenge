@@ -1,4 +1,8 @@
-<form action="/peeps" method="post">
-  <textarea name="message"></textarea>
-  <input type="submit" value="Share"/>
-</form>
+<%if current_user %>
+  <form action="/peeps" method="post">
+    <textarea placeholder ="Write your peep..." name="message"></textarea>
+    <input type="submit" value="Share"/>
+  </form>
+<%else%>
+  <p>Please login to peep</p>
+<%end%>

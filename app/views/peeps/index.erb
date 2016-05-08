@@ -1,10 +1,11 @@
 <h1>Peeps</h1>
 
+
 <% @peeps.each do |peep| %>
-  <%=peep.user.name%>(@<%=peep.user.username%>)
+  <p><%=peep.user.name%>(@<%=peep.user.username%>)</p>
   <br>
-  "<%=peep.message%>"
+  <p>"<%=peep.message%>"</p>
   <br>
-  at <%=peep.created_at.strftime("%Y-%m-%d %H:%M")%>
+  <p>at <%=peep.created_at.strftime("%Y-%m-%d %H:%M")%></p>
   <br>
 <%end%>

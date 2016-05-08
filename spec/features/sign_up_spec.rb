@@ -26,9 +26,23 @@ feature "signing up" do
     expect(page).to have_content "Email has an invalid format"
   end
 
-  scenario "sign up with already taken email and username" do
-    sign_up
+  scenario "sign up with already taken username" do
+    params = {name: "Amy1",
+              username: "amynic",
+              email: "amy@gmail1.com",
+              password: "my_password"}
+    sign_up(params)
     expect { sign_up }.to change(User, :count).by(0)
-    expect(page).to have_content "Username is already taken Email is already taken"
+    expect(page).to have_content "Username is already taken"
+  end
+
+  scenario "sign up with already taken email" do
+    params = {name: "Amy",
+              username: "amynic1",
+              email: "amy@gmail.com",
+              password: "my_password"}
+    sign_up(params)
+    expect { sign_up }.to change(User, :count).by(0)
+    expect(page).to have_content "Email is already taken"
   end
 end

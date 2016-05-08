@@ -13,8 +13,11 @@ feature "create a new peep" do
     expect(page).to have_content "#{Time.now.strftime("%Y-%m-%d %H:%M")}"
   end
 
-  scenario "cannot create peep if no user" do
-    expect { create_peep }.to change(Peep, :count).by(0)
+  scenario "cannot write a peep if not logged in" do
+    sign_up
+    logout
+    visit "/peeps/new"
+    expect(page).to have_content "Please login to peep"
   end
 
   scenario "cannot create peep if no message" do

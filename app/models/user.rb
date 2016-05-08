@@ -4,6 +4,8 @@ require "dm-validations"
 class User
   include DataMapper::Resource
 
+  attr_reader :password
+
   property :id, Serial
   property :name, String, required: true
   property :username, String, required: true, unique: true
@@ -11,7 +13,16 @@ class User
 	property :password_digest, Text, required: true
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, attempted_password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == attempted_password
+      user
+    else
+      nil
+    end
+  end
 end
