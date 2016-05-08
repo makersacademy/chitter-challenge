@@ -1,8 +1,5 @@
 require './app/data_mapper_setup'
-require 'dm-core'
-require 'dm-timestamps'
 
-DataMapper.setup(:default, 'sqlite3::memory:')
 
 class Kweet
   include DataMapper::Resource

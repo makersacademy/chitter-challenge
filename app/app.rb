@@ -11,7 +11,6 @@ class Kwitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    @kweets = Kweet.all
     erb :index
   end
 
