@@ -13,7 +13,6 @@ Author: Sergio Enrech Trillo
 git clone https://github.com/tigretoncio/chitter-challenge
 cd chitter-challenge
 createdb chitter_development
-rake db:auto_migrate
 bundle
 rackup
 ```

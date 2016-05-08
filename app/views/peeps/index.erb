@@ -8,6 +8,9 @@
 <div class="wrapper">
   <div id="peep-list">
   <font class="emphasise-green">Latest Peeps...</font>
+  <form method='get' action='/peeps/new'>
+    <input type='submit' value='New Peep' class="button">
+  </form>
 
     <ul id="peeps">
       <% @peeps.each do |peep| %>
