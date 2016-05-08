@@ -7,8 +7,9 @@ feature 'user can sign up' do
   end
 
   scenario 'cannot sign up if password confirmation does not match' do
-    expect { sign_up(password_confirmation: 'apple') }.not_to change
-            (User, :count)
+    expect do
+      sign_up( password_confirmation: 'apple')
+    end.not_to change(User, :count)
     expect(page).to have_content 'Password and confirmation password do not match'
     expect(page).not_to have_content('Welcome, Alice')
   end
