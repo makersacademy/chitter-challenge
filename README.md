@@ -429,6 +429,144 @@ feature 'User signs out' do
 
 end
 ```
+want to get my database out of the way first
+make message.rb model and give to many to many relationship with users
+```
+class Message
+  include DataMapper::Resource
+
+  belongs_to :user
+
+  property :id,       Serial
+  property :post,     String, required: true
+  property :time,     String, required: true
+
+end
+```
+change to user.rb
+```
+class User
+  include DataMapper::Resource
+
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  has n, :messages
+```
+added to database_mapper.rb
+```
+require_relative 'models/message'
+```
+add feature test for creating a msg
+```
+#in web_helper
+def create_post(post:"Hello world!")
+  sign_up
+  sign_in
+  click_button 'New'
+  fill_in :post, with: post
+  click_button 'Create Post'
+end
+```
+```
+feature 'create message' do
+  scenario 'create new post' do
+    create_post
+    within 'ul#messages' do
+      expect(page).to have_content('Hello world!')
+    end
+  end
+end
+```
+displaying messages
+```
+feature 'display messages' do
+  scenario 'displays message, username, name and time' do
+    allow(Time).to receive(:new).and_return("2009-06-24 12:39:54 +0900")
+    create_post
+    within 'ul#messages' do
+      expect(page).to have_content('Hello world!')
+      expect(page).to have_content("2009-06-24 12:39:54 +0900")
+      expect(page).to have_content('Alice Wonder')
+      expect(page).to have_content('nyancat')
+    end
+  end
+end
+```
+changes to app.rb
+```
+get '/' do
+  redirect '/messages'
+end
+
+get '/messages' do
+  @messages = Message.all
+  erb :'messages/index'
+end
+
+get '/messages/new' do
+  erb :'messages/new'
+end
+
+post '/messages' do
+  message = Message.new(post:params[:post], time:params[:time])
+  current_user.messages << message
+  message.save
+  redirect '/messages'
+end
+```
+create messages index.erb
+```
+
+<head>
+</head>
+
+<body>
+  <ul id="messages">
+  <% @messages.reverse.each do |message| %>
+    <li>
+      Name: <%= message.user.name %><br>
+      Username: <%= message.user.username %><br>
+      Post: <%= message.post %><br>
+      Time Posted: <%= message.time %><br><br>
+    </li>
+  <% end %>
+  </ul>
+  <% if current_user %>
+    <form action="/messages/new" method="get">
+      <input type="submit" value="New">
+    </form>
+  <% end %>
+  <% if !current_user %>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up">
+    </form>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Sign in">
+    </form>
+  <% end %>
+
+</body>
+
+```
+create messages/new.erb
+```
+<h1> New Post </h1>
+
+<form action="/messages" method="post">
+  <label for="post">
+    Post:<br><br>
+    <input type="text" name="post">
+  </label>
+  <label for='time'>
+    <input type='hidden' name='time' value= "<%= Time.new %>" >
+  </label>
+  <br><br>
+  <input type="submit" value="Create Post">
+</form>
+
+```
+
 
 
 

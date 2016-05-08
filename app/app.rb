@@ -22,8 +22,19 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    # @messsages = Messages.all
+    @messages = Message.all
     erb :'messages/index'
+  end
+
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    message = Message.new(post:params[:post], time:params[:time])
+    current_user.messages << message
+    message.save
+    redirect '/messages'
   end
 
   get '/users/new' do

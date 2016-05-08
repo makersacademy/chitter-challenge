@@ -15,3 +15,11 @@ def sign_in(email:'alice@example.com', password:'oranges!')
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def create_post(post:"Hello world!")
+  sign_up
+  sign_in
+  click_button 'New'
+  fill_in :post, with: post
+  click_button 'Create Post'
+end
