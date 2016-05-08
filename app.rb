@@ -81,5 +81,16 @@ class Chitter < Sinatra::Base
     redirect '/peeps/index'
   end
 
+  #filtering peeps
+
+  post '/peeps/mine' do
+    redirect "/peeps/#{current_user.username}"
+  end
+
+  get '/peeps/:username' do
+    @peeps = User.first(username: params[:username]).peeps
+    erb :'peeps/index'
+  end
+
   run! if app_file == $0
 end
