@@ -8,13 +8,20 @@ p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 
 .bg-1 { 
-  background-color: #1abc9c; /* Green */
+  background-image: url(/images/ignasi.png);
+  background-repeat: repeat;
+  color: #ffffff;
+}
+
+.bg-4 { 
+  background-color: #2F2F2F;
   color: #ffffff;
 }
 
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
+  color: #2F2F2F;
 }
 
 .navbar {
@@ -47,11 +54,13 @@ textarea {
 
 #peeps {
   background-color: white;
-  border: solid;
+  border-style: double;
   border-radius: 10px;
   border-color: #2F2F2F;
-  color: #2F2F2F;
+  color: #3384AC;
   margin-top: 10px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 #peeps h3 { 
@@ -69,4 +78,10 @@ textarea {
   text-align: right;
   margin-right: 10px;
   color: #e6005c;
+}
+
+p.credit{
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  line-height: 0.5;
 }
