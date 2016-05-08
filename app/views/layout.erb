@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
+    <title>Chitter</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <!-- <link href="/css/application.cs s" rel="stylesheet" type="text/css"> -->
+
   </head>
-
   <body>
-    <%= partial :welcome %>
+    <%= partial :nav %>
     <%= partial :flash %>
-
-    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    <%= yield %>
   </body>
 </html>
