@@ -43,12 +43,14 @@ feature 'User sign up' do
 
   scenario 'Already existing email address' do
     sign_up
+    click_button 'Log out'
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
   end
 
   scenario 'Already existing username' do
     sign_up
+    click_button 'Log out'
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Username is already taken')
   end
