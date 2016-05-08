@@ -9,6 +9,9 @@ require 'capybara/rspec'
 require 'rspec'
 require 'coveralls'
 require 'simplecov'
+require './models/user'
+
+
 
 Capybara.app = Chitter
 
