@@ -13,7 +13,8 @@ require './app/data_mapper_setup.rb'
 require_relative './helpers/session'
 require 'coveralls'
 require 'simplecov'
-
+require 'orderly'
+require 'time'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

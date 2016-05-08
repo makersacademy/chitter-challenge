@@ -7,6 +7,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
   gem 'capybara'
+  gem 'orderly'
 end
 
 group :utility do
