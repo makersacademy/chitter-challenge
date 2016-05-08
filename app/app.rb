@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 # require_relative 'models/link'
 require_relative 'models/data_mapper_setup'
 
@@ -9,7 +10,11 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   register Sinatra::Flash
+  register Sinatra::Partial
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
@@ -22,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign_up' do
-    erb :signup
+    erb :sign_up
   end
 
   post '/users' do
@@ -37,13 +42,24 @@ class Chitter < Sinatra::Base
       @name = params[:name]
       @username = params[:username]
       @email = params[:email]
-      erb :signup
+      erb :sign_up
+    end
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :index
     end
   end
 
   get '/peeps' do
-  #   @links = Link.all
-  #   erb :links
+    # @peeps = Peep.all
+    erb :peeps
   end
 
   # post '/links' do

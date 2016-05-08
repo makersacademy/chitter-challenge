@@ -7,6 +7,7 @@ gem 'database_cleaner'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 gem 'coveralls', require: false
 
 group :test do

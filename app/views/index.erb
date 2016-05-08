@@ -1,9 +1,20 @@
 <h1>Chitter</h1>
 
+<form action="/sessions" method="post">
+	<div>
+		<label for="email">Email: </label><br>
+		<input type="text" name="email" required>
+	</div>
+
+	<div>
+		<label for="password">Password: </label><br>
+		<input type="password" name="password" required>
+	</div>
+
+	<button type="submit" value="sign_in">Sign in</button>
+</form>
+<br>
 <form action="/sign_up" method="get">
 	<button type="submit" value="sign_up">Sign up</button>
 </form>
 
-<form action="/sign_in" method="get">
-	<button type="submit" value="sign_in">Sign in</button>
-</form>
