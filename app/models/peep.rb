@@ -5,12 +5,10 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :user, String, required: true
   property :message, String
-  property :time_posted, String
+  property :time_posted, Time
+  property :username, String
 
-  def self.time(time = Time)
-    @time_posted = time.now.strftime("%I:%M%p,%e %b %Y")
-  end
+  belongs_to :user
 
 end

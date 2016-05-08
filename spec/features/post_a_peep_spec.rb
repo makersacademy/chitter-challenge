@@ -43,12 +43,12 @@ feature 'Post a peep' do
   end
 
   scenario 'Peeps show the time they were posted' do
-    allow_any_instance_of(Time).to receive(:strftime) { "12:00AM, 1 Jan 2000" }
     sign_in(user.username, user.password)
     peep("Peep")
-
-    li = page.all('li')
-    expect(li[0]).to have_content "12:00AM, 1 Jan 2000"
+    my_peep = Peep.first(message:"Peep")
+    time = my_peep.time_posted.strftime("%I:%M%p,%e %b %Y")
+    
+    expect(page).to have_content time
   end
 
 
