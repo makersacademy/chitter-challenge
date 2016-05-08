@@ -12,36 +12,24 @@ feature 'Sign in' do
   end
 
   scenario 'signing in logs the user in' do
-    visit '/'
-    within 'form#sign_in' do
-      fill_in(:email, with: user.email)
-      fill_in(:pwd, with: user.password)
-      click_button 'Sign in'
-    end
-
+    sign_in(email: user.email, password: user.password)
     expect(current_path).to eq "/users/#{user.handle}"
     expect(page).to have_content "#{user.name}"
+    expect(page).to have_selector("input[type=submit][value='Sign out']")
+    expect(page).not_to have_selector("input[type=submit][value='Sign in']")
   end
 
   scenario 'incorrect email does not allow login' do
-    visit '/'
-    within 'form#sign_in' do
-      fill_in(:email, with: 'wrong@email.com')
-      fill_in(:pwd, with: user.password)
-      click_button 'Sign in'
-    end
-
+    sign_in(email: 'wrong@email.com', password: user.password)
     expect(current_path).to eq '/'
+    expect(page).to have_selector("input[type=submit][value='Sign in']")
+    expect(page).not_to have_selector("input[type=submit][value='Sign out']")
   end
 
   scenario 'incorrect password does not allow login' do
-    visit '/'
-    within 'form#sign_in' do
-      fill_in(:email, with: user.email)
-      fill_in(:pwd, with: 'wrong')
-      click_button 'Sign in'
-    end
-
+    sign_in(email: user.email, password: 'wrong')
     expect(current_path).to eq '/'
+    expect(page).to have_selector("input[type=submit][value='Sign in']")
+    expect(page).not_to have_selector("input[type=submit][value='Sign out']")
   end
 end

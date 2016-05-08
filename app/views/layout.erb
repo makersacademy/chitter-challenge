@@ -6,16 +6,20 @@
 
   <body>
     <header>
-      <h1>CHITTER</h1>
-
-      <form id='sign_in' action='/sessions' method='post'>
-        <label for='email'>Email:
-          <input type='email' name='email' required />
-        </label>
-        <label for='pwd'>Password:
-          <input type='password' name='pwd' required />
-        </label>
-        <input type='submit' value='Sign in' />
+      <h1><a href="/<%= "users/#{session[:user_handle]}" %>">CHITTER</a></h1>
+      <form id='sign_in_out' action='/sessions' method='post'>
+        <% if session[:user_handle] %>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out' />
+        <% else %>
+          <label for='email'>Email:
+            <input type='email' name='email' required />
+          </label>
+          <label for='pwd'>Password:
+            <input type='password' name='pwd' required />
+          </label>
+          <input type='submit' value='Sign in' />
+        <% end %>
       </form>
 
     </header>

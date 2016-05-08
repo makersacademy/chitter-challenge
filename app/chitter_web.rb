@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require './app/datamapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -30,7 +31,7 @@ class Chitter < Sinatra::Base
                 password: params[:pwd],
                 password_confirmation: params[:pwd_confirm])
     if user.save
-      session[:user_id] = user.id
+      session[:user_handle] = user.handle
       redirect "/users/#{user.handle}"
     else
       flash.next[:pwd] = 'Passwords don\'t match' unless params[:pwd] == params[:pwd_confirm]
@@ -43,12 +44,18 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:pwd])
     if user
-      session[:user_id] = user.id
+      session[:user_handle] = user.handle
       redirect "/users/#{user.handle}"
     else
       flash.next[:sign_in] = 'The email or password is incorrect'
       redirect '/'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_handle] = nil
+    flash.next[:sign_out] = 'You have signed out'
+    redirect '/'
   end
 
   run! if app_file == $0
