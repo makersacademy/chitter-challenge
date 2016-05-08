@@ -4,7 +4,7 @@ module Helpers
   end
 
   def create_user
-    @user = User.create(name: params[:name],
+    User.create(name: params[:name],
     username: params[:user_name],
     email: params[:email],
     password: params[:password],
