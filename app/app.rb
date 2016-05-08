@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   def list_peeps 
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(:order => [:created_at.desc ])
     erb :index     
   end
 

@@ -2,7 +2,7 @@
   <title>Chitter</title>
 </head>
 
-<% if @user != nil %> Username: <%= @user.handle %> <% end %> 
+<% if @user != nil %> Handle: <%= @user.handle %> <% end %> 
 
 <form action='/new' method='post'>
   <input type='text' name='text' />
@@ -36,7 +36,7 @@
   <label for='password'> Password </label>
   <input type='password' name='password'>
   <br>
-  <input type='submit' value='login'>
+  <input type='submit' value='log in'>
 </form>
 
 <% else %>
