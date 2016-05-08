@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter Challenge [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/omajul85/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/omajul85/chitter-challenge?branch=master)
 =================
 
 **Author:** Omar Alvarez
