@@ -3,6 +3,8 @@ require_relative 'models/user'
 require_relative 'models/peep'
 
 
+ENV['RACK_ENV'] ||= "development"
+
 class Chitter < Sinatra::Base
 
   get '/peeps' do
