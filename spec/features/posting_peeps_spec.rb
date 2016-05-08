@@ -2,6 +2,14 @@
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
 
+# As a maker
+# So that I can see what others are saying
+# I want to see all peeps in reverse chronological order
+
+# As a maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
+
 feature 'Posting peeps' do
   let(:user) do
     User.create(name: 'Michael H',
@@ -32,6 +40,9 @@ feature 'Posting peeps' do
         end
         within 'div.handle' do
           expect(page).to have_content('mikeh91')
+        end
+        within 'div.timestamp' do
+          expect(page).to have_content(Time.now.strftime("%d %b '%y - %H:%M"))
         end
         within 'div.message' do
           expect(page).to have_content('Hello world')
