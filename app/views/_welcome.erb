@@ -1,0 +1,10 @@
+<%if current_user %>
+  Hello <%= current_user.name%>!
+  <a href="/sessions/logout" value="Logout">Logout</a>
+<%else%>
+  <form action="/sessions/login" method="post">
+    <input placeholder ="Email" type="email" name="emailLogin" value="<%=flash[:email]%>" required/>
+    <input placeholder ="Password" type="password" name="passwordLogin" required/>
+    <input type="submit" value="Login"/>
+  </form>
+<%end%>
