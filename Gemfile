@@ -11,6 +11,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 end
 
+gem 'bcrypt'
 
 group :test do
 gem 'capybara'
