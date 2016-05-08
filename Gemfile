@@ -6,5 +6,13 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
-end
+  gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'capybara'
+gem 'rspec-sinatra'
+gem 'database_cleaner'
+gem 'sinatra'
+gem 'rake'
+gem 'bcrypt'
 
+end
