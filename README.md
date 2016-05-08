@@ -15,6 +15,7 @@ Challenge:
 -------
 
 My task was to write a little Twitter clone that will allow the users to post messages to a public stream.
+A preview of the app can be found [here.](https://chitter-emma.herokuapp.com/) 
 
 Features:
 -------
