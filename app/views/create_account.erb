@@ -9,16 +9,18 @@
     <div id='fields'>
       <h3>your details</h3>
       <label for='name'>name</label>
-        <input type='text' name='name'>
+        <input type='text' name='name' value='<%=@user.name%>'>
       <br>
       <label for='email'> email</label>
-        <input type='text' name='email'>
+        <input type='text' name='email' value='<%=@user.email%>'>
       <br>
       <label for='handle'>handle</label>
-        <input type='text' name='handle'>
+        <input type='text' name='handle' value='<%=@user.handle%>'>
       <br>
-      <label for='password'>password</label>
-        <input type='text' name='password'>
+      <label for='password'>password: </label>
+        <input type='password' name='password'>
+      <label for='password_confirmation'>password: </label>
+        <input type='password' name='password_confirmation'>
     </div>
     <div id='submit'>
       <input type='submit' value='create your chittr account'>

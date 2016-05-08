@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
+    <title>Chitter</title>
   </head>
 
   <body>
     <% if current_user %>
       Welcome, <%= current_user.name %>
     <% end %>
-    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
-  </body>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
 </html>

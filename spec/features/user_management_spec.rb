@@ -17,3 +17,11 @@ feature 'creating a new user' do
     expect(User.first.email).to eq('alice@lookingglass.com')
   end
 end
+
+feature 'Password confirmation' do
+  scenario 'requires a matching confirmation password' do
+    expect { create_an_account(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/new_account')
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
+end
