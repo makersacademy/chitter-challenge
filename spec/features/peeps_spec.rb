@@ -43,6 +43,7 @@ feature 'Peeps' do
   context 'sorting peeps' do
     scenario 'peeps are sorted in reversed chrono order' do
       sign_in_and_peep("older peep")
+      Kernel.sleep(0.3)
       visit '/peeps/new'
       fill_in :message, with: "newer peep"
       click_button "Submit"
