@@ -62,9 +62,9 @@ class Kwitter < Sinatra::Base
 
   post '/kweet' do
     owner = @user
-    kweet = Kweet.create(message: params[:message], owner: owner)
+    kweet = Kweet.create(message: params[:message], owner: current_user.user_name )
     if kweet.save
-      redirect to('/user')
+      redirect to('/')
     else
       flash.now[:errors] = kweet.errors.full_messages
       erb :'kweet/new'
