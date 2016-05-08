@@ -6,7 +6,7 @@ feature 'User sign in and out' do
 
   scenario 'sign in with correct credentials' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content "Welcome, #{user.name.split.first}"
   end
 
   scenario 'sign in with incorrect credentials' do

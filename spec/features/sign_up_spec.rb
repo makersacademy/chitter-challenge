@@ -1,7 +1,7 @@
 feature 'User sign up' do
   scenario 'I can sign up as a new user' do
     expect { sign_up(SessionHelpers::PARAMS_CORRECT) }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, pepe@gmail.com')
+    expect(page).to have_content('Welcome, Pepe')
     expect(User.first.email).to eq('pepe@gmail.com')
     expect(User.first.name).to eq("Pepe Domingo Castaño")
     expect(User.first.username).to eq("pepe1purito!")

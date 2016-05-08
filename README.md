@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/tigretoncio/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/tigretoncio/chitter-challenge?branch=master) [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/tigretoncio/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/tigretoncio/chitter-challenge?branch=master) [![Build Status](https://travis-ci.org/tigretoncio/chitter-challenge.svg?branch=master)](https://travis-ci.org/tigretoncio/chitter-challenge)
 
 Chitter Challenge
 =================
@@ -12,6 +12,8 @@ Author: Sergio Enrech Trillo
 ```sh
 git clone https://github.com/tigretoncio/chitter-challenge
 cd chitter-challenge
+createdb chitter_development
+rake db:auto_migrate
 bundle
 rackup
 ```
@@ -26,9 +28,32 @@ About Chitter:
 * A reply is just another peep created when click on the reply link, which automatically starts populating the peep with the @username of the person who we are replying to.
 
 
+What has been used
+------
+TEST
+* RSpec
+* Capybara
+* Orderly
+* Coveralls
+* Orderly
+DATABASES
+* Database Cleaner
+ORM
+* DataMapper
+MVC
+* Sinatra, (modular and with partials)
+SECURITY
+* BCrypt
+CONTINUOUS INTEGRATION
+* Travis CI
+OTHERS
+* Rake
+
+
 
 Pending improvements
 -------------
 * Forgotten password functionality
 * Delete posts
+* Beauty makeup
 

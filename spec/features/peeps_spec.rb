@@ -4,9 +4,9 @@ feature 'Peeps' do
   end
 
   context 'main page ' do
-    scenario 'on main page I am welcomed' do
+    scenario 'on main page I am redirected to peeps' do
       visit '/'
-      expect(page).to have_content "Welcome"
+      expect(current_path).to eq '/peeps'
     end
   end
 

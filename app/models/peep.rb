@@ -1,5 +1,3 @@
-require 'data_mapper'
-
 class Peep
   include DataMapper::Resource
 

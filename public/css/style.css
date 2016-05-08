@@ -1,0 +1,154 @@
+body {
+  background-color: #e6fce6;
+  font-family: Helvetica;
+}
+
+a:link {
+  text-decoration: none;
+  color: green;
+}
+
+a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #006400;
+}
+
+#nav-left {
+  margin: -10px 0px 0px 0px;
+  float: left;
+  height: 100px;
+  width: 200px;
+}
+
+#header {
+  height: auto;
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  border: 4px dashed #b9e0b9;
+  color: green;
+}
+
+#home-link {
+  font-size: 20px;
+  position: relative;
+  margin-left: 15px;
+}
+
+#nav-right {
+  float: right;
+  margin-top: 20px;
+}
+
+#log-out-button {
+  display: inline;
+  float:right;
+  margin-left: 10px;
+}
+
+#log-in-button {
+  display: inline;
+  float:right;
+  margin-left: 10px;
+}
+
+#sign-up-button {
+  display: inline;
+  float:right;
+  margin-left: 10px;
+}
+
+#view-peeps-button {
+  display: inline;
+  float:right;
+  margin-left: 10px;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: #b9e0b9;
+  border: 1px green solid;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.user-form {
+  margin: 0 auto;
+  height: auto;
+  display: inline-block;
+  overflow: visible;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  border: 4px dashed #b9e0b9;
+  position: relative;
+  text-align: left;
+  padding: 20px;
+  width: 220px;
+}
+
+#peep-form {
+  display: inline-block;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#peep-form input[type=text] {
+  padding: 5px;
+  width: 250px;
+}
+
+.user-form input {
+  width: 100%;
+  clear: both;
+  padding: 5px;
+}
+
+#peep-list {
+  margin: 0 auto;
+  height: auto;
+  width: auto;
+  display: inline-block;
+  overflow: visible;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  border: 4px dashed #b9e0b9;
+  position: relative;
+  text-align: left;
+  padding: 20px;
+}
+
+.emphasise-green {
+  color: green;
+  font-weight: bolder;
+}
+
+.emphasise-black {
+  color: black;
+  font-weight: bolder;
+}
+
+.errors {
+  display: inline-block;
+}
+
+.label {
+  
+}
