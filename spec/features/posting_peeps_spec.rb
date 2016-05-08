@@ -12,14 +12,16 @@ feature 'posting peeps' do
     expect{click_button 'peep'}.not_to change(Peep, :count)
     expect(page).to have_content "only users can peep"
     expect(current_path).to eq "/peep"
-    expect(page).to have_content "Look at my dinner...."
+    expect(find_field('content').value).to eq "Look at my dinner...."
+
   end
 
-  xscenario "max peep length of 144 chars" do
-    # peep = 'p' * 144
-    # sign_in
-    # visit '/peep/new'
-    # fill_in :content, with: peep
-    # expect{click_button 'peep'}.to change(Peep, :count).by 1
+  scenario "max peep length of 144 chars" do
+    peep_message = 'p' * 144
+    too_long_message = 'p' * 145
+    sign_in
+    expect{peep peep_message}.to change(Peep, :count).by 1
+    expect{peep too_long_message}.not_to change(Peep, :count)
+    expect(page).to have_content "your peep is too long"
   end
 end

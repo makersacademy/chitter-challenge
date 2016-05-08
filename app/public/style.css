@@ -7,3 +7,9 @@
   display: block;
   border-bottom: 1px solid #e5e5e5;
 }
+
+.peep_box {
+  width: 150px;
+  height: 55px;
+  word-wrap: break-word;
+}
