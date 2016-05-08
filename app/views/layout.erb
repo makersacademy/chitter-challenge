@@ -16,8 +16,10 @@
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
-  	<% end %>
-    
+    <form method='get' action='/peeps/new'>
+      <input type='submit' value='New Peep'>
+    <% end %>
+
   <% if flash[:errors] && !flash[:errors].empty? %>
         Please refer to the following errors below:
         <ul id='errors'>

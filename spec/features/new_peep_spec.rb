@@ -19,6 +19,13 @@ feature 'post new peep' do
       expect(page).to have_content('This is my first peep')
       expect(page).to have_content("#{user.name}")
       expect(page).to have_content("#{user.username}")
+      expect(page).to have_content("#{Time.now.strftime("%H:%M %d/%m/%Y")}")
     end
+end
+feature 'Have to be signed in to post to Chitter' do
+    scenario 'cannot post peep if not signed in' do
+      expect{create_peep}.not_to change(Peep, :count)
+    end
+
   end
 end

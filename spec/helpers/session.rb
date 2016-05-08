@@ -21,4 +21,10 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
+
+  def create_peep(message = "This is my first peep")
+    visit '/peeps/new'
+    fill_in :peep,   with: message
+    click_button 'Peep!'
+  end
 end

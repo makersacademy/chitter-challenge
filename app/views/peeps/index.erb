@@ -5,7 +5,9 @@
     <li>
       User: <%= peep.user.username %>
       Name:   <%= peep.user.name  %>
+      Time: <%= peep.created_at.strftime("%H:%M %d/%m/%Y" )%>
       Peep:   <%= peep.peep   %>
+
     </li>
   <% end %>
 </ul>
