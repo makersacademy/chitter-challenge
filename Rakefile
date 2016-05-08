@@ -1,3 +1,4 @@
+require "data_mapper"
 require "./app/app.rb"
 
 if ENV["RACK_ENV"] != "production"
@@ -7,8 +8,6 @@ if ENV["RACK_ENV"] != "production"
 
   task default: [:spec]
 end
-
-require "data_mapper"
 
 namespace :db do
   desc "Non destructive upgrade"

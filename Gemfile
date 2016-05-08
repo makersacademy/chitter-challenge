@@ -10,12 +10,13 @@ gem "data_mapper"
 gem "dm-postgres-adapter"
 gem "pg"
 gem "database_cleaner"
-gem "rake"
+
 
 group :test do
   gem "rspec"
   gem "capybara"
   gem "rspec-sinatra"
   gem "cucumber"
+  gem "rake"
   gem "coveralls", require: false
 end
