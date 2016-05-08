@@ -14,11 +14,21 @@ end
 
 feature 'Writing peeps' do
 
-  scenario 'I can create a new peep' do
+  before do
+    sign_up
+    sign_in(email: 'john@example.com', password: '123456')
     visit '/peeps/new'
     fill_in 'peep',   with: 'I am peeping!'
     click_button 'Peep!'
+  end
+
+  scenario 'I can create a new peep' do
     expect(current_path).to eq '/'
     expect(page).to have_content('I am peeping!')
+  end
+
+  scenario 'There is a time stamp for when I created a peep' do
+    expect(current_path).to eq '/'
+    expect(page).to have_content Time.now
   end
 end

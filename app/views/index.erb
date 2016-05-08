@@ -5,6 +5,10 @@
 <form action='/users/new' method='get'>
   <input type='submit' value='Sign Up'>
 </form>
+</else>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Peep!'>
+  </form>
 <% end %>
 
 <h1>Home Page</h1>
@@ -13,8 +17,8 @@
 <ul id='tweets'>
   <% @peeps.each do |peep| %>
     <li>
-
-      Peep:   <%= peep.peep   %>
+     <%= peep.username %>: <%= peep.peep   %>
+     <%= peep.time %>
     </li>
   <% end %>
 </ul>

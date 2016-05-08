@@ -23,22 +23,26 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peeps.all
+    @peeps = Peeps.all.reverse
     erb :index
   end
 
   get '/peeps/new' do
+    @peep = Peeps.new
     erb :'peeps/new'
   end
 
   post '/peeps' do
-  Peeps.create(peep: params[:peep])
-  redirect to('/')
-end
+    peep = Peeps.create(peep: params[:peep],
+                        username: current_user.username,
+                        time: Time.new)
+    peep.save
+    redirect '/'
+  end
 
 
   get '/users/new' do
-     @user = User.new
+    @user = User.new
     erb :'users/new'
   end
 
