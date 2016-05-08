@@ -1,0 +1,13 @@
+<h1> New Post </h1>
+
+<form action="/messages" method="post">
+  <label for="post">
+    Post:<br><br>
+    <input type="text" name="post">
+  </label>
+  <label for='time'>
+    <input type='hidden' name='time' value= "<%= Time.new %>" >
+  </label>
+  <br><br>
+  <input type="submit" value="Create Post">
+</form>

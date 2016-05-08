@@ -1,0 +1,15 @@
+<h1>Please sign in</h1>
+<h1> Sign in </h1>
+<form action="/sessions" method="post">
+  <label for="email">
+    Email:<br><br>
+    <input type="text" name="email" pattern="^.+@.+\..+$" required>
+  </label>
+  <br><br>
+  <label for='password'>
+    Password:<br><br>
+    <input type='password' name='password' required>
+  </label>
+  <br><br>
+  <input type="submit" value="Sign in">
+</form>
