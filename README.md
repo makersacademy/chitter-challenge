@@ -1,5 +1,21 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+
+Approach
+-------
+
+Author: Robin Heathcote
+4th Individual challenge at Makers Academy
+
+This challenge has been written in Ruby and test driven using RSpec and capybara. It uses a postgres database and datamapper as an ORM. For development the app was run on a local sinatra server. Bcrypt has been used to encode passwords as they have been stored in the database so that real passwords were not stored.
+
+The app utilises CRUD in order to add users to the database and to sign up, sign them in and sign them out. It uses two models User and Peeps to allow users to post and view peeps. A user can view peeps even if they are not signed but they cannot post a new peep without logging in. Emails and usernames are validated on signup for uniqueness and formatting. Passwords are confirmed by asking a user to enter their password twice.
+
+To run locally, clone this repository and run bundle from the command line. You will need to install postgress on your local machine and create two databases (chitter_test and chitter_development). The app is being hosted on heroku and can be found at https://rh-chitter.herokuapp.com/users/new.
+
+You will need to sign up and click new peep if you want to start chittering. Click sign out when you are done. 
+
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
@@ -77,7 +93,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +111,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +121,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
