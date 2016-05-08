@@ -1,0 +1,20 @@
+<h2> Welcome, <%= @user.username %>! </h2>
+
+<form action="/logout" method="post">
+  <input type="submit" value="Log out">
+</form>
+<br>
+<form action="/feed" method="post">
+  <input type="text" name="content" maxlength="140">
+  <input type="submit" value="Peep">
+</form>
+
+
+<ul>
+<% @peeps.each do |peep| %>
+<li>
+  <%= peep.content %>
+  <%= peep.time %>
+</li>
+<% end %>
+</ul>

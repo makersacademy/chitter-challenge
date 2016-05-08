@@ -1,7 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require './app/data_mapper_setup'
+# require './app/data_mapper_setup'
 require 'bcrypt'
+
 
 class User
 
@@ -11,33 +12,25 @@ class User
   property :email, String
   property :name, String
   property :username, String
-  property :password, Text
   property :password_digest, Text
 
+  attr_reader :password
   validates_presence_of :password
 
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
+  has n, :peeps 
+
+  def password=(new_password)
+    @password = new_password
+    self.password_digest = BCrypt::Password.create(new_password)
   end
 
   def self.authenticate(username, password)
     user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
-      @current_user = user
+      user
     else
-      nil
+      ""
     end
   end
-
-  def log_out
-    @current_user = nil
-  end
-
-  def current_user
-    @current_user
-  end
-
-
 
 end

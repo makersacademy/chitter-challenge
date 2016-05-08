@@ -12,3 +12,7 @@ gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'rake', '10.4.2'
 gem 'bcrypt'
+
+group :test do
+  gem 'pry'
+end
