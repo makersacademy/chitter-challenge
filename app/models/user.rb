@@ -24,10 +24,20 @@ class User
   def self.authenticate(username, password)
     user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
-      user
+      @current_user = user
     else
-      'nil'
+      nil
     end
   end
+
+  def log_out
+    @current_user = nil
+  end
+
+  def current_user
+    @current_user
+  end
+
+
 
 end
