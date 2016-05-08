@@ -1,0 +1,12 @@
+<h1>Chitter</h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.user.name %>@<%= peep.user.username %></br>
+    "<%=peep.message%>"</br>
+    at <%=peep.time_made.strftime("%Y-%m-%d %H:%M")%></br>
+    </br>
+</li>
+<%end%>
+</ul>

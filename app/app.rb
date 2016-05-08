@@ -15,28 +15,10 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   set :session_secret, 'super secret'
 
-
-  get '/users/new' do
-    @user = User.new
-    erb :'users/new'
-  end
-
-  post '/users' do
-    @user = User.create(name: params[:name],
-      username: params[:username],
-      email: params[:email],
-      password: params[:password],
-      password_confirmation: params[:password_confirmation])
-    if @user.valid?
-      session[:user_id] = @user.id
-      redirect to('/peeps')
-    else flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
-    end
-  end
-
-  get '/peeps' do
-    erb :'peeps'
+  helpers do
+   def current_user
+     @current_user ||= User.get(session[:user_id])
+   end
   end
 
   get '/sessions/new' do
@@ -60,10 +42,44 @@ class Chitter < Sinatra::Base
     redirect to '/sessions/new'
   end
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
+  get '/users/new' do
+    @user = User.new
+    erb :'users/new'
+  end
+
+  post '/users' do
+    @user = User.create(name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if @user.valid?
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
+  end
+
+  get "/peeps" do
+    @peeps = Peep.all(order: [:time_made.desc])
+    erb :"peeps/index"
+  end
+
+  get "/peeps/new" do
+    erb :"peeps/new"
+  end
+
+  post "/peeps" do
+    peep = Peep.create(user: current_user,
+                       message: params[:message],
+                       time_made: Time.now)
+    if peep.id.nil?
+      flash[:errors] = peep.errors.full_messages
+      redirect to "/peeps/new"
+    else
+      redirect to "/peeps"
+    end
   end
 
   # start the server if ruby file executed directly

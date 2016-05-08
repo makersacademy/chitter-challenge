@@ -8,6 +8,7 @@ require 'rspec'
 require './app/app'
 require 'database_cleaner'
 require 'tilt/erb'
+require 'orderly'
 require_relative 'helpers/session'
 
 RSpec.configure do |config|

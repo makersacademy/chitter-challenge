@@ -1,0 +1,8 @@
+<%if current_user %>
+  <form action="/peeps" method="post">
+    <textarea placeholder ="Enter your message here..." name="message"></textarea>
+    <input type="submit" value="Peep!"/>
+  </form>
+<%else%>
+  <p>Please login in order to peep</p>
+<%end%>
