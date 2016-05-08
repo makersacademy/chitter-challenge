@@ -5,14 +5,14 @@
     <input type='text' name='name'>
   </label>
   <label for='email'> Your e-mail address:
-    <input name='email' type='text' value='<%= @user.email %>'>
+    <input name='email' type='text' value='<%= @user.email %>' required>
   </label>
   <h1>Please enter your password:</h1>
   <label for='password'> Your password:
-    <input type='password' name='password'>
+    <input type='password' name='password' required>
   </label>
   <label for='password_confirmation'> Confirm your password:
-    <input type='password' name='password_confirmation'>
+    <input type='password' name='password_confirmation' required>
   </label>
   <input type='submit' value='Sign up'>
 </form>
