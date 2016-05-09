@@ -1,5 +1,4 @@
-
-[![BUILD STATUS]: https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master
+[![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)
 Chitter Challenge
 =================
 
