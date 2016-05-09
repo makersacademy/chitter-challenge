@@ -13,7 +13,13 @@ feature 'Viewing peeps' do
 
   scenario 'I can see peeps' do
     visit '/peeps'
-    expect(page).to have_content "Hello world!"   #how to test this
+    expect(page).to have_content(/.*"Hello world!".*"Sinatra is awesome./)
   end
-  
+
+  scenario 'I can see when the peep was posted' do
+    visit '/peeps'
+    formatted = Time.now.strftime("%H:%M  %d-%b-%Y")
+
+    expect(page).to have_content(formatted)
+  end
 end
