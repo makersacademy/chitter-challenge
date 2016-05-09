@@ -8,17 +8,17 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     if session[:user_id]
       Peep.create(peep: params[:peep],
-                         time: Time.now,
+                         time: Time.now.strftime("%m/%d/%Y at %I:%M%p"),
                          author: current_user.name,
-                         user_name: current_user.username)
+                         handle: current_user.username)
       redirect '/peeps'
     else
-      flash.keep[:error] = 'You have to be logged in to peep'
+      flash.keep[:notice] = 'You have to be logged in to peep'
       redirect to '/sessions/new'
     end
   end
 
-  get '/links/new' do
-    erb :'links/new'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 end
