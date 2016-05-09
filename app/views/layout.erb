@@ -1,22 +1,12 @@
-<% if current_user %>
-  Welcome <%= current_user.name %>
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-<% end %>
-<% if flash[:errors] %>
-Please correct the following errors:
-<ul id='errors'>
-  <% flash[:errors].each do |error| %>
-  <li><%= error %> </li>
-  <% end %>
-</ul>
-<% end %>
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
 
-<%= yield %>
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>
