@@ -6,10 +6,9 @@
 		<ul id='peeps'>
 			<% @peeps.each do |peep| %>
 			<li>
-				User: <%= peep.user.username %>
-				Name:   <%= peep.user.name  %>
-				Time: <%= peep.created_at.strftime("%H:%M %d/%m/%Y")%>
-				Peep:   <%= peep.peep   %>
+				<h3><%= peep.user.name  %> @ <%= peep.user.username %>: <%= peep.peep   %></h3>
+				<h4><%= peep.created_at.strftime("%H:%M %d/%m/%Y" )%></h4>
+
 			</li>
 			<% end %>
 		</ul>

@@ -1,3 +1,15 @@
+Author: Aday Mesa
+
+Challenge written in Ruby.
+Test driven with RSpec & Capybara.
+Database used has been Postgres.
+ORM used has been Data Mapper.
+
+It is deployed, can be viewed in "https://desolate-coast-42410.herokuapp.com/". To run locally, just clone it to your computer and install Postgres, then you would have to create two databases(chitter_test and chitter_development).
+
+PD: Still working in the README.
+
+
 Chitter Challenge
 =================
 
