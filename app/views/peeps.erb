@@ -17,29 +17,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div style="text-align: center;" id="peeps">
-						<% @peeps.each do |peep| %>
-							<div>
-								<div>
-									@<%= peep.user.username %>
-									- <%= peep.created_at.strftime("%H:%M  %d-%b-%Y")%>
-								</div>
-								<div style="color: #428bca;" class="lead">
-									"<%= peep.message %>"
-								</div>
-								<% peep.comments.each do |comment| %>
-									<div>
-									<%= comment.message %>
-									</div>
-								<% end %>
-							</div>
-							<% if current_user %>
-					            <form action='/comments' method='post'>
-					              <input type='hidden' name='peep_id' value='<%= peep.id %>'>
-					              <input style='width: 220px' type='text' name='message' placeholder='Comment on this peep...' maxlength="50" required>
-					              <input type='submit' value='Comment'>
-					            </form>
-				        	<% end %>
-						<% end %>
+						<%= partial :peeps_comments %>
 					</div>
 				</div>
 			</div>
