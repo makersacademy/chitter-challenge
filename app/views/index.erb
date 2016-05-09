@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Chitter - nothing like twitter.
+  </title>
+</head>
+  <body>
+    <% if flash[:unknown_username] %>
+      <%= flash[:unknown_username] %>
+    <% end %>
+
+    <form action='/signup' >
+      <input type='submit' value='Create Account'> <br>
+    </form>
+    <% if @user != nil %>
+      <h3>Logged in as: <%= @user.username %></h3>
+    <% end %>
+  </body>
+</html>
