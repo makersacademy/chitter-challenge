@@ -14,7 +14,7 @@ class User
   property :password_digest, Text
 
   attr_reader :password
-  validates_presence_of :password
+  validates_presence_of :password_digest
 
   has n, :peeps
 

@@ -35,10 +35,10 @@ feature "logging out" do
 end
 
 feature "posts a peep" do
-  # scenario "shows a new peep" do
-  #   peep
-  #   expect(page).to have_content("This is a test peep lol")
-  # end
+  scenario "shows a new peep" do
+    peep
+    expect(page).to have_content("This is a test peep lol")
+  end
 
   # scenario "only lets logged in users peep" do
   #   visit('/feed')
