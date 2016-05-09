@@ -24,17 +24,5 @@
     expect(current_path).to eq '/posts/view'
   end
 
-  xscenario 'user can go straight to homepage if already signed in' do
-    sign_up
-    sign_in
-    visit '/'
-    click_button 'Go to Homepage'
-    expect(current_path).to eq '/home'
-  end
-
-  xscenario 'user cannot go straight to homepage if already signed in' do
-    visit '/'
-    expect(page).not_to have_button 'Go to Homepage'
-  end
 
  end
