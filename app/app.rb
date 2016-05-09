@@ -47,7 +47,7 @@ class Kwitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.keep[:notice] = 'Kisses'
     redirect to '/'
   end
 
@@ -55,9 +55,14 @@ class Kwitter < Sinatra::Base
     erb :'kweet/new'
   end
 
-  get '/kweet' do
+  get '/kweets' do
     @kweets = Kweet.all
     erb :kweets
+  end
+
+  get '/kweet/from_user' do
+    @user_kweets = Kweet.all(:owner => current_user.user_name)
+    erb :'kweet/from_user'
   end
 
   post '/kweet' do

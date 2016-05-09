@@ -1,38 +1,59 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Kwitter</title>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-  <% if current_user %>
-  Welcome, <%= current_user.user_name %>
 
-  <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
+  <div id="header">
 
-  <% end %>
+    <div id="user">
+      <% if current_user %>
+      Welcome, <%= current_user.user_name %>
 
-  <% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-    <li><%= error %></li>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    </div>
+
     <% end %>
-  </ul>
-  <% end %>
 
-  <% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
+    <div id="menu">
+      <ul>
+        <li>  <a href="http://kwitter.herokuapp.com/kweet/new">Kweet</a>                  </li>
+        <li>  <a href="http://kwitter.herokuapp.com/kweets">My Kweets</a>                </li>
+        <li>  <a href="http://kwitter.herokuapp.com/kweets">All Kweets</a>                </li>
+        <li>  <a href="http://kwitter.herokuapp.com/sessions/new">Sign in</a>             </li>
+        <li>  <a href="http://kwitter.herokuapp.com/users/new">Sign up to Kwitter</a>     </li>
+      </ul>
+    </div>
   </div>
-  <% end %>
 
+  <div id ="errors">
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
 
-
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+  </div>
 
   <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+
 </body>
 </html>

@@ -5,7 +5,6 @@ require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'coveralls'
 require 'simplecov'
 
 require './app/data_mapper_setup'
@@ -18,13 +17,6 @@ RSpec.configure do |config|
   config.include SessionHelpers
 
 end
-
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 #cleaning the database before each test
 require 'database_cleaner'
