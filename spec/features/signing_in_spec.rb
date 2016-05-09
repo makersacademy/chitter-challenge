@@ -20,5 +20,17 @@ feature 'Sign in' do
     expect(page).to have_content "Your Username or password is incorrect"
   end
 
+  scenario 'password is required' do
+    sign_in(password: nil)
+    expect(current_path).to eq '/sessions'
+    expect(page).to have_content "Your Username or password is incorrect"
+  end
+
+  scenario 'username is required' do
+    sign_in(username: nil)
+    expect(current_path).to eq '/sessions'
+    expect(page).to have_content "Your Username or password is incorrect"
+  end
+
 
 end
