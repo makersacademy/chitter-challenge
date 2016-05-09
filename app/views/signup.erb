@@ -1,0 +1,18 @@
+<label for="Sign up"> <h3> New to Chitter? Sign up! </h3><br>
+<form action="/welcomesignup" method="post">
+  Name:      <input type="text" name="name"> <br>
+  Username:  <input type="text" name="username"> <br>
+  E-mail:    <input type="text" name="email"> <br>
+  Password:  <input type="text" name="password"> <br>
+             <input type="submit" value="Sign up">
+</form>
+</label>
+
+<ul>
+<% @peeps.each do |peep| %>
+<li>
+  <%= peep.content %>
+  <%= peep.time %>
+</li>
+<% end %>
+</ul>
