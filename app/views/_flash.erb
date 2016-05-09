@@ -1,7 +1,9 @@
 <% if flash[:errors] %>
   <div id='errors'>
     <% flash[:errors].each do |error| %>
-      <p> <%= error %> </p>]
+      <% if error.is_a? Array %>
+        <p> <%= error.first %> </p>
+      <% end %>
     <% end %>
   </div>
 <% end %>

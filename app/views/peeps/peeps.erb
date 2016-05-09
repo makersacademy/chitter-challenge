@@ -15,11 +15,11 @@
 <ul id="peeps">
 
   <% @peeps.each do |peep| %>
-    <li class='peep'>
+    <article> class='peep'>
       <%= peep.user.name %> <%= peep.user.username %> <br>
       <%= peep.content %><br>
       <%= peep.created_at.strftime('%c') %>
-    </li>
+    </article>
   <% end %>
 
 </ul>

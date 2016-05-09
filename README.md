@@ -4,12 +4,11 @@
 [original challenge](https://github.com/makersacademy/chitter-challenge)
 
 #Chitter Challenge
-=================
+
 The only thing worse than being talked about is not being talked about. But I don't check my Twitter feeds. I can't handle that level of vitriol.
 
 --Oscar Wilde
 
-------------------------------------------------------------------------------
 ## Installation
 1. Clone the repo from https://github.com/letianw91/chitter-challenge
 2. Open the command line in the repo
