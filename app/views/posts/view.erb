@@ -1,0 +1,22 @@
+<h2>Welcome to Chitter</h2>
+
+<% if current_user %>
+  <form action='/posts/new' method 'get'>
+    <input type="submit" value="Make a Cheep">
+  </form>
+<% end %>
+
+<br><br><br>
+
+<h4>Recent Cheeps:</h4>
+
+
+<div id='cheeps'>
+  <% @cheeps.reverse.each do |cheep| %>
+      <div id='messages'>
+        <strong>Posted by <%= cheep.user.name %></strong> <em>(<%= cheep.user.username%>, <%= cheep.created %>)</em><br>
+        <%= cheep.message %>
+      </div>
+      <br><br>
+  <% end %>
+</div>

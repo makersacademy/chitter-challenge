@@ -1,3 +1,38 @@
+```
+Installation Instructions:
+  (in terminal)
+$ git clone https://github.com/MaxProvin/chitter-challenge.git
+$ bundle
+    (gems used in this project can be viewed by opening the Gemfile with your preferred text editor)
+
+  * using `brew`install the `postgresql` package and follow the installation instructions carefully (if you don't have brew go to the homebrew website to find out how to install it)
+  * check your installation by running `psql` in the terminal. Refer to the following link if you see any errors http://www.postgresql.org/docs/9.5/static/tutorial-createdb.html
+  * Connect to the default postgres database with <psql postgres>
+  * Using the <CREATE DATABASE yourusername> command, create a database with your username.
+
+$ psql
+username=# create database chitter_test
+username=# create database chitter_development
+username=# \q
+
+$ rspec
+  * runs tests
+
+$rackup
+  * starts server
+  * website can be viewed on https://localhost:9292 by default
+  * if this fails check the port your server is running
+    Luizs-Mac-mini:chitter_challenge Luiz (master) $ rackup
+[2016-05-08 18:37:43] INFO  WEBrick 1.3.1
+[2016-05-08 18:37:43] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-05-08 18:37:43] INFO  WEBrick::HTTPServer#start: pid=5111 __port=9292__
+
+$ ctrl + c
+  * ends server session
+
+```
+
+
 Chitter Challenge
 =================
 
@@ -31,11 +66,11 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
@@ -77,7 +112,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +130,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +140,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
