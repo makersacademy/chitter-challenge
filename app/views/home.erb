@@ -1,0 +1,19 @@
+<div class="peep">
+  <ul id="peeps">
+    <% @peeps.each do |peep| %>
+      <li><%= peep.created_at.strftime("%I:%M%p %m/%d/%Y") %>| @<%= peep.user.username %> peeped: <%= peep.peep %>
+      <form class='a' action="/peep/comment" method="post">
+        <input type='hidden' name='peep_id' value='<%= peep.id %>'>
+        <input  type='text' name='comment' placeholder='...'>
+        <input type="submit" value="comment">
+      </form>
+
+        <% if !peep.comments.empty? %>
+          <% peep.comments.each do |comment| %>
+            <%= comment.created_at.strftime("%I:%M%p %m/%d/%Y")%> @<%= User.get(comment.user_id).username%> commented | <%= comment.body %>
+          <%end%>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

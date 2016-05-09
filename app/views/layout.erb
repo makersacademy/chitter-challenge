@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <h1>Chitter</h1>
+    <h1>~</h1>
+    <h2><%= @title %></h2>
+
+
+    <% if !current_user %>
+    <body>
+        <form class="" action='/users/new' method="get">
+          <input type="submit" value="Sign up">
+        </form>
+        <form class="" action='/sessions/new' method="get">
+          <input type="submit" value="Sign in">
+        </form>
+    </body>
+    <% else %>
+    <h2><%= current_user.username %></h2>
+      <form class="add_form" action="/sessions" method="post">
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+      <form class="add_form" action="/peep/new" method="post">
+        <input class="peep-box" type="text" name="peep" placeholder="peep" > <input type="submit" value="Peep!">
+      </form>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty?%>
+    <div id='error'><% flash[:errors].each do |error| %>
+      <%= error %>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+      <% end %>
+    </div>
+
+
+
+    <%= yield %>
+</body>
+</html>

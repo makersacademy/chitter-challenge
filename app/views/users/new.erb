@@ -1,0 +1,19 @@
+<body>
+  <form class="add_form" action="/users" method="post">
+  <div class="">
+    <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+  </div>
+  <div class="">
+    <input type="email" name="email" placeholder="Email" value="<%= @user.email %>" required >
+  </div>
+  <div class="">
+    <input type="password" name="password" placeholder="Password" >
+  </div>
+  <div class="">
+  <input type="password" name="password_confirmation" placeholder="Verify">
+  </div>
+  <div class="">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+</body>
