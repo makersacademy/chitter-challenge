@@ -46,16 +46,16 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:erros] = "Password and confirmation password do not match"
       erb :'users/new'
     end
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id])
   end
+end
 
-  run! if app_file == $PROGRAM_NAME
+run! if app_file == $PROGRAM_NAME
 end
