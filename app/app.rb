@@ -17,16 +17,22 @@ class ChitterChatter < Sinatra::Base
   end
 
   get '/users/new' do
-    user = User.new
+    @user = User.new
     erb :'users/new'
   end
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password],
+    @user = User.create(email: params[:email], password: params[:password],
      password_confirmation: params[:password_confirmation])
 
-    session[:user_id] = user.id
-    redirect to('/peeps')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
   end
+
   helpers do
     def current_user
       @current_user ||=User.get(session[:user_id])
@@ -55,9 +61,9 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/peeps' do
-    user = User.get(session[:user_id])
+    user = current_user
     peep = Peep.create(peep_text: params[:peep_text], time: Time.now)
-    user.peeps << peepgi
+    user.peeps << peep
     user.save
     redirect to '/peeps'
   end
