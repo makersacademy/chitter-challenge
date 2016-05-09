@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <title>Chitter</title>
+   </head>
+   <body>
+     <% Peep.all(order: [ :id.desc ]).each do |peep| %>
+     <p> <%= peep.name %> @<%= peep.username %>
+  	  <%= peep.message %></p>
+     <% end %>
+   </body>
+ </html>
