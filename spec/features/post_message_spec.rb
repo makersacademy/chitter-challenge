@@ -9,7 +9,9 @@ feature 'Post Message' do
   scenario 'cheeps have users name and username associated with them' do
     sign_in_and_post
     expect(current_path).to eq '/posts/view'
-    expect(page).to have_content "Posted by Megatron (best_bot"
+    within('div#messages') do
+      expect(page).to have_content "Posted by Megatron (best_bot"
+    end
   end
 
   scenario 'cannot cheep if not signed in' do
