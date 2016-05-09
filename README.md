@@ -15,7 +15,7 @@ Challenge:
 -------
 
 My task was to write a little Twitter clone that will allow the users to post messages to a public stream.
-A preview of the app can be found [here.](https://chitter-emma.herokuapp.com/) 
+A preview of the app can be found [here.](https://chitter-emma.herokuapp.com/)
 
 Features:
 -------
@@ -66,8 +66,10 @@ $ rackup
 In this project postgres database is used. You will need to set up two local databases:
 
 ````
-chitter_development
-chitter_test
+$ psql
+$ create database chitter_development
+$ create database chitter_test
+
 ````
 
 The database is automatically upgraded (see /app/data_mapper_setup.rb:11), but migrations are handled manually from the command line like so:
@@ -108,6 +110,7 @@ The project is built using sinatra and the sinatra-partial gem, allowing the fol
 │   │   ├── sessions.rb
 │   │   └── users.rb
 │   ├── data_mapper_setup.rb
+│   ├── helpers.rb
 │   ├── models
 │   │   ├── peep.rb
 │   │   └── user.rb
@@ -157,7 +160,7 @@ As always, I include a somewhat minimalistic user interface to ease understandin
 
 ![Screenshot](http://i.imgur.com/d3m1DGm.png)
 
-![Screenshot](http://i.imgur.com/WA8IO3X.png)
+![Screenshot](http://i.imgur.com/lBoDqUn.png)
 
 
 
