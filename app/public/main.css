@@ -1,11 +1,12 @@
-body {
-  background-color: #f6eddf;
-  color: orange;
-  font-family: verdana;
-  font: bold;
-  text-align: center;
-}
 
 h1 {
   color: lightblue;
+}
+
+#colorstrip{
+    max-width:
+    width: 2000px; height: 100px;
+    border-style: solid;
+    border-color: #FF6B68;
+    background-color: #FF6B68;
 }

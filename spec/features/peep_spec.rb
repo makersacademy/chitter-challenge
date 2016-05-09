@@ -3,9 +3,9 @@ feature 'Viewing peeps' do
   scenario 'I can see all peeps on chitter on the peeps page' do
     sign_up
     sign_in(email: 'john@example.com', password: '123456')
-    Peeps.create(peep: 'Hey!!')
-
-    visit '/'
+    visit '/peeps/new'
+    fill_in 'peep',   with: 'Hey!!'
+    click_button 'Peep!'
     expect(page.status_code).to eq 200
     expect(page).to have_content('Hey!!')
 

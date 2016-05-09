@@ -7,7 +7,7 @@ class Peeps
 
   property :id,     Serial
   property :peep,   String
-  property :username, String
+  property :username, String, required: true
   property :time,   Time
 
 end
