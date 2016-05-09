@@ -11,8 +11,7 @@ feature 'User signs out' do
   xscenario 'while being signed in' do
     sign_in(email: user.email, password: user.password)
     click_button 'Sign out'
-    expect(page).to have_content('goodbye!')
-    expect(page).not_to have_content("Signed in as: #{user.username}")
+    expect(page).not_to have_content("Oh hi there sitypop!")
   end
 
 end

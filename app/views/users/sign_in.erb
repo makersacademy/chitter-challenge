@@ -1,11 +1,15 @@
-<h1>Please sign in</h1>
+<form action='/peeps'>
+  <header align = "right">
+  <input type='submit' value='Back' style="font-family:'Amatic SC'; font-size: 25px; height: 75; width: 150px; background-color: #b3ffe2">
+</header>
+</form>
+
+<body>
+  <h1>Wanna sign in?</h1>
 
 <form action='/users/sign_in' method='post'>
   Email: <input name='email' type='email'>
   Password: <input name='password' type='password'>
-  <input type='submit' value='Sign in'>
+  <input type='submit' value='Sign in' style="font-family:'Amatic SC'; font-size: 25px; height: 75; width: 150px; background-color: #b3ffe2">
 </form>
-
-<form action='/peeps'>
-  <input type='submit' value='Back'>
-</form>
+</body>
