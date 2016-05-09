@@ -6,7 +6,7 @@
   <% @peeps.reverse.each do |peep| %>
     <li>
       <div>
-        Posted<%= peep.username %> at <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
+        Posted by <%= peep.user.username %> at <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
       </div>
       <div>
         <%= peep.content %>
