@@ -8,6 +8,8 @@ gem "sinatra"
 gem "sinatra-flash"
 gem "sinatra-partial"
 gem "bcrypt"
+gem "rspec"
+
 
 group :test do
   gem 'database_cleaner'
