@@ -1,8 +1,8 @@
-<ul id='kweets'>
-  <% @user_kweets.each do |kweet| %>
-    <li>
-      <p> <%= kweet.message %></p>
-      <P>- <%= kweet.owner %></p>
-    </li>
+<div id='kweets'>
+  <% @kweets.each do |kweet| %>
+    <div class ='kweet'>
+      <p class ='message'>   <%= kweet.message %></p>
+      <P class ='owner'> - <%= kweet.owner %></p>
+    </div>
   <% end %>
-</ul>
+</div>

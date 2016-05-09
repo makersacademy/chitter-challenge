@@ -35,8 +35,8 @@
   bottom: 25%;
   left: 0;
   right: 0;
-  border-top: 3px solid #34495e;
-  border-bottom: 3px solid #34495e;
+  border-top: 3px solid #788AA3;
+  border-bottom: 3px solid #788AA3;
 }
 #menu a:hover,
 #menu .current a {
@@ -49,12 +49,91 @@
   bottom: 0;
 }
 
+.kweet {
 
+  border-top: 3px solid #666A86;
+  border-left: 3px solid #666A86;
+  border-right: 3px solid #666A86;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  background-color: #E8DDB5;
+}
+
+.footer
+{
+position:absolute;
+width:100%;
+border-top: 5px solid #666A86;
+margin: auto;
+padding: 10px;
+background-color: #E8DDB5;
+position:absolute;
+bottom:0;
+left:0;
+
+}
+
+
+.mainstyle {
+
+  border-top: 3px solid #666A86;
+  border-left: 3px solid #666A86;
+  border-right: 3px solid #666A86;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  background-color: #E8DDB5;
+}
+
+.mainstyle * {
+
+    margin: auto;
+
+}
+.message {
+font-weight: bold;
+padding-left: 2%;
+}
+
+
+.owner {
+text-align: right;
+padding-right: 2%;
+}
+
+
+.form {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #788AA3;
+  padding: 7px 30px 7px 30px;
+  margin-top: 10px
+  text-decoration: none;
+}
+
+.form:hover {
+  background: #505d6e;
+  text-decoration: none;
+}
+
+.footerp {
+float: right;
+width: 200px;
+font-size: 12px;
+padding-right: 20px;
+
+}
 * {
-    font-family: avenir;
-  }
+  font-family: avenir;
+  color: #1F2131;
+}
 
 body {
-  background-color: #212121;
+  background-color: #666A86;
   padding: 50px 0;
 }

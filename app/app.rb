@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
+
 class Kwitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
@@ -10,7 +11,14 @@ class Kwitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   get '/' do
+      @kweets = Kweet.all
     erb :index
   end
 
@@ -55,19 +63,13 @@ class Kwitter < Sinatra::Base
     erb :'kweet/new'
   end
 
-  get '/kweets' do
-    @kweets = Kweet.all
-    erb :kweets
-  end
-
   get '/kweet/from_user' do
-    @user_kweets = Kweet.all(:owner => current_user.user_name)
+    @kweets = Kweet.all(:owner => current_user.user_name)
     erb :'kweet/from_user'
   end
 
   post '/kweet' do
-    owner = @user
-    kweet = Kweet.create(message: params[:message], owner: current_user.user_name )
+    kweet = Kweet.create(message: params[:message], owner: @current_user.user_name )
     if kweet.save
       redirect to('/')
     else
@@ -76,11 +78,7 @@ class Kwitter < Sinatra::Base
     end
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+
 
   run! if app_file == $0
 end

@@ -1,22 +1,36 @@
-<h1>Please sign up</h1>
 
-<form action='/users' method='post'>
 
-  <label for='email'>
-    Email: <input name='email' type='text' value='<%= @user.email %>'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <label for='password_confirmation'>
-    Repeat password: <input name='password_confirmation' type='password'>
-  </label>
-  <label for='name'>
-    Name: <input name='name' type='text' value='<%= @user.name %>'>
-  </label>
-  <label for='user_name'>
-    User name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
-  </label>
-  <input type='submit' value='Sign up'>
+<div class= "mainstyle">
+  <center>
 
-</form>
+    <h3 class="title">Sign up for Kwitter glory</h3>
+  </br>
+
+
+  <form action='/users' method='post'>
+
+    <label for='email'>
+      Email: <input name='email' type='text' value='<%= @user.email %>'>
+    </label>
+    <label for='password'>
+      Password: <input name='password' type='password'>
+    </label>
+    <label for='password_confirmation'>
+      Repeat password: <input name='password_confirmation' type='password'>
+    </label>
+    <label for='name'>
+      Name: <input name='name' type='text' value='<%= @user.name %>'>
+    </label>
+    <label for='user_name'>
+      User name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
+    </label>
+    <br>
+    <br>
+
+    <input class="form" type='submit' value='Sign up'>
+
+
+
+  </form>
+</center>
+</div>
