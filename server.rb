@@ -4,12 +4,10 @@ class Chitter < Sinatra::Base
 	register Sinatra::Flash
 	enable :sessions
 	set :session_secret, 'super secret'
+  set :root, File.dirname(__FILE__)
 
 	def current_user
-		#on sign-out current user should default back to nil
-		if session[:current_user_id]
-			@current_user ||= User.get(session[:current_user_id])
-		end
+		@current_user ||= User.get(session[:current_user_id])
 	end
 
 end
