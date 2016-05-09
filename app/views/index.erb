@@ -1,3 +1,7 @@
+<link href="styles.css" type="text/css" rel="stylesheet">
+
+<html>
+<body>
 <% if !current_user %>
 <form method='get' action='/sessions/new'>
   <input type='submit' value='Sign in'>
@@ -5,10 +9,12 @@
 <form action='/users/new' method='get'>
   <input type='submit' value='Sign Up'>
 </form>
-</else>
-  <form action='/peeps/new' method='get'>
-    <input type='submit' value='Peep!'>
-  </form>
+<% end %>
+
+<% if current_user %>
+<form action='/peeps/new' method='get'>
+  <input type='submit' value='Peep!'>
+</form>
 <% end %>
 
 <h1>Home Page</h1>
@@ -22,3 +28,5 @@
     </li>
   <% end %>
 </ul>
+</body>
+</html>
