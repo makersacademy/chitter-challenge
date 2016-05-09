@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
-  set :public_folder, Proc.new { File.join(root, 'public') }
+  set :public_folder, proc { File.join(root, 'public') }
 
   helpers do
     def current_user
