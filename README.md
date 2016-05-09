@@ -32,3 +32,4 @@ https://chitter-letianw.herokuapp.com/
 4. Peeps are displayed in reverse chronological order
 5. User can see who post the peeps
 6. User can see when peeps are posted
+7. User can reply to other users's peep
