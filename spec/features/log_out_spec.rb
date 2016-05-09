@@ -11,7 +11,7 @@ feature 'User log out' do
     scenario 'While logged in' do
       log_in(username: 'Luni', password: 'dreamies')
       click_button 'Log out'
-      expect(page).to have_content('Goodbye!')
+      expect(page).to have_content('Goodbye, have a beautiful day!')
       expect(page).not_to have_content('Welcome, Luni!')
     end
 

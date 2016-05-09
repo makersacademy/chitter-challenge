@@ -12,6 +12,4 @@ class Peep
 
   belongs_to :user
 
-
-
 end
