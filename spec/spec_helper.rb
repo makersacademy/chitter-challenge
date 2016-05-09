@@ -1,5 +1,3 @@
-ENV["RACK_ENV"] ||= "test"
-
 require 'coveralls'
 require 'simplecov'
 
@@ -9,12 +7,14 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
+ENV["RACK_ENV"] ||= "test"
+
 require 'capybara/rspec'
 require './app/app'
+require 'database_cleaner'
 
 Capybara.app = Chitter
 
-require 'database_cleaner'
 
 RSpec.configure do |config|
   config.before(:suite) do
