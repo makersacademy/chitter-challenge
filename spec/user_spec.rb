@@ -11,11 +11,6 @@ describe User do
       password: 'test')
   end
 
-  it 'Authenticates user when signing in' do
-    authenticated_user = User.authenticate(user.username, user.password)
-    expect(authenticated_user).to eq user
-  end
-
   it 'Fails authentication when details incorrect' do
   expect(User.authenticate(user.username, 'incorrect')).to be_nil
 
