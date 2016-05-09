@@ -1,24 +1,9 @@
 <h1>Sign up</h1>
 <form action="/users" method='post'>
-	<label for="name">
-		Name:
-		<input type='text' name='name' value=<%= @user.name %> required>
-	</label><br>
-	<label for="username">
-		Username:
-		<input type='text' name='username' value=<%= @user.username %> required>
-	</label><br>
-	<label for="email">
-		e-mail:
-		<input type='email' name='email' value=<%= @user.email %> required>
-	</label><br>
-	<label for="password">
-		Password:
-		<input type='password' name='password'>
-	</label><br>
-	<label for='password_confirmation'>
-		Confirm password:
-		<input name='password_confirmation' type='password'>
-	</label><br>
-	<input type='submit' value='Register'>
+	<input class='sign' type='text' name='name' value='<%= @user.name %>' placeholder='Name' required><br>
+	<input class='sign' type='text' name='username' value='<%= @user.username %>' placeholder='Username'required><br>
+	<input class='sign' type='email' name='email' value='<%= @user.email %>' placeholder='Email' required><br>
+	<input class='sign' type='password' name='password'placeholder='Password'><br>
+	<input class='sign' name='password_confirmation' type='password' placeholder="Confirm password"><br>
+	<input class='sign' type='submit' value='Register'>
 </form>

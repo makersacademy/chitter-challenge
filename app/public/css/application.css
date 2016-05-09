@@ -98,3 +98,8 @@ p.credit{
   font-family: "Times New Roman", Times, serif;
   color: white;
 }
+
+.sign {
+  margin-bottom: 5px;
+  width: 20%
+}
