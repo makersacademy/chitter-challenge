@@ -7,8 +7,7 @@ class ChitterChallenge < Sinatra::Base
   set :partial_template_engine, :erb
 
   set :static, true
-  set :root, File.dirname(__FILE__)
-  set :public_folder, Proc.new { File.join(root, "./public") }
+  set :public, "public"
 
   enable :partial_underscores
 
