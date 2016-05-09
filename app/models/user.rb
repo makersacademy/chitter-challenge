@@ -1,5 +1,4 @@
 require 'bcrypt'
-# require_relative 'peep'
 
 class User
 

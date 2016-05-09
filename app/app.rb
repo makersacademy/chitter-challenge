@@ -4,8 +4,10 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra'
 require 'tilt/erb'
-require_relative 'models/peep'
-require_relative 'models/user'
+require_relative 'server'
+require_relative 'controllers/peeps'
+require_relative 'controllers/users'
+require_relative 'controllers/sessions'
 
 class Chitter < Sinatra::Base 
 
@@ -46,7 +48,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do 
     time = Time.now.strftime("%H:%M:%S %Y-%m-%d")
-    Peep.create(content: params[:peep] , time: time)
+    Peep.create(
+                content: params[:peep], 
+                time: time)
     redirect to('/peeps')
   end
 
