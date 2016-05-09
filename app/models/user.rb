@@ -12,6 +12,10 @@ class User
     property :email, String
     property :password_digest, Text
     validates_confirmation_of :password
+
+    has n, :peeps
+
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -25,4 +29,5 @@ class User
       nil
     end
   end
+
 end

@@ -23,9 +23,9 @@ class ChitterChatter < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], password: params[:password],
      password_confirmation: params[:password_confirmation])
-     
+
     session[:user_id] = user.id
-    redirect to('/chits')
+    redirect to('/peeps')
   end
   helpers do
     def current_user
@@ -37,9 +37,9 @@ class ChitterChatter < Sinatra::Base
   end
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    if user
+    if user.save
       session[:user_id] = user.id
-      redirect to('/chits')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -48,12 +48,23 @@ class ChitterChatter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye, thanks for sharing your view on Chitter'
-    redirect to '/chits'
-
-
+    redirect to '/peeps'
   end
-  get '/chits' do
-    erb :'chits/index'
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    user = User.get(session[:user_id])
+    peep = Peep.create(peep_text: params[:peep_text], time: Time.now)
+    user.peeps << peepgi
+    user.save
+    redirect to '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
