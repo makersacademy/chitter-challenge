@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
   get '/' do
     @user = User.new
-    @peeps = Peep.all(:order => [ :time.desc ])
+    @peeps = Peep.all(order: [ :time.desc ])
     erb :'sessions/index'
   end
 
@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     if session[:user_id].nil?
       redirect to('/')
     else
-      @peeps = Peep.all(:order => [ :time.desc ])
+      @peeps = Peep.all(order: [ :time.desc ])
       erb :'sessions/home'
     end
   end
