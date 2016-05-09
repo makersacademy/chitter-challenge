@@ -22,7 +22,7 @@ module SessionHelpers
 
   def login(params = { email: "amy@gmail.com",
                        password: "my_password"})
-    visit "/peeps"
+    visit "/sessions/new"
     fill_in :emailLogin, with: params[:email]
     fill_in :passwordLogin, with: params[:password]
     click_button "Login"

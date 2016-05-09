@@ -17,17 +17,39 @@ body {
 
 .link {
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 15px;
   box-shadow: none;
   text-shadow:none;
   border:none;
 }
 
+.link_no_dec {
+  color: #FFFFFF;
+  font-size: 15px;
+  box-shadow: none;
+  text-shadow:none;
+  border:none;
+  text-decoration: none;
+}
 
+.peep {
+  background-color: #FFFFFF;
+  color: #E15D44;
+  font-size: 20px;
+}
 
 p {
-  font-size : 300px;
+  font-size : 30px;
 }
+
+p.time {
+  font-size : 10px;
+}
+
+p.username {
+  font-size : 20px;
+}
+
 
 .space {
   display: block;
@@ -50,13 +72,4 @@ p {
 input {
   outline: none;
   text-align: center;
-}
-
-fieldset {
-  overflow: hidden;
-  border: 0;
-}
-label {
-  padding: 2px 1em 0 0;
-  font-size: 20px;
 }

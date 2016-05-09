@@ -1,11 +1,11 @@
 <%if flash[:errors]%>
   <% flash[:errors].each do |error|%>
-  <h4> <%=error%></h4>
+    <p><%=error%></p>
   <%end%>
 <%end%>
 
 <%if flash[:password]%>
   <% flash[:password].each do |password|%>
-    <h4><%=password%></h4>
+    <p><%=password%></p>
   <%end%>
 <%end%>

@@ -1,7 +1,15 @@
 <h1>Peeps</h1>
-<% @peeps.each do |peep| %>
-  <h4>"<%=peep.message%>"</h4>
-  <h5>by <%=peep.user.name%>(@<%=peep.user.username%>)</h5>
-  <h7>at <%=peep.created_at.strftime("%H:%M %d-%m-%Y")%></h7>
-  <div class="tiny_space"></div>
-<%end%>
+<div class="tiny_space"></div>
+<a class="link" href="/peeps/new">Add a new peep</a>
+<div class="tiny_space"></div>
+<div align="center">
+  <% @peeps.each do |peep| %>
+    <div class="peep" style="width:75%">
+      <p>"<%=peep.message%>"</p>
+      <p class="username">by <strong><%=peep.user.name%></strong> (@<%=peep.user.username%>)</p>
+      <p class="time">at <%=peep.created_at.strftime("%H:%M %d-%m-%Y")%></p>
+      <div class="tiny_space"></div>
+    </div>
+  <%end%>
+  </div>
+</div>

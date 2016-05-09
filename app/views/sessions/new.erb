@@ -1,0 +1,12 @@
+<p>Please enter your details to login</p>
+<form action="/sessions/login" method="post">
+  <input placeholder ="Email" type="email" name="emailLogin" value="<%=flash[:email]%>" required/>
+  <div class="tiny_space"></div>
+  <input placeholder ="Password" type="password" name="passwordLogin" required/>
+  <div class="mini_space"></div>
+  <input class="button" type="submit" value="Login"/>
+</form>
+<div class="space"></div>
+<a class="link" href="/users/password_recovery">I've forgotten my password</a>
+<div class="mini_space"></div>
+<a class="link" href="/users/new">Don't have an account yet?</a>

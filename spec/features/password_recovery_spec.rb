@@ -4,10 +4,18 @@ feature "password recovery" do
   end
 
   let(:user) { User.first }
-  scenario "user has option to reset their password" do
+
+  scenario "user can choose to reset password when trying to login" do
     logout
     visit "/peeps"
-    click_link "Reset Password"
+    click_link "Login"
+    expect(page).to have_content "I've forgotten my password"
+  end
+
+  scenario "user has option to reset their password" do
+    logout
+    visit "/sessions/new"
+    click_link "I've forgotten my password"
     expect(page).to have_content "Please enter your email to reset password"
   end
 
@@ -49,7 +57,7 @@ feature "password recovery" do
   scenario "reset password when new passwords match" do
     request_reset_password
     update_password
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/session/new'
   end
 
   scenario "reset password fails when new passwords don't match" do
@@ -61,9 +69,9 @@ feature "password recovery" do
   end
 
   scenario "login with new password after reset" do
+    logout
     request_reset_password
     update_password
-    logout
     params={email: "amy@gmail.com",
             password: "my_new_password"}
     login(params)

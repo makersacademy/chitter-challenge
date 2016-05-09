@@ -1,8 +1,12 @@
 class ChitterChallenge < Sinatra::Base
 
+  get "/sessions/new" do
+    erb :"sessions/new"
+  end
+
   get "/sessions/logout" do
     session[:user_id] = nil
-    redirect to "/users/new"
+    redirect to "/peeps"
   end
 
   post "/sessions/login" do
