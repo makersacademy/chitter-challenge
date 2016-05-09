@@ -81,12 +81,16 @@ label, .posted {
   margin-right: 10px;
 }
 
-.sign-out {
+#sign-in, #sign-out {
   float: right;
   margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: -10px;
 }
 
-
+.nav-buttons {
+  margin-top: -10px;
+}
 
 #flash {
   color: red;

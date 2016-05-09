@@ -15,7 +15,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   
   get '/' do 
-    'Hello Chitter!'
     redirect to '/peeps'
   end
 
@@ -41,15 +40,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do 
-    @peeps = Peep.all 
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
   post '/peeps' do 
     time = Time.now.strftime("%H:%M:%S %Y-%m-%d")
-    # peep = Peep.new(content: params[:content], time: time)
-    # current_user.peeps << peep 
-    # peep.save
     Peep.create(content: params[:peep] , time: time)
     redirect to('/peeps')
   end

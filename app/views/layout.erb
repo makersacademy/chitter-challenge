@@ -9,8 +9,6 @@
 
   <body>
 
-    <%= yield %>  
-
     <% if flash[:errors] && !flash[:errors].empty? %>
       <p id="errors">Please fix the following errors:</p>
       <ul id="error">
@@ -26,12 +24,8 @@
       </div>
     <% end %>
 
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+    <%= yield %>  
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
 </html>

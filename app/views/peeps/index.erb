@@ -1,10 +1,19 @@
 <nav class="navbar navbar-inner">
+  <span class="nav-buttons">
+    <form action='/sessions' method='post'>
+      <input type='submit' value='Sign in' class="btn btn-medium btn-primary" id="sign-in">
+    </form>
 
+    <form method='post' action='/sessions'>
+      <% if current_user %>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out' class="btn btn-medium btn-primary" id="sign-out">
+      <% end %>
+    </form>
+  </span>
 </nav>
 
 <div class="container-fluid">
-
-
 
   <form action='/peeps/new' method='get'>
     <% if current_user %>
@@ -16,14 +25,14 @@
 
   <h3> Recent peeps </h3>
 
-  <ul id='peeps'>
+  <ol reversed id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        <p>"<%=peep.content%></p>"
+        <p>"<%=peep.content%>"</p>
         <p class="posted">Posted: <%=peep.time%></p>
       </li>
     <% end %>
-  </ul>
+  </ol>
 
 
 </div>
