@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+    <script>
+
+      var pusher = new Pusher('7cd62ab4902ea90bda04', {
+        cluster: 'eu',
+        encrypted: true
+      });
+
+      var channel = pusher.subscribe('test_channel');
+      channel.bind('my_event', function(data) {
+        alert(data.message);
+      });
+    </script>
+
+    <%if current_user%>
+      Hi, <%=current_user.name%>!
+    <%end%>
+    <title>Welcome to Chitter!</title>
+
+  </head>
+
+  <body>
+
+    <form action="/users/new" method='get'>
+        <button type="submit" name="New Account">New Account</button>
+    </form>
+
+    <%if current_user%>
+      <form action='/sessions' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <button type="submit" name="Logout">Logout</button>
+      </form>
+    <%else%>
+      <form action="/sessions/new">
+        <button type="submit" name="Login">Login</button>
+      </form>
+    <%end%>
+
+    <%if current_user %>
+      <form action='/peeps/new'>
+        <button type="submit" name="New Peep!">New Peep!</button>
+      </form>
+    <%else%>
+      <form action='/sessions/new'>
+        <button type="submit" name="New Peep!">New Peep!</button>
+      </form>
+    <%end%>
+
+    <% if flash[:goodbye] %>
+      <div id='googbye'>
+        <%= flash[:goodbye] %>
+      </div>
+    <% end %>
+
+    <% @peeps.reverse.each do |peep| %>
+      <li><%= peep.username %> peeped:- <%= peep.message %> at <%= peep.time %></li>
+    <% end %>
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<h1>Login</h1>
+<form action='/sessions' method='post'>
+  <label for='username'>
+    Username: <input name='username' type='username'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <button type="submit" name="Login">Login</button>
+
+
+  <% if flash[:login_error] && !flash[:login_error].empty? %>
+    <ul id='login_error'>
+      <% flash[:login_error].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+</form>
