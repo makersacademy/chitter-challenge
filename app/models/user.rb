@@ -7,6 +7,8 @@ class User
 
   include DataMapper::Resource 
 
+  has n, :peeps, through: Resource
+
   property :id, Serial 
   property :name, String
   property :username, String, required: true, unique: true
@@ -18,8 +20,6 @@ class User
   validates_presence_of :email
   validates_confirmation_of :password 
   validates_format_of :email, as: :email_address
-
-  # has n, :peeps
 
   def password=(password)
     @password = password

@@ -8,7 +8,6 @@ class Peep
   property :id, Serial 
   property :content, String
   property :time, DateTime
-  # belongs_to :user, required: true
 
 end
 
