@@ -10,7 +10,8 @@ class User
 
   property :id, Serial
   property :name, String
-  property :email, String, required: true, unique: true, message: 'This email is already taken'
+  property :email, String, required: true,
+  unique: true, message: 'This email is already taken'
   property :uname, String, unique: true, message: 'This username is already taken'
   property :password_digest, Text
   validates_presence_of :email
