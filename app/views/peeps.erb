@@ -1,16 +1,15 @@
 
-
 <div class='centre'>
 <h1> Peeps </h1>
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
     <%= peep.user.username %>
-    Title: <%= peep.title %>
-    Text:   <%= peep.text   %>
-    Context: <%= peep.context  %>
-    Date: <%= peep.date  %>
-    Time: <%= peep.time  %>
+    Title:  <%= peep.title %>.
+    Peep:   <%= peep.text   %>.
+    About:   <%= peep.context  %>.
+    Posted:   <%= peep.date  %>
+    ::  <%= peep.time  %>
   </li>
 <% end %>
 </ul>
