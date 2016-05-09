@@ -1,0 +1,11 @@
+<%if current_user %>
+  <p>Add a new peep</p>
+  <div class="tiny_space"></div>
+  <form action="/peeps" method="post">
+    <textarea placeholder ="Write your peep..." name="message"></textarea>
+    <div class="tiny_space"></div>
+    <input class="button" type="submit" value="Share"/>
+  </form>
+<%else%>
+  <p>Please login to peep</p>
+<%end%>

@@ -1,0 +1,15 @@
+<%if flash[:errors]%>
+  <% flash[:errors].each do |error|%>
+    <%if error.start_with? "token"%>
+      <a href="/users/password_reset?<%=error%>">Reset link (via email)</a>
+    <%else%>
+      <p><%=error%></p>
+    <%end%>
+  <%end%>
+<%end%>
+
+<%if flash[:password]%>
+  <% flash[:password].each do |password|%>
+    <p><%=password%></p>
+  <%end%>
+<%end%>

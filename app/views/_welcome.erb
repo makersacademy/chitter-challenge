@@ -1,0 +1,17 @@
+<div style="text-align:center">
+  <div style="float:left">
+    <a class="link_no_dec" href="/peeps">Home</a>
+  </div>
+  <div style="float:right">
+    <%if current_user %>
+      <a class="link_no_dec" href="/sessions/logout">Logout</a>
+    <%else%>
+      <a class="link_no_dec" href="/sessions/new">Login</a>
+    <%end%>
+  </div>
+  <div>
+    <%if current_user %>
+      <h3>Hello <%=current_user.name%>!</h3>
+    <%end%>
+  </div>
+</div>
