@@ -10,8 +10,11 @@ This is Chitter, a Twitter clone designed to mimic the basic functionality of Tw
 Installation instructions:
 -------
 * Fork and clone this repo
-* Install the bundle gem (`gem install bundle` from the command line)
-* Run bundle (`bundle` from the command line)
+* Install the bundle gem (`gem install bundle`)
+* Run `bundle`
+* Install postgresql and follow the instructions
+* Create a production and test database in Postgres
+* Run `rake db:auto_migrate` and `rake db:auto_migrate RACK_ENV=test` to build your database tables
 * Command line `rackup`
 * Visit http://localhost:9292/ from any browser
 
