@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/elibar-uk/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/elibar-uk/chitter-challenge?branch=master)
 
 Chitter Challenge
 
