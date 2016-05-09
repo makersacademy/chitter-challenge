@@ -1,0 +1,21 @@
+<body>
+  <div class="bg-img">
+    <div class="container">
+      <div class='login'>
+        <form action='/session' method=POST>
+          <label = 'email'>
+            <h3>Your email:</h3>
+            <input name='email' type='email' value='<%= @email %>' required>
+          </label>
+          <br>
+          <label = 'password'>
+            <h3>Your password:</h3>
+            <input name='password' type='password'>
+          </label>
+          <br>
+          <input type='submit' value='Log in'>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

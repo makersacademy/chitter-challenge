@@ -1,0 +1,22 @@
+<body>
+  <div class="bg-img">
+    <div class="container">
+      <ul id="peeps">
+        <% @peeps.reverse.each do |peep| %>
+        <div class=box>
+          <h2>
+            <span class="quote">”</span>
+            <%= peep.body %>
+          </h2>
+          <p class="user">
+            - <%= peep.user_handle %>
+          </p>
+          <p class="dateTime">
+            <b><%= peep.created_at.strftime("%A")%></b>
+            <%= peep.created_at.strftime("at %I:%M%p")%>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </body>

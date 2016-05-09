@@ -1,0 +1,31 @@
+<body>
+  <div class="bg-img">
+    <div class="container">
+      <div class='signup'>
+        <form action='/users' method=POST>
+          <label = 'name'>
+            <h3>Your name:</h3>
+            <input type='text' name='name'>
+          </label>
+          <br>
+          <label = 'user name'>
+            <h3>Your user name:</h3>
+            <input type='text' name='user_name' required>
+          </label>
+          <br>
+          <label = 'email'>
+            <h3>Your email:</h3>
+            <input name='email' type='email' value='<%= @email %>' required>
+          </label>
+          <label = 'password'>
+            <h3>Your password, twice please:</h3>
+            <input name='password' type='password' required>
+            <input name="password_confirmation" type='password' required>
+          </label>
+          <br>
+          <input type='submit' value='Sign up'>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
