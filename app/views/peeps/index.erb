@@ -5,6 +5,16 @@
   <li>
     Peep: <%= peep.peep_text %>
     Time: <%= peep.time %>
+    user: <%= peep.user.email %>
   </li>
   <% end %>
 </ul>
+<form action='/peeps' method='POST'>
+
+  <label for='peep_text'>
+    Peep:
+    <input type='text' name='peep_text'>
+  </label>
+
+  <input type='submit' value='peep'>
+</form>

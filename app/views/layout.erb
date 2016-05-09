@@ -12,9 +12,10 @@
       </form>
       <% end %>
       <% if flash[:notice] %>
-        <div id='notice'>
-          <%= flash[:notice] %>
-        </div>
+        <%= flash[:notice] %>
+      <% end %>
+      <% if flash[:errors] %>
+        <%= flash[:errors] %></p>
       <% end %>
     <%= yield %>
   </body>
