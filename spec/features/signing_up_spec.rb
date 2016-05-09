@@ -1,11 +1,12 @@
 feature 'signing up' do
-  xscenario 'As a user I can sign up on the webpage' do
+  scenario 'As a user I can sign up on the webpage' do
     def sign_up
       visit '/users/new'
       expect(page.status_code).to eq 200
       fill_in 'name', with: 'Emilio'
       fill_in 'email', with: 'youremail@someemail.com'
       fill_in 'password', with: '123456'
+      fill_in 'password_confirmation', with: '123456'
       click_button 'Sign up'
     end
 
