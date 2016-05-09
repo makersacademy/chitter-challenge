@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
     if session[:user_id].nil?
       redirect to('/')
     else
-      @peeps = Peep.all
+      @peeps = Peep.all(:order => [ :time.desc ])
       erb :'sessions/home'
     end
   end
