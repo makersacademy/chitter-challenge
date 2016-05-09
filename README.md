@@ -58,7 +58,7 @@ Technologies used:
 * ORM - Datamapper
 * Database - PostgreSQL
 * Testing - Rspec, Capybara, Sinatra
-* Others - BCrypt (Password security), Database Cleaner 
+* Others - BCrypt (Password security), Database Cleaner
 
 To use:
 ------
@@ -76,8 +76,11 @@ $ createdb chitter_development
 $ rake db:auto_migrate
 $ rspec
 $ rackup -p 4567
+
 ```
 
 Open up a browser and go to http://localhost:4567/
+
+You can also try chitter online at https://chitterrr.herokuapp.com/
 
 If you have any complaints, please do not feel free to contact the author.
