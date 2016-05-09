@@ -22,9 +22,13 @@ class ChitterChallenge < Sinatra::Base
 
   post "/users/password" do
     user = User.first(email: params[:email])
-    user.store_token if user
-    flash[:errors] = ["Please check your emails",
-                      "This should be emailed #{user.password_token}"]
+    if user
+      user.store_token
+      flash[:errors] = ["Please check your emails",
+                        "token=#{user.password_token}"]
+    else
+      flash[:errors] = ["Please check your emails"]
+    end
     redirect to "/peeps"
   end
 
@@ -42,7 +46,7 @@ class ChitterChallenge < Sinatra::Base
     user = User.find_by_token(params[:token])
     if user.update(password: params[:password],
                    password_confirmation: params[:password_confirmation])
-       redirect to "/session/new"
+       redirect to "/sessions/new"
     else
       flash[:errors] = ["Password does not match the confirmation"]
       redirect to "/peeps"

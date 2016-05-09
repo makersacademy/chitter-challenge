@@ -32,9 +32,9 @@ module SessionHelpers
     click_link "Logout"
   end
 
-  def request_reset_password
+  def request_reset_password(email = "amy@gmail.com")
     visit "/users/password_recovery"
-    fill_in :email, with: "amy@gmail.com"
+    fill_in :email, with: email
     click_button "Reset"
   end
 

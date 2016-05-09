@@ -24,6 +24,11 @@ feature "password recovery" do
     expect(page).to have_content "Please check your emails"
   end
 
+  scenario "user enters invalid email address to get a reset token" do
+    request_reset_password("unregistered_user@gmail.com")
+    expect(page).to have_content "Please check your emails"
+  end
+
   scenario "a reset token is stored in database for the user" do
     expect{request_reset_password}.to change{User.first.password_token}
   end
@@ -57,7 +62,7 @@ feature "password recovery" do
   scenario "reset password when new passwords match" do
     request_reset_password
     update_password
-    expect(current_path).to eq '/session/new'
+    expect(current_path).to eq '/sessions/new'
   end
 
   scenario "reset password fails when new passwords don't match" do
