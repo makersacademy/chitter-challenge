@@ -1,18 +1,12 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+[![Build Status](https://travis-ci.org/lexiht/chitter-challenge.svg?branch=master)](https://travis-ci.org/lexiht/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)
 
-Challenge:
--------
+Try out for yourself :)
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+https://lexi-chitter-app.herokuapp.com/
 
 Features:
 -------
@@ -71,38 +65,34 @@ And/Or:
 Good luck and let the chitter begin!
 
 Code Review
------------
 
-In code review we'll be hoping to see:
+Technology used:
+----------------
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* Password encryption by [Bcrypt]( https://github.com/codahale/bcrypt-ruby ). 
+* Database is managed by [PostgreSQL]( http://www.postgresql.org/ ). 
+* The ORM used is [DataMapper]( http://datamapper.org/ ). 
+* Deploy to [Heroku]( https://www.heroku.com/ ).
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Installation:
+-------------
 
-Notes on test coverage
-----------------------
+* run `$ git clone https://github.com/lexiht/chitter-challenge.git`
+* `gem install bundler` if you don't already have, else run `bundle`
+* run local server with `rackup`, check port number and open `localhost:port number` eg. `localhost:4567`
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+Approach:
+---------
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+* Sign in to peep
+* New user go to sign up page
+* View as guest
+* Users can peep and comment on other people peeps.
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+Author:
+-------
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+[Lexi Tran](hazukitran@gmail.com)
 
-```
-$ coveralls report
-```
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
