@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<link href="/style.css" type="text/css" rel="stylesheet">
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+    <p>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+    <form method='post' action='/peeps/new'>
+      <input type='submit' value='Add peep'>
+    </form>
+  </p>
+    <p>
+      Welcome, <%= current_user.username %>!
+    </p>
+    <% end %>
+    <% unless current_user %>
+    <form method='post' action='/users/new'>
+      <input type='submit' value='Sign up'>
+    </form>
+    <form method='post' action='/sessions/new'>
+      <input type='submit' value='Log in'>
+    </form>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <p>
+          <%= flash[:notice] %>
+        </p>
+      </div>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul
+    <% end %>
+    <%= yield %>
+    <p>
+      <img src="http://image.shutterstock.com/z/stock-photo-funny-cartoon-bird-101993542.jpg" width="300" height="300"/>
+    </p>
+  </body>
+</html>

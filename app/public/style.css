@@ -1,0 +1,26 @@
+html {
+  padding-top: 25px
+  }
+
+body {
+  width: 80%;
+  padding: 20px,inherit;
+  margin: 0 auto;
+  background-image: -webkit-linear-gradient(right,#4747d1,#000033);
+  color: #ccccff;
+  }
+h1 {
+  font-family: "Palatino Linotype", Baskerville, serif;
+  color: #ccccff;
+  }
+
+li {
+  font-family: "Palatino Linotype", Baskerville, serif;
+  color: #ccccff;
+  list-style-type: none;
+  padding: 10px;
+}
+
+img {
+  float: right;
+}

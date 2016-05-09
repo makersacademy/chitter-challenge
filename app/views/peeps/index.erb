@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <div>
+        Posted by <%= peep.user.username %> at <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
+      </div>
+      <div>
+        <%= peep.content %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
+</html>
