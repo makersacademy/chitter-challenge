@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-validations'
+require 'dm-timestamps'
 require_relative 'user'
 require_relative 'peep'
 

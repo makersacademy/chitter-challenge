@@ -15,8 +15,6 @@ class Chitter < Sinatra::Base
 		#on sign-out current user should default back to nil
 		if session[:current_user_id]
 			@current_user ||= User.get(session[:current_user_id])
-		else
-			nil
 		end
 	end
 
@@ -68,15 +66,14 @@ class Chitter < Sinatra::Base
   #peeps
   
   get '/peeps/index' do
-    @peeps = Peep.all(:order => [:created_at.desc], :reply_to => nil)
+    @peeps = Peep.all(order: [:created_at.desc], reply_to: nil)
   	erb :'peeps/index'
   end
 
   post '/peeps' do    
     #peep belongs to user, but for some ungodly reason new_peep.user=current_user does not work
     #I get no errors in new_peep, it properly assigns the user_id, but its own id is nil
-    new_peep = Peep.create(content: params[:content], created_at: Time.now, user_id: current_user.id)
-    current_user.peeps << new_peep
+    current_user.peeps << Peep.create(content: params[:content], created_at: Time.now, user_id: current_user.id)
     current_user.save
     redirect '/peeps/index'
   end
@@ -88,7 +85,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:username' do
-    @peeps = User.first(username: params[:username]).peeps(:order => [:created_at.desc], :reply_to => nil)
+    @peeps = User.first(username: params[:username]).peeps(order: [:created_at.desc], reply_to: nil)
     erb :'peeps/index'
   end
 
@@ -100,9 +97,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/reply/:reply_to' do
-    reply = Peep.create(content: params[:content], created_at: Time.now, user_id: current_user.id)
     reply_to = Peep.get(params[:reply_to])
-    reply_to.replies << reply
+    reply_to.replies << Peep.create(content: params[:content], created_at: Time.now, user_id: current_user.id)
     reply_to.save
     redirect '/peeps/index'
   end
