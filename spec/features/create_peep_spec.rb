@@ -10,7 +10,7 @@ feature "create a new peep" do
   scenario "see what time the peep was created" do
     sign_up
     create_peep
-    expect(page).to have_content "#{Time.now.strftime("%Y-%m-%d %H:%M")}"
+    expect(page).to have_content "#{Time.now.strftime("%H:%M %d-%m-%Y ")}"
   end
 
   scenario "cannot write a peep if not logged in" do

@@ -6,6 +6,9 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, "super secret"
   set :partial_template_engine, :erb
 
+  set :static, true
+  set :public, 'public'
+
   enable :partial_underscores
 
 

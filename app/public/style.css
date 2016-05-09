@@ -1,0 +1,62 @@
+body {
+    background-color: #E15D44;
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #FFFFFF;
+  color: #E15D44;
+  font-size: 20px;
+  box-shadow: none;
+  text-shadow:none;
+  border:none;
+}
+
+.link {
+  color: #FFFFFF;
+  font-size: 20px;
+  box-shadow: none;
+  text-shadow:none;
+  border:none;
+}
+
+
+
+p {
+  font-size : 300px;
+}
+
+.space {
+  display: block;
+  visibility: hidden;
+  height:100px;
+}
+
+.mini_space {
+  display: block;
+  visibility: hidden;
+  height:50px;
+}
+
+.tiny_space {
+  display: block;
+  visibility: hidden;
+  height:5px;
+}
+
+input {
+  outline: none;
+  text-align: center;
+}
+
+fieldset {
+  overflow: hidden;
+  border: 0;
+}
+label {
+  padding: 2px 1em 0 0;
+  font-size: 20px;
+}

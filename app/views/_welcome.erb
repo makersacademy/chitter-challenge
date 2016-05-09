@@ -1,12 +1,12 @@
 <%if current_user %>
-  Hello <%= current_user.name%>!
-  <a href="/sessions/logout" value="Logout">Logout</a>
+  <h3>Hello <%= current_user.name%>!</h3>
+  <a class="button" href="/sessions/logout" value="Logout">Logout</a>
 <%else%>
   <form action="/sessions/login" method="post">
     <input placeholder ="Email" type="email" name="emailLogin" value="<%=flash[:email]%>" required/>
     <input placeholder ="Password" type="password" name="passwordLogin" required/>
-    <input type="submit" value="Login"/>
+    <input class="button" type="submit" value="Login"/>
   </form>
   <br>
-  <a href="/users/password_recovery">Reset Password</a>
+  <a class="link" href="/users/password_recovery">Reset Password</a>
 <%end%>
