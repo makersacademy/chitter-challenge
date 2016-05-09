@@ -11,6 +11,9 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
+  use Rack::MethodOverride
+
+
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -52,6 +55,14 @@ class Chitter < Sinatra::Base
       erb :'sessions/new'
     end
   end
+
+  delete'/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
+  end
+
+
 
 
 get '/peeps' do
