@@ -1,0 +1,26 @@
+<!DOCTYPEhtml>
+<html>
+	<head>
+		<title>Chitter</title>
+	</head>
+	<body>
+		<% if flash[:errors] %>
+			<ul>
+				<% flash[:errors].each do |error| %>
+					<li><%= error %></li>
+				<% end %>
+			</ul>
+		<% end %>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+		<% if current_user %>
+			<h2>Hello <%= current_user.username %></h2>
+			<form action='/sessions' method='post'>
+				<input type='hidden' name='_method' value='delete'>
+				<input type='submit' value='Sign out'>
+			</form>
+		<% end %>
+		<%= yield %>
+	</body>
+</html>
