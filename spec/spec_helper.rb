@@ -10,12 +10,9 @@ Coveralls.wear!
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
-require "./app/models/peep"
-require "./app/models/user"
 require "capybara"
 require "capybara/rspec"
 require "rspec"
-require "./app/app"
 require "database_cleaner"
 require "timecop"
 require_relative "helpers/session"

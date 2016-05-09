@@ -5,6 +5,9 @@ This is the Week 4 Ronin Weekend Challenge, the instructions for which can be fo
 
 The challenge is to create a simplified Twitter clone which has signup/login/logout functionality.
 
+The live app can be found online [here] (https://chitter-challenge-amy.herokuapp.com/)
+
+
 Features:
 -------
 
@@ -33,3 +36,19 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+Installation:
+-------
+
+```
+$ git clone https://github.com/missamynicholson/chitter-challenge
+$ bundle
+$ createdb chitter_challenge_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+```
+
+[![Coverage Status](https://coveralls.io/repos/github/missamynicholson/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/missamynicholson/chitter-challenge?branch=master)
+
+[![Build Status](https://travis-ci.org/missamynicholson/chitter-challenge.svg?branch=master)](https://travis-ci.org/missamynicholson/chitter-challenge)

@@ -33,8 +33,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get "/users/password_reset" do
-    user = User.find_by_token(params[:token])
-    if user
+    if User.find_by_token(params[:token])
       erb :"users/password_reset"
     else
       flash[:errors] = ["Invalid password token"]
