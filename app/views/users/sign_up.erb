@@ -1,0 +1,17 @@
+<form action='/peeps'>
+  <header align = "right">
+  <input type='submit' value='Back' style="font-family:'Amatic SC'; font-size: 25px; height: 75; width: 150px; background-color: #b3ffe2">
+</header>
+</form>
+
+<body>
+  <h1>What are you waiting for? Sign up cheeky!</h1>
+
+  <form action='/users' method='post'>
+    Name:<input type='text' name='name'>
+    Username:<input type='text' name='username'>
+    Email:<input type='email' name='email' value='<%= @user.email %>' required>
+    Password:<input type ='password' name ='password'>
+    Re-enter password:<input type ='password' name ='password_confirmation'>
+    <input type='submit' value='Sign up' style="font-family:'Amatic SC'; font-size: 25px; height: 75; width: 150px; background-color: #b3ffe2">
+  </form>

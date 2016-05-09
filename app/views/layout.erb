@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Amatic+SC'>
+    <link type='text/css' rel="stylesheet" href="/stylesheet.css"/>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+        <header align = "right">
+          <h4>Oh hi there <%= current_user.username %>!</h4>
+            <form method='post' action='/users/sign_in'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Sign out' style="font-family:'Amatic SC'; font-size: 25px; height: 75; width: 150px; background-color: #b3ffe2">
+            </form>
+        </header>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      You silly sock:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      Duh.
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

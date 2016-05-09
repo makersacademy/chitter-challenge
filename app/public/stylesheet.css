@@ -1,0 +1,11 @@
+body {
+  font-family: "Amatic SC";
+  font-size: 10;
+  font-color: black;
+  background-image: url("http://imgur.com/h4SX5na.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% -100%;
+  background-size: 40%;
+  /*margin: auto;*/
+  /*text-align: center;*/
+}
