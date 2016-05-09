@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# chitter-challenge
+=======
 Chitter Challenge
 =================
 
@@ -106,3 +109,4 @@ $ coveralls report
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
+>>>>>>> 1ec1413865ab4e5dd0990904025289af31194cc3
