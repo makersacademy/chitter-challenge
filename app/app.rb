@@ -21,12 +21,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(
-      body: params[:body],
+    @peeps = Peep.all
+    # peep = Peep.create(
+    #   body: params[:body],
 
-      )
+    #   )
     redirect to '/peeps'
   end
+
   post '/users' do
     user = User.create(
       name: params[:name],

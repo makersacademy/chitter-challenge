@@ -7,6 +7,8 @@ require './app/models/user'
 
 Capybara.app = Chitter
 
+ENV["RACK_ENV"] = "test"
+
 RSpec.configure do |config|
 
   config.before(:suite) do
