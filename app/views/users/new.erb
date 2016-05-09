@@ -1,20 +1,24 @@
-<h1>Sign up to Chitter</h1>
-
-<form action='/users' method='post'>
-  <label for='name'>
-    Name <input name='name' type='name' required>
-  </label>
-  <label for='username'>
-    Username <input name='username' type='username' required>
-  </label>
-  <label for='email'>
-    Email: <input name='email' type='email' value='<%= @user.email %>' required>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <label for='password_confirmation'>
-    Password: <input name='password_confirmation' type='password'>
-  </label>
-  <input type='submit' value='Sign up'>
-</form>
+<div>
+  <center>
+    <img height="500 px" src='http://vignette1.wikia.nocookie.net/clubpenguinfanon/images/1/17/Chitter_logo.png/revision/latest?cb=20100722020455'>
+    <h1>Sign up to Chitter</h1>
+    <form action='/users' method='post'>
+      <label for='name'>
+        Name <input name='name' type='name' required>
+      </label>
+      <label for='username'>
+        Username <input name='username' type='username' required>
+      </label>
+      <label for='email'>
+        Email: <input name='email' type='email' value='<%= @user.email %>' required>
+      </label>
+      <label for='password'>
+        Password: <input name='password' type='password'>
+      </label>
+      <label for='password_confirmation'>
+        Password: <input name='password_confirmation' type='password'>
+      </label>
+      <input type='submit' value='Sign up'>
+    </form>
+  </center>
+</div>
