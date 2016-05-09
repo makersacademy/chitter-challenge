@@ -78,6 +78,14 @@ Time stamps are displayed with message
 Time stamp should not be able to be changed
 
 
+Future changes
+
+Password recovery
+CSS
+Refactor controller
+
+
+
 ```
 
 Notes on functionality:

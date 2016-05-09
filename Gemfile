@@ -10,6 +10,7 @@ gem 'pg'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'dm-timestamps'
 
 group :test do
   gem 'rspec'

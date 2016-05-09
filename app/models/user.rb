@@ -6,17 +6,17 @@ class User
 
   include DataMapper::Resource
 
-  attr_reader :password
+  attr_reader   :password
   attr_accessor :password_confirmation
 
     validates_confirmation_of :password
 
 
-  property :id, Serial
-  property :name, String, required: true
-  property :username, String, required: true, unique: true
-  property :email, String, format: :email_address, required: true, unique: true
-  property :password_digest, Text, required: true
+  property :id,               Serial
+  property :name,             String, required: true
+  property :username,         String, required: true, unique: true
+  property :email,            String, format: :email_address, required: true, unique: true
+  property :password_digest,  Text,   required: true
 
   def password=(password)
     @password = password
@@ -37,9 +37,7 @@ class User
 
 end
 
-DataMapper.setup(:default, 'postgres://localhost/chitter_test')
-DataMapper.finalize
-DataMapper.auto_upgrade!
+
 
 
 
