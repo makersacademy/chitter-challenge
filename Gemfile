@@ -7,4 +7,12 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
 end
-
+gem 'sinatra'
+gem 'capybara'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'database_cleaner'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'dm-validations'
+gem 'sinatra-partial'

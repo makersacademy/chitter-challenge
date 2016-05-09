@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTER</title>
+  </head>
+   <link rel="stylesheet" href="/style.css">
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% end %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>
