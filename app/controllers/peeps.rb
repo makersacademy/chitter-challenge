@@ -1,5 +1,9 @@
 class Chitter < Sinatra::Base 
 
+  get '/' do 
+    redirect to '/peeps'
+  end
+
   get '/peeps' do 
     @peeps = Peep.all 
     erb :'peeps/index'
@@ -17,5 +21,7 @@ class Chitter < Sinatra::Base
   get '/peeps/new' do 
     erb :'peeps/new'
   end
-  
+
+  run! if app_file == $0
+
 end
