@@ -3,6 +3,7 @@ ruby '2.2.4'
 
 gem "data_mapper"
 gem "dm-postgres-adapter"
+gem "dm-timestamps"
 gem "sinatra"
 gem "sinatra-flash"
 gem "sinatra-partial"

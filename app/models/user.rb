@@ -12,12 +12,13 @@ validates_format_of :email, as: :email_address
 validates_presence_of :email
 validates_uniqueness_of :username, :email
 
-
-  property :id, Serial
-  property :username, Text
-  property :name, Text
-  property :email, String, required: true, unique: true
+  property :id,              Serial
+  property :username,        Text,   required: true, unique: true
+  property :name,            Text,   required: true
+  property :email,           String, required: true, unique: true
   property :password_digest, Text
+
+  has n, :peeps, through: Resource
 
   def password= password
     @password = password
