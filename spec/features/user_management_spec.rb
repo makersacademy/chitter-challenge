@@ -8,15 +8,13 @@ end
 
 feature 'password_confirmation' do
 scenario 'with a password that does not match' do
-  expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  expect { sign_up }.not_to change(User, :count)
   expect(current_path).to eq('/users')
   expect(page).to have_content 'Password and confirmation password do not match'
 end
 end
 
-def sign_up(email = 'alice@example.com',
-  password = 'oranges!',
-  password_confirmation = 'oranges!')
+def sign_up
   visit '/users/new'
   expect(page.status_code).to eq(200)
   fill_in :email, with: 'alice@example.com'
