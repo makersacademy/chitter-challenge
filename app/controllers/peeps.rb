@@ -17,4 +17,13 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/peeps/:peep_id' do
+    peep = Peep.new(content: params[:reply])
+    original = Peep.first(id: params[:peep_id])
+    original.replies << peep
+    current_user.peeps << peep
+    peep.save
+    redirect '/peeps'
+  end
+
 end

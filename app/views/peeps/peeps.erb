@@ -17,8 +17,19 @@
   <% @peeps.each do |peep| %>
     <article class='peep'>
       <%= peep.user.name %> <%= peep.user.username %> <br>
+      <% if peep.source %>
+        reply to <%= peep.source.user.username %>:
+      <% end %>
       <%= peep.content %><br>
       <%= peep.created_at.strftime('%c') %>
+      <% if current_user %>
+        <form action='peeps/<%= peep.id %>' method='post', id=<%= peep.id %> >
+          <label for='reply'>
+            Reply Here: <input name='reply' type='text' placeholder='reply here...'required>
+          </label>
+          <input type='submit' value='Submit reply'>
+        </form>
+      <% end %>
     </article>
   <% end %>
 
