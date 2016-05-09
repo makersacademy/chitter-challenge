@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
   set    :session_secret, 'super secret'
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -42,11 +43,10 @@ class Chitter < Sinatra::Base
   get '/feed' do
     @user = current_user
     @peeps = Peep.all
-    p @user
     erb :feed
   end
 
-  post '/feed' do
+  post '/peeped' do
     peep = Peep.create(user_id: 1, content: params[:content], time: Time.new)
     current_user.peeps << peep
     peep.save
@@ -54,10 +54,9 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
-  post '/logout' do
-    @current_user = nil
-    p @current_user
-    redirect '/feed'
+  get '/logout' do
+    current_user = nil
+    redirect '/'
   end
 
   run! if app_file == $PROGRAM_NAME

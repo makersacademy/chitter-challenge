@@ -1,6 +1,5 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-# require './app/data_mapper_setup'
 require 'bcrypt'
 
 
@@ -17,7 +16,7 @@ class User
   attr_reader :password
   validates_presence_of :password
 
-  has n, :peeps 
+  has n, :peeps
 
   def password=(new_password)
     @password = new_password

@@ -1,3 +1,5 @@
+<h1> Welcome to Chitter! </h1>
+
 <% if @user == nil %>
 <form action="/signup">
   <input type="submit" value="Sign up">
@@ -7,3 +9,13 @@
   <input type="submit" value="Log in">
 </form>
 <% end %>
+
+<ul>
+<% @peeps.reverse.each do |peep| %>
+<li>
+  <%= peep.content %> <br>
+  By: <%= peep.username %> <br>
+  Posted at: <%= peep.time.strftime("%H:%M:%S") %>
+</li>
+<% end %>
+</ul>

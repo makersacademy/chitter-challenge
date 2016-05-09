@@ -16,3 +16,9 @@ def log_in
   fill_in 'returning_password', with: 'rspecrulez'
   click_button 'Log in'
 end
+
+def peep
+  log_in
+  fill_in 'content', with: 'This is a test peep lol'
+  click_button 'Peep'
+end

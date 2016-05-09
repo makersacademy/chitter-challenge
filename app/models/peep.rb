@@ -1,7 +1,5 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-# require './app/data_mapper_setup'
-# require_relative 'user'
 
 class Peep
 
@@ -11,7 +9,11 @@ class Peep
   property :id, Serial
   property :content, String
   property :time, DateTime
-  
+
+  def username
+    User.get(self.user_id).username
+  end
+
   belongs_to :user
 
 end

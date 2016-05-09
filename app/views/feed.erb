@@ -1,20 +1,23 @@
 <h2> Welcome, <%= @user.username %>! </h2>
 
-<form action="/logout" method="post">
+
+<form action="/logout">
   <input type="submit" value="Log out">
 </form>
+
 <br>
-<form action="/feed" method="post">
+<form action="/peeped" method="post">
   <input type="text" name="content" maxlength="140">
   <input type="submit" value="Peep">
 </form>
 
 
 <ul>
-<% @peeps.each do |peep| %>
+<% @peeps.reverse.each do |peep| %>
 <li>
-  <%= peep.content %>
-  <%= peep.time %>
+  <%= peep.content %> <br>
+  By: <%= peep.username %> <br>
+  Posted at: <%= peep.time.strftime("%H:%M:%S") %>
 </li>
 <% end %>
 </ul>
