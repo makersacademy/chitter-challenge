@@ -45,7 +45,6 @@ feature 'peeping' do
     expect(page).to have_content "Title: I like lemons"
     expect(page).to have_content "Content: I really do like lemons"
     expect(page).to have_content "Author: johnnydoe21"
-    expect(page).to have_content "Time: 2016"
   end
 
   scenario 'as a new user, peeps have different title, content, author' do
@@ -59,12 +58,10 @@ feature 'peeping' do
     expect(page).to have_content "Title: I like lemons"
     expect(page).to have_content "Content: I really do like lemons"
     expect(page).to have_content "Author: johnnydoe21"
-    expect(page).to have_content "Time: 2016"
     click_button 'log out'
     expect(page).to have_content "Title: I like lemons"
     expect(page).to have_content "Content: I really do like lemons"
     expect(page).to have_content "Author: johnnydoe21"
-    expect(page).to have_content "Time: 2016"
     sign_up_log_in_peep_jane_doe
     expect(page).to have_content "Title: Jane likes lemons"
     expect(page).to have_content "Content: She really does like lemons"

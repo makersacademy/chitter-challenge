@@ -1,31 +1,9 @@
 <head>
   <title>Logged in</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <link type="text/css" href='style.css' rel='stylesheet'>
   <style type="text/css">
 
-  li {
-    background-color: #ff704d;
-    border-style: dotted;
-  }
-
-  body {
-    font-family: Georgia, serif;
-    background-color: #FFFF00;
-    height: 100%;
-    margin: 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  form {
-    color: #000000;
-    font-size: 1em;
-  }
-
-  h1 {
-    font-family: Georgia, serif;
-    font-size: 2em;
-  }
   </style>
 </head>
 
@@ -59,7 +37,7 @@
     <br>
     Content: <%= peep.content %>
     <br>
-    Time: <%= peep.lastmodified %>
+    Time: <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
     <br>
     Author: <%= peep.user.username %>
     <br>

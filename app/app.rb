@@ -58,7 +58,7 @@ class Chitter < Sinatra::Base
 
   post '/add_peep' do
     user = User.get(session[:user_id])
-    peep = Peep.create(title: params[:title], content: params[:content])
+    peep = Peep.create(title: params[:title], content: params[:content], time: Time.now)
     user.peeps << peep
     user.save
     p peep.user.username

@@ -9,7 +9,7 @@ class Peep
   property :id, Serial
   property :title, String
   property :content, String
-  property :lastmodified, String
+  property :time, Time
 
   belongs_to :user
 end

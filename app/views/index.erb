@@ -37,7 +37,7 @@
     <br>
     Author: <%= peep.user.username %>
     <br>
-    Time: <%= peep.lastmodified %>
+    Time: <%= peep.time.strftime("%I:%M%p,%e %b %Y") %>
   </li>
   <% end %>
 </ul>
