@@ -1,5 +1,5 @@
 rvm: '2.2.3'
-  - bundle exec rake db:auto_ugrade RACK_ENV=test
+  - bundle exec rake db:auto_upgrade RACK_ENV=test
 
 script:
   - mkdir -p spec && bundle exec rspec spec
