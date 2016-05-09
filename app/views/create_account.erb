@@ -1,0 +1,41 @@
+<head>
+  <title>your account details</title>
+</head>
+
+<body>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <form action='/new_account' method='post'>
+    <div id='fields'>
+      <h3>your details</h3>
+      <label for='name'>name</label>
+        <input type='text' name='name'
+               value='<%=@user.name%>' required>
+      <br>
+      <label for='email'> email</label>
+        <input type='email' name='email'
+               value='<%=@user.email%>' required>
+      <br>
+      <label for='handle'>handle</label>
+        <input type='text' name='handle'
+               value='<%=@user.handle%>' required>
+      <br>
+      <label for='password'>password: </label>
+        <input type='password' name='password'>
+      <label for='password_confirmation'>password: </label>
+        <input type='password' name='password_confirmation'>
+    </div>
+    <div id='submit'>
+      <input type='submit' value='create your chittr account'>
+    </div>
+  </form>
+
+</body>
