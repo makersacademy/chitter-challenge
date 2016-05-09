@@ -6,22 +6,10 @@
   <label>User name:</label>
   <input name="uname" type="text">
   <label>Email:</label>
-  <input name="email" type="text">
+  <input name="email" type="text" value='<%= @user.email %>'>
   <label>Password:</label>
   <input name="password" type="password">
   <label>Confirm Password:</label>
   <input name="password_confirmation" type="password">
-  <input class="hvr-buzz-out" type="submit" value="Sign up">
+  <input type="submit" value="Sign up">
 </form>
-
-<!-- <h1>Please sign up</h1>
-
-<form action='/users' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='text'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign up'>
-</form> -->

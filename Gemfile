@@ -11,6 +11,7 @@ gem 'rspec-sinatra'
 gem 'selenium-webdriver'
 gem 'database_cleaner'
 gem 'bcrypt'
+gem 'sinatra-flash'
 group :test do
   gem 'cucumber'
   gem 'coveralls', require: false
