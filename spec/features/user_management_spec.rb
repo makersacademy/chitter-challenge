@@ -10,7 +10,7 @@ feature 'password_confirmation' do
   scenario 'with a password that does not match' do
     expect { bad_sign_up }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content "Sorry, your passwords don't match"
   end
 end
 
@@ -30,7 +30,7 @@ feature 'email already taken' do
   scenario 'I cannot sign up with an existing email' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content('This email is already taken')
   end
 end
 
