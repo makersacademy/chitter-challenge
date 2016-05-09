@@ -1,0 +1,153 @@
+body {
+  font-family: Ubuntu, sans-serif;
+  background: url('https://static.pexels.com/photos/7919/pexels-photo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  text-decoration: none;
+}
+
+a, a:link, a:visited, a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul a {
+  display: block;
+  color: #FFF;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+label {
+  font-size: 1.2em;
+}
+
+.header {
+  background: #000;
+}
+
+.header h1 a {
+    color: #FFF;
+    font-size: 1.8em;
+}
+
+.button-list {
+  margin-top: 150px;
+}
+
+.button-list ul li {
+  margin-top: 10px;
+  padding: 0px, 20px;
+}
+
+.btn {
+  background-color: #686868;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.welcome-message {
+  background-color: rgba(104, 104, 104, 0.7);;
+  color: #FFF;
+  border-radius: 20px;
+}
+
+.welcome-message p a {
+  color: #000;
+}
+
+.peep-feed {
+  background-color: rgba(104, 104, 104, 0.7);;
+  border-radius: 20px;
+  height: 450px;
+}
+
+.each-peep {
+  padding: 10px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.peep-message {
+  font-size: 1.8em;
+}
+
+.peep-poster {
+  font-style: italic;
+  color: #878585;
+}
+
+.sign-out {
+  float: right;
+  margin-top: 35px;
+  color: #FFF;
+}
+
+.peep-button {
+  margin-bottom: 20px;
+  background-color: #148922;
+}
+
+.sign-in-content {
+  color: #FFF;
+}
+
+.sign-up-content {
+  color: #FFF;
+}
+
+.sign-in-content .btn, .sign-up-content .btn {
+  background-color: #148922;
+  color: #FFF;
+}
+
+.sign-back {
+  margin-top: 15px;
+  background-color: rgba(104, 104, 104, 0.7);;
+  border-radius: 20px;
+  padding-bottom: 10px;
+}
+
+#peeps {
+  margin-top: 10px;
+}
+
+#flash-message {
+  /*background-color: #000;*/
+  color: #000;
+  font-size: 1.5em;
+  /*float: left;*/
+  -webkit-animation: seconds 1.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 5s;
+  animation: seconds 1.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
+  position: relative;
+}
+@-webkit-keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px;
+  }
+}
+@keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px;
+  }
+}

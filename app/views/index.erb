@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Chitter!</title>
+</head>
+
+<body>
+
+<header class='header'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-12 col-md-12'>
+        <h1 class='text-center'><a href='/'>Chitter</a></h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class='main'>
+
+  <div class='container'>
+    <% if flash[:notice] %>
+      <div id='flash-message' class='text-center'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <div class='row'>
+        <div class='col-sm-4 col-sm-offset-4 text-center button-list'>
+          <ul>
+            <li>
+              <a href='/sign-up' class='btn btn-lg active'>Click here to sign up</a>
+            </li>
+            <li>
+              <a href='/sign-in' class='btn btn-lg active'>Click here to sign in</a>
+            </li>
+            <li>
+              <a href='/feed' class='btn btn-lg active'>View your feed</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

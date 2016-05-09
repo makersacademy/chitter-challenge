@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='../main.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post a Peep</title>
+</head>
+
+<body>
+
+<header class='header'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-12 col-md-12'>
+        <h1 class='text-center'><a href='/'>Chitter</a></h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class='main'>
+
+  <div class='container'>
+    <div class='row'>
+        <div class='col-sm-4 col-sm-offset-4 text-center sign-in-content sign-back'>
+          <h1>Post a peep!</h1>
+
+          <form action='/user/peep' method='post'>
+            <div class='form-group'>
+              <label for='peep'>What's on your mind?</label>
+              <input type='text' name='peep' class='form-control' required>
+            </div>
+            <input type='submit' value='Peep!' class='btn'>
+          </form>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
