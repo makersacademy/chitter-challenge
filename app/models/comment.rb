@@ -9,7 +9,7 @@ class Comment
   belongs_to :peep
 
   property :id,         Serial
-  property :message,    Text, length: 1..240, required: true
+  property :message,    Text, length: 1..240, required: false
   property :created_at, DateTime
-
+  
 end
