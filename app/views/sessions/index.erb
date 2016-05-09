@@ -1,0 +1,21 @@
+<center>
+  <table>
+    <form action="/sessions/new" method="get">
+      <input type="submit" value="Sign in">
+    </form>
+    <form action="/users/new" method="get">
+      <input type="submit" value="Sign up">
+    </form>
+  </table>
+</center>
+
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |post| %>
+    <li>
+      At <%= "#{post.time} #{post.user.user_name}" %> wrote:
+      <%= post.post   %>
+    </li>
+  <% end %>
+</ul>
