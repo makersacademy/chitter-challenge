@@ -1,0 +1,13 @@
+<h1> Recent peeps </h1>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+  <li><%= peep.peep %></li>
+        <%= peep.author %> (@<%= peep.handle %>)
+        at <em><%= peep.time %></em>
+  <%end%>
+</ul>
+
+  <form action='/peeps/new'>
+    <input type='submit' value='Compose new peep!'>
+  </form>
