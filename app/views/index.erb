@@ -1,0 +1,30 @@
+
+<a href="/peep">peep</a>
+
+<%if @peeps %>
+<ul id=peeps>
+  <%@peeps.reverse.each do |peep|%>
+  <article class="peep" id='<%=peep.id%>'>
+    <%if peep.in_response_to %>
+    <p class=response>
+    in response to <%=User.get(Peep.get(peep.in_response_to).user_id).handle%>
+    <%=Peep.get(peep.in_response_to).created_at%>
+  </p>
+    <% end %>
+    <p class=content><%=peep.content%></p>
+    <p class=details>
+      <%=peep.user.handle%>
+      <%=peep.created_at%>
+    </p>
+      <%if current_user%>
+        <%if peep.user.id != current_user.id%>
+          <form class='reply_to' action="/peep/reply" method="get">
+            <input type="hidden" name="id" value="<%=peep.id%>">
+            <button type="submit" name="reply">reply</button>
+          </form>
+        <% end %>
+      <% end %>
+  </article>
+  <% end %>
+</ul>
+<% end %>

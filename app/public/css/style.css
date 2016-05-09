@@ -1,0 +1,130 @@
+
+
+.header {
+  position: relative;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #1DA1F2;
+  display: block;
+  border-bottom: 1px solid #e5e5e5;
+  height: 50px;
+}
+
+.header div {
+  position: absolute;
+  right: 15px;
+}
+
+.header input {
+  color: black;
+}
+
+.peep_box {
+  width: 150px;
+  height: 55px;
+  word-wrap: break-word;
+}
+
+.peep {
+  position:relative;
+  width: 60%;
+  height: 100px;
+  border: solid black 1px;
+  margin: 10px;
+  padding: 2px;
+}
+
+.peep .content {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+.peep .details {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+.peep .response {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.peep .reply_to {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+
+}
+
+.popup .close {
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+  transition: all 0.1s;
+  font-size: 25px;
+  text-decoration: none;
+  color: red;
+}
+.popup .close:hover {
+  color: black;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.overlay:target:before {
+    display: none;
+}
+.overlay:before {
+  content:"";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 9;
+}
+.overlay .popup {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  width: 420px;
+  position: fixed;
+  top: 0;
+  left: 35%;
+  padding: 8px;
+  margin: 70px auto;
+  z-index: 10;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.overlay:target .popup {
+    top: -100%;
+    left: -100%;
+}
+
+@media screen and (max-width: 768px){
+  .box{
+    width: 70%;
+  }
+  .overlay .popup{
+    width: 70%;
+    left: 15%;
+  }
+}
