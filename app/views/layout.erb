@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
