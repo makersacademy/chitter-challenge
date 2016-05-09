@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/HannaEb/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/HannaEb/chitter-challenge?branch=master)
 
-CHITTER CHALLENGE  
+CHITTER CHALLENGE
 
 Synopsis
 --------
