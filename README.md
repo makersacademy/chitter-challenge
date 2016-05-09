@@ -1,6 +1,31 @@
 Chitter Challenge
 =================
 
+##Install Postgres with server headers
+```sudo apt-get install postgresql-9.3 postgresql-server-dev-9.3 libpq-dev```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
