@@ -1,27 +1,27 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="/css/main.css" rel="stylesheet" type="text/css">
-</head>
 <body>
-
   <div class="bg-img">
     <div class="container">
-
       <div class='signup'>
         <form action='/users' method=POST>
-
-          <h3>Your name:</h3>
-          <input type='text' name='name'>
-
-          <h3>Your user name:</h3>
-          <input type='text' name='user_name' required>
-
-          <h3>Your email:</h3>
-          <input name='email' type='email' value='<%= @email %>' required>
-
-          <h3>Your password, twice please:</h3>
-          <input name='password' type='password' required>
-          <input name="password_confirmation" type='password' required>
+          <label = 'name'>
+            <h3>Your name:</h3>
+            <input type='text' name='name'>
+          </label>
+          <br>
+          <label = 'user name'>
+            <h3>Your user name:</h3>
+            <input type='text' name='user_name' required>
+          </label>
+          <br>
+          <label = 'email'>
+            <h3>Your email:</h3>
+            <input name='email' type='email' value='<%= @email %>' required>
+          </label>
+          <label = 'password'>
+            <h3>Your password, twice please:</h3>
+            <input name='password' type='password' required>
+            <input name="password_confirmation" type='password' required>
+          </label>
           <br>
           <input type='submit' value='Sign up'>
         </form>

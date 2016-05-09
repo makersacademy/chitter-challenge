@@ -1,12 +1,6 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="/css/main.css" rel="stylesheet" type="text/css">
-</head>
 <body>
-
   <div class='navbar'>
     <div class="container">
-
       <div class="row">
         <div class="col-md-1 col-md-offset-1">
           <a href="/">
@@ -18,7 +12,6 @@
         <div class="col-md-1">
           <h3> Welcome <%= current_user.username %> </h3>
         </div>
-
         <div class="col-md-1 col-md-offset-6">
           <form action='/peeps/new' method=GET>
             <input type ='submit' value='Peep!'>
@@ -34,7 +27,6 @@
 
 
       <% else %>
-
       <div class="row">
         <div class="col-md-1 col-md-offset-7">
           <form action='/users/new' method=GET>

@@ -1,19 +1,17 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="/css/main.css" rel="stylesheet" type="text/css">
-</head>
 <body>
-
   <div class="bg-img">
     <div class="container">
-
       <div class='login'>
         <form action='/session' method=POST>
-          <h3>Your email:</h3>
-          <input name='email' type='email' value='<%= @email %>' required>
-
-          <h3>Your password:</h3>
-          <input name='password' type='password'>
+          <label = 'email'>
+            <h3>Your email:</h3>
+            <input name='email' type='email' value='<%= @email %>' required>
+          </label>
+          <br>
+          <label = 'password'>
+            <h3>Your password:</h3>
+            <input name='password' type='password'>
+          </label>
           <br>
           <input type='submit' value='Log in'>
         </form>
