@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inner">
+  <div><h1 class="logo"><a href="/peeps">Chitter</a></h1></div>
+  <span class="nav-buttons">
+
+    <form method='post' action='/sessions'>
+      <% if current_user %>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out' class="btn btn-medium btn-primary" id="sign-out">
+      <% else %> 
+        <form action='/sessions' method='post'>
+          <input type='submit' value='Sign in' class="btn btn-medium btn-primary" id="sign-in">
+        </form>
+        <form action='/users/new' method='get'>
+          <input type='submit' value='Sign up' class="btn btn-medium btn-primary" id="sign-up">
+        </form>
+      <% end %>
+    </form>
+  </span>
+</nav>
+
+<div class="container-fluid profile-section">
+  <form action='/peeps/new' method='get'>
+    <% if current_user %>
+      <h3 id="welcome">Welcome, <%= current_user.email %>!</h3>
+      <br><br>
+      <img src="http://placekitten.com/300/340">      
+      <br><br>
+      <input type='submit' value='Add a peep!' class="btn btn-medium btn-primary" id="new-peep"> 
+    <% end %>
+  </form>
+</div>
+
+<div class="container-fluid peep-section">
+  <h3> Recent peeps </h3>
+
+  <ol reversed id='peeps'>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        <span>"<%=peep.content%>"</span>
+        <span></span>
+        <p class="posted">Posted: <%=peep.time%></p>
+      </li>
+    <% end %>
+  </ol>
+</div>

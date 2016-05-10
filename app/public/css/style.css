@@ -1,0 +1,156 @@
+body, div {
+  background-color: #f2f8fd;
+}
+
+a, a:hover, 
+.logo, 
+.logo:hover {
+  text-decoration: none;
+}
+
+h1 {
+  color: #1da1f2;
+  text-align: left; 
+  left: 20px;
+  float:left;
+  background-color: none;;
+  display: inline;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+h2, h3 {
+  color: #1da1f2;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+  text-align: left;
+}
+
+nav, 
+.navbar-inner:before, 
+.navbar-inner:after {
+  background-color: #b0f4d3;
+  left: 0; right: 0;
+}
+
+#sign-up-block,
+#sign-in-block {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#welcome {
+  left: 20px;
+  display: inline;
+  z-index: 50;
+}
+
+#recent-peeps {
+  text-align: left;
+  float: left;
+}
+
+#error {
+  color: red;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  list-style: none;
+}
+
+#notice, 
+#error li {
+  color: red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4px;
+  padding: 2px;
+  text-decoration: none;
+  list-style: none;
+  border-radius: 5px;
+  border-style: 1px;
+  border-color: red; 
+}
+
+#errors {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  list-style: none;
+}
+
+.topnav {
+  left: 0; right: 0;
+  border-radius: 0px;
+}
+
+#new-peep {
+  right: 10px;
+}
+
+#peeps {
+  list-style: none;
+}
+
+#peeps li {
+  padding: 10px;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: -25px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #b0d4f3;
+}
+
+.btn {
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+label, .posted {
+  color: darkgray;
+}
+
+.add-bookmark {
+  float: right;
+  margin-right: 10px;
+}
+
+#sign-in, #sign-out, #sign-up {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+}
+
+.nav-buttons {
+  margin-top: -10px;
+}
+
+#flash {
+  color: red;
+}
+
+.profile-section {
+  float: left;
+  width: 25%;
+  display: block;
+}
+
+.peep-section {
+  float: right;
+  width: 65%;
+  display: block;
+  margin-top: -10px;
+}

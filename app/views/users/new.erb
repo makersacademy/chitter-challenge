@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inner topnav">
+  <div><h1><a href="/peeps">Chitter</a></h1></div>
+</nav>
+
+<div id="sign-up-block">
+  <h2>Sign up to Chitter!</h2>
+
+  <form action='/users' method='post'>
+    <label for='name'>Name: </label>
+      <input name='name' type='text' value='<%= @user.name%>' required>
+    <label for='username'>Preferred Username: </label>
+      <input name='username' type='text' value='<%= @user.username%>' required>
+    <label for='email'>Email: </label>
+      <input name='email' type='email' value='<%= @user.email %>' required>
+    <label for='password'>Password: </label>
+      <input name='password' type='password' required>
+    <label for='password_confirmation'>Confirm Password: </label>
+      <input name='password_confirmation' type='password'>
+    <br>
+    <input type='submit' value='Sign up' class="btn btn-medium btn-primary">
+  </form>
+</div>
+

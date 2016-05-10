@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inner">
+  <div><h1 class="logo"><a href="/peeps">Chitter</a></h1></div>
+  <span class="nav-buttons">
+  </span>
+</nav>
+
+<div class="container-fluid">
+  <h3 id="new-peep"> New Peep</h3>
+
+  <form action='/peeps' method='POST'>
+    <label for='title'>
+      Content:
+    </label>
+    <input type='text' name='peep' />
+    <br>
+    <input type='submit' value='Peep!' class="btn btn-medium btn-primary">
+  </form>
+</div>
