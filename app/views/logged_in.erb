@@ -7,7 +7,7 @@
   </style>
 </head>
 
-<h1> Welcome <%= !!@user ? @user.username : "guest" %> </h1>
+<h1> Welcome <%= @user.username %> </h1>
 
 <form action='/' method='get'>
   <i class="fa fa-sign-out" aria-hidden="true"></i>
