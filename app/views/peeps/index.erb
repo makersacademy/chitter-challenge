@@ -18,16 +18,19 @@
   </span>
 </nav>
 
-<div class="container-fluid">
-
+<div class="container-fluid profile-section">
   <form action='/peeps/new' method='get'>
     <% if current_user %>
-      <p id="welcome">Welcome, <%= current_user.email %>!</p>
-    
-      <input type='submit' value='Add a peep!' class="btn btn-medium btn-primary" id="new-peep">
-      </form>
+      <h3 id="welcome">Welcome, <%= current_user.email %>!</h3>
+      <br><br>
+      <img src="http://placekitten.com/300/340">      
+      <br><br>
+      <input type='submit' value='Add a peep!' class="btn btn-medium btn-primary" id="new-peep"> 
     <% end %>
+  </form>
+</div>
 
+<div class="container-fluid peep-section">
   <h3> Recent peeps </h3>
 
   <ol reversed id='peeps'>
@@ -39,6 +42,4 @@
       </li>
     <% end %>
   </ol>
-
-
 </div>

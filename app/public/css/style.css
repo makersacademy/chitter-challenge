@@ -19,12 +19,20 @@ h1 {
   font-size: 26px;
 }
 
-h2 {
+h2, h3 {
   color: #1da1f2;
-  font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
 }
+
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+  text-align: left;
+}
+
 
 nav, 
 .navbar-inner:before, 
@@ -41,8 +49,14 @@ nav,
 }
 
 #welcome {
-  color: royalblue;
   left: 20px;
+  display: inline;
+  z-index: 50;
+}
+
+#recent-peeps {
+  text-align: left;
+  float: left;
 }
 
 #error {
@@ -127,4 +141,17 @@ label, .posted {
 
 #flash {
   color: red;
+}
+
+.profile-section {
+  float: left;
+  width: 25%;
+  display: block;
+}
+
+.peep-section {
+  float: right;
+  width: 65%;
+  display: block;
+  margin-top: -10px;
 }
