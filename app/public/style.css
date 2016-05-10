@@ -1,0 +1,25 @@
+li {
+  color: #000000;
+  background-color: #ff0000;
+  border: dotted black;
+}
+
+body {
+	font-family: Georgia, serif;
+  color: #000000;
+  background-color: #ffcc00;
+	height: 100%;
+	margin: 0;
+	text-align: center;
+	width: 100%;
+}
+
+form {
+	color: #000000;
+	font-size: 2em;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-size: 2em;
+}

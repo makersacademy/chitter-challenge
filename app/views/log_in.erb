@@ -1,0 +1,30 @@
+<head>
+  <title>Log in</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+  <link type="text/css" href='style.css' rel='stylesheet'>
+  </style>
+</head>
+
+<form action='/log_in' method='post'>
+
+  <label for='username'> Username </label>
+  <input type='text' name='username'>
+
+  <br>
+
+  <label for='password'> Password </label>
+  <input type='text' name='password'>
+
+  <br>
+
+  <input type='submit' value='submit'>
+</form>
+
+<% if flash[:errors] %>
+  <p class="notice"><%= flash[:errors] %></p>
+<% end %>
+
+<form action='/' method='get'>
+<i class="fa fa-sign-out" aria-hidden="true"></i>
+<input type='submit' value='home page'>
+</form>
