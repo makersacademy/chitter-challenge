@@ -9,6 +9,8 @@
 
   <body>
 
+    <%= yield %>  
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       <p id="errors">Please fix the following errors:</p>
       <ul id="error">
@@ -23,8 +25,6 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
-    <%= yield %>  
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 

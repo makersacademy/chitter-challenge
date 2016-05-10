@@ -1,16 +1,28 @@
 # Chitter Challenge
 
 ## Overview
-Chitter is a Sinatra application developed as part of Week 4 of the Makers Academy Ronin curriculum.
+Chitter is a Sinatra application developed as part of Week 4 of the Makers Academy Ronin curriculum. Chitter allows users to sign up and post messages (peeps) to a public stream.
 
 ## Instructions for use
 As a user, you have two options to run this application. Do one of the following.
 
 ### Run locally
 1. Fork and clone this repository. 
-2. Run bundle.
-3. Run rackup. 
-4. Navigate to localhost:4567/peeps to view peeps and sign in.
+2. Ensure you have a local postgres database installed. This project uses two local databases: 
+```
+chitter_test
+chitter_development
+```
+3. Run bundle.
+```
+$ bundle
+```
+
+4. Run rackup. 
+  ```
+  $ rackup
+  ```
+5. Navigate to localhost:9292 to view peeps and sign in.
 
 ### Use on Heroku
 A hosted version of this application is available for use at http://www.bs-chitter.herokuapp.com

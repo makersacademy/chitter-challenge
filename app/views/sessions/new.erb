@@ -1,6 +1,23 @@
-<div class="container"> 
+<nav class="navbar navbar-inner">
+  <div><h1><a href="/peeps">Chitter</a></h1></div>
+  <span class="nav-buttons">
 
-  <h1>Please sign in!</h1>
+    <form method='post' action='/sessions'>
+      <% if current_user %>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out' class="btn btn-medium btn-primary" id="sign-out">
+      <% else %> 
+        <form action='/users/new' method='get'>
+          <input type='submit' value='Sign up' class="btn btn-medium btn-primary" id="sign-up">
+        </form>
+      <% end %>
+    </form>
+  </span>
+</nav>
+
+<h2>Please sign in!</h2>
+
+<div id="sign-in-block"> 
 
   <form action='/sessions' method='post'>
     <label for='email'>Email:</label>
@@ -9,11 +26,7 @@
     <label for='password'>Password:</label>
       <input name='password' type='password'><br>
 
-    <input type='submit' value='Sign in' class="btn btn-medium btn-primary">
+    <span><input type='submit' value='Sign in' class="btn btn-medium btn-primary"></span>
   </form>
 
-
-  <% if flash[:sessions] %>
-    <div id='notice'><%= flash[:sessions] %></div>
-  <% end %>
 </div>

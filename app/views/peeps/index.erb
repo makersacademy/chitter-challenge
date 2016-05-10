@@ -1,13 +1,18 @@
 <nav class="navbar navbar-inner">
+  <div><h1 class="logo"><a href="/peeps">Chitter</a></h1></div>
   <span class="nav-buttons">
-    <form action='/sessions' method='post'>
-      <input type='submit' value='Sign in' class="btn btn-medium btn-primary" id="sign-in">
-    </form>
 
     <form method='post' action='/sessions'>
       <% if current_user %>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out' class="btn btn-medium btn-primary" id="sign-out">
+      <% else %> 
+        <form action='/sessions' method='post'>
+          <input type='submit' value='Sign in' class="btn btn-medium btn-primary" id="sign-in">
+        </form>
+        <form action='/users/new' method='get'>
+          <input type='submit' value='Sign up' class="btn btn-medium btn-primary" id="sign-up">
+        </form>
       <% end %>
     </form>
   </span>
@@ -28,7 +33,8 @@
   <ol reversed id='peeps'>
     <% @peeps.reverse.each do |peep| %>
       <li>
-        <p>"<%=peep.content%>"</p>
+        <span>"<%=peep.content%>"</span>
+        <span></span>
         <p class="posted">Posted: <%=peep.time%></p>
       </li>
     <% end %>
