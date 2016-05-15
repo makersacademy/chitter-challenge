@@ -1,0 +1,9 @@
+<h1>Sign up</h1>
+<form action="/users" method='post'>
+	<input class='sign' type='text' name='name' value='<%= @user.name %>' placeholder='Name' required><br>
+	<input class='sign' type='text' name='username' value='<%= @user.username %>' placeholder='Username'required><br>
+	<input class='sign' type='email' name='email' value='<%= @user.email %>' placeholder='Email' required><br>
+	<input class='sign' type='password' name='password'placeholder='Password'><br>
+	<input class='sign' name='password_confirmation' type='password' placeholder="Confirm password"><br>
+	<input class='sign' type='submit' value='Register'>
+</form>

@@ -1,0 +1,16 @@
+<h1> What's on your mind ? </h1>
+
+<% if current_user %>
+<form action="/peeps" method='post'>
+	<textarea id='peep' name='content' maxlength="140" placeholder="Write your peep here..." cols='50' rows='3'></textarea><br>
+	<input type='submit' value='Post'>
+</form>
+<% end %>
+
+<% @peeps.each_with_index do |p, i| %>
+<div id='peep_<%= i%>' class='peeps'>
+<h3> @<%= p.user.username %></h3>
+	<p class="peep_content"> <%= p.content %> </p>
+	<p class="peep_time"> <%= p.time_format %> </p>
+</div>
+<% end %>

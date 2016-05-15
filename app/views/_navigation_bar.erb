@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Chitter</a><br>
+    </div>
+    <div>
+      <% unless current_user %>
+      <form class='nav' action="/sessions/new">
+        <input class='navbar_button' type="submit" value="Sign in">
+      </form>
+      <form class='nav' action="/users/new">
+        <input class='navbar_button' type="submit" value="Sign up">
+      </form>
+      <% else %>
+      <form class='nav' action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input class='navbar_button' type='submit' value='Sign out'>
+      </form>
+      <% end %>
+    </div>
+  </div>
+</nav>

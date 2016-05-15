@@ -1,0 +1,110 @@
+body {
+  line-height: 1.8;
+  font-family: 'Architects Daughter', cursive;
+}
+
+p {font-size: 16px;}
+
+.margin {margin-bottom: 45px;}
+
+.bg-1 { 
+  background-image: url(/images/ignasi.png);
+  background-repeat: repeat;
+  color: #ffffff;
+}
+
+.bg-4 { 
+  background-color: #2F2F2F;
+  color: #ffffff;
+}
+
+.container-fluid {
+  padding-top: 40px;
+  padding-bottom: 70px;
+  color: #2F2F2F;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+input {
+  color: #2F2F2F;
+}
+
+.navbar_button {
+  background:transparent; 
+  border:0 none;
+  cursor:pointer;
+}
+
+.navbar_button:hover {
+  color: #e6005c;
+  font-size: 18px;
+}
+
+form.nav {
+  float: right;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: none;
+  color: #2F2F2F;
+}
+
+#errors li{
+  text-align: left;
+  font-size: 15px;
+}
+
+.peeps {
+  background-color: white;
+  border-style: double;
+  border-radius: 10px;
+  border-color: #2F2F2F;
+  color: #3384AC;
+  margin-top: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: auto;
+}
+
+.peeps h3 { 
+  float: left;
+  margin: 10px;
+  color: black;
+}
+
+.peeps img { 
+  width:  50%;
+}
+
+.peep_content {
+  text-align: justify;
+  margin: 10px;
+}
+
+.peep_time {
+  text-align: right;
+  margin-right: 10px;
+  color: #e6005c;
+}
+
+p.credit{
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+
+.sign {
+  margin-bottom: 5px;
+  width: 20%
+}
