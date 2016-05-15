@@ -84,6 +84,10 @@ textarea {
   color: black;
 }
 
+.peeps img { 
+  width:  50%;
+}
+
 .peep_content {
   text-align: justify;
   margin: 10px;
