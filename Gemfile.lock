@@ -6,6 +6,13 @@ GEM
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     builder (3.2.2)
+    capybara (2.7.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coveralls (0.8.2)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
@@ -33,6 +40,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -82,9 +90,19 @@ GEM
     json (1.8.3)
     json_pure (1.8.3)
     mime-types (2.6.2)
+    mini_portile2 (2.1.0)
     multi_json (1.11.2)
     multi_test (0.1.2)
     netrc (0.10.3)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    pkg-config (1.1.7)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.4.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -110,6 +128,12 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.5.1)
     templater (1.0.0)
       diff-lcs (>= 1.1.2)
@@ -118,23 +142,30 @@ GEM
     term-ansicolor (1.3.2)
       tins (~> 1.0)
     thor (0.19.1)
+    tilt (2.0.5)
     tins (1.6.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
     uuidtools (2.1.5)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
+  capybara
   coveralls
   cucumber
   data_mapper
+  database_cleaner
   dm-postgres-adapter
   rake
   rspec
   rspec-sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.2.3p173
