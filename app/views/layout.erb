@@ -3,6 +3,28 @@
 	<title>Chittlr</title>
 </head>
 <body>
+	<ul>
+		<strong>Menu:</strong>
+		<li>
+			<% if current_user %>
+				<a href="/user/logout">Sign out</a>
+			<% else %>
+				<a href="/user/new">Sign up</a> / 
+				<a href="/user/login">Login</a> 
+			<% end %>
+		</li>
+	</ul>
+
+	<% if flash[:errors] && !flash[:errors].empty? %>
+		<ul id="error">
+			<% flash[:errors].each do |error| %>
+				<li>
+          <%= error %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  
 	<%= yield %>
 </body>
 </html>
