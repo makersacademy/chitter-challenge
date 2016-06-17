@@ -11,7 +11,6 @@ class Chitter < Sinatra::Base
 	register Sinatra::Flash
 
 	get '/' do
-		@username = session['user']
 		erb :index
 	end
 
@@ -22,6 +21,7 @@ class Chitter < Sinatra::Base
 	post '/user/new' do
 		user = User.new(
 		email: params[:email],
+		username: params[:username],
 		password: params[:password],
 		password_confirmation: params[:password_confirmation]
 		)

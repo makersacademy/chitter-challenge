@@ -10,6 +10,7 @@ class User
 
 	property :id, Serial
 	property :email, String, required: true, unique: true
+	property :username, String, required: true, unique: true
 	property :password_digest, String, length: 60
 
 	validates_confirmation_of :password

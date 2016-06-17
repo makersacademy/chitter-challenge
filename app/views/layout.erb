@@ -5,16 +5,14 @@
 <body>
 	<ul>
 		<strong>Menu:</strong>
-		<li>
-			<% if current_user %>
-				<a href="/user/logout">Sign out</a>
+		<% if current_user %>
+			<li><a href="/user/logout">Sign out</a></li>
 			<% else %>
-				<a href="/user/new">Sign up</a> / 
-				<a href="/user/login">Login</a> 
+			<li><a href="/user/new">Sign up</a></li>
+			<li><a href="/user/login">Login</a></li>
 			<% end %>
-		</li>
 	</ul>
-
+	<h3><% if current_user %>Welcome <%= current_user.username %><% end %></h3>
 	<% if flash[:errors] && !flash[:errors].empty? %>
 		<ul id="error">
 			<% flash[:errors].each do |error| %>
