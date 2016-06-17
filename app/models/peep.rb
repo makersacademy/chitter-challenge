@@ -11,6 +11,6 @@ class Peep
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_sdawes_test")
+DataMapper.setup(:default, "postgres://localhost/chitter_sdawes_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
