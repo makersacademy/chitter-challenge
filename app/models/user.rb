@@ -1,5 +1,4 @@
-require 'dm-validations'
-require 'bcrypt'
+require "bcrypt"
 
 class User
   include DataMapper::Resource

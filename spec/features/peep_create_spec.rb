@@ -3,7 +3,7 @@ feature "Peep creation" do
     create_user
     # log_in
     visit("/peeps/new")
-    fill_in(:peep, with: "Ed Balls")
+    fill_in(:text, with: "Ed Balls")
     click_button(:Peep)
 
     expect(current_path).to eq("/peeps")

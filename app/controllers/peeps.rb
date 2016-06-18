@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
   get "/peeps" do
-    erb(:"peep/index")  
+    @peeps = Peep.all
+    erb(:"peep/index")
   end
 
   get "/peeps/new" do
@@ -8,6 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
+    Peep.create(text: params[:text], timestamp: Time.now)
     redirect("/peeps")
   end
 end
