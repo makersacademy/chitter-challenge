@@ -14,13 +14,12 @@ gem 'EmojifyRspecFormatter'
 gem 'sinatra-partial'
 gem 'timecop'
 gem 'mailgun-ruby'
-
+gem 'rspec'
+gem 'rake'
 
 group :test do
   gem 'database_cleaner'
-  gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
 
