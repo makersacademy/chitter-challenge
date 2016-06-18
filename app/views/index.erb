@@ -1,5 +1,6 @@
 <% if current_user %>
-Welcome back, <%= current_user.name %>
+<p>Welcome back, <%= current_user.name %></p>
+<a href="/user/logout">Log Out</a>
 <% else %>
 <a href="/user/login">Log In</a> or <a href="/user/new">Register</a>
 <% end %>

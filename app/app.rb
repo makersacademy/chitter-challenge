@@ -5,6 +5,7 @@ require_relative "data_mapper_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
+  use Rack::MethodOverride
 
   get "/" do
     erb(:index)
@@ -40,6 +41,15 @@ class Chitter < Sinatra::Base
     else
       redirect("/user/login")
     end
+  end
+
+  get "/user/logout" do
+    erb(:"session/end")
+  end
+
+  delete "/session" do
+    session[:user_id] = nil
+    "Successfully logged out"
   end
 
   helpers do

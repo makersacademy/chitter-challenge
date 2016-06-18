@@ -25,3 +25,23 @@ feature "User login" do
     expect(current_path).to eq("/user/login")
   end
 end
+
+feature "User logout" do
+  scenario "existing user can log out once logged in" do
+    User.create(
+      username: "vannio",
+      name: "Van",
+      email: "van@email.com",
+      password: "password123",
+      password_confirm: "password123"
+    )
+
+    visit("/user/login")
+    fill_in(:username, with: "vannio")
+    fill_in(:password, with: "password321")
+    click_button(:"Log In")
+    visit("/user/logout")
+    click_button(:"Log Out")
+    expect(page).to have_content("Successfully logged out")
+  end
+end
