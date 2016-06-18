@@ -5,7 +5,7 @@ class User
 
   property(:id, Serial)
   property(:username, String, length: 20, required: true)
-  property(:name, String)
+  property(:name, String, required: true)
   property(:email, String, format: :email_address, required: true)
   property(:password_encrypted, String, length: 60)
 
