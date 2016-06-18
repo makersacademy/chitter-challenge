@@ -32,10 +32,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/signin' do
-    @real_user = User.first(username: params[:username])
-    if valid_user?
-      start_user_session(@real_user)
-      redirect '/peeps'  
+    if User.validate(params)
+       user = User.first(username: params[:username]) 
+       start_user_session(user)
+       redirect '/peeps'  
     else
       flash[:error] = 'Invalid username or psw, please try again or sign up'
       redirect '/user/signin'
@@ -64,19 +64,6 @@ class Chitter < Sinatra::Base
 
   def start_user_session(user)
     session[:user_username] = user.username
-  end
-
-  def valid_user?
-    username_exists? &&
-    valid_password?
-  end
-
-  def username_exists?
-    @real_user
-  end
-
-  def valid_password?
-    BCrypt::Password.new(@real_user.password_digest) == params[:password]
   end
 
   def user_logged_in?
