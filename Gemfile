@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.1'
 
 group :test do
+  gem 'rspec-sinatra'
   gem 'rspec'
-  gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
 end
 
+group :database do
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+end
