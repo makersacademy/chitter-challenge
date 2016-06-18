@@ -11,3 +11,12 @@ def sign_up(name: 'Toby Wilkins',
   fill_in('username', with: username)
   click_button('register')
 end
+
+def sign_in (username: 'Tobes',
+            password: 'password')
+  sign_up
+  visit '/session/new'
+  fill_in('username', with: username)
+  fill_in('password', with: password)
+  click_button('sign in')
+end

@@ -22,13 +22,32 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    @user = User.create(name: params[:name], email: params[:email], password: params[:password],password_confirmation: params[:password_confirmation], username: params[:username])
+    @user = User.create(name: params[:name],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation],
+                        username: params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb(:register)
+    end
+  end
+
+  get '/session/new' do
+    erb(:new_session)
+  end
+
+  post '/session/new' do
+  @user = User.authenticate(params[:username],params[:password])
+    if !!@user
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb(:new_session)
     end
   end
 
