@@ -10,7 +10,11 @@ class User
   property :surname, String
   property :username, String
   property :email, String
-  property :password, String
+  property :password_digest, String, length: 60
+
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
+  end
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
