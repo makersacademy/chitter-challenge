@@ -13,7 +13,23 @@ end
 def signin
   visit '/'
   click_button 'Sign In'
+  fill_in 'username', with: @random_username
+  fill_in 'password', with: 'monkey'
+  click_button 'Sign In'
+end
+
+def signin_wrong_password
+  visit '/'
+  click_button 'Sign In'
   fill_in 'username', with:  @random_username
+  fill_in 'password', with: 'wrongpsw'
+  click_button 'Sign In'
+end
+
+def signin_wrong_username
+  visit '/'
+  click_button 'Sign In'
+  fill_in 'username', with: 'wrong_username'
   fill_in 'password', with: 'monkey'
   click_button 'Sign In'
 end
