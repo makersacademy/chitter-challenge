@@ -8,13 +8,15 @@
     <% if @current_user %>
       <h1> Welcome, <%= @current_user.username %> </h1>
     <% end %>
-    <h1> Test </h1>
     <% if flash[:errors] %>
-    <div id='notice'><%=flash[:errors]%></div>
+    <h3> Sorry, couldn't register </h3>
+      <div id='notice'><%flash[:errors].each do |error|%></div>
+        <ul>
+          <li> <%= error %>
+        </ul>
+      <% end %>
     <% end %>
-
-    <%= yield %>
-
-  </body>
+  <%= yield %>
+</body>
 
 </html>
