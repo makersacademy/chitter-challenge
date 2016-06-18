@@ -1,7 +1,7 @@
 <ul id="timeline">
 <% @peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
   <li>
-    <p class="peep"><%= peep.text %></p>
+    <p class="peep"><%= Peep.linkify(peep.text) %></p>
     <p class="peep-meta">
       <a href="http://twitter.com/<%= peep.user.username %>" class="name"><%= peep.user.name %></a>
       <span class="time">on <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %></span>
