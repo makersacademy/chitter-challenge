@@ -1,0 +1,5 @@
+<% if current_user %>
+Welcome back, <%= current_user.name %>
+<% else %>
+<a href="/user/login">Log In</a> or <a href="/user/new">Register</a>
+<% end %>
