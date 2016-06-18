@@ -6,3 +6,5 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
+
+require 'capybara/rspec'
