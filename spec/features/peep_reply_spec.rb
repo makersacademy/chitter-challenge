@@ -26,12 +26,14 @@ describe "Replying to peeps" do
     )
   end
 
-  before do
-    log_in
+  scenario "reply link does not appear when not logged in" do
     visit("/peeps")
+    expect(page).to_not have_content("Reply")
   end
 
   scenario "reply link only appears on another user's peep" do
+    log_in
+    visit("/peeps")
     within find("#timeline li:first-child") do
       expect(page).to have_content("Reply")
     end
@@ -42,6 +44,8 @@ describe "Replying to peeps" do
   end
 
   scenario "a logged in user can reply to another user's peep" do
+    log_in
+    visit("/peeps")
     within find("#timeline li:first-child") do
       click_link(:Reply)
     end

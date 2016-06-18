@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps/new" do
+    @text = params[:text]
     erb(:"peep/new")
   end
 

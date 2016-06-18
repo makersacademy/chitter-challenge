@@ -21,17 +21,15 @@ input {
   text-align: right;
 }
 
+#timeline p {
+  margin: 0;
+}
+
 #timeline .peep {
-  display: block;
   text-align: left;
 }
 
-#timeline .name {
-  font-size: 0.8rem;
-  text-align: right;
-}
-
-#timeline .time {
+#timeline .peep-meta {
   font-size: 0.8rem;
   text-align: right;
 }
