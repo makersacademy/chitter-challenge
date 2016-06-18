@@ -27,104 +27,66 @@ namespace :db do
   task :seed do
     DataMapper.auto_migrate!
 
-    vannio = User.create(
-      username: "vannio",
-      name: "Van",
-      email: "van@email.com",
-      password: "password123",
-      password_confirm: "password123"
-    )
+    users = [
+      { username: "vannio", name: "Van", email: "van@email.com" },
+      { username: "edballs", name: "Ed Balls", email: "ed@email.com" },
+      { username: "officialjaden", name: "Jaden Smith", email: "j@email.com" },
+      { username: "makersacademy", name: "Makers Academy", email: "makers@email.com" },
+    ]
 
-    edballs = User.create(
-      username: "edballs",
-      name: "Ed Balls",
-      email: "ed@email.com",
-      password: "password123",
-      password_confirm: "password123"
-    )
+    peeps = [
+      { text: "You would have to eat 5 apples today to get the same nutritional value as an apple from 1950",
+        time_offset: (24.2 * 10),
+        username: "officialjaden" },
+      { text: "If a cup cake falls from a tree, how far away will it be from down?",
+        time_offset: (22.3 * 9),
+        username: "officialjaden" },
+      { text: "Ed Balls",
+        time_offset: (21.5 * 8),
+        username: "edballs" },
+      { text: "Hah, @edballs is so silly",
+        time_offset: (20 * 8),
+        username: "vannio" },
+      { text: "If everybody in the world dropped out of school, we would have a much more intelligent society",
+        time_offset: (21.1 * 7),
+        username: "officialjaden" },
+      { text: "You can discover everything you need to know about everything by looking at your hands",
+        time_offset: (20.7 * 6),
+        username: "officialjaden" },
+      { text: "If a book store never runs out of a certain book, does that mean that nobody reads it, or everybody reads it",
+        time_offset: (19.3 * 5),
+        username: "officialjaden" },
+      { text: "How can mirrors be real if our eyes aren't real",
+        time_offset: (5.3 * 3),
+        username: "officialjaden" },
+      { text: "@vannio How did you make such an awesome twitter clone?",
+        time_offset: (23.4),
+        username: "makersacademy" },
+      { text: "If newborn babies could speak, they would be the most intelligent beings on planet earth",
+        time_offset: (18.7),
+        username: "officialjaden" },
+      { text: "@makers Let's see.. I used Sinatra, DataMapper, Postgres, Rspec, Capybara and some other stuff I couldn't fit into 140 chars",
+        time_offset: (3),
+        username: "vannio" },
+    ]
 
-    jaden = User.create(
-      username: "officialjaden",
-      name: "Jaden Smith",
-      email: "j@email.com",
-      password: "password123",
-      password_confirm: "password123"
-    )
+    users.each do |user|
+      User.create(
+        username: user[:username],
+        name: user[:name],
+        email: user[:email],
+        password: "password123",
+        password_confirm: "password123"
+      )
+    end
 
-    makers = User.create(
-      username: "makersacademy",
-      name: "Makers Academy",
-      email: "makers@email.com",
-      password: "password123",
-      password_confirm: "password123"
-    )
-
-    Peep.create(
-      text: "You would have to eat 5 apples today to get the same nutritional value as an apple from 1950",
-      timestamp: Time.now - (60 * 60 * 24.2 * 10),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "If a cup cake falls from a tree, how far away will it be from down?",
-      timestamp: Time.now - (60 * 60 * 22.3 * 9),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "Ed Balls",
-      timestamp: Time.now - (60 * 60 * 21.5 * 8),
-      user: edballs
-    )
-
-    Peep.create(
-      text: "Hah, @edballs is so silly",
-      timestamp: Time.now - (60 * 60 * 20 * 8),
-      user: vannio
-    )
-
-    Peep.create(
-      text: "If everybody in the world dropped out of school, we would have a much more intelligent society",
-      timestamp: Time.now - (60 * 60 * 21.1 * 7),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "You can discover everything you need to know about everything by looking at your hands",
-      timestamp: Time.now - (60 * 60 * 20.7 * 6),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "If a book store never runs out of a certain book, does that mean that nobody reads it, or everybody reads it",
-      timestamp: Time.now - (60 * 60 * 19.3 * 5),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "How can mirrors be real if our eyes aren't real",
-      timestamp: Time.now - (60 * 60 * 5.3 * 3),
-      user: jaden
-    )
-
-    Peep.create(
-      text: "@vannio How did you make such an awesome twitter clone?",
-      timestamp: Time.now - (60 * 60 * 23.4),
-      user: makers
-    )
-
-    Peep.create(
-      text: "If newborn babies could speak, they would be the most intelligent beings on planet earth",
-      timestamp: Time.now - (60 * 60 * 18.7),
-      user: jaden
-    )
-
-
-    Peep.create(
-      text: "@makers Let's see.. I used Sinatra, DataMapper, Postgres, Rspec, Capybara and some other stuff I couldn't fit into 140 chars",
-      timestamp: Time.now - (60 * 60 * 3),
-      user: vannio
-    )
+    peeps.each do |peep|
+      Peep.create(
+        text: peep[:text],
+        timestamp: Time.now - (3600 * peep[:time_offset]),
+        user: User.first(username: peep[:username])
+      )
+    end
 
     puts "Auto-migrate and seed complete (data was lost)"
   end
