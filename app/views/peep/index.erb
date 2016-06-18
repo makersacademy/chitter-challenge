@@ -1,4 +1,4 @@
-<ul id="timeline"><% @peeps.reverse.each do |peep|%>
+<ul id="timeline"><% @peeps.sort_by! {|peep| peep.timestamp }.reverse.each do |peep|%>
   <li><%= peep.text %> - <strong><%= peep.user.username %></strong>
     <em>on <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %></em>
   </li>
