@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+    <h2>Welcome, <%= current_user.handle %>
+      <% end %>
+      <%= yield %>
+  </body>
+</html>
