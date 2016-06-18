@@ -20,6 +20,7 @@ require 'timecop'
 require 'web_helper'
 require './app/models/message'
 require './app/models/user'
+require './app/models/send_recover_link'
 
 Capybara.app = Chitter
 
