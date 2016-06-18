@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './model/user'
+require 'Bcrypt'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -21,6 +22,15 @@ class App < Sinatra::Base
     User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     session[:user_session] = User.first(name: params[:name])
     redirect '/'
+  end
+
+  get '/sign_in' do
+    erb :'sign_in'
+  end
+
+  post '/sign_in_check' do
+    redirect '/' if User.validate(params[:username], params[:password])
+    redirect '/sign_in'
   end
 
   # start the server if ruby file executed directly

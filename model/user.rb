@@ -5,17 +5,22 @@ require 'BCrypt'
 class User
 
   include DataMapper::Resource
-  # attr_accessor :password
 
   property :id, Serial
-  property :name, String
-  property :username, String
-  property :email, String
+  property :name, String, required: true
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, String, length: 60
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.validate(username, password)
+    if @user = User.first(username: username)
+       BCrypt::Password.new(@user.password_digest) == password
+    end
   end
 
 end
