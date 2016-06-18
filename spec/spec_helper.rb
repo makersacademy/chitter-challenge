@@ -8,6 +8,7 @@ require 'rspec'
 
 require './app/models/peep'
 require './app/models/user'
+require_relative 'helpers/session'
 
 require 'coveralls'
 require 'simplecov'
@@ -22,6 +23,8 @@ Coveralls.wear!
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
    DatabaseCleaner.strategy = :transaction
