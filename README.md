@@ -43,7 +43,7 @@ I want to see the time at which it was made
 1. Clone or download this repo and `cd` into it
 1. Run `bundle install` to install the necessary gems
 1. Install `postgres` with `brew`, by running `brew install postgresql`
-1. Create two new databases on `postgres`: `chitter_dev` and `chitter_test`
+1. Create two new databases on `postgres`: `chitter_development` and `chitter_test`
 
 #### Testing the tests
 1. Run `rspec` to check tests are passing
