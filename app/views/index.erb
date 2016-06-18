@@ -48,7 +48,7 @@
         <% @peeps.each do |peep| %>
           <div class="entry">
             <div style="margin-bottom: 5px">
-              <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span><br>
+              <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span> <span class="timestamp"> <%= peep.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
             </div>
             <%= peep.message %>
           </div>

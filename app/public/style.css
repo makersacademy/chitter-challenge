@@ -110,8 +110,9 @@ a.makers:hover {
 }
 .reply  {
   width: 450px;
-  background-color: #FFF;
-  margin: 1px 0px 0px 40px;
+  background-color: #EAECEF;
+  border-top: 1px solid #FFF;
+  margin-left: 40px;
   color: #2A3E52;
   text-align: left;
   padding: 5px 10px 5px 40px;
@@ -126,6 +127,13 @@ a.makers:hover {
 .username {
   color: #07BD9C;
   font-size: 16px;
+}
+
+.timestamp {
+  color: #34495E;
+  font-size: 14px;
+  font-weight: lighter;
+  float: right;
 }
 
 .entry_footer_replies {

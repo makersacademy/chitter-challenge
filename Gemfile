@@ -4,12 +4,13 @@ ruby '2.3.1'
 
 gem 'sinatra'
 gem 'rake'
-gem 'bcrypt'
 gem 'sinatra-flash'
 
 group :database do
-  gem "data_mapper"
-  gem "dm-postgres-adapter"
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'dm-timestamps'
+  gem 'bcrypt'
 end
 
 group :test do
