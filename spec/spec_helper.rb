@@ -15,6 +15,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'timecop'
 
 require 'web_helper'
 require './app/models/message'

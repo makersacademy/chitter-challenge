@@ -13,6 +13,7 @@ class User
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, String, length: 60
   property :password_token, String, length: 60
+  property :password_token_time, Time
 
   def password=(password)
     @password = password
@@ -34,6 +35,16 @@ class User
 
   def generate_token
     self.password_token = SecureRandom.hex
+    self.password_token_time = Time.now
     self.save
+  end
+
+  def self.find_by_valid_token(token)
+    first(password_token: token)
+  end
+
+  def self.find_by_valid_token(token)
+    user = first(password_token: token)
+    user if (user && user.password_token_time + (60 * 60) > Time.now)
   end
 end
