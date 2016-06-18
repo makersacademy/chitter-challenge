@@ -5,6 +5,7 @@ feature "User registration" do
     fill_in(:name, with: 'Van')
     fill_in(:email, with: 'van@email.com')
     fill_in(:password, with: 'password')
+    fill_in(:password_confirm, with: 'password')
     expect{ click_button(:Register) }.to change{ User.all.count }.by(1)
     expect(current_path).to eq("/")
   end
