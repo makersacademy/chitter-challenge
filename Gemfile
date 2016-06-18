@@ -10,4 +10,5 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'sinatra'
   gem 'rspec-sinatra'
+  gem 'database_cleaner'
 end

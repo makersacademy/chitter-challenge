@@ -6,8 +6,8 @@ feature 'Viewing Peeps' do
   end
 
   scenario 'You can see the peep that you created' do
-    visit('/peeps')
     Peep.create(message: 'This is my first peep', time: Time.now.strftime(Chitter::TIME_FORMAT))
+    visit('/peeps')
     within('ul#peeps') do
       expect(page).to have_content('This is my first peep')
     end

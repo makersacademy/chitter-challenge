@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'coveralls'
 require 'simplecov'
+require 'database_cleaner'
 
 require_relative '../app/models/peep'
 
@@ -30,5 +31,18 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end
