@@ -1,10 +1,12 @@
 ENV["RACK_ENV"] = "dev"
 
 require "sinatra/base"
+require "sinatra/flash"
 require_relative "data_mapper_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
   use Rack::MethodOverride
 
   get "/" do
@@ -49,7 +51,8 @@ class Chitter < Sinatra::Base
 
   delete "/session" do
     session[:user_id] = nil
-    "Successfully logged out"
+    flash[:notice] = ["Successfully logged out"]
+    redirect("/")
   end
 
   helpers do
