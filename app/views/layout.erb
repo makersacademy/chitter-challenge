@@ -7,8 +7,16 @@
 
   <body>
     <% if current_user %>
-    <h2>Welcome, <%= current_user.handle %>
-      <% end %>
+      <h2>Welcome, <%= current_user.handle %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
       <%= yield %>
   </body>
 </html>

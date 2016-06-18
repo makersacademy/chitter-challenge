@@ -1,7 +1,7 @@
 <h1>Please sign up to register</h1>
 
 <form action="/users" method="post">
-  Email: <input type="text" name="email">
+  Email: <input type="text" name="email" value='<%= @user.email %>' required>
   Username: <input type="Text" name="handle">
   Password: <input type="password" name="password">
   Confirm Password: <input type="password" name="password_confirmation">

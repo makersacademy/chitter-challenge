@@ -7,6 +7,8 @@ require 'capybara/rspec'
 require 'rspec'
 
 require './app/models/peep'
+require './app/models/user'
+
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
