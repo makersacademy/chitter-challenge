@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome to Spitter, <%= current_user.name %>
+    <% end %>
+    <%= yield %>
+  </body>
+
+</html>
