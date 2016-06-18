@@ -4,6 +4,7 @@ ruby '2.2.3'
 
 group :other do
   gem 'rake'
+  gem 'byebug'
 end
 
 group :web do
