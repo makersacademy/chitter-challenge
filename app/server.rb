@@ -1,9 +1,13 @@
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
+  register Sinatra::Partial
+  use Rack::MethodOverride
+
   enable :sessions
   set :session_secret, "hello_this_is_dog"
 
-  register Sinatra::Flash
-  use Rack::MethodOverride
+  enable :partial_underscores
+  set :partial_template_engine, :erb
 
   get "/" do
     erb(:index)
