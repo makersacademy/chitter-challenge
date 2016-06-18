@@ -11,7 +11,7 @@ feature "User registration" do
   end
 
   scenario "user cannot register existing username" do
-    create_user
+    create_users
 
     visit("/user/new")
     fill_in(:username, with: 'vannio')
@@ -23,7 +23,7 @@ feature "User registration" do
   end
 
   scenario "user cannot register existing email address" do
-    create_user
+    create_users
 
     visit("/user/new")
     fill_in(:username, with: 'unique')

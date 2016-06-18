@@ -1,6 +1,6 @@
 feature "User login" do
   scenario "existing user cannot log in with incorrect password" do
-    create_user
+    create_users
     visit("/user/login")
     fill_in(:username, with: "vannio")
     fill_in(:password, with: "wrong_password")
@@ -19,7 +19,7 @@ end
 
 feature "User logout" do
   scenario "existing user can log out once logged in" do
-    create_user
+    create_users
     log_in
     visit("/user/logout")
     click_button(:"Log Out")

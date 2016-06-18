@@ -1,6 +1,6 @@
 feature "Peep creation" do
   scenario "user can post a new peep when logged in" do
-    create_user
+    create_users
     log_in
     visit("/peeps/new")
     fill_in(:text, with: "Ed Balls")

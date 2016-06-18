@@ -1,5 +1,5 @@
 <ul id="timeline">
-<% @peeps.sort_by! { |peep| peep.timestamp }.reverse.each do |peep| %>
+<% @peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
   <li>
     <span class="peep"><%= peep.text %></span>
     <a href="http://twitter.com/<%= peep.user.username %>" class="name"><%= peep.user.name %></a>
