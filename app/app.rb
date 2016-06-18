@@ -6,7 +6,7 @@ require_relative 'models/chit'
 
 class ChitterChallenge < Sinatra::Base
   get '/' do
-    redirect '/chits'
+    erb :'index'
   end
 
   get '/chits' do
