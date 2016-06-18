@@ -1,0 +1,12 @@
+<html>
+  <ul id='chits'>
+    <% @chits.each do |chit| %>
+      <li>
+      <%= chit.time %>
+			<%= chit.text %>
+
+      by: user
+      </li>
+      <% end %>
+ </ul>
+</html>
