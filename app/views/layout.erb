@@ -1,0 +1,14 @@
+<% if current_user %>
+	Signed in as <%= current_user.name %>
+<% end %>
+
+<% if flash[:errors] %>
+Sign Up not successful. Please address the following errors:
+	<ul id='errors'>
+		<% flash[:errors].each do |error| %>
+			<li><%=error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= yield %>
