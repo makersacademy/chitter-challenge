@@ -2,7 +2,7 @@ require 'sinatra/base'
 require_relative 'models/peep'
 
 
-class ChitterChatter < Sinatra::Base
+class Chitter < Sinatra::Base
   get '/' do
   	"Hello!"
   end

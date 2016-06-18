@@ -8,7 +8,7 @@ class Peep
   property :id, Serial
   property :peep, String
 
-  DataMapper.setup(:default, "postgres://localhost/chitter_chatter_test")
+  DataMapper.setup(:default, "postgres://localhost/chitter_test")
   DataMapper.finalize
   DataMapper.auto_upgrade!
 end

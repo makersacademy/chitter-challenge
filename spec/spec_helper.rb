@@ -10,7 +10,7 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-Capybara.app = ChitterChatter 
+Capybara.app = Chitter 
 
 
 RSpec.configure do |config|
