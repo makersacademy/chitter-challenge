@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'sinatra'
+gem 'bcrypt'
 
 group :database do
   gem 'data_mapper'
