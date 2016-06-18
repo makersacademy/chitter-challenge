@@ -11,7 +11,7 @@ class User
   property :id, Serial
   property :name, String
   property :user_name, String
-  property :email, String
+  property :email, String, required: true, format: :email_address, unique: true
   property :password_digest, String, length: 60
 
   def password=(password)
