@@ -5,10 +5,11 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require_relative './features/web_helper'
 require 'database_cleaner'
 require 'tilt/erb'
 require 'timecop'
+
+require_relative 'features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
