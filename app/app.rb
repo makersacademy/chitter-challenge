@@ -7,6 +7,7 @@ require_relative 'data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super_secret'
   register Sinatra::Flash
@@ -25,12 +26,25 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/posts/latest'
+      flash.keep[:notice] = nil
+      redirect '/sessions/posts'
     else
       flash.now[:errors] = ["Wrong Sign In Details! Try Again!"]
-      erb :'sessions/new'
+      erb :'/sessions/new'
     end
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Signed out!'
+    redirect to '/'
+  end
+
+  get '/sessions/posts' do
+    erb :'sessions/posts'
+  end
+
+
 
   get '/users/new' do
     erb :'users/new'
@@ -44,15 +58,11 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      redirect '/posts/latest'
+      redirect '/sessions/posts'
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/new'
     end
-  end
-
-  get '/posts/latest' do
-    erb :'posts/latest'
   end
 
 

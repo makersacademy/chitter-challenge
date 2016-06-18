@@ -5,7 +5,16 @@
   </head>
 
   <body>
+
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
     <% if current_user && !flash[:errors] %>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
       <h2>Welcome <%= current_user.user_name%></h2>
     <% end %>
 
@@ -14,6 +23,7 @@
         <h5><%= error %></h5>
       <% end %>
     <% end %>
+
 
     <%= yield %>
 
