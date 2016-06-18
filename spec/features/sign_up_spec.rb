@@ -42,4 +42,15 @@ feature 'Sign Up' do
   scenario 'user_name is required' do
     expect{ sign_up(user_name: nil) }.not_to change(User, :count)
   end
+
+  scenario 'get error if signing up with wrong credentials' do
+    sign_up(email: nil)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'get error if already signed up' do
+    sign_up
+    sign_up
+    expect(page).to have_content 'User name is already taken'
+  end
 end

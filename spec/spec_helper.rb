@@ -1,4 +1,11 @@
+require 'coveralls'
+require 'simplecov'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 
@@ -8,6 +15,8 @@ require 'rspec'
 require 'database_cleaner'
 require 'tilt/erb'
 require 'timecop'
+require 'coveralls'
+Coveralls.wear!
 
 require_relative 'features/web_helper'
 

@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 
 require_relative 'data_mapper_setup'
 
@@ -8,6 +9,7 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super_secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -24,8 +26,13 @@ class Chitter < Sinatra::Base
                        user_name: params[:user_name],
                        email: params[:email],
                        password: params[:password])
-    session[:user_id] = user.id
-    redirect '/posts/latest'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/posts/latest'
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   get '/posts/latest' do

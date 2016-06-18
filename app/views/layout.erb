@@ -5,8 +5,14 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <h1>Welcome <%= current_user.user_name%></h1>
+    <% if current_user && !flash[:errors] %>
+      <h2>Welcome <%= current_user.user_name%></h2>
+    <% end %>
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <h5><%= error %></h5>
+      <% end %>
     <% end %>
 
     <%= yield %>
