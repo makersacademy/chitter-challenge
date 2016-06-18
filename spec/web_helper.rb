@@ -45,3 +45,11 @@ def sign_up_bad_email
 	fill_in :password_confirmation, with: 'different'
 	click_button('Sign Up')
 end
+
+def sign_in
+	visit('/')
+	click_link('Sign In')
+	fill_in :email, with: 'riya.pabari@gmail.com'
+	fill_in :password, with: 'password'
+	click_button('Sign In')
+end
