@@ -9,7 +9,7 @@ feature 'Viewing messages' do
     Message.create(message: 'Hello Chitter!')
     visit '/messages'
     within 'ul#messages' do
-      expect(page).to have_content 'Hello Chitter'
+      expect(page).to have_content 'Hello Chitter!'
     end
   end
 end
