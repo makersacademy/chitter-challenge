@@ -1,5 +1,7 @@
 require 'sinatra/base'
 
+ENV['RACK_ENV'] ||= 'development'
+
 class App < Sinatra::Base
   get '/' do
     erb :'index'
