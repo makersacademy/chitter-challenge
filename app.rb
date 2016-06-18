@@ -1,9 +1,15 @@
 require 'sinatra/base'
+require './model/user'
 
 ENV['RACK_ENV'] ||= 'development'
 
 class App < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
+    @user = session[:user_session]
     erb :'index'
   end
 
@@ -12,6 +18,8 @@ class App < Sinatra::Base
   end
 
   post '/create_user' do
+    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session[:user_session] = User.first(name: params[:name])
     redirect '/'
   end
 
