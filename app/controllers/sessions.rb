@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect("/")
     else
+      flash[:notice] = ["Username or password combination incorrect"]
       redirect("/user/login")
     end
   end
