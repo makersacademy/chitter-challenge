@@ -14,3 +14,9 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def recover_password
+  visit '/users/recover'
+  fill_in :email, with: "marco@example.com"
+  click_button "Submit"
+end
