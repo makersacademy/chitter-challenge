@@ -11,6 +11,6 @@ end
 def log_in
   visit("/user/login")
   fill_in(:username, with: "vannio")
-  fill_in(:password, with: "password321")
+  fill_in(:password, with: "password123")
   click_button(:"Log In")
 end
