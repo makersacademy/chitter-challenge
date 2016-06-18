@@ -3,19 +3,19 @@
 <form action='/users' method='post'>
   
   <label for='name'>
-  	Name: <input type="text" name="name" value="<%= @user.name %>">
+  	Name: <input type="text" name="name" value="<%= @user.name %>" required>
   </label>
 
   <br><br>
 
   <label for='handle'>
-  	Handle: <input type="text" name="handle" value="<%= @user.handle %>">
+  	Handle: <input type="text" name="handle" value="<%= @user.handle %>" required>
   </label>
 
   <br><br>
 
   <label for='email'>
-  	Email: <input type="text" name="email" value="<%= @user.email %>">
+  	Email: <input type="email" name="email" value="<%= @user.email %>" required>
   </label>
 
   <br><br>
