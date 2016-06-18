@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/user/signin' do
+    erb :signin
+  end
+
   get '/user/signup' do
     erb :signup
   end
@@ -20,19 +24,25 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  post '/user/signin' do
+    user = User.first(username: params[:username])
+    start_user_session(user)
+    redirect '/peeps'  
+  end
+
   post '/user/signup' do
-    create_new_user(params)
-    start_user_session(@user)
+    user = create_new_user(params)
+    start_user_session(user)
     redirect '/peeps'  
   end
 
 
   def create_new_user(user_data)
-    @user = User.create(name:     user_data[:name],
-                        surname:  user_data[:surname],
-                        email:    user_data[:email],
-                        password: user_data[:password],
-                        username: user_data[:username]
+    User.create(name:     user_data[:name],
+                surname:  user_data[:surname],
+                email:    user_data[:email],
+                password: user_data[:password],
+                username: user_data[:username]
                        ) 
   end
 
