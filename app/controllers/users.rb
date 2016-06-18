@@ -11,7 +11,13 @@ class Chitter < Sinatra::Base
       password: params[:password],
       password_confirm: params[:password_confirm]
     )
-    session[:user_id] = user.id
-    redirect to("/")
+
+    if user.id
+      session[:user_id] = user.id
+      redirect("/")
+    else
+      flash[:notice] = user.errors.full_messages
+      redirect("/user/new")
+    end
   end
 end

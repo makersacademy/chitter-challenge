@@ -7,6 +7,7 @@ feature "User login" do
     click_button(:"Log In")
     expect(page).to_not have_content("Welcome back, Van")
     expect(current_path).to eq("/user/login")
+    expect(page).to have_content("Username or password combination incorrect")
   end
 
   scenario "non-existant user cannot log in" do
