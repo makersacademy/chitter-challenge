@@ -16,4 +16,11 @@ feature "messaging" do
     click_button 'post reply'
     expect(page).to have_content 'Hi!'
   end
+
+  scenario "can view timestamps" do
+    sign_up
+    fill_in(:new_peep, with: 'Hello, world!')
+    click_button 'post'
+    expect(page).to have_content DateTime.now.strftime("%l:%M %p - %d %b %Y")
+  end
 end

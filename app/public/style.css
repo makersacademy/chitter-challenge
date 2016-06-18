@@ -136,21 +136,10 @@ a.makers:hover {
   float: right;
 }
 
-.entry_footer_replies {
-  height: 22px;
-  width: 495px;
-  margin-left: 40px;
-  background-color: #07BD9C;
-  font-size: 14px;
-  text-align: left;
-  font-weight: lighter;
-  padding: 4px 0px 0px 5px;
-}
-
 .entry_footer {
   width: 495px;
   margin-left: 40px;
-  background-color: #ECF0F1;
+  background-color: #FFF;
   font-size: 14px;
   text-align: left;
   font-weight: lighter;

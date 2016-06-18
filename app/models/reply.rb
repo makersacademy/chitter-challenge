@@ -5,6 +5,7 @@ class Reply
   property :message, String
   property :username, String
   property :name, String
+  property :created_at, DateTime
 
   belongs_to :peep
 

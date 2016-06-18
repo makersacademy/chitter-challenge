@@ -45,7 +45,7 @@
             <% peep.replies.each do |reply| %>
               <div class="reply">
                 <div style="margin-bottom: 5px">
-                  <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><br>
+                  <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><span class="timestamp"> <%= reply.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
                 </div>
                 <%= reply.message %>
               </div>
