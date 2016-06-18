@@ -25,7 +25,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-  	Peep.create(peep: params[:peep])
+  	peep = Peep.create(peep: params[:peep])
+  	peep.save
   	redirect '/peeps'
   end
 
