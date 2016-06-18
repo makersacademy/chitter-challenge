@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
+    @email = params[:email]
     if user
       session[:user_id] = user.id
       flash.keep[:notice] = nil
