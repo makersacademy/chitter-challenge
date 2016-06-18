@@ -13,6 +13,18 @@ feature 'User signs up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
+  scenario 'without a name' do
+    expect { sign_up(name: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Name must not be blank')
+  end
+
+  scenario 'without a user name' do
+    expect { sign_up(user_name: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('User name must not be blank')
+  end
+
   scenario 'without an email address' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -29,5 +41,11 @@ feature 'User signs up' do
     expect{ sign_up }.to change(User, :count).by(1)
     expect{ sign_up }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
+  end
+
+  scenario 'with an existing user name' do
+    expect{ sign_up }.to change(User, :count).by(1)
+    expect{ sign_up }.not_to change(User, :count)
+    expect(page).to have_content 'User name is already taken'
   end
 end
