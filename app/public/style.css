@@ -108,6 +108,14 @@ a.makers:hover {
   text-align: left;
   padding: 5px 10px 5px 10px;
 }
+.reply  {
+  width: 450px;
+  background-color: #FFF;
+  margin: 1px 0px 0px 40px;
+  color: #2A3E52;
+  text-align: left;
+  padding: 5px 10px 5px 40px;
+}
 
 .name  {
   color: #D55400;
@@ -132,7 +140,6 @@ a.makers:hover {
 }
 
 .entry_footer {
-  height: 22px;
   width: 495px;
   margin-left: 40px;
   background-color: #ECF0F1;

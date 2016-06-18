@@ -52,7 +52,24 @@
             </div>
             <%= peep.message %>
           </div>
-          <div class="entry_footer"></div>
+          <% if peep.replies %>
+            <% peep.replies.each do |reply| %>
+              <div class="reply">
+                <div style="margin-bottom: 5px">
+                  <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><br>
+                </div>
+                <%= reply.message %>
+              </div>
+            <% end %>
+          <% end %>
+
+          <div class="entry_footer">
+            <form action='/reply' method='post'>
+              <input type="text" name="reply" placeholder="enter reply" class="input_box" required>
+              <input type="hidden" name="peep_id" value="<%= peep.id %>">
+              <input type="submit" value="post reply" class="login_button">
+            </form>
+          </div>
         <% end %>
       <% end %>
     </div>

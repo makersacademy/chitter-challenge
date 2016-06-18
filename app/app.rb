@@ -59,6 +59,15 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  post '/reply' do
+    reply = Reply.create(message: params[:reply],
+                         username: current_user.username,
+                         name: current_user.name,
+                         peep: Peep.first(id: params[:peep_id]))
+    Peep.first(id: params[:peep_id]).replies << reply
+    redirect '/'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.first(id: session[:user_id])
