@@ -2,7 +2,7 @@ require 'rubygems'
 require './app/app.rb'
 
 
-run ChitterChatter
+run Chitter
 
 
 #require File.join(File.dirname(__FILE__), 'app.rb')
