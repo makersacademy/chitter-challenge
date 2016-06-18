@@ -10,8 +10,11 @@ class Chitter < Sinatra::Base
 
   post "/peeps" do
     if current_user
-      peep = Peep.create(text: params[:text], timestamp: Time.now, user: current_user)
-      peep.save
+      peep = Peep.create(
+        text: params[:text],
+        timestamp: Time.now,
+        user: current_user
+      )
     else
       flash[:notice] = ["You must be logged in to do that"]
     end

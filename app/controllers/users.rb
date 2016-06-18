@@ -11,7 +11,6 @@ class Chitter < Sinatra::Base
       password: params[:password],
       password_confirm: params[:password_confirm]
     )
-    user.save
     session[:user_id] = user.id
     redirect to("/")
   end
