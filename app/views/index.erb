@@ -16,6 +16,11 @@
 
       <% if @current_user %>
         logged in as: <%= @current_user.username %>
+        <form action='/peep' method='post'>
+          <input type="text" name="new_peep" placeholder="enter message!" class="input_box" required>
+          <input type="submit" value="post" class="login_button">
+        </form>
+
         <form action='/sessions' method='post'>
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="log out" class="login_button">
@@ -39,17 +44,17 @@
 
     <div id="right_side">
       <br><br>
-      <div class="entry"></div>
-      <div class="entry_footer_replies">3 replies | reply > </div>
-
-      <div class="entry"></div>
-      <div class="entry_footer">reply ></div>
-
-      <div class="entry"></div>
-      <div class="entry_footer_replies"></div>
-
-      <div class="entry"></div>
-      <div class="entry_footer"></div>
+      <% if @peeps %>
+        <% @peeps.each do |peep| %>
+          <div class="entry">
+            <div style="margin-bottom: 5px">
+              <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span><br>
+            </div>
+            <%= peep.message %>
+          </div>
+          <div class="entry_footer"></div>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="site-footer">

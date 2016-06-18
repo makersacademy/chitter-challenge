@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     current_user
+    @peeps = Peep.all(order: :id.desc)
     erb :index
   end
 
@@ -23,10 +24,10 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     user = User.create(name: params[:name],
-                    username: params[:username],
-                    email: params[:email],
-                    password: params[:password],
-                    password_confirmation: params[:password_confirmation])
+                       username: params[:username],
+                       email: params[:email],
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
       redirect '/'
@@ -48,6 +49,13 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+    redirect '/'
+  end
+
+  post '/peep' do
+    peep = Peep.create(message: params[:new_peep],
+                       username: current_user.username,
+                       name: current_user.name)
     redirect '/'
   end
 
