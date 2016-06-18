@@ -1,3 +1,37 @@
 input {
   display: block;
 }
+
+.wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+#timeline {
+  display: block;
+  list-style: none;
+  padding: 0;
+}
+
+#timeline li {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: solid 1px #333;
+  border-radius: 5px;
+  text-align: right;
+}
+
+#timeline .peep {
+  display: block;
+  text-align: left;
+}
+
+#timeline .name {
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+#timeline .time {
+  font-size: 0.8rem;
+  text-align: right;
+}

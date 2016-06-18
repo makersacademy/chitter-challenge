@@ -5,8 +5,10 @@
   <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-<%= partial(:notices) %>
-<%= yield %>
-
+  <div class="wrapper">
+    <h1>Chitter</h1>
+    <%= partial(:notices) %>
+    <%= yield %>
+  </div>
 </body>
 </html>
