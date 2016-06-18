@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 gem 'sinatra'
 gem 'capybara'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec-sinatra'

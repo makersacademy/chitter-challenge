@@ -27,3 +27,13 @@ feature 'User can sign in' do
     expect(current_path).to eq '/sign_in'
   end
 end
+
+feature 'User can sign out' do
+  scenario 'User signs out' do
+    sign_up
+    visit '/sign_out'
+    click_button 'Sign Out'
+    expect(current_path).to eq '/'
+    expect(page).to have_content 'Goodbye John'
+  end
+end

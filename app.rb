@@ -1,16 +1,18 @@
 require 'sinatra/base'
 require './model/user'
 require 'Bcrypt'
+require 'sinatra/flash'
 
 ENV['RACK_ENV'] ||= 'development'
 
 class App < Sinatra::Base
 
   enable :sessions
-  set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do
     @user = session[:user_session]
+    @greeting = flash[:greeting]
     erb :'index'
   end
 
@@ -31,6 +33,19 @@ class App < Sinatra::Base
   post '/sign_in_check' do
     redirect '/' if User.validate(params[:username], params[:password])
     redirect '/sign_in'
+  end
+
+  get '/sign_out' do
+    erb :'sign_out'
+  end
+
+  post '/sign_out' do
+    if session[:user_session]
+      flash[:greeting] = "Goodbye #{session[:user_session].name}"
+      session[:user_session] = nil
+      redirect '/'
+    end
+    redirect '/signout'
   end
 
   # start the server if ruby file executed directly
