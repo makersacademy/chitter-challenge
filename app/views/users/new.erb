@@ -1,18 +1,18 @@
 <div align="center">
   <h2>Please sign-up below</h2>
 
-  <form action="/users/new" method="post">
+  <form action="/users" method="post">
 
     <label for='name'>
-      Name:       <input name="name" type="text" id="name">
+      Name:       <input name="name" type="text" id="name" value="<% @user.name %>">
     </label>
 
     <label for='username'>
-      User name:  <input name="username" type="text" id="username">
+      User name:  <input name="username" type="text" id="username" value="<% @user.username %>">
     </label>
 
     <label for='email'>
-      Email:      <input name="email" type="email" id="email">
+      Email:      <input name="email" type="email" id="email" value="<% @user.email %>">
     </label>
 
     <label for='password'>

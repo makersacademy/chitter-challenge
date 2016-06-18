@@ -19,6 +19,7 @@ require 'coveralls'
 require 'simplecov'
 require 'web_helpers'
 require 'database_cleaner'
+require 'sinatra/flash'
 
 Capybara.app = Chitter
 

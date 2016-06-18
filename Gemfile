@@ -9,6 +9,8 @@ end
 
 group :web do
   gem 'sinatra'
+  gem 'sinatra-flash'
+  gem 'sinatra-partial'
 end
 
 group :database do
