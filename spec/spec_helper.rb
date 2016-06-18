@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './model/user.rb'
 require 'features/web_helper'
+require 'database_cleaner'
 
 Capybara.app = App
 
@@ -22,5 +23,18 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
 
     mocks.verify_partial_doubles = true
+  end
+
+  RSpec.configure do |config|
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 end
