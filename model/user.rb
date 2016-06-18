@@ -18,9 +18,8 @@ class User
   end
 
   def self.validate(username, password)
-    if @user = User.first(username: username)
-       BCrypt::Password.new(@user.password_digest) == password
-    end
+    @user = User.first(username: username)
+    @user ? (BCrypt::Password.new(@user.password_digest) == password) : false
   end
 
 end
