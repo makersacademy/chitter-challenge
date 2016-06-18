@@ -17,3 +17,4 @@ gem "rack"
 gem "sinatra"
 gem 'bcrypt-ruby'
 gem "database_cleaner"
+gem 'sinatra-flash'

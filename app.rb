@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
+
 require './model/user'
 class ChitterChatter < Sinatra::Base
   enable :sessions
