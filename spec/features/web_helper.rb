@@ -12,3 +12,10 @@ def sign_up(name: 'Alex',
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign Up'
 end
+
+def sign_in(email: 'alex@hotmail.com',
+            password: 'test1234')
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign In'
+end
