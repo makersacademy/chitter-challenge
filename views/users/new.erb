@@ -1,4 +1,9 @@
 <h1> Chitter Chatter </h1>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <form method='post' action='/add'>
   <label for='email'>
     Email ID :

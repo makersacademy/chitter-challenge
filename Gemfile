@@ -15,4 +15,5 @@ gem "rspec"
 gem "capybara"
 gem "rack"
 gem "sinatra"
+gem 'bcrypt-ruby'
 gem "database_cleaner"

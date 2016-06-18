@@ -1,1 +1,16 @@
-Hello
+<h1> Chitter Chatter </h1>
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<form method='post' action='/sessions'>
+  <label for='email'>
+    Email ID :
+    <input type ="email" name="email"/>
+  </label>
+  <label for='password'>
+    PASSWORD :
+    <input type ="password" name="password"/>
+  </label>
+
+  <input type="submit" value="Sign in" >
+</form>
