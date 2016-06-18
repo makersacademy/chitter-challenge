@@ -4,22 +4,22 @@
 
 feature 'Signin' do
 
-  scenario 'A user can sign up, go to /, signin, and username is shown' do
-    signup
-    signin
-    expect(page).to have_content(@random_username)
-  end
+  context 'After sign up' do
+    before(:each) { signup }  
 
-  scenario 'User signs up, goes to /, error message shown for wrong username' do
-    signup
-    signin_wrong_username
-    expect(page).to have_content('Invalid username or psw, please try again or sign up')
-  end
-  
-  scenario 'User signs up, goes to /, error message shown for wrong password' do
-    signup
-    signin_wrong_password
-    expect(page).to have_content('Invalid username or psw, please try again or sign up')
-  end
+    scenario 'User signs in, username is shown' do
+      signin
+      expect(page).to have_content(@random_username)
+    end
 
+    scenario 'User signs in with wrong username error message shown' do
+      signin_wrong_username
+      expect(page).to have_content('Invalid username or psw, please try again or sign up')
+    end
+    
+    scenario 'User signs in with wrong password error message shown' do
+      signin_wrong_password
+      expect(page).to have_content('Invalid username or psw, please try again or sign up')
+    end
+  end
 end

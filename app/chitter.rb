@@ -22,8 +22,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @username = session[:user_username]
-    erb :peeps
+    if user_logged_in?
+      @username = session[:user_username]
+      erb :peeps
+    else
+      flash[:error] = 'Please log in first'
+      redirect '/user/signin' 
+    end
   end
 
   post '/user/signin' do
@@ -43,6 +48,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'  
   end
 
+  post '/user/logout' do
+    session[:user_username] = nil
+    redirect '/'  
+  end
 
   def create_new_user(user_data)
     User.create(name:     user_data[:name],
@@ -68,6 +77,10 @@ class Chitter < Sinatra::Base
 
   def valid_password?
     BCrypt::Password.new(@real_user.password_digest) == params[:password]
+  end
+
+  def user_logged_in?
+    session[:user_username]
   end
 
 end
