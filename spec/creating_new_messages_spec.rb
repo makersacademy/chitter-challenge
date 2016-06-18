@@ -8,7 +8,7 @@ feature 'Creating messages' do
     expect(current_path).to eq '/messages'
 
     within 'ul#messages' do
-      expect(page).to have_content('Hello, Marco')
+      expect(page).to have_content 'Hello, Marco'
     end
   end
 end
