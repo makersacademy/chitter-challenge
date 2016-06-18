@@ -10,7 +10,7 @@ require 'database_cleaner'
 require 'tilt/erb'
 require 'timecop'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 Capybara.app = Chitter
 
