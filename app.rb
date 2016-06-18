@@ -1,8 +1,20 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
+require './models/user'
+require './data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
+
+  register Sinatra::Flash
+
   get '/' do
-    'Hello Chitter!'
+    current_user
+    erb(:index)
   end
 
   get '/register' do
@@ -10,7 +22,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/register' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
+    @user = User.create(name: params[:name], email: params[:email], password: params[:password],password_confirmation: params[:password_confirmation], username: params[:username])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb(:register)
+    end
+  end
+
+  helpers do
+      def current_user
+        @current_user ||= (User.get(session[:user_id]))
+      end
   end
 
   # start the server if ruby file executed directly
