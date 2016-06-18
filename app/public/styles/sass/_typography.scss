@@ -1,0 +1,27 @@
+body {
+  color: $text-color;
+  font-family: monospace;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+a {
+  color: $text-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $highlight-color;
+  }
+}
+
+
+.time,
+.reply {
+  font-size: 0.8rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: bold;
+}
