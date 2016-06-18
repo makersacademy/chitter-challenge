@@ -5,7 +5,7 @@ class User
   include DataMapper::Resource
 
   attr_reader :password
-  attr_accessor :password_confirmation
+  attr_accessor :password_confirmation 
 
   validates_confirmation_of :password
 
