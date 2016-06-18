@@ -12,6 +12,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
+
 Coveralls.wear!
 
 Capybara.app = Chitter
