@@ -31,10 +31,6 @@ feature 'Sign Up' do
     expect{ sign_up(email: nil) }.not_to change(User, :count)
   end
 
-  scenario 'password is required' do
-    expect{ sign_up(password: nil) }.not_to change(User, :count)
-  end
-
   scenario 'name is required' do
     expect{ sign_up(name: nil) }.not_to change(User, :count)
   end
@@ -53,4 +49,19 @@ feature 'Sign Up' do
     sign_up
     expect(page).to have_content 'User name is already taken'
   end
+
+  scenario 'needs password confirmation' do
+    expect{ sign_up(password_confirmation: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'can go back to the sign in page' do
+    visit '/users/new'
+    click_button 'Go Back'
+    expect(current_path).to eq '/'
+  end
+
 end
+
+
+
+
