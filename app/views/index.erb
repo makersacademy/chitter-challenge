@@ -1,6 +1,11 @@
 <% if current_user %>
 <p>Welcome back, <%= current_user.name %></p>
 <a href="/user/logout">Log Out</a>
+<ul id="menu">
+  <li><a href="/peeps">View peeps</a></li>
+  <li><a href="/peeps/new">Add new peep</a></li>
+</ul>
+
 <% else %>
 <a href="/user/login">Log In</a> or <a href="/user/new">Register</a>
 <% end %>
