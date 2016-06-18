@@ -6,6 +6,14 @@
 <body>
   <div id="main_wrapper">
     <div id="left_side">
+
+      <% if flash[:errors] %>
+	     <ul id="errors"></ul>
+	      <% flash[:errors].each do |error| %>
+		      <li><%= error %></li>
+	      <% end %>
+      <% end %>
+
       <form action='/users/new' method='POST'>
     		<input type="text" name="name" placeholder="name" class="input_box" required>
         <input type="text" name="username" placeholder="username" class="input_box" required>

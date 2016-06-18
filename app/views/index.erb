@@ -6,20 +6,34 @@
 <body>
   <div id="main_wrapper">
     <div id="left_side">
+
+      <% if flash[:errors] %>
+       <ul id="errors"></ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      <% end %>
+
       <% if @current_user %>
         logged in as: <%= @current_user.username %>
+        <form action='/sessions' method='post'>
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="log out" class="login_button">
+        </form>
+      <% else %>
+        <form action='sign_in' method='post'>
+          <input type="text" name="username" placeholder="username" class="input_box" required>
+          <input type="password" name="password" class="input_box" placeholder="password">
+          <input type="submit" value="log in" class="login_button">
+        </form>
+
+        <div id="form_divider"><span>or</span></div>
+
+        <form action='sign_up' method='get'>
+        	<input type="submit" value="sign up" class="signup_button">
+        </form>
+
       <% end %>
-      <form action='/users/sign_in' method='post'>
-    		<input type="text" name="email" placeholder="username" class="input_box" required>
-      	<input type="password" name="password" class="input_box" placeholder="password">
-      	<input type="submit" value="log in" class="login_button">
-      </form>
-
-      <div id="form_divider"><span>or</span></div>
-
-      <form action='sign_up' method='get'>
-      	<input type="submit" value="sign up" class="signup_button">
-      </form>
 
     </div>
 
