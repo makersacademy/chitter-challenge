@@ -1,0 +1,9 @@
+<h1> Messages </h1>
+
+<ul id='messages'>
+  <% @messages.each do |msg| %>
+    <li>
+      Message: <%= msg.message %>
+    </li>
+  <% end %>
+</ul>
