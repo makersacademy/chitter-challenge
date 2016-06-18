@@ -9,7 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
-    Peep.create(text: params[:text], timestamp: Time.now)
+    if current_user
+      peep = Peep.create(text: params[:text], timestamp: Time.now, user: current_user)
+      peep.save
+    else
+      flash[:notice] = ["You must be logged in to do that"]
+    end
     redirect("/peeps")
   end
 end

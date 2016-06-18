@@ -1,3 +1,3 @@
-<ul id="timeline"><% @peeps.each do |peep|%>
-  <li><%= peep.text %> &mdash; <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %></li>
+<ul id="timeline"><% @peeps.sort.each do |peep|%>
+  <li><%= peep.text %> &mdash; <%= peep.user.username %> on <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %></li>
 <% end %></ul>
