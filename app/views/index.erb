@@ -1,0 +1,48 @@
+<head>
+  <title>Chitter</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="main_wrapper">
+    <div id="left_side">
+      <% if @current_user %>
+        logged in as: <%= @current_user.username %>
+      <% end %>
+      <form action='/users/sign_in' method='post'>
+    		<input type="text" name="email" placeholder="username" class="input_box" required>
+      	<input type="password" name="password" class="input_box" placeholder="password">
+      	<input type="submit" value="log in" class="login_button">
+      </form>
+
+      <div id="form_divider"><span>or</span></div>
+
+      <form action='sign_up' method='get'>
+      	<input type="submit" value="sign up" class="signup_button">
+      </form>
+
+    </div>
+
+    <div id="right_side">
+      <br><br>
+      <div class="entry"></div>
+      <div class="entry_footer_replies">3 replies | reply > </div>
+
+      <div class="entry"></div>
+      <div class="entry_footer">reply ></div>
+
+      <div class="entry"></div>
+      <div class="entry_footer_replies"></div>
+
+      <div class="entry"></div>
+      <div class="entry_footer"></div>
+    </div>
+  </div>
+  <div class="site-footer">
+  	<div class="site-footer-box">
+	  <a href="http://www.github.com/kennbarr" class="git"></a>
+	  <img src="images/kenneth.png"style="float: left; display: block"/>
+	  <a href="http://www.makersacademy.com" class="makers"></a>
+  	</div>
+  </div>
+</body>
