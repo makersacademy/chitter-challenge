@@ -1,0 +1,30 @@
+input {
+  display: block;
+}
+
+.wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+#timeline {
+  display: block;
+  list-style: none;
+  padding: 0;
+
+  li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: solid 1px #333;
+    border-radius: 5px;
+  }
+
+  .peep {
+    margin: 0;
+  }
+
+  .peep-meta {
+    font-size: 0.8rem;
+    margin: 0 auto 0.5rem;
+  }
+}

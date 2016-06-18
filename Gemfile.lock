@@ -111,6 +111,7 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.3.0)
+    sass (3.4.22)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -153,6 +154,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
+  sass
   sinatra
   sinatra-flash
   sinatra-partial
