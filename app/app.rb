@@ -8,6 +8,8 @@ require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -45,6 +47,11 @@ class Chitter < Sinatra::Base
     else
       redirect '/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/sessions/new'
   end
 
   helpers do
