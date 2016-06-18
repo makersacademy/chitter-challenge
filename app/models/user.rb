@@ -7,7 +7,7 @@ class User
   attr_accessor :password_confirmation
 
   property :id,               Serial
-  property :email,            String, format: :email_address, required: true
+  property :email,            String, format: :email_address, required: true, unique: true
   property :handle,           String, required: true
   property :password_digest,  Text, length: 60
 
