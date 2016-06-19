@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './models/user'
+require './models/peep'
 require './data_mapper_setup'
 require 'sinatra/flash'
 
@@ -54,6 +55,16 @@ class Chitter < Sinatra::Base
   post '/session/end' do
     @current_user = nil
     session[:user_id] = nil
+    redirect '/'
+  end
+
+  get '/peep/new' do
+    erb(:new_peep)
+  end
+
+  post '/peep/new' do
+    Peep.create(user_id: session[:user_id],
+                message: params[:message])
     redirect '/'
   end
 

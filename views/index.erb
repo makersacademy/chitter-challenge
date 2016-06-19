@@ -9,9 +9,17 @@
       <form method='post' action="/session/end">
         <input type="submit" value='log out'>
       </form>
+      <form method='get' action="/peep/new">
+        <input type="submit" value='New Peep'>
+      <div>
+
+      </div>
     <% else %>
       <form method='get' action="/session/new">
         <input type="submit" value='sign in'>
+      </form>
+      <form method='get' action="/register">
+        <input type="submit" value='Register'>
       </form>
     <% end %>
 <h3> Chitter conversations... </h3>

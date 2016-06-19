@@ -10,6 +10,7 @@ ruby '2.3.1'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
   gem 'sinatra-flash'
+  gem 'dm-timestamps'
 
 group :test do
   gem 'rspec'

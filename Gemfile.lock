@@ -162,6 +162,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dm-timestamps
   rake
   rspec
   rspec-sinatra
