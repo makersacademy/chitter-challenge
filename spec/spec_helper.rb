@@ -15,11 +15,15 @@ require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
 require_relative './web_helpers'
+
+require_relative 'helpers/session'
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|
 
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
 
