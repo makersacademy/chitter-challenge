@@ -53,3 +53,13 @@ I want to see the time at which it was made
 #### Serving the server
 1. Run `rackup -p 4567` to start the server
 1. Go to [http://localhost:4567](http://localhost:4567)
+
+## Branches
+`master` branch has the bare bones, functioning-as-the-user-stories-request version
+
+`bonus` branch has extra features:
+  - CSS (Sass) styling
+  - html formatted 'peeps', with urls, @ and # turned into links
+  - extremely light (possibly ineffective) html-tag sanitization
+  - user profile pages
+  - hashtag filter pages
