@@ -6,12 +6,16 @@
       <li>
         <%= spit.content %>
         <p>
-          Posted by <%= spit.user.username %> at <%= spit.created_at %> 
+          Posted by <%= spit.user.username %> at <%= spit.created_at %>
         </p>
       </li>
       <% end %>
     </ul>
   </div>
+
+  <form action="/spits/new">
+    <button>Spit something!</button>
+  </form>
 
   <form action="/sessions/new">
     <button>Sign in</button>
@@ -20,4 +24,9 @@
   <form action="/users/new">
     <button>Sign up</button>
   </form>
+
+  <form action="/">
+    <button>Home</button>
+  </form>
+
 </div>
