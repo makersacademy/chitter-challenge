@@ -12,7 +12,7 @@ def sign_up(name: 'marlon',
   click_button('Sign up')
 end
 
-def sign_in(username:, password:)
+def sign_in(username, password)
    visit '/sessions/new'
    fill_in :username, with: username
    fill_in :password, with: password
