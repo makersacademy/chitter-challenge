@@ -16,7 +16,7 @@ input {
   &[type="text"],
   &[type="password"],
   &[type="email"] {
-    background-color: #fff;
+    background-color: $white;
     padding: 10px;
     width: 100%;
     margin-bottom: 1rem;
