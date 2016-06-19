@@ -6,6 +6,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :messages
+
   property :id, Serial
   property :name, String, required: true
   property :user_name, String, unique: true, required: true
