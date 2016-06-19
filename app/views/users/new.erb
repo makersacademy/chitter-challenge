@@ -1,0 +1,93 @@
+<head>
+  <title>Chitter</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="main_wrapper">
+    <div id="left_side">
+
+      <% if flash[:errors] %>
+	     <ul id="errors"></ul>
+	      <% flash[:errors].each do |error| %>
+		      <li><%= error %></li>
+	      <% end %>
+      <% end %>
+
+      <form action='/users/new' method='POST'>
+    		<input type="text" name="name" placeholder="name" class="input_box" required>
+        <input type="text" name="username" placeholder="username" class="input_box" required>
+        <input type="email" name="email" placeholder="email" class="input_box" required>
+      	<input type="password" name="password" class="input_box" placeholder="password" required>
+        <input type="password" name="password_confirmation" class="input_box" placeholder="confirm password" required>
+        <div style="height: 7px"></div>
+        <input type="submit" value="sign up" class="signup_button">
+      </form>
+
+      <div id="form_divider"><span>or</span></div>
+
+      <form action='/' method='get'>
+        <input type="submit" value="log in" class="login_button">
+      </form>
+
+    </div>
+
+    <div id="right_side">
+      <br><br>
+      <% if @peeps %>
+        <% counter = 0 %>
+        <% @peeps.each do |peep| %>
+          <div class="entry_wrapper">
+            <div class="entry">
+              <div style="margin-bottom: 5px">
+                <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span> <span class="timestamp"> <%= peep.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
+              </div>
+              <%= peep.message %>
+            </div>
+            <div class="reply_wrapper">
+              <% if peep.replies.count > 0 %>
+                  <% counter +=1 %>
+                  <input type="checkbox" id="reply-<%= counter %>">
+                  <h2><label for="reply-<%= counter %>"><%= peep.replies.count %> <%= "replies" if peep.replies.count > 1 %><%= "reply" if peep.replies.count == 1 %></label></h2>
+                  <div class="replies">
+                    <% peep.replies.each do |reply| %>
+                      <div class="reply">
+                        <div style="margin-bottom: 5px">
+                          <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><span class="timestamp"> <%= reply.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
+                        </div>
+                        <%= reply.message %>
+                      </div>
+                    <% end %>
+                  </div>
+
+              <% end %>
+            </div>
+            <% if @current_user %>
+              <div class="entry_footer">
+                <% counter +=1 %>
+
+                <input type="checkbox" id="reply-<%= counter %>">
+                <h3><label for="reply-<%= counter %>">add reply</label></h3>
+                <div class="replies">
+                  <form action='/reply' method='post' style="text-align: right">
+                    <textarea rows="4" cols="80" type="text" name="reply" placeholder="enter reply" class="reply_box" required></textarea>
+                    <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                    <input type="submit" value="post reply" class="reply_button">
+                  </form>
+                </div>
+
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="site-footer">
+    <div class="site-footer-box">
+    <a href="https://github.com/kennbarr/chitter-challenge" class="git"></a>
+    <img src="images/kenneth.png"style="float: left; display: block"/>
+    <a href="http://www.makersacademy.com" class="makers"></a>
+    </div>
+  </div>
+</body>
