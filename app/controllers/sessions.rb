@@ -3,7 +3,7 @@ class Chitter < Sinatra::Base
   get '/' do
     current_user
     @peeps = Peep.all(order: :id.desc)
-    erb :'index'
+    erb :index
   end
 
   post '/sign_in' do
