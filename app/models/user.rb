@@ -4,10 +4,13 @@ class User
   include DataMapper::Resource
 
   property(:id, Serial)
-  property(:username, String, length: 20, required: true, unique: true)
+  property(
+    :username, String, length: 5..20, required: true, unique: true, format: /^[a-zA-Z0-9_]+$/,
+    messages: { format: "Username must consist of underscores, letters or numbers" }
+  )
   property(:name, String, required: true)
   property(:email, String, format: :email_address, required: true, unique: true)
-  property(:password_encrypted, String, length: 60)
+  property(:password_encrypted, String, length: 5..60)
 
   validates_confirmation_of(:password, confirm: :password_confirm)
 

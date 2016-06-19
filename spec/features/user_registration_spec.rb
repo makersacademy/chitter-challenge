@@ -42,4 +42,17 @@ feature "User registration" do
 
     expect{ click_button(:Register) }.to_not change{ User.all.count }
   end
+
+  scenario "user cannot register username with invalid characters" do
+    visit("/user/new")
+
+    fill_in(:username, with: "user n@me")
+    fill_in(:name, with: name)
+    fill_in(:email, with: email)
+    fill_in(:password, with: password)
+    fill_in(:password_confirm, with: password)
+
+    expect{ click_button(:Register) }.to_not change{ User.all.count }
+    expect(page).to have_content("Username must consist of underscores, letters or numbers")
+  end
 end
