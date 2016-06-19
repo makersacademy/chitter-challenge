@@ -25,16 +25,16 @@ feature 'Users can view the time a post was created' do
   end
 end
 
- feature 'Users change the chronological order of posts' do
-   before(:each) do
-     sign_up
-     post_message
-   end
+feature 'Users change the chronological order of posts' do
+  before(:each) do
+    sign_up
+    post_message
+  end
 
   scenario 'user clicks a button to view posts oldest first' do
     post_message(comment: 'This is the second message!')
     click_button 'Oldest first!'
-    within 'li#highest' do
+      within 'li#highest' do
       expect(page).to have_content('This is the second message!')
       expect(page).not_to have_content('This is the best app ever!')
     end
@@ -48,5 +48,12 @@ end
       expect(page).to have_content('This is the best app ever!')
       expect(page).not_to have_content('This is the second message!')
     end
+  end
+end
+
+feature 'login notice if not logged in and trying to post' do
+  scenario 'user trys to post without logging in' do
+    post_message
+    expect(page).to have_content('Please sign in to post!')
   end
 end

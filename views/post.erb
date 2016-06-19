@@ -1,4 +1,8 @@
 
+<% if @notice %>
+  <%= @notice %>
+<% end %>
+
 <form action='/create_post' method='post'>
   Write your post here! <textarea cols="50" rows="4" name="comment"></textarea>
   <input type='submit' value='Create Post!'>

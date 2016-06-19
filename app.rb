@@ -56,6 +56,7 @@ class App < Sinatra::Base
   end
 
   get '/post' do
+    @notice = flash[:signin_notice] 
     erb :'post'
   end
 
@@ -64,6 +65,7 @@ class App < Sinatra::Base
       Post.create(message: params[:comment], user_id: session[:user_session].id)
       redirect '/'
     else
+      flash[:signin_notice] = 'Please sign in to post!'
       redirect '/post'
     end
   end
