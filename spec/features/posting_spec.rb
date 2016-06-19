@@ -24,15 +24,26 @@ feature 'Users can view the time a post was created' do
   end
 end
 
- feature 'Users can view the posts in reverse chronological order' do
-  scenario 'user cliks a button to view posts newest first' do
+ feature 'Users change the chronological order of posts' do
+  scenario 'user clicks a button to view posts oldest first' do
     sign_up
     post_message
     post_message(comment: 'This is the second message!')
-    click_button 'Newest first!'
+    click_button 'Oldest first!'
     within 'li#highest' do
       expect(page).to have_content('This is the second message!')
       expect(page).not_to have_content('This is the best app ever!')
+    end
+  end
+  scenario 'user clicks a button to view posts newest first' do
+    sign_up
+    post_message
+    post_message(comment: 'This is the second message!')
+    click_button 'Oldest first!'
+    click_button 'Newest first!'
+    within 'li#highest' do
+      expect(page).to have_content('This is the best app ever!')
+      expect(page).not_to have_content('This is the second message!')
     end
   end
 end

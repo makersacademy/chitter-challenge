@@ -14,6 +14,7 @@ class App < Sinatra::Base
   get '/' do
     @user = session[:user_session]
     (session[:reverse_order] ||= false) ? @posts = Post.all.reverse : @posts = Post.all
+    @button_name = session[:reverse_order]
     @greeting = flash[:goodbye]
     erb :'index'
   end

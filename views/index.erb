@@ -2,7 +2,11 @@
 
 <%if @posts != [] %>
   <form action='/reverse_post_order' method='post'>
-    <input type='submit' value='Newest first!'>
+    <% if @button_name %>
+      <input type='submit' value='Newest first!'>
+    <% else %>
+      <input type='submit' value='Oldest first!'>
+    <% end %>
   </form>
   <ul>
     <% @posts.each do |post| %>
