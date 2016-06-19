@@ -1,20 +1,51 @@
 <html>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script></head>
+
+<body>
 <% if current_user %>
-
-<form id="AddChits" action="/chits" method="post">
-  <input class="entryField" type="text" name="text" placeholder="text">
-  <input type="submit" value="Post Chit!">
-</form>
+<div class="container">
+  <div class="center">
+    <form id="AddChits" action="/chits" method="post">
+      <textarea class="entryField" type="text" name="text" rows="4" cols="30" ></textarea>
+      <div class="center">
+        <br><input type="submit" value="Post Chit!">
+      </div>
+    </form>
+  </div>
+<div>
+<%else%>
+<div class="container">
+  <div class="col-md-2 col-md-offset-9">
+    <form action="/">
+      <input type="submit" value="Sign in to post">
+    </form>
+  </div>
+</div>
 <% end %>
+<div class="container">
+  <div class="jumbotron vertical-center">
+    <div class="container">
 
-  <ul id='chits'>
-    <% @chits.each do |chit| %>
-      <li>
-      <%= chit.text %>
-			<%= chit.created_at.strftime("%F, %T")  %>
+      <% @chits.reverse.each do |chit| %>
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-      by: <%= User.get(chit.user_id).username %>
-      </li>
-      <% end %>
- </ul>
+          <center><%= chit.text %></center>
+
+          <%= chit.created_at.strftime("%T - %F")  %>
+
+          by:  <strong> <%= User.get(chit.user_id).username %> </strong>
+
+         </div>
+       </div>
+           <% end %>
+    </ul>
+</div>
+ </div>
+</div>
+</body>
 </html>

@@ -1,24 +1,33 @@
 <html>
   <head>
     <title>Chitter</title>
+		<head><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script></head>
+
   </head>
 
   <body>
+	<div class="container">
+		<div class="col-md-2 col-md-offset-9">
     <% if current_user %>
       Welcome, <%= current_user.name %>
 			<form method='post' action='/sessions'>
 	      <input type='hidden' name='_method' value='delete'>
 	      <input type='submit' value='Sign out'>
 	    </form>
-    <% end %>
+    	<% end %>
+		</div>
+		</div>
 		<% if flash[:notice] %>
-    <div id='notice'>
+    <div class="bg-success" id='notice'>
       <%= flash[:notice] %>
     </div>
   <% end %>
 		<% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
-  <ul id='errors'>
+  <ul class="bg-warning"id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>
