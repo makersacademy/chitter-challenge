@@ -4,7 +4,10 @@
     <ul id='spits'>
       <% @spits.reverse.each do |spit| %>
       <li>
-        SPAT: <%= spit.content %>
+        <%= spit.content %>
+        <p>
+          Posted by <%= spit.user.username %> at <%= spit.created_at %> 
+        </p>
       </li>
       <% end %>
     </ul>

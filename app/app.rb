@@ -27,14 +27,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/spits' do
-    Spit.create(content: params[:content])
-    redirect '/spits'
+    spit = Spit.create(content: params[:content])
+    spit.user = current_user
+    if spit.save
+      redirect to('/spits')
+    else
+      flash.keep[:errors] = ["Only users can Spit"]
+      redirect to('/sessions/new')
+    end
   end
-
-# Routing and views to be added for spits
-  # get '/spits' do
-  #   erb :'/spits'
-  # end
 
   get '/users/new' do
     @user = User.new
