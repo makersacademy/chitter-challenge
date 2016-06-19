@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 
+require 'rubygems'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sanitize'

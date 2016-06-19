@@ -17,6 +17,7 @@ gem 'timecop'
 gem 'mailgun-ruby'
 gem 'rspec'
 gem 'rake'
+gem 'sanitize'
 
 group :test do
   gem 'database_cleaner'
