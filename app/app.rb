@@ -28,6 +28,13 @@ class ChitterChallenge < Sinatra::Base
     erb :'chits/index'
   end
 
+  post '/chits' do
+    chit = Chit.new(text: params[:text])
+    current_user.chits << chit
+    current_user.save
+    redirect '/chits'
+  end
+
 
   post '/sign_up' do
     @user = User.create(username: params[:username],

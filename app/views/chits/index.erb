@@ -1,11 +1,19 @@
 <html>
+<% if current_user %>
+
+<form id="AddChits" action="/chits" method="post">
+  <input class="entryField" type="text" name="text" placeholder="text">
+  <input type="submit" value="Post Chit!">
+</form>
+<% end %>
+
   <ul id='chits'>
     <% @chits.each do |chit| %>
       <li>
-      <%= chit.time %>
-			<%= chit.text %>
+      <%= chit.text %>
+			<%= chit.created_at.strftime("%F, %T")  %>
 
-      by: user
+      by: <%= User.get(chit.user_id).username %>
       </li>
       <% end %>
  </ul>
