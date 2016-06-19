@@ -13,5 +13,6 @@ group :test do
   gem 'dm-migrations'
   gem 'database_cleaner'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 end
 
