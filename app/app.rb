@@ -75,7 +75,7 @@ class Chitter < Sinatra::Base
   get '/peeps/:username' do
     user = User.first(username: params[:username])
     if user
-      @peeps = user.peeps
+      @peeps = user.peeps(:order => [:created_at.desc])
       erb :'peeps/list'
     else
       erb :'users/no_user'
