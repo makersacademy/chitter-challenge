@@ -1,0 +1,23 @@
+<%= @greeting %>
+
+<%if @posts != [] %>
+  <form action='/reverse_post_order' method='post'>
+    <% if @button_name %>
+      <input type='submit' value='Newest first!'>
+    <% else %>
+      <input type='submit' value='Oldest first!'>
+    <% end %>
+  </form>
+  <ul>
+    <% @posts.each do |post| %>
+      <%if @posts.index(post) == 0%>
+        <li id=highest>
+      <%else%>
+        <li>
+      <%end%>
+        Post: <%= post.message %>
+        Created at <%= post.created_at.strftime("%d/%m/%Y %H:%M:%S") %>
+      </li>
+    <% end %>
+  </ul>
+<%end%>
