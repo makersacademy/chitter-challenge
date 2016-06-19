@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Chitter</title>
+
+     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  </head>
+
+  <h1>Chitter</h1>
+
+<body>
+
+  <div>
+    <h2>Peep Feed:</h2>
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          Peep: <%= peep.text %><br>
+          Posted on:   <%= peep.time.strftime('%m/%d/%y at %I:%M%p')%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+
+<% if current_user == nil %>
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
+  <form action='users/new'>
+    <input type='submit' value='Sign up'>
+  </form>
+<% end %>
+<% if current_user %>
+  <form action='/peeps/new'>
+    <input type='submit' value='Peep'>
+  </form>
+<% end %>
+</body>
+</html>
