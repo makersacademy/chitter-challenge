@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/'
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ["cannot authenticate - please check your username & password"]
       erb(:new_session)
     end
   end
