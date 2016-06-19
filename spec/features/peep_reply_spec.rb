@@ -2,9 +2,9 @@ describe "Replying to peeps" do
   let!(:user) { create_user }
   let!(:another_user) do
     User.create(
-      username: USERS.last[:username],
-      name: USERS.last[:name],
-      email: USERS.last[:email],
+      username: "another_user",
+      name: "Another User",
+      email: "another@email.com",
       password: "password123",
       password_confirm: "password123"
     )
@@ -12,7 +12,7 @@ describe "Replying to peeps" do
 
   let!(:latest_peep) do
     Peep.create(
-      text: "Two",
+      text: "Second peep",
       timestamp: Time.new(2001, 01, 01),
       user: another_user
     )
@@ -20,7 +20,7 @@ describe "Replying to peeps" do
 
   let!(:oldest_peep) do
     Peep.create(
-      text: "One",
+      text: "First peep",
       timestamp: Time.new(2000, 01, 01),
       user: user
     )

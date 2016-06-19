@@ -1,5 +1,5 @@
 feature "Peep creation" do
-  let(:peep_text) { PEEPS.first[:text] }
+  let(:peep_text) { "Example peep" }
   let(:long_peep_text) do
     "Bacon ipsum dolor amet strip steak shank hamburger meatloaf flank rump "\
     "ball tip prosciutto tongue. Shankle pastrami porchetta tri-tip ham "\

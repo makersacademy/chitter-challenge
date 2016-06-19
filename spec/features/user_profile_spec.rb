@@ -8,7 +8,7 @@ feature "User profile" do
 
   scenario "can view a user's peeps on their profile page" do
     Peep.create(
-      text: PEEPS.first[:text],
+      text: "example peep",
       timestamp: Time.new(2001, 01, 01),
       user: create_user
     )
@@ -16,7 +16,7 @@ feature "User profile" do
     visit("/user/profile/vannio")
 
     within find(".timeline") do
-      expect(page).to have_content(PEEPS.first[:text])
+      expect(page).to have_content("example peep")
     end
   end
 

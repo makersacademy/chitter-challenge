@@ -2,7 +2,7 @@ feature "User login" do
   scenario "existing user cannot log in with incorrect password" do
     create_user
     visit("/user/login")
-    fill_in(:username, with: USERS.first[:username])
+    fill_in(:username, with: "vannio")
     fill_in(:password, with: "wrong_password")
     click_button(:"Log In")
     expect(current_path).to eq("/user/login")

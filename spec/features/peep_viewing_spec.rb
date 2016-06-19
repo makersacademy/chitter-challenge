@@ -2,7 +2,7 @@ feature "Viewing peeps" do
   let!(:user) { create_user }
   let!(:first) do
     Peep.create(
-      text: PEEPS.first[:text],
+      text: "First peep",
       timestamp: Time.new(2000, 01, 01),
       user: User.first
     )
@@ -10,7 +10,7 @@ feature "Viewing peeps" do
 
   let!(:second) do
     Peep.create(
-      text: PEEPS.last[:text],
+      text: "Second peep",
       timestamp: Time.new(2002, 01, 01),
       user: User.first
     )

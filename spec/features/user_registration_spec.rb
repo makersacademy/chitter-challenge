@@ -1,7 +1,7 @@
 feature "User registration" do
-  let(:username) { USERS.first[:username] }
-  let(:name) { USERS.first[:name] }
-  let(:email) { USERS.first[:email] }
+  let(:username) { "vannio" }
+  let(:name) { "Van" }
+  let(:email) { "van@email.com" }
   let(:password) { "password123" }
 
   scenario "user can register a new account" do
