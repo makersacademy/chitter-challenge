@@ -8,7 +8,7 @@ feature "Peep creation" do
     fill_in(:text, with: peep_text)
     click_button(:Peep)
 
-    within "#timeline" do
+    within ".timeline" do
       expect(page).to have_content(peep_text)
     end
   end

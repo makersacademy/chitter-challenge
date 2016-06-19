@@ -19,7 +19,7 @@ feature "Viewing peeps" do
   scenario "peeps can be viewed in reverse chronological order" do
     visit("/peeps")
 
-    within "#timeline" do
+    within ".timeline" do
       expect(find("li:first-child").text).to have_content(second.text)
       expect(find("li:last-child").text).to have_content(first.text)
     end

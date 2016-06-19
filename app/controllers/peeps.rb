@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
         timestamp: Time.now,
         user: current_user
       )
+      Formatter.extract_hashtags(peep)
     else
       flash[:notice] = ["You must be logged in to do that"]
     end

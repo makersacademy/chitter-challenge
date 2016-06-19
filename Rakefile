@@ -38,12 +38,13 @@ namespace :db do
       )
     end
 
-    PEEPS.each do |peep|
-      Peep.create(
-        text: peep[:text],
-        timestamp: Time.now - (3600 * peep[:time_offset]),
-        user: User.first(username: peep[:username])
+    PEEPS.each do |peep_data|
+      peep = Peep.create(
+        text: peep_data[:text],
+        timestamp: Time.now - (3600 * peep_data[:time_offset]),
+        user: User.first(username: peep_data[:username])
       )
+      Formatter.extract_hashtags(peep)
     end
 
     puts "Auto-migrate and seed complete (data was lost)"

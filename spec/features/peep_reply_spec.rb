@@ -34,11 +34,11 @@ describe "Replying to peeps" do
   scenario "reply link only appears on another user's peep" do
     log_in
     visit("/peeps")
-    within find("#timeline li:first-child") do
+    within find(".timeline li:first-child") do
       expect(page).to have_content("Reply")
     end
 
-    within find("#timeline li:nth-child(2)") do
+    within find(".timeline li:nth-child(2)") do
       expect(page).to_not have_content("Reply")
     end
   end
@@ -46,7 +46,7 @@ describe "Replying to peeps" do
   scenario "a logged in user can reply to another user's peep" do
     log_in
     visit("/peeps")
-    within find("#timeline li:first-child") do
+    within find(".timeline li:first-child") do
       click_link(:Reply)
     end
 

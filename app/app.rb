@@ -11,6 +11,7 @@ require_relative "controllers/main"
 require_relative "controllers/users"
 require_relative "controllers/sessions"
 require_relative "controllers/peeps"
+require_relative "controllers/hashtags"
 
 class Chitter < Sinatra::Base
   run! if app_file == $PROGRAM_NAME
