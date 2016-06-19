@@ -9,7 +9,7 @@ feature "User login" do
     expect(page).to have_content("Username or password combination incorrect")
   end
 
-  scenario "non-existant user cannot log in" do
+  scenario "non-existent user cannot log in" do
     log_in
     expect(current_path).to eq("/user/login")
     expect(page).to have_content("Username or password combination incorrect")

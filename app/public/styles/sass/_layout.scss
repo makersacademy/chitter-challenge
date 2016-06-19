@@ -3,6 +3,12 @@ body {
   margin: 0;
 }
 
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 header {
   background-color: #fff;
   padding: 1rem;
@@ -11,7 +17,7 @@ header {
   justify-content: space-between;
   margin-bottom: 1rem;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: $mobile-width) {
     margin-bottom: 2rem;
   }
 
@@ -25,10 +31,4 @@ header {
 footer {
   padding: ($nav-height * 2) 0 ($nav-height);
   text-align: center;
-}
-
-.wrapper {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }

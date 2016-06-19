@@ -4,13 +4,7 @@ class User
   include DataMapper::Resource
 
   property(:id, Serial)
-  property(
-    :username, String, required: true, unique: true, format: /[a-zA-Z0-9_]{5,20}/,
-    messages: {
-      format: "Invalid username: must consist of underscores, letters or "\
-              "numbers and be between 5 and 20 characters long"
-    }
-  )
+  property(:username, String, required: true, unique: true)
   property(:name, String, required: true)
   property(:email, String, format: :email_address, required: true, unique: true)
   property(:password_encrypted, String, length: 60)

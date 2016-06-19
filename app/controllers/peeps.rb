@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
     )
 
     if current_user && peep.id
-      Peep.extract_hashtags(peep)
       redirect("/peeps")
     else
       flash[:error] = peep.errors.full_messages

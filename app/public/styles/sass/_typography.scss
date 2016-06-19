@@ -18,8 +18,17 @@ a {
 
 .peep-meta {
   .time,
-  .reply {
+  .reply,
+  .username {
     font-size: 0.8rem;
+  }
+
+  .username {
+    color: lighten($dark-grey, 35%);
+    
+    &::before {
+      content: "@";
+    }
   }
 
   .name {

@@ -58,9 +58,8 @@ I want to see the time at which it was made
 `master` branch has the bare bones, functioning-as-the-user-stories-request version
 
 `bonus` branch has extra features:
-  - CSS (Sass) styling
   - html formatted 'peeps', with urls, @ and # turned into links
   - extremely light (possibly ineffective) html-tag sanitization
-  - user profile pages
-  - hashtag filter pages
-  - ability to reply to other user's peeps
+  - filter peeps by user
+  - filter peeps by hashtag
+  - additional form validation, eg. 140 char limit on peeps, alphanumeric usernames
