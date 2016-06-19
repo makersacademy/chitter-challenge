@@ -5,10 +5,13 @@
     Name: <input name='name' type='text'>
   </label>
   <label for='email'>
-    Email: <input name='email' type='text'>
+    Email: <input name='email' type='text' value='<%= @user.email %>'>
   </label>
   <label for='password'>
     Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Password: <input name='password_confirmation' type='password'>
   </label>
   <input type='submit' value='Sign up'>
 </form>
