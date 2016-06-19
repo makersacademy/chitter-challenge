@@ -12,12 +12,22 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
  get '/' do
-   erb :index
+   "Welcome to Chitter"
  end
 
  get '/peeps' do
    @peeps = Peep.all
    erb :'peeps/index'
+ end
+
+ get '/peeps/new' do
+   erb :'peeps/new'
+ end
+
+ post '/peeps' do
+   time = Time.now
+   Peep.create(text: params[:text], time: time)
+   redirect '/peeps'
  end
 
  run! if app_file == $0
