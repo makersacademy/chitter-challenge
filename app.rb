@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './model/user'
+require './model/post'
 require 'Bcrypt'
 require 'sinatra/flash'
 
@@ -12,7 +13,8 @@ class App < Sinatra::Base
 
   get '/' do
     @user = session[:user_session]
-    @greeting = flash[:greeting]
+    @greeting = flash[:goodbye]
+    p '===================e'
     erb :'index'
   end
 
@@ -31,8 +33,12 @@ class App < Sinatra::Base
   end
 
   post '/sign_in_check' do
-    redirect '/' if User.validate(params[:username], params[:password])
-    redirect '/sign_in'
+    if User.validate(params[:username], params[:password])
+      session[:user_session] = User.first(username: params[:username])
+      redirect '/'
+    else
+      redirect '/sign_in'
+    end
   end
 
   get '/sign_out' do
@@ -41,13 +47,26 @@ class App < Sinatra::Base
 
   post '/sign_out' do
     if session[:user_session]
-      flash[:greeting] = "Goodbye #{session[:user_session].name}"
+      flash[:goodbye] = "Goodbye #{session[:user_session].name}"
       session[:user_session] = nil
       redirect '/'
+    else
+      redirect '/signout'
     end
-    redirect '/signout'
   end
 
+  get '/post' do
+    erb :'post'
+  end
+
+  post '/create_post' do
+    if session[:user_session]
+      Post.create(message: params[:comment]).user_id = session[:user_session].id
+      redirect '/'
+    else
+      redirect '/post'
+    end
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

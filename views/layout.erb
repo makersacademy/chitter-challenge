@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if @user %>
+      Welcome <%= @user.name %>!
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

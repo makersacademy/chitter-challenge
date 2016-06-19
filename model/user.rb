@@ -1,10 +1,13 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'BCrypt'
+require_relative 'post'
 
 class User
 
   include DataMapper::Resource
+
+  has n, :posts
 
   property :id, Serial
   property :name, String, required: true
@@ -26,4 +29,4 @@ end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
