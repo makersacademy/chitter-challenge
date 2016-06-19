@@ -16,7 +16,7 @@ class User
 
   has(n, :peeps)
 
-  attr_accessor :password_confirm
+  attr_writer :password_confirm
 
   def password=(password)
     @password = password
@@ -30,5 +30,5 @@ class User
 
   private
 
-  attr_reader :password
+  attr_reader :password, :password_confirm
 end
