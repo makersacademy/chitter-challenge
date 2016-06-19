@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitterv2 by Toby!</title>
+    <link rel="stylesheet" href="<%= url("/stylesheet.css")%>" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>

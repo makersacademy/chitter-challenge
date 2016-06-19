@@ -1,0 +1,20 @@
+<h2> Fill in the below to sign up! </h2>
+
+<form action='/users' method='post'>
+<p>   <label for='username'>
+      <input name='username' type='text' value='<%= @user.username %>'>
+      Username </label> </p>
+<p>   <label for='name'>
+      <input name='name' type='text' value='<%= @user.name %>'>
+      Name </label> </p>
+<p>   <label for='email'>
+      <input name='email' type='email' value='<%= @user.email %>'>
+      E-Mail </label> </p>
+<p>   <label for='password'>
+      <input name='password' type='password'>
+      Password </label> </p>
+<p>   <label for='password confirmation'>
+      <input name='password_confirmation' type='password'>
+      Confirm Password </label> </p>
+      <input type='submit' value='Submit'>
+</form>

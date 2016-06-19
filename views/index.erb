@@ -1,0 +1,12 @@
+<h1> WELCOME TO CHITTER </h1>
+
+<p class='currentpeeps'> Please see the most current peeps below: </p>
+
+<ul id='peeps'>
+  <% peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.content %>
+    <p class='createdby'><i>Created: <%= peep.created_at.strftime("%A, %b %d %r") %> by <b> <%= User.get(peep.user_id).username %> </b> </i></p>
+    </li>
+  <% end %>
+</ul>
