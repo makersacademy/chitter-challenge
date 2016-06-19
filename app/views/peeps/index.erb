@@ -1,13 +1,27 @@
-<h2>Peep Feed</h2>
+<!DOCTYPE html>
+<html>
+  <head>
 
-<ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-      Peep: <%= peep.text %>
-      Posted on:   <%= peep.time.strftime('%m/%d/%y at %I:%M%p')%>
-    </li>
-  <% end %>
-</ul>
+    <title>Chitter</title>
+
+     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  </head>
+
+  <h1>Chitter</h1>
+
+<body>
+
+  <div>
+    <h2>Peep Feed:</h2>
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          Peep: <%= peep.text %><br>
+          Posted on:   <%= peep.time.strftime('%m/%d/%y at %I:%M%p')%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
 
 <% if current_user == nil %>
@@ -23,3 +37,5 @@
     <input type='submit' value='Peep'>
   </form>
 <% end %>
+</body>
+</html>

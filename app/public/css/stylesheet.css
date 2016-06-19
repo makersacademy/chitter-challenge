@@ -1,0 +1,20 @@
+body {
+    background-color: #00b386;
+    font-family: ‘Courier New’, Courier, monospace;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+    text-align: center;
+    font-family: ‘Courier New’, Courier, monospace;
+}
+
+div {
+    width: 500px;
+    padding: 25px;
+    border: 5px solid #009999;
+    margin: 10px;
+    background-color: #ccfff2;
+    opacity:.7
+}
