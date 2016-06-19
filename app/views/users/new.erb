@@ -4,15 +4,15 @@
   <form action="/users" method="post">
 
     <label for='name'>
-      Name:       <input name="name" type="text" id="name" value="<% @user.name %>">
+      Name:       <input name="name" type="text" id="name" value="<% @user.name %>" required>
     </label>
 
     <label for='username'>
-      User name:  <input name="username" type="text" id="username" value="<% @user.username %>">
+      User name:  <input name="username" type="text" id="username" value="<% @user.username %>" required>
     </label>
 
     <label for='email'>
-      Email:      <input name="email" type="email" id="email" value="<% @user.email %>">
+      Email:      <input name="email" type="email" id="email" value="<% @user.email %>" required>
     </label>
 
     <label for='password'>

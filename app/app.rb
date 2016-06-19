@@ -15,6 +15,11 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+# Routing and views to be added for spits
+  # get '/spits' do
+  #   erb :'/spits'
+  # end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
