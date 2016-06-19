@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/models/user'
+require './app/models/peep'
 require_relative './helpers/session'
 
 Capybara.app = Chitter

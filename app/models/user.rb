@@ -8,6 +8,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps, through: Resource
+
   property :id, Serial
   property :name, String, required: true
   property :user_name, String, required: true, unique: true

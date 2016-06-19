@@ -21,6 +21,20 @@ class Chitter < Sinatra::Base
     'Hello Chitter!'
   end
 
+  get '/peeps' do
+    @peeps= Peep.all
+    erb :'peeps/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(peep: params[:peep])
+    redirect '/peeps'
+  end
+
   get '/sign_up' do
     @user = User.new
     erb :'users/new'
@@ -41,10 +55,6 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
-  end
-
-  get '/peeps' do
-    erb :peeps
   end
 
   get '/sessions/new' do
