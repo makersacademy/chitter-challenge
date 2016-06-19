@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require './model/user'
 require './model/message'
 class ChitterChatter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -41,7 +42,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   get '/message_new' do
-    @current_user_mail = 
+    @current_user_mail =
     erb :'message/message_new'
   end
 
@@ -58,6 +59,18 @@ class ChitterChatter < Sinatra::Base
     @message = Message.all
     erb :'message/show_message'
   end
+
+delete '/sessions' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'GoodBye!! Hope to see you back again'
+  redirect to '/bye'
+end
+
+get '/bye' do
+  @message = Message.all
+  erb :'message/bye'
+end
+
 
 helpers do
  def current_user
