@@ -1,12 +1,14 @@
 <form id="SignUp" action='/sign_up' method="post">
   Name:<br>
- <input class="entryField" type="text" name="name" required><br>
+ <input class="entryField" type="text" name="name" value='<%= @user.name %>' required><br>
   Username:<br>
-	<input class="entryField" type="text" name="username" required><br>
+	<input class="entryField" type="text" name="username" value='<%= @user.username %>' required><br>
 	Email:<br>
-	<input class="entryField" type="email" name="email" required><br>
+	<input class="entryField" type="email" name="email" value='<%= @user.email %>' required><br>
 	Password:<br>
 	<input class="entryField" type="password" name="password" required><br>
+  Password confirmation:<br>
+	<input class="entryField" type="password" name="password_confirmation" required><br>
   <input type="submit" value="Sign up">
 </form>
 

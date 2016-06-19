@@ -5,7 +5,7 @@ require 'web_helper'
 feature 'signing up' do
 	scenario 'I can sign up' do
 		sign_up
-		expect(page).to have_content 'Welcome, Name'
+		expect(page).to have_content 'Welcome, Bob'
 	end
 
 
@@ -14,16 +14,11 @@ feature 'signing up' do
     expect(User.count).to eq 1
   end
 
-  # scenario 'new user signs up and the email address is correct' do
-  #   signup
-  #   expect(User.first.email).to eq("bob@bob.com")
-  # end
-	#
-  # scenario 'requires a matching confirmation password' do
-  #  expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
-  #  expect(current_path).to eq('/users')
-  #  expect(page).to have_content('Password does not match the confirmation')
-  # end
+  scenario 'requires a matching confirmation password' do
+   expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+   expect(current_path).to eq('/sign_up')
+   expect(page).to have_content('Password does not match the confirmation')
+  end
 
   # scenario 'I cannot sign up without an email address' do
   #  expect { sign_up(email: nil) }.not_to change(User, :count)

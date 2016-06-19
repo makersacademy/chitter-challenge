@@ -1,16 +1,24 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/chit'
+require_relative 'models/user'
 require_relative 'data_mapper_setup'
 
 
 class ChitterChallenge < Sinatra::Base
 
+  register Sinatra::Flash
+
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do
+    if current_user
+      redirect '/chits'
+    end
+    @user = User.new
     erb :'index'
   end
 
@@ -21,12 +29,18 @@ class ChitterChallenge < Sinatra::Base
 
 
   post '/sign_up' do
-    user = User.create(username: params[:username],
+    @user = User.create(username: params[:username],
                 email: params[:email],
                 name: params[:name],
-                password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/chits')
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/chits')
+    else
+      flash.now[:notice] = "Password does not match the confirmation"
+      erb :'index'
+    end
   end
 
   helpers do
