@@ -1,0 +1,35 @@
+<head>
+  <title>Chitter | Sign up</title>
+</head>
+<div class='container'>
+  <h1>Please sign up</h1>
+  <form action='/users' method='post'>
+    <ul>
+      <li>
+        <label for='name'>
+          Name: <input name='name' type='text' autocomplete="off" value='<%= @user.name %>'>
+        </label>
+      </li>
+      <li>
+        <label for='username'>
+          Username: <input name='username' type='text' autocomplete="off" value='<%= @user.username %>'>
+        </label>
+      </li>
+      <li>
+        <label for='email'>
+          Email: <input name='email' type='text' autocomplete="off" value='<%= @user.email %>'>
+        </label>
+      </li>
+      <li>
+        <label for='password'>
+          Password: <input name='password' type='password'>
+        </label>
+      </li>
+      <li>
+        <label for='password_confirmation'>
+          Confirm Password: <input name='password_confirmation' type='password'>
+        </label>
+      </li>
+      <input type='submit' value='Sign up'>
+    </ul>
+  </form>

@@ -11,4 +11,6 @@ group :test do
   gem 'sinatra'
   gem 'rspec-sinatra'
   gem 'database_cleaner'
+  gem 'bcrypt'
+  gem 'sinatra-flash'
 end
