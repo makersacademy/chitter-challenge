@@ -5,3 +5,9 @@
       <%= peep.content %></li>
   <% end  %>
 </ul>
+
+<% if current_user == @user %>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="New Peep">
+  </form>
+<% end  %>

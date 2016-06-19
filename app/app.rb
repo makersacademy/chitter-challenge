@@ -14,7 +14,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    redirect '/users/new'
+    redirect "/peeps/#{current_user.username}" if current_user
+    erb :index
   end
 
   get '/users/new' do
@@ -30,9 +31,8 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       redirect '/'
-    else
-      redirect '/users/new'
     end
+    redirect '/users/new'
   end
 
   get '/sessions/new' do
@@ -44,21 +44,20 @@ class Chitter < Sinatra::Base
     if @user
       session[:user_id] = @user.id
       redirect '/'
-    else
-      redirect '/sessions/new'
     end
+    redirect '/sessions/new'
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    redirect '/sessions/new'
+    redirect '/'
   end
 
   get '/peeps/new' do
     if session[:user_id]
       erb :'peeps/new'
     else
-      redirect '/sessions/new'
+      redirect '/'
     end
   end
 
@@ -67,15 +66,14 @@ class Chitter < Sinatra::Base
     peep.user = current_user
     if peep.save
       redirect "/peeps/#{current_user.username}"
-    else
-      redirect "/peeps/new"
     end
+    redirect "/peeps/new"
   end
 
   get '/peeps/:username' do
-    user = User.first(username: params[:username])
-    if user
-      @peeps = user.peeps(:order => [:created_at.desc])
+    @user = User.first(username: params[:username])
+    if @user
+      @peeps = @user.peeps(:order => [:created_at.desc])
       erb :'peeps/list'
     else
       erb :'users/no_user'
