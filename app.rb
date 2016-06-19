@@ -51,6 +51,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/session/end' do
+    @current_user = nil
+    session[:user_id] = nil
+    redirect '/'
+  end
+
   helpers do
       def current_user
         @current_user ||= (User.get(session[:user_id]))

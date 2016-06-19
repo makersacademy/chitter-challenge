@@ -5,6 +5,15 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if @current_user %>
+      <form method='post' action="/session/end">
+        <input type="submit" value='log out'>
+      </form>
+    <% else %>
+      <form method='get' action="/session/new">
+        <input type="submit" value='sign in'>
+      </form>
+    <% end %>
 <h3> Chitter conversations... </h3>
   </body>
 </html>
