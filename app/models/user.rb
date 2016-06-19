@@ -12,6 +12,8 @@ class User
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, String, length: 60
 
+
+
   validates_confirmation_of :password
 
   def password=(password)

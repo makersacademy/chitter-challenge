@@ -9,8 +9,6 @@ feature 'Creating new peeps' do
   end
 
   scenario 'I can create a new peep if signed in' do
-
-
     sign_in(user.username, user.password)
     visit('/peeps/new')
     fill_in('message', with: 'Test')
@@ -19,5 +17,9 @@ feature 'Creating new peeps' do
     within 'ul#peeps' do
       expect(page).to have_content('Test')
     end
+  end
+
+  scenario 'You can see the author of the peep' do
+
   end
 end
