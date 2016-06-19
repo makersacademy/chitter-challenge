@@ -1,9 +1,10 @@
 <h1> Welcome to Chitter Chatter </h1>
 <h3> <%= @current_user %> </h3>
-<form method="post" action"/show_message">
+<form method="post" action="/message_create">
 <label for='message'>
-  Message:
-  <input type ="textarea" name="message"/>
+Message:
+<textarea rows="4" cols="50" name="message">
+</textarea>
 </label>
 <input type="submit" value="Submit message" >
 </form>

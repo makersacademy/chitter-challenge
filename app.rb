@@ -3,6 +3,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 require './model/user'
+require './model/message'
 class ChitterChatter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
@@ -31,6 +32,7 @@ class ChitterChatter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
+      p "Calling msg new"
       redirect('/message_new')
     else
       flash.now[:notice] = 'The email or password is incorrect'
@@ -42,6 +44,15 @@ class ChitterChatter < Sinatra::Base
     erb :'message/message_new'
   end
 
+
+  post '/message_create' do
+    Message.create(message: params[:message])
+    redirect('/show_message')
+  end
+
+  get '/show_message' do
+    erb :'message/show_message'
+  end
 
 helpers do
  def current_user
