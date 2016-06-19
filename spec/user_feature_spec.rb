@@ -2,7 +2,7 @@ require 'capybara'
 
 def sign_up(
 		email: 'email@mail.com', 
-		username: 'Test_user'
+		username: 'Test_user', 
 		password: 'super secret', 
 		password_confirmation: 'super secret' 
 	)
