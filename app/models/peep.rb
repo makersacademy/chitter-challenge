@@ -4,7 +4,7 @@ class Peep
   has n, :replies
 
   property :id, Serial
-  property :message, String
+  property :message, Text
   property :username, String
   property :name, String
   property :created_at, DateTime
