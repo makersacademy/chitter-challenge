@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     erb(:"peep/new")
   end
 
-  post "/peeps" do
+  post "/peeps/new" do
     peep = Peep.create(
       text: params[:text],
       timestamp: Time.now,
