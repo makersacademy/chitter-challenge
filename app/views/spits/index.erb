@@ -6,7 +6,7 @@
       <li>
         <%= spit.content %>
         <p>
-          Posted by <%= spit.user.username %> at <%= spit.created_at %>
+          Posted by <b><%= spit.user.username %></b> on <%= spit.created_at.strftime("%A %d %B %Y at %T ") %>
         </p>
       </li>
       <% end %>

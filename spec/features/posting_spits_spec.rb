@@ -23,7 +23,7 @@ feature "FEATURE: Creating Spits" do
     spit = Spit.first(content: "My life is more interesting than yours")
     within "ul#spits" do
       expect(page).to have_content "My life is more interesting than yours"
-      expect(page).to have_content "Posted by #{user.username} at #{spit.created_at}"
+      expect(page).to have_content "Posted by #{user.username} on #{spit.created_at.strftime("%A %d %B %Y at %T ")}"
     end
   end
 
