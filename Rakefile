@@ -44,7 +44,6 @@ namespace :db do
         timestamp: Time.now - (3600 * peep_data[:time_offset]),
         user: User.first(username: peep_data[:username])
       )
-      Peep.extract_hashtags(peep)
     end
 
     puts "Auto-migrate and seed complete (data was lost)"
