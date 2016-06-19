@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
 
@@ -21,15 +22,33 @@ class Chitter < Sinatra::Base
 
   post '/user' do
     @user = User.create(email: params[:email], password: params[:password], username: params[:username])
-    session[:user_id] = User.first.id
+    if @user.save
+    session[:user_id] = @user.id
     redirect to('/peeps')
-    # else
-    # # #   flash.now[:errors] = @user.errors.full_messages
-    # erb(:'/user/new')
+    else
+    flash.now[:errors] = @user.errors.full_messages
+    erb :'user/new'
+    end
+  end
+
+  post '/registereduser' do
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+    session[:user_id] = @user.id
+    redirect to('/peeps')
+    else
+    flash.keep[:errors] = ['Incorrect email or password']
+    redirect to('/')
+    end
   end
 
   get '/peeps' do
     erb(:'posts/index')
+  end
+
+  delete '/user' do
+    session.clear
+    redirect to('/')
   end
 
   helpers do
