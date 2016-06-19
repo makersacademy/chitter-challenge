@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/github/awye765/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/awye765/chitter-challenge?branch=master) [![Build Status](https://travis-ci.org/awye765/chitter-challenge.svg?branch=master)](https://travis-ci.org/awye765/chitter-challenge)
