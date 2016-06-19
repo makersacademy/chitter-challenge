@@ -31,12 +31,6 @@ feature 'Reasons why signing in fails' do
     expect{ sign_up(username: nil) }.not_to change(User, :count)
   end
 
-  scenario 'I cannot sign up with a name that is already taken' do
-    sign_up
-    expect{ sign_up }.not_to change(User, :count)
-    expect(page).to have_content('Name is already taken')
-  end
-
   scenario 'I cannot sign up with a username that is already taken' do
     sign_up
     expect{ sign_up }.not_to change(User, :count)
