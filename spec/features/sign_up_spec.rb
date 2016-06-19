@@ -28,4 +28,17 @@ feature "FEATURE: Sign up" do
     expect{ sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
   end
+
+  scenario "I can't sign up without a username" do
+    expect{ sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Username must not be blank')
+  end
+
+  scenario "I can't sign up with a username already registered with the site" do
+    sign_up
+    expect{ sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Username is already taken')
+  end
+
 end
