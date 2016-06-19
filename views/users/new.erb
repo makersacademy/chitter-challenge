@@ -1,21 +1,56 @@
-<h1> Chitter Chatter </h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
 
-<% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-<% end %>
-
-<form method='post' action='/add'>
-  <label for='email'>
-    Email ID :
-    <input type ="email" name="email"/>
-  </label>
-  <label for='password'>
-    PASSWORD :
-    <input type ="password" name="password"/>
-  </label>
-  <label for='password_confirmation'>
-    PASSWORD CONFIRMATION:
-    <input type ="password" name="password_confirmation"/>
-  </label>
-  <input type="submit" value="Sign up" >
-</form>
+    <body >
+        <div class="container" >
+            <div class="span12" align="center">
+                <h1>
+                    Chitter Chatter
+                </h1>
+            </div>
+            <br>
+            <br>
+            <div class="span12 text-danger" align="center">
+                <% if flash[:notice] %>
+                <p class="notice"><%= flash[:notice] %></p>
+                <% end %>
+            </div>
+            <div class="col-md-12">
+                <form method='post' action='/add' role='form'>
+                    <div class='form-group'>
+                        <label for='email'>
+                            Email :
+                        </label>
+                        <input type="email" name="email" class='form-control' placeholder="Enter email">
+                    </div>
+                    <div class='form-group'>
+                        <label for='password'>
+                            Password :
+                        </label>
+                        <input type="password" name="password" class='form-control' placeholder="Enter password">
+                    </div>
+                    <div class='form-group'>
+                        <label for='password_confirmation'>
+                            Password confirmation:
+                        </label>
+                        <input type="password" name="password_confirmation" class='form-control' placeholder="Enter password again">
+                    </div>
+                    <input type="submit" value="Sign up" class='btn btn-primary'>
+                </form>
+                <br>
+                <div class='form-group'>
+                    <a href='/sign_in'>
+                        Have an account? Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
