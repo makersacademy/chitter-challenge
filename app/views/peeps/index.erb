@@ -5,7 +5,7 @@
     <% @peeps.each do |peep| %>
     <li>
       <%= peep.message %>
-      <br
+      <br>
       <%= User.get(peep.user_id).username %>
       <%= peep.time %>
     </li>
