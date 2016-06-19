@@ -71,7 +71,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
   	@peep = Peep.new(content: params[:content], created_at: params[:created_at], user_id: session[:user_id])
   	if @peep.save
-      redirect to('/')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
