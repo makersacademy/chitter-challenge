@@ -7,12 +7,15 @@ feature 'Users can create a post' do
 
   scenario 'User creates a post' do
     expect(current_path).to eq '/'
+    post = Post.first(user_id: 1)
+    expect(post.message).to include('This is the best app ever!')
     expect(page).to have_content 'This is the best app ever!'
   end
+end
 
-  scenario 'User adds a post to their account' do
-    post = Post.first(user_id: 2)
-    expect(post.message).to include('This is the best app ever!')
+xfeature 'Users name is displayed on the post' do
+  scenario '' do
+
   end
 end
 
@@ -20,7 +23,7 @@ feature 'Users can view the time a post was created' do
   scenario 'User creates post and views the time on the index page' do
     sign_up
     post_message
-    post = Post.first(user_id: 3)
+    post = Post.first(user_id: 2)
     expect(page).to have_content "#{post.created_at.strftime("%d/%m/%Y %H:%M:%S")}"
   end
 end
