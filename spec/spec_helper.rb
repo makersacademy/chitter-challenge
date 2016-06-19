@@ -13,6 +13,7 @@ require 'database_cleaner'
 
 require_relative '../app/models/peep'
 
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
