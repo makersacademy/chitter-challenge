@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
     if peep.id
       redirect("/peeps")
     else
-      flash[:error] = peep.errors.full_messages
+      flash.next[:error] = peep.errors.full_messages
       redirect("/peeps/new")
     end
   end
