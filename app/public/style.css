@@ -19,8 +19,9 @@ body{
   padding: 14px 16px;
   text-decoration: none;
 }
-.menu li a:hover {
+.menu li a:hover, input[type="submit"] {
   background-color: #111;
+  cursor: pointer;
 }
 
 .peep img {
@@ -33,4 +34,13 @@ body{
   border: 1px solid #aaa;
   border-radius: 10px;
   margin: 10px
+}
+input, textarea {
+  border: 1px solid #333;
+  font-family: Monospace;
+  padding: 7px
+}
+input[type="submit"]{
+  background: #333;
+  color: #fff;
 }
