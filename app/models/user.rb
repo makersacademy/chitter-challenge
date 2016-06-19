@@ -22,11 +22,7 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
 
   def generate_token
@@ -37,6 +33,6 @@ class User
 
   def self.find_by_valid_token(token)
     user = first(password_token: token)
-    user if (user && user.password_token_time + (60 * 60) > Time.now)
+    user if user && user.password_token_time + (60 * 60) > Time.now
   end
 end

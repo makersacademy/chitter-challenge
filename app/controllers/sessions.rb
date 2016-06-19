@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/messages')
+      redirect to '/messages'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'

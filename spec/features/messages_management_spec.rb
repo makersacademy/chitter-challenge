@@ -12,8 +12,8 @@ feature 'Creating messages' do
 end
 
 feature 'Viewing messages' do
-  
-  scenario 'I have a index page to selet optios' do
+
+  scenario 'I have a index page to selet options' do
     visit '/'
     expect(page). to have_content 'Messages'
   end
