@@ -41,16 +41,21 @@ class ChitterChatter < Sinatra::Base
   end
 
   get '/message_new' do
+    @current_user_mail = 
     erb :'message/message_new'
   end
 
 
   post '/message_create' do
-    Message.create(message: params[:message])
+    p current_user
+    if @current_user
+      @message = Message.create(message: params[:message],user: @current_user, timestamp: Time.now)
+    end
     redirect('/show_message')
   end
 
   get '/show_message' do
+    @message = Message.all
     erb :'message/show_message'
   end
 

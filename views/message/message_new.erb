@@ -1,5 +1,4 @@
-<h1> Welcome to Chitter Chatter </h1>
-<h3> <%= @current_user %> </h3>
+<h1> Welcome to Chitter Chatter <%= current_user.email %> </h1>
 <form method="post" action="/message_create">
 <label for='message'>
 Message:

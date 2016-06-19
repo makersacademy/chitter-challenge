@@ -1,14 +1,14 @@
 <h1> Peeps </h1>
-Hi
-<form>
-  <label for='title'>
-    Title:
-    <input type='text' name='title' />
-  </label>
-  <label for='url'>
-    URL:
-    <input type='text' name='url' />
-  </label>
-  <input type='submit' value='Create link'>
 
-</form>
+
+
+
+<ul id="timeline">
+<% @message.sort_by! { |message| message.timestamp }.reverse.each do |message| %>
+  <li>
+    <%= message.message %>
+    <%= message.user.email%>
+    <%= message.timestamp.strftime("%A %d %B %Y, %H:%M") %>
+  </li>
+<% end %>
+</ul>

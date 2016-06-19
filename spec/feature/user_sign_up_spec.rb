@@ -7,7 +7,6 @@ def sign_up(email: 'email@mail.com', password: 'super secret', password_confirma
 end
 
 feature 'user sign up' do
-
 	scenario 'requires a matching password confirmation' do
 		expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
 	end
