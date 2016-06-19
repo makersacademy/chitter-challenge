@@ -1,1 +1,10 @@
 <h1> WELCOME TO CHITTER </h1>
+
+<ul id='peeps'>
+  <% peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.content %>
+      Posted: <%= peep.created_at.strftime("%A, %b %d %r") %> by <%= User.get(peep.user_id).username %>
+    </li>
+  <% end %>
+</ul>

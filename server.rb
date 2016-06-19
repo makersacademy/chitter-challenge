@@ -16,6 +16,9 @@ class Chitter < Sinatra::Base
    def current_user
      @current_user ||= User.get(session[:user_id])
    end
+   def peeps
+     @peeps = Peep.all
+   end
   end
 
 
