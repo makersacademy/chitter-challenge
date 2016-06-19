@@ -1,21 +1,18 @@
+require 'web_helper'
+
+
+
 feature 'signing up' do
 	scenario 'I can sign up' do
-		visit '/'
-		within('form#SignUp') do
-			fill_in :username, with: 'username'
-			fill_in :email, with: 'name@gmail.com'
-			fill_in :name, with: 'Name Surname'
-			fill_in :password, with: 'password'
-			click_button 'Sign up'
-		end
-		expect(page).to have_content 'Wecome, Name'
+		sign_up
+		expect(page).to have_content 'Welcome, Name'
 	end
 
-	#
-  # scenario 'new user signs up and user count increases by 1' do
-  #   signup
-  #   expect(User.count).to eq 1
-  # end
+
+  scenario 'new user signs up and user count increases by 1' do
+    sign_up
+    expect(User.count).to eq 1
+  end
 
   # scenario 'new user signs up and the email address is correct' do
   #   signup
