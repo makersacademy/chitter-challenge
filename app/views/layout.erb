@@ -11,19 +11,34 @@
       }
     </style>
   </head>
-
+  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/spits">Shits</a></li>
+        <li><a href="/spits/new">Take a shit</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
   <body>
     <header>
-      <div class="wrapper">
-        <img src="img/shitter_logo.png" />
-        <span>Like twitter but done on the shitter</span>
+      <div class="wrapper" align="center" />
+        <div class="well">
+          <img src="img/shitter_logo.png" align="center" />
+        </div>
+
       </div>
+
     </header>
-    <h1 align="center">Spitter!</h1>
 
     <%= partial :welcome %>
     <%= partial :flash %>
-
     <%= yield %>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

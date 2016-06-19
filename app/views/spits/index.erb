@@ -1,32 +1,22 @@
 <div align="center">
-  <h2> Spits </h2>
-  <div align="left">
+
+  <h2> Shits </h2>
+
+  <div class="wrapper">
+
+    <div class="well" align="left">
+
     <ul id='spits'>
       <% @spits.reverse.each do |spit| %>
       <li>
         <%= spit.content %>
         <p>
-          Posted by <b><%= spit.user.username %></b> on <%= spit.created_at.strftime("%A %d %B %Y at %T ") %>
+          - Posted by <b><%= spit.user.username %></b> on <%= spit.created_at.strftime("%A %d %B %Y at %T ") %>
         </p>
       </li>
       <% end %>
     </ul>
+
   </div>
-
-  <form action="/spits/new">
-    <button>Spit something!</button>
-  </form>
-
-  <form action="/sessions/new">
-    <button>Sign in</button>
-  </form>
-
-  <form action="/users/new">
-    <button>Sign up</button>
-  </form>
-
-  <form action="/">
-    <button>Home</button>
-  </form>
 
 </div>

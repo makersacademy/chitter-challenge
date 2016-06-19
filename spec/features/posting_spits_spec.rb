@@ -10,7 +10,7 @@ feature "FEATURE: Creating Spits" do
   scenario "users CANNOT post Spits" do
     visit '/spits/new'
     fill_in :content, with: "Look at my dinner"
-    expect{ click_button "Spit it!" }.not_to change(Spit, :count)
+    expect{ click_button "Take a shit!" }.not_to change(Spit, :count)
     expect(page).to have_content "Only users can Spit"
     expect(page).to have_button "Sign in"
   end
@@ -19,7 +19,7 @@ feature "FEATURE: Creating Spits" do
     sign_in(email: 'snake@mgs.com', password: 'mgs1')
     visit 'spits/new'
     fill_in :content, with: "My life is more interesting than yours"
-    expect{ click_button "Spit it!" }.to change(Spit, :count).by 1
+    expect{ click_button "Take a shit!" }.to change(Spit, :count).by 1
     spit = Spit.first(content: "My life is more interesting than yours")
     within "ul#spits" do
       expect(page).to have_content "My life is more interesting than yours"
