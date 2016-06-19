@@ -1,16 +1,16 @@
 
 feature 'Users can create a post' do
-
-  scenario 'User creates a post' do
+  before(:each) do
     sign_up
     post_message
+  end
+
+  scenario 'User creates a post' do
     expect(current_path).to eq '/'
     expect(page).to have_content 'This is the best app ever!'
   end
 
   scenario 'User adds a post to their account' do
-    sign_up
-    post_message
     post = Post.first(user_id: 2)
     expect(post.message).to include('This is the best app ever!')
   end
