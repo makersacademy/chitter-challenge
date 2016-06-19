@@ -41,6 +41,3 @@ Getting Started
 * Create two new databases chitter_chatter_test and chitter_chatter_development
 * Run ruby app.rb to start the server
 * On the browser go to http://localhost:4567
-
-
-![alt tag](https://chitter12.herokuapp.com/)
