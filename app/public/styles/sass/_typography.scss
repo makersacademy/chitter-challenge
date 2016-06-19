@@ -16,14 +16,16 @@ a {
 }
 
 
-.time,
-.reply {
-  font-size: 0.8rem;
-}
+.peep-meta {
+  .time,
+  .reply {
+    font-size: 0.8rem;
+  }
 
-.name {
-  font-size: 1rem;
-  font-weight: bold;
+  .name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
 }
 
 .notices,

@@ -33,3 +33,19 @@ input {
     }
   }
 }
+
+.logout-form {
+  input[type="submit"] {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: none;
+      color: $highlight-color;
+    }
+  }
+}
