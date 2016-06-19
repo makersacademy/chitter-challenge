@@ -5,7 +5,7 @@
     <% @posts.each do |post| %>
       <li>
         Post: <%= post.message %>
-        Created at <%= post.created_at %>
+        Created at <%= post.created_at.strftime("%d/%m/%Y %H:%M:%S") %>
       </li>
     <% end %>
   </ul>
