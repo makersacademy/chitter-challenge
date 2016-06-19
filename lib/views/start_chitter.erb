@@ -12,7 +12,9 @@ Write a new Peep!
 
 
 <h1>Peeps</h1>
-<%= Peep.last.username %> <%= Peep.last.content %>
+<%= Peep.all.map {|p| p.username + "  " + p.content } %>
+
+
 
 
 
