@@ -8,9 +8,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
-
-<% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
+    <div class="span12" align="center">
+        <h1>
+            <% if flash[:notice] %>
+            <div id='notice'>
+                <%= flash[:notice] %>
+            </div>
+            <% end %>
+        </h1>
+        <div class='form-group'>
+            <a href='/sign_in'>
+                Do you want to sign in again?
+            </a>
+        </div>
     </div>
-  <% end %>
