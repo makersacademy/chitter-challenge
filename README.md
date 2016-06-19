@@ -1,7 +1,7 @@
-Chitter Challenge
+Chitter Challenge [![Build Status](https://travis-ci.org/kennbarr/chitter-challenge.svg?branch=master)](https://travis-ci.org/kennbarr/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/kennbarr/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/kennbarr/chitter-challenge?branch=master) 
 =================
 
-###Task:
+Task:
 =================
 Create a Twitter clone that will allow the users to post messages to a public stream.
 
