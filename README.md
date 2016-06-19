@@ -1,21 +1,23 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Chitter is a weekend project for [Makers Academy](http://www.makersacademy.com) that uses Sinatra and postgresql database (Datamapper) functionality. It consists of creating a little Twitter clone that will allow the users to post messages to a public stream.
 
-Challenge:
--------
+Approach
+--------
 
-As usual please start by forking this repo.
+As usual, the approach is test driven using Rspec and Capybara. It follows a rigidly Red-Green-Refactor cycle to keep the codebase DRY and strive for a MVP. Following sound design principles, Sinatra is set up in modular style.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+The technologies used are:
 
-Features:
--------
+* [Datamapper](https://github.com/datamapper) # postgresql database for ruby
+* [BCrypt](https://github.com/codahale/bcrypt-ruby) # keeping passwords secure
+* [DatabaseCleaner](https://github.com/DatabaseCleaner) # cleaning database for test environment
+* [Sinatra](http://www.sinatrarb.com/) # Fly me to the moon and let me play among the stars
+* [Time Ago in Words](https://github.com/elgalu/time_ago_in_words) # makes timestamps readable
+
+User Stories
+---------
 
 ```
 As a Maker
@@ -41,68 +43,52 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a Maker
+So that I can indulge in setting horrible passwords and forgetting them
+I want to be able to reset my password
 ```
 
-Notes on functionality:
-------
+Features:
+- [x] Sign up to the service
+- [x] Log in to the service
+- [x] Log out of the service
+- [x] Post a message to the service
+- [x] Displays feed in a chronological order
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Notes:
+- [x] Sign up with email, password, name and user name
+- [x] Email and username are unique
+- [x] Posts display username handles
+- [x] Secure passwords with bcrypt
+- [x] Use datamapper and postgres to save data
 
-Bonus:
------
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
+Installation
 -----------
 
-In code review we'll be hoping to see:
+Here is a [working example on heroku:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+Install as follows:
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+```sh
+# clone the project
+$ git clone https://github.com/AnnaHollandSmith/chitter-challenge
 
-Notes on test coverage
-----------------------
+# install all the required gems
+$ bundle
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+# create development and test databases
+$ createdb chitter_development
+$ createdb chitter_test
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+# setup the databases
+$ rake db:dm_migrate
+$ rake db:dm_migrate RACK_ENV=test
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+# run tests
+$ rspec
+
+# launch the app and visit http://localhost:9292
+$ rackup
 ```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
