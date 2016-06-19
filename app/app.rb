@@ -20,19 +20,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    User.create(email: params[:email], password: params[:password], username: params[:username])
-    @user = User.first(email: params[:email])
-    session[:user_id] = @user.id
+    @user = User.create(email: params[:email], password: params[:password], username: params[:username])
+    session[:user_id] = User.first.id
     redirect to('/peeps')
     # else
     # # #   flash.now[:errors] = @user.errors.full_messages
     # erb(:'/user/new')
-  end
-
-  post '/existinguser' do
-    @user = User.first(email: params[:email])
-    session[:user_id] = @user.id
-    redirect to('/peeps')
   end
 
   get '/peeps' do

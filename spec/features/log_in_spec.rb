@@ -15,7 +15,7 @@ feature 'log in existing user' do
 
 	scenario 'registered user can login' do
 		sign_in(email: user.email, password: user.password)
-		expect(page).to have_content "Welcome, #{user.username}!"
+		expect(page).to have_content "Welcome, #{user.email}!"
 	end
 
 end

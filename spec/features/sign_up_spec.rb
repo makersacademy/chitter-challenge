@@ -17,7 +17,8 @@ feature 'user can sign up for Chitter' do
 
 	scenario 'user enters email address, password and username to sign up' do
 		sign_up(email: user.email, password: user.password, username: user.username)
-		expect(page).to have_content("Welcome, #{user.username}!")
+		expect(page).to have_content("Welcome, #{user.email}!")
+		expect(User.first.email).to eq("user@example.com")
 	end
 
 	# def sign_up(email: 'alice@example.com',
