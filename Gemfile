@@ -7,6 +7,7 @@ gem 'sinatra-flash'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
+gem 'activesupport'
 
 group :test do
   gem 'orderly'
