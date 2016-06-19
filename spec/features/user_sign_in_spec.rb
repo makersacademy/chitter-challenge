@@ -9,4 +9,14 @@ feature 'User sign in' do
     sign_in(email: user.email,   password: user.password)
     expect(page).to have_content "Welcome, #{user.email}"
   end
+
+  scenario 'with incorrect password' do
+    sign_in(email: user.email,   password: '1234')
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
+  scenario 'with incorrect email' do
+    sign_in(email: 'wrong',   password: user.password)
+    expect(page).to have_content "The email or password is incorrect"
+  end
 end
