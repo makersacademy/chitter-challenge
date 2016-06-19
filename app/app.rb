@@ -6,13 +6,11 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
-	enable :sessions
-	set :session_secret, 'super secret'
+	
 	register Sinatra::Flash
 
-	get '/' do
-		erb :index
-	end
+	enable :sessions
+	set :session_secret, 'super secret'
 
 	get '/user/new' do
 		erb :'user/new'
@@ -42,7 +40,7 @@ class Chitter < Sinatra::Base
 		user = User.authenticate(params[:email], params[:password])
 		if user
 			session[:user_id] = user.id
-			redirect ('/')
+			redirect '/'
 		else
 			flash.now[:errors] = ["The email or password is incorrect"]
 			erb :'user/login'
@@ -53,12 +51,12 @@ class Chitter < Sinatra::Base
 		@last_user = current_user
 		@current_user = nil
 		session[:user_id] = nil
-		erb :index
+		redirect '/'
 	end
 
-	get '/peep' do
-		@peep = Peep.all
-		erb :'peep/index'
+	get '/' do
+		@peeps = Peep.all(order: [:created_at.desc])
+    erb :'peep/index'
 	end
 
 	get '/peep/new' do
@@ -66,10 +64,12 @@ class Chitter < Sinatra::Base
 	end
 
 	post '/peep' do
-		link = Peep.create(url: params[:url], title: params[:title])
-		link.save
-		redirect '/peep'
-	end
+    peep = Peep.create(text: params[:text], created_at: Time.new)
+    current_user.peeps << peep
+    current_user.save
+    redirect '/'
+  end
+
 
 	helpers do
 		def current_user

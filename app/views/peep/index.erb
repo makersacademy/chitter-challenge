@@ -1,0 +1,28 @@
+<h1> Peeps </h1>
+
+<p> Please see the most current peeps below: </p>
+
+<% @peeps.reverse.each do |peep| %>
+	<div class="peep">
+		<img src="https://robohash.org/<%= User.get(peep.user_id).username %>?set=set2">
+		<h4><%= User.get(peep.user_id).username %></h4>
+		<p>
+			<%= peep.text %>
+		</p>
+		<i>Peeped at <%= peep.created_at.strftime("%A, %b %d %r")%></i>
+	</div>
+<% end %>
+
+<style type="text/css">
+	.peep img {
+	  float: left;
+	  height: 125px;
+	  margin: 10px
+	}
+	div {
+	  height: 145px;
+	  border: 1px solid #aaa;
+	  border-radius: 10px;
+	  margin: 10px
+	}
+</style>
