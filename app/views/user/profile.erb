@@ -1,5 +1,10 @@
-<ul id="timeline" class="timeline">
-<% peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
+<header>
+  <h3><%= @user.name %></h3>
+  <%= @user.username %>
+</header>
+
+<ul class="timeline">
+<% @user.peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
   <li>
     <p class="peep-meta">
       <a href="/user/profile/<%= peep.user.username %>" class="name"><%= peep.user.name %></a>

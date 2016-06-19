@@ -20,4 +20,9 @@ class Chitter < Sinatra::Base
       redirect("/user/new")
     end
   end
+
+  get "/user/profile/:username" do
+    @user = User.first(username: params[:username])
+    erb(:"user/profile")
+  end
 end

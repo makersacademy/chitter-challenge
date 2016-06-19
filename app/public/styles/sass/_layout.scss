@@ -3,6 +3,21 @@ body {
   margin: 0;
 }
 
+header {
+  margin-bottom: ($nav-height * 2);
+  background-color: #fff;
+  padding: 1rem;
+  border: solid 2px $dark-grey;
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    margin-top: 0;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
 footer {
   padding: ($nav-height * 2) 0 ($nav-height);
   text-align: center;

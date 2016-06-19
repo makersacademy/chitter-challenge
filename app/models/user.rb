@@ -11,6 +11,8 @@ class User
 
   validates_confirmation_of(:password, confirm: :password_confirm)
 
+  has(n, :peeps)
+
   attr_accessor :password_confirm
 
   def password=(password)

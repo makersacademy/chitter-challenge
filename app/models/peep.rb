@@ -24,8 +24,8 @@ class Peep
 
   def self.linkify_hashtags_and_usernames
     @input_text.gsub!(/(\#|\@)\w+/) do |text|
-      " <a href=\"http://twitter.com/#{ "hashtag/" if text[0] == "#" }"\
-      "#{ text[1..text.size] }\" target=\"_blank\">#{ text }</a> "
+      " <a href=\"/#{ text[0] == "#" ? "hashtag/" : "user/profile/" }"\
+      "#{ text[1..text.size] }\">#{ text }</a> "
     end
   end
 end

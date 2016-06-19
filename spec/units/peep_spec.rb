@@ -8,11 +8,11 @@ describe Peep do
   end
 
   let(:html_output) do
-    "<a href=\"http://twitter.com/one\" target=\"_blank\">@one</a> lorem "\
-    "<a href=\"http://twitter.com/two\" target=\"_blank\">@two</a> ipsum "\
+    "<a href=\"/user/profile/one\">@one</a> lorem "\
+    "<a href=\"/user/profile/two\">@two</a> ipsum "\
     "<a href=\"http://test.com\" target=\"_blank\">http://test.com</a> "\
-    "<a href=\"http://twitter.com/hashtag/one\" target=\"_blank\">#one</a> "\
-    "<a href=\"http://twitter.com/hashtag/two\" target=\"_blank\">#two</a>"
+    "<a href=\"/hashtag/one\">#one</a> "\
+    "<a href=\"/hashtag/two\">#two</a>"
   end
 
   describe "#linkify" do
