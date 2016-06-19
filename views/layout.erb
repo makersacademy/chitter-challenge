@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
   <body>
+    <a href="http://cooltext.com"><img src="https://images.cooltext.com/4711006.png" width="291" height="89" alt="Chitter" /></a>
     <% if @current_user %>
-      <h1> Welcome, <%= @current_user.username %> </h1>
+      <h3> Welcome, <%= @current_user.username %> </h1>
     <% end %>
     <% if flash[:errors] %>
     <h3> Sorry, couldn't register </h3>

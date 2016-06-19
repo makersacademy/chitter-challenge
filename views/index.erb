@@ -6,14 +6,9 @@
   </head>
   <body>
     <% if @current_user %>
-      <form method='post' action="/session/end">
-        <input type="submit" value='log out'>
-      </form>
       <form method='get' action="/peep/new">
         <input type="submit" value='New Peep'>
-      <div>
-
-      </div>
+      </form>
     <% else %>
       <form method='get' action="/session/new">
         <input type="submit" value='sign in'>
@@ -23,12 +18,21 @@
       </form>
     <% end %>
 <h3> Chitter conversations... </h3>
-    <% if @peeps %>
-      <% @peeps.each do |peep| %>
-      <div>
-        <%= peep.message %>
-      </div>
-      <% end %>
-    <% end %>
+
+<% @peeps.reverse.each do |peep| %>
+  <div class="peep">
+  <ul>
+  <%= peep.message %>
+  <br>
+  <br>
+      <em>Posted: <%= peep.created_at.strftime("%A, %b %d %r") %> by  <strong><%= User.get(peep.user_id).username %></strong></em>
+  </ul>
+  </div>
+<% end %>
+<% if @current_user %>
+  <form method='post' action="/session/end">
+    <input type="submit" value='log out'>
+  </form>
+  <% end %>
   </body>
 </html>

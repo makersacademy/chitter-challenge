@@ -1,0 +1,14 @@
+body {
+    background-color: #d3d3d3;
+}
+
+.peep {
+      background-color: #faebd7;
+      border: 5px;
+      border-color: #83797f
+}
+
+h1 {
+  font-family: serif;
+  color: red;
+}
