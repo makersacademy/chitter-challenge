@@ -7,6 +7,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
@@ -59,6 +61,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to('/')
   end
   # start the server if ruby file executed directly
   run! if app_file == $0

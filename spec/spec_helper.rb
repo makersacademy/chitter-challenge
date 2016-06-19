@@ -20,6 +20,7 @@ require 'simplecov'
 require 'web_helpers'
 require 'database_cleaner'
 require 'sinatra/flash'
+require 'web_helpers'
 
 Capybara.app = Chitter
 
@@ -32,6 +33,8 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
