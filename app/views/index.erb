@@ -73,21 +73,22 @@
 
               <% end %>
             </div>
+            <% if @current_user %>
+              <div class="entry_footer">
+                <% counter +=1 %>
 
-            <div class="entry_footer">
-              <% counter +=1 %>
+                <input type="checkbox" id="reply-<%= counter %>">
+                <h3><label for="reply-<%= counter %>">add reply</label></h3>
+                <div class="replies">
+                  <form action='/reply' method='post' style="text-align: right">
+                    <textarea rows="4" cols="80" type="text" name="reply" placeholder="enter reply" class="reply_box" required></textarea>
+                    <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                    <input type="submit" value="post reply" class="reply_button">
+                  </form>
+                </div>
 
-              <input type="checkbox" id="reply-<%= counter %>">
-              <h3><label for="reply-<%= counter %>">add reply</label></h3>
-              <div class="replies">
-                <form action='/reply' method='post' style="text-align: right">
-                  <textarea rows="4" cols="80" type="text" name="reply" placeholder="enter reply" class="reply_box" required></textarea>
-                  <input type="hidden" name="peep_id" value="<%= peep.id %>">
-                  <input type="submit" value="post reply" class="reply_button">
-                </form>
               </div>
-
-            </div>
+            <% end %>
           </div>
         <% end %>
       <% end %>
@@ -95,7 +96,7 @@
   </div>
   <div class="site-footer">
   	<div class="site-footer-box">
-	  <a href="http://www.github.com/kennbarr" class="git"></a>
+	  <a href="https://github.com/kennbarr/chitter-challenge" class="git"></a>
 	  <img src="images/kenneth.png"style="float: left; display: block"/>
 	  <a href="http://www.makersacademy.com" class="makers"></a>
   	</div>

@@ -5,6 +5,7 @@ ruby '2.3.1'
 gem 'sinatra'
 gem 'rake'
 gem 'sinatra-flash'
+gem 'sanitize'
 
 group :database do
   gem 'data_mapper'
