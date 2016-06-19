@@ -1,11 +1,11 @@
-
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-
-  RSpec::Core::RakeTask.new :spec
-
-  task default: [:spec]
-end
+#
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+#
+#   task default: [:spec]
+# end
 
 require './app/app.rb'
 require 'data_mapper'
