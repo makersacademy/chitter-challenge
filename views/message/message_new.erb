@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body >
+        <div class="container">
+            <div class="span12" align="center">
+                <h1>
+                    Welcome to Chitter Chatter
+                    <%= current_user.email %>
+                </h1>
+            </div>
+
+            <div class="col-md-12">
+                <form method="post" action="/message_create" role='form'>
+                    <div class='form-group'>
+                        <label for='message'>
+                            Peep:
+                        </label>
+                        <textarea rows="4" cols="50" name="message" class='form-control' placeholder="Enter your peep "></textarea>
+                    </div>
+
+                    <input type="submit" value="Submit message" class='btn btn-primary'>
+                </form>
+
+                <div class='form-group'>
+                    <a href='/show_message'>
+                        Click here to view messages
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </body>

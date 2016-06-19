@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="span12" align="center">
+                <h1>
+                    Peep Board
+                </h1>
+            </div>
+            <div class="span12" align="right">
+                <form method='post' action='/sessions'>
+                    <input type='hidden' name='_method' value='delete'>
+                    <input type='submit' value='Sign out' class='btn btn-primary'>
+                </form>
+            </div>
+            <div class='form-group'>
+                <a href='/message_new'>
+                    Click here to peep
+                </a>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Peep</th>
+                        <th>Email</th>
+                        <th>Time of creation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @message.sort_by! { |message| message.timestamp }.reverse.each do |message| %>
+                    <tr>
+                        <th scope="row"><%= message.message %></th>
+                        <td><%= message.user.email%></td>
+                        <td><%= message.timestamp.strftime("%A %d %B %Y, %H:%M") %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </body>
