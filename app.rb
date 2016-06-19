@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     current_user
+    @peeps = Peep.all
     erb(:index)
   end
 

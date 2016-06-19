@@ -23,5 +23,12 @@
       </form>
     <% end %>
 <h3> Chitter conversations... </h3>
+    <% if @peeps %>
+      <% @peeps.each do |peep| %>
+      <div>
+        <%= peep.message %>
+      </div>
+      <% end %>
+    <% end %>
   </body>
 </html>

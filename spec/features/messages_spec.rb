@@ -9,7 +9,8 @@ feature 'create messages' do
   end
 
   it 'allows you to post a message' do
-    expect(page).to have_content 'Makers academy is the best'
+    new_peep
+    expect(page).to have_content 'Makers Academy is the best'
   end
-  
+
 end
