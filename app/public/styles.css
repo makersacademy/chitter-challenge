@@ -1,0 +1,111 @@
+body {
+  font-family: "Helvetica_Neue", sans-serif;
+}
+
+.container {
+  max-width: 500;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_main {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sign {
+  width: 400px;
+  padding: 5px 20px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+h1 {
+  margin: 5px;
+  padding: 5px;
+  color: darkgrey;
+  font-size: 4em;
+  text-align: center;
+}
+
+h4 {
+  color: darkred;
+  font-size: 0.8em;
+}
+
+.forms {
+  margin: 5px;
+  padding: 5px;
+  color: darkgrey;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.form_element {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.forms  {
+  colour: darkred;
+}
+
+.input {
+  border: 1px solid #d8d8d8 ;
+  color: lightgrey;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 5px 0;
+  padding: 5px 15px;
+}
+
+.input_text {
+  border: 1px solid #d8d8d8 ;
+  color: lightgrey;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 5px 0;
+  padding: 10px 50px;
+}
+
+.peep_box {
+  background-color: #4CAF50; /* Green */
+  margin: 5px 0;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.li_username {
+  color: #bbedfa;
+  margin-bottom: 5px;
+  font-size: 0.8em;
+}
+
+.li_time {
+  color: #f8fabb;
+  font-size: 0.8em;
+  align-self: flex-end;
+  margin-top: 5px;
+}

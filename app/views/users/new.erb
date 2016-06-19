@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/reset.css">
+<link rel="stylesheet" href="/styles.css">
+
+<div class="container_main">
+  <div class="sign">
+
+    <h1>Please sign up to register</h1>
+
+    <form class="forms" action="/users" method="post">
+      <div class="form_element">
+        <h4>Email<h4> <input class="input" type="text" name="email" value='<%= @user.email %>' required>
+      </div>
+      <div class="form_element">
+        <h4>Username<h4> <input class="input" type="Text" name="handle" required>
+      </div>
+      <div class="form_element">
+        <h4>Password<h4> <input class="input" type="password" name="password">
+      </div>
+      <div class="form_element">
+        <h4>Confirm Password<h4> <input class="input" type="password" name="password_confirmation">
+      </div>
+      <div class="form_element">
+        <input class="button" type="submit" value="Sign up">
+      </div>
+    </form>
+
+  </div>
+
+  <div class="sign">
+
+    <h1>Please sign in</h1>
+
+    <form class="forms" action="/sessions" method="post">
+      <div class="form_element">
+        <h4>Email</h4><input class="input" type="email" name="email">
+      </div>
+      <div class="form_element">
+        <h4>Password</h4><input class="input" type="password" name="password">
+      </div>
+      <div class="form_element">
+        <input class="button" type="submit" value="Sign in">
+      </div>
+
+    </form>
+
+  </div>
+</div>
