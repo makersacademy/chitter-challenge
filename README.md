@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Alex-Swann/chitter-challenge.svg?branch=master)](https://travis-ci.org/Alex-Swann/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/Alex-Swann/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/Alex-Swann/chitter-challenge?branch=master)
+
 Chitter Challenge
 =================
 
