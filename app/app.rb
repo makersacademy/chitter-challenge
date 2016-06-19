@@ -1,5 +1,6 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
-# We're gonna need our Link model
 require_relative 'models/post'
 
 class Chitter < Sinatra::Base
@@ -10,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    Link.create(peep: params[:peep], author: 'Jeff')
+    Post.create(peep: params[:peep], author: 'Jeff')
     redirect '/posts'
   end
 

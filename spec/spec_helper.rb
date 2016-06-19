@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] = "test"
+
 require 'coveralls'
 require 'simplecov'
 
@@ -11,6 +13,7 @@ require './app/models/post'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|

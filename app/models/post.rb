@@ -12,6 +12,6 @@ class Post
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!

@@ -22,8 +22,6 @@ feature 'Creating posts' do
 
     expect(current_path).to eq '/posts'
 
-    within 'ul#posts' do
-      expect(page).to have_content('MOO')
-    end
+    expect(page).to have_content('MOO')
   end
 end
