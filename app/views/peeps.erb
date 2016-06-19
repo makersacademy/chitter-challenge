@@ -1,4 +1,14 @@
 <h2>Welcome to Chitter, <%= @username %></h2>
+<div id='peeps'>
+  <% unless @peeps.empty? %>
+    <% @peeps.each do |peep| %>
+      <div><%= peep.content %></div> 
+    <% end %>
+  <% end %>
+</div>
+<form action='/peeps/newpeep' method='get'>
+  <button type='submit'>Peep</button>
+</form>
 <form action='/user/logout' method='post'>
   <button type='submit'>Log out</button>
 </form>

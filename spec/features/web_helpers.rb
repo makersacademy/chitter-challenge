@@ -33,3 +33,9 @@ def signin_wrong_username
   fill_in 'password', with: 'monkey'
   click_button 'Sign In'
 end
+
+def peep(message)
+  click_button 'Peep'
+  fill_in 'content', with: message
+  click_button 'Peep'
+end

@@ -22,24 +22,28 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    if user_logged_in?
-      @username = session[:user_username]
-      erb :peeps
-    else
-      flash[:error] = 'Please log in first'
-      redirect '/user/signin' 
-    end
+    login_required unless user_logged_in?
+    @username = session[:user_username]
+    @peeps = Peep.all
+    erb :peeps
+  end
+
+  get '/peeps/newpeep' do
+    login_required unless user_logged_in?
+    erb :newpeep
+  end
+
+  post '/peeps/newpeep' do
+    login_required unless user_logged_in?
+    new_peep(params[:content])
+    redirect '/peeps' 
   end
 
   post '/user/signin' do
-    if User.validate(params)
-       user = User.first(username: params[:username]) 
-       start_user_session(user)
-       redirect '/peeps'  
-    else
-      flash[:error] = 'Invalid username or psw, please try again or sign up'
-      redirect '/user/signin'
-    end
+    login_error unless valid_user?(params)
+    user = User.first(username: params[:username]) 
+    start_user_session(user)
+    redirect '/peeps'  
   end
 
   post '/user/signup' do
@@ -53,6 +57,7 @@ class Chitter < Sinatra::Base
     redirect '/'  
   end
 
+
   def create_new_user(user_data)
     User.create(name:     user_data[:name],
                 surname:  user_data[:surname],
@@ -62,12 +67,30 @@ class Chitter < Sinatra::Base
                ) 
   end
 
+  def new_peep(content)
+    user = User.first(username: session[:user_username])
+    peep = Peep.create(content: content, date: Time.now, user_id: user.id)
+  end
+
   def start_user_session(user)
     session[:user_username] = user.username
   end
-
+  
   def user_logged_in?
     session[:user_username]
   end
 
+  def login_required
+    flash[:error] = 'Please log in first'
+    redirect '/user/signin' 
+  end
+
+  def login_error
+    flash[:error] = 'Invalid username or psw, please try again or sign up'
+    redirect '/user/signin'
+  end
+
+  def valid_user?(user_data)
+    User.validate(user_data)
+  end
 end
