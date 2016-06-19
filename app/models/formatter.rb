@@ -1,20 +1,18 @@
 class Formatter
   class << self
-    def linkify(text)
+    def html(text)
       @text = text
+      sanitize
       linkify_urls
       linkify_hashtags_and_usernames
       @text.strip.squeeze(" ")
     end
 
-    def extract_hashtags(peep)
-      peep.text.gsub(/\#\w+/) do |text|
-        hashtag = Hashtag.first_or_create(name: text[1..text.size])
-        HashtagPeep.create(hashtag: hashtag, peep: peep)
-      end
-    end
-
     private
+
+    def sanitize
+      @text.gsub!(/\</, "&lt;")
+    end
 
     def linkify_urls
       @text.gsub!(/http\S+/) do |text|

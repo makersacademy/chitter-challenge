@@ -13,9 +13,9 @@ describe Formatter do
     "<a href=\"/hashtag/two\">#two</a>"
   end
 
-  describe "#linkify" do
+  describe "#html" do
     it "should turn urls and words after @ or # into links" do
-      expect(subject.linkify(text_input)).to eq(html_output)
+      expect(subject.html(text_input)).to eq(html_output)
     end
   end
 end
