@@ -1,11 +1,11 @@
-<h1> Messages </h1>
+<h1> Peeps </h1>
 
 <ul id='messages'>
   <% @messages.reverse.each do |msg| %>
     <li>
-      Peep: <%= msg.message %>,
-              by <strong><%= msg.email %></strong>,
-              on <%= msg.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+      <%= msg.message %>,
+        by <strong><%= msg.email %></strong>,
+        on <%= msg.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
     </li>
   <% end %>
 </ul>

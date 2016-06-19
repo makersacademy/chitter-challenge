@@ -11,6 +11,11 @@ feature 'Creating messages' do
       expect(page).to have_content 'Hello, Marco'
     end
   end
+
+  scenario 'User cannot create message if not loged in' do
+    visit '/messages/new'
+    expect(current_path).to eq '/sessions/new'
+  end
 end
 
 feature 'Viewing messages' do
