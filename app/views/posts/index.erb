@@ -1,2 +1,18 @@
 
 <h1>This is your Chitter!</h1>
+
+<ul id='peep'>
+	<% @peeps.each do |peep| %>
+	<li>
+		Post: <%= peep.post %>
+	</li>
+	<% end %>
+</ul>
+
+<form action='/peeps' method='POST' >
+	<label for='post'>
+		Enter your post here:
+		<input type='text' name='post' />
+	</label>
+	<input type='submit' value='Submit post' >
+</form>

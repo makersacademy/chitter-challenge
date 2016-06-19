@@ -42,10 +42,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/peeps' do
-    erb(:'posts/index')
-  end
-
   delete '/user' do
     session.clear
     redirect to('/')
@@ -57,6 +53,16 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb(:'posts/index')
+  end
+
+  post '/peeps' do
+    peep = Peep.create(post: params[:post])
+    peep.save
+    redirect '/peeps'
+  end
 
   run! if app_file == $0
 end
