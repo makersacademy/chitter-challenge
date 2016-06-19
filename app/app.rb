@@ -15,9 +15,9 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    if current_user
-      redirect '/chits'
-    end
+    # if current_user
+    #   redirect '/chits'
+    # end
     @user = User.new
     erb :'index'
   end
@@ -38,7 +38,7 @@ class ChitterChallenge < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/chits')
     else
-      flash.now[:notice] = "Password does not match the confirmation"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'index'
     end
   end

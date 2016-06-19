@@ -12,8 +12,8 @@ class User
 
 
   property :id, Serial
-  property :username, String#, required: true, unique: true
-	property :email, String#, required: true, unique: true
+  property :username, String, required: true, unique: true
+	property :email, String, required: true, unique: true
 	property :name, String
 	property :password_digest, String, length: 60
 
