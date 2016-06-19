@@ -1,8 +1,4 @@
-require 'dm-migrations'
 require 'data_mapper'
-require 'dm-postgres-adapter'
-require 'bcrypt'
-
 class User
 	attr_reader :password
 	attr_accessor :password_confirmation
@@ -21,7 +17,6 @@ class User
 
 	def self.authenticate(email, password)
 	  user = first(email: email)
-		# p "#{user}"
 	  if user && BCrypt::Password.new(user.password_digest) == password
 	    user
 	  else
@@ -30,9 +25,3 @@ class User
 	end
 
 end
-
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_chatter_#{ENV['RACK_ENV']}")
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
