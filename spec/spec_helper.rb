@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/chitter.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'orderly'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'

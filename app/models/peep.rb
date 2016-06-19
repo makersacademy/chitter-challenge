@@ -7,8 +7,12 @@ class Peep
   
   property :id,      Serial
   property :content, String
-  property :date,    String 
+  property :date,    DateTime 
   
   belongs_to :user
+
+  def pretty_date
+    self.date.strftime('%A, %e %B at %k:%M') 
+  end
 
 end

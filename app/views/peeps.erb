@@ -4,7 +4,12 @@
   <% unless @peeps.empty? %>
     <ul id='peep'>
       <% @peeps.sort_by { |peep| peep.date }.reverse.each do |peep| %>
-        <li><div><%= peep.content %></div></li> 
+        <li><div>
+          <div><%= peep.content %>
+          </div>
+          <div><%= peep.pretty_date %>
+          </div>
+        </li> 
       <% end %>
     </ul>
   <% end %>
