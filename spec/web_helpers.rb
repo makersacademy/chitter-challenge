@@ -8,8 +8,8 @@ def sign_up(username: 'jo@jo.com', email: 'jo@jo.com', password: 'jojo', passwor
   click_button 'Sign up'
 end
 
-def log_in(username: 'jo@jo.com', password: 'jojo')
-  visit('users/log_in')
+def log_in(username:, password:)
+  visit('sessions/new')
   expect(page.status_code).to eq 200
   fill_in :username, with: username
   fill_in :password, with:password
