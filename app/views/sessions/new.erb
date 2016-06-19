@@ -1,11 +1,25 @@
-<h2>Please sign in</h2>
+<div align="center">
+  <h2>Please sign in</h2>
+  <form action='/sessions' method='post'>
 
-<form action='/sessions' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email' required>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password' required>
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
+    <label for='email'>
+      <p>
+        Email
+      </p>
+      <input name='email' type='email' required>
+    </label>
+
+    <label for='password'>
+      <p>
+        Password
+      </p>
+      <input name='password' type='password' required>
+    </label>
+    <input type='submit' value='Sign in'>
+  </form>
+
+  <form action="/">
+    <button>Home</button>
+  </form>
+
+</div>

@@ -21,6 +21,7 @@ require 'web_helpers'
 require 'database_cleaner'
 require 'sinatra/flash'
 require 'web_helpers'
+require './app/models/spit'
 
 Capybara.app = Chitter
 

@@ -1,0 +1,20 @@
+<div align="center">
+  <h2> Spits </h2>
+  <div align="left">
+    <ul id='spits'>
+      <% @spits.each do |spit| %>
+      <li>
+        SPAT: <%= spit.content %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <form action="/sessions/new">
+    <button>Sign in</button>
+  </form>
+
+  <form action="/users/new">
+    <button>Sign up</button>
+  </form>
+</div>

@@ -17,6 +17,20 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/spits' do
+    @spits = Spit.all
+    erb :'spits/index'
+  end
+
+  get '/spits/new' do
+    erb :'spits/new'
+  end
+
+  post '/spits' do
+    Spit.create(content: params[:content])
+    redirect '/spits'
+  end
+
 # Routing and views to be added for spits
   # get '/spits' do
   #   erb :'/spits'
