@@ -3,10 +3,14 @@ Chitter Challenge
 
 Makers Academy: Week 4 weekend challenge. Building a website similar to Twitter.
 
+URL
+-------
+<a href=https://marlon-chitter-challenge.herokuapp.com/> https://marlon-chitter-challenge.herokuapp.com/ </a>
+
 Instructions
 -------
 ```
-<a href=https://marlon-chitter-challenge.herokuapp.com/> Go to https://marlon-chitter-challenge.herokuapp.com/ </a>
+Visit link
 
 You need to be signed in to post a peep
 
