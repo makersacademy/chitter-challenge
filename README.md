@@ -1,3 +1,28 @@
+<h1>Chitter Challenge - Makers Academy Weekend 4.</h1>
+
+Please see below the task instructions, however in summary, I was tasked with writing a web based application to simulate Twitter, called Chitter. Please see below for full details of the challenge.
+
+<h2>Instructions</h2>
+
+1.  Fork and clone the master repo from GitHub.
+2.  Run bundle to install all Gems required.
+3.  Use the command 'rackup' to run the local server.
+4.  Navigate to 'http://localhost:9292/users/new'
+5.  Alternatively run the app through Heroku, using the link 'https://chitter-sdawes.herokuapp.com/users/new'
+6.  Enjoy Chitter!
+
+<h2>Technologies used:</h2>
+
+1.  Ruby
+2.  Capybara
+3.  RSpec
+4.  Sinatra
+5.  DataMapper
+6.  Postico
+7.  BCrypt
+8.  SQL
+9.  Heroku
+
 Chitter Challenge
 =================
 
@@ -77,7 +102,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +120,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +130,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
