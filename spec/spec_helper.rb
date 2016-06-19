@@ -10,11 +10,12 @@ require 'simplecov'
 require 'database_cleaner'
 
 require 'web_helper'
-require './app/models/user'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.include Capybara::DSL
   config.expect_with :rspec do |expectations|

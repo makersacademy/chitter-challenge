@@ -4,6 +4,8 @@ class User
 
 	include DataMapper::Resource
 
+	has n, :peeps, through: Resource
+
 	property :id, Serial
 	property :name, String, required: true
 	property :email, String, required: true, format: :email_address, unique: true
