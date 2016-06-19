@@ -1,8 +1,8 @@
 require'database_cleaner'
 require 'coveralls'
 require 'simplecov'
-require 'web_helpers'
 require_relative '../app/models/users'
+require_relative 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -52,6 +52,10 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+
+  RSpec.configure do |config|
+    config.include SessionHelpers
   end
 
 end

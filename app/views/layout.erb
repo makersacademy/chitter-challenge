@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookmark Manager</title>
+    <title>Chitter</title>
   </head>
 
   <body>
     <% if current_user %>
       Welcome, <%= current_user.username %>!
+      <form action='/peeps/new' method='get'>
+        <input type='submit' value='Peep'>
+      </form>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
@@ -16,7 +23,11 @@
         <% end %>
       </ul>
     <% end %>
-
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
