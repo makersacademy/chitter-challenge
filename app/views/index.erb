@@ -1,10 +1,10 @@
 <form id="SignUp" action='/sign_up' method="post">
   Name:<br>
- <input class="entryField" type="text" name="name" value='<%= @user.name %>' required><br>
+ <input class="entryField" type="text" name="name" value='<%= @user.name if @user %>' required><br>
   Username:<br>
-	<input class="entryField" type="text" name="username" value='<%= @user.username %>' required><br>
+	<input class="entryField" type="text" name="username" value='<%= @user.username if @user %>' required><br>
 	Email:<br>
-	<input class="entryField" type="email" name="email" value='<%= @user.email %>' required><br>
+	<input class="entryField" type="email" name="email" value='<%= @user.email if @user %>' required><br>
 	Password:<br>
 	<input class="entryField" type="password" name="password" required><br>
   Password confirmation:<br>
@@ -12,7 +12,7 @@
   <input type="submit" value="Sign up">
 </form>
 
-<form id="SignIn" action="/session" method="post">
+<form id="SignIn" action="/sign_in" method="post">
   <input class="entryField" type="text" name="username" placeholder="Username">
   <input class="entryField" type="password" name="password" placeholder="Password">
   <input type="submit" value="Sign in">
