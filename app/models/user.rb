@@ -8,10 +8,15 @@ class User
 
   property :id,               Serial
   property :email,            String, format: :email_address, required: true, unique: true
-  property :handle,           String, required: true
+  property :handle,           String, required: true, unique: true
   property :password_digest,  Text, length: 60
 
-  # has 1, :peep, :required => false
+  has n, :peeps, 'Peep',
+    :parent_key => [ :handle ],      # local to this model (User)
+    :child_key  => [ :user_handle ]  # in the remote model (Peep)
+
+  # has n, :peep
+
 
   def password=(password)
     @password = password
