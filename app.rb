@@ -13,8 +13,10 @@ class App < Sinatra::Base
 
   get '/' do
     @user = session[:user_session]
+    p '==============b'
+    p Post.all
+    @posts = Post.all
     @greeting = flash[:goodbye]
-    p '===================e'
     erb :'index'
   end
 
@@ -61,12 +63,19 @@ class App < Sinatra::Base
 
   post '/create_post' do
     if session[:user_session]
-      Post.create(message: params[:comment]).user_id = session[:user_session].id
+      p '================a1'
+      p 'post.all'
+      p Post.all
+      p '================a2'
+      Post.create(message: params[:comment], user_id: session[:user_session].id)
+      p 'post.all'
+      p Post.all
       redirect '/'
     else
       redirect '/post'
     end
   end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -1,1 +1,11 @@
 <%= @greeting %>
+
+<%if @posts %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        Post: <%= post.message %>
+      </li>
+    <% end %>
+  </ul>
+<%end%>
