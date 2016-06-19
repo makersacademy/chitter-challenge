@@ -9,16 +9,18 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
-    if current_user
-      peep = Peep.create(
-        text: params[:text],
-        timestamp: Time.now,
-        user: current_user
-      )
+    peep = Peep.create(
+      text: params[:text],
+      timestamp: Time.now,
+      user: current_user
+    )
+
+    if current_user && peep.id
       Peep.extract_hashtags(peep)
+      redirect("/peeps")
     else
-      flash[:notice] = ["You must be logged in to do that"]
+      flash[:error] = peep.errors.full_messages
+      redirect("/peeps/new")
     end
-    redirect("/peeps")
   end
 end
