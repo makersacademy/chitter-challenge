@@ -20,7 +20,7 @@ feature "User logout" do
   scenario "existing user can log out once logged in" do
     create_user
     log_in
-    visit("/user/logout")
+    visit("/")
     click_button(:"Log Out")
     expect(page).to have_content("Successfully logged out")
   end

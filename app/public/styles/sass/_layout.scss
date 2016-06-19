@@ -1,8 +1,14 @@
 body {
   background-color: $bg-color;
+  margin: 0;
+}
+
+footer {
+  padding: ($nav-height * 2) 0 ($nav-height);
+  text-align: center;
 }
 
 .wrapper {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }

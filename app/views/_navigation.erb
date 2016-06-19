@@ -1,0 +1,19 @@
+<nav>
+  <div class="wrapper">
+    <h1><a href="/">Chitter</a></h1>
+    <ul id="menu">
+    <% if current_user %>
+      <li><a href="/peeps/new">New Peep</a></li>
+      <li>
+        <form method="post" action="/session" class="logout-form">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+      </li>
+    <% else %>
+      <li><a href="/user/new">Register</a></li>
+      <li><a href="/user/login">Log In</a></li>
+    <% end %>
+    </ul>
+  </div>
+</nav>

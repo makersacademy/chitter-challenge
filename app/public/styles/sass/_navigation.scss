@@ -1,0 +1,44 @@
+body {
+  padding-top: $nav-height * 3;
+}
+
+nav {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: solid 2px $highlight-color;
+
+  .wrapper {
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem auto;
+    padding: 0 1rem;
+    line-height: $nav-height;
+  }
+
+  ul li {
+    display: inline-block;
+    margin-left: 2rem;
+  }
+
+  h1, p, ul, a {
+    margin: 0;
+    text-decoration: none;
+  }
+
+  input[type="submit"] {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: none;
+      color: $highlight-color;
+    }
+  }
+}

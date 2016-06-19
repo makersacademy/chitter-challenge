@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chitter Catter</title>
+  <title>Chitter</title>
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.png" type"png/image">
 </head>
 <body>
+  <%= partial(:navigation) %>
   <div class="wrapper">
-    <h1><a href="/">Chitter</a></h1>
     <%= partial(:notices) %>
     <%= yield %>
   </div>
+  <%= partial(:footer) %>
 </body>
 </html>

@@ -1,3 +1,35 @@
 input {
   display: block;
+  color: $text-color;
+  font-family: monospace;
+  border: none;
+  font-size: 1em;
+  border: solid 2px $dark-grey;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    border: solid 2px $highlight-color;
+  }
+
+  &[type="text"],
+  &[type="password"],
+  &[type="email"] {
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+
+  &[type="submit"] {
+    background-color: transparent;
+    padding: 10px 20px;
+    margin: 0 auto;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
