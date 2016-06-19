@@ -4,7 +4,8 @@ Chitter Challenge
 ###Task:
 =================
 Create a Twitter clone that will allow the users to post messages to a public stream.
-Technologies used:
+
+Technologies used: Ruby, Sinatra, Postgresql, Datamapper, Capybara, Rspec, Sanitize
 
 ###User stories:
 =================
