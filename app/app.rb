@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
  get '/' do
-   "Welcome to Chitter"
+   redirect '/peeps'
  end
 
  get '/peeps' do
