@@ -1,19 +1,33 @@
 <html>
 <head>
 	<title>Chittlr</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<ul>
-		<strong>Menu:</strong>
-		<% if current_user %>
-			<li><a href="/user/logout">Sign out</a></li>
-			<li><a href="/peep/new">Send a peep</a></li>
-			<% else %>
-			<li><a href="/user/new">Sign up</a></li>
-			<li><a href="/user/login">Login</a></li>
+	<div class="menu">
+		<ul>
+			<li>
+				<a href="/">CHITTLR:	
+					<% if current_user %>
+						Welcome, <strong><%= current_user.username %></strong>
+					<% else %>
+						˱(ْ۬ ˂̵ْ۬ )˲
+					<% end %>
+				</a>
+			</li>
+			<% if current_user %>
+				<li><a href="/peep/new">Send a peep</a></li>
+				<li><a href="/user/logout">Sign out</a></li>
+				<% else %>
+				<li><a href="/user/login">Login</a></li>
+				<li><a href="/user/new">Sign up</a></li>
 			<% end %>
-	</ul>
-	<h3><% if current_user %>Welcome <%= current_user.username %><% end %></h3>
+			<li></li>
+		</ul>
+	</div>
+	
+	<%= yield %>
+
 	<% if flash[:errors] && !flash[:errors].empty? %>
 		<ul id="error">
 			<% flash[:errors].each do |error| %>
@@ -23,7 +37,5 @@
       <% end %>
     </ul>
   <% end %>
-  
-	<%= yield %>
 </body>
 </html>

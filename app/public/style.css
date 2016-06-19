@@ -1,0 +1,36 @@
+body{
+	font-family: Monospace;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-size: 18px;
+}
+.menu li {
+  float: left;
+}
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menu li a:hover {
+  background-color: #111;
+}
+
+.peep img {
+  float: left;
+  height: 125px;
+  margin: 10px
+}
+.peep {
+  height: 145px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  margin: 10px
+}
