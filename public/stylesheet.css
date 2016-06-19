@@ -1,11 +1,49 @@
+body {
+  background-color: #CCFFFF;
+}
+
 h1 {
-  color: green;
+  font-family: 'Open Sans', sans-serif;
+  color: #3300FF;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  color: #3300FF;
+}
+
+label {
+  font-family: 'Open Sans', sans-serif;
+  color: #3300FF;
+  font-size: 80%;
 }
 
 li {
-  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  margin: 20px 0;
+}
+
+form input{
+  color: black;
 }
 
 .buttons {
   display: inline;
+}
+
+.createdby {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 0px;
+  color: #3366FF;
+  font-size: 80%;
+}
+
+.loginas {
+  font-family: 'Open Sans', sans-serif;
+  color: #3366FF;
+}
+
+.currentpeeps {
+  font-family: 'Open Sans', sans-serif;
+  color: #3300FF;
 }

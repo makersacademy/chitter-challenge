@@ -9,7 +9,7 @@
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Sign out!'>
   </form>
-  Logged in as: <%= current_user.name %>
+  <p class='loginas'>Logged in as: <%= current_user.name %></p>
   <% else %>
   <form method='get' action='/users/new' class='buttons'>
     <input type='submit' value='Sign up!'>
