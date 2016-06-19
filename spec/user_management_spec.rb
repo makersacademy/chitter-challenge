@@ -32,18 +32,4 @@ feature 'User sign up' do
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('User name is already taken')
   end
-
-  def sign_up(name: 'Musashi',
-              user_name: 'shogun',
-              email: 'shogun@katana.com',
-              password: 'harakiri!',
-              password_confirmation: 'harakiri!')
-    visit '/users/new'
-    fill_in :name, with: name
-    fill_in :user_name, with: user_name
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
-  end
 end
