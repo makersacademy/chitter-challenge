@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'tilt/erb'
 require 'sinatra/flash'
 require 'sinatra/partial'
+
 require_relative 'data_mapper_setup'
 require_relative 'models/message'
 require_relative 'models/user'

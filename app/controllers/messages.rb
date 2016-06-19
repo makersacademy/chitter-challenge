@@ -6,11 +6,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages/new' do
-    erb :'messages/new'
+    if session[:user_id] == nil
+      flash.keep[:notice] = 'Please sign in!'
+      redirect to '/sessions/new'
+    else
+      erb :'messages/new'
+    end
   end
 
   post '/messages' do
-    Message.create(message: params[:message])
+    user_email = current_user.email
+    Message.create(message: params[:message], email: user_email)
     redirect '/messages'
   end
 

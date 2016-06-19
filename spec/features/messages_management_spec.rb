@@ -1,6 +1,8 @@
 feature 'Creating messages' do
 
   scenario 'I can create a new messagee' do
+    sign_up
+    sign_in
     visit '/messages/new'
     fill_in 'message',   with: 'Hello, Marco'
     click_button 'Create message'

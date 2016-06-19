@@ -8,7 +8,8 @@ def sign_up(email: 'marco@example.com',
   click_button 'Sign up'
 end
 
-def sign_in(email:, password:)
+def sign_in(email: 'marco@example.com',
+            password: '12345678')
   visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password
