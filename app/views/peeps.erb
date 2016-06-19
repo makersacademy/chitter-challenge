@@ -1,11 +1,15 @@
 <h2>Welcome to Chitter, <%= @username %></h2>
-<div id='peeps'>
+
+<div>
   <% unless @peeps.empty? %>
-    <% @peeps.each do |peep| %>
-      <div><%= peep.content %></div> 
-    <% end %>
+    <ul id='peep'>
+      <% @peeps.sort_by { |peep| peep.date }.reverse.each do |peep| %>
+        <li><div><%= peep.content %></div></li> 
+      <% end %>
+    </ul>
   <% end %>
 </div>
+
 <form action='/peeps/newpeep' method='get'>
   <button type='submit'>Peep</button>
 </form>
