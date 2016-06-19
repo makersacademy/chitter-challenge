@@ -10,10 +10,11 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 require './app/models/post'
+require './app/models/user'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
-
+require_relative './web_helpers'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
