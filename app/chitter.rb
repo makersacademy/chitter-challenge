@@ -22,7 +22,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    login_required unless user_logged_in?
     @username = session[:user_username]
     @peeps = Peep.all
     erb :peeps
@@ -56,7 +55,7 @@ class Chitter < Sinatra::Base
 
   post '/user/logout' do
     session[:user_username] = nil
-    redirect '/'  
+    redirect '/peeps'  
   end
 
 
