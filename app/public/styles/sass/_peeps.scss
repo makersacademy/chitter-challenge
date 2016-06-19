@@ -5,9 +5,13 @@
   margin: 0;
 
   li {
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
     padding: 1rem;
     background-color: #fff;
+
+    @media screen and (min-width: 600px) {
+      margin: 0 auto 2rem;
+    }
   }
 
   .peep {

@@ -11,15 +11,23 @@ nav {
 
   .wrapper {
     max-width: 1000px;
-    display: flex;
-    justify-content: space-between;
     margin: 0.5rem auto;
     line-height: $nav-height;
+    display: flex;
+    justify-content: space-between;
   }
 
   ul li {
     display: inline-block;
-    margin-left: 2rem;
+    margin-left: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    @media screen and (min-width: 600px) {
+      margin-left: 2rem;
+    }
   }
 
   h1, p, ul, a {
