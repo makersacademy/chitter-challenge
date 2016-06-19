@@ -9,9 +9,4 @@ feature 'Signup' do
     expect(page).to have_content(@random_username)
   end
 
-  xscenario 'require all fields for signup, print error if any missing' do
-  end
-
-  xscenario 'unique username and password' do
-  end
 end

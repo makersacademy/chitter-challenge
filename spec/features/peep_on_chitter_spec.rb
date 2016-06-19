@@ -23,7 +23,6 @@ feature 'Peep' do
     scenario 'User posts 2 peeps, which are shown in reverse order' do
       peep 'My first peep!'
       peep 'My second peep!'
-     
       expect('second').to appear_before('first')
     end
 

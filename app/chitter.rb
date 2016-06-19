@@ -47,7 +47,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/signup' do
-    user = create_new_user(params)
+    user = initialize_new_user(params)
+    signup_error(user) if existing_user?(params)
+    user.save 
     start_user_session(user)
     redirect '/peeps'  
   end
@@ -58,13 +60,13 @@ class Chitter < Sinatra::Base
   end
 
 
-  def create_new_user(user_data)
-    User.create(name:     user_data[:name],
-                surname:  user_data[:surname],
-                email:    user_data[:email],
-                password: user_data[:password],
-                username: user_data[:username]
-               ) 
+  def initialize_new_user(user_data)
+    User.new( name:     user_data[:name],
+              surname:  user_data[:surname],
+              email:    user_data[:email],
+              password: user_data[:password],
+              username: user_data[:username]
+             ) 
   end
 
   def new_peep(content)
@@ -90,7 +92,17 @@ class Chitter < Sinatra::Base
     redirect '/user/signin'
   end
 
+  def signup_error(user)
+    user.save
+    flash[:error] = user.errors.full_messages
+    redirect '/user/signup'
+  end
+
   def valid_user?(user_data)
     User.validate(user_data)
+  end
+
+  def existing_user?(user_data)
+    User.first(username: user_data[:username])
   end
 end

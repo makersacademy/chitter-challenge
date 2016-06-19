@@ -24,7 +24,5 @@ feature 'Sign out' do
       expect(page).to have_content('Please log in first')
     end
 
-    xscenario 'logout message displayed' do
-    end
   end
 end

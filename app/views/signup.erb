@@ -1,23 +1,25 @@
+<%= styled_flash %>
+
 <form action='/user/signup' method='post'>
  
   <label for='name'>Name<br>
-    <input type="text" name="name"><br>
+    <input type="text" name="name" required><br>
   </label>
 
   <label for='surname'>Surname<br>
-    <input type="text" name="surname"><br>
+    <input type="text" name="surname" required><br>
   </label>
 
   <label for='text'>Email<br>
-    <input type="text" name="email"><br>
+    <input type="text" name="email" required><br>
   </label>
 
   <label for='username'>Username<br>
-    <input type="text" name="username"><br>
+    <input type="text" name="username" required><br>
   </label>
 
   <label for='password'>Password<br>
-    <input type="text" name="password"><br>
+    <input type="text" name="password" required><br>
   </label>
 
   <button type='submit'>Sign Up</button>
