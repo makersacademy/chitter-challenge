@@ -63,3 +63,4 @@ I want to see the time at which it was made
   - extremely light (possibly ineffective) html-tag sanitization
   - user profile pages
   - hashtag filter pages
+  - ability to reply to other user's peeps
