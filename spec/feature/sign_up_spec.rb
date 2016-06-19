@@ -7,15 +7,17 @@ feature 'user can sign up to a new account' do
     expect(page).to have_content('Thank you for joining Chitter! Please enter your information below')
   end
 
-  scenario 'a new user is created when sign-up fields are completed correctly' do
-    visit('/')
-    sign_up
-    expect(page).to have_content 'Welcome to Chitter, Tim'
-  end
+
 
   scenario 'signing up creates a new user' do
     visit('/')
     expect { sign_up }.to change(User, :count)
+  end
+
+   scenario 'a new user is created when sign-up fields are completed correctly' do
+    visit('/')
+    sign_up
+    expect(page).to have_content "Welcome to Chitter, #{ @current_user }"
   end
 
 end

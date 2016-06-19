@@ -1,1 +1,29 @@
-Welcome to Chitter, Tim!
+Welcome to Chitter, <%= @current_user.name %>!
+<form action='/users/logout' method='post'>
+  <input type='submit' value='Logout'>
+</form>
+
+
+Write a new Peep!
+<form action='/post/new' method='post'>
+  <input type='text' name='post'>
+  <input type='submit' value='Submit'>
+</form>
+
+
+<h1>Peeps</h1>
+<%= Peep.last.username %> <%= Peep.last.content %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

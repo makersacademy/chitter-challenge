@@ -2,20 +2,14 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 
-class User
+class Peep
 
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String, format: :email_address, required: true
-  property :password, String
-  property :name, String
+  property :user_id, Integer
+  property :content, String
   property :username, String
-
-
-  def self.authenticate(username, password)
-    first(username: username)
-  end
 
 end
 
