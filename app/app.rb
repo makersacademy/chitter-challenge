@@ -16,9 +16,9 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    # if current_user
-    #   redirect '/chits'
-    # end
+    if current_user
+      redirect '/chits'
+    end
     @user = User.new
     erb :'index'
   end
