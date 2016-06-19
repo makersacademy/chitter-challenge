@@ -1,7 +1,7 @@
 feature 'Viewing peeps' do
 
   scenario 'I can see existing peeps on the peeps page' do
-    Peep.create(message: 'test peep', user: 'Lukasz')
+    Peep.create(message: 'test peep', user: 'shogun')
 
     visit '/peeps'
 

@@ -3,7 +3,7 @@ feature 'Writing peeps' do
   scenario 'I can write a new peep' do
     visit '/peeps/new'
     fill_in 'message', with: 'test new message'
-    fill_in 'user', with: 'Lukasz'
+    fill_in 'user', with: 'shogun'
     click_button 'Peep'
 
     expect(current_path).to eq '/peeps'
