@@ -11,11 +11,11 @@ class User
   property :handle,           String, required: true, unique: true
   property :password_digest,  Text, length: 60
 
-  has n, :peeps, 'Peep',
-    :parent_key => [ :handle ],      # local to this model (User)
-    :child_key  => [ :user_handle ]  # in the remote model (Peep)
+  # has n, :peeps, 'Peep',
+  #   :parent_key => [ :handle ],      # local to this model (User)
+  #   :child_key  => [ :user_handle ]  # in the remote model (Peep)
 
-  # has n, :peep
+  has n, :peeps
 
 
   def password=(password)
