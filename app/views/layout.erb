@@ -5,42 +5,9 @@
   </head>
 
   <body>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <div id='notice'>
-        <% flash[:errors].each do |error| %>
-          <ul>
-            <li><%= error %></li>
-          </ul>
-        <% end %>
-      </div>
-    <% end %>
+    <%= partial :flash %>
     <div class='right side'>
-      <% if current_user %>
-        Welcome <%= current_user.username %>
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Sign out'>
-        </form>
-      <% end %>
-      <% if flash[:notice] %>
-        <div id='notice'>
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <% unless current_user %>
-      <form action='/sessions/new' method='redirect'>
-        <input type='submit' value='Already Registered?'>
-      </form>
-
-      <form action='/users/new' method='redirect'>
-        <input type='submit' value='New User?'>
-      </form>
-      <% end %>
-      <% if current_user %>
-        <form action='/peeps/new' method='redirect'>
-          <input type='submit' value='Post a Peep'>
-        </form>
-      <% end %>
+      <%= partial :buttons %>  
     </div>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
