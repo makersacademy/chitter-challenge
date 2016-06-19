@@ -1,28 +1,25 @@
 
 feature 'Users can create a post' do
   scenario 'User creates a post' do
-    p '================x'
-    p Post.all
     sign_up
-    p '================y'
-    p Post.all
-    post
-    p '================z'
-    p Post.all
+    post_message
     expect(current_path).to eq '/'
     expect(page).to have_content 'This is the best app ever!'
   end
 
-  scenario 'User can add a post to their account' do
+  xscenario 'User can add a post to their account' do
     sign_up
-    post
-    p '=============d1'
-    p user = User.first(id: 2)
-    p '=============d2'
-    p user = User.first(id: 1)
-
-
-    expect(Post.all(:user_id => 2).to include('This is the best app ever!'))
+    post_message
+    expect(Post.all.map.to include(/This is the best app ever!/))
     # expect(link.tags.map(&:name)).to include('education')
+  end
+end
+
+feature 'Users can view the time a post was created' do
+  scenario 'User creates post and views the time on the index page' do
+    sign_up
+    post_message
+    post = Post.first(user_id: 2)
+    expect(page).to have_content "#{post.created_at}"
   end
 end

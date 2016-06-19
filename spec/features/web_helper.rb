@@ -7,7 +7,7 @@ def sign_up
   click_button 'Create my Account'
 end
 
-def post
+def post_message
   visit '/post'
   fill_in 'comment', with: 'This is the best app ever!'
   click_button 'Create Post!'

@@ -13,8 +13,6 @@ class App < Sinatra::Base
 
   get '/' do
     @user = session[:user_session]
-    p '==============b'
-    p Post.all
     @posts = Post.all
     @greeting = flash[:goodbye]
     erb :'index'
@@ -63,13 +61,7 @@ class App < Sinatra::Base
 
   post '/create_post' do
     if session[:user_session]
-      p '================a1'
-      p 'post.all'
-      p Post.all
-      p '================a2'
       Post.create(message: params[:comment], user_id: session[:user_session].id)
-      p 'post.all'
-      p Post.all
       redirect '/'
     else
       redirect '/post'

@@ -5,6 +5,7 @@
     <% @posts.each do |post| %>
       <li>
         Post: <%= post.message %>
+        Created at <%= post.created_at %>
       </li>
     <% end %>
   </ul>
