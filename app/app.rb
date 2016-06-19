@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'models/chit'
+require_relative 'data_mapper_setup'
 
 
 class ChitterChallenge < Sinatra::Base
