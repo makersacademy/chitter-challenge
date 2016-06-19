@@ -5,6 +5,8 @@
     <% @peeps.each do |peep| %>
     <li>
       <%= peep.message %>
+      <br>
+      <%= User.get(session[:user_id]).username %>
       <%= peep.time %>
     </li>
     <% end %>

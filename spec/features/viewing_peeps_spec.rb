@@ -1,15 +1,8 @@
-feature 'Viewing Peeps' do
+feature 'Viewing Peeps is the homepage' do
+
   scenario 'when you visit the homepage you can see the peeps' do
     visit('/')
     expect(page.status_code).to eq(200)
     expect(page).to have_content('Peeps')
-  end
-
-  scenario 'You can see the peep that you created' do
-    Peep.create(message: 'This is my first peep', time: Time.now.strftime(Chitter::TIME_FORMAT))
-    visit('/peeps')
-    within('ul#peeps') do
-      expect(page).to have_content('This is my first peep')
-    end
   end
 end

@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  TIME_FORMAT = '%H:%M, %d/%m/%y '
+  TIME_FORMAT = '%H:%M %d/%m/%y'
 
   get '/' do
     redirect('/peeps')
@@ -34,8 +34,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message], time: Time.now.strftime(TIME_FORMAT))
-    
+    peep = Peep.new(message: params[:message], time: Time.now.strftime(TIME_FORMAT))
+    current_user.peeps << peep
+    current_user.save
     redirect('/peeps')
   end
 
