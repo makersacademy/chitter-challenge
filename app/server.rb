@@ -1,12 +1,15 @@
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+
   register Sinatra::Partial
   register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'super secret'
 
+  set :public_folder, Proc.new { File.join(root, 'views/public') }
   set :partial_template_engine, :erb
   enable :partial_underscores
 

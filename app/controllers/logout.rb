@@ -1,5 +1,5 @@
 class Chitter < Sinatra::Base
-  get '/logout' do
+  delete '/logout' do
     session.clear
     redirect to '/'
   end

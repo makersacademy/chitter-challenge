@@ -1,0 +1,10 @@
+<% if @current_user %>
+<div class="message">
+  <form method="post" action="/peep">
+    <label for="Peep">
+      <input type="text" name="message" required>
+    </label>
+    <input type="submit" value="Peep">
+  </form>
+</div>
+<% end %>

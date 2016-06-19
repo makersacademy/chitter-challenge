@@ -1,0 +1,145 @@
+body {
+  margin: 10px;
+  color: #FFF;
+  font-family: Helvetica Neue;
+  background-color: #CCD6EB;
+}
+
+#container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+#header {
+  z-index: 1;
+  width: calc(100% - 40px);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #993955;
+}
+
+#header a {
+  margin: 0px;
+  color: #FFF;
+  font-family: Helvetica;
+  text-decoration: none;
+}
+
+#header a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin: 0px 0px 15px 0px;
+}
+
+h3 {
+  font-size: 1em;
+  margin: 3px 0px 0px 0px;
+}
+
+form {
+  display: inline;
+}
+
+label {
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+input {
+  border-radius: 0px;
+  border: 1px solid #CCD6EB;
+  padding: 10px;
+  outline: none;
+  font-size: 1em;
+  margin-bottom: -1px;
+}
+
+.small {
+  font-size: 0.75em;
+  padding: 5px;
+  margin: 0px !important;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  width: calc(100% - 20px);
+}
+
+input[type=submit] {
+  margin-top: 10px;
+  background-color: #330814;
+  border: 1px solid #993955;
+  color: #FFF;
+}
+
+input[type=submit]:hover {
+  background-color: #993955;
+  cursor: pointer;
+}
+
+a {
+  color: #330814;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.tag {
+  color: #FFF;
+  float: right;
+  font-size: 0.8em;
+  text-decoration: none;
+  background-color: #330814;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+#welcome {
+  border-radius: 5px;
+  width: calc(100% - 40px);
+  background-color: #330814;
+  margin-top: 10px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.message {
+  border-radius: 5px;
+  width: calc(100% - 40px);
+  padding: 20px;
+  background-color: #EBF2FA;
+  margin-top: 10px;
+  color: #330814;
+  overflow: auto;
+}
+
+.message ul {
+  margin: 0px;
+}
+
+.hey {
+  float: left;
+  margin-top: 5px;
+}
+
+.nav {
+  float: right;
+}
+
+#footer {
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  background-color: #EBF2FA;
+  clear: both;
+}

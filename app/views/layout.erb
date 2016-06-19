@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
     <title>Chitter</title>
   </head>
   <body>
-    <%= partial :welcome %>
-    <%= partial :flash %>
-    <%= yield %>
+    <div id="container">
+      <div id="header">
+        <h1><a href="/">Chitter</a></h1>
+      </div>
+      <%= partial :welcome %>
+      <%= partial :flash %>
+      <%= yield %>
+    </div>
   </body>
 </html>
