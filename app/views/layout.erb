@@ -15,28 +15,9 @@
   <body>
     <h1 align="center">Spitter!</h1>
 
-    <% if current_user %>
-      Welcome to Spitter, <%= current_user.name %>
-      <form method="post" action="/sessions">
-        <input type="hidden" name="_method" value="delete" />
-        <input type="submit" value="Sign out" />
-      </form>
-    <% end %>
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-  <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id="errors">
-        <% flash[:errors].each do |error| %>
-        <li>
-          <%= error %>
-        </li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+
     <%= yield %>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
