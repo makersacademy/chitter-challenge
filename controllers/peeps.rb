@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(content: params[:content], created_at: Time.new)
+    peep = Peep.create(content: Sanitize.clean(params[:content]), created_at: Time.new)
     current_user.peeps << peep
     current_user.save
     redirect '/'

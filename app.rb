@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require 'sanitize'
 require_relative 'data_mapper_setup.rb'
 
 require_relative 'server'

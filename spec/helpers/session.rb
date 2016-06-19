@@ -18,7 +18,7 @@ module SessionHelpers
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password
-    click_button 'Sign in'
+    click_button 'Submit'
   end
 
 end

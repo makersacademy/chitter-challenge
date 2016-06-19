@@ -1,17 +1,20 @@
+<form method='get' action='/' class='buttons'>
+  <input type='submit' value='Homepage'>
+</form>
 <% if current_user %>
-  Welcome, <%= current_user.name %>
-  <form method='get' action='/peeps/new'>
+  <form method='get' action='/peeps/new' class='buttons'>
     <input type='submit' value='Post a new Peep!'>
   </form>
-  <form method='post' action='/sessions'>
+  <form method='post' action='/sessions' class='buttons'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
+    <input type='submit' value='Sign out!'>
   </form>
-<% else %>
-<form method='get' action='/users/new'>
-  <input type='submit' value='Sign up!'>
-</form>
-<form method='get' action='/sessions/new'>
-  <input type='submit' value='Sign in!'>
-</form>
-<% end %>
+  Logged in as: <%= current_user.name %>
+  <% else %>
+  <form method='get' action='/users/new' class='buttons'>
+    <input type='submit' value='Sign up!'>
+  </form>
+  <form method='get' action='/sessions/new' class='buttons'>
+    <input type='submit' value='Sign in!'>
+  </form>
+  <% end %>
