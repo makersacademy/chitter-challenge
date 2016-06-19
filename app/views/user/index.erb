@@ -1,9 +1,9 @@
 <header>
 <% if user %>
   <h3 class="title"><%= user.name %></h3>
-  <%= user.username %>
+  @<%= user.username %>
 <% else %>
-  <h3>User not found</h3>
+  <h3 class="title">User not found</h3>
   <%= params[:username] %>
 <% end %>
 </header>
