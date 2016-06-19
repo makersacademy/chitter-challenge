@@ -1,0 +1,18 @@
+<h1> Chitter Posts </h1>
+
+<form action='/posts' method='POST'>
+  <label for='title'>
+    Peep:
+    <input type='text' name='peep'/>
+  </label>
+  <input type='submit' value='Post'>
+
+</form>
+
+<ul id='posts'>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.peep %>
+    </li>
+  <% end %>
+</ul>
