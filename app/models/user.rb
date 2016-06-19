@@ -23,10 +23,7 @@ class User
   def self.authenticate(username: , password: )
     user = first(username: username)
 
-    if user && BCrypt::Password.new(user.pass_hash) == password
-      return user
-    else
-      return false
-    end
+    return user if user && BCrypt::Password.new(user.pass_hash) == password
+    false
   end
 end

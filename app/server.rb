@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  set :public_folder, Proc.new { File.join(root, 'views/public') }
+  set :public_folder, proc { File.join(root, 'views/public') }
   set :partial_template_engine, :erb
   enable :partial_underscores
 
