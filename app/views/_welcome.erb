@@ -1,5 +1,12 @@
 <% if @current_user %>
   Hey, <%= @current_user.display_name %>!
+  <h2>New Peep</h2>
+  <form method="post" action="/peep">
+    <label for="Peep">
+      <input type="text" name="message">
+    </label>
+    <input type="submit" value="Peep">
+  </form>
 <% else %>
   Hey, Guest!
 <% end %>

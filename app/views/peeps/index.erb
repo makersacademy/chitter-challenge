@@ -1,0 +1,3 @@
+<% @peeps.each do |peep| %>
+<strong><%= get_user_by_id(peep.user_id).display_name %></strong> <%= peep.message %><br>
+<% end %>

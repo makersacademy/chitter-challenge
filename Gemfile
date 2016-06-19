@@ -9,6 +9,8 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 
 group :test do
+  gem 'orderly'
+  gem 'timecop'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'

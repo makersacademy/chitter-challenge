@@ -19,4 +19,14 @@ class User
     @password = password
     self.pass_hash = BCrypt::Password.create(password)
   end
+
+  def self.authenticate(username: , password: )
+    user = first(username: username)
+
+    if user && BCrypt::Password.new(user.pass_hash) == password
+      return user
+    else
+      return false
+    end
+  end
 end
