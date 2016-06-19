@@ -20,3 +20,10 @@ def sign_in(email: 'test@email.com', password: 'pass')
   fill_in 'password', with: password
   click_button 'Sign In'
 end
+
+def post_a_peep(content: 'This is a peep!')
+  visit '/peeps/new'
+  expect(page.status_code).to eq 200
+  fill_in :peep, with: content
+  click_button 'Submit'
+end

@@ -54,6 +54,36 @@ class Chitter < Sinatra::Base
     redirect '/sessions/new'
   end
 
+  get '/peeps/new' do
+    if session[:user_id]
+      erb :'peeps/new'
+    else
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/peeps' do
+    peep = Peep.new(content: params[:peep])
+    peep.user = current_user
+    if peep.save
+      redirect "/peeps/#{current_user.username}"
+    else
+      redirect "/peeps/new"
+    end
+  end
+
+  get '/peeps/:username' do
+    user = User.first(username: params[:username])
+    if user
+      @peeps = user.peeps
+      erb :'peeps/list'
+    else
+      erb :'users/no_user'
+    end
+
+  end
+
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

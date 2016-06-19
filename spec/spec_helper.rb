@@ -36,6 +36,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    DataMapper.auto_upgrade!
   end
 
   config.before(:each) do
