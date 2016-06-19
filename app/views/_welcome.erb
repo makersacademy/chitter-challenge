@@ -1,0 +1,5 @@
+<% if @current_user %>
+  Hey, <%= @current_user.display_name %>!
+<% else %>
+  Hey, Guest!
+<% end %>

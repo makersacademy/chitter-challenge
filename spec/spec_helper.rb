@@ -1,6 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
 require './app/app.rb'
+require 'helpers'
+
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
