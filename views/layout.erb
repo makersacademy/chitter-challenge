@@ -1,9 +1,16 @@
+<doctype html!>
+
+
+
 <% if current_user %>
   <p>Welcome, <%= current_user.name %>
     <form action='/sessions' method='post'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
+<% else %>
+<a href="/sessions/new">Sign in</a>
+<a href="/users/new">Sign up</a>
 <% end %>
 
 <!-- flash errors -->

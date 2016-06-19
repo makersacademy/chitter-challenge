@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -18,6 +18,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+  	@peeps = Peep.all
+  	@users = User.all
     erb :index
   end
 
@@ -60,6 +62,26 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
+  end
+
+  get '/peeps/new' do
+  	erb :'peeps/new'
+  end
+
+  post '/peeps' do
+  	@peep = Peep.new(content: params[:content], created_at: params[:created_at], user_id: session[:user_id])
+  	if @peep.save
+      redirect to('/')
+    else
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :'peeps/new'
+    end
+  end
+
+  get '/peeps' do
+  	@peeps = Peep.all
+  	@users = User.all
+  	erb :'peeps/index'
   end
 
   # start the server if ruby file executed directly

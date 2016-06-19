@@ -1,6 +1,5 @@
 <% if current_user %>
-Welcome
-<% else %>
-<a href="/sessions/new">Sign in</a>
-<a href="/users/new">Sign up</a>
+<a href="/peeps/new">New peep</a>
 <% end %>
+
+<%= erb :'peeps/index' %>
