@@ -44,11 +44,17 @@ feature 'User sign in' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, #{user.user_name}"
   end
+end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
+feature 'User sign out' do
+  before(:each) do
+    User.create(email: 'shogun@katana.com', user_name: 'shogun', password: 'harakiri!', password_confirmation: 'harakiri!')
+  end
+
+  scenario 'can sign out' do
+    sign_in(email: 'shogun@katana.com', password: 'harakiri!')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, shogun!')
   end
 end
