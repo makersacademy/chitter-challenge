@@ -15,7 +15,7 @@ end
 
 feature 'Creating posts' do
 
-  scenario 'I can create a new post' do
+  scenario 'I can create a new post when logged in' do
     sign_up
     sign_in(email: 'Jeff@example.com', password: '1234')
     visit '/posts'
@@ -25,5 +25,10 @@ feature 'Creating posts' do
     expect(current_path).to eq '/posts'
 
     expect(page).to have_content('MOO')
+  end
+
+  scenario 'no post box when logged out' do
+    visit '/posts'
+    expect(page).not_to have_content('Peep:')
   end
 end
