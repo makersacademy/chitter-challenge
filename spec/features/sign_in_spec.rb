@@ -13,14 +13,7 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.name}"
   end
 
-  def sign_in(username:, password:)
-    visit '/'
-		within('form#SignIn') do
-    	fill_in :username, with: username
-    	fill_in :password, with: password
-    	click_button 'Sign in'
-		end
-  end
+
 
 
 	scenario 'with incorrect credentials' do

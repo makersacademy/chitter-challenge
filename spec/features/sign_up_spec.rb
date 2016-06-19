@@ -1,6 +1,3 @@
-require 'web_helper'
-
-
 
 feature 'signing up' do
 	scenario 'I can sign up' do

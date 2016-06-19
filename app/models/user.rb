@@ -9,13 +9,13 @@ class User
 	validates_confirmation_of :password
 	validates_format_of :email, as: :email_address
 
-
-
   property :id, Serial
   property :username, String, required: true, unique: true
 	property :email, String, required: true, unique: true
 	property :name, String
 	property :password_digest, String, length: 60
+
+	has n, :chits
 
 	def password=(password)
 		@password = password

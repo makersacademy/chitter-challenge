@@ -10,4 +10,6 @@ class Chit
 	property :text, String
 	property :time, Time
 
+	belongs_to :user
+
 end

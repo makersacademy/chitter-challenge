@@ -12,6 +12,8 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 
+require_relative 'session_helpers'
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
@@ -23,6 +25,8 @@ Capybara.app = ChitterChallenge
 RSpec.configure do |config|
   config.include Capybara::DSL
 
+  config.include SessionHelpers
+  
   config.expect_with :rspec do |expectations|
 
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
