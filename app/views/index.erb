@@ -15,15 +15,16 @@
       <% end %>
 
       <% if @current_user %>
-        logged in as: <%= @current_user.username %>
+        <div class="username_wrapper">
+          <div class="username_display"><%= @current_user.username %></div>
+          <form action='/sessions' method='post'>
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="log out" class="logout_button">
+          </form>
+        </div>
         <form action='/peep' method='post'>
-          <input type="text" name="new_peep" placeholder="enter message!" class="input_box" required>
+          <textarea cols="40" rows="3" type="text" name="new_peep" placeholder="enter message!" class="input_peep_box" required></textarea>
           <input type="submit" value="post" class="login_button">
-        </form>
-
-        <form action='/sessions' method='post'>
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="log out" class="login_button">
         </form>
       <% else %>
         <form action='sign_in' method='post'>
@@ -45,30 +46,48 @@
     <div id="right_side">
       <br><br>
       <% if @peeps %>
+        <% counter = 0 %>
         <% @peeps.each do |peep| %>
-          <div class="entry">
-            <div style="margin-bottom: 5px">
-              <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span> <span class="timestamp"> <%= peep.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
-            </div>
-            <%= peep.message %>
-          </div>
-          <% if peep.replies %>
-            <% peep.replies.each do |reply| %>
-              <div class="reply">
-                <div style="margin-bottom: 5px">
-                  <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><span class="timestamp"> <%= reply.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
-                </div>
-                <%= reply.message %>
+          <div class="entry_wrapper">
+            <div class="entry">
+              <div style="margin-bottom: 5px">
+                <span class="name"><%= peep.name %></span> | <span class="username">@<%= peep.username %></span> <span class="timestamp"> <%= peep.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
               </div>
-            <% end %>
-          <% end %>
+              <%= peep.message %>
+            </div>
+            <div class="reply_wrapper">
+              <% if peep.replies.count > 0 %>
+                  <% counter +=1 %>
+                  <input type="checkbox" id="reply-<%= counter %>">
+                  <h2><label for="reply-<%= counter %>"><%= peep.replies.count %> <%= "replies" if peep.replies.count > 1 %><%= "reply" if peep.replies.count == 1 %></label></h2>
+                  <div class="replies">
+                    <% peep.replies.each do |reply| %>
+                      <div class="reply">
+                        <div style="margin-bottom: 5px">
+                          <span class="name"><%= reply.name %></span> | <span class="username">@<%= reply.username %></span><span class="timestamp"> <%= reply.created_at.strftime("%l:%M %p - %d %b %Y") %></span><br>
+                        </div>
+                        <%= reply.message %>
+                      </div>
+                    <% end %>
+                  </div>
 
-          <div class="entry_footer">
-            <form action='/reply' method='post'>
-              <input type="text" name="reply" placeholder="enter reply" class="input_box" required>
-              <input type="hidden" name="peep_id" value="<%= peep.id %>">
-              <input type="submit" value="post reply" class="login_button">
-            </form>
+              <% end %>
+            </div>
+
+            <div class="entry_footer">
+              <% counter +=1 %>
+
+              <input type="checkbox" id="reply-<%= counter %>">
+              <h3><label for="reply-<%= counter %>">add reply</label></h3>
+              <div class="replies">
+                <form action='/reply' method='post' style="text-align: right">
+                  <textarea rows="4" cols="80" type="text" name="reply" placeholder="enter reply" class="reply_box" required></textarea>
+                  <input type="hidden" name="peep_id" value="<%= peep.id %>">
+                  <input type="submit" value="post reply" class="reply_button">
+                </form>
+              </div>
+
+            </div>
           </div>
         <% end %>
       <% end %>

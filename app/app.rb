@@ -19,6 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign_up' do
+    @peeps = Peep.all(order: :id.desc)
     erb :'/users/new'
   end
 
