@@ -1,6 +1,6 @@
 module SessionHelpers
 
-  def sign_in(email:, password:)
+  def sign_in(email: 'alice@example.com', password: 'password')
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password

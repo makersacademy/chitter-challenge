@@ -1,11 +1,17 @@
-<link rel="stylesheet" href="reset.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/reset.css">
+<link rel="stylesheet" href="/styles.css">
 
 <h1>Please sign in</h1>
 
-<form action="/sessions" method="post">
-  Email: <input type="email" name="email">
-  Password: <input type="password" name="password">
-  <input type="submit" value="Sign in">
+<form class="forms" action="/sessions" method="post">
+  <div class="form_element">
+    <h4>Email</h4><input class="input" type="email" name="email">
+  </div>
+  <div class="form_element">
+    <h4>Password</h4><input class="input" type="password" name="password">
+  </div>
+  <div class="form_element">
+    <input class="button" type="submit" value="Sign in">
+  </div>
 
 </form>

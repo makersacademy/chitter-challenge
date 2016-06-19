@@ -1,15 +1,16 @@
-<link rel="stylesheet" href="reset.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/reset.css">
+<link rel="stylesheet" href="/styles.css">
 
 <div class="container">
-
-
-
   <h1>Write new peep</h1>
 
-  <form action="/peeps" method="post">
-    peep_content: <input type="text" name="peep_content">
-    <input class="button" type="submit" value="Post Peep">
+  <form class="forms" action="/peeps" method="post">
+    <div class="form_element">
+      <h4>peep_content</h4> <input class="input_text" type="text" name="peep_content">
+    </div>
+    <div class="form_element">
+      <input class="button" type="submit" value="Post Peep">
+    </div>
   </form>
 
 </div>

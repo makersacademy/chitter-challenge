@@ -1,5 +1,5 @@
 feature 'Writing peeps' do
-  scenario 'I can post a new peep' do
+  xscenario 'I can post a new peep' do
     visit '/peeps/new'
     fill_in 'peep_content', with: 'Makers Academy is great!'
     click_button 'Post Peep'
