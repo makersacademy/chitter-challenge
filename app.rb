@@ -1,6 +1,5 @@
 require 'sinatra/base'
-require './model/user'
-require './model/post'
+require_relative 'data_mapper_setup'
 require 'Bcrypt'
 require 'sinatra/flash'
 

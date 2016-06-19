@@ -7,6 +7,10 @@ describe User do
       sign_up
       expect(User.validate('John_Doe', 'secret')).to eq true
     end
+    it 'rejects an incorrect password' do
+      sign_up
+      expect(User.validate('John_Doe', 'wrong')).to eq false
+    end
   end
 
 end
