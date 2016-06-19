@@ -5,10 +5,7 @@
     <% if current_user %>
       <li><a href="/peeps/new">New Peep</a></li>
       <li>
-        <form method="post" action="/session" class="logout-form">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Log Out">
-        </form>
+        <%= partial(:"session/end") %>
       </li>
     <% else %>
       <li><a href="/user/new">Register</a></li>

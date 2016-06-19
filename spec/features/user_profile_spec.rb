@@ -19,4 +19,9 @@ feature "User profile" do
       expect(page).to have_content(PEEPS.first[:text])
     end
   end
+
+  scenario "non-existent users don't have profile page" do
+    visit("/user/profile/vannio")
+    expect(page).to have_content("User not found")
+  end
 end

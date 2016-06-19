@@ -1,7 +1,5 @@
-describe Peep do
+describe Formatter do
   subject { described_class }
-
-  let!(:user) { create_user }
 
   let(:text_input) do
     "@one lorem @two ipsum http://test.com #one#two"
