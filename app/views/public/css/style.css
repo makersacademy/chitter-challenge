@@ -127,6 +127,11 @@ a:hover {
   margin: 0px;
 }
 
+.datetime {
+  font-size: 0.5em;
+  color: #993955;
+}
+
 .hey {
   float: left;
   margin-top: 5px;
