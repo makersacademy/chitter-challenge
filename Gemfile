@@ -9,6 +9,7 @@ gem "capybara"
 gem "rspec-sinatra"
 gem "bcrypt"
 gem "sinatra-partial"
+gem "rake"
 
 group :test do
   gem 'rspec'
