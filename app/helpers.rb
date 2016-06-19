@@ -6,7 +6,7 @@ module Helpers
   end
 
   def pretty_date(timestamp)
-    time_plus_one = timestamp + 3600
+    time_plus_one = timestamp + 7200
     time_plus_one.strftime("%a %d %B %H:%M")
   end
 end
