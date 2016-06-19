@@ -1,2 +1,3 @@
---color --format documentation
+--color
+--format EmojifyRspecFormatter
 --require spec_helper
