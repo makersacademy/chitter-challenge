@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts/view' do
-    message = Message.create(content: params[:peep], created_at: Time.new)
+    message = Message.create(content: Sanitize.clean(params[:peep]), created_at: Time.new)
     current_user.messages << message
     current_user.save
     redirect '/posts/view'
