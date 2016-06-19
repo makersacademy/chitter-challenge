@@ -21,10 +21,6 @@ class User
   end
 
   def self.authenticate(email, password)
-    first(email: email)
-  end
-
-  def self.authenticate(email, password)
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
@@ -37,10 +33,6 @@ class User
     self.password_token = SecureRandom.hex
     self.password_token_time = Time.now
     self.save
-  end
-
-  def self.find_by_valid_token(token)
-    first(password_token: token)
   end
 
   def self.find_by_valid_token(token)

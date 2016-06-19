@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'timecop'
 gem 'mailgun-ruby'
+gem 'sinatra-partial'
 
 group :database do
   gem 'data_mapper'
