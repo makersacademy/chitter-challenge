@@ -13,7 +13,7 @@ class App < Sinatra::Base
 
   get '/' do
     @user = session[:user_session]
-    @posts = Post.all
+    (session[:reverse_order] ||= false) ? @posts = Post.all.reverse : @posts = Post.all
     @greeting = flash[:goodbye]
     erb :'index'
   end
@@ -66,6 +66,11 @@ class App < Sinatra::Base
     else
       redirect '/post'
     end
+  end
+
+  post '/reverse_post_order' do
+    session[:reverse_order] = !(session[:reverse_order])
+    redirect '/'
   end
 
   # start the server if ruby file executed directly

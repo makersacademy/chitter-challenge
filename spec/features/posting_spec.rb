@@ -20,6 +20,19 @@ feature 'Users can view the time a post was created' do
     sign_up
     post_message
     post = Post.first(user_id: 2)
-    expect(page).to have_content "#{post.created_at}"
+    expect(page).to have_content "#{post.created_at.strftime("%d/%m/%Y %H:%M:%S")}"
+  end
+end
+
+ feature 'Users can view the posts in reverse chronological order' do
+  scenario 'user cliks a button to view posts newest first' do
+    sign_up
+    post_message
+    post_message(comment: 'This is the second message!')
+    click_button 'Newest first!'
+    within 'li#highest' do
+      expect(page).to have_content('This is the second message!')
+      expect(page).not_to have_content('This is the best app ever!')
+    end
   end
 end

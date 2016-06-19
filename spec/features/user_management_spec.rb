@@ -31,8 +31,7 @@ end
 feature 'User can sign out' do
   scenario 'User signs out' do
     sign_up
-    visit '/sign_out'
-    click_button 'Sign Out'
+    sign_out
     expect(current_path).to eq '/'
     expect(page).to have_content 'Goodbye John'
   end

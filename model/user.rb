@@ -24,9 +24,8 @@ class User
     @user = User.first(username: username)
     @user ? (BCrypt::Password.new(@user.password_digest) == password) : false
   end
-
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!

@@ -7,8 +7,13 @@ def sign_up
   click_button 'Create my Account'
 end
 
-def post_message
+def post_message(comment: 'This is the best app ever!')
   visit '/post'
-  fill_in 'comment', with: 'This is the best app ever!'
+  fill_in 'comment', with: comment
   click_button 'Create Post!'
+end
+
+def sign_out
+  visit '/sign_out'
+  click_button 'Sign Out'
 end
