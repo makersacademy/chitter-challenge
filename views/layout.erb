@@ -5,6 +5,7 @@
   </head>
 
   <body>
+
     <% if current_user %>
       Welcome, <%= current_user.email %>
       <form method='post' action='/sessions'>
@@ -26,5 +27,7 @@
     </div>
   <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    
   </body>
+
 </html>
