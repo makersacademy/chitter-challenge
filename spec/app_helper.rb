@@ -18,3 +18,9 @@ def sign_in(email: 'email@mail.com', password: 'super secret')
 	fill_in 'password', with: password
 	click_button 'Login'
 end
+
+def send_peep(peep: 'This is a peep')
+	visit '/peep/new'
+	fill_in 'text', with: peep
+	click_button 'Send Peep'
+end
