@@ -1,0 +1,47 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: green;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: Tahoma;
+  border-style: solid;
+  border-width: 5px;
+  border-color: red;
+  border-radius: 20px;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+h2 {
+  color: yellow;
+  text-align: center;
+}
+
+input[type=text] {
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
+input[type=password] {
+    border: 2px solid blue;
+    border-radius: 4px;
+}
+
+li {
+  background-color: white;
+  padding-top: 2px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: lightblue;
+  border-radius: 5px;
+  text-align: center;
+}
+

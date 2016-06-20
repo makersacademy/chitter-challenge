@@ -1,0 +1,34 @@
+Welcome to Chitter, <%= @current_user.name %>!
+<form action='/users/logout' method='post'>
+  <input type='submit' value='Logout'>
+</form>
+
+
+Write a new Peep!
+<form action='/post/new' method='post'>
+  <input type='text' name='post'>
+  <input type='submit' value='Submit'>
+</form>
+
+
+<h2>Peeps</h2>
+
+<% @peeps.each do |peep| %>
+<li><%=peep.username%> ---> <%=peep.content%></li>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
