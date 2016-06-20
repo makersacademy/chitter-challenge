@@ -14,7 +14,7 @@
 
 
 <ul id='peeps' transform: rotate(180deg)>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
       <br>

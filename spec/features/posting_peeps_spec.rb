@@ -9,6 +9,7 @@ feature 'Posting peeps' do
   end
 
   scenario 'user can post a peep' do
+    sign_up(username: 'Batman', email: 'bruce@wayne.com', password: 'loverobin', password_confirmation: 'loverobin')
     visit('/peeps/new')
     fill_in 'content', with: 'Post something'
     click_button 'Peep'

@@ -23,12 +23,7 @@ class Chitter < Sinatra::Base
       current_user ||= User.get(session[:user_id])
     end
 
-    def current_author
-      current_author ||= User.get(session[:author])
-    end
-
   end
 
   run! if app_file == $0
 end
-
