@@ -11,7 +11,7 @@ feature "FEATURE: Creating Spits" do
     visit '/spits/new'
     fill_in :content, with: "Look at my dinner"
     expect{ click_button "Take a shit!" }.not_to change(Spit, :count)
-    expect(page).to have_content "Only users can Spit"
+    expect(page).to have_content "Only users can take a Shit"
     expect(page).to have_button "Sign in"
   end
 

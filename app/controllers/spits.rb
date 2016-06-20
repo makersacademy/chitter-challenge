@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
     if spit.save
       redirect to('/spits')
     else
-      flash.keep[:errors] = ["Only users can Spit"]
+      flash.keep[:errors] = ["Only users can take a Shit"]
       redirect to('/sessions/new')
     end
   end

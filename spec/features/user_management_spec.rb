@@ -10,7 +10,7 @@ feature "FEATURE: Sign-in" do
   scenario "can sign in with correct credentials" do
     sign_in(email: user.email,
             password: user.password)
-    expect(page).to have_content "Welcome to Spitter, #{user.name}"
+    expect(page).to have_content "Welcome to Shitter, #{user.name}"
   end
 end
 
@@ -27,6 +27,6 @@ feature "FEATURE: Sign-out" do
     sign_in(email: 'snake@mgs.com', password: 'mgs1')
     click_button 'Sign out'
     expect(page).to have_content("Goodbye!")
-    expect(page).not_to have_content("Welcome to Spitter, #{user.name}")
+    expect(page).not_to have_content("Welcome to Shitter, #{user.name}")
   end
 end
