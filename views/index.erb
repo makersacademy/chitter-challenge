@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if @current_user %>
+      <form method='get' action="/peep/new">
+        <input type="submit" value='New Peep'>
+      </form>
+    <% else %>
+      <form method='get' action="/session/new">
+        <input type="submit" value='sign in'>
+      </form>
+      <form method='get' action="/register">
+        <input type="submit" value='Register'>
+      </form>
+    <% end %>
+<h3> Chitter conversations... </h3>
+
+<% @peeps.reverse.each do |peep| %>
+  <div class="peep">
+  <ul>
+  <%= peep.message %>
+  <br>
+  <br>
+      <em>Posted: <%= peep.created_at.strftime("%A, %b %d %r") %> by  <strong><%= User.get(peep.user_id).username %></strong></em>
+  </ul>
+  </div>
+<% end %>
+<% if @current_user %>
+  <form method='post' action="/session/end">
+    <input type="submit" value='log out'>
+  </form>
+  <% end %>
+  </body>
+</html>

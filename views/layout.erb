@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <div class="titlelogo">
+      <a href="http://cooltext.com"><img src="https://images.cooltext.com/4711006.png" width="291" height="89" alt="Chitter" align="middle" /></a>
+    </div>
+    <% if @current_user %>
+      <h3> Welcome, <%= @current_user.username %> </h1>
+    <% end %>
+    <% if flash[:errors] %>
+    <h3> Sorry, couldn't register </h3>
+      <div id='notice'><%flash[:errors].each do |error|%></div>
+        <ul>
+          <li> <%= error %>
+        </ul>
+      <% end %>
+    <% end %>
+  <%= yield %>
+</body>
+
+</html>
