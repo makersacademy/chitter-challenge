@@ -2,7 +2,7 @@
 <ul id="peeps">
   <% @peeps.each do |peep|  %>
     <li>
-      <div class = 'item'>
+      <article class = 'item'>
         <p>
           <hr>
           <%= peep.user.username + "Posetd ad:" %>
@@ -24,7 +24,7 @@
             </form>
           <% end  %>
         </p>
-      </div>
+      </article>
     </li>
   <% end  %>
 </ul>
