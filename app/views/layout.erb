@@ -13,7 +13,7 @@
 		<div class="col-md-2 col-md-offset-9">
     <% if current_user %>
       Welcome, <%= current_user.name %>
-			<form method='post' action='/sessions'>
+			<form method='post' action='/sign_out'>
 	      <input type='hidden' name='_method' value='delete'>
 	      <input type='submit' value='Sign out'>
 	    </form>

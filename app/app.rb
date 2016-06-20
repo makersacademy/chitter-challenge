@@ -63,7 +63,7 @@ class ChitterChallenge < Sinatra::Base
   end
 end
 
-delete '/sessions' do
+delete '/sign_out' do
   session[:user_id] = nil
   flash.keep[:notice] = 'goodbye!'
   redirect to '/'
