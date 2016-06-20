@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter, Love your cheeps</title>
+</head>
+
+<body>
+
+  <%= partial :user %>
+  <%= partial :flash %>
+
+  <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+</body>
+</html>

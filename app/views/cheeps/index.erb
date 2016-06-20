@@ -1,0 +1,17 @@
+<h1>Cheeps</h1>
+
+<form action='/cheeps/new' method='post'>
+  <input type='text' name='cheep'>
+  <input type='submit' value='Cheep Cheep!'>
+</form>
+
+"Here are your cheeps: "
+<ul id='cheeps'>
+  <% @cheeps.reverse.each do |cheep| %>
+  <li>
+    User Name: <%= get_user_by_id(cheep.user_id).user_name %> 
+    Cheep: <%= cheep.cheep %>
+    Time: <%= cheep.time %>
+  </li>
+  <% end %>
+</ul>

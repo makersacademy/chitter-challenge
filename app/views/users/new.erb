@@ -1,0 +1,23 @@
+
+<h1>Welcome to Chitter, please sign up</h1>
+
+<form action="/users" method="post">
+  <p></p>
+  <label for="email">
+    Email: <input name="email" type="email" value=" <%= @user.email %> " required>
+  </label>
+  <p></p>
+  <label for="password">
+    Password: <input name="password" type="password" required>
+  </label>
+  <p></p>
+  <label for="name">
+    Name: <input name="name" type="text">
+  </label>
+  <p></p>
+  <label for="user_name">
+    User Name: <input name="user_name" type="text" required>
+  </label>
+  <p></p>
+  <input type="submit" value="Sign Up">
+</form>
