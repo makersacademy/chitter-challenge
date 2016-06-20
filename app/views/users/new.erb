@@ -1,0 +1,37 @@
+<h1>Please create an account</h1>
+
+<form action='/users' method='post'>
+  
+  <label for='name'>
+  	Name: <input type="text" name="name" value="<%= @user.name %>">
+  </label>
+
+  <br><br>
+
+  <label for='handle'>
+  	Handle: <input type="text" name="handle" value="<%= @user.handle %>">
+  </label>
+
+  <br><br>
+
+  <label for='email'>
+  	Email: <input type="email" name="email" value="<%= @user.email %>" required>
+  </label>
+
+  <br><br>
+
+  <label for='password'>
+  	Password: <input type="password" name="password">
+  </label>
+
+  <br><br>
+
+  <label for='password_confirmation'>
+  	Password: <input type="password" name="password_confirmation">
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Sign up">
+
+</form>
