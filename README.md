@@ -46,6 +46,10 @@ I want to see the time at which it was made
 Notes on functionality:
 ------
 
+ensure that Ruby 2.3.1 is in use
+bundle install
+run the app using the command 'ruby ./app/app.rb' on the command line
+run the local host on your web browser
 To begin using Chitter, the user must Sign Up (assuming they haven't before)
 You click the Sign up button and enter the correct credentials (the e-mail must be complete, in correct format and the passwords must match)
 Once signed up, the user will be automatically signed in and be able to enter a Peep (Chitter's version of Tweet)
