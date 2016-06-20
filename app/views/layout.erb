@@ -1,0 +1,22 @@
+<% if current_user %>
+	Signed in as <%= current_user.name %>
+	<form action='/sessions/new' method='post'>
+		<input type='hidden' name='_method' value='delete'>
+		<input type='submit' value='Sign Out'>
+	</form>
+<% end %>
+
+<% if flash[:errors] %>
+Sign Up not successful. Please address the following errors:
+	<ul id='errors'>
+		<% flash[:errors].each do |error| %>
+			<li><%=error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<%= yield %>
