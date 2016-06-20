@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-[![Build Status](https://travis-ci.org/joestephens/chitter-challenge.svg?branch=master)](https://travis-ci.org/joestephens/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/joestephens/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/joestephens/chitter-challenge?branch=master) [![Build Status](https://travis-ci.org/joestephens/chitter-challenge.svg?branch=master)](https://travis-ci.org/joestephens/chitter-challenge)
 
 Twitter-style messaging application completed for Makers Academy weekend challenge.
 
