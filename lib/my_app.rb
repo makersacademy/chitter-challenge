@@ -40,6 +40,7 @@ class Chitter < Sinatra::Base
 
 
   get '/users' do
+    @peeps = Peep.all
     current_user
     session[:user_id]
     erb :'start_chitter'

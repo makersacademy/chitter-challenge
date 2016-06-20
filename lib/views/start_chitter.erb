@@ -11,8 +11,11 @@ Write a new Peep!
 </form>
 
 
-<h1>Peeps</h1>
-<%= Peep.all.map {|p| p.username + "  " + p.content } %>
+<h2>Peeps</h2>
+
+<% @peeps.each do |peep| %>
+<li><%=peep.username%> ---> <%=peep.content%></li>
+<%end%>
 
 
 
