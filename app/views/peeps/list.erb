@@ -1,0 +1,36 @@
+
+<ul id="peeps">
+  <% @peeps.each do |peep|  %>
+    <li>
+      <article class = 'item'>
+        <p>
+          <hr>
+          <%= peep.user.username + "Posetd ad:" %>
+          <%= peep.created_at.strftime("%a %b %d  %H:%M:%S") %>
+          <br>
+          <%= peep.content %>
+          <hr>
+
+          <% peep.replies.each do |reply|  %>
+            <%= reply.user.username %> Replied: <br>
+            <%= reply.content %>
+            <br>
+          <% end  %>
+
+          <% if current_user  %>
+            <form action="/replies/new" method="get">
+              <input type="hidden" name ="peep_id" value="<%= peep.id %>">
+              <input type="submit" value="Reply">
+            </form>
+          <% end  %>
+        </p>
+      </article>
+    </li>
+  <% end  %>
+</ul>
+
+<% if current_user == @user %>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="New Peep">
+  </form>
+<% end  %>
