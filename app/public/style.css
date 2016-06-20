@@ -1,0 +1,46 @@
+body{
+	font-family: Monospace;
+}
+.menu ul {
+  list-style-type: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-size: 18px;
+}
+.menu li {
+  float: left;
+}
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menu li a:hover, input[type="submit"] {
+  background-color: #111;
+  cursor: pointer;
+}
+
+.peep img {
+  float: left;
+  height: 125px;
+  margin: 10px
+}
+.peep {
+  height: 145px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  margin: 10px
+}
+input, textarea {
+  border: 1px solid #333;
+  font-family: Monospace;
+  padding: 7px
+}
+input[type="submit"]{
+  background: #333;
+  color: #fff;
+}

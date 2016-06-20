@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Chittlr</title>
+	<meta name="description" content="The better twitter">
+	<meta name="author" content="Elena Vilimaite">
+	<link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+<body>
+	<div class="menu">
+		<ul>
+			<li>
+				<a href="/">CHITTLR:	
+					<% if current_user %>
+						Welcome, <strong><%= current_user.username %></strong>
+					<% end %>
+				</a>
+			</li>
+			<% if current_user %>
+				<li><a href="/peep/new">Send a peep</a></li>
+				<li><a href="/user/logout">Sign out</a></li>
+				<% else %>
+				<li><a href="/user/login">Login</a></li>
+				<li><a href="/user/new">Sign up</a></li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<%= yield %>
+
+	<% if flash[:errors] && !flash[:errors].empty? %>
+		<ul id="error">
+			<% flash[:errors].each do |error| %>
+				<li>
+          <%= error %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</body>
+</html>
