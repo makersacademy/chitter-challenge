@@ -1,0 +1,50 @@
+
+<html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script></head>
+<body>
+
+  <div>
+    <h1>
+      <center>Welcome to Chitter!</center>
+    <h1>
+  </div>
+  <div class="container">
+    <a HREF="/chits">See all chits!!</a>
+  </div>
+
+<div class="col-md-4 col-md-offset-4"> <form id="SignUp" action='/sign_up' method="post">
+  <label>Name:</label><br>
+ <input class="entryField" type="text" name="name" value='<%= @user.name if @user %>' required
+ placeholder="Name"><br>
+  <label>Username:</label><br>
+	<input class="entryField" type="text" name="username" value='<%= @user.username if @user %>'
+  required placeholder="Username"><br>
+	<label>Email:</label><br>
+	<input class="entryField" type="email" name="email" value='<%= @user.email if @user %>'
+  required placeholder="Email"><br>
+	<label>Password:</label><br>
+	<input class="entryField" type="password" name="password" required placeholder="Password"><br>
+  <label>Password confirmation:</label><br>
+	<input class="entryField" type="password" name="password_confirmation"
+  required placeholder="Confirm password"><br>
+  <input type="submit" value="Sign up">
+</form>
+</div>
+
+
+
+
+
+<div>
+<form id="SignIn" action="/sign_in" method="post">
+  <input class="entryField" type="text" name="username" placeholder="Username">
+  <input class="entryField" type="password" name="password" placeholder="Password">
+  <input type="submit" value="Sign in">
+</form>
+</div>
+
+</body>
+</html>
