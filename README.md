@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/joestephens/chitter-challenge.svg?branch=master)](https://travis-ci.org/joestephens/chitter-challenge)
 
 Twitter-style messaging application completed for Makers Academy weekend challenge.
 
