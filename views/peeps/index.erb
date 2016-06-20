@@ -1,0 +1,15 @@
+<h1>All Peeps</h1>
+
+<a href="/peeps/new" class="btn btn-default">Write a new peep</a> 
+
+<div id="peeps">
+  <% @peeps.sort {|a,b| b <=> a}.each do |peep| %>
+    <div class="peep">
+	  
+	  <% user = @users.first(:id => peep.user_id) %>
+	  <h4><%= user.name %> wrote:</h4>
+      <p>"<%= peep.content %>"</p>
+      <p>Peeped by <%= user.username %> on <%= peep.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
+    </div>
+    <% end %>
+</div>

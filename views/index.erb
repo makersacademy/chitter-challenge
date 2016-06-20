@@ -1,0 +1,17 @@
+<% if current_user %>
+<h1 class="cover-heading"Hey, <%= current_user.name %>.</h1>
+
+<p class="lead">Why don't you go ahead and write a new peep, or check out some other peeps you may have missed in the meantime:</p>
+<p class="lead">
+	<a href="/peeps/new" class="btn btn-lg btn-default">Write a Peep</a>
+	<a href="/peeps" class="btn btn-lg btn-default">See all Peeps!</a>
+</p>
+
+
+<% else %>
+<h1 class="cover-heading">Welcome! Have we met...?</h1>
+<p class="lead">Chitter is a fun development project to help me (Graham Ormiston) to consolidate my learning at Makers Academy. This site was built at the end of week four, and uses technologies including ruby, sinatra, postgres and datamapper. Click the link to see how it works:</p>
+<p class="lead">
+	<a href="/users/new" class="btn btn-lg btn-default">Sign Up</a> or... <a href="/sessions/new" class="btn btn-lg btn-default">Sign In</a>
+</p>
+<% end %>
