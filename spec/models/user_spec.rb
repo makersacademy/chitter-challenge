@@ -1,8 +1,8 @@
 
 describe User do
 	
-let(:user) {User.create(name: 'Bob',
-						email: 'bob@bob.com',
+let(:user) {User.create(name: 'Faisal',
+						email: 'Faisal@Mahmood.com',
 						password: 'password',
 						password_confirmation: 'password')}
 

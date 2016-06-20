@@ -4,7 +4,7 @@ feature 'Sign Up' do
 	end
 	scenario 'once signed up, page shows me signed in' do
 		sign_up
-		expect(page).to have_content "Signed in as Bob"
+		expect(page).to have_content "Signed in as Faisal"
 	end
 	scenario 'I cannot sign up without an email' do
 		expect{sign_up_no_email}.not_to change(User, :count)

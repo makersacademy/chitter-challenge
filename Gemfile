@@ -8,9 +8,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
   gem 'capybara'
-  gem 'rspec'
   gem 'sinatra'
-  gem 'rake'
   gem 'sinatra-flash'
 
 end
