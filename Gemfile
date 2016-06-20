@@ -1,10 +1,29 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+
+
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'rspec-sinatra'
+gem 'sinatra'
+gem 'rerun'
+gem 'dm-transactions'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'EmojifyRspecFormatter'
+gem 'sinatra-partial'
+gem 'timecop'
+gem 'mailgun-ruby'
+gem 'rspec'
+gem 'rake'
+gem 'sanitize'
 
 group :test do
-  gem 'rspec'
+  gem 'database_cleaner'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
+
+
 
