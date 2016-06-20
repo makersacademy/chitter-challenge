@@ -7,10 +7,10 @@
 
 <body>
 <% if current_user %>
-<div class="container">
-  <div class="center">
+ <div class="col-md-12">
+      <div class="span12" align="center">
     <form id="AddChits" action="/chits" method="post">
-      <textarea class="entryField" type="text" name="text" rows="4" cols="30" ></textarea>
+      <textarea class="entryField" type="text" name="text" rows="4" cols="30"></textarea>
       <div class="center">
         <br><input type="submit" value="Post Chit!">
       </div>
