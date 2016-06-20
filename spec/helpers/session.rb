@@ -18,4 +18,13 @@ module SessionHelpers
     click_button 'Log in'
   end
 
+  def post
+    sign_up
+    log_in(username: 'jo@jo.com',password: 'jojo')
+    click_button('Peep')
+    fill_in :content, with: 'hello'
+    click_button('Peep')
+    click_button 'Log out'
+  end
+
 end
