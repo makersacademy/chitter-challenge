@@ -2,32 +2,22 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/content.css" />
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.user_name %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log out'>
-      </form>
-    <% end %>
+    <div class='container'>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
-    <%= yield %>
-
+      <%= partial :_top %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,15 +1,19 @@
 ENV["RACK_ENV"] ||= "development"
-
+require 'sinatra/partial'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+
 
 class Chitter < Sinatra::Base
 
   use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
+  enable :partial_underscores
   register Sinatra::Flash
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
 
   helpers do
    def current_user
@@ -18,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -27,11 +31,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    if current_user
+      erb(:'peeps/new')
+    else
+      redirect('/')
+    end
+
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    peep= Peep.create(peep: params[:peep])
+    current_user.peeps << peep
+    current_user.save
     redirect '/peeps'
   end
 
