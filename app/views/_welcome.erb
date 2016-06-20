@@ -1,0 +1,23 @@
+<% if @current_user %>
+  <div id="welcome">
+    <div class="hey">Hey, <%= @current_user.display_name %>!</div>
+    <div class="nav">
+      <form method="post" action="/logout">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout" class="small">
+      </form>
+    </div>
+  </div>
+<% else %>
+  <div id="welcome">
+    <div class="hey">Hey, Guest!</div>
+    <div class="nav">
+      <form method="get" action="/login">
+        <input type="submit" value="Login" class="small">
+      </form>
+      <form method="get" action="/signup">
+        <input type="submit" value="Signup" class="small">
+      </form>
+    </div>
+  </div>
+<% end %>

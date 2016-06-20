@@ -1,0 +1,9 @@
+<%= partial :peep_box %>
+<% @peeps.each do |peep| %>
+  <div class="message">
+    <strong><%= peep.user.display_name %></strong>
+    <%= peep.message %>
+    <br>
+    <span class="datetime"><%= pretty_date(peep.created_at) %></span>
+  </div>
+<% end %>
