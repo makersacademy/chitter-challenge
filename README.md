@@ -6,7 +6,7 @@ Twitter-style messaging application completed for Makers Academy weekend challen
 
 Screenshot
 -------
-![Screenshot]http://i.imgur.com/2I6PASg.png
+![Screenshot](http://i.imgur.com/2I6PASg.png)
 
 User Stories
 -------
