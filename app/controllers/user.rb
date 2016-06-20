@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
 			session[:user_id] = @user.id
 			redirect to('/peeps')
 		else
-			flash.keep[:errors] = ['Incorrect email or password']
+			flash[:errors] = ['Incorrect email or password']
 			redirect to('/')
 		end
 	end

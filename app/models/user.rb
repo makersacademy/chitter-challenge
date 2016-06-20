@@ -9,6 +9,8 @@ attr_reader :username
 	# validates_confirmation_of :password
 	# validates_presence_of :email
 
+	has n, :peeps, through: Resource
+
 	property :id, Serial
 	property :email, String, format: :email_address, required: true, unique: true
 	property :username, String, length: 10

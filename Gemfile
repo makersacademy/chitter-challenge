@@ -10,6 +10,7 @@ gem 'dm-transactions'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'dm-timestamps'
 gem 'rspec'
 gem 'rake'
 
