@@ -21,7 +21,8 @@ class Chitter < Sinatra::Base
                 surname: params[:surname],
                 username: params[:username],
                 email: params[:email],
-                password: params[:password])
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to('/welcome')
   end

@@ -9,6 +9,7 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require 'data_mapper'
+require 'dm-validations'
 require_relative '../app/modles/user'
 
 SimpleCov.formatters = [
