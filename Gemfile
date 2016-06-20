@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.0'
 
 group :test do
   gem 'rspec'
@@ -10,7 +10,6 @@ group :test do
   gem 'capybara'
   gem 'sinatra'
   gem 'sinatra-flash'
-
 end
 
 group :database do
