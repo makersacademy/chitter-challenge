@@ -51,7 +51,7 @@ feature 'Sign in' do
 	scenario 'can sign out' do
 		sign_in
 		click_link "Sign out"
-		expect(page).to have_content "CHITTLR: ˱(ْ۬ ˂̵ْ۬ )˲"
+		expect(page).to have_content "CHITTLR: Login Sign up"
 	end
 
 
