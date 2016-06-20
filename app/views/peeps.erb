@@ -1,0 +1,23 @@
+<h2>Welcome to Chitter <%= @username %></h2>
+
+<div>
+  <% unless @peeps.empty? %>
+    <ul id='peep'>
+      <% @peeps.sort_by { |peep| peep.date }.reverse.each do |peep| %>
+        <li><div>
+          <div><%= peep.content %>
+          </div>
+          <div><%= peep.pretty_date %>
+          </div>
+        </li> 
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<form action='/peeps/newpeep' method='get'>
+  <button type='submit'>Peep</button>
+</form>
+<form action='/user/logout' method='post'>
+  <button type='submit'>Log out</button>
+</form>
