@@ -1,0 +1,20 @@
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class='peeps'>
+  <p>Peeps</p>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %>
+      <br>
+      <%= User.get(peep.user_id).username %>
+      <%= peep.created_at.strftime(TIME_FORMAT) %>
+      <br>
+    </li>
+    <% end %>
+  </ul>
+</div>
+</body>

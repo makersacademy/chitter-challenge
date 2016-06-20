@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <%= partial :flash %>
+    <div class='right side'>
+      <%= partial :buttons %>
+    </div>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
