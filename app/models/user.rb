@@ -5,7 +5,7 @@ class User
   include DataMapper::Resource
 
   attr_reader :password
-  
+
   has n, :cheeps
 
   property :id, Serial

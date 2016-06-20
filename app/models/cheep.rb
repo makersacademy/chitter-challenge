@@ -1,11 +1,11 @@
 class Cheep
 
-include DataMapper::Resource
+  include DataMapper::Resource
 
-property :id, Serial
-property :cheep, String
-property :time, DateTime
+  property :id, Serial
+  property :cheep, String
+  property :time, Time
 
-belongs_to :user
+  belongs_to :user
 
 end
