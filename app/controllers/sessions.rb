@@ -1,9 +1,9 @@
 class Chitter < Sinatra::Base
-  get "/user/login" do
+  get "/sessions/new" do
     erb(:"session/new")
   end
 
-  post "/session/new" do
+  post "/sessions" do
     user = User.authenticate(params[:username], params[:password])
 
     if user
@@ -11,11 +11,11 @@ class Chitter < Sinatra::Base
       redirect("/")
     else
       flash.next[:error] = ["Username or password combination incorrect"]
-      redirect("/user/login")
+      redirect("/sessions/new")
     end
   end
 
-  delete "/session" do
+  delete "/sessions" do
     session[:user_id] = nil
     flash.next[:notice] = ["Successfully logged out"]
     redirect("/")

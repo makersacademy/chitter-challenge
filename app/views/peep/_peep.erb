@@ -1,10 +1,10 @@
-<% peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
+<% peeps.each do |peep| %>
   <li>
     <p class="peep-meta">
       <span class="name"><%= peep.user.name %></span>
       <span class="username"><%= peep.user.username %></span>
-      <span class="time">on <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %></span>
-      <% if current_user && current_user != peep.user %>
+      <span class="time">on <%= pretty_time(peep.timestamp) %></span>
+      <% if can_reply_to_peep(peep) %>
       <a href="/peeps/new?text=&#64;<%= peep.user.username %>" class="reply">Reply</a>
       <% end %>
     </p>

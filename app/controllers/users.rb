@@ -1,23 +1,22 @@
 class Chitter < Sinatra::Base
-  get "/user/new" do
+  get "/users/new" do
     erb(:"user/new")
   end
 
-  post "/user" do
-    user = User.create(
-      username: params[:username],
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      password_confirm: params[:password_confirm]
-    )
+  post "/users" do
+    user = User.create(user_params)
 
     if user.id
       session[:user_id] = user.id
       redirect("/")
     else
       flash.next[:error] = user.errors.full_messages
-      redirect("/user/new")
+      redirect("/users/new")
     end
+  end
+
+  def user_params
+    allowed_params = [:email, :name, :username, :password, :password_confirm]
+    params.select { |param| allowed_params.include?(param.to_sym) }
   end
 end

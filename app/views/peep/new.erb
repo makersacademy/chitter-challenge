@@ -1,6 +1,6 @@
 <% if current_user %>
-<form method="post" action="/peeps/new">
-  <input type="text" name="text" value="<%= @text if @text %>" placeholder="What's happening?" autocomplete="off" autofocus>
+<form method="post" action="/peeps">
+  <textarea name="text" placeholder="What's happening?" autocomplete="off" autofocus><%= @text if @text %></textarea>
   <input type="submit" value="Peep">
 </form>
 <% end %>

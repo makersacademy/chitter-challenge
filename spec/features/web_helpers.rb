@@ -9,7 +9,7 @@ def create_user
 end
 
 def log_in
-  visit("/user/login")
+  visit("/sessions/new")
   fill_in(:username, with: "vannio")
   fill_in(:password, with: "password123")
   click_button(:"Log In")

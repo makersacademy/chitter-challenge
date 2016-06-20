@@ -5,7 +5,7 @@ feature "User registration" do
   let(:password) { "password123" }
 
   scenario "user can register a new account" do
-    visit("/user/new")
+    visit("/users/new")
 
     fill_in(:username, with: username)
     fill_in(:name, with: name)
@@ -19,7 +19,7 @@ feature "User registration" do
 
   scenario "user cannot register existing username" do
     create_user
-    visit("/user/new")
+    visit("/users/new")
 
     fill_in(:username, with: username)
     fill_in(:name, with: name)
@@ -32,7 +32,7 @@ feature "User registration" do
 
   scenario "user cannot register existing email address" do
     create_user
-    visit("/user/new")
+    visit("/users/new")
 
     fill_in(:username, with: "unique")
     fill_in(:name, with: name)
