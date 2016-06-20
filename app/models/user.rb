@@ -18,8 +18,8 @@ class User
   end 
   
   def self.validate(user_details)
-    username_exists?(user_details[:username]) &&
-    valid_password?(user_details[:password])
+      username_exists?(user_details[:username]) &&
+      valid_password?(user_details[:password])
   end
 
   private

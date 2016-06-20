@@ -54,8 +54,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/logout' do
-    session[:user_username] = nil
-    redirect '/peeps'  
+      session[:user_username] = nil
+      redirect '/peeps'  
   end
 
 
@@ -65,7 +65,7 @@ class Chitter < Sinatra::Base
               email:    user_data[:email],
               password: user_data[:password],
               username: user_data[:username]
-             ) 
+            ) 
   end
 
   def new_peep(content)
