@@ -1,0 +1,23 @@
+
+<h1>This is your Chitter!</h1>
+
+<ul id='peep'>
+	<% @peeps.reverse.each do |peep| %>
+	<li>
+		Post: <%= peep.post %>
+		Posted at: <%= peep.created_at %>
+	</li>
+	<% end %>
+</ul>
+
+<% if current_user %>
+<form action='/peeps' method='POST' >
+	<label for='post'>
+		Enter your post here:
+		<input type='text' name='post' />
+	</label>
+	<input type='submit' value='Submit post' >
+</form>
+<% else %>
+<a href='/'>Please sign in or register to post a peep!</a>
+<% end %>
