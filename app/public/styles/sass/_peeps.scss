@@ -1,0 +1,25 @@
+.timeline {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: $white;
+
+    @media screen and (min-width: 600px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .peep-meta {
+    margin: 0 auto 0.5rem;
+    line-height: 1;
+  }
+
+  .peep-content {
+    margin: 0;
+  }
+}

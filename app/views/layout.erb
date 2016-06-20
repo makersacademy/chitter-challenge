@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chitter, not Twitter</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+  <link rel="icon" type"image/png" href="/favicon.png">
+</head>
+<body>
+  <%= partial(:navigation) %>
+  <div class="wrapper">
+    <%= partial(:notices) %>
+    <%= yield %>
+    <%= partial(:errors) %>
+  </div>
+  <%= partial(:footer) %>
+</body>
+</html>

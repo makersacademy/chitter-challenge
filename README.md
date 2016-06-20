@@ -1,22 +1,9 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## Task
+Create a Twitter clone that will allow the users to post messages to a public stream
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+#### User Stories
 ```
 As a Maker
 So that I can post messages on Chitter as me
@@ -43,66 +30,36 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+#### Notes on functionality
+- Makers sign up to chitter with their email, password, name and a user name
+- The username and email are unique.
+- Peeps (posts to chitter) have the name of the maker and their user handle.
+- Use bcrypt to secure the passwords.
+- Use data mapper and postgres to save the data.
+- You don't have to be logged in to see the peeps.
+- You only can peep if you are logged in.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+## Getting Started
+1. Clone or download this repo and `cd` into it
+1. Run `bundle install` to install the necessary gems
+1. Install `postgres` with `brew`, by running `brew install postgresql`
+1. Create two new databases on `postgres`: `chitter_development` and `chitter_test`
+1. Run `rake db:seed` to fill the database with Jaden Smith 'peeps'
 
-Bonus:
------
+#### Testing the tests
+1. Run `rspec` to check tests are passing
+1. Pop open the champagne when everything is green
 
-If you have time you can implement the following:
+#### Serving the server
+1. Run `rackup -p 4567` to start the server
+1. Go to [http://localhost:4567](http://localhost:4567)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+## Branches
+`master` branch has the bare bones, functioning-as-the-user-stories-request version
 
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+`bonus` branch has extra features:
+  - html formatted 'peeps', with urls, @ and # turned into links
+  - extremely light (possibly ineffective) html-tag sanitization
+  - filter peeps by user
+  - filter peeps by hashtag
+  - additional form validation, eg. 140 char limit on peeps, alphanumeric usernames

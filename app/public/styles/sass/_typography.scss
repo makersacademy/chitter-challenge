@@ -1,0 +1,45 @@
+body {
+  color: $text-color;
+  font-family: monospace;
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
+a {
+  color: $text-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $highlight-color;
+  }
+}
+
+
+.peep-meta {
+  .time,
+  .reply,
+  .username {
+    font-size: 0.8rem;
+  }
+
+  .username {
+    color: lighten($dark-grey, 35%);
+
+    &::before {
+      content: "@";
+    }
+  }
+
+  .name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+.notices,
+.errors {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}

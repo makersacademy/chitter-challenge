@@ -1,0 +1,40 @@
+body {
+  padding-top: $nav-height * 3;
+}
+
+.navigation {
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: solid 2px $highlight-color;
+  line-height: $nav-height;
+  padding: 0.5rem 0;
+
+  .wrapper {
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    display: inline-block;
+    margin-left: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    @media screen and (min-width: $mobile-width) {
+      margin-left: 2rem;
+    }
+  }
+
+  h1,
+  p,
+  ul,
+  a {
+    margin: 0;
+    text-decoration: none;
+  }
+}
