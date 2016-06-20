@@ -1,0 +1,9 @@
+<h1>reply</h1>
+
+<%= @peep.content %>
+<br><br>
+<form action="/replies" method="post">
+  <input type="hidden" name="peep_id" value="<%= @peep.id %>">
+  <input type="textarea" name="reply">
+  <input type="submit" value="Reply">
+</form>

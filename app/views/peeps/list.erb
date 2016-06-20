@@ -1,8 +1,30 @@
 
 <ul id="peeps">
   <% @peeps.each do |peep|  %>
-    <li><%= peep.user.username + "   " %><%= peep.created_at.strftime("%a %b %d  %H:%M:%S") %><br>
-      <%= peep.content %></li>
+    <li>
+      <div class = 'item'>
+        <p>
+          <hr>
+          <%= peep.user.username + "   " %>
+          <%= peep.created_at.strftime("%a %b %d  %H:%M:%S") %>
+          <hr>
+          <%= peep.content %>
+          <hr>
+
+          <% peep.replies.each do |reply|  %>
+            <%= reply.content %>
+            <br>
+          <% end  %>
+
+          <% if current_user  %>
+            <form action="/replies/new" method="get">
+              <input type="hidden" name ="peep_id" value="<%= peep.id %>">
+              <input type="submit" value="Reply">
+            </form>
+          <% end  %>
+        </p>
+      </div>
+    </li>
   <% end  %>
 </ul>
 

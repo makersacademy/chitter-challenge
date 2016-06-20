@@ -8,6 +8,8 @@ class Peep
   property :content, Text
   property :created_at, DateTime
 
+  has n, :replies
+
   belongs_to :user
 
 
