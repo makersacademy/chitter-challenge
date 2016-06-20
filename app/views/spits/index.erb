@@ -1,0 +1,22 @@
+<div align="center">
+
+  <h2> Shits </h2>
+
+  <div class="wrapper">
+
+    <div class="well" align="left">
+
+    <ul id='spits'>
+      <% @spits.reverse.each do |spit| %>
+      <li>
+        <%= spit.content %>
+        <p>
+          - Posted by <b><%= spit.user.username %></b> on <%= spit.created_at.strftime("%A %d %B %Y at %T ") %>
+        </p>
+      </li>
+      <% end %>
+    </ul>
+
+  </div>
+
+</div>
