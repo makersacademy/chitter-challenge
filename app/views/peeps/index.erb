@@ -3,7 +3,7 @@
 <ul id='peeps'>
 	<% @peeps.each do |peep| %>
 		<li>
-			<%= peep.user.name %>: <%= peep.content %>
+			<%= peep.user.name %>: <%= peep.content %> at <%= peep.timestamp.strftime("%H:%M") %>
 		</li>
 	<% end %>
 </ul>
