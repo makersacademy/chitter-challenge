@@ -3,7 +3,7 @@ Chitter Challenge
 
 A little Twitter clone that will allow the users to post messages to a public stream.
 
-![Heroku Screenshot](https://dl.dropboxusercontent.com/u/68781931/makers/chitter_screenshot.png)
+![Heroku Chitter Screenshot](/public/chitter_screenshot.png?raw=true "Heroku Screenshot")
 
 Features:
 -------
