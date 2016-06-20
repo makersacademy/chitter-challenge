@@ -53,6 +53,7 @@ run the local host on your web browser
 To begin using Chitter, the user must Sign Up (assuming they haven't before)
 You click the Sign up button and enter the correct credentials (the e-mail must be complete, in correct format and the passwords must match)
 Once signed up, the user will be automatically signed in and be able to enter a Peep (Chitter's version of Tweet)
+ 
 
 
 Bonus:
