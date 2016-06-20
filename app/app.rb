@@ -24,7 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-  	@peeps = Peep.all
+  	@peeps = Peep.all(:order => [:created_at.desc])
   	erb :'peeps/index'
   end
 
@@ -46,10 +46,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
   	@user = User.new(name: params[:name],
-  				handle: params[:handle],
-  				email: params[:email],
-  				password: params[:password],
-  				password_confirmation: params[:password_confirmation])
+  				     handle: params[:handle],
+  				     email: params[:email],
+  				     password: params[:password],
+  				     password_confirmation: params[:password_confirmation])
   	if @user.save
   	  session[:user_id] = @user.id
   	  redirect '/peeps'

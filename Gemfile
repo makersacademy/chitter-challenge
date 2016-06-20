@@ -9,7 +9,6 @@ gem 'dm-postgres-adapter'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
   gem 'rspec-sinatra'

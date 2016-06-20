@@ -1,5 +1,6 @@
 feature 'Creating peeps' do
   scenario "I can create a new link" do
+  	sign_up
   	visit '/peeps/new'
   	fill_in 'peep', with: 'This is a test peep'
   	click_button 'Post peep'

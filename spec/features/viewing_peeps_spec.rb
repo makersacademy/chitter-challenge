@@ -1,6 +1,9 @@
 feature 'Viewing peeps' do
   scenario "I can see existing peeps on the peep page" do
-  	Peep.create(peep: 'This is a test peep')
+  	sign_up
+  	visit '/peeps/new'
+  	fill_in 'peep', with: 'This is a test peep'
+  	click_button 'Post peep'
   	visit '/peeps'
   	expect(page.status_code).to eq 200
   	within 'ul#peeps' do
