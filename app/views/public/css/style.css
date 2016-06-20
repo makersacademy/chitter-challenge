@@ -1,8 +1,8 @@
 body {
-  margin: 10px;
+  margin: 0px;
   color: #FFF;
   font-family: Helvetica Neue;
-  background-color: #CCD6EB;
+  background-color: #1E191C;
 }
 
 #container {
@@ -14,25 +14,27 @@ body {
 #header {
   z-index: 1;
   width: calc(100% - 40px);
-  border-radius: 5px;
   padding: 20px;
-  background-color: #993955;
+  background-color: #87D66F;
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
 }
 
 #header a {
   margin: 0px;
   color: #FFF;
-  font-family: Helvetica;
   text-decoration: none;
+  display: block;
 }
 
 #header a:hover {
-  text-decoration: underline;
+  cursor: pointer;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 0px;
+  font-family: 'Bungee Shade', cursive;
 }
 
 h2 {
@@ -56,7 +58,7 @@ label {
 
 input {
   border-radius: 0px;
-  border: 1px solid #CCD6EB;
+  border: 1px solid #1E191C;
   padding: 10px;
   outline: none;
   font-size: 1em;
@@ -75,18 +77,17 @@ input[type=text], input[type=email], input[type=password] {
 
 input[type=submit] {
   margin-top: 10px;
-  background-color: #330814;
-  border: 1px solid #993955;
+  background-color: #43ADF5;
   color: #FFF;
 }
 
 input[type=submit]:hover {
-  background-color: #993955;
+  background-color: #87D66F;
   cursor: pointer;
 }
 
 a {
-  color: #330814;
+  color: #43ADF5;
 }
 
 a:hover {
@@ -98,28 +99,26 @@ a:hover {
   float: right;
   font-size: 0.8em;
   text-decoration: none;
-  background-color: #330814;
+  background-color: #43ADF5;
   border-radius: 5px;
   padding: 5px;
   margin-left: 5px;
 }
 
 #welcome {
-  border-radius: 5px;
   width: calc(100% - 40px);
-  background-color: #330814;
-  margin-top: 10px;
+  background-color: #43ADF5;
+  margin-top: 1px;
   padding: 20px;
   overflow: auto;
 }
 
 .message {
-  border-radius: 5px;
   width: calc(100% - 40px);
   padding: 20px;
-  background-color: #EBF2FA;
-  margin-top: 10px;
-  color: #330814;
+  background-color: #0072BC;
+  margin-top: 1px;
+  color: #FFF;
   overflow: auto;
 }
 
@@ -129,7 +128,7 @@ a:hover {
 
 .datetime {
   font-size: 0.5em;
-  color: #993955;
+  color: #87D66F;
 }
 
 .hey {
@@ -145,6 +144,6 @@ a:hover {
   border-radius: 5px;
   width: 100%;
   height: 50px;
-  background-color: #EBF2FA;
+  background-color: #0072BC;
   clear: both;
 }
