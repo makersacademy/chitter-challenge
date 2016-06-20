@@ -1,0 +1,7 @@
+<% if flash[:messages] && !flash[:messages].empty? %>
+  <ul id='messages'>
+  <% flash[:messages].each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
