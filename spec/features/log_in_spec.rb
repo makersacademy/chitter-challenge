@@ -10,4 +10,6 @@ feature 'logging in' do
     log_in(username:'Batman', password: 'loverobin')
     expect(page).to have_content 'Welcome, Batman!'
   end
+
+
 end

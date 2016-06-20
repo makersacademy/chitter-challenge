@@ -9,8 +9,6 @@ class User
 
   include DataMapper::Resource
 
-  # has n, :peep, through: Resource
-
   validates_presence_of :password
   validates_confirmation_of :password
   validates_uniqueness_of :username
@@ -43,7 +41,3 @@ class User
 
 end
 
-
-DataMapper.setup(:default, "postgres://localhost/chitter_manager_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
