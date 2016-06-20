@@ -1,0 +1,36 @@
+<div class='buttons'>
+
+  <% if current_user %>
+    Welcome, <%= current_user.user_name %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input class='log_in' type='submit' value='Log out!'>
+    </form>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <div class='header'>
+    <div class='button'>
+      <% unless current_user %>
+      <form class='log_in' action='/sessions/new' method='redirect'>
+        <input type='submit' value='Log in!'>
+      </form>
+    </div>
+
+    <div class="button">
+      <form class='sing_up' action='/sign_up' method='redirect'>
+        <input type='submit' value='Sign up!'>
+      </form>
+      <% end %>
+    </div>
+  </div>
+    <% if current_user %>
+      <form action='/peeps/new' method='redirect'>
+        <input type='submit' value='Post a Peep!'>
+      </form>
+    <% end %>
+</div>

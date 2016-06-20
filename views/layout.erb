@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/content.css" />
+  </head>
+
+  <body>
+    <div class='container'>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= partial :_top %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
