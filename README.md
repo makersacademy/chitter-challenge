@@ -21,6 +21,8 @@ From bash, clone this repo to your computer using `git clone`.
 
 Run bundler (`bundle`).
 
+Create two postgresql databases, `chitter_test` and `chitter_development`.
+
 Navigate to the project directory (`cd chitter-challenge`).
 
 Run the local server (`rackup`)
