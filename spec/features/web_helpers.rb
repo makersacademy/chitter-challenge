@@ -10,3 +10,23 @@ def sign_up(email: 'alex@email.com',
   fill_in :password_confirmation, with: 'Pa55word'
   click_button 'Sign up'
 end
+
+def sign_up_no_email
+  visit '/user/signup'
+  fill_in :first_name, with: 'Alex'
+  fill_in :surname, with: 'Mellor'
+  fill_in :username, with: 'Alex'
+  fill_in :password, with: 'Pa55word'
+  fill_in :password_confirmation, with: 'Pa55word'
+  click_button 'Sign up'
+end
+
+def sign_up_wrong_password
+  visit '/user/signup'
+  fill_in :first_name, with: 'Alex'
+  fill_in :surname, with: 'Mellor'
+  fill_in :username, with: 'Alex'
+  fill_in :password, with: 'Pa55word'
+  fill_in :password_confirmation, with: 'wrong'
+  click_button 'Sign up'
+end
