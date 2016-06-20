@@ -1,5 +1,16 @@
+<% if current_user %>
+<h1>Write a new peep!</h1>
 <form action='/peeps' method='post'>
-	<input type='text' name='content'>
+
+	<div class="form-group">
+	<label for="content">Peep content:</label>
+	<input type='text' name='content' class="form-control" required>
+
+	</div>
+
 	<input type='hidden' name='created_at' value='<%= DateTime.now %>'>
-	<button type='submit' name='submit' value='submit'>
+	<input type='submit' name='submit' value='submit' class="btn btn-default">
 </form>
+<% else %>
+<h1>You need to sign in to write a new peep!</h1>
+<% end %>

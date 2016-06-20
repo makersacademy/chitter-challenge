@@ -2,7 +2,7 @@ feature 'User signup' do
 
   scenario 'user can signup' do
     signup
-    expect(page).to have_content("Welcome, John Doe")
+    expect(page).to have_content("Why don't you go ahead and write a new peep")
     expect(page).not_to have_selector(:link_or_button, 'Sign up')
   end
 

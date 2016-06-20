@@ -1,5 +1,7 @@
 <h1>All Peeps</h1>
 
+<a href="/peeps/new" class="btn btn-default">Write a new peep</a> 
+
 <div id="peeps">
   <% @peeps.sort {|a,b| b <=> a}.each do |peep| %>
     <div class="peep">

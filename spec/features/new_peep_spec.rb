@@ -20,9 +20,7 @@ feature 'New peep' do
 
 	scenario 'non logged in users cannot peep' do
 		visit('/peeps/new')
-		fill_in(:content, with: 'The quick brown fox jumped over the lazy fox')
-		click_button(:submit)
-		expect(page).not_to have_content('The quick brown fox jumped over the lazy fox')
+		expect(page).to have_content('You need to sign in')
 	end
 
 # should display the date

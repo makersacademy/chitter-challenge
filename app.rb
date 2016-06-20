@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/init'
+require 'sanitize'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -69,7 +70,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-  	@peep = Peep.new(content: params[:content], created_at: params[:created_at], user_id: session[:user_id])
+
+  	sanitized =	Sanitize.fragment(params[:content])
+
+  	@peep = Peep.new(content: sanitized, created_at: params[:created_at], user_id: session[:user_id])
   	if @peep.save
       redirect to('/peeps')
     else
