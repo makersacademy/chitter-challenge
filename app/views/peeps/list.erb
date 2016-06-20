@@ -5,13 +5,14 @@
       <div class = 'item'>
         <p>
           <hr>
-          <%= peep.user.username + "   " %>
+          <%= peep.user.username + "Posetd ad:" %>
           <%= peep.created_at.strftime("%a %b %d  %H:%M:%S") %>
-          <hr>
+          <br>
           <%= peep.content %>
           <hr>
 
           <% peep.replies.each do |reply|  %>
+            <%= reply.user.username %> Replied: <br>
             <%= reply.content %>
             <br>
           <% end  %>

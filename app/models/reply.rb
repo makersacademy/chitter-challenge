@@ -7,5 +7,6 @@ class Reply
   property :content, Text
 
   belongs_to :peep
+  belongs_to :user
 
 end

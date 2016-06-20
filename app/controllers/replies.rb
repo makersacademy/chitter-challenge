@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
     reply = Reply.new(content: params[:reply])
     peep = Peep.get(params[:peep_id])
     reply.peep_id = peep.id
+    reply.user_id = current_user.id
     reply.save
     redirect "/peeps/#{peep.user.username}"
   end

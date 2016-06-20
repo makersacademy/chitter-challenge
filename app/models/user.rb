@@ -16,6 +16,7 @@ class User
   property :password_digest, String, length: 60
 
   has n, :peeps
+  has n, :replies
 
   def password=(password)
     @password = password
