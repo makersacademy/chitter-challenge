@@ -3,7 +3,9 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      Peep: <%= peep.peep %>
+      <%= peep.user.name %> posted:
+      <br>
+      <%= peep.user.handle %>: <%= peep.peep %>, at <%= peep.created_at.strftime("%a %b %d  %H:%M:%S") %>
     </li>
   <% end %>
 </ul>

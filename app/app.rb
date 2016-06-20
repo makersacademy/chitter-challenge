@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+ENV["RACK_ENV"] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
   	def current_user
@@ -19,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-  	redirect :'peeps'
+  	redirect :'sessions/new'
   end
 
   get '/peeps' do
@@ -33,6 +34,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
   	peep = Peep.create(peep: params[:peep])
+  	peep.user = current_user
   	peep.save
   	redirect '/peeps'
   end
@@ -70,6 +72,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+  	session[:user_id] = nil
+  	flash.keep[:notice] = 'goodbye!'
+  	redirect '/peeps'
   end
 
   run! if app_file == $0
