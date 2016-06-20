@@ -1,0 +1,18 @@
+<form action="/users" method="post">
+  <label for = "email">
+    Email: <input type="email" id="email" name="email" value='<%= @user.email %>' required>
+  </label>
+  <label for = "password">
+    Password: <input type="password" id="password" name="password" required>
+  </label>
+  <label for = "password_confirmation">
+    Password Confirmation: <input type="password" id="password_confirmation" name="password_confirmation" required>
+  </label>
+  <label for = "user_name">
+    User Name: <input type="text" id="user_name" name="user_name" value='<%= @user.user_name %>' required>
+  </label>
+  <label for = "real_name">
+    Real Name: <input type="text" id="real_name" name="real_name" value='<%= @user.real_name %>' required>
+  </label>
+    <input type="submit" value="Sign up">
+</form>
