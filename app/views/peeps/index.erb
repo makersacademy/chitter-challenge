@@ -11,7 +11,7 @@
       <%= peep.message %>
       <br>
       <%= User.get(peep.user_id).username %>
-      <%= peep.time %>
+      <%= peep.created_at.strftime(TIME_FORMAT) %>
       <br>
     </li>
     <% end %>
