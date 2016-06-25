@@ -1,0 +1,16 @@
+<div>
+	<center>
+		<img height="500 px" src='http://vignette1.wikia.nocookie.net/clubpenguinfanon/images/1/17/Chitter_logo.png/revision/latest?cb=20100722020455'>
+		<h1> Peeps </h1>
+
+		<ul id='peeps'>
+			<% @peeps.each do |peep| %>
+			<li>
+				<h3><%= peep.user.name  %> @ <%= peep.user.username %>: <%= peep.peep   %></h3>
+				<h4><%= peep.created_at.strftime("%H:%M %d/%m/%Y" )%></h4>
+
+			</li>
+			<% end %>
+		</ul>
+	</center>
+</div>
