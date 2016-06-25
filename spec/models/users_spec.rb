@@ -2,10 +2,10 @@ describe User do
 
   let!(:user) do
     User.create(name: 'Aday Mesa',
-                username: 'adaymesa',
-                email: 'adaymesagc@gmail.com',
-                password: 'yipiyey!',
-                password_confirmation: 'yipiyey!')
+      username: 'adaymesa',
+      email: 'adaymesagc@gmail.com',
+      password: 'yipiyey!',
+      password_confirmation: 'yipiyey!')
   end
 
   it 'Gives an authentification when user gives valid entry details' do

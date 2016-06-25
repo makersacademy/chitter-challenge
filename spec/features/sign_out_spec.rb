@@ -3,10 +3,10 @@ feature 'User signs out' do
 
   before(:each) do
     User.create(name: 'Aday Mesa',
-                username: 'adaymesa',
-                email: 'adaymesagc@gmail.com',
-                password: 'yipiyey!',
-                password_confirmation: 'yipiyey!')
+      username: 'adaymesa',
+      email: 'adaymesagc@gmail.com',
+      password: 'yipiyey!',
+      password_confirmation: 'yipiyey!')
   end
 
   scenario 'During the time signed in' do
