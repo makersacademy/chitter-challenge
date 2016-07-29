@@ -13,8 +13,3 @@ feature 'Sign Up' do
     expect(User.first.email).to eq 'joesweeny84@hotmail.com'
   end
 end
-
-
-# As a Maker
-# So that I can post messages on Chitter as me
-# I want to sign up for Chitter
