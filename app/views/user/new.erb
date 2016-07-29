@@ -1,0 +1,24 @@
+<h1>Sign-up to Chitter!</h1>
+<form action='/user/new' method='post'>
+  <label for='name'>
+    Name:
+    <input type='text' name='name' require />
+  </label>
+  <label for'email'>
+    Email:
+    <input type='email' name='email' require />
+  </label>
+  <label for='callsign'>
+    Callsign:
+    <input type='text' name='callsign' require />
+  </label>
+  <label for='password'>
+    Password:
+    <input type='password' name='password' require />
+  </label>
+  <label for='password_confirmation'>
+    Confirm Password:
+    <input type='password' name='password_confirmation' require />
+  </label>
+  <input type='submit' value='Sign Up' />
+</form>
