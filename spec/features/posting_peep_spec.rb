@@ -6,7 +6,7 @@ feature 'User posts a peep' do
                 username: 'bartklu',
                 password: '12345',
                 password_confirmation: '12345')
-    end
+  end
 
     scenario 'posting a peep when logged in' do
         log_in(email: user.email, password: user.password)
@@ -15,7 +15,7 @@ feature 'User posts a peep' do
         fill_in :body, with: 'this is a nice peep'
         click_button 'Peep!'
         expect(page).to have_content 'titleokay'
-      end
+    end
 
 
       scenario 'seeing the username and the name of the user' do
@@ -27,9 +27,9 @@ feature 'User posts a peep' do
           expect(page).to have_content 'Name: Bart'
           expect(page).to have_content 'Username: @bartklu'
 
-        end
+      end
 
-  scenario 'seeing the username and the name of the user' do
+  scenario 'seeing the time when the peep has been published' do
     @time_now = Time.now
     allow(Time).to receive(:now).and_return('21:00')
       log_in(email: user.email, password: user.password)
@@ -40,7 +40,7 @@ feature 'User posts a peep' do
       visit('/peeps')
       expect(page).to have_content '21:00'
 
-    end
+  end
 
 
     def log_in(email:, password:)
