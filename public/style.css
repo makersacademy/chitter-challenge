@@ -1,0 +1,116 @@
+.nav{
+    color: white;
+    background-color: aquamarine;
+    padding: 10px;
+    height: 40px;
+  }
+
+body{
+      margin: 0;
+      font-family: comfortaa;
+
+}
+#current_user{
+      display: inline-block;
+      font-size: 2em;
+
+}
+
+.sign {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+}
+
+form.buttons {
+    margin: 2%;
+}
+
+#sign_button{
+    border: solid;
+    background-color: transparent;
+    border-color: white;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    font-family: inherit;
+
+}
+#sign_button:hover{
+    transform: scale(0.9);
+
+}
+#new_peep{
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+    height: 40px;
+}
+#new_peep:hover{
+  transform: scale(1.1);
+}
+
+#new_peep_bod{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+}
+#new_peep_bod:focus{
+  outline: none;
+}
+#peep_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    z-index: -1;
+    height: 120%;
+    border: solid;
+    right: 0;
+    text-align: end;
+    font-size: 2em;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+
+}
+#peep_button:hover{
+  transform: translateX(10);
+  transform: translateY(10);
+}
+
+#peeps{
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 400px;
+    border: solid;
+    border-color: transparent;
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
+    color: white;
+
+}
+.peep{
+    padding: 10px;
+    padding: 10px;
+    border-bottom: solid;
+    border-width: 10px;
+}
+
+.peep_body{
+  font-size: 1.5em;
+  font-family: comfortaa;
+}
+
+#peep_user{
+  color: rgba(255,255,255,0.5);
+}
+#peep_time{
+  color: rgba(255,255,255,0.5);
+}

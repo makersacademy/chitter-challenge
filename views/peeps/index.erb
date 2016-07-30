@@ -1,0 +1,14 @@
+
+<form id="new_peep" action="/peeps" method="post">
+  <input id='new_peep_bod' type="text" name="peep" required>
+  <input id='peep_button' type="submit" value='peep!'>
+</form>
+<div id='peeps'>
+<% Peep.all.sort_by {|peep| peep.time }.reverse.each do |peep| %>
+<div class='peep'>
+<div class='peep_body'><%= peep.body %></div>
+<div id='peep_user'><%=  peep.user.username %></div>
+<div id='peep_time'><%= peep.time.strftime("on %m/%d/%Y, at %I:%M%p") %></div>
+</div>
+<% end %>
+</div>
