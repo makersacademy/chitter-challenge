@@ -13,9 +13,12 @@ feature 'Sign up' do
     expect(User.first.email).to eq "jonny@email.com"
   end
 
-  scenario 'requires a matching confirmattion password' do
+  scenario 'Is completed with passwords that do not match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(page.current_path).to eq '/signup'
+    expect(page).to have_content 'Sorry, password and password confirmation do not match'
   end
+
 end
 
 # User Story 2:
