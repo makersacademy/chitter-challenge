@@ -67,7 +67,6 @@ form.buttons {
     width: 100px;
     display: inline;
     position: absolute;
-    z-index: -1;
     height: 120%;
     border: solid;
     right: 0;
@@ -78,9 +77,15 @@ form.buttons {
 
 }
 #peep_button:hover{
-  transform: translateX(10);
-  transform: translateY(10);
-}
+      box-shadow: 2px 2px darkgrey;
+      transform: translateY(-2px);
+  }
+  #peep_button:focus{
+    outline:none;
+    transform: none;
+    box-shadow: none;
+  }
+
 
 #peeps{
     position: relative;
