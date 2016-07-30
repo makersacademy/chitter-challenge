@@ -8,3 +8,4 @@ require_relative 'datamapper_config'
 
 require_relative 'server'
 require_relative 'controlers/user'
+require_relative 'controlers/session'
