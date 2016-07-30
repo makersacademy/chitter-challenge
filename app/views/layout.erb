@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div>
+      <% if current_user %>
+        Welcome, @<%= current_user.username %>
+      <% else %>
+        Welcome, guest.
+        Please <a href="/sessions/new">Log In</a>
+        or <a href="/users/new">Sign Up</a>
+      <% end %>
+    </div>
+    <div>
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+      <% if flash[:error] %>
+        <% flash[:error].each do |error| %>
+          <%= error %>
+        <% end %>
+      <% end %>
+    </div>
+    <%= yield %>
+    <div>
+      Arunas Skirius, 2016
+    </div>
+  </body>
+</html>
