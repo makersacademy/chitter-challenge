@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-gem 'datamapper'
+gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
+gem 'rack'
+gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
@@ -12,5 +15,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
   gem 'capybara'
-  gem 'sinatra'
+  gem 'database_cleaner'
 end

@@ -1,10 +1,13 @@
 ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -26,7 +29,23 @@ class Chitter < Sinatra::Base
     name: params[:name],
     username: params[:username])
     session[:user_id] = user.id
-    redirect '/'
+    redirect to('/')
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/logincheck' do
+    user = User.authenticate(params[:email], params[:password])
+    #authenticate method returns the authenticated user
+    if user  #if authenticated user == user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :login
+    end
   end
 
   # start the server if ruby file executed directly
