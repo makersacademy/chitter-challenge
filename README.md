@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-Features:
+User Stories:
 -------
 
 ```
