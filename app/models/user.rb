@@ -26,4 +26,15 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    # Is the password digest created from this user's password attempt
+    # = to the password digest that we have stored for their account?
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+
 end
