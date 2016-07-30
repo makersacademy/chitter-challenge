@@ -1,4 +1,4 @@
-![Sh*tter](https://github.com/twilliams1988/chitter-challenge/blob/master/sh-tter_logo.jpg =250x "Sh*tter")
+![Sh*tter](https://github.com/twilliams1988/chitter-challenge/blob/master/sh-tter_logo.jpg "Sh*tter")
 
 Sh*tter
 =================
