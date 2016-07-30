@@ -33,6 +33,33 @@ feature 'User sign up' do
 
 end
 
+feature 'User can sign in' do
+  let!(:user) do
+    User.create(name: 'new user', handle: 'new_user1', email: 'user@example.com', password: 'secret1234', password_confirmation: 'secret1234')
+  end
+
+  scenario 'with correct credentials' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, new user"
+  end
+end
+
+feature 'User can sign out' do
+  let!(:user) do
+    User.create(name: 'new user', handle: 'new_user1', email: 'user@example.com', password: 'secret1234', password_confirmation: 'secret1234')
+  end
+
+  scenario 'when signed in' do
+    sign_in(email: user.email, password: user.password)
+    click_button 'Sign out'
+    expect(page).to have_content 'Goodbye'
+    expect(page).not_to have_content 'Welcome'
+  end
+
+
+
+end
+
 
 def sign_up(email: 'not@email.com', password_confirmation: '12345')
   visit '/users/new'
@@ -44,5 +71,10 @@ def sign_up(email: 'not@email.com', password_confirmation: '12345')
   click_button 'Sign up'
 end
 
-# feature 'User can sign in' do
-# end
+
+def sign_in(email:, password:)
+  visit 'sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
