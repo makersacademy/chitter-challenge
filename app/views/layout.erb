@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chitter</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Chitter</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="<%= "active" if active_page? %>"><a href="/">Home</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Logout</a></li>
+          <li class="<%= "active" if active_page?('/session/new') %>"><a href="/session/new">Sign up</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2>Welcome to Chitter <%= session[:name] if session[:name] %></h2>
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">&#215;</a>
+    </div>
+   <% end %>
+    <%= yield %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
