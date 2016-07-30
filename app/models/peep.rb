@@ -8,8 +8,6 @@ class Peep
   property :id,   Serial
   property :peep, String
 
-  belongs_to :user
-
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_test")

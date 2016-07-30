@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require 'models/peep'
+require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -9,7 +9,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :'peep'
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   # start the server if ruby file executed directly
