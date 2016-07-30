@@ -9,7 +9,7 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :username, String
+  property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true, format: :email_address
   property :password_digest, String, length: 60
 
@@ -19,5 +19,14 @@ class User
   end
 
   validates_confirmation_of :password
+
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
 
 end
