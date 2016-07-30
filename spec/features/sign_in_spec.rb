@@ -1,14 +1,21 @@
-# feature 'User sign up' do
-#
-#   scenario 'can see the sign up page' do
-#     visit '/users'
-#     within 'ul#users' do
-#       expect(page).to have_content('Please sign up')
-#     end
-#   end
-#   # scenario 'I can sign up as a new user' do
-#   #   expect { sign_up }.to change(User, :count).by(1)
-#   #   expect(page).to have_content('Please sign up')
-#   #   expect(User.first.username).to eq('nomi811')
-#   # end
-# end
+feature 'User signing in' do
+
+  scenario 'an existing user can log in' do
+  sign_in(username: 'xyz', password: 'pass')
+   expect(page.status_code).to eq(200)
+  end
+
+  let!(:user) do
+    User.create(username: 'userexample',
+                password: 'secret',
+                confirm_password: 'secret',
+                name: 'sam',
+                email: 'sam@example.com')
+  end
+  scenario 'with correct credentials' do
+    sign_in(username: user.username, password: user.password)
+    expect(page).to have_content "Welcome, #{user.username}"
+    # sign_in(username: 'userexample', password: 'secret')
+    # expect(page).to have_content "Welcome, userexample"
+  end
+end
