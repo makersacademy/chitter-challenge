@@ -11,7 +11,10 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 require './app/app'
+require './app/models/peep'
+require './app/models/user'
 require_relative 'web_helper'
+
 
 
 SimpleCov.formatters = [

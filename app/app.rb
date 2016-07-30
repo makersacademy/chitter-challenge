@@ -59,6 +59,11 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = 'goodbye!'
     redirect to '/users/new'
   end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
