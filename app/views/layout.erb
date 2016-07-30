@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTER</title>
+  </head>
+
+  <body style="background-color:powderblue;">
+    <% if current_user %>
+      Hello <%= current_user.name %>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

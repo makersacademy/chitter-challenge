@@ -1,4 +1,4 @@
-def fill_sign_in_form
+def fill_sign_up_form
   visit "/signup"
   fill_in "user_name", with: "predator911"
   fill_in "name", with: "Jon Doe"
