@@ -8,6 +8,8 @@ class Chitter < Sinatra::Base
     'Hello Chitter!'
   end
 
+  
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
