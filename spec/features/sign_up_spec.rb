@@ -3,7 +3,7 @@ require 'spec_helper'
   feature 'user sign up' do
     scenario 'user can sign up' do
       sign_up
-      expect(page).to have_content('Welcome aga!')
+      expect(page).to have_content('Welcome Becca!')
     end
 
     scenario 'on user sign-in increase user count by one' do
@@ -13,7 +13,7 @@ require 'spec_helper'
 
     scenario 'check user\'s email address is correct' do
       sign_up
-      expect(User.first.email).to eq('aga@gmail.com')
+      expect(User.first.email).to eq('becca@becca.com')
     end
 
     scenario 'sign up fails if password does not match password confiramtion' do

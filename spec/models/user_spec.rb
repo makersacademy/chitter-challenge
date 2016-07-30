@@ -2,7 +2,7 @@ describe User do
 
   let(:user) do
     User.create(:name => 'Becca',
-                :email => 'becca@gmail.com',
+                :email => 'becca@becca.com',
                 :username => 'pregnantwombat',
                 :password => 'haircut',
                 :password_confirmation => 'haircut')
