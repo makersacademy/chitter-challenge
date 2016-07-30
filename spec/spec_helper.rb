@@ -1,3 +1,6 @@
+ENV['RACK_ENV'] = "test"
+
+# CHECK ALL OF THESE
 require './app/models/peep'
 
 require 'database_cleaner'
