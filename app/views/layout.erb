@@ -1,0 +1,27 @@
+<html>
+<head> Chitter
+   <% if current_user %>
+  Welcome <%=current_user.name%>
+  <% end %>
+</head>
+  <body>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+      <% end %>
+    <ul id="errors">
+    <% if flash[:errors] %>
+     <%flash[:errors].each do |error|%>
+    <li> <%=error %> </li>
+      <%end %>
+    <% end %>
+    </ul>
+    <div class="login" id="login">
+    <a href="/sessions"> <button type="button"> Log in </button> </a>
+  </div>
+
+
+  <%= yield %>
+  </body>
+
+
+</html>
