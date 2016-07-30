@@ -1,8 +1,11 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+
+  register Sinatra::Flash
 
   require_relative 'data_mapper_setup'
 
@@ -23,8 +26,13 @@ class Chitter < Sinatra::Base
                         username: params[:username],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/')
+    if user.save
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:notice] = "Password does not match the confirmation"
+      erb :'users/new'
+    end
   end
 
   helpers do
