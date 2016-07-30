@@ -1,6 +1,5 @@
 .nav{
     color: white;
-    background-color: aquamarine;
     padding: 10px;
     height: 40px;
   }
@@ -113,4 +112,145 @@ form.buttons {
 }
 #peep_time{
   color: rgba(255,255,255,0.5);
+}
+#notes{
+  text-align: right;
+  margin-right: 5%;
+}
+#errors{
+  margin-left: 5%;
+  color: red;
+}
+
+.log_in input[type="text"]{
+  width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+}
+.log_in input[type="password"]{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+
+}
+#form{
+  display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+    height: 40px;
+}
+label{
+    border: solid;
+    padding: 5px;
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+    border-radius: 10px;
+    color: white;
+    height: 44px;
+
+}
+
+#entry{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+    padding: 5px;
+    border-color: dodgerblue;
+    border-radius: 0px 10px 10px 0px;
+    color: black;
+    width: 75%;
+    height: 1.5em;
+    margin: 0;
+    display: grid;
+    font-size: 1.5em;
+}
+#entry:focus {
+  outline:none;
+}
+
+#login_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    z-index: -1;
+    border: solid;
+    right: 0;
+    text-align: end;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    border-color: dodgerblue;
+    background-color: dodgerblue;
+    height: 2.15em;
+    font-size: 1.5em;
+  }
+  #password{
+        bottom: 0;
+    position: absolute;
+  }
+  #username{
+    top: 0;
+position: absolute;
+  }
+
+#new_session{
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+  height: 200px;
+  }
+
+  #new_account{
+      display: block;
+      position: relative;
+      margin: auto;
+      margin-top: 3%;
+      width: 400px;
+    height: 400px;
+    }
+      #new_password{
+        bottom: 25%;
+        position: absolute;
+      }
+      #new_email{
+        top: 25%;
+    position: absolute;
+      }
+        #new_password_confirmation{
+              bottom: 0%;
+          position: absolute;
+        }
+        #new_username{
+          top: 0%;
+      position: absolute;
+        }
+#register_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    z-index: -1;
+    border: solid;
+    right: 0;
+    text-align: end;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    border-color: dodgerblue;
+    background-color: dodgerblue;
+    height: 2.15em;
+    font-size: 1.5em;
+  }
+#new_username .input[type="text"] {
+  width: 100%
 }

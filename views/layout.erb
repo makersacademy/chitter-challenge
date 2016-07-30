@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
     <style>
-    <% c1 = ['aquamarine', 'coral', 'gold', 'crimson', 'dodgerblue'].sample  %>
+    <% c1 = ['aquamarine', 'coral', 'gold', 'crimson', 'dodgerblue', 'BlueViolet ', 'lightgreen', 'mediumvioletred', 'slategrey'].sample  %>
     .peep{
       background-color: <%= c1 %>
     }
@@ -22,6 +22,22 @@
     .nav{
         background-color: <%= c1 %>;
         }
+        label{
+    background-color: <%= c1 %>;
+    border-color: <%= c1 %>;
+        }
+          #login_button{
+    border-color: <%= c1 %>;
+    background-color: <%= c1 %>;
+          }
+          #register_button{
+    border-color: <%= c1 %>;
+    background-color: <%= c1 %>;
+          }
+          #entry{
+                border-color: <%= c1 %>;
+
+          }
       </style>
     <title>Chitter</title>
   </head>
@@ -53,6 +69,7 @@
   <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
       <%= error %>
+      <br>
       <% end %>
   <% end %>
 </div>

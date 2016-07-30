@@ -1,5 +1,6 @@
-<form class="log in" action="/sessions" method="post">
-  <input type="text" name="username" required>
-  <input type="password" name="password" required>
-  <input type="submit" value="log in">
+
+<form id='new_session'action="/sessions" method="post">
+  <div id='username'><label>Username: </label><input id='entry' type="text" name="username" required></div>
+  <div id='password'><label>Password:  </label><input id='entry' type="password" name="password" required>
+  <input id='login_button' type="submit" value="log in"></div>
 </form>
