@@ -9,4 +9,5 @@ feature 'User sign up' do
     expect { register }.to change(User, :count).by(1)
     expect(page).to have_content("Welcome to Chitter")
   end
+
 end
