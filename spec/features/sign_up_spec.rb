@@ -1,3 +1,5 @@
+require './app/models/user'
+
 feature "sign up" do
   scenario "user can sign up using a form" do
     visit "/signup"
