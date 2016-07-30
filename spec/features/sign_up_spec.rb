@@ -5,5 +5,10 @@ feature "Sign-up" do
 
   scenario "returns errors when the sign up form is invalid" do
     expect{ sign_up(name: nil) }.not_to change { User.count }
+    expect{ sign_up(password_confirmation: '1234') }.not_to change { User.count }
+    expect(page).to have_content "Please see the below errors:"
+    expect(current_path).to eq "/user/new"
   end
+
+
 end
