@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter Client</title>
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic" rel="stylesheet">
+  <style>
+  /* Global Styles */
+  html {background: linear-gradient(170deg, blue 30%, #2cb5e8);
+        height: 100%;}
+  body {margin: 0px;
+        border: 0px;
+        padding: 10px;
+        color: #fff;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+        font-size: 17px;}
+  h1 {font-family: Dosis; font-weight: bold; font: 40px; margin-left: 50px; display: inline;}
+  .log_out {display: inline;
+            float: right;
+            background: transparent;
+            margin: 10px 20px;}
+  input[type="submit"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {font-size: 17px;
+                          background: rgba(255, 255, 255, 0.1);
+                          padding: 8px;
+                          border: 2px solid rgba(255, 255, 255, 0.03);
+                          color: #fff;
+                          border-radius: 8px;
+                          width: 160px;
+                          transition: 0.3s;
+                          margin: 6px;
+                          }
+  input[type="submit"] {cursor: pointer; border: 2px solid #fff;
+                        background: transparent;
+                        width: 100px;
+                        margin: 0px;}
+  input[type="submit"]:hover {transform: scale(1.2);}
+  input[value="Sign Up"] {margin-top: 60px;}
+  input[name="chit"] {width: 70%; margin-right: 16px;}
+  .body_content {text-align: center; margin-top: 120px;}
+  ul {list-style-type: none;}
+  .title {color: red}
+  .messages {margin-left: 12px;}
+  a {color: #fff; font-weight: bold; text-decoration: none;}
+  a:hover {color: red;}
+  footer {position: absolute;
+          bottom: 0px;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          margin: 0px 10px 10px 10px;
+          padding: 0px 10px 0px 10px;
+          width: 90%}
+  .left_col {width: 38%; float: left}
+  .read_more {float: right;}
+  .sign_in_wrapper {text-align: right; margin: auto; width: 280px}
+  .message {font-style: italic; font-size: 20px; font-family: Dosis}
+  .message_meta {font-size: 13px;}
+  .big_quote {font-size: 24px; font-weight: bold; color: rgba(255, 255, 255, 0.5);}
+  .go_bold {font-weight: bold;}
+  .chits {margin-bottom: 16px;}
+  #user_block {height: 400px; margin-top: -110px}
+  #chit {margin-top: 24px;}
+  .chit_clip {overflow: hidden; max-width: 83%;}
+  #chit_container {max-width: 83%; overflow-y: scroll; height: 320px; margin-left: auto; margin-right: -20px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chitter<span class="title">.<span></h1>
+<% if current_user %>
+  <form action="/sessions/new" method="post" class="log_out">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log Out">
+  </form>
+<% else %>
+  <form action="/sessions/new" method="get" class="log_out">
+    <input type="submit" value="Sign In">
+  </form>
+<% end %>
+<% if flash[:message] && !flash[:message].empty? %>
+  <ul class="messages">
+    <% flash[:message].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+</header>
+<section class="body_content">
+<%= yield %>
+</section>
+<footer>
+  <div class="left_col">
+  <p class="foot_notes">Created in July 2016 for the weekend challenge, of my fourth week in <a href="" target="_blank">Makers Academy.</a></p>
+  </div>
+  <p class="read_more">README on <a href="" target="_blank">Github.io</a></p>
+</footer>
+</body>
+</html>

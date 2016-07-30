@@ -1,0 +1,29 @@
+<% if current_user %>
+  <div id="user_block">
+  <% if @chits %>
+   <div class="chit_clip">
+    <div id="chit_container">
+      <ul class="chit_list">
+        <% @chits.reverse.each do |chit| %>
+          <li class="chits"><span class="message"><span class="big_quote">&ldquo;</span> <%= chit.message %> <span class="big_quote">&rdquo;</span></span><br>
+           <span class="message_meta">Chitted : <span class="go_bold"><%= chit.time %></span> on <span class="go_bold"><%= chit.date %></span>, by <span class="go_bold"><%= chit.chitee %></span></span>
+         </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+  <form action="/chits/new" method="post" id="chit">
+    <input type="text" name="chit" value="You have 255 characters to wisely use..." onfocus="if(this.value == 'You have 255 characters to wisely use...') {this.value=''}">
+    <input type="submit" value="Chit It!">
+  </form>
+  </div>
+<% else %>
+  <form action="/user" method="post">
+    <input type="text" name="name" value="<%= @user.name || 'Your Name?'%>" onfocus="if(this.value == 'Your Name?') {this.value=''}" onblur="if(this.value == ''){this.value ='Don\'t Be Shy...'}" required>
+    <input type="email" name="email" value="<%= @user.email || 'Your Email?'%>" onfocus="if(this.value == 'Your Email?') {this.value=''}" onblur="if(this.value == ''){this.value ='Your Email?'}" required>
+    <input type="password" name="password" value="111111" onfocus="if(this.value == '111111') {this.value=''}" onblur="if(this.value == ''){this.value ='111111'}" required>
+    <input type="password" name="confirm" value="111111" onfocus="if(this.value == '111111') {this.value=''}" onblur="if(this.value == ''){this.value ='111111'}" required><br>
+    <input type="submit" value="Sign Up">
+  </form>
+<% end %>
