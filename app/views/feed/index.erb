@@ -1,2 +1,18 @@
 <h1>Feed</h1>
-
+<% if current_user %>
+  <form action="/feed" method="post">
+    <label for="message">
+      Message:
+      <input type="text" name="message" required>
+    </label>
+    <input type="submit" value="Peep!">
+  </form>
+<% end %>
+<div>
+  <% @peeps.each do |peep| %>
+    <div>
+      <p><%= peep.message %></p>
+      <small>by <%= peep.user.name + ' (@' + peep.user.username + ')' %></small>
+    </div>
+  <% end %>
+</div>

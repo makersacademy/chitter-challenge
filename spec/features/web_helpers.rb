@@ -1,8 +1,8 @@
-def sign_up(username: "arukomp",
-            name: "Arunas Skirius",
-            email: "arukomp@gmail.com",
-            password: "pass1234",
-            password_confirmation: "pass1234")
+def sign_up(username: "joedoe",
+            name: "Joe Doe",
+            email: "joedoe@example.com",
+            password: "notjoe",
+            password_confirmation: "notjoe")
   visit '/users/new'
   fill_in :username, with: username
   fill_in :name, with: name

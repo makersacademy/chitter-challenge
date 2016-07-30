@@ -3,10 +3,12 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require 'pry'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super duper secret muahaha'
+  use Rack::MethodOverride
 
   register Sinatra::Flash
 
@@ -54,8 +56,27 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash[:notice] = "You have been logged out"
+    redirect '/feed'
+  end
+
   get '/feed' do
+    @peeps = Peep.all
     erb :'feed/index'
+  end
+
+  post '/feed' do
+    peep = Peep.new(message: params[:message])
+    peep.user_id = current_user.id
+    if peep.save
+      flash[:notice] = "Peep peep!"
+      redirect '/feed'
+    else
+      flash[:error] = peep.errors.full_messages
+      redirect '/feed'
+    end
   end
 
   # start the server if ruby file executed directly

@@ -10,6 +10,8 @@ class User
   property :email, String, unique: true, required: true
   property :password_digest, String, length: 60
 
+  has n, :peeps
+
   validates_presence_of :password
   validates_confirmation_of :password
 
