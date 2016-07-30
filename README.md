@@ -1,6 +1,10 @@
 Chitter Challenge
 =================
 
+On this weeks challenge 'Chitter Challenge' I mostly used maretials form
+Bookmark Manager and going form one user story to another I learned new concepts
+on the go.
+
 User stories:
 
 ```
