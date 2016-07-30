@@ -3,7 +3,7 @@
 # So that I can post messages on Chitter as me
 # I want to log in to Chitter
 
-feature 'Sign in' do
+feature 'Log in' do
   let!(:user) do
     User.create(username: 'Jonny',
                 email: 'jonny@email.com',
@@ -11,7 +11,7 @@ feature 'Sign in' do
                 password_confirmation: 'somepassword')
   end
 
-  scenario 'I can sign in with correct credentials' do
+  scenario 'I can log in with correct credentials' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome back to Chitter, #{user.username}"
   end
@@ -20,7 +20,7 @@ feature 'Sign in' do
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password
-    click_button 'Sign in'
+    click_button 'Log in'
   end
 
 end
