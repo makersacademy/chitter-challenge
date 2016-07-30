@@ -17,8 +17,14 @@
   </ul>
     <% end %>
     <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>
