@@ -40,7 +40,7 @@ feature 'User sign up' do
   end
 
   scenario 'sign up without username' do
-
+    expect { sign_up(username: nil) }.not_to(change(User, :count))
   end
 
   scenario 'sign up without password' do
