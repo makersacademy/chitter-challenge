@@ -8,6 +8,11 @@
     <% if current_user %>
       Welcome, <%= current_user.username %>
     <% end %>
-    <%= yield %>  
+
+    <% if flash.now[:error] %>
+      <div id='error'><%= flash[:error] %></div>
+    <% end %>
+
+    <%= yield %>
   </body>
 </html>
