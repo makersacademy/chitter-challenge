@@ -1,4 +1,5 @@
-<h1>Please sign in</h1>
+<h1>Welcome to Chitter</h1>
+<h2>Please sign in</h2>
 
 <form action="/sessions" method="post">
   <label for='email'>
@@ -8,4 +9,9 @@
     Password: <input type="password" name="password">
   </label>
   <input type="submit" value="Sign in">
+</form>
+
+<h2>New user? </h2>
+<form action="/users/new">
+  <input type="submit" name="sign_up" value="Sign up">
 </form>

@@ -4,6 +4,7 @@ class Link
   has n, :tags, through: Resource
 
   property :id, Serial
-  property :title, String
+  property :title, String, length: 160
   property :url, String
+  property :created_at, DateTime
 end

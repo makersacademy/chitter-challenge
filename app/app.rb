@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
-class BookmarkManager < Sinatra::Base
+class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -20,9 +20,9 @@ class BookmarkManager < Sinatra::Base
     erb :'sessions/new'
   end
 
-  get '/users' do
-    erb :'users/new'
-  end
+  # get '/users' do
+  #   erb :'users/new'
+  # end
 
   get '/users/new' do
     @user = User.new
