@@ -1,9 +1,14 @@
 <h1>Messages</h1>
 
+<form action='/' method='post'>
+  Message: <input type="text" name="message">
+  <input type="submit" value='Submit'>
+</form>
+
 <ul id='messages'>
-    <% @messages.each { |message| %>
-      <li>
-        <%= message.message %>
-      </li>
-      <% } %>
-  </ul>
+  <% @messages.each { |message| %>
+    <li>
+      <%= message.message %>
+    </li>
+  <% } %>
+</ul>

@@ -7,5 +7,11 @@ class Chitter < Sinatra::Base
     erb :'homepage'
   end
 
+  post '/' do
+    message = Message.new(message: params[:message])
+    message.save
+    redirect to '/'
+  end
+
   run! if app_file == $0
 end
