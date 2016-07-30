@@ -8,10 +8,10 @@ class User
 
   validates_confirmation_of :password
 
-  property :id,               Serial
-  property :name,             String, required: true
-  property :handle,           String, required: true
-  property :email,            String, format: :email_address, required: true
+  property :id, Serial
+  property :name, String, required: true
+  property :handle, String, required: true
+  property :email,  String, format: :email_address, required: true, unique: true
   property :password_digest,  String, length: 60
 
   def password=(password)
