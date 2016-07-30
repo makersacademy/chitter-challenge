@@ -105,3 +105,20 @@ feature "sign in to chitter" do
     expect(page).to have_content "The username or password is incorrect"
   end
 end
+
+feature "sign out of chitter" do
+  before(:each) do
+    User.create(username: "bobsmith1",
+                email: "bob@smith.com",
+                password: "password123",
+                password_confirmation: "password123")
+  end
+
+  scenario "when signed in" do
+    sign_in(username: "bobsmith1", password: "password123")
+    click_button 'Sign out'
+    expect(page).to have_content("So long, farewell, auf wiedersehen, adieu!")
+    expect(page).not_to have_content("Welcome, bobsmith1")
+  end
+  
+end

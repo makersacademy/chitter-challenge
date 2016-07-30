@@ -12,6 +12,7 @@ require 'simplecov'
 require './app/models/user'
 require './app/app'
 require_relative 'web_helper'
+require_relative 'helpers/session'
 require 'database_cleaner'
 
 SimpleCov.formatters = [
@@ -54,6 +55,8 @@ RSpec.configure do |config|
     # ...rather than:
     #   # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+
+    config.include SessionHelpers
 
     # Everything in this block runs once before all the tests run
     config.before(:suite) do

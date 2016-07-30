@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -58,6 +59,11 @@ class Chitter < Sinatra::Base
     erb :'peeps/feed'
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "So long, farewell, auf wiedersehen, adieu!"
+    redirect to '/peeps/feed'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
