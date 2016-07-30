@@ -9,5 +9,8 @@ class User
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, String, length: 60
 
+  attr_reader :password
+  
+
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 end
