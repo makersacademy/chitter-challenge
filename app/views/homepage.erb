@@ -8,7 +8,10 @@
 <ul id='messages'>
   <% @messages.each { |message| %>
     <li>
-      <%= message.message %>
+      <%= message.message %><br/>
+      <% @date = message.created_at %>
+      <%= @date.strftime('%v')%>
+      <%= @date.strftime('%R')%>
     </li>
   <% } %>
 </ul>
