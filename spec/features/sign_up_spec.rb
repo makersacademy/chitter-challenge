@@ -10,7 +10,7 @@ feature "sign up" do
     expect(page).to have_content "Welcome Richard"
   end
   scenario "user details are saved to the database" do
-    signup
+    expect {signup}.to change(User, :count).by(1)
     expect(User.first.email).to eq "richard@gmail.com"
   end
 end
