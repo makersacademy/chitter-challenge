@@ -7,7 +7,7 @@ feature "sign up" do
   end
   scenario "user sees welcome message after signing up" do
     signup
-    expect(page).to have_content "Welcome Richard"
+    expect(page).to have_content "Welcome Richard!"
   end
   scenario "user details are saved to the database" do
     expect {signup}.to change(User, :count).by(1)
