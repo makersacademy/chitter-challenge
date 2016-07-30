@@ -18,9 +18,9 @@ class User
   validates_presence_of :email
   #validates_format_of :email, as: :email_address
 
-  def password=(new_password)
-    @password = new_password
-    self.password_digest = BCrypt::Password.create(new_password)
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   def self.authenticate(email, password)
