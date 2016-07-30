@@ -1,0 +1,24 @@
+<section class="filter_tags">
+  <form action="/tags/filter" method="post">
+    <label for="filter_tag">
+      Filter tags:
+      <input type="text" name="filter_tag">
+    </label>
+    <input type="submit" name="submit" value="Filter"> <a href="/links">Clear filter</a>
+  </form>
+</section>
+
+<h1> Links </h1>
+<section class="list_links">
+  <ul id='links'>
+    <% @links.each do |link| %>
+      <li>
+        Title: <%= link.title %><br>
+        URL:   <%= link.url %><br>
+        Tags:  <%= link.tags.map(&:name).join(", ") %><br><br>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<a href="/navigation">Bookmarks Home</a>
