@@ -9,11 +9,11 @@ feature 'User sign up' do
     visit 'users/new'
     expect(page.status_code).to eq 200
 
-    # fill_in :email, with: 'jck_catchall@outlook.com'
-    # fill_in :password, with: password_confirmation
-    # click_button 'Register'
-    #
-    # expect { sign_up }.to change(User, :count).by(1)
-    # expect(page).to have_content("Welcome to Chitter")
+    fill_in :email, with: 'jck_catchall@outlook.com'
+    fill_in :password, with: password_confirmation
+    click_button 'Register'
+
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content("Welcome to Chitter")
   end
 end
