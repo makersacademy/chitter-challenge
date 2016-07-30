@@ -1,0 +1,17 @@
+Sign in !
+
+<form action="/sessions" method="post">
+  <label for="email">
+    Enter your email:
+  <input type="email" name="email" placeholder="email@email.com"/>
+  </label>
+  <label for="password">
+    Enter your password:
+  <input type="password" name="password"/>
+  </label>
+  <input type="submit" value="Sign in"/>
+</form>
+
+<% if flash[:errors] %>
+  <div id='notice'><%= flash[:errors] %></div>
+<% end %>
