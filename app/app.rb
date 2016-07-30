@@ -51,6 +51,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You have signed out. Goodbye!'
+    redirect to '/posts'
+  end
+
   get '/posts' do
     erb :'posts/index'
   end
