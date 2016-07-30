@@ -1,7 +1,8 @@
+require 'data_mapper'
 ENV['RACK_ENV'] ||= "development"
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_development")
 
-require 'data_mapper'
+
 require_relative './models/user'
 require 'sinatra/flash'
 require 'sinatra/base'
