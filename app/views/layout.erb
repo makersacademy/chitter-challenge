@@ -8,6 +8,10 @@
     <div>
       <% if current_user %>
         Welcome, <%= current_user.username %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign Out'>
+        </form>
       <% else %>
         Welcome, guest.
         Please <a href='/sessions/new'>Sign In</a>
@@ -24,6 +28,12 @@
       </ul>
       <%end%>
     </div>
+
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>

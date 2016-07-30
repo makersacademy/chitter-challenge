@@ -11,6 +11,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   get '/' do
@@ -30,7 +32,7 @@ class Chitter < Sinatra::Base
                     confirm_password: params[:confirm_password])
     if @user.save
       session[:user_id] = @user.id
-      redirect to '/users/new'
+      redirect to '/users/new' #/peeps
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -45,7 +47,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to '/users/new'
+      redirect to '/users/new' #/peeps
     else
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
@@ -63,6 +65,12 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.create(title: params[:title], message: params[:message])
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/users/new' #/peeps
   end
 
   helpers do
