@@ -7,6 +7,7 @@ class User
   validates_confirmation_of :password
   validates_presence_of :email
   validates_presence_of :user_name
+  validates_format_of :email, as: :email_address
 
 
   property :id, Serial
