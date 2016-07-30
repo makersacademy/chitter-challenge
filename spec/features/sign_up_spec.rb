@@ -20,4 +20,10 @@ feature 'Sign up' do
     expect { sign_up(email: 'invalid@gmail')}.not_to change(User, :count)
     expect(page).to have_content('Email has an invalid format')
   end
+
+  scenario 'user cannot sign-up with an already registered email' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
+  end
 end
