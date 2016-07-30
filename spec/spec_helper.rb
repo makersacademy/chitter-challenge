@@ -106,17 +106,17 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
   RSpec.configure do |config|
-    config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
-    config.after(:each) do
-      DatabaseCleaner.clean
+  config.after(:each) do
+    DatabaseCleaner.clean
     end
   end
 end
