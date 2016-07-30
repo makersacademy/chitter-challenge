@@ -70,7 +70,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep])
+    user = User.get(session[:user_id])
+    peep = Peep.create(peep: params[:peep])
+    peep.user << user
+    # peep.save
     redirect '/peeps'
   end
   # start the server if ruby file executed directly

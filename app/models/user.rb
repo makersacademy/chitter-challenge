@@ -9,7 +9,7 @@ class User
   validates_presence_of :user_name
   validates_format_of :email, as: :email_address
 
-
+  
   property :id, Serial
   property :user_name, String, required: true, unique: true
   property :email, String, required: true, unique: true
