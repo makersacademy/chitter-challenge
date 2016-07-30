@@ -6,12 +6,9 @@ feature 'User sign up' do
   end
 
   scenario 'requires a matching confirmation password' do
-    # again it's questionable whether we should be testing the model at this
-    # level.  We are mixing integration tests with feature tests.
-    # However, it's convenient for our purposes.
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
 
@@ -28,5 +25,16 @@ feature 'User sign up' do
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
   end
+
+  scenario 'does not allow to sign up without an email' do
+    expect { sign_up(email: nil)}.not_to change(User, :count)
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'does not allow to sign up without a valid email' do
+    expect { sign_up(email: 'invalid@com')}.not_to change(User, :count)
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
 
 end
