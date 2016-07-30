@@ -1,9 +1,129 @@
-<h1> Peeps </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter - by Joe Sweeny</title>
+  </head>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-    Peep:  <%= peep.message %>
-    </li>
-  <% end %>
-</ul>
+  <style>
+
+    body, html {
+      font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      background-color: white;
+    }
+
+    a:link {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: black;
+    }
+
+    a:active {
+      text-decoration: none;
+      color: black;
+    }
+
+    #main {
+      width: 100px;
+      height: 100%;
+      padding-left: 375px;
+    }
+
+    #box {
+      border-radius: 10px;
+      width: 510px;
+      height: 220px;
+      background-color: #D7D6D6;
+    }
+    .header {
+      border-radius: 10px 10px 0 0;
+      padding-left: 10px;
+      background-color: #bfbfbf;
+      border-bottom: 1px solid black;
+      width: 500px;
+      font-size: 20px;
+      height: 40px;
+      text-indent: 5px;
+      color: #595959;
+      font-weight: bold;
+    }
+
+    .middle {
+      padding-left: 10px;
+      background-color: #D7D6D6;
+      border-bottom: 1px solid black;
+      width: 500px;
+      font-size: 30px;
+      height: 140px;
+      text-indent: 5px;
+
+    }
+
+    .footer {
+      padding-left: 10px;
+      background-color: #bfbfbf;
+      border-bottom: 2.5px;
+      width: 500px;
+      font-size: 14px;
+      text-indent: 10px;
+      border-right: 5px;
+      border-left: 5px;
+      height: 30px;
+      padding-top: 9px;
+      color: #595959;
+      border-radius: 0 0 10px 10px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+      padding-top: 8px;
+    }
+
+    .new_header {
+      border-radius: 10px 10px 10px 10px;
+      padding-left: 10px;
+      background-color: #7733FF;
+      border: 2.5px solid black;
+      width: 500px;
+      font-size: 20px;
+      height: 40px;
+      text-indent: 5px;
+      font-weight: bold;
+      padding-top: 10px;
+      color: black;
+    }
+
+  </style>
+  <body>
+    <div></div><br>
+    <div id="main">
+
+        <% if current_user %>
+          <div class="new_header"><a href="/peeps/new">PEEP NOW - click here</a></span></div><br>
+        <% else %>
+          <div class="new_header"><a href="/">Want to Peep? Sign in or sign up here</a></span></div><br>
+        <% end %>
+
+        <% Peep.all(order: [:id.desc]).each do |peep| %>
+        <div id="box">
+        <div class="header"><span>@<%= peep.username %></span></div>
+        <div class="middle"><span><%= peep.message %></span></div>
+        <div class="footer">by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %></div>
+        <br></div><br>
+
+      <% end %>
+    </div>
+
+  </body>
+</html>

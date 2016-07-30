@@ -2,19 +2,60 @@
 <html>
   <head>
     <title>Chitter - by Joe Sweeny</title>
+    <link href='/css/application.css' rel='stylesheet' type='text/css'>
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #topbar {
+      background-color: #7733FF;
+      width: 100%;
+      height: 100px;
+      border-bottom: 5px solid black;
+    }
+
+    .small_logo {
+      float: left;
+      padding-top: 8px;
+      padding-left: 225px;
+      padding-bottom: 5px;
+    }
+
+    .big_logo {
+      float: left;
+      padding-top: 8px;
+      padding-bottom: 5px;
+      padding-right: 10px;
+    }
+
+    #user {
+      float: right;
+      padding-right: 330px;
+      padding-top: 30px;
+      color: white;
+    }
+    </style>
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome <%= current_user.full_name %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+    <div id="topbar">
+      <img class="small_logo" src="http://trychitter.com/images/logos/purp.png" height="80px">
+      <image class="big_logo" src="https://media.licdn.com/media/AAEAAQAAAAAAAAezAAAAJDgwMWJhZWQ0LTg4Y2ItNDVjZS04YzlhLWMxMjNiMzE5YjQxZA.png" height="80px">
+
+        <div id="user"><% if current_user %>
+          Welcome <%= current_user.full_name %><br>
+          <form method='post' action='/sessions' align="right">
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        <% end %></div>
+    </div>
+
+
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <!-- Please refer to the following errors below: -->
       <ul id='errors'>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>

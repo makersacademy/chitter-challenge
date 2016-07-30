@@ -1,15 +1,110 @@
-<a href="/users/new">Sign Up</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter - by Joe Sweeny</title>
+  </head>
 
-<a href="/sessions/new">Sign in</a>
-<div id="peeps">
-    <% Peep.all(order: [:id.desc]).each do |peep| %>
+  <style>
 
-    @<%= peep.username %><br>
-    <%= peep.message %><br>
-    by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %><br>
-    <br><br>
+    body, html {
+      font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      background-color: white;
+    }
 
-  <% end %>
-</div>
+    a:link {
+      text-decoration: none;
+      color: #595959;
+    }
 
-<!-- strftime("%B %d, %Y at %I:%M %p") -->
+    a:visited {
+      text-decoration: none;
+      color: #595959;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #595959;
+    }
+
+    a:active {
+      text-decoration: none;
+      color: #595959;
+    }
+
+    #main {
+      width: 100px;
+      height: 100%;
+      padding-left: 375px;
+    }
+
+    #box {
+      border-radius: 10px;
+      width: 510px;
+      height: 220px;
+      background-color: #D7D6D6;
+    }
+    .header {
+      border-radius: 10px 10px 0 0;
+      padding-left: 10px;
+      background-color: #bfbfbf;
+      border-bottom: 1px solid black;
+      width: 500px;
+      font-size: 20px;
+      height: 40px;
+      text-indent: 5px;
+      color: #595959;
+      padding-top: 5px;
+    }
+
+    .middle {
+      padding-left: 5px;
+      background-color: #D7D6D6;
+      border-bottom: 1px solid black;
+      width: 500px;
+      font-size: 26px;
+      height: 140px;
+      text-indent: 2px;
+      font-style: italic;
+      padding-top: 26px;
+      text-align: center;
+    }
+
+    .footer {
+      padding-left: 10px;
+      background-color: #bfbfbf;
+      border-bottom: 2.5px;
+      width: 490px;
+      font-size: 20px;
+      text-indent: 10px;
+      border-right: 5px;
+      border-left: 5px;
+      height: 35px;
+      padding-top: 9px;
+      color: #595959;
+      border-radius: 0 0 10px 10px;
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    span {
+      vertical-align: middle;
+      line-height: normal;
+      padding-top: 18px;
+    }
+
+  </style>
+  <body>
+    <div></div><br><br>
+    <div id="main">
+
+        <div id="box">
+        <div class="header"><span>New to Chitter? <a href="/users/new">Sign Up Here</a></span></div>
+        <div class="middle"><span>"Chitter - like twitter just without the trolls, nonsense opinions and most importantly no Piers Morgan"</span></div>
+        <div class="footer">Already registered? <a href="/sessions/new">Sign in here</a></div>
+        <br></div><br>
+    </div><br><br>
+    <div align="center"><a href="/peeps">Get a taste of Chitter before you sign up<br>
+    by clicking here</a></div>
+  </body>
+</html>
