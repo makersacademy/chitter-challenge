@@ -3,6 +3,8 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
+  #has n :peeps, through: Resource
+
   attr_reader :password
   attr_accessor :password_confirmation
 

@@ -1,5 +1,3 @@
-require_relative 'web_helpers'
-
 feature "sign up" do
 
   scenario "user can sign up" do
