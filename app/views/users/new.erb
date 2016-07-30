@@ -2,7 +2,7 @@
 
 <form action="/users" method="post">
   <label for="name">
-    Name: <input name='name' type='text' value="<%= @user.name %>">
+    Name: <input name='name' type='text' value="<%= @user.name %>" required>
   </label>
   <label for="email">
     Email: <input name='email' type='text' value="<%= @user.email %>">
