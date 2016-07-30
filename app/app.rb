@@ -1,17 +1,11 @@
 ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
-require_relative 'models/peep'
-require_relative 'models/user'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
-
-  # DO WE WANT THIS?
-  get '/' do
-    'Hello Chitter!'
-  end
 
   get '/signup' do
     erb :'signup'
