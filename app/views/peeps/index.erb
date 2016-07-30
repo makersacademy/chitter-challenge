@@ -1,0 +1,17 @@
+<ul id="peeps">
+  <% @peeps.each do |peep|%>
+  <li>
+    <h4>Peep!</h4>
+    <h4><%= peep.title %></h4>
+     <%= peep.body %>
+    <h4>Username:</h4> <%= peep.username %>
+    <h4>Name:</h4> <%= peep.name %>
+    <h4>Created:</h4> <%= peep.created_at %>
+  </li>
+  <% end %>
+</ul>
+
+
+<form action="/peeps/new" method="get">
+<button type="submit" value="Submit" style="height:50px; width:500px">Peep again!</button>
+</form>

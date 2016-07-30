@@ -4,6 +4,7 @@ require 'sinatra/base'
 require './data_mapper_setup.rb'
 require './app/models/user'
 require 'sinatra/flash'
+require './app/models/peep'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -28,9 +29,13 @@ class Chitter < Sinatra::Base
     username: params[:username],
     password: params[:password],
     password_confirmation: params[:password_confirmation])
+
+    # if @user.password.nil?
+    #   flash.now[:errors] = @user.errors.full_messages
+    #   erb :'users/new'
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/')
+      redirect to('/peeps/new')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -46,7 +51,7 @@ class Chitter < Sinatra::Base
                           params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect to('/peeps/new')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -58,6 +63,42 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = 'goodbye!'
     redirect to '/'
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    username = current_user.username
+    name = current_user.name
+  Peep.create(
+  title: params[:title],
+  body: params[:body],
+  created_at: Time.now,
+  username: username,
+  name: name)
+  redirect to ('/peeps')
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+  erb :'peeps/index'
+  end
+
+
+
+  #
+  # post '/links' do
+  #   link = Link.new(url: params[:url],     # 1. Create a link
+  #                 title: params[:title])
+  #   tag  = Tag.first_or_create(name: params[:tags])  # 2. Create a tag for the link
+  #   link.tags << tag                       # 3. Adding the tag to the link's DataMapper collection.
+  #   link.save                              # 4. Saving the link.
+  #   redirect to('/links')
+  # end
+
+
+
 
   helpers do
  def current_user

@@ -14,9 +14,12 @@ property :email, String, required: true, unique: true
 property :name, String
 property :username, String, unique: true
 
-property :password_digest, String, length: 60
+property :password_digest, String, length: 60, required: true
 validates_confirmation_of :password
 validates_format_of :email, as: :email_address
+
+has n, :peeps, through: Resource
+
 
 
 def password=(password)
