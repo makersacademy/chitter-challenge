@@ -35,8 +35,8 @@ feature 'User sign up' do
     expect { sign_up(name: nil) }.not_to(change(User, :count))
   end
 
-  scenario 'sign up without email' do
-
+  scenario 'sign up without a valid email' do
+    expect { sign_up(email: "invalid@email") }.not_to(change(User, :count))
   end
 
   scenario 'sign up without username' do
