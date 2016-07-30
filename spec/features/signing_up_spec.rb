@@ -20,7 +20,8 @@ feature "Signing Up" do
   end
 
   scenario "all fields are required" do
-    sign_up(username: nil, name: nil, email: nil, password: nil, password_confirmation: nil)
+    sign_up(username: nil, name: nil, email: nil, password: nil, 
+            password_confirmation: nil)
     expect(page).to have_content("Username must not be blank")
     expect(page).to have_content("Name must not be blank")
     expect(page).to have_content("Email must not be blank")
