@@ -27,10 +27,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.new(username: params[:username],
-                      name: params[:name],
-                      email: params[:email],
-                      password: params[:password],
-                      confirm_password: params[:confirm_password])
+                    name: params[:name],
+                    email: params[:email],
+                    password: params[:password],
+                    confirm_password: params[:confirm_password])
     if user.save
       session[:user_id] = user.id
       redirect to('/page')
