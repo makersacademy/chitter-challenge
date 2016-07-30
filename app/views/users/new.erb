@@ -3,10 +3,10 @@
 <form action='/users' method='post'>
   <label for='user_name'>
     User Name: <input name='user_name' type='text'
-    value='<% @user.user_name %>'>
+    value='<% @user.user_name %>' required>
   </label>
   <label for='email'>
-    Email: <input name='email' type='text' value='<% @user.email %>'>
+    Email: <input name='email' type='text' value='<% @user.email %>' required>
   </label>
   <label for='name'>
     Name: <input name='name' type='text' value='<% @user.name %>'>

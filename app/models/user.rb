@@ -5,10 +5,13 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
   validates_confirmation_of :password
+  validates_presence_of :email
+  validates_presence_of :user_name
+
 
   property :id, Serial
-  property :user_name, String
-  property :email, String
+  property :user_name, String, required: true
+  property :email, String, required: true
   property :name, String
   property :password_digest, String, length: 60
 
