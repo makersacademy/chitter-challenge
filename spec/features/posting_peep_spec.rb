@@ -14,8 +14,33 @@ feature 'User posts a peep' do
         fill_in :title, with: 'titleokay'
         fill_in :body, with: 'this is a nice peep'
         click_button 'Peep!'
-        expect(user.peeps.map(&:title)).to include 'titleokay'
+        expect(page).to have_content 'titleokay'
       end
+
+
+      scenario 'seeing the username and the name of the user' do
+          log_in(email: user.email, password: user.password)
+          visit('/peeps/new')
+          fill_in :title, with: 'titleokay'
+          fill_in :body, with: 'this is a nice peep'
+          click_button 'Peep!'
+          expect(page).to have_content 'Name: Bart'
+          expect(page).to have_content 'Username: @bartklu'
+
+        end
+
+  scenario 'seeing the username and the name of the user' do
+    @time_now = Time.now
+    allow(Time).to receive(:now).and_return('21:00')
+      log_in(email: user.email, password: user.password)
+      visit('/peeps/new')
+      fill_in :title, with: 'titleokay'
+      fill_in :body, with: 'this is a nice peep'
+      click_button 'Peep!'
+      visit('/peeps')
+      expect(page).to have_content '21:00'
+
+    end
 
 
     def log_in(email:, password:)
