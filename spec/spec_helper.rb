@@ -6,6 +6,7 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
+
 ENV['RACK_ENV'] = 'test'
 
 require './app/models/user'
@@ -17,7 +18,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-require './models/user'
 require './spec/features/web_helpers.rb'
 
 Capybara.app = Chitter

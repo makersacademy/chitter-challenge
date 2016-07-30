@@ -27,5 +27,16 @@ require 'spec_helper'
       click_button "Sign me up!"
       expect(page).to have_content "Your passwords don\'t match"
     end
+    scenario 'sign up fails if email is invalid' do
+      visit '/'
+      click_button('Sign up')
+      fill_in "name", :with => "aga"
+      fill_in "username", :with => "awesomeaga"
+      fill_in "email", :with => "aga"
+      fill_in "password", :with => "monkey"
+      fill_in "password_confirmation", :with => "monkey"
+      click_button "Sign me up!"
+      expect(page).to have_content "Your passwords don't match"
+    end
 
   end
