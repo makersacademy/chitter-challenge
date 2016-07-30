@@ -1,9 +1,11 @@
 <h1>Messages</h1>
 
-<form action='/new' method='post'>
-  Message: <input type="text" name="message">
-  <input type="submit" value='Submit'>
-</form>
+<% if current_user %>
+  <form action='/new' method='post'>
+    Message: <input type="text" name="message">
+    <input type="submit" value='Submit'>
+  </form>
+<% end %>
 
 <ul id='messages'>
   <% @messages.reverse.each { |message| %>
