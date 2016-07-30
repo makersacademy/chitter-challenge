@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -11,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/newuser' do
-    User.create(email: params[:email],
+    user = User.create(email: params[:email],
     password: params[:password],
     name: params[:name],
     username: params[:username])
