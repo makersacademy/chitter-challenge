@@ -8,7 +8,22 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get "/signup" do
-    erb :"/signup"
+    erb :"signup"
+  end
+
+  post "/user" do
+    user = User.authenticate(params[:user_name], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to("/main")
+    else
+      flash.now[:notice] = "Invalid password or email!"
+      erb :"/signin"
+    end
+  end
+
+  get "/signin" do
+    erb :"signin"
   end
 
   post "/user/new" do
@@ -17,7 +32,14 @@ class Chitter < Sinatra::Base
                        password: params[:password],
                        password_confirmation: params[:password_confirmation],
                        email: params[:email])
-    validate_for(:signup)
+
+      if @user.created?
+        session[:user_id] = @user.id
+        redirect to("/main")
+      else
+        flash.now[:notice] = "Password mismatch or invalid email!"
+        erb :"/signup"
+      end
   end
 
   get "/main" do
@@ -28,16 +50,6 @@ class Chitter < Sinatra::Base
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
-    end
-
-    def validate_for(task)
-      if @user.created?
-        session[:user_id] = @user.id
-        redirect to("/main")
-      else
-        flash.now[:notice] = "Password mismatch!"
-        erb task
-      end
     end
   end
 

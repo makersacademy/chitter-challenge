@@ -11,6 +11,12 @@ feature "sign up" do
     fill_sign_up_form
     fill_in "password_confirmation", with: "wrongpassword"
     expect{ click_button "Sign up" }.not_to change(User, :count)
-    expect(page).to have_content "Password mismatch!"
+    expect(page).to have_content "Password mismatch or invalid email!"
+  end
+  scenario "user can't sign up without a valid email address" do
+    fill_sign_up_form
+    fill_in "email", with: "royalmail"
+    expect { click_button "Sign up" }.not_to change(User, :count)
+    expect(page).to have_content "Password mismatch or invalid email!"
   end
 end

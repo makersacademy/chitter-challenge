@@ -6,3 +6,8 @@ def fill_sign_up_form
   fill_in "password_confirmation", with: "callth3cops"
   fill_in "email", with: "prodator911@mail.com"
 end
+
+def create_user
+  User.create(user_name: "Ben09", name: "Ben", password: "1234",
+              password_confirmation: "1234", email: "Ben09@gmail.com")
+end
