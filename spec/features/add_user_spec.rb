@@ -15,4 +15,7 @@ feature 'User sign up' do
     expect(User.first.email).to eq('user@email.com')
   end
 
-end
+  scenario 'it requires password confirmation' do
+    expect{ sign_up(password_confirmation: 'WrongPW') }.not_to change(User, :count)
+  end
+ end
