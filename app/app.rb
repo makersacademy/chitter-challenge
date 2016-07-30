@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
                       confirm_password: params[:confirm_password])
     if user.save
       session[:user_id] = user.id
-      redirect '/page'
+      redirect to('/page')
     else
       flash.now[:errors] = user.errors.full_messages
       redirect to :'users/new'
@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-      @user ||= User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
