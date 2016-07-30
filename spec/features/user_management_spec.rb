@@ -9,17 +9,24 @@ feature 'User sign up' do
 
   scenario 'with password confirmation' do
     expect{sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Password mismatch'
   end
+
+  scenario 'cannot sign up with invalid email address' do
+    expect{sign_up(email: 'invalid@email')}.not_to change(User, :count)
+  end
+
 end
 
 
 
 
-def sign_up(password_confirmation: '12345')
+def sign_up(email: 'not@email.com', password_confirmation: '12345')
   visit '/users/new'
   fill_in 'name', with: 'Shadow'
   fill_in 'user_handle', with: 'Shadow1'
-  fill_in 'email', with: 'not@email.com'
+  fill_in 'email', with: email
   fill_in 'password', with: '12345'
   fill_in 'password_confirmation', with: password_confirmation
   click_button 'Sign up'
