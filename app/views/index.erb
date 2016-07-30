@@ -1,5 +1,12 @@
-Welcome to Chitter a beautiful creation from Joe Sweeny
-
 <a href="/users/new">Sign Up</a>
 
 <a href="/sessions/new">Sign in</a>
+<div id="peeps">
+  <% Peep.all(order: [:id.desc]).each do |peep| %>
+
+    @<%= peep.username %><br>
+    by <%= peep.full_name %><% peep.created_at.strftime("%H:M (%d, %b)") %><br>
+    <%= peep.message %><br><br>
+
+  <% end %>
+</div>

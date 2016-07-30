@@ -47,7 +47,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    peep = Peep.create(username: params[:username],
+                full_name: params[:full_name],
+                message: params[:message])
+    peep.save
     redirect '/peeps'
   end
 
@@ -71,10 +74,12 @@ class Chitter < Sinatra::Base
   end
 
   delete '/sessions' do
+    name = current_user.full_name
     session[:user_id] = nil
+    flash.next[:errors] = ["Goodbye #{name}"]
     redirect '/'
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
