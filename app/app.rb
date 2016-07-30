@@ -14,7 +14,9 @@ class Chitter < Sinatra::Base
   post '/signup' do
     # We cannot directly access the password attribute, so we use bcrypt
     # and instead deal with the password_digest:
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email],
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect '/peeps'
   end
