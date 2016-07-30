@@ -1,4 +1,4 @@
-module SessionHelpers
+module Helpers
 
   def sign_up(full_name: 'Joe Sweeny',
               username: 'joesweeny',
