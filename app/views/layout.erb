@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div>
+      <% if current_user %>
+        Welcome, <%= current_user.username %>
+      <% else %>
+        Welcome, guest.
+        Please <a href='/sessions/new'>Sign In</a>
+        or <a href='/users/new'>Sign Up</a>
+      <% end %>
+    </div>
+    <div>
+      <% if flash[:errors] && !flash[:errors].empty?%>
+        Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end%>
+      </ul>
+      <%end%>
+    </div>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
