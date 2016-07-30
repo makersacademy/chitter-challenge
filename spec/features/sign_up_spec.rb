@@ -10,16 +10,16 @@ feature 'Signing up for a chitter account' do
     click_button 'sign me up'
     sign_up
     fill_in :password_confirmation, with: '1234'
-    expect{ click_button 'submit'}.to change(User, :count).by(1)
+    expect{ click_button 'register'}.to change(User, :count).by(1)
   end
 
-  scenario 'after signing in they see a welcome message' do
+  scenario 'they receive a welcome message' do
     visit '/'
     click_button 'ENTER CHITTER'
     click_button 'sign me up'
     sign_up
     fill_in :password_confirmation, with: '1234'
-    click_button 'submit'
+    click_button 'register'
     user = User.first
     expect(user.email).to eq 'Jessica@me.com'
     expect(page).to have_content 'Hi Jessica'
@@ -32,7 +32,7 @@ feature 'Signing up for a chitter account' do
      click_button 'sign me up'
      sign_up
      fill_in :password_confirmation, with: '1000'
-     expect{ click_button 'submit'}.not_to change(User, :count)
+     expect{ click_button 'register'}.not_to change(User, :count)
    end
 end
 

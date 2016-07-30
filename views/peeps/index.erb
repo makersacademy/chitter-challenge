@@ -1,1 +1,3 @@
-Hi 
+<% if current_user %>
+      Hi <%= current_user.first_name %>
+<% end %>

@@ -1,10 +1,21 @@
 
-<form action = '/user/new' method = 'post'>
-  First Name: <input type = 'text' name = 'first_name'><br/ ><br/ >
-  Second Name: <input type = 'text' name = 'second_name'><br/ ><br/ >
-  Username: <input type = 'text' name = 'username'><br/ ><br/ >
-  Email: <input type = 'email' name = 'email'><br/ ><br/ >
-  Password: <input type = 'password' name = 'password'><br/ ><br/ >
-  Re-enter password: <input type = 'password' name = 'password_confirmation'><br/><br/>
-  <input type = 'submit' value = 'submit'><br/ ><br/ >
+<form action = '/user' method = 'post'>
+  <label for='first_name'>
+    First Name: <input name = 'first_name' type = 'text'><br/ ><br/ >
+  </label>
+  <label for='second_name'>
+    Second Name: <input name = 'second_name' type = 'text'><br/ ><br/ >
+  </label>
+  <label for='username'>
+    Username: <input name = 'username' type = 'text'><br/ ><br/ >
+  </label>
+  <label for='email'>
+    Email: <input name = 'email' type = 'email'><br/ ><br/ >
+  </label>
+  <label for='password'>
+    Password: <input name = 'password' type = 'password'><br/ ><br/ >
+  </label>
+  <label for='password_confirmation'>
+    Re-enter password: <input name = 'password_confirmation' type = 'password'><br/><br/>
+  <input type = 'submit' value = 'register'><br/ ><br/ >
 </form>

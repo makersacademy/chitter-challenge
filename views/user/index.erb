@@ -1,14 +1,22 @@
 <h1> Welcome to Chitter </h1>
 <br /><br />
-<form action = '/user/new' method = 'get'>
+
+<form name = 'sign up' action = '/user/new' method = 'get'>
   <input type = 'submit' value = 'sign me up'>
 </form>
+
 <br /><br />
 <br /><br />
 <br /><br />
+
 <h2>Already registered?</h2>
-<form action = '/sessions' method = 'post'>
-  Email:<input type = 'email' name = 'email'>
-  Password:<input type = 'password' name = 'password'>
-  <input type = "submit" value = 'submit'>
+
+<form name = 'sign in' action ='/sessions' method = 'post'>
+  <label for = 'email'>
+    Email:<input name = 'email' type = 'email'><br /><br />
+  </label>
+  <label for = 'password'>
+    Password:<input name = 'password' type = 'password'>
+  </label>
+  <input type = 'submit' value = 'sign in'>
 </form>

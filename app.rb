@@ -4,11 +4,12 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 require_relative './app/data_mapper_setup.rb'
+require './app/models/user.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
-  set :session_secret, "secret"
+  set :session_secret, 'super secret'
   register Sinatra::Flash
 
   get '/' do
@@ -25,17 +26,16 @@ class Chitter < Sinatra::Base
     erb :'user/new'
   end
 
-  post '/user/new'do
-      User.create(first_name: params[:first_name],
+  post '/user' do
+      user = User.create(first_name: params[:first_name],
       second_name: params[:second_name],
       username: params[:username],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation])
+      session[:user_id] = user.id
       # session[:first_name] = params[:first_name]
-    erb :'user/new'
-    redirect '/peeps/index'
-    #user/new is a form to sign up
+      redirect '/peeps/index'
   end
 
   get '/peeps/index' do
@@ -46,8 +46,8 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
-     session[:user_id] = user.id
      redirect '/peeps/index'
+     session[:user_id] = user.id
     else
       flash.now[:errors] = ["Incorrect password entered. Please retry."]
       erb :'user/new'

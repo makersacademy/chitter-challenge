@@ -8,7 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app'
-require './app/models/user.rb'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -39,21 +39,21 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
 
-    config.expect_with :rspec do |expectations|
-      expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-    end
-
-    config.mock_with :rspec do |mocks|
-      mocks.verify_partial_doubles = true
-    end
+    # config.expect_with :rspec do |expectations|
+    #   expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    # end
+    #
+    # config.mock_with :rspec do |mocks|
+    #   mocks.verify_partial_doubles = true
+    # end
 
     # config.shared_context_metadata_behavior = :apply_to_host_groups
 
-    if config.files_to_run.one?
-      config.default_formatter = 'doc'
-    end
+    # if config.files_to_run.one?
+    #   config.default_formatter = 'doc'
+    # end
 
-    Kernel.srand config.seed
+    # Kernel.srand config.seed
 
 
 
