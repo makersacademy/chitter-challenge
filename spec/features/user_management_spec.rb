@@ -20,7 +20,7 @@ feature 'sign up for chitter' do
 
     expect{ sign_up(password_confirmation: "1234") }.not_to change(User, :count)
     expect(current_path).to eq '/users/sign_up'
-    expect(page).to have_content 'Passwords provided do not match. Please provide matching passwords and click sign up again'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario "If I make a mistake in the form I would like my email to persist" do
@@ -30,6 +30,37 @@ feature 'sign up for chitter' do
 
     sign_up(password_confirmation: nil)
     expect(page).to have_field('email', with:'abc@xyz.com')
+  end
 
+  scenario "I cannot sign up when leaving email blank" do
+    visit '/users/sign_up'
+
+    expect(page.status_code).to eq 200
+
+    expect{ sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq '/users/sign_up'
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario "I cannot sign up with an email in an invalid format" do
+    visit '/users/sign_up'
+
+    expect(page.status_code).to eq 200
+
+    expect{ sign_up(email: "abc@xyz") }.not_to change(User, :count)
+    expect(current_path).to eq '/users/sign_up'
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
+  scenario "I cannot sign up using a duplicate email address" do
+    visit '/users/sign_up'
+
+    expect(page.status_code).to eq 200
+
+    sign_up
+    visit '/users/sign_up'
+    expect{ sign_up }.not_to change(User, :count)
+    expect(current_path).to eq '/users/sign_up'
+    expect(page).to have_content 'Email is already taken'
   end
 end
