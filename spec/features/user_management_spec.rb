@@ -1,13 +1,13 @@
 
 
 feature 'User sign up' do
-  scenario 'I can sign up for an account' do
+  scenario 'can sign up for an account' do
     expect{sign_up}.to change(User, :count).by 1
     expect(page).to have_content 'Welcome, Shadow'
     expect(User.first.email).to eq 'not@email.com'
   end
 
-  scenario 'with password confirmation' do
+  scenario 'cannot sign up unless passwords match' do
     expect{sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content 'Password does not match the confirmation'
@@ -35,7 +35,11 @@ end
 
 feature 'User can sign in' do
   let!(:user) do
-    User.create(name: 'new user', handle: 'new_user1', email: 'user@example.com', password: 'secret1234', password_confirmation: 'secret1234')
+    User.create(name: 'new user',
+                handle: 'new_user1',
+                email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234')
   end
 
   scenario 'with correct credentials' do
@@ -45,9 +49,13 @@ feature 'User can sign in' do
 end
 
 feature 'User can sign out' do
-  let!(:user) do
-    User.create(name: 'new user', handle: 'new_user1', email: 'user@example.com', password: 'secret1234', password_confirmation: 'secret1234')
-  end
+    let!(:user) do
+      User.create(name: 'new user',
+                  handle: 'new_user1',
+                  email: 'user@example.com',
+                  password: 'secret1234',
+                  password_confirmation: 'secret1234')
+    end
 
   scenario 'when signed in' do
     sign_in(email: user.email, password: user.password)
@@ -55,26 +63,4 @@ feature 'User can sign out' do
     expect(page).to have_content 'Goodbye'
     expect(page).not_to have_content 'Welcome'
   end
-
-
-
-end
-
-
-def sign_up(email: 'not@email.com', password_confirmation: '12345')
-  visit '/users/new'
-  fill_in 'name', with: 'Shadow'
-  fill_in 'user_handle', with: 'Shadow1'
-  fill_in 'email', with: email
-  fill_in 'password', with: '12345'
-  fill_in 'password_confirmation', with: password_confirmation
-  click_button 'Sign up'
-end
-
-
-def sign_in(email:, password:)
-  visit 'sessions/new'
-  fill_in :email, with: email
-  fill_in :password, with: password
-  click_button 'Sign in'
 end

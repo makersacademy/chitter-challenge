@@ -8,14 +8,12 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
-
   enable :sessions
   set :session_secret, 'super secret'
-
   use Rack::MethodOverride
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -24,7 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(comment: params[:comment])
+    @user = User.get(session[:user_id])
+    peep = Peep.create(comment: params[:comment], author: @user.handle)
     peep.save
     redirect to('/peeps')
   end

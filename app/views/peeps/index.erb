@@ -1,9 +1,13 @@
-<h1>Peeps</h1>
 
-<ul id='peeps'>
+
+<h1>The posting board</h1>
+
+<ul id='peeps' class='feed'>
   <% @peeps.each do |peep| %>
     <li>
-    Comment:  <%= peep.comment %>
-  </li>
-<% end %>
+      <%= peep.author %> says: <%= peep.comment %>
+      <div class="comment_stamp">
+        Posted at <%= peep.created_at %>
+      </div>
+    <% end %>
 </ul>

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
+
+
   <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>Chitter</title>
   </head>
+
 
   <body>
     <% if current_user %>
@@ -12,6 +16,7 @@
         <input type="submit" value="Sign out">
       </form>
     <% end %>
+
     <% if flash[:notice] %>
       <div id="notice"> <%=flash[:notice] %> </div>
     <% end %>
@@ -27,4 +32,6 @@
 
     <%= yield %>
   </body>
+
+
 </html>

@@ -3,6 +3,7 @@ class Peep
 
   property :id,           Serial
   property :comment,      String
+  property :author,       String
   property :created_at,   DateTime
 
 

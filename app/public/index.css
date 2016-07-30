@@ -1,0 +1,49 @@
+
+
+html {
+
+/*min-height: 100%;*/
+}
+
+
+body {
+
+  background: url("field.jpg") no-repeat center center;
+  background-size: cover;
+  /*background-image: url("field.jpg");*/
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+ul {
+    text-align: left;
+    background: white;
+    padding: 20px;
+}
+
+
+ul li {
+  background: white;
+  padding: 5px;
+  font-size: 20px;
+  list-style-type: none;
+}
+
+
+
+.comment_stamp {
+    text-align: left;
+    background: white;
+    padding: 5px;
+    font-size: 10px;
+}
+
+
+.feed {
+    background-color: lightgrey;
+    width: 400px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: auto;
+}
