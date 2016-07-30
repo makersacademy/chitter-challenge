@@ -20,10 +20,6 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def created?
-    self.id != nil
-  end
-
   def self.authenticate(user_name, password)
     user = first(user_name: user_name)
     if user && BCrypt::Password.new(user.password_digest) == password

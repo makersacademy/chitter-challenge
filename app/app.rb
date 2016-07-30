@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'something'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get "/signup" do
     erb :"signup"
@@ -26,6 +27,11 @@ class Chitter < Sinatra::Base
     erb :"signin"
   end
 
+  delete "/signout" do
+    session[:user_id] = nil
+    redirect to "/signin"
+  end
+
   post "/user/new" do
     @user = User.create(user_name: params[:user_name],
                        name: params[:name],
@@ -33,11 +39,11 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation],
                        email: params[:email])
 
-      if @user.created?
+      if @user.save
         session[:user_id] = @user.id
-        redirect to("/main")
+        redirect to "/main"
       else
-        flash.now[:notice] = "Password mismatch or invalid email!"
+        flash.now[:errors] = @user.errors.full_messages
         erb :"/signup"
       end
   end
