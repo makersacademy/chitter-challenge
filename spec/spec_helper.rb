@@ -12,6 +12,7 @@ require 'simplecov'
 require './app/models/user'
 require './app/app'
 require_relative 'web_helper'
+require 'database_cleaner'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -53,6 +54,22 @@ RSpec.configure do |config|
     # ...rather than:
     #   # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+
+    # Everything in this block runs once before all the tests run
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+
+    # Everything in this block runs once before each individual test
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    # Everything in this block runs once after each individual test
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
