@@ -2,11 +2,14 @@
 
 <a href="/sessions/new">Sign in</a>
 <div id="peeps">
-  <% Peep.all(order: [:id.desc]).each do |peep| %>
+    <% Peep.all(order: [:id.desc]).each do |peep| %>
 
     @<%= peep.username %><br>
-    by <%= peep.full_name %><% peep.created_at.strftime("%H:M (%d, %b)") %><br>
-    <%= peep.message %><br><br>
+    <%= peep.message %><br>
+    by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %><br>
+    <br><br>
 
   <% end %>
 </div>
+
+<!-- strftime("%B %d, %Y at %I:%M %p") -->
