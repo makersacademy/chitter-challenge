@@ -9,8 +9,9 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  property :id,   Serial
-  property :email, String
+  property :id,       Serial
+  property :username, String
+  property :email,    String
   property :password_digest, String, length: 60
 
   # User will only save if password and password_confirmation match.

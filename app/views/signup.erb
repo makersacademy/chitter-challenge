@@ -2,20 +2,33 @@
 
 <form action="/signup" method="post" >
 
+<label for="username">
+  Email:
+  <input type="text" name="username" >
+</label >
+<br>
+<br>
+
 <label for="email">
   Email:
   <input type="email" name="email" value="<%= @user.email %>" >
 </label >
+<br>
+<br>
 
 <label for="password">
   Password:
   <input type="password" name="password" >
 </label >
+<br>
+<br>
 
 <label for="password_confirmation">
   Please confirm your password:
   <input type="password" name="password_confirmation" >
 </label >
+<br>
+<br>
 
 <input type='submit' value='Sign up to Chitter'>
 </form>
