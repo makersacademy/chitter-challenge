@@ -9,12 +9,14 @@ require 'capybara/rspec'
 require 'rspec'
 require 'coveralls'
 require 'simplecov'
+require './app/models/user'
+require './app/app'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 
 
 Capybara.app = Chitter
