@@ -34,5 +34,19 @@ feature 'User sign in' do
     sign_in
     expect(page).to have_content "Welcome, CONDOTH1"
   end
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    sign_up
+  end
+
+  scenario 'while being signed in' do
+    sign_in
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, CONDOTH1')
+  end
 
 end
