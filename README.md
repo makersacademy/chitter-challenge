@@ -1,4 +1,4 @@
-Chitter Challenge             [![Build Status](https://travis-ci.org/makersacademy/learn_to_program.svg?branch=master)](https://travis-ci.org/makersacademy/learn_to_program)
+Chitter Challenge             [![Build Status](https://travis-ci.org/nomi811/chitter-challenge.svg?branch=master)](https://travis-ci.org/nomi811/chitter-challenge)
 =================
 
 User Stories:
