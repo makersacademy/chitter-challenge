@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 require_relative 'models/peep'
+require_relative 'models/user'
 
 #don't forget to require relatives in models/
 #removed remote ENV['DATABASE_URL'] ||

@@ -3,7 +3,7 @@ class Peep
 
   property :id,           Serial
   property :comment,      String
-  property :created_at,   DateTime 
+  property :created_at,   DateTime
 
 
 end
