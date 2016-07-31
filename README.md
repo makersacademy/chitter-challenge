@@ -26,7 +26,7 @@ to reset the contents of the database tables.
 
 ### Instructions
 
-Run rackup or app/app.rb from the root directory.
+Run rackup from the root directory.
 
  The various pages are not fully linked together. Visit:
  - localhost:9292/signup to sign-up to Chitter (if using rackup).
