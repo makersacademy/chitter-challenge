@@ -7,7 +7,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'web_helpers'
+require_relative 'helpers/session'
 require 'database_cleaner'
 
 Capybara.app = Chitter
@@ -31,6 +31,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

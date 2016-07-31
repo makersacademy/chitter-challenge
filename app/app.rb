@@ -5,6 +5,7 @@ require_relative 'models/user'
 ENV["RACK_ENV"] ||= "development"
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
   set :sessions_secret, 'super secret'
@@ -19,6 +20,16 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     erb :'sessions/new'
+  end
+
+  get '/users/out' do
+    erb :'users/out'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Cheerio!'
+    redirect to '/sessions/new'
   end
 
   post '/sessions' do
