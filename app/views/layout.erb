@@ -16,12 +16,25 @@
         <ul class="nav navbar-nav">
           <li class="<%= "active" if active_page? %>"><a href="/">Home</a></li>
           <li class="<%= "active" if active_page?('/session') %>"><a href="/session">Login</a></li>
-          <li><a href="#">Logout</a></li>
+          <!--li class="<%= "active" if active_page?('/session/end') %>"><a href="/session/end">Logout</a></li!-->
+          <% if current_user %>
+            <li class="<%= "active" if active_page?('/session/end') %>">
+              <form action="/session/end" method="post">
+                  <input name="_method" type="hidden" value="delete" />
+                  <input type="submit" name="logout" value="Logout" />
+              </form>
+            </li>
+          <% end %>
           <li class="<%= "active" if active_page?('/session/new') %>"><a href="/session/new">Sign up</a></li>
         </ul>
       </div>
     </nav>
     <h2>Welcome to Chitter <%= current_user.name if session[:user_id] %></h2>
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

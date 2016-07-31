@@ -45,6 +45,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/session/end' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "You have logged out"
+    redirect '/'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
