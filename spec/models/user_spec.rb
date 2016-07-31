@@ -8,7 +8,7 @@ describe User do
                 password_confirmation: 'password123')
   end
 
-  it 'authenticates when user provides a valide username and password' do
+  it 'authenticates when user provides a valid username and password' do
     authenticated_user = User.authenticate(user.username, user.password)
     expect(authenticated_user).to eq user
   end

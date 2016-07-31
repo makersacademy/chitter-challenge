@@ -10,6 +10,12 @@
       <form method='post' action='/sessions'>
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Sign out">
+      </form>
+    <% end %>
+
+    <% if !current_user %>
+      Already have an account? Sign in <a href='/sessions/new'>here</a>.<br>
+      Want to sign up? Sign up <a href='/users/sign_up'>here</a>.
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>

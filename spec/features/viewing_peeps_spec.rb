@@ -1,16 +1,11 @@
 feature 'Viewing peeps' do
+
   scenario 'I can see existing peeps on the chitter feed page' do
-    
-    Peep.create(text: 'This is a peep - hello world',
-                created_at: Time.now.strftime("%d/%m/%Y %H:%M"),
-                )
 
-    visit '/peeps/feed'
-
-    expect(page.status_code).to eq 200
+    sign_up_sign_in_and_peep(peep: "This is my first peep!")
 
     within 'ul#peep' do
-      expect(page).to have_content("This is a peep - hello world")
+      expect(page).to have_content("This is my first peep")
     end
   end
 end

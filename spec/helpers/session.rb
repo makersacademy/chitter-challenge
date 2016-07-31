@@ -6,7 +6,7 @@ module SessionHelpers
               password: "abcd",
               password_confirmation: "abcd")
 
-    visit '/users/sign_up' 
+    visit '/users/sign_up'
     fill_in('username', with: username)
     fill_in('name', with: name)
     fill_in('email', with: email)
@@ -22,6 +22,11 @@ module SessionHelpers
       click_button 'Sign in'
   end
 
-
-
+  def sign_up_sign_in_and_peep(peep:)
+    sign_up
+    sign_in(username: "acsauk", password: "abcd")
+    visit '/peeps/new'
+    fill_in :peep, with: peep
+    click_button 'Send Peep'
+  end
 end
