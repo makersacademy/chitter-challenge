@@ -1,0 +1,14 @@
+
+<h1> Posts </h1>
+  <ul id='posts'>
+    <% @posts.each do |entry| %>
+    <li>
+      Title: <%= entry.title %> <br>
+      Post: <%= entry.post %> <br>
+    </li>
+    <%end%>
+  </ul>
+
+  <form action='/newpost' method="get">
+    <button type="submit">New Post</button>
+  </form>
