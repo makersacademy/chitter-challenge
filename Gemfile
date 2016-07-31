@@ -11,6 +11,7 @@ group :test, :development do
   gem 'rspec-sinatra'
   gem 'rspec'
   gem 'database_cleaner'
+  gem 'capybara'
   gem 'cucumber'
   gem 'rake'
   gem 'pry'
