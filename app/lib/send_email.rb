@@ -4,11 +4,6 @@ Dotenv.load
 
 class SendEmail
 
-#   def initialize
-#   @KEY = ENV['accountKEY']
-#   @DOMAIN = ENV['domainNAME']
-#
-# end
   def initialize(mailer: nil)
     @mailer = mailer || Mailgun::Client.new(ENV['accountKEY'])
   end
@@ -24,14 +19,6 @@ class SendEmail
       text: "click here to reset your password http://localhost:4567/users/reset_password?token=#{user.password_token}"})
   end
 
-  # def send_simple_message(user)
-  #   RestClient.post @KEY\  @DOMAIN,
-  #   :from => "Chitter <mailgun@chitter.com>",
-  #   :to => user.email,
-  #   :subject => "reset your password",
-  #   :text => "click here to reset your password   http://localhost:4567/users/reset_password?token=#{user.password_token}"
-  # end
-
-private
-  attr_reader :mailer
+  private
+    attr_reader :mailer
 end
