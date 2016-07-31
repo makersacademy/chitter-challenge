@@ -18,6 +18,8 @@ class User
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
 
+  has n, :peeps
+
   # We cannot directly store the input password to the database, so instead
   # store the hash (password_digest) which is encrypted from the original
   # password here using bcrypt:
