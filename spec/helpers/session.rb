@@ -11,13 +11,18 @@ module SessionHelpers
     fill_in :email,    with: email
     fill_in :password, with: password
     fill_in :confirm_password, with: confirm_password
-    click_button 'Sign up'
+    click_button 'Sign Up'
   end
 
   def sign_in(username:, password:)
   visit '/sessions/new'
   fill_in :username, with: username
   fill_in :password, with: password
-  click_button 'Sign in'
+  click_button 'Sign In'
+  end
+
+  def post_peep(message: 'Hello World!')
+    fill_in :message, with: message
+    click_button 'Peep!'
   end
 end

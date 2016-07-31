@@ -10,14 +10,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(message: params[:message])
+    user = User.get(session[:user_id])
+    peep = Peep.new(user: user, message: params[:message])
+    peep.user_id = current_user.id
     if peep.save
       flash[:notice] = 'Peep Saved!'
-      redirect '/peeps'
     else
       flash[:error] = peep.errors.full_messages
-      redirect '/peeps'
     end
+      redirect '/peeps'
   end
 
   delete '/peeps' do
