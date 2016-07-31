@@ -20,12 +20,12 @@ class User
   end
 
   def self.authenticate(email, password)
-    user = User.get(email: email)
+    user = User.first(email: email)
     if user && BCrypt::Password.new(user.password_hash) == password
       user
     else
       nil
     end
   end
-  
+
 end
