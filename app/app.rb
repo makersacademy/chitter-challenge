@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/user'
 
 ENV["RACK_ENV"] ||= "development"
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   set :sessions_secret, 'super secret'
 
@@ -26,7 +28,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/sessions/new')
     else
-      flash.now[:errors] = ['The username or password is incorrect']
+      flash.now[:notice] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
   end
