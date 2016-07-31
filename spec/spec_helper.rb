@@ -8,7 +8,7 @@ require 'rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
-require 'features/helper'
+require 'features/helpers'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -20,6 +20,7 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
