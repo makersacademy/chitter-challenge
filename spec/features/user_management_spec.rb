@@ -52,14 +52,13 @@ feature 'User can sign in' do
 end
 
 feature 'User can sign out' do
-    let!(:user) do
-      User.create(name: 'new user',
-                  handle: 'new_user1',
-                  email: 'user@example.com',
-                  password: 'secret1234',
-                  password_confirmation: 'secret1234')
-    end
-
+  let!(:user) do
+    User.create(name: 'new user',
+                handle: 'new_user1',
+                email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234')
+  end
   scenario 'when signed in' do
     sign_in(email: user.email, password: user.password)
     click_button 'Sign out'

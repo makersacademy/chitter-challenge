@@ -1,6 +1,5 @@
 require './app/models/user'
 
-
 describe User do
   let!(:user) do
     User.create(name: 'new user',

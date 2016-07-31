@@ -1,15 +1,13 @@
 
 body {
-
   background: url("field.jpg") no-repeat center center;
   background-color: white;
   color: black;
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 ul {
-
     text-align: left;
     background: lightgrey;
     border-radius: 10px;
@@ -42,8 +40,8 @@ ul li {
 .resizedTextbox {
   width: 250px;
   height: 60px;
-  padding: 1px}
-
+  padding: 1px;
+}
 
 .comment_stamp {
     text-align: left;
@@ -59,4 +57,9 @@ ul li {
     border-radius: 10px;
     padding: 10px;
     margin: auto;
+}
+
+.display {
+  background: url("field.jpg") no-repeat center center;
+  text-align: center;
 }
