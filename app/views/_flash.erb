@@ -1,0 +1,17 @@
+<div class="col-sm-6 col-sm-offset-3 flash-messages">
+<% if flash[:notice] %>
+  <div id='notice' class="text-center">
+    <h3 class="welcome"><%= flash[:notice] %></h3>
+  </div>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <div class="alert alert-danger" role="alert">
+    <b>Please refer to the following errors below:</b>
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
