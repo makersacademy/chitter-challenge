@@ -1,1 +1,13 @@
+<h2>Have something to say?</h2>
+<form action="chitter/post" method="get" >
+  <input type="submit" value="Post a Peep"  />
+</form>
 <h2>See the latest from Chitter!</h2>
+  <ul id="peeps" >
+    <% @peeps.each do |peep| %>
+    <li>
+      From: <%= peep.user.name %><br />
+      Message: <%= peep.message %><br />
+    </li>
+    <% end %>
+  </ul>

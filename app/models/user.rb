@@ -9,6 +9,8 @@ class User
   property :email, String, format: :email_address, required: true, unique: true
   property :password_hash, String, length: 60
 
+  has n, :peeps
+
   attr_reader :password
   attr_accessor :password_confirmation
 
