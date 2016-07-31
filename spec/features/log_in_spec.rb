@@ -4,7 +4,8 @@
 # I want to log in to Chitter
 
 feature 'log in' do
-  let!(:user) do
+  # let!(:user) do
+  before do
     User.create(name: 'Georgia',
                 username: 'grmillsy',
                 email: 'g@hotmail.com',
@@ -12,8 +13,8 @@ feature 'log in' do
                 password_confirmation: '123')
   end
 
-  xscenario 'I can log in' do
-    log_in(username: user.username, password: user.password)
-    expect(page).to have_content "Hello there, #{user.name}"
+  scenario 'I can log in' do
+    log_in(username: 'grmillsy', password: '123')
+    expect(page).to have_content "Hello there, grmillsy"
   end
 end
