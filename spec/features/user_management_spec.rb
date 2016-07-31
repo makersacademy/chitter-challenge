@@ -1,6 +1,11 @@
 
 feature 'User sign up' do
 
+  scenario 'I can choose to sign up' do
+    visit('/')
+    expect(page).to(have_button("Sign up"))
+  end
+
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to(have_content("Hello, jsmith"))
@@ -51,6 +56,13 @@ feature 'User sign up' do
     sign_up
     expect { sign_up(email: "test@test.com") }.not_to(change(User, :count))
     expect(page).to have_content('Username is already taken')
+  end
+
+  scenario 'I can cancel sign up' do
+    visit('/users/new')
+    expect(page).to(have_button("Cancel"))
+    click_button("Cancel")
+    expect(current_path).to(eq('/cheeps'))
   end
 
 end
