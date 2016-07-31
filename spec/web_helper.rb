@@ -1,7 +1,7 @@
-def sign_up(password: password = 12, email: email = "sarah@mail.com", password_confirmation: password_confirmation = 12, user_name: user_name="9sarah0")
+def sign_up(name: name ='Sarah', password: password = 12, email: email = "sarah@mail.com", password_confirmation: password_confirmation = 12, user_name: user_name="9sarah0")
   visit '/'
   click_button 'Sign up'
-  fill_in :name,                  with: "Sarah"
+  fill_in :name,                  with: name
   fill_in :user_name,             with: user_name
   fill_in :password,              with: password
   fill_in :email,                 with: email

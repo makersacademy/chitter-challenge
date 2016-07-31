@@ -3,10 +3,10 @@ class User
   include DataMapper::Resource
 
   property :id,                         Serial
-  property :name,                       String
-  property :email,                      String
-  property :user_name,                  String
-  property :password_digest,            String, length: 60
+  property :name,                       String, required: true
+  property :email,                      String, required: true, unique: true
+  property :user_name,                  String, required: true, unique: true
+  property :password_digest,            String, length:   60
 
   attr_reader   :password
   attr_accessor :password_confirmation

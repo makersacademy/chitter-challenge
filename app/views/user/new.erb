@@ -1,19 +1,18 @@
 <center>
-<h1> Welcome </h1>
 
 <head> Please fill in the registeration form </head>
 
-<form method="post" action="/">
+<form method="post" action="/user/new">
 
-  <input type="text"      name="name"                  placeholder="Name"><br>
+  <input type="text"      name="name"      value="<%=@user.name%>"      placeholder="Name"      required><br>
 
-  <input type="text"      name="user_name"             placeholder="User name"><br>
+  <input type="text"      name="user_name" value="<%=@user.user_name%>" placeholder="User name" required><br>
 
-  <input type="email"     name="email"                 placeholder="Email"><br>
+  <input type="email"     name="email"     value="<%=@user.email%>"     placeholder="Email"     required><br>
 
-  <input type="password"  name="password"              placeholder="Password"><br>
+  <input type="password"  name="password"                               placeholder="Password"  required><br>
 
-  <input type="password"  name="password_confirmation" placeholder="Confirm password"><br>
+  <input type="password"  name="password_confirmation"                  placeholder="Confirm password"><br>
 
   <button type="submit"   name="Sign up">
     Sign up
