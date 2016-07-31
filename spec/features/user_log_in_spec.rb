@@ -41,7 +41,6 @@ feature 'log in' do
     fill_in "username", with: "syalniz"
     fill_in "password", with: "password123"
     click_button "Sign in"
-    require 'pry'; binding.pry
     click_button "Log out"
 
     expect(page).not_to have_content("Welcome")
