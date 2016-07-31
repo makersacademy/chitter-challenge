@@ -5,5 +5,5 @@ class Peep
   property :id, Serial
   property :content, String
   property :time ,String
-  has n, :users, :through => Resource
+  has n, :users, through: Resource
 end

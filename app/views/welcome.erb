@@ -1,0 +1,12 @@
+<head>
+  <h1>hitter</h1>
+   <% if current_user %>
+  Welcome <%=current_user.name%>
+  <form action="/sessions" method="post">
+   <input type="hidden" name="_method" value="delete"/>
+   <input type="submit" value="Log out"/>
+  </form>
+  <% else %>
+  <a href="/sessions"> <button type="button"> Login </button> </a>
+  <% end %>
+</head>
