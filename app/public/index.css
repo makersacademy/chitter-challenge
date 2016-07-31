@@ -1,0 +1,17 @@
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+  text-align: center;
+}
+
+.message {
+  opacity: 0.7;
+  display:inline-block;
+  background-color: white;
+  margin-top: 20px;
+  list-style-type: none;
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 70%;
+}

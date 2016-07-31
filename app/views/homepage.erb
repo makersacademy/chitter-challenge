@@ -1,4 +1,9 @@
-<h1>Messages</h1>
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<h1>Welcome to Chitter.</h1>
+<h2>Peep, Peep!</h2>
 
 <% if current_user %>
   <form action='/new' method='post'>
@@ -9,11 +14,14 @@
   <form action="/users/new">
     <input type="submit" value="Sign up">
   </form>
+  <form action="/sessions/new">
+    <input type="submit" value="Sign in">
+  </form>
 <% end %>
 
 <ul id='messages'>
   <% @messages.reverse.each { |message| %>
-    <li>
+    <li class="message">
       <%= message.message %><br/>
       <% date = message.created_at %>
       <%= date.strftime('%v')%>
