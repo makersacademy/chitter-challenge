@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  <style>
+  #layout, #errors, #notice {
+  margin: 0px;
+  padding: 0px;
+  font-size: 15px;
+  font-weight: normal;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0px;
+  color: #fff;
+  clear: both;
+  padding-bottom: 6px;
+}
+
+
+  </style>
+
+  </head>
+
+  <body>
+    <% if current_user %>
+    <div id='layout'>
+      <h3>Welcome, <%= current_user.email %></h3>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+    </div>
+
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+
+    <%= yield %>  
+  </body>
+</div>
+</html>

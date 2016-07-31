@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #peeps {
+	      margin: 0px;
+	      padding: 0px;
+	      font-size: 15px;
+        font-weight: normal;
+        display: block;
+	      font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 0px;
+	      color: #fff;
+	      clear: both;
+	      padding-bottom: 6px; }
+
+    body { background-color: Black; }
+
+  </style>
+</head>
+
+<body>
+  <DIV id='peeps'>
+  <br>
+  <form action="/peeps/add" method="post">
+    <label for='message'>
+      Your Peep: <input type="text" name="message">
+    </label>
+    <input type="submit" value="Peep">
+  </form>
+
+<section class="list_peeps">
+  <ul id='peeps' style="list-style-type:none">
+    <% @peeps.reverse_each do |peep| %>
+      <li>
+        <br>
+        <B><%= peep.message %></B><br>
+        <i><small>Peeped by <%= User.get(peep.user_id).name %> aka
+        <%= User.get(peep.user_id).user_name %>
+        <%= peep.created_at.strftime('at %I:%M%p on %d/%m/%Y') %></small></i>
+      </li>
+    <% end %>
+  </ul>
+</section>
+</DIV>
+</body>
