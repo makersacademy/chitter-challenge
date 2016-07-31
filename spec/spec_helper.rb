@@ -11,6 +11,7 @@ require 'features/web_helpers'
 
 
 require './models/post'
+require './models/user'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

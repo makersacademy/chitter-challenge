@@ -25,6 +25,15 @@ class Chitter < Sinatra::Base
     @posts = Post.all
     erb :'posts/index'
   end
+
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts' do
+    Post.create(title: params[:title], post: params[:post])
+    redirect '/posts'
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
