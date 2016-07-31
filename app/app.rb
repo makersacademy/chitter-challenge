@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 
 ENV["RACK_ENV"] ||= "development"
 
@@ -10,8 +11,18 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
 
-  get '/' do
-    "Welcome to Chitter!"
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(post: params[:peep])
+    redirect '/peeps'
   end
 
   get '/users/new' do
