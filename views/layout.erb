@@ -8,7 +8,16 @@
     <br>
     <% if current_user %>
     Hello there, <%= current_user.username %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
     <% end %>
+    <% if flash[:notice] %>
+   <div id='notice'>
+     <%= flash[:notice] %>
+   </div>
+ <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
     <br>
     Please refer to the following errors below:

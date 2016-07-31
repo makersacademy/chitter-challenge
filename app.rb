@@ -7,11 +7,12 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 register Sinatra::Flash
+use Rack::MethodOverride
 enable :sessions
 set :session_secret, 'super secret'
 
   get '/' do
-    'Hello chitter!'
+    erb :index
   end
 
   get '/users/new' do
@@ -47,6 +48,12 @@ set :session_secret, 'super secret'
       flash.now[:errors] = ['We cannt find your username or password']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye'
+    redirect '/'
   end
 
   get '/posts' do

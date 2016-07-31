@@ -10,10 +10,10 @@ feature 'log out' do
               password: '123',
               password_confirmation: '123')
   end
-  xscenario 'I want to log out of my account' do
+  scenario 'I want to log out of my account' do
     log_in(username: 'grmillsy', password: '123')
     click_button 'Log out'
-    expect(page).to have_content "Goodbye, Georgia"
+    expect(page).to have_content "Goodbye"
     expect(page).not_to have_content "Hello there, Georgia"
-    end
+  end
 end
