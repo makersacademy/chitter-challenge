@@ -19,7 +19,7 @@ class User
   validates_format_of :email, as: :email_address
 
 
-  #has n, :peep, through: Resource
+  has n, :peep
 
   def self.authenticate(username, password)
     user = first(username: username)
