@@ -3,12 +3,12 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
-require 'data_mapper'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
+require 'features/helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
