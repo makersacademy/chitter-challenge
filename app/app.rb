@@ -13,6 +13,13 @@ class Shtter < Sinatra::Base
   use Rack::MethodOverride
   # set :public_folder, Proc.new { File.join(root, 'static') }
 
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+  
   get '/' do
     redirect to('/poops')
   end
@@ -45,8 +52,8 @@ class Shtter < Sinatra::Base
 
   post '/poops' do
     poop = Poop.create(poop: params[:poop])
-    @current_user.poops << poop
-    @current_user.save
+    current_user.poops << poop
+    current_user.save
     redirect "/poops"
   end
 
@@ -69,12 +76,6 @@ class Shtter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
     redirect to('/poops')
-  end
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
   end
 
   # start the server if ruby file executed directly
