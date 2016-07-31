@@ -13,6 +13,11 @@ feature 'Sign up' do
     expect(User.first.email).to eq "jonny@email.com"
   end
 
+  scenario 'Password is encrypted into password digest' do
+    sign_up
+    expect(User.first.password_digest).to_not eq "somepassword"
+  end
+
   scenario 'Is not completed with passwords that do not match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(page.current_path).to eq '/signup'
