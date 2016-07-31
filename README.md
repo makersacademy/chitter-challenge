@@ -5,6 +5,8 @@ A little Twitter clone that allows users to post status updates (peeps) to a pub
 
 ##### https://chitter-clone.herokuapp.com #####
 
+![chitter screen 2](https://cloud.githubusercontent.com/assets/18379191/17279754/9e8bbd3c-5774-11e6-9dfd-0f008edb15f8.png)
+
 Instructions:
 -------
 * Clone the repo to your own computer with the following command:
