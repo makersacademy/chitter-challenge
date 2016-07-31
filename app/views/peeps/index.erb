@@ -4,6 +4,8 @@
   <% @peeps.each do |peep| %>
     <li>
       Peep: <%= peep.peep %>
+      <br>
+      Time: <%= peep.created_at %>
     </li>
   <% end %>
 </ul>
