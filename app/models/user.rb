@@ -22,10 +22,9 @@ class User
   def self.authenticate(email, password)
     user = User.first(email: email)
     if user && BCrypt::Password.new(user.password_hash) == password
-      user
-    else
-      nil
+      return user
     end
+    nil
   end
 
 end

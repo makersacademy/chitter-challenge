@@ -12,7 +12,7 @@ feature "Sign-in" do
     expect(page).to have_content "Welcome Robert"
   end
 
-  scenario "incorrect sign-in information will result in an error"do
+  scenario "incorrect sign-in information will result in an error" do
     User.create(name: 'Robert',
                 email: 'asdf@asdf.com',
                 callsign: 'Rob-S',
