@@ -27,9 +27,11 @@ Launch web server.
 $ rackup -p 4567
 ```
 
-![alt tag](https://www.dropbox.com/s/643tqj74a5pwo6i/peeps.png?dl=0)
+## Homepage view
+![ScreenShot](screenshots/peeps.png)
 
-![alt tag](https://www.dropbox.com/s/hadb5olcn9ernyr/signup.png?dl=0)
+## Signup view
+![ScreenShot](screenshots/signup.png)
 
 
 User Stories:
