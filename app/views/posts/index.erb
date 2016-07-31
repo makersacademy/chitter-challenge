@@ -1,1 +1,11 @@
-posts going in here.
+<h1> Posts </h1>
+
+<ul id='posts'>
+  <% @posts.each do |post| %>
+    <li>
+      firstname: <%= post.firstname %>
+      username:  <%= post.username   %>
+      post:   <%= post.post   %>
+    </li>
+  <% end %>
+</ul>

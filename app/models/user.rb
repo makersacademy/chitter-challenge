@@ -4,6 +4,8 @@ require 'dm-validations'
 class User
   include DataMapper::Resource
 
+  # has n, :posts, through: Resource
+
   property :id, Serial
   property :username, String, required: true, unique: true
   property :password_digest, String, length: 60
