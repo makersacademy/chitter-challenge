@@ -49,7 +49,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb :index
+    erb :'/peeps/new'
+  end
+
+  post '/peeps' do
+    @peep = Peep.create(peep: params[:peep], user_name: current_user.user_name)
+    erb :'/peeps/index'
   end
 
   delete '/sessions' do
