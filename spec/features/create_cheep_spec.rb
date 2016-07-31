@@ -13,7 +13,9 @@ feature 'Create cheep' do
     fill_in :content, with: "This is a cheep"
     click_button("Cheep!")
     expect(current_path).to(eq('/cheeps'))
-    expect(page).to(have_content('This is a cheep'))
+    within 'ul#cheeps' do
+      expect(page).to(have_content('This is a cheep'))
+    end
   end
 
 end
