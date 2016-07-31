@@ -1,6 +1,3 @@
-require_relative '../../app/models/user'
-require_relative '../../app/models/peep'
-
 describe Peep do
 
   let(:leo) do
@@ -19,10 +16,9 @@ describe Peep do
 
   end
 
-  it 'saves a peep with valid user' do
+  it 'saves a peep with a valid user' do
     expect(Peep.count).to eq 0
-    peep = Peep.new(peep: "Where did the sun go?", user: jonny)
-    peep.save
-    expect(Peep.count).to be 1
+    Peep.create(peep: "Where did the sun go?", user: jonny)
+    expect(Peep.count).to eq 1
   end
 end
