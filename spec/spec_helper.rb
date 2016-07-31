@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
 require 'features/web_helpers'
+require 'database_cleaner'
 
 
 require './models/post'
@@ -22,6 +23,18 @@ Coveralls.wear!
 
 Capybara.app = Chitter
 
+RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
 
 RSpec.configure do |config|
   config.include Capybara::DSL
