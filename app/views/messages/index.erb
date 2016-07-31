@@ -1,0 +1,11 @@
+<h1> Messages </h1>
+<section class="list_messages">
+  <ul id='messages'>
+    <% @messages.each do |message| %>
+      <li>
+        Peep: <%= message.title %><br>
+        Time: <%= message.time %><br>
+      </li>
+    <% end %>
+  </ul>
+</section>
