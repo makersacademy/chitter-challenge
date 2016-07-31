@@ -11,7 +11,7 @@ class User
   property :id, Serial
   property :full_name, String, required: true
   property :username, String, required: true, unique: true
-  property :email, String, :required => true, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, String, length: 60
 
   validates_presence_of :password
@@ -19,7 +19,7 @@ class User
   validates_format_of :email, as: :email_address
 
 
-  has n, :peep
+  has n, :peeps
 
   def self.authenticate(username, password)
     user = first(username: username)

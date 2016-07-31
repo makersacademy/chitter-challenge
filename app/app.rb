@@ -44,7 +44,7 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
      erb :'sessions/new'
-   end
+  end
 
   post '/sessions' do
     user = User.authenticate(params[:username], params[:password])

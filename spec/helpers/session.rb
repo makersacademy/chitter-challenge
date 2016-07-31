@@ -1,7 +1,11 @@
 module SessionHelpers
 
 
-def sign_up(full_name: 'User', username: 'user100', email: 'test100@test.com', password: 'Password123', password_confirmation: 'Password123')
+def sign_up(full_name: 'User',
+            username: 'user100',
+            email: 'test100@test.com',
+            password: 'Password123',
+            password_confirmation: 'Password123')
   visit '/users/new'
   expect(page.status_code).to eq(200)
   fill_in :full_name, with: full_name

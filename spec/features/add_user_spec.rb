@@ -36,9 +36,9 @@ feature 'User sign up' do
   end
 
   scenario "I can't sign up with an invalid email address" do
-   expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
-   expect(current_path).to eq('/users')
-   expect(page).to have_content('Email has an invalid format')
+    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
   end
 
   scenario 'it raises an error if password does not match' do
