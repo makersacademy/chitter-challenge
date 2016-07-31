@@ -13,13 +13,18 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  get '/cheeps' do
+    @cheeps = Cheep.all
+    erb :'cheeps/index'
+  end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
   end
 
   get '/' do
-    erb :'/peeps/index'
+    redirect to '/cheeps'
   end
 
   post '/users' do

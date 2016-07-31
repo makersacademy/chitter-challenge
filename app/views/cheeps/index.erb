@@ -1,0 +1,9 @@
+<h1>Cheeps</h1>
+
+<ul id="cheeps">
+  <% @cheeps.each do |cheep| %>
+    <div>
+      <p><%= cheep.content %></p>
+    </div>
+  <% end %>
+</ul>
