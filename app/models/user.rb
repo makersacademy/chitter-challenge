@@ -8,8 +8,11 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps
+
   property :id, Serial
   property :username, String, required: true, unique: true
+  property :name, Text, required: true
   property :email, String, required: true, unique: true, format: :email_address
   property :password_digest, String, length: 60
 
@@ -28,7 +31,5 @@ class User
       nil
     end
   end
-
-  #has n, :peeps
 
 end

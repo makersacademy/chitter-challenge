@@ -3,6 +3,7 @@ describe User do
   let!(:user) do
     User.create(username: 'bobsmith1',
                 email: "bob@smith.com",
+                name: "Bob Smith",
                 password: 'password123',
                 password_confirmation: 'password123')
   end

@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peeps/feed'
   end
 
   get '/users/sign_up' do
@@ -28,6 +28,7 @@ class Chitter < Sinatra::Base
   post '/users/sign_up' do
     @user = User.create(username: params[:username],
                 email: params[:email],
+                name: params[:name],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation]
                )
@@ -45,7 +46,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:username], params[:password])
+    user = User.authenticate(params[:username],
+                             params[:password])
     if user
       session[:user_id] = user.id
       redirect to('/peeps/feed')
@@ -55,14 +57,27 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "So long, farewell, auf wiedersehen, adieu!"
+    redirect to '/peeps/feed'
+  end
+
   get '/peeps/feed' do
     @peeps = Peep.all
     erb :'peeps/feed'
   end
 
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = "So long, farewell, auf wiedersehen, adieu!"
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(text: params[:peep],
+                username: current_user.username,
+                name: current_user.name,
+                created_at: Time.now
+    )
     redirect to '/peeps/feed'
   end
   # start the server if ruby file executed directly
