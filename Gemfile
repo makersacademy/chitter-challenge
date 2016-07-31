@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'json', '1.8.3'
+gem 'database_cleaner'
 
 
 group :test do
@@ -11,6 +12,5 @@ group :test do
   gem 'rspec-sinatra'
   gem 'rspec'
   gem 'rake'
-  gem 'database_cleaner'
   gem 'coveralls', require: false
 end

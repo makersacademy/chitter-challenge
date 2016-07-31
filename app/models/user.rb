@@ -9,7 +9,7 @@ class User
   property :email, String
   property :password, String
 
-  DataMapper.setup(:default, "postgres://localhost/chitter_users")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.finalize
   DataMapper.auto_upgrade!
 
