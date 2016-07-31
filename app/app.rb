@@ -4,6 +4,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_
 
 
 require_relative './models/user'
+require_relative './models/peep'
 require 'sinatra/flash'
 require 'sinatra/base'
 
@@ -33,7 +34,7 @@ class Chitter < Sinatra::Base
         session[:user_id] = @user.id
         redirect '/'
       else
-        flash.now[:bad] = "Your passwords don\'t match"
+        flash.now[:bad] = "There was a problem with your sign up, Wanna try again?"
         erb :'/user/new'
       end
     end
@@ -55,9 +56,25 @@ class Chitter < Sinatra::Base
 
     delete '/sessions' do
       session[:user_id] = nil
-      flash.keep[:notice] = 'goodbye!'
+      flash.keep[:notice] = 'TTYN'
       redirect to '/'
     end
+
+  get '/peep/new' do
+    erb :'peep/new'
+  end
+
+  post '/peep' do
+    Peep.create(post: params[:peep],
+              author: params[:current_user],
+              time: params[Time.now])
+    redirect '/peep/list'
+  end
+
+  get '/peep/list' do
+    @peeps = Peep.all
+    erb :'peep/list'
+  end
 
   helpers do
     def current_user
@@ -67,4 +84,5 @@ class Chitter < Sinatra::Base
 
   # start the server if ruby file executed directly
   run! if app_file == $PROGRAM_NAME
+
 end

@@ -12,6 +12,10 @@ Sign in !
   <input type="submit" value="Sign in"/>
 </form>
 
+<form action="/user/new">
+  <input type="submit" value="Sign up">
+</form>
+
 <% if flash[:errors] %>
   <div id='notice'><%= flash[:errors] %></div>
 <% end %>
