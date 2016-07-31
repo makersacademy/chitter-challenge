@@ -1,0 +1,10 @@
+
+<h1> Posts </h1>
+  <ul id='posts'>
+    <% @posts.each do |entry| %>
+    <li>
+      Title: <%= entry.title %>
+      Post: <%= entry.post %>
+    </li>
+    <%end%>
+  </ul>

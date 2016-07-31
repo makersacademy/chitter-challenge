@@ -13,8 +13,8 @@ feature 'Post a peep' do
     xscenario 'I want to publish a post' do
       log_in(username: 'grmillsy', password: '123')
         visit '/posts/new'
-        fill_in 'Title', with: 'Post'
-        fill_in 'Post', with: 'This is a post'
+        fill_in 'Title:', with: 'Post'
+        fill_in 'Post:', with: 'This is a post'
         click_button 'publish post'
     expect(current_path).to eq '/posts'
     expect(page).to have_content 'This is a post'

@@ -4,7 +4,7 @@
 
 feature 'sign up' do
 
-  xscenario 'user signs up for chitter' do
+  xscenario 'user s signs up for chitter' do
     visit 'users/new'
     expect{ sign_up }.to change(User, :count).by 1
     expect(page).to have_content 'Hello, g@hotmail.com'
