@@ -6,6 +6,6 @@ class User
   property :username, String
   property :name,     String
   property :email,    String
-  property :password, String
+  # property :password, String
 
 end

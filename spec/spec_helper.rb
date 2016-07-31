@@ -12,6 +12,8 @@ require 'rspec'
 require 'sinatra/base'
 require 'database_cleaner'
 
+require_relative 'web_helper'
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
