@@ -1,3 +1,4 @@
+require './web_helper'
 
 feature 'User registration' do
   scenario 'User signs-up' do

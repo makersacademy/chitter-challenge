@@ -1,3 +1,4 @@
+module SessionHelpers
 
 def sign_up(email: 'bart@example.com',
               password: 'password',
