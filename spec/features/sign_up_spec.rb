@@ -1,5 +1,3 @@
-require_relative 'web_helpers'
-
 # User Story 1:
 # As a Maker
 # So that I can post messages on Chitter as me
