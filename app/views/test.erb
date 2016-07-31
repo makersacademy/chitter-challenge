@@ -1,0 +1,9 @@
+<h1>Test peeps</h1>
+
+<ul id="peep">
+  <% @peep.each do |peep| %>
+    <li>
+      Peep: <% peep.text %>
+    </li>
+  <% end%>
+</ul>

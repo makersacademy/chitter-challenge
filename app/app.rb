@@ -56,6 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/feed' do
+    @peeps = Peep.all
     erb :'peeps/feed'
   end
 
