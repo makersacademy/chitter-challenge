@@ -17,6 +17,8 @@ class User
   validates_format_of :email, as: :email_address
   validates_uniqueness_of :email, :username
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

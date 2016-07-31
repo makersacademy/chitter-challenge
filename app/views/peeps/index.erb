@@ -1,11 +1,9 @@
-<!DOCTYPE/>
-
 <h1> Peeps </h1>
+
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      Title:  <%= peep.title %>
-      Message:  <%= peep.message %>
+      Message:   <%= peep.message  %>
     </li>
   <% end %>
 </ul>
