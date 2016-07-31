@@ -18,7 +18,6 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    #if the hashed inputted password is the same as the hashed stored password
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
