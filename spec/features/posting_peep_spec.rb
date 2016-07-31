@@ -24,8 +24,8 @@ feature 'User posts a peep' do
           fill_in :title, with: 'titleokay'
           fill_in :body, with: 'this is a nice peep'
           click_button 'Peep!'
-          expect(page).to have_content 'Name: Bart'
-          expect(page).to have_content 'Username: @bartklu'
+          expect(page).to have_content 'Written by: '
+          expect(page).to have_content '@bartklu'
 
       end
 
