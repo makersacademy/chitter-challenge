@@ -10,3 +10,15 @@ feature 'user sign up' do
     sign_up
     expect(User.count).to eq 1
     end
+
+  scenario 'sign up fails if password does not match password confiramtion' do
+    visit '/'
+    click_button('Sign up')
+    fill_in "name", :with => "suse"
+    fill_in "email", :with => "suse@gmail.com"
+    fill_in "password", :with => "monkey"
+    fill_in "password_confirmation", :with => "wrong password"
+    click_button "Sign me up!"
+    expect(page).to have_content "Your passwords don\'t match"
+  end
+end

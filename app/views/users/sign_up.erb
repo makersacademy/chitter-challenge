@@ -1,7 +1,7 @@
 I want a CHITTY account!<br>
 Sign up here:
 
-<form action="/user" method = "post">
+<form action="/users" method = "post">
   <label for = "name">
     Enter name:
   <input type = "text" name = "name" value="<%= @user.name %>"/>
@@ -14,9 +14,13 @@ Sign up here:
     Enter password:
   <input type = "password" name = "password"/>
   </label>
-  <!-- <label for = "password_confirmation">
+  <label for = "password_confirmation">
     Re-enter password:
   <input type = "password" name = "password_confirmation"/>
-  </label> -->
+  </label>
   <input type="submit" value="Sign me up!"/>
 </form>
+
+<% if flash[:bad] %>
+  <div id='notice'><%= flash[:bad] %></div>
+<% end %>
