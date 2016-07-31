@@ -44,7 +44,9 @@ class Shtter < Sinatra::Base
   end
 
   post '/poops' do
-    Poop.create(poop: params[:poop])
+    poop = Poop.create(poop: params[:poop])
+    @current_user.poops << poop
+    @current_user.save
     redirect "/poops"
   end
 
