@@ -7,7 +7,7 @@ require 'spec_helper.rb'
 feature 'User registration' do
   scenario 'I can sign up as a new user' do
     expect { register }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome to Chitter")
+    expect(page).to have_content("Welcome")
   end
 
   scenario 'requires a matching confirmation password' do

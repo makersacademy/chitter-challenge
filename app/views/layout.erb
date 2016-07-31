@@ -6,10 +6,10 @@
 
   <body>
     <% if current_user %>
-      Welcome to Chitter!, <%= current_user.email %>
+      Welcome, <%= current_user.email %>
     <% end %>
     <% if flash[:errors] %>
-      Please rfer to the following errors below:
+      Please refer to the following errors below:
       <ul id='errors'>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
