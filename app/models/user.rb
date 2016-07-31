@@ -8,8 +8,8 @@ class User
   property :password_digest,  String, length: 60
   property :name,             String
   property :username,         String
-  
-  has n, :peeps
+
+  has n, :peeps, through: Resource
 
   def password=(password)
     @password = password

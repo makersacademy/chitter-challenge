@@ -7,11 +7,7 @@ feature "login" do
   end
   context "valid e-mail and password" do
     scenario "user sees welcome message after logging in correctly" do
-      user = User.create(email: "hulk@gmail.com", password: "smash")
-      visit "/login"
-      fill_in "email", with: "hulk@gmail.com"
-      fill_in "password", with: "smash"
-      click_button "Login"
+      create_log_in
       expect(page).to have_content "Welcome hulk@gmail.com!"
     end
   end
@@ -24,5 +20,5 @@ feature "login" do
       click_button "Login"
       expect(page).to have_content "The email or password is incorrect"
     end
-  end  
+  end
 end
