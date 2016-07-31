@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :sessions_secret, 'super secret'
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort_by { |a, b| a.time <=> b.time }
     erb :'peeps/index'
   end
 
@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(post: params[:peep])
+    Peep.create(post: params[:peep], time: Time.now)
     redirect '/peeps'
   end
 

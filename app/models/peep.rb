@@ -5,8 +5,11 @@ class Peep
 
   include DataMapper::Resource
 
+  attr_reader :time
+
   property :id,   Serial
   property :post, String
+  property :time, DateTime
 
 end
 
