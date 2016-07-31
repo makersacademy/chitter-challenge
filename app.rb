@@ -30,7 +30,7 @@ set :session_secret, 'super secret'
     redirect to '/posts'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'posts/new'
+      erb :'users/new'
     end
   end
 
