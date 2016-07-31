@@ -3,11 +3,13 @@
 
 <form action='/users' method='post'>
   <label for='full_name'>
-    Name: <input name='full_name' type='text' name ='full_name' value='<%= @user.full_name %>'>
+    Name: <input name='full_name' type='text' name ='full_name'
+    value='<%= @user.full_name %>' placeholder='Your full name'>
   </label>
   <br>
   <label for='user_name'>
-    User Name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
+    User Name: <input name='user_name' type='text'
+    value='<%= @user.user_name %>' placeholder='Preferred user name'>
   </label>
   <br>
   <label for='email'>
@@ -19,7 +21,8 @@
   </label>
   <br>
   <label for='password_confirmation'>
-    Password: <input name='password_confirmation' type='password'>
+    Password: <input name='password_confirmation' type='password'
+    placeholder='Confirm password'>
   </label>
   <br>
   <input type='submit' value='Sign up'>

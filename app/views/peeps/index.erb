@@ -3,7 +3,8 @@
 <% if current_user %>
   <form action='/peeps/new' method='post'>
     <label for='message'>
-      Message: <input name='message' type='text' name ='message'>
+      Message: <input name='message' type='text'
+      name ='message' placeholder="Enter message">>
     </label>
     <input type='submit' value='Send peep'>
   </form>
