@@ -1,12 +1,16 @@
 
-def register
+def register(email: 'jck_catchall@outlook.com',
+            name: 'jose',
+            user_name: 'jck',
+            password: 'abc',
+            password_confirmation: 'abc')
   visit 'users/new'
   expect(page.status_code).to eq 200
 
-  fill_in :email, with: 'jck_catchall@outlook.com'
-  fill_in :name, with: 'jose'
-  fill_in :user_name, with: 'jck'
-  fill_in :password, with: 'abc'
-  fill_in :password_confirmation, with: 'abc'
+  fill_in :email, with: email
+  fill_in :name, with: name
+  fill_in :user_name, with: user_name
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'REGISTER'
 end

@@ -10,4 +10,7 @@ feature 'User registration' do
     expect(page).to have_content("Welcome to Chitter")
   end
 
+  scenario 'requires a matching confirmation password' do
+    expect { register(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
 end

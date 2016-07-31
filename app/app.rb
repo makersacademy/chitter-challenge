@@ -23,7 +23,8 @@ set :session_secret, 'super-secret'
     user = User.create(email: params[:email],
                 name: params[:name],
                 user_name: params[:user_name],
-                password: params[:password])
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect('/')
   end
