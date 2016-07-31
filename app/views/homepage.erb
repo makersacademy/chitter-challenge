@@ -17,7 +17,8 @@
     <li class="message">
       <strong><%= message.message %></strong><br/><br/>
       <hr>
-      Peeped by <strong><a href="/users/<%= message.user.username %>"><%= message.user.username %></a></strong>
+      Peeped by <strong><a href="/users/<%= message.user.username %>">
+        <%= message.user.username %></a></strong> (<%= message.user.name %>)
       <% date = message.created_at %>
       at <i><%= date.strftime('%v')%>
       <%= date.strftime('%R')%></i>
