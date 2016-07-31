@@ -15,6 +15,7 @@ feature 'User sign up' do
   scenario 'user cannot sign up if email address is already registered' do
     sign_up
     expect { sign_up(email: 'alwins@gmail.com') }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
   end
 
   scenario 'user cannot sign up with an already registered email' do
