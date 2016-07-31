@@ -3,6 +3,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @peeps.sort_by &:created_at
     erb :'peeps/index'
   end
 
