@@ -5,6 +5,10 @@
     Message: <input type="text" name="message">
     <input type="submit" value='Submit'>
   </form>
+<% else %>
+  <form action="/users/new">
+    <input type="submit" value="Sign up">
+  </form>
 <% end %>
 
 <ul id='messages'>
