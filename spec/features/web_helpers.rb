@@ -3,7 +3,7 @@ def sign_up(name: 'Georgia',
             email: 'g@hotmail.com',
             password: '123',
             password_confirmation: '123')
-  visit 'users/new'
+  visit '/users/new'
   fill_in :name, with: name
   fill_in :username, with: username
   fill_in :email, with: email
