@@ -53,5 +53,21 @@ feature 'user sign in' do
   it 'does not authenticate when given an incorrect password' do
     expect(User.authenticate(user.email, 'wrong_password')).to be_nil
   end
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(email: 'tommy@testy.com', username: 'tommytest',
+                password: 'qwerty',
+                password_confirmation: 'qwerty')
+  end
+
+  scenario 'sign out from sign in' do
+    sign_in(email: 'tommy@testy.com', password: 'qwerty')
+    click_button 'Sign Out'
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content('Welcome, tommy@testy.com')
+  end
 
 end
