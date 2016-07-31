@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require_relative 'models/user'
 
+ENV["RACK_ENV"] ||= "development"
+
 class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
