@@ -54,7 +54,14 @@ class Chitter < Sinatra::Base
 
   get "/main" do
     @user = User.get(session[:user_id])
+    @peep = session[:peep]
     erb :"main"
+  end
+
+  post "/peep" do
+    peep = Peep.create(content: params[:peep_content])
+    session[:peep] = peep.content
+    redirect to "/main"
   end
 
   helpers do
