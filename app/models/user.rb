@@ -13,9 +13,9 @@ class User
 
   property :password_digest, String, length: 60
 
-  #validates_presence_of :password
+  validates_presence_of :password
   validates_confirmation_of :password
-
+  validates_presence_of :email
 
 
   def password=(password)
