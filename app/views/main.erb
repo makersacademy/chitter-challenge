@@ -1,13 +1,17 @@
-<center><h1> PEEPS </h1><br>
-  <% if current_user %>
-    <form action="/peep" method="post">
-      <label for="peep">
-        Your peep: <input type="text" name="peep_content">
-      </label><br><br>
-      <input type="submit" name="submit" value="Peep">
-    </form>
-  <% end %>
-  <% if @peep %>
-    <%= "#{current_user.user_name}: #{@peep}" %>
-  <% end %>
+<center>
+
+  <form action="/peep" method="post">
+    <label for="peep">
+      Your peep: <input type="text" name="peep_content">
+    </label><br><br>
+    <input type="submit" name="submit" value="Peep">
+  </form>
+
+   <h1> PEEPS </h1>
+   <ul id='peeps'>
+     <% @peeps.each do |peep| %>
+        <%= current_user.user_name %>:  <%= peep.content %><br><br>
+     <% end %>
+   </ul>
+
 </center>

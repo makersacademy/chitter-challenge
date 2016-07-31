@@ -4,7 +4,7 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  #has n :peeps, through: Resource
+#  has n :peeps, through: Resource, required: false
 
   attr_reader :password
   attr_accessor :password_confirmation
