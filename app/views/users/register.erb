@@ -1,0 +1,17 @@
+<h1>Please register your details, to use this platform</h1>
+
+<form action='/users' method='post'>
+  <label for='email'>
+    Email: <input name='email' type='text'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='name'>
+  Name: <input name='name' type='text'>
+  </label>
+  <label for='user_name'>
+  User_name: <input name='user_name' type='text'>
+  </label>
+  <input type='submit' value='Register'>
+</form>
