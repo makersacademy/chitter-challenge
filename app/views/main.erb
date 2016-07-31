@@ -1,0 +1,20 @@
+<center>
+
+  <% if current_user %>
+    <form action="/peep" method="post">
+      <label for="peep">
+        Your peep: <input type="text" name="peep_content">
+      </label><br><br>
+      <input type="submit" name="submit" value="Peep">
+    </form>
+  <% end %>
+
+   <h1> PEEPS </h1>
+   <ul id='peeps'>
+     <% @peeps.reverse.each do |peep| %>
+      (<%= peep.created.strftime("%d-%m-%y %H:%M") %>)<br>
+      <%= peep.author %>:  <%= peep.content %><br><br>
+     <% end %>
+   </ul>
+
+</center>
