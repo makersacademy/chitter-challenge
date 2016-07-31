@@ -16,3 +16,9 @@ def sign_in
   fill_in "password", with: "haircut"
   click_button('Sign in')
 end
+
+def write_peep
+  visit '/peep/new'
+  fill_in "peep", with: "feast your peepers on this"
+  click_button "Send peep"
+end

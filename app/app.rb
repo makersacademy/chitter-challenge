@@ -67,7 +67,7 @@ class Chitter < Sinatra::Base
   post '/peep' do
     Peep.create(post: params[:peep],
               author: params[:current_user],
-              time: params[Time.now])
+              time: Time.now)
     redirect '/peep/list'
   end
 

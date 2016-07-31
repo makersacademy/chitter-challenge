@@ -10,7 +10,7 @@ class Peep
   has 1, :user, through: Resource
 
 	property :id, Serial
-	property :post, String, length: 145
+	property :post, String, required: true, length: 145
   property :author, String
 	property :time, DateTime
 end

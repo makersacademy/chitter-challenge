@@ -42,5 +42,11 @@ feature 'writing peeps' do
     click_button "Send peep"
     peep = Peep.first
     expect(peep.post).to include('fair')
-end
+  end
+  # scenario 'user cannot post an empty peep' do
+  #   sign_in
+  #   visit '/peep/new'
+  #   click_button "Send peep"
+  #   expect(page).to have_content "Your peep was blank"
+  # end
 end

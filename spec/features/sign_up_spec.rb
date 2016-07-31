@@ -3,7 +3,7 @@ require 'spec_helper'
   feature 'user sign up' do
     scenario 'user can sign up' do
       sign_up
-      expect(page).to have_content('post')
+      expect(page).to have_content('Welcome Becca!')
     end
 
     scenario 'on user sign-in increase user count by one' do
