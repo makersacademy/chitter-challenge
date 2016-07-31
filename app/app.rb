@@ -33,12 +33,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/reply' do
-    number = params[:peep_id]
-    peep = Peep.get(number)
+    peep = Peep.get(params[:peep_id])
     reply = Reply.create(content: params[:content],
                         owner: peep.author,
                         created: Time.new,
-                        peep_id: number)
+                        peep_id: params[:peep_id])
     peep.replys << reply
     peep.save
     redirect '/peeps'
