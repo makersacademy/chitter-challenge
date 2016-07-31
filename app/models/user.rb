@@ -7,6 +7,8 @@ class User
   property :id, Serial
   property :email, String, format: :email_address
   property :password, String
+  property :username, String
+  property :name, String
 
 end
 
