@@ -7,7 +7,7 @@ feature "Signing up" do
 end
 
 feature "Signing in" do
-  scenario "A user can sing in to their account" do
+  scenario "A user can sign in to their account" do
     sign_up
     sign_in
     expect(page).to have_content("Welcome back, example_username")
