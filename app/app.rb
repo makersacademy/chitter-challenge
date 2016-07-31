@@ -1,26 +1,28 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'data_mapper_setup'
 
-class ChitterChallenge < Sinatra::Base
-
+class Chitter < Sinatra::Base
 enable :sessions
 
   get '/' do
     erb :'peeps/home'
   end
 
-  get '/user/new' do
+  get '/users/new' do
     @user = User.new
     erb :'user/sign_up'
   end
 
-  post '/user' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
+  post '/users' do
+  @user = User.create(name: params[:name],
+                    email: params[:email],
+                    password: params[:password])
+    session[:user_id] = @user.id
     redirect '/'
-  end
+end
 
   helpers do
     def current_user

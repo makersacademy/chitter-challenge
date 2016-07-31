@@ -1,5 +1,9 @@
-WELCOME TO CHITTER!! :D
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+<% end %>
 
-<form action="/user/new">
+LET'S CHITTER!! :D
+
+<form action="/users/new">
   <input type="submit" value="Sign up">
 </form>

@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 require 'coveralls'
 require 'simplecov'
@@ -16,7 +16,7 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-Capybara.app = ChitterChallenge
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.before(:suite) do

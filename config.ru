@@ -1,3 +1,3 @@
 require './app/app.rb'
 
- run ChitterChallenge
+ run Chitter

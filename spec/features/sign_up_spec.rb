@@ -10,4 +10,3 @@ feature 'user sign up' do
     sign_up
     expect(User.count).to eq 1
     end
-  end
