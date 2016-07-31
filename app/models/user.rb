@@ -24,8 +24,6 @@ class User
     user = User.first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
-    else
-      nil
     end
   end
 end

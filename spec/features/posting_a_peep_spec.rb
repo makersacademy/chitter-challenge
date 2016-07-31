@@ -8,6 +8,11 @@ feature "Posting a Peep" do
     expect(page).to_not have_button "Peep!"
   end
 
+  scenario "message is required" do
+    peep(message: nil)
+    expect(page).to have_content "Message must not be blank"
+  end
+
   scenario "is able to post a peep to the feed" do
     peep
     expect(page).to have_content "Example message"

@@ -72,11 +72,10 @@ class Chitter < Sinatra::Base
     peep.user_id = current_user.id
     if peep.save
       flash[:notice] = "Peep peep!"
-      redirect '/feed'
     else
       flash[:error] = peep.errors.full_messages
-      redirect '/feed'
     end
+    redirect '/feed'
   end
 
   # start the server if ruby file executed directly
