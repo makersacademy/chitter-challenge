@@ -13,4 +13,14 @@ feature 'User registration' do
   scenario 'requires a matching confirmation password' do
     expect { register(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
+
+  scenario 'with passwords that do not match' do
+    expect { register(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario "I can't sign up without an email address" do
+    expect { register(email: nil) }.not_to change(User, :count)
+  end
 end
