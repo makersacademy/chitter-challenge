@@ -7,6 +7,9 @@
   <label for='password'>
     Password: <input name='password' type='password'>
   </label>
+  <label for='password_confirmation'>
+    Password: <input name='password_confirmation' type='password'>
+    </label>
   <label for='name'>
   Name: <input name='name' type='text'>
   </label>

@@ -25,7 +25,8 @@ class Chitter < Sinatra::Base
     user =User.create(email: params[:emai],
                 password: params[:password],
                 name: params[:name],
-                user_name: params[:user_name] )
+                user_name: params[:user_name],
+                password_confirmation: params[:password_confirmation])
     session[:user_id = user.id]
     redirect to('/home')
   end
