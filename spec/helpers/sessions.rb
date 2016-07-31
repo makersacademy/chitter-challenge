@@ -1,10 +1,10 @@
 module SessionHelpers
 
   def sign_up(full_name: "Fred Bloggs",
-                 user_name: "fredb",
-                 email: "fred@bloggs.com",
-                 password: "ABC123",
-                 password_confirmation: "ABC123")
+                user_name: "fredb",
+                email: "fred@bloggs.com",
+                password: "ABC123",
+                password_confirmation: "ABC123")
     visit '/users/new'
     fill_in :full_name, with: full_name
     fill_in :user_name, with: user_name
@@ -20,4 +20,8 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
+
+  # def create_peep(user_id:, message:, timestamp:)
+  #   sign_up()
+  # end
 end
