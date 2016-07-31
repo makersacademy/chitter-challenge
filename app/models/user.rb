@@ -8,6 +8,8 @@ class User
   property :password_digest,  String, length: 60
   property :name,             String
   property :username,         String
+  
+  has n, :peeps
 
   def password=(password)
     @password = password
