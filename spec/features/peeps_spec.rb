@@ -8,9 +8,15 @@ feature "postin peeps" do
 end
 
 feature "viewing peeps" do
-  scenario "peeps are displayed in reverse chronological order" do
-    sign_in
-    Peep.create(content: "Anything new")
-    Peep.create(content: "Anything new 2")
+  before do
+    Peep.create(author: "Jonny", content: "Anything new", created: "16-08-01 12:00")
+    visit"/"
+    click_button "Chitter Main"
+  end
+  scenario "peeps are displayed without logging in" do
+    expect(page).to have_content "Jonny: Anything new"
+  end
+  scenario "peeps are displayed with creation time" do
+    expect(page).to have_content "(01-08-16 12:00)"
   end
 end

@@ -12,7 +12,8 @@
    <h1> PEEPS </h1>
    <ul id='peeps'>
      <% @peeps.reverse.each do |peep| %>
-        <%= peep.author %>:  <%= peep.content %><br><br>
+      (<%= peep.created.strftime("%d-%m-%y %H:%M") %>)<br>
+      <%= peep.author %>:  <%= peep.content %><br><br>
      <% end %>
    </ul>
 
