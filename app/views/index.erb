@@ -1,0 +1,13 @@
+<div class="list-group col-md-6">
+  <% if !@peep.empty? %>
+    <h3>Latest Peep's:</h3>
+    <% @peep.each do |peep| %>
+    <a href="/peep/<%= peep.user.username %>" class="list-group-item list-group-item-action">
+      <h4 class="list-group-item-heading"><%= peep.user.username %></h4>
+      <p class="list-group-item-text"><%= peep.message %></p>
+    </a>
+    <% end %>
+  <% else %>
+      <h3>No peep's have been posted yet!</h3>
+  <% end %>
+</div>

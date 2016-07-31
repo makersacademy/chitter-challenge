@@ -8,3 +8,14 @@ def sign_up
   fill_in 'password_confirm', with: 'Password123'
   click_button 'Sign up'
 end
+
+def login
+  user = User.new(name: 'Mannie', username: 'mannieg', password: 'test',
+           password_confirm: 'test', email: 'mannieg@googlemail.com')
+  user.save
+  visit '/'
+  click_link 'Login'
+  fill_in 'username', with: 'mannieg'
+  fill_in 'password', with: 'test'
+  click_button 'Login'
+end

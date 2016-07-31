@@ -1768,8 +1768,11 @@ pre code {
 .col-xs-offset-2 {
   margin-left: 16.66666667%;
 }
-.col-xs-offset-2, .login{
-  margin-left: 28.666667%;
+.col-xs-offset-2 > .login{
+  margin-left: -43.333333%;
+}
+.col-xs-offset-2, .peep{
+  margin-left: 49.666667%;
 }
 .col-xs-offset-1 {
   margin-left: 8.33333333%;
@@ -5038,9 +5041,10 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   border: 1px solid transparent;
   border-radius: 4px;
+  float: none;
 }
 .alert h4 {
   margin-top: 0;
@@ -5254,7 +5258,7 @@ a.thumbnail.active {
   list-style: none;
 }
 .list-group {
-  padding-left: 0;
+  padding-left: 50px;
   margin-bottom: 20px;
 }
 .list-group-item {
