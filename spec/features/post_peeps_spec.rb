@@ -12,8 +12,7 @@ feature "Posting peeps" do
 
   scenario 'A signed in user can post a new peep' do
     sign_in(user_name: user.user_name, password: user.password)
-    click_button 'Write peep'
-    expect(current_path).to eq '/peeps/new'
+    expect(current_path).to eq '/peeps'
     fill_in :message, with: "Hi! This is my first peep!"
     click_button 'Send peep'
     expect(current_path).to eq '/peeps'

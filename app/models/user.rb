@@ -1,5 +1,4 @@
 require 'bcrypt'
-#require 'dm-validations'
 
 class User
   include DataMapper::Resource
@@ -12,6 +11,8 @@ class User
   property :user_name, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
+
+  has n, :peeps
 
   validates_confirmation_of :password
   validates_uniqueness_of :user_name

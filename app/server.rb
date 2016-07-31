@@ -10,6 +10,9 @@ class Chitter < Sinatra::Base
 
   enable :partial_underscores
 
+  set :root, File.dirname(__FILE__)
+  run! if app_file == $0
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

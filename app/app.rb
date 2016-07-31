@@ -10,5 +10,3 @@ require_relative 'server'
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/peeps'
-
-#run! if app_file == $0
