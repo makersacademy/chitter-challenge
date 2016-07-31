@@ -29,7 +29,7 @@ set :session_secret, 'super secret'
     session[:user_id] = @user.id
     redirect to '/posts'
     else
-      flash.now[:notice] = "Password's don't match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'posts/new'
     end
   end
