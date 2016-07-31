@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/user')
     else
-      flash.now[:notice] = 'Username is already taken'
+      flash.now[:errors] = @user.errors.full_messages
       erb :'user/sign_up'
     end
   end
