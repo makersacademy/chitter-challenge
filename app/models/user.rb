@@ -25,6 +25,8 @@ class User
     end
   end
 
+  has n, :peeps
+
   private
   attr_reader :password_confirm
 
