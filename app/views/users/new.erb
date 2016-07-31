@@ -1,5 +1,5 @@
 <form action="/signup" method="post">
-  <input type="email" name="email" required>
+  <input type="email" name="email" value='<%= @user.email %>' required>
   <input type="text" name="user_name" required>
   <input type="password" name="password" required>
   <input type="password" name="password_confirmation" required>
