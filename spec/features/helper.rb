@@ -1,9 +1,13 @@
-def sign_up
+def sign_up(name: 'example',
+            username: 'example93',
+            email: 'example@gmail.com',
+            password: '12345',
+            password_confirmation: '12345')
   visit '/users/new'
-  fill_in 'name', with: 'example'
-  fill_in 'username', with: 'example93'
-  fill_in 'email', with: 'example@gmail.com'
-  fill_in 'password', with: '12345'
-  fill_in 'password_confirmation', with: '12345'
-  click_button('Sign up')
+  fill_in :name, with: name
+  fill_in :username, with: username
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
+  click_button 'Sign up'
 end
