@@ -6,7 +6,7 @@ feature "Displaying Peeps" do
   scenario "peep has a time when it was created" do
     Timecop.freeze do
       peep
-      expect(Peep.first.created_at).to eq Time.now
+      expect(Peep.first.created_at.to_i).to eq Time.now.to_i
     end
   end
 
