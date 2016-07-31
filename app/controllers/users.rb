@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     @user = User.create(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    if @user.save ##save returns true/false depending on whether the model is successfully saved to the database
+    if @user.save
       session[:user_id] = @user.id
       redirect '/'
     else
