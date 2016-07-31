@@ -19,7 +19,7 @@ class Shtter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
-  
+
   get '/' do
     redirect to('/poops')
   end
@@ -51,7 +51,7 @@ class Shtter < Sinatra::Base
   end
 
   post '/poops' do
-    poop = Poop.create(poop: params[:poop])
+    poop = Poop.create(content: params[:content])
     current_user.poops << poop
     current_user.save
     redirect "/poops"

@@ -1,11 +1,9 @@
 <h1> Poops </h1>
 
-<%= puts @poops %>
-
 <ul id='poops'>
   <% @poops.each do |poop| %>
     <li>
-      Poop: <%= poop.poop %>
+      Poop: <%= poop.content %>
     </li>
   <% end %>
 </ul>

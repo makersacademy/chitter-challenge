@@ -23,7 +23,7 @@ class User
   property :username, String, required: true, unique: true
   property :password_digest, String, length: 60
 
-  has n, :poops, :through => Resource
+  has n, :poops
 
   validates_confirmation_of :password
   validates_presence_of :email

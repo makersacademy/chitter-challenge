@@ -6,7 +6,7 @@ class Poop
   include DataMapper::Resource
 
   property :id,   Serial
-  property :poop, String
+  property :content, Text
 
   belongs_to :user
 
