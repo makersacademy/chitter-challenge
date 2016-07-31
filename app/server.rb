@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
 
-  APP_NAME = "Chitter"
+  APP_NAME = "Chitter".freeze
 
   enable :sessions
   set :session_secret, 'super duper secret muahaha'
