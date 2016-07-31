@@ -1,6 +1,7 @@
 # **Chitter Challenge**
 =================
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/richo225/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/richo225/chitter-challenge?branch=master)
 
 A little Twitter clone that allows users to post status updates (peeps) to a public stream. Users can view this stream but must be signed up and logged in to chitter to post a peep.
 
