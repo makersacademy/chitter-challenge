@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/macos,ruby
+# Created by https://www.gitignore.io/api/macos,ruby,bower,codekit
 
 ### macOS ###
 *.DS_Store
@@ -81,6 +81,19 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+
+
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
+
+### CodeKit ###
+# General CodeKit files to ignore
+config.codekit
+/min
 
 /**/.DS_Store
 /coverage
