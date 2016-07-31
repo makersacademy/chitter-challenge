@@ -1,7 +1,9 @@
+require_relative '../web_helper.rb'
+
 feature 'Adding messages' do
 
   scenario 'I can add a message to the homepage' do
-    visit '/'
+    sign_up
     fill_in 'message', with: 'Whats up'
     click_button 'Submit'
     expect(current_path).to eq '/'
