@@ -63,6 +63,10 @@ set :session_secret, 'super secret'
     redirect '/posts'
   end
 
+  get '/newpost' do
+    redirect '/posts/new'
+  end
+
   helpers do
     def current_user
       @current_user || User.get(session[:user_id])
