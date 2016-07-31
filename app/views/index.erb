@@ -1,13 +1,10 @@
-<h1>Welcome to Chitter</h1>
-<a href="/users/new">Sign up</a>
-<a href="/sessions/new">Have account? Sign in!</a>
 
-<% if @peep %>
+<% if @peeps %>
   <section class="list_peeps">
     <ul id='peeps'>
-      <% @peep.each do |peep| %>
+      <% @peeps.each do |peep| %>
         <li>
-          <strong><%= peep.user %></strong>
+          <strong><%= peep.user.id %></strong>
            <%= peep.message %><br>
 
         </li>

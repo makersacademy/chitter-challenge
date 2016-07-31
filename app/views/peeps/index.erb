@@ -1,7 +1,17 @@
 <h1> Peeps </h1>
+<% if current_user %>
+<form action="/peeps" method="post">
+  <label for="message">
+    ADD:
+    <input type="text" name="message">
+  </label>
+  <input type="submit" name="submit" value="Add">
+</form>
+<% end %>
+
 <section class="list_peeps">
   <ul id='peeps'>
-    <% @peep.each do |peep| %>
+    <% @peeps.each do |peep| %>
       <li>
         <strong><%= peep.user %></strong>
          <%= peep.message %><br>
