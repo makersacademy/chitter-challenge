@@ -1,6 +1,4 @@
 require 'bcrypt'
-require 'data_mapper'
-require 'dm-postgres-adapter'
 
 class User
   include DataMapper::Resource
@@ -20,6 +18,8 @@ class User
   validates_presence_of :password
   validates_format_of :email, as: :email_address
 
+  has n, :peeps, :through => Resource
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -35,7 +35,3 @@ class User
   end
 
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!

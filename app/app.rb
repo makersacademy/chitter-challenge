@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
-require_relative 'models/user'
-require 'Sinatra/flash'
+require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,6 +11,27 @@ class Chitter < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(content: params[:content])
+    if current_user.nil?
+      flash.now[:errors] = ['You must sign in to post a peep']
+      erb :'peeps/new'
+    else
+      peep.user_id = current_user.id
+      peep.save
+      redirect '/peeps'
+    end
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/feed'
   end
 
   get '/users/new' do

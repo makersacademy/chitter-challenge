@@ -21,4 +21,10 @@ module Helpers
      click_button 'Sign in'
   end
 
+  def post_peep(content: 'This is a peep')
+    visit '/peeps/new'
+    fill_in :content, with: content
+    click_button 'Post peep'
+  end
+
 end
