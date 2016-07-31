@@ -8,6 +8,7 @@ class Peep
   property :id,    Serial
   property :peep,  String
   property :author, String
+  property :time, String
 
   has n, :user, through: Resource
 
