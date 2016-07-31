@@ -312,3 +312,21 @@ position: absolute;
 i {
     font-size: 0.6em;
 }
+.banner{
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    display: block;
+    font-size: 5em;
+    font-family: comfortaa;
+    font-weight: bold;
+    top: -20px;
+    text-align: center;
+    color: white;
+    height: 90px;
+    overflow: hidden;
+}
+a{
+  text-decoration: none;
+  color: white;
+}

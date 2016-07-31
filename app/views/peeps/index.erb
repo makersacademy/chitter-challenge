@@ -5,7 +5,7 @@
   <input id='peep_button' type="submit" value='peep!'>
 </form>
 <div id='peeps'>
-<% Peep.all.sort_by {|peep| peep.time }.reverse.each do |peep| %>
+<% @peeps.sort_by {|peep| peep.time }.reverse.each do |peep| %>
 <div class='peep'>
 <div class='peep_body'><%= peep.body %><br></div>
 <div id='peep_user'><%=  peep.user.username %> <i><%= "in reply to #{peep.peep.user.username}" if peep.peep%></i></div>
