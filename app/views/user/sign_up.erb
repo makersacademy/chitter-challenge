@@ -1,9 +1,8 @@
-<h1>Sign up</h1>
-
-
+<h1>Welcome to Chitter</h1>
+<h2>Please sign up by filling in your details below:</h2>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
+    You have one or all of the following errors:
     <ul id='errors'>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>

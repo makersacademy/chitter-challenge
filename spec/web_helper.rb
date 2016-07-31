@@ -1,5 +1,5 @@
 def sign_up
-  visit('/user/sign_up')
+  visit('/user/new')
   expect(page.status_code).to eq 200
   fill_in(:name, with: 'name')
   fill_in(:username, with: 'user')

@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
-  get '/user/sign_up' do
+  get '/user/new' do
     @user = User.new
     erb :'user/sign_up'
   end
