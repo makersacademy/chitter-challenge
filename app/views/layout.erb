@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sh*tter</title>
+  </head>
+
+  <body>
+    <img src="https://github.com/twilliams1988/chitter-challenge/blob/master/sh-tter_logo.jpg?raw=true" alt="Sh*tter" height="100"></br>
+    <% if current_user %>
+      <h1>Welcome, <%= current_user.username %></h1>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>
