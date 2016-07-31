@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    message = Message.new(message: params[:message])
+    message = Message.new(message: params[:message], user: current_user)
     message.save
     redirect to '/'
   end

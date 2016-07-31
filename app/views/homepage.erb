@@ -22,7 +22,9 @@
 <ul id='messages'>
   <% @messages.reverse.each { |message| %>
     <li class="message">
-      <%= message.message %><br/>
+      <strong><%= message.message %></strong><br/><br/>
+      <hr>
+      <%= message.user.username %>
       <% date = message.created_at %>
       <%= date.strftime('%v')%>
       <%= date.strftime('%R')%>
