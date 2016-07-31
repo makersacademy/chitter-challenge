@@ -1,0 +1,28 @@
+<h1>Peep Feed!</h1>
+
+<% unless @peeps.nil?%>
+  <ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      <%= peep.content %><br>
+      Posted: <%=peep.created_at.strftime("%e %B %k:%M")%>
+    </li>
+  </ul>
+  <% end %>
+<% end %>
+
+  <form action='/users/new'>
+    <input type='submit' value='Sign Up'>
+  </form>
+
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign In'>
+  </form>
+
+  <form action='/peeps'>
+    <input type='submit' value='Go to peeps'>
+  </form>
+
+  <form action='/peeps/new'>
+    <input type='submit' value='Post a Peep'>
+  </form>

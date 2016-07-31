@@ -1,7 +1,9 @@
 feature 'Posting peeps' do
 
+  let(:user) { user = create(:user) }
+
   scenario 'I can create a new peep' do
-    sign_up
+    sign_in(user)
     expect{post_peep}.to change(Peep, :count).by 1
     expect(current_path).to eq '/peeps'
     expect(page.status_code).to eq 200

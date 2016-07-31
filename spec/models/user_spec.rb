@@ -1,10 +1,6 @@
 describe User do
 
-  let!(:user) do
-    User.create(name: 'user', username: 'user1234',
-                email: 'user@example.com', password: '1234',
-                password_confirmation: '1234')
-  end
+  let(:user) { user = create(:user) }
 
   it 'authenticates with valid email and password' do
     authenticated_user = User.authenticate(user.email, user.password)

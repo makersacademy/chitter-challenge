@@ -2,13 +2,16 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
+require 'helpers'
 require 'capybara'
+require 'factory_girl'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
-require 'features/helpers'
+require './app/app'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -20,7 +23,12 @@ Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
   config.include Helpers
+
+  config.before(:suite) do
+    FactoryGirl.find_definitions
+  end
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
