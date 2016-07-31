@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -24,7 +25,7 @@ class Chitter < Sinatra::Base
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
     if @user.save
-      flash.keep[:notification] = 'Thank you for signing up, please sign in to continue'
+      flash.keep[:message] = 'Thank you for signing up, please sign in to continue'
       redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -36,7 +37,7 @@ class Chitter < Sinatra::Base
     erb :'/users/signin'
   end
 
-  post '/signin' do
+  post '/session' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
@@ -50,6 +51,13 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     erb :index
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:message] = 'signed out!'
+    redirect to('/')
+  end
+
 
   helpers do
     def current_user

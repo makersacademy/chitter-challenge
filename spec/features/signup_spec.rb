@@ -2,7 +2,7 @@ feature 'sign up' do
 
   scenario 'user can sign up' do
     expect{ sign_up }.to change(User, :count).by(1)
-    # expect(page).to have_content('Thank you for signing up, please sign in to continue')
+    expect(page).to have_content('Thank you for signing up, please sign in to continue')
   end
 
   scenario 'user cannot sign up with the wrong password confirmation' do
