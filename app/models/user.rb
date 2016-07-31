@@ -2,6 +2,7 @@ require 'bcrypt'
 require 'dm-validations'
 class User
   include DataMapper::Resource
+  include BCrypt
 
   property :id, Serial
   property :email, String, unique: true, format: :email_address, required: true
