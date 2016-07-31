@@ -6,3 +6,10 @@ def sign_up
   fill_in :password, with: "password"
   click_button "Sign up"
 end
+
+def sign_in
+  visit '/sessions/new'
+  fill_in :username, with: "example_username"
+  fill_in :password, with: "password"
+  click_button "Sign in"
+end
