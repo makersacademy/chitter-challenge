@@ -9,8 +9,8 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
-  property :email, String, required: true
+  property :username, String, unique: true
+  property :email, String, required: true, unique: true
   property :password_digest, String, length: 60
 
   def password=(password)
