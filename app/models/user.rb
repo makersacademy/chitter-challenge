@@ -21,9 +21,9 @@ class User
  end
 
 
- # def self.authenticate(email, password)
- #   user = first(email: email)
- #   return user if (user && BCrypt::Password.new(user.password_digist) == password)
- #   nil
- # end
+ def self.authenticate(email, password)
+   user = first(email: email)
+   return user if (user && BCrypt::Password.new(user.password_digest) == password)
+   nil
+ end
 end
