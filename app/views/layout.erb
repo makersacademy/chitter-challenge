@@ -23,7 +23,13 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Logout'>
       </form>
+
+      <!-- Can only peep if you're logged in -->
+      <form action="/peeps/new">
+        <input type="submit" value="Peep!">
+      </form>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

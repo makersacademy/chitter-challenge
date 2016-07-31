@@ -5,5 +5,6 @@ class Peep
   property :content,  String
   property :username, String
   property :name,     String
+  property :created,  DateTime
 
 end

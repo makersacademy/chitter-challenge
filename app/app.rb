@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    redirect to '/peeps'
   end
 
   get '/peeps' do
@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     username = current_user.username
     name = current_user.name
-    Peep.create(content: params[:peep], username: username, name: name)
+    Peep.create(content: params[:peep], username: username, name: name, created: Time.now)
     redirect to '/peeps'
   end
 
