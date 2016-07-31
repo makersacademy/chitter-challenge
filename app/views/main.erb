@@ -10,7 +10,7 @@
    <h1> PEEPS </h1>
    <ul id='peeps'>
      <% @peeps.each do |peep| %>
-        <%= current_user.user_name %>:  <%= peep.content %><br><br>
+        <%= peep.author %>:  <%= peep.content %><br><br>
      <% end %>
    </ul>
 

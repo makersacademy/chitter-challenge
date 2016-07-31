@@ -59,7 +59,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/peep" do
-    Peep.create(content: params[:peep_content])
+    Peep.create(author: current_user.user_name, content: params[:peep_content])
     #current_user.peep << new_peep
     #session[:peep] = peep.content
     redirect to "/main"

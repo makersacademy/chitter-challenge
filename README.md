@@ -30,16 +30,16 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-feature test: posting_peep_spec
+feature test: peeps_spec
 
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-feature test: views_peep_spec
+feature test: peeps_spec
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
-feature test: views_peep_spec
+feature test: peeps_spec

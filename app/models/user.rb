@@ -1,10 +1,7 @@
 require 'bcrypt'
-#require_relative 'peep'
 
 class User
   include DataMapper::Resource
-
-#  has n :peeps, through: Resource, required: false
 
   attr_reader :password
   attr_accessor :password_confirmation
