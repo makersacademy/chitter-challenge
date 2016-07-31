@@ -44,7 +44,7 @@ class Shtter < Sinatra::Base
   end
 
   post '/poops' do
-    Poop.create(poop: "My first ever poop on sh*tter!")
+    Poop.create(poop: params[:poop])
     redirect "/poops"
   end
 
