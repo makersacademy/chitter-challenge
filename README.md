@@ -1,6 +1,19 @@
 Chitter Challenge
 =================
 
+### Instructions
+ Run rackup or app/app.rb from the root directory.
+
+ The various pages are not fully linked together. Visit:
+ - localhost:9292/signup to sign-up to Chitter (if using rackup).
+ - localhost:9292/peeps/new to post a new peep.
+ - localhost:9292/peeps to see all peeps, listed in reverse chronological order.
+ - Click "log out" to log out.
+
+
+
+
+### User Stories
 
 ```
 As a Maker

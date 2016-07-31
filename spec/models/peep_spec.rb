@@ -39,18 +39,23 @@ describe Peep do
   #   end
   # end
 
-  it 'The time of a peep is displayed' do
-    Peep.create(peep: "Let's check the timestamp", user: leo)
-    visit '/peeps'
-    expect(page).to have_content "Time"
-  end
+# User Story 6
+# As a maker
+# So that I can better appreciate the context of a peep
+# I want to see the time at which it was made
 
-  # User Story 5
-  # As a maker
-  # So that I can see what others are saying
-  # I want to see all peeps in reverse chronological order
-
-  it 'Sorts peeps in reverse chronological order' do
-    
-  end
-end
+#   it 'The time of a peep is displayed' do
+#     Peep.create(peep: "Let's check the timestamp", user: leo)
+#     visit '/peeps'
+#     expect(page).to have_content "Time"
+#   end
+#
+#   # User Story 5
+#   # As a maker
+#   # So that I can see what others are saying
+#   # I want to see all peeps in reverse chronological order
+#
+#   it 'Sorts peeps in reverse chronological order' do
+#
+#   end
+# end
