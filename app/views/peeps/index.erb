@@ -19,12 +19,16 @@
     <div class="col-sm-6">
       <ul id="peeps" >
         <% @peeps.reverse.each do |peep| %>
-        <li class="">
-          <%= peep.message %>
-          written by
-          <%= peep.user.name %>
-          at
-          <%= peep.created_at.strftime("%H:%M:%S %a %d %b %Y") %>
+        <li>
+          <div class="peep_name">
+            <%= peep.user.name %>
+          </div>
+          <div class="peep">
+            <%= peep.message %>
+          </div>
+          <div class="peep_time">
+            <%= peep.created_at.strftime("%H:%M:%S %a %d %b %Y") %>
+          </div>
         </li>
         <% end %>
       </ul>

@@ -1,0 +1,26 @@
+ul {
+    padding: 20px;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+ul li {
+    background: #E8E8E8;
+    border: 2px solid #D8D8D8;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.peep {
+  font-size: 1.1em;
+}
+
+.peep_name {
+  font-size: 1.25em;
+}
+
+.peep_time {
+  font-size: 0.875em;
+  color: 	#909090;
+}

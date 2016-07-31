@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
-  set :public_folder, Proc.new { File.join(root, 'static') }
+  set :public_folder, Proc.new { File.join(root, 'public') }
 
   enable :partial_underscores
 
