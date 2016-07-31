@@ -7,9 +7,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.new(user_name:       params[:user_name],
-                    email:           params[:email],
-                    password:        params[:password],
-                    password_confirmation: params[:password_confirmation])
+                     name:            params[:name],
+                     email:           params[:email],
+                     password:        params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/cheeps/index'
@@ -17,6 +18,14 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
+  end
+
+  get '/users/recover' do
+    erb :'users/recover'
+  end
+
+  post '/users/recover' do
+    redirect to('/users/acknowledge')
   end
 
 end
