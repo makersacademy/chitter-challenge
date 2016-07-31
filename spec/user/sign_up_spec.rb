@@ -24,7 +24,7 @@ feature "User sign up" do
   end
 
   scenario "I can only sign up with a unique email address" do
-    sign_up(email: 'duplicated@mail.com')
+    create_user(email: 'duplicated@mail.com')
     expect{ sign_up(email: 'duplicated@mail.com', user_name: 'unique') }.not_to change{ User.count }
     expect(current_path).to eq '/user/new'
     expect(page).to have_content('Email is already taken')
@@ -37,7 +37,7 @@ feature "User sign up" do
   end
 
   scenario "I can only sign up with a unique user name" do
-    sign_up(user_name: 'duplicated')
+    create_user(user_name: 'duplicated')
     expect{ sign_up(user_name: 'duplicated', email: 'unique') }.not_to change{ User.count }
     expect(current_path).to eq '/user/new'
     expect(page).to have_content('User name is already taken')

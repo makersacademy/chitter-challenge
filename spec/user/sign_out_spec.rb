@@ -1,4 +1,4 @@
-feature 'User sign in' do
+feature 'User sign out' do
   scenario 'While being signed in I can sign out' do
     create_user
     sign_in

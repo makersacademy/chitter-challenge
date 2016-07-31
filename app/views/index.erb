@@ -1,7 +1,6 @@
 
-
+<% if !(session[:user_id]) %>
 <head> Join Chitter </head>
-
 <form action="/user/new">
   <button type="submit" name="Sign up">
     Sign up
@@ -14,3 +13,4 @@
     Sign in
   </button>
 </form>
+<% end %>

@@ -1,4 +1,5 @@
 <center>
+  <% if !(session[:user_id]) %>
 
 <head> Please fill in the registeration form </head>
 
@@ -20,13 +21,6 @@
 
   </form>
 
+  <% end %>
+
 </center>
-
-
-<!--
-
-    <% if !(session[:user_id]) %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-      <% end %> -->
