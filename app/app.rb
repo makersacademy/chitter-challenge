@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative './lib/send_email'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
