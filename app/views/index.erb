@@ -3,8 +3,15 @@
     <h3>Latest Peep's:</h3>
     <% @peep.each do |peep| %>
     <a href="/peep/<%= peep.user.username %>" class="list-group-item list-group-item-action">
-      <h4 class="list-group-item-heading"><%= peep.user.username %></h4>
-      <p class="list-group-item-text"><%= peep.message %></p>
+      <h4 class="list-group-item-heading">
+        <%= peep.user.username %>
+      </h4>
+      <p class="list-group-item-text"><%= peep.message %>...
+        Posted at:
+        <span class="glyphicon glyphicon-time"></span>
+      <%= peep.created_at.strftime('%c') %>...
+      <%= peep.user.name %>
+      </p>
     </a>
     <% end %>
   <% else %>

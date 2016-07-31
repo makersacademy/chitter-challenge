@@ -1,9 +1,9 @@
-def sign_up
+def sign_up(username: 'mannieg', email: 'mannieg@googlemail.com')
   visit '/'
   click_link 'Sign up'
   fill_in 'enter_name', with: 'Mannie'
-  fill_in 'username', with: 'mannieg'
-  fill_in 'email', with: 'mannieg@googlemail.com'
+  fill_in 'username', with: username
+  fill_in 'email', with: email
   fill_in 'password', with: 'Password123'
   fill_in 'password_confirm', with: 'Password123'
   click_button 'Sign up'

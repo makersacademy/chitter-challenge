@@ -8,9 +8,13 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], username: params[:username],
                     password: params[:password], email: params[:email],
                     password_confirm: params[:password_confirm])
-    user.save
-    session[:user_id] = user.id
-    redirect '/'
+    if(user.save)
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:warning] = user.errors.full_messages
+      erb :'session/new'
+    end
   end
 
   get '/session' do

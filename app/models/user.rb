@@ -8,9 +8,9 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :username, String, :unique => true
   property :encrypted_password, String, length: 60
-  property :email, String
+  property :email, String, :unique => true
 
   validates_presence_of :encrypted_password, :confirm => :password_confirm
 

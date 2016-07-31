@@ -38,9 +38,16 @@
     </nav>
     <h2>Welcome to Chitter <%= current_user.name if session[:user_id] %></h2>
     <% if flash[:notice] %>
-      <div class="alert alert-info col-sm-5">
+      <div class="alert alert-info">
         <%= flash[:notice] %>
       </div>
+    <% end %>
+    <% if flash[:warning] %>
+      <% flash[:warning].each do |msg| %>
+        <div class="alert alert-danger">
+          <%= msg %>
+        </div>
+      <% end %>
     <% end %>
     <%= yield %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -13,5 +13,10 @@ if ENV['RACK_ENV'] != 'production'
       DataMapper.auto_migrate!
       puts "Auto migration complete"
     end
+    desc "Auto Upgrade"
+    task :auto_upgrade do
+      DataMapper.auto_upgrade!
+      puts 'Auto-upgrade complete (no data loss)'
+    end
   end
 end
