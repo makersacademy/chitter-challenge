@@ -17,4 +17,12 @@ feature "Displaying Peeps" do
       expect("second peep").to appear_before "first peep"
     end
   end
+
+  scenario "displays the time the peep was made" do
+    Timecop.freeze do
+      peep
+      time = Time.now.strftime('%H:%M, %d %B %Y')
+      expect(page).to have_content "on #{ time }"
+    end
+  end
 end

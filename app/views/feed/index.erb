@@ -13,6 +13,7 @@
     <div>
       <p><%= peep.message %></p>
       <small>by <%= peep.user.name + ' (@' + peep.user.username + ')' %></small>
+      <small>on <%= peep.created_at.strftime("%H:%M, %d %B %Y") %></small>
     </div>
   <% end %>
 </div>
