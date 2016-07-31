@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter</title>
-  </head>
-  <body>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="center1">
+  <div>
+    Chitter
+  </div>
     <% if current_user %>
       Welcome, <%= current_user.user_name %>
       <form method='post' action='/sessions'>
@@ -11,18 +15,34 @@
         <input type='submit' value='Sign out'>
       </form>
     <% else %>
-      Sign in to post peeps
+    <div class="left">
+    <div  class="buttonContainer left-button">
+    <a class="buttons buttonRegular" >
       <form method='get' action='/sessions/new'>
         <input type='submit' value='Login'>
       </form>
-      Sign up to post peeps
+    </a>
+    </div>
+    </div>
+    <div class="center2">
+    <div class="buttonContainer center-button">
+    <a class="buttons buttonRegular" >
       <form method='get' action='/users/new'>
         <input type='submit' value='Sign Up'>
       </form>
+    </a>
+    </div>
+    </div>
     <% end %>
+    <div class="right">
+    <div class="buttonContainer right-button">
+    <a class="buttons buttonRegular" >
     <form method='get' action='/peeps'>
       <input type='submit' value='Home'>
     </form>
+    </a>
+    </div>
+    </div>
     <% if flash[:notice] %>
   <div id='notice'>
     <%= flash[:notice] %>
@@ -36,6 +56,7 @@
         <% end %>
       </ul>
     <% end %>
+  </div>
     <%= yield %>
-  </body>
+</body>
 </html>

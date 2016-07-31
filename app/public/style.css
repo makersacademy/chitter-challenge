@@ -1,0 +1,29 @@
+.inline {
+   display:inline-block;
+   margin-right:5px;
+}
+
+body {
+    background-color: powderblue;
+}
+
+.left {
+float: left;
+margin-right:10px;
+}
+.center2{
+float: left;
+/*margin-left: 20px;*/
+position: center;
+}
+.right{
+float: left;
+margin-left: 10px;
+}
+
+.center1{
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    padding: 70px 0;
+}
