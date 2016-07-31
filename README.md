@@ -1,10 +1,28 @@
 Chitter Challenge
 =================
 
-A little Twitter clone that allows users to post messages to a public stream.
+A little Twitter clone that allows users to post status updates (peeps) to a public stream. Users can view this stream but must be signed up and logged in to chitter to post a peep.
 
 Instructions:
 -------
+* Clone the repo to your own computer with the following command:
+```
+git clone git@github.com:richo225/chitter-challenge.git
+```
+* Run bundle to make sure you have the required gems and are using the same ruby version:
+```
+bundle
+```
+* Create a test and/or development database on your own computer:
+```
+createdb chitter_test
+createdb chitter_development
+```
+* Run Rspec and check that all the tests are passing.
+* Run the chitter program through sinatra and have fun:
+```
+ruby app/app.rb
+```
 
 User stories:
 -------
@@ -34,19 +52,9 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-Domain model:
+Outlook:
 ------
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Validate password with a "confirm password" field or replace it with a "forgotten password" link.
+* Throw an error if a user trues to sign up with an already taken email-address.
+* Finish off styling of buttons
+* Extra user story? => In order to start a conversation as a maker I want to reply to a peep from another maker.
