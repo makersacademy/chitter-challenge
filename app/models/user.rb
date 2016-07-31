@@ -6,10 +6,10 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String, unique: true
+  property :username, String, unique: true, required: true
   property :email, String, unique: true
   property :password_digest, String, length: 60
-
+  
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end
