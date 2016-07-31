@@ -14,15 +14,4 @@ feature 'Log out' do
                 password_confirmation: 'somepassword')
   end
 
-  # What is going on with this test??
-
-  # scenario 'I can log out of a session' do
-  #
-  #   log_in(email: 'Jonny', password: 'somepassword')
-  #   click_button "Log out"
-  #   expect(page).to have_content "Goodbye!"
-  #   expect(page).not_to have_content "Welcome"
-  #   expect(current_path).to eq '/peeps'
-  # end
-
 end
