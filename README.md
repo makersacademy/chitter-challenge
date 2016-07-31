@@ -1,7 +1,9 @@
-Chitter Challenge
+# **Chitter Challenge**
 =================
 
 A little Twitter clone that allows users to post status updates (peeps) to a public stream. Users can view this stream but must be signed up and logged in to chitter to post a peep.
+
+##### https://chitter-clone.herokuapp.com #####
 
 Instructions:
 -------
