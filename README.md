@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
-
+[![Build Status](https://travis-ci.org/lukecartledge/chitter-challenge.svg?branch=master)](https://travis-ci.org/lukecartledge/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/lukecartledge/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/lukecartledge/chitter-challenge?branch=master)
 Technologies:
 -------
 * Ruby (2.2.3)
