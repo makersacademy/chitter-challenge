@@ -1,5 +1,8 @@
+<div class="col-sm-6 col-sm-offset-3 flash-messages">
 <% if flash[:notice] %>
-  <div id='notice' class="text-center"><%= flash[:notice] %></div>
+  <div id='notice' class="text-center">
+    <h3 class="welcome"><%= flash[:notice] %></h3>
+  </div>
 <% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
   <div class="alert alert-danger" role="alert">
@@ -11,3 +14,4 @@
     </ul>
   </div>
 <% end %>
+</div>

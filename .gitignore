@@ -94,6 +94,7 @@ bower_components
 # General CodeKit files to ignore
 config.codekit
 /min
+**/.sass-cache
 
 /**/.DS_Store
 /coverage

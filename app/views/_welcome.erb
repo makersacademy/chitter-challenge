@@ -1,7 +1,3 @@
 <% if current_user %>
-  <h3 class="text-center">Welcome, <%= current_user.name %></h3>
-  <!-- <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form> -->
+  <h3 class="welcome">Welcome, <%= current_user.name %></h3>
 <% end %>

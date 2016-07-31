@@ -16,8 +16,13 @@
     <% @peeps.each do |peep| %>
       <li class="list-group-item">
         <p class="list-group-item-text"><%= peep.message %></p>
+        <hr>
         <p class="list-group-item-text text-muted">
-          <small>@ <%= peep.created_at.strftime('%R') %> on <%= peep.created_at.strftime('%v') %></small>
+          <small>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <%= peep.created_at.strftime('%v') %>
+            @ <%= peep.created_at.strftime('%R') %>
+          </small>
         </p>
       </li>
     <% end %>
