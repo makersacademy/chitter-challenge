@@ -1,0 +1,16 @@
+<div class="peep_form">
+  <form action="/peeps" method="post">
+    <input type="text" name="peep">
+    <input type="submit" value="Send peep">
+  </form>
+</div>
+
+<%@peeps.each do |peep| %>
+  <ul>
+    <li id='peeps'>
+      <h2><%= peep.body %><h2>
+      <h4>posted <%= Kronic.format(peep.time)%> at <%= peep.time.strftime("%H:%M") %> by
+      <%= User.get(peep.user_id).username%>
+    </li>
+  </ul>
+<%end%>
