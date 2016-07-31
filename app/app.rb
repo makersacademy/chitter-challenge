@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'Hello Chitter!'
+    'Welcome to Chitter!'
+
   end
 
   get '/users/new' do
@@ -71,11 +72,48 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     user = User.get(session[:user_id])
+    time = Time.new
+    post_time = time.strftime("Posted on %d/%m/%Y, at %I:%M%p")
     peep = Peep.create(peep: params[:peep], author:
-    user.user_name, time: Time.new)
+    user.user_name, time: post_time)
     peep.user << user
     peep.save
     redirect '/peeps'
+  end
+
+  get '/users/recovery' do
+    erb :'users/recovery'
+  end
+
+  post '/users/recovery' do
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
+      SendEmail.call(user)
+    end
+    erb :'users/acknowledgement'
+  end
+
+  get '/users/reset_password' do
+    @user = User.find_by_valid_token(params[:token])
+    if @user
+      session[:token] = params[:token]
+      erb :'users/reset_password'
+    else
+      "Your token is invalid"
+    end
+  end
+
+  patch '/users' do
+    user = User.find_by_valid_token(session[:token])
+    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      session[:token] = nil
+      user.update(password_token: nil)
+      redirect "/sessions/new"
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/reset_password'
+    end
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
