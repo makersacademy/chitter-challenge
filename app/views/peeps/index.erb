@@ -17,7 +17,7 @@
       <li class="list-group-item">
         <p class="list-group-item-text"><%= peep.message %></p>
         <p class="list-group-item-text text-muted">
-          <small>by <%= current_user.username %> @ <%= peep.created_at.strftime('%v') %> <%= peep.created_at.strftime('%R') %></small>
+          <small>@ <%= peep.created_at.strftime('%R') %> on <%= peep.created_at.strftime('%v') %></small>
         </p>
       </li>
     <% end %>

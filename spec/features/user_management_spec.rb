@@ -2,7 +2,7 @@ feature "User sign up" do
 
   scenario "New users can sign up" do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, Alice')
+    expect(page).to have_content('Signed in as alice123')
     expect(User.first.email).to eq('alice@example.com')
   end
 
@@ -34,6 +34,25 @@ feature "User sign up" do
     expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email has an invalid format')
+  end
+
+end
+
+feature 'User signs out' do
+
+  before(:each) do
+    User.create(name: 'Alice',
+                username: 'alice123',
+                email: 'alice@example.com',
+                password: '12345678',
+                password_confirmation: '12345678')
+  end
+
+  scenario 'while being signed in' do
+    sign_in(email: 'alice@example.com', password: '12345678')
+    click_button 'Sign out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, Alice')
   end
 
 end
