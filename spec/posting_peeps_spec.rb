@@ -7,7 +7,7 @@ feature 'Posting peeps' do
     expect{post_peep}.to change(Peep, :count).by 1
     expect(current_path).to eq '/peeps'
     expect(page.status_code).to eq 200
-    within 'ul#peeps' do
+    within 'div#peeps' do
       expect(page).to have_content 'This is a peep'
     end
   end

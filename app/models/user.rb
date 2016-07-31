@@ -18,7 +18,7 @@ class User
   validates_presence_of :password
   validates_format_of :email, as: :email_address
 
-  has n, :peeps, :through => Resource
+  has n, :peeps, through: Resource
 
   def password=(password)
     @password = password
@@ -27,11 +27,7 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user if user && BCrypt::Password.new(user.password_digest) == password
   end
 
 end
