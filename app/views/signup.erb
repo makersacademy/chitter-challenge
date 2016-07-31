@@ -1,34 +1,44 @@
-<h1> Sign up to Chitter </h1>
 
-<form action="/signup" method="post" >
+<style>
+  .signup_form { border:solid 1px darkblue; border-radius:5px;
+        padding:15px; background-color:lightblue; }
+</style>
 
-<label for="username">
-  Username:
-  <input type="text" name="username" >
-</label >
-<br>
-<br>
+<div class="signup_form">
+  <h1 class="sign_up_to_chitter"> Sign up to Chitter </h1>
 
-<label for="email">
-  Email:
-  <input type="email" name="email" value="<%= @user.email %>" required >
-</label >
-<br>
-<br>
 
-<label for="password">
-  Password:
-  <input type="password" name="password" >
-</label >
-<br>
-<br>
 
-<label for="password_confirmation">
-  Please confirm your password:
-  <input type="password" name="password_confirmation" >
-</label >
-<br>
-<br>
+  <form action="/signup" method="post" >
+      <label for="username">
+        Username:
+        <input type="text" name="username" >
+      </label >
+      <br>
+      <br>
 
-<input type='submit' value='Sign up to Chitter'>
-</form>
+      <label for="email">
+        Email:
+        <input type="email" name="email" value="<%= @user.email %>" required >
+      </label >
+      <br>
+      <br>
+
+      <label for="password">
+        Password:
+        <input type="password" name="password" >
+      </label >
+      <br>
+      <br>
+
+      <label for="password_confirmation">
+        Please confirm your password:
+        <input type="password" name="password_confirmation" >
+      </label >
+      <br>
+      <br>
+
+      <input type='submit' value='Sign up to Chitter'>
+
+  </form>
+</div>

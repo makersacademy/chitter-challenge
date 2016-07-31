@@ -1,21 +1,28 @@
-<h1> Log in to Chitter </h1>
+<style>
+  .login { border:solid 1px darkblue; padding:15px; border-radius:5px;
+          background-color:lightblue; }
+</style>
 
-<form action="/sessions" method="post" >
+<div class="login">
+  <h1> Log in to Chitter </h1>
 
-<label for="email">
-  Email:
-  <input type="email" name="email" >
-</label >
-<br>
-<br>
+  <form action="/sessions" method="post" >
 
-<label for="password">
-  Password:
-  <input type="password" name="password" >
-</label >
-<br>
-<br>
+  <label for="email">
+    Email:
+    <input type="email" name="email" >
+  </label >
+  <br>
+  <br>
 
-<input type='submit' value='Log in to Chitter'
-                      name="Log in">
-</form>
+  <label for="password">
+    Password:
+    <input type="password" name="password" >
+  </label >
+  <br>
+  <br>
+
+  <input type='submit' value='Log in to Chitter'
+                        name="Log in">
+  </form>
+</div>

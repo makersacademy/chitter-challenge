@@ -1,11 +1,20 @@
-<h1> Post a peep </h1>
+<style>
+  .new_peep_form {border:solid 1px darkblue; border-radius:5px;
+                  padding:15px; background-color:lightblue;}
+</style>
 
-<form action='/peeps/new' method='post'>
-<label for='peep'>
-  Peep:
-  <input type='text' name='peep'>
-</label>
-<br>
-<br>
-<input type='submit' value='Post peep'>
-</form>
+<div class="new_peep_form">
+  <h1> Post a peep </h1>
+
+  <form action='/peeps/new' method='post'>
+
+      <label for='peep'>
+        Peep:
+        <input type='text' name='peep'>
+      </label>
+      <br>
+      <br>
+      <input type='submit' value='Post peep'>
+
+  </form>
+</div>

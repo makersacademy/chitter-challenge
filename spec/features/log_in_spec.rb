@@ -13,7 +13,7 @@ feature 'Log in' do
 
   scenario 'I can log in with correct credentials' do
     log_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome back to Chitter, #{user.username}"
+    expect(page).to have_content "Welcome to Chitter, #{user.username}"
   end
 
 end

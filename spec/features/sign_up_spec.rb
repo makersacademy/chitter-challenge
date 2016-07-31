@@ -7,7 +7,7 @@ feature 'Sign up' do
   scenario 'I can sign up to Chitter' do
     expect { sign_up }.to change(User, :count).by 1
     expect(page.current_path).to eq '/peeps'
-    expect(page).to have_content "Welcome back to Chitter, Jonny"
+    expect(page).to have_content "Welcome to Chitter, Jonny"
     expect(User.first.email).to eq "jonny@email.com"
   end
 
