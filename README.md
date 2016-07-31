@@ -3,7 +3,7 @@ Chitter Challenge
 [![Build Status](https://travis-ci.org/lukecartledge/chitter-challenge.svg?branch=master)](https://travis-ci.org/lukecartledge/chitter-challenge)
 [![Coverage Status](https://coveralls.io/repos/github/lukecartledge/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/lukecartledge/chitter-challenge?branch=master)
 
-![Alt text](http://imgur.com/1GZ4ao2)
+![Alt text](http://i.imgur.com/1GZ4ao2.png)
 
 Technologies:
 -------
