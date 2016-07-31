@@ -6,19 +6,26 @@ feature 'Sign up' do
     expect(User.first.email).to eq('email@example.com')
   end
 
-  scenario "A user can't sign up with an existing username" do
-    sign_up
-    expect {sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Username is already taken')
-  end
-  scenario "A user can't sign up without a username" do
-    expect { sign_up(username: nil) }.not_to change(User, :count)
-  end
+  context "A user can't sign up" do
+    scenario "with an existing username" do
+      sign_up
+      expect {sign_up }.to_not change(User, :count)
+      expect(page).to have_content('Username is already taken')
+    end
+    scenario "without a username" do
+      expect { sign_up(username: nil) }.not_to change(User, :count)
+    end
 
-
-  scenario "A user can't sign up with an existing email" do
-    sign_up
-    expect { sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Email is already taken')
+    scenario "with an existing email" do
+      sign_up
+      expect { sign_up }.to_not change(User, :count)
+      expect(page).to have_content('Email is already taken')
+    end
+    scenario "without an email" do
+      expect { sign_up(email: nil) }.not_to change(User, :count)
+    end
+    scenario "with an invalid email address" do
+      expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
+    end
   end
 end
