@@ -10,6 +10,8 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'timecop'
 gem 'mailgun-ruby'
+gem 'dotenv'
+
 group :test do
   gem 'rake'
   gem 'rspec'

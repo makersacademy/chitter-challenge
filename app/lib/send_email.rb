@@ -2,7 +2,7 @@ require 'mailgun'
 class SendEmail
 
   def initialize(mailer: nil)
-    @mailer = mailer || Mailgun::Client.new(ENV["your_api_key"])
+    @mailer = mailer || Mailgun::Client.new(ENV[accountKEY])
   end
 
   def self.call(user, mailer = nil)
@@ -10,7 +10,7 @@ class SendEmail
   end
 
   def call(user)
-    mailer.send_message(ENV["mailgun_domain_name"], {from: "chitter@mail.com",
+    mailer.send_message(ENV[domainNAME], {from: from,
       to: user.email,
       subject: "reset your password",
       text: "click here to reset your password http://yourherokuapp.com/reset_password?token=#{user.password_token}" })
