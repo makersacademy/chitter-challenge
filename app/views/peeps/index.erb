@@ -1,0 +1,38 @@
+      <% if current_user == nil %>
+        <form action="/sessions/new">
+          <button type="submit" class="btn btn-success">Sign In</button>
+        </form>
+      <% end %>
+
+      <% if current_user == nil %>
+        <form action="/users/new">
+          <button type="submit" class="btn btn-success">Sign Up</button>
+        </form>
+      <% end %>
+    </div>
+  <div class="col-sm-3"></div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <ul id="peeps" >
+        <% @peeps.reverse.each do |peep| %>
+        <li class="">
+          <%= peep.message %>
+          written by
+          <%= peep.user.name %>
+          at
+          <%= peep.created_at.strftime("%H:%M:%S %a %d %b %Y") %>
+        </li>
+        <% end %>
+      </ul>
+      <% if current_user != nil %>
+      <form action="/peeps/new">
+        <button type="submit" class="btn btn-success">Send Peep</button>
+      </form>
+      <% end %>
+    </div>
+  <div class="col-sm-3"></div>
+</div>
