@@ -1,4 +1,4 @@
-feature 'Sign in' do
+feature 'Sign out' do
 
   let!(:user) do
     User.create(name: "Jane Smith",
@@ -8,15 +8,11 @@ feature 'Sign in' do
                 password_confirmation: 'secret1234')
   end
 
-  scenario 'with correct credentials' do
+  scenario 'while being signed in' do
     sign_in(username: user.username, password: user.password)
-    expect(page).to(have_content("Hello, #{user.username}"))
+    click_button("Sign out")
+    expect(page).to(have_content("Goodbye!"))
+      expect(page).not_to(have_content("Welcome #{user.username}"))
   end
-
-  scenario 'with incorrect credentials' do
-    sign_in(username: user.username, password: "wrong")
-    expect(page).to(have_content("The username or password is incorrect"))
-  end
-
 
 end
