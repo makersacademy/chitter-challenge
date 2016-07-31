@@ -2,11 +2,12 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
 
   <body>
     <% if current_user %>
-      Welcome, <%= current_user.username %>
+      <h2>Welcome, <%= current_user.username %></h2>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
@@ -21,10 +22,13 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <form method='post' action='/sessions'>
+
+    <%= yield %><br>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+  <footer>
+    <form method='post' action='/sessions' style='text-align: center'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>
-    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
-  </body>
+</footer>
 </html>

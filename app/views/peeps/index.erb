@@ -1,13 +1,14 @@
 <ul id="peeps">
   <% @peeps.reverse.each do |peep|%>
-  <li>
+  <!-- <li> -->
     <h4>Peep!</h4>
     <h4><%= peep.title %></h4>
      <%= peep.body %>
-    <h4>Username:</h4> @<%= peep.username %>
-    <h4>Name:</h4> <%= peep.name %>
-    <h4>Created:</h4> <%= peep.created_at %>
-  </li>
+    <h4>Written by:</h4> @<%= peep.username %>
+      <%= peep.name %>
+    <h4>Created:</h4> <%= peep.created_at %><br>
+    ---------------------------------------------
+  <!-- </li> -->
   <% end %>
 </ul>
 
