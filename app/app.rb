@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   set :sessions_secret, 'super secret'
 
   get '/' do
-    'Hello Chitter!'
+    "Welcome to Chitter!"
   end
 
   get '/users/new' do
@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
     session[:user_id] = @user.id
-    redirect to('/')
+    redirect to('/users/new')
   end
 
   helpers do
