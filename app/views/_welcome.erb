@@ -4,4 +4,8 @@
     <input type='hidden' name='_method' value='delete' />
     <input type='submit' value='Log Out' />
   </form>
+<% else %>
+  <a href="/session/new">Log In</a>
+  or 
+  <a href="/user/new">Sign Up</a>
 <% end %>
