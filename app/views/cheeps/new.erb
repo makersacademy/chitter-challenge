@@ -1,9 +1,15 @@
-<h1>New Cheep</h1>
-
-<form action="/cheeps" method="post">
-  <label for="content">
-    Cheep:
-    <input type="text" name="content">
-  </label>
-  <input type="submit" value="Cheep!">
-</form>
+<% if current_user %>
+  <h1>New Cheep</h1>
+  <form action="/cheeps" method="post">
+    <label for="content">
+      Cheep:
+      <input type="text" name="content">
+    </label>
+    <input type="submit" value="Cheep!">
+  </form>
+<% else %>
+  <h1>You must be signed in to cheep</h1>
+  <form action="/cancel" method="get">
+    <input type="submit" value="Back to homepage">
+  </form>
+<% end %>
