@@ -16,9 +16,28 @@ describe Peep do
 
   end
 
-  it 'saves a peep with a valid user' do
+  it 'Saves a peep with a valid user' do
     expect(Peep.count).to eq 0
     Peep.create(peep: "Where did the sun go?", user: jonny)
     expect(Peep.count).to eq 1
   end
+
+  # User Story 4:
+  # As a Maker
+  # So that I can let people know what I am doing
+  # I want to post a message (peep) to chitter
+
+  it 'I can post a peep to Chitter' do
+    # SHOULD I CHECK WHETHER WE ARE LOGGED IN OR NOT
+    log_in(email: 'jonny@test.com', password: 'another_password')
+    visit '/peeps/new'
+    fill_in "peep", with: "Still need to make my fantasy team"
+    click_button "Post peep"
+    expect(page.current_path).to eq '/peeps'
+    within 'ul#peeps' do
+      expect(page).to have_content "Still need to make my fantasy team"
+    end
+  end
+
+  # Times
 end
