@@ -1,8 +1,29 @@
 Chitter Challenge
 =================
 
-### Instructions
- Run rackup or app/app.rb from the root directory.
+### Info
+
+Clone Jonny's chitter-challenge repo:
+
+$ git clone git@github.com:jonnymoore12/chitter-challenge.git
+
+Then run
+
+$ bundle
+
+Ensure that you create a chitter database (development and or test), e.g.
+
+$ createdb chitter_development
+
+Run rspec to run the available tests. Rake has been setup so you can run
+
+$ rake auto-migrate
+
+to reset the contents of the database tables.
+
+### Instruction on how to use
+
+Run rackup or app/app.rb from the root directory.
 
  The various pages are not fully linked together. Visit:
  - localhost:9292/signup to sign-up to Chitter (if using rackup).
