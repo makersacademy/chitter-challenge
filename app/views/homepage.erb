@@ -16,7 +16,7 @@
   <% @messages.reverse.each { |message| %>
     <li class="message">
       <strong><%= message.message %></strong><br/><br/>
-      <hr class="style9">
+      <hr>
       Peeped by <strong><a href="/users/<%= message.user.username %>"><%= message.user.username %></a></strong>
       <% date = message.created_at %>
       at <i><%= date.strftime('%v')%>

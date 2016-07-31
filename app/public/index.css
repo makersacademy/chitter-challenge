@@ -8,6 +8,8 @@ body {
   margin-left:0px;
   margin-right:0px;
   padding:0px;
+  color: #3e3e5b;
+  font-family: 'Space Mono', monospace;
 }
 
 #menu {
@@ -42,18 +44,18 @@ li {
 }
 
 h1 {
-  color: #8a00e6;
+  color: #5900b3;
   font-weight: bold;
   font-size: 80px;
 }
 
 h2 {
-  color: #8a00e6;
+  color: #5900b3;
   font-size: 40px;
 }
 
 input {
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 4px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -67,8 +69,9 @@ input[type=submit] {
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 20px;
+    color: #3e3e5b;
 }
 
 .message {
@@ -76,7 +79,7 @@ input[type=submit] {
   display:inline-block;
   background-color: white;
   margin-top: 30px;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 70%;
@@ -86,9 +89,8 @@ input[type=submit] {
     color: #ff6600;
 }
 
-hr.style9 {
-	border-top: 2px dashed #ff6600;
-	border-bottom: 1px dashed #fff;
+hr {
+	border-top: 1px solid #c2c2d6;
   margin-left: 25px;
   margin-right: 25px;
 }
