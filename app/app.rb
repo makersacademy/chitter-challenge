@@ -63,7 +63,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [ :created_at.desc ])
     erb :'feed/index'
   end
 
@@ -80,5 +80,5 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-  run! if app_file == $PROGRAM_NAME
+#  run! if app_file == $PROGRAM_NAME
 end

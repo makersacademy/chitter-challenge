@@ -18,3 +18,8 @@ def sign_in(username: "joedoe", password: "notjoe")
   fill_in :password, with: password
   click_button "Log In"
 end
+
+def peep(message: "Example message")
+  fill_in :message, with: message
+  click_button "Peep!"
+end
