@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {background-color:#FFEFD5 ;}
+form {text-align: center;}
+</style>
+
+  <head>
+    <title> Chitter </title>
+  </head>
+
+  <body>
+    <% if flash[:errors] %>
+      <div id='errors'>
+        <%= flash[:errors] %>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if current_user %>
+      Welcome <%= current_user.email %>!
+      <form action='/logout' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Logout'>
+      </form>
+
+      <form action="/peeps/new">
+        <input type="submit" value="Peep!">
+      </form>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

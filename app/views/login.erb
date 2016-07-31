@@ -1,0 +1,22 @@
+<style>
+body {background-color:#FFEFD5 ;}
+h1 { color: #87CEFA; font-family: 'Helvetica Neue', sans-serif; font-size: 150px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; }
+h3 {color: #87CEFA; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+form {text-align: center;}
+</style>
+
+<h1> Chitter </h1>
+
+<h3> Please login </h3>
+
+<form action="/logincheck"  method ="post">
+  <label for="email">
+    E-mail
+    <input type="text" required name="email" />
+  </label>
+  <label for="password">
+    Password
+    <input type="password" required name="password" />
+  </label>
+  <input type="submit" value="Login" />
+</form>

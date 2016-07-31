@@ -1,0 +1,40 @@
+<style>
+
+body {background-color:#FFEFD5 ;}
+h1 { color: #87CEFA; font-family: 'Helvetica Neue', sans-serif; font-size: 150px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; }
+form {text-align: center;}
+ul {font-family: 'Helvetica Neue', sans-serif; font-size: 30px;}
+li {border-radius: 25px;
+    border: 3px solid #87CEFA;
+    padding: 20px;
+    width: 1200px;
+    height: 120px;}
+
+</style>
+
+<% if !current_user %>
+
+<form action="/login">
+  <input type="submit" value="Login">
+</form>
+
+<form action="/signup">
+  <input type="submit" value="Sign up">
+</form>
+
+<% end %>
+
+<h1> Chitter </h1>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%= peep.content %>
+    <br>
+    <%= peep.name %>
+    @<%= peep.username %>
+    <br>
+    <%= peep.created %>
+  </li>
+  <% end %>
+</ul>
