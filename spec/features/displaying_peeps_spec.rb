@@ -22,7 +22,7 @@ feature "Displaying Peeps" do
     Timecop.freeze do
       peep
       time = Time.now.strftime('%H:%M, %d %B %Y')
-      expect(page).to have_content "on #{ time }"
+      expect(page).to have_content "#{ time }"
     end
   end
 end

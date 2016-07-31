@@ -5,7 +5,7 @@ feature "Logging out" do
   end
 
   scenario "user can log out" do
-    click_button "Logout"
+    click_button "Log Out"
     expect(page).to have_content "You have been logged out"
     expect(page).to_not have_content "Welcome, @joedoe"
   end

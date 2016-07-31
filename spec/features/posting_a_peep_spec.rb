@@ -4,7 +4,7 @@ feature "Posting a Peep" do
   end
 
   scenario "cannot post while logged out" do
-    click_button "Logout"
+    click_button "Log Out"
     expect(page).to_not have_button "Peep!"
   end
 

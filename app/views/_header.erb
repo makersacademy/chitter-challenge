@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/feed"><%= APP_NAME %></a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li>
+          <p class="navbar-text">Welcome, @<%= current_user.username %></p>
+        </li>
+        <li>
+          <form action="/sessions" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input class="btn btn-danger navbar-btn" type="submit" value="Log Out">
+          </form>
+        </li>
+      <% else %>
+        <li><p class="navbar-text">Welcome, guest</p></li>
+        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/sessions/new">Log In</a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+<% if flash[:notice] || flash[:error] %>
+  <div class="container-fluid">
+    <% if flash[:notice] %>
+      <div class="alert alert-info" role="alert"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:error] %>
+      <% flash[:error].each do |error| %>
+        <div class="alert alert-danger" role="alert"><%= error %></div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

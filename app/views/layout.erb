@@ -1,36 +1,22 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/base.css">
     <title>Chitter</title>
   </head>
 
   <body>
-    <div>
-      <% if current_user %>
-        Welcome, @<%= current_user.username %>
-        <form action="/sessions" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Logout">
-        </form>
-      <% else %>
-        Welcome, guest.
-        Please <a href="/sessions/new">Log In</a>
-        or <a href="/users/new">Sign Up</a>
-      <% end %>
-    </div>
-    <div>
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
-      <% if flash[:error] %>
-        <% flash[:error].each do |error| %>
-          <%= error %>
-        <% end %>
-      <% end %>
-    </div>
-    <%= yield %>
-    <div>
-      Arunas Skirius, 2016
+    <div class="container">
+      <%= partial :header %>
+      <%= yield %>
+      <%= partial :footer %>
     </div>
   </body>
 </html>

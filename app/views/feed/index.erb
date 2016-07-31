@@ -1,19 +1,26 @@
-<h1>Feed</h1>
-<% if current_user %>
-  <form action="/feed" method="post">
-    <label for="message">
-      Message:
-      <input type="text" name="message" required>
-    </label>
-    <input type="submit" value="Peep!">
-  </form>
-<% end %>
-<div>
+<div class="container-fluid">
+  <h1>Feed</h1>
+  <% if current_user %>
+    <form class="form-inline" action="/feed" method="post">
+      <input type="text" id="msg" name="message" required class="form-control"
+              placeholder="Enter a message...">
+      <input type="submit" value="Peep!" class="btn btn-primary">
+    </form>
+  <% end %>
+  <br>
   <% @peeps.each do |peep| %>
-    <div>
-      <p><%= peep.message %></p>
-      <small>by <%= peep.user.name + ' (@' + peep.user.username + ')' %></small>
-      <small>on <%= peep.created_at.strftime("%H:%M, %d %B %Y") %></small>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= peep.message %>
+      </div>
+      <div class="panel-footer">
+        <small>
+          <%= peep.created_at.strftime("%H:%M, %d %B %Y") %>
+        </small>
+        <small class="pull-right">
+          by <%= peep.user.name + ' (@' + peep.user.username + ')' %>
+        </small>
+      </div>
     </div>
   <% end %>
 </div>

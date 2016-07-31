@@ -1,25 +1,19 @@
-<h1>Sign Up</h1>
-
-<form action="/users" method="post">
-  <label for="username">
-    Username:
-    <input type="text" name="username">
-  </label>
-  <label for="name">
-    Full name:
-    <input type="text" name="name">
-  </label>
-  <label for="email">
-    E-mail:
-    <input type="email" name="email">
-  </label>
-  <label for="password">
-    Password:
-    <input type="password" name="password">
-  </label>
-  <label for="password_confirmation">
-    Confirm password:
-    <input type="password" name="password_confirmation">
-  </label>
-  <input type="submit" value="Sign Up">
-</form>
+<div class="container-fluid">
+  <form class="form-signup" action="/users" method="post">
+    <h2>Sign Up</h2>
+    <input class="form-control" type="text" name="username"
+            placeholder="Username">
+    <input type="text" name="name" class="form-control"
+            placeholder="Full name">
+    <input type="email" name="email" class="form-control"
+            placeholder="Email address">
+    <input type="password" name="password" class="form-control"
+            placeholder="Password">
+    <input type="password" name="password_confirmation" class="form-control"
+            placeholder="Confirm password">
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">
+      Sign Up
+    </button>
+  </form>
+</div>

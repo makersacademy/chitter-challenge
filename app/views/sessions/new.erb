@@ -1,12 +1,11 @@
-<h1>Log In</h1>
-<form action="/sessions" method="post">
-  <label for="username">
-    Username:
-    <input type="text" name="username" required>
-  </label>
-  <label for="password">
-    Password:
-    <input type="password" name="password" required>
-  </label>
-  <input type="submit" value="Log In">
-</form>
+<div class="container-fluid">
+  <form class="form-signup" action="/sessions" method="post">
+    <h2>Log in</h2>
+    <input type="text" name="username" required class="form-control"
+            placeholder="Username">
+    <input type="password" name="password" required class="form-control"
+            placeholder="Password">
+    <br>
+    <input type="submit" value="Log In" class="btn btn-lg btn-primary btn-block">
+  </form>
+</div>
