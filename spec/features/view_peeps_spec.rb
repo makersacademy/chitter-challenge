@@ -1,4 +1,4 @@
-#require './app/models/peep'
+require './app/models/peep'
 
 feature "peep list" do
   scenario "User can view a list of peeps without login" do
