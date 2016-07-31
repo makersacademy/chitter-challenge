@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'dm-postgres-adapter'
-
+require_relative './models/user'
 
 class Chitter < Sinatra::Base
 
@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-    User.create(username: params[:username],
+    User.create(    name: params[:name],
+                username: params[:username],
                    email: params[:email],
                 password: params[:password])
     redirect('/user')
