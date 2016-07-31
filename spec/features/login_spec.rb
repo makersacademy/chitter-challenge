@@ -1,7 +1,3 @@
-# As a Maker
-# So that I can post messages on Chitter as me
-# I want to log in to Chitter
-
 feature 'Login' do
   scenario 'User can login to Chitter' do
     user = User.new(name: 'Mannie', username: 'mannieg', password: 'test',

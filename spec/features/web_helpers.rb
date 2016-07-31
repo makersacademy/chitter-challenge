@@ -19,3 +19,9 @@ def login
   fill_in 'password', with: 'test'
   click_button 'Login'
 end
+
+def post_peep(peep = "This is a test post, Hello World!")
+  click_link 'Post Peep'
+  fill_in 'peep', with: peep
+  click_button 'Peep'
+end

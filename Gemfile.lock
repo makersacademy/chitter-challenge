@@ -85,6 +85,9 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -150,6 +153,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  orderly
   pry-byebug
   rake
   rspec
