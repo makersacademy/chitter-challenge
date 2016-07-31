@@ -1,5 +1,3 @@
-
-
 feature 'User sign up' do
   scenario 'can sign up for an account' do
     expect{sign_up}.to change(User, :count).by 1
@@ -31,6 +29,11 @@ feature 'User sign up' do
     expect(page).to have_content 'Email is already taken'
   end
 
+  scenario 'cannot sign up with an existing username' do
+    sign_up
+    expect {sign_up(email: 'valid@email.com')}.not_to change(User, :count)
+    expect(page).to have_content 'Handle is already taken'
+  end
 end
 
 feature 'User can sign in' do

@@ -14,3 +14,9 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def post_a_comment(comment:)
+  visit '/peeps/new'
+  fill_in 'comment', with: comment
+  click_button 'Comment'
+end

@@ -6,5 +6,6 @@ class Peep
   property :author,       String
   property :created_at,   DateTime
 
+  has n, :replys, through: Resource
 
 end

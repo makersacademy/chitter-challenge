@@ -9,7 +9,7 @@ html {
 body {
 
   background: url("field.jpg") no-repeat center center;
-  background-size: cover;
+  /*background-size: cover;*/
   /*background-image: url("field.jpg");*/
   background-color: white;
   color: black;
@@ -19,7 +19,7 @@ body {
 ul {
     text-align: left;
     background: white;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -27,10 +27,9 @@ ul li {
   background: white;
   padding: 5px;
   font-size: 20px;
+  border: 1px solid black;
   list-style-type: none;
 }
-
-
 
 .comment_stamp {
     text-align: left;
@@ -42,7 +41,7 @@ ul li {
 
 .feed {
     background-color: lightgrey;
-    width: 400px;
+    width: 500px;
     border: 2px solid black;
     padding: 10px;
     margin: auto;

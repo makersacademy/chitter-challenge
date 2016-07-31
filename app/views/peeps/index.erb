@@ -2,12 +2,42 @@
 
 <h1>The posting board</h1>
 
-<ul id='peeps' class='feed'>
+<% if @user %>
+  <form action="/peeps" method="POST">
+    <label for="comment">
+      <input type="text" name="comment"/>
+    </label>
+      <input type="submit" value="Comment"/>
+  </form>
+<% end %>
+
+<ul id='peeps' class="feed">
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.author %> says: <%= peep.comment %>
+      <%= peep.author %>: <br> <%= peep.comment %>
+
       <div class="comment_stamp">
-        Posted at <%= peep.created_at %>
+        <% if @user %>
+        <form action="/reply" method="POST">
+          <label for="peep_id">
+          <input type="hidden" name="peep_id" value= '<%= peep.id %>'/>
+          </label>
+          <label for="Reply">Posted at <%= peep.created_at %></label>
+          <input type="submit" value="Reply">
+          <input type="text" name="content"/>
+        </form>
+        <% end %>
       </div>
+
+      <% if peep.replys %>
+        <% peep.replys.each do |reply| %>
+          <li>
+          <%= reply.owner %>: <%= reply.content %>
+        </li>
+          <% end %>
+      <% end %>
+
+
+    </li>
     <% end %>
 </ul>

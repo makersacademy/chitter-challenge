@@ -1,6 +1,5 @@
 
-ENV["RACK_ENV"] ||="test"
-#don't forget to change this!
+ENV["RACK_ENV"] ||="development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -17,7 +16,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
+    @user = User.get(session[:user_id])
     erb :'peeps/index'
   end
 
@@ -25,11 +25,23 @@ class Chitter < Sinatra::Base
     @user = User.get(session[:user_id])
     peep = Peep.create(comment: params[:comment], author: @user.handle)
     peep.save
-    redirect to('/peeps')
+    redirect '/peeps'
   end
 
   get '/peeps/new' do
     erb :'peeps/new'
+  end
+
+  post '/reply' do
+    number = params[:peep_id]
+    peep = Peep.get(number)
+    reply = Reply.create(content: params[:content],
+                        owner: peep.author,
+                        created: Time.new,
+                        peep_id: number)
+    peep.replys << reply
+    peep.save
+    redirect '/peeps'
   end
 
   get '/users/new' do
