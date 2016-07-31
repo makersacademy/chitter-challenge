@@ -1768,6 +1768,9 @@ pre code {
 .col-xs-offset-2 {
   margin-left: 16.66666667%;
 }
+.col-xs-offset-2, .login{
+  margin-left: 28.666667%;
+}
 .col-xs-offset-1 {
   margin-left: 8.33333333%;
 }
