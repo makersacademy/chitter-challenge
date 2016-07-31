@@ -1,27 +1,27 @@
 <h1>Welcome to Chitter</h1>
 <h2>Please sign up by filling in your details below:</h2>
 
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    You have one or all of the following errors:
-    <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  You have one or all of the following errors:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-  <form action="/user" method="post">
-    <label for="name">
-      Name: <input type="text" name="name">
-    </label>
-    <label for="username">
-      Username: <input type="text" name="username" value="<%= @user.username %>" required>
-    </label>
-    <label for="email">
-      Email: <input type="email" name="email" value="<%= @user.email %>" required>
-    </label>
-    <label for="password">
-      Password: <input type="password" name="password">
-    </label>
-    <input type="submit" value="Sign up">
-  </form>
+<form action="/user" method="post">
+  <label for="name">
+    Name: <input type="text" name="name">
+  </label>
+  <label for="username">
+    Username: <input type="text" name="username" value="<%= @user.username %>" required>
+  </label>
+  <label for="email">
+    Email: <input type="email" name="email" value="<%= @user.email %>" required>
+  </label>
+  <label for="password">
+    Password: <input type="password" name="password">
+  </label>
+  <input type="submit" value="Sign up">
+</form>

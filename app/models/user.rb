@@ -4,6 +4,8 @@ class User
 
   include DataMapper::Resource
 
+  attr_reader :password
+
   property :id, Serial
   property :name, String
   property :username, String, unique: true, required: true
@@ -12,6 +14,10 @@ class User
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email, password)
+    first(email: email)
   end
 
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")

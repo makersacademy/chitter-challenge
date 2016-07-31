@@ -12,6 +12,10 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
+  post '/' do
+    erb :home
+  end
+
   get '/user/new' do
     @user = User.new
     erb :'user/sign_up'
@@ -35,6 +39,20 @@ class Chitter < Sinatra::Base
     erb :'user/user'
   end
 
+  get '/sessions/new' do
+    erb :'sessions/log_in'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/')
+    else
+      flash.now[:errors] = ['The email or password you have entered is incorrect']
+      erb :'sessions/new'
+    end
+  end
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
