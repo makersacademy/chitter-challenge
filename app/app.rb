@@ -56,5 +56,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Bye bye!"
+    redirect '/'
+  end
+
   run! if app_file == $0
 end

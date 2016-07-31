@@ -1,15 +1,9 @@
-<% if current_user %>
-  Welcome, <%= current_user.name %>!
-<% end %>
-
-LET'S CHITT!
-
-<body>
-<form action="/users/new">
-  <input type="submit" value="Sign up">
-</form>
-
-<form action="/sessions/new">
+<h1>LET'S CHITT!<h1><br>
+<% if !current_user %>
+  <form action="/sessions/new">
   <input type="submit" value="Sign in">
-</form>
-</body>
+  </form>
+  <form action="/users/new">
+  <input type="submit" value="Sign up">
+  </form>
+<% end %>
