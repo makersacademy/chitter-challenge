@@ -5,6 +5,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'json', '1.8.3'
 gem 'database_cleaner'
+gem 'bcrypt'
 
 
 group :test do
