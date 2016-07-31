@@ -1,3 +1,4 @@
+<% if current_user %>
 <h3> What are you thinking? </h3>
 <form action="/peeps/new" method="post">
   <label>
@@ -6,3 +7,4 @@
 </label>
   <input type="submit" value="peep message">
 </form>
+<%end %>

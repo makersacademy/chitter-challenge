@@ -10,6 +10,7 @@ class User
   property :username, String, unique: true, required: true
   property :name, String, required: true
 
+  has n, :peeps, :through => Resource
 
   attr_accessor :password_confirmation
   attr_reader :password

@@ -1,7 +1,20 @@
 <h3> Here you can see all peeps </h3>
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
-<li> <%= peep.content %> </li>
-<% end %>
+  <% if @users %>
+   <% @users.reverse.each do |user|%>
+ <% user.peeps.reverse.each do |peep| %>
+ <li> <%= peep.users.map(&:username).join %>:
+  <%=  peep.content %> <%= peep.time %>
+  <form action="/peeps" method="post">
+   <input type="submit" value="edit peep"/>
+  </form>
+  <form action="/peeps" method="post">
+   <input type="hidden" name="_method" value="delete"/>
+   <input type="submit" value="delete peep"/>
+  </form>
+  <% end %>
+ </li>
+  <% end %>
+<%end %>
 </ul>

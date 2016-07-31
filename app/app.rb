@@ -57,10 +57,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    peep = Peep.first_or_create(content: params[:post])
-    @peeps = Peep.all
+    peep = Peep.create(content: params[:post], time: Time.now)
+    @user = current_user
+    @user.peeps << peep
+    @user.save!
+    @users = User.all
     erb :'peeps/index'
   end
+
+ delete 'peeps' do
+#    @user = current_user
+#    peep = @user.peeps.first
+#    PeepUser.all(peep: peep).destroy
+#    peep.destroy
+#    @user.peeps.first.destroy
+#    @user.reload
+  redirect '/peeps'
+ end
 
   helpers do
     def current_user
