@@ -1,0 +1,28 @@
+<style>
+  .login { border:solid 1px darkblue; padding:15px; border-radius:5px;
+          background-color:rgb(110,191,255); }
+</style>
+
+<div class="login">
+  <h1> Log in to Chitter </h1>
+
+  <form action="/sessions" method="post" >
+
+  <label for="email">
+    Email:
+    <input type="email" name="email" >
+  </label >
+  <br>
+  <br>
+
+  <label for="password">
+    Password:
+    <input type="password" name="password" >
+  </label >
+  <br>
+  <br>
+
+  <input type='submit' value='Log in to Chitter'
+                        name="Log in">
+  </form>
+</div>

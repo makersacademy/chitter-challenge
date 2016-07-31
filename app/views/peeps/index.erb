@@ -1,0 +1,19 @@
+<style>
+  .peeps { border:solid 1px darkblue; border-radius:5px;
+        background-color:rgb(110,191,255); padding:15px;}
+</style>
+
+<div class="peeps">
+<h1> Peeps </h1>
+
+  <ul id='peeps'>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        Peep: <%= peep.peep %>
+        <br>
+        Time: <%= peep.created_at %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
