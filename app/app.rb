@@ -20,10 +20,6 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
-  # get '/users' do
-  #   erb :'users/new'
-  # end
-
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -32,48 +28,16 @@ class Chitter < Sinatra::Base
   post '/users' do
     @user = User.create(email: params[:email],
                        password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+                       password_confirmation: params[:password_confirmation],
+                       name: params[:name],
+                       user_name: params[:user_name])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/links')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
-  end
-
-  get '/navigation' do
-    erb :'links/navigation'
-  end
-
-  get '/links' do
-    @links = Link.all
-    erb :'links/index'
-  end
-
-  get '/links/new' do
-    erb :'links/new'
-  end
-
-  post '/links/add' do
-    link = Link.new(url: params[:url], title: params[:title])
-    params[:tags].split.each do |tag|
-      link.tags << Tag.create(name: tag)
-    end
-    link.save
-    redirect '/links'
-  end
-
-  post '/tags/filter' do
-    tag = Tag.first(name: params[:filter_tag])
-    @links = tag ? tag.links : []
-    erb :'links/index'
-  end
-
-  get '/tags/:name' do
-    tag = Tag.first(name: params[:name])
-    @links = tag ? tag.links : []
-    erb :'links/index'
   end
 
   get '/sessions/new' do
@@ -84,7 +48,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/links')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -93,8 +57,28 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye'
-    redirect to '/links'
+    flash.keep[:notice] = 'Signed out'
+    redirect to :'/sessions/new'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    @users = User.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/add' do
+    peep =Peep.new(message: params[:message], user_id: session[:user_id])
+    if peep.save
+      redirect '/peeps'
+    else
+      flash.keep[:notice] = 'Please sign in to Peep'
+      redirect '/peeps'
+    end
   end
 
   # start the server if ruby file executed directly
