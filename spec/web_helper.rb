@@ -1,3 +1,7 @@
+def create_user
+  User.create(name: name ='Sarah', password: password = 12, email: email = "sarah@mail.com", password_confirmation: password_confirmation = 12, user_name: user_name="9sarah0")
+end
+
 def sign_up(name: name ='Sarah', password: password = 12, email: email = "sarah@mail.com", password_confirmation: password_confirmation = 12, user_name: user_name="9sarah0")
   visit '/'
   click_button 'Sign up'

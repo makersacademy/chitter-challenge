@@ -7,8 +7,10 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.name %>
-      <%else%>
-      <h1><center>Welcome</h1></center>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
 
     <% if flash[:error] %>
@@ -18,6 +20,13 @@
           <li><%= error %></li>
         <% end %>
       </ul>
+    <% end %>
+
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
     <%= yield %>
