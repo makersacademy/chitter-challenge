@@ -12,6 +12,16 @@ Technologies:
 * Rspec
 * Capybara
 
+
+Installation instructions
+-------
+
+1. Fork & clone this repo
+2. Run bundle
+3. Run `rackup -p 4567`
+4. Using a browser navigate to: localhost:4567
+5. Create a new account and enjoying 'peeping'
+
 Features:
 -------
 ```
@@ -40,5 +50,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+How I Found This Challenge:
 ------
+I actually ended up really enjoying this weekend challenge. I found that I was referring to my notes and work from the week. However I also found that for a lot of it I was able to work quite quickly, only looking back to refresh my memory. I was also pleasantly surprised at how much of the structure of the app I was able to hold in my head at a time.
+The only downsides that I found were around styling the app and some limits on the functionality. I chose to use Bootstrap for much of the styling as it could take the heavy lifting out of the css. Although there are a couple of details, mostly around the partials and buttons that work a little bit less well than I am happy with. I also found that there appears to be some form of limit on the length of my peeps. Not sure where this has crept into the code.
