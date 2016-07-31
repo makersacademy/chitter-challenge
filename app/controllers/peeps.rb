@@ -15,4 +15,9 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     end
   end
+
+    post '/peeps/reply' do
+      @replying_to = User.get(params[:replying_to])
+      erb :'peeps/index'
+    end
 end

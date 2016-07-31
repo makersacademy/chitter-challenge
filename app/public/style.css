@@ -284,3 +284,21 @@ position: absolute;
   box-shadow: 2px 2px darkgrey;
   transform: translateY(-2px);
 }
+#peep_reply {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+
+}
+#reply_button{
+    border: solid;
+    background: transparent;
+    border-color: transparent;
+    color: rgba(255,255,255,0.5);
+    font-size: 1em;
+}
+#reply_button:hover{
+  color: white;
+  transform: scaleX(1.1);
+}
