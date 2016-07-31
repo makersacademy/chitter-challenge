@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
+require './app/data_mapper_setup'
 require 'database_cleaner'
 
 Capybara.app = Chitter

@@ -7,7 +7,7 @@ feature 'log out' do
     click_button "Let's get started"
     click_button('Log out')
     expect(current_path).to eq '/session/new'
-    expect(page).to have_content
+    expect(page).not_to have_content('Welcome, Tim (TC86)')
   end
 
 end

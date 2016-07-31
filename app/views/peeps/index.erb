@@ -1,0 +1,25 @@
+<% if current_user == nil %>
+<form action='/user/new' method='get'>
+  <input type = 'submit' value='Sign up'>
+</form>
+<form action='/session/new' method='get'>
+    <input type = 'submit' value='Log in'>
+  </form>
+<% end %>
+
+<form action='/peeps' method='post'>
+  <label for='message'>
+    Write a peep: <input type='text' name='message' >
+  </label>
+  <input type='submit' value='Peep'>
+</form>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%= peep.time %> <br>
+    <%=peep.user.full_name%> (<%=peep.user.user_name%>) <br>
+    <%= peep.message %>
+  </li>
+  <% end %>
+</ul>

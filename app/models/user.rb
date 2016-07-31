@@ -9,6 +9,8 @@ attr_reader :password
 attr_accessor :password_confirmation
 validates_confirmation_of :password, :confirm => :password_confirmation
 
+has n, :peeps
+
 property :id, Serial
 property :full_name, String, required: true
 property :email, String, required: true, format: :email_address, unique: true
