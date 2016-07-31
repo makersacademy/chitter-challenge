@@ -20,6 +20,6 @@ class Chitter < Sinatra::Base
       erb :'signup'
     end
   end
-  
+
 
 end
