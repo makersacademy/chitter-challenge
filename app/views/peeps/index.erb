@@ -11,7 +11,7 @@
 
 
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       Name: <%= peep.user.full_name %>
       User: <%= peep.user.user_name %>
