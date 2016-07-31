@@ -6,6 +6,9 @@
   <body>
     <% if current_user %>
       Hello, <%= current_user.username %>
+      <form action="/cheeps/new" method="get">
+        <input type="submit" value="New cheep">
+      </form>
       <form action="/sessions" method="post">
         <input type="submit" value="Sign out">
         <input type="hidden" name="_method" value="delete">
