@@ -49,9 +49,12 @@ feature 'User signs out' do
   end
 
   scenario 'while being signed in' do
-    sign_in(email: 'alice@example.com', password: '12345678')
-    click_button 'Sign out'
-    expect(page).to have_content('goodbye!')
+    visit '/sessions/new'
+    fill_in :email, with: 'alice@example.com'
+    fill_in :password, with: '12345678'
+    click_button 'Sign In'
+    click_button 'Sign Out'
+    expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome, Alice')
   end
 

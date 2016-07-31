@@ -36,7 +36,7 @@
           <p class="navbar-text navbar-left">Signed in as <b><%= current_user.username %></b></p>
           <form class="navbar-form navbar-right" method='post' action='/sessions'>
             <input type='hidden' name='_method' value='delete'>
-            <input class="btn btn-primary" type='submit' value='Sign out'>
+            <input class="btn btn-primary" type='submit' value='Sign Out'>
           </form>
           <% else %>
           <ul class="nav navbar-nav navbar-right">
