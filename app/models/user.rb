@@ -13,6 +13,8 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, String, length: 60
 
+  has n, :messages
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

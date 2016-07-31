@@ -47,6 +47,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/:username' do
+    @user = User.first(username: params[:username])
+    @messages = @user ? @user.messages : []
+    erb :'user'
+  end
+
   get '/sessions/new' do
     erb :'sessions/new'
   end
@@ -64,7 +70,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.keep[:bye] = 'BYEEEEE  :('
     redirect to '/'
   end
 

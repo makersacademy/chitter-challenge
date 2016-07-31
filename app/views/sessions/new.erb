@@ -1,12 +1,18 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../index.css">
 </head>
-
-<h1>Welcome back, friend!</h1>
+<br/><br/>
+<h2>Welcome back, friend!</h2>
 <h2>Deets below plz...</h2>
-
+<br/><br/>
 <form action='/sessions' method='post'>
   Email: <input type="email" name="email">
   Password: <input type="text" name="password">
-  <input type="submit" value='Sign in'>
-</form>
+  <br/><br/><input type="submit" value='Sign in'>
+</form><br/><br/>
+
+<% if flash[:notice] %>
+   <div id='notice'>
+     <%= flash[:notice] %>
+   </div>
+<% end %>
