@@ -8,6 +8,7 @@ gem 'kronic'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec'
