@@ -1,0 +1,9 @@
+<h1>Chitter Feed</h1>
+
+<ul id="peep">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Peep: <%= peep.text %> - posted by: <%= peep.name %> - username: <%= peep.username %> - posted: <%= peep.created_at %>
+    </li>
+  <% end%>
+</ul>
