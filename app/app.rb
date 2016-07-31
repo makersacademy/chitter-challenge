@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
     redirect('/')
   end
 
-  get '/user' do
+  get '/' do
     'Welcome, user'
   end
   # start the server if ruby file executed directly
