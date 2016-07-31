@@ -15,10 +15,10 @@ class Chitter < Sinatra::Base
     User.create(username: params[:username],
                    email: params[:email],
                 password: params[:password])
-    redirect('/')
+    redirect('/user')
   end
 
-  get '/' do
+  get '/user' do
     'Welcome, user'
   end
   # start the server if ruby file executed directly
