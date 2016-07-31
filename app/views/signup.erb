@@ -8,35 +8,57 @@
   <h1 class="sign_up_to_chitter"> Sign up to Chitter </h1>
 
 
-
   <form action="/signup" method="post" >
-      <label for="username">
-        Username:
-        <input type="text" name="username" >
-      </label >
-      <br>
-      <br>
-
-      <label for="email">
-        Email:
-        <input type="email" name="email" value="<%= @user.email %>" required >
-      </label >
-      <br>
-      <br>
-
-      <label for="password">
-        Password:
-        <input type="password" name="password" >
-      </label >
-      <br>
-      <br>
-
-      <label for="password_confirmation">
-        Please confirm your password:
-        <input type="password" name="password_confirmation" >
-      </label >
-      <br>
-      <br>
+      <table>
+        <tr>
+          <td>
+            <label for="username">
+              Username:
+          </td>
+          <td>
+            <input type="text" name="username" >
+            </label >
+            <br>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">
+              Email:
+          </td>
+          <td>
+            <input type="email" name="email" value="<%= @user.email %>" required >
+            </label >
+            <br>
+            </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password">
+              Password:
+          </td>
+          <td>
+            <input type="password" name="password" >
+          </label >
+          <br>
+          </br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="password_confirmation">
+            Please confirm your password:
+          </td>
+          <td>
+            <input type="password" name="password_confirmation" >
+          </label >
+          <br>
+          </br>
+          </td>
+        </tr>
+      </table>
 
       <input type='submit' value='Sign up to Chitter'>
 

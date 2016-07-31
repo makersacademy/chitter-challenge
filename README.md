@@ -1,6 +1,9 @@
 Chitter Challenge
 =================
 
+[Screenshot!](http://i.imgur.com/jZnx31l.png)
+
+
 ### Info
 
 Clone Jonny's chitter-challenge repo:
@@ -21,7 +24,7 @@ $ rake auto-migrate
 
 to reset the contents of the database tables.
 
-### Instruction on how to use
+### Instructions
 
 Run rackup or app/app.rb from the root directory.
 
