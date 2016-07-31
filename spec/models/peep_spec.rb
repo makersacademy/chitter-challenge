@@ -21,6 +21,8 @@ describe Peep do
     Peep.create(peep: "Where did the sun go?", user: jonny)
     expect(Peep.count).to eq 1
   end
+  
+end
 
   # User Story 4:
   # As a Maker
