@@ -1,0 +1,70 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: normal;
+  font-size: 30;
+  color: #8CD6F9;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #042E54;
+  background-image: url(https://s31.postimg.org/9mq579y5n/rockpaper_art_navy.jpg);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+body.select-page {
+  font-family: 'Orbitron', sans-serif;
+  color: #8CD6F9;
+  background-color: #042E54;
+  background-size: 350px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+h1 {
+  font-weight: normal;
+  color:white;
+}
+
+h2 {
+  font-weight: normal;
+  color: #8CD6F9;
+}
+
+h3 {
+  font-weight: normal;
+  color:white;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+#title {
+  height: 400px;
+}
+
+
+#submit {
+  display: block;
+  text-align: : center;
+  margin-top: 15px;
+  margin: auto;
+}
+
+.blink {
+  font-size: 120;
+  color:white;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

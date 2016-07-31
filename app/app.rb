@@ -1,8 +1,9 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
-ENV["RACK_ENV"] ||= "development"
 
 class Shtter < Sinatra::Base
 
@@ -10,10 +11,10 @@ class Shtter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
-
+  # set :public_folder, Proc.new { File.join(root, 'static') }
 
   get '/' do
-    'Hello Shtter!'
+    redirect to('/poops')
   end
 
   get '/users/new' do
@@ -34,7 +35,17 @@ class Shtter < Sinatra::Base
   end
 
   get '/poops' do
+    @poops = Poop.all
     erb :'poops/index'
+  end
+
+  get '/poops/new' do
+    erb :'poops/new'
+  end
+
+  post '/poops' do
+    Poop.create(poop: "My first ever poop on sh*tter!")
+    redirect "/poops"
   end
 
   get '/sessions/new' do
@@ -55,7 +66,7 @@ class Shtter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect to '/poops'
+    redirect to('/poops')
   end
 
   helpers do
