@@ -1,5 +1,8 @@
 
 class Chitter < Sinatra::Base
+  get '/' do
+    redirect '/peeps'
+  end
 
   get '/peeps' do
     @peeps = Peep.all
