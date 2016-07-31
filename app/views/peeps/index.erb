@@ -1,0 +1,12 @@
+<h1> Peeps </h1>
+<section class="list_peeps">
+  <ul id='peeps'>
+    <% @peep.each do |peep| %>
+      <li>
+        <strong><%= peep.user %></strong>
+         <%= peep.message %><br>
+
+      </li>
+    <% end %>
+  </ul>
+</section>
