@@ -1,0 +1,32 @@
+<div class="col-sm-6 col-sm-offset-3 well">
+  <h1 class="text-center">Please sign up</h1>
+
+  <form action="/users" method="post">
+    <div class="form-group">
+      <label for="email">Name:</label>
+      <input class="form-control" type="text" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Username:</label>
+      <input class="form-control" type="text" name="username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input class="form-control" type="email" name="email" value='<%= @user.email %>' required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input class="form-control" type="password" name="password" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password_confirmation">Confirm Password:</label>
+      <input class="form-control" type="password" name="password_confirmation" required>
+    </div>
+
+    <input class="btn btn-primary pull-right" type="submit" value="Sign up">
+  </form>
+</div>
