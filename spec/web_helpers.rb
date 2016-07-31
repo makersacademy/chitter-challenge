@@ -7,7 +7,7 @@ def sign_up(email: 'test@test.com',
   fill_in 'username', with: username
   fill_in 'password', with: password
   fill_in 'password_confirmation', with: password_confirmation
-  click_button 'register account'
+  within('#new_account') {click_button 'sign up'}
 end
 
 def log_in( password: 'password',

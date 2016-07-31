@@ -65,21 +65,8 @@
       </div>
     <% end %>
   </div>
-  <div id='errors'>
-  <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-      <%= error %>
-      <br>
-      <% end %>
-  <% end %>
-</div>
-<div id='notes'>
-  <% if flash[:notifications] %>
-      <% flash[:notifications].each do |note| %>
-      <%= note %>
-      <% end %>
-  <% end %>
-</div>
-    <%= yield %>
+  <%= partial :errors %>
+  <%= partial :notes %>
+  <%= yield %>
   </body>
 </html>
