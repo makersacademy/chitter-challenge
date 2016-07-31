@@ -1,5 +1,4 @@
 require 'dm-timestamps'
-require 'dm-core'
 
 class Peep
   include DataMapper::Resource

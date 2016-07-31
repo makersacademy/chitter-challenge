@@ -1,8 +1,10 @@
 <h1>Peep Feed!</h1>
 
+<ul id='peeps'>
   <% @peeps.reverse_each do |peep| %>
     <li>
       <%= peep.content %><br>
       Posted: <%=peep.created_at.strftime("%e %B %k:%M")%>
     </li>
+</ul>
   <% end %>

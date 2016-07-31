@@ -20,8 +20,8 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     peep = Peep.new(content: params[:content])
     if current_user.nil?
-      flash.now[:errors] = ['You must sign in to post a peep']
-      erb :'peeps/new'
+      flash.next[:errors] = ['You must sign in to post a peep']
+      redirect '/peeps/new'
     else
       peep.user_id = current_user.id
       peep.save
