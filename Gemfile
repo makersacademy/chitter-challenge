@@ -6,6 +6,7 @@ gem 'dm-postgres-adapter'
 gem 'json', '1.8.3'
 gem 'database_cleaner'
 gem 'bcrypt'
+gem 'sinatra-flash'
 
 
 group :test do

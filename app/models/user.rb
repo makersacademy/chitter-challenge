@@ -6,7 +6,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String
+  property :username, String, unique: true
   property :email, String
   property :password_digest, String, length: 60
 
