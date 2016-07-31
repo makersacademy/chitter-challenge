@@ -1,6 +1,6 @@
 module SessionHelpers
 
-  def sign_in(username:, password:)
+  def signin(username:, password:)
     visit '/sessions/new'
     fill_in :username, with: username
     fill_in :password, with: password
@@ -19,4 +19,11 @@ module SessionHelpers
     click_button 'sign up'
   end
 
+  def posting(username: "AppleMan", password: "apple123", password_confirmation: "apple123", firstname: "Steve", surname: "Bobs", email: "steve@coder.com", post:"Hello, world!")
+    signup(:username, :password, :password_confirmation, :firstname, :surname, :email)
+    signin(:username, :password)
+    visit '/posts/new'
+    fill_in 'post', with: :post
+    click_button 'post it'
+  end
 end

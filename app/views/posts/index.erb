@@ -3,7 +3,7 @@
 <ul id='posts'>
   <% @posts.each do |post| %>
     <li>
-      post:   <%= post.post   %>
+      <%= User.get(post.user_id).username %> - <%= post.post   %>
     </li>
   <% end %>
 </ul>

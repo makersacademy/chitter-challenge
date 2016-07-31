@@ -4,7 +4,7 @@ feature 'User signs in' do
   end
 
   scenario 'I can sign in with correct credentials' do
-    sign_in(username: user.username, password: user.password)
+    signin(username: user.username, password: user.password)
     expect(page).to have_content "Welcome, #{user.username}"
   end
 end
