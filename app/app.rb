@@ -8,5 +8,5 @@ require_relative 'data_mapper_setup'
 
 require_relative 'server'
 require_relative 'controllers/peeps'
-require_relative 'controllers/user'
 require_relative 'controllers/session'
+require_relative 'controllers/user'
