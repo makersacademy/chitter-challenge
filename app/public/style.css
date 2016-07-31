@@ -103,7 +103,6 @@ form.buttons {
 }
 .peep{
     padding: 10px;
-    padding: 10px;
     border-bottom: solid;
     border-width: 10px;
 }
@@ -111,13 +110,19 @@ form.buttons {
 .peep_body{
   font-size: 1.5em;
   font-family: comfortaa;
+  border-bottom: solid;
+  border-color: rgba(255,255,255,0.5);
+  padding-bottom: 10px;
+  margin-bottom: 5px;
 }
+
 
 #peep_user{
   color: rgba(255,255,255,0.5);
 }
 #peep_time{
   color: rgba(255,255,255,0.5);
+  font-size: 0.6em;
 }
 #notes{
   text-align: right;
@@ -285,10 +290,12 @@ position: absolute;
   transform: translateY(-2px);
 }
 #peep_reply {
-    display: inline-flex;
-    position: absolute;
-    right: 0;
+    display: inline-block;
+    position: relative;
     padding-right: 10px;
+    font-size: em;
+    bottom: 10px;
+    left: 230px;
 
 }
 #reply_button{
@@ -301,4 +308,7 @@ position: absolute;
 #reply_button:hover{
   color: white;
   transform: scaleX(1.1);
+}
+i {
+    font-size: 0.6em;
 }
