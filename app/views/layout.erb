@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<link rel='stylesheet' type='text/css' href='style.css'/>
 <html>
 
   <body>
     <% if current_user %>
-      Welcome, <%= current_user.name %>!
-      AKA <%= current_user.username %>!
+      <h2>Welcome, <%= current_user.name %>!</h2>
+      <h2>AKA <%= current_user.username %>!</h2>
       <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>

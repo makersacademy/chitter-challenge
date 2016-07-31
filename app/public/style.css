@@ -1,0 +1,25 @@
+
+body {
+    position: center;
+    background-size: cover;
+    background-image: url("https://dl.dropbox.com/s/0tyvb1okypuzzil/PlainBeachsmall.jpg");
+    background-color: #cccccc;
+}
+
+h1 {
+  color: white;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 120px;
+  margin-bottom: -140px;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: -20px;
+  text-align: center;
+}
