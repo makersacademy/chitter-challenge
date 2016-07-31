@@ -10,8 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    user = User.get(session[:user_id])
-    peep = Peep.new(user: user, message: params[:message])
+    peep = Peep.new(message: params[:message])
     peep.user_id = current_user.id
     if peep.save
       flash[:notice] = 'Peep Saved!'
