@@ -1,0 +1,10 @@
+<% if current_user %>
+<h3> What are you thinking? </h3>
+<form action="/peeps/new" method="post">
+  <label>
+    Post:
+  <input type="text" name="post"/>
+</label>
+  <input type="submit" value="peep message">
+</form>
+<%end %>
