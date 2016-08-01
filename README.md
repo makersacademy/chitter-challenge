@@ -11,10 +11,16 @@ have done seems to work well.
 I rigidly followed the TDD path in order to effectively drive the development
 of my app.
 
-## Installation
+## Installation and use
 ```
 1. git clone https://github.com/adamjbrowner/chitter-challenge.git
 2. bundle
+3. create db chitter_test
+4. create db chitter development
+5. rspec
+6. rackup
 
+Alternatively, visit http://chitter-challenge-adam.herokuapp.com/sessions to
+test the app on Heroku
 
 ```
