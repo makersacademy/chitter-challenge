@@ -10,9 +10,9 @@ Features:
 
 
 - You can post messages on Chitter.
-- You will need to ___[sign up](<https://victor-chitter.herokuapp.com/users/new/>)___
+- You will need to ___[sign up](<https://victor-chitter.herokuapp.com/users/new>)___
 
-- On returning visits you can post messages on Chitter after you ***[log in](<https://victor-chitter.herokuapp.com/sessions/new/>)*** to Chitter with your username
+- On returning visits you can post messages on Chitter after you ***[log in](<https://victor-chitter.herokuapp.com/sessions/new>)*** to Chitter with your username
 
 - To avoid others posting messages on Chitter under your username,
 please log out of Chitter
