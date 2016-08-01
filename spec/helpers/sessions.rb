@@ -20,8 +20,4 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
-
-  # def create_peep(user_id:, message:, timestamp:)
-  #   sign_up()
-  # end
 end
