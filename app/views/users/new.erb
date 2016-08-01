@@ -1,0 +1,25 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+
+<br/><br/>
+<h2>Want to sign up to Chitter? Good choice!</h2>
+<h2>Deets below plz...</h2>
+<br/>
+<form action='/users' method='post'>
+  Name: <input type="text" name="name">
+  Username: <input type="text" name="username">
+  Email: <input type="email" name="email" value = "<%= @user.email %>" required>
+  <br/><br/>Password: <input type="password" name="password">
+  Confirm Password: <input type="password" name="password_confirmation">
+  <br/><br/><input type="submit" value='Sign up'>
+</form><br/><br/>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li>- <%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

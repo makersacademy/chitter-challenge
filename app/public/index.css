@@ -1,0 +1,101 @@
+body {
+  background-image: url("ignasi_pattern_s.png");
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 20px;
+  margin-top:0px;
+  margin-left:0px;
+  margin-right:0px;
+  padding:0px;
+  color: #3e3e5b;
+  font-family: 'Space Mono', monospace;
+}
+
+#menu {
+  width: auto;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #6699ff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  color: white;
+  text-align: right;
+}
+
+#menu ul li:first-child {
+  float: left;
+}
+
+
+#menu li {
+  display: inline-block;
+  padding-right: 50px;
+  font-size: 25px;
+}
+
+#menu a {
+    color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  color: #5900b3;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+h2 {
+  color: #5900b3;
+  font-size: 40px;
+}
+
+input {
+    border-radius: 5px;
+    padding: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin:10px;
+    border:1px solid #ff6600;
+}
+
+input[type=submit] {
+    padding:8px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #3e3e5b;
+}
+
+#post {
+  width: 30%;
+  height: 20px;
+}
+
+.message {
+  opacity: 0.9;
+  display:inline-block;
+  background-color: white;
+  margin-top: 30px;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 70%;
+}
+
+.message a {
+    color: #ff6600;
+}
+
+hr {
+	border-top: 1px solid #c2c2d6;
+  margin-left: 25px;
+  margin-right: 25px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter!</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <div id="menu">
+    <ul>
+      <% if flash[:bye] %>
+        <li>
+          <div id='notice'>
+          <%= flash[:bye] %>
+          </div>
+        </li>
+      <% end %>
+
+      <% if current_user %>
+        <li>
+          Hello, <%= current_user.username %>!
+        </li>
+        <li>
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        </li>
+      <% else %>
+        <li>
+          Sign in to peep.....
+        </li>
+        <li>
+          <a href="/users/new">Sign Up</a>
+        </li>
+        <li>
+          <a href="/sessions/new">Sign in</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+    <%= yield %>
+
+  </body>
+</html>

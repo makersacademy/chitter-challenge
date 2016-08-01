@@ -1,0 +1,30 @@
+<head>
+<link rel="stylesheet" type="text/css" href="/index.css">
+<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+
+<h1>Chitter.</h1>
+<h2>Peep, Peep!</h2>
+
+<% if current_user %>
+  <form action='/new' method='post'>
+    Message: <input type="text" name="message" id="post">
+    <input type="submit" value='Submit'>
+  </form>
+<% end %>
+
+<ul id='messages'>
+  <% @messages.reverse.each { |message| %>
+    <li class="message">
+      <strong><%= message.message %></strong><br/><br/>
+      <hr>
+      Peeped by <strong><a href="/users/<%= message.user.username %>">
+        <%= message.user.username %></a></strong> (<%= message.user.name %>)
+      <% date = message.created_at %>
+      at <i><%= date.strftime('%v')%>
+      <%= date.strftime('%R')%></i>
+    </li>
+  <% } %>
+</ul>
+<br/>
+<h1>\ (•◡•) /</h1>

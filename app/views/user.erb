@@ -1,0 +1,20 @@
+<head>
+<link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+
+<h1>Chitter.</h1>
+<h2>Peeps by <%= @user.username %>...</h2>
+<a href="/">Back to all peeps!</a>
+
+<ul id='messages'>
+  <% @messages.reverse.each { |message| %>
+    <li class="message">
+      <strong><%= message.message %></strong><br/><br/>
+      <hr>
+      Peeped by <strong><a href="/users/<%= message.user.username %>"><%= message.user.username %></a></strong>
+      <% date = message.created_at %>
+      at <i><%= date.strftime('%v')%>
+      <%= date.strftime('%R')%></i>
+    </li>
+  <% } %>
+</ul>
