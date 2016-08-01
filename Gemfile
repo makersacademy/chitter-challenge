@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 gem 'sinatra'
 gem 'rack'
+gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
 
@@ -16,7 +17,6 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'database_cleaner'
