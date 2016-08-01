@@ -1,0 +1,35 @@
+<% if current_user %>
+  Welcome, <%= current_user.user_name %>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+<% else %>
+<div class="left">
+<div  class="buttonContainer left-button">
+<a class="buttons buttonRegular" >
+  <form method='get' action='/sessions/new'>
+    <input type='submit' value='Login'>
+  </form>
+</a>
+</div>
+</div>
+<div class="center2">
+<div class="buttonContainer center-button">
+<a class="buttons buttonRegular" >
+  <form method='get' action='/users/new'>
+    <input type='submit' value='Sign Up'>
+  </form>
+</a>
+</div>
+</div>
+<% end %>
+<div class="right">
+<div class="buttonContainer right-button">
+<a class="buttons buttonRegular" >
+<form method='get' action='/peeps'>
+  <input type='submit' value='Home'>
+</form>
+</a>
+</div>
+</div>
