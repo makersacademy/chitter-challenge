@@ -1,0 +1,13 @@
+<h1> New Peep </h1>
+
+<form action='/peeps' method='POST'>
+  <% if current_user %>
+    <label for='peep'>
+      Hey <%= current_user.user_name %>, leave a peep here:
+      <input type='text' name='peep' />
+    </label>
+    <input type='submit' value='Create peep'>
+  <% else %>
+    Hi, please sign up or login to leave a peep
+  <% end %>
+</form>

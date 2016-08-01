@@ -1,0 +1,19 @@
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<div>
+<h2> Latest Peeps </h2>
+<form method='get' action='/peeps/new'>
+  <input type='submit' class='button2' value='Add Peep'>
+</form>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <p>
+      <%= peep.peep %><br>
+      <font size="1"><%= peep.time %>, by <%= peep.author %></font>
+    </p>
+    </li>
+  <% end %>
+</ul>
+</div>
