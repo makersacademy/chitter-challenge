@@ -22,7 +22,7 @@ module SessionHelpers
   end
 
   def post_peep(message: 'Hello World!')
-    visit '/peeps'
+    visit '/peeps/new'
     fill_in :message, with: message
     click_button 'Peep!'
   end

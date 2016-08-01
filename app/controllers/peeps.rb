@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get 'peeps/new' do
+  get '/peeps/new' do
     erb :'peeps/new'
   end
 
