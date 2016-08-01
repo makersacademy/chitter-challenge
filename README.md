@@ -60,4 +60,4 @@ BCrypt - used to hash passwords to maintain user security
 
 # Using the app
 
-Anyone can see peeps that have been made on the peep app but in order to post your own you will need to sign up via the link found on the landing site. Once signed up you can create your own peeps by clicking the Peep button. Peeps will be shown in reverse chronological order and you can see who has posted the peep by checking the username.
+Anyone can see peeps that have been made on the peep app but in order to post your own you will need to sign up via the link found on the landing site. Once signed up you can create your own peeps by clicking the Peep button. Peeps will be shown in reverse chronological order and you can see who has posted the peep by checking the username..
