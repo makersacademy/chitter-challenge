@@ -1,0 +1,7 @@
+
+
+<ul id="cheeps">
+  <% @cheeps.each do |cheep| %>
+    <li> <%= cheep.user.user_name %> cheeped: <%= cheep.content %></li>
+  <% end %>
+</ul>
