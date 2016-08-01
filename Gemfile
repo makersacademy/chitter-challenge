@@ -8,6 +8,7 @@ ruby '2.3.1'
   gem 'database_cleaner'
   gem 'sinatra-flash'
   gem 'bcrypt'
+  gem 'database_cleaner'
 
 group :test do
   gem 'rspec'
