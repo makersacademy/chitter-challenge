@@ -16,7 +16,7 @@ feature 'user sign up' do
     fill_in "password", :with => "monkey"
     fill_in "password_confirmation", :with => "wrong password"
     click_button "Sign me up!"
-    expect(page).to have_content "Your passwords don\'t match"
+    expect(page).to have_content "Password does not match the confirmation"
   end
 
   scenario "sign up fails with an invalid email address" do

@@ -8,7 +8,14 @@
   </form>
 <% end %>
 
-<form method='post' action='/peep'>
-  <input type='text' name='peep' placeholder='my peep...'>
+<form action='/peeps/new'>
   <input type='submit' value='Post-a-peep'>
 </form>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    Peep: <%= peep.peep %>
+  </li>
+  <% end %>
+</ul>
