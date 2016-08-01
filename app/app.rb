@@ -54,13 +54,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.new(peep: params[:peep], user_name: current_user.user_name)
+    @peep = Peep.new(peep: params[:peep],
+                      user_name: current_user.user_name,
+                      name: current_user.name,
+                      user_id: current_user.id,
+                      time: Time.now)
     @peep.save
     redirect to('/peeps/index')
   end
 
   get '/peeps/index' do
-    @Peeps = Peep.all
+    @peeps = Peep.all
     erb :'/peeps/index'
   end
 

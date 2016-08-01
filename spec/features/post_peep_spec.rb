@@ -11,11 +11,10 @@ feature 'posting peeps' do
   end
 
   scenario 'user can post peeps after signing in' do
-    fill_in :peep, with: 'This is a test peep'
-    click_button 'Peep'
+    expect{ peep }.to change(Peep, :count).by(1)
 
     within("ul#peeps") do
-      expect(page).to have_content("This is a test peep")
+      expect(page).to have_content("example peep")
     end
   end
 
