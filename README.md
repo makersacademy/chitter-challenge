@@ -3,6 +3,9 @@ Chitter
 ## Introduction
 This is a little website application where you can post your message and thoughts for public.
 
+![alt tag](http://res.cloudinary.com/abacus/image/upload/v1470040526/Screen_Shot_2016-08-01_at_09.33.20_kkm8nn.png
+  )
+
 ## How to use
 You need to sign up and sign in to post.
 But, you can view all the posts without signing up or signing in.
