@@ -19,7 +19,7 @@ def sign_in(email:, password:)
   click_button('Sign in')
 end
 
-def peep(peep: 'This is a test peep')
+def peep(peep:)
   fill_in :peep, with: :peep
   click_button 'Peep'
 end

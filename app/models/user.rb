@@ -26,8 +26,6 @@ class User
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_encrypted) == password
       user
-    else
-      nil
     end
   end
 
