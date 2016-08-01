@@ -1,0 +1,26 @@
+<h1>Peeps</h1>
+
+<% if current_user %>
+  <form action='/peeps/new' method='post'>
+    <label for='message'>
+      Message: <input name='message' type='text'
+      name ='message' placeholder="Enter message">
+    </label>
+    <input type='submit' value='Send peep'>
+  </form>
+<% else %>
+  You must be signed in to send peeps.
+  <br>
+<% end %>
+
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Name: <%= peep.user.full_name %>
+      User: <%= peep.user.user_name %>
+      Message: <%= peep.message %>
+      Time: <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
