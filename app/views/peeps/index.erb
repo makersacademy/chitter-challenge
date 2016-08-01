@@ -1,0 +1,28 @@
+
+<form id="new_peep" action="/peeps" method="post">
+  <input id='new_peep_bod' type="text" name="peep" value='<%= "@#{@replying_to.user.username}:" if @replying_to %>' autofocus required>
+  <input type="hidden" name="in_reply_to" value="<%= @replying_to.id if @replying_to  %>">
+  <input id='peep_button' type="submit" value='peep!'>
+</form>
+<div id='peeps'>
+  <% @peeps.sort_by {|peep| peep.time }.reverse.each do |peep| %>
+  <div class='peep'>
+    <div class='peep_body'>
+      <%= peep.body %>
+      <br>
+    </div>
+    <div id='peep_user'>
+      <%=  peep.user.username %>
+      <i>
+        <%= "in reply to #{peep.peep.user.username}" if peep.peep%>
+      </i>
+    </div>
+    <div id='peep_time'>
+      <%= peep.time.strftime("on %m/%d/%Y, at %I:%M%p") %>
+      <form id='peep_reply' action="/peeps/reply" method="post">
+        <input type="hidden" name="replying_to" value="<%= peep.id %>">
+        <input id='reply_button' type="submit"value="reply"></div>
+      </form>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,332 @@
+.nav{
+    color: white;
+    padding: 10px;
+    height: 40px;
+  }
+
+body{
+      margin: 0;
+      font-family: comfortaa;
+
+}
+#current_user{
+      display: inline-block;
+      font-size: 2em;
+
+}
+
+.sign {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+}
+
+form.buttons {
+    margin: 2%;
+}
+
+#sign_button{
+    border: solid;
+    background-color: transparent;
+    border-color: white;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    font-family: inherit;
+
+}
+#sign_button:hover{
+    transform: scale(0.9);
+
+}
+#new_peep{
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+    height: 40px;
+}
+#new_peep:hover{
+  transform: scale(1.1);
+}
+
+#new_peep_bod{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    font-family: comfortaa;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+}
+#new_peep_bod:focus{
+  outline: none;
+}
+#peep_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    height: 120%;
+    border: solid;
+    right: 0;
+    text-align: end;
+    font-size: 2em;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+
+}
+#peep_button:hover{
+    box-shadow: 2px 2px darkgrey;
+    transform: translateY(-2px);
+  }
+  #peep_button:focus{
+    outline:none;
+    transform: none;
+    box-shadow: none;
+  }
+
+
+#peeps{
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 400px;
+    border: solid;
+    border-color: transparent;
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
+    color: white;
+
+}
+.peep{
+    padding: 10px;
+    border-bottom: solid;
+    border-width: 10px;
+}
+
+.peep_body{
+  font-size: 1.5em;
+  font-family: comfortaa;
+  border-bottom: solid;
+  border-color: rgba(255,255,255,0.5);
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+
+#peep_user{
+  color: rgba(255,255,255,0.5);
+}
+#peep_time{
+  color: rgba(255,255,255,0.5);
+  font-size: 0.6em;
+}
+#notes{
+  text-align: right;
+  margin-right: 5%;
+}
+#errors{
+  margin-left: 5%;
+  color: red;
+}
+
+.log_in input[type="text"]{
+  width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+}
+.log_in input[type="password"]{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-size: 1.5em;
+
+}
+#form{
+  display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+    height: 40px;
+}
+label{
+    border: solid;
+    padding: 5px;
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+    border-radius: 10px;
+    color: white;
+    height: 44px;
+
+}
+
+#entry{
+    width: 75%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    border: solid;
+    font-family: comfortaa;
+    font-size: 1.5em;
+    padding: 5px;
+    border-color: dodgerblue;
+    border-radius: 0px 10px 10px 0px;
+    color: black;
+    width: 75%;
+    height: 1.5em;
+    margin: 0;
+    display: grid;
+    font-size: 1.5em;
+}
+#entry:focus {
+  outline:none;
+}
+
+#login_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    border: solid;
+    right: 0;
+    text-align: center;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    height: 2.15em;
+    font-size: 1.5em;
+  }
+  #login_button:focus{
+    outline: none;
+  }
+
+  #password{
+        bottom: 0;
+    position: absolute;
+  }
+  #username{
+    top: 0;
+position: absolute;
+  }
+
+#new_session{
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3%;
+    width: 400px;
+  height: 200px;
+  }
+
+  #new_account{
+      display: block;
+      position: relative;
+      margin: auto;
+      margin-top: 3%;
+      width: 400px;
+    height: 400px;
+    }
+      #new_password{
+        bottom: 25%;
+        position: absolute;
+      }
+      #new_email{
+        top: 25%;
+    position: absolute;
+      }
+        #new_password_confirmation{
+      bottom: 0%;
+      position: absolute;
+        }
+        #new_username{
+          top: 0%;
+      position: absolute;
+        }
+#register_button{
+    width: 100px;
+    display: inline;
+    position: absolute;
+    border: solid;
+    right: 0;
+    text-align: center;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    border-color: dodgerblue;
+    background-color: dodgerblue;
+    height: 2.15em;
+    font-size: 1.5em;
+  }
+  #register_button:focus{
+    outline:none;
+    transform: none;
+    box-shadow: none;
+  }
+  #register_button:active {
+    transform: none;
+    box-shadow: none;
+}
+#register_button:hover {
+    box-shadow: 2px 2px darkgrey;
+    transform: translateY(-2px);
+}
+#register_button:focus{
+  outline:none;
+  transform: none;
+  box-shadow: none;
+}
+#login_button:active {
+  transform: none;
+  box-shadow: none;
+}
+#login_button:hover {
+  box-shadow: 2px 2px darkgrey;
+  transform: translateY(-2px);
+}
+#peep_reply {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+    font-size: em;
+    bottom: 10px;
+    left: 230px;
+
+}
+#reply_button{
+    border: solid;
+    background: transparent;
+    border-color: transparent;
+    color: rgba(255,255,255,0.5);
+    font-size: 1em;
+}
+#reply_button:hover{
+  color: white;
+  transform: scaleX(1.1);
+}
+i {
+    font-size: 0.6em;
+}
+.banner{
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    display: block;
+    font-size: 5em;
+    font-family: comfortaa;
+    font-weight: bold;
+    top: -20px;
+    text-align: center;
+    color: white;
+    height: 90px;
+    overflow: hidden;
+}
+a{
+  text-decoration: none;
+  color: white;
+}

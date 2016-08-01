@@ -1,0 +1,7 @@
+<div id='notes'>
+<% if flash[:notifications] %>
+    <% flash[:notifications].each do |note| %>
+    <%= note %>
+    <% end %>
+<% end %>
+</div>
