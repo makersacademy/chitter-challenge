@@ -1,3 +1,9 @@
+<% if !current_user %>
+  <form action="/users/new" >
+    <input type='submit' value='sign up'>
+  </form>
+<% end %>
+
 <h1>Please sign in</h1>
 
 <form action='/sessions' method='post'>
