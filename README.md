@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+(partially completed - resolving local Postgresql database corruption)
+
 Features:
 -------
 
