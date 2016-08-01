@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/fav.png" type='image/png'>
+    <title>
+      Chitter
+    </title>
     <style>
     <% c1 = ['DarkCyan', 'coral', 'gold', 'crimson', 'dodgerblue', 'BlueViolet ', 'lightgreen', 'mediumvioletred', 'slategrey', 'indigo', 'lightseagreen', 'orangered'].sample  %>
     .peep{
@@ -17,41 +21,39 @@
       border-color: <%= c1 %>;
     }
     #peep_button{
-      border-color: <%= c1 %>;
-      background-color: <%= c1 %>;
+    border-color: <%= c1 %>;
+    background-color: <%= c1 %>;
     }
     .nav{
-        background-color: <%= c1 %>;
-        }
-        label{
+    background-color: <%= c1 %>;
+    }
+    label{
     background-color: <%= c1 %>;
     border-color: <%= c1 %>;
-        }
-          #login_button{
+    }
+    #login_button{
     border-color: <%= c1 %>;
     background-color: <%= c1 %>;
-          }
-          #register_button{
+    }
+    #register_button{
     border-color: <%= c1 %>;
     background-color: <%= c1 %>;
-          }
-          #entry{
-                border-color: <%= c1 %>;
-
-          }
-      </style>
-    <title>Chitter</title>
+    }
+    #entry{
+    border-color: <%= c1 %>;
+    }
+    </style>
   </head>
   <body>
     <div id='fixed'>
     <div class='nav'>
-<div class='banner'>
-  <a href="/peeps">CHITTR</a>
-</div>
-    <div id='current_user'>
-    <%= current_user.username if current_user %>
-  </div>
-    <% if current_user %>
+      <div class='banner'>
+        <a href="/peeps">CHITTR</a>
+      </div>
+      <div id='current_user'>
+        <%= current_user.username if current_user %>
+      </div>
+      <% if current_user %>
       <div class='sign'>
         <form class="buttons" action="/sessions" method="post">
           <input type="hidden" name="_method" value='delete'>
@@ -67,7 +69,7 @@
           <div class='button'><input id='sign_button' type="submit" value='sign up'></div>
         </form>
       </div>
-    <% end %>
+      <% end %>
   </div>
 </div>
   <%= partial :errors %>
