@@ -15,8 +15,6 @@ class User
   validates_presence_of :password
   validates_format_of :email, :as => :email_address
 
-  has n, :messages, through: Resource
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

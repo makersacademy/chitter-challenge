@@ -1,6 +1,9 @@
 class BookmarkManager < Sinatra::Base
+  get '/' do
+    redirect '/users'
+  end
+  
   get '/users' do
-    # erb :'users/new'
     redirect '/users/new'
   end
 

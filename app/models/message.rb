@@ -1,5 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require 'dm-timestamps'
 
 class Message
@@ -7,7 +5,7 @@ class Message
 
   property :id,         Serial
   property :message,    String, length: 140, required: true
-  property :created_on, DateTime
+  property :created_at, DateTime
 
   belongs_to :user
 end

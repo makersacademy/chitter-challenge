@@ -3,8 +3,8 @@
   <ul id='messages'>
     <% @messages.each do |message| %>
       <li>
-        Peep: <%= message.title %><br>
-        Time: <%= message.time %><br>
+        Peep: <%= message.message %><br>
+        Created at: <%= message.created_at.strftime("%d/%m/%Y %R") %><br>
       </li>
     <% end %>
   </ul>
