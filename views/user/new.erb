@@ -1,0 +1,27 @@
+<form action="/user" method = "post">
+  <label for = "name">
+    Enter name:
+  <input type = "text" name = "name" placeholder ="name" value="<%= @user.name %>"/>
+  </label>
+  <label for = "username">
+    Choose a username:
+  <input type = "text" name = "username" placeholder ="username" value="<%= @user.username %>"/>
+    </label>
+  <label for = "email">
+    Enter email:
+  <input type = "text" name = "email" placeholder ="email" value="<%= @user.email %>"/>
+  </label>
+  <label for = "password">
+    Enter password:
+  <input type = "password" placeholder ="password" name = "password"/>
+  </label>
+  <label for = "password_confirmation">
+    Re-enter password:
+  <input type = "password" name = "password_confirmation" placeholder ="confirm password"/>
+  </label>
+  <input type="submit" value="Sign me up!"/>
+</form>
+
+<% if flash[:bad] %>
+  <div id='notice'><%= flash[:bad] %></div>
+<% end %>

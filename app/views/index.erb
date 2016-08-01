@@ -1,0 +1,19 @@
+<h1>Hello Peepy bird!</h1>
+
+<% if current_user %>
+ Welcome <%= current_user.name %>!
+
+<% else %>
+ <form action="/user/new">
+   <input type="submit" value="Sign up">
+ </form>
+
+ <form action="/sessions/new">
+   <input type="submit" value="Sign in">
+ </form>
+ <%end%>
+ <% if current_user %>
+ <form action="/peep/new">
+   <input type="submit" value="Send a peep">
+ </form>
+ <% end %>

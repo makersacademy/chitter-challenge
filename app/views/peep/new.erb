@@ -1,0 +1,17 @@
+<% if current_user %>
+What would you like to peep about?
+<form action="/peep" method="post">
+  <label for="peep">
+  <input type="text" name="peep" placeholder="What's going on?"/>
+  </label>
+  <input type="submit" value="Send peep"/>
+</form>
+
+<%else%>
+You need to sign up before you can send peeps
+Click sign up below to join our community!
+<form action="/user/new">
+  <input type="submit" value="Sign up">
+</form>
+
+<%end%>
