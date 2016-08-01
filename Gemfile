@@ -3,7 +3,6 @@ ruby '2.3.1'
 
 gem 'sinatra'
 gem 'rack'
-gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
 
