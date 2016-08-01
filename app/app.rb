@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -59,6 +60,11 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
     redirect to '/'
+  end
+
+  post '/' do
+    peep = Peep.create(text: params[:text], user_id: session[:user_id])
+    redirect '/'
   end
 
   # start the server if ruby file executed directly

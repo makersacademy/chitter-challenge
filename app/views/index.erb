@@ -7,10 +7,30 @@
   </button>
 </form>
 
-
 <form action="/sessions/new">
   <button type="submit" name="Sign ip">
     Sign in
   </button>
 </form>
 <% end %>
+
+<% if session[:user_id] %>
+<form method="post">
+  <input  type="text"   name="text"   placeholder="What are you doing?" required><br>
+  <button type="submit" name="Peep">
+    Peep
+  </button>
+</form>
+<% end %>
+
+
+<h1> Peeps </h1>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      peep: <%= peep.text %>
+      by:   <%= peep.user.name %>
+      at:   <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
