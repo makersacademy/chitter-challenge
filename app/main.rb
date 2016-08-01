@@ -2,6 +2,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   set :public_folder, 'public'
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   helpers do

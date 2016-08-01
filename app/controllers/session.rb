@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  post '/session/end' do
+  delete '/session/end' do
     session[:user_id] = nil
     flash.keep[:notice] = "You have logged out"
     redirect '/'
