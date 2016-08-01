@@ -1,0 +1,65 @@
+
+body {
+  background: url("field.jpg") no-repeat center center;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+ul {
+    text-align: left;
+    background: lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+    opacity: 0.8;
+}
+
+ul li {
+  background: white;
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid black;
+  list-style-type: none;
+}
+
+.comment_body {
+  font-size: 20px;
+}
+
+.reply {
+  font-size: 14px;
+}
+
+.comment_box {
+    width: 400px;
+    padding: 10px;
+    margin: auto;
+}
+
+.resizedTextbox {
+  width: 250px;
+  height: 60px;
+  padding: 1px;
+}
+
+.comment_stamp {
+    text-align: left;
+    background: white;
+    padding: 5px;
+    font-size: 10px;
+}
+
+.feed {
+    background: rgba(204, 204, 204, 0.5);
+    width: 600px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+}
+
+.display {
+  background: url("field.jpg") no-repeat center center;
+  text-align: center;
+}

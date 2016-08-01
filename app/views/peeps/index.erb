@@ -1,0 +1,50 @@
+<h1>The posting board</h1>
+
+<% if @user %>
+  <div class="comment_box">
+    <form action="/peeps" method="POST">
+      <label for="comment">
+        <textarea type="text" name="comment" class="resizedTextbox"></textarea>
+      </label> <br>
+      <input type="submit" value="Comment"/>
+    </form>
+  </div>
+<% end %>
+
+<ul id='peeps' class="feed">
+  <% @peeps.each do |peep| %>
+    <li>
+      @<%= peep.author %>:
+      <br>
+      <div class="comment_body">
+      <%= peep.comment %>
+      </div>
+
+      <div class="comment_stamp">
+        Posted at <%= peep.created_at %>
+        <% if @user %>
+        <form action="/reply" method="POST">
+          <label for="peep_id">
+          <input type="hidden" name="peep_id" value= '<%= peep.id %>'/>
+          </label>
+          <label for="Reply"></label>
+          <input type="submit" value="Reply">
+          <input type="text" name="content"/>
+        </form>
+        <% end %>
+      </div>
+
+      <% if peep.replys %>
+        <% peep.replys.each do |reply| %>
+
+          <li>
+            <div class="reply">
+          <%= reply.owner %>: <%= reply.content %>
+          <br>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </li>
+    <% end %>
+</ul>
