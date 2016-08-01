@@ -3,9 +3,12 @@ require 'dm-validations'
 class User
   include DataMapper::Resource
   property :id,                  Serial
+  property :name,                String, required: true
   property :email,               String, required: true, unique: true
   property :user_name,           String, required: true, unique: true
   property :password_encrypted,  String, length: 60
+
+  has n, :peeps
 
   attr_reader :password
   attr_accessor :password_confirmation

@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra/flash'
 require_relative 'datamapper_setup'
+require 'pry'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -21,8 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.new(email: params[:email], user_name: params[:user_name],
-                password: params[:password],
+    @user = User.new(email: params[:email], name: params[:name],
+            user_name: params[:user_name], password: params[:password],
                 password_confirmation: params[:password_confirmation])
     if @user.save
       flash.keep[:message] = 'Thank you for signing up, please sign in to continue'
@@ -53,7 +54,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(peep: params[:peep], user_name: current_user.user_name)
+    @peep = Peep.new(peep: params[:peep], user_name: current_user.user_name)
+    @peep.save
+    redirect to('/peeps/index')
+  end
+
+  get '/peeps/index' do
+    @Peeps = Peep.all
     erb :'/peeps/index'
   end
 

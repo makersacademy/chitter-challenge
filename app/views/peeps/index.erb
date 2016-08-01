@@ -1,6 +1,10 @@
-<ul id="peeps">
-  <article>
-    <li><%= @peep.user_name %></li>
-    <li><%= @peep.peep %></li>
-  </article>
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user_name %>
+      <%= peep.peep   %>
+    </li>
+  <% end %>
 </ul>

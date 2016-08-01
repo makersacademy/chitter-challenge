@@ -1,6 +1,7 @@
 describe User do
   let!(:user) do
     User.create(email: 'example@example.com',
+                name: 'example',
                 user_name: 'example',
                 password: 'password',
                 password_confirmation: 'password' )
