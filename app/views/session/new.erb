@@ -1,0 +1,56 @@
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+<div class="bs-example">
+    <form class="form-horizontal" action="/session/new" method="post">
+      <div class="form-group">
+          <label class="col-xs-2 control-label" for="enter_name">Name</label>
+          <div class="col-xs-5">
+              <input type="text" id="enter_name" name="name" class="form-control" placeholder="Enter name">
+          </div>
+      </div>
+        <div class="form-group <%= 'has-error' if flash[:username_error]%>">
+            <label class="col-xs-2 control-label" for="username">Username</label>
+            <div class="col-xs-5">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter username">
+                <% if flash[:username_error] %>
+                  <span class="help-block"><%= flash[:username_error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group <%= 'has-error' if flash[:password_error]%>">
+            <label class="col-xs-2 control-label" for="password">Password</label>
+            <div class="col-xs-5">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password">
+                <% if flash[:password_error] %>
+                  <span class="help-block"><%= flash[:password_error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group <%= 'has-error' if flash[:password_error]%>">
+            <label class="col-xs-2 control-label" for="password_confirm">Confirm Password</label>
+            <div class="col-xs-5">
+                <input type="password" id="password_confirm" name="password_confirm" class="form-control" placeholder="Confirm password">
+                <% if flash[:password_error] %>
+                  <span class="help-block"><%= flash[:password_error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group <%= 'has-error' if flash[:email_error]%>">
+            <label class="col-xs-2 control-label" for="email">Email</label>
+            <div class="col-xs-5">
+                <input type="email" id="email" class="form-control" name="email" placeholder="Enter email address">
+                <% if flash[:email_error] %>
+                  <span class="help-block"><%= flash[:email_error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group">
+           <div class="col-xs-offset-3">
+               <input type="submit" class="btn btn-primary" value="Sign up">
+           </div>
+       </div>
+    </form>
+</div>
