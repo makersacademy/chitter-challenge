@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'database_cleaner'
 gem 'sinatra-flash'
+gem 'heroku'
 
 group :test do
   gem 'capybara'
@@ -15,5 +16,4 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
-  gem 'bcrypt'
 end

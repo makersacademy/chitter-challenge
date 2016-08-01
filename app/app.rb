@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :sessions_secret, 'super secret'
 
   get '/peeps' do
-    @peeps = Peep.all.sort_by { |a, b| a.time <=> b.time }
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
