@@ -11,7 +11,7 @@ feature 'posting peeps' do
   end
 
   scenario 'user can post peeps after signing in' do
-    expect{ peep }.to change(Peep, :count).by(1)
+    expect{ peep(peep: "example peep") }.to change(Peep, :count).by(1)
 
     within("ul#peeps") do
       expect(page).to have_content("example peep")
