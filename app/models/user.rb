@@ -12,6 +12,8 @@ class User
   property :firstname, String, required: true
   property :surname, String, required: true
   property :email, String, required: true, format: :email_address, unique: true
+  property :created_at, DateTime
+  
 
   attr_reader :password
   attr_accessor :password_confirmation

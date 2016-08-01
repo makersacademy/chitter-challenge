@@ -5,5 +5,6 @@ class Post
 
   property :id, Serial
   property :post, String
+  property :postedTime, String
 
 end

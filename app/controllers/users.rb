@@ -1,6 +1,11 @@
 class Chitter < Sinatra::Base
   get '/users/new' do
-    erb :'users/new'
+    if !current_user
+      erb :'users/new'
+    else
+      flash.keep[:notice] = 'You are logged in.'
+      redirect to '/posts'
+    end
   end
 
   post '/users' do

@@ -13,12 +13,14 @@ feature 'Signup' do
 
   scenario 'I cannot sign up using a duplicate username' do
     signup(username:'billGater')
+    click_button 'sign out'
     expect{ signup(username: 'billGater', email: 'bill@windows.com') }.not_to change(User, :count)
     expect(page).to have_content("Username is already taken")
   end
 
   scenario 'I cannot sign up using a duplicate email address' do
     signup(email: "mine@duplicate.com")
+    click_button 'sign out'
     expect{ signup(email: "mine@duplicate.com", username: "WindowsMan") }.not_to change(User, :count)
     expect(page).to have_content("Email is already taken")
   end
@@ -32,6 +34,14 @@ feature 'Signup' do
   scenario 'I can not sign up using an invalid email format' do
     expect { signup(email: "abcemail.com") }.not_to change(User, :count)
     expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario 'I should not see sign up page while I am signed in' do
+    signup
+    click_button 'sign out'
+    signin(username: "AppleMan", password: "apple123")
+    visit '/users/new'
+    expect(page).not_to have_content "Sign up"
   end
 
 end

@@ -1,6 +1,11 @@
 class Chitter < Sinatra::Base
   get '/sessions/new' do
-    erb :'sessions/new'
+    if !current_user
+      erb :'sessions/new'
+    else
+      flash.keep[:notice] = 'You are already signed in.'
+      redirect to '/posts'
+    end
   end
 
   post '/sessions' do

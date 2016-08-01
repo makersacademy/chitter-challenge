@@ -1,9 +1,10 @@
 <h1> Posts </h1>
 
 <ul id='posts'>
-  <% @posts.each do |post| %>
+  <% @posts.reverse_each do |post| %>
     <li>
-      <%= User.get(post.user_id).username %> - <%= post.post   %>
+      <%= User.get(post.user_id).username %>
+      <%= post.postedTime %> - <%= post.post %>
     </li>
   <% end %>
 </ul>
