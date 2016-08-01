@@ -3,7 +3,7 @@ Chitter Challenge
 
 4th Weekend Challenge at Makers Academy
 
-[Deplyed on Heroku](https://chytr.herokuapp.com)
+[Deployed on Heroku](https://chytr.herokuapp.com)
 
 ![alt text](http://i.imgur.com/vRsXAWB.png)
 
