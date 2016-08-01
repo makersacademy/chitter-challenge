@@ -1,0 +1,11 @@
+<h1>Cheeps</h1>
+
+<ul id="cheeps">
+  <% @cheeps.each do |cheep| %>
+    <div style="border: solid;">
+      <p><%= cheep.content %></p>
+      <p>Time: <%= cheep.time %></p>
+      <p>User: <%= cheep.user%></p>
+    </div>
+  <% end %>
+</ul>
