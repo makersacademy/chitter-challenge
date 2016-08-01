@@ -1,0 +1,55 @@
+body {
+  color: #090707;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  background-color: #28B4E5;
+}
+p {
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+p1 {
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+}
+
+h1 {
+  color: black;
+  font-family: 'Pacifico', cursive;
+  margin: 50px 0;
+  font-size: 80px;
+}
+
+label {
+  color: #E53A40;
+}
+.button {
+  background-color: #30A9DE;
+  border-color: #30A9DE;
+}
+
+.outline {
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  background-color: #278DB9;
+  border-color: #278DB9;
+}
+
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

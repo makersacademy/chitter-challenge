@@ -1,13 +1,12 @@
-<h1>Peep Feed!</h1>
+<h1 class='center'>Peeps</h1>
 
 <% unless @peeps.nil?%>
-  <div id='peeps'>
   <% @peeps.reverse_each do |peep| %>
-    <li>
-      <%= peep.content %><br>
-      Posted: <%=peep.created_at.strftime("%e %B %k:%M")%>
-    </li>
-  </div>
+    <div class='center'>
+      <p>username: <%=peep.user.username%><br></p>
+      <p1><%= peep.content %><br></p1>
+      <p>Posted: <%=peep.created_at.strftime("%e %B %k:%M")%></p>
+    </div><br>
   <% end %>
 <% end %>
 
