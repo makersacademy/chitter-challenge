@@ -8,6 +8,14 @@ feature 'Posts' do
     expect(page.status_code).to eq 200
     expect(page).to have_content('Hello, world!')
   end
+  
+  scenario 'I can not add posts when I am not logged in' do
+    signup
+    click_button 'sign out'
+    visit '/posts/new'
+    expect(page.status_code).to eq 200
+    expect(page).not_to have_content('New Posts')
+  end
 
   scenario 'I can see all the posts in reverse chronological order, whether I am logged in or out' do
     signup
