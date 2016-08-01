@@ -1,6 +1,5 @@
 class Chitter < Sinatra::Base
   enable :sessions
-  enable :partial_underscores
 
   register Sinatra::Flash
   register Sinatra::Partial
@@ -9,6 +8,8 @@ class Chitter < Sinatra::Base
 
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
