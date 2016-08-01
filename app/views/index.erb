@@ -28,9 +28,9 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      peep: <%= peep.text %>
-      by:   <%= peep.user.name %>
-      at:   <%= peep.created_at %>
+      <%= peep.text %><br>
+      By:   <%= peep.user.name %>,
+      at:   <%= peep.created_at %><br><br>
     </li>
   <% end %>
 </ul>
