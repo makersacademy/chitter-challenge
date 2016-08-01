@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= "development"
+
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -46,11 +46,11 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
-     redirect '/peeps/index'
      session[:user_id] = user.id
+     redirect '/peeps/index'
     else
       flash.now[:errors] = ["Incorrect password entered. Please retry."]
-      erb :'user/new'
+      erb :'user/index'
     end
   end
 

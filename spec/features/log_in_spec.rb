@@ -5,14 +5,13 @@
 
 feature 'Logging into a chitter accounts' do
 
-      User.create(first_name: 'first name',
-                  second_name: 'second name',
-                  username: 'username35',
-                  email: 'user@example.com',
-                  password: 'secret1234',
-                  password_confirmation: 'secret1234')
-
   scenario 'If my passwords match I\'m redirected to peeps page' do
+    User.create(first_name: 'first name',
+                second_name: 'second name',
+                username: 'username35',
+                email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234')
     visit 'user/index'
     fill_in :email, with: 'user@example.com'
     fill_in :password, with: 'secret1234'
@@ -21,6 +20,12 @@ feature 'Logging into a chitter accounts' do
   end
 
   scenario 'I am unable to log in if my passwords don\'t match' do
+    User.create(first_name: 'first name',
+                second_name: 'second name',
+                username: 'username35',
+                email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234')
     visit 'user/index'
     fill_in :email, with: 'user@example.com'
     fill_in :password, with: 'secret1111'

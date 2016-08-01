@@ -10,7 +10,13 @@
 <br /><br />
 
 <h2>Already registered?</h2>
-
+<% if flash[:errors]%>
+Please see the below errors:
+<ul id="errors">
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+<% end %>
 <form name = 'sign in' action ='/sessions' method = 'post'>
   <label for = 'email'>
     Email:<input name = 'email' type = 'email'><br /><br />
