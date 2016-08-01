@@ -9,6 +9,6 @@ To run a version on your local machine:
 
 - $ git clone https://github.com/Rob-rls/chitter-challenge.git
 - $ bundle
-- $ createdb chitter_development
+- Using psql you will need to: createdb chitter_development
 - $ rackup
 - Then visit your localhost:9898 to view the app!
