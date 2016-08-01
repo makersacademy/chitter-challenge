@@ -53,4 +53,4 @@ feature 'User sign up' do
     expect(page).to have_content('Email is already taken')
   end
 
- end
+end
