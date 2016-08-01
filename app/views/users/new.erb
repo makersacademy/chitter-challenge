@@ -1,0 +1,20 @@
+<h1 class='center'>Sign Up!</h1>
+
+<form action='/users' method='post'>
+  <label for='name'>
+    Name: <input type='text' name='name' value='<%= @user.name %>' required>
+  </label>
+  <label for='username'>
+    Username: <input type='text' name='username' value='<%= @user.username %>' required>
+  </label>
+  <label for='email'>
+    Email: <input type='text' name='email' value='<%= @user.email %>' required>
+  </label>
+  <label for='password'>
+    Password: <input type='password' name='password'>
+  </label>
+  <label for='password_confirmation'>
+    Re-enter Password: <input type='password' name='password_confirmation'>
+  </label>
+    <input class='button' type='submit' value='Sign up'>
+</form>
