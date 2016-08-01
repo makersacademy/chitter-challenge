@@ -1,4 +1,4 @@
-<h1>LET'S CHITT!<h1><br>
+<h1>LET'S CHITT!</h1><br>
 <% if !current_user %>
   <form action="/sessions/new">
   <input type="submit" value="Sign in">
@@ -14,8 +14,11 @@
 
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
+  <div>
   <li>
     Peep: <%= peep.peep %>
+    Time: <%= peep.time %>
   </li>
+</div>
   <% end %>
 </ul>

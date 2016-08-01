@@ -69,9 +69,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(peep: params[:peep], time: Time.new, user_id: current_user.id)
-    redirect to'/'
-  end
+    if current_user
+        peep = Peep.create(peep: params[:peep], time: Time.new, user_id: current_user.id)
+        redirect to'/'
+      else
+        flash.keep[:errors] = ['You must sign in to peep']
+        redirect to '/'
+      end
+    end
+  #   Peep.create(peep: params[:peep], time: Time.new, user_id: current_user.id)
+  #   redirect to'/'
+  # end
 
   run! if app_file == $0
 end
