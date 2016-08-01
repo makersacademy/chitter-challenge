@@ -4,9 +4,7 @@
 <ul id='peep'>
 	<% @peeps.reverse.each do |peep| %>
 	<li>
-		<%= peep.user %><%= peep.time.strftime("on %a at %I:%M%p") %>
-    <br>
-		<%= peep.post %>
+		 <%= peep.post %> posted <%= peep.time%>
 	</li>
 	<% end %>
 </ul>

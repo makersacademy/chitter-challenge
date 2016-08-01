@@ -66,14 +66,14 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     Peep.create(post: params[:peep],
-              author: params[:current_user],
-              time: Time.now)
-    redirect '/peep/list'
+              author: session[:current_user],
+              time: (Time.now.strftime("%a %I:%M%p")) )
+    redirect '/peep/index'
   end
 
-  get '/peep/list' do
+  get '/peep/index' do
     @peeps = Peep.all
-    erb :'peep/list'
+    erb :'peep/index'
   end
 
   helpers do

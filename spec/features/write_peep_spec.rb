@@ -32,7 +32,7 @@ feature 'writing peeps' do
     visit '/peep/new'
     fill_in "peep", with: "#fun at the fair"
     click_button"Send peep"
-    expect(current_path).to eq '/peep/list'
+    expect(current_path).to eq '/peep/index'
     expect(page).to have_content "fair"
   end
   scenario 'a user can publish a peep to the database' do
@@ -43,10 +43,4 @@ feature 'writing peeps' do
     peep = Peep.first
     expect(peep.post).to include('fair')
   end
-  # scenario 'user cannot post an empty peep' do
-  #   sign_in
-  #   visit '/peep/new'
-  #   click_button "Send peep"
-  #   expect(page).to have_content "Your peep was blank"
-  # end
 end
