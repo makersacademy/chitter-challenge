@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
 #AMMEND REDIRECT ROUTE
-      redirect ('/peeps')
+      redirect '/peeps'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'/sessions/new'
