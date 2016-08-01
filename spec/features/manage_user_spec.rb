@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'User sign up' do
   scenario 'password confirmation does not match' do
     sign_up

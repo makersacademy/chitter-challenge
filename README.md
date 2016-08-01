@@ -108,6 +108,10 @@ This repo works with [Coveralls](https://coveralls.io/) to calculate test covera
 
 ## Alwins notes 31st July
 
-### USER Story 1 - complete
-    Help from class mates to sort out
+### User Story 1 - complete
+    Help from class mates to sort out database issues
     Used Bookmark manager as a guide.
+
+### User Story 2 - complete
+    Bookmark manager as guide from walkthrough and chat with classmates
+### User Story 3 - complete

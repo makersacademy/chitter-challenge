@@ -28,10 +28,10 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(full_name: params[:full_name],
-               username: params[:username],
-               email: params[:email],
-               password: params[:password],
-               password_confirmation: params[:password_confirmation])
+      username: params[:username],
+      email: params[:email],
+      password: params[:password],
+      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/peeps'
@@ -55,7 +55,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ['username and password do do not match']
+      flash.now[:errors] = ['username and password incorrect']
       erb:'sessions/new'
     end
 
