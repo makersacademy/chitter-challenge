@@ -6,6 +6,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :cheeps, through: Resource
+
   property :id, Serial
   property :user_name, String, required: true, unique:true
   property :name, String, required: true
