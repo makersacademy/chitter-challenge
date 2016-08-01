@@ -74,6 +74,11 @@ input[type=submit] {
     color: #3e3e5b;
 }
 
+#post {
+  width: 30%;
+  height: 20px;
+}
+
 .message {
   opacity: 0.9;
   display:inline-block;
