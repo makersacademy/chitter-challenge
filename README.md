@@ -3,6 +3,8 @@ README.md
 Chitter Challenge
 =================
 
+[![Build Status](https://travis-ci.org/acsauk/chitter-challenge.svg?branch=master)](https://travis-ci.org/acsauk/chitter-challenge)
+
 Features/Use Stories
 -------
 
