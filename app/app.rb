@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 
 require 'sinatra/base'
@@ -20,7 +20,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    redirect 'peeps'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'/peeps/index'
+  end
+
+  post '/peeps' do
+    if current_user
+      peep = Peep.new(message: params[:message], user: current_user)
+      peep.save
+      redirect to '/'
+    else
+      flash.next[:errors] = ["You must be logged in to peep."]
+      redirect to 'sesions/new'
+    end
   end
 
   get '/users/new' do
@@ -35,7 +51,7 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps'
+      redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -50,7 +66,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/peeps')
+      redirect to('/')
     else
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
@@ -60,25 +76,10 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect to '/peeps'
+    redirect to '/'
   end
 
-  get '/peeps' do
-    @peeps = Peep.all(order: [:id.desc])
-    erb :'/peeps/index'
-  end
 
-  post '/peeps' do
-    if current_user
-      peep = Peep.create(message: params[:message])
-      current_user.peep << peep
-      current_user.save
-      redirect to '/peeps'
-    else
-      flash.next[:errors] = ["You must be logged in to peep."]
-      redirect to 'sesions/new'
-    end
-  end
 
   run! if app_file == $0
 end
