@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.1'
+  gem 'sinatra'
+  gem 'rack'
+  gem 'capybara'
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'database_cleaner'
+  gem 'sinatra-flash'
+  gem 'bcrypt'
+  gem 'database_cleaner'
 
 group :test do
   gem 'rspec'
@@ -7,4 +16,3 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
 end
-
