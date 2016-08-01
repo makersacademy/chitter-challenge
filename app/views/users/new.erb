@@ -1,0 +1,20 @@
+<form action="/signup" method="post">
+  <label for="email">Email:
+    <input type="email" name="email" value='<%= @user.email %>' required>
+  </label><br>
+  <label for="name">Name:
+    <input type="text" name="name" required>
+  </label><br>
+  <label for="user_name">User name:
+    <input type="text" name="user_name" required>
+  </label><br>
+  <label for="password">Password:
+    <input type="password" name="password" required>
+  </label><br>
+  <label for="password confirmation">Password confirmation:
+    <input type="password" name="password_confirmation" required>
+  </label><br>
+  <label for="Sign up">
+      <input type="submit" value="Sign up">
+  </label>
+</form>
