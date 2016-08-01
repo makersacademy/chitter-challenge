@@ -3,7 +3,7 @@ Chitter Challenge
 
 This is Chitter Challenge, a social media clone created as the fourth weekend challenge at Makers Academy.
 
-![Screenshot](https://www.dropbox.com/s/e9z0iuuhqnhbo9r/app.png?dl=0)
+![Screenshot](http://imgur.com/DJLRNKM)
 
 * Users can sign up to chitter with their email, password, name and a user name.
 * The username and email are unique.
