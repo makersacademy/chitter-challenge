@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
 #AMEND!!!
-    "You've signed in as - #{current_user.username}"
+    erb :index
   end
 
   get '/users/new' do
@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
 #redirect to peeps page!!! AMEND
-      redirect '/'
+      redirect '/peeps'
     else
       flash.now[:notice] = 'passwords do not match'
       erb :'/users/new'
@@ -43,17 +43,42 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
 #AMMEND REDIRECT ROUTE
-      redirect ('/')
+      redirect ('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'/sessions/new'
     end
+      # redirect '/users/new'
+
   end
 
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
     redirect to '/'
+  end
+
+  get "/peeps/new" do
+    if current_user
+      erb :"peeps/new"
+    else
+      flash.next[:notice] = ["You must be signed in to post peeps"]
+      redirect "/sessions/new"
+    end
+  end
+
+  post "/peeps" do
+    Peep.create(content: params[:peep], user_id: current_user.id)
+    redirect "/peeps"
+  end
+
+  get "/peeps" do
+    @peeps = Peep.all_in_reverse_order
+    erb :"peeps/index"
+  end
+
+  def date_and_time(time)
+    time.strftime("%c")
   end
 
   helpers do

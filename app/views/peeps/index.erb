@@ -1,0 +1,11 @@
+<% @peeps.each do |peep| %>
+  <div class="peep">
+    <div class="content" style="color:red; ">
+      <%= peep.content %>
+    </div>
+    <div class="timestamp">
+      <%= date_and_time(peep.created_at) %>
+    </div>
+    peep by: <b><%= peep.user.username %></b>
+  </div>
+<% end %>

@@ -13,7 +13,10 @@ class User
   property :username, String, required: true
   property :password_digest, String, length: 60
 
+  has n, :peeps
+
   validates_confirmation_of :password
+  validates_uniqueness_of :email, :username
 
   def password=(password)
     @password = password
