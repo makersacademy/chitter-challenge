@@ -1,108 +1,62 @@
-Chitter Challenge
-=================
+# **Chitter Challenge**
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+https://chitter-demo.herokuapp.com/
 
-Challenge:
--------
+Made as the weekend challenge for my fourth week studying with Makers' Academy, this is a Twitter inspired web app that allows users to create an account and then view and post short messages.<br>
+It's development made use of the **Sinatra** framework for routing HTTP requests and the **Capybara** testing suite for running feature tests, with Sinatra providing a lightweight and flexible interface layer to the Rack middleware used. **PostgreSQL** was then used to provide database support for test, development and production environments. The Datamapper gem was used to create an **Object Relational Map** betweeen classes and tables as well as properties and corresponding columns in the table. It also allowed the creation of database constraints and easily rebuilding the table when neccessary. This consolidated the learnings around constructing database schemas and using them within a many to many relationship. Password security was provided by the BCrypt gem which created hash digests for storing in the table to avoid the case of storing actual user passwords, and so validating future logins against the digest key instead.<br>
+I then took a little time to style the home and login pages with CSS, this introduced a non-semantic div tag which I would like to avoid in the future by learning more about using **flexbox**.<br>
+Finally a PostgreSQL server was instantiated on **Heroku** and the site deployed there, https://chitter-demo.herokuapp.com/
+<br><br>
+The following User Stories were provided by Makers' Academy as a starting point for the weekend.
 
-As usual please start by forking this repo.
+    As a Maker
+    So that I can post messages on Chitter as me
+    I want to sign up for Chitter
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+    As a Maker
+    So that I can post messages on Chitter as me
+    I want to log in to Chitter
 
-Features:
--------
+    As a Maker
+    So that I can avoid others posting messages on Chitter as me
+    I want to log out of Chitter
 
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+    As a Maker
+    So that I can let people know what I am doing  
+    I want to post a message (peep) to chitter
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+    As a maker
+    So that I can see what others are saying  
+    I want to see all peeps in reverse chronological order
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+    As a maker
+    So that I can better appreciate the context of a peep
+    I want to see the time at which it was made
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+## **Usage**
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+If you have PostgreSQL installed the following commands can be employed to run and the test the site locally  :
 
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
+    $ git clone https://github.com/benjamin-white/chitter_challenge
+    $ bundle
+    $ service postgresql start
+    $ createdb chitter_development
+    $ rake auto_migrate
+    $ ruby app.rb
 
-Notes on functionality:
-------
+## **Some Screenshots**
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+![Screenshot](https://dl.dropboxusercontent.com/u/81396324/Chitter_ss_001.jpg)
 
-Bonus:
------
+![Screenshot](https://dl.dropboxusercontent.com/u/81396324/Chitter_ss_02.jpg)
 
-If you have time you can implement the following:
+![Screenshot](https://dl.dropboxusercontent.com/u/81396324/Chitter_ss_03.jpg)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+## **Future Features**
 
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+* Extract the CSS into a Sinatra _public_ folder.
+* Provision a mechanism for users to reset passwords.
+* Provision a mechanism for users to delete posts.
+* Provision a mechanism to search for posts by user.
+* Use **Foundation** icons to enhance visual wayfinding.
+* Replace fixed CSS sizes with EMs and add stylesheet breakpoints.
