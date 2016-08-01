@@ -4,28 +4,9 @@
 
   <body>
     
-    <% if current_user %>
-      <h2>Welcome, <%= current_user.name %>!</h2>
-      <h2>AKA <%= current_user.username %>!</h2>
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+  <%= partial :welcome %>
+  <%= partial :flash %>
 
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
   <%= yield %>
 
   </body>
