@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 20;
+  margin: 30px auto;
+  background: url(http://science-all.com/images/wallpapers/background-images-for-websites/background-images-for-websites-24.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+
+form {
+    font-size: 20;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+    }
