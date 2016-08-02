@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
 		<title>Chitter</title>
 	</head>
 <center>
 	<body>
+    <header>
+      <div id="logo">
+        <a href="/" style="color:white">CHITTER</a>
+      </div>
+    </header>
 		<% if current_user %>
   		You've signed in as -
   		<%= current_user.username %>
-      <a href="/peeps/new">New peep</a>
-  		<form method='post' action='/sessions'>
+      <form style="display:inline-block" method='post' action='/sessions'>
   			<input type='hidden' name='_method' value='delete'>
   			<input type='submit' value='Sign out'>
   		</form>
+      <br><br>
+      <a href="/peeps/new" class='button highlighted'>New peep</a>
       <% else %>
-        <a href="users/new" style="text:red">Sign Up</a><br>
-        <!-- <a href="sessions/new">Sign In</a> -->
+        <a href="users/new" class='button'>Sign Up</a><br>
+        <a href="sessions/new" class='button'>Sign In</a>
 		<% end %>
 		<% if flash[:notice] %>
-  		<div id='notice' style="color:red">
+  		<div id='notice'>
   			<%= flash[:notice] %>
   		</div>
 		<% end %>
@@ -26,7 +33,7 @@
   		Please refer to the following errors below:
   		<ul id="errors" style="color:red">
   			<% flash[:errors].each do |error| %>
-  			<li style="text-align:center"><%= error %></li>
+  			<li><%= error %></li>
   			<% end %>
   		</ul>
   		<% end %>
