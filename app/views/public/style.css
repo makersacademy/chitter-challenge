@@ -1,0 +1,48 @@
+@import       url(https://fonts.googleapis.com/css?family=Roboto+Slab|Slabo+27px|Montserrat+Subrayada|Quicksand|EB+Garamond);
+
+.home{
+  margin: 100px;
+  background-color: yellow;
+}
+.container{
+  margin: 20px;
+  text-align: center;
+}
+.banner{
+  padding-top: 10px;
+  padding-bottom: 5px;
+  background-color: yellow;
+  background-size: cover;
+}
+
+.middle{
+  font-family:'EB Garamond';
+  font-size: 18px;
+  line-height: 25px;
+  text-align: inherit;
+  background-color: black;
+  background-size: cover;
+}
+
+h1{
+  text-align: center;
+  font-size: 60px;
+  font-family:'Quicksand';
+  letter-spacing: 2px;
+  color: white;
+}
+
+h2{
+  font-size: 18px;
+  line-height: 25px;
+  text-align: inherit;
+  font-family: 'Quicksand';
+  letter-spacing: 2px;
+}
+h3{
+  text-align: center;
+  font-size: 60px;
+  font-family:'Quicksand';
+  letter-spacing: 2px;
+  color: black;
+}

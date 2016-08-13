@@ -1,0 +1,28 @@
+<h1> Welcome to Chitter </h1>
+<br /><br />
+
+<form name = 'sign up' action = '/user/new' method = 'get'>
+  <input type = 'submit' value = 'sign me up'>
+</form>
+
+<br /><br />
+<br /><br />
+<br /><br />
+
+<h2>Already registered?</h2>
+<% if flash[:errors]%>
+Please see the below errors:
+<ul id="errors">
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+<% end %>
+<form name = 'sign in' action ='/sessions' method = 'post'>
+  <label for = 'email'>
+    Email:<input name = 'email' type = 'email'><br /><br />
+  </label>
+  <label for = 'password'>
+    Password:<input name = 'password' type = 'password'>
+  </label>
+  <input type = 'submit' value = 'sign in'>
+</form>
