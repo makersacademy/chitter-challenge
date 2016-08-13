@@ -1,10 +1,10 @@
-
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
 
-require_relative './app/data_mapper_setup.rb'
-require './app/models/user.rb'
+require_relative 'data_mapper_setup.rb'
+require_relative 'models/user.rb'
 
 class Chitter < Sinatra::Base
 
@@ -14,12 +14,11 @@ class Chitter < Sinatra::Base
 
   get '/' do
     erb :'index'
-    #index.erb = enter chitter button
+    redirect '/user/index'
   end
 
   get '/user/index' do
     erb :'user/index'
-    #user/index.erb = sign me up or sign in
   end
 
   get '/user/new' do
@@ -34,7 +33,6 @@ class Chitter < Sinatra::Base
       password: params[:password],
       password_confirmation: params[:password_confirmation])
       session[:user_id] = user.id
-      # session[:first_name] = params[:first_name]
       redirect '/peeps/index'
   end
 

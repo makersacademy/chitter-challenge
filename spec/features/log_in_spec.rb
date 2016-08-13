@@ -12,7 +12,7 @@ feature 'Logging into a chitter accounts' do
                 email: 'user@example.com',
                 password: 'secret1234',
                 password_confirmation: 'secret1234')
-    visit 'user/index'
+    visit '/'
     fill_in :email, with: 'user@example.com'
     fill_in :password, with: 'secret1234'
     click_button 'sign in'

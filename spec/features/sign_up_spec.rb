@@ -6,7 +6,6 @@
 feature 'Signing up for a chitter account' do
   scenario 'The user can sign up, if their passwords match' do
     visit '/'
-    click_button 'ENTER CHITTER'
     click_button 'sign me up'
     sign_up
     fill_in :password_confirmation, with: '1234'
@@ -15,7 +14,6 @@ feature 'Signing up for a chitter account' do
 
   scenario 'they receive a welcome message' do
     visit '/'
-    click_button 'ENTER CHITTER'
     click_button 'sign me up'
     sign_up
     fill_in :password_confirmation, with: '1234'
@@ -28,14 +26,13 @@ feature 'Signing up for a chitter account' do
 
   scenario 'The user cannot sign up, if their passwords don\'t match'do
      visit '/'
-     click_button 'ENTER CHITTER'
      click_button 'sign me up'
      sign_up
      fill_in :password_confirmation, with: '1000'
      expect{ click_button 'register'}.not_to change(User, :count)
    end
 end
-
+#
 def sign_up
   fill_in :first_name, with: 'Jessica'
   fill_in :second_name, with: 'Jones'
