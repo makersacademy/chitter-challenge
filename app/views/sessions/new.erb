@@ -1,0 +1,17 @@
+<% if flash[:sessions] %>
+<div class='errors'><%= flash[:sessions] %></div>
+<% end %>
+
+
+<div class="wrapper">
+  <h1>Please sign in</h1>
+  <form action='/sessions' method='post'>
+  <label for='email' class="emphasise-black">
+      Email: <input name='email' type='email'>
+    </label>
+    <label for='password' class="emphasise-black">
+      Password: <input name='password' type='password'>
+    </label>
+    <input type='submit' value='Sign in' class="button">
+  </form>
+</div>
