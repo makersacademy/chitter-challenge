@@ -35,7 +35,6 @@ TEST
 * Capybara
 * Orderly
 * Coveralls
-* Orderly
 
 DATABASES
 
