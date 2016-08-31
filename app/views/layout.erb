@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chitter</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/peeps">Chitter</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<% if current_user %>
+			      	<form id="signout" class="navbar-form navbar-right" action="/sessions" method="post">          
+						<input type="hidden" name="_method" value="delete">
+				        <button type="submit" class="btn btn-primary">Sign out</button>
+			       	</form>
+		      	<% end %>  
+		    </div>
+		  </div>
+		</nav>
+		<%= partial :flash %>
+		<% if current_user %>
+			<h1 style="text-align: center;">Welcome, <%= current_user.name %></h1> 
+		<% end %>
+		<%= yield %>
+	</body>
+</html>
