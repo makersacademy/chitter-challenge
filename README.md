@@ -64,6 +64,14 @@ Approach:
 * Users can peep and comment on other people peeps.
 ![alt tag](https://github.com/lexiht/chitter-challenge/blob/master/public/images/user_view.png)
 
+To do list:
+-------
+
+* Add login option to sign up page
+* Add styling to comment section
+* Link username with his/her comments
+
+
 Author:
 -------
 
