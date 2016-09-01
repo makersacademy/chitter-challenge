@@ -10,7 +10,9 @@ feature 'User sign out' do
 
   scenario 'while being signed in' do
     sign_in(username: 'joesweeny', password: 'buddy123')
-    click_button 'Sign out'
+    within('div#topbar') do
+      click_button 'Sign out'
+    end
     expect(page).not_to have_content 'Welcome, Joe Sweeny'
   end
 end

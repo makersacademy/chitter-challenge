@@ -11,6 +11,8 @@ require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/peeps'
 
+require 'pry'
+
 class Chitter < Sinatra::Base
 
   get '/' do

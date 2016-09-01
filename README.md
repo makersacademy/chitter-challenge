@@ -12,22 +12,30 @@ The user stories led us to create the following app features:
 
 ```
 Chitter is a modular Sinatra application.
+
 It uses DataMapper for interactions with the database (provided by Postgres both locally and on Heroku)
+
 BCrypt is used for authentication.
-Styling is through CSS and the app is tested thoroughly with Rspec/Capybara.
+
+Styling is through CSS and the app is tested thoroughly with RSpec and Capybara.
 
 ```
 
 To use Chitter please:
 
 ```
-Fork the repo
+Clone the repo
 ```
 ```
-$ run Bundle
+$ Bundle install
 ```
  ```
- Use localling via Sinatra or Rackup
- ```
+$ rackup
+```
+Then open the browser of your choice and go to:
+```
+http://localhost:9292
+```
 
- Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com)
+
+Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com)

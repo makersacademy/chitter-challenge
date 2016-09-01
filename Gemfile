@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'sinatra-flash'
 
 group :test do
+  gem "pry-byebug"
   gem 'byebug'
   gem 'database_cleaner'
   gem 'capybara'

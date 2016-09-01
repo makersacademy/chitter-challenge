@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ['You username and password do not match']
+      flash[:errors] = ['You username and password do not match']
       erb :'sessions/new'
     end
   end
