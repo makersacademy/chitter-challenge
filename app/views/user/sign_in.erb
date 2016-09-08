@@ -1,0 +1,13 @@
+<h1> Sign In to Chitter</h1>
+
+  <form action="/user/sign_in" method="post">
+    <ul>
+      <li>Email<input type="email" name="email" placeholder="greg@greenwald.com" required></li>
+      <li>Password<input type="password" name="password" required></li>
+      <li><input type="submit" value="Sign In"></li>
+    </ul>
+  </form>
+
+  <% if flash.now[:error] %>
+  <!-- need to add some error handling! -->
+  <% end %>

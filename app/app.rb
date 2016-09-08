@@ -19,7 +19,6 @@ class Chitter < Sinatra::Base
     erb(:feed)
   end
 
-
   get '/user/sign_up' do
     erb(:'user/sign_up')
   end
@@ -32,6 +31,21 @@ class Chitter < Sinatra::Base
     else
       flash[:error] = user.errors.full_messages
       redirect '/user/sign_up'
+    end
+  end
+
+  get '/user/sign_in' do
+    erb(:'user/sign_in')
+  end
+
+  post '/user/sign_in' do
+    # add method to authenticate user
+    if user
+      session[:user_name] = user.name
+      redirect '/feed'
+    else
+      flash[:login_failed] = "Invalid email or password. Try again!"
+      redirect '/sign_in'
     end
   end
 

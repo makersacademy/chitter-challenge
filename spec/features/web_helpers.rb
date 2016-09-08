@@ -33,3 +33,17 @@ def sign_up_no_username
   fill_in('password', with: "myPassword123")
   click_button("Sign Up")
 end
+
+def sign_in
+  visit '/user/sign_in'
+  fill_in('email', with: "rafi@superwoman")
+  fill_in('password', with: "myPassword123")
+  click_button("Sign In")
+end
+
+def invalid_sign_in
+  visit '/user/sign_in'
+  fill_in('email', with: "junkemail")
+  fill_in('password', with: "myPassword123")
+  click_button("Sign In")
+end
