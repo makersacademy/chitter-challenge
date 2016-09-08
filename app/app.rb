@@ -1,12 +1,14 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super_secret'
+  register Sinatra::Flash
 
   get '/' do
     redirect '/feed'
@@ -23,9 +25,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/sign_up' do
-    @user = User.create(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password])
-    session[:user_name] = @user.user_name
-    redirect '/'
+    user = User.create(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password])
+    if user.save
+      session[:user_name] = user.user_name
+      redirect '/'
+    else
+      flash[:error] = user.errors.full_messages
+      redirect '/user/sign_up'
+    end
   end
 
   # start the server if ruby file executed directly

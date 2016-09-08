@@ -1,4 +1,4 @@
-feature 'user sign up' do
+feature 'user successfully signs up' do
 
   scenario 'user signs up with email and password' do
     sign_up
@@ -13,5 +13,32 @@ feature 'user sign up' do
     sign_up
     expect(User.first.email).to eq 'rafi@superwoman.com'
   end
+
+end
+
+feature 'user is NOT allowed to sign up when ...' do
+
+  scenario 'user does not provide an email address' do
+    expect{sign_up_no_email}.to_not change{User.count}
+    expect(current_path).to eq('/user/sign_up')
+  end
+
+  scenario 'user tries to use an invalid email' do
+    expect{sign_up_invalid_email}.to_not change{User.count}
+    expect(current_path).to eq('/user/sign_up')
+  end
+
+  scenario 'user does not specify an user name' do
+    expect{sign_up_no_username}.to_not change{User.count}
+    expect(current_path).to eq('/user/sign_up')
+  end
+
+  scenario 'user tries to sign up with the same email' do
+    sign_up
+    expect{sign_up}.to_not change{User.count}
+    expect(current_path).to eq('/user/sign_up')
+    expect(page).to have_content("Email is already taken")
+  end
+
 
 end
