@@ -1,18 +1,18 @@
 How to use this app
 =================
 
-##Heroku Version:
+###Heroku Version:
 * Visit https://chitter-rosie.herokuapp.com/
 * Play around with the heroku web version
 
-##Local Version:
+###Local Version:
 * Fork this repo
 * Clone it down in order to have a local version
 * Create a pair of local postgres database by running these commands:
 ```
-psql --> launch postgresql from the command line
-create database "chitter_test" --> create a database for your test environment
-create database "chitter_development" --> create a database for your development environment
+*psql* --> launch postgresql from the command line
+*create database "chitter_test"* --> create a database for your test environment
+*create database "chitter_development"* --> create a database for your development environment
 ```
 * Run "bundle" to ensure all gems are installed
 * Run "rackup" to play around with a local version of the app
@@ -37,11 +37,11 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a maker
+As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
