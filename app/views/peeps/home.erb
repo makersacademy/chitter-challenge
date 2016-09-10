@@ -1,0 +1,14 @@
+<h1>Home</h1>
+
+<form action='/peeps/new' method='post'>
+  <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
+  <input type='submit' value='Peep'>
+</form>
+
+<% if @peeps && !@peeps.empty? %>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>(<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%>(<%=peep.created_at%>)</li>
+    <% end %>
+  </ul>
+<% end %>

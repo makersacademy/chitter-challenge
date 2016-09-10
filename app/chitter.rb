@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require './app/data_mapper_setup'
 require './app/controllers/users.rb'
+require './app/controllers/peeps.rb'
 
 class Chitter < Sinatra::Base
   set :views, File.dirname(__FILE__) + '/views'
