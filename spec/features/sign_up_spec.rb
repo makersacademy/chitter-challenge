@@ -20,4 +20,16 @@ feature 'Sign up' do
     expect{ sign_up('abigail', 'abitest.com', 'abimcp', 'password123', 'password123') }.not_to change{ User.count }
   end
 
+  scenario 'a potential user must enter a unique email' do
+    sign_up('abigail', 'abi@test.com', 'abimcp', 'password123', 'password123')
+    expect{ sign_up('user', 'abi@test.com', 'user', 'password123', 'password123') }.not_to change{ User.count }
+    expect(page).to have_content 'Email is already taken'
+  end
+
+  scenario 'a potential user must enter a unique username' do
+    sign_up('abigail', 'abi@test.com', 'abimcp', 'password123', 'password123')
+    expect{ sign_up('user', 'user@test.com', 'abimcp', 'password123', 'password123') }.not_to change{ User.count }
+    expect(page).to have_content 'Username is already taken'
+  end
+
 end
