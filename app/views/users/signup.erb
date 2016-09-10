@@ -1,9 +1,9 @@
 <h1> Please Enter Your Details </h1>
 
 <form action='/users/signup' method='post'>
-  <input type='email' name='email' placeholder = 'Email' value = '<%= @details[:email] %>' required>
-  <input type='text' name='name' placeholder = 'Name' value = '<%= @details[:name] %>' required>
-  <input type='text' name='username' placeholder = 'Username' value = '<%= @details[:username] %>' required>
+  <input type='email' name='email' placeholder = 'Email' required>
+  <input type='text' name='name' placeholder = 'Name' required>
+  <input type='text' name='username' placeholder = 'Username' required>
   <input type='password' name='password' placeholder = 'Password' required>
   <input type='password' name='password_confirmation' placeholder = 'Password Confirmation'>
   <input type='submit' value='Sign Up'>
