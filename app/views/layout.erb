@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel='stylesheet' href='/style.css'>
     <title>Chitter</title>
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.name.capitalize %>!
-    <% end %>
-    <%= flash[:goodbye] %>
-    <%= partial :errors %>
-    <%= yield %>
+    <div class='nav'>
+        <div id='banner'>
+          c h i t t e r
+        </div>
+        <div id='user'>
+          <%= partial :welcome %>
+        </div>
+        <div id='goodbye'>
+          <%= flash[:goodbye] %>
+        </div>
+    </div>
+    <div id='main-content'>
+      <%= partial :errors %>
+      <%= yield %>
+    </div>
   </body>
+
 </html>

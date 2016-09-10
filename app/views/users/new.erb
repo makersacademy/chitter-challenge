@@ -1,26 +1,24 @@
-<h2>Welcome to Chitter!<h2>
-
 <h3>Sign up<h3>
 
 <form action='/users' method='post'>
   <div>
-    <label for='name'>Name: </label>
+    <label for='name'>name: </label>
     <input type='text' name='name' value='<%= "#{flash[:name]}" %>' required >
   </div>
   <div>
-    <label for='email'>Email: </label>
+    <label for='email'>email: </label>
     <input type='email' name='email' value='<%= "#{flash[:email]}" %>'required >
   </div>
   <div>
-    <label for='username'>Username: </label>
+    <label for='username'>username: </label>
     <input type='text' name='username' value='<%= "#{flash[:username]}" %>'required >
   </div>
   <div>
-    <label for='password'>Password: </label>
+    <label for='password'>password: </label>
     <input type='password' name='password' required >
   </div>
   <div>
-    <label for='password_confirmation'>Confirm password: </label>
+    <label for='password_confirmation'>confirm password: </label>
     <input type='password' name='password_confirmation' required >
   </div>
   <br>
