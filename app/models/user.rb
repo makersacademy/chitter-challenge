@@ -17,8 +17,8 @@ class User
 
   has n, :peeps
 
-  def self.authenticate(email, password)
+  def self.authenticate(email, password, encryption_class = BCrypt::Password)
     user = first(email: email)
-    user && BCrypt::Password.new(user.password) == password ? user : nil
+    user && encryption_class.new(user.password) == password ? user : nil
   end
 end

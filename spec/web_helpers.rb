@@ -18,3 +18,9 @@ end
 def sign_out
   click_link 'Sign Out'
 end
+
+def peep(message)
+  visit '/home'
+  fill_in :peep, with: message
+  click_button 'Peep'
+end
