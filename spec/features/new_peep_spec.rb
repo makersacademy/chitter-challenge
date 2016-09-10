@@ -12,4 +12,11 @@ feature 'Making Peeps' do
     expect(current_path).to eq('/home')
     expect(page).to have_content('(Chit Ter) @sir_chitter: Hello, World')
   end
+
+  scenario 'Cannot Peep if not logged in' do
+    sign_out
+    visit '/home'
+    expect(page).to have_content('You must be logged in to peep')
+    expect(page).not_to have_button('Peep')
+  end
 end

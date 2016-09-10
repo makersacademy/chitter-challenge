@@ -1,9 +1,13 @@
 <h1>Home</h1>
 
-<form action='/peeps/new' method='post'>
-  <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
-  <input type='submit' value='Peep'>
-</form>
+<% if current_user %>
+  <form action='/peeps/new' method='post'>
+    <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
+    <input type='submit' value='Peep'>
+  </form>
+<% else %>
+  <h3> You must be logged in to peep </h3>
+<% end %>
 
 <% if @peeps && !@peeps.empty? %>
   <ul id='peeps'>
