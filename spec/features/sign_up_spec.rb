@@ -18,18 +18,21 @@ feature 'Sign up' do
 
   scenario 'a potential user must enter a correctly formatted email' do
     expect{ sign_up('abigail', 'abitest.com', 'abimcp', 'password123', 'password123') }.not_to change{ User.count }
+    expect(current_path).to eq '/users/new'
   end
 
   scenario 'a potential user must enter a unique email' do
     sign_up('abigail', 'abi@test.com', 'abimcp', 'password123', 'password123')
     expect{ sign_up('user', 'abi@test.com', 'user', 'password123', 'password123') }.not_to change{ User.count }
     expect(page).to have_content 'Email is already taken'
+    expect(current_path).to eq '/users/new'
   end
 
   scenario 'a potential user must enter a unique username' do
     sign_up('abigail', 'abi@test.com', 'abimcp', 'password123', 'password123')
     expect{ sign_up('user', 'user@test.com', 'abimcp', 'password123', 'password123') }.not_to change{ User.count }
     expect(page).to have_content 'Username is already taken'
+    expect(current_path).to eq '/users/new'
   end
 
 end
