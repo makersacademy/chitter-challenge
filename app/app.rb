@@ -36,6 +36,9 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash[:errors] = user.errors.full_messages
+      flash[:name] = params[:name]
+      flash[:email] = params[:email]
+      flash[:username] = params[:username]
       redirect '/users/new'
     end
   end

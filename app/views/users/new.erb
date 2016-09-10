@@ -5,15 +5,15 @@
 <form action='/users' method='post'>
   <div>
     <label for='name'>Name: </label>
-    <input type='text' name='name' required >
+    <input type='text' name='name' value='<%= "#{flash[:name]}" %>' required >
   </div>
   <div>
     <label for='email'>Email: </label>
-    <input type='email' name='email' required >
+    <input type='email' name='email' value='<%= "#{flash[:email]}" %>'required >
   </div>
   <div>
     <label for='username'>Username: </label>
-    <input type='text' name='username' required >
+    <input type='text' name='username' value='<%= "#{flash[:username]}" %>'required >
   </div>
   <div>
     <label for='password'>Password: </label>
