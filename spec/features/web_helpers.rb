@@ -33,3 +33,10 @@ def sign_up_invalid_email
   fill_in :password_confirmation, with: 'vickers'
   click_button 'Sign up'
 end
+
+def sign_in
+  visit '/sessions/new'
+  fill_in('email', with: 'matt@matt.com')
+  fill_in('password', with: 'vickers')
+  click_button('Sign in')
+end
