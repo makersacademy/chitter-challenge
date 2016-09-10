@@ -13,7 +13,10 @@ class User
   property :username,         String
   property :password_digest,  Text
 
-  # attr_reader :password
+  validates_confirmation_of :password
+
+  attr_accessor :password_confirmation
+  attr_reader :password
 
   def password=(password)
     @password = password

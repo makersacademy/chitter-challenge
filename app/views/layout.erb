@@ -8,6 +8,15 @@
     <% if current_user %>
       Welcome, <%= current_user.name.capitalize %>!
     <% end %>
+
     <%= yield %>
+
+    <% if flash[:errors] %>
+      <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </body>
 </html>
