@@ -4,40 +4,11 @@
   </head>
 
   <body>
-    <h1> Chitter! </h1>
-    <% if current_user %>
-      Signed in as <%= current_user.username %>
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'/>
-        <input type='submit' value='Sign out'/>
-      </form>
+    <h1> CHITTER </h1>
 
-      <form action='/peeps' method='post'>
-        <input type='text' name='message'/>
-        <input type='submit' value='Peep!'/>
-      </form>
-    <% else %>
-      <form action='/sessions/new'>
-        <input type='submit' value='Sign In'>
-      </form>
-    <% end %>
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+    <%= partial :user_action %>
+    <%= partial :flash %>
 
     <%= yield %>
-
   </body>
 </html>
