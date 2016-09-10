@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, "super secret"
   set :method_override, true
   set :partial_template_engine, :erb
   register Sinatra::Flash

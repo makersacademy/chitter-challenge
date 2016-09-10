@@ -1,25 +1,25 @@
 <h1>Sign up</h1>
 
-<form action='/users' method='post'>
-  <labal for='name'>
+<form action="/users" method="post">
+  <labal for="name">
     Name:
     <input type="text" name="name"/>
   </label>
-  <label for='email'>
+  <label for="email">
     Email:
-    <input type='email' name='email' value='<%=@current_email%>' required/>
+    <input type="email" name="email" value="<%=@current_email%>" required/>
   </label>
   <label for="username">
     Username:
     <input type="text" name="username" />
   </label>
-  <label for='password'>
+  <label for="password">
     Password:
-    <input type='password' name='password'/>
+    <input type="password" name="password"/>
   </label>
-  <label for='password_confirmation'>
+  <label for="password_confirmation">
     Password confirmation:
     <input type="password" name="password_confirmation" >
   </label>
-  <input type='submit' value='Sign up'>
+  <input type="submit" value="Sign up">
 </form>

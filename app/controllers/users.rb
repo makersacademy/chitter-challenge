@@ -1,10 +1,10 @@
 class Chitter < Sinatra::Base
 
-  get '/users/new' do
-    erb :'users/new'
+  get "/users/new" do
+    erb :"users/new"
   end
 
-  post '/users' do
+  post "/users" do
     @user = User.new(name: params[:name],
               username: params[:username],
               email: params[:email],
@@ -12,10 +12,10 @@ class Chitter < Sinatra::Base
               password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps'
+      redirect "/peeps"
     else
       flash[:errors] = @user.errors.full_messages
-      redirect '/users/new'
+      redirect "/users/new"
     end
   end
 end

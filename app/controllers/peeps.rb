@@ -1,10 +1,10 @@
 class Chitter < Sinatra::Base
 
-  get '/peeps' do
-    erb :'peeps/index'
+  get "/peeps" do
+    erb :"peeps/index"
   end
 
-  post 'peeps' do
+  post "peeps" do
 
   end
 end
