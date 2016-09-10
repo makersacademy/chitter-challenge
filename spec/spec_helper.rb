@@ -5,6 +5,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative 'web_helper.rb'
+require_relative 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -40,6 +41,13 @@ Capybara.app = Chitter
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
+
+
 RSpec.configure do |config|
   config.include Capybara::DSL
 
