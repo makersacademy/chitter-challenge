@@ -13,4 +13,16 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
+  post '/peeps/comment' do
+    user = current_user
+    peep = Peep.get(params[:peep])
+    comment = Comment.create(text: params[:reply])
+    user.comments << comment
+    peep.comments << comment
+    user.save
+    peep.save
+    comment.save
+    redirect '/home'
+  end
+
 end

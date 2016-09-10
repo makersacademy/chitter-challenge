@@ -16,6 +16,7 @@ class User
   validates_confirmation_of :password
 
   has n, :peeps
+  has n, :comments
 
   def self.authenticate(email, password, encryption_class = BCrypt::Password)
     user = first(email: email)

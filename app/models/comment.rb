@@ -2,7 +2,7 @@ require_relative '../data_mapper_setup'
 require 'dm-validations'
 require 'dm-timestamps'
 
-class Peep
+class Comment
   include DataMapper::Resource
 
   property :id,         Serial
@@ -10,5 +10,4 @@ class Peep
   property :created_at, DateTime
 
   belongs_to :user
-  has n, :comments
 end

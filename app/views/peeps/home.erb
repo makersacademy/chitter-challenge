@@ -12,7 +12,21 @@
 <% if @peeps && !@peeps.empty? %>
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
-      <li>(<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%>(<%=peep.created_at%>)</li>
+      <li>
+        (<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%>(<%=peep.created_at%>)
+        <br>
+        <% peep.comments.each do |comment| %>
+          (<%=comment.user.name%>) @<%=comment.user.username%>: <%=comment.text%>(<%=comment.created_at%>)
+        <% end %>
+        <% if current_user %>
+          <form action='/peeps/comment' method='post'>
+            <input type='hidden' name='peep' value = '<%=peep.id%>' required>
+            <input type='text' name='reply' placeholder = 'Comment' required>
+            <input type='submit' value='Reply'>
+          </form>
+        <% end %>
+      </li>
     <% end %>
+
   </ul>
 <% end %>
