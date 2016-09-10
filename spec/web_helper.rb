@@ -14,3 +14,9 @@ def log_in(email, password)
   fill_in('password', with: password)
   click_button('Log in')
 end
+
+def add_peep
+  click_button('New peep')
+  fill_in('content', with: 'testing')
+  click_button('Peep!')
+end

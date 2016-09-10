@@ -13,9 +13,7 @@ feature 'Add peep' do
 
   scenario 'a logged in user can write and post a peep' do
     log_in('abi@test.com', 'password123')
-    click_button('New peep')
-    fill_in('content', with: 'testing')
-    click_button('Peep!')
+    add_peep
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
       expect(page).to have_content 'testing'

@@ -9,6 +9,7 @@ ruby '2.2.3'
   gem 'bcrypt'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
+  gem 'timecop'
 
 group :test do
   gem 'rspec'
