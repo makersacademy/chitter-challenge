@@ -72,6 +72,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
+    current_user = @current_user
     erb :'/peeps/new'
   end
 
