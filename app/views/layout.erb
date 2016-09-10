@@ -9,6 +9,15 @@
     Welcome, <%=current_user.user_name %>
     <% end %>
     <%= yield %>
-
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice]  %></div>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul id="errors">
+        <%  flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </div>
+    <% end %>
   </body>
 </html>

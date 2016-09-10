@@ -21,18 +21,5 @@
     Password confirmation: <input type="password" name="password_confirmation">
   </label>
 
-<% if flash[:notice] %>
-  <div id="notice"><%= flash[:notice]  %></div>
-<% end %>
-<% if flash[:errors] && !flash[:errors].empty? %>
-  <div id="errors">
-    <%  flash[:errors].each do |error| %>
-      <%= error %>
-    <% end %>
-  </div>
-<% end %>
-
-
-
   <input type="submit" value="sign up">
 </form>
