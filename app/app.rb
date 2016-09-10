@@ -17,7 +17,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   get '/users/new' do
@@ -59,6 +60,15 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
     redirect to '/'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(time_created: Time.now,
+                    message: params[:message])
+    user = User.first(id: session[:user_id])
+    user.peeps << peep
+    user.save
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
