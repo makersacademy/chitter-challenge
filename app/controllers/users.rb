@@ -5,8 +5,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/sign-up' do
-    User.create(email: params[:email], password: params[:password])
-    redirect '/'
+    user = User.create(email: params[:email], password: params[:password],
+                      password_confirmation: params[:password_confirmation])
+    if user.save
+      redirect '/'
+    else
+      flash[:notice] = user.errors.full_messages.join('\n')
+      redirect '/users/sign-up'
+    end
   end
 
 end
