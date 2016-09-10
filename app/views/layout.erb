@@ -5,21 +5,25 @@
   </head>
 
   <body>
+    <%= flash[:goodbye] %>
+    
     <% if current_user %>
       Welcome, <%= current_user.name.capitalize %>!
     <% end %>
 
     <%= yield %>
 
-    <% if flash[:errors] %>
-      <ul id='errors'>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul>
           <% flash[:errors].each do |error| %>
             <li><%= error %></li>
         <% end %>
       </ul>
     <% end %>
-    
-    <%= flash[:failed_login] %>
+
+    <% if flash[:failed_login] %>
+      <%= flash[:failed_login] %>
+    <% end %>
 
   </body>
 </html>
