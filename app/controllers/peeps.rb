@@ -5,9 +5,10 @@ class Chitter < Sinatra::Base
   end
 
 get '/peeps' do
-  @peeps = Peep.all.reverse
-  erb :'peeps/home'
+  @peeps = Peep.all
+  erb :'/peeps/index'
 end
+
 
 post '/peeps' do
   peep = Peep.create(content: params[:content],

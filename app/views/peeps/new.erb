@@ -1,0 +1,15 @@
+<% if current_user %>
+<h1>New Peep</h1>
+<form action="/peeps" method="post">
+  <label for="content">
+    Peep:
+    <input type="text" name="content">
+  </label>
+  <input type="submit" vaule="Peep!">
+</form>
+<% else %>
+<h1> You must be signed in to peep</h1>
+<form action="/cancel" method="get"
+<input type="submit" value="Go to Sign in"
+</form>
+<% end %>
