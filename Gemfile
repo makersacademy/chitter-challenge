@@ -7,6 +7,7 @@ gem 'database_cleaner'
 gem 'pg'
 
 group :test do
+  gem 'rspec-sinatra'
   gem 'sinatra'
   gem 'rspec'
   gem 'cucumber'
