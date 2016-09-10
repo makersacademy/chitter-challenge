@@ -10,14 +10,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash[:failed_login] = 'Sorry, incorrect email or password'
+      flash[:failed_login] = 'sorry, incorrect email or password'
       redirect '/sessions/new'
     end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash[:goodbye] = 'See you again soon!'
+    flash[:goodbye] = 'peep back again soon!'
     redirect '/peeps'
   end
 

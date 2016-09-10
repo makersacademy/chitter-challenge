@@ -9,13 +9,13 @@ feature 'Log in' do
 
   scenario 'a user can log in' do
     log_in('abi@test.com', 'password123')
-    expect(page).to have_content 'Welcome, Abigail!'
+    expect(page).to have_content 'welcome, abigail!'
     expect(current_path).to eq '/peeps'
   end
 
   scenario 'a user must enter the correct password' do
     log_in('abi@test.com', 'password456')
-    expect(page).to have_content 'Sorry, incorrect email or password'
+    expect(page).to have_content 'sorry, incorrect email or password'
     expect(current_path).to eq '/sessions/new'
   end
 

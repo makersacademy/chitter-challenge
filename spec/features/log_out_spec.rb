@@ -6,8 +6,8 @@ feature 'Log out' do
     sign_up('abigail', 'abi@test.com', 'abimcp', 'password123', 'password123')
     click_button('log out')
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'See you again soon!'
-    expect(page).not_to have_content 'Welcome, Abigail!'
+    expect(page).to have_content 'peep back again soon!'
+    expect(page).not_to have_content 'welcome, abigail!'
   end
 
 end

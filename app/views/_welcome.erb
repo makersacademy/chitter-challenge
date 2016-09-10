@@ -1,5 +1,5 @@
 <div id='welcome'>
 <% if current_user %>
-  Welcome, <%= current_user.name.capitalize %>!
+  welcome, <%= current_user.name.downcase %>!
 <% end %>
 </div>
