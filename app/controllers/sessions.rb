@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
   user = User.authenticate(params[:email], params[:password])
   if user
     session[:user_id] = user.id
-    redirect to('/peeps')
+    redirect to('/')
   else
     flash.now[:error] = ['The email or password is incorrect']
     erb :'sessions/new'
@@ -18,5 +18,6 @@ end
     delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect to '/peeps'
+    redirect to '/'
+  end
 end

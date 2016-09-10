@@ -13,4 +13,4 @@ require_relative 'controllers/sessions'
 require_relative 'controllers/users'
 
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  #run! if app_file == $0
