@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './app/chitter.rb' 
+require './app/chitter.rb'
 
 namespace :db do
   desc "Non destructive upgrade"
@@ -15,3 +15,6 @@ namespace :db do
     puts "Auto-migrate complete (data was lost)"
   end
 end
+
+# Run tests by default
+task :default => :spec
