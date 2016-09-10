@@ -18,4 +18,13 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def sign_out
+    click_button 'Sign out'
+  end
+
+  def add_peep(message)
+    fill_in 'message', with: message
+    click_button 'Peep!'
+  end
+
 end

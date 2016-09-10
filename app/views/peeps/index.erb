@@ -2,7 +2,7 @@
 <ul id='messages'>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.time_created %> : "<%= peep.message  %>"
+      <%= peep.time_created.strftime("%e %b %k:%M") %>  <%= peep.user.username %>  : "<%= peep.message  %>"
     </li>
   <% end %>
 </ul>
