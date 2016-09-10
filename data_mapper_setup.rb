@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require './app/user.rb'
+require './models/user.rb'
 
 # need to require models that use DM to connect to DB
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/Chitter_#{ENV['RACK_ENV']}")
