@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    @current_user = current_user
     erb :root_page
   end
 

@@ -12,9 +12,6 @@ feature 'User Sign Up' do
   end
 
   feature 'Defends against invalid input' do
-    before do
-      visit('/users/signup')
-    end
     scenario 'Invalid Email Format' do
       expect{ sign_up(email:'hello') }.not_to change(User, :count)
       expect(current_path).to eq('/users/signup')
