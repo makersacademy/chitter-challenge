@@ -1,4 +1,3 @@
-
 class Chitter < Sinatra::Base
 
   get '/users/new' do
