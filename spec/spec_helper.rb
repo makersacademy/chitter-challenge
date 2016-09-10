@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rack/test'
 require './app/app.rb'
 require './app/models/peep'
+require_relative 'features/web_helpers'
 
 Capybara.app = Chitter
 
