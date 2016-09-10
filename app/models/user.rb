@@ -2,10 +2,13 @@ require "data_mapper"
 require "dm-postgres-adapter"
 require "bcrypt"
 require "dm-validations"
+require_relative 'peep'
 
 class User
 
   include DataMapper::Resource
+
+  has n, :peep, through: Resource
 
   property :id,               Serial
   property :name,             String

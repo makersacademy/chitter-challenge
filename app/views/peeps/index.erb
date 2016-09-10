@@ -1,5 +1,17 @@
 <h1> Peeps </h1>
 
+<form action='/peeps/new' method='get'>
+  <div>
+    <input type='submit' value='New peep'>
+  </div>
+</form>
+
+<ul style='list-style-type: none' id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li> <%= peep.content %> </li>
+  <% end %>
+</ul>
+
 <form action='/sessions' method='post'>
   <div>
     <input type='submit' value='Log out'>
