@@ -8,7 +8,7 @@
     <% if current_user %>
       Signed in as <%= current_user.username %>
     <% end %>
-
+    
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>
