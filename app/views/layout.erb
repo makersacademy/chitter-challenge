@@ -2,31 +2,43 @@
   <head>
     <title>Chitter</title>
     <!-- Bootstrap complete CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap Font Awesome CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <style>
-    </style>
+    <link href="app/public/bootsnip.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
-    <% if current_user %>
-      <%= "Welcome, #{current_user.name}"%>
-      <form action="/sessions/log_out" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">Log out</button>
-      </form>
-    <% end %>
-    <% if flash[:errors] %>
-      <ul id="errors">
-        <% flash[:errors].each do |error| %>
-        <li>
-          <%= error %>
-        </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <%= "#{flash[:notice]}" if flash[:notice] %>
-    <%= yield %>
+    <header class="container">
+      <div class="row">
+        <h1 class="col-sm-4">Chitter Online</h1>
+        <nav class="col-sm-4 text-center">
+          <% if flash[:errors] %>
+            <ul id="errors">
+              <% flash[:errors].each do |error| %>
+              <p><%= error %></p>
+              <% end %>
+            </ul>
+          <% end %>
+          <%= "#{flash[:notice]}" if flash[:notice] %>
+        </nav>
+        <nav class="col-sm-4 text-right">
+          <% if current_user %>
+            <%= "Welcome, #{current_user.name}"%>
+            <form action="/sessions/log_out" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit">Log out</button>
+            </form>
+          <% else %>
+            <a href="/users/new">Sign up</a> | <a href="/sessions/new">Log in</a>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+    <section class="container">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8"><%= yield %></div>
+      <div class="col-sm-2"></div>
+    </section>
   </body>
 </html>
