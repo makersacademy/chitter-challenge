@@ -1,11 +1,12 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require_relative '../data_mapper_setup'
 
 class User
   include DataMapper::Resource
 
   property :id,         Serial
-  property :user_name,  String
+  property :username,  String
   property :email,      String
   property :password,   Text
 
