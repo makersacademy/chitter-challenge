@@ -9,12 +9,3 @@
     <li> <%= peep.content %> <%= peep.time.strftime("peeped on %m/%d/%Y, at %I:%M%p") %></li>
   <% end %>
 </ul>
-
-<% if current_user %>
-  <div class='buttons'>
-    <form action='/sessions' method='post'>
-        <input type='submit' value='Log out'>
-        <input type='hidden' name='_method' value='delete'>
-    </form>
-  </div>
-<% end %>

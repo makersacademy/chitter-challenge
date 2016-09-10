@@ -1,32 +1,8 @@
-<% if current_user %>
+<h3>What's on your mind?</h3>
 
-  <h3>What's on your mind?</h3>
-
-  <form action='/peeps/new' method='post'>
-    <label for='content'>
-      <input type='text' name='content'>
-    </label>
-    <input type='submit' value='Peep!'>
-  </form>
-
-<% else %>
-
-    <p>You must be logged in to peep!</p>
-
-    <form action='/sessions/new' method='get'>
-      <div>
-        <input type='submit' value='Log in'>
-      </div>
-    </form>
-    <form action='/users/new' method='get'>
-      <div>
-        <input type='submit' value='Sign up'>
-      </div>
-    </form>
-    <form action='/peeps' method='get'>
-      <div>
-        <input type='submit' value='Back to peeps'>
-      </div>
-    </form>
-
-<% end %>
+<form action='/peeps/new' method='post'>
+  <label for='content'>
+    <input type='text' name='content'>
+  </label>
+  <input type='submit' value='Peep!'>
+</form>

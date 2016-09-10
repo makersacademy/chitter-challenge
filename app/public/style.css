@@ -38,13 +38,39 @@ body {
   font-size: 0.8em
 }
 
+#log_in {
+  color: white;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  padding: 20px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 0.8em
+}
 
 #main-content {
   color: #295c89;
   padding-top: 100px;
+  text-align: center;
+}
+
+.buttons {
+  display: inline-flex;
+  position: absolute;
+  top: 14px;
+  right: 0;
+  padding: 20px;
+}
+
+#button {
+  color: #ffffff;
+  border: 1px solid #4470b6;
+  background-color: #4470b6;
+  font-size: 0.8em;
+  font-family: "Lucida Console", Monaco, monospace;
+  cursor: pointer;
 }
 
 li {
-  text-align: center;
   margin: 30px 0;
 }
