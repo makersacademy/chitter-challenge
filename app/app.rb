@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     'Hello Chitter!'
   end
 
+  get '/users/new'
+    erb :'users/new'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
