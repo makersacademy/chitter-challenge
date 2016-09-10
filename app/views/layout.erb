@@ -12,6 +12,10 @@
   <body>
     <% if current_user %>
       <%= "Welcome, #{current_user.name}"%>
+      <form action="/sessions/log_out" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Log out</button>
+      </form>
     <% end %>
     <% if flash[:errors] %>
       <ul id="errors">
@@ -22,6 +26,7 @@
         <% end %>
       </ul>
     <% end %>
+    <%= "#{flash[:notice]}" if flash[:notice] %>
     <%= yield %>
   </body>
 </html>

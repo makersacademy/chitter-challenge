@@ -4,7 +4,7 @@ feature 'User sign up' do
   scenario 'user can sign up with valid data' do
     sign_up
     expect(page).to have_content("Welcome, John Smith")
-    expect(current_path).to eq '/messages'
+    expect(current_path).to eq '/peeps'
   end
 
   scenario 'user cannot sign up with mismatching password' do
@@ -77,7 +77,7 @@ feature 'User log in' do
     sign_up
     log_in
     expect(page).to have_content("Welcome, John Smith")
-    expect(current_path).to eq '/messages'
+    expect(current_path).to eq '/peeps'
   end
 
   scenario 'user cannot sign in with wrong email and/or password' do
@@ -88,6 +88,12 @@ feature 'User log in' do
   end
 end
 
-feature 'User log out' do
-
+feature 'User logs out' do
+  scenario "user can log out successfully" do
+    sign_up
+    log_in
+    click_button 'Log out'
+    expect(page).to have_content('Goodbye!')
+    expect(current_path).to eq '/peeps'
+  end
 end
