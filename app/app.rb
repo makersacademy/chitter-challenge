@@ -6,7 +6,7 @@ ENV["RACK_ENV"] ||= 'development'
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello Chitter!"
+    redirect '/users/new'
   end
 
   get '/users/new' do
