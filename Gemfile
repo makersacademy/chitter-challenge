@@ -8,6 +8,8 @@ gem 'rake'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
+gem 'sinatra-bootstrap', :require => 'sinatra/bootstrap'
+
 
 group :test do
   gem 'database_cleaner'

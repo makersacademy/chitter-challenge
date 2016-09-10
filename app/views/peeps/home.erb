@@ -1,13 +1,16 @@
 <h1>Home</h1>
-
-<% if current_user %>
-  <form action='/peeps/new' method='post'>
-    <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
-    <input type='submit' value='Peep'>
-  </form>
-<% else %>
-  <h3> You must be logged in to peep </h3>
-<% end %>
+<div class="row">
+  <div class="col-sm-4">
+      <% if current_user %>
+      <form action='/peeps/new' method='post'>
+        <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
+        <input type='submit' value='Peep'>
+      </form>
+    <% else %>
+      <h3> You must be logged in to peep </h3>
+    <% end %>
+  </div>
+  <div class="col-sm-8">
 
 <% if @peeps && !@peeps.empty? %>
   <ul id='peeps'>
@@ -30,3 +33,5 @@
 
   </ul>
 <% end %>
+</div>
+</div>

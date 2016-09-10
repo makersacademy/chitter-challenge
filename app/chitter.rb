@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require 'sinatra/bootstrap'
 require './app/data_mapper_setup'
 require './app/controllers/users.rb'
 require './app/controllers/peeps.rb'
@@ -12,6 +13,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
   register Sinatra::Partial
+  register Sinatra::Bootstrap::Assets
 
   set :partial_template_engine, :erb
   enable :partial_underscores

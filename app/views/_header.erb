@@ -1,7 +1,17 @@
-<h2>Chitter</h2>
-<% if current_user%>
-<%= "<a href = '/users/signout'>Sign Out</a>" %>
-<% else %>
-<%= "<a href = '/users/signup'>Sign Up</a>" %>
-<%= "<a href = '/users/signin'>Sign In</a>" %>
-<% end %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/">Pronto</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/home">Home</a></li>
+    </ul>
+  </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user%>
+        <li><%= "<a href = '/users/signout'>Sign Out</a>" %></li>
+        <% else %>
+        <li><%= "<a href = '/users/signup'>Sign Up</a>" %></li>
+        <li><%= "<a href = '/users/signin'>Sign In</a>" %></li>
+        <% end %>
+      </ul>
+  </div>
+</header>

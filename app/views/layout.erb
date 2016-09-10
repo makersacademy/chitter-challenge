@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <%= bootstrap_css false, "attribute='foo'"%>
+    <%= bootstrap_js_legacy %>
     <title>Chitter</title>
   </head>
   <body>
+    <%= bootstrap_js_default %>
     <%= partial :header %>
     <%= partial :messages %>
     <%= yield %>
+    <%= partial :footer %>
   </body>
 </html>
