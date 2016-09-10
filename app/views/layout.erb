@@ -5,6 +5,9 @@
 
   <body>
     <h1> Chitter! </h1>
+    <% if current_user %>
+      Signed in as <%= current_user.username %>
+    <% end %>
 
     <%= yield %>
 

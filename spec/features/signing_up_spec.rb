@@ -5,6 +5,7 @@ feature 'signing up for Chitter' do
 
   scenario 'user can sign up for Chitter' do
     expect{sign_up}.to change(User, :count).by(1)
+    expect(page).to have_content('Signed in as santaclaus')
   end
 
   scenario 'user must fill in all fields' do
