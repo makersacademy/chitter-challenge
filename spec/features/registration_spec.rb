@@ -7,4 +7,5 @@ feature 'user registration' do
     expect(page).to have_content 'Welcome Sally!'
   end
 
+
 end
