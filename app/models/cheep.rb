@@ -7,6 +7,6 @@ class Cheep
   property :cheep,  String, length: 255, required: true
 
 
-  belongs_to :user
+  #belongs_to :user
 
 end
