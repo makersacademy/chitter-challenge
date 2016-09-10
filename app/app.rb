@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -52,6 +53,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
   end
 
   # start the server if ruby file executed directly

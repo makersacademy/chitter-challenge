@@ -7,8 +7,12 @@
     <h1> Chitter! </h1>
     <% if current_user %>
       Signed in as <%= current_user.username %>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'/>
+        <input type='submit' value='Sign out'/>
+      </form>
     <% end %>
-    
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>
@@ -16,6 +20,12 @@
           <li><%= error %></li>
         <% end %>
       </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
     <%= yield %>

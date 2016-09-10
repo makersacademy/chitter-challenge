@@ -1,7 +1,6 @@
 require 'spec_helper'
-require_relative 'web_helpers'
 
-feature 'signing in' do
+feature 'logging in' do
 
   let!(:user) do
     User.create(name: 'Santa', username: 'santaclaus',
