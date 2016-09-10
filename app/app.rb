@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
@@ -12,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    #@user = User.new(name: params(:name), handle: params(:handle), email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = {name: params[:name], handle: params[:handle], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]}
     erb :'/users/welcome'
   end
 
