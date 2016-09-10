@@ -1,7 +1,7 @@
 <form action='/users' method='post'>
-  <input type='text' name='name' placeholder='Name'/>
-  <input type='text' name='username' placeholder='Username'/>
-  <input type='email' name='email' placeholder='Email'/>
+  <input type='text' name='name' value='<%= @user.name %>' placeholder='Name'/>
+  <input type='text' name='username' value='<%= @user.username %>' placeholder='Username'/>
+  <input type='email' name='email' value='<%= @user.email %>'  placeholder='Email'/>
   <input type='password' name='password' placeholder='Password'/>
   <input type='password' name='password_confirmation' placeholder='Confirm password'/>
   <input type='submit' value='Sign up'/>
