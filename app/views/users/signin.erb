@@ -1,0 +1,6 @@
+<h3><font color='red'><%= flash[:error] %></font></h3>
+<form action='/users/signin' method='POST'>
+  <label for='username'>Username: <input type='text' name='username' required /></label>
+  <label for='password'>Password: <input type='password' name='password' required /></label>
+  <input type='submit' value='Sign in'>
+</form>

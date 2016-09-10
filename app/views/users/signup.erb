@@ -1,12 +1,11 @@
 <br>
 <h2> To sign up, fill in the fields below: </h2><br>
-<% flash[:form_errors] %>
+<h3><font color='red'><%= flash[:error] %></font></h3>
 <form action='/users/signup' method='POST'>
   <label for='username'>Username: <input type='text' name='username' required/></label></br>
-  <label for='name'>Name: <input type='text' name='name'/></label></br>
+  <label for='name'>Name: <input type='text' name='name' required/></label></br>
   <label for='email'>E-mail: <input type='email' name='email' required /></label></br>
   <label for='password'>Password: <input type='password' name='password' required/></label>
   <label for='password_confirmation'>Confirm password: <input type='password' name='password_confirmation' required/></label></br>
   <input type='submit' value='Sign up'>
 </form>
--
