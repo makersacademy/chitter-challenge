@@ -1,12 +1,16 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  register Sinatra::Flash
+
   enable :sessions
 
   get '/' do
-    'Hello Chitter!'
+    'Hello Chitter!' #this should be where cheeps are posted
+    #don't need to be logged in to see this page.
   end
 
   get '/users/new' do
@@ -22,9 +26,12 @@ class Chitter < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      flash.now[:notice] = "New user created"
       redirect '/cheeps'
     else
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
+      #redirect '/users/new'
     end
   end
 
