@@ -5,6 +5,7 @@ AllCops:
   RunRailsCops: false
   Exclude:
     - 'spec/spec_helper.rb'
+    - 'public'
 
 inherit_from:
   - enabled.yml
@@ -49,4 +50,3 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Max: 7
-
