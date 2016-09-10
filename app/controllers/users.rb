@@ -15,17 +15,13 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/users/signin' do
-    erb :'users/signin'
-  end
-
   post '/users/signin' do
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:log_in_email], params[:log_in_password])
     if user
       log_in(user)
     else
       flash[:errors] = ['Incorrect Email/Password']
-      redirect '/users/signin'
+      redirect '/'
     end
   end
 
@@ -40,7 +36,7 @@ class Chitter < Sinatra::Base
     def log_in(user)
       session[:user_id] = user.id
       flash[:message]  = "Welcome, #{user.name}"
-      redirect '/'
+      redirect '/home'
     end
 
     def get_options

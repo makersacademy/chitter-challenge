@@ -4,7 +4,9 @@ require './app/models/user'
 require './app/models/peep'
 require './app/models/comment'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+env = ENV['RACK_ENV'] || 'development'
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.finalize
 DataMapper.auto_upgrade!

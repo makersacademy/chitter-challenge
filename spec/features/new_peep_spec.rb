@@ -16,7 +16,6 @@ feature 'Making Peeps' do
   scenario 'Cannot Peep if not logged in' do
     sign_out
     visit '/home'
-    expect(page).to have_content('You must be logged in to peep')
     expect(page).not_to have_button('Peep')
   end
 end

@@ -1,8 +1,9 @@
-<div class="center panel panel-default">
-  <h1> Please Log In </h1>
-  <form action='/users/signin' method='post'>
-    <input type='email' name='email' placeholder = 'Email' required>
-    <input type='password' name='password' placeholder = 'Password' required>
+  <form action='/users/signin' method='post' class="navbar-form navbar-right" role="search">
+    <div class="form-group">
+      <input type='email' name='log_in_email' placeholder = 'Email' required>
+    </div>
+    <div class="form-group">
+      <input type='password' name='log_in_password' placeholder = 'Password' required>
+    </div>
     <input type='submit' value='Sign In'>
   </form>
-</div>

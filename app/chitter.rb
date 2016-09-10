@@ -6,9 +6,11 @@ require 'sinatra/bootstrap'
 require './app/data_mapper_setup'
 require './app/controllers/users.rb'
 require './app/controllers/peeps.rb'
+require './app/views/view_helpers.rb'
 
 class Chitter < Sinatra::Base
   set :views, File.dirname(__FILE__) + '/views'
+  set :public_folder, Proc.new { File.join(root, 'public') }
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -22,9 +24,5 @@ class Chitter < Sinatra::Base
     erb :root_page
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers Helpers
 end

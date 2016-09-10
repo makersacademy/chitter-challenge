@@ -9,9 +9,9 @@ def sign_up(options = {})
 end
 
 def sign_in(options = {})
-  visit('/users/signin')
-  fill_in :email, with: options.fetch(:email, 'test@example.com')
-  fill_in :password, with: options.fetch(:password, 'foobar')
+  visit('/')
+  fill_in :log_in_email, with: options.fetch(:email, 'test@example.com')
+  fill_in :log_in_password, with: options.fetch(:password, 'foobar')
   click_button('Sign In')
 end
 

@@ -1,37 +1,47 @@
-<h1>Home</h1>
+<div class="col-xs-12" style="height:50px;"></div>
+<div class="container">
 <div class="row">
-  <div class="col-sm-4">
-      <% if current_user %>
-      <form action='/peeps/new' method='post'>
-        <input type='text' name='peep' placeholder = 'Whats on your mind?' required>
-        <input type='submit' value='Peep'>
-      </form>
-    <% else %>
-      <h3> You must be logged in to peep </h3>
-    <% end %>
+  <div class="col-sm-1">
   </div>
-  <div class="col-sm-8">
-
-<% if @peeps && !@peeps.empty? %>
-  <ul id='peeps'>
-    <% @peeps.each do |peep| %>
-      <li>
-        (<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%>(<%=peep.created_at%>)
+  <div class="col-sm-10">
+    <div class="row">
+      <div class="col-sm-10">
         <br>
-        <% peep.comments.each do |comment| %>
-          (<%=comment.user.name%>) @<%=comment.user.username%>: <%=comment.text%>(<%=comment.created_at%>)
+      <% if current_user %>
+        <textarea name="peep" form="peepform" placeholder="Whats on your mind?" class="form-control" rows="3"></textarea>
+        <form action='/peeps/new' method='post' id="peepform">
+          <input type='submit' value='Peep'>
+        </form>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-sm-10" style="height:50px;"></div>
+      <div class="col-sm-10" style="border: 1px grey solid; border-radius: 10px">
+        <br>
+      <% if @peeps && !@peeps.empty? %>
+        <ul id='peeps'>
+        <% @peeps.each do |peep| %>
+          <div style="border: 1px grey solid; border-radius: 10px">(<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%>(<%=peep.created_at%>)</div>
+          <ul>
+          <% peep.comments.each do |comment| %>
+            <div style="border: 1px grey solid; border-radius: 10px">(<%=comment.user.name%>) @<%=comment.user.username%>: <%=comment.text%>(<%=comment.created_at%>)</div>
+          <% end %>
+          </ul>
+          <% if current_user %>
+            <form action='/peeps/comment' method='post' class="form-inline">
+              <input type='hidden' name='peep' value = '<%=peep.id%>' required>
+              <div class="form-group" style='width: 90%;'>
+              <input type='text' name="reply" placeholder="Comment" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-default">Reply</button>
+            </form>
+          <% end %>
+          <br>
+          <br>
         <% end %>
-        <% if current_user %>
-          <form action='/peeps/comment' method='post'>
-            <input type='hidden' name='peep' value = '<%=peep.id%>' required>
-            <input type='text' name='reply' placeholder = 'Comment' required>
-            <input type='submit' value='Reply'>
-          </form>
-        <% end %>
-      </li>
-    <% end %>
-
-  </ul>
-<% end %>
-</div>
+        </ul>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>

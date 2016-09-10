@@ -7,7 +7,7 @@ feature 'User Sign Up' do
     expect(current_path).to eq('/users/signup')
     expect(page).to have_content('Please Enter Your Details')
     sign_up
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/home')
     expect(page).to have_content('Welcome, Chit Ter')
   end
 
