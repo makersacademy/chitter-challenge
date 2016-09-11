@@ -1,4 +1,4 @@
-#require 'spec_helper'
+require 'spec_helper'
 
 feature "Signing up" do
   scenario "A user signs up and increases the user count rby one" do
