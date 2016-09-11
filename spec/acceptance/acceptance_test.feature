@@ -1,6 +1,10 @@
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+
+Feature: Signing Up
+
+  Scenario: I want to sign up to Pronto
+    When I go to the homepage
+    Then I should see the welcome message
+
 
 As a Maker
 So that I can post messages on Chitter as me
