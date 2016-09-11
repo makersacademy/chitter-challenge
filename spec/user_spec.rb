@@ -24,4 +24,8 @@ describe User do
     expect(user.password).not_to be "cheese"
   end
 
+  it 'validates password with confirmed password' do
+    expect {register_mismatched_passwords("ss","sam@sammy.com")}.not_to change(User, :count)
+  end
+
 end

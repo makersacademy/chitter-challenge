@@ -9,7 +9,11 @@ class User
   property :handle, String, unique: true
   property :email, String, unique: true
   property :password, BCryptHash
-  property :password_confirmation, Text
+
+  attr_accessor :password_confirmation
+  attr_reader :password
+
+  validates_confirmation_of :password, required: true
 
   def self.authenticate(email, password)
   end

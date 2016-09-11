@@ -4,10 +4,15 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
-  register
+  enable :sessions
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/' do
-    @user = $user
     erb :'/users/index'
   end
 
@@ -16,9 +21,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    $user = User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    @user = $user
-    erb :'/users/welcome'
+    @user = User.new(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      @errors = @user.errors
+      erb :'users/new'
+    end
   end
 
   get '/users/log-in' do
