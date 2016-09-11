@@ -12,6 +12,7 @@ require './spec/helpers/session'
 require './spec/helpers/peep'
 require 'coveralls'
 require 'simplecov'
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

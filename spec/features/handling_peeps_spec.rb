@@ -35,17 +35,21 @@ feature "Show peeps" do
     end
   end
 
-  # scenario "users peeps are visible in reverse chronological order" do
-  #   login_and_peep_chitter1
-  #   click_button "Log out"
-  #   login_and_peep_chitter2
-  #   click_link "All peeps"
-  #
-  #   within "div#peeps" do
-  #     expect(page).to have_content(
-  #       "chitter7")
-  #   end
-  # end
+  scenario "users peeps are visible in reverse chronological order" do
+    Timecop.freeze(Time.new(2016, 9, 1, 10, 10, 10))
+    login_and_peep_chitter1
+    click_button "Log out"
+
+    Timecop.travel(60*60) do
+      login_and_peep_chitter2
+      click_link "All peeps"
+
+      within "div#peeps" do
+        expect(page).to have_content(
+        "Thu Sep 1 11:10:10 2016 chitter2 Another peep Thu Sep 1 10:10:10 2016 chitter1")
+      end
+    end
+  end
 
   scenario "user can see his/her own peeps at my peeps" do
     login_and_peep_chitter1
