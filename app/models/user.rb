@@ -8,7 +8,7 @@ class User
 
   property :id,   Serial
   property :name, String
-  property :email, String
+  property :email, String, format: :email_address, unique: true
   property :password_digest, Text
 
   attr_reader :password

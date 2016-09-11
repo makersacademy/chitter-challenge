@@ -9,7 +9,16 @@
     <% if current_user %>
       Welcome, <%= current_user.name %>!
     <% end %>
+
+    <% if flash.now[:errors] %>
+          <ul id="errors">
+            <% flash.now[:errors].each do |message| %>
+            <li><%= message %></li>
+          </ul>
+          <% end %>
+      <% end %>
     <%= yield %>
+
 
   </body>
 </html>
