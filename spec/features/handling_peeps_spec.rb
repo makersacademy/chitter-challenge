@@ -35,7 +35,7 @@ feature "Show peeps" do
     end
   end
 
-  scenario "users peeps are visible in reverse chronological order" do
+  scenario "users' peeps are visible in reverse chronological order" do
     Timecop.freeze(Time.new(2016, 9, 1, 10, 10, 10))
     login_and_peep_chitter1
     click_button "Log out"
