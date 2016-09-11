@@ -5,8 +5,19 @@ require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
 
-  get '/' do
-    "Hello World"
+  enable :sessions
+
+  get '/sign_up' do
+    erb(:sign_up)
+  end
+
+  post '/sign_up' do
+    @user = User.new(email: params[:email],
+                    username: params[:username],
+                    name: params[:name],
+                    password_digest: params[:password],)
+    @user.save
+    redirect '/'
   end
 
 

@@ -10,6 +10,8 @@ feature 'sign up' do
     fill_in('password', with: 'password1')
     fill_in('password_confirmation', with: 'password1')
     click_button('Sign up')
+    expect(User.count).to eq(1)
+    expect(page).to have_current_path("/")
   end
 
 end
