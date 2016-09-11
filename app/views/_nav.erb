@@ -1,16 +1,22 @@
-<!-- <nav class="navbar navbar-inverse">
-  <a class="navbar-brand" href="#">Chitter</a>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+<div class="header clearfix">
+  <nav style="padding-bottom: 20px">
+    <ul class="nav nav-pills pull-xs-right">
+      <% if @user_name %>
+      <li class="nav-item">
         <form action="/user/log_out" method="post">
-        <% if @user_name %>
-          <li><input class="btn btn-default navbar-btn" type="submit" value="Log out"></li>
+          <a class="nav-link"><input type="submit" class="btn btn-warning" value="Log out"></a>
         </form>
-        <% else %>
-         <li><a href='/user/sign_in'>Sign in</a></li>
-        <% end  %>
-      </ul> -->
-    <!-- </div><!-- /.navbar-collapse -->
-<!-- </nav> -->
+      </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/user/sign_up">Sign Up<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/user/sign_in">Sign In</a>
+        </li>
+      <% end %>
+    </ul>
+  <h3 class="text-muted"><a href="/feed">Chitter</a></h3>
+  </nav>
+
+</div>

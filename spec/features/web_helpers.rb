@@ -7,6 +7,15 @@ def sign_up
   click_button("Sign Up")
 end
 
+def sign_up_another_user
+  visit '/user/sign_up'
+  fill_in('name', with: "Matthew")
+  fill_in('user_name', with: "MatthewP")
+  fill_in('email', with: "matthew@p.com" )
+  fill_in('password', with: "hello123")
+  click_button("Sign Up")
+end
+
 def sign_up_no_email
   visit '/user/sign_up'
   fill_in('name', with: "Rafi")

@@ -47,8 +47,8 @@ To get it up and running locally:
 
 * Fork & clone the repo
 * Run `bundle` (and `gem install bundler` if you don't have bundle)
-* Setup a 
+* Run `psql` and setup a database locally called `chitter_challenge` and another one for your tests called `chitter_test`
+* Run `rake db:auto_migrate` and `rake db:auto_migrate RACK_ENV=test` 
+* Run `rackup` to launch the app in your browser at `localhost:9292`
 
-
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Otherwise, check out [here](https://evening-thicket-58147.herokuapp.com/feed) on heroku!

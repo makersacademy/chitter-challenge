@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    user = User.first(session[:user_name])
+    user = User.first(:user_name => session[:user_name])
     peep = user.peeps.create(content: params[:content])
     redirect '/feed'
   end
