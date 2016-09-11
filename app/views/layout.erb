@@ -1,14 +1,38 @@
 
 <html>
-  <head>
-    <title>Chitter</title>
-  </head>
+<head>
+  <title>Chitter</title>
+</head>
 
-  <body>
-    <% if current_user %>
-      Welcome, <%= current_user.name %>
-    <% end %>
+<body>
+  <% if current_user %>
+  Welcome, <%= current_user.name %>
+
+  <form action="/peeps/new" method="get">
+    <input type="submit"
+    name="Create a peep" value="Create a peep"/>
+  </form>
+  <div>
     
-    <%= yield %>
-  </body>
-</html>
+    <% else %>
+
+    <form action="/users/new" method="get">
+      <input type="submit"
+      name="Register" value="Register"/>
+    </form>
+
+    <form action="/users/sign-in" method="get">
+      <input type="submit"
+      name="Sign in" value="Sign in"/>
+    </form>
+
+    <% end %>
+
+    <% if @errors %>
+    <div id='error'><% @errors.each do |error| %>
+      <%= error %> </div> <% end%>
+      <% end %>
+
+      <%= yield %>
+    </body>
+    </html>

@@ -9,7 +9,9 @@ class User
   property :id, Serial
   property :name, String
   property :username, String
-  property :email, String, format: :email_address, required: true, unique: true
+  property :email, String, format: :email_address, required: true, unique: true,messages: {
+      :presence  => "Please enter your email address",
+      :is_unique => "This email address is already in use"}
   property :password_digest, Text
 
   validates_confirmation_of :password, :message => "Password and confirmation password do not match"
@@ -32,5 +34,12 @@ class User
       end
     end
 
+    def self.authenticate_user(email, login_password)
+        raise "email or password incorrect" unless user = first(email: email)
+        @db_password = BCrypt::Password.new(user.password_digest)
+        if @db_password == login_password
+        return user
+        end
+      end
 
 end
