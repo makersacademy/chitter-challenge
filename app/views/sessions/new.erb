@@ -1,10 +1,7 @@
-<h1>Join Chitter today.</h1>
+<h1>Log in to peep to your buddies</h1>
 
-<form action="/signup/new" method="post">
-  Name: <input type="text" name="name" required><br>
-  Username: <input type="text" name="username" required><br>
-  Email: <input type="email" name="email" required><br>
-  Password: <input type="password" name="password" required><br>
-  Password confirmation: <input type="password" name="password_confirmation" required><br>
-  <input type="submit" value="Sign up">
+<form action='/sessions' method='post'>
+    Email: <input name='email' type='email' required><br>
+    Password: <input name='password' type='password' required><br>
+  <input type='submit' value='Log in'>
 </form>

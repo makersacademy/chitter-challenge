@@ -1,0 +1,10 @@
+<h1>Join Chitter today.</h1>
+
+<form action="/users" method="post">
+  Name: <input type="text" name="name" required><br>
+  Username: <input type="text" name="username" required><br>
+  Email: <input type="email" name="email" value='<%= @user.email %>' required><br>
+  Password: <input type="password" name="password" required><br>
+  Password confirmation: <input type="password" name="password_confirmation" required><br>
+  <input type="submit" value="Sign up">
+</form>
