@@ -35,5 +35,15 @@ class Chitter < Sinatra::Base
     erb :'/users/log_in'
   end
 
+  post '/users/log-in' do
+    authd_user = User.authenticate(params[:email], params[:password])
+    if authd_user
+      session[:user_id] = authd_user.id
+      redirect '/'
+    else
+      flash.now[:errors] << "Email or password not found"
+    end
+  end
+
 
 end

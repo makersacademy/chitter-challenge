@@ -17,8 +17,7 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    db_pw = Password.new(user.password)
-    user if user && db_pw == password
+    user if user && Password.new(user.password) == password
   end
 
 end
