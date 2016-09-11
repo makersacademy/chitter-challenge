@@ -60,3 +60,10 @@ def sign_in
   fill_in(:password, with: 'password')
   click_button('sign in')
 end
+
+def incorrect_sign_in
+  visit '/sessions/new'
+  fill_in(:username, with: 'newuser')
+  fill_in(:password, with: 'passwor')
+  click_button('sign in')
+end

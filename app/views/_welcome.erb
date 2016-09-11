@@ -1,3 +1,10 @@
 <% if current_user %>
   You are currently signed in as <%= current_user.name %>
+  <br>
+<form action="/sessions/end" method="post">
+
+  <input type='submit' value='logout?'>
+  <input type='hidden' name='_method' value='delete'>
+
+</form>
 <% end %>

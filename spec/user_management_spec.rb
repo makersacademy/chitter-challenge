@@ -70,4 +70,23 @@ feature 'sign in' do
     expect(page).to have_content 'You are currently signed in as New User'
     expect(current_path).to eq '/'
   end
+
+  scenario 'user cannot sign in with incorrect password' do
+    sign_up
+    click_button('logout?')
+    incorrect_sign_in
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/sessions/new'
+    expect(page).not_to have_content 'You are currently signed in as New User'
+  end
+end
+
+feature 'signing out' do
+    scenario 'it signs out user' do
+    sign_up
+    click_button('logout?')
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/sessions/new'
+    expect(page).not_to have_content 'You are currently signed in as New User'
+  end
 end
