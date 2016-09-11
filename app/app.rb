@@ -6,8 +6,10 @@ ENV["RACK_ENV"] ||= "development"
 
 class ChitterChallenge < Sinatra::Base
 
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
+
 
   helpers do
     def current_user
@@ -58,15 +60,21 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users/log-in' do
-      authenticated_user = User.authenticate_user(params[:email], params[:password])
-      if authenticated_user
-        session[:user_id] = authenticated_user
-        redirect '/peeps'
-      else
-        flash.now[:errors] = ['The email or password is incorrect']
-        erb :'/users/log-in'
-      end
+    authenticated_user = User.authenticate_user(params[:email], params[:password])
+    if authenticated_user
+      session[:user_id] = authenticated_user
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'/users/log-in'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You have logged out'
+    redirect to '/peeps'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

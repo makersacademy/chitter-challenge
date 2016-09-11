@@ -17,3 +17,8 @@ def log_in
   fill_in :password, with: 'gnasher'
   click_button 'Log in'
 end
+
+def log_out
+  visit '/peeps'
+  click_button 'Log out'
+end
