@@ -48,14 +48,14 @@ The program provides the following functions:
 * User can only peep if she/he is logged in;
 
 ### Screenshots of main functions
-#### Start screen
-TBD
+#### Sign up screen (with error messages)
+![Sign up screen](app/public/images/signup.png)
 
-#### Sign up screen
-TBD
+#### Login screen (with error message)
+![Login screen](app/public/images/login.png)
 
-#### Login screen
-TBD
+#### Peeps
+![Peeps screen](app/public/images/peeps.png)
 
 ### Instructions for how to run the program
 
