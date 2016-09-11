@@ -2,6 +2,13 @@
   <input type='submit' value='Sign up'>
 </form>
 
-<form action='/sessions/new' method='get' >
-  <input type='submit' value='Sign in'>
-</form>
+<% if current_user %>
+  <form action="/sessions/sign_out" method="post" >
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Sign out</button>
+  </form>
+<% else %>
+  <form action='/sessions/new' method='get' >
+    <input type='submit' value='Sign in'>
+  </form>
+<% end %>

@@ -27,4 +27,9 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Submit'
   end
+
+  def sign_out
+    visit '/'
+    click_button 'Sign out'
+  end
 end
