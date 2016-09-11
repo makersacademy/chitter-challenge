@@ -9,6 +9,7 @@ gem 'launchy'
 gem 'dm-postgres-adapter'
 gem 'makersinit'
 gem 'data_mapper'
+gem 'timecop'
 
 group :test do
   gem 'rspec'
