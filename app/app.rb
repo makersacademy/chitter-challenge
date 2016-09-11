@@ -39,13 +39,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/sign_in' do
-    # add method to authenticate user
+    user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_name] = user.name
       redirect '/feed'
     else
       flash[:login_failed] = "Invalid email or password. Try again!"
-      redirect '/sign_in'
+      redirect '/user/sign_in'
     end
   end
 

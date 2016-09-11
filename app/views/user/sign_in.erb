@@ -8,6 +8,6 @@
     </ul>
   </form>
 
-  <% if flash.now[:error] %>
-  <!-- need to add some error handling! -->
+  <% if flash.now[:login_failed] %>
+    <%= flash.now[:login_failed] %>
   <% end %>
