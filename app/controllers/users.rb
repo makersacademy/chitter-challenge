@@ -1,3 +1,5 @@
+# require './app/models/peep.rb'
+
 class Chitter < Sinatra::Base
 
   get '/users/new' do
@@ -11,10 +13,10 @@ class Chitter < Sinatra::Base
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
+    session[:user_email] = user.email
     if user.save
       redirect '/'
     else
-      session[:user_email] = user.email
       flash[:notice] = user.errors.full_messages.join(", ")
       redirect '/users/new'
     end

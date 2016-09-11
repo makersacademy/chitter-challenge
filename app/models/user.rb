@@ -10,6 +10,7 @@ class User
   property :name, String
   property :username, String, :unique => true
   property :password, BCryptHash
+  has n, :peeps, through: Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
