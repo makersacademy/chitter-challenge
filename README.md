@@ -1,3 +1,6 @@
+![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)
+![Coverage Status](https://coveralls.io/repos/github/makersacademy/takeaway-challenge/badge.svg?branch=mohamedIssaq)
+
 # PrestoPronto
 
 Welcome to PrestoPronto. This is a twitter imitation built on the Sinatra framework as part of the Makers Academy Course. Sinatra-Bootstrap was used for styling, PostgreSQL for the database, DataMapper as the ORM and BCrypt for password administration.
