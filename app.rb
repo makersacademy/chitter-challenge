@@ -6,10 +6,13 @@ require_relative 'data_mapper_setup'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
+
 
   get '/' do
     'Hello ChitterApp!'
+    redirect '/timeline'
   end
 
   get '/users/new' do
@@ -28,6 +31,21 @@ class ChitterApp < Sinatra::Base
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/timeline'
+    else
+      flash.now[:failed_login] = ['Username or password incorrect']
+      erb :'sessions/new'
     end
   end
 
