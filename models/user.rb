@@ -14,7 +14,7 @@ class User
   property :password_digest,   Text,     :required => true
 
   validates_format_of :email, :as => :email_address
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, :username
   validates_confirmation_of :password
 
   attr_reader :password

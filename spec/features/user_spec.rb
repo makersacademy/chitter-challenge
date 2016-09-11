@@ -13,4 +13,10 @@ feature "Users sign up" do
     sign_up
     expect{ sign_up(email: 'murtz@gmail.com')}.to_not change(User, :count)
   end
+
+  scenario "a user cannot sign up with the same username" do
+    sign_up
+    expect{ sign_up(username: 'mrmurtz')}.to_not change(User, :count)
+  end
+  
 end
