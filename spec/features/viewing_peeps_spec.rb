@@ -14,10 +14,8 @@ feature 'Viewing peeps' do
 
   scenario 'peeps are listed with the time of peeping' do
     add_peep
-    within 'ul#peeps' do
-      time = Time.now.strftime("peeped on %e %h %Y at %H:%M")
-      expect(page).to have_content time
-    end
+    time = Time.now.strftime("peeped on %e %h %Y at %H:%M")
+    expect(page).to have_content time
   end
 
 end

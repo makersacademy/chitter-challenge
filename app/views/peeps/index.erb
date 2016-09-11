@@ -1,17 +1,19 @@
 <div class='new_peep'>
   <form action='/peeps/new' method='get'>
-    <div><input id='peep_button' type='submit' value='new peep'></div>
+    <div><input id='new_peep' type='submit' value='new peep'></div>
   </form>
 </div>
 
-<ul style='list-style-type: none' id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-      <div id='peep_content'><%= peep.content %></div>
-      <br>
-      <div id='peep_user'>@<%= peep.user.username %></div>
-      <br>
-      <div id='peep_time'><%= peep.time.strftime("peeped on %e %h %Y at %H:%M") %><div>
-    </li>
-  <% end %>
-</ul>
+<div id='peeps'>
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li>
+        <div id='peep_content'><%= peep.content %></div>
+        <br>
+        <div id='peep_user'>@<%= peep.user.username %></div>
+        <br>
+        <div id='peep_time'><%= peep.time.strftime("peeped on %e %h %Y at %H:%M") %><div>
+      </li>
+    <% end %>
+  </ul>
+</div>

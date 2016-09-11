@@ -15,9 +15,7 @@ feature 'Add peep' do
     log_in('abi@test.com', 'password123')
     add_peep
     expect(current_path).to eq '/peeps'
-    within 'ul#peeps' do
-      expect(page).to have_content 'testing'
-    end
+    expect(page).to have_content 'testing'
   end
 
   scenario 'a user cannot peep unless they are logged in' do
