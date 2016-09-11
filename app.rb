@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class ChitterApp < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -12,7 +13,21 @@ class ChitterApp < Sinatra::Base
 
   get '/' do
     'Hello ChitterApp!'
-    redirect '/timeline'
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(peep: params[:peep], time: Time.now )
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   get '/users/new' do
@@ -27,7 +42,7 @@ class ChitterApp < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/timeline'
+      redirect '/peeps/index'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
@@ -42,22 +57,18 @@ class ChitterApp < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to '/timeline'
+      redirect to '/peeps'
     else
       flash.now[:failed_login] = ['Username or password incorrect']
       erb :'sessions/new'
     end
   end
 
-  get '/timeline' do
-    erb :timeline
-  end
-
-  post '/logout' do
+  delete '/sessions' do
     session[:user_id] = nil
-    flash[:logout] = 'See you again soon'
-    redirect '/timeline'
-  end
+    flash.keep[:notice] = 'See you again soon'
+    redirect to '/peeps'
+    end
 
   helpers do
     def current_user

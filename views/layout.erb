@@ -9,15 +9,29 @@
 
     <% if current_user %>
       Welcome <%= current_user.username %>
-      <form action="/logout" method="post">
+      <form action="/peeps/new" method="get">
+        <input type="submit" value="Share a peep">
+      </form>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Log out">
+      </form>
+    <% else %>
+      <form action="/users/new" method="post">
+        <input type="submit" value="Register">
+      </form>
+
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Sign in">
       </form>
     <% end %>
 
-    <% if flash[:logout] %>
-      <%= flash[:logout] %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
-    <br>
+
 
     <%= yield %>
 

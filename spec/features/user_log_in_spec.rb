@@ -9,7 +9,7 @@ feature "User login" do
 
   scenario "as an existing user I can log in to see a welcome message" do
     log_in
-    expect(current_path).to eq '/timeline'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content "Welcome mrmurtz"
   end
 
