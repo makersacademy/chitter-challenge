@@ -1,1 +1,11 @@
-<h1>Chitter</h1>
+<h1>Chitter Cheeps</h1>
+
+<ul id="cheeps">
+  <% @cheeps.each do |cheep| %>
+    <li>
+      Cheep: <%= cheep.body  %>
+      Created: <%= cheep.created_at  %>
+      User: <%= cheep.posted_by %>
+    </li>
+    <% end %>
+</ul>

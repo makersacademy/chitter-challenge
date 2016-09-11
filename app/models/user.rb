@@ -11,7 +11,7 @@ class User
   property :user_name,  String, required: true, unique: true
   property :password,   BCryptHash
 
-  has n, :cheeps, through: Resource
+  has n, :cheeps #through: Resource
 
   attr_accessor :password_confirmation
 
@@ -27,7 +27,7 @@ class User
     else
       nil
     end
-  end 
+  end
 
 
 end

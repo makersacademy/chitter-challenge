@@ -1,12 +1,15 @@
 require_relative '../data_mapper_setup'
+require_relative 'user'
 
 class Cheep
   include DataMapper::Resource
 
-  property :id,     Serial
-  property :cheep,  String, length: 255, required: true
+  property :id,         Serial
+  property :body,       Text, required: true
+  property :created_at, DateTime,  required: true
+  property :posted_by,  String
 
 
-  #belongs_to :user
+  belongs_to :user
 
 end
