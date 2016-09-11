@@ -8,7 +8,6 @@ gem 'database_cleaner'
 gem 'pg'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'bcrypt'
 
 group :test do
   gem 'capybara'
