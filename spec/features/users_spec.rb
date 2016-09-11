@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Signing up' do
 
   scenario 'User can sign up' do
-    signup_testuser1
+    signup_testuser2
     expect { click_button 'Sign up' }.to change(Users, :count).by 1
   end
 
