@@ -1,0 +1,22 @@
+.jumbotron {
+    margin-bottom: 0px;
+    min-height: 600px;
+    background-image: url('/images/home_banner.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #2B4570;
+ }
+
+.transparent-grey {
+  background-color: rgba(234, 234, 234, 0.5);
+  border-radius: 25px;
+}
+
+.footer {
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 3px solid #eaeaea;
+  text-align: center;
+}

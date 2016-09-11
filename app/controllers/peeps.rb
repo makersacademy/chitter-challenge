@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/comment' do
-    comment = current_user.comment.create(text: params[:reply])
+    comment = current_user.comments.create(text: params[:reply])
     peep = Peep.get(params[:peep])
     peep.comments << comment
     peep.save

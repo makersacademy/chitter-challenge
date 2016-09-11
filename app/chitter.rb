@@ -10,7 +10,7 @@ require './app/views/view_helpers.rb'
 
 class Chitter < Sinatra::Base
   set :views, File.dirname(__FILE__) + '/views'
-  set :public_folder, Proc.new { File.join(root, 'public') }
+  set :public_folder, File.dirname(__FILE__) + '/public'
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
