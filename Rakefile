@@ -8,6 +8,8 @@ end
 
 require 'data_mapper'
 require './app/app.rb'
+require './app/data_mapper_setup'
+require 'spec_helper'
 
 namespace :db do
   desc "Non destructive upgrade"
