@@ -38,6 +38,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
+      session[:user_email] = user.email
       redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
@@ -55,10 +56,11 @@ class Chitter < Sinatra::Base
    def current_user
      @current_user ||= User.get(session[:user_id])
    end
-
   end
+
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ])
+    @email = session[:user_email]
     erb :'peeps/index'
   end
 
