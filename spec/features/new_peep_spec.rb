@@ -1,4 +1,4 @@
-feature 'new peep' do
+feature 'Feature: new peep' do
 
   scenario 'user can see their peep in the feed' do
     sign_up
@@ -7,8 +7,9 @@ feature 'new peep' do
     within 'ul#peeps' do
       expect(page).to have_content "Hello world, what a wonderful day! To infinity and beyond!"
       expect(page).to have_content "@SuperRafi"
+      expect(page).to have_content
     end
-      # add test for time using Timecop
+
   end
 
   scenario 'database stores new peep' do

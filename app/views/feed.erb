@@ -3,8 +3,11 @@
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        <%= peep.content %>
+        **********
         @<%= peep.user.user_name %>
+        <%= peep.content %>
+        posted:<%= peep.created_at %>
+        **********
       </li>
 
       <% end %>
