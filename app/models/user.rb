@@ -17,6 +17,7 @@ class User
   validates_format_of :email, as: :email_address
 
   attr_accessor :password_confirmation
+  attr_reader :password
 
   def self.authenticate(email, password)
     user = first(:email => email)
