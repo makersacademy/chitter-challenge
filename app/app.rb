@@ -26,16 +26,17 @@ class Chitter < Sinatra::Base
     erb(:'users/signup')
   end
 
-  post '/signup' do
-    @user = User.new(email: params[:email],
+  post '/signup_create' do
+    @user = User.new(username: params[:username],
+                     email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/links'
+      redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'users/sign_up'
+      erb(:'users/sign_up')
     end
   end
 

@@ -1,6 +1,10 @@
 <h1>Create new user account</h1>
 
-<form action="/signup" method="post">
+<form action="/signup_create" method="post">
+
+  <label for="username">
+    Username:<input type="text" name="username" value='<%= @user.username %>' required>
+  </label>
 
   <label for="email">
     Email:<input type="email" name="email" value='<%= @user.email %>' required>
@@ -14,7 +18,7 @@
     Confirm Password:<input type="password" name="password_confirmation">
   </label>
 
-  <button type="submit">Create account</button>
+  <button type="submit">Submit</button>
 
 </form>
 
