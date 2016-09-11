@@ -13,3 +13,5 @@ $ rackup
 $ visit locally at http://localhost:9292/
 $ sign up and peep until your heart's content
 ```
+
+Alternatively you can visit at https://ewan-chitter.herokuapp.com/
