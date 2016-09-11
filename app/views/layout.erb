@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+<% if current_user %>
+<%= "Welcome #{current_user.name}" %>
+<% else %>
+<form action="/users/new" method="get">
+  <input type="submit"
+    name="Register" value="Register"/>
+</form>
+
+<form action="/users/log-in" method="get">
+  <input type="submit"
+    name="Log in" value="Log in"/>
+</form>
+
+<% end %>
+<%= yield %>
+</body>
+</html>
