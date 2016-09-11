@@ -1,9 +1,8 @@
-
 <div class='post'>
   <% if current_user %>
     <form action='/peeps' method='post' class='peep'>
-      <input type='text' name='message'/>
-      <input type='submit' value='Peep!'/>
+      <input type='text' name='message' required/>
+      <button class="button-submit" type="submit">Peep!</button>
     </form>
   <% end %>
 </div>

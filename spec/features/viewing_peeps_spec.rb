@@ -11,17 +11,17 @@ feature 'viewing peeps' do
   let!(:peep) do
     Peep.create(message: 'Counting down until Christmas!', time_created: Time.new, user: user)
   end
-  # before do
-  #   sign_in('santaclaus', 'christmas')
-  #   add_peep('Ho ho ho!')
-  #   add_peep('Christmas is coming!')
-  #   sign_out
-  # end
-  #
-  # scenario 'users can see peeps in reverse chronological order even when not logged in' do
-  #   visit '/'
-  #   expect('Ho ho ho!').to appear_before('Christmas is coming!')
-  # end
+
+  before do
+    sign_in('santaclaus', 'christmas')
+    add_peep('Ho ho ho!')
+    sign_out
+  end
+
+  scenario 'users can see peeps in reverse chronological order even when not logged in' do
+    visit '/'
+    expect('Counting down until Christmas!').to appear_before('Ho ho ho!')
+  end
 
   scenario 'users can view peep time stamps' do
     visit '/'

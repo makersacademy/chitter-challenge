@@ -17,11 +17,11 @@ body {
 }
 
 .header h1 {
-  font-size: 3em
+  font-size: 5em;
 }
 
-.header p {
-  font-size: 1em
+.header h2 {
+  font-size: 1.2em;
 }
 
 .nav-bar {
@@ -38,11 +38,16 @@ body {
 
 .post {
   width:100%;
+  position: relative;
 }
 
 .post form {
   margin: 0 auto;
-  width: 200px;
+  width: 300px;
+}
+
+.post input {
+  width: 250px;
 }
 
 .flash {
@@ -68,12 +73,44 @@ body {
   margin: 5px;
 }
 
-
-.peep {
-
-}
-
 .peep-time {
   float: right;
   font-size: 0.7em;
+}
+
+.user-navbar {
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+.button-navbar {
+  background-color: grey;
+  border: none ;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.sign_up_layout {
+  display: inline-block;
+  border: 2px solid black;
+}
+
+#form_sign_up {
+  margin: 0 auto;
+}
+
+#form_sign_up input {
+  display: block;
+  width: 250px;
+  float: left;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  vertical-align: middle;
+  font-size: 1em;
+}
+
+br {
+    clear: left;
 }
