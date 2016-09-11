@@ -9,6 +9,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'sinatra-bootstrap', :require => 'sinatra/bootstrap'
+gem 'bcrypt'
 
 
 group :test do
