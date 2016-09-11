@@ -1,0 +1,38 @@
+.navbar-btn.btn-xs {
+ margin-top: 12px;
+ margin-bottom: 0px;
+}
+
+
+.send-wrap
+{
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding:10px;
+}
+
+.send-message
+{
+    resize: none;
+}
+
+.message-wrap
+{
+    box-shadow: 0 0 3px #ddd;
+    padding:0;
+
+}
+
+.msg-wrap
+{
+    padding:10px;
+    max-height: 400px;
+    overflow: auto;
+
+}
+
+.msg-wrap .media-heading
+{
+    color:#003bb3;
+    font-weight: 700;
+}

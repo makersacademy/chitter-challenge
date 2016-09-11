@@ -1,0 +1,28 @@
+<div class="row">
+  <h2 class="col-sm-12">Sign up</h2>
+  <form action="/users" method="post">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">Email has to be unique.</small>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" placeholder="Enter username">
+      <small id="usernameHelp" class="form-text text-muted">Username has to be unique.</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="password_confirmation">Password confirmation</label>
+      <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm password">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+</div>

@@ -1,21 +1,15 @@
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
+[![Coverage Status](https://camo.githubusercontent.com/f94be65e08a3d7d3f00f326f84543941dc58232b/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f373833323132372f6261646765)](https://camo.githubusercontent.com/f94be65e08a3d7d3f00f326f84543941dc58232b/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f373833323132372f6261646765)
+
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Description:
 -------
 
-As usual please start by forking this repo.
+The program acts as a little Twitter clone that allows the users to post messages to a public stream.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+The program covers the following user stories:
 
 ```
 As a Maker
@@ -43,66 +37,80 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+The program provides the following functions:
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku);
+* The username and email are unique;
+* Peeps have the user's name and creation date;
+* BCrypt is used to secure the passwords;
+* Users can see all the peeps without logging in;
+* User can only peep if she/he is logged in;
 
-Bonus:
------
+### Screenshots of main functions
+#### Sign up screen (with error messages)
+![Sign up screen](app/public/images/signup.png)
 
-If you have time you can implement the following:
+#### Login screen (with error message)
+![Login screen](app/public/images/login.png)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+#### Peeps
+![Peeps screen](app/public/images/peeps.png)
 
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+### Instructions for how to run the program
 
 ```
-$ coveralls report
+$ git clone https://github.com/peter-miklos/chitter-challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
 ```
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+### Heroku
+The program is available on Heroku: http://chitternow.herokuapp.com/
 
+Tests
+-------
+### Feature tests
+In feature tests the following test cases have been used:
+```
+Add peep
+  logged in user can add a peep that is stored in db
+  user cannot add a peep unless logged in
+
+Show peeps
+  users' peeps are visible with username and creation date
+  users' peeps are visible in reverse chronological order
+  user can see his/her own peeps at my peeps
+
+User sign up
+  user can sign up with valid data
+  user cannot sign up with mismatching password
+  user cannot sign up with the same username twice
+  user cannot sign up with no username
+  user cannot add username with special char other than '_'
+  user cannot add name with special char other than '_'
+  user cannot sign up with no name
+  user cannot sign up with no email address
+  user cannot sign up with the same email address twice
+  user cannot sign up with invalid email address
+
+User log in
+  user can sign in with valid credentials and see a welcome message
+  user cannot sign in with wrong email and/or password
+
+User logs out
+  user can log out successfully
+```
+
+### Unit tests
+The following test cases pass the unit test:
+```
+User
+  #authenticate
+    authenticates the user and returns the user object if authentication complete
+    authentication fails because of wrong password
+    authentication fails because of wrong email
+```
