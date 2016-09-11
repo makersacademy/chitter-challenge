@@ -23,4 +23,19 @@ feature 'sign up' do
     expect(page).to have_content('Email has an invalid format')
   end
 
+  scenario 'does not add user when email is already taken' do
+    sign_up
+    expect {sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'does not add user when password field is empty' do
+    expect {no_password_sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Password must not be blank')
+  end
+
 end
