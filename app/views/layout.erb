@@ -47,7 +47,12 @@
             <% end %>
           </ul>
         <% end %>
-        <%= "#{flash[:notice]}" if flash[:notice] %>
+        <% if flash[:notice] %>
+          <div class="alert alert-success" role="success">
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            <strong><%= "#{flash[:notice]}" if flash[:notice] %></strong>
+          </div>
+        <% end %>        
       </div>
       <div class="col-sm-8"><%= yield %></div>
       <div class="col-sm-2"></div>
