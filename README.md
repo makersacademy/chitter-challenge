@@ -38,8 +38,31 @@ I want to see the time at which it was made
 Notes on functionality:
 ------
 
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+* Users sign up to chitter with their email, password, name and a user name.
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
+
+Installation instructions:
+------
+
+To join the fun (on your own...) get set up locally using the following command line instructions:
+
+```
+$ git clone https://github.com/AbigailMcP/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+```
+
+Or, how about joining the buzzing online community? Check out the deployed version on heroku: https://chitteraway.herokuapp.com/peeps
+
+Technologies:
+------
+
+Chitter uses DataMapper and PostgreSQL to manage and save user's data and map individual peeps to individual users.
+
+Chitter also uses BCrypt to securely store users' passwords and verify passwords on log in.
