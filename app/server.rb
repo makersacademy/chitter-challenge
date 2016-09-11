@@ -13,4 +13,9 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
+  helpers do
+      def current_user
+        @current_user ||= User.get(session[:user_name])
+      end
+    end
 end

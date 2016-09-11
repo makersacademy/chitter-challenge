@@ -9,3 +9,4 @@ require_relative 'server'
 
 require_relative 'controllers/user'
 require_relative 'controllers/feed'
+require_relative 'controllers/peep'

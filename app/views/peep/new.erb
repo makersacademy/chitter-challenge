@@ -1,0 +1,18 @@
+
+<h1>Let's get peeping</h1>
+
+  <form action="/peep/new" method="post">
+    <p class="lead"> <%= @user_name %> what's on your mind </p>
+    <ul>
+      <li>Name<input type="text" name="content"></li>
+      <li><input type="submit" value="Peep"></li>
+    </ul>
+  </form>
+
+  <% if flash.now[:error] %>
+  <ul style="list-style-type: none">
+    <% flash[:error].each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+  <% end %>
