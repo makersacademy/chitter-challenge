@@ -69,7 +69,7 @@ $ rackup
 ```
 
 ### Heroku
-The program is avaiable on Heroku: http://chitternow.herokuapp.com/
+The program is available on Heroku: http://chitternow.herokuapp.com/
 
 Tests
 -------
