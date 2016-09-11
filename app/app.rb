@@ -11,13 +11,12 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
-
   get '/' do
     'Hello Chitter!'
   end
 
-  get '/messages' do
-    erb :'messages/index'
+  get '/peeps' do
+    erb :'peeps/index'
   end
 
   get '/users/new' do
@@ -26,12 +25,13 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     @user = User.create(name: params[:name], email: params[:email],
+                    username: params[:username],
                     password: params[:password],
                     password_confirmation: params[:password])
 
     if @user.save
       session[:user_id] = @user.id
-      redirect '/messages'
+      redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
