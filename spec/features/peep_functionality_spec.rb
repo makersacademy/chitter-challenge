@@ -33,11 +33,9 @@ feature 'Feature - Peeps are displayed' do
     expect(page).to have_content 'Ral @Ral: A message'
   end
   scenario 'peeps show timestamp' do
-    Timecop.freeze do
-      make_peep
-      peep = Peep.first
-      expect(peep.time_created).to eq Time.now
-    end
+    make_peep
+    time = Peep.first.time_created
+    expect(page).to have_content time
   end
   scenario 'peeps are shown in reverse chronological order' do
     make_peep
