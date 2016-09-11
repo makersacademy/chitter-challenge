@@ -1,7 +1,10 @@
-def sign_up
+def sign_up(username: 'mrmurtz',
+            email: 'murtz@gmail.com',
+            password:  '1234',
+            password_confirmation: '1234')
   visit '/users/new'
-  fill_in('username', :with => 'mrmurtz')
-  fill_in('email', :with => 'murtz@gmail.com')
-  fill_in('password', :with => '1234')
+  fill_in('username', :with => username)
+  fill_in('email', :with => email)
+  fill_in('password', :with => password)
   click_button('Sign up')
 end
