@@ -12,7 +12,7 @@ $ rspec
 $ rackup
 
 $ altirnatevily: https://johnnys-chitter.herokuapp.com
-  
+
 Features:
 -------
 
@@ -53,5 +53,5 @@ Notes:
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
+* Project uses partials, however no css implemented :-( 
 * README complete
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
