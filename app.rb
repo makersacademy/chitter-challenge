@@ -26,7 +26,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/timeline'
     else
-      flash.now[:error] = "Error"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
   end

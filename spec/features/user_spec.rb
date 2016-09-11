@@ -22,12 +22,34 @@ feature "Users sign up" do
     sign_up
     expect{ sign_up(username: 'mrmurtz')}.to_not change(User, :count)
   end
+end
+
+
+feature "User sign up error messages" do
+
+  scenario 'show error is password mismatch' do
+    sign_up(password_confirmation: '54311')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
+
+  scenario "show error if email address already taken" do
+    sign_up
+    sign_up(email: 'murtz@gmail.com')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Email is already taken'
+  end
+
+  scenario "show error if username already taken" do
+    sign_up
+    sign_up(email: 'mrmurtz')
+    expect(current_path).to eq '/users/new'
+    expect(page).to have_content 'Username is already taken'
+  end
 
   scenario "show error message for incorrect email address format " do
     sign_up(email: 'murtz.co')
     expect(current_path).to eq '/users/new'
-    expect(page).to have_content 'Error'
-
+    expect(page).to have_content 'Email has an invalid format'
   end
-
 end
