@@ -12,5 +12,6 @@ group :test do
   gem 'rake'
   gem 'bcrypt'
   gem 'coveralls', require: false
+  gem 'sinatra-flash'
 
 end

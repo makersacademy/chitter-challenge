@@ -1,9 +1,12 @@
 <h1>Welcome to Chitter</h1>
 <h2>Create a chitter account</h2>
 <form action="/users/new" method="post">
-  <input type="text" name="username" placeholder="Username">
-  <input type="email" name="email" placeholder="Your email">
+  <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+  <input type="email" name="email" placeholder="Your email" value="<%= @user.email %>">
   <input type="password" name="password" placeholder="password">
   <input type="password" name="password_confirmation" placeholder="Retype password">
   <input type="submit" value="Sign up">
 </form>
+<% if flash.now[:error] %>
+  <%= flash.now[:error] %>
+<% end %>
