@@ -10,7 +10,6 @@ feature 'user logout' do
     user
     visit '/'
     log_in("sar@sara.com", "cheese")
-    expect(page).to have_current_path '/'
     click_button 'Log out'
     expect(page).to have_content 'Goodbye!'
   end

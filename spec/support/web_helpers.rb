@@ -36,4 +36,14 @@ def log_in(email, password)
   click_button 'Enter'
 end
 
+def post_peep
+   user = User.create(name: "Sara",
+     handle: "sarsar", email: "sar@sara.com",
+    password: "cheese", password_confirmation: "cheese")
+  log_in("sar@sara.com","cheese")
+  click_button 'New peep'
+  fill_in :peep, with: "Got such cheese munchies"
+  click_button 'Post Peep!'
+end
+
 end
