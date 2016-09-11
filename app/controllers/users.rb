@@ -1,5 +1,3 @@
-# require './app/models/peep.rb'
-
 class Chitter < Sinatra::Base
 
   get '/users/new' do

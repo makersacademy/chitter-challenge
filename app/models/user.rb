@@ -1,6 +1,7 @@
 require_relative '../data_mapper_setup'
 require 'bcrypt'
 require 'dm-validations'
+require_relative 'peep'
 
 class User
   include DataMapper::Resource

@@ -19,6 +19,10 @@
 
 <h1> Current Peeps </h1>
 
-<% @peeps.each do |peep| %>
-    <%= peep.user.name %> @<%= peep.user.username %>: <%= peep.message %>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.time_created %> <%= peep.user.name %> @<%= peep.user.username %>: <%= peep.message %>
+    </li>
   <% end %>
+</ul>

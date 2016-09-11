@@ -1,5 +1,3 @@
-# require './app/models/user.rb'
-
 class Chitter < Sinatra::Base
 
   get '/peeps/new' do
@@ -7,9 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    peep = Peep.create(message: params[:message], user: current_user)
-    current_user.peeps << peep
-    current_user.save
+    current_user.peeps.create(message: params[:message], time_created: Time.now)
     redirect '/'
   end
 end
