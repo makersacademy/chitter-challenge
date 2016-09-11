@@ -29,5 +29,12 @@ feature 'registering users' do
     expect(page).to have_content('This email address is already in use')
   end
 
+  scenario 'user cannot register with the same username as somebody else' do
+    sign_up
+    log_out
+    sign_up(email: 'different@email.com')
+    expect(page).to have_content('This username is already taken')
+  end
+
 
 end

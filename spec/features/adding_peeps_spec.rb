@@ -8,7 +8,7 @@ feature 'Creating peeps' do
     expect(current_path).to eq '/peeps'
 
     within 'ul#peeps' do
-      expect(page).to have_content('Walter is a girl')
+      expect(page).to have_content('Walter is a softy')
       expect(page).to have_content('@DennisDaMennace')
     end
   end

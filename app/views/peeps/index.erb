@@ -1,11 +1,7 @@
-<h1>peeps</h1>
+<h1>Peeps</h1>
+<div>
 <ul id='peeps'>
   <% @peeps.sort_by {|peep| peep.time}.reverse.each do |peep| %>
-    <li>
-      <%= peep.user.username %>
-      Peeped: <%= peep.message %>
-      At: <%= peep.time %>
-    </li>
-    </div>
+    <h5>Peeper:   "<%= peep.user.name %>"  with the Userhandle:   "<%= peep.user.username %>"  Peeped:   "<%= peep.message %>"  At:   <%= peep.time %></h5>
   <% end %>
 </ul>

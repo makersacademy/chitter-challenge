@@ -27,6 +27,6 @@ def peep
   visit '/'
   sign_up
   click_button 'Create a peep'
-  fill_in 'message', with: 'Walter is a girl'
+  fill_in 'message', with: 'Walter is a softy'
   click_button 'Create Peep'
 end
