@@ -1,0 +1,24 @@
+<h1> Create an account!</h1>
+<form action="/users/new" method="post">
+
+  <label for="name">
+    Name:
+    <input id="name" type="name" placeholder="Name" name="name" required>
+  </label>
+
+  <label for="email">
+    Email:
+    <input id="email" type="email" placeholder="Email" name="email" required>
+  </label>
+  <label for="password">
+    Password:
+    <input id="password" type="password" placeholder="Password" name="password" required>
+  <label/>
+
+  <label for="password_confirmation">
+    Please confirm your password:
+    <input id="password_confirmation" type="password" name="password_confirmation" required>
+  <label/>
+
+  <input type="submit" value="Sign up!">
+</form>
