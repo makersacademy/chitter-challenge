@@ -8,3 +8,8 @@ group :test do
   gem 'coveralls', require: false
 end
 
+
+gem 'data_mapper', '1.2.0'
+gem 'database_cleaner', '1.5.3'
+gem 'bcrypt', '3.1.11'
+gem 'sinatra-flash', '0.3.0'
