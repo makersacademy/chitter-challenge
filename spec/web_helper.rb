@@ -1,6 +1,8 @@
 def sign_up
-  visit '/users/new'
+  visit '/'
   expect(page.status_code).to eq 200
+  click_link 'create user account'
+  expect(current_path).to eq '/users/new'
   fill_in :email, with: "database_guru@gmail.com"
   fill_in :name, with: 'Lord Vader'
   fill_in :user_name, with: 'darth'
@@ -10,8 +12,10 @@ def sign_up
 end
 
 def sign_up_with_mismatched_password
-  visit '/users/new'
+  visit '/'
   expect(page.status_code).to eq 200
+  click_link 'create user account'
+  expect(current_path).to eq '/users/new'
   fill_in :email, with: "database_guru@gmail.com"
   fill_in :name, with: 'Lord Vader'
   fill_in :user_name, with: 'darth'
@@ -21,16 +25,20 @@ def sign_up_with_mismatched_password
 end
 
 def sign_in
-  visit '/sessions/new'
+  visit '/'
   expect(page.status_code).to eq 200
+  click_link 'sign in'
+  expect(current_path).to eq '/sessions/new'
   fill_in :user_name, with: user.user_name
   fill_in :password, with: 'awesome123'
   click_button 'sign in'
 end
 
 def sign_in_incorrect
-  visit '/sessions/new'
+  visit '/'
   expect(page.status_code).to eq 200
+  click_link 'sign in'
+  expect(current_path).to eq '/sessions/new'
   fill_in :user_name, with: user.user_name
   fill_in :password, with: 'wrong password'
   click_button 'sign in'

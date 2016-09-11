@@ -11,11 +11,13 @@
     <a href="/sessions/sign_out">sign out</a>
     <% end %>
 
+
+        <% if flash[:notice] %>
+          <div id="notice"><%= flash[:notice]  %></div>
+        <% end %>
+
     <%= yield %>
 
-    <% if flash[:notice] %>
-      <div id="notice"><%= flash[:notice]  %></div>
-    <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
       <ul id="errors">

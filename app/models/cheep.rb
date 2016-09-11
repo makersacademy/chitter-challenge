@@ -8,6 +8,7 @@ class Cheep
   property :body,       Text, required: true
   property :created_at, DateTime,  required: true
   property :posted_by,  String
+  property :handle,  String
 
 
   belongs_to :user

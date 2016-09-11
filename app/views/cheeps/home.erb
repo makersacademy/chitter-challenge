@@ -1,11 +1,20 @@
 <h1>Chitter Cheeps</h1>
 
 <ul id="cheeps">
-  <% @cheeps.each do |cheep| %>
+  <% @cheeps.reverse.each do |cheep| %>
     <li>
       Cheep: <%= cheep.body  %>
       Created: <%= cheep.created_at  %>
-      User: <%= cheep.posted_by %>
+      Posted by: <%= cheep.posted_by %>
+      Handle: <%= cheep.handle %>
+
     </li>
     <% end %>
 </ul>
+
+<div>
+  To start cheeping
+  <a href="/sessions/new">sign in</a>
+  or
+  <a href="/users/new">create user account</a>
+</div>

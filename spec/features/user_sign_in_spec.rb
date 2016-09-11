@@ -12,7 +12,7 @@ feature 'user sign in' do
   scenario 'a user can sign in with correct credentials' do
     sign_in
     expect(page).to have_content "Welcome, darth"
-    expect(current_path).to eq '/cheeps'
+    expect(current_path).to eq '/cheeps/new'
   end
 
   scenario 'a user cannot sign in with incorrect credentials' do

@@ -9,7 +9,8 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Hello Chitter!' #this should be where cheeps are posted
+    @cheeps = Cheep.all
+    erb :'cheeps/home'#this should be where cheeps are posted
     #don't need to be logged in to see this page.
   end
 
@@ -27,7 +28,7 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       flash.now[:notice] = "New user created"
-      redirect '/cheeps'
+      redirect '/cheeps/new'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -43,7 +44,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:user_name], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/cheeps')
+      redirect to('/cheeps/new')
     else
       flash.now[:errors] = ['Your password and user name did not match']
       erb :'sessions/new'
@@ -53,10 +54,10 @@ class Chitter < Sinatra::Base
   get '/sessions/sign_out' do
     flash[:notice] = "Auf Wiedersehen, goodbye #{current_user.user_name}"
     session[:user_id] = nil
-    redirect '/cheeps'
+    redirect '/sessions/new'
   end
 
-  get '/cheeps' do 
+  get '/cheeps' do
     @cheeps = Cheep.all
     erb :'cheeps/home'
   end
@@ -64,10 +65,8 @@ class Chitter < Sinatra::Base
   post '/cheeps' do
     user = current_user
     @cheep = user.cheeps.create(body: params[:body],
-     created_at: Time.now, posted_by: user.user_name)
-    #(content: params[:content], time: params[:time],
-                          #date: params[:date])
-    #current_user.cheeps << cheep
+      created_at: Time.now, posted_by: user.name,
+      handle: user.user_name)
     redirect '/cheeps'
   end
 
