@@ -1,0 +1,19 @@
+<% if current_user %>
+  <h1>CHITTER</h1>
+  <br>
+  You are currently signed in as <%= current_user.name %>
+  <br>
+<form action="/sessions/end" method="post">
+
+  <input type='submit' value='logout?'>
+  <input type='hidden' name='_method' value='delete'>
+
+</form>
+<br>
+<form action="/" method="post">
+  <label>
+    <input type="text" name="peep" placeholder='send a message!'>
+  </label>
+  <input type='submit' value='peep!'>
+  </form>
+<% end %>

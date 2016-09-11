@@ -1,0 +1,18 @@
+
+  <% if @current_user %>
+  <form action="/" method="post">
+    <label>
+      <input type="text" name="peep" placeholder='send a message!' required>
+    </label>
+    <input type='submit' value='peep!'>
+  </form>
+  <% end %>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+    <h3><b><%= peep.peep %></b><h3>
+    <br><i>(written at <%= peep.time_created %>)</i>
+    <br><br>
+    </li>
+  <% end %>
+</ul>
