@@ -1,18 +1,15 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-
+require 'bcrypt'
 class User
 
   include BCrypt
   include DataMapper::Resource
 
-
-
   property :id, Serial
-  property :userhandle, String
-  property :email, String, format: :email_address, required: true, unique: true, messages: {
-      :presence  => "Please enter your email address",
-      :is_unique => "This email address is already in use"}
+  property :name, String
+  property :username, String
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
   validates_confirmation_of :password, :message => "Password and confirmation password do not match"
@@ -35,7 +32,5 @@ class User
       end
     end
 
-
-  end
 
 end
