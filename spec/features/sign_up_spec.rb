@@ -13,7 +13,7 @@ feature 'sign up' do
 
   scenario 'user mismatched password confirmation' do
     expect {sign_up(password_confirmation: 'wrong')}.to_not change(User, :count)
-    expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
+    expect(current_path).to eq('/sign_up') 
     expect(page).to have_content 'Password and confirmation password do not match'
   end
 end
