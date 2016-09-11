@@ -11,6 +11,8 @@ class Users
   property :email,    String,     :required => true, :unique => true
   property :password, BCryptHash, :required => true
 
+  has n, :peepss
+
   attr_reader   :password
   attr_accessor :password_confirmation
 

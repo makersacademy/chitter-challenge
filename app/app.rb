@@ -16,6 +16,24 @@ class Chitter < Sinatra::Base
     "Welcome"
   end
 
+  get '/peeps/new' do
+
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+
+    if current_user
+      Peeps.create(peep: params[:peep], users: current_user)
+      redirect '/'
+    else
+      flash[:error] = 'Please sign in'
+      redirect '/users/signin'
+    end
+
+
+  end
+
   get '/users/signup' do
 
     erb :'users/signup'
@@ -54,6 +72,12 @@ class Chitter < Sinatra::Base
         flash[:error] = 'Wrong username or/and password.'
         redirect '/users/signin'
       end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= Users.get(session[:user_id])
+    end
   end
 
   # start the server if ruby file executed directly
