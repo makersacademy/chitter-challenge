@@ -7,11 +7,11 @@
 <ul style='list-style-type: none' id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.content %>
+      <div id='peep_content'><%= peep.content %></div>
       <br>
-      <%= peep.user.username %>
+      <div id='peep_user'>@<%= peep.user.username %></div>
       <br>
-      <%= peep.time.strftime("peeped on %e %h %Y at %H:%M") %>
+      <div id='peep_time'><%= peep.time.strftime("peeped on %e %h %Y at %H:%M") %><div>
     </li>
   <% end %>
 </ul>

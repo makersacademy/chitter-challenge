@@ -50,12 +50,11 @@ body {
 #main-content {
   color: #295c89;
   padding-top: 100px;
-  text-align: center;
 }
 
 li {
-  text-align: center;
-  margin: 30px 0;
+  padding: 30px;
+  line-height: 90%;
 }
 
 .buttons {
@@ -75,7 +74,11 @@ li {
   cursor: pointer;
 }
 
-.new_peep {
-  text-align: center;
-  margin: 30px 0;
+#peep_time {
+  font-size: 0.8em;
+  line-height: 60%;
+}
+
+#peep_content {
+  font-size: 1.4em;
 }
