@@ -1,0 +1,28 @@
+<form action='/users/new' method='get' >
+  <input type='submit' value='Sign up'>
+</form>
+
+<% if current_user %>
+  <form action="/sessions/sign_out" method="post" >
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Sign out</button>
+  </form>
+  <form action='/peeps/new' method='get' >
+    <input type='submit' value='Peep'>
+  </form>
+
+<% else %>
+  <form action='/sessions/new' method='get' >
+    <input type='submit' value='Sign in'>
+  </form>
+<% end %>
+
+<h1> Current Peeps </h1>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.time_created %> <%= peep.user.name %> @<%= peep.user.username %>: <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
