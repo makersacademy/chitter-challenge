@@ -9,14 +9,15 @@ feature 'user sign in' do
                 password_confirmation: 'awesome123')
   end
 
-scenario 'a user can sign in' do
-  visit '/sessions/new'
-  expect(page.status_code).to eq 200
-  fill_in :user_name, with: user.user_name
-  fill_in :password, with: user.password
-  click_button 'sign in'
-  #expect(page).to have_content "Welcome, darth"
-  expect(current_path).to eq '/cheeps'
-end
+  scenario 'a user can sign in with correct credentials' do
+    sign_in
+    expect(page).to have_content "Welcome, darth"
+    expect(current_path).to eq '/cheeps'
+  end
 
+  scenario 'a user cannot sign in with incorrect credentials' do
+    sign_in_incorrect
+    expect(page).to have_content 'Your password and user name did not match'
+    expect(current_path).to eq '/sessions'
+  end
 end

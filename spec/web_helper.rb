@@ -19,3 +19,19 @@ def sign_up_with_mismatched_password
   fill_in :password_confirmation, with: "luke"
   click_button 'sign up'
 end
+
+def sign_in
+  visit '/sessions/new'
+  expect(page.status_code).to eq 200
+  fill_in :user_name, with: user.user_name
+  fill_in :password, with: 'awesome123'
+  click_button 'sign in'
+end
+
+def sign_in_incorrect
+  visit '/sessions/new'
+  expect(page.status_code).to eq 200
+  fill_in :user_name, with: user.user_name
+  fill_in :password, with: 'wrong password'
+  click_button 'sign in'
+end

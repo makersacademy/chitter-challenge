@@ -40,7 +40,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    redirect to('/cheeps')
+    user = User.authenticate(params[:user_name], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/cheeps')
+    else
+      flash.now[:errors] = ['Your password and user name did not match']
+      erb :'sessions/new'
+    end 
   end
 
   get '/cheeps' do

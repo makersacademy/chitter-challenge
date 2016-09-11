@@ -19,4 +19,15 @@ class User
   validates_format_of :email, as: :email_address
   validates_uniqueness_of :email
 
+
+  def self.authenticate (user_name, password)
+    user = first(user_name: user_name)
+    if user && BCrypt::Password.new(user.password) == password
+      user
+    else
+      nil
+    end
+  end 
+
+
 end
