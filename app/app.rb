@@ -47,7 +47,13 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = ['Your password and user name did not match']
       erb :'sessions/new'
-    end 
+    end
+  end
+
+  get '/sessions/sign_out' do
+    flash[:notice] = "Auf Wiedersehen, goodbye #{current_user.user_name}"
+    session[:user_id] = nil
+    redirect '/cheeps'
   end
 
   get '/cheeps' do

@@ -5,13 +5,18 @@
     <title>Chitter</title>
   </head>
   <body>
+
     <% if current_user %>
     Welcome, <%=current_user.user_name %>
+    <a href="/sessions/sign_out">sign out</a>
     <% end %>
+
     <%= yield %>
+
     <% if flash[:notice] %>
       <div id="notice"><%= flash[:notice]  %></div>
     <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       <ul id="errors">
         <%  flash[:errors].each do |error| %>
@@ -19,5 +24,6 @@
         <% end %>
       </div>
     <% end %>
+
   </body>
 </html>
