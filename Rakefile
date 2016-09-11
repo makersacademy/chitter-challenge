@@ -7,14 +7,16 @@ namespace :db do
     DataMapper.auto_upgrade!
     puts "Auto-upgrade complete (no data loss)"
   end
-
-
   desc "Destructive upgrade"
   task :auto_migrate do
     DataMapper.auto_migrate!
     puts "Auto-migrate complete (data was lost)"
   end
-end
 
-# Run tests by default
-task :default => :spec
+  desc 'Database Setup'
+  task :setup do
+    sh('psql -c "CREATE DATABASE chitter_test;"')
+    sh('psql -c "CREATE DATABASE chitter_development;"')
+    puts 'Database Environment Configured'
+  end
+end
