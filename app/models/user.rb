@@ -13,6 +13,7 @@ class User
   property :id, Serial
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  property :username, String, unique: true
 
 
   def password=(password)

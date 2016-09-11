@@ -1,7 +1,12 @@
 <h1> Chitter</h1>
+<form action='/peeps/new' method='get'>
+  <input type='submit' value='new peep!'>
+</form>
 
 <ul id="peeps">
   <% @peeps.each do |peep| %>
   <p><%= peep.content %></p>
+  <p><%= peep.user.username %></p>
+  <p><%= peep.time %>
   <% end %>
 </ul>
