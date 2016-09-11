@@ -1,10 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -41,7 +43,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = authd_user.id
       redirect '/'
     else
-      flash.now[:errors] << "Email or password not found"
+      flash.now[:errors] = ["Email or password not found"]
     end
   end
 
