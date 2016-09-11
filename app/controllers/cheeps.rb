@@ -7,10 +7,19 @@ class Chitter < Sinatra::Base
 
   post '/cheeps' do
     user = current_user
-    @cheep = user.cheeps.create(body: params[:body],
-      created_at: Time.now, posted_by: user.name,
-      handle: user.user_name)
-    redirect '/cheeps'
+    if user && !params[:body].empty?
+      @cheep = user.cheeps.create(body: params[:body],
+                                  created_at: Time.now,
+                                  posted_by: user.name,
+                                  handle: user.user_name)
+      redirect '/cheeps'
+    elsif  user && params[:body].empty?
+      flash.now[:errors] = ["Where's your cheep?"]
+      erb :'cheeps/new'
+    else
+      flash.now[:notice] = 'Please sign in or create an account'
+      erb :'cheeps/new'
+    end
   end
 
   get '/cheeps/new' do
