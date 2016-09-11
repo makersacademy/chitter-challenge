@@ -10,7 +10,9 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.user %> wrote: <%= peep.peep %>
+    <h3><b><%= peep.peep %></b><h3>
+    <br><i>(written at <%= peep.time_created %>)</i>
+    <br><br>
     </li>
   <% end %>
 </ul>

@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [:time_created.desc])
     erb :'home'
   end
 
