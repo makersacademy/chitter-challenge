@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    'Hello Chitter!'
+    redirect '/peepsg'
   end
 
   get '/peeps' do
