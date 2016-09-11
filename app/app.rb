@@ -65,7 +65,7 @@ class Chitter < Sinatra::Base
     peeps = Peep.all
     if peeps
       @peeps = peeps
-    end 
+    end
     erb :'/feed'
   end
 
@@ -75,7 +75,7 @@ class Chitter < Sinatra::Base
 
   post '/feed' do
     user = User.first(session[:username])
-    peep = user.peeps.create(comment: params[:comment])
+    peep = Peep.create(comment: params[:comment])
     redirect '/feed'
   end
 
