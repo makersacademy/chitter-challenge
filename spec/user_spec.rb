@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) {User.create(name: "Sara", handle: "sarsar", email: "sar@sara.com", password: "cheese", password_confirmation: "cheese")
+  let(:user) {User.create(name: "Sara",
+     handle: "sarsar", email: "sar@sara.com",
+    password: "cheese", password_confirmation: "cheese")
 }
 
   it 'has a name, handle, email and password + confirmation' do
@@ -17,8 +19,9 @@ describe User do
     expect(User.authenticate("sar@sara.com", "cheese")).to eq user
   end
 
-  xit 'encrypts a password' do
-
+  it 'encrypts a password' do
+    user.reload
+    expect(user.password).not_to be "cheese"
   end
 
 end
