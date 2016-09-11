@@ -6,6 +6,12 @@
 <body>
 <% if current_user %>
 <%= "Welcome #{current_user.name}!" %>
+
+<form action="/users/log-out" method="get">
+  <input type="submit"
+    name="Log out" value="Log out"/>
+</form>
+
 <% else %>
 <form action="/users/new" method="get">
   <input type="submit"
@@ -18,6 +24,7 @@
 </form>
 
 <% end %>
+<%= flash[:notice] %>
 <%= yield %>
 </body>
 </html>

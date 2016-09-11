@@ -8,12 +8,11 @@ feature 'user login' do
 
   scenario 'user visits homepage and logs in' do
     user #keep users in db ?
-  # pending "this won't work exactly until I fix sessions stuff "
     log_in("sar@sara.com", "cheese")
     expect(page).to have_content 'Welcome Sara!'
   end
 
-  scenario 'user logs in with unfound details' do
+  scenario 'user logs in with unfound details and gets flash error' do
     user
     log_in("sam@sammy.com", "cherios")
     expect(page).to have_content 'Email or password not found'

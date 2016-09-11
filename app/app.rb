@@ -47,5 +47,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/log-out' do
+    session.clear
+    flash.keep[:notice] = "Goodbye!"
+    redirect '/'
+  end
+
 
 end
