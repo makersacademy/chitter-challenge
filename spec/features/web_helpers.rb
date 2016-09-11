@@ -22,3 +22,11 @@ def log_out
   visit '/peeps'
   click_button 'Log out'
 end
+
+def peep
+  visit '/'
+  sign_up
+  click_button 'Create a peep'
+  fill_in 'message', with: 'Walter is a girl'
+  click_button 'Create Peep'
+end

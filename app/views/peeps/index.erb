@@ -2,8 +2,10 @@
 <ul id='peeps'>
   <% @peeps.sort_by {|peep| peep.time}.reverse.each do |peep| %>
     <li>
-      Userhandle: <%=  %>
-      Peep: <%= peep.message %>
+      <%= peep.user.username %>
+      Peeped: <%= peep.message %>
+      At: <%= peep.time %>
     </li>
+    </div>
   <% end %>
 </ul>

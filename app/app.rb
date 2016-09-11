@@ -31,9 +31,10 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(:message => params[:message])
-    peep.save
-    redirect '/peeps'
+      peep = Peep.create(message: params[:message], time: Time.now)
+      peep.user = current_user
+      peep.save
+      redirect '/peeps'
   end
 
   get '/users/new' do
@@ -72,7 +73,7 @@ class ChitterChallenge < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'You have logged out'
+    flash.keep[:notice] = 'You have been successfully logged out'
     redirect to '/peeps'
   end
 
