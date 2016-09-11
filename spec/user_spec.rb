@@ -25,8 +25,18 @@ describe User do
     expect(user.password).not_to be "cheese"
   end
 
-  it 'validates password with confirmed password' do
-    expect {register_mismatched_passwords("ss","sam@sammy.com")}.not_to change(User, :count)
+  context 'validation' do
+
+    it 'validates password with confirmed password' do
+      expect {register_mismatched_passwords("ss","sam@sammy.com")}.not_to change(User, :count)
+    end
+
+    it 'validates email and handle are unique in db' do
+      register("sals","Sally@s.com")
+      click_button 'Log out'
+      expect{register("sals","Sally@s.com")}.not_to change(User, :count)
+    end
+
   end
 
 end
