@@ -22,7 +22,9 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(peep: params[:peep], time: Time.now )
+    peep = Peep.new(peep: params[:peep], time: Time.now )
+    peep.user = current_user
+    peep.save
     redirect '/peeps'
   end
 
@@ -42,7 +44,7 @@ class ChitterApp < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps/index'
+      redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'

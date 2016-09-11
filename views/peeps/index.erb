@@ -3,10 +3,11 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
+      Peeped by: @<%= peep.user.username %>
       <br>
-      Peep: <%= peep.peep %>
+      "<%= peep.peep %>"
       <br>
-      Time:   <%= peep.time   %>
+      At: <%= peep.time %>
     </li>
   <% end %>
 </ul>

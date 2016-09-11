@@ -18,3 +18,11 @@ def log_in(email: 'murtz@gmail.com',
   fill_in('password', :with => password)
   click_button('Log in')
 end
+
+def share_peep
+  sign_up
+  log_in
+  click_button 'Share a peep'
+  fill_in('peep', :with => "Hello my chitter peoples")
+  click_button 'Peep'
+end
