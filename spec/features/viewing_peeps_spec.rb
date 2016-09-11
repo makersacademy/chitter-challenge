@@ -8,7 +8,7 @@ feature 'Making Peeps' do
 
   scenario 'peeps shows peepers name, username, message and time' do
     peep_time = Peep.first.created_at
-    expect(page).to have_content("(Chit Ter) @sir_chitter: Hello, World(#{peep_time})")
+    expect(page).to have_content("(Chit Ter) @sir_chitter: Hello, World (#{peep_time.ctime})")
   end
   scenario 'peeps are shown in reverse chronological order' do
     peep('Another peep')
@@ -18,6 +18,6 @@ feature 'Making Peeps' do
     sign_out
     visit '/home'
     peep_time = Peep.first.created_at
-    expect(page).to have_content("(Chit Ter) @sir_chitter: Hello, World(#{peep_time})")
+    expect(page).to have_content("(Chit Ter) @sir_chitter: Hello, World (#{peep_time.ctime})")
   end
 end
