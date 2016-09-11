@@ -10,6 +10,8 @@ class Cheep
   property :posted_by,  String
   property :handle,  String
 
+  validates_presence_of :body
+
 
   belongs_to :user
 

@@ -10,9 +10,9 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
-  # register Sinatra::Partial
-  # set :partial_template_engine, :erb
-  # enable :partial_underscores
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   set :views, File.dirname(__FILE__) + '/views'
 

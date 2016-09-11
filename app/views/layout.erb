@@ -6,26 +6,21 @@
   </head>
   <body>
 
-    <% if current_user %>
-    Welcome, <%=current_user.user_name %>
-    <a href="/sessions/sign_out">sign out</a>
-    <% end %>
-
-
-        <% if flash[:notice] %>
-          <div id="notice"><%= flash[:notice]  %></div>
-        <% end %>
+    <%= partial :welcome %>
+    <%= partial :notices %>
 
     <%= yield %>
 
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul id="errors">
-        <%  flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
+    <%= partial :errors %>
+    <% if current_user == nil %>
+      <div>
+        To start cheeping
+        <a href="/sessions/new">sign in</a>
+        or
+        <a href="/users/new">create user account</a>
       </div>
     <% end %>
+
 
   </body>
 </html>
