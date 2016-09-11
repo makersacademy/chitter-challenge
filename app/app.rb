@@ -28,7 +28,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(peep: params[:peep])
+    peep = Peep.new(time_created: Time.new, peep: params[:peep])
+    peep.user = current_user
+    peep.save
     redirect '/'
   end
 
@@ -56,12 +58,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions/new' do
   user = User.authenticate(params[:username], params[:password])
-  if user
-    session[:user_id] = user.id
-    redirect '/'
-  else
-    redirect '/sessions/new'
-  end
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      redirect '/sessions/new'
+    end
   end
 
   delete '/sessions/end' do

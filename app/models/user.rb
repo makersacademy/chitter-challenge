@@ -2,6 +2,7 @@ require "data_mapper"
 require "dm-postgres-adapter"
 require "bcrypt"
 require "dm-validations"
+require_relative 'peep'
 
 class User
 
@@ -13,6 +14,8 @@ class User
   property :email,           String, required: true, unique: true
   property :password_digest, Text
 
+  has n, :peeps, through: Resource
+  
   attr_reader :password
   attr_accessor :password_confirmation
 

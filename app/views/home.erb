@@ -2,7 +2,7 @@
   <% if @current_user %>
   <form action="/" method="post">
     <label>
-      <input type="text" name="peep" placeholder='send a message!'>
+      <input type="text" name="peep" placeholder='send a message!' required>
     </label>
     <input type='submit' value='peep!'>
   </form>
@@ -10,7 +10,7 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.peep %>
+      <%= peep.user %> wrote: <%= peep.peep %>
     </li>
   <% end %>
 </ul>
