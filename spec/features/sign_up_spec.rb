@@ -10,7 +10,7 @@ feature 'sign up' do
             password_confirmation: 'password1')
 
     expect(User.count).to eq(1)
-    expect(page).to have_current_path("/")
+    expect(page).to have_current_path("/peeps")
   end
 
   scenario 'a user can not sign up without matching passwords' do
@@ -43,7 +43,6 @@ feature 'sign up' do
             password_confirmation: 'password1')
 
     expect(User.count).to eq(1)
-    puts "first one done"
 
     sign_up(email: 'test2@test.com',
             name: 'Test User',

@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'datamapper_setup'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
 
@@ -18,12 +19,26 @@ class Chitter < Sinatra::Base
                     password_digest: params[:password],)
 
     if @user.save
-      redirect '/'
+      session[:user_id] = @user.id
+      redirect '/peeps'
     else
       redirect '/sign_up'
     end
   end
 
+  get '/sign_in' do
+    erb(:sign_in)
+  end
+
+  post '/sign_in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      erb(:sign_in)
+    end
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
