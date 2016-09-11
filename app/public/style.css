@@ -1,6 +1,5 @@
 body {
-  background-color: black ;
-  color: white;
+  background-color: white ;
 }
 
 .nav {
@@ -44,4 +43,37 @@ body {
 .post form {
   margin: 0 auto;
   width: 200px;
+}
+
+.flash {
+  text-align: center;
+  padding: 20px;
+  font-family: Courier;
+  font-size: 1.5em
+}
+
+.peeps-container {
+  background-color: white;
+  color: black;
+  margin: 0 auto;
+  float: none;
+  width: 70%
+}
+
+.peeps-container li {
+  list-style-type: none;
+  padding: 20px;
+  border: 2px solid black ;
+  border-radius: 15px ;
+  margin: 5px;
+}
+
+
+.peep {
+
+}
+
+.peep-time {
+  float: right;
+  font-size: 0.7em;
 }

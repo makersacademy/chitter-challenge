@@ -5,8 +5,10 @@
   </head>
 
   <body>
-    <%= partial :sign_in %>
-    <%= partial :title %>
+    <div class='nav'>
+      <%= partial :sign_in %>
+      <%= partial :title %>
+    </div>
     <%= partial :user_action %>
     <%= partial :flash %>
     <%= yield %>

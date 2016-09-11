@@ -1,15 +1,13 @@
-<div class='nav'>
-  <ul class='nav-bar'>
-    <% if current_user %>
-      <li><form action='/sessions' method='post'>
-            <input type='hidden' name='_method' value='delete'/>
-            <input id='sign_out' type='submit' value='Sign out'/>
-          </form></li>
-      <li> Signed in as <%= current_user.username %> </li>
-    <% else %>
-        <li><form action='/sessions/new'>
-          <input id='sign_in' type='submit' value='Sign In'>
+<ul class='nav-bar'>
+  <% if current_user %>
+    <li><form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'/>
+          <input id='sign_out' type='submit' value='Sign out'/>
         </form></li>
-    <% end %>
-  </ul>
-</div>
+    <li> Signed in as <%= current_user.username %> </li>
+  <% else %>
+      <li><form action='/sessions/new'>
+        <input id='sign_in' type='submit' value='Sign In'>
+      </form></li>
+  <% end %>
+</ul>

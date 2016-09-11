@@ -1,8 +1,10 @@
-<h1>Peeps</h1>
-<ul id='messages'>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.time_created.strftime("%e %b %k:%M") %>  <%= peep.user.username %>  : "<%= peep.message  %>"
-    </li>
-  <% end %>
-</ul>
+<div class='peeps-container'>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li class='message'>
+        <div class='peep'><%= peep.user.username %>  : <%= peep.message  %></div>
+        <div class='peep-time'>Posted at <%= peep.time_created.strftime("%k:%M %e %b") %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
