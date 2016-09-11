@@ -14,9 +14,11 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions/sign_out' do
+  post '/sessions/sign_out' do
     flash[:notice] = "Auf Wiedersehen, goodbye #{current_user.user_name}"
     session[:user_id] = nil
-    redirect '/sessions/new'
+    redirect to('/')
   end
+
+
 end

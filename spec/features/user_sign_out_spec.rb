@@ -13,9 +13,9 @@ feature 'user sign out' do
 
   scenario 'as a logged in user I can sign out' do
     sign_in
-    click_link 'sign out'
+    click_button 'sign out'
     expect(page).to have_content "Auf Wiedersehen, goodbye #{user.user_name}"
-    expect(current_path).to eq '/sessions/new'
+    expect(current_path).to eq '/'
   end
 
 

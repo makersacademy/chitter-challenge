@@ -1,3 +1,40 @@
+
+Chitter
+
+This is a twitter imitation built on the Sinatra framework as part of the Makers Academy Course. PostgreSQL was used for the database, DataMapper as the ORM and BCrypt for password administration.
+
+Install Instructions
+
+The app is deployed at https://chitter-cheeps.herokuapp.com.
+
+To install to a local machine: $ git clone https://github.com/tansaku/chitter_challenge
+$ bundle
+$ rake db:setup
+$ rake db:auto_migrate
+$ rspec
+$ rackup
+
+Usage Instructions
+
+Once deployed you can visit the homepage at localhost:9292
+
+Where you will be able to sign up, sign in or just view the latest cheeps.
+![Screenshot](http://imgur.com/mMFg4Xs)
+
+Make your own cheeps:
+
+![Screenshot](http://imgur.com/w6xRckO)
+
+View all cheeps:
+
+![Screenshot](http://imgur.com/988lndL)
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
@@ -77,7 +114,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +132,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +142,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
