@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/signup' do
+  get '/users/signup' do
     @user = User.new
     erb(:'users/signup')
   end
@@ -36,7 +36,7 @@ class Chitter < Sinatra::Base
       redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb(:'users/sign_up')
+      erb(:'users/signup')
     end
   end
 

@@ -7,8 +7,8 @@
 
 <body>
 
-  <% if current_user %>
-    <h1> Lookin' good <%= current_user.username %>
+  <% if @current_user %>
+    <h1> Lookin' good <%= @current_user.username %>
   <% end %>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
