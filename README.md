@@ -1,6 +1,7 @@
 Chitter Challenge
 =================
 
+This weekend challenge is to build a Twitter clone.
 
 User Stories Delivered:
 -------
@@ -31,8 +32,23 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+Technologies Used
+---
+* Ruby
+* Sinatra (Flash, Partials)
+* Rspec / Capybara
+* Data Mapper
+* BCrypt
+* Postgres
+
+Installation Instructions
 ------
+To get it up and running locally:
+
+* Fork & clone the repo
+* Run `bundle` (and `gem install bundler` if you don't have bundle)
+* Setup a 
+
 
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 * Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
