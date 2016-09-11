@@ -9,10 +9,18 @@ feature 'sign up' do
     expect(User.first.email).to eq('test@test.com')
   end
 
+  scenario 'does not add user when no email is entered' do
+    expect {no_email_sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Email must not be blank')
+  end
+
   scenario 'does not add user when email is invalid' do
     expect {invalid_email_sign_up}.not_to change(User, :count)
     expect(page.status_code).to eq(200)
     expect(current_path).to eq '/users'
     expect(page).to have_content('Email has an invalid format')
   end
+
 end
