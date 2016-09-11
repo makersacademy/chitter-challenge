@@ -10,6 +10,7 @@ group :test do
   gem 'database_cleaner'
   gem 'pg'
   gem 'rake'
+  gem 'bcrypt'
   gem 'coveralls', require: false
 
 end
