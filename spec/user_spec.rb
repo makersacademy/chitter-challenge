@@ -37,6 +37,11 @@ describe User do
       expect{register("sals","Sally@s.com")}.not_to change(User, :count)
     end
 
+    it 'validates an email is given' do
+      expect{register("sals",nil)}.not_to change(User, :count)
+    end
+
+
   end
 
 end

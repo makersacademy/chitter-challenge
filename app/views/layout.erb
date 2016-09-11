@@ -24,7 +24,10 @@
 </form>
 
 <% end %>
+
 <%= flash[:notice] %>
+<%= @errors.each do |error| "#{error}" end if @errors%>
+
 <%= yield %>
 </body>
 </html>
