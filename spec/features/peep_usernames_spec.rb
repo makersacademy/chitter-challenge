@@ -12,7 +12,7 @@ feature "Showing peep usernames" do
     expect(page).to have_content 'Peeped by: @mrmurtz'
   end
 
-  scenario 'The peeps page displays peeps from different users' do
+  scenario "The peeps page displays peeps from different users" do
   share_peep
   click_button 'Log out'
   log_in(email: 'theiry@gmail.com',
