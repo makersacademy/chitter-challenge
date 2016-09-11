@@ -7,12 +7,12 @@ Welcome to PrestoPronto. This is a twitter imitation built on the Sinatra framew
 The app is deployed at http://www.prestopronto.herokuapp.com.
 
 To install to a local machine:
-$ git clone https://github.com/tansaku/chitter_challenge
-$ bundle
-$ rake db:setup
-$ rake db:auto_migrate
-$ rspec
-$ rackup
+$ git clone https://github.com/tansaku/chitter_challenge   
+$ bundle   
+$ rake db:setup   
+$ rake db:auto_migrate   
+$ rspec   
+$ rackup   
 
 ## Usage Instructions
 
