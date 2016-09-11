@@ -1,15 +1,16 @@
 <html>
   <head>
-    <title>Chitter!</title>
+    <title>Chitter</title>
   </head>
 
   <body>
     <h1> Chitter! </h1>
 
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
     <%= yield %>
   </body>
 
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
 </html>

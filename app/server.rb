@@ -1,3 +1,5 @@
+require_relative './helpers'
+
 class Chitter < Sinatra::Base
 
   set :session_secret, 'super secret'
@@ -7,5 +9,7 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
   register Sinatra::Partial
+
+  helpers Helpers
 
 end

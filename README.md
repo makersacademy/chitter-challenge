@@ -6,16 +6,16 @@ How to use this app
 * Play around with the heroku web version
 
 ###Local Version:
-* Fork this repo
-* Clone it down in order to have a local version
+* Clone this repo down in order to have a local version
 * Create a pair of local postgres database by running these commands:
 ```
 *psql* --> launch postgresql from the command line
 *create database "chitter_test"* --> create a database for your test environment
 *create database "chitter_development"* --> create a database for your development environment
 ```
+* Run "rake db:auto_migrate" to ensure the database tables have the correct fields
 * Run "bundle" to ensure all gems are installed
-* Run "rackup" to play around with a local version of the app
+* Run "rackup" and go to the local host given to play around with a local version of the app
 
 User Stories:
 -------
