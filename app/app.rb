@@ -64,5 +64,13 @@ class Chitter < Sinatra::Base
     erb :'/feed'
   end
 
+  post '/feed/post' do
+    erb :'/feed/post'
+  end
+
+  post '/feed' do
+    redirect '/feed'
+  end
+
   run! if app_file == $0
 end
