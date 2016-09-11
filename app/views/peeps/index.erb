@@ -6,5 +6,6 @@
     <li>
       <%= peep.author %> peeped:
       <b><%= peep.peep %></b>
+      at <%= peep.time.strftime("%H:%M") %>
     </li>
     <% end %>

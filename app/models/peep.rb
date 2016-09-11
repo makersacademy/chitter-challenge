@@ -7,5 +7,6 @@ class Peep
   property :id, Serial
   property :peep, String
   property :author, String
+  property :time, Time
 
-end 
+end

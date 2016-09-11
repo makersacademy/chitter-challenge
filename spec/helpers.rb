@@ -18,4 +18,10 @@ module Helpers
 
     click_button ('Log in')
   end
+
+  def peep
+    visit '/peeps/new'
+    fill_in('peep', :with => 'Hello!')
+    click_button('Peep!')
+  end
 end

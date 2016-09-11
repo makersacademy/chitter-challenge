@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    redirect '/peepsg'
+    redirect '/peeps'
   end
 
   get '/peeps' do
@@ -66,7 +66,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     user = User.get(session[:user_id])
-    peep = Peep.create(peep: params[:peep], author: user.username)
+    peep = Peep.create(peep: params[:peep], author: user.username,
+                       time: Time.now.strftime("%H:%M"))
     peep.save
     redirect '/peeps'
   end
