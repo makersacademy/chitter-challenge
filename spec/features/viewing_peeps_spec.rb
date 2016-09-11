@@ -8,20 +8,24 @@ feature 'viewing peeps' do
                 password: 'christmas', password_confirmation: 'christmas')
   end
 
-  # scenario 'users can see peeps in reverse chronological order even when not logged in' do
-  #   visit '/'
-  #   # expect(page.find('li:nth-child(1)')).to have_content('Ho ho ho!')
-  #   # expect(page.find('li:nth-child(2)')).to have_content('Counting down until Christmas!')
-  #   # expect(page.body.index('Ho ho ho!')).to be < page.body.index('Counting down until Christmas!')
+  let!(:peep) do
+    Peep.create(message: 'Counting down until Christmas!', time_created: Time.new, user: user)
+  end
+  # before do
+  #   sign_in('santaclaus', 'christmas')
+  #   add_peep('Ho ho ho!')
+  #   add_peep('Christmas is coming!')
+  #   sign_out
   # end
   #
-  # scenario 'users can view peep time stamps' do
+  # scenario 'users can see peeps in reverse chronological order even when not logged in' do
   #   visit '/'
-  #   Peep.create(message: 'Counting down until Christmas!' , time_created: Time.new, user: user)
-  #   Peep.create(message: 'Ho ho ho!' , time_created: Time.new,  user: user)
-  #   within 'ul#messages' do
-  #     expect(page).to have_content Time.new.strftime("%e %b %k:%M")
-  #   end
+  #   expect('Ho ho ho!').to appear_before('Christmas is coming!')
   # end
+
+  scenario 'users can view peep time stamps' do
+    visit '/'
+    expect(page).to have_content(peep.time_created.strftime("%k:%M %e %b"))
+  end
 
 end

@@ -15,9 +15,7 @@ feature 'posting peeps/messages' do
   scenario 'user can post a peep' do
     add_peep('Counting down until Christmas!')
     expect(user.peeps.map(&:message)).to include('Counting down until Christmas!')
-    within 'ul#messages' do
-      expect(page).to have_content 'Counting down until Christmas!'
-    end
+    expect(page).to have_content 'Counting down until Christmas!'
   end
 
   scenario 'user cannot post peep unless signed in' do
