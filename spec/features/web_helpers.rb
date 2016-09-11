@@ -53,3 +53,9 @@ def new_peep
   fill_in('content', with: "Hello world, what a wonderful day! To infinity and beyond!")
   click_button("Peep")
 end
+
+def a_different_peep
+  visit '/peep/new'
+  fill_in('content', with: "Perfect peeps are for perfect people")
+  click_button("Peep")
+end

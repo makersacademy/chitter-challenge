@@ -14,8 +14,14 @@ describe User do
       expect(logged_in_user).to eq nil
     end
 
-
   end
 
+  describe '#password' do
+
+    it 'should set an encrypted password for a user' do
+      expect(test_user.password_digest).to_not be nil
+    end
+
+  end
 
 end
