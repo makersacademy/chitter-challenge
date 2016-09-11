@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -22,7 +23,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all
     erb :'home'
+  end
+
+  post '/' do
+    Peep.create(peep: params[:peep])
+    redirect '/'
   end
 
   get '/users/new' do

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative 'web_helper'
+require 'web_helper'
 
 feature 'sign up' do
   scenario 'adds user to database' do
