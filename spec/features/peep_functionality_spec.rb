@@ -1,22 +1,29 @@
 require 'spec_helper'
 
 feature 'Feature - Peep can be peeped' do
-  scenario 'user logged in and can peep' do
+
+  before do
     sign_up
+  end
+
+  scenario 'user cannot peep if not logged in' do
+    sign_out
+    expect(page).not_to have_button 'Peep'
+  end
+
+  scenario 'user logged in and can peep' do
+    make_peep
     user = User.first
-    click_button 'Peep'
-    expect(current_path).to eq '/peeps/new'
-    fill_in :message, with: 'A message'
-    click_button 'Peep this'
     expect(user.peeps.size).to eq 1
     expect(user.peeps.map(&:message)).to include('A message')
     peep = Peep.first
     expect(peep.user).to eq user
   end
 
-  scenario 'user cannot peep if not logged in' do
-    sign_up
-    sign_out
-    expect(page).not_to have_button 'Peep'
+
+  scenario 'user\'s peeps are displayed on homepage' do
+    make_peep
+    expect(current_path).to eq '/'
+    expect(page).to have_content 'Ral @Ral: A message'
   end
 end

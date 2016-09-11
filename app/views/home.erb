@@ -10,8 +10,15 @@
   <form action='/peeps/new' method='get' >
     <input type='submit' value='Peep'>
   </form>
+
 <% else %>
   <form action='/sessions/new' method='get' >
     <input type='submit' value='Sign in'>
   </form>
 <% end %>
+
+<h1> Current Peeps </h1>
+
+<% @peeps.each do |peep| %>
+    <%= peep.user.name %> @<%= peep.user.username %>: <%= peep.message %>
+  <% end %>
