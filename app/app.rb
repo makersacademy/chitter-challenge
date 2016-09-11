@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -56,6 +57,17 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = "Thank you and see you soon!"
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    user = User.get(session[:user_id])
+    peep = Peep.create(peep: params[:peep], author: user.username)
+    peep.save
     redirect '/peeps'
   end
 
