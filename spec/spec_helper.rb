@@ -13,8 +13,8 @@ require 'coveralls'
 require 'simplecov'
 
 require './app/app'
-# require './app/models/users'
 
+require_relative 'web_helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
