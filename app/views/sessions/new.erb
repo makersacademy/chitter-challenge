@@ -1,0 +1,14 @@
+<h1>Welcome to Chitter!</h1>
+
+<h2>If you are an existing user, please sign in with your Username and Password below:</h2>
+
+<form action='/sessions' method='post'>
+  <label for='username'>
+    Username:
+    <input id="username" type="text" placeholder="Username" name="username" required>
+  </label>
+  <label for='password'>
+    Password:
+    <input id="password" type="password" placeholder="Password" name="password" required>
+  </label>
+  <input type='submit' value='Log in'>

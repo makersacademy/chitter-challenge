@@ -1,21 +1,10 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Introduction
+------------
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+The fourth weekend challenge at Makers Academy was called Chitter and the task was basically to build a twitter clone with the following user stories implemented.
 
 ```
 As a Maker
@@ -42,67 +31,77 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+Currently, all of the user stories have been implemented except the last two.
 
-Notes on functionality:
+Instructions
+------------
+
+The instructions below guide you on how to clone repo to run the program.
+I did try deploying to heroku, but had a few errors and am looking to rectify
+this soon, as for now to view the program in action follow the instructions
+below. This guide does assume you have psql installed, if you don't head over
+[here.](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/)
+
+```
+$ #We first need a local database for both test and development.
+$ create database chitter_development
+$ create database chitter_test
+
+$ git clone https://github.com/jameshamann/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ # once all gems are installed, launch the application:
+$ rackup #navigate to localhost9292
+$ coveralls report #to view all test coverage information
+```
+
+When using the site, there are no direct link buttons to take you to different
+pages, therefore if you wish to visit certain pages refer to the list below and
+add the snippet to your URL.
+
+- '/peeps' - Shows all peeps as well as the authors and corresponding timestamp
+- '/peeps/new' - Add new peeps
+- '/users/new' - Adding new users
+- 'sessions/new' - Logging in as an existing user
+
+Technologies used
+-----------------
+
+- Ruby
+- RSpec
+- Capybara
+- Sinatra
+- PostgreSQL
+- Coveralls
+
+Test Coverage
+-------------
+
+The screenshot below displays the test coverage.
+
+![Imgur](http://i.imgur.com/ornS6bZ.png)
+
+
+Example
+-------
+
+The screenshot below highlights the '/peeps' page with a few users having
+added peeps, to show what the main page would look like. The current logged in
+user is "Test".
+
+![Imgur](http://i.imgur.com/OP7aE0l.png)
+
+
+Future Considerations
+---------------------
+
+Given more time I would look to work on the style of the site and improve this
+using some CSS to make the appearance more appealing. I would also look to make
+site navigation easier, by adding either a navigation bar or navigation
+buttons to allow users to easily explore the site without having to hard type
+the URL.
+
+Author
 ------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+James Hamann - https://github.com/jameshamann
