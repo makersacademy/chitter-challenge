@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './spec/helpers/session'
+require './spec/helpers/peep'
 require 'coveralls'
 require 'simplecov'
 
@@ -40,6 +41,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include SessionHelpers
+  config.include PeepHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

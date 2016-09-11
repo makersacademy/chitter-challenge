@@ -2,11 +2,8 @@ require "spec_helper"
 
 feature "Add peep" do
   scenario "logged in user can add a peep that is stored in db" do
-    sign_up
-    click_button "Log out"
-    log_in
-    fill_in :peepbox, with: "My first peep, hurray!"
-    click_button "Peep"
+    login_and_peep_chitter1
+    click_link "All peeps"
 
     expect(current_path).to eq "/peeps"
     expect(Peep.first.peeptext).to eq "My first peep, hurray!"
@@ -27,17 +24,39 @@ end
 
 feature "Show peeps" do
   scenario "users' peeps are visible with username and creation date" do
-    sign_up
-    click_button "Log out"
-    log_in
-    fill_in :peepbox, with: "My first peep, hurray!"
-    click_button "Peep"
+    login_and_peep_chitter1
+    click_link "All peeps"
 
     expect(current_path).to eq "/peeps"
     within "div#peeps" do
       expect(page).to have_content("My first peep, hurray!")
       expect(page).to have_content(Peep.first.created_at.strftime("%c"))
       expect(page).to have_content("chitter1")
+    end
+  end
+
+  # scenario "users peeps are visible in reverse chronological order" do
+  #   login_and_peep_chitter1
+  #   click_button "Log out"
+  #   login_and_peep_chitter2
+  #   click_link "All peeps"
+  #
+  #   within "div#peeps" do
+  #     expect(page).to have_content(
+  #       "chitter7")
+  #   end
+  # end
+
+  scenario "user can see his/her own peeps at my peeps" do
+    login_and_peep_chitter1
+    click_button "Log out"
+    login_and_peep_chitter2
+    click_link "My peeps"
+
+    expect(current_path).to eq "/peeps/my"
+    within "div#peeps" do
+      expect(page).not_to have_content("My first peep, hurray!")
+      expect(page).to have_content("Another peep")
     end
   end
 end

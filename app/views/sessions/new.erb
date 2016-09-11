@@ -1,13 +1,13 @@
-<h1>Log in</h1>
+<h2>Log in</h2>
 
-<form action="/sessions" method="post">
-  <label for="email">
-    Email:
-    <input type="email" name="email" required/>
-  </label>
-  <label for="password">
-    Password:
-    <input type="password" name="password"/>
-  </label>
-  <input type="submit" value="Log in">
+<form class="form-inline" action="/sessions" method="post">
+  <div class="form-group">
+    <label class="sr-only" for="email">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Log in</button>
 </form>

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "User sign up" do
   scenario "user can sign up with valid data" do
     sign_up
-    expect(page).to have_content("Welcome, John Smith")
+    expect(page).to have_content("Logged in: chitter1")
     expect(current_path).to eq "/peeps"
   end
 
@@ -76,7 +76,7 @@ feature "User log in" do
   scenario "user can sign in with valid credentials and see a welcome message" do
     sign_up
     log_in
-    expect(page).to have_content("Welcome, John Smith")
+    expect(page).to have_content("Logged in: chitter1")
     expect(current_path).to eq "/peeps"
   end
 

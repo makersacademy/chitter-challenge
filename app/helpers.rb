@@ -8,5 +8,10 @@ module Helpers
     datetime.strftime("%c")
   end
 
+  def peeps_latest_first(peeps)
+    # p Peep.all
+    peeps.sort {|peep1, peep2| peep2.created_at <=> peep1.created_at}
+    # Peep.all.sort {|peep1.created_at, peep2.created_at| peep2.created_at <=> peep1.created_at}
+  end
 
 end

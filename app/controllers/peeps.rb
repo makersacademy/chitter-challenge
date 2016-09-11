@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/peeps" do
-    @peeps = Peep.all
+    @peeps = peeps_latest_first(Peep.all)
     erb :"peeps/index"
   end
 
@@ -19,5 +19,11 @@ class Chitter < Sinatra::Base
       flash[:errors] = ["You need to log in to peep"]
       redirect "/peeps"
     end
+  end
+
+  get "/peeps/my" do
+    peeps = Peep.all.select {|peep| peep.user.username == current_user.username}
+    @peeps = peeps_latest_first(peeps)
+    erb :"peeps/index"
   end
 end
