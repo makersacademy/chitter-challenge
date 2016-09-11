@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
   register
 
   get '/' do
+    @user = $user
     erb :'/users/index'
   end
 
@@ -14,8 +15,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = {name: params[:name], handle: params[:handle], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]}
+    $user = User.create(name: params[:name], handle: params[:handle], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = $user
     erb :'/users/welcome'
+  end
+
+  get '/users/log-in' do
+    erb :'/users/log_in'
   end
 
 

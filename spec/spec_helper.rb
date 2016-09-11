@@ -17,7 +17,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative 'features/web_helpers'
+require_relative 'support/web_helpers'
 require_relative '../app/models/user'
 
 Capybara.app = Chitter
@@ -41,6 +41,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include TamsHelper
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
