@@ -1,0 +1,9 @@
+<h3><b>List of peeps:</b></h3>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    From: <%= peep.users.name %>, posted on <%= peep.created_at.strftime('%A, %d %b %Y %l:%M %p') %><br>
+    <%= peep.peep %>
+  </li>
+  <% end %>
+</ul>

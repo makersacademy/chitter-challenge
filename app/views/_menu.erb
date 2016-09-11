@@ -1,0 +1,7 @@
+<% if current_user %>
+Welcome, <%= current_user.name %>
+<a href="/peeps/new">Add a peep</a>, <a href="/users/signout">Sign out</a>
+<% else %>
+You're not logged in.
+<a href="/users/signup">Sign up</a> or <a href="/users/signin">Sign in</a>
+<% end %>
