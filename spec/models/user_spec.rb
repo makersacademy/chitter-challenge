@@ -9,8 +9,14 @@ describe User do
               end
 
   context '#authenticate' do
-    it 'fails authentication if username not known' do
+    it 'fails authentication if email not known' do
       expect(User.authenticate('none@allott.com','my_password')).to eq false
+    end
+    it 'fails authentication if password not correct' do
+      expect(User.authenticate('rosie@allott.com','not_my_password')).to eq false
+    end
+    it 'passes authentication if email and password correct' do
+      expect(User.authenticate('rosie@allott.com','my_password')).to eq user
     end
   end
 end
