@@ -62,8 +62,12 @@ feature 'sign up' do
 
 end
 
-# feature 'sign in' do
-#   scenario 'users with accounts can sign in' do
-#
-#   end
-# end
+feature 'sign in' do
+  scenario 'users with accounts can sign in' do
+    sign_up
+    sign_in
+    expect(page.status_code).to eq(200)
+    expect(page).to have_content 'You are currently signed in as New User'
+    expect(current_path).to eq '/'
+  end
+end

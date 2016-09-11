@@ -54,7 +54,9 @@ def not_matching_passwords_sign_up
   click_button('sign up')
 end
 
-# def sign_in
-#   visit '/sessions/new'
-#   fill
-# end
+def sign_in
+  visit '/sessions/new'
+  fill_in(:username, with: 'newuser')
+  fill_in(:password, with: 'password')
+  click_button('sign in')
+end

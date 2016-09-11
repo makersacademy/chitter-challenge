@@ -43,6 +43,20 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions/new' do
+  user = User.authenticate(params[:username], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    redirect '/sessions/new'
+  end
+end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
