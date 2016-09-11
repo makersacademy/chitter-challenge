@@ -1,3 +1,5 @@
+
+
 def sign_up(email: 'dennis@themenace.ha', password: 'gnasher',
             password_confirmation: 'gnasher')
   visit '/users/new'
@@ -11,7 +13,7 @@ end
 
 def log_in
   visit '/users/log-in'
-  fill_in :email, with: email
-  fill_in :password, with: password
+  fill_in :email, with: 'dennis@themenace.ha'
+  fill_in :password, with: 'gnasher'
   click_button 'Log in'
 end
