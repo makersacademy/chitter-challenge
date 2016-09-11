@@ -9,6 +9,7 @@ class Peep
 
   property :id, Serial
   property :comment, String
+  property :created_at, Time
 
   has 1, :user, through: Resource
 

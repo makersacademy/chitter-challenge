@@ -75,7 +75,7 @@ class Chitter < Sinatra::Base
 
   post '/feed' do
     user = User.first(session[:username])
-    peep = Peep.create(comment: params[:comment])
+    peep = Peep.create(comment: params[:textbox])
     redirect '/feed'
   end
 

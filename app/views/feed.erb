@@ -1,6 +1,10 @@
 <h1> Chitter feed </h1>
 
-<%= @user_name %>
+<li>
+  <% if current_user %>
+  <%= current_user.username %>
+  <% end %>
+</li>
 <ul id='peeps'>
  <% @peeps.each do |peep| %>
   <li>
