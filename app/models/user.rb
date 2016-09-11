@@ -8,8 +8,6 @@ class User
 
   include DataMapper::Resource
 
-  has n, :peep, through: Resource
-
   property :id,               Serial
   property :name,             String
   property :email,            String, unique: true

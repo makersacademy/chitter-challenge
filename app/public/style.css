@@ -50,7 +50,11 @@ body {
 #main-content {
   color: #295c89;
   padding-top: 100px;
+}
+
+li {
   text-align: center;
+  margin: 30px 0;
 }
 
 .buttons {
@@ -70,6 +74,7 @@ body {
   cursor: pointer;
 }
 
-li {
+.new_peep {
+  text-align: center;
   margin: 30px 0;
 }

@@ -22,7 +22,7 @@ feature 'Add peep' do
 
   scenario 'a user cannot peep unless they are logged in' do
     visit '/'
-    click_button('New peep')
+    click_button('new peep')
     expect(current_path).to eq '/peeps'
     expect(page).to have_content 'log in to peep!'
   end

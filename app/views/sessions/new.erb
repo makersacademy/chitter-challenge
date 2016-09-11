@@ -1,15 +1,13 @@
-<h3>Sign in<h3>
-
 <form action='/sessions' method='post'>
   <div>
-    <label for='email'>Email: </label>
-    <input type='email' name='email' value='<%= "#{flash[:email]}" %>'required >
+    <label for='email'>email: </label>
+    <input type='email' name='email' required >
   </div>
   <div>
-    <label for='password'>Password: </label>
+    <label for='password'>password: </label>
     <input type='password' name='password' required >
   </div>
   <br>
   <div class='button'>
-    <button type='submit'>Log in</button>
+    <button type='submit'>sign in</button>
 </form>
