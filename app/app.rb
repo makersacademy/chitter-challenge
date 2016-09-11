@@ -30,14 +30,11 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-      peep = Peep.create(message: params[:message], time: Time.now)
-      peep.user = current_user
-      peep.save
-      redirect '/peeps'
+    peep = Peep.new(message: params[:message], time: Time.now)
+    peep.user = current_user
+    peep.save
+    redirect '/peeps'
   end
-
-
-
 
   get '/users/new' do
     @user = User.new

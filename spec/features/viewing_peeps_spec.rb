@@ -30,8 +30,4 @@ feature 'Viewing peeps' do
     end
   end
 
-  
-
-
-
 end
