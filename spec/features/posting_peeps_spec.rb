@@ -18,7 +18,7 @@ feature 'posting a peep' do
     #will want a test that checks that the username has come up
   end
 
-  scenario 'peep is saved to feed timeline' do
+  scenario 'peep is posted to feed timeline' do
     visit '/sessions/new'
     fill_in('email', with: 'alfie@gmail.com')
     fill_in('password', with: 'coding')
@@ -28,4 +28,15 @@ feature 'posting a peep' do
     click_button 'Post!'
     expect(page).to have_content("This is my first peep")
   end
+
+  scenario 'peep is actually saved to correct user' do
+    visit '/sessions/new'
+    fill_in('email', with: 'alfie@gmail.com')
+    fill_in('password', with: 'coding')
+    click_button 'Sign in'
+    click_button 'Post a peep!'
+    fill_in('textbox', with: 'This is my first peep')
+    expect{click_button 'Post!'}.to change(Peep, :count).by(1)
+  end
+
 end

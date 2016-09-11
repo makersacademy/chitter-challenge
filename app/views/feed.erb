@@ -1,5 +1,14 @@
 <h1> Chitter feed </h1>
 
+<%= @user_name %>
+<ul id='peeps'>
+ <% @peeps.each do |peep| %>
+  <li>
+    Comment: <%= peep.comment %>
+  </li>
+  <% end %>
+</ul>
+
 <div>
 <form action="/sessions/end" method="post">
   <input type="submit" value="Sign out"/>

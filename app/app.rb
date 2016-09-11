@@ -61,6 +61,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @user_name = session[:username]
+    peeps = Peep.all
+    if peeps
+      @peeps = peeps
+    end 
     erb :'/feed'
   end
 
@@ -69,6 +74,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
+    user = User.first(session[:username])
+    peep = user.peeps.create(comment: params[:comment])
     redirect '/feed'
   end
 
