@@ -4,20 +4,34 @@
 
 
   <label>
-    Name: <input type="text" name="name" >
+    <input type="text" name="name" value='<%= @user.name %>' placeholder='name'>
   </label>
 
-  <label>
-    Email: <input type="email" name="email" value='<%= @user.email %>' required >
-  </label>
+  <br><br>
 
   <label>
-    Password: <input type="password" name="password" required >
+    <input type="text" name="username" value='<%= @user.username %>' placeholder='username' required>
   </label>
 
+  <br><br>
+
   <label>
-    Confirm password: <input type="password" name="password_confirmation" >
+    <input type="email" name="email" value='<%= @user.email %>' placeholder='email address' required >
   </label>
+
+  <br><br>
+
+  <label>
+    <input type="password" name="password" placeholder='password' required >
+  </label>
+
+  <br><br>
+
+  <label>
+    <input type="password" name="password_confirmation" placeholder='confirm password'>
+  </label>
+
+  <br><br>
 
   <input type='submit' value='sign up'>
 

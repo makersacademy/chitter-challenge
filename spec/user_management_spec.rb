@@ -9,6 +9,21 @@ feature 'sign up' do
     expect(User.first.email).to eq('test@test.com')
   end
 
+  scenario 'does not add user when no username is entered' do
+    expect {no_username_sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Username must not be blank')
+  end
+
+  scenario 'does not add user when user is already taken' do
+    sign_up
+    expect {sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Username is already taken')
+  end
+
   scenario 'does not add user when no email is entered' do
     expect {no_email_sign_up}.not_to change(User, :count)
     expect(page.status_code).to eq(200)
@@ -38,4 +53,17 @@ feature 'sign up' do
     expect(page).to have_content('Password must not be blank')
   end
 
+  scenario 'does not add user when passwords do not match' do
+    expect {not_matching_passwords_sign_up}.not_to change(User, :count)
+    expect(page.status_code).to eq(200)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content('Password does not match the confirmation')
+  end
+
 end
+
+# feature 'sign in' do
+#   scenario 'users with accounts can sign in' do
+#
+#   end
+# end
