@@ -16,6 +16,9 @@ class User
   validates_confirmation_of :password, required: true
 
   def self.authenticate(email, password)
+    user = first(email: email)
+    db_pw = Password.new(user.password)
+    user if user && db_pw == password
   end
 
 end

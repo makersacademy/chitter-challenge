@@ -15,7 +15,8 @@ describe User do
     expect(User.first.email).to eq('sam@sammy.com')
   end
 
-  xit 'authenticates a user who logs in' do
+  it 'authenticates a user who logs in' do
+    user
     expect(User.authenticate("sar@sara.com", "cheese")).to eq user
   end
 

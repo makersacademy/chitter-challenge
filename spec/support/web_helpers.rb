@@ -34,7 +34,7 @@ def log_in(email, password)
   expect(page).to have_current_path '/users/log-in', only_path: true
   fill_in :email, with: email
   fill_in :password, with: password
-  click_button 'Log in'
+  click_button 'Enter'
   expect(page.status_code).to eq 200
 end
 
