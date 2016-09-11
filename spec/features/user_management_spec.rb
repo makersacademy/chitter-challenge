@@ -1,6 +1,9 @@
 require 'spec_helper'
+require './app/models/user'
 
 feature 'User sign up' do
+
+  subject(:user) { described_class.new }
 
   scenario 'I can sign up as a new user' do
     expect { sign_up }. to change(User, :count).by(1)
