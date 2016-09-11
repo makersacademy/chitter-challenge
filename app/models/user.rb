@@ -1,6 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-
 class User
   include DataMapper::Resource
 
@@ -15,7 +12,3 @@ class User
   end
 
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_development")
-DataMapper.finalize
-DataMapper.auto_upgrade!

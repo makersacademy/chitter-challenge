@@ -10,7 +10,7 @@ describe User do
 
   it 'creates a user upon registration' do
     expect {register("ss","sam@sammy.com")}.to change(User, :count).by(1)
-    expect(User.first.email).to eq('')
+    expect(User.first.email).to eq('sam@sammy.com')
   end
 
   xit 'authenticates a user who logs in' do

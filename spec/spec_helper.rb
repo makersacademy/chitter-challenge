@@ -17,6 +17,7 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'database_cleaner'
 require_relative 'support/web_helpers'
 require_relative '../app/models/user'
 
@@ -42,6 +43,21 @@ Capybara.app = Chitter
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include TamsHelper
+
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
