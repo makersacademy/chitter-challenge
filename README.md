@@ -1,21 +1,37 @@
-Installation Instructions should be in README
+# PrestoPronto
 
-Particularly now that we have a database involved, it becomes even more important to ensure that correct installation instructions are included in your readme so that other developers (and yourself in the future) know how to get set up with the application, e.g.
+Welcome to PrestoPronto. This is a twitter imitation built on the Sinatra framework as part of the Makers Academy Course. Sinatra-Bootstrap was used for styling, PostgreSQL for the database, DataMapper as the ORM and BCrypt for password administration.
 
+## Install Instructions
+
+The app is deployed at http://www.prestopronto.herokuapp.com.
+
+To install to a local machine:
 $ git clone https://github.com/tansaku/chitter_challenge
 $ bundle
-$ createdb chitter_development
-$ rake auto_migrate
+$ rake db:setup
+$ rake db:auto_migrate
 $ rspec
 $ rackup
-And as we saw in previous weeks you'll want to have screenshots of how the app works, or perhaps even a link to the deployed version on heroku?
 
-For more info on embedding images in a README: https://guides.github.com/features/mastering-markdown/
+## Usage Instructions
 
-e.g.:
+Once deployed you can visit the homepage at localhost:9292   
 
-![Screenshot](https://path_to_your_image)
-You will need to host your images somewhere, e.g.:
+![Screenshot](https://dl.dropboxusercontent.com/u/19916786/home.png)
 
-http://imgur.com/
-http://dropbox.com/
+Where you will be able to sign up:
+
+![Screenshot](https://dl.dropboxusercontent.com/u/19916786/sign_up.png)
+
+Once you have signed up you can see existing peeps:
+
+![Screenshot](https://dl.dropboxusercontent.com/u/19916786/peeps.png)
+
+Make your own peeps:
+
+![Screenshot](https://dl.dropboxusercontent.com/u/19916786/make_peep.png)
+
+And reply to others:
+
+![Screenshot](https://dl.dropboxusercontent.com/u/19916786/comment.png)
