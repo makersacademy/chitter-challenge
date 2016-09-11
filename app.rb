@@ -53,6 +53,12 @@ class ChitterApp < Sinatra::Base
     erb :timeline
   end
 
+  post '/logout' do
+    session[:user_id] = nil
+    flash[:logout] = 'See you again soon'
+    redirect '/timeline'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

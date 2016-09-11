@@ -7,8 +7,19 @@
   </head>
   <body>
 
-    <%= yield %>
+    <% if current_user %>
+      Welcome <%= current_user.username %>
+      <form action="/logout" method="post">
+        <input type="submit" value="Log out">
+      </form>
+    <% end %>
 
+    <% if flash[:logout] %>
+      <%= flash[:logout] %>
+    <% end %>
+    <br>
+
+    <%= yield %>
 
   </body>
 </html>
