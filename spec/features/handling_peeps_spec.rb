@@ -3,7 +3,7 @@ require "spec_helper"
 feature "Add peep" do
   scenario "logged in user can add a peep that is stored in db" do
     login_and_peep_chitter1
-    click_link "All peeps"
+    click_link "Home"
 
     expect(current_path).to eq "/peeps"
     expect(Peep.first.peeptext).to eq "My first peep, hurray!"
@@ -25,12 +25,12 @@ end
 feature "Show peeps" do
   scenario "users' peeps are visible with username and creation date" do
     login_and_peep_chitter1
-    click_link "All peeps"
+    click_link "Home"
 
     expect(current_path).to eq "/peeps"
     within "div#peeps" do
       expect(page).to have_content("My first peep, hurray!")
-      expect(page).to have_content(Peep.first.created_at.strftime("%c"))
+      expect(page).to have_content(Peep.first.created_at.strftime("%R %a %D"))
       expect(page).to have_content("chitter1")
     end
   end
@@ -42,11 +42,11 @@ feature "Show peeps" do
 
     Timecop.travel(60*60) do
       login_and_peep_chitter2
-      click_link "All peeps"
+      click_link "Home"
 
       within "div#peeps" do
         expect(page).to have_content(
-        "Thu Sep 1 11:10:10 2016 chitter2 Another peep Thu Sep 1 10:10:10 2016 chitter1")
+        "11:10 Thu 09/01/16 chitter2 Another peep 10:10 Thu 09/01/16 chitter1")
       end
     end
   end

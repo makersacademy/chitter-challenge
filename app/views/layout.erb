@@ -5,38 +5,50 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap Font Awesome CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/bootsnip.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootsnip.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <header class="container">
-      <div class="row">
-        <h1 class="col-sm-3">Chitter Online</h1>
-        <nav class="col-sm-4 text-center">
-          <% if flash[:errors] %>
-            <ul id="errors">
-              <% flash[:errors].each do |error| %>
-              <p><%= error %></p>
-              <% end %>
-            </ul>
-          <% end %>
-          <%= "#{flash[:notice]}" if flash[:notice] %>
-        </nav>
-        <nav class="col-sm-5 text-right">
-          <% if current_user %>
-            <%= "Logged in: #{current_user.username}"%> |
-            <a href="/peeps">All peeps</a> | <a href="/peeps/my">My peeps</a>
-            <form action="/sessions/log_out" method="post">
-              <input type="hidden" name="_method" value="delete">
-              <button type="submit">Log out</button>
-            </form>
-          <% else %>
-            <a href="/users/new">Sign up</a> | <a href="/sessions/new">Log in</a>
-          <% end %>
-        </nav>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Chitter Online</a>
+        </div>
+        <% if current_user %>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/peeps/my">My peeps</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= "Logged in: #{current_user.username}"%></a></li>
+            <li>
+              <form action="/sessions/log_out" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="navbar-btn btn-default btn-xs"><span class="glyphicon glyphicon-log-out"></span> Log out</button>
+              </form>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        <% end %>
       </div>
-    </header>
+    </nav>
     <section class="container">
-      <div class="col-sm-2"></div>
+      <div class="col-sm-2">
+        <% if flash[:errors] %>
+          <ul id="errors">
+            <% flash[:errors].each do |error| %>
+            <div class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <strong><%= error %></strong>
+            </div>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= "#{flash[:notice]}" if flash[:notice] %>
+      </div>
       <div class="col-sm-8"><%= yield %></div>
       <div class="col-sm-2"></div>
     </section>

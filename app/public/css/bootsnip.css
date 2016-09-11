@@ -1,3 +1,9 @@
+.navbar-btn.btn-xs {
+ margin-top: 12px;
+ margin-bottom: 0px;
+}
+
+
 .send-wrap
 {
     border-top: 1px solid #eee;

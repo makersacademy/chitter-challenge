@@ -5,13 +5,11 @@ module Helpers
   end
 
   def format_date_time(datetime)
-    datetime.strftime("%c")
+    datetime.strftime("%R %a %D")
   end
 
-  def peeps_latest_first(peeps)
-    # p Peep.all
+  def peeps_latest_first(peeps)    
     peeps.sort {|peep1, peep2| peep2.created_at <=> peep1.created_at}
-    # Peep.all.sort {|peep1.created_at, peep2.created_at| peep2.created_at <=> peep1.created_at}
   end
 
 end
