@@ -16,8 +16,12 @@ class Chitter < Sinatra::Base
                     username: params[:username],
                     name: params[:name],
                     password_digest: params[:password],)
-    @user.save
-    redirect '/'
+
+    if @user.save
+      redirect '/'
+    else
+      redirect '/sign_up'
+    end
   end
 
 

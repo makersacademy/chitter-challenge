@@ -11,6 +11,8 @@ ruby '2.2.3'
 group :test do
   gem 'capybara'
   gem 'rspec'
+  gem 'database_cleaner'
+  gem 'rspec-sinatra'
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
