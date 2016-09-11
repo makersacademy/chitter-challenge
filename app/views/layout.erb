@@ -8,7 +8,15 @@
 
     <% if current_user %>
       Welcome, <%= current_user.name %>!
-    <% end %>
+      <form action="/sessions" method="post">
+        <input name="_method" type="hidden" value="delete" >
+        <input type='submit' value='Log out'>
+      </form>
+      <% end %>
+
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
 
     <% if flash.now[:errors] %>
           <ul id="errors">
@@ -17,7 +25,8 @@
           </ul>
           <% end %>
       <% end %>
-    <%= yield %>
+
+  <%= yield %>
 
 
   </body>

@@ -5,7 +5,7 @@ ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
-require 'helpers'
+require_relative 'helpers'
 
 
 require './app/models/user'
@@ -58,6 +58,8 @@ config.before(:suite) do
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include Helpers
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
