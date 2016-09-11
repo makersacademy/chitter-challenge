@@ -2,3 +2,9 @@
 
 
 <h2> Hello @<%= @user_name %>!</h2>
+
+<% if @user_name %>
+  <form action="/user/log_out" method="post">
+    <input type="submit" value="Log out">
+  </form>
+<% end  %>
