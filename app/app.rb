@@ -23,14 +23,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/peeps' do
-    peep = Peep.new(peep: params[:peep], time: Time.now)
+    @user = User.get(session[:user_id])
+    peep = @user.peeps.create(peep: params[:peep], time: Time.now)
     peep.save
     redirect '/'
   end
 
   get '/users/peeps' do
     @peeps = Peep.all
-    erb :'/users/peeps'
+    erb :'/users/peeps', :layout => true
   end
 
   get '/users/new' do

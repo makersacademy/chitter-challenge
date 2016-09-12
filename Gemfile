@@ -10,6 +10,7 @@ gem 'dm-postgres-adapter'
 gem 'makersinit'
 gem 'data_mapper'
 gem 'timecop'
+gem 'orderly'
 
 group :test do
   gem 'rspec'

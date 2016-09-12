@@ -1,4 +1,7 @@
+require 'launchy'
+
 module TamsHelper
+  include Launchy
 
 def register(handle, email)
   visit '/'
@@ -37,13 +40,19 @@ def log_in(email, password)
 end
 
 def post_peep
-   user = User.create(name: "Sara",
-     handle: "sarsar", email: "sar@sara.com",
-    password: "cheese", password_confirmation: "cheese")
-  log_in("sar@sara.com","cheese")
+  visit '/'
+  register("sarsar", "sar@sara.com")
   click_button 'New peep'
   fill_in :peep, with: "Got such cheese munchies"
   click_button 'Post Peep!'
+end
+
+def post_second_peep
+    visit '/'
+    save_and_open_page
+    click_button 'New peep'
+    fill_in :peep, with: "I was this second peep"
+    click_button 'Post Peep!'
 end
 
 end

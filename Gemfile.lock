@@ -100,6 +100,9 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -170,6 +173,7 @@ DEPENDENCIES
   dm-postgres-adapter
   launchy
   makersinit
+  orderly
   rake
   rspec
   rspec-sinatra
