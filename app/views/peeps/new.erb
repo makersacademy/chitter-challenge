@@ -1,0 +1,21 @@
+<% if current_user %>
+  <h2>Share a new peep</h2><br>
+    <form action="/peeps" method ="post">
+    <input type="text" name="title"/>
+    <input type="message" name="body"/>
+    <input type="submit" value="Create peep">
+    </form>
+<% else %>
+  You must be signed in to create a peep
+  <br>
+    <form action='/sessions' method='post'>
+      Email: <input name='email' type='email' required><br>
+      Password: <input name='password' type='password' required><br>
+      <input type='submit' value='Log in'>
+    </form>
+  or <a href="/signup">Sign up</a>
+  <br>
+    <ul id="menu">
+      <li><a href="/peeps">View peeps</a></li>
+    </ul>
+<% end %>
