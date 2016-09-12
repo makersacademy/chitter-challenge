@@ -12,6 +12,8 @@ class User
         format: "Doesn't look like an email address",
         is_unique: "We already have that email"
       }
+  property :name, String, required: true
+  property :user_name, String, required: true
   property :password, BCryptHash
 
   attr_accessor :password_confirmation

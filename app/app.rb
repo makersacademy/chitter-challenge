@@ -37,7 +37,9 @@ class Chitter < Sinatra::Base
   post '/sign_up' do
     @user = User.new(email: params[:email],
               password: params[:password],
-              password_confirmation: params[:password_confirmation])
+              password_confirmation: params[:password_confirmation],
+              name: params[:name],
+              user_name: params[:user_name])
     if @user.save
         session[:id] = @user.id
         redirect '/home'
