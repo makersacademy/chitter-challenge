@@ -12,4 +12,15 @@ feature 'Creating peeps' do
       expect(page).to have_content('@DennisDaMennace')
     end
   end
+
+  scenario 'I cannot peep without being logged in' do
+    visit '/'
+    expect(page).not_to have_content 'Create a peep'
+  end
+
+  scenario 'I cannot peep without being signed in' do
+    visit '/'
+    expect(page).not_to have_content 'Create a peep'
+  end
+
 end
