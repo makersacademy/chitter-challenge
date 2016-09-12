@@ -57,4 +57,4 @@ Notes on technologies:
 
 Notes on further steps
 ----------------------
-Currently, there is no link from the home path '/' to other paths of this app as yet. Further implementation also required on the visual layout and response functionality. These are steps, I'd wish to take to finalise this project.
+Currently, there is no link from the home path '/' to other paths of this app as yet. Further implementation also required on the visual layout and response functionality, and finally, refactoring is still needed for skinny controllers. These are steps, I'd wish to take to finalise this project.
