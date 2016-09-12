@@ -1,0 +1,16 @@
+<h1> Peeps </h1>
+
+<ul id="menu">
+  <li><a href="/peeps/new">Add new peep</a></li>
+</ul>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Title: <%= peep.title %> <br>
+      posted_by: <%= peep.user.name %> / <%= peep.user.username %><br>
+      Time-Stamp: <%= peep.created_at %><br>
+      body: <%= peep.body %><br>
+    </li>
+  <% end %>
+</ul>
