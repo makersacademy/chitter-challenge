@@ -20,7 +20,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    @user = User.new
     erb :'/users/new'
   end
 
@@ -62,10 +61,7 @@ class Chitter < Sinatra::Base
 
   get '/feed' do
     @user_name = session[:username]
-    peeps = Peep.all(:order => [:created_at.desc])
-    if peeps
-      @peeps = peeps
-    end
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :'/feed'
   end
 
