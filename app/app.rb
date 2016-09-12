@@ -5,9 +5,16 @@ require 'sinatra/flash'
 require 'bcrypt'
 
 class Chitter < Sinatra::Base
-  # enable :sessions
+  enable :sessions
   # set :session_secret; 'super_secret'
-  # register Sinatra::Flash
+  register Sinatra::Flash
+
+  helpers do
+    def the_user
+      @the_user ||= User.get(session[:id])
+    end
+  end
+
   get '/home' do
     @peeps = Peep.all
     erb :'home'
@@ -16,12 +23,28 @@ class Chitter < Sinatra::Base
   post '/home' do
     peep = Peep.new(content: params[:peep], time: Time.new)
     peep.save
-    redirect 'home'
+    redirect '/home'
   end
+
   get '/home/new' do
     erb :'peeps/new_peep'
   end
 
+  get '/sign_up' do
+    erb :'users/sign_up'
+  end
 
+  post '/sign_up' do
+    @user = User.new(email: params[:email],
+              password: params[:password],
+              password_confirmation: params[:password_confirmation])
+    if @user.save
+        session[:id] = @user.id
+        redirect '/home'
+    else
+        flash.now[:error] = @user.errors.full_messages
+        erb :'users/sign_up'
+    end
+  end
 
 end

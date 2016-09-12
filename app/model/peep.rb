@@ -4,5 +4,5 @@ class Peep
 
   property :id,     Serial
   property :content,  String
-  property :time, Time
+  property :time, DateTime
 end
