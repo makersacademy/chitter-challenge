@@ -8,14 +8,20 @@ class Chitter < Sinatra::Base
   # enable :sessions
   # set :session_secret; 'super_secret'
   # register Sinatra::Flash
-
-  get '/home/new' do
-    erb :'new_peep'
+  get '/home' do
+    @peeps = Peep.all
+    erb :'home'
   end
 
   post '/home' do
-    peep = Peep.new()
+    peep = Peep.new(content: params[:peep])
+    peep.save
     redirect 'home'
   end
+  get '/home/new' do
+    erb :'peeps/new_peep'
+  end
+
+
 
 end
