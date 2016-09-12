@@ -19,15 +19,15 @@ Usage Instructions
 Once deployed you can visit the homepage at localhost:9292
 
 Where you will be able to sign up, sign in or just view the latest cheeps.
-![Screenshot](http://imgur.com/mMFg4Xs)
+![Imgur](http://i.imgur.com/w6xRckO.png)
 
 Make your own cheeps:
 
-![Screenshot](http://imgur.com/w6xRckO)
+![Imgur](http://i.imgur.com/w6xRckO.png)
 
 View all cheeps:
 
-![Screenshot](http://imgur.com/988lndL)
+![Imgur](http://i.imgur.com/w6xRckO.png)
 
 
 
