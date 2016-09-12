@@ -1,7 +1,7 @@
 <h1>Welcome to Chitter!</h1>
-<h2>Please sign up or sign in to Chit!</h2>
+<h2>Please sign up or sign in to Peep!</h2>
 <h2>To sign up easily please fill below fields</h2>
-<form action='/users/' method="post">
+<form action='/users' method="post">
   <p><label for="username">
     Username:
       <input type="text" name="username" value="<% @user.username %>" required>
@@ -26,9 +26,5 @@
 
   <p><input type="submit" value="Sign up"></p>
 </form>
-<br>
-<br>
-<h2>Are you already a member? <a href="users/signin">Sign in to Chit!</a></h2>
-
 
 <%= @error_msg%>

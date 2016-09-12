@@ -1,22 +1,23 @@
-require 'bcrypt'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'bcrypt'
 
 class User
-
   include DataMapper::Resource
-
-  attr_accessor :password_confirmation
   attr_reader :password
-
-  property :id, Serial
-  property :username, String, :required => true, :unique => true
-  property :email, String, :required => true, :unique => true
-  property :name, String
-  property :password_digest, Text
+  attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-  validates_format_of :email, :as => :email_address
+  validates_presence_of :email
+  validates_format_of :email, as: :email_address
+
+  property :id, Serial
+  property :name, String
+  property :username, String
+  property :email, String, format: :email_address, required: true, unique: true
+  property :password_digest, String, length: 60
+
+  property :username, String
 
   def password=(password)
     @password = password
@@ -25,7 +26,10 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    user if user && BCrypt::Password.new(user.password_digest) == password
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
   end
-
 end
