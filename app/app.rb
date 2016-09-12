@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    peep = Peep.new(content: params[:peep])
+    peep = Peep.new(content: params[:peep], time: Time.new)
     peep.save
     redirect 'home'
   end

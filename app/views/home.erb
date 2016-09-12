@@ -4,6 +4,7 @@
   <% @peeps.each do |peep| %>
     <li>
       Chitter user said: <%= peep.content %>
+      <%= peep.time %>
     </li>
   <% end %>
 </ul>
