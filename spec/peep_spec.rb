@@ -6,7 +6,7 @@ describe Peep do
   describe '#get_time' do
 
     it 'should retrieve and format time with a "today" in the string' do
-      expect(test_peep.get_time).to eq "Today, 16:48"
+      expect(test_peep.get_time).to eq "Sunday, Sep 11, 16:48"
     end
 
     it 'should retrieve and format time with a "Day, DD:MM, HH:MM" in string' do

@@ -1,10 +1,10 @@
 <div class="header clearfix">
   <nav style="padding-bottom: 20px">
     <ul class="nav nav-pills pull-xs-right">
-      <% if @user_name %>
+      <% if session[:user_name] %>
       <li class="nav-item">
         <form action="/user/log_out" method="post">
-          <a class="nav-link"><input type="submit" class="btn btn-warning" value="Log out"></a>
+          <a class="nav-link" style="padding: 0"><input type="submit" class="btn btn-warning" value="Log out"></a>
         </form>
       </li>
       <% else %>
@@ -16,7 +16,7 @@
         </li>
       <% end %>
     </ul>
-  <h3 class="text-muted"><a href="/feed">Chitter</a></h3>
+  <h3 class="text-muted"><a href="/feed" style="color: darkslategray">Chitter</a></h3>
   </nav>
 
 </div>

@@ -1,18 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style=""></div>
 
-<h1>Let's get peeping</h1>
+    <div class="col-md-8" style="padding-top: 30px">
 
-  <form action="/peep/new" method="post">
-    <p class="lead"> <%= @user_name %> what's on your mind </p>
-    <ul>
-      <li>Name<input type="text" name="content"></li>
-      <li><input type="submit" value="Peep"></li>
-    </ul>
-  </form>
+      <h2>New Peep</h2>
+      <p class="lead">@<%= session[:user_name] %> what's on your mind?</p>
 
-  <% if flash.now[:error] %>
-  <ul style="list-style-type: none">
-    <% flash[:error].each do |error| %>
-      <li> <%= error %> </li>
-    <% end %>
-  </ul>
-  <% end %>
+      <form action="/peep/new" method="post">
+        <div class="form-group">
+          <textarea class="form-control" name="content" rows="6"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12" style="padding-left: 0px">
+            <input type="submit" class="btn btn-success" value="Post">
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="col-md-2" style=""></div>
+
+  </div>
+
+</div>
