@@ -1,0 +1,13 @@
+<h1>Chitter Cheeps</h1>
+
+<ul id="cheeps">
+  <% @cheeps.reverse.each do |cheep| %>
+    <li>
+      Cheep: <%= cheep.body  %>
+      Created: <%= cheep.created_at  %>
+      Posted by: <%= cheep.posted_by %>
+      Handle: <%= cheep.handle %>
+
+    </li>
+    <% end %>
+</ul>

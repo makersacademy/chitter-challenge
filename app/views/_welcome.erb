@@ -1,0 +1,8 @@
+<% if current_user != nil %>
+Welcome, <%=current_user.user_name %>
+
+  <form action="/sessions/sign_out" method="post">
+     <input type="submit" name="sign_out" value="sign out">
+  </form>
+
+  <% end %>

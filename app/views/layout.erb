@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+      body { padding-top: 60px;
+            background-color: #00BFFF;
+            }
+
+    </style>
+    <title>Chitter</title>
+  </head>
+  <body>
+
+    <%= partial :welcome %>
+    <%= partial :notices %>
+
+    <%= yield %>
+
+    <%= partial :errors %>
+    <% if current_user == nil %>
+      <div>
+        To start cheeping
+        <a href="/sessions/new">sign in</a>
+        or
+        <a href="/users/new">create user account</a>
+      </div>
+    <% end %>
+
+
+  </body>
+</html>
