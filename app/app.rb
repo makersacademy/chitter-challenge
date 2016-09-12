@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Hello Chitter!'
+    erb(:'peeps/index')
   end
 
   helpers do
@@ -22,7 +22,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/signup' do
-    @user = User.new
     erb(:'users/signup')
   end
 
@@ -38,6 +37,21 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb(:'users/signup')
     end
+  end
+
+  get '/users/signin' do
+    erb(:'users/signin')
+  end
+
+  post '/signin_create' do
+    user = User.authenticate(params[:username], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :'users/signin'
+  end
   end
 
   # start the server if ruby file executed directly
