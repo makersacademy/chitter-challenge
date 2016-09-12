@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+<% if current_user %>
+<%= "Welcome #{current_user.name}!" %>
+
+<form action="/users/log-out" method="get">
+  <input type="submit"
+    name="Log out" value="Log out"/>
+</form>
+
+<form action="/users/peeps/new" method="get">
+  <input type="submit"
+    name="New peep" value="New peep"/>
+</form>
+
+<% else %>
+<form action="/users/new" method="get">
+  <input type="submit"
+    name="Register" value="Register"/>
+</form>
+
+<form action="/users/log-in" method="get">
+  <input type="submit"
+    name="Log in" value="Log in"/>
+</form>
+
+<% end %>
+
+<%= flash[:notice] %>
+<%= @errors.each do |error| "#{error}" end if @errors%>
+
+<%= yield %>
+</body>
+</html>
