@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    peep = Peep.new(content: params[:peep], time: Time.new)
+    peep = Peep.new(content: params[:peep], time: Time.new, user: User.get(session[:id]))
     peep.save
     redirect '/home'
   end
@@ -49,4 +49,9 @@ class Chitter < Sinatra::Base
     end
   end
 
+  post '/sign_out' do
+  session[:id] = nil
+  flash.keep[:notice] = 'ciao!'
+  redirect '/home'
+  end
 end

@@ -17,8 +17,7 @@ class User
   property :password, BCryptHash
 
   attr_accessor :password_confirmation
-  attr_reader :password
-
+  attr_reader :password, :user_name, :name
   validates_confirmation_of :password,
   :message => 'Password mismatch'
 end
