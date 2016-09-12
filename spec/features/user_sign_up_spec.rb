@@ -32,10 +32,10 @@ feature 'user sign up' do
 
   scenario 'will not allow user to sign up without a user name' do
     visit '/users/new'
-    fill_in :name, with: nil
+    fill_in :user_name, with: nil
     click_button 'sign up'
     expect(current_path).to eq '/users'
-    expect(page).to have_content('Name must not be blank')
+    expect(page).to have_content('User name must not be blank')
   end
 
   scenario 'will not allow a user to sign up with an invalid email' do

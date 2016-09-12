@@ -19,7 +19,8 @@ Usage Instructions
 Once deployed you can visit the homepage at localhost:9292
 
 Where you will be able to sign up, sign in or just view the latest cheeps.
-![Imgur](http://i.imgur.com/w6xRckO.png)
+![Imgur](http://i.imgur.com/mMFg4Xs.png)
+![Imgur](http://i.imgur.com/sjnOHgK.png)
 
 Make your own cheeps:
 
@@ -27,7 +28,7 @@ Make your own cheeps:
 
 View all cheeps:
 
-![Imgur](http://i.imgur.com/w6xRckO.png)
+![Imgur](http://i.imgur.com/988lndL.png)
 
 
 
