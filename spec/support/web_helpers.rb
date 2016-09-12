@@ -1,7 +1,5 @@
-require 'launchy'
 
 module TamsHelper
-  include Launchy
 
 def register(handle, email)
   visit '/'
@@ -49,7 +47,6 @@ end
 
 def post_second_peep
     visit '/'
-    save_and_open_page
     click_button 'New peep'
     fill_in :peep, with: "I was this second peep"
     click_button 'Post Peep!'
