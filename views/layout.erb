@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter - A makers twitter</title>
+  </head>
+  <body>
+
+    <% if current_user %>
+      Welcome <%= current_user.username %>
+      <form action="/peeps/new" method="get">
+        <input type="submit" value="Share a peep">
+      </form>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log out">
+      </form>
+    <% else %>
+      <form action="/users/new" method="post">
+        <input type="submit" value="Register">
+      </form>
+
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Sign in">
+      </form>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+
+    <%= yield %>
+
+  </body>
+</html>

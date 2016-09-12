@@ -1,0 +1,13 @@
+<h2>Chitter Timeline</h2>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peeped by: @<%= peep.user.username %>
+      <br>
+      "<%= peep.peep %>"
+      <br>
+      on: <%= peep.time.strftime("%a at %I:%M%p").downcase %>
+    </li>
+  <% end %>
+</ul>
