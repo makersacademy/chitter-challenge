@@ -5,6 +5,6 @@ class Peep
   property :peep, Text #introduce custom rchar limit?
   property :time, EpochTime
 
-  belongs_to :user, required: false
+  belongs_to :user
 
 end

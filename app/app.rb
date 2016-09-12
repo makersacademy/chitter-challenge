@@ -18,6 +18,11 @@ class Chitter < Sinatra::Base
     redirect '/users/peeps'
   end
 
+  get '/users/peeps/my' do
+    @my_peeps = Peep.all.select { |peep| peep.user_id == current_user.id}
+    erb :'users/peeps/my'
+  end
+
   get '/users/peeps/new' do
     erb :'users/peeps/new'
   end
@@ -31,7 +36,7 @@ class Chitter < Sinatra::Base
 
   get '/users/peeps' do
     @peeps = Peep.all
-    erb :'/users/peeps', :layout => true
+    erb :'/users/peeps'
   end
 
   get '/users/new' do
