@@ -12,6 +12,7 @@ ruby '2.2.3'
   gem 'launchy'
   gem 'timecop'
   gem 'pg'
+  gem 'sinatra-bootstrap', :require => 'sinatra/bootstrap'
 
 group :test do
   gem 'capybara'

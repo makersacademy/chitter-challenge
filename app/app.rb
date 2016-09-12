@@ -1,14 +1,17 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
+require 'sinatra/bootstrap'
 require_relative 'data_mapper_setup'
 require_relative 'controllers/cheeps'
 require_relative 'controllers/sessions'
 require_relative 'controllers/users'
 
+
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
+  register Sinatra::Bootstrap::Assets
 
   register Sinatra::Partial
   set :partial_template_engine, :erb
