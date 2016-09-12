@@ -4,13 +4,15 @@ ENV['RACK_ENV'] = 'test'
 require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
-require_relative '../app/app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative '../app/models/chit.rb'
+require_relative '../app/models/peep.rb'
 require_relative '../app/models/user.rb'
 require_relative './features/web_helper.rb'
+require_relative '../app/app.rb'
+require_relative '../app/server.rb'
+
 
 
 SimpleCov.formatters = [
@@ -130,6 +132,4 @@ config.before(:suite) do
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-config.warnings = false
-
 end

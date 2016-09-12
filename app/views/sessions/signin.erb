@@ -1,13 +1,13 @@
 <h1>Welcome to Chitter!</h1>
 <h2>To sign in please fill below fields</h2>
-<form action='/users/signin' method="post">
+<form action='/sessions' method="post">
   <label for='username'>
     Username:
       <input type="text" name="username" required>
   </label>
   <label for='password'>
     Password:
-      <input type="text" name="password" required>
+      <input type="password" name="password" required>
   </label>
   <input type="submit" value="Sign in">
 </form>

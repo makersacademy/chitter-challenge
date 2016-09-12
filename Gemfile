@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 ruby '2.2.3'
 
 gem 'sinatra'
@@ -7,7 +8,7 @@ gem 'sinatra-partial'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'pg'
+gem 'rake'
 
 group :test do
   gem 'rspec'
@@ -19,6 +20,4 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl'
-  gem 'rake'
-  gem 'simplecov'
 end
