@@ -20,7 +20,6 @@ class User
     attr_reader :password
     attr_accessor :password_confirmation
 
-
     def password=(password)
       @password = password
       self.password_digest = BCrypt::Password.create(password)
