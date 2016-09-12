@@ -6,15 +6,13 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup.rb'
 require_relative 'helpers'
 
-
-
 class ChitterChallenge < Sinatra::Base
   helpers Helpers
 
   use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
-
+  #set :views, File.dirname(__FILE__) + '/views'
 
   get '/' do
     redirect '/peeps'

@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] = 'development'
-
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
