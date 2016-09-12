@@ -1,0 +1,52 @@
+
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+
+<body>
+  <% if current_user %>
+  Welcome, <%= current_user.name %>
+
+  <form action="/peeps/new" method="get">
+    <input type="submit"
+    name="Create a peep" value="Create a peep"/>
+  </form>
+  <div>
+
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
+    <div>
+
+      <% else %>
+
+      <form action="/users/new" method="get">
+        <input type="submit"
+        name="Register" value="Register"/>
+      </form>
+      <div>
+
+      <form action="/users/log-in" method="get">
+        <input type="submit"
+          name="Log in" value="Log in"/>
+      </form>
+      <div>
+
+      <% end %>
+
+      <% if @errors %>
+      <div id='error'><% @errors.each do |error| %>
+        <%= error %> </div> <% end%>
+        <% end %>
+
+            <% if flash[:notice] %>
+            <div id='notice'>
+              <%= flash[:notice] %>
+            </div>
+            <% end %>
+
+            <%= yield %>
+          </body>
+          </html>
