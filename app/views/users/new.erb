@@ -1,0 +1,30 @@
+<h1>Welcome to Chitter!</h1>
+<h2>Please sign up or sign in to Peep!</h2>
+<h2>To sign up easily please fill below fields</h2>
+<form action='/users' method="post">
+  <p><label for="username">
+    Username:
+      <input type="text" name="username" value="<% @user.username %>" required>
+  </label></p>
+
+  <p><label for="email">
+    Email:
+      <input type="email" name="email" value="<% @user.email %>" required>
+  </label></p>
+  <p><label for="name">
+    Name:
+      <input type="text" name="name" value="<% @user.name %>"required>
+  </label></p>
+  <p><label for="password">
+    Password:
+      <input type="password" name="password" required>
+  </label></p>
+  <p><label for="password_confirmation">
+    Confirm your password:
+      <input type="password" name="password_confirmation" required>
+  </label></p>
+
+  <p><input type="submit" value="Sign up"></p>
+</form>
+
+<%= @error_msg%>
