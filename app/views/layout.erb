@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chitter</title>
+</head>
+
+<body>
+
+  <% if current_user %>
+    <h1> Lookin' good <%= current_user.username %>!</h1>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    Woops, what went wrong?
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= yield %>
+
+</body>
+</html>
