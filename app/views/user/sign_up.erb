@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style=""></div>
+
+    <div class="col-md-8" style="padding-top: 30px">
+      <h2> Sign up to Chitter</h2>
+
+      <hr>
+      <form action="/user/sign_up" method="post">
+      <div class="form-group row">
+        <label for="Name" class="col-xs-3 col-form-label">Name</label>
+        <div class="col-xs-7">
+          <input class="form-control" type="text" placeholder="Johny Appleseed" name="name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="User_name" class="col-xs-3 col-form-label">@user_name</label>
+        <div class="col-xs-7">
+          <input class="form-control" type="text" placeholder="Appleseed" name="user_name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-xs-3 col-form-label">Email</label>
+        <div class="col-xs-7">
+          <input class="form-control" type="email" placeholder="johny@appleseed.com" name="email" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-xs-3 col-form-label">Password</label>
+        <div class="col-xs-7">
+          <input class="form-control" type="password" placeholder="e.g. 9PinkLadies!" name="password" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-xs-3 col-form-label"></label>
+        <div class="col-xs-7">
+          <input type="submit" class="btn btn-success" value="Sign Up">
+        </div>
+      </div>
+      </form>
+    </div>
+
+    <div class="col-md-2" style=""></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2" style=""></div>
+    <div class="col-md-8" style="">
+      <% if flash.now[:error] %>
+      <h4> Whoops! </h4>
+      <ul style="">
+        <% flash[:error].each do |error| %>
+          <li> <%= error %> </li>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <div class="col-md-2" style=""></div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="row marketing" id="peeps">
+
+
+  <div class="col-lg-12">
+    <h2>Today's Live Chitter Feed </h2>
+    <% @peeps.each do |peep| %>
+        <hr>
+        <h4>@<%= peep.user.user_name %></h4>
+        <p class="lead"><%= peep.content %><p>
+        <p><em>posted: <%= peep.get_time %></em><p>
+    <% end %>
+
+  </div>
+</div>

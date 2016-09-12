@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <title>Chitter Challenge</title>
+  </head>
+
+  <body style="padding-top: 50px; padding-bottom: 20px">
+
+    <div class="container" style="padding-left: 75px; padding-right: 75px">
+
+      <%= partial :nav %>
+
+      <% if @user_name %>
+        <%= partial :welcome %>
+      <% end  %>
+
+      <%= yield %>
+
+      <hr>
+      <footer class="footer" style="text-align: center">
+        <p>Made with Makerly Love, September 2016</p>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>
