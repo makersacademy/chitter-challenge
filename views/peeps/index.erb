@@ -7,7 +7,7 @@
       <br>
       "<%= peep.peep %>"
       <br>
-      At: <%= peep.time %>
+      on: <%= peep.time.strftime("%a at %I:%M%p").downcase %>
     </li>
   <% end %>
 </ul>
