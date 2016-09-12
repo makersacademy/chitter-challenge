@@ -2,6 +2,17 @@
   <head>
     <title>Bookmark Manager</title>
   </head>
+  <% if flash[:notice] %>
+
+    <p> <%= flash[:notice] %> </p>
+  <% end %>
+
+
+  <% if flash[:error] %>
+    <% flash[:error].each do |e| %>
+        <p> <%= e %> </p>
+    <% end %>
+  <% end %>
 
     <body>
       <%= "Welcome #{@the_user.email}" if the_user %>
