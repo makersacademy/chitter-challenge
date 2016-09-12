@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Bookmark Manager</title>
+  </head>
+
+  <% if flash[:notice] %>
+    <p> <%= flash[:notice] %> </p>
+  <% end %>
+
+  <% if flash[:error] %>
+    <% flash[:error].each do |e| %>
+        <p> <%= e %> </p>
+    <% end %>
+  <% end %>
+
+  <% if the_user %>
+    <form action='/sign_out' method='post'>
+    <button type='submit'>Sign Out</button>
+    </form>
+    <h1><%= "Welcome #{@the_user.email}" if the_user %></h1>
+
+    <h2>Add a peep</h2>
+    <form action="/home" method="post">
+      <label for="peep">
+        Write your peep here
+        <input type="text" name="peep">
+      </label>
+        <button type="submit">Peep</button>
+    </form>
+  <% end %>
+
+    <body>
+      <%= yield %>
+    </body>
+</html>
