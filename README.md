@@ -1,3 +1,6 @@
+![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)
+![Coverage Status](https://coveralls.io/repos/github/makersacademy/takeaway-challenge/badge.svg?branch=mohamedIssaq)
+
 # PrestoPronto
 
 Welcome to PrestoPronto. This is a twitter imitation built on the Sinatra framework as part of the Makers Academy Course. Sinatra-Bootstrap was used for styling, PostgreSQL for the database, DataMapper as the ORM and BCrypt for password administration.
@@ -7,12 +10,12 @@ Welcome to PrestoPronto. This is a twitter imitation built on the Sinatra framew
 The app is deployed at http://www.prestopronto.herokuapp.com.
 
 To install to a local machine:
-$ git clone https://github.com/tansaku/chitter_challenge
-$ bundle
-$ rake db:setup
-$ rake db:auto_migrate
-$ rspec
-$ rackup
+$ git clone https://github.com/tansaku/chitter_challenge   
+$ bundle   
+$ rake db:setup   
+$ rake db:auto_migrate   
+$ rspec   
+$ rackup   
 
 ## Usage Instructions
 
