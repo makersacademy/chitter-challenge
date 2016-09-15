@@ -1,0 +1,27 @@
+<div class='form'>
+  <form action='/users' method='post'>
+    <div>
+      <label for='name'></label>
+      <input type='text' name='name' placeholder='name' value='<%= "#{flash[:name]}" %>' required >
+    </div>
+    <div>
+      <label for='email'></label>
+      <input type='email' name='email' placeholder='email' value='<%= "#{flash[:email]}" %>'required >
+    </div>
+    <div>
+      <label for='username'></label>
+      <input type='text' name='username' placeholder='username' value='<%= "#{flash[:username]}" %>'required >
+    </div>
+    <div>
+      <label for='password'></label>
+      <input type='password' name='password' placeholder='password' required >
+    </div>
+    <div>
+      <label for='password_confirmation'></label>
+      <input type='password' name='password_confirmation' placeholder='confirm password' required >
+    </div>
+    <br>
+    <div class='button'>
+      <button id='form_button' type='submit'>sign me up</button>
+  </form>
+</div>

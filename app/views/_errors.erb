@@ -1,0 +1,10 @@
+<div id='errors'>
+<% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+        <%= error.downcase %>
+    <% end %>
+<% end %>
+<% if flash[:failed_login] %>
+  <%= flash[:failed_login] %>
+<% end %>
+</div>
