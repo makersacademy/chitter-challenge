@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= bootstrap_css false%>
+    <%= bootstrap_js_legacy %>
+    <link href='/css/custom.css' rel='stylesheet'>
+    <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+    <title>Pronto</title>
+    <style>
+      body {padding-top: 50px;}
+      .myclass {vertical-align: middle;}
+    </style>
+  </head>
+  <body>
+    <%= bootstrap_js_default %>
+    <%= partial :header %>
+    <%= partial :messages %>
+    <%= yield %>
+    <%= partial :footer %>
+  </body>
+</html>

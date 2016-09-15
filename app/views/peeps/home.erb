@@ -1,0 +1,99 @@
+<body style="background-color:#dfe3ee;">
+<!--
+<% if current_user %>
+  <textarea name="peep" form="peepform" placeholder="Whats on your mind?" class="form-control" rows="3"></textarea>
+  <form action='/peeps/new' method='post' id="peepform">
+    <input type='submit' value='Peep'>
+  </form>
+<% end %>
+<% if @peeps && !@peeps.empty? %>
+  <% @peeps.each do |peep| %>
+    (<%=peep.user.name%>) @<%=peep.user.username%>: <%=peep.text%> <p class='time_right'>(<%=peep.created_at.ctime%>)</p>
+    <% peep.comments.each do |comment| %>
+      (<%=comment.user.name%>) @<%=comment.user.username%>: <%=comment.text%> <p class='time_small'>(<%=comment.created_at.ctime%>)</p></li>
+    <% end %>
+    <% if current_user %>
+      <form action='/peeps/comment' method='post' class="form-inline">
+        <input type='hidden' name='peep' value = '<%=peep.id%>' required>
+        <div class="form-group" style='width: 90%;'>
+        <input type='text' name="reply" placeholder="Comment" class="form-control" required>
+        <button type="submit" class="btn btn-default">Reply</button>
+      </form>
+    <% end %>
+  <% end %>
+<% end %> -->
+<div id="content"></div>
+
+<script type="text/babel">
+
+var data = [
+  {id: 1, author: "Pete Hunt", text: "This is one comment"},
+  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+];
+
+
+var CommentBox = React.createClass({
+render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.props.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment author={comment.author} key={comment.id}>
+          {comment.text}
+        </Comment>
+      );
+    });
+    return (
+      <div className="commentList">
+        {commentNodes}
+      </div>
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      <div className="commentForm">
+        Hello, world! I am a CommentForm.
+      </div>
+    );
+  }
+});
+
+var Comment = React.createClass({
+  rawMarkup: function() {
+    var md = new Remarkable();
+    var rawMarkup = md.render(this.props.children.toString());
+    return { __html: rawMarkup };
+  },
+
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        <span dangerouslySetInnerHTML={this.rawMarkup()} />
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <CommentBox data={data} />,
+  document.getElementById('content')
+);
+</script>
+
+</body>

@@ -1,0 +1,49 @@
+.jumbotron {
+    margin-bottom: 0px;
+    min-height: 600px;
+    background-image: url('/images/home_banner.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #2B4570;
+ }
+
+.transparent-grey {
+  background-color: rgba(234, 234, 234, 0.5);
+  border-radius: 25px;
+}
+
+.footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-top: 3px solid #eaeaea;
+  text-align: center;
+  background-color: white;
+  position:fixed;
+  left:0px;
+  bottom:10px;
+  height:30px;
+  width:100%;
+}
+
+.content_holder {
+  border: 2px #727272 solid;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  margin-top:10px;
+  background-color: white;
+  font-size: 18px;
+}
+
+.time_right {
+  float: right;
+  font-size: 12px;
+}
+
+.time_small {
+  font-size: 10px;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <h1> Please Enter Your Details </h1>
+      <form action='/users/signup' method='post'>
+        <div class="form-group">
+          <label for="email">Email address</label><br>
+          <input type='email' name='email' placeholder = 'Email' class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="Name">Full Name</label><br>
+          <input type='text' name='name' placeholder = 'Name' class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label><br>
+          <input type='text' name='username' placeholder = 'Username' class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label><br>
+          <input type='password' name='password' placeholder = 'Password' class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation">Password Confirmation</label><br>
+          <input type='password' name='password_confirmation' placeholder = 'Password Confirmation' class="form-control">
+        </div>
+        <div class="col-md-12 text-center">
+          <button type="submit" class="btn btn-default">Sign Up</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
