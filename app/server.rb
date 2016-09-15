@@ -11,9 +11,5 @@ class Chitter < Sinatra::Base
 
   require_relative 'helpers'
 
-  get '/' do
-    redirect '/peeps'
-  end
-
   helpers Helpers
 end

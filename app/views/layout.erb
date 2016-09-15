@@ -7,12 +7,15 @@
   <body>
     <div class='nav'>
         <div id='banner'>
-          c h i t t e r
+          <a href='/peeps'> c h i t t e r</a>
+        </div>
+        <div id='tagline'>
+          " twitter but shitter "
         </div>
         <div id='user'>
           <%= partial :welcome %>
         </div>
-        <div id='goodbye'>
+        <div id='user'>
           <%= flash[:goodbye] %>
         </div>
         <% if current_user %>
@@ -34,7 +37,7 @@
         <% end %>
     </div>
     <div id='main-content'>
-      <div id='log_in'><%= flash[:log_in] %></div>
+      <div id='user'><%= flash[:log_in] %></div>
       <%= partial :errors %>
       <%= yield %>
     </div>

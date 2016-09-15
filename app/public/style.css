@@ -1,5 +1,5 @@
 body {
-  background-color: #99b9ff;
+  background-color: #c7d5ea;
   font-family: "Helvetica Neue", Helvetica;
 }
 
@@ -9,57 +9,51 @@ body {
 
 #banner {
   position: absolute;
-  top: 1%;
+  top: 0;
   left: 0;
   background-color: #4470b6;
   width: 100%;
-  padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align: center;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 1.9em;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#tagline {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 0.7em;
+  line-height: 200%;
+}
+
 #user {
-  position: absolute;
-  top: 16px;
-  left: 0;
-  padding: 20px;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 0.8em
-}
-
-#goodbye {
-  position: absolute;
-  top: 16px;
-  left: 0;
-  padding: 20px;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 0.8em
-}
-
-#log_in {
   color: white;
   position: absolute;
-  top: 16px;
-  left: 0;
-  padding: 20px;
+  top: 47px;
+  left: 30px;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 0.8em
 }
 
 #main-content {
   color: #295c89;
-  padding-top: 100px;
-  text-align: center;
-
-}
-
-#peeps {
+  padding-top: 95px;
   text-align: center;
 }
 
 ul {
   list-style-type: none;
+  padding-right: 50px;
 }
 
 li {
@@ -70,9 +64,8 @@ li {
 .buttons {
   display: inline-flex;
   position: absolute;
-  top: 14px;
+  top: 40px;
   right: 0;
-  padding: 20px;
 }
 
 #button {
@@ -85,7 +78,10 @@ li {
 }
 
 .new_peep {
-  text-align: center;
+  position: fixed;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 40px;
 }
 
 #new_peep {
@@ -95,13 +91,6 @@ li {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 0.8em;
   cursor: pointer;
-}
-
-#peep_time {
-  font-weight: 200;
-  font-size: 0.7em;
-  line-height: 70%;
-  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #peep_content {
@@ -114,11 +103,22 @@ li {
   font-size: 1em;
 }
 
+#peep_time {
+  font-weight: 200;
+  font-size: 0.7em;
+  line-height: 70%;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
 #form_button {
   color: #4470b6;
-  border: 4px solid #99b9ff;
-  background-color: #99b9ff;
+  border: 4px solid #c7d5ea;
+  background-color: #c7d5ea;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 1em;
   cursor: pointer;
+}
+
+.form {
+  padding-top: 30px;
 }
