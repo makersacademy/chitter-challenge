@@ -1,13 +1,44 @@
-<h1> Peeps </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
-<% if current_user %>
-  <p>Welcome <%= current_user.full_name %></p>
-<% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-    Peep:  <%= peep.message %>
-    </li>
-  <% end %>
-</ul>
+            <!-- Post a Peep -->
+            <div class="peep_now">
+              Peep Now
+            </div><!-- Post a Peep -->
+
+
+
+            <!-- Peeps -->
+            <div class="form-group text-center peeps">
+
+                <img src="/images/chitter.png" style="width:30%;">
+
+
+                  <% Peep.all(order: [:id.desc]).map do |peep| %>
+                  @<%= peep.username %>
+                  <%= peep.message %>
+                  by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %>
+
+
+                  <% end %>
+
+            </div><!-- Peeps -->
+
+        </div><!-- grid system -->
+      </div><!-- row -->
+    </div><!-- container -->
+
+    <% if current_user %>
+    <p>Welcome <%= current_user.full_name %></p>
+    <% end %>
+  </body>
+</html>

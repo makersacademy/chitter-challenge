@@ -23,3 +23,21 @@
   margin: 0 auto;
   width: 80%;
 }
+
+.peeps {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.peep_now {
+  margin-top: 30px;
+  padding: 10px 0 10px 0px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  font-size: 30px;
+}

@@ -1,53 +1,35 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require 'sinatra/partial'
+
+require_relative 'data_mapper_setup'
+
+require_relative 'server'
+require_relative 'controllers/users'
+require_relative 'controllers/sessions'
+require_relative 'controllers/peeps'
+
 
 class Chitter < Sinatra::Base
-
   enable :sessions
-  set :session_secret, 'super secret'
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::MethodOverride
+  set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+  set :public_folder, 'public'
 
+  enable :partial_underscores
 
   get '/' do
     erb :index
   end
 
-  get '/users/new' do
-    @user = User.new
-    erb :'users/new'
-  end
-
-  post '/users' do
-    @user = User.create(full_name: params[:full_name],
-               username: params[:username],
-               email: params[:email],
-               password: params[:password],
-               password_confirmation: params[:password_confirmation])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect '/peeps'
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
-    end
-  end
-
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
-  end
-
-  post '/peeps' do
-    Peep.create(message: params[:message])
-    redirect '/peeps'
-  end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
   end
 
   get '/sessions/new' do
@@ -60,23 +42,39 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ['You username and password do not match']
+      flash[:errors] = ['You username and password do not match']
       erb :'sessions/new'
     end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash[:errors] = ['Goodbye, see you again soon']
-    redirect to '/'
+    flash.now[:notice] = ["Goodbye, see you again soon"]
+    redirect '/'
   end
+
+  post '/peeps' do
+    message = params[:message]
+    username = @current_user.username
+    full_name = @current_user.full_name
+    Peep.create(username: username,
+                full_name: full_name,
+                message: message,
+                created_at: Time.now)
+    redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
 
   helpers do
     def current_user
-      current_user ||= User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
-  
+
   # start the server if ruby file executed directly
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end

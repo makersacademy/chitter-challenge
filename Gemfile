@@ -9,6 +9,7 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'rake'
 gem 'bcrypt'
+gem 'pry'
 
 group :test do
   gem 'byebug'
