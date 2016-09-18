@@ -6,14 +6,14 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
+gem 'rake'
+gem 'bcrypt'
 
-group :test, :development do
+group :test do
+  gem 'byebug'
   gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'rspec-sinatra'
-  gem 'bcrypt'
   gem 'capybara'
 end

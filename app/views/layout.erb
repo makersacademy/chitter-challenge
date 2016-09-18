@@ -2,16 +2,48 @@
 <html>
   <head>
     <title>Chitter - by Joe Sweeny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- styles -->
+
+    <link href="/styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/styles/css/main.css" rel="stylesheet">
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome <%= current_user.full_name %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+  <!-- navigation bar -->
+  <!-- navigation brand image -->
+  <div class="nav  navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- drop down menu when browser is minimised to mobile size -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+			      <span class="icon-bar"></span>
+            <span class="icon-bar "></span>
+          </button>
+
+          <a class="navbar-brand" href="#"></a>
+        </div>
+    <!-- navigation links -->
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+              <% if current_user %>
+              <li><form method='post' action='/sessions'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input type='submit' value='Sign out' class="btn btn-link navbar-btn"></form></li>
+                  <% else %>
+            </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                <% end %>
+              </ul>
+
+      </div>
+    </div>
+  </div>
+
 
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
@@ -23,5 +55,7 @@
     <% end %>
 
     <%= yield %>
+    <script src="/styles/js/jquery-3.1.0.min.js"></script>
+    <script src="/styles/js/bootstrap.min.js"></script>
   </body>
 </html>

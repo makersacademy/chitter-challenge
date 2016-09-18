@@ -1,7 +1,7 @@
 feature 'User sign in' do
   scenario 'an existing user can log in' do
     visit '/'
-    click_link 'Sign in'
+    click_link 'Sign In'
     expect(page.status_code).to eq(200)
   end
 

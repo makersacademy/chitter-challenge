@@ -1,0 +1,25 @@
+#forms {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.form-control {
+  width: 90%;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.btn {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 120px;
+}
+
+.text {
+  margin: 0 auto;
+  width: 80%;
+}

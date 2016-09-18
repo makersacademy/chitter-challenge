@@ -1,19 +1,40 @@
-<form action='/users' method='post' >
-To sign up to Chitter please complete all fields below:<br><br>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
-  <label for="full_name">Full Name:
-    <input type="text" name="full_name" required/>
-  </label><br><br>
-  <label for="username">Username:
-    <input type="text" name="username" required/>
-  </label><br><br>
-  <label for="email">Email:
-    <input type='email'  name='email' required/>
-  </label><br><br>
-  <label for="password">Password:
-    <input type='password'  name='password' />
-  </label><br><br>
-  <label for="password_confirmation">Password:
-    <input type='password'  name='password_confirmation' />
-  </label><br><br>
-    <input type='submit' class='button' value='Sign Up'>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+
+        <!-- sign up form -->
+        <div class="form-group text-center" id="forms">
+          <form action='/users' method='post' >
+            <img src="/images/chitter.png" style="width:80%;">
+
+              <input type="text" name="full_name" class="form-control" placeholder="Full Name..." required/>
+                <br>
+              <input type="text" name="username" class="form-control" placeholder="Username"  required/>
+                <br>
+              <input type='email'  name='email' class="form-control" placeholder="Email Address"  required/>
+                <br>
+              <input type='password' name='password' class="form-control" placeholder="Password"  />
+                <br>
+              <input type='password'  name='password_confirmation' class="form-control" placeholder="Re-type password"  />
+                <br>
+            <input type='submit' class='btn btn-default btn-lg' value='Sign up'>
+          </form>
+          <br>
+          <p> Already a member? <a href="/sessions/new">Sign in here</a>
+        </div>
+
+    </div><!-- grid system -->
+  </div><!-- row -->
+</div><!-- container -->
+<script src="/styles/js/jquery-3.1.0.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+  </body>
+</html>

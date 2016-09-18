@@ -1,5 +1,31 @@
-Welcome to Chitter a beautiful creation from Joe Sweeny
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
-<a href="/users/new">Sign Up</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
 
-<a href="/sessions/new">Sign in</a>
+            <!-- sign up form -->
+            <div class="form-group text-center" id="forms">
+              <form action='/users' method='post' >
+                <img src="/images/chitter.png" style="width:80%;">
+
+                <p class="text">"Chitter - like twitter just without the trolls, nonsense opinions and most importantly no Piers Morgan"</p><br><br>
+
+                <a class="btn btn-default btn-lg" href="/users/new" role="button">Sign up</a>
+                <a class="btn btn-default btn-lg" href="/sessions/new" role="button">Sign in</a>
+
+              </form>
+            </div>
+
+        </div><!-- grid system -->
+      </div><!-- row -->
+    </div><!-- container -->
+
+  </body>
+</html>

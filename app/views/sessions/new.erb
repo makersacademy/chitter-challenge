@@ -1,9 +1,33 @@
-<form action='/sessions' method='post'>
-  <label for='username'>
-    Username: <input name='username' type='text'>
-  </label><br><br>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">
+
+            <!-- sign up form -->
+            <div class="form-group text-center" id="forms">
+              <form action='/sessions' method='post'>
+                <img src="/images/chitter.png" style="width:80%;">
+
+                  <input type="text" name="username" class="form-control" placeholder="Username"  required/>
+                    <br>
+                  <input type='password' name='password' class="form-control" placeholder="Password"  />
+                    <br>
+                <input type='submit' class='btn btn-default btn-lg' value='Sign in'>
+              </form>
+              <br>
+              <p> Not yet a member? <a href="/users/new">Sign up here</a>
+            </div>
+
+        </div><!-- grid system -->
+      </div><!-- row -->
+    </div><!-- container -->
+
+  </body>
+</html>
