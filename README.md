@@ -3,7 +3,7 @@ Chitter
 ## Introduction
 This is a little website application where you can post your message and thoughts for public.
 
-![alt tag](http://res.cloudinary.com/abacus/image/upload/v1470040526/Screen_Shot_2016-08-01_at_09.33.20_kkm8nn.png
+![alt tag](http://res.cloudinary.com/abacus/image/upload/v1474328953/Screen_Shot_2016-09-20_at_00.45.41_fclodr.png
   )
 
 ## How to use
