@@ -49,14 +49,14 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.now[:notice] = ["Goodbye, see you again soon"]
+    flash.keep[:notice] = ["Goodbye, see you again soon"]
     redirect '/'
   end
 
   post '/peeps' do
     message = params[:message]
-    username = @current_user.username
-    full_name = @current_user.full_name
+    username = current_user.username
+    full_name = current_user.full_name
     Peep.create(username: username,
                 full_name: full_name,
                 message: message,
@@ -71,7 +71,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user ||= User.get(session[:user_id])
+      current_user ||= User.get(session[:user_id])
     end
   end
 
