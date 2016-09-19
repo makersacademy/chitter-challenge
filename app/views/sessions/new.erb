@@ -1,10 +1,10 @@
 <% if !current_user %>
   <form action="/users/new" >
-    <input type='submit' value='sign up'>
+    <input class="btn-flat disabled" type='submit' value='sign up'>
   </form>
 <% end %>
 
-<h1>Please sign in</h1>
+<h1 class="textCenter">Please sign in</h1>
 
 <form action='/sessions' method='post'>
   <label for='username'>
@@ -16,6 +16,12 @@
   </label>
   <br/>
   <label for='signin'>
-    <input type='submit' name='signin' value='sign in'>
+    <input class="btn-flat disabled" type='submit' name='signin' value='sign in'>
+  </label>
+</form>
+
+<form action="/">
+  <label for="cancel_button">
+    <input class="btn-flat disabled" type="submit" value="cancel">
   </label>
 </form>

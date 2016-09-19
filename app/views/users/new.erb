@@ -1,10 +1,11 @@
 <% if !current_user %>
   <form action="/sessions/new" >
-    <input type='submit' value='sign in'>
+    <input class="btn-flat disabled" type='submit' value='sign in'>
   </form>
 <% end %>
 
-<h1>Sign up</h1>
+
+<h1 class="textCenter">Sign up</h1>
 
 <form action="/users" method="post">
   <label for="username">
@@ -14,6 +15,7 @@
   <label for="password">
     Password: <input type="password" name="password">
   </label>
+  <br />
   <label for="password_confirmation">
     Confirm password: <input type="password" name="password_confirmation">
   </label>
@@ -21,6 +23,7 @@
   <label for="firstname">
     First name: <input type="text" name="firstname">
   </label>
+  <br />
   <label for="surname">
     Surname: <input type="text" name="surname">
   </label>
@@ -29,8 +32,13 @@
     Email: <input type="email" name="email">
   </label>
   <br/>
-  <br/>
   <label for="submit_button">
-    <input type="submit" value="sign up">
+    <input class="btn-flat disabled" type="submit" value="sign up">
+  </label>
+</form>
+
+<form action="/">
+  <label for="cancel_button">
+    <input class="btn-flat disabled" type="submit" value="cancel">
   </label>
 </form>

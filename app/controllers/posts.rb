@@ -1,4 +1,9 @@
 class Chitter < Sinatra::Base
+  get '/' do
+    redirect '/posts'
+  end
+
+
   get '/posts/new' do
     if current_user
       erb :'posts/new'

@@ -1,10 +1,17 @@
-<h1> New Posts </h1>
+<center>
+  <h1 class="title"> New Posts </h1>
 
-<form action='/posts' method='post'>
-  <label for="post">
-    Post:
-    <input type="text" name="post" />
-  </label>
-  <input type='submit' value='post it'>
-
-</form>
+  <form action='/posts' method='post'>
+    <label for="post">
+      <p>Write your comments below.</p>
+      <input type="text" name="post" />
+    </label>
+    </br>
+    <input class="btn-flat disabled" type='submit' value='post it'>
+  </form>
+  <form action="/">
+    <label for="cancel_button">
+      <input class="btn-flat disabled" type="submit" value="cancel">
+    </label>
+  </form>
+</center>
