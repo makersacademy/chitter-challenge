@@ -1,16 +1,10 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
-  <div class='flash'>
-    Please refer to the following errors below:
-    <ul id='errors'>
+    <h5>Please refer to the following errors below:</h5>
       <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
+        <p><%= error %></p>
       <% end %>
-    </ul>
-  </div>
 <% end %>
 
 <% if flash[:notice] %>
-  <div class='flash'>
-    <%= flash[:notice] %>
-  </div>
+    <h4><%= flash[:notice] %></h4>
 <% end %>

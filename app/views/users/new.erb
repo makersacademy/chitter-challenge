@@ -1,8 +1,32 @@
-<form id='form_sign_up' action='/users' method='post'>
-  <input type='text' name='name' value='<%= @user.name %>' placeholder='Name'/><br>
-  <input type='text' name='username' value='<%= @user.username %>' placeholder='Username'/><br>
-  <input type='email' name='email' value='<%= @user.email %>'  placeholder='Email'/><br>
-  <input type='password' name='password' placeholder='Password'/><br>
-  <input type='password' name='password_confirmation' placeholder='Confirm password'/><br>
-  <button class="button-submit" type="submit">Sign up!</button>
+<form class="form-horizontal" action='/users' method='post'>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <input class="form-control" type='text' name='name' value='<%= @user.name %>' placeholder='Name'/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <input class="form-control" type='text' name='username' value='<%= @user.username %>' placeholder='Username'/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <input class="form-control" type='email' name='email' value='<%= @user.email %>'  placeholder='Email'/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <input class="form-control" type='password' name='password' placeholder='Password'/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <input class="form-control" type='password' name='password_confirmation' placeholder='Confirm password'/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <button class="btn btn-default" type="submit">Sign up!</button>
+    </div>
+  </div>
 </form>
