@@ -1,9 +1,0 @@
-<h1>Chitter</h1>
-
-<% if current_user %>
-  <h3>Welcome <%= current_user.name %>!</h3>
-  <form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete" />
-    <button type="submit" class="btn btn-success">Sign Out</button>
-  </form>
-<% end %>

@@ -11,13 +11,37 @@
   </head>
 
   <body>
-
-    <div class="row">
-      <div class="col-sm-3"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <br />
+        </div>
+        <div class="col-sm-8">
+          <nav class="navbar navbar-default">
+            <%= partial :navigation %>
+          </nav>
+        </div>
+        <div class="col-sm-2">
+          <br />
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-3">
-          <%= partial :welcome %>
+          <br />
+        </div>
+        <div class="col-sm-6">
+          <% if current_user %>
+            <h3>Welcome <%= current_user.name %>!</h3>
+          <% end %>
           <%= partial :flash %>
+        </div>
+        <div class="col-sm-3">
+          <br />
+        </div>
+      </div>
+
           <%= yield %>
 
+    </div>
   </body>
 </html>
