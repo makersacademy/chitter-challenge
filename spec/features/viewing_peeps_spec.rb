@@ -20,7 +20,7 @@ feature 'Viewing the timeline of Peeps' do
     user.peeps.create(message: "This is my first peep. Hello World!")
     visit '/peeps'
     expect(page.status_code).to eq 200
-    within 'ul#peeps' do
+    within 'ul.peeps' do
       expect(page).to have_content("This is my first peep. Hello World!")
     end
   end

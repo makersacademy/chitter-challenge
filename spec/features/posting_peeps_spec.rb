@@ -19,7 +19,7 @@ feature 'Posting Peeps to the timeline' do
     fill_in 'message', with: "Hello World! This is my first Peep!"
     click_button 'Send Peep'
     expect(current_path).to eq '/peeps'
-    within 'ul#peeps' do
+    within 'ul.peeps' do
       expect(page).to have_content "Hello World! This is my first Peep!"
     end
   end
