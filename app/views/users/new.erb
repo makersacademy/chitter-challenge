@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
   <head>
     <meta charset="utf-8">
@@ -38,3 +39,106 @@
 <script src="/styles/js/bootstrap.min.js"></script>
   </body>
 </html>
+=======
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Chitter - by Joe Sweeny</title>
+      </head>
+
+      <style>
+
+        body, html {
+          font-family: "futura-pt", Futura, "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+          background-color: white;
+        }
+
+        #main {
+          width: 100px;
+          height: 100%;
+          padding-left: 375px;
+        }
+
+        #box {
+          border-radius: 10px;
+          width: 510px;
+          height: 220px;
+          background-color: #D7D6D6;
+        }
+        .header {
+          border-radius: 10px 10px 0 0;
+          padding-left: 10px;
+          background-color: #bfbfbf;
+          border-bottom: 1px solid black;
+          width: 500px;
+          font-size: 20px;
+          height: 40px;
+          text-indent: 5px;
+          color: #595959;
+          padding-top: 6px;
+        }
+
+        .middle {
+          padding-left: 10px;
+          background-color: #D7D6D6;
+          border-bottom: 1px solid black;
+          width: 495px;
+          font-size: 15px;
+          height: 200px;
+          text-indent: 2px;
+          font-style: italic;
+          padding-top: 10px;
+          text-align: left;
+          padding-left: 15px;
+        }
+
+        .footer {
+          padding-left: 10px;
+          background-color: #bfbfbf;
+          border-bottom: 2.5px;
+          width: 480px;
+          font-size: 20px;
+          text-indent: 10px;
+          border-right: 5px;
+          border-left: 5px;
+          height: 35px;
+          padding-top: 3px;
+          color: #595959;
+          border-radius: 0 0 10px 10px;
+          text-align: right;
+          padding-right: 20px;
+        }
+
+      </style>
+      <body>
+        <div></div><br><br>
+        <div id="main">
+
+            <div id="box">
+            <div class="header"><span>Please complete all fields below:</span></div>
+            <div class="middle"><span>
+              <form action='/users' method='post' >
+              <label for="full_name">Full Name:
+                <input type="text" name="full_name" required/>
+              </label><br><br>
+              <label for="username">Username:
+                <input type="text" name="username" required/>
+              </label><br><br>
+              <label for="email">Email:
+                <input type='email'  name='email' required/>
+              </label><br><br>
+              <label for="password">Password:
+                <input type='password'  name='password' />
+              </label><br><br>
+              <label for="password_confirmation">Re-Type Password:
+                <input type='password'  name='password_confirmation' />
+              </label>
+                </span></div>
+            <div class="footer"><input type='submit' class='button' value='Sign Up'>
+            </form></div>
+            <br></div><br>
+
+        </div>
+      </body>
+    </html>
+>>>>>>> ae60faa005946b7e08fdc3ad1f20aae66d3d1f07

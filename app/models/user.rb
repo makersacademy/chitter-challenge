@@ -7,11 +7,25 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps, through: Resource
+
   property :id, Serial
   property :full_name, String, required: true
-  property :username, String, unique: true, required: true
-  property :email, String, format: :email_address, required: true, unique: true
+
+  property :username, String
+
+  validates_uniqueness_of :username
+  validates_presence_of :username
+
+  property :email, String, format: :email_address
+
+
+  validates_uniqueness_of :email
+  validates_presence_of :email
+
   property :password_digest, String, length: 60
+
+  validates_confirmation_of :password
 
   def password=(password)
     @password = password
@@ -27,9 +41,5 @@ class User
       nil
     end
   end
-
-  validates_confirmation_of :password
-  validates_uniqueness_of :email
-  validates_uniqueness_of :username
 
 end
