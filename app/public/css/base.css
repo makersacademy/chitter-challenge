@@ -1,0 +1,23 @@
+body {
+  padding-top: 60px;
+}
+
+footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container {
+  max-width: 730px;
+}
+
+.form-signup {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+input#msg {
+  min-width: 400px;
+}
