@@ -22,7 +22,10 @@
             <span class="icon-bar "></span>
           </button>
 
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+          <a class="navbar-brand" href="/peeps"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+          <% if current_user %>
+            <p class="navbar-brand">Welcome, @<%=current_user.username %></p>
+          <% end %>
         </div>
     <!-- navigation links -->
 
@@ -45,7 +48,11 @@
     </div>
   </div>
 
+  <div class="row flash">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
     <%= partial :flash %>
+    </div>
+  </div>
 
     <%= yield %>
     <script src="/styles/js/jquery-3.1.0.min.js"></script>

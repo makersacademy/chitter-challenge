@@ -12,7 +12,11 @@
 
             <!-- Post a Peep -->
             <div class="peep_now">
-              <a href="#myModal" data-toggle="modal">Peep Now</a>
+              <% if current_user %>
+                <a href="#myModal" data-toggle="modal">Peep Now</a>
+              <% else %>
+                Want to Peep?  <a href="/sessions/new">Sign in</a> or <a href="/users/new">Sign up</a>
+              <% end %>
             </div><!-- Post a Peep -->
 
             <!-- Peeps -->
@@ -60,9 +64,5 @@
 
       </div>
     </div>
-
-    <% if current_user %>
-    <p>Welcome <%= current_user.full_name %></p>
-    <% end %>
   </body>
 </html>

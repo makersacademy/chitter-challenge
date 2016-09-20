@@ -48,6 +48,7 @@ body ul {
   background-color: #f8f8f8;
   border-radius: 10px;
   font-size: 30px;
+  color: #9174a5;
 }
 
 .logo {
@@ -87,7 +88,8 @@ body ul {
   border: 1px solid #b7b6b6;
 }
 
-#textID {
-  max-width: 400px;
-  max-height: 200px;
+.flash {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
 }

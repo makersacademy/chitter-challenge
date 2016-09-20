@@ -1,10 +1,14 @@
-# feature 'Posting Peeps' do
-#   scenario 'user can post a new peep' do
-#     visit '/peeps/new'
-#     fill_in 'message', with: 'This is my first peep'
-#     click_button 'Post Peep'
-#
-#     expect(current_path).to eq '/peeps'
-#     expect(page).to have_content 'This is my first peep'
-#   end
-# end
+feature 'Posting Peeps' do
+  scenario 'only a sign in user can post a new peep' do
+    sign_up
+    expect(page).to have_content 'Peep Now'
+    expect(page).not_to have_content 'Want to Peep? Sign in or Sign up'
+  end
+
+  scenario 'users who are not signed in cannot peep' do
+    sign_up
+    click_button 'Sign out'
+    expect(page).to_not have_content 'Peep Now'
+    expect(page).to have_content 'Want to Peep? Sign in or Sign up'
+  end
+end
