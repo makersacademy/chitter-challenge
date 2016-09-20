@@ -10,16 +10,12 @@ The user stories led us to create the following app features:
 * All peeps had to be displayed in reverse chronological order
 * All peeps should have the time it was 'peeped'
 
-```
-Chitter is a modular Sinatra application.
-
-It uses DataMapper for interactions with the database (provided by Postgres both locally and on Heroku)
-
-BCrypt is used for authentication.
-
-Styling is through CSS and the app is tested thoroughly with RSpec and Capybara.
-
-```
+Technologies:
+* Chitter is a modular Sinatra application.
+* It uses DataMapper for interactions with the database (provided by Postgres both locally and on Heroku)
+* BCrypt is used for authentication.
+* Styling is through Bootstrap, HTML and CSS
+* Tested thoroughly with RSpec and Capybara.
 
 To use Chitter please:
 
@@ -38,4 +34,4 @@ http://localhost:9292
 ```
 
 
-Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com)
+Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com). This app has been built mobile first in mind but can also be viewed via your favourite browser.
