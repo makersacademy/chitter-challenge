@@ -34,4 +34,4 @@ http://localhost:9292
 ```
 
 
-Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com). This app has been built mobile first in mind but can also be viewed via your favourite browser.
+Alternatively this app has been deployed to Heroku and can be used at [chitterbyjoe.herokuapp.com](http://chitterbyjoe.herokuapp.com). This app has been built with mobile first in mind but can also be viewed via your favourite browser.
