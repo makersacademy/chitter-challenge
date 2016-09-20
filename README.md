@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter
 =================
 
 As part of consolidating our learning for the week Makers Academy set us the weekend challenge of creating a Twitter clone called 'Chitter.'
@@ -27,7 +27,7 @@ To use Chitter please:
 Clone the repo
 ```
 ```
-$ Bundle install
+$ bundle install
 ```
  ```
 $ rackup
