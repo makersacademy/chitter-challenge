@@ -24,7 +24,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-<<<<<<< HEAD
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
