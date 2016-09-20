@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
-require 'byebug'
 
 ENV['RACK_ENV'] ||= 'development'
 
