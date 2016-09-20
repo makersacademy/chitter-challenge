@@ -1,10 +1,10 @@
-ul#peeps {
+ul.peeps {
     padding: 0;
     list-style-type: none;
     list-style-position: inside;
 }
 
-ul#peeps li {
+ul.peeps li {
     background: #E8E8E8;
     border: 2px solid #D8D8D8;
     padding: 0 0 20px 0;
