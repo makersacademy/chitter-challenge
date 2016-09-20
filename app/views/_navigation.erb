@@ -11,14 +11,14 @@
     <% end %>
   </li>
   <li>
-    <% if current_user == nil %>
+    <% if current_user == nil && current_path == "/peeps"%>
       <form action="/sessions/new" class="navbar-form">
         <button type="submit" class="btn btn-success">Sign In</button>
       </form>
     <% end %>
   </li>
   <li>
-    <% if current_user == nil %>
+    <% if current_user == nil && current_path == "/peeps"%>
       <form action="/users/new" class="navbar-form">
         <button type="submit" class="btn btn-success">Sign Up</button>
       </form>
