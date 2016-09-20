@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-3">
+  </div>
+    <div class="col-sm-6">
+      <ul class="peeps" >
+        <% @peeps.reverse.each do |peep| %>
+        <li>
+          <div class="peep_name">
+            <%= peep.user.name %>
+          </div>
+          <div class="peep">
+            <%= peep.message %>
+          </div>
+          <div class="peep_time">
+            <%= peep.created_at.strftime("%H:%M:%S %a %d %b %Y") %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+      <% if current_user != nil %>
+      <form action="/peeps/new">
+        <button type="submit" class="btn btn-success">Send Peep</button>
+      </form>
+      <% end %>
+    </div>
+  <div class="col-sm-3"></div>
+  </div>

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form class="" action="/users" method="POST" role="form">
+        <div class="form-group">
+          <label for="name">
+            Name:
+          </label>
+          <input type="text" name="name" class="form-control" value= "<%= @user.name %>" />
+        </div>
+        <div class="form-group">
+          <label for="username">
+            Username:
+          </label>
+          <input type="text" name="username" class="form-control" value= "<%= @user.username %>" />
+        </div>
+        <div class="form-group">
+          <label for="email">
+            Email:
+          </label>
+          <input type="email" name="email" class="form-control" value= "<%= @user.email %>" required/>
+        </div>
+        <div class="form-group">
+          <label for="password">
+            Password:
+          </label>
+          <input type="password" class="form-control" name="password" />
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation">
+            Confirm Password:
+          </label>
+          <input type="password" class="form-control" name="password_confirmation" />
+        </div>
+        <input type="submit" class="btn btn-success" value="Sign Up">
+      </form>
+    </div>
+  <div class="col-sm-3"></div>
+</div>
