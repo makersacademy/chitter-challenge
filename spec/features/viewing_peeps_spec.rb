@@ -9,7 +9,7 @@ feature 'Viewing peeps' do
 
   end
 
-  scenario 'users can see their profile information as well as their peep' do
+  scenario 'users can see their name and username as well as their peep' do
     sign_up
     visit '/peeps'
     click_link 'Peep Now'

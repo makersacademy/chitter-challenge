@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- styles -->
 
-    <link href="/styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/styles/css/bootstrap.css" rel="stylesheet">
     <link href="/styles/css/main.css" rel="stylesheet">
   </head>
 
@@ -45,15 +45,7 @@
     </div>
   </div>
 
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= partial :flash %>
 
     <%= yield %>
     <script src="/styles/js/jquery-3.1.0.min.js"></script>

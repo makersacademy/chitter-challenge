@@ -12,30 +12,54 @@
 
             <!-- Post a Peep -->
             <div class="peep_now">
-              <a href="/peeps/new">Peep Now</a>
+              <a href="#myModal" data-toggle="modal">Peep Now</a>
             </div><!-- Post a Peep -->
-
-
 
             <!-- Peeps -->
             <div class="form-group text-center peeps">
 
-                <img src="/images/chitter.png" style="width:30%;">
+                <img src="/images/chitter.png" class="logo" style="width:30%;">
+
+                <% Peep.all(order: [:id.desc]).map do |peep| %>
+                <div class="individual_peeps">
+                  <p class="peep_header">@<%= peep.username %></p>
+                  <p class="peep_message"><%= peep.message %></p>
+                  <p class="peep_footer">by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %></p>
+                </div>
+                <% end %>
 
 
-                  <% Peep.all(order: [:id.desc]).map do |peep| %>
-                  @<%= peep.username %>
-                  <%= peep.message %>
-                  by <%= peep.full_name %> at <%= peep.created_at.strftime("%H:%M%p (%A %d %b %Y)") %>
-
-
-                  <% end %>
 
             </div><!-- Peeps -->
 
         </div><!-- grid system -->
       </div><!-- row -->
     </div><!-- container -->
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Post a Peep</h4>
+          </div>
+          <div class="modal-body">
+
+            <form action='/peeps' method='POST'>
+              <textarea id="textID" rows="4" cols="150" wrap="soft" placeholder="Enter your thoughts here..." name='message' maxlength="160"></textarea><br>
+
+          </div>
+          <div class="modal-footer">
+            <input type='submit' class="btn btn-default" value='Post Peep'>
+          </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <% if current_user %>
     <p>Welcome <%= current_user.full_name %></p>

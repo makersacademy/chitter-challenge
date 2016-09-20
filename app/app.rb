@@ -6,10 +6,10 @@ require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
 
-require_relative 'server'
-require_relative 'controllers/users'
-require_relative 'controllers/sessions'
-require_relative 'controllers/peeps'
+# require_relative 'server'
+# require_relative 'controllers/users'
+# require_relative 'controllers/sessions'
+# require_relative 'controllers/peeps'
 
 
 class Chitter < Sinatra::Base
@@ -18,10 +18,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Partial
   use Rack::MethodOverride
   set :session_secret, 'super secret'
-  set :partial_template_engine, :erb
-  set :public_folder, 'public'
 
   enable :partial_underscores
+  set :partial_template_engine, :erb
 
   get '/' do
     erb :index
@@ -30,6 +29,26 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
+  end
+
+  get '/users/new' do
+    @user = User.new
+    erb :'users/new'
+  end
+
+  post '/users' do
+    @user = User.new(full_name: params[:full_name],
+               username: params[:username],
+               email: params[:email],
+               password: params[:password],
+               password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      flash[:errors] = @user.errors.full_messages
+      redirect 'users/new'
+    end
   end
 
   get '/sessions/new' do
@@ -49,7 +68,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = ["Goodbye, see you again soon"]
+    flash.keep[:notice] = 'Goodbye, see you again soon'
     redirect '/'
   end
 
