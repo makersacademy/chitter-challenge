@@ -10,6 +10,10 @@ This is a little website application where you can post your message and thought
 You need to sign up and sign in to post.
 But, you can view all the posts without signing up or signing in.
 
+## Update
+Now it is deployed to Heroku!
+Please try it out at https://chitter-away.herokuapp.com/
+
 ## How to install
 Please do the following:
 In your terminal
