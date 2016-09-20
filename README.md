@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+[Live Demo on Heroku](https://aru-chitter.herokuapp.com)
+
 Technologies used:
 -------
 * Ruby
@@ -53,3 +55,14 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+Screenshots
+-------
+
+### User Interface
+
+![chitter-ui](screenshots/chitter-ui.jpg)
+
+### RSpec tests
+
+![chitter-tests](screenshots/chitter-tests.jpg)
