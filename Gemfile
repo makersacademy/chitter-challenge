@@ -9,13 +9,15 @@ gem 'sinatra-partial'
 gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
+gem 'rake'
+gem 'bcrypt'
+gem 'pry'
 
 group :test do
-  gem "pry-byebug"
   gem 'byebug'
-  gem 'database_cleaner'
-  gem 'capybara'
   gem 'rspec'
   gem 'coveralls', require: false
-  gem 'rspec-sinatra'
+  gem 'database_cleaner'
+  gem 'capybara'
 end
