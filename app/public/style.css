@@ -1,0 +1,59 @@
+.inline {
+  display: inline-block;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+ul#posts li {
+  list-style-type: none;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(12, 12, 12, 0.47);
+}
+
+body {
+  background-image: url("https://hd.unsplash.com/photo-1459603677915-a62079ffd002");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0%;
+  color:white;
+  font-size: 20px;
+}
+
+form {
+  margin: 10px 40px 10px 40px;
+}
+
+form p {
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+
+label {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+input {
+  color: white;
+  font-size: 25px !important;
+}
+
+.btn-flat.disabled {
+    color: white;
+}
+
+label {
+  color: white;
+}

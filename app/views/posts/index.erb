@@ -1,0 +1,25 @@
+<% if !current_user %>
+  <form class="inline" action="/users/new" >
+    <input class="btn-flat disabled" type='submit' value='sign up'>
+  </form>
+  <form class="inline" action="/sessions/new" >
+    <input class="btn-flat disabled" type='submit' value='sign in'>
+  </form>
+<% else %>
+  <form action="/posts/new" >
+    <input class="btn-flat disabled" type='submit' value='post message!'>
+  </form>
+<% end %>
+
+<center>
+  <h1 class="title"> Posts </h1>
+   <a href="https://github.com/nfabacus/chitter-challenge">gitHub</a>
+  <ul id='posts'>
+    <% @posts.reverse_each do |post| %>
+      <li>
+        <%= User.get(post.user_id).username %>
+        <%= post.postedTime %> - <%= post.post %>
+      </li>
+    <% end %>
+  </ul>
+</center>
