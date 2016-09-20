@@ -5,8 +5,7 @@ module SessionHelpers
               email: 'joesweeny84@hotmail.com',
               password: 'buddy123',
               password_confirmation: 'buddy123')
-    visit '/'
-    click_link 'Sign Up'
+    visit '/users/new'
     fill_in :full_name, with: full_name
     fill_in :username, with: username
     fill_in :email, with: email

@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Sign Up' do
   scenario 'a user go to the sign up page' do
     visit '/'
-    click_link 'Sign Up Here'
+    click_link 'Sign Up'
     expect(page.status_code).to eq(200)
   end
 
