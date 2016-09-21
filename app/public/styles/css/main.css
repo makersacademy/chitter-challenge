@@ -93,3 +93,10 @@ body ul {
   text-align: center;
   padding-top: 20px;
 }
+
+.sub-text {
+  margin: 0 auto;
+  width: 80%;
+  font-size: 10px;
+  padding-bottom: 20px;
+}
