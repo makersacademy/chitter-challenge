@@ -1,0 +1,102 @@
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+body ul {
+  list-style: none
+}
+
+#forms {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.form-control {
+  width: 90%;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.btn {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 120px;
+}
+
+.text {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.peeps {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.peep_now {
+  margin-top: 30px;
+  padding: 10px 0 10px 0px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  font-size: 30px;
+  color: #9174a5;
+}
+
+.logo {
+
+}
+
+.peep_header {
+  text-align: left;
+  margin: 0 auto;
+  padding: 10px 30px 10px 30px;
+  background-color: rgba(158, 158, 158, 0.14);
+  width: 90%;
+  margin-top: 20px;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #b7b6b6;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.peep_message {
+  text-align: left;
+  margin: 0 auto;
+  padding: 20px 30px 20px 30px;
+  background-color: rgba(200, 168, 221, 0.43);
+  width: 90%;
+  border: 1px solid #b7b6b6;
+  font-size: 24px;
+}
+
+.peep_footer {
+  text-align: left;
+  margin: 0 auto;
+  padding: 10px 30px 10px 30px;
+  background-color: rgba(158, 158, 158, 0.14);
+  width: 90%;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #b7b6b6;
+}
+
+.flash {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sub-text {
+  margin: 0 auto;
+  width: 80%;
+  font-size: 10px;
+  padding-bottom: 20px;
+}
