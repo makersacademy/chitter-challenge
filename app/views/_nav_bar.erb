@@ -1,0 +1,18 @@
+<div class="container">
+  <ul class="nav nav-pills navbar-right">
+  <% if current_user %>
+    <li><p class="navbar-text">Signed in as <%= current_user.username %> </p></li>
+    <li><form class="navbar-form navbar-right" action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'/>
+      <button class="btn btn-default" type="submit">Sign out</button>
+    </form></li>
+  <% else %>
+    <li><form class="navbar-form navbar-right" action='/sessions/new'>
+      <button class="btn btn-default" type="submit">Sign in</button>
+    </form></li>
+  <% end %>
+  </ul>
+
+</div>
+<h1><span class="chitter-text">Chitter.</span></h1>
+<h3><span class="chitter-text">Like Twitter, only worse.</span></h3>

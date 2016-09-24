@@ -1,0 +1,47 @@
+
+.peep-time {
+  float: right;
+  font-size: 0.7em;
+}
+
+.peeps-container {
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 50px;
+}
+
+.form-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.panel-footer {
+  text-align: right;
+}
+
+.panel-body {
+  padding-left:40px
+  padding-right:40px
+}
+
+.jumbotron {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.post {
+  padding: 5px;
+  padding-top: 10px;
+}
+
+.main-body {
+  padding-top:100px;
+}
+
+.chitter-text {
+  color: #CCCCCC;
+}
+
+.flash {
+  text-align: center;
+}
