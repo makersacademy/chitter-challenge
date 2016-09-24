@@ -1,4 +1,4 @@
-# Rock, Paper, Scissors Challenge
+# Chitter Challenge
 
 [![Build Status](https://travis-ci.org/lsewilson/chitter-challenge.svg?branch=master)](https://travis-ci.org/lsewilson/chitter-challenge)
 

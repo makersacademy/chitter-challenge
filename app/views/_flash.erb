@@ -1,10 +1,12 @@
-<% if flash[:errors] && !flash[:errors].empty? %>
-    <h5>Please refer to the following errors below:</h5>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-<% end %>
+<div class="container flash">
+  <% if flash[:errors] && !flash[:errors].empty? %>
+      <h5>Please refer to the following errors below:</h5>
+        <% flash[:errors].each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+  <% end %>
 
-<% if flash[:notice] %>
-    <h4><%= flash[:notice] %></h4>
-<% end %>
+  <% if flash[:notice] %>
+      <h4><%= flash[:notice] %></h4>
+  <% end %>
+</div>

@@ -1,7 +1,6 @@
 <div class="container">
   <ul class="nav nav-pills navbar-right">
   <% if current_user %>
-
     <li><p class="navbar-text">Signed in as <%= current_user.username %> </p></li>
     <li><form class="navbar-form navbar-right" action='/sessions' method='post'>
       <input type='hidden' name='_method' value='delete'/>
@@ -15,5 +14,5 @@
   </ul>
 
 </div>
-<h1>Chitter.</h1>
-<h3>Like Twitter, only worse.</h3>
+<h1><span class="chitter-text">Chitter.</span></h1>
+<h3><span class="chitter-text">Like Twitter, only worse.</span></h3>

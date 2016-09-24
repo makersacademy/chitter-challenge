@@ -1,20 +1,20 @@
 <html>
   <head>
     <title>CHITTER</title>
-    <link href="/bootstrap.min.css" rel="stylesheet"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link href='/style.css' rel='stylesheet'/>
   </head>
 
   <body>
     <div class="jumbotron">
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <%= partial :nav_bar %>
         <%= partial :user_action %>
-        <%= partial :flash %>
       </nav>
     </div>
     <div class='main-body'>
+      <%= partial :flash %>
       <%= yield %>
     </div>
   </body>

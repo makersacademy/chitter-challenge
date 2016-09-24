@@ -5,7 +5,9 @@
             <h3 class="panel-title"><%=peep.user.username %> :</h3>
           </div>
           <div class="panel-body">
-            <%= peep.message  %>
+            <div class="container">
+              <%= peep.message  %>
+            </div>
           </div>
           <div class='panel-footer'>Posted at <%= peep.time_created.strftime("%k:%M %e %b") %></div>
         </div>

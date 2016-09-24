@@ -7,6 +7,7 @@
 .peeps-container {
   margin: 0 auto;
   width: 60%;
+  padding-top: 50px;
 }
 
 .form-container {
@@ -25,128 +26,22 @@
 
 .jumbotron {
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .post {
   padding: 5px;
   padding-top: 10px;
-
 }
 
 .main-body {
-  padding-top:150px;
+  padding-top:100px;
 }
 
-
-
-/*.peeps-container  {
-  list-style-type: none;
-  width: 70%;
-  /*padding: 20px;
-  border: 2px solid black ;
-  border-radius: 15px ;
-  margin: 5px;
-}
-
-
-
-/*body {
-  background-color: white ;
-}
-
-.nav {
-  background-color: black;
-  color: white;
-}
-
-.header {
-  background-color: black;
-  position: relative;
-  width: 100%;
-  text-align: center;
-  font-family: Courier;
-  color: white;
-}
-
-.header h1 {
-  font-size: 5em;
-}
-
-.header h2 {
-  font-size: 1.2em;
-}
-
-.nav-bar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.nav-bar li {
-  float: right;
-  padding: 10px;
-}
-
-.post {
-  width:100%;
-  position: relative;
-}
-
-.post form {
-  margin: 0 auto;
-  width: 300px;
-}
-
-.post input {
-  width: 250px;
+.chitter-text {
+  color: #CCCCCC;
 }
 
 .flash {
   text-align: center;
-  padding: 20px;
-  font-family: Courier;
-  font-size: 1.5em
 }
-
-
-
-
-
-/*
-.user-navbar {
-  font-size: 1em;
-  margin: 0 auto;
-}
-
-.button-navbar {
-  background-color: grey;
-  border: none ;
-  color: black;
-  padding: 15px;
-  text-align: center;
-  font-size: 1em;
-}
-
-.sign_up_layout {
-  display: inline-block;
-  border: 2px solid black;
-}
-
-#form_sign_up {
-  margin: 0 auto;
-}
-
-#form_sign_up input {
-  display: block;
-  width: 250px;
-  float: left;
-  margin: 0 auto;
-  margin-bottom: 8px;
-  vertical-align: middle;
-  font-size: 1em;
-}
-
-br {
-    clear: left;
-}*/
