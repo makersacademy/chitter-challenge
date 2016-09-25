@@ -1,0 +1,24 @@
+<h1>LET'S CHITT!</h1><br>
+<% if !current_user %>
+  <form action="/sessions/new">
+  <input type="submit" value="Sign in">
+  </form>
+  <form action="/users/new">
+  <input type="submit" value="Sign up">
+  </form>
+<% end %>
+
+<form action='/peeps/new'>
+  <input type='submit' value='Post-a-peep'>
+</form>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <div>
+  <li>
+    Peep: <%= peep.peep %>
+    Time: <%= peep.time %>
+  </li>
+</div>
+  <% end %>
+</ul>
