@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require './data_mapper_setup.rb'
+require './data_mapper_setup'
 require './app/models/user'
 require 'sinatra/flash'
 require './app/models/peep'
