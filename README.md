@@ -1,5 +1,7 @@
 https://chittychitter.herokuapp.com/
 
+A Twitter clone written in pure Ruby.
+
 Chitter Challenge
 =================
 
