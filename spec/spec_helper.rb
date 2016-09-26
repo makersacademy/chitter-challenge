@@ -12,6 +12,7 @@ require './app/app'
 require 'helpers/session'
 require 'coveralls'
 require 'simplecov'
+require 'orderly'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

@@ -1,20 +1,12 @@
 feature 'Creating and Viewing Peeps' do
 
     before(:each) do
+      @time_now = DateTime.new(2016,9,26)
+      allow(DateTime).to receive(:new).and_return(@time_now)
       sign_up
-
-
-      visit '/peeps/new'
-      fill_in 'content', with: "First Peep"
-      click_on 'Post'
-
-      visit '/peeps/new'
-      fill_in 'content', with: "Second Peep"
-      click_on 'Post'
-
+      upload_peeps
       visit '/'
     end
-
 
     scenario "user can create see peeps " do
 
@@ -23,14 +15,12 @@ feature 'Creating and Viewing Peeps' do
 
     end
 
-    # scenario "users can see when peeps were created" do
-    #
-    #   expect(page).to have_content('2016')
-    # end
+    scenario "users can see when peeps were created" do
+      expect(page).to have_content(@time_now)
+    end
 
-    # scenario 'peeps are in reverse chronological order' do
-    #
-    #
-    # end
+    scenario 'peeps are in reverse chronological order' do
+      expect("Second Peep").to appear_before("First Peep")
+    end
 
   end

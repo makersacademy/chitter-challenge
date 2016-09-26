@@ -17,5 +17,14 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def upload_peeps
+    visit '/peeps/new'
+    fill_in 'content', with: "First Peep"
+    click_on 'Post'
+
+    visit '/peeps/new'
+    fill_in 'content', with: "Second Peep"
+    click_on 'Post'
+  end
 
 end
