@@ -1,0 +1,15 @@
+<h1> Messages </h1>
+<section class="list_messages">
+  <ul id='messages'>
+    <% @messages.each do |message| %>
+      <li>
+        Peep: <%= message.message %><br>
+        Created at: <%= message.created_at.strftime("%d/%m/%Y %R") %><br>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<% if current_user %>
+  <a href="/messages/new">New Peep!</a>
+<% end %>
