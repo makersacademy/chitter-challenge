@@ -1,0 +1,21 @@
+<body>
+  <h1>Sign up:</h1>
+  <form action="/users/new_user_authenticate" method="post">
+    <label for="first_name">
+      First name: <input type="text" name="first_name">
+    </label>
+    <label for="last_name">
+      Last name: <input type="text" name="last_name">
+    </label>
+    <label for="email">
+      Email: <input  name="email" type="email" required>
+    </label>
+    <label for="password">
+      Password: <input type="password" name="password">
+    </label>
+    <label for="password_confirmation">
+      Confirm password: <input type="password" name="password_confirmation">
+    </label>
+    <input type="submit" value="Sign up">
+  </form>
+</body>

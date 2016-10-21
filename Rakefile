@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './lib/chitter_sapp.rb'
+require './app/chitter_app.rb'
 
 namespace :db do
   desc "Non destructive upgrade"
