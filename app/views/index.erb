@@ -1,0 +1,9 @@
+<h1>Chitter</h1>
+<h2>Posts</h2>
+<div>
+  <% @posts.each do |post| %>
+    <h3>User</h3>
+    <h4>@user_name</h4>
+    <p><%= post.message %></p>
+  <% end %>
+</div>
