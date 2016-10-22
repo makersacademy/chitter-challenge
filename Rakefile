@@ -1,7 +1,18 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  
-  RSpec::Core::RakeTask.new :spec
-  
-  task default: [:spec]
+require 'datamapper'
+require './app/data_mapper_setup'
+
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+
+  task :autoupgrade do#[:spec]
+    DataMapper.auto_upgrade!
+    puts 'Auto-upgrade complete (no data loss)'
+  end
+
+  task :automigrate do
+    DataMapper.auto_migrate!
+    puts 'Auto-migrate complete (data could have been lost)'
+  end
 end

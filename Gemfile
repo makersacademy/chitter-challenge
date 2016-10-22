@@ -2,6 +2,10 @@ source 'http://rubygems.org'
 ruby '2.2.3'
 
 gem 'sinatra'
+gem 'sinatra-flash'
+gem 'datamapper'
+gem 'dm-postgres-adapter'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
@@ -10,4 +14,7 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'dm-transactions'
+  gem 'dm-rspec'
 end
