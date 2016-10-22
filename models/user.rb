@@ -36,6 +36,6 @@ class User
     end
   end
 
-  # has n, :peeps, through: Resource
+  has n, :peeps
 
 end
