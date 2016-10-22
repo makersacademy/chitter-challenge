@@ -5,13 +5,11 @@ require 'sinatra/flash'
 require_relative 'models/data_mapper_setup'
 
 class Chitter < Sinatra::Base
-
-  use Rack::MethodOverride
-
+  #use Rack::MethodOverride
   register Sinatra::Flash
-
   enable :sessions
-  set :session_secret, 'super secret'
+  #set :session_secret, 'super secret'
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -55,12 +53,6 @@ class Chitter < Sinatra::Base
       end
   end
 
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
-    redirect to '/peeps'
-  end
-
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
@@ -71,7 +63,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(url: params[:url], title: params[:title])
+    peep = Peep.new(title: params[:title])
     peep.save
     redirect '/peeps'
   end
