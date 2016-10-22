@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "user sign-up" do
   scenario "the user registers with a password and password confirmation" do
     sign_up(email: "batman@hotmail.com", password: "123", password_confirmation: "123")
-    expect(page).to have_content "Welcome to Chitter batman@hotmail.com"
+    expect(page).to have_content "Hello, batman@hotmail.com"
   end
 
   scenario 'with a password that does not match' do
