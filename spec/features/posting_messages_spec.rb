@@ -6,8 +6,6 @@ feature 'posting a message' do
 								:password,
 								:password)
 		post_message("Example message")
-		puts page.html
-		user = User.first
 		expect(page).to have_content "Example message"
 		#expect(user.messages.map(&:body)).to include("Example message")
 	end

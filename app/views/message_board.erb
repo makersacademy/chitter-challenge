@@ -13,7 +13,7 @@
 		<% @messages.each do |message| %>
 			<li>
 				<p><%= message.body %></p>  
-				
+				<p><%= User.first(id: message.user_id).username %></p>
 				<p><%= message.time_created %></p>		
 			</li>
 		<% end %>
