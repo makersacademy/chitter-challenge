@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     'Hello Chitter!'
   end
 
+  get '/chitter' do
+    erb :'links/index'
+  end
+
   get '/users/new' do
   erb :'users/new'
 end
@@ -20,9 +24,15 @@ post '/users' do
   if user.save
     session[:user_id] = user.id
     @status = 'match'
-    redirect '/links'
+    redirect '/chitter'
   else
     redirect '/users/new'
+  end
+end
+
+helpers do
+  def current_user
+    @current_user ||= User.get(session[:user_id])
   end
 end
 
