@@ -8,6 +8,4 @@ class Peep
   property :id,   Serial
   property :peep_text, String
 
-    belongs_to :user, key: true
-
 end
