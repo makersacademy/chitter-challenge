@@ -1,5 +1,9 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'bcrypt'
+
+# attr_reader :password
+# attr_accessor :password_confirmation
 
 class User
 
@@ -11,11 +15,11 @@ class User
   property :email,           String
   property :password_digest, Text
 
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
+  end
 end
 
-
-
-DataMapper::Logger.new($stdout, :debug)
 # DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres:///chitter_#{ENV['RACK_ENV']}")
 DataMapper.setup(:default, "postgres://localhost/chitter_test")
 DataMapper.finalize
