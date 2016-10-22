@@ -10,6 +10,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-rspec'
 require 'database_cleaner'
+require 'web_helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

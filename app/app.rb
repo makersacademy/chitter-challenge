@@ -10,6 +10,14 @@ class ChitterChatter < Sinatra::Base
     erb :sign_up
   end
 
+  post '/users' do
+    User.create(email: params[:email],
+                password: params[:password],
+                name: params[:name],
+                username: params[:username])
+    redirect to '/'
+  end
+
   get '/log-in' do
     erb :log_in
   end
