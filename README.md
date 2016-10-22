@@ -7,6 +7,8 @@ Approach
 2. Write and pass tests for user sign-up.
 3. Write and pass tests for user log-in.
 4. Write and pass tests for user log-out.
+5. Realised that user sign-up needs to include a unique username.
+5. Write and pass tests for posting a peep.
 
 
 
