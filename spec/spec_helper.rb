@@ -16,7 +16,7 @@ require './app/app'
 require 'database_cleaner'
 
 
-Capybara.app = BookmarkManager
+Capybara.app = Chitterhub
 
 
 RSpec.configure do |config|

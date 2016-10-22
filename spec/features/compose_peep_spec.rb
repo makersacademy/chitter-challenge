@@ -1,8 +1,8 @@
-feature 'Compose peep' do
+feature 'Compose peep.' do
 
   scenario 'I can compose a new peep' do
     visit '/peeps/new'
-    fill_in 'user_name',   with: 'Jeff'
+    fill_in 'user_name', with: 'Jeff'
     fill_in 'user_peep', with: 'This is my second peep!'
     click_button 'Send Peep!'
 
