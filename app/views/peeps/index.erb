@@ -1,9 +1,9 @@
 <h1> Peeps </h1>
 
 <ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
+  <% @peeps.each do |peep| %>
   <li>
-    <%= peep.author %>: <%= peep.comment %> <% peep.created %>
+    <%= peep.author %>: <%= peep.comment %> <%= peep.created %>
   </li>
   <% end %>
 </ul>
