@@ -5,13 +5,13 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  attr_reader :password
+  attr_reader :password, :count
   attr_accessor :password_confirmation
 
   property :id, Serial
   property :user_name, String
   property :name, String
-  property :email, String
+  property :email, String, format: :email_address, required: true
   property :password_digest, Text
   validates_confirmation_of :password
 
@@ -21,6 +21,11 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  @count = 0
+
+  def self.count
+    @count += 1
+  end
 
   # has n, :peeps, through: Resource
 

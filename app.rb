@@ -1,4 +1,5 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
 require 'sinatra/flash'
 require './models/data_mapper_setup.rb'
@@ -33,6 +34,7 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
+      @user.count
       redirect to('/peeps')
     else
       flash.now[:notice] = "Your passwords do not match, please try again!"
