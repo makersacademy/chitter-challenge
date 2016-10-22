@@ -20,5 +20,14 @@ feature 'User posting peeps' do
     end
   end
 
-  
+  scenario 'can see the date and time when peep was posted' do
+    sign_in
+    peep("Hey guys! It's my first post!")
+
+    within 'div.peep' do
+      within 'div.peep_date' do
+        expect(page).to have_content(Time.now.strftime('%F %T'))
+      end
+    end
+  end
 end

@@ -1,3 +1,5 @@
+require 'dm-timestamps'
+
 class Peep
   include DataMapper::Resource
 
@@ -5,4 +7,5 @@ class Peep
 
   property :id, Serial
   property :peep_text, Text
+  property :created_at, DateTime
 end
