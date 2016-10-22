@@ -13,17 +13,22 @@ feature "Sign up" do
   end
 
   scenario "requires email address to be provided" do
-    sign_up_with_missing_email
-    fill_in('email', with: nil)
-    click_button('Sign up')
+    expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(User.count).to eq 0
+    expect(page).to have_content("Please enter your email address")
   end
 
   scenario "checks email address is valid" do
-    sign_up_with_missing_email
-    fill_in('email', with: "abd.abdn.123")
-    click_button('Sign up')
-    expect(User.count).to eq 0
+    expect { sign_up(email: "abd.dfe.email") }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content("Invalid email address")
+
+  end
+
+  scenario "check email address is unique" do
+    sign_up
+    sign_up
+    expect(User.count).to eq 1
+    expect(page).to have_content "This email has already been registered"
   end
 end
