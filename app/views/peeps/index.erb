@@ -5,12 +5,14 @@
   <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
     <li style="list-style: none;">
-    <b><p><%= peep.name %></b>&nbsp&nbsp <%= peep.created_at %></p>
+      <% time = peep.created_at %>
+    <b><p><%= peep.name %></b>&nbsp&nbsp <%= time.strftime("Peeped on %d/%m/%Y at %I:%M%p") %></p>
     <b><textarea rows='4' cols='50' name='message' disabled><%= peep.message %></textarea></b>
-    </br></br>
+  </br></br>
     <form action='/comments/new' method='POST'>
         <textarea name='comment_ta' id='comment_ta' rows='4' cols='50' placeholder = 'Comment on peep here!' ></textarea>
       <p><input type='submit' value='Comment' id='x'/></p>
     </form>
+    </br><hr></br>
   <% end %>
 </ul>
