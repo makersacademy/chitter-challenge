@@ -15,6 +15,7 @@ feature 'User posting peeps' do
     within 'div.peep' do
       within 'div.peeper' do
         expect(page).to have_content 'tadan'
+        expect(page).to have_content 'Tadas Majeris'
       end
       expect(page).to have_content "Hey guys! It's my first post!"
     end
@@ -30,4 +31,24 @@ feature 'User posting peeps' do
       end
     end
   end
+
+  scenario 'can see the posts in reverse chronological order' do
+    sign_in
+    peep("first post")
+
+    Timecop.travel(10) do
+      peep("second post")
+      within first('div.peep') do
+        expect(page).to have_content "second post"
+      end
+    end
+
+    Timecop.travel(20) do
+      peep("third post")
+      within first('div.peep') do
+        expect(page).to have_content "third post"
+      end
+    end
+  end
+
 end

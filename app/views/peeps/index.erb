@@ -30,7 +30,7 @@
   <% if @peeps %>
     <% @peeps.each do |peep| %>
       <div class="peep">
-        <div class="peeper"><%=peep.user.username%></div>
+        <div class="peeper"><b><%=peep.user.username%></b> <i> - <%=peep.user.name%></i></div>
         <div class="peep_date"><%=peep.created_at.strftime('%F %T')%></div>
         <p><%=peep.peep_text%></p>
       </div>

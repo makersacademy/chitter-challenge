@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 body {
+  font-size: 1em;
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -16,9 +17,12 @@ body {
   width: 100%;
   border-top: 1px dotted black;
 }
+.peep i {
+  font-size: 0.75em;
+  color: #888;
+}
 .peeper {
-  width: 100px;
-  font-weight: bold;
+  width: 200px;
   float: left;
 }
 .peep_date {
