@@ -2,11 +2,16 @@ require 'spec_helper'
 
 feature 'I want to sign up for Chitter' do
   scenario 'Allow user to create a Chitter account' do
-    # expect { sign_up }.to change(User, :count).by(1)
-    sign_up
+    expect { sign_up }.to change(User, :count).by(1)
     expect(page.current_path).to eq '/home'
     expect(page).to have_content("Welcome tansaku")
     expect(User.first.email).to eq("sam@makersacademy.com")
+  end
+
+  scenario 'If user password and password_confirmation do not match, no new Chitter account is created' do
+    expect { sign_up(password_confirmation: 'secret') }.not_to change(User, :count)
+    expect(page.current_path).to eq '/users/new'
+    # expect(page).to have_content("Passwords to do not match")
   end
 
 
