@@ -14,15 +14,16 @@ feature "Sign up" do
 
   scenario "requires email address to be provided" do
     sign_up_with_missing_email
-    fill_in('email', with: "")
+    fill_in('email', with: nil)
     click_button('Sign up')
     expect(current_path).to eq('/users')
+    expect(User.count).to eq 0
   end
 
   scenario "checks email address is valid" do
     sign_up_with_missing_email
     fill_in('email', with: "abd.abdn.123")
     click_button('Sign up')
-    expect(current_path).to eq('/users')
+    expect(User.count).to eq 0
   end
 end
