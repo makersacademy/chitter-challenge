@@ -1,5 +1,7 @@
-require 'data-mapper'
-require 'dm-postgres-mapper'
+require 'data_mapper'
+require 'dm-postgres-adapter'
+
+require_relative 'models/user'
 
 DataMapper.setup(:default, ENV['DATABSE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
