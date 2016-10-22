@@ -8,9 +8,6 @@
   <body>
     <h1>Welcome to Chitter</h2>
 
-    <% if current_user %>
-      Hello <%= current_user.username %>!
-    <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
@@ -19,6 +16,20 @@
           <li><%= error %></li>
         <% end %>
       </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if current_user %>
+      Hello <%= current_user.username %>!
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
     <% end %>
 
 

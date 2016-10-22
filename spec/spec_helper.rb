@@ -12,6 +12,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
+require_relative 'helpers/sessions'
 require './app/models/user'
 require './app'
 
@@ -35,6 +36,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
