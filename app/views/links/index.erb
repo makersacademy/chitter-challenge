@@ -1,7 +1,7 @@
 <h1> Links </h1>
 
 <% if current_user %>
-  <h1>Welcome to Chitter<%= current_user.email %></h1>
+  <h1>Welcome to Chitter <%= current_user.email %></h1>
 <% end %>
 
 <form action="/links/new">
