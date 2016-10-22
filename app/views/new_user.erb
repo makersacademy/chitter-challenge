@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+
+    <form action="/users" method="post">
+      <label for="name"> Name:
+      <input type="text" name="name" value="<%= @user.name %>"></label>
+
+      <label for="email"> Email:
+      <input type="text" name="email" value="<%= @user.email %>" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ "required></label>
+
+      <label for="user_name"> User name:
+      <input type="text" name="user_name" value="<%= @user.user_name %>"></label>
+
+      <label for="password"> Password:
+      <input type="password" name="password"></label>
+
+      <label for="password_confirmation"> Verify password:
+      <input type="password" name="password_confirmation"></label>
+
+      <input type="submit" value="Sign up">
+
+    </form>
+
+  </body>
+
+</html>
