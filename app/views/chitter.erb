@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peeps</title>
+  </head>
+  <body>
+    <form action="/add_peep" method="POST">
+      <label for="content">Peep</label>
+      <input name="content" type="text"/>
+      <input class="button" type="submit" value="Add peep"/>
+    </form>
+
+    <ul id='peeps'>
+      <%= @peeps %>
+    </ul>
+
+      <form method='post' action='/log_out'>
+      <input type='hidden' name='_method' value='delete'>
+      <input class="button" type="submit" value="Log Out"/>
+    </form>
+
+  </body>
+</html>
