@@ -21,9 +21,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/new-user' do
-    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    User.new_user_create(params[:name], params[:username], params[:email], params[:password])
     session["username"] = params[:username]
-    redirect '/home'
+    redirect User.redirect
   end
 
   get '/login' do
@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user-login' do
-    username = User.username_check(params[:username])
+    username = User.login_check(params[:username])
     session["username"] = username
     redirect User.redirect
   end
@@ -52,6 +52,14 @@ class Chitter < Sinatra::Base
   post '/peep' do
     Peep.create(user: User.first(username: session["username"]), time: Time.new, text: params[:peep])
     redirect '/home'
+  end
+
+  get '/re-signup/:username' do
+    erb :re_signup
+  end
+
+  get '/re-login' do
+    erb :re_login
   end
 
   run! if app_file == $0

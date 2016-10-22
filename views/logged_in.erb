@@ -13,8 +13,9 @@
       <input type="text" name="peep"/>
       <input type="submit", value="Peep!"/>
     </form>
-    <%Peep.all.each do |peep|%>
-    <%=peep.text%>
+    <%Peep.all.reverse.each do |peep|%>
+      <h3><%=peep.user.name%></h3><h3>  @<%=peep.user.username%></h3><h3>  <%=peep.time.strftime("%A")%>  <%=peep.time.hour%>:<%=peep.time.min%><br></br>
+      <p><%=peep.text%></p>
     <%end%>
   </body>
 </html>
