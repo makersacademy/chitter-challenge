@@ -21,11 +21,6 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  @count = 0
-
-  def self.count
-    @count += 1
-  end
 
   def self.authenticate(email, password)
     user = first(email: email)

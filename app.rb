@@ -35,7 +35,6 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      @user.count
       redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages

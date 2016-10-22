@@ -17,7 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-require_relative 'helpers/sessions'
+require_relative 'web_helper.rb'
 
 
 Capybara.app = Chitter
