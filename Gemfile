@@ -13,6 +13,7 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'rake'
+  gem 'rubocop', require: false
   gem 'coveralls', require: false
 end
 
