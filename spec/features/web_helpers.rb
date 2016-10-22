@@ -23,3 +23,8 @@ end
 def sign_out
 	click_button "Sign Out"
 end
+
+def post_message(body)
+	fill_in :message_body, with: body
+	click_button "Post Message"
+end

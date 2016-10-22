@@ -1,0 +1,22 @@
+<% if current_user %>
+	<form action="/message_board/new" method="post">
+		<label for="message_body">
+			<input type="text" name="message_body">
+		</label>
+		<input type="submit" value="Post Message">
+	</form>
+<% end %>
+
+<div id="message_board">
+	<h1>Messsage Board</h1>
+	<ul id="messages">
+		<% @messages.each do |message| %>
+			<li>
+				<p><%= message.body %></p>  
+				
+				<p><%= message.time_created %></p>		
+			</li>
+		<% end %>
+	</ul>
+
+</div>
