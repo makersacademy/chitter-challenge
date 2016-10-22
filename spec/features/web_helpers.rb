@@ -7,3 +7,10 @@ def sign_up(email: "ed@gmail.com", password: "admin", username: "powderham", nam
   fill_in :password_confirmation, with: password_confirmation
   click_button "Submit"
 end
+
+def sign_in(user)
+  visit '/sessions/new'
+  fill_in :email,    with: user.email
+  fill_in :password, with: user.password
+  click_button "Submit"
+end
