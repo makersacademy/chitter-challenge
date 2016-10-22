@@ -7,6 +7,10 @@ def sign_up
   click_button "Sign Up!"
 end
 
+def create_user
+  User.create(name: "Malinna Leach", username: "the_ceo", email: "ceo@chitter.com", password: "s3cr3t")
+end
+
 def sign_in
   visit '/login'
   fill_in "username", :with => "the_ceo"
@@ -16,4 +20,9 @@ end
 
 def sign_out
   click_button "Log Out!"
+end
+
+def write_a_peep
+  fill_in "peep", :with => "Hello World!"
+  click_button "Peep!"
 end

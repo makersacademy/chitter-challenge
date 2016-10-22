@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe 'user login process' do
-  
+
   scenario 'user inputs details and can see username' do
-    User.create(name: "Malinna Leach", username: "the_ceo", email: "ceo@chitter.com", password: "s3cr3t")
+    create_user
     sign_in
     expect(page).to have_content "the_ceo"
   end

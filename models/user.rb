@@ -1,6 +1,7 @@
 require 'dm-postgres-adapter'
 require 'data_mapper'
 require_relative 'datamapper_setup'
+require_relative 'peep'
 
 class User
   include DataMapper::Resource
@@ -26,6 +27,7 @@ class User
   property :email, String
   property :password, String
 
+  has n, :peeps
 
 
   # def encrypt_password(password)

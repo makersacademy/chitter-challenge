@@ -9,6 +9,12 @@
     <form action="logout" method="post">
       <input type="submit" value="Log Out!"/>
     </form>
-
+    <form action="peep" method="post">
+      <input type="text" name="peep"/>
+      <input type="submit", value="Peep!"/>
+    </form>
+    <%Peep.all.each do |peep|%>
+    <%=peep.text%>
+    <%end%>
   </body>
 </html>

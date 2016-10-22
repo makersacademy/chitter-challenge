@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'models/datamapper_setup'
 
 ENV['RACK_ENV'] ||= 'development'
@@ -45,6 +46,11 @@ class Chitter < Sinatra::Base
 
   post '/logout' do
     session["username"] = nil
+    redirect '/home'
+  end
+
+  post '/peep' do
+    Peep.create(user: User.first(username: session["username"]), time: Time.new, text: params[:peep])
     redirect '/home'
   end
 
