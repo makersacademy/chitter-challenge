@@ -15,10 +15,9 @@ feature 'I want to sign up for Chitter' do
   end
 
   scenario 'If user has already registered, a new Chitter account is not created' do
-    expect { sign_up }.not_to change(User, :count)
+    expect { sign_up(email: nil) }.not_to change(User, :count)
 
   end
-
 
   def sign_up(username: "tansaku",
             name: "Samuel Russell Hampden Joseph",
