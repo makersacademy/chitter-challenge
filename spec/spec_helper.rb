@@ -14,11 +14,11 @@ require File.join(File.dirname(__FILE__), '..','app','app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require './app/models/link'
+require './app/models/peep'
 require './app/app'
 require 'database_cleaner'
 require 'dm-transactions'
-require './spec/features/web_helper'
+# require './spec/features/web_helper'
 
 Capybara.app = Chitter
 
@@ -26,7 +26,8 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.around(:each) do |example|
