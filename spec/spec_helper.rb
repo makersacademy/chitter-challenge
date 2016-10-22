@@ -17,6 +17,8 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
+Capybara.app = Chitter
+
 RSpec.configure do |config|
   # config.include SessionHelpers
   config.include Capybara::DSL

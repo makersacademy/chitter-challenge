@@ -1,3 +1,9 @@
-class Chitter < Sinatra:Base
+ENV['RACK_ENV'] ||= 'development'
 
-end
+require 'sinatra/base'
+require 'sinatra/flash'
+require 'sinatra/partial'
+
+require_relative 'data_mapper_setup'
+
+require_relative 'controllers/users'
