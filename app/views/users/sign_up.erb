@@ -1,0 +1,26 @@
+<h1>Get Chitter'ing</h1>
+<p>Complete the simple form below to create a Chitter account.</p>
+<form action='/users' method='post'>
+  <label for='full_name'>
+    Full Name:
+    <label for='first_name'>
+      First: <input name='first_name' type='text'>
+    </label>
+    <label for='last_name'>
+      Last: <input name='last_name' type='text'>
+    </label>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='email' required>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Confirm Password: <input name='password_confirmation' type='password'>
+  </label>
+  <label for='user_name'>
+    User Name: <input name='user_name' type='text' required>
+  </label>
+  <input type='submit' value='Create Account'>
+</form>
