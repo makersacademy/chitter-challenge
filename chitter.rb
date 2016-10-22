@@ -1,7 +1,6 @@
-ENV["RACK_ENV"] ||= 'development'
-
 require 'sinatra/base'
-require_relative 'lib/user'
+ENV["RACK_ENV"] ||= 'development'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -11,6 +10,11 @@ class Chitter < Sinatra::Base
 
 	get '/users/new' do
 	  erb :signup
+	end
+
+  post '/users' do
+  	User.create(email: params[:email], password: params[:password])
+  	redirect '/'
 	end
 
 	run! if app_file == $0
