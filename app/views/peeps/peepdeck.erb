@@ -1,9 +1,12 @@
-<h1> Hmm, why can you see this </h1>
-
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.peep_text %>
+      <div></div>
+      Peeped at: <%= peep.created_at %>
+      <div></div>
+      <%= user = User.get(id: peep.user_id)  %>
+      Peeped by:<%= puts User %>
     </li>
   <% end %>
 </ul>

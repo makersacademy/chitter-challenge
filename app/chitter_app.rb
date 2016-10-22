@@ -7,9 +7,10 @@ require_relative 'data_mapper_setup'
 
 class ChitterApp < Sinatra::Base
 
-enable :sessions
-set :session_secret, 'super secret'
-register Sinatra::Flash
+  use Rack::MethodOverride
+  enable :sessions
+  set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do
     erb :'landing_page'
@@ -71,8 +72,10 @@ register Sinatra::Flash
     end
   end
 
-  get '/fuck_up' do
-    erb :'fuck_up'
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
   end
 
 

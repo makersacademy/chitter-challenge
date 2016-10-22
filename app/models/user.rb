@@ -3,7 +3,7 @@ require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
-  
+
   include DataMapper::Resource
 
   attr_reader :password
@@ -34,7 +34,7 @@ class User
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
-      non-identical
+      fail
     end
   end
 
