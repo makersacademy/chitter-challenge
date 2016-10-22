@@ -16,7 +16,6 @@ def sign_up_diff_email
   click_button "Sign Up!"
 end
 
-
 def create_user
   User.create(name: "Malinna Leach", username: "the_ceo", email: "ceo@chitter.com", password: "s3cr3t")
 end
@@ -25,6 +24,13 @@ def sign_in
   visit '/login'
   fill_in "username", :with => "the_ceo"
   fill_in "password", :with => "s3cr3t"
+  click_button "Log In!"
+end
+
+def sign_in_wrong_psswrd
+  visit '/login'
+  fill_in "username", :with => "the_ceo"
+  fill_in "password", :with => "different"
   click_button "Log In!"
 end
 

@@ -8,9 +8,12 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  def self.login_check(username)
+  def self.login_check(username, password)
     if self.first(username: username).nil?
       @redirect = '/failed-login'
+      return nil
+    elsif password != self.first(username: username).password
+      @redirect = '/psswrd-error'
       return nil
     else
       @redirect = '/home'

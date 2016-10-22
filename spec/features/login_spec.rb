@@ -13,4 +13,10 @@ describe 'user login process' do
     expect(page).to have_content "Sorry, your details were not recognised"
   end
 
+  scenario 'user tries to login with wrong password' do
+    create_user
+    sign_in_wrong_psswrd
+    expect(page).to have_content "Sorry, you have submitted an incorrect password"
+  end
+
 end

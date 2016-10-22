@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "Welcome to Chitter"
+    redirect '/home'
   end
 
   get '/sign-up' do
@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/user-login' do
-    username = User.login_check(params[:username])
+    username = User.login_check(params[:username], params[:password])
     session["username"] = username
     redirect User.redirect
   end
@@ -60,6 +60,10 @@ class Chitter < Sinatra::Base
 
   get '/re-login' do
     erb :re_login
+  end
+
+  get '/psswrd-error' do
+    erb :psswrd_error
   end
 
   run! if app_file == $0
