@@ -1,21 +1,23 @@
-<h1> Links </h1>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<h1> Chitter </h1>
 
 <% if current_user %>
   <h1>Welcome to Chitter <%= current_user.email %></h1>
 <% end %>
 
 <form action="/links/new">
-  <input type="submit" value="Create New Bookmark">
+  <input type="submit" value="Post a New Peep on Chitter">
 </form>
 
 <ul id='links'>
   <% @links.each do |link| %>
     <li>
-      Title: <a href="<%= link.url %>"><%= link.title %></a>
-      URL:   <%= link.url %>
-      Tags: <% link.tags.each do |tag| %>
+      Peep: <a href="<%= link.url %>"><%= link.title %></a>
+      <!-- URL:   <%= link.url %> -->
+       <!-- Tags: <% link.tags.each do |tag| %>
         <a href="/tags/<%= tag.name %>"><%= tag.name %></a>
-      <% end %>
+      <% end %> -->
     </li>
   <% end %>
 </ul>
