@@ -24,7 +24,7 @@ class User
   end
 
   def self.authenticate(username, password)
-    first(username: username)
+    user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
