@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:password_confirmation])
 
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect to('/peeps')
     else
       flash.now[:notice] = "Your passwords do not match, please try again!"
