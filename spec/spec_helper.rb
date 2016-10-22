@@ -8,6 +8,7 @@ require 'rspec'
 require 'database_cleaner'
 require './app/app.rb'
 require './app/models/peep'
+require './app/models/comment'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

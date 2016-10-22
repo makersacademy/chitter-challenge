@@ -2,9 +2,15 @@
 <h1> Peeps </h1>
 
 <ul id = 'peeps'>
+  <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
-    <li>
-    <p>Name: <%= peep.name %>&nbsp&nbsp Peep date/time: <%= peep.created_at %></p>
-    <p>Messsage: <%= peep.message %>
+    <li style="list-style: none;">
+    <b><p><%= peep.name %></b>&nbsp&nbsp <%= peep.created_at %></p>
+    <b><textarea rows='4' cols='50' name='message' disabled><%= peep.message %></textarea></b>
+    </br></br>
+    <form action='/comments/new' method='POST'>
+        <textarea name='comment_ta' id='comment_ta' rows='4' cols='50' placeholder = 'Comment on peep here!' ></textarea>
+      <p><input type='submit' value='Comment' id='x'/></p>
+    </form>
   <% end %>
 </ul>
