@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "sinatra/flash"
 require_relative "models/peep"
 require_relative "models/user"
 require_relative "models/data_mapper_setup"
@@ -8,6 +9,7 @@ data_mapper_configure
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -25,16 +27,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(email: params[:email],
+    @user = User.new(email: params[:email],
                 username: params[:username],
                 name: params[:name],
-                password: params[:password])
-    session[:user_id] = user.id
-    redirect '/peeps'
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      flash.now[:notice] = "The two passwords provided do not match"
+      erb :'users/new'
+    end
   end
 
 
