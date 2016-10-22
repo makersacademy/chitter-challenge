@@ -11,12 +11,23 @@ feature 'I want to sign up for Chitter' do
   scenario 'If user password and password_confirmation do not match, a new Chitter account is not created' do
     expect { sign_up(password_confirmation: 'secret') }.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content("Password and confirmation password do not match")
+    expect(page).to have_content("Password does not match the confirmation")
   end
 
-  scenario 'If user has already registered, a new Chitter account is not created' do
+  scenario 'If user has left email address field empty, a new Chitter account is not created' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(page).to have_content("Email must not be blank")
+  end
 
+  scenario 'User must enter a valid email address or a new Chitter account is not created' do
+    expect { sign_up(email: "jennifer@jen") }.not_to change(User, :count)
+    expect(page).to have_content("Email has an invalid format")
+  end
+
+  scenario 'User must enter a unique email address or a new Chitter account is not created' do
+    sign_up
+    expect {sign_up }.not_to change(User, :count)
+    expect(page).to have_content("Email is already taken")
   end
 
   def sign_up(username: "tansaku",
