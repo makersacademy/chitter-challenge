@@ -34,7 +34,7 @@ class Chitter < Sinatra::Base
        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/links'
+      redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'register/index'
@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to ('/links')
+      redirect to ('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -59,35 +59,22 @@ class Chitter < Sinatra::Base
     delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect to '/links'
+    redirect to '/peeps'
   end
 
-
-  get '/links' do
-    @links = Link.all
-    #  @tags = Tag.all
-    erb :'links/index'
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
-  get '/links/new' do
-    erb :'links/new'
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
-  # get '/tags/:name' do
-  #   tag = Tag.first(name: params[:name])
-  #   @links = tag ? tag.links : []
-  #   erb :'links/index'
-  # end
-
-  post '/links' do
-    link = Link.new(url: params[:url], title: params[:title])
-    # params[:tags].split(",").each do |tag|
-    #   tag1 = Tag.first_or_create(name: tag.strip)
-    #   link.tags << tag1
-    #end
-
-    link.save
-    redirect '/links'
+  post '/peeps' do
+    peep = Peep.new(url: params[:url], title: params[:title])
+    peep.save
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly

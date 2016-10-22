@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<h1> Chitter </h1>
+
+<% if current_user %>
+  <h1>Welcome to Chitter <%= current_user.email %></h1>
+<% end %>
+
+<form action="/peeps/new">
+  <input type="submit" value="Post a New Peep on Chitter">
+</form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <a href="<%= peep.url %>"><%= peep.title %></a>
+
+    </li>
+  <% end %>
+</ul>

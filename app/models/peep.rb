@@ -1,12 +1,11 @@
 require_relative 'data_mapper_setup'
 
-class Tag
+class Peep
 
   include DataMapper::Resource
 
-  has n, :links, through: Resource
-
   property :id,       Serial
-  property :name,     String
+  property :title,    String
+  property :url,      String
 
 end
