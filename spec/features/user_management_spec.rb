@@ -11,8 +11,8 @@ feature 'User sign up' do
   scenario 'can sign up with name, username, email and password' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content 'Welcome, tadan!'
-    expect(page).not_to have_button 'Sign Up'
-    expect(page).not_to have_button 'Sign In'
+    expect(page).not_to have_button 'Sign up'
+    expect(page).not_to have_button 'Sign in'
   end
 
   scenario 'cant sign up when passwords do not match' do
@@ -70,5 +70,16 @@ feature 'User sign in' do
   scenario 'error message when password is invalid' do
     sign_in(password: 'wrong')
     expect(page).to have_content "Password or email is invalid"
+  end
+end
+
+feature 'User sign out' do
+  scenario 'can sign out' do
+    sign_in
+    click_button 'Sign out'
+    expect(current_path).to eq '/peeps'
+    expect(page).to have_content "Goodbye, tadan!"
+    expect(page).to have_button 'Sign up'
+    expect(page).to have_button 'Sign in'
   end
 end

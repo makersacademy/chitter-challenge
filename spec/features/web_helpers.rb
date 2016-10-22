@@ -13,8 +13,7 @@ def sign_up(name: 'Tadas Majeris',
   click_button 'Submit'
 end
 
-def sign_in(email: 'tadas@gmail.com',
-            password: 'tadadoo')
+def sign_in(email: 'tadas@gmail.com', password: 'tadadoo')
   User.create(name: 'Tadas Majeris', username: 'tadan',
               email: 'tadas@gmail.com', password: 'tadadoo',
               password_confirmation: 'tadadoo')
