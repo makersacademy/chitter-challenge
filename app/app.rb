@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/data_mapper_setup'
 
-class BookmarkManager < Sinatra::Base
+class Chitter < Sinatra::Base
 
   use Rack::MethodOverride
 
