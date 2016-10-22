@@ -1,0 +1,30 @@
+<form action="/create_user" method="post" id="sign_up_form">
+  <label for='name'>
+		Name:
+		<input type="text" name="name">
+	</label>
+  &nbsp;
+  <label for='username'>
+		Username:
+		<input type="text" name="username">
+	</label>
+  &nbsp;
+  <label for='email'>
+		Email:
+		<input type="text" name="email" value='<%= @user.email %>' required>
+	</label>
+	&nbsp;
+	<label for='password'>
+		Password:
+		<input type="password" name="password">
+	</label>
+	&nbsp;
+	<label for='passowrd_confirmation'>
+		Confirm Password:
+		<input type="password" name="password_confirmation">
+	</label>
+</form>
+
+<form action="/create_user" method="post">
+  <input type="submit" value="Create User">
+</form>
