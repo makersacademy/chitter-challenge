@@ -16,18 +16,34 @@ feature 'I want to sign up for Chitter' do
 
   scenario 'If user has left email address field empty, a new Chitter account is not created' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
     expect(page).to have_content("Email must not be blank")
   end
 
   scenario 'User must enter a valid email address or a new Chitter account is not created' do
     expect { sign_up(email: "jennifer@jen") }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
     expect(page).to have_content("Email has an invalid format")
   end
 
   scenario 'User must enter a unique email address or a new Chitter account is not created' do
     sign_up
-    expect {sign_up }.not_to change(User, :count)
+    expect { sign_up }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
     expect(page).to have_content("Email is already taken")
+  end
+
+  scenario 'If user has left username field empty, a new Chitter account is not created' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content("Username must not be blank")
+  end
+
+  scenario 'User must enter a unique username or a new Chitter account is not created' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content("Username is already taken")
   end
 
   def sign_up(username: "tansaku",
