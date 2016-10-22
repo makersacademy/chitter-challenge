@@ -57,12 +57,12 @@ register Sinatra::Flash
   end
 
   get '/peeps/peepdeck' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'peeps/peepdeck'
   end
 
   post '/peeps/peepdeck' do
-    new_peep = Peep.new(peep_text: params[:peep])
+    new_peep = Peep.new(peep_text: params[:peep], user_id: current_user.id )
     new_peep.save
     if new_peep.save
       redirect 'peeps/peepdeck'
