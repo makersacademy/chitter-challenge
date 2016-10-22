@@ -9,7 +9,7 @@
     <h1>Welcome to Chitter</h2>
 
     <% if current_user %>
-      Welcome <%= current_user.username %>!
+      Hello <%= current_user.username %>!
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
