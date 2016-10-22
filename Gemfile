@@ -9,11 +9,11 @@ gem 'capybara'
 gem 'rspec-sinatra'
 gem 'pg'
 gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'rspec'
+gem 'rake'
+gem 'coveralls', require: false
 
 group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
   gem 'database_cleaner'
 end

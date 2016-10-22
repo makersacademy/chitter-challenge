@@ -1,11 +1,13 @@
 ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './models/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -18,17 +20,24 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(user_name: params[:user_name],
+    @user = User.create(user_name: params[:user_name],
     name: params[:name],
     email: params[:email],
     password: params[:password],
     password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+
+    if @user.save
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:notice] = "Your passwords do not match, please try again!"
+      erb :'users/new'
+    end
   end
 
   get '/peeps' do
