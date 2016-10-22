@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    erb :'user/new'
+    erb :'users/new'
   end
 
   post '/users' do
