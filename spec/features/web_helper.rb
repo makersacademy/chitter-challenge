@@ -13,6 +13,7 @@ def sign_up
   click_button "Sign Up"
 end
 
+
 def add_peep
   visit '/'
   click_button "Sign Up"
