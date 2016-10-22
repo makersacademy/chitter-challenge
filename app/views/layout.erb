@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter: an innovative and completely orginial social media platform</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <h1> Welcome ADIFFERENT WORD , <%= current_user.first_name %> </h1>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id = 'errors'>
+      <% flash[:errors].each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>

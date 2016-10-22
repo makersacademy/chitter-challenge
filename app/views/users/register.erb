@@ -1,11 +1,14 @@
 <body>
-  <h1>Sign up:</h1>
+  <h1>Please enter your details</h1>
   <form action="/users/new_user_authenticate" method="post">
     <label for="first_name">
       First name: <input type="text" name="first_name">
     </label>
     <label for="last_name">
       Last name: <input type="text" name="last_name">
+    </label>
+    <label for="username">
+      Enter a unique username: <input  name="username" type="text" >
     </label>
     <label for="email">
       Email: <input  name="email" type="email" required>
@@ -16,6 +19,6 @@
     <label for="password_confirmation">
       Confirm password: <input type="password" name="password_confirmation">
     </label>
-    <input type="submit" value="Sign up">
+    <input type="submit" value="Register">
   </form>
 </body>

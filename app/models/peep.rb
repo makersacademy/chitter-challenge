@@ -2,12 +2,12 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class Peep
-  include DataMapper::Resource
 
-  belongs_to :user
+  include DataMapper::Resource
 
   property :id,   Serial
   property :peep_text, String
-  property :date_time, DateTime
+
+    belongs_to :user, key: true
 
 end
