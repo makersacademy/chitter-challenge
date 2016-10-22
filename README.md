@@ -5,7 +5,8 @@ Approach
 ---------
 1. Setup environment and folder structure, run bundle, initialise using rspec-sinatra.
 2. Write and pass tests for user sign-up.
-3. Write and pass tests for user sign-in.
+3. Write and pass tests for user log-in.
+4. Write and pass tests for user log-out.
 
 
 

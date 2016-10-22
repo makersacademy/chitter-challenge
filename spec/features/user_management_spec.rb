@@ -17,3 +17,17 @@ feature 'User log-in' do
     expect(page).to have_content "Welcome, #{user.email}"
   end
 end
+
+feature 'User log-out' do
+  before(:each) do
+    User.create(email: 'test@test.com',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+  scenario 'while being logged-in' do
+    log_in(email: 'test@test.com', password: 'test')
+    click_button 'Log-out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, test@test.com')
+  end
+end
