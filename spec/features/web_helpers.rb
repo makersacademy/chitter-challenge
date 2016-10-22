@@ -23,3 +23,8 @@ def sign_in(email: 'tadas@gmail.com', password: 'tadadoo')
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def peep(text)
+  fill_in :peep_text, with: text
+  click_button 'Peep'
+end

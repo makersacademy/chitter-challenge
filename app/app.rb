@@ -14,7 +14,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'/peeps/index'
+  end
+
+  post '/peeps' do
+    if current_user && params[:peep_text]
+      peep = Peep.create(peep_text: params[:peep_text], user_id: current_user.id)
+      redirect '/peeps'
+    end
   end
 
   get '/users/new' do

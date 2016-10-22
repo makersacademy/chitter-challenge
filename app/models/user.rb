@@ -8,6 +8,8 @@ class User
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
 
+  has n, :peeps
+
   property :id, Serial
   property :name, String
   property :username, String, required: true, unique: true

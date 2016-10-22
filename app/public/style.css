@@ -25,3 +25,12 @@ body {
   text-align: right;
   margin-bottom: -15px;
 }
+.new_peep textarea {
+  width: 100%;
+  resize: none;
+  padding: 2px;
+  border: 1px dotted #666;
+}
+.new_peep {
+  margin-bottom: 20px;
+}
