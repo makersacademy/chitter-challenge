@@ -1,4 +1,21 @@
+<div>
+  <% if !current_user %>
+    <form action="/users/new">
+      <input type="submit" value="Sign Up">
+    </form>
+  <% end %>
+</div>
+
 <h1>Welcome to CHITTER!</h1>
-<p>
-  This is my first post
-</p>
+
+<div class="peeps">
+  <div class="peep">
+    <div class="peeper">tadan</div><div class="peep_date">22 Oct, 10:50am</div>
+    <p>This is my second post</p>
+  </div>
+
+  <div class="peep">
+    <div class="peeper">tadan</div><div class="peep_date">22 Oct, 10:33am</div>
+    <p>This is my first post</p>
+  </div>
+</div>

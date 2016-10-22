@@ -4,3 +4,23 @@ body {
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.peeps {
+  width: 400px;
+  margin: 0px auto;
+  text-align: left;
+}
+.peep {
+  padding-top: 2px;
+  width: 100%;
+  border-top: 1px dotted black;
+}
+.peeper {
+  width: 100px;
+  font-weight: bold;
+  float: left;
+}
+.peep_date {
+  text-align: right;
+  margin-bottom: -15px;
+}
