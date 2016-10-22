@@ -4,11 +4,8 @@ Chitter Challenge
 Approach
 ---------
 1. Setup environment and folder structure, run bundle, initialise using rspec-sinatra.
-2. Write failing tests for user sign-up.
-
-
-
-
+2. Write and pass tests for user sign-up.
+3. Write and pass tests for user sign-in.
 
 
 
