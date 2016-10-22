@@ -5,6 +5,18 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+    <form action='/login'>
+      <input type='submit' value="Log out" />
+    </form>
+    <% else %>
+    <form action='/login'>
+      <input type='submit' value="Log in" />
+    </form>
+    <form action='/signup'>
+      <input type='submit' value="Sign up" />
+    </form>
+    <% end %>
   <%= yield %>
   </body>
 </html>
