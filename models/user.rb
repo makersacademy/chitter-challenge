@@ -1,11 +1,12 @@
 require 'dm-postgres-adapter'
 require 'data_mapper'
+require 'bcrypt'
 require_relative 'datamapper_setup'
 require_relative 'peep'
 
 class User
   include DataMapper::Resource
-  #include BCrypt
+  include BCrypt
 
   def self.login_check(username)
     if self.first(username: username).nil?
@@ -28,23 +29,20 @@ class User
     elsif !User.first(username: username).nil?
       @redirect = '/re-signup/' + "#{username}"
     else
-      self.create(name: name, username: username, email: email, password: password)
+      self.create(name: name, username: username, email: email, password: self.password_hash(password))
     end
+  end
+
+  def self.password_hash(password)
+    Password.create(password)
   end
 
   property :id, Serial
   property :name, String
   property :username, String, :unique => true
   property :email, String, :unique => true
-  property :password, String
+  property :password, Text
 
   has n, :peeps
 
-
-  # def encrypt_password(password)
-  #     BCrypt::Password.create(password.to_s)
-  # end
-
-  # has n, :links, :through => Resource
-  # has n, :tags, :through => Resource
 end
