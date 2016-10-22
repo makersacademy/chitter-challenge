@@ -35,7 +35,26 @@ feature 'signing up' do
 		fill_in :password, with: "foobar"
 		fill_in :password_confirmation, with: "foobar1"
 		click_button 'Sign Up'
-		expect(page).to have_content "Password and confirmation don't match"
+		expect(page).to have_content "Password does not match the confirmation"
 	end
-	
+
+	scenario 'shows error message when email is empty' do
+  	visit '/'
+		click_button 'Register'
+		fill_in :email, with: ' '
+		fill_in :password, with: "foobar"
+		fill_in :password_confirmation, with: "foobar"
+		click_button 'Sign Up'
+		expect(page).to have_content "Email must not be blank"
+	end
+
+	scenario 'shows error message when email is the wrong format' do
+  	visit '/'
+		click_button 'Register'
+		fill_in :email, with: 'email@mail..com'
+		fill_in :password, with: "foobar"
+		fill_in :password_confirmation, with: "foobar"
+		click_button 'Sign Up'
+		expect(page).to have_content "Email has an invalid format"
+	end
 end

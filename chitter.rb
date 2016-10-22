@@ -19,10 +19,10 @@ class Chitter < Sinatra::Base
   	user = User.new(email: params[:email], password: params[:password],
   		              password_confirmation: params[:password_confirmation])
   	if user.save
-  	  flash.now[:notice] = "Sign Up Successful"
+  	  flash.now[:success] = "Sign Up Successful"
   	  erb :index
   	else 
-  		flash.now[:notice] = "Password and confirmation don't match"
+  		flash.now[:notice] = user.errors.full_messages
   	  erb :signup
   	end
 	end

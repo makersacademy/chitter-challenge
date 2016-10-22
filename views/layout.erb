@@ -6,9 +6,16 @@
 
   <body>
 
+  	<% if flash[:success] %>
+  	  <%= flash[:success] %>
+  	<% end %>
+
     <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
+	    <% flash[:notice].each do |error| %>
+	      <div id='notice'><%= error %></div>
+	    <% end %>
+	  <% end %>
     <%= yield %> 
   </body>
 </html>
+
