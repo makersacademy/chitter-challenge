@@ -9,6 +9,8 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     "Welcome to Chitter"
   end
@@ -19,12 +21,31 @@ class Chitter < Sinatra::Base
 
   post '/new-user' do
     User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
+    session["username"] = params[:username]
     redirect '/home'
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  post '/user-login' do
+    username = User.username_check(params[:username])
+    session["username"] = username
+    redirect User.redirect
+  end
+
   get '/home' do
-    @username = User.first.username
-    erb :home
+    erb session["username"].nil? ? :logged_out : :logged_in
+  end
+
+  get '/failed-login' do
+    erb :sorry_sign_up
+  end
+
+  post '/logout' do
+    session["username"] = nil
+    redirect '/home'
   end
 
   run! if app_file == $0

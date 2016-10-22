@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'user sign up process' do
   scenario 'user inputs details and can see username' do
     sign_up
-    expect(page).to have_content "the_guvnor"
+    expect(page).to have_content "the_ceo"
   end
   scenario 'user inputs details and is saved to the database' do
     sign_up
