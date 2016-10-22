@@ -7,9 +7,11 @@ gem 'sinatra'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 
 group :test do
+  gem 'capybara'
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
