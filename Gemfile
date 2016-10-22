@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'sinatra'
-gem 'capybara'
+gem "data_mapper"
+gem "dm-postgres-adapter"
+gem "sinatra"
+gem "capybara"
+gem "database_cleaner"
 # gem 'pg'
 # # gem 'rake'
 # gem 'bcrypt'

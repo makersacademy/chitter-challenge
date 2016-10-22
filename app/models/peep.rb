@@ -1,4 +1,5 @@
 require 'data_mapper'
+require "dm-timestamps"
 
 class Peep
 
@@ -6,6 +7,6 @@ class Peep
 
   property :id, Serial
   property :message, String
-  property :created_on, DateTime
+  property :created_at, DateTime
 
 end
