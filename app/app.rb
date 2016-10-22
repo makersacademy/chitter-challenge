@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require_relative 'models/peep'
 
 class ChitterChallenge < Sinatra::Base
 get '/' do
@@ -8,7 +9,8 @@ get '/' do
 end
 
 get '/peeps' do
-  "Hello Peeps"
+  @peeps = Peep.all
+  erb :'peeps/index'
 end
 
   #run! if app_file == $0
