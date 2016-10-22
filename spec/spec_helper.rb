@@ -1,11 +1,12 @@
 ENV['RACK_ENV'] = 'test'
 
-require './app/app.rb'
 require 'coveralls'
 require 'simplecov'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require './app/app.rb'
+require './app/models/peep'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -26,9 +27,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  # if config.files_to_run.one?
+  #   config.default_formatter = 'doc'
+  # end
 
   config.profile_examples = 10
 
