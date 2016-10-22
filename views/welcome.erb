@@ -1,1 +1,9 @@
-<h1>Welcome to the Chittersphere<h1>
+
+  <head>
+    <title>Welcome to the Chittersphere!</title>
+  </head>
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+</html>
