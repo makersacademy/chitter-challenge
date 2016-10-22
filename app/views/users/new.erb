@@ -13,19 +13,19 @@
 
         <div class="name">
           <label for="name">
-            Name: <input type="text" name="name" placeholder="John Smith" />
+            Name: <input type="text" name="name" placeholder="John Smith" value="<%= @user.name %>" />
           </label>
         </div>
 
         <div class="user_name">
           <label for="user_name">
-            User Name: <input type="text" name="user_name" placeholder="j.smith90" />
+            User Name: <input type="text" name="user_name" placeholder="j.smith90" value="<%= @user.user_name %>" />
           </label>
         </div>
 
         <div class="email">
           <label for="email">
-            E-mail: <input type="text" name="email" placeholder="john.smith@example.co.uk" />
+            E-mail: <input type="text" name="email" placeholder="john.smith@example.co.uk" value="<%= @user.email %>" />
           </label>
         </div>
 

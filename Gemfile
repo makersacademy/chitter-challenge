@@ -9,6 +9,7 @@ gem 'dm-migrations'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'dm-validations'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
