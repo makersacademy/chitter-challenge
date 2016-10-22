@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <a class="Home" href="/">Chitter</a>
+    </div>
+      <div class="user">
+        <% if current_user %>
+         <h2>Welcome, <%= current_user.email %></h2>
+            <ul class="right">
+              <li>
+                <a href="#"><%= @current_user.username %></a>
+              </li>
+              <li>
+              <form method='post' action='/sessions' class="form-right">
+                <input type='hidden' name='_method' value='delete'>
+                <button type="submit" class="button-red">Logout</button>
+              </form>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="form-right">
+              <li><a href="/users/new">Sign up</a></li>
+                  <li>
+                    <form method='post' action='/sessions/new' class="form-right">
+                      <input type='hidden' name='_method' value='get'>
+                      <button type="submit" class="button" id = "login">Login</button>
+                    </form>
+                  </li>
+              </ul>
+          <% end %>
+      </div>
+    </div>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        <div class="alert" role="alert">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <ul id = 'errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <%= yield %>
+    </div>
+
+  </body>
+
+</html>
