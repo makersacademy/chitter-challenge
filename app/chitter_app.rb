@@ -4,7 +4,11 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    redirect to('/welcome_page')
+  end
+
+  get '/welcome_page' do
+    erb :welcome_page
   end
 
   # start the server if ruby file executed directly
