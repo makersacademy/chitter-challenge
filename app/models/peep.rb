@@ -10,6 +10,6 @@ property  :message,     String
 property  :created_at,  DateTime
 
 end
-DataMapper.setup(:default, "postgres://postgres:password@localhost/chitter_db_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
+# DataMapper.setup(:default, "postgres://postgres:password@localhost/chitter_db_test")
+# DataMapper.finalize
+# DataMapper.auto_upgrade!

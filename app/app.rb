@@ -1,7 +1,8 @@
-ENV["RACK_ENV"] ||= "development"
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'models/peep'
+require_relative 'data_mapper_setup'
 
 class ChitterChallenge < Sinatra::Base
 get '/' do
@@ -23,6 +24,5 @@ post '/peeps' do
   Peep.create(name: params['name'], message: params['message'] )
   redirect '/peeps'
 end
-
   #run! if app_file == $0
 end
