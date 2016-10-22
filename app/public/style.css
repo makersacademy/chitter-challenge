@@ -6,7 +6,8 @@ body {
 }
 
 .peeps {
-  width: 400px;
+  min-width: 300px;
+  width: 30%;
   margin: 0px auto;
   text-align: left;
 }

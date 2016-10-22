@@ -25,12 +25,29 @@ class Chitter < Sinatra::Base
     @user = User.new(name: params[:name], username: params[:username],
                     email: params[:email], password: params[:password],
                     password_confirmation: params[:password_confirmation])
-    if @user.save
+    if @user.password.empty?
+      flash.now[:errors] = ["Password must not be blank"]
+    elsif @user.save
       session[:user_id] = @user.id
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
+    end
+    erb :'users/new'
+  end
+
+  get '/sessions/new' do
+    erb :'/sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ["Password or email is invalid"]
+      erb :'sessions/new'
     end
   end
 

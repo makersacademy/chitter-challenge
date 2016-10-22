@@ -12,3 +12,15 @@ def sign_up(name: 'Tadas Majeris',
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Submit'
 end
+
+def sign_in(email: 'tadas@gmail.com',
+            password: 'tadadoo')
+  User.create(name: 'Tadas Majeris', username: 'tadan',
+              email: 'tadas@gmail.com', password: 'tadadoo',
+              password_confirmation: 'tadadoo')
+  visit '/'
+  click_button 'Sign in'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end

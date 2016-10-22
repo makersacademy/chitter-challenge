@@ -4,7 +4,7 @@ feature 'User sign up' do
 
   scenario 'User clicks Sign Up button to sign up as a new user' do
     visit '/peeps'
-    click_button 'Sign Up'
+    click_button 'Sign up'
     expect(page).to have_content 'Sign up as a new user'
   end
 
@@ -15,7 +15,7 @@ feature 'User sign up' do
     expect(page).not_to have_button 'Sign In'
   end
 
-  scenario 'cant sign up when passswords do not match' do
+  scenario 'cant sign up when passwords do not match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(page).to have_content('Password does not match the confirmation')
   end
@@ -32,9 +32,19 @@ feature 'User sign up' do
     expect(page).to have_content "Email must not be blank"
   end
 
-  scenario 'cant sign up without a valid email'do
+  scenario 'cant sign up without a valid email' do
     expect { sign_up(email: 'a@a') }.not_to change(User, :count)
     expect(page).to have_content "Email has an invalid format"
+  end
+
+  scenario 'cant sign up without a username' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(page).to have_content "Username must not be blank"
+  end
+
+  scenario 'cant sign up without a password' do
+    expect { sign_up(password: nil) }.not_to change(User, :count)
+    expect(page).to have_content "Password must not be blank"
   end
 
   scenario 'only one user per email' do
@@ -47,5 +57,18 @@ feature 'User sign up' do
     sign_up
     expect { sign_up(username: 'tadan', email: 'me@me.me') }.not_to change(User, :count)
     expect(page).to have_content "Username is already taken"
+  end
+end
+
+feature 'User sign in' do
+  scenario 'can sign in' do
+    sign_in
+    expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'Welcome, tadan!'
+  end
+
+  scenario 'error message when password is invalid' do
+    sign_in(password: 'wrong')
+    expect(page).to have_content "Password or email is invalid"
   end
 end
