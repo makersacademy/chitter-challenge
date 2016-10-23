@@ -31,4 +31,14 @@ feature 'User posts a new message' do
     expect(page).to have_content(body1)
     expect(page).to have_content(body2)
   end
+
+  scenario 'I can see all peeps in reverse chronological order' do
+    sign_in(email: email, password: password)
+    body1 = 'Message 1'
+    post_peep(body: body1)
+    body2 = 'Message 2'
+    post_peep(body: body2)
+    expect(page).to have_selector('ul li:nth-child(1)', text: body2)
+    expect(page).to have_selector('ul li:nth-child(2)', text: body1)
+  end
 end
