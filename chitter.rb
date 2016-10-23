@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
   set :sessions, true
+  use Rack::MethodOverride
 
   def current_user 
     @current_user ||= User.get(session[:user_id])
@@ -43,6 +44,12 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = ['The email or password is incorrect']
       erb :index
     end
+  end
+
+  delete '/sessions' do
+    flash.now[:notice] = ['You have successfully logged out']
+    session[:user_id] = nil
+    erb :index
   end
 
 	run! if app_file == $0
