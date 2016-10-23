@@ -1,4 +1,5 @@
 <h1> Welcome to Chitter </h1>
+
 <form action="/users/register" method="get">
 <input type="submit" value="Register">
 </form>
@@ -6,3 +7,13 @@
 <form action="/sessions/sign_in" method="get">
 <input type="submit" value="Sign in">
 </form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep_text %>
+      <div></div>
+      Peeped at: <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>

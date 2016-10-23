@@ -14,6 +14,7 @@ class ChitterApp < Sinatra::Base
 
 
   get '/' do
+    @peeps = Peep.all.reverse
     erb :'landing_page'
   end
 
@@ -61,7 +62,6 @@ class ChitterApp < Sinatra::Base
 
   get '/peeps/peepdeck' do
     @peeps = Peep.all.reverse
-
     erb :'peeps/peepdeck'
   end
 
