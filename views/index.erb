@@ -1,4 +1,5 @@
 <% if current_user %>
+
   <form action="/sessions" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Log Out">
@@ -18,3 +19,11 @@
   </form>
 <% end %>
  
+<ul>
+  <% if @peeps %>
+    <% @peeps.each do |peep| %>
+      <li><%= peep.user.email %><br>
+        <%= peep.content %></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -6,14 +6,16 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
-  set :sessions, true
   use Rack::MethodOverride
+
+  set :sessions, true
 
   def current_user 
     @current_user ||= User.get(session[:user_id])
   end
 
 	get '/' do
+    @peeps = Peep.all(order: :created_on.desc)
 		erb :index
 	end
 
@@ -25,9 +27,9 @@ class Chitter < Sinatra::Base
   	user = User.new(email: params[:email], password: params[:password],
   		              password_confirmation: params[:password_confirmation])
   	if user.save
-  	  flash.now[:notice] = ["Sign Up Successful"]
+  	  flash.keep[:notice] = ["Sign Up Successful"]
       session[:user_id] = user.id
-  	  erb :index
+  	  redirect '/'
   	else 
   		flash.now[:notice] = user.errors.full_messages
   	  erb :signup
@@ -37,19 +39,18 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
-      flash.now[:notice] = ["You have successfully signed in as #{user.email}"]
+      flash.keep[:notice] = ["You have successfully signed in as #{user.email}"]
       session[:user_id] = user.id
-      erb :index
     else
-      flash.now[:notice] = ['The email or password is incorrect']
-      erb :index
+      flash.keep[:notice] = ['The email or password is incorrect']
     end
+    redirect '/'
   end
 
   delete '/sessions' do
-    flash.now[:notice] = ['You have successfully logged out']
+    flash.keep[:notice] = ['You have successfully logged out']
     session[:user_id] = nil
-    erb :index
+    redirect '/'
   end
 
   get '/peeps/new' do
@@ -57,11 +58,20 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    flash.now[:notice] = ["You have successfully sent a peep"]
-    peep = Peep.create(content: params[:content])
-    current_user.peeps << peep
-    current_user.save
-    erb :index
+    if current_user 
+      peep = Peep.new(content: params[:content])
+      current_user.peeps << peep
+      if current_user.save
+        flash.keep[:notice] = ["You have successfully sent a peep"]
+        redirect '/'
+      else
+       flash.now[:notice] = peep.errors.full_messages
+       erb :peep
+     end
+    else
+      flash.keep[:notice] = ["You need to log in to peep!"]
+      redirect '/'
+    end
   end
 
 	run! if app_file == $0
