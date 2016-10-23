@@ -38,3 +38,5 @@ I was listening to the Wild Beasts latest album "Boy King" whilst coding this ch
 http://wild-beasts.co.uk/
 
 :tiger2: "Big cat, top of the food chain" :tiger:
+
+<iframe width="300" height="56" src="https://embed.spotify.com/follow/1/?uri=spotify%3Aartist%3A4zrFO6P7G6EZry0pfxMfKT&amp;size=detail&amp;theme=dark" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
