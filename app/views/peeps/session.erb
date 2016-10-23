@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Chitter</title>
+</head>
+<body>
+  <div class="container">
+    <a class="Home" href="/">Chitter</a>
+  </div>
+  <div class="user">
+    <% if current_user %>
+    <h2>Welcome, <%= current_user.email %></h2>
+    <ul class="right">
+      <li>
+        <a href="#"><%= @current_user.user_name %></a>
+      </li>
+      <li>
+        <form method='post' action='/session' class="form-right">
+          <input type='hidden' name='_method' value='delete'>
+          <button type="submit" class="button-red">Logout</button>
+        </form>
+      </li>
+    </ul>
+    <% else %>
+    <ul class="form-right">
+      <li><a href="/users/new">Sign up</a></li>
+      <li>
+        <form method='post' action='/session/new' class="form-right">
+          <input type='hidden' name='_method' value='get'>
+          <button type="submit" class="button" id = "login">Login</button>
+        </form>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+</div>

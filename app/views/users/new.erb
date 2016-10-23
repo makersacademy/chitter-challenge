@@ -1,0 +1,34 @@
+<h1> Welcome to Chitter!!</h1>
+<h2> Please sign in or sign up here </h2>
+
+<form action='/users' method='post'>
+  <label for='name'>
+    Name : <input name='name' type='text'><br>
+  </label>
+   <label for='user_name'>
+     User Name : <input name='user_name' type='text'><br>
+   </label>
+   <label for='email'>
+     Email: <input name='email' type='text'><br>
+   </label>
+   <label for='password'>
+     Password: <input name='password' type='password'><br>
+   </label>
+   <label for='confirm_password'>
+     Password: <input name='password_confirmation' type='password'><br>
+   </label>
+   <input type='submit' value='Sign up'><br>
+</form>
+<div class="post-form">
+ <form method="post" action="/peeps">
+   <div class="form">
+     <label>Email:</label>
+     <input type="text" name='email' placeholder="Email address">
+   </div>
+   <div class="form">
+     <label>Password:</label>
+     <input type="password" name='password' placeholder="Password">
+   </div>
+   <button class="button" type="submit">Sign in</button>
+ </form>
+ </div>
