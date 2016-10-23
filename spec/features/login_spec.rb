@@ -19,4 +19,11 @@ describe 'user login process' do
     expect(page).to have_content "Sorry, you have submitted an incorrect password"
   end
 
+  scenario 'user signs up, logs out and logs back in' do
+    sign_up
+    sign_out
+    log_back_in
+    expect(page).to have_content "the_ceo"
+  end
+
 end

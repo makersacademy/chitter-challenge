@@ -12,7 +12,15 @@ class User
     if self.first(username: username).nil?
       @redirect = '/failed-login'
       return nil
-    elsif password != self.first(username: username).password
+    else
+      self.password_checker(username, password)
+    end
+  end
+
+  def self.password_checker(username, password)
+    user = self.first(username: username)
+    db_password = Password.new(user.password)
+    if db_password != password
       @redirect = '/psswrd-error'
       return nil
     else
@@ -30,7 +38,7 @@ class User
     if !User.first(email: email).nil?
       @redirect = '/re-login'
     elsif !User.first(username: username).nil?
-      @redirect = '/re-signup/' + "#{username}"
+      @redirect = '/re-signup?usedname=' + "#{username}"
     else
       self.create(name: name, username: username, email: email, password: self.password_hash(password))
     end

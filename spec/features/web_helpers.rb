@@ -17,7 +17,7 @@ def sign_up_diff_email
 end
 
 def create_user
-  User.create(name: "Malinna Leach", username: "the_ceo", email: "ceo@chitter.com", password: "s3cr3t")
+  User.new_user_create("Malinna Leach", "the_ceo", "ceo@chitter.com", "s3cr3t")
 end
 
 def sign_in
@@ -36,6 +36,13 @@ end
 
 def sign_out
   click_button "Log Out!"
+end
+
+def log_back_in
+  click_button "Log In!"
+  fill_in "username", :with => "the_ceo"
+  fill_in "password", :with => "s3cr3t"
+  click_button "Log In!"
 end
 
 def write_a_peep

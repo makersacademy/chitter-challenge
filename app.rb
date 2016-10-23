@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
 
   post '/new-user' do
     User.new_user_create(params[:name], params[:username], params[:email], params[:password])
-    session["username"] = params[:username]
+    session["username"] = params[:username] if User.redirect == '/home'
     redirect User.redirect
   end
 
@@ -54,7 +54,7 @@ class Chitter < Sinatra::Base
     redirect '/home'
   end
 
-  get '/re-signup/:username' do
+  get '/re-signup' do
     erb :re_signup
   end
 
