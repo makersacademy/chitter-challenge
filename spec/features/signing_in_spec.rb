@@ -16,6 +16,7 @@ feature 'signing in' do
     expect(page).to have_content "Welcome back. Please enter your login details"
     click_button "Sign in"
     expect(current_path).to eq '/peeps/peepdeck'
+    expect(page).to have_content "Welcome, Alan"
     expect(page).to have_button "PEEP"
   end
 
