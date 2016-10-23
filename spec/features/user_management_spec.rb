@@ -28,3 +28,19 @@ feature 'User sign in' do
     expect(page).to have_content('The email or password is incorrect')
   end
 end
+
+feature 'User signs out' do
+  let(:email) { 'maker@makers.com' }
+  let(:password) { '000000' }
+
+  before(:each) do
+    User.create(email: email, password: password)
+  end
+
+  scenario 'while being signed in' do
+    sign_in(email: email, password: password)
+    click_button('Sign out')
+    expect(page).to have_content('Goodbye!')
+    expect(page).not_to have_content("Welcome, #{email}")
+  end
+end
