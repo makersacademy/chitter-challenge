@@ -22,15 +22,17 @@ feature 'I want to post a peep' do
 
   scenario 'Peep is created' do
     Peep.create(peep: "Test peep")
-    expect(Peep.first.peep).to have_content("Test peep")
-    expect(Peep.first.id).to have_content("1")
+    expect { post_peep }.to change(Peep, :count).by(1)
   end
 
   scenario 'Allow user to see Peep at /home' do
-    sign_up
     post_peep
     expect(current_path).to eq '/home'
     expect(page).to have_content("Test peep")
+  end
 
+  scenario 'Allow user to see Peep author' do
+    post_peep
+    expect(page).to have_content("By: tansaku")
   end
 end

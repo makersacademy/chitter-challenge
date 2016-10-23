@@ -8,8 +8,9 @@
 
   <% @show_peeps.each do |show_peep| %>
     <li>
-      <%= show_peep.peep %>
-      <%= show_peep.user_id %>
+      Peep: <%= show_peep.peep %>
+      Posted at: <%= show_peep.created_at %>
+      By: <%= show_peep.user.username %>
     </li>
   <% end %>
 </ul>
