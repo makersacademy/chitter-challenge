@@ -13,7 +13,7 @@ This is my go at the Maker's Academy Chitter Challenge - to build a Twitter clon
 
 Viewing the deployed App
 ------
-**INSERT HEROKU LINK**
+https://b-raw-chitter.herokuapp.com/
 
 Viewing the App locally
 ------
