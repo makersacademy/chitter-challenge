@@ -37,7 +37,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(username: params[:username],
+    @user = User.new(email: params[:email],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
     if @user.save
