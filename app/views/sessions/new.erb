@@ -1,16 +1,14 @@
-<h2>Please Sign in</h2>
-
+<h2 style="color:#fff;font-family: fantasy;">Please Sign in</h2>
 <div class="post-form">
-  <form method="post" action="/sessions">
+  <form method="post" action="/sessions" class="login" accept-charset="UTF-8">
     <div class="form">
-      <label>Email:</label>
-      <input type="text" name='email' placeholder="Email address">
+      <label> Email: </label>
+      <input style="margin-bottom: 15px;" type="text" id="email" name="email" placeholder="Email address">
     </div>
     <div class="form">
-      <label>Password:</label>
-      <input type="password" name='password' placeholder="Password">
+      <label> Password: </label>
+      <input style="margin-bottom: 15px;" type="password" id="password" name="password" placeholder="Password">
     </div>
-    <button class="button" type="submit">Sign in</button>
-    <button class="button" type="submit">Sign out</button>
+    <button type="submit" class="btn btn-primary" id = "signin">Sign in</button>
   </form>
 </div>

@@ -1,17 +1,28 @@
-html {
-  height: 100%;
+html{
+  position:relative;
+  min-height: 100%;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*Normalize html and body elements,this style is just good to have*/
+html,body{
+  margin:0;
+  padding:0;
 }
 
 body {
-  background: url("../img/")no-repeat center center fixed;
+  background: url("../img/wallpaper2.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-size: cover;
-  color: #000;
+  color: #fff;
   text-align: center;
   text-shadow: 5px 5px 5px #666666;
+  margin-top:30px;
   margin: 0 auto;
   padding-bottom: 50px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -19,30 +30,80 @@ body {
   position: relative;
 }
 
-.container h1 {
-    font-size: 36px;
-    padding: 5px 0 10px 0;
-    text-align: center;
-    text-shadow: 5px 5px 5px #666666;
-    color: #000;
-    border-radius: 1em;
-    width: 500px;
-    margin: 4em auto;
-    padding: 30px;
-    background-color: #fff;
-    line-height: 50px;
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.nav li {
+	display: inline;
+  padding-right: 15px;
+}
+
+.nav a {
+	text-decoration: none;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.3em;
+	color: #596365;
+}
+
+.nav a:hover {
+	text-decoration: none;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.3em;
+	color: #000;
+}
+
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0;
+  }
 }
 
 .footer {
-
   font-size: 15px;
-  position: absolute;
+  position: relative;
   padding: 1rem;
   background-color: #efefef;
   text-align: center;
   color: #000;
-  height: 50px;
+  height: 15px;
   left: 0 ;
   right: 0;
   bottom: 0;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-shadow: 5px 5px 5px #666666;
+}
+
+.btn {
+  margin-bottom: 10px;
+  margin-top: 15px;
+  width: 100px;
+  font-size: 15px;
 }

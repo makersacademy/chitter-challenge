@@ -1,10 +1,12 @@
-<div class="form">
+<h2 style="color:#fff;font-family: fantasy;">List of Peeps</h2>
+<div class="post-form">
   <% if current_user %>
-    <div class="post-form">
-      <form method = "post" action="/peeps">
-        <label for="peep">Post your PEEP here!!:</label><br><br>
+  <form method = "post" action="/peeps">
+    <div class="form">
+        <label for="peep">Post your PEEP here:</label><br><br>
         <textarea class="form" rows="4" name="peep"></textarea><br><br>
-        <button type="submit" class="button">PEEP ME!</button>
+        <button type="submit" class="btn btn-primary">Peep me!</button>
+      </div>
       </form>
     </div>
   <% end %>
