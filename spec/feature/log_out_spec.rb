@@ -9,7 +9,6 @@ feature 'Log out' do
   fill_in('password', with: 'password')
   click_button('Log in!')
   click_button('Log out')
-  save_and_open_page
   expect(page).to have_content('Good bye')
   expect(page).not_to have_content('Welcome, Laszlo!')
   end

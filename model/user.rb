@@ -12,6 +12,8 @@ class User
   property :email, String, :format => :email_address, :required => true, :unique => true
   property :password_digest, Text, :required => true, :lazy => false
 
+  has n, :peeps
+
   validates_confirmation_of :password
 
 

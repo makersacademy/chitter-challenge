@@ -6,7 +6,7 @@
   </head>
   <header>
     <div class="pagelogo">
-      <img src="http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png">
+      <img src="http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png" width="64" height="64">
 
     </div>
     <div class="nav">
@@ -17,7 +17,20 @@
 
 
   <body>
-    
+    <ul id='peeps'>
+
+    <% @peeps.each do |peep|%>
+    <li>
+      <%= peep.user.name %> said:
+      <%= peep.peep_text %>
+      <%= peep.created_at %>
+
+    </li>
+    <%end%>
+
+
+  </ul>
+
 
   </body>
 </html>

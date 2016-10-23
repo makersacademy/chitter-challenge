@@ -12,10 +12,15 @@
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Log out">
       </form>
+
+      <textarea name="peep_text" form="peep_form" rows="8" cols="40"></textarea>
+      <form class="peep" action="/profile" id="peep_form" method="post">
+        <input type="submit" value="Peep!">
+      </form>
     <% end %>
     <% if flash[:notice] %>
     <%= flash[:notice] %>
-    <% end %>    
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>

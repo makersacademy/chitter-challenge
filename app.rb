@@ -18,6 +18,7 @@ helpers do
 end
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -62,8 +63,16 @@ end
   end
 
   get '/profile' do
-
+    @peeps = Peep.all
     erb :index
+  end
+
+  post '/profile' do
+    peep = Peep.create(peep_text: params[:peep_text])
+    current_user.peeps << peep
+    peep.save
+    p peep.created_at
+    redirect '/profile'
   end
 
   # start the server if ruby file executed directly

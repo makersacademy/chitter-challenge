@@ -11,6 +11,7 @@ group :test do
 end
 
 
+gem 'dm-timestamps'
 gem 'rspec-sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
