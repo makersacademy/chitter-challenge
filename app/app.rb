@@ -1,6 +1,7 @@
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
+
   get '/' do
     erb :index
   end
@@ -10,6 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
+    User.create(user_name: params[:user_name], email: params[:email], password: params[:password])
     redirect '/home'
   end
 
