@@ -31,5 +31,5 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-has n, :peeps
+#has n, :peeps
 end
