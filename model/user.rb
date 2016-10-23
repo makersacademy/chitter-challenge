@@ -8,8 +8,8 @@ class User
 
   property :id, Serial
   property :name, String, :required => true
-  property :user_name, String, :required => true
-  property :email, String, :format => :email_address, :required => true
+  property :user_name, String, :required => true, :unique => true
+  property :email, String, :format => :email_address, :required => true, :unique => true
   property :password_digest, Text, :required => true, :lazy => false
 
   validates_confirmation_of :password
