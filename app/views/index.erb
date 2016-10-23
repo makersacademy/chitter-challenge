@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1> Welcome to Chitter! <h1/>
-      <h2> Recent peeps </h2>
-  </body>
+<body>
+  <h1> Welcome to Chitter! <h1/>
+
+    <% if current_user %>
+    <h3> <%=current_user.username%>, what's happening?</h3>
+    <form action='/peep/new' method='post'>
+      <input type='text' name='content' />
+      <input type='submit' value='Publish peep' />
+    </form>
+    <% end %>
+
+    <h3> Recent peeps </h3>
+    <ul id="recent_peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        <p> "<%=peep.content%>"</p>
+          <% @users.each do |user| %>
+            <% if user.id == peep.user_id %>
+             <p> Posted by <%= user.name %> (@<%= user.username %>), at <%=(peep.timePosted).strftime("%I:%M%p")%></p>
+            <% end %>
+          <% end %>
+      </li>
+    <% end %>
+    </ul>
+</body>
 </html>

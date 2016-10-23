@@ -18,7 +18,7 @@ require './app/models/peep'
 require './app/app'
 require 'database_cleaner'
 require 'dm-transactions'
-# require './spec/features/web_helper'
+require './spec/features/web_helper'
 
 Capybara.app = Chitter
 

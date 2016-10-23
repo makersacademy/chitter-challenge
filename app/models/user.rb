@@ -19,4 +19,6 @@ class User
     @password = password
     self.encrypted_password = BCrypt::Password.create(password)
   end
+
+  has n, :peeps, :through => Resource
 end

@@ -2,17 +2,14 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'models/data_mapper_setup'
-require_relative 'models/peep'
 require_relative 'models/user'
+require_relative 'models/peep'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
-  register Sinatra::Flash
-
-  attr_reader :logged_in
 
   helpers do
     def current_user
@@ -21,7 +18,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all.reverse
+    @users = User.all
     erb :index
+  end
+
+  post '/peep/new' do
+    Peep.create(user: User.first(id: session[:user_id]),
+    timePosted: (Time.now),
+    content: params[:content])
+    redirect '/'
   end
 
   get '/signup' do
@@ -29,10 +35,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup/new' do
-    @user = User.create(name: params[:name],
+    @user = User.new(name: params[:name],
     email: params[:email],
     username: params[:username],
     password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+    end
     redirect '/'
   end
 
