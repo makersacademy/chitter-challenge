@@ -1,4 +1,4 @@
-<!-- [![Build Status](https://travis-ci.org/fmlharrison/takeaway-challenge.svg?branch=master)](https://travis-ci.org/fmlharrison/takeaway-challenge) -->
+[![Build Status](https://travis-ci.org/fmlharrison/chitter-challenge.svg?branch=master)](https://travis-ci.org/fmlharrison/chitter-challenge)
 
 Chitter - Where all your peeping desires come true.
 =======
