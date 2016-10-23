@@ -20,6 +20,13 @@ feature 'User Sign Up' do
       expect(current_path).to eq('/users/signup')
       expect(page).to have_content('Email has an invalid format')
     end
+    scenario 'Duplicate Email' do
+      sign_up
+      visit('/users/signup')
+      expect{ sign_up }.not_to change(User, :count)
+      expect(current_path).to eq('/users/signup')
+      expect(page).to have_content('Email is already taken')
+    end
     scenario 'Duplicate Username' do
       sign_up
       visit('/users/signup')
