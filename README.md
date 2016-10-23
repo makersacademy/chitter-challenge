@@ -7,7 +7,7 @@ Instructions
 1. Clone this repo.
 2. then in terminal: ```bundle```
 3. and then ```rackup```
-4. Now visit http://localhost:9292 and have fun!
+4. now visit http://localhost:9292 and have fun!
 -------
 
 Chitter home page (logged in)
