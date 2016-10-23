@@ -9,6 +9,6 @@ class Peep
   property :title,    String
   property :time,     Time
 
-  #belongs_to :user
+  belongs_to :user
 
 end

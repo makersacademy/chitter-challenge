@@ -17,7 +17,7 @@
   <h3> Recent peep activity on Chitter: </h3>
 <br>
 
-<ul style="list-style-type: none; width:50%; float:right;">
+<ul style="list-style-type: none;">
   <id='peeps'>
   <% @peeps.reverse_each do |peep| %>
     <li>
@@ -26,10 +26,10 @@
   <% end %>
 </ul>
 
-<ul style="list-style-type: none; width:40%; float:left;">
+<!-- <ul style="list-style-type: none; width:40%; float:left;">
   <% User.reverse_each do |user| %>
     <li>
       User: <%= user.email %></a>
     </li>
   <% end %>
-</ul>
+</ul> -->
