@@ -8,4 +8,6 @@ class Message
   property :title,   Text
   property :content, Text
 
+  belongs_to :user
+
 end

@@ -53,7 +53,7 @@ use Rack::MethodOverride
   end
 
   post '/messages' do
-    Message.create(title: params[:title], content: params[:content])
+    User.create(messages: [Message.create(title: params[:title], content: params[:content], user_id: session[:user_id])])
     redirect '/messages'
   end
 
