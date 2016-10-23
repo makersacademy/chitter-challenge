@@ -38,6 +38,24 @@ end
     end
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:user_name], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect '/profile'
+  else
+    flash.now[:errors] = ['Incorrect username or password']
+
+    p flash[:errors]
+    erb :log_in
+  end
+
+  end
+
   get '/profile' do
 
     erb :index
