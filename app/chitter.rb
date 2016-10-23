@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
-ENV['RACK_ENV'] = 'development'
+require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
    get '/' do
