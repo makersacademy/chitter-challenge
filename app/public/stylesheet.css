@@ -120,6 +120,7 @@ button:hover {
 
 .peeps .peep_content {
   font-size: 22px;
+  line-height: 35px;
 }
 
 .peeps .time {
