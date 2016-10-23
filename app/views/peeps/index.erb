@@ -1,23 +1,35 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 
   <h3> "Let's make the World Chitter" </h3>
-  <br>
+
+<br>
 
 <% if current_user %>
   <h1> Hello, <%= current_user.email %></h1>
 <% end %>
-  <br>
+<br>
+
 <form action="/peeps/new">
   <input type="submit" value="Post a Peep!">
 </form>
 <br>
-<h3> You have posted the following Peep's: </h3>
+
+  <h3> Recent peep activity on Chitter: </h3>
 <br>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
+<ul style="list-style-type: none; width:50%; float:right;">
+  <id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
     <li>
-      Peep: <%= peep.title %></a>
+       <%= peep.title %></a>
+    </li>
+  <% end %>
+</ul>
+
+<ul style="list-style-type: none; width:40%; float:left;">
+  <% User.reverse_each do |user| %>
+    <li>
+      User: <%= user.email %></a>
     </li>
   <% end %>
 </ul>

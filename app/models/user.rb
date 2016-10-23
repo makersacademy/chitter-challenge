@@ -1,4 +1,5 @@
 require_relative 'data_mapper_setup'
+require_relative 'peep'
 require 'bcrypt'
 
 class User
@@ -15,13 +16,13 @@ class User
   validates_presence_of :email
   validates_confirmation_of :password
 
+
   def self.authenticate(email, password)
     user = first(email: email)
-
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
-      nil
+    nil
     end
   end
 
@@ -29,4 +30,6 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+has n, :peeps
 end
