@@ -9,11 +9,11 @@ feature 'signing out' do
                 password: "password123",
                 password_confirmation: "password123")
   end
-  it 'allows a user to sign out' do
-    sign_in
-    click_button "Sign out"
-    expect(page).to have_content "Peep again soon"
-    expect(page).not_to have_content "Welcome, Alan"
-  end
+  # it 'allows a user to sign out' do
+  #   sign_in
+  #   click_button "Sign out"
+  #   expect(page).to have_content "Peep again soon"
+  #   expect(page).not_to have_content "Welcome, Alan"
+  # end
 
 end
