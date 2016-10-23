@@ -5,5 +5,7 @@ feature "Displaying posts" do
     visit "/"
 
     expect(page).to have_content "This is a post"
+    expect(page).to have_content "Bob"
+    expect(page).to have_content "bob1"
   end
 end

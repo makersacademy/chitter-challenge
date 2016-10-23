@@ -10,9 +10,8 @@
       <% @posts.each do |post| %>
         <div class="thumbnail">
           <div class="caption">
-            <h3>User</h3>
-            <h4>@user_name</h4>
-            <p><%= post.message %></p>
+            <h4><%= post.user.name %> <small>@<%= post.user.user_name %></small></h4>
+            <p class="lead"><%= post.message %></p>
           </div>
         </div>
       <% end %>
