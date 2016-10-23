@@ -10,13 +10,18 @@
         <br><label>Username</label><br>
         <input type="text" name="username" value='<%= @user.username %>' required>
         <br><label for='password'>Password</label><br>
-        <input type="password" name="password" required><br>
-          <% if flash[:notice] %>
-          <div id="notice"><%= flash[:notice] %></div>
-          <% end %>
-        <label for=password_confirmation>Confirm password</label><br>
+        <input type="password" name="password" required>
+        <br><label for=password_confirmation>Confirm password</label><br>
         <input type="password" name="password_confirmation" required><br>
-        <br><input type="submit" value="Create account">
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          <br>Please correct the following errors:
+          <ul id='errors'>
+            <% flash[:errors].each do |error|  %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <input type="submit" value="Create account">
       </form>
   </body>
 </html>
