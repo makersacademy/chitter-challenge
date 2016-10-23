@@ -6,8 +6,14 @@
 
   <body>
     <%= partial :welcome %>
-    <%= partial :notice  %>
-    <%= partial :errors  %>
+    <%= partial :sign_out %>
+    <%= partial :notice %>
+    <%= partial :errors %>
+    <% if current_user %>
+      <a href="peeps/new">
+        Peep
+      </a>
+    <% end %>
 
     <%= yield %>
 
