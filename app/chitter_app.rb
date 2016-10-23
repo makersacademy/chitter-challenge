@@ -37,7 +37,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps/peepdeck'
     else
-      flash.now[:notice] = "Password and cofnrimation do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'/users/register'
     end
   end

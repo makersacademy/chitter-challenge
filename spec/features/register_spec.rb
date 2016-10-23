@@ -1,4 +1,4 @@
-feature 'signing in' do
+feature 'registering' do
 
   it 'directs to an initial landing page where users can choose to sign in of register for the first time' do
     visit ("/")
@@ -31,7 +31,7 @@ feature 'signing in' do
     fill_in "password_confirmation", with: "password456"
     expect{ click_button 'Register' }.to change{ User.all.count }.by(0)
     # expect(current_path).to eq '/users/register'
-    expect(page).to have_content 'Password and cofnrimation do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   it "will not allow a register with an email that has already been registered" do
