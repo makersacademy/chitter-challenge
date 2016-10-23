@@ -8,9 +8,9 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :user_name, String
-  property :email, String
-  property :password, Text
+  property :user_name, String, :unique => true
+  property :email, String, :unique => true, :format => :email_address
+  property :password, BCryptHash
 
   validates_confirmation_of :password
 
