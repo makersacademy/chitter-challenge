@@ -7,6 +7,16 @@
       font-family: sans-serif;
       color: white;
       text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      min-height: 40px;
+      background-color: teal;
+      margin: 0;
+      padding: 10px;
+      width: 100%;
     }
 
     #glitter {
@@ -15,6 +25,8 @@
       background-size:cover;
       text-align: center;
       width: 250px;
+      height: 50px;
+      padding: 10px;
     }
 
     h1 {
@@ -34,34 +46,46 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
+    <div id = 'header'>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
+      <% if current_user %>
+        Welcome, <%= current_user.email %>
+        <form action='/sessions' method='post' id = 'sign_out'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      <% end %>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% if !current_user %>
+        <% if flash[:notice] %>
+          <div id='notice'>
+            <%= flash[:notice] %>
+          </div>
         <% end %>
-      </ul>
-    <% end %>
+        <form action='/sessions' method='post' id = 'sign_in_form'>
+          <label for='email'>
+            Email: <input name='email' type='email'>
+          </label>
+          <label for='password'>
+            Password: <input name='password' type='password'>
+          </label>
+          <input type='submit' value='Sign in'>
+        </form>
 
-    <% if !current_user %>
-      <form action='/sessions' method='post'>
-        <label for='email'>
-          Email: <input name='email' type='email'>
-        </label>
-        <label for='password'>
-          Password: <input name='password' type='password'>
-        </label>
-        <input type='submit' value='Sign in'>
-      </form>
-
-      <form action='/users/new' method='get'>
-        <input type='submit' value='Sign up'>
-      </form>
-    <% end %>
+        <form action='/users/new' method='get'>
+          <input type='submit' value='Sign up'>
+        </form>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>

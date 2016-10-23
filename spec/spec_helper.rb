@@ -9,7 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/models/user.rb'
 require 'database_cleaner'
-require './spec/features/web_helper'
+require 'features/web_helper'
 require 'data_mapper'
 
 SimpleCov.formatters = [
@@ -23,6 +23,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
 

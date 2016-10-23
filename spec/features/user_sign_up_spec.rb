@@ -1,4 +1,3 @@
-require 'spec_helper'
 
 feature 'User sign up' do
 	scenario 'when user signs up, the User count increases by 1' do

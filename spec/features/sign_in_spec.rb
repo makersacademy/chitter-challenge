@@ -1,23 +1,21 @@
-require 'spec_helper'
 
-# feature 'User sign in' do
-#
-#   let!(:user) do
-#     User.create(email: 'dog@example.com',
-#                 password: 'miao',
-#                 password_confirmation: 'miao')
-#   end
+feature 'User sign in' do
 
-  # scenario 'with correct credentials' do
-  #   sign_in(email: user.email,   password: user.password)
-  #   expect(page).to have_content "Welcome, #{user.email}"
-  # end
+  let!(:user) do
+    User.create(email: 'dog@example.com',
+                password: 'miao',
+                password_confirmation: 'miao')
+  end
 
-  # def sign_in(email:, password:)
-  #   visit '/sessions/new'
-  #   fill_in :email, with: email
-  #   fill_in :password, with: password
-  #   click_button 'Sign in'
-  # end
+  scenario 'with correct credentials' do
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, #{user.email}"
+  end
 
-# end
+  scenario 'with wrong credentials' do
+    sign_in(email: user.email, password: "dumbpassword")
+    expect(page).to have_content "The email or password is incorrect"
+  end
+
+
+end
