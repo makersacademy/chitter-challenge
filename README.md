@@ -31,6 +31,9 @@ Viewing the App locally
 
 * Rackup to load the app to localhost in your browser
 
+* Click Register to sign up for an account
+![Screenshot](https://drive.google.com/open?id=0B5Jj6btKLqMGakJack0yWXRRQ0U)
+
 CSS Design and Style Inspiration
 ------
 I was listening to the Wild Beasts latest album "Boy King" whilst coding this challenge. I checked out their website and loved the big bold colours and design. That served as a large part of the inspiration for this design.
