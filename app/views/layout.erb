@@ -6,7 +6,8 @@
   </head>
   <body>
     <% if current_user %>
-    <form action='/login'>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value="delete" />
       <input type='submit' value="Log out" />
     </form>
     <% else %>

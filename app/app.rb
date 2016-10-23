@@ -7,6 +7,7 @@ require_relative 'models/peep'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -58,14 +59,19 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
   user = User.authenticate(params[:email], params[:password])
-  if user
-    session[:user_id] = user.id
-    redirect to('/')
-  else
-    flash.now[:errors] = ['The email or password is incorrect']
-    erb :'login'
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'login'
+    end
   end
-end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/'
+  end
 
   run! if app_file == $0
 end
