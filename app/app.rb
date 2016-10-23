@@ -67,5 +67,10 @@ class ChitterApp < Sinatra::Base
     redirect to "/"
   end
 
+  post "/sessions/logout" do
+    session[:user_id] = nil
+    redirect to "/"
+  end
+
   run! if app_file == $0
 end

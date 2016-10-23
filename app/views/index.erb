@@ -1,7 +1,13 @@
 <div class="row">
   <div class="col-sm-12 text-right">
-    <a class="btn btn-default" href="/users/new" role="button">Sign up</a>
-    <a class="btn btn-default" href="/sessions/new" role="button">Log in</a>
+    <% if current_user %>
+      <form action="/sessions/logout" method="POST">
+        <button class="btn btn-default" type="submit">Log out</button>
+      </form>
+    <% else %>
+      <a class="btn btn-default" href="/users/new" role="button">Sign up</a>
+      <a class="btn btn-default" href="/sessions/new" role="button">Log in</a>
+    <% end %>
   </div>
 </div>
 <% if current_user %>

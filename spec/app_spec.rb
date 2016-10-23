@@ -124,4 +124,13 @@ describe ChitterApp do
     end
   end
 
+  describe "post sessions/logout" do
+    it "redirects to index page" do
+      #tbd
+    end
+    it "clears session user_id" do
+      #tbd
+    end
+  end
+
 end
