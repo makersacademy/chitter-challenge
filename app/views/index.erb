@@ -3,8 +3,8 @@
   <% if current_user %>
   <form method = "post" action="/peeps">
     <div class="form">
-        <label for="peep">Post your PEEP here:</label><br><br>
-        <textarea class="form" rows="4" name="peep"></textarea><br><br>
+        <label for="peep">Post your PEEP here:</label><br>
+        <textarea style="width:250px;" class="form-control" rows="5" name="peep"></textarea><br>
         <button type="submit" class="btn btn-primary">Peep me!</button>
       </div>
       </form>
@@ -12,20 +12,18 @@
   <% end %>
 </div>
 <br>
-<div class="message">
+<div class="message" style="color:#000;">
   <% Peep.all(order: [:time.desc]).each do |peep| %>
-      <div class="panel">
-        <h2 class="panel-title"> <%= peep.user.username %> </h2>
-      </div>
-      <div class="peep">
+      <div class="panel" style="background-color:#fff;width:250px;border-radius: 15px;">
+        <h2 class="panel-title"> <%= peep.user.username.to_s.capitalize %> </h2>
         " <%= peep.peep %> "
-      </div>
-      <div class="time">
+        <br>
         <% if peep.time %>
           <%= peep.time.strftime("%d/%m/%Y") + peep.time.strftime(" at %I:%M %p")  %>
         <% else %>
           Unknown Date
         <% end %>
       </div>
+      <br>
   <% end %>
 </div>

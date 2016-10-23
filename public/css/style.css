@@ -107,3 +107,11 @@ label {
   width: 100px;
   font-size: 15px;
 }
+
+.message {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+}
