@@ -31,8 +31,11 @@ Viewing the App locally
 
 * Rackup to load the app to localhost in your browser
 
-* Click Register to sign up for an account
+* Click Register to sign up for an account, or Log In
+
 ![Screenshot](https://lh6.googleusercontent.com/n0IvHt9KtmQnNh2J3iSeiqrP2ExYIBF9MLA2R5D4WQpsk9_0_XKfIzrqn6uWVpZ_5JG_wJPGHlRCgKM=w2870-h1552-rw)
+
+* Peeps appear in the centre of the screen
 
 CSS Design and Style Inspiration
 ------
