@@ -43,6 +43,10 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 ```
+#### Solution
+
+* Created a new view (/log_in) which has email and password fields
+* Checks the database for the relevant information and either allows the user to log in or retry if the information doesn't exist in the database
 
 ```
 As a Maker
