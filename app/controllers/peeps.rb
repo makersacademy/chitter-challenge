@@ -2,7 +2,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @users = User.all
-    # @peeps = Peeps.all
+    @peeps = Peeps.all
     erb :index
   end
 

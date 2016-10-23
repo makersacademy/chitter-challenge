@@ -1,36 +1,30 @@
 
-feature 'User can interact with peeps' do
-  
-  let!(:peep) do
-    Peep.create(email: 'salvini@padania.com',
-                title: 'I secretly love Italy',
-                content: 'I can say it now, in a foreign language but not in my home country that is why I am dying inside')
-  end
-
-  scenario 'Anybody can see public peeps' do
-    visit('/')
-    expect(page).to have_content "I secretly love Italy"
-    expect(page).to have_content "I can say it now"
-  end
-
-
-
+feature 'See peeps' do
   let!(:user) do
-    User.create(email: 'user@example.com',
+    User.create(email: 'salvini@padania.it',
                 password: 'miao',
                 password_confirmation: 'miao')
   end
 
-  scenario 'with correct credentials' do
-    sign_in(email: user.email,   password: user.password)
-    expect(page).to have_content "Welcome, #{user.email}"
+  before do
+    Peep.create(user_id: user.id,
+                title: 'I secretly love Italy',
+                content: 'I can say it now, in a foreign language but not in my home country that is why I am dying inside')
   end
 
-  def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign in'
+  scenario 'Anyone can see public peeps' do
+    visit('/')
+    expect(page).to have_content "I secretly love Italy"
+    expect(page).to have_content "I can say it now"
+    expect(page).not_to have_content "Create a new Peep"
   end
 
+  feature 'write peeps' do
+
+    scenario 'Just signed in users can write posts' do
+      visit('/')
+      sign_in(email:user.email, password:user.password)
+      expect(page).to have_content "Create a new Peep"
+    end
+  end
 end

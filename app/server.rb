@@ -1,10 +1,13 @@
 class Chitter < Sinatra::Base
 
   enable :sessions
-  set :session_secret, 'super secret'
   register Sinatra::Flash
   register Sinatra::Partial
   use Rack::MethodOverride
+  set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
@@ -13,5 +16,5 @@ class Chitter < Sinatra::Base
   end
 
   run! if app_file == $0
-  
+
 end

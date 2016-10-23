@@ -1,5 +1,7 @@
-<div id = "glitter">
-	<h1>Chitter</h1>
+<div>
+	<div id = "glitter">
+		<h1>Chitter</h1>
+	</div>
 </div>
 
 <% if current_user %>
@@ -21,10 +23,15 @@
 	</p>
 <% end %>
 
-<ul id="peeps">
-	<% @peeps.each do |peep| %>
-		<li>
-			<p><%= peep.title %></p> -
-			<p><% peep.content do |tag| %></p>
-	<% end %>
-</ul>
+<% if !!@peeps %>
+	<div>
+		<ul id="peeps">
+			<% @peeps.reverse.each do |peep| %>
+				<li>
+					<h3><%= peep.title %></h3>
+					<p><%= peep.content%></p></li>
+					<p>By <%= peep.user.email %> at <%= peep.created_at.strftime("%d/%m/%Y %H:%M")%></p>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

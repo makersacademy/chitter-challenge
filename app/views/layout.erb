@@ -9,6 +9,7 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      list-style-type: none;
     }
 
     #header {
@@ -41,13 +42,16 @@
       height: 30;
     }
 
+    ul {
+      list-style-type: none;
+    }
+
     </style>
     <title>Chitter</title>
   </head>
 
   <body>
     <div id = 'header'>
-
       <% if current_user %>
         Welcome, <%= current_user.email %>
         <form action='/sessions' method='post' id = 'sign_out'>
