@@ -5,16 +5,12 @@
   </head>
 
   <body>
-
-  	<% if flash[:success] %>
-  	  <%= flash[:success] %>
-  	<% end %>
-
     <% if flash[:notice] %>
 	    <% flash[:notice].each do |error| %>
 	      <div id='notice'><%= error %></div>
 	    <% end %>
 	  <% end %>
+
     <%= yield %> 
   </body>
 </html>

@@ -6,6 +6,11 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
+  set :sessions, true
+
+  def current_user 
+    @current_user ||= User.get(session[:user_id])
+  end
 
 	get '/' do
 		erb :index
@@ -19,13 +24,26 @@ class Chitter < Sinatra::Base
   	user = User.new(email: params[:email], password: params[:password],
   		              password_confirmation: params[:password_confirmation])
   	if user.save
-  	  flash.now[:success] = "Sign Up Successful"
+  	  flash.now[:notice] = ["Sign Up Successful"]
+      session[:user_id] = user.id
   	  erb :index
   	else 
   		flash.now[:notice] = user.errors.full_messages
   	  erb :signup
   	end
 	end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      flash.now[:notice] = ["You have successfully signed in as #{user.email}"]
+      session[:user_id] = user.id
+      erb :index
+    else
+      flash.now[:notice] = ['The email or password is incorrect']
+      erb :index
+    end
+  end
 
 	run! if app_file == $0
 end

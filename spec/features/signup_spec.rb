@@ -57,4 +57,19 @@ feature 'signing up' do
 		click_button 'Sign Up'
 		expect(page).to have_content "Email has an invalid format"
 	end
+
+	scenario "Cannot sign up with an already registered email address" do
+    visit '/'
+    click_button 'Register'
+		fill_in :email, with: 'foobar@foobar.com'
+		fill_in :password, with: "foobar"
+		fill_in :password_confirmation, with: "foobar"
+		click_button 'Sign Up'
+    click_button 'Register'
+		fill_in :email, with: 'foobar@foobar.com'
+		fill_in :password, with: "foobar"
+		fill_in :password_confirmation, with: "foobar"
+		expect{click_button 'Sign Up'}.to_not change{User.count}
+		expect(page).to have_content "Email is already taken"
+	end
 end
