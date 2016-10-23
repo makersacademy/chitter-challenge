@@ -1,4 +1,4 @@
-class Chitter < Sinatra::Base
+class User
 
   include DataMapper::Resource
 
