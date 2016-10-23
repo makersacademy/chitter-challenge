@@ -65,6 +65,13 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 ```
+#### Solution
+
+* Created two new views ```/peeps``` and ```/new_peep```
+* ```/peeps``` is the base peeps view which shows all the peeps made
+* ```/new_peep``` is a new view on which a new peep can be created
+* Once the new peep is created it is logged on the ```/peeps``` page and output the user who created it, what they peeped and a time. Sadly, the time at this point is the time you loaded the page and not specific to the peep. That is a later user story though. 
+* Tested to ensure it is working as expected
 
 ```
 As a maker
