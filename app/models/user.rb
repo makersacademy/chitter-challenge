@@ -15,4 +15,9 @@ class User
 
   validates_confirmation_of :password
 
+  def self.authenticate(email, password)
+    user = first(email: email)
+    user && BCrypt::Password.new(user.password) == password ? user : nil
+  end
+
 end
