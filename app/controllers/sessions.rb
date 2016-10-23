@@ -1,10 +1,5 @@
 class Chitter < Sinatra::Base
 
-  get '/' do
-    @users = User.all
-    erb :index
-  end
-
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user

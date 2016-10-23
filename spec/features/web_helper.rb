@@ -1,14 +1,5 @@
 module SessionHelpers
 
-  # def enter_new_link(title, tag)
-  #   visit('/links/new')
-  #
-  #   fill_in :title , with: title
-  #   fill_in :url , with: "www.example.com"
-  #   fill_in :tags , with: tag
-  #   click_button('Create Link')
-  # end
-
   def sign_up(email: 'dog@example.com',
                 password: 'oranges!',
                 password_confirmation: 'oranges!')
@@ -30,5 +21,13 @@ module SessionHelpers
       click_button 'Sign in'
     end
   end
+
+  # def enter_new_peep(title, tag)
+  #   visit('/')
+  #   fill_in :title , with: title
+  #   fill_in :url , with: "www.example.com"
+  #   fill_in :tags , with: tag
+  #   click_button('Create Link')
+  # end
 
 end

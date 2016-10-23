@@ -2,6 +2,29 @@
 	<h1>Chitter</h1>
 </div>
 
-<p>
-	Log in to post peeps
-</p>
+<% if current_user %>
+	<p>
+		What do you want to say to the world that is so urgent?
+	</p>
+	<form action='/new_peep' method='post' id = 'new_peep'>
+		<label for='title'>
+			Title: <input name='title' type='text'>
+		</label>
+		<label for='content'>
+			All this * by you: <input name='content' type='text'>
+		</label>
+		<button>Create a new Peep</button>
+	</form>
+<% else %>
+	<p>
+		Log in to post peeps
+	</p>
+<% end %>
+
+<ul id="peeps">
+	<% @peeps.each do |peep| %>
+		<li>
+			<p><%= peep.title %></p> -
+			<p><% peep.content do |tag| %></p>
+	<% end %>
+</ul>
