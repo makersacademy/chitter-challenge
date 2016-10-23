@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+  font-size: 1em;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.peeps {
+  min-width: 300px;
+  width: 30%;
+  margin: 0px auto;
+  text-align: left;
+}
+.peep {
+  padding-top: 2px;
+  width: 100%;
+  border-top: 1px dotted black;
+}
+.peep i {
+  font-size: 0.75em;
+  color: #888;
+}
+.peeper {
+  width: 200px;
+  float: left;
+}
+.peep_date {
+  text-align: right;
+  margin-bottom: -15px;
+}
+.new_peep textarea {
+  width: 100%;
+  resize: none;
+  padding: 2px;
+  border: 1px dotted #666;
+}
+.new_peep {
+  margin-bottom: 20px;
+}
+.comments {
+  position: relative;
+  left: 15%;
+  width: 85%;
+  font-size: 0.85em;
+  margin-bottom: 5px;
+  margin-top: -15px;
+  text-align: left;
+}
+.comments textarea {
+  margin-top: 2px;
+  width: 100%;
+  resize: none;
+  border: 1px dotted #aaa;
+  font-size: 0.85em;
+  color: #444;
+}
+.comments button {
+  border: none;
+  cursor: pointer;
+  color: #777;
+}
+.comments button:hover {
+  color: #000;
+  background-color: #ddd;
+}
+.comments form {
+  margin-bottom: 5px;
+}
+.comment_text {
+  width: 100%;
+  clear: both;
+}
+.comment {
+  padding-top: 2px;
+  width: 100%;
+  border-top: 1px dotted #333;
+}
+.comment i {
+  font-size: 0.75em;
+  color: #888;
+}
+.errors {
+  color: #b22;
+}

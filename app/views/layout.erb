@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
+    <% if current_user %>
+      Welcome, <%= current_user.username %>!
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul class="errors">
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%=yield%>
+  </body>
+</html>

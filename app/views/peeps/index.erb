@@ -1,0 +1,61 @@
+<div>
+  <% if current_user %>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
+  <% else %>
+    <form action="/sessions/new">
+      <input type="submit" value="Sign in">
+    </form>
+    <form action="/users/new">
+      <input type="submit" value="Sign up">
+    </form>
+  <% end %>
+</div>
+
+<h1>Welcome to CHITTER!</h1>
+
+<div class="peeps">
+  <% if current_user %>
+    <div class='new_peep'>
+      What's on your mind?
+      <form action="/peeps" method="post">
+        <textarea name="peep_text" rows="3" maxlength="120" required></textarea>
+        <input type="submit" value="Peep">
+      </form>
+    </div>
+  <% end %>
+
+  <% if @peeps %>
+    <% @peeps.each do |peep| %>
+      <div class="peep" id="peep_<%=peep.id%>">
+        <div class="peeper"><b><%=peep.user.username%></b> <i> - <%=peep.user.name%></i></div>
+        <div class="peep_date"><%=peep.created_at.strftime('%Y-%m-%d %H:%M')%></div>
+        <p><%=peep.peep_text%></p>
+
+        <div class="comments">
+
+          <% if !peep.comments.empty? %>
+            <% peep.comments.each do |comment| %>
+              <div class="comment">
+                <div class="peeper"><b><%=comment.user.username%></b> <i> - <%=comment.user.name%></i></div>
+                <div class="peep_date"><%=comment.created_at.strftime('%Y-%m-%d %H:%M')%></div>
+                <div class="comment_text"><%=comment.text%></div>
+              </div>
+            <% end %>
+          <% end %>
+
+          <% if current_user %>
+            <form action="/comments/<%=peep.id%>" method="post">
+              <textarea name="comment_text" rows="2" maxlength="120"></textarea>
+              <button>reply</button>
+            </form>
+          <% end %>
+
+        </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
