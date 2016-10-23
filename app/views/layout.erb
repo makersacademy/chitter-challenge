@@ -28,9 +28,9 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-            <li><h4> Welcome, " <%= current_user.email %> " </h4></li>
+            <li><h4> Welcome, <%= current_user.email %> </h4></li>
 
-            <li><a href="#"><i class="icon-user"></i> <%= @current_user.username.capitalize %> </a></li>
+            <li><a href="#"><i class="icon-user"></i> <%= @current_user.username.to_s.capitalize %> </a></li>
 
             <li>
               <form method='post' action='/sessions' class="navbar-form navbar-right">
