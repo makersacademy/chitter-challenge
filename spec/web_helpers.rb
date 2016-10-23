@@ -20,3 +20,8 @@ def log_in_user(email: "default@example.com",
 	fill_in :password, with: password
 	click_button('Log In')
 end
+
+def log_in_ready_to_peep
+  create_user
+  log_in_user
+end
