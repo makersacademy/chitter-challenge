@@ -1,7 +1,14 @@
-def sign_up
+def sign_up(email:, password:)
   visit('/users/new')
   expect(page.status_code).to eq(200)
-  fill_in('email', with: 'maker@makers.com')
-  fill_in('password', with: '000000')
+  fill_in('email', with: email)
+  fill_in('password', with: password)
   click_button('Sign up')
+end
+
+def sign_in(email:, password:)
+  visit('/sessions/new')
+  fill_in(:email, with: email)
+  fill_in(:password, with: password)
+  click_button('Sign in')
 end

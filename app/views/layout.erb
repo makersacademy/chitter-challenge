@@ -5,6 +5,7 @@
     <title>Chitter</title>
   </head>
   <body>
+    <%= styled_flash %>
     <% if current_user %>
       Welcome, <%= current_user.email %>
     <% end %>
