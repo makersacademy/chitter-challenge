@@ -66,13 +66,8 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/peeps/peepdeck' do
-    new_peep = Peep.new(peep_text: params[:peep], user_id: current_user.id)
-    new_peep.save
-    if new_peep.save
-      redirect 'peeps/peepdeck'
-    else
-      redirect 'fuck_up'
-    end
+    new_peep = Peep.create(peep_text: params[:peep], user_id: current_user.id)
+    redirect 'peeps/peepdeck'
   end
 
   delete '/sessions/sign_out' do
