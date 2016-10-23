@@ -9,5 +9,9 @@ feature 'User sign up' do
     expect { sign_up(password_confirmation: "not_the_same_as_first_password")}.not_to change(User, :count)
   end
 
+  scenario "with a password that does not match" do
+    expect {sign_up(password_confirmation: "not_the_same_as_first_password")}.not_to change(User, :count)
+    expect(page).to have_content "Password and confirmation password do not match"
+  end
 
 end
