@@ -6,13 +6,12 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
-gem 'timecop'
+gem 'rake'
 
 group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
