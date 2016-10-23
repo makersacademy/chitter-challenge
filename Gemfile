@@ -9,8 +9,6 @@ gem "dm-postgres-adapter"
 gem "dm-migrations"
 gem "dm-transactions"
 gem "pg"
-gem "rake"
-
 
 group :test do
   gem 'rspec'
