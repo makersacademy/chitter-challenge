@@ -20,5 +20,10 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
-   
+
+  # def super_long_peep
+  #   fill_in 'peep', with: "Like any other social media site Chitter has length requirements when it comes to writing on the wall, providing status, messaging and commenting. You must make sure that you don't go over 150 characters."
+  #   click_button 'Peep'
+  # end
+
 end

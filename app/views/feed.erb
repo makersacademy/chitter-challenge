@@ -6,6 +6,13 @@
 
     <h1>Chitter - A place to Peep.</h1>
 
+    <div class="diff_user">
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Sign in" />
+      </form>
+    </div>
+
+
     <div class="peep">
       <form action="/peep" method="post">
         <input type="text" placeholder="Go ahead... Peep" name="peep" />
@@ -17,9 +24,9 @@
     <ul id ='peeps'>
       <% @peeps.reverse.each do |peep| %>
       <li>
-        User: <%= peep.user.user_name %>
-        Peep: <%= peep.message %>
-        Created: <%= peep.date_created.strftime("Peeped on %A %d %b %Y at %R") %>
+        User: <%= peep.user.user_name %><br>
+        Peep: <%= peep.message %><br>
+        <%= peep.date_created.strftime("Peeped on %A %d %b %Y at %R") %><br>
       </li>
       <% end %>
     </ul>
