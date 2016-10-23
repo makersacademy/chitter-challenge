@@ -14,17 +14,17 @@
   </ul>
   <% end %>
   <% if current_user %>
-    <h1> Welcome, <%= current_user.first_name %> </h1>
-    <form method='post' action='/sign_out'?
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
+  <h1> Welcome, <%= current_user.first_name %> </h1>
+  <form method='post' action='/sessions'?
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
   <% end %>
   <% if flash[:notice]  %>
     <div id='notice'>
     <%= flash[:notice] %>
     </div>
-  t functio<% end %>
+  <% end %>
 
 
 
