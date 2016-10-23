@@ -13,7 +13,7 @@ class User
   property :name, String, required: true, unique: true
 
   has n, :peeps
-  # has n, :responses, through: Resource
+  has n, :responses, through: Resource
 
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text

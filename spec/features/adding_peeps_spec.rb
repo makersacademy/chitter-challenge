@@ -22,7 +22,7 @@ feature 'posting peeps' do
 
       sign_in(email: user.email, password: user.password)
       click_button 'Sign out'
-      expect(page).not_to have_content ("what's peeping?")
+      expect(page).not_to have_content ("What's peeping?")
   end
 
 end
