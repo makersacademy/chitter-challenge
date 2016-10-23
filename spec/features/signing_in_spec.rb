@@ -10,7 +10,11 @@ feature 'signing in' do
                 password_confirmation: "password123")
   end
   it 'allows a user to sign in' do
-    sign_in
+    visit '/sessions/sign_in'
+    fill_in "email", with: "alan@nufc.com"
+    fill_in "password", with: "password123"
+    expect(page).to have_content "Welcome back. Please enter your login details"
+    click_button "Sign in"
     expect(current_path).to eq '/peeps/peepdeck'
     expect(page).to have_button "PEEP"
   end

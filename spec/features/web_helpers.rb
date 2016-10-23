@@ -31,3 +31,8 @@ def sign_in_with_unregistered_email
   fill_in "password", with: "password123"
   click_button "Sign in"
 end
+
+def create_peep(peep)
+  fill_in "peep", with: peep
+  click_button "PEEP"
+end

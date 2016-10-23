@@ -6,9 +6,19 @@ feature 'registering' do
     expect(page).to have_button "Sign in"
   end
 
+  it 'contains the peeps already posted' do
+    register
+    sign_in
+    create_peep("Something interesting")
+    click_button "Sign out"
+    visit ("/")
+    expect(page).to have_content "Something interesting"
+  end
+
   it "allows users to enter their details and displays a welcome message once they have done so" do
     visit ("/")
     click_button "Register"
+    expect(page).to have_content "Please enter your details"
     fill_in "first_name", with: "Alan"
     fill_in "last_name", with: "Shearer"
     fill_in "username", with: "alan123"

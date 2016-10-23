@@ -17,4 +17,13 @@ feature 'create a peep' do
     fill_in "peep", with: "My first peep"
     expect{ click_button "PEEP" }.to change{ Peep.all.count }.by(1)
   end
+
+  it 'displays all peeps in the database' do
+    register
+    sign_in
+    create_peep("I am bored")
+    expect(current_path).to eq "/peeps/peepdeck"
+    expect(page).to have_content "I am bored"
+  end
+
 end
