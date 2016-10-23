@@ -7,6 +7,7 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+<<<<<<< HEAD
 
  html{
    position:relative;
@@ -142,6 +143,8 @@
  .panel-title span{
    float:right;
  }
+=======
+>>>>>>> 1ff5ca9f7021bb050acc9f6f5dd4eb882f66d433
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
