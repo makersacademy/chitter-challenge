@@ -10,7 +10,7 @@
       <% @posts.each do |post| %>
         <div class="thumbnail">
           <div class="caption">
-            <h4><%= post.user.name %> <small>@<%= post.user.user_name %></small></h4>
+            <h4><%= post.user.name %> <small>@<%= post.user.user_name %> | <%= post.created_at.strftime("%b %d %k:%M") %></small></h4>
             <p class="lead"><%= post.message %></p>
           </div>
         </div>
