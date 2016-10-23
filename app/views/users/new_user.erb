@@ -3,6 +3,12 @@
     <h2>Sign Up</h2>
   </div>
 </div>
+<% if @error %>
+  <div class="alert alert-danger" role="alert">
+    Username or email is already taken. Try an alternative.
+  </div>
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     <form action="/users" method="POST">

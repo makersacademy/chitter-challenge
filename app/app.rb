@@ -19,16 +19,23 @@ class ChitterApp < Sinatra::Base
   end
 
   get "/users/new" do
+    if params[:duplicate_user]
+      @error = "Username or email is already taken. Try an alternative."
+    end
     erb :"users/new_user"
   end
 
   post "/users" do
-    user = User.create(name: params[:name],
+    @user = User.create(name: params[:name],
                         user_name: params[:user_name],
                         email: params[:email],
                         password: params[:password])
-    session[:user_id] = user.id
-    redirect to "/"
+    if @user.id.nil?
+      redirect to "/users/new?duplicate_user=true"
+    else
+      session[:user_id] = @user.id
+      redirect to "/"
+    end
   end
 
   get "/peeps/new" do

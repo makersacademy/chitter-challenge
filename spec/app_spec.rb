@@ -34,7 +34,7 @@ describe ChitterApp do
       expect(user.name).to eq "Bob"
       expect(user.email).to eq "bob@example.com"
     end
-    
+
     it "sets a user id in the session" do
       post_new_user
       user = User.first(user_name: "bob")
@@ -54,7 +54,7 @@ describe ChitterApp do
     it "displays the create new post page" do
       get "/peeps/new"
       expect(last_response).to be_ok
-      expect(last_response.body).to include "New peep"
+      expect(last_response.body).to include "New Peep"
     end
   end
 

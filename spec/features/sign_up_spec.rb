@@ -8,4 +8,11 @@ feature "User sign up" do
     expect(User.first.user_name).to eq("alice")
     expect(User.first.email).to eq("alice@example.com")
   end
+
+  scenario "Username or email already exist" do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(current_path).to eq "/users/new"
+    expect(page).to have_content "Username or email is already taken. Try an alternative."
+  end
 end
