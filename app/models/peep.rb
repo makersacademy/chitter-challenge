@@ -8,7 +8,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,       Serial
-  property :peep,     String
+  property :peep,     String, :length => 50
   property :user_id,  Integer
 
   belongs_to :user

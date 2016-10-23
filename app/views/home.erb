@@ -1,4 +1,15 @@
 <% if current_user %>
   <h2> This is the homepage for <%= current_user.username %>!
-
 <% end %>
+
+<h2>See our peeps!</h2>
+
+<ul id="peeps">
+
+  <% @show_peeps.each do |show_peep| %>
+    <li>
+      <%= show_peep.peep %>
+      <%= show_peep.user_id %>
+    </li>
+  <% end %>
+</ul>

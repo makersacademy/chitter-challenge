@@ -5,6 +5,8 @@ class Chitter < Sinatra::Base
    end
 
    get '/home' do
+    #  show_peeps = Peep.all(peep: params[:peep])
+     @show_peeps = Peep.all
      erb(:home)
    end
 

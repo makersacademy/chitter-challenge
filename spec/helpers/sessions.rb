@@ -21,8 +21,10 @@ module SessionHelpers
     click_button 'Submit'
   end
 
-  def post_peep
-    sign_up
+  def post_peep(peep: "Test peep")
+    visit '/peeps/new'
+    fill_in :peep, with: peep
+    click_button 'Submit your Peep!'
   end
 
 end

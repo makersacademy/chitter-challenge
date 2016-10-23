@@ -14,9 +14,23 @@ feature 'I want to post a peep' do
     sign_in(username: user.username, password: user.password)
   end
 
-  scenario 'Allow user to post a peep that can be seen on home screen' do
+  scenario 'Allow user to see Enter Peep form' do
     click_button('Post Peep')
-    expect(current_path).to eq '/peeps/new'
+    expect(current_path).to eq('/peeps/new')
     expect(page).to have_content('Gimme your Peep')
+  end
+
+  scenario 'Peep is created' do
+    Peep.create(peep: "Test peep")
+    expect(Peep.first.peep).to have_content("Test peep")
+    expect(Peep.first.id).to have_content("1")
+  end
+
+  scenario 'Allow user to see Peep at /home' do
+    sign_up
+    post_peep
+    expect(current_path).to eq '/home'
+    expect(page).to have_content("Test peep")
+
   end
 end
