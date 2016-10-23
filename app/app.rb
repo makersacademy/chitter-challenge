@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get '/users/new' do # sign up a new user
+  get '/users/new' do
     erb :'users/new'
   end
 
@@ -36,13 +36,13 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/sessions/new' do  #sign in
+  get '/sessions/new' do
     erb :'sessions/new'
   end
 
   post '/sessions' do
   user = User.authenticate(params[:email], params[:password])
-    if user # user will be signed in with correct credentials
+    if user
       session[:user_id] = user.id
       redirect to('/chitter')
     else
@@ -50,6 +50,12 @@ class Chitter < Sinatra::Base
       erb :'sessions/new'
     end
   end
+
+  delete '/sessions' do
+  session[:user_id] = nil
+  flash.keep[:notice] = "Goodbye!"
+  redirect to '/chitter'
+end
 
 helpers do
   def current_user
