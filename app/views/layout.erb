@@ -6,9 +6,17 @@
 <body>
   <% if current_user %>
   <form method='post' action ='/sessions'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Log out'>
-</form>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value="Log out">
+  </form>
+  <h1>Welcome to  Makers Chitter, <%= current_user.name %></h1>
+  </br>
+  <form method='post' action='/peep'>
+    <label for='peep_text'>
+      Post peep here!</br>
+      <input name='peep_text' type='text' required>
+      <input type='submit' value='Post peep!'>
+    </form>
   <% end %>
   <% if flash[:notice] %>
   <div id='notice'>

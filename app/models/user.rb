@@ -29,7 +29,8 @@ class User
              :presence => "Please fill in a username",
              :is_unique => "This username has already been taken. Please choose a different one"
            }
-  # has n, :tags, :through => Resource
+
+  has n, :peeps
 
   def password=(password)
     @password = password

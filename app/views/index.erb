@@ -1,8 +1,16 @@
 <html>
-<% if current_user %>
-<h1>Welcome to  Makers Chitter, <%= current_user.name %></h1>
-<% else %>
+<% if !current_user %>
 <h1>Welcome to  Makers Chitter</h1>
 <h4>To post peeps, please <a href="/sign-up">sign up</a> or <a href="/sessions/new">log in</a></h4>
 <% end %>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user.name %>
+      <%= peep.user.username %>
+      <%= peep.created_at %><br>
+      <%= peep.peep_text %><br><br>
+    </li>
+  <% end %>
+</ul>
 </html>

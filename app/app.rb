@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user'
+require_relative './models/peep'
 require_relative 'data_mapper_setup'
 
 class ChitterChatter < Sinatra::Base
@@ -10,6 +11,7 @@ class ChitterChatter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    @peeps = Peep.all.reverse!
     erb :index
   end
 
@@ -59,6 +61,12 @@ class ChitterChatter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
+  end
+
+  post '/peep' do
+    peep = Peep.create(peep_text: params[:peep_text], user_id: session[:user_id])
+    p peep
     redirect to '/'
   end
 
