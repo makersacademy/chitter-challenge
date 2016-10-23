@@ -8,9 +8,10 @@ require_relative 'data_mapper_setup'
 class ChitterApp < Sinatra::Base
 
   use Rack::MethodOverride
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
-  register Sinatra::Flash
+
 
   get '/' do
     erb :'landing_page'
@@ -36,8 +37,8 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps/peepdeck'
     else
-      flash.now[:errors] = @user.errors.full_messages
-      redirect '/users/register'
+      flash.now[:notice] = "Password and cofnrimation do not match"
+      erb :'/users/register'
     end
   end
 
@@ -52,18 +53,19 @@ class ChitterApp < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect '/peeps/peepdeck'
-    else flash.now[:errors] = ['The email or password is incorrect']
+    else flash.now[:notice] = 'The email or password is incorrect'
       erb :'sessions/sign_in'
     end
   end
 
   get '/peeps/peepdeck' do
     @peeps = Peep.all.reverse
+
     erb :'peeps/peepdeck'
   end
 
   post '/peeps/peepdeck' do
-    new_peep = Peep.new(peep_text: params[:peep], user_id: current_user.id )
+    new_peep = Peep.new(peep_text: params[:peep], user_id: current_user.id)
     new_peep.save
     if new_peep.save
       redirect 'peeps/peepdeck'
