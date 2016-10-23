@@ -3,17 +3,17 @@ require 'sinatra/base'
 require_relative 'models/data_mapper_setup'
 require 'sinatra/flash'
 
-
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
   helpers do
-  def current_user
-    @current_user ||= User.get(session[:user_id])
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
-end
 
   get '/' do
     erb :index
@@ -52,11 +52,36 @@ end
     session[:user_id] = user.id
     redirect to('/links')
   else
-    flash.now[:errors] = ['The email or password is incorrect']
+    flash.now[:notice] = ['Your email or password is incorrect']
     erb :'sessions/new'
   end
 end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/links'
+  end
+
+  get '/peep_new' do
+    erb :peep_new
+  end
+
+  get '/chitter' do
+    erb :chitter
+  end
+
+  post '/chitter' do
+    current_user
+    if @current_user != nil
+      peep = Peep.create(name: current_user.name, peep: params[:peep], time: Time.now)
+      peep.save
+      erb :chitter
+      else
+      flash.now[:notice] = ['You need to be signed in to post a peep']
+      erb :index
+    end
+  end
  # start the server if ruby file executed directly
    run! if app_file == $0
 end

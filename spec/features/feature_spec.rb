@@ -9,13 +9,7 @@ feature 'multiple users can sign up' do
 end
 
 feature 'User sign in' do
-  let!(:user) do
-    User.create(name: 'Lilian Breidenbach',
-                username: 'Lilian2112',
-                email: 'lilian.gmail.com',
-                password: 'lemonaid',
-                password_confirmation: 'lemonaid')
-  end
+  new_user
   scenario 'with correct credentials' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, lilian.gmail.com"
@@ -23,17 +17,33 @@ feature 'User sign in' do
 end
 
 feature 'User signs out' do
-  let!(:user) do
-    User.create(name: 'Lilian Breidenbach',
-                username: 'Lilian2112',
-                email: 'lilian.gmail.com',
-                password: 'lemonaid',
-                password_confirmation: 'lemonaid')
+  new_user
   scenario 'while being signed in' do
-    sign_in(email: 'test@test.com', password: 'test')
+    sign_in(email: 'lilian.gmail.com', password: 'lemonaid')
     click_button 'Sign out'
     expect(page).to have_content('goodbye!')
-    expect(page).not_to have_content('Welcome, test@test.com')
+    expect(page).not_to have_content('Welcome, lilian.gmail.com')
+end
+end
+
+  feature 'User can write a peep' do
+    new_user
+    scenario "adds peep" do
+      sign_in(email: user.email, password: user.password)
+      visit '/peep_new'
+      fill_in 'peep', with: 'Driinking chocolate'
+      click_button "Post peep"
+      expect(page).to have_text('Driinking chocolate')
+    end
   end
 
-end
+  feature 'Peeps have thr creators name' do
+    new_user
+    scenario "can see name of peep" do
+      sign_in(email: user.email, password: user.password)
+      visit '/peep_new'
+      fill_in 'peep', with: 'Driinking chocolate'
+      click_button "Post peep"
+      expect(page).to have_text('Lilian Breidenbach')
+    end
+  end

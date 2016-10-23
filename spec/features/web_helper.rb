@@ -14,3 +14,13 @@ def sign_in(email:, password:)
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def new_user
+  let!(:user) do
+    User.create(name: 'Lilian Breidenbach',
+                username: 'Lilian2112',
+                email: 'lilian.gmail.com',
+                password: 'lemonaid',
+                password_confirmation: 'lemonaid')
+  end
+end
