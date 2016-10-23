@@ -21,3 +21,5 @@ $ createdb chitter_development
 $ rake auto_migrate
 $ rspec
 $ rackup
+
+More README
