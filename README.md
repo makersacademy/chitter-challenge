@@ -4,6 +4,12 @@ Introduction
 -------
 Does the world need another social network with marginally less functionality than the market leaders?  Of course it does!  Enter Chitter..
 
+
+Currently deployed via this link
+-------
+https://chitter-chatter-natter.herokuapp.com/
+
+
 Instructions
 ----
 Set up the following databases on your machine:
