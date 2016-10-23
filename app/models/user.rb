@@ -5,6 +5,6 @@ class User
   property :name, String, :required => true
   property :user_name, String, :required => true
   property :email, String, :required => true
-  has n, :posts
+  has n, :peeps
 
 end

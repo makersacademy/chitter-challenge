@@ -6,7 +6,7 @@ require_relative "datamapper_setup"
 class ChitterApp < Sinatra::Base
 
   get "/" do
-    @posts = Post.all
+    @peeps = Peep.all
     erb :index
   end
 
@@ -15,7 +15,7 @@ class ChitterApp < Sinatra::Base
   end
 
   post "/peeps" do
-    @peep = Post.create(message: params[:new_peep])
+    @peep = Peep.create(message: params[:message])
     redirect to "/"
   end
 

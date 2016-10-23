@@ -1,8 +1,8 @@
 require_relative '../app/datamapper_setup'
-require_relative '../app/models/post'
+require_relative '../app/models/peep'
 
-describe Post do
-  subject(:post) { described_class.new }
+describe Peep do
+  subject(:peep) { described_class.new }
 
   it { is_expected.to have_property :id }
   it { is_expected.to have_property :message }

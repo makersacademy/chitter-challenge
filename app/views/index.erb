@@ -6,11 +6,11 @@
 
 <div class="row">
   <div class="col-sm-3">
-    <% @posts.each do |post| %>
+    <% @peeps.each do |peep| %>
       <div class="thumbnail">
         <div class="caption">
-          <h4><%= post.user.name %> <small>@<%= post.user.user_name %> | <%= post.created_at.strftime("%b %d %k:%M") %></small></h4>
-          <p class="lead"><%= post.message %></p>
+          <h4><%= peep.user.name %> <small>@<%= peep.user.user_name %> | <%= peep.created_at.strftime("%b %d %k:%M") %></small></h4>
+          <p class="lead"><%= peep.message %></p>
         </div>
       </div>
     <% end %>
