@@ -57,5 +57,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/log_out' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Farewell!'
+    redirect to '/'
+  end
+
   run! if app_file == $0
 end
