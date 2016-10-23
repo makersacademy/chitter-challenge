@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body {
+      background-color: RoyalBlue;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    #glitter {
+      margin: auto;
+      background-image:url('https://media.giphy.com/media/JjM1Qqy4GK92M/giphy.gif');
+      background-size:cover;
+      text-align: center;
+      width: 250px;
+    }
+
+    h1 {
+      text-shadow: #EEEE00 0 0 10px;
+    }
+    form {
+      display: inline-block;
+    }
+
+    button {
+      width: 80;
+      height: 30;
+    }
+
+    </style>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if !current_user %>
+      <form action='/sessions' method='post'>
+        <label for='email'>
+          Email: <input name='email' type='email'>
+        </label>
+        <label for='password'>
+          Password: <input name='password' type='password'>
+        </label>
+        <input type='submit' value='Sign in'>
+      </form>
+
+      <form action='/users/new' method='get'>
+        <input type='submit' value='Sign up'>
+      </form>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
