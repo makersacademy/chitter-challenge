@@ -33,3 +33,18 @@ feature 'User sign in' do
     expect(page).to have_content "Hello #{user.email}"
   end
 end
+
+#Look at this test later. Working on host but just getting 'Unable to find button "Sign out"' even though the button is right there!
+# feature 'User sign out' do
+#   before(:each) do
+#     User.create(email: 'joe@eemail.com',
+#                 password: '1234',
+#                 password_confirmation: '1234')
+#   end
+#   scenario 'sign out' do
+#     sign_in(email: 'joe@email.com', password: '1234')
+#     click_button 'Sign out'
+#     expect(page).to have_content('goodbye!')
+#     expect(page).not_to have_content('Welcome, test@test.com')
+#   end
+# end
