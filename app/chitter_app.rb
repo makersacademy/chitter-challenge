@@ -75,7 +75,7 @@ class ChitterApp < Sinatra::Base
     end
   end
 
-  delete '/sessions' do
+  delete '/sessions/sign_out' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Peep again soon'
     redirect to '/'
