@@ -18,7 +18,6 @@ feature 'log in' do
     fill_in('user_name', with: 'laszlobogacsi')
     fill_in('password', with: 'wrongpassword')
     click_button('Log in!')
-    save_and_open_page
     expect(page).to have_content('Incorrect username or password')
   end
 

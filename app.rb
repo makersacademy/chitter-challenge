@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'big secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
 helpers do
   def current_user
@@ -44,16 +45,20 @@ end
 
   post '/sessions' do
     user = User.authenticate(params[:user_name], params[:password])
-  if user
-    session[:user_id] = user.id
-    redirect '/profile'
-  else
-    flash.now[:errors] = ['Incorrect username or password']
+    if user
+      session[:user_id] = user.id
+      redirect '/profile'
+    else
+      flash.now[:errors] = ['Incorrect username or password']
+      erb :log_in
+    end
 
-    p flash[:errors]
-    erb :log_in
   end
 
+  delete '/sessions' do
+    flash.next[:notice] = 'Good bye'
+    session[:user_id] = nil
+    redirect to ('/')
   end
 
   get '/profile' do
