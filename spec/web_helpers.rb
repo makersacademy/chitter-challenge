@@ -1,4 +1,5 @@
 def sign_up(options = {})
+  visit('/users/signup')
   fill_in :email, with: options.fetch(:email, 'test@example.com')
   fill_in :name, with: options.fetch(:name, 'Chit Ter')
   fill_in :username, with: options.fetch(:username, 'sir_chitter')

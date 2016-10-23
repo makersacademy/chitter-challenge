@@ -10,12 +10,19 @@ class Chitter < Sinatra::Base
     user = User.create(get_options)
     if user.id
       session[:user_id] = user.id
+      flash[:message]  = "Welcome, #{current_user.name}"
       redirect '/'
     else
       flash[:errors] = user.errors.full_messages
       flash[:details] = {email: params[:email], name: params[:name], username: params[:username]}
       redirect '/users/signup'
     end
+  end
+
+  get '/users/signout' do
+    flash[:message] = "Goodbye, #{current_user.name}"
+    session[:user_id] = nil
+    redirect '/'
   end
 
   helpers do
