@@ -1,0 +1,23 @@
+
+<% if !current_user %>
+<form method='get' action='/sessions/new'>
+  <input type='submit' value='Sign in'>
+</form>
+<% end %>
+
+
+<% if current_user %>
+<form method="post" action="/peeps">
+  <input type="text" name="text" placeholder="What's peeping?">
+  <input type="submit" value="Peep">
+</form>
+<% end %>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user.name %>/<%= peep.timestamp %><br/>
+      <%= peep.text %>
+      <% end %>
+    </li>
+</ul>
