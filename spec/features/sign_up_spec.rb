@@ -13,6 +13,6 @@ feature 'Sign up' do
     fill_in :new_name,          with: 'myname'
     fill_in :new_password,      with: 'mypassword'
     click_button "Sign up"
-    expect(page).to have_content("All fields need to be filled in")
+    expect(page).to have_content("sign up if you don't already have an account")
   end
 end
