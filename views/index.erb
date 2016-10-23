@@ -3,7 +3,9 @@
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Log Out">
   </form>
-
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="New Peep">
+  </form>
 <% else %>
   <form action="/sessions" method="post">
     Email:<input type="text" name="email", required>

@@ -52,5 +52,17 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/peeps/new' do
+    erb :peep
+  end
+
+  post '/peeps' do
+    flash.now[:notice] = ["You have successfully sent a peep"]
+    peep = Peep.create(content: params[:content])
+    current_user.peeps << peep
+    current_user.save
+    erb :index
+  end
+
 	run! if app_file == $0
 end

@@ -112,6 +112,8 @@ RSpec.configure do |config|
 end
 
 require 'database_cleaner'
+require_relative 'features/web_helpers'
+
 
 RSpec.configure do |config|
   config.include Capybara::DSL

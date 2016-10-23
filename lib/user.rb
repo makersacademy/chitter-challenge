@@ -15,6 +15,8 @@ class User
   property :email, String, required: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
   property :password_digest, Text
 
+  has n, :peeps
+
   validates_confirmation_of :password
   validates_uniqueness_of :email
 
