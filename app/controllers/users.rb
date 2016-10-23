@@ -6,8 +6,8 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(username: params[:username], first_name: params[:first_name],
-    last_name: params[:last_name], email: params[:email], password: params[:password],
-    password_confirmation: params[:password_confirmation])
+      last_name: params[:last_name], email: params[:email], password: params[:password],
+      password_confirmation: params[:password_confirmation])
     session[:user_id] = @user.id
     if @user.save
       session[:user_id] = @user.id
@@ -16,5 +16,5 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
-  end  
+  end
 end

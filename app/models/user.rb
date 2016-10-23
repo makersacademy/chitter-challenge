@@ -4,6 +4,8 @@ class User
 
   include DataMapper::Resource
 
+  has n, :peeps
+
   property :id, Serial
   property :username, String, required: true, unique: true
   property :first_name, String, required: true
