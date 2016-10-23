@@ -4,8 +4,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
-# require_relative 'models/user'
-# require_relative 'models/peep'
 
 #refactor into controllers go error [rerun] Chitter-challenge launched error.
 #Tests were green but could not get the server to launch - ask Ben re: this.

@@ -5,8 +5,8 @@ class Peep
 
   include DataMapper::Resource
 
-  has 1, :user, through: Resource
-  has 1, :peep, through: Resource
+  has n, :user, through: Resource
+  has n, :peep, through: Resource
 
   property :id, Serial
   property :message, Text
