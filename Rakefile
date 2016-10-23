@@ -4,7 +4,7 @@ if ENV['RACK_ENV'] != 'production'
   RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
-end
+
 
 require 'data_mapper'
 require './app/app.rb'
@@ -22,3 +22,6 @@ namespace :db do
     puts "Auto-migrate complete (data was lost)"
   end
 end
+
+
+end       # Moved this!
