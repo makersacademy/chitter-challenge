@@ -5,11 +5,11 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
-  use Rack::MethodOverride
-  register Sinatra::Flash
-
   enable :sessions
   set :session_secret, 'super secret'
+
+  use Rack::MethodOverride
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
 
   get '/create_user' do
     @user = User.new
-    erb :'create_user'
+    erb :create_user
   end
 
   post '/create_user' do
@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
       redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'create_user'
+      erb :create_user
     end
   end
 

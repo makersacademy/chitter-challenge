@@ -9,6 +9,7 @@ require 'rspec'
 require 'coveralls'
 require 'simplecov'
 require 'web_helpers'
+require './app/models/user'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

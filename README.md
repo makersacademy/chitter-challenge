@@ -2,13 +2,13 @@
 
 ### Installation
 
-Local Server:
+#### Local Server:
 1. Clone the directory to your machine
 2. Run the server using ```ruby app/app.rb```
 3. Open the browser and visit ```localhost:4567/```
 4. Enjoy playing with Chitter
 
-Online(via heroku):
+#### Online(via heroku):
 1. Visit ```insert valid website address here```
 2. Enjoy playing with Chitter
 
