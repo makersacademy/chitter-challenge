@@ -12,7 +12,6 @@ feature 'I want to log out of Chitter' do
 
   scenario 'while being signed in' do
     sign_in(username: 'tansaku', password: 's3cr3t')
-    # expect(current_path).to eq '/home'
     click_button 'Sign Out'
     expect(page).to have_content('Bye!')
     expect(page).not_to have_content('Hello tansaku')

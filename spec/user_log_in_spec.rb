@@ -32,7 +32,7 @@ feature 'I want to log in to Chitter' do
     visit 'sessions/new'
     fill_in :username, with: username
     fill_in :password, with: password
-    click_button 'Sign in'
+    click_button 'Submit'
   end
 
 end

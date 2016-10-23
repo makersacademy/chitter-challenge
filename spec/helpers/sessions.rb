@@ -18,7 +18,11 @@ module SessionHelpers
     visit '/sessions/new'
     fill_in :username, with: username
     fill_in :password, with: password
-    click_button 'Sign in'
+    click_button 'Submit'
+  end
+
+  def post_peep
+    sign_up
   end
 
 end

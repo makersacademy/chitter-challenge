@@ -1,9 +1,4 @@
 <% if current_user %>
   <h2> This is the homepage for <%= current_user.username %>!
-<% end %>
 
-<% if !current_user %>
-  <form action='/sessions/new'>
-    <input type='submit' value='Sign in'>
-  </form>
 <% end %>

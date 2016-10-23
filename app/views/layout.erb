@@ -13,9 +13,16 @@
 
     <% if current_user %>
       Hello <%= current_user.username %>!
+      <form action='/peeps/new'>
+        <input type='submit' value='Post Peep'>
+      </form>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign Out'>
+      </form>
+    <% else %>
+      <form action='/sessions/new'>
+        <input type='submit' value='Sign in'>
       </form>
     <% end %>
 
