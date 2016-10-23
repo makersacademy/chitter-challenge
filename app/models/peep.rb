@@ -8,5 +8,4 @@ class Peep
   property(:text, String, length: 140, required: true)
   property(:timestamp, DateTime, required: true)
 
-
 end
