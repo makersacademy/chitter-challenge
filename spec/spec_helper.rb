@@ -7,7 +7,7 @@ require 'database_cleaner'
 #require './app/models/tag'
 # require './app/models/peep'
 require './app/app'
-require_relative 'web_helpers'
+require_relative 'helpers/session'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -59,6 +59,7 @@ RSpec.configure do |config|
   # config.include SessionHelpers
 
   config.include Capybara::DSL
+  config.include SessionHelpers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

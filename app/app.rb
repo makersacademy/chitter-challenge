@@ -12,6 +12,7 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     'Hello'
@@ -60,6 +61,12 @@ class ChitterChallenge < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
   end
 
   helpers do
