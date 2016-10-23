@@ -6,7 +6,7 @@ require_relative 'user'
 
 
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://mvivlzerbshyri:xWz6KudjQVFr_EJkG434pYmZZF@ec2-54-225-100-236.compute-1.amazonaws.com:5432/d6uuhd81p6seae")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://dllxzmrxeodzlk:0NX0zgiJ1YYsIhHW1EG1zElK0l@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d7oursjkjm3qf6)
 DataMapper.finalize
 DataMapper.auto_upgrade!
 

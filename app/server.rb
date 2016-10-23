@@ -1,7 +1,9 @@
 class Chitter < Sinatra::Base
-
+use Rack::MethodOverride
 register Sinatra::Flash
 enable :sessions
+#set :session_secret, 'super secret'
+
 
   helpers do
     def current_user
