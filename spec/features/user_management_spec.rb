@@ -10,16 +10,6 @@ feature 'User can sign up' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
-  #def sign_up(username: 'James',
-  #  password: 'squash',
-  #  password_confirmation: 'squash')
-  #  visit '/users/new'
-  #  fill_in :username, with: username
-  #  fill_in :password, with: password
-  #  fill_in :password_confirmation, with: password_confirmation
-  #  click_button 'Sign up'
-  #end
-
   scenario 'with a password that does not match' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
