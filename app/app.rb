@@ -2,7 +2,7 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 
-ENV["RACK_ENV"] ||= 'development'
+ENV["RACK_ENV"] ||= "development"
 
 class ChitterChallenge < Sinatra::Base
   get '/' do
@@ -24,6 +24,11 @@ class ChitterChallenge < Sinatra::Base
                 created: Time.now)
     redirect to('/peeps')
   end
+
+  get 'users/new' do
+    erb :'users/new'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
