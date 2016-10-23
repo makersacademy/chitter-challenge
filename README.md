@@ -32,7 +32,7 @@ Viewing the App locally
 * Rackup to load the app to localhost in your browser
 
 * Click Register to sign up for an account
-![Screenshot](https://drive.google.com/open?id=0B5Jj6btKLqMGakJack0yWXRRQ0U)
+![Screenshot](https://lh6.googleusercontent.com/n0IvHt9KtmQnNh2J3iSeiqrP2ExYIBF9MLA2R5D4WQpsk9_0_XKfIzrqn6uWVpZ_5JG_wJPGHlRCgKM=w2870-h1552-rw)
 
 CSS Design and Style Inspiration
 ------
