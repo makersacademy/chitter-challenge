@@ -1,11 +1,14 @@
-<h1> Peeps </h1>
+<h2 class="hotpink"> Peeps </h2>
 
-
-
-<% Peep.each do |peep| %>
-  <li>
-    <% user = User.get(peep.user_id) %>
-    <div>Created at <%= "#{peep.created_at.day}/#{peep.created_at.month}/#{peep.created_at.year} #{peep.created_at.hour}:#{peep.created_at.min}" %> by <%= user.name %> @<%= user.username %></div>
-    <div><%= peep.content %></div>
-  </li>
-<% end %>
+<div class="peeps">
+  <% @peeps = Peep.sort {|x, y| y.created_at <=> x.created_at } %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <% user = User.get(peep.user_id) %>
+        <div>Created at <%= "#{peep.created_at.day}/#{peep.created_at.month}/#{peep.created_at.year} #{peep.created_at.hour}:#{peep.created_at.min}" %> by <%= user.name %> @<%= user.username %></div>
+        <div><%= peep.content %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
