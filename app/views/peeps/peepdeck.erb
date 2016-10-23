@@ -1,0 +1,15 @@
+<form action='/peeps/peepdeck' method=post>
+  <label for='peep'>
+    Peep away <input name='peep' type='text'>
+    	<input type='submit' value='PEEP'>
+  </label>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep_text %>
+      <div></div>
+      Peeped at: <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
