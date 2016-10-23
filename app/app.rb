@@ -2,8 +2,10 @@ ENV["RACK_ENV"] ||= "development"
 
 require "sinatra/base"
 require_relative "datamapper_setup"
+require 'bcrypt'
 
 class ChitterApp < Sinatra::Base
+  include BCrypt
   enable :sessions
   set :session_secret, "super_secret"
 
@@ -19,22 +21,36 @@ class ChitterApp < Sinatra::Base
   end
 
   get "/users/new" do
-    if params[:duplicate_user]
-      @error = "Username or email is already taken. Try an alternative."
-    end
+    @duplicate_user = params[:duplicate_user]
     erb :"users/new_user"
   end
 
   post "/users" do
-    @user = User.create(name: params[:name],
+    user = User.create(name: params[:name],
                         user_name: params[:user_name],
                         email: params[:email],
                         password: params[:password])
-    if @user.id.nil?
+    if user.id.nil?
       redirect to "/users/new?duplicate_user=true"
     else
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
       redirect to "/"
+    end
+  end
+
+  get "/sessions/new" do
+    @invalid_login = params[:invalid_login]
+    erb :"sessions/new"
+  end
+
+  post "/sessions" do
+    user = User.first(email: params[:email])
+    stored_password_hash = Password.new(user.password_digest)
+    if stored_password_hash == params[:password]
+      session[:user_id] = user.id
+      redirect to "/"
+    else
+      redirect to "/sessions/new?invalid_login=true"
     end
   end
 

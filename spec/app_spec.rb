@@ -50,6 +50,53 @@ describe ChitterApp do
     end
   end
 
+  describe "get /sessions/new" do
+    it "displays the login page" do
+      get "/sessions/new"
+      expect(last_response).to be_ok
+      expect(last_response.body).to include "Log in"
+    end
+  end
+
+  describe "post /sessions" do
+    def create_user
+      user = User.create(name: "Bob", user_name: "bob1", email: "bob@bob.com", password: "123")
+    end
+    def login_valid
+      post "/sessions", email: "bob@bob.com", password: "123"
+    end
+    def login_invalid
+      post "/sessions", email: "bob@bob.com", password: "456"
+    end
+    it "sets a user id in the session when the login is authenticated" do
+      create_user
+      login_valid
+      user = User.first(user_name: "bob1")
+
+      expect(last_request.session[:user_id]).to eq user.id
+    end
+
+    it "shows error if email and password do not match" do
+      create_user
+      login_invalid
+
+      expect(last_request.session[:user_id]).to eq nil
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.path).to eq("/sessions/new")
+      expect(last_response.body).to include "Invalid email address or password."
+    end
+
+    it "redirects to index page" do
+      create_user
+      login_valid
+
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+    end
+  end
+
   describe "get /peeps/new_peep" do
     xit "displays the create new post page if logged in" do
       get "/peeps/new"

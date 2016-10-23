@@ -7,3 +7,11 @@ def sign_up
   fill_in "password", with: "password1"
   click_button "Create account"
 end
+
+def log_in
+  visit "/"
+  click_link "Log in"
+  fill_in "email", with: "alice@example.com"
+  fill_in "password", with: "password01"
+  click_button "Log in"
+end
