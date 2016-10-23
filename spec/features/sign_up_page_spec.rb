@@ -21,7 +21,7 @@ RSpec.feature 'Adding a new user', type: feature do
     click_button 'Sign Up'
 
     expect{sign_up}.to change(User, :count).by(1)
-    expect(page).to have_content('Succesful login, j.smith90')
+    expect(page).to have_content('Howdy, j.smith90')
     expect(User.first.email).to eq('john.smith@example.co.uk')
   end
 end
