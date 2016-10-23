@@ -4,5 +4,9 @@ class Chitter < Sinatra::Base
     erb(:'peeps/new')
   end
 
+  post '/peeps' do
+    peep = Peep.create(peep: params[:peep])
+    redirect to('/home')
+  end
 
 end
