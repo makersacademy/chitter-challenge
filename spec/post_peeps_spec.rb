@@ -33,7 +33,7 @@ feature 'I want to post a peep' do
 
   scenario 'Allow user to see Peep author' do
     post_peep
-    expect(page).to have_content("By: tansaku")
+    expect(page).to have_content("|  tansaku")
   end
 
   # scenario 'Allow user to see Peeps in reverse chronological order' do
