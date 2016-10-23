@@ -6,12 +6,14 @@ describe User do
     User.create(email: 'maker@makers.com', password: password)
   end
 
-  it 'authenticates when given a valid email and password' do
-    authenticated_user = User.authenticate(user.email, password)
-    expect(authenticated_user).to eq user
-  end
+  describe '.authenticate' do
+    it 'authenticates when given a valid email and password' do
+      authenticated_user = User.authenticate(user.email, password)
+      expect(authenticated_user).to eq user
+    end
 
-  it 'does not authenticate when given an incorrect password' do
-    expect(User.authenticate(user.email, 'wrong_password')).to be_nil
+    it 'does not authenticate when given an incorrect password' do
+      expect(User.authenticate(user.email, 'wrong_password')).to be_nil
+    end
   end
 end
