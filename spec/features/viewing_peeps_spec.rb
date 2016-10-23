@@ -5,9 +5,7 @@ feature 'Home page' do
     publish_peep
     expect(page).to have_content("My first peep!")
   end
-end
-
-feature 'Home page' do
+  
   scenario 'Users can view previous peeps' do
     create_account
     publish_peep
