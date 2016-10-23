@@ -2,9 +2,18 @@ require_relative'web_helper.rb'
 
 feature 'multiple users can sign up' do
   scenario 'user count increases by 1 and welcome message is shown' do
-    sign_up
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content "Welcome, lilian.gmail.com"
+    expect(page).to have_content "Welcome, lil.gmail.com"
+  end
+end
+
+feature 'users need to sign up with unique email' do
+  scenario 'shows error if email or username is in use' do
+    sign_up
+    click_button 'Sign out'
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content "Email is already taken Username is already taken"
   end
 end
 
@@ -37,7 +46,7 @@ end
     end
   end
 
-  feature 'Peeps have thr creators name' do
+  feature 'Peeps have the creators name' do
     new_user
     scenario "can see name of peep" do
       sign_in(email: user.email, password: user.password)

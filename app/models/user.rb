@@ -9,9 +9,9 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :name, String
-  property :email, String
-  property :username, String
+  property :name, String, required: true
+  property :email, String, required: true, unique: true
+  property :username, String, required: true, unique: true
   property :password_secret, Text
 
   validates_confirmation_of :password_secret, :confirm => :password_confirmation
