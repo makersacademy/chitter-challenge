@@ -1,0 +1,9 @@
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.peep_text %>
+    from: <%= peep.user.user_name %>
+    @ <%= peep.time %>
+  </li>
+  <% end %>
+</ul>
