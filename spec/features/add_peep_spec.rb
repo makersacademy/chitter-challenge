@@ -8,7 +8,7 @@ feature 'Making peeps' do
                 password: '123',
                 password_confirmation: '123')
   end
-  scenario 'user can add peep from homepage' do
+  scenario 'user can add peep' do
     sign_in(email: user.email, password: user.password)
     visit '/peeps/new'
     expect(page.status_code).to eq(200)

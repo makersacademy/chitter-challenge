@@ -1,9 +1,5 @@
 class Chitter < Sinatra::Base
-
-  get '/' do
-    erb :'index'
-  end
-
+  
   get '/users/new' do
     @user = User.new
     erb :'users/new'

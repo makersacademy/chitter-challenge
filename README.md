@@ -5,8 +5,8 @@
 
 - [x] Sign up implemented with datamapper and bcrypt
 - [x] Sign in & Sign out
-- [ ] Posting Peeps
-- [ ] Display Peeps reverse chronologically
+- [x] Posting Peeps
+- [ ] Display Peeps reverse chronological order
 - [ ] Improve UI with CSS
 
 
