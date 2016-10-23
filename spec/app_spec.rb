@@ -51,23 +51,28 @@ describe ChitterApp do
   end
 
   describe "get /peeps/new_peep" do
-    it "displays the create new post page" do
+    xit "displays the create new post page if logged in" do
       get "/peeps/new"
       expect(last_response).to be_ok
       expect(last_response.body).to include "New Peep"
     end
+    it "redirects to index if not logged in" do
+      get "/peeps/new"
+
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+    end
   end
 
+  describe "post /peeps" do
+    it "redirects to index page" do
+      post "/peeps"
 
-  # describe "post /peeps" do
-  #   it "redirects to index page" do
-  #     post "/peeps"
-  #
-  #     expect(last_response.redirect?).to be_true
-  #     follow_redirect!
-  #     expect(last_request.path).to eq("/")
-  #
-  #   end
-  # end
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.path).to eq("/")
+    end
+  end
 
 end

@@ -1,5 +1,6 @@
 def sign_up
-  visit "/users/new"
+  visit "/"
+  click_link "Sign up"
   fill_in "name", with: "Alice"
   fill_in "user_name", with: "alice"
   fill_in "email", with: "alice@example.com"

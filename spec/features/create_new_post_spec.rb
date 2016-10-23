@@ -1,5 +1,5 @@
 # feature "Creating new posts" do
-#   scenario "user can create a new post" do
+#   scenario "user can create a new post when logged in" do
 #     visit "/peeps/new"
 #     fill_in "message", with: "Blah blah blah"
 #     click_button "Peep"

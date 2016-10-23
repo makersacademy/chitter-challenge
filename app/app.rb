@@ -39,11 +39,15 @@ class ChitterApp < Sinatra::Base
   end
 
   get "/peeps/new" do
-    erb :"peeps/new_peep"
+    if current_user
+      erb :"peeps/new_peep"
+    else
+      redirect to "/"
+    end
   end
 
   post "/peeps" do
-    @peep = Peep.create(message: params[:message])
+    @peep = Peep.create(message: params[:message], user: current_user)
     redirect to "/"
   end
 
