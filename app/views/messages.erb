@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    <h1>Messages</h1>
+
+    <div id="message_board">
+      <% @messages.each do |message| %>
+        <div>
+          <%= message.title %>
+          <%= message.content %>
+        </div>
+      <% end %>
+    </div>
+
+    <form action='/messages/new'>
+      <input type='submit' value='Post a Message'>
+    </form>
+
+
+  </body>
+
+</html>

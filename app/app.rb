@@ -48,7 +48,17 @@ use Rack::MethodOverride
   end
 
   get '/messages' do
+    @messages = Message.all
     erb :messages
+  end
+
+  post '/messages' do
+    Message.create(title: params[:title], content: params[:content])
+    redirect '/messages'
+  end
+
+  get '/messages/new' do
+    erb :new_message
   end
 
   delete '/sessions' do
