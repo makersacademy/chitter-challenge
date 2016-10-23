@@ -41,7 +41,7 @@
           <% if current_user %>
             <form method='post' action='/sessions'>
               <input type='hidden' name='_method' value='delete'>
-              <input type='submit' value='Sign Out'>
+              <input style="padding: 0; border: none; background: none;" type='submit' value='Sign Out'>
             </form>
           <% end %>
         </li>
@@ -50,13 +50,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-  <% if current_user %>
-    Hello <%= current_user.username %>!
-  <% end %>
-      <%= partial :welcome %>
-      <%= partial :flash %>
 
-      <%= yield %>
+    <% if current_user %>
+      <h2>Hello <%= current_user.username %>!</h2>
+    <% end %>
+        <%= partial :welcome %>
+        <%= partial :flash %>
+
+        <%= yield %>
+
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

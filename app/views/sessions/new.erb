@@ -1,11 +1,14 @@
 <h1>Please sign in</h1>
 
-<form action='/sessions' method='post'>
-  <label for='username'>
-    Username: <input name='username' type='text' required>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Submit'>
+<form action='/sessions' method='post' class="form-inline">
+  <div class="form-group">
+    <label for='username'>Username:</label>
+    <input name='username' type='text' class="form-control" id="exampleInputName2" required>
+  </div>
+  <div class="form-group">
+    <label for='password'>Password: <input name='password' type='password'>
+  </div>
+  <div class="form-group">
+    <input type='submit' class="btn btn-default" value='Submit'>
+  </div>
 </form>

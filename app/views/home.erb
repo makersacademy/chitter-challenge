@@ -1,12 +1,11 @@
 <h2>Peep Timeline</h2>
 
-<ul id="peeps">
+<div id="peeps">
 
   <% @show_peeps.each do |show_peep| %>
-    <li>
-      Peep: <%= show_peep.peep %>
-      Posted at: <%= show_peep.created_at %>
-      By: <%= show_peep.user.username %>
-    </li>
+    <div>
+      <h4><%= show_peep.peep %></h3>
+        <%= show_peep.created_at.strftime('%d-%m-%y %I:%M:%S %p') %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= show_peep.user.username %></small>
+    </div>
   <% end %>
-</ul>
+</div>

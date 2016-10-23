@@ -1,10 +1,14 @@
-<h1>Gimme your Peep!</h1>
+<h3>Gimme your Peep!</h3>
 
-<h3>Character limit of 50. Sad times</h3>
+<h4>Character limit of 50. Sad times</h4>
 
-<form action='/peeps' method='post'>
-  <label for='username'>
-    Enter your peep: <input name='peep' type='text'>
-  </label>
-  <input type='submit' value='Submit your Peep!'>
+<form action='/peeps' method='post' class="form-group">
+  <div class="form-group">
+    <label for='username'>Enter your peep:
+    <textarea class="form-control" rows="3" name="peep" type="text"></textarea>
+    </label>
+  </div>
+  <div class="form-group">
+    <input type='submit' value='Submit your Peep!'>
+  </div>
 </form>
