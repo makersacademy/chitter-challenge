@@ -103,9 +103,9 @@ label {
 
 .btn {
   margin-bottom: 10px;
-  margin-top: 15px;
-  width: 100px;
-  font-size: 15px;
+  margin-top: 25px;
+  width: 130px;
+  font-size: 20px;
 }
 
 .message {
@@ -113,5 +113,22 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #fff;
+  color: #000;
+}
+.panel {
+  background-color:#fff;
+  width:510px;
+  border-radius:6px;
+  padding-bottom: 10px;
+  box-shadow: 5px 5px 5px 2px #888888;
+}
+
+.panel-title{
+  background-color:#efefef;
+  border-radius:6px;
+  text-align:left;
+  padding: 10px 0 10px 10px;
+}
+.panel-title span{
+  float:right;
 }
