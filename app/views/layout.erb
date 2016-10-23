@@ -4,32 +4,8 @@
     <title>Peeper</title>
   </head>
   <body>
-
-    <% if flash[:notice] %>
-      <div id = 'notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value="delete">
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
     <%= yield %>
-
-
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li style="list-style: none;"><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
   </body>
 </html>
