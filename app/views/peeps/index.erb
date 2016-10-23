@@ -1,5 +1,29 @@
-<h1> Welcome to chitter, please sign up or log-in</h1>
+<div class="form">
+ <% if current_user %>
+   <div class="post-form">
+     <form method = "post" action="/peepwall">
+       <label for="peep">Post a peep:</label><br><br>
+       <textarea class="form" rows="4" name="peep"></textarea><br><br>
+       <button type="submit" class="button">PEEP, PEEP!</button>
+     </form>
+   </div>
+ <% end %>
+</div>
 <br>
-<a href="/users/new">Sign up</a>
-<br>
-<a href="/chitter">Log in</a><br>
+<div class="message">
+ <% Peep.all(order: [:time.desc]).each do |peep| %>
+     <div class="panel">
+       <h2 class="panel-title"> <%= peep.user.user_name %> </h2>
+     </div>
+     <div class="peep">
+       " <%= peep.peep %> "
+     </div>
+     <div class="time">
+       <% if peep.time %>
+         <%= peep.time.strftime("%d/%m/%Y") + peep.time.strftime(" at %I:%M %p")  %>
+       <% else %>
+         Unknown Date
+       <% end %>
+     </div>
+ <% end %>
+</div>

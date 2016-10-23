@@ -8,17 +8,27 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    erb :'peeps/index'
+    erb :'users/new'
   end
 
   get '/chitter' do
     erb :'peeps/signin'
   end
 
-  get '/session' do
-    erb :'peeps/session'
+  get '/peeps' do
+    erb :'peeps/index'
   end
-  
+
+  post '/peeps' do
+   time = Time.now
+   Peep.create(
+     peep: params[:peep],
+     time: time,
+     user: current_user
+   )
+   redirect to('/peeps')
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
