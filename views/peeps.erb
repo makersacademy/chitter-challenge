@@ -1,0 +1,18 @@
+<%= @welcome %>
+<br><br>
+Newest peeps:
+
+  <% @peeps.each do |peep| %>
+  <ul>
+    <li><%= peep.text %></li>
+    <li><%= peep.created_at %></li>
+  </ul>
+  <% end %>
+
+
+
+<form action="/new_peep" method="post">
+<input type='text' name='new_peep'/>
+</label>
+<input type='submit' value='Post new peep!'/>
+</form>

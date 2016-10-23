@@ -1,0 +1,44 @@
+<body>
+  Please Login
+  <form action="/user" method="post">
+    <label for='username'>
+      Username:
+      <input type='text' name='username'/>
+    </label>
+    <label for='password'>
+      Password:
+      <input type='text' name='password'/>
+    </label>
+    <input type='submit' value='Login'/>
+  </form>
+      <br><br>
+  Or sign up if you don't already have an account
+  <form action="/new_user" method="post">
+    <label for='new_username'>
+      Username:
+      <input type='text' name='new_username'/>
+    </label>
+    <label for='new_name'>
+      Name:
+      <input type='text' name='new_name'/>
+    </label>
+    <label for='new_email'>
+      Email:
+      <input type='text' name='new_email'/>
+    </label>
+    <label for='password'>
+      Password
+      <input type='text' name='new_password'/>
+    </label>
+    <input type='submit' value='Sign up'/>
+  </form>
+</body>
+<br><br>
+Newest peeps:
+
+  <% @peeps.each do |peep| %>
+  <ul>
+    <li><%= peep.text %></li>
+    <li><%= peep.created_at %></li>
+  </ul>
+  <% end %>
