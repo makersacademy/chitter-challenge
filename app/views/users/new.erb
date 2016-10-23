@@ -1,25 +1,29 @@
-<form method='post' action='/users'>
+<h2 class="hotpink"> Sign Up </h2>
 
-  <label for="name">
-    Name:
+<div class="form">
+  <form method='post' action='/users'>
+
+    <label for="name">
+      Name:
+    </label>
     <input type='text' name='name' required>
-  </label>
 
-  <label for='username'>
-    Username/Nickname:
+    <label for='username'>
+      Username/Nickname:
+    </label>
     <input type='text' name='username' required>
-  </label>
 
-  <label for='email'>
-    Email:
+    <label for='email'>
+      Email:
+    </label>
     <input type='email' name='email' value='<%= @user.email %>' required>
-  </label>
 
-  <label for='password'>
-    Password:
+    <label for='password'>
+      Password:
+    </label>
     <input type='password' name="password" required>
-  </label>
 
-  <button type='submit'>Sign up</button>
+    <button type='submit'>Sign up</button>
 
-</form>
+  </form>
+</div>

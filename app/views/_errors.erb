@@ -1,5 +1,5 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
+  <h4>Please refer to the following errors below:</h4>
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>

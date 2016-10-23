@@ -6,8 +6,8 @@
     <% @peeps.each do |peep| %>
       <li>
         <% user = User.get(peep.user_id) %>
-        <div>Created at <%= "#{peep.created_at.day}/#{peep.created_at.month}/#{peep.created_at.year} #{peep.created_at.hour}:#{peep.created_at.min}" %> by <%= user.name %> @<%= user.username %></div>
-        <div><%= peep.content %></div>
+        <div class="peep_info"><%= user.name %> @<%= user.username %> <span class="time">on <%= "#{peep.created_at.strftime("%A %d %B %Y, %H:%M")}" %></span></div>
+        <div class="peep_content"><%= peep.content %></div>
       </li>
     <% end %>
   </ul>

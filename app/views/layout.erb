@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css" />
     <title>Chitter</title>
   </head>
 
   <body>
     <div class="container">
-      <h1 class="hotpink"> CHITTER </h1>
+      <a href="/peeps"><h1 class="hotpink"> CHITTER </h1></a>
       <div class="top_container">
         <%= partial :welcome %>
-        <%= partial :compose_peep %>
         <%= partial :sign_out %>
+        <%= partial :register %>
+        <%= partial :compose_peep %>
       </div>
 
       <%= partial :notice %>
