@@ -10,7 +10,7 @@ feature "User sign up" do
   end
 
   scenario "Username or email already exist" do
-    sign_up
+    User.create(name: "Alice", user_name: "alice", email: "alice@example.com", password: "password01")
     expect { sign_up }.not_to change(User, :count)
     expect(current_path).to eq "/users/new"
     expect(page).to have_content "Username or email is already taken. Try an alternative."
