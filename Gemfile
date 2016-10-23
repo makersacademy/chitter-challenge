@@ -8,6 +8,8 @@ gem 'dm-migrations'
 gem 'database_cleaner'
 gem 'rake'
 gem 'bcrypt'
+gem 'dm-validations'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rake'
