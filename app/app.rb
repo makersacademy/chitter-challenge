@@ -64,13 +64,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @time = Time.now
     @peeps = Peep.all
+    @peeps.sort! { |newer, older| older.id <=> newer.id }
     erb :'peeps'
   end
 
   post '/peeps' do
     peep = Peep.new(peep: params[:peep])
+    peep.time = Time.new
     peep.save
     redirect '/peeps'
   end
