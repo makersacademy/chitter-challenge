@@ -1,9 +1,10 @@
 require_relative '../../app/models/user'
 
 describe User do
+  let(:email) { 'maker@makers.com' }
   let(:password) { '000000' }
   let!(:user) do
-    User.create(email: 'maker@makers.com', password: password)
+    User.create(email: email, password: password)
   end
 
   describe '.authenticate' do
@@ -14,6 +15,18 @@ describe User do
 
     it 'does not authenticate when given an incorrect password' do
       expect(User.authenticate(user.email, 'wrong_password')).to be_nil
+    end
+  end
+
+  describe '#peeps' do
+    it 'allows access to user\'s peeps' do
+      peep = Peep.create(
+        body: 'Hello!',
+        timestamp: Time.new,
+        user: user
+      )
+      user.peeps.push(peep)
+      expect(user.peeps.count).to eq 1
     end
   end
 end
