@@ -8,7 +8,18 @@ require_relative 'server'
 
 class Chitter < Sinatra::Base
   get '/' do
+    @peeps = Peep.all
     erb :'index'
+  end
+
+  post '/' do
+    peep = Peep.create(peep_text: params[:peep_text])
+    peep.save
+    redirect to('/')
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   get '/users/new' do

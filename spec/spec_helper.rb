@@ -8,6 +8,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'sinatra/partial'
 require 'database_cleaner'
+# require './app/models/user'
+# require './app/models/peep'
 require_relative 'helpers/session'
 
 require 'coveralls'
@@ -56,7 +58,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
