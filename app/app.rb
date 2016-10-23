@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
 
   get '/feed' do
     @peeps = Peep.all
+    p @peeps
     erb :feed
   end
 
