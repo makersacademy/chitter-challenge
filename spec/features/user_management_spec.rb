@@ -33,6 +33,7 @@ feature "User sign in" do
 
   let!(:user) do
     User.create(email: 'user@example.com',
+                name: "J. E. Hoover",
                 password: 'secret1234',
                 password_confirmation: 'secret1234')
   end
@@ -48,6 +49,7 @@ feature "User sign out" do
 
   before(:each) do
     User.create(email: 'test@test.com',
+                name: "E. A. Poe",
                 password: 'test',
                 password_confirmation: 'test')
   end
