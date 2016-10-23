@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter</title>
-  </head>
-
+    <title>Bookmark Manager</title>
+  <head>
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
-    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    <%= partial :_welcome %>
+    <%= partial :_flash %>
+    <%= yield %>
   </body>
 </html>

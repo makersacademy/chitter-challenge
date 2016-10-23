@@ -3,9 +3,8 @@ require 'spec_helper'
 feature 'signing up' do
   scenario 'I would like to sign up as a chitter user' do
     sign_up
-    # expect { sign_up }.to change(User, :count).by(1)
     expect(User.first.username).to eq('Daisy123')
-    expect(page).to have_content 'Welcome, Daisy Humphrey!'
+    expect(page).to have_content 'Welcome, Daisy123!'
   end
 
   scenario 'password mismatch' do
@@ -23,13 +22,13 @@ feature 'signing up' do
   scenario 'first name is nil' do
     expect{ sign_up(first_name: nil) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'First_name must not be blank'
+    expect(page).to have_content 'First name must not be blank'
   end
 
   scenario 'last name is nil' do
     expect{ sign_up(last_name: nil) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Last_name must not be blank'
+    expect(page).to have_content 'Last name must not be blank'
   end
 
   scenario 'email is nil' do

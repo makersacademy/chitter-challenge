@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
-    erb :'sessions/new'
+    erb :'/sessions/new'
   end
 
   post '/sessions' do
@@ -18,6 +18,6 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye'
-    redirect '/links'
+    redirect '/peeps'
   end
 end

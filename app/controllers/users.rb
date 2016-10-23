@@ -16,5 +16,5 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
-  end
+  end  
 end
