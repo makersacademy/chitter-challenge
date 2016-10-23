@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="public/reset.css" />
+    <link rel="stylesheet" href="css/form.css" />
   </head>
   <body>
-    <h1>Sorry, the username "<%=params[:usedname]%>" has already been taken</h1>
-    <h2>Please try again with a different username</h2>
-    <form action="new-user" method="post">
-      <h2>Name: </h2><input type="text" name="name"/>
-      <h2>Username: </h2><input type="text" name="username"/>
-      <h2>Email: </h2><input type="text" name="email"/>
-      <h2>Password: </h2><input type="text" name="password"/>
-      <input type="submit", value="Sign Up!"/>
-    </form>
+    <div class="header">
+      <h1>Chitter:</h1>
+    </div>
+    <div class="welcome">
+      <h2>Sorry, the username "<%=params[:usedname]%>" has already been taken</h2>
+      <h2>Please try again with a different username</h2>
+    </div>
+      <div class="input">
+        <form action="new-user" method="post">
+          <div class="line">
+            <h2>Name: </h2><input type="text" name="name"/>
+          </div>
+          <div class="line">
+          <h2>Username: </h2><input type="text" name="username"/>
+        </div>
+        <div class="line">
+          <h2>Email: </h2><input type="text" name="email"/>
+        </div>
+        <div class="line">
+          <h2>Password: </h2><input type="text" name="password"/>
+        </div>
+          <input type="submit", value="sign up"/>
+        </form>
+    </div>
   </body>
 </html>

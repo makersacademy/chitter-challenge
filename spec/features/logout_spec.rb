@@ -15,7 +15,7 @@ describe 'user logout process' do
   scenario 'user logs out and is greeted as a stranger' do
     sign_in
     sign_out
-    expect(page).to have_content "Welcome stranger"
+    expect(page).to have_content "Welcome Stranger"
   end
 
 end

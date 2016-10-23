@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="public/reset.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
-    <h1>Welcome stranger, sign up or log in to peep!</h1>
-    <form action="sign-up" method="get">
-      <input type="submit" value="Sign Up!"/>
-    </form>
-    <form action="login" method="get">
-      <input type="submit" value="Log In!"/>
-    </form>
+    <div class="header">
+      <h1>Chitter:</h1>
+    </div>
+    <div class="welcome">
+      <h2>Welcome Stranger</h2>
+    </div>
+    <div class="peep">
+      <h2>Sign up or log in to peep</h2>
+      <form action="sign-up" method="get">
+        <input type="submit" value="sign up"/>
+      </form>
+      <form action="login" method="get">
+        <input type="submit" value="log in"/>
+      </form>
+    </div>
     <%Peep.all.reverse.each do |peep|%>
-      <h3><%=peep.user.name%></h3><h3>  @<%=peep.user.username%></h3><h3>  <%=peep.time.strftime("%A")%>  <%=peep.time.hour%>:<%=peep.time.min%><br></br>
+    <div class="pheader">
+      <div class="user">
+        <h2><%=peep.user.name%></h2><h3>  @<%=peep.user.username%></h3>
+      </div>
+      <div class="time">
+        <h3>  <%=peep.time.strftime("%A")%>  <%='%02d' % peep.time.hour%>:<%='%02d' % peep.time.min%></h3>
+      </div>
+    </div>
+    <div class="ptext">
       <p><%=peep.text%></p>
-    <%end%>
+    </div>
+  <%end%>
   </body>
 </html>
