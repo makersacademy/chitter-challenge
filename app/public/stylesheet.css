@@ -171,7 +171,7 @@ button:hover {
   min-height:100px;
   margin: 40px auto;
   width: 600px;
-  overflow: hidden;
+  overflow: auto
   text-shadow: none;
 }
 
