@@ -40,7 +40,13 @@ enable :sessions
 
   post '/homepage' do
     Peep.create(name: params[:name])
-    redirect '/homepage'
+    @peeps = Peep.all
+    redirect '/peeped'
   end
 
+  get '/peeped' do
+    @peeps = Peep.all
+    session['username'] = params[:username]
+    erb :peeped
+  end
 #end

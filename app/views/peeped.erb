@@ -1,0 +1,18 @@
+<html>
+<h1> Thanks for peeping! </h1>
+
+<ul id='peeps'>
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep.name %>
+  </li>
+  <% end %>
+</ul>
+
+  <h2> Click here to return to the homepage. </h2>
+  <form action="/homepage" method="get">
+  <div>
+    <button type="submit" value="Submit">Return to homepage</button>
+  </div>
+</form>
+</html>
