@@ -18,7 +18,7 @@ helpers do
 end
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :index
   end
 
@@ -63,7 +63,7 @@ end
   end
 
   get '/profile' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :index
   end
 
@@ -71,7 +71,6 @@ end
     peep = Peep.create(peep_text: params[:peep_text])
     current_user.peeps << peep
     peep.save
-    p peep.created_at
     redirect '/profile'
   end
 

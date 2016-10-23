@@ -1,0 +1,134 @@
+header{
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0px;
+  background-color: #ffb3b3;
+  border-bottom: grey;
+  display: inline-block;
+}
+.pagelogo{
+  width: 50%;
+  display:inline-block;
+  font-family: sans-serif;
+  font-size: 30pt;
+  color: white;
+  text-align: right;
+}
+.nav{
+  position: absolute;
+  right: 30px;
+  bottom: 15px;
+  display: inline-block;
+  width: 300px;
+  align-content: flex-end;
+}
+
+a:link, a:visited {
+  background-color: white;
+  color: red;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: red 2px solid;
+  border-radius: 5px;
+}
+a:hover, a:active {
+  background-color: red;
+  color: white;
+}
+.nav a{
+  text-decoration: none;
+  width: auto;
+  display: inline-block;
+  margin-right: 20px;
+  float: right;
+}
+.logout input[type=submit]{
+  background-color: white;
+  border: red 1px solid;
+  border-radius: 5px;
+  color: red;
+  padding: 14px 25px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.logout{
+  float:right;
+  margin-top: 10px;
+  margin-right: 30px;
+
+}
+#texter{
+  width: 40%;
+  margin:auto;
+  margin-top: 100px;
+}
+.welcome{
+  float:left;
+}
+
+textarea{
+  border-radius: 5px;
+  box-shadow: 8px 8px 5px grey;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+
+body{
+  position:relative;
+  background-color: #d9d9d9;
+  font-family: sans-serif;
+}
+
+.err_messages{
+  margin-top: 100px;
+  color: red
+
+}
+article{
+  background-color: white;
+  width: 40%;
+  height: 120px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 10px;
+  box-shadow: 8px 8px 5px grey;
+  position: relative;
+
+
+}
+#peeps{
+  list-style-type: none;
+}
+
+
+#names{
+  border-bottom: lightgrey 1px solid;
+  padding: 5px;
+}
+
+#name{
+  display: inline;
+}
+#user_name{
+  display:  inline;
+  font-size: 10pt;
+  color: grey;
+}
+#text{
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+
+#time{
+  font-size: 8pt;
+  color: grey;
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+}
