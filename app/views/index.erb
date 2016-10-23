@@ -1,5 +1,8 @@
 <h1>Welcome to Chitter</h1>
-<%=
-unless @peeps.first.nil?
-  @peeps.first.peep_text
-end %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.peep_text %>
+    </li>
+  <% end %>
+</ul>
