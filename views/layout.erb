@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      You are currently logged in as <%= current_user.email %>
+    <% end %>
+    <% if flash[:notice] %>
+	    <% flash[:notice].each do |error| %>
+	      <div id='notice'><%= error %></div>
+	    <% end %>
+	  <% end %>
+
+    <%= yield %> 
+  </body>
+</html>
+
