@@ -8,7 +8,7 @@ class Peep
 
   property :id, Serial
   property :time, Time
-  property :text, String
+  property :text, Text
 
   belongs_to :user
 
