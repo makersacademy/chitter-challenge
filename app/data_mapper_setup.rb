@@ -9,7 +9,6 @@ DataMapper.setup(:default, "postgres://postgres:password@localhost/chitter_db_#{
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-#"postgres://postgres:password@localhost/chitter_db_
-#"postgres://localhost/chitter_db_#
-#chitter_db_test
-#chitter_db_development
+# Required because my postgres users are set up differently.
+# "postgres://postgres:password@localhost/chitter_db_
+# "postgres://localhost/chitter_db_#

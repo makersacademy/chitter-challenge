@@ -3,10 +3,10 @@
   <p><form action='/peeps/new'>
       <input type="submit" value="Add a new peep" />
   </form></p>
-<!-- <ul id='peeps'> -->
+<ul id='peeps'>
   <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
-    <!-- <li style="list-style: none;"> -->
+    <li style="list-style: none;">
     <% time = peep.created_at %>
     <b><p><%= peep.name %></b>&nbsp&nbsp <%= time.strftime("Peeped on %d/%m/%Y at %I:%M%p") %></p>
     <b><textarea rows='4' cols='50' name='message' disabled><%= peep.message %></textarea></b>
@@ -16,7 +16,7 @@
         placeholder = 'Comment on peep here!' ></textarea>
       <p><input type='submit' value='Comment' id='x'/></p>
     </form>
-    <!-- </li> -->
+    </li>
     </br><hr></br>
   <% end %>
-<!-- </ul> -->
+</ul>

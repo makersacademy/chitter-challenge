@@ -10,7 +10,6 @@ feature "Creating peeps" do
   scenario "I can create a new peep" do
     sign_in(email: user.email, password: user.password)
     visit '/peeps/new'
-    #fill_in 'Name', with: 'Jonny'
     fill_in 'Message', with: "This is my first peep! I'm so friggin' excited!!!"
     click_button 'Peep this!'
     expect(current_path).to eq '/peeps'

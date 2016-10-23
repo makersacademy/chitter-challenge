@@ -1,4 +1,9 @@
-
+SETUP INSTRUCTIONS:
+git clone https://github.com/glynester/chitter_challenge
+bundle
+create postgres databases "chitter_db_development" and "chitter_db_test"
+Run "rake db:auto_migrate" for development and rake db:auto_migrate RACK_ENV=test" for test.
+"RACKUP" runs the database in http://localhost:9292/
 
 GEMS REQUIRED:
 ruby '2.3.1'And/Or:
@@ -11,7 +16,7 @@ gem 'sinatra-flash'
 gem 'rake'
 
 
-THE FOLLWING USER STORIES HAVE BEEN IMPLEMENTED:
+THE FOLLOWING USER STORIES HAVE BEEN IMPLEMENTED:
 I want to sign up for Chitter so that I can post messages (peeps) on Chitter as me
 I want to log in to Chitter So that I can post messages (peeps)
 I want to log out of Chitter so that others cannot post messages (peeps) on Chitter as me

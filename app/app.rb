@@ -9,7 +9,3 @@ require_relative 'controllers/peeps'
 require_relative 'controllers/comments'
 require_relative 'controllers/sessions'
 require_relative 'controllers/users'
-
-# require_relative 'models/peep'
-# require_relative 'models/comment'
-# require_relative 'models/user'
