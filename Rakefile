@@ -1,8 +1,8 @@
 require 'data_mapper'
 require './app/server'
-require 'rubocop/rake_task'
 
 begin
+  require 'rubocop/rake_task'
   require 'rspec/core/rake_task'
 
   RuboCop::RakeTask.new(:cop)
