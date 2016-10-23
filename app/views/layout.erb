@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/stylesheet.css" rel="stylesheet" type="text/css" />
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <a href="/peeps"><h1 class="hotpink"> CHITTER </h1></a>
+      <div class="top_container">
+        <%= partial :welcome %>
+        <%= partial :sign_out %>
+        <%= partial :register %>
+        <%= partial :compose_peep %>
+      </div>
+
+      <%= partial :notice %>
+      <%= partial :errors %>
+
+
+      <%= yield %>
+
+    <footer>
+      Built in Ruby using Sinatra, Rspec & Capybara by B-raw. Check out the <a href="https://github.com/B-raw/chitter-challenge/blob/master/README.md" target="_blank">repo on github</a>.
+    </footer>
+  </div>
+  </body>
+</html>

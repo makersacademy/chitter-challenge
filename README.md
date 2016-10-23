@@ -1,108 +1,48 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is my go at the Maker's Academy Chitter Challenge - to build a Twitter clone. It offers the following features:
 
-Challenge:
--------
+* Sign up
+* Log in
+* Log out
+* Can view peeps (tweets) whether logged in or logged out
+* Can only post peeps when logged in
+* Peeps state the time they were posted
+* Peeps are posted in reverse chronological order
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-
-Notes on functionality:
+Viewing the deployed App
 ------
+https://b-raw-chitter.herokuapp.com/
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Viewing the App locally
+------
+* Clone this repo
+`` git clone https://github.com/B-raw/chitter-challenge.git ``
 
-Bonus:
------
+* Bundle the dependencies
+`` gem install bundler ``
+`` bundle ``
 
-If you have time you can implement the following:
+* Create your database of choice with the following name:
+``createdb chitter_development``
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Run rspec to try the tests
 
-And/Or:
+* Rackup to load the app to localhost in your browser
 
-* Work on the css to make it look good (we all like beautiful things).
+* Click Register to sign up for an account, or Log In
 
-Good luck and let the chitter begin!
+![Screenshot](https://lh6.googleusercontent.com/n0IvHt9KtmQnNh2J3iSeiqrP2ExYIBF9MLA2R5D4WQpsk9_0_XKfIzrqn6uWVpZ_5JG_wJPGHlRCgKM=w2870-h1552-rw)
 
-Code Review
------------
+* Peeps appear in the centre of the screen
 
-In code review we'll be hoping to see:
+CSS Design and Style Inspiration
+------
+I was listening to the Wild Beasts latest album "Boy King" whilst coding this challenge. I checked out their website and loved the big bold colours and design. That served as a large part of the inspiration for this design.
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+http://wild-beasts.co.uk/
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+:tiger2: "Big cat, top of the food chain" :tiger:
 
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+https://open.spotify.com/artist/4zrFO6P7G6EZry0pfxMfKT

@@ -1,0 +1,14 @@
+<% if !current_user %>
+<div class="sign_out button">
+  <form method="get" action="/sessions/new">
+    <button type="submit">Log in</button>
+  </form>
+</div>
+
+<div class="sign_out button">
+  <form method="get" action="/users/new">
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<% end %>

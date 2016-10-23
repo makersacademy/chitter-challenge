@@ -1,0 +1,14 @@
+<h2 class="hotpink"> Peeps </h2>
+
+<div class="peeps">
+  <% @peeps = Peep.sort {|x, y| y.created_at <=> x.created_at } %>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <li>
+        <% user = User.get(peep.user_id) %>
+        <div class="peep_info"><%= user.name %> @<%= user.username %> <span class="time">on <%= "#{peep.created_at.strftime("%A %d %B %Y, %H:%M")}" %></span></div>
+        <div class="peep_content"><%= peep.content %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,221 @@
+/** {
+  border: 1px solid red;
+}*/
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-image: -webkit-linear-gradient(669.6deg, rgb(242, 131, 13), rgb(87, 203, 52));
+  font-family: 'AvenirLTStd-Medium', Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  font-size: 80px;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  margin: 10px auto 0 auto;
+  display: block;
+  text-shadow: 5px 5px 0px #fff;
+}
+
+h2 {
+  font-size: 60px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  margin: 20px auto 0 auto;
+  display: block;
+  text-shadow: 4px 4px 0px #fff;
+}
+
+h3 {
+  text-shadow: 2px 2px 0px #fff;
+  font-size: 30px;
+  margin: 0 auto 0 auto;
+  float: left;
+}
+
+button {
+  color: #000;
+  padding: 12px 40px;
+  background-color: #00c2ce;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer !important;
+  box-shadow: none;
+  border: none;
+  margin-left: 15px;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+.hotpink {
+  color: #f43a71;
+}
+
+#errors {
+  font-size: 20px;
+  font-weight: bold;
+  list-style: lower-greek;
+}
+
+/* --- LAYOUT --- */
+
+.top_container {
+  display: inline-block;
+  width: 100%;
+
+}
+
+/* --- PEEPS --- */
+
+.peeps {
+  width: 50%;
+  margin: auto;
+  padding: auto auto;
+}
+
+.peeps ul {
+  list-style: none;
+}
+
+.peeps li {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 22px;
+  margin: 20px auto;
+  border: 20px outset #f43a71;
+  padding: 30px 15px;
+}
+
+.peeps .peep_info {
+  font-weight: normal;
+}
+
+.peeps .peep_content {
+  font-size: 22px;
+  line-height: 35px;
+}
+
+.peeps .time {
+  font-size: 14px;
+}
+
+.sign_out {
+  float: right;
+}
+
+.top_container a {
+  color: #000;
+  padding: 12px 100px;
+  background-color: #00c2ce;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer !important;
+}
+
+.top_container a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.compose_button {
+  margin: 20px 0;
+  padding: auto;
+  text-align: center;
+}
+
+/* --- COMPOSE PEEPS */
+.peep_title {
+  margin: 30px auto 15px auto;
+}
+
+.compose_form {
+  text-align: center;
+  display: block;
+}
+
+.compose_form form textarea {
+  border: 0;
+  border-radius: 0;
+  font-size:20px;
+  padding: 8px 10px;
+  word-wrap: break-word;
+  min-height:100px;
+  margin: 40px auto;
+  width: 600px;
+  overflow: auto
+  text-shadow: none;
+}
+
+.compose_form button {
+  display: block;
+  margin: 14px auto;
+}
+
+/* --- SIGN UP + LOG IN FORMS --- */
+
+.form {
+  margin: 30px auto 0 auto;
+  text-align: center;
+  display: block;
+}
+
+.form form label {
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 20px;
+
+}
+
+.form form input {
+  font-size: 20px;
+  width: 350px;
+  height: 20px;
+  padding: 8px 10px;
+}
+
+.form button {
+  display: block;
+  margin: 30px auto;
+}
+
+footer {
+  text-align: center;
+  margin: 100px auto 60px auto;
+}
+
+footer a {
+  text-decoration: underline;
+  color: #fff;
+}
