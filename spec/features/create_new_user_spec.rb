@@ -24,4 +24,10 @@ feature 'Creating new users' do
 	  expect { create_user }.to_not change(User, :count)
 	  expect(page).to have_content('Email is already taken')
 	end
+
+  scenario 'I cannot sign up with an existing username' do
+	  create_user
+	  expect { create_user }.to_not change(User, :count)
+	  expect(page).to have_content('Email is already taken')
+	end
 end
