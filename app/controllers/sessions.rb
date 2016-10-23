@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
 
    get '/home' do
     #  show_peeps = Peep.all(peep: params[:peep])
-     @show_peeps = Peep.all
+     @show_peeps = Peep.all(order: [ :id.desc ])
      erb(:home)
    end
 

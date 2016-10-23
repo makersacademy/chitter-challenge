@@ -35,4 +35,13 @@ feature 'I want to post a peep' do
     post_peep
     expect(page).to have_content("By: tansaku")
   end
+
+  # scenario 'Allow user to see Peeps in reverse chronological order' do
+  #   post_peep
+  #   post_peep(peep: "Second test peep")
+  #   expect(Peep.count).to eq(2)
+  #   within 'ul#peeps' do
+  #     expect(Peep.first.peep).to have_content("Second test peep")
+  #   end
+  # end
 end
