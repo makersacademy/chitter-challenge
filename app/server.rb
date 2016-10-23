@@ -9,7 +9,6 @@ class Chitter < Sinatra::Base
 
   enable :partial_underscores
 
-
   before do
     def current_user
       @current_user ||= User.get(session[:user_id])
