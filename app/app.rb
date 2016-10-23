@@ -38,4 +38,9 @@ enable :sessions
     erb :homepage
   end
 
+  post '/homepage' do
+    Peep.create(name: params[:name])
+    redirect '/homepage'
+  end
+
 #end
