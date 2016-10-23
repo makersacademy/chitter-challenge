@@ -1,3 +1,6 @@
+ENV['RACK_ENV'] ||= 'development'
+
+require './app/models/user'
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
