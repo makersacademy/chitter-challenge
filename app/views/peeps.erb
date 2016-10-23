@@ -9,8 +9,8 @@
   <% @peeps.each do |peep| %>
     <li>
       <span><%= peep.user.email %></span>
-      at
-      <span><%= peep.timestamp %></span>
+      on
+      <span><%= peep.timestamp.strftime("%b %-d %H:%M") %></span>
       said:
       <span><%= peep.body %></span>
     </li>

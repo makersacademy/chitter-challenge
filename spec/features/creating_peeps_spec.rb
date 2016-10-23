@@ -14,6 +14,14 @@ feature 'User posts a new message' do
     expect(page).to have_content(body)
   end
 
+  scenario 'I can see when my peep was posted' do
+    sign_in(email: email, password: password)
+    body = 'Message 1'
+    time = Time.new.strftime("%b %-d %H:%M")
+    post_peep(body: body)
+    expect(page).to have_content(time)
+  end
+
   scenario 'I can see a list with my peeps' do
     sign_in(email: email, password: password)
     body1 = 'Message 1'
