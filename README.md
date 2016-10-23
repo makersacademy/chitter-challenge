@@ -1,3 +1,5 @@
+<!-- [![Build Status](https://travis-ci.org/fmlharrison/takeaway-challenge.svg?branch=master)](https://travis-ci.org/fmlharrison/takeaway-challenge) -->
+
 Chitter - Where all your peeping desires come true.
 =======
 
@@ -14,23 +16,30 @@ Users sign up with an email, name, password, and a user-name, and are then able 
 - Tests could be more eloquent.  1 test = 1 expectation
 - CSS should have been used to improve the design of the website.
 - I would have like to include the ability to leave a comment on a peep.
-- The controller has a lot of logic in it (per above). Extracting this logic into the modules would be a good next move.  
+- The controller has a lot of logic in it. Extracting this logic into the modules would be a good next move.  
 
 ###Technologies
-- DataMapper with a PostgreSQL Database
-- Ruby
-- BCrypt
-- RSpec, Capybara
-- Sinatra-Cucumber
-- HTML
-- Sinatra-flare
-
-
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
 ```
-$ coveralls report
+DataMapper with a PostgreSQL Database
+Ruby
+BCrypt
+RSpec, Capybara
+Sinatra-Cucumber
+HTML
+Sinatra-flare
 ```
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+
+###How to use the Chitter
+Chitter can be run using a local sinatra host by running:
+```
+rackup config.ru
+```
+from the command line.
+
+###How to test
+```
+git clone https://github.com/fmlharrison/chitter-challenge.git
+cd chitter-challenge
+rspec
+```
