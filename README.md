@@ -70,7 +70,7 @@ I want to post a message (peep) to chitter
 * Created two new views ```/peeps``` and ```/new_peep```
 * ```/peeps``` is the base peeps view which shows all the peeps made
 * ```/new_peep``` is a new view on which a new peep can be created
-* Once the new peep is created it is logged on the ```/peeps``` page and output the user who created it, what they peeped and a time. Sadly, the time at this point is the time you loaded the page and not specific to the peep. That is a later user story though. 
+* Once the new peep is created it is logged on the ```/peeps``` page and output the user who created it, what they peeped and a time. Sadly, the time at this point is the time you loaded the page and not specific to the peep. That is a later user story though.
 * Tested to ensure it is working as expected
 
 ```
@@ -78,11 +78,21 @@ As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 ```
+#### Solution
+
+* Created a sort class array block
+* Sorts from newest to oldest using ```peep.id```
+* Tested to ensure it is working as expected
 
 ```
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+#### Solution
+
+* Added ```:time``` as a property to the Peep class
+* Before saving the peep in the ```get '/peep'``` controller it creates and instance of ```Time.new``` and saves that in the database alongside the peep
+* Tested to ensure it is working as expected
 
 ## Future intentions
