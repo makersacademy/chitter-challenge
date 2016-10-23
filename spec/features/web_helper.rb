@@ -4,6 +4,7 @@ def create_account
   fill_in 'email', with: 'posie@shlack.com'
   fill_in 'username', with: 'rgoll'
   fill_in 'password', with: '1234apple$'
+  fill_in 'password_confirmation', with: '1234apple$'
   click_button 'Create account'
 end
 

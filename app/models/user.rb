@@ -8,11 +8,13 @@ class User
   include BCrypt
 
   attr_reader :password
+  attr_accessor :password_confirmation
+  validates_confirmation_of :password
 
   property :id, Serial
-  property :name, String
-  property :email, String
-  property :username, String
+  property :name, String, required: true
+  property :email, String, required: true
+  property :username, String, required: true
   property :encrypted_password, Text
 
   def password=(password)
