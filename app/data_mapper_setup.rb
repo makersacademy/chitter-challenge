@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require 'dm-postgres-adapter'
 require 'sinatra/partial'
 
