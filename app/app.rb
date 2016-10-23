@@ -16,11 +16,14 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def format_time(time) 
+    	"#{time.day}/#{time.month}/#{time.year} - #{time.hour}:#{time.min}"
+    end
   end
 
 
 	get '/' do
-		session[:user_id] = nil
 		erb :index
 	end
 
@@ -56,16 +59,16 @@ class Chitter < Sinatra::Base
 
 	post '/sessions/end' do
 		session[:user_id] = nil
-		redirect '/message_board'
+		redirect '/'
 	end
 
 	get '/message_board' do
-		@messages = Message.all
+		@messages = Message.last(10)
 		erb :message_board
 	end
 
 	post '/message_board/new' do
-		message = Message.create(time_created: Time.new,body: params[:message_body])
+		message = Message.create(time_created: format_time(Time.new),body: params[:message_body])
 		message.user_id = current_user.id
 		flash.keep[:errors] = message.errors.full_messages if !message.save
 		message.save

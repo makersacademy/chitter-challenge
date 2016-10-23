@@ -1,20 +1,22 @@
 <% if current_user %>
-	<form action="/message_board/new" method="post">
-		<label for="message_body">
-			<input type="text" name="message_body">
-		</label>
-		<input type="submit" value="Post Message">
-	</form>
+	<div id="post_message">		
+		<form action="/message_board/new" method="post">
+			<label for="message_body">
+				<input type="text" name="message_body">
+			</label>
+			<input type="submit" value="Post Message">
+		</form>
+	</div>
 <% end %>
 
 <div id="message_board">
 	<h1>Messsage Board</h1>
 	<ul id="messages">
 		<% @messages.each do |message| %>
-			<li>
-				<p><%= message.body %></p>  
-				<p><%= User.first(id: message.user_id).username %></p>
-				<p><%= message.time_created %></p>		
+			<li class="message">
+				<p class="message_body"><%= message.body %></p>  
+				<p class="message_username"><%= User.first(id: message.user_id).username %></p>
+				<p class="message_time_created"><%= message.time_created %></p>		
 			</li>
 		<% end %>
 	</ul>

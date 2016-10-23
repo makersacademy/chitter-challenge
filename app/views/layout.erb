@@ -6,28 +6,52 @@
 
   <title>Chitter</title>
 
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 </head>
 
 <body>
-
-	<% if flash[:errors] && !flash[:errors].empty? %>
-		Error:
-		<ul id="errors">
-			<% flash[:errors].each do |error| %>
-				<li><%= error %></li>
+	<header>
+		<div class="container clearfix">
+			
+			<% if flash[:errors] && !flash[:errors].empty? %>
+				<div id="errors_continer">
+					Error:
+					<ul id="errors">
+						<% flash[:errors].each do |error| %>
+							<li><%= error %></li>
+						<% end %>
+					</ul>
+				</div>
 			<% end %>
-		</ul>
-	<% end %>
 
-	<% if current_user %>
-		<p>You are signed in as <%= current_user.name %></p>
-		<form action="/sessions/end" method="post">
-			<input type="submit" value="Sign Out">
-		</form>
-	<% end %>
-  <%= yield %>
+			<p id="logo">Chitter</p>
+
+			<% if current_user %>
+				<div id="current_user_notification" class="clearfix">
+					<p>You are signed in as <%= current_user.name %></p>
+					<form action="/sessions/end" method="post">
+						<input type="submit" value="Sign Out">
+					</form>
+				</div>
+			<% else %>
+				<form action="/users" id="link_to_users">
+					<input type="submit" value="Sign In/Create User">
+				</form>
+			<% end %>
+
+
+		</div>
+	</header>
+
+	<div class="container clearfix">
+  	<%= yield %>
+	</div>
+
 </body>
 </html>

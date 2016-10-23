@@ -1,34 +1,36 @@
-<div id="sign_up">
-	<h2>Sign Up</h2>
-	<form action="/users/new" method="post">
-		<label for="name">Name:
-			<input type="text" name="name">		
-		</label>
-		<label for="email">Email:
-			<input type="text" name="email" required>	
-		</label>
-		<label for="username">Username:
-			<input type="text" name="username" required>
-		</label>
-		<label for="password">Password:			
-			<input type="password" name="password">
-		</label>
-		<label for="password_confirmation">Re-Enter Password:			
-			<input type="password" name="password_confirmation">
-		</label>
-		<input type="submit" value="Join Chitter">
-	</form>
-</div>
+<div id="user_forms" class="clearfix">
+	<div id="sign_up">
+		<h2>Sign Up</h2>
+		<form action="/users/new" method="post">
+			<label for="name">Name:
+				<input type="text" name="name">		
+			</label>
+			<label for="email">Email:
+				<input type="text" name="email" required>	
+			</label>
+			<label for="username">Username:
+				<input type="text" name="username" required>
+			</label>
+			<label for="password">Password:			
+				<input type="password" name="password">
+			</label>
+			<label for="password_confirmation">Re-Enter Password:			
+				<input type="password" name="password_confirmation">
+			</label>
+			<input type="submit" value="Join Chitter">
+		</form>
+	</div>
 
-<div id="sign_in">
-	<h2>Sign In</h2>
-	<form action="/sessions" method="post">
-		<label for="email">Email:
-			<input type="text" name="email">
-		</label>
-		<label for="password">Password:
-			<input type="text" name="password">
-		</label>
-		<input type="submit" value="Sign In">
-	</form>
+	<div id="sign_in">
+		<h2>Sign In</h2>
+		<form action="/sessions" method="post">
+			<label for="email">Email:
+				<input type="text" name="email">
+			</label>
+			<label for="password">Password:
+				<input type="text" name="password">
+			</label>
+			<input type="submit" value="Sign In">
+		</form>
+	</div>
 </div>

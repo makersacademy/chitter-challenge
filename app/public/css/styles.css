@@ -1,0 +1,191 @@
+/*
+	color_scheme
+*/
+
+body {
+	background: #e9e9e9;
+}
+
+header {	
+	background: #99d3df;
+}
+
+input[type="submit"] {
+	background: #88bbd6;
+}
+
+#index_page_h1 {
+	background: #cdcdcd;
+}
+
+.message {
+	background: #fff;
+}
+
+
+/*
+ layout
+*/
+
+
+header {
+	padding: 1.5rem 0;
+	margin-bottom: 35px;
+}
+
+input[type="submit"] {
+	border: 0;
+	padding: 7px 15px;
+}
+
+form input  {
+	display: block;
+	margin: 7px 0;
+}
+
+h2 {
+	margin-bottom: 7px;
+}
+
+.container {
+	margin: auto;
+	width : 70%;
+}
+
+#current_user_notification {
+	float: right;
+}
+
+#current_user_notification form {
+	margin-top: 7px;
+	float: right;
+}
+
+#logo {
+	float: left;
+}
+
+#link_to_users {
+	float: right;
+	vertical-align: top;
+}
+
+#index_page_h1 {
+	margin-top: 125px;
+	padding: 15px 25px 50px;
+	text-align: center;	
+}
+
+.message_board_link {
+	margin: 115px auto 0;
+}
+
+#user_forms {
+	margin: auto;
+	width: 70%;
+}
+
+#sign_up, #sign_in {
+	float: left;
+	margin-top: 50px;
+	width: 50%;
+}
+
+
+#post_message {
+	float: right;
+	width: 25%;
+}
+
+#message_board {
+	float: left;
+	width: 75%;
+}
+
+.message {
+	padding: 15px;
+}
+
+.message_body {
+	padding: 5px 0;
+}
+
+.message_time_created {
+	padding: 5px 0 0;
+}
+
+.message_time_creted, .message_username {
+	display: inline-block;
+}
+
+
+/*
+ typography
+*/
+
+h1 {
+	font-size: 6rem;
+}
+
+h2, #logo {
+	font-size: 26px;
+}
+
+p, label {
+	font-size: 18px;
+}
+
+h1, h2, #logo {
+	font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, p, input[type="submit"] {
+	color: #fff;
+}
+
+.message_body, .message_username, .message_time_created {
+	color: #000;
+}
+
+.message_time_created, .message_username {
+	font-size: 12px;
+}
+
+p, input, form {
+	font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+	font-weight: bold;
+}
+
+/*
+ styles
+*/
+
+input[type="submit"] {
+	border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+	cursor: pointer;
+}
+
+.message_body {
+	border-bottom: 1px dashed #cdcdcd;
+}
+
+.message {
+	border-bottom: 1px solid #000;
+}
+
+
+/*
+	classes
+*/
+
+.clearfix:after {
+content: "";  
+display: table;  
+clear: both;  
+}
