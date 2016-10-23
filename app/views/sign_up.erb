@@ -1,21 +1,31 @@
 <html>
-<h1>Makers ChitterChatter</h1>
-<h3>To sign up, please enter your details below.
-  Please note that your username must be unique.</h3>
+<h1>Makers Chitter</h1>
+<h3>To sign up, please enter your details below.</h3>
+  <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
 
   <form action='/users' method='post'>
     <label for='email'>
-    Email: <input name='email' type='text'>
+    Email <input name='email' type='email' value='<%= @user.email if @user %>' required>
     </label>
+  </br>
     <label for='password'>
-      Password:<input name='password' type='text'>
+      Password<input name='password' type='password' required>
     </label>
+  </br>
+    <label for='password_confirmation'>
+      Password confirmation<input name='password_confirmation' type='password' required>
+    </label>
+  </br>
     <label for='name'>
-      Name:<input name='name' type='text'/>
+      Name<input name='name' type='text' value='<%= @user.name if @user%>' required/>
     </label>
+  </br>
     <label for='username'>
-      Username:<input name='username' type='text'/>
+      Username<input name='username' type='text' value='<%= @user.username if @user %>' required/>
     </label>
+  </br>
     <input type='submit' value='Sign up'/>
   </form>
 </html>

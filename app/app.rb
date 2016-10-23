@@ -1,7 +1,10 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+require_relative './models/user'
 require_relative 'datamapper_setup'
 
 class ChitterChatter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -10,6 +13,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   get '/sign-up' do
+    @user = User.new
     erb :sign_up
   end
 
@@ -20,12 +24,20 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email],
-                password: params[:password],
-                name: params[:name],
-                username: params[:username])
-    session[:user_id] = user.id
-    redirect to '/'
+    @user = User.create(email: params[:email],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation],
+    name: params[:name],
+    username: params[:username])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to '/'
+    else
+      @user.errors.each do |e|
+        flash.now[:notice] = e
+      end
+      erb :sign_up
+    end
   end
 
   get '/log-in' do
