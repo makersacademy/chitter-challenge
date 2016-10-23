@@ -3,10 +3,15 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
-
 require_relative 'data_mapper_setup'
-
 require_relative 'models/user'
+
+#refactor into controllers go error [rerun] Chitter-challenge launched error.
+#Tests were green but could not get the server to launch - ask Ben re: this.
+#Followed walktrhough and still no success :(
+# require_relative 'controllers/users'
+# require_relative 'controllers/sessions'
+# require_relative 'server'
 
 class Chitter < Sinatra::Base
 
