@@ -45,14 +45,20 @@ I want to log in to Chitter
 ```
 #### Solution
 
-* Created a new view (/log_in) which has email and password fields
+* Created a new view ```/log_in``` which has email and password fields
 * Checks the database for the relevant information and either allows the user to log in or retry if the information doesn't exist in the database
+* Tested to ensure it is working as expected
 
 ```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 ```
+#### Solution
+
+* Amended the layout to contain a ```log out``` button if a user is logged in
+* If the log out button is pushed the session is deleted and a ```Farewell!``` notice is displayed
+* Tested to ensure it is working as expected
 
 ```
 As a Maker
