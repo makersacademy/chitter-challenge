@@ -5,12 +5,21 @@
   </head>
 
   <body>
+
     <% if current_user %>
       Succesful login, <%= current_user.user_name %>
     <% end %>
-    <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please address the following problems:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <p> <%= error %> </p>
+        <% end %>
+      </ul>
     <% end %>
+
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+
   </body>
 </html>

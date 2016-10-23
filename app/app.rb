@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
@@ -8,6 +8,12 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/' do
     erb :index
@@ -24,15 +30,13 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:notice] = "Password missmatch"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
+  post '/sessions/new' do
+    
   end
 
   # start the server if ruby file executed directly
