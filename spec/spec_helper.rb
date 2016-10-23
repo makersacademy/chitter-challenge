@@ -4,9 +4,10 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-# require './app/models/tag'
+#require './app/models/tag'
 # require './app/models/peep'
 require './app/app'
+require_relative 'web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 
