@@ -20,6 +20,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions'do
     @peeps = Peep.all
+    @users = User.all
     session.clear
     flash.now[:notice] = "Goodbye!"
     erb :index
@@ -31,6 +32,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @users = User.all
     erb :index
   end
 
@@ -41,6 +43,11 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     erb :'sessions/sign_in'
+  end
+
+  post '/peeps/new' do
+    Peep.create(message: params[:message], user_id: session[:user_id])
+    redirect '/peeps'
   end
 
   post '/sessions' do

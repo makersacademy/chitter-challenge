@@ -20,6 +20,8 @@ class User
   validates_confirmation_of :password,
            :message => 'The two passwords submitted did not match'
 
+  has n, :peeps
+
   def self.authenticate(email, password)
     user = first(email: email)
     if user && BCrypt::Password.new(user.password_digest) == password

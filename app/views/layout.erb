@@ -5,6 +5,12 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
     <% if current_user %>
       Welcome, <%= current_user.name %>
       <form method='post' action='/sessions'>
@@ -13,11 +19,6 @@
       </form>
     <% end %>
 
-    <% if flash[:notice] %>
-      <div id="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
 
     <% if flash[:errors] %>
       <div id='errors'>
