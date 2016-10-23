@@ -30,6 +30,21 @@ post '/users' do
   end
 end
 
+get '/sessions/new' do  #sign in
+  erb :'sessions/new'
+end
+
+post '/sessions' do
+user = User.authenticate(params[:email], params[:password])
+  if user # user will be signed in with correct credentials
+    session[:user_id] = user.id
+    redirect to('/links')
+  else
+    flash.now[:notice] = ['The email or password is incorrect']
+    erb :'sessions/new'
+  end
+end
+
 helpers do
   def current_user
     @current_user ||= User.get(session[:user_id])

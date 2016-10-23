@@ -6,7 +6,7 @@
 
   <body>
     <% if current_user %>
-      Succesful login, <%= current_user.user_name %>
+      Succesful login, <%= current_user.email %>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
