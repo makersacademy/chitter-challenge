@@ -7,8 +7,6 @@ RSpec.feature 'Peep', type: :feature do
     fill_in 'peep',   with: 'this is a peep'
     click_button 'Save'
     expect(current_path).to eq '/chitter'
-    within 'ul#chitter' do
-      expect(page).to have_content('this is a peep')
-    end
+    expect(page).to have_content('this is a peep')
   end
 end
