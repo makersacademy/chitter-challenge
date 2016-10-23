@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require './app/app'
 
 require './app/models/user'
+require './app/models/peep'
 
 require 'rspec'
 require 'capybara'
@@ -10,6 +11,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
+require 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -20,7 +22,7 @@ Coveralls.wear!
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  # config.include SessionHelpers
+  config.include SessionHelpers
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
