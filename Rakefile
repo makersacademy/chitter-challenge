@@ -1,7 +1,8 @@
 if ENV['RACK_ENV'] != 'production'
+
   require 'rspec/core/rake_task'
   require 'data_mapper'
-  require_relative 'data_mapper_setup'
+  require './app.rb'
 
   RSpec::Core::RakeTask.new :spec
 

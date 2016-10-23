@@ -1,19 +1,24 @@
 require 'bcrypt'
+require 'dm-validations'
 class User
+
   include DataMapper::Resource
   attr_reader :password
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :name, String
-  property :user_name, String
-  property :email, String
+  property :name, String, :required => true
+  property :user_name, String, :required => true
+  property :email, String, :format => :email_address, :required => true
   property :password_digest, Text, :required => true, :lazy => false
+
+  validates_confirmation_of :password
+
+
 
   def password=(password)
     @password = password
-      self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
-
 
 end
