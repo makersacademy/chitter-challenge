@@ -1,1 +1,54 @@
-<h1>Welcome to Chitter!</h1>
+<div class="jumbotron">
+  <% if current_user %>
+    <h2>Hola, <%= current_user.first_name %></h2>
+    <p class="lead"><%= current_user.first_name %> it's time to get Chitter'ing!</p>
+    <p>
+      <a class="btn btn-lg btn-info" href="#" role="button">Post a Peep</a>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' class="btn btn-default" value="Log Out">
+      </form>
+    </p>
+  <% else %>
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <h2><%= flash[:notice] %></h2>
+      <p class="lead">When you feel the time is right, come back with a bang.</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="sessions/log_in" role="button">Log In</a>
+      </p>
+    </div>
+    <% else %>
+    <h2>Welcome to Chitter</h2>
+    <p class="lead">To get Chitter'ing, you will need to sign up.</p>
+    <p>
+      <a class="btn btn-lg btn-success" href="users/sign_up" role="button">Sign Up</a>
+      <a class="btn btn-lg btn-primary" href="sessions/log_in" role="button">Log In</a>
+    </p>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+    <h4>Subheading</h4>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Subheading</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Subheading</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+    <h4>Subheading</h4>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  </div>
+</div>
