@@ -17,6 +17,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require File.join(File.dirname(__FILE__), './features', 'web_helpers_spec.rb')
+require File.join(File.dirname(__FILE__), '../app/models', 'user.rb')
+require 'database_cleaner'
 
 Capybara.app = Chitter
 
@@ -111,4 +113,16 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
+  end
 end
