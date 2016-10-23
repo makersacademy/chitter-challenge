@@ -14,5 +14,10 @@ RSpec.feature 'User can sign in' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content("Howdy, #{user.user_name}")
   end
-  
+
+  scenario 'uses correct details' do
+    sign_in(email: user.email, password: 'incorrect_password')
+    expect(page).to have_content("Your email or password is incorrect")
+  end
+
 end
