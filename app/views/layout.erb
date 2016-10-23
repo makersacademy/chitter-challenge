@@ -1,37 +1,66 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Chitter</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
   </head>
+  <body><nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
 
-  <body>
-    <h1>Welcome to Chitter</h2>
+      <a class="navbar-brand" href="/home">Chitter</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li><a href="/peeps/new">Post Peep</a></li>
+        <% else %>
+          <li><a href="/sessions/new">Sign In</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+        <% end %>
+      </ul>
 
-    <%= partial :welcome %>
-    <%= partial :flash %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if current_user %>
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Sign Out'>
+            </form>
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-    <% if current_user %>
-      Hello <%= current_user.username %>!
-      <form action='/peeps/new'>
-        <input type='submit' value='Post Peep'>
-      </form>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign Out'>
-      </form>
-    <% else %>
-      <form action='/sessions/new'>
-        <input type='submit' value='Sign in'>
-      </form>
-      <form action='/users/new'>
-        <input type='submit' value='Sign up'>
-      </form>
-    <% end %>
+  <% if current_user %>
+    Hello <%= current_user.username %>!
+  <% end %>
+      <%= partial :welcome %>
+      <%= partial :flash %>
 
+      <%= yield %>
 
-    <%= yield %>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
   </body>
-
 </html>

@@ -15,7 +15,7 @@ feature 'I want to post a peep' do
   end
 
   scenario 'Allow user to see Enter Peep form' do
-    click_button('Post Peep')
+    click_link('Post Peep')
     expect(current_path).to eq('/peeps/new')
     expect(page).to have_content('Gimme your Peep')
   end
