@@ -1,34 +1,28 @@
+
+
 GEMS REQUIRED:
 ruby '2.3.1'And/Or:
 gem 'sinatra'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
+gem 'bcrypt'
+gem 'sinatra-partial'
+gem 'sinatra-flash'
+gem 'rake'
 
 
-USER STORIES:
+THE FOLLWING USER STORIES HAVE BEEN IMPLEMENTED:
 I want to sign up for Chitter so that I can post messages (peeps) on Chitter as me
-DONE!!!
-
 I want to log in to Chitter So that I can post messages (peeps)
-DONE!!!
-
 I want to log out of Chitter so that others cannot post messages (peeps) on Chitter as me
-DONE!!!
-
 I want to post a message (peep) to chitter
-DONE!!!
-
 I want to see all messages (peeps) in reverse chronological order
-DONE!!!
-
 I want to see the time at which the peep was made
-DONE!!!
 
+INCOMPLETE:
 I want to reply to a peep from another maker to start a conversation
-* * *
+- Saves to the database but currently not linked to the post.
 
-Make it look good with css
-DONE SORTOF!!!
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

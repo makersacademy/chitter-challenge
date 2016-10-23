@@ -16,7 +16,6 @@ class ChitterChallenge < Sinatra::Base
 
   post '/peeps' do
     if params['name'].empty?
-      p "hello".inspect
       flash[:notice] = 'You need to be logged in to peep.'
       redirect '/sessions/new'
     end
@@ -25,6 +24,3 @@ class ChitterChallenge < Sinatra::Base
   end
 
 end
-
-
-#Name will default to logged_in user name. It won't be editable.
