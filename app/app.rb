@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'server.rb'
 
+
 class Chitter < Sinatra::Base
 
 	enable :sessions
@@ -44,7 +45,7 @@ class Chitter < Sinatra::Base
 			flash.keep[:errors] = @user.errors.full_messages
 			redirect '/users'
 		end
-	end
+	end	
 
 	post '/sessions' do
 		user = User.authenticate(params[:email],params[:password])

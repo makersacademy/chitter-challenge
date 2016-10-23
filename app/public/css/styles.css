@@ -143,16 +143,20 @@ h1, h2, p, input[type="submit"] {
 	color: #fff;
 }
 
+p, input, form {
+	font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"] {
+	font-weight: bold;
+}
+
 .message_body, .message_username, .message_time_created {
 	color: #000;
 }
 
 .message_time_created, .message_username {
 	font-size: 12px;
-}
-
-p, input, form {
-	font-family: 'Roboto', sans-serif;
 }
 
 #logo {
