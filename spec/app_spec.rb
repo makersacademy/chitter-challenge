@@ -98,11 +98,13 @@ describe ChitterApp do
   end
 
   describe "get /peeps/new_peep" do
-    xit "displays the create new post page if logged in" do
-      get "/peeps/new"
+    it "displays the create new post page if logged in" do
+      user = User.create(id: 1, name: "Bob", user_name: "bob1", email: "bob@bob.com", password: "123")
+      get "/peeps/new", {}, "rack.session" => { user_id: user.id }
       expect(last_response).to be_ok
       expect(last_response.body).to include "New Peep"
     end
+
     it "redirects to index if not logged in" do
       get "/peeps/new"
 
