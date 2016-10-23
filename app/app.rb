@@ -15,10 +15,6 @@ register Sinatra::Flash
     erb :index
   end
 
-  post '/' do
-    redirect '/messages'
-  end
-
   get '/user/new' do
     @user = User.new
     erb :new_user
@@ -32,6 +28,21 @@ register Sinatra::Flash
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :new_user
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/messages'
+    else
+      flash.now[:errors] = [ "The email or password is incorrect"]
+      erb :'sessions/new'
     end
   end
 
