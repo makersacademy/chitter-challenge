@@ -1,8 +1,12 @@
 <h1>Welcome to Chitter</h1>
 <ul>
-  <% @peeps.each do |peep| %>
+  <% @peeps.each do |peep|
+    user = User.get(peep.user_id)
+  %>
     <li>
-      <%= peep.peep_text %>
+      <%= user.username %> posted 
+      "<%= peep.peep_text %>" at
+      <%= peep.created_at.strftime("%A %d %B %Y, %H:%M") %>
     </li>
   <% end %>
 </ul>
