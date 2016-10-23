@@ -7,7 +7,6 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'rake'
 gem 'rack'
 
 group :test do
