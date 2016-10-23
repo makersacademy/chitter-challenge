@@ -9,6 +9,7 @@ class UserDetails
   property :handle, String
   property :name,   String
   property :email,  String
+  property :password, Text
 end
 
 data_mapper_setup
