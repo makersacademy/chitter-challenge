@@ -1,0 +1,21 @@
+<html>
+<h1> Your Chitter homepage <%= session[:username] %>! </h1>
+<form action="/homepage" method="post">
+  <div>
+    <div>
+      <label for="peep">Write your peep here:</label>
+      <input type="text" name="peep"/>
+    </div>
+    <button type="submit" value="Submit">Submit peep</button>
+  </div>
+  </form>
+
+  <ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.name %>
+    </li>
+    <% end %>
+  </ul>
+
+</html>
