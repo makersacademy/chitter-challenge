@@ -7,3 +7,12 @@
 <form action='sessions/new'>
   <button type="submit"> Sign in </button>
 </form>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.time %><br>
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ul>

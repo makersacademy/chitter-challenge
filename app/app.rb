@@ -4,7 +4,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
-require_relative 'models/user'
+# require_relative 'models/user'
+# require_relative 'models/peep'
 
 #refactor into controllers go error [rerun] Chitter-challenge launched error.
 #Tests were green but could not get the server to launch - ask Ben re: this.
@@ -25,7 +26,23 @@ class Chitter < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    erb :'/index'
+    @peeps = Peep.all
+    erb :'index'
+  end
+
+  post '/' do
+    peep = Peep.create(message: params[:message], time: Time.now)
+    peep.save
+    redirect to('/')
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   get '/users/sign_up' do
