@@ -14,7 +14,7 @@
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul>
+      <ul class="errors">
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
         <% end %>

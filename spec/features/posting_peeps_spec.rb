@@ -51,4 +51,10 @@ feature 'User posting peeps' do
     end
   end
 
+  scenario 'cannot post an empty peep' do
+    sign_in
+    expect{ peep('') }.not_to change(Peep, :count)
+    expect(page).to have_content "Please enter some text"
+  end
+
 end

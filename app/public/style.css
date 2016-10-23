@@ -38,3 +38,7 @@ body {
 .new_peep {
   margin-bottom: 20px;
 }
+
+.errors {
+  color: #b22;
+}
