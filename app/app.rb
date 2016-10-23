@@ -12,9 +12,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    erb :'users/enter'
+    erb :'peeps/signin'
   end
 
+  get '/session' do
+    erb :'peeps/session'
+  end
+  
   get '/users/new' do
     erb :'users/new'
   end
