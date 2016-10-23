@@ -19,11 +19,6 @@ feature 'signing in' do
     expect(page).to have_button "PEEP"
   end
 
-  it 'authenticates a vaild email and password' do
-    authenticated_user = User.authenticate(user.email, user.password)
-    expect(authenticated_user).to eq user
-  end
-
   it 'does not allow a user to sign in when entering a password incorrectly' do
     sign_in_with_incorrect_password
     expect(current_path).to eq '/sessions'

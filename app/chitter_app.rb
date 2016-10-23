@@ -2,8 +2,10 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 require_relative 'helpers'
+
 
 
 class ChitterApp < Sinatra::Base
@@ -12,7 +14,6 @@ class ChitterApp < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
-
 
   get '/' do
     @peeps = Peep.all.reverse
