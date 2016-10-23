@@ -7,13 +7,13 @@ gem 'data_mapper'
 
 USER STORIES:
 I want to sign up for Chitter so that I can post messages (peeps) on Chitter as me
-* * *
+DONE!!!
 
 I want to log in to Chitter So that I can post messages (peeps)
-* * *
+DONE!!!
 
 I want to log out of Chitter so that others cannot post messages (peeps) on Chitter as me
-* * *
+DONE!!!
 
 I want to post a message (peep) to chitter
 DONE!!!

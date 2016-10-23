@@ -8,6 +8,7 @@ class ChitterChallenge < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
+      session[:name] = user.name      #ggkkgghggkhkghkgh
       redirect '/peeps'
     else
       flash.now[:errors] = ['The email or password is incorrect']

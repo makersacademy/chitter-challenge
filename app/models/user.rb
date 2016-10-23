@@ -5,6 +5,7 @@ class User
 
   property :id,                 Serial
   property :email,              String,   required: true,   unique: true, format: :email_address
+  property :name,               String
   property :password_digest,    Text
 
   validates_presence_of :email

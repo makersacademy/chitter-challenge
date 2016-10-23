@@ -3,6 +3,9 @@
 <h1>Peep sign up</h1>
 
 <form action='/users' method='post'>
+  <p><label for='name'>
+    Nickname: <input name='name' type='text' value='<%= @user.name %>' required>
+  </label></p>
   <p><label for='email'>
     Email: <input name='email' type='text' value='<%= @user.email %>' required>
   </label></p>

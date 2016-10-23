@@ -7,6 +7,7 @@ class ChitterChallenge < Sinatra::Base
 
   post '/users' do
     @user = User.new(email: params[:email],
+                    name: params[:name],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
     if @user.save
@@ -17,5 +18,5 @@ class ChitterChallenge < Sinatra::Base
       erb :'users/new'
     end
   end
-  
+
 end
