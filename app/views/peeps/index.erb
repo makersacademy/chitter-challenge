@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Peeps</title>
+  </head>
+  <body>
+
+    <h1> Peeps </h1>
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+        <li>
+          <% peep.users.each do |user| %>
+            <%= user.name %>
+          <% end %><br>
+          @<% peep.users.each do |user| %>
+            <%= user.username %>
+          <% end %><br><br>
+          <%= peep.content %><br><br>
+          Date posted:  <%= peep.created_at %>
+        </li><br>
+      <% end %>
+    </ul>
+
+<form action="/peeps/new" method="post" id="new">
+</form>
+<button type="submit" form="new">New post</button></a><br>
+
+<form action="/sessions/new">
+  <input type='submit' value='Login'>
+</form>
+
+  </body>
+</html>
