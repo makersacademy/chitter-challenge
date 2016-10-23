@@ -111,3 +111,13 @@ Installation & Set-up
 ---------------------
 - ```git clone https://github.com/lauraweston/chitter-challenge.git```
 - ```bundle```
+- Install postgres and create databases 'chitter_test' and 'chitter_development'
+
+Usage
+-----
+- ```rackup -p 4567```
+- ```localhost:4567``` in browser
+
+Tests
+-----
+- ```rspec```
