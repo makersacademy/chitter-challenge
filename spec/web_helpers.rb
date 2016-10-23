@@ -14,3 +14,10 @@ def sign_up(first_name: 'Tony',
   fill_in :user_name, with: user_name
   click_button 'Create Account'
 end
+
+def log_in(email:, password:)
+  visit '/sessions/log_in'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Log In'
+end
