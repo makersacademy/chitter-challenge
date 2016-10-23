@@ -18,50 +18,44 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
   </head>
-  <body><nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+  <body style="background-color: #ecf0f1;">
+    <nav class="navbar navbar-default" style="background: #95a5a6; color:#000; border-bottom: #9b59b6">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
 
-      <a class="navbar-brand" href="/home">Chitter</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <% if current_user %>
-          <li><a href="/peeps/new">Post Peep</a></li>
-        <% else %>
-          <li><a href="/sessions/new">Sign In</a></li>
-          <li><a href="/users/new">Sign Up</a></li>
-        <% end %>
-      </ul>
+          <a class="navbar-brand" href="/home" style="color: #2c3e50">Chitter</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <% if current_user %>
+              <li><a href="/peeps/new" style="color: #2c3e50">Post Peep</a></li>
+            <% else %>
+              <li><a href="/sessions/new" style="color: #2c3e50">Sign In</a></li>
+              <li><a href="/users/new" style="color: #2c3e50">Sign Up</a></li>
+            <% end %>
+          </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <% if current_user %>
-            <form method='post' action='/sessions'>
-              <input type='hidden' name='_method' value='delete'>
-              <input style="padding: 0; border: none; background: none;" type='submit' value='Sign Out'>
-            </form>
-          <% end %>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <% if current_user %>
+                <form method='post' action='/sessions'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input style="padding: 0; border: none; background: none;" type='submit' value='Sign Out'>
+                </form>
+              <% end %>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <% if current_user %>
       <h2>Hello <%= current_user.username %>!</h2>
     <% end %>
-        <%= partial :welcome %>
-        <%= partial :flash %>
-
-        <%= yield %>
-
-
-
-
+      <%= partial :welcome %>
+      <%= partial :flash %>
+    <%= yield %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
