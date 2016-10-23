@@ -1,0 +1,13 @@
+<h1>Go on.... have a peep!</h1>
+
+<% if current_user %>
+  <form action="/" method="post">
+    <input type="text" name="message" placeholder="Message"/>
+    <input type="submit" value="Peep"/>
+    <form/>
+  <% else %>
+    <p>"You must be signed in to Peep!"</p>
+    <form action='/sessions/new'>
+      <button type="submit"> Sign in </button>
+    </form>
+  <% end %>

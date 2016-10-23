@@ -1,0 +1,19 @@
+<h1>Welcome to Chitter</h1>
+
+<% if !current_user %>
+  <form action='users/sign_up'>
+    <button type="submit"> Sign up </button>
+  </form>
+  <form action='sessions/new'>
+    <button type="submit"> Sign in </button>
+  </form>
+<% end %>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.time %><br>
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
