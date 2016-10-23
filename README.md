@@ -27,6 +27,16 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
+#### Solution
+
+* Create a database for chitter_development and chitter_test
+* Write tests to check the creation of the databases
+* Create a User class which contains the relevant sign up information (name, username, email, password and password confirmation)
+* Create a web view which contains a form which can be filled out to fulfil the user criteria
+* Modify the controllers to be able to obtain the user input and pass it to the database
+* Test to ensure the information has indeed been passed to the database and stored
+* Eliminate edge cases (e.g. No email given, not unique etc...)
+
 
 ```
 As a Maker
