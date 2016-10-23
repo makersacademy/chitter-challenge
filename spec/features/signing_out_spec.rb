@@ -14,7 +14,7 @@ feature 'signing out' do
     click_button "Sign out"
     expect(page).to have_content "Peep again soon"
     expect(page).not_to have_content "Welcome, Alan"
-    expect(current_user).to eq "/"
+    expect(current_path).to eq "/"
   end
 
 end

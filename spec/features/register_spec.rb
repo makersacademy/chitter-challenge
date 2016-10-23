@@ -40,7 +40,7 @@ feature 'registering' do
     fill_in "password", with: "password123"
     fill_in "password_confirmation", with: "password456"
     expect{ click_button 'Register' }.to change{ User.all.count }.by(0)
-    # expect(current_path).to eq '/users/register'
+    expect(current_path).to eq '/users/new_user_authenticate'
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
@@ -48,7 +48,7 @@ feature 'registering' do
     visit ("/")
     register
     register
-    # expect(current_path).to eq '/users/register'
+    expect(current_path).to eq '/users/new_user_authenticate'
     expect(page).to have_content 'Email is already taken'
   end
 end

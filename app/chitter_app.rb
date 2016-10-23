@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative 'helpers'
 
 
 class ChitterApp < Sinatra::Base
@@ -76,12 +77,7 @@ class ChitterApp < Sinatra::Base
     redirect to '/'
   end
 
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers Helpers
 
   # start the server if ruby file executed directly
   run! if app_file == $0
