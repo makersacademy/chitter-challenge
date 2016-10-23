@@ -4,8 +4,11 @@ class User
   include DataMapper::Resource
 
   property :id,                 Serial
-  property :email,              String
+  property :email,              String,   required: true,   format: :email_address
   property :password_digest,    Text
+
+  validates_presence_of :email
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password

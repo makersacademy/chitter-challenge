@@ -4,7 +4,7 @@
 
 <form action='/users' method='post'>
   <p><label for='email'>
-    Email: <input name='email' type='text' value='<%= @user.email %>'>
+    Email: <input name='email' type='text' value='<%= @user.email %>' required>
   </label></p>
   <p><label for='password'>
     Password: <input name='password' type='password'>
