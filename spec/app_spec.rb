@@ -126,10 +126,16 @@ describe ChitterApp do
 
   describe "post sessions/logout" do
     it "redirects to index page" do
-      #tbd
+      post "/sessions/logout"
+
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.path).to eq("/")
     end
     it "clears session user_id" do
-      #tbd
+      post "/sessions/logout"
+
+      expect(last_request.session[:user_id]).to eq nil
     end
   end
 

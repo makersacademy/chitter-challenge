@@ -15,6 +15,4 @@ feature "User sign up" do
     expect(current_path).to eq "/users/new"
     expect(page).to have_content "Username or email is already taken. Try an alternative."
   end
-
-
 end
