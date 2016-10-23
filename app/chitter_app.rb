@@ -28,11 +28,11 @@ class ChitterApp < Sinatra::Base
 
   post '/users/new_user_authenticate' do
     @user = User.create(first_name: params[:first_name],
-                   last_name: params[:last_name],
-                   username: params[:username],
-                   email: params[:email],
-                   password: params[:password],
-                   password_confirmation: params[:password_confirmation])
+                        last_name: params[:last_name],
+                        username: params[:username],
+                        email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/peeps/peepdeck'
@@ -53,7 +53,8 @@ class ChitterApp < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect '/peeps/peepdeck'
-    else flash.now[:notice] = 'The email or password is incorrect'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/sign_in'
     end
   end
@@ -76,7 +77,7 @@ class ChitterApp < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye!'
+    flash.keep[:notice] = 'Peep again soon'
     redirect to '/'
   end
 

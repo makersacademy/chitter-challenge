@@ -17,5 +17,4 @@ feature 'create a peep' do
     fill_in "peep", with: "My first peep"
     expect{ click_button "PEEP" }.to change{ Peep.all.count }.by(1)
   end
-
 end

@@ -34,7 +34,7 @@ class User
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
-      fail
+      nil
     end
   end
 
