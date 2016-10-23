@@ -2,15 +2,16 @@
 <br><br>
 Newest peeps:
 
+  <% if @peeps != nil %>
   <% @peeps.each do |peep| %>
   <ul>
     <li><%= peep.text %></li>
     <li><%= peep.created_at %></li>
   </ul>
   <% end %>
-
-
-
+  <% end %>
+<br><br>
+Post new peep!
 <form action="/new_peep" method="post">
 <input type='text' name='new_peep'/>
 </label>

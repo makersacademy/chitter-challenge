@@ -9,7 +9,7 @@ feature 'Sign up' do
 
   scenario "New user forget to fill_in the username's field" do
     visit '/'
-    fill_in :new_email,         with: 'myemail'
+    fill_in :new_email,         with: 'myemail@email.com'
     fill_in :new_name,          with: 'myname'
     fill_in :new_password,      with: 'mypassword'
     click_button "Sign up"

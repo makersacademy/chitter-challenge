@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
@@ -26,11 +26,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
+      @peeps = Peep.all
       user = User.authenticate(params[:username], params[:password])
       if user
       session[:user_id] = user.id
       @welcome = "Welcome #{user.name}!"
-      @peeps = Peep.all
       erb :peeps
       else
       flash.now[:notice] = "Username or password not valid, try again"
@@ -39,12 +39,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_user' do
+      @peeps = Peep.all
     user = User.create(username: params[:new_username], email: params[:new_email], name: params[:new_name], password: params[:new_password])
     user.save
     if user.save
       session[:user_id] = user.id
       @welcome = "Welcome #{user.name}!"
-      @peeps = Peep.all
       erb :peeps
     else
       flash.now[:notice] = "All fields need to be filled in"
@@ -53,7 +53,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    # session[:user_id] = user.id
     @peeps = Peep.all
     peep = Peep.create(text: params[:new_peep], created_at: Time.new)
     peep.save!
@@ -62,7 +61,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.keep[:notice] = "goodbye!"
     redirect to '/'
   end
 
