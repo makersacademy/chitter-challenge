@@ -19,6 +19,7 @@ require 'rspec'
 require File.join(File.dirname(__FILE__), './features', 'web_helpers_spec.rb')
 require File.join(File.dirname(__FILE__), '../app/models', 'user.rb')
 require 'database_cleaner'
+require 'timecop'
 
 Capybara.app = Chitter
 
