@@ -42,12 +42,6 @@ class ChitterApp < Sinatra::Base
     end
   end
 
-  post '/test' do
-    "Hello world"
-    Peep.create(peep_text: "IF I CAN SEE THIS I WILL BE VERY HAPPY")
-    redirect '/peeps/peepdeck'
-  end
-
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
