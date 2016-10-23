@@ -18,4 +18,10 @@ group :test do
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'rspec-sinatra'
+  gem 'dm-rspec'
+  gem 'rack-test'
+end
+
+group :production do
+  gem 'pg'
 end
