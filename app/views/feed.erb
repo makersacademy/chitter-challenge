@@ -1,0 +1,28 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+
+    <h1>Chitter - A place to Peep.</h1>
+
+    <div class="peep">
+      <form action="/peep" method="post">
+        <input type="text" placeholder="Go ahead... Peep" name="peep" />
+        <input type="submit" value="Peep" />
+      </form>
+    </div>
+
+    <h3> Who's been peeping? </h3>
+    <ul id ='peeps'>
+      <% @peeps.each do |peep| %>
+      <li>
+        User: <%= peep.user.user_name %>
+        Peep: <%= peep.message %>
+        Created: <%= peep.date_created.strftime("Peeped on %A %d %b %Y at %R") %>
+      </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>
