@@ -2,8 +2,8 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
-require '../app/data_mapper_setup'
-require '../app/helpers'
+require_relative '/app/data_mapper_setup'
+require_relative '/app/helpers'
 
 class ChitterApp < Sinatra::Base
 
