@@ -1,10 +1,13 @@
 ENV["RACK_ENV"] ||=  "development"
 require 'sinatra/base'
+require "sinatra/flash"
 require_relative 'data_mapper_setup'
+require_relative "models/peep"
+require_relative "models/user"
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
-
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -13,11 +16,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    user = User.get(username: params[:username], password: params[:password])
-    current_user
-    session[:user_id] = current_user.id
-    redirect '/chitter'
-  end
+    user = User.authenticate(params[:username], params[:password])
+   if user
+     session[:user_id] = user.id
+     redirect '/chitter'
+   else
+     flash.now[:errors] = ['Your email or password is incorrect - try sign up!']
+     erb :index
+   end
+ end
 
   get '/sign_up' do
     erb :sign_up
@@ -31,8 +38,8 @@ class Chitter < Sinatra::Base
 
   get '/chitter' do
     p Peep.all
-    peeps = Peep.all
-    p peeps
+    @peeps = Peep.all
+    @peeps = @peeps.reverse
     erb :chitter
   end
 
@@ -46,7 +53,7 @@ class Chitter < Sinatra::Base
 
   delete '/log_out' do
     session[:user_id] = nil
-    # flash.keep[:notice] = 'goodbye!'
+    flash.keep[:notice] = 'goodbye!'
     redirect to '/'
   end
 
