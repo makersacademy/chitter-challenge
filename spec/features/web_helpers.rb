@@ -28,3 +28,17 @@ def peep(text)
   fill_in :peep_text, with: text
   click_button 'Peep'
 end
+
+def sign_in_and_peep
+  sign_in
+  peep("peep peep!")
+end
+
+def comment(text)
+  within 'div.peep' do
+    within 'div.comments' do
+      fill_in :comment_text, with: text
+      click_button 'reply'
+    end
+  end
+end

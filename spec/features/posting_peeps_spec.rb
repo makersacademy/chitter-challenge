@@ -27,7 +27,7 @@ feature 'User posting peeps' do
 
     within 'div.peep' do
       within 'div.peep_date' do
-        expect(page).to have_content(Time.now.strftime('%F %T'))
+        expect(page).to have_content(Time.now.strftime("%Y-%m-%d %H:%M"))
       end
     end
   end

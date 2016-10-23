@@ -9,6 +9,7 @@ class User
   validates_format_of :email, as: :email_address
 
   has n, :peeps
+  has n, :comments
 
   property :id, Serial
   property :name, String
