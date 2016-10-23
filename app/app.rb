@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative './models/peep'
+require_relative 'models/peep'
 
 class Chitterhub < Sinatra::Base
 
