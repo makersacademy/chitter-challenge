@@ -1,13 +1,18 @@
-<h1> Peeps </h1>
-
-<form action="peeps/new" method="post">
-  <input type="text" name="message">
-  <input type="submit" value="Submit">
-</form>
-
-<ul id="peeps">
-  <% @peeps.reverse.each do |peep| %>
-    <h3><%= peep.message %><br></h3>
-    <h4><%= @users.get(peep.user_id).name %> <%= peep.created_at.strftime('%I:%M:%S %p') %></h4>
-  <% end %>
-</ul>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div>
+  <div class="col-md-8 col-centred">
+    <h1> Peeps </h1>
+    <form class="form-group" action="peeps/new" method="post">
+        <input type="text" name="message">
+        <input class="btn btn-default" type="submit" value="Submit">
+    </form>
+  </div>
+  <div class="col-md-8 col-centred">
+  <ul id="peeps">
+    <% @peeps.reverse.each do |peep| %>
+      <h3><%= peep.message %><br></h3>
+      <%= @users.get(peep.user_id).name %> <%= peep.created_at.strftime('%I:%M:%S %p') %>
+    <% end %>
+  </ul>
+  </div>
+<div>

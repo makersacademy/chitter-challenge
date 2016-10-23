@@ -41,9 +41,7 @@ feature "User signs out" do
   scenario "While being signed in" do
     sign_up(password_confirmation: 'admin')
     sign_in(user)
-    p current_path
     click_button 'Sign out'
-    p current_path
     expect(page).to have_content 'Goodbye!'
     expect(page).not_to have_content 'Welcome, Ed'
   end

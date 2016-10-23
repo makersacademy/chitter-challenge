@@ -1,10 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+.form-control {
+  height: 60%;
+}
+</style>
+
+<html>
+<body class="container-fluid">
 <h1> Sign up below </h1>
 
+<div class="form-control ">
 <form action="/users" method="post">
-  Email: <input type="text" name="email" value=" <%= @user.email %> ">
-  Username: <input type="text" name="username" value=" <%= @user.username %> ">
-  Name: <input type="text" name="name" value=" <%= @user.name %> ">
-  Password: <input type="text" name="password">
-  Confirm Password: <input type="text" name="password_confirmation">
-  <input type="submit" value="Submit">
+  <div class="form-group">
+    Email: <input type="email" name="email" value="<%=@user.email%>">
+  </div>
+  <div class="form-group">
+    Username: <input type="text" name="username" value="<%=@user.username%>">
+  </div>
+  <div class="form-group">
+    Name: <input type="text" name="name" value="<%=@user.name%>">
+  </div>
+  <div class="form-group">
+    Password: <input type="password" name="password">
+  </div>
+  <div class="form-group">
+    Confirm Password: <input type="password" name="password_confirmation">
+  </div>
+  <div>
+    <input class="btn btn-default" type="submit" value="Submit">
+  </div>
 </form>
+</div>
+</body>
+</html>
