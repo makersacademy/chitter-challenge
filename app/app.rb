@@ -31,12 +31,12 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/signup' do
+  get '/signup/new' do
     @user = User.new
     erb :signup
   end
 
-  post '/signup/new' do
+  post '/signup' do
     @user = User.new(name: params[:name],
     email: params[:email],
     username: params[:username],
@@ -51,9 +51,21 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/login' do
-
+  get '/sessions/new' do
+    @user = User.new
+    erb :login
   end
+
+  post '/sessions' do
+  user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :'login'
+  end
+end
 
   run! if app_file == $0
 end

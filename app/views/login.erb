@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Log into your account</h1>
+      <form action = "/sessions" method="post">
+        <label for='email'>Email</label><br>
+        <input type="text" name="email" required>
+        <br><label for='password'>Password</label><br>
+        <input type="password" name="password" required>
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            <br>Please correct the following errors:
+            <ul id='errors'>
+              <% flash[:errors].each do |error|  %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        <input type="submit" value="Log in">
+        </form>
+    </body>
+</html>

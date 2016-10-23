@@ -1,5 +1,5 @@
 def create_account
-  visit '/signup'
+  visit '/signup/new'
   fill_in 'name', with: 'Posie'
   fill_in 'email', with: 'posie@shlack.com'
   fill_in 'username', with: 'rgoll'
@@ -9,7 +9,7 @@ def create_account
 end
 
 def create_account_nil_email
-  visit '/signup'
+  visit '/signup/new'
   fill_in 'name', with: 'Posie'
   fill_in 'email', with: ''
   fill_in 'username', with: 'rgoll'
