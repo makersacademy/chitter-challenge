@@ -2,18 +2,12 @@ require 'spec_helper'
 
 feature "User sign in" do
   let!(:user) do
-    User.create(email: 'abigail@gmail.com', password: '1234')
+    User.create(name: "Abigail Johnson", email: 'abigail@gmail.com', user_name: "Ab", password: '1234', password_confirmation: '1234')
   end
 
   scenario "with correct credentials" do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content("Welcome, #{ user.email }")
+    expect(page).to have_content("Welcome, #{ user.user_name }")
   end
 
-  def sign_in(email:, password:)
-    visit 'sessions/new'
-    fill_in('email', with: email)
-    fill_in('password', with: password)
-    click_button('Sign in')
-  end
 end

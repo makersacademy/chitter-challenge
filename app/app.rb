@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
 enable :sessions
 set :session_secret, 'super secret'
 register Sinatra::Flash
+use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -48,6 +49,12 @@ register Sinatra::Flash
 
   get '/messages' do
     erb :messages
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Have a nice day!'
+    redirect '/'
   end
 
   helpers do
