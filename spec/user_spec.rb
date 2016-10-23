@@ -7,4 +7,5 @@ describe User do
   it { is_expected.to have_property :name }
   it { is_expected.to have_property :user_name }
   it { is_expected.to have_property :email }
+  it { is_expected.to have_many :posts }
 end

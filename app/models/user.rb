@@ -6,4 +6,6 @@ class User
   property :user_name, String
   property :email, String
 
+  has n, :posts
+
 end
