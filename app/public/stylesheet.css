@@ -209,3 +209,13 @@ button:hover {
   display: block;
   margin: 30px auto;
 }
+
+footer {
+  text-align: center;
+  margin: 100px auto 60px auto;
+}
+
+footer a {
+  text-decoration: underline;
+  color: #fff;
+}
