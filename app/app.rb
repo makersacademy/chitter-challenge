@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user'
-require_relative 'datamapper_setup'
+require_relative 'data_mapper_setup'
 
 class ChitterChatter < Sinatra::Base
   register Sinatra::Flash
@@ -40,8 +40,8 @@ class ChitterChatter < Sinatra::Base
     end
   end
 
-  get '/log-in' do
-    erb :log_in
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
 end
