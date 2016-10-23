@@ -11,6 +11,7 @@ require './app/app.rb'
 require './app/models/peep'
 require './app/models/comment'
 require './app/models/user'
+require_relative 'helpers/session'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -22,6 +23,7 @@ Capybara.app = ChitterChallenge
 
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.before(:suite) do # Everything in this block runs once before all the tests run
     DatabaseCleaner.strategy = :transaction
