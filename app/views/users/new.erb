@@ -1,0 +1,26 @@
+<h2>Please sign up</h2>
+
+<form action='/users' method='post' class="form-group">
+  <div class="form-group">
+    <label for='username'>Username:</label>
+    <input name='username' type='text' value='<%= @user.username %>' required>
+  </div>
+  <div class="form-group">
+    <label for='name'>Name:</label>
+    <input name='name' type='text' value='<%= @user.name %>' required>
+  </div>
+  <div class="form-group">
+    <label for='email'>Email:</label>
+    <input name='email' type='text' value='<%= @user.email %>' required>
+  </div>
+  <div class="form-group">
+    <label for='password'>Password: <input name='password' type='password'>
+  </div>
+  <div class="form-group">
+    <label for='password_confirmation'>Password Confirmation:</label>
+    <input name='password_confirmation' type='password'>
+  </div>
+  <div class="form-group">
+    <input type='submit' class="btn btn-default" value='Submit'>
+  <div>
+</form>

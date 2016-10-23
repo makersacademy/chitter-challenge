@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg)](https://coveralls.io/github/makersacademy/chitter-challenge)
+
 Chitter Challenge
 =================
 
@@ -7,102 +9,36 @@ Chitter Challenge
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
 
-As usual please start by forking this repo.
+Solution
+=================
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+I started off with using the User Stories to create a User model. The User model creates a users relation which stores a username, name, email and password. The User can create an account with both email/username verified.
 
-Features:
--------
+The Peep model creates a peeps relation which stores a peep.
 
+The landing page allows a user to see peeps from all users, starting with the most recent.
+
+Installation:
 ```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+$ git clone https://github.com/hanrattyjen/chitter_challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
 ```
 
-Notes on functionality:
-------
+Deployed web app can be found at https://chitter-chitter-bang-bang.herokuapp.com
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Screen shot from home screen:
 
-Bonus:
------
+[![Screen Shot 2016-10-23 at 22.09.24.png](https://s13.postimg.org/xtf5zlphz/Screen_Shot_2016_10_23_at_22_09_24.png)](https://postimg.org/image/rshh2j2vn/)
 
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+Next
+=================
+Now that the User and Peep have been created, there is a lot you could do with this.
+* Attempt to get the Users to interact with each other and have the ability to reply to peeps. This would involve a many-to-many relationship, so it would be interesting to see how it is done.
+* Work on the CSS as it looks very messy.
+* User could have profile picture.
+* User could have the ability to upload an image.
