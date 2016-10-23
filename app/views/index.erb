@@ -1,2 +1,5 @@
 <h1>Welcome to Chitter</h1>
-<%= @peeps.first.class %>
+<%=
+unless @peeps.first.nil?
+  @peeps.first.peep_text
+end %>
