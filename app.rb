@@ -7,14 +7,19 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/users/new' do
+    User.new
     erb :'users/new'
   end
 
+  get '/' do
+    erb :'welcome'
+  end
+
   post '/users' do
-    User.create(email: params[:email],
+    user = User.create(email: params[:email],
                 password: params[:password])
-    session[:user_id] = user_id
-    redirect to('/post')
+    session[:user_id] = user.id
+    redirect to('/')
   end
 
   helpers do
