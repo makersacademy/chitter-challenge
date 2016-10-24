@@ -73,7 +73,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/index' do
-    peep = Peep.create(post: params[:post])
+    peep = Peep.create(post: params[:post], created_at: Time.new, user: current_user)
     peep.save
     redirect '/index'
   end

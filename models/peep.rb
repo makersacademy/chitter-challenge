@@ -7,9 +7,8 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :post, String, length: 1..225
-  property :created_at, DateTime
-  property :created_on, Date
+  property :post, Text
+  property :created_at, Time
 
   belongs_to :user
 
