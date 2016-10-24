@@ -1,4 +1,4 @@
-<h2 style="color:#fff;font-family: fantasy;">List of Peeps</h2>
+<h2 class="title-post">List of Peeps</h2>
 <div class="post-form">
   <% if current_user %>
   <form method = "post" action="/peeps">
@@ -11,7 +11,7 @@
   <% end %>
 </div>
 <br>
-<div class="message">
+<div class="message" style="text-align:center">
   <% Peep.all(order: [:time.desc]).each do |peep| %>
       <div class="panel">
         <h4 class="panel-title">
@@ -19,9 +19,8 @@
             <%= peep.time.strftime("%d/%m/%Y") + peep.time.strftime(" at %I:%M %p")  %>
           <% end %>
           <span><%= peep.user.username.to_s.capitalize %> says: &nbsp;</span>
-        </h4>
-        <%= peep.peep %>
-        <br>
+        </h4><br>
+        <%= peep.peep %><br>
       </div>
       <br>
   <% end %>

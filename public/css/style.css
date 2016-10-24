@@ -101,12 +101,6 @@ label {
   text-shadow: 5px 5px 5px #666666;
 }
 
-.btn {
-  margin-bottom: 10px;
-  margin-top: 25px;
-  width: 130px;
-  font-size: 20px;
-}
 
 .message {
   display: inline-block;
@@ -131,4 +125,14 @@ label {
 }
 .panel-title span{
   float:right;
+}
+.title-post{
+  font-size: 30px;
+  color:#fff;
+  font-family:fantasy;
+  padding:25px 0 15px 0;
+}
+
+.btn{
+  margin: 15px 0 15px 0;
 }

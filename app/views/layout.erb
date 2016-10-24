@@ -5,9 +5,9 @@
   <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
   <title>Chitter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
   <link href="/css/reset.css" rel="stylesheet">
+  <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
@@ -28,29 +28,24 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-            <li><h4> Welcome, <%= current_user.email %> </h4></li>
-
+            <li><h4 style="color:black;display:inline-block;"> Welcome, <%= current_user.email %> </h4></li>
             <li><a href="#"><i class="icon-user"></i> <%= @current_user.username.to_s.capitalize %> </a></li>
-
             <li>
               <form method='post' action='/sessions' class="navbar-form navbar-right">
                 <input type='hidden' name='_method' value='delete'>
                 <button type="submit" class="btn btn-danger">Logout</button>
               </form>
             </li>
-
           </ul>
           <% else %>
           <ul class="nav pull-right">
             <li><a href="/users/new"> Sign up </a></li>
-
             <li>
               <form method='post' action='/sessions/new' class="navbar-form navbar-right">
                 <input type='hidden' name='_method' value='get'>
                 <button type="submit" class="btn btn-primary" id = "login">Login</button>
               </form>
             </li>
-
           </ul>
           <% end %>
         </div>
