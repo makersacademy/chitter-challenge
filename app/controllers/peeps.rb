@@ -21,13 +21,13 @@ class Chitter < Sinatra::Base
   end
 
 
-  post '/responses/:peep_id' do
+  post '/responses' do
     if current_user && params[:text]
       Response.create(text: params[:text],
-                      user_id: current_user.id,
-                      peep_id: params[:peep_id],
+                      user: current_user,
+                      peep: params[peep],
                       timestamp: Time.now)
-      redirect '/peeps'
+      redirect to('/peeps')
     elsif !params[:response_text]
       flash.keep[:errors] = "You need to write something."
       redirect :'/peeps'

@@ -31,7 +31,7 @@
       </ul>
 
       <% if current_user %>
-      <form method = "post" action="/responses/<%=peep.id%>">
+      <form method = "post" action="/responses">
         <input type="text" name="text" placeholder="Reply here" maxlength="140">
         <input type="submit" value="Reply">
       </form>
