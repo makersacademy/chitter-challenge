@@ -1,0 +1,11 @@
+<h1><%= @current_user.name %>'s nest</h1>
+<div id="twits">
+    <% @current_user.twits.each do |twit| %>
+      <div class="twit">
+        <%= twit %>
+        <% twit.twoots.each do |twoo| %>
+          <%= twoo %>
+        <% end %>
+      </div>
+    <% end %>
+</div>
