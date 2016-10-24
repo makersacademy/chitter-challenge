@@ -7,10 +7,6 @@ Technologies used
 ------------------
 It was written in Ruby using the Sinatra MVC framework. I used the object-relational mapper, DataMapper, to communicate with a Postgres database. User passwords are encrypted and authenticated using BCrypt. I test-drove the development using RSpec/Capybara.
 
-Next steps
-----------
-I would like to apply CSS to improve the presentation, introduce new features, such as 'reply' or 'like' and profile pictures for users, and also deploy it to Heroku so it doesn't require local installation.
-
 Instructions
 -----------
 To install, go to the directory of your choice and follow these instructions:
@@ -84,3 +80,7 @@ Approach
 11. Refactored to extract controllers.
 
 Somewhere along the line I managed to break my local coveralls reporting so I was unable to view my test coverage. I still have no idea how to fix this. The stack trace didn't really help me!
+
+Next steps
+----------
+I would like to apply CSS to improve the presentation, introduce new features, such as 'reply' or 'like' and profile pictures for users, and also deploy it to Heroku so it doesn't require local installation.
