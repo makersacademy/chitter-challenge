@@ -1,17 +1,24 @@
-def sign_up
-  visit '/login'
-  fill_in('email_signup', with: 'bubble@bubbles.com')
-  fill_in('name_signup', with: 'Tim')
-  fill_in('username_signup', with: 'Bubbles')
-  fill_in('password_signup', with: 'password')
-  click_button('Sign up')
+def sign_up(email: 'bubble@bubbles.com',
+            name: 'Tim',
+            username: 'Bubbles',
+            password: 'password', 
+            confirm_password: 'password')
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in('email', with: email)
+  fill_in('name', with: name)
+  fill_in('username', with: username)
+  fill_in('password', with: password)
+  fill_in('confirm_password', with: confirm_password)
+  click_button('Register')
 end
 
 def log_in
   visit '/login'
+  expect(page.status_code).to eq(200)
   fill_in('username_login', with: 'Bubbles')
   fill_in('password_login', with: 'password')
-  click_button('Sign in')
+  click_button('Log in')
 end
 
 def peep(message)

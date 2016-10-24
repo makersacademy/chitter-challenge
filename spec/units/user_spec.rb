@@ -24,14 +24,6 @@ describe User do
     expect(user).to respond_to(:peeps)
   end
 
-  it "has a username that is unique" do
-    expect(User.count(username: peep.username)).to eq 1
-  end
-
-  it "has an email that is unique" do
-    expect(User.count(email: peep.email)).to eq 1
-  end
-
   it "can post peeps" do
     expect(user).to respond_to(:post)
   end

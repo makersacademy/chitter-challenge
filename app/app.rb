@@ -2,12 +2,10 @@ ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
 require_relative "models/data_mapper_setup"
-require_relative 'models/user'
-require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, 'bottlenose dolphin'
 
   database_setup
 
@@ -15,12 +13,16 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get "/sign_in" do
-    erb :sign_in
+  get "/users/new" do
+    erb :'users/new'
   end
 
-  post "/sign_in" do
-    user = User.create(username: params[:username], email: params[:email], password: params[:password])
+  post "/users" do
+    user = User.create(username: params[:username],
+                       name: params[:name],
+                       email: params[:email],
+                       password: params[:password],
+                       password_confirmation: params[:confirm_password])
     session[:user_id] = user.id
     redirect "/"
   end
