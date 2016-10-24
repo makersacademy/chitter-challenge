@@ -7,7 +7,7 @@ class Peep
   has n, :comments, through: Resource
 
   property  :id,          Serial
-  property  :name,        String,   required: true
+  property  :nickname,    String,   required: true
   property  :message,     String
   property  :created_at,  DateTime
 

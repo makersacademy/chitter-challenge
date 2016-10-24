@@ -8,7 +8,7 @@
   <% @peeps.each do |peep| %>
     <li style="list-style: none;">
     <% time = peep.created_at %>
-    <b><p><%= peep.name %></b>&nbsp&nbsp <%= time.strftime("Peeped on %d/%m/%Y at %I:%M%p") %></p>
+    <b><p><%= peep.nickname %></b>&nbsp&nbsp <%= time.strftime("Peeped on %d/%m/%Y at %I:%M%p") %></p>
     <b><textarea rows='4' cols='50' name='message' disabled><%= peep.message %></textarea></b>
     </br></br>
     <form action='/comments/new' method='POST'>

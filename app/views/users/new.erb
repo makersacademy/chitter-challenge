@@ -4,7 +4,10 @@
 
 <form action='/users' method='post'>
   <p><label for='name'>
-    Nickname: <input name='name' type='text' value='<%= @user.name %>' required>
+    Name: <input name='name' type='text' value='<%= @user.name %>' required>
+  </label></p>
+  <p><label for='nickname'>
+    Nickname: <input name='nickname' type='text' value='<%= @user.nickname %>' required>
   </label></p>
   <p><label for='email'>
     Email: <input name='email' type='text' value='<%= @user.email %>' required>

@@ -3,6 +3,7 @@ feature "Creating peeps" do
   let!(:user) do
     User.create(email: 'user@example.com',
                 name: "H Houdini Esq",
+                nickname: "maistro_hh",
                 password: 'secret1234',
                 password_confirmation: 'secret1234')
   end

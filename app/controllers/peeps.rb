@@ -15,11 +15,11 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    if params['name'].empty?
+    if params['nickname'].empty?
       flash[:notice] = 'You need to be logged in to peep.'
       redirect '/sessions/new'
     end
-    Peep.create(name: params['name'], message: params['message'] )
+    Peep.create(nickname: params['nickname'], message: params['message'] )
     redirect '/peeps'
   end
 
