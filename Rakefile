@@ -1,11 +1,17 @@
+require_relative 'app/app'
+require_relative 'app/data_mapper_setup'
+# require 'data_mapper'
+# require 'dm-postgres-adapter'
+
+
+if ENV['RACK_ENV'] != 'production'
+
 require 'rspec/core/rake_task'
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require './app/app.rb'
 
-RSpec::Core::RakeTask.new :spec
+  RSpec::Core::RakeTask.new :spec
 
-task default: [:spec]
+  task default: [:spec]
+end
 
 namespace :db do
   desc "Non destructive upgrade"
