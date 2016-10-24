@@ -1,0 +1,20 @@
+<% if current_user %>
+  Welcome, <%= current_user.user_name %>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Sign Out">
+  </form>
+
+  <form action="/new_peep" method="get">
+    <input type="submit" value="New Peep!">
+  </form>
+
+<% else %>
+  <% if !request.path_info.include?('/sessions') || request.path_info == 'sessions/delete' %>
+    Sign in to post a new peep!
+    <form action="/sign_in">
+      <input type="submit" value="Sign In">
+    </form>
+    <a href="/sign_up">Sign Up</a>
+  <% end %>
+<% end %>
