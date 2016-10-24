@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  delete '/sessions'do
+  delete '/sessions' do
     @peeps = Peep.all
     @users = User.all
     session.clear
