@@ -3,7 +3,7 @@
 #Chitter Challenge
 =================
 ___
-![Logo](http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png)
+<img src="http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png" width="100">
 ___
 Challenge:
 -------
@@ -39,4 +39,4 @@ App available online:
 ```
 http://chitter-bylaszlo.herokuapp.com
 ```
-![Screenshot](https://www.dropbox.com/s/h62y7vblmtlf6oq/chitter.png?dl=0)
+![Screenshot](./public/images/chitter.png)
