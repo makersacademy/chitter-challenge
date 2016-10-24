@@ -1,4 +1,5 @@
 feature 'Posting peeps' do
+
   before(:each) do
     User.create(name: 'Bo Peep',
                 username: 'BoPeep789',
@@ -11,18 +12,23 @@ feature 'Posting peeps' do
     click_button('Post')
     expect(current_path).to eq '/'
   end
+
   scenario 'I can post a peep' do
     expect(page).to have_content('Woke up, ate some breakfast, purred at the sheep.')
   end
+
   scenario 'I can see the time a peep was posted' do
     expect(page).to have_content(Time.now.strftime("%A %d %B %Y, %H:%M"))
   end
+
   scenario 'I can see the username of the person who posted the peep' do
     expect(page).to have_content('BoPeep789')
   end
+
   scenario 'I can see the name of the person who posted the peep' do
     expect(page).to have_content('Bo Peep')
   end
+  
   scenario 'I cannot post a peep if I am not logged in' do
     click_button 'Log-out'
     visit '/peeps/new'
