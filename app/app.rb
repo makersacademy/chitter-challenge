@@ -6,8 +6,13 @@ class TwitTwoo < Sinatra::Base
   end
 
   post '/register' do
-    owl = Owl.save(nam: params[:name], username: params[:username], password: params[:password], email: params[:email])
-    
+    @owl = Owl.save(nam: params[:name], username: params[:username], password: params[:password], email: params[:email])
+    if @owl.id
+      session[owl_id] = @owl.id
+      redirect '/nest'
+    else
+      flash.now[:error] = @owl.errors.full_messages
+      erb :register
   end
 
 
