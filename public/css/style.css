@@ -79,7 +79,7 @@ body {
 
 .footer {
   font-size: 15px;
-  position: relative;
+  position: fixed;
   padding: 1rem;
   background-color: #efefef;
   text-align: center;

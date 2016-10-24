@@ -52,27 +52,26 @@
         <!--/.nav-collapse -->
       </div>
       <!--/.container-fluid -->
-    </div>
+      </div>
     <!--/.navbar-inner -->
-  </div>
-  <!--/.navbar -->
-  <div class="errors">
-    <% if flash[:errors] && !flash[:errors].empty? %>
-    <div class="alert" role="alert">
-      <a href="#" class="close" data-dismiss="alert">&times;</a>
-      <ul id = 'errors'>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
+    <div class="errors">
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger" role="alert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <ul id = 'errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
+<!--/.navbar -->
   <div>
     <%= yield %>
-    <!-- <footer class="footer">Made by Manuela Sabatino</footer> -->
+    <footer class="footer">Made by Manuela Sabatino</footer>
   </div>
-
 
 </body>
 </html>
