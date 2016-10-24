@@ -2,8 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require './app/models/user'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -14,11 +18,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-    User.create(user_name: params[:user_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    redirect '/home'
+    user = User.create(user_name: params[:user_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    session[:user_name] = user.user_name
+    if user.save
+      redirect '/home'
+    else
+      flash.now[:notice] = "Passwords do not match"
+      erb :'users/new'
+    end
   end
 
   get '/home' do
+    @current_user_name = session[:user_name]
     erb :home
   end
 

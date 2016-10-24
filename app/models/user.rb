@@ -9,7 +9,7 @@ class User
 
   property :id, Serial
   property :user_name, String, :unique => true
-  property :email, String, :unique => true, :format => :email_address
+  property :email, String, :unique => true, :format => :email_address, required: true
   property :password, BCryptHash
 
   validates_confirmation_of :password
