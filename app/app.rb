@@ -4,7 +4,7 @@ require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 require_relative 'models/user'
 
-ENV["RACK_ENV"] ||= "development"
+ENV["RACK_ENV"] ||= "dev"
 
 class ChitterChallenge < Sinatra::Base
 
