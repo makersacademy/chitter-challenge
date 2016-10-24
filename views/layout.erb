@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <title>Chitter</title>
+</head>
+
+<body>
+  <% if current_user %>
+  <div class="welcome">
+    Welcome, <%= current_user.name %>!
+  </div>
+  <div>
+    <form class="logout" action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log out">
+    </form>
+  </div>
+  <div id='texter'>
+    <textarea name="peep_text" placeholder="write a message" form="peep_form" rows="8" cols="40"></textarea>
+    <form class="peep" action="/profile" id="peep_form" method="post">
+      <input type="submit" value="Peep!">
+    </form>
+  </div>
+  <% end %>
+  <div class="err_messages">
+    <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    Please refer to the following errors below:
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+    <%= yield %>
+</body>
+</html>

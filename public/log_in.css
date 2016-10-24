@@ -1,0 +1,21 @@
+form{
+  width: 40%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+input{
+  display: inline-block;
+  padding: 7px;
+  width: 30%;
+
+}
+input[type=submit]{
+    background-color: white;
+    border: red 1px solid;
+    border-radius: 5px;
+    color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 80px;

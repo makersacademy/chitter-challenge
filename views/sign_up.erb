@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <link rel="stylesheet" type="text/css" href="/log_in.css">
+  </head>
+  <header>
+  <div class="pagelogo">
+    <img src="http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png" width="64" height="64">
+    Chitter
+  </div>
+  <div class="nav">
+    <a href="/new_user"> Sign up</a>
+    <a href="/log_in"> Log in</a>
+  </div>
+</header>
+  <body>
+
+    <form class="sign_up" action="/new_user" method="post">
+      <input type="text" placeholder="Name" name="name" value='<%=@user.name%>' required>
+      <input type="text" placeholder="Username" name="user_name" value='<%=@user.user_name%>' required>
+      <input type="email" placeholder="Email" name="email" value='<%=@user.email%>' required>
+      <input type="password" placeholder="Password" name="password" required>
+      <input type="password" placeholder="Password confirmation" name="password_confirmation" required>
+      <input type="submit" value="Sign Up!">
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<header>
+  <div class="pagelogo">
+    <img src="http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png" width="80" height="80">
+    Chitter
+  </div>
+  <div class="nav">
+    <a href="/new_user"> Sign up</a>
+    <a href="/log_in"> Log in</a>
+  </div>
+</header>
+
+
+<body>
+
+  <% @peeps.each do |peep|%>
+  <article class='peep'>
+    <div id='names'>
+      <div id='name'>
+        <strong><%= peep.user.name %></strong>
+      </div>
+      <div id='user_name'>
+        @ <%=peep.user.user_name%>
+      </div>
+    </div>
+    <p id="text"><%= peep.peep_text %></p>
+    <% timestamp = peep.created_at %>
+    <p id="time">
+      <%= timestamp.strftime(fmt='%F') %>
+      <%= timestamp.strftime(fmt='%T') %>
+    </p>
+  </article>
+  <%end%>
+
+
+</body>
+</html>
