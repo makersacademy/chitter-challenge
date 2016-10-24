@@ -8,28 +8,32 @@ end
 
 feature 'User log-in' do
   let!(:user) do
-    User.create(email: 'user@example.com',
+    User.create(name: 'User',
                 username: 'user123',
+                email: 'user@example.com',
                 password: 'secret1234',
                 password_confirmation: 'secret1234')
   end
   scenario 'with correct credentials' do
-    log_in(email: user.email,   password: user.password)
+    log_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, #{user.username}"
   end
 end
 
 feature 'User log-out' do
   before(:each) do
-    User.create(email: 'test@test.com',
+    User.create(name: 'Test',
                 username: 'test123',
+                email: 'test@test.com',
                 password: 'test',
                 password_confirmation: 'test')
   end
   scenario 'while being logged-in' do
     log_in(email: 'test@test.com', password: 'test')
     click_button 'Log-out'
-    expect(page).to have_content('goodbye!')
+    expect(page).to have_content('Thanks for visiting. Come back soon!')
     expect(page).not_to have_content("Welcome, test123")
+    expect(page).to have_link "Log-in"
+    expect(page).to have_link "Sign-up"
   end
 end

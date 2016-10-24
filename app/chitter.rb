@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
@@ -60,7 +60,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.keep[:notice] = 'Thanks for visiting. Come back soon!'
     redirect to '/'
   end
 

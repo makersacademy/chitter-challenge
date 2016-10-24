@@ -6,14 +6,14 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
-
   validates_confirmation_of :password
 
   has n, :peeps, through: Resource
 
   property :id, Serial
-  property :email, String, format: :email_address, required: true, unique: true
+  property :name, String, required: true
   property :username, String, required: true, unique: true
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
   def password=(password)

@@ -1,10 +1,16 @@
+<% if current_user %>
+  <a href="/peeps/new">Post a peep</a>
+<% else %>
+  <a href="/sessions/new">Log-in</a>
+  <a href="/users/new">Sign-up</a>
+<% end %>
 <h1>Welcome to Chitter</h1>
 <ul>
   <% @peeps.each do |peep|
     user = User.get(peep.user_id)
   %>
     <li>
-      <%= user.username %> posted 
+      <%= "#{user.name} (#{user.username}) posted " %>
       "<%= peep.peep_text %>" at
       <%= peep.created_at.strftime("%A %d %B %Y, %H:%M") %>
     </li>
