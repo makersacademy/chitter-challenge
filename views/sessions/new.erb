@@ -1,0 +1,17 @@
+<h1>Please sign in to the Chittersphere!</h1>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action = "/sessions" method = "POST">
+  <input type = "text" name = "user_name" placeholder = "enter user name">
+  <input type = "text" name = "email" placeholder = "enter email address">
+  <input type = "password" name = "password" placeholder = "enter password">
+  <input type = "submit" value = "Sign in">
+</form>

@@ -1,0 +1,41 @@
+
+<head>
+  <title>Welcome to the Chittersphere!</title>
+</head>
+<body>
+  <h1>
+  <% if current_user %>
+  Welcome, <%= current_user.email %>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+  <% end %>
+</h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.post %>
+    Created at: <%= peep.created_at %>
+    Created by: <%= peep.user.name %>
+  </li>
+  <% end %>
+</ul>
+
+
+  <h2> New Peep </h2>
+
+  <form action = "/index" method = "POST">
+    <input type = "text" name = "post" placeholder = "enter peep here">
+    <input type = "submit" value = "Add">
+  </form>
+
+
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+
+  </html>
