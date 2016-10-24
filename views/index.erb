@@ -2,14 +2,14 @@
 <div id="top">
   <div id="top2">
     <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
     <% end %>
 
     <form method='post' action='/sessions'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
     </form>
 
     <div style="width: 100%;overflow:auto;">
@@ -68,13 +68,13 @@
       <ul>
         <%= peep.text %><br>
         <%= peep.created_at %>
+        created by <%= peep.user.username %>
       </ul>
       <% end %>
     </div>
     <div style="float:right">
     </div>
   </div>
-
   <style>
   #top2{
     position:fixed;
@@ -126,30 +126,30 @@
   }
 
   input.submit[type=submit] {
-   display: inline-block;
-   border-radius: 2px;
-   background-color: #003afc;
-   border: none;
-   color: #FFFFFF ;
-   text-align: center;
-   font-size: 15px;
-   padding: 5px;
-   width: 25%;
-   transition: all 0.5s;
-   cursor: pointer;
-   margin: 5px;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #003afc;
+    border: none;
+    color: #FFFFFF ;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    width: 25%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
 
   }
 
   input.submit[type=submit]:hover {
-     border: 1px solid #999;
-     color: #F344B9;
+    border: 1px solid #999;
+    color: #F344B9;
   }
 
   input.submmit[type=submit]:active {
-   background-color: #003afc;
-   box-shadow: 0 5px #666;
-   transform: translateY(4px);
+    background-color: #003afc;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
   }
 
   </style>

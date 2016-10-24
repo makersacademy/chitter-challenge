@@ -1,9 +1,8 @@
 feature 'Sign up' do
 
-  scenario 'New Users can sign up' do
-    Peep.create(text: 'I am feeling good')
+  scenario 'New Users can sign up', focus: true do
     visit '/'
-    sign_up
+    log_in
     expect(page).to have_content('I am feeling good')
   end
 

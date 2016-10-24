@@ -1,6 +1,7 @@
 feature 'Viewing peeps' do
   before(:all) do
-    Peep.create(text: 'I am feeling good')
+    user1 = User.create(username: 'myusername2', email: 'myemail2@email.com', name: 'myname2', password: 'mypassword2')
+    Peep.create(text: 'I am feeling good', created_at: Time.new, user: user1)
   end
 
   scenario 'I can see existing peeps on the home page' do

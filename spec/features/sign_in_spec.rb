@@ -4,9 +4,9 @@ feature 'User sign in' do
   end
   let!(:user) do
     User.create(username: 'myusername',
-                email: 'myemail@email.com',
-                name: 'myname',
-                password: 'mypassword')
+    email: 'myemail@email.com',
+    name: 'myname',
+    password: 'mypassword')
   end
 
   scenario 'with correct credentials' do

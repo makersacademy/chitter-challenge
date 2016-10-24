@@ -4,5 +4,5 @@ feature 'Creating peeps' do
     visit '/'
     sign_up
     expect(page).to have_content('Newest peeps:')
-    end
   end
+end

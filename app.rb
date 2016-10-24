@@ -15,9 +15,9 @@ class Chitter < Sinatra::Base
 
 
   helpers do
-     def current_user
-       @current_user ||= User.first(session[:user_id])
-     end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   get '/' do
@@ -26,22 +26,23 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
-      @peeps = Peep.all
-      user = User.authenticate(params[:username], params[:password])
-      if user
+    @peeps = Peep.all
+    user = User.authenticate(params[:username], params[:password])
+    if user
       session[:user_id] = user.id
       @welcome = "Welcome #{user.name}!"
       erb :peeps
-      else
+    else
       flash.now[:notice] = "Username or password not valid, try again"
       erb :index
-      end
+    end
   end
 
   post '/new_user' do
-      @peeps = Peep.all
+      p "Hello"
+    @peeps = Peep.all
     user = User.create(username: params[:new_username], email: params[:new_email], name: params[:new_name], password: params[:new_password])
-    user.save
+    user.save!
     if user.save
       session[:user_id] = user.id
       @welcome = "Welcome #{user.name}!"
@@ -54,7 +55,7 @@ class Chitter < Sinatra::Base
 
   post '/new_peep' do
     @peeps = Peep.all
-    peep = Peep.create(text: params[:new_peep], created_at: Time.new)
+    peep = Peep.create(text: params[:new_peep], created_at: Time.new, user: current_user)
     peep.save!
     erb :peeps
   end
