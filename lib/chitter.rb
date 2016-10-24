@@ -9,14 +9,8 @@ class Chitter < Sinatra::Base
 
   include BCrypt
 
-  helpers do
- def current_user
-   @current_user ||= User.get(session[:user_id])
- end
-end
-
-  enable :sessions
-set :session_secret, 'super secret'
+  # enable :sessions
+  # set :session_secret, 'super secret'
 
   database_setup
 
@@ -32,7 +26,7 @@ set :session_secret, 'super secret'
     User.create(username_db: params[:username],
                 email_db: params[:email],
                 password_db: BCrypt::Password.create(params[:password]))
-    session[:username] = user.username
+    # session[:user_id] = user.id
     redirect '/'
   end
 
@@ -41,14 +35,20 @@ set :session_secret, 'super secret'
   end
 
   post '/login' do
-    # @user = User.find_by_email(params[:email_2])
-    # p @user
-    # p @user.password
-    if params[:password_2] == @current_user.password
+    @user = User.first(email_db: params[:email_2])
+    if BCrypt::Password.new(@user.password_db) == params[:password_2]
       erb :success
     else
       erb :fail
     end
+    # Zoo.first(:name => 'Metro')
+    # p @user
+    # p @user.password_db
+    # p BCrypt::Password.new(@user.password_db)
+    # p params[:password_2]
+    # p BCrypt::Password.create(params[:password_2])
+    # if BCrypt::Password.create(params[:password_2]) == @user.password_db
+
 
 
 end

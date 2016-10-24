@@ -18,6 +18,7 @@ class User
     self.password_db = BCrypt::Password.create(password)
   end
 
+  
   # def create_password(pw)
   #   @password = BCrypt::Password.create(pw)
   # end
@@ -25,7 +26,7 @@ class User
   # def password_class
   #   @password ||= Password.new(password_hash)
   # end
-
+  #
   # def password=(new_password)
   #   @password = Password.create(new_password)
   #   self.password_hash = @password
