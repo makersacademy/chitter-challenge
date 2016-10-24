@@ -4,6 +4,7 @@
   <% @peeps.each do |peep| %>
     <li>
       Peep: <%= peep.text %>
+      Username: <%= peep.user.name %><br/>
     </li>
   <% end %>
 </ul>

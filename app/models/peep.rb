@@ -6,5 +6,8 @@ class Peep
 
   property :id,     Serial
   property :text,   Text
+  property :posted_at, DateTime
+
+  belongs_to :user
 
 end
