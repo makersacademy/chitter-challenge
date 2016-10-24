@@ -1,0 +1,17 @@
+<h1>Recent Peeps!</h1>
+
+<ul id = 'peeps'>
+  <% @peeps.reverse_each do |peep| %>
+  <li>
+    Time: <%= peep.peep_time %>
+    <br>
+    Maker: <%= peep.author %>
+    <br>
+    User name: <%= peep.user_name %>
+    <br>
+    Peep: <%= peep.text %>
+    <br>
+    -----------------------------------
+  </li>
+  <% end %>
+</ul>
