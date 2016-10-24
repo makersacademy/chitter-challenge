@@ -12,3 +12,4 @@ class Peep
   property :created_at,  DateTime
 
 end
+   

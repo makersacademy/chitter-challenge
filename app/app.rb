@@ -37,7 +37,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    p Peep.all
     @peeps = Peep.all
     @peeps = @peeps.reverse
     erb :chitter
@@ -53,7 +52,7 @@ class Chitter < Sinatra::Base
 
   delete '/log_out' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
+    flash.now[:notice] = 'goodbye!'
     redirect to '/'
   end
 
