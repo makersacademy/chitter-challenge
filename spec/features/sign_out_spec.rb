@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'User signs out' do
 
   def sign_up(user_name: 'bob',
