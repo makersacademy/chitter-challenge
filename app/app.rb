@@ -1,6 +1,11 @@
 require 'sinatra'
+require 'sinatra/flash'
 
 class TwitTwoo < Sinatra::Base
+  register Sinatra::Flash
+
+  enable sessions
+
   get '/' do
     erb :index
   end
