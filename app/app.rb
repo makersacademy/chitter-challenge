@@ -1,23 +1,43 @@
-require 'sinatra'
+ENV['RACK_ENV'] ||= 'development'
+
+require 'sinatra/base'
 require 'sinatra/flash'
+require_relative 'models/dm_setup'
 
 class TwitTwoo < Sinatra::Base
   register Sinatra::Flash
 
-  enable sessions
+  enable :sessions
+  set :sessions_secret, 'super secret'
+
+  before do
+    p params
+  end
+
+  helpers do
+    def current_owl
+      @current_owl ||= Owl.get(session[:owl_id])
+    end
+  end
 
   get '/' do
     erb :index
   end
 
   post '/register' do
-    @owl = Owl.save(nam: params[:name], username: params[:username], password: params[:password], email: params[:email])
+    @owl = Owl.create(name: params[:name], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email])
     if @owl.id
-      session[owl_id] = @owl.id
-      redirect '/nest'
+      session[:owl_id] = @owl.id
+      redirect "/owl/#{params[:username]}/nest"
     else
       flash.now[:error] = @owl.errors.full_messages
-      erb :register
+      erb :'user/register'
+    end
+  end
+
+  get '/owl/:username/nest' do
+    @owl = Owl.first(name: params[:username])
+    erb :'user/nest'
   end
 
 

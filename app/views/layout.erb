@@ -1,0 +1,12 @@
+<h1>TwitTwoo</h1>
+<% if flash[:error] %>
+  <div id="flash">
+    <% flash[:error].each do |error_msg| %>
+      <div class="error">
+        <%= error_msg %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= yield %>
