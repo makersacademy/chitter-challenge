@@ -1,0 +1,11 @@
+<% if current_user %>
+  <h1> New peep </h1>
+
+  <form action='/peeps' method='POST'>
+    <label for='peep'>
+      Peep:
+      <input type='text' name='peep' rows = '3'/>
+    </label>
+    <input type='submit' value='Add peep'>
+  </form>
+<% end %>
