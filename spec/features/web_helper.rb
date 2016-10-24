@@ -22,12 +22,4 @@ module SessionHelpers
     end
   end
 
-  # def enter_new_peep(title, tag)
-  #   visit('/')
-  #   fill_in :title , with: title
-  #   fill_in :url , with: "www.example.com"
-  #   fill_in :tags , with: tag
-  #   click_button('Create Link')
-  # end
-
 end
