@@ -16,6 +16,10 @@ class Chitter < Sinatra::Base
 
   use Rack::MethodOverride
 
+  get '/' do
+    erb :'sessions/new'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
@@ -27,10 +31,6 @@ class Chitter < Sinatra::Base
     )
     session[:user_id] = user.id
     redirect to('/peeps')
-  end
-
-  get '/sessions/new' do
-    erb :'sessions/new'
   end
 
   post '/sessions' do
@@ -47,7 +47,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect to('/sessions/new')
+    redirect to('/')
   end
 
   get '/peeps' do
