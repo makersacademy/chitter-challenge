@@ -2,6 +2,8 @@
 
 Chitter Challenge
 =================
+
+![Logo](https://www.dropbox.com/s/h62y7vblmtlf6oq/chitter.png?dl=0)
 Challenge:
 -------
 
@@ -36,3 +38,4 @@ App available online:
 ```
 http://chitter-bylaszlo.herokuapp.com
 ```
+![Screenshot](https://www.dropbox.com/s/h62y7vblmtlf6oq/chitter.png?dl=0)
