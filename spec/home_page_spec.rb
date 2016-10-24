@@ -15,7 +15,7 @@ feature Chitter do
   scenario 'Sign up button redirects to sign up page' do
     visit '/'
     click_button 'Sign up'
-    expect(page).to have_field(:email)
+    expect(page).to have_field(:Email)
   end
 
 end
