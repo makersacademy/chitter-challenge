@@ -24,13 +24,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :feed
   end
 
   post '/peep' do
-    if session[:user_id] != nil
-      Peep.create(user: User.get(session[:user_id]), message: params[:peep], date_created: Time.new)
+    if current_user
+      Peep.create(user: User.get(session[:user_id]), message: params[:peep]) #, date_created: Time.new
       redirect to('/feed')
     else
       flash.keep[:notice] = 'You have to sign in to leave a Peep!'

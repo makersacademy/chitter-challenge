@@ -13,20 +13,22 @@
     </div>
 
 
-    <div class="peep">
-      <form action="/peep" method="post">
-        <input type="text" placeholder="Go ahead... Peep" name="peep" />
-        <input type="submit" value="Peep" />
-      </form>
-    </div>
+    <% if current_user %>
+      <div class="peep">
+        <form action="/peep" method="post">
+          <input type="text" placeholder="Go ahead... Peep" name="peep" />
+          <input type="submit" value="Peep" />
+        </form>
+      </div>
+    <% end %>
 
     <h3> Who's been peeping? </h3>
     <ul id ='peeps'>
-      <% @peeps.reverse.each do |peep| %>
+      <% @peeps.each do |peep| %>
       <li>
         User: <%= peep.user.user_name %><br>
         Peep: <%= peep.message %><br>
-        <%= peep.date_created.strftime("Peeped on %A %d %b %Y at %R") %><br>
+        <%= peep.created_at.strftime("Peeped on %A %d %b %Y at %R") %><br>
       </li>
       <% end %>
     </ul>
