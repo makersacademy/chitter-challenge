@@ -1,5 +1,5 @@
 class Chitter < Sinatra::Base
-  
+
   get '/' do
     @peeps = Peep.all(:order => [:created_at.desc])
     erb :'index'
@@ -11,8 +11,8 @@ class Chitter < Sinatra::Base
       peep.save
       redirect to('/')
     else
-      flash.now[:errors] = peep.errors.full_messages
-      erb :'peeps/new'
+      flash.now[:errors] = ['Peep text must not be blank']
+      redirect to '/peeps/new'
     end
   end
 

@@ -4,6 +4,6 @@ class Peep
   belongs_to :user
 
   property :id, Serial
-  property :peep_text, Text
+  property :peep_text, Text, required: true
   property :created_at, DateTime
 end
