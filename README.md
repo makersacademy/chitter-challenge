@@ -47,5 +47,14 @@ Technologies:
 * Ruby, tested with Rspec and Capybara
 * DataMapper and Postgresql for DB
 * Bcrypt for password encryption
-* Mailgun API for email integration
 * Sinatra, HTML, CSS, Bootstrap
+
+Deploy to Heroku
+----------------
+[https://chitter-post-app.herokuapp.com/](https://chitter-post-app.herokuapp.com/)
+
+![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/homepage.png "Homepage page")
+
+![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/errors.png "Error messages displayed")
+
+![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/signup_form.png "Sign up form")
