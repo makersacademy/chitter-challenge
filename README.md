@@ -1,108 +1,27 @@
-Chitter Challenge
-=================
+# Notes on the build
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
+1. There is a gemfile conflict preventing tests passing when using 'sinatra-partial'. An additional branch 'refactor' incorporates refactor of the controller and views using partials.
 
-As usual please start by forking this repo.
+# Setup
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+1. Clone the repo by running the following code in your relevant folder:
 
-Features:
--------
+        git clone "https://github.com/wirsindpapst/chitter-challenge.git"
 
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+2. Enter the chitter-challenge folder created and install relevant gems by running 'bundle' (or 'gem install bundler' and then 'bundle' if this is not already installed)
+3. Set up a database by running the following in the terminal:
+    * psql postgres
+    * CREATE DATABASE chitter_development
+    * \q
+4. Setup the database scheme by running 'rake db:auto_migrate'
+5. The app should now be accessible when navigating to 'localhost:4567' in any browser
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+# Usage
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+1. If you are a new user, click 'Register' and enter the relevant details
+2. If you are an existing users, click 'Sign in' and enter your registration email and password
+3. Upon completion, you will be taken to the main PeepDeck. From here you will be able to see all existing peeps, and add a peep by filling out the from and clicking the 'PEEP' button
+4. When you are finished, click 'Sign out'
