@@ -1,0 +1,50 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+
+    <h1>Cheers for choosing Chitter</h1>
+
+    <h2>Please fill out the form below to sign up to Chitter</h2>
+
+    <div class="sign_up">
+      <form action="/users" method="post">
+
+        <div class="name">
+          <label for="name">
+            Name: <input type="text" name="name" placeholder="John Smith" value="<%= @user.name %>" />
+          </label>
+        </div>
+
+        <div class="user_name">
+          <label for="user_name">
+            User Name: <input type="text" name="user_name" placeholder="j.smith90" value="<%= @user.user_name %>" />
+          </label>
+        </div>
+
+        <div class="email">
+          <label for="email">
+            E-mail: <input type="email" name="email" placeholder="john.smith@example.co.uk" value="<%= @user.email %>" required />
+          </label>
+        </div>
+
+        <div class="password">
+          <label for="password">
+            Password (at least 6 characters): <input type="password" name="password" />
+          </label>
+        </div>
+
+        <div class="confirm_password">
+          <label for="password_conformation">
+            Please confirm you password: <input type="password" name="password_confirmation" />
+          </label>
+        </div>
+
+        <div class="create_account">
+          <input type="submit" value="Create User Account" />
+        </div>
+      </form>
+
+  </body>
+</html>

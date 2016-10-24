@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+
+<body>
+
+  <h1>Sign in to start Chittering</h1>
+
+  <div class="sign_in">
+    <form action="/sessions" method="post">
+
+      <label for="email">
+        E-mail: <input type="email" name="email" />
+      </label>
+
+      <label for="password">
+        Password: <input type="password" name="password" />
+      </label>
+
+      <input type="submit" value="Sign in"/>
+    </form>
+
+    <form action="/users/new" method="get">
+      <label for="new_user">
+        New user? Why don't you <input type="submit" value="Sign up"/>
+      </lable>
+    </form>
+
+  </div>
+
+</body>
+
+</html>
