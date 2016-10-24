@@ -1,0 +1,12 @@
+<h1>Post a peep</h1>
+<% if current_user %>
+<form action="/" method="post">
+  <label for="peep_text">
+    Your post:
+    <input type="text" name="peep_text">
+  </label>
+  <input type="submit" value="Post">
+</form>
+<% else %>
+<p>You need to be <a href="/sessions/new">logged-in</a> to post a peep.</p>
+<% end %>

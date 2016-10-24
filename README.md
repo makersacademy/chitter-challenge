@@ -1,18 +1,40 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+This is a basic functional recreation of Twitter whereby users can sign-up to the service and post 'peeps'. Peeps are shown on the homepage in most recent order, along with the name and username of the user who posted it, and the date and time.
 
-Challenge:
--------
+Technologies used
+------------------
+It was written in Ruby using the Sinatra MVC framework. I used the object-relational mapper, DataMapper, to communicate with a Postgres database. User passwords are encrypted and authenticated using BCrypt. I test-drove the development using RSpec/Capybara.
 
-As usual please start by forking this repo.
+Instructions
+-----------
+To install, go to the directory of your choice and follow these instructions:
+```
+$ git clone git@github.com:francesmx/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+```
+If you want to, you can view test coverage:
+```
+$ rspec
+$ coveralls report
+```
+To play with the app using the web interface, start the server:
+```
+$ rackup
+```
+then visit  [http://localhost:9292/](http://localhost:9292/) in your browser.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Screenshots
+------------
+![Homepage (not logged in)](http://i.imgur.com/iisz0yq.png)
+
+![Sign-up](http://i.imgur.com/7sBgMSu.png)
+
+![Log-in](http://i.imgur.com/thn4xCb.png)
+
+![Homepage (logged in)](http://i.imgur.com/o2OCAG6.png)
 
 Features:
 -------
@@ -43,66 +65,22 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+Approach
+---------
+1. Setup the environment, including Sinatra, RSpec, Capybara, Postgres, BCrypt and DataMapper
+2. Initialised using rspec-sinatra, setup the folder structure, ran bundle.
+3. Wrote and passed tests for user sign-up.
+4. Wrote and passed tests for user log-in.
+5. Wrote and passed tests for user log-out.
+6. Realised that user sign-up needs to include a unique username. Wrote and passed tests for this.
+7. Wrote and passed tests for posting a peep.
+8. Wrote and passed tests for including timestamp on peep. Included "ordering by the 'created at' timestamp" with the Peeps database query so that peeps would appear in order (wasn't sure how to write a test for this - presumably using TimeCop?)
+9. Wrote and passed tests for including username on peep.
+10. Realised that user sign-up needs to include an actual name. Wrote and passed tests for this.
+11. Refactored to extract controllers.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Somewhere along the line I managed to break my local coveralls reporting so I was unable to view my test coverage. I still have no idea how to fix this. The stack trace didn't really help me!
 
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+Next steps
+----------
+I would like to apply CSS to improve the presentation, introduce new features, such as 'reply' or 'like' and profile pictures for users, and also deploy it to Heroku so it doesn't require local installation.
