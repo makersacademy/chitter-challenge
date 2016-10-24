@@ -7,6 +7,8 @@ if ENV['RACK_ENV'] != 'production'
   task :default => :spec
   RSpec::Core::RakeTask.new :spec
 
+end
+
 namespace :db do
   desc "Non destructive upgrade"
   task :auto_upgrade do#[:spec]
@@ -19,5 +21,4 @@ namespace :db do
     DataMapper.auto_migrate!
     puts 'Auto-migrate complete (data could have been lost)'
   end
-end
 end
