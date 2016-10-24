@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Create account</h1>
+      <form action = "/signup" method="post">
+        <label>Name</label><br>
+        <input type="text" name="name" value='<%= @user.name %>' required>
+        <br><label>Email</label><br>
+        <input type="text" name="email" value='<%= @user.email %>' required>
+        <br><label>Username</label><br>
+        <input type="text" name="username" value='<%= @user.username %>' required>
+        <br><label for='password'>Password</label><br>
+        <input type="password" name="password" required>
+        <br><label for=password_confirmation>Confirm password</label><br>
+        <input type="password" name="password_confirmation" required><br>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          <br>Please correct the following errors:
+          <ul id='errors'>
+            <% flash[:errors].each do |error|  %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <input type="submit" value="Create account">
+      </form>
+  </body>
+</html>

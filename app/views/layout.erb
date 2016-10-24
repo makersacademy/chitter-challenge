@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+  </head>
+  <body>
+    <% if current_user %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value="delete" />
+      <input type='submit' value="Log out" />
+    </form>
+    <% else %>
+    <form action='/sessions/new'>
+      <input type='submit' value="Log in" />
+    </form>
+    <form action='/signup/new'>
+      <input type='submit' value="Sign up" />
+    </form>
+    <% end %>
+  <%= yield %>
+  </body>
+</html>
