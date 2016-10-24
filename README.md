@@ -1,10 +1,7 @@
 # Notes on the build
 
-1. There is an ongoing issue with the database cleaner causing Travis CI checks to fail. Despite this, locally tests are running fine and Coveralls report suggests high test coverage (see below)
 
-![Screenshot](http://imgur.com/wPlVS9l)
-
-2. There is a gemfile conflict preventing tests passing when using 'sinatra-partial'. An additional branch 'refactor' incorporates refactor of the controller and views using partials.
+1. There is a gemfile conflict preventing tests passing when using 'sinatra-partial'. An additional branch 'refactor' incorporates refactor of the controller and views using partials.
 
 # Setup
 
