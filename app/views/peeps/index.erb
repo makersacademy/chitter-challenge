@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <h3> "Let's make the World Chitter" </h3>
+
+<br>
+
+<% if current_user %>
+  <h1> Hello, <%= current_user.email %></h1>
+<% end %>
+<br>
+
+<form action="/peeps/new">
+  <input type="submit" value="Post a Peep!">
+</form>
+<br>
+
+  <h3> Recent peep activity on Chitter: </h3>
+<br>
+
+<ul style="list-style-type: none;">
+  <id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+       <%= peep.title %></a>
+    </li>
+  <% end %>
+</ul>

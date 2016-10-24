@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<h1>Register</h1>
+
+<form acion="/register" method="post">
+  
+    <label for="email">Email:
+      <input type="email" name="email" placeholder="example@example.com" value='<%= @user.email %>' required>
+    </label><br>
+
+    <label for="password">Password:
+      <input type="password" name="password" placeholder="password">
+    </label><br>
+
+    <label for="password_confirm">Confirm Password:
+        <input type="password" name="password_confirmation" placeholder="confirmed">
+    </label><br>
+
+    <input type="submit" value="ok">
+</form>
