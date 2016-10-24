@@ -1,0 +1,43 @@
+<h1>Let's Chitter!</h1>
+<p class='lead'>Complete the simple form below to create a Chitter account.</p>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+    <div id='errors' class="alert alert-warning">
+      <strong>Oops,</strong> <%= error %>
+    </div>
+  <% end %>
+<% end %>
+
+<form action='/users' method='post' class='form-signin'>
+  <h2 class='form-signin-heading'>Sign Up</h2>
+  <div class='form-group'>
+    <strong>Full Name</strong><br>
+    <label for='first_name'>
+      <input name='first_name' type='text' placeholder='First' class='form-control'>
+    </label>
+    <label for='last_name'>
+      <input name='last_name' type='text' placeholder='Last' class='form-control'>
+    </label>
+    </div>
+    <div class='form-group'>
+      <label for='email'>
+        Email: <input name='email' type='email' placeholder='hello@chitter.com' class='form-control' value='<%= @user.email %>' required>
+      </label>
+      <label for='user_name'>
+        User Name: <input name='user_name' type='text' class='form-control' required>
+      </label>
+    </div>
+    <div class='form-group'>
+      <strong>Password</strong><br>
+      <label for='password'>
+        <input name='password' type='password' placeholder='Password' class='form-control'>
+      </label>
+      <label for='password_confirmation'>
+        <input name='password_confirmation' type='password' placeholder='Confirm Password' class='form-control'>
+      </label>
+    </div>
+    <div class='form-group'>
+      <input type='submit' value='Create Account' class='btn btn-default'>
+    </div>
+</form>
