@@ -38,8 +38,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
+    if user = User.authenticate(params[:email], params[:password])
+      session[:user_name] = user.user_name
       redirect '/home'
     else
       flash.now[:notice] = ['The email or password is incorrect']

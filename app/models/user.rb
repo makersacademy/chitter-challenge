@@ -6,7 +6,9 @@ require 'dm-validations'
 class User
 
   include DataMapper::Resource
+  include BCrypt
 
+  attr_reader :password
   attr_accessor :password_confirmation
 
   property :id, Serial
@@ -17,7 +19,7 @@ class User
   validates_confirmation_of :password
 
   def self.authenticate(email, password)
-    first(email: email)
+    user = first(email: email)
     if user && BCrypt::Password.new(user.password) == password
       user
     else
