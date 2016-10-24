@@ -18,7 +18,7 @@ module UserHelpers
   end
 
   def sign_in(email: 'test@test.com', password: 'test', click: true)
-     visit '/user/sign-in'
+     visit '/user/sign_in'
      fill_in :email,    with: email
      fill_in :password, with: password
      click_button 'Sign in' if click

@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'sinatra/flash'
+
 require_relative 'models/peep'
 require_relative 'models/user'
 
@@ -7,6 +9,8 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
+
 
   get '/' do
     erb :'home'
@@ -41,6 +45,18 @@ class Chitter < Sinatra::Base
 
   get '/user/sign_in' do
     erb :'user/sign_in'
+  end
+
+  post '/user/sign_in' do
+    user = User.authenticate(params[:email], params[:password])
+    p user
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:errors] =  ['User email or password is incorrect']
+      erb :'user/sign_in'
+    end
   end
 
   helpers do
