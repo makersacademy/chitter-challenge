@@ -16,3 +16,13 @@
   <input type = "password" name = "password_confirmation" placeholder = "confirm password">
   <input type = "submit" value = "Create">
 </form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.post %>
+    Created at: <%= peep.created_at %>
+    Created by: <%= peep.user.name %>
+  </li>
+  <% end %>
+</ul>

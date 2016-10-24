@@ -22,6 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @peeps = Peep.all
     @user = User.new
     erb :'users/new'
   end
@@ -43,10 +44,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'/welcome'
   end
 
   get '/sessions/new' do
+    @peeps = Peep.all
     erb :'sessions/new'
   end
 

@@ -13,6 +13,17 @@
   <% end %>
 </h1>
 
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.post %>
+    Created at: <%= peep.created_at %>
+    Created by: <%= peep.user.name %>
+  </li>
+  <% end %>
+</ul>
+
+
   <h2> New Peep </h2>
 
   <form action = "/index" method = "POST">
