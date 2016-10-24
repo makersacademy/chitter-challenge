@@ -49,12 +49,18 @@ Technologies:
 * Bcrypt for password encryption
 * Sinatra, HTML, CSS, Bootstrap
 
-Deploy to Heroku
-----------------
+### User Interface Sketch
+
+This is the basic view of the webapp.  <br />
+Deploy to Heroku:
+
 [https://chitter-post-app.herokuapp.com/](https://chitter-post-app.herokuapp.com/)
 
-![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/homepage.png "Homepage page")
+#### Homepage
+![alt text](public/img/homepage.png "Homepage page")
 
-![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/errors.png "Error messages displayed")
+#### Error messages
+![alt text](public/img/errors.png "Error messages displayed")
 
-![alt text](https://github.com/ManuCiao/Chitter-Challenge/tree/master/public/img/signup_form.png "Sign up form")
+#### Sign up form
+![alt text](public/img/signup_form.png "Sign up form")
