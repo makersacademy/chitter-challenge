@@ -32,7 +32,7 @@ feature 'post peeps' do
     fill_in :content, with: "Test post"
     click_button "Add"
     expect(page).to have_content("mew")
-    expect(page).to have_content("2016-10-23")
+    expect(page).to have_content("2016")
     expect(page).to have_content("newnew")
   end
 
