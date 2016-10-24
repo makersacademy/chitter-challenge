@@ -40,6 +40,12 @@ class TwitTwoo < Sinatra::Base
     erb :'user/nest'
   end
 
+  post '/twit' do
+    twit = Twit.create(content: params[:twit])
+    current_owl.twits << twit
+    redirect "/owl/#{current_user.name}/nest"
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
