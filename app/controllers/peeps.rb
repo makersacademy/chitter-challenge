@@ -21,11 +21,11 @@ class Chitter < Sinatra::Base
   end
 
 
-  post '/responses' do
+  post '/responses/:peep_id' do
     if current_user && params[:text]
       Response.create(text: params[:text],
-                      user: current_user,
-                      peep: params[peep],
+                      user_id: current_user.id,
+                      peep_id: params[:peep_id],
                       timestamp: Time.now)
       redirect to('/peeps')
     elsif !params[:response_text]
