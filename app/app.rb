@@ -6,11 +6,6 @@ require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
 
-# require_relative 'server'
-# require_relative 'controllers/peeps'
-# require_relative 'controllers/sessions'
-# require_relative 'controllers/users'
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
@@ -55,8 +50,7 @@ class Chitter < Sinatra::Base
     user = User.create(email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    if user.save # #save returns true/false depending on whether the model is successfully saved to the database.
-      session[:user_id] = user.id
+    if user.save 
       redirect('/')
     else
       flash.now[:errors] = ['The email or password is incorrect']
