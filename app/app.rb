@@ -52,7 +52,7 @@ class Chitter < Sinatra::Base
     session[:user_id] = user.id
     redirect to('/links')
   else
-    flash.now[:errors] = user.errors.full_messages
+    flash.next[:errors] = user.errors.full_messages
     erb :'sessions/new'
   end
 end
