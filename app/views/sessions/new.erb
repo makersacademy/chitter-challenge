@@ -2,13 +2,9 @@
 <html>
   <body>
 
-    <h1> Sign Up </h1>
+    <h1> Sign In </h1>
 
-    <form action='/users' method='POST'>
-      <div>
-        <label for='user_name'>User name:</label>
-        <input type='text' name='user_name'required>
-      </div>
+    <form action='/sessions' method='POST'>
       <div>
         <label for='email'>Email:</label>
         <input type='email' name='email' required>
@@ -16,10 +12,6 @@
       <div>
         <label for='password'>Password:</label>
         <input type='password' name='password' required>
-      </div>
-      <div>
-        <label for='password_confirmation'>Confirmation:</label>
-        <input type='password' name='password_confirmation' required>
       </div>
         <input type='submit' value='Submit'>
     </form>

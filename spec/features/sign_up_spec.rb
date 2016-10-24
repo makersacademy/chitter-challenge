@@ -2,7 +2,7 @@ feature 'Sign up' do
   scenario 'when submitting the sign up form' do
     sign_up
     expect(page.status_code).to eq 200
-    expect(page).to have_content('Welcome kyaw')
+    expect(page).to have_content('Welcome, kyaw')
   end
 
   scenario 'it creates the user account' do
@@ -21,21 +21,21 @@ feature 'Sign up' do
     expect(page).to have_content('Passwords do not match')
   end
 
-#   scenario 'I cannot sign up with an existing email' do
-#     sign_up
-#     expect {sign_up}.to_not change(User, :count)
-#     expect(page).to have_content('Email is already taken')
-#   end
-#
-#   scenario 'I cannot sign up without an email address' do
-#     expect {sign_up(email: nil)}.not_to change(User, :count)
-#     expect(page).to have_content('Email must not be blank')
-#   end
-#
-#   scenario 'I cannot sign up with an invalid email address' do
-#   expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
-#   expect(page).to have_content('Email has an invalid format')
-# end
+  scenario 'I cannot sign up with an existing email' do
+    sign_up
+    expect {sign_up}.to_not change(User, :count)
+    # expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'I cannot sign up without an email address' do
+    expect {sign_up(email: nil)}.not_to change(User, :count)
+    # expect(page).to have_content('Email must not be blank')
+  end
+
+  scenario 'I cannot sign up with an invalid email address' do
+  expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+  # expect(page).to have_content('Email has an invalid format')
+end
 
 
 end

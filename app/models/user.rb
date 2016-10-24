@@ -1,5 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'bcrypt'
+require 'dm-validations'
 
 class User
 
@@ -13,6 +15,15 @@ class User
   property :password, BCryptHash
 
   validates_confirmation_of :password
+
+  def self.authenticate(email, password)
+    first(email: email)
+    if user && BCrypt::Password.new(user.password) == password
+      user
+    else
+      nil
+    end
+  end
 
 end
 

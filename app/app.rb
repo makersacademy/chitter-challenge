@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/home' do
+  post '/users' do
     user = User.create(user_name: params[:user_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     session[:user_name] = user.user_name
     if user.save
@@ -31,6 +31,20 @@ class Chitter < Sinatra::Base
   get '/home' do
     @current_user_name = session[:user_name]
     erb :home
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      redirect '/home'
+    else
+      flash.now[:notice] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
   end
 
   # start the server if ruby file executed directly
