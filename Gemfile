@@ -4,7 +4,6 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'database_cleaner'
 gem 'bcrypt'
 
 group :test do
@@ -14,4 +13,5 @@ group :test do
   gem 'coveralls', require: false
   gem 'dm-rspec'
   gem 'rack-test'
+  gem 'database_cleaner'
 end
