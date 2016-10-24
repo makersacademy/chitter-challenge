@@ -1,0 +1,18 @@
+<form action="/peeps" method="post">
+  <label for="body">
+    Message:
+    <input type="text" name="body" required>
+  </label>
+  <input type="submit" value="Post">
+</form>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <span><%= peep.user.email %></span>
+      on
+      <span><%= peep.timestamp.strftime("%b %-d %H:%M") %></span>
+      said:
+      <span><%= peep.body %></span>
+    </li>
+  <% end %>
+</ul>
