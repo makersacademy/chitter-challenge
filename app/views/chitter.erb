@@ -1,0 +1,12 @@
+<ul>
+	<% Peep.all.reverse.each do |peep| %>
+    <li><h2><%= peep.name %></h2></li>
+	  <h3><%= peep.peep %></h3>
+    <h3><%= peep.time %></h3>
+	<% end %>
+</ul>
+
+
+<form action="/peep_new">
+  <input type='submit' value='New peep'/>
+</form>

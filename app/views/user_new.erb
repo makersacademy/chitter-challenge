@@ -1,0 +1,18 @@
+<h1>Please sign up here </h1>
+
+<form action="/sign_up" method="post">
+  <input type='text' name='name' placeholder='name'/>
+  <input type='text' name='username' placeholder='username'/>
+  <input type='text' name='email'placeholder='email'/>
+  <input type='text' name='password' placeholder='password'/>
+  <input type='text' name='password_confirmation' placeholder='confirm password'/>
+  <input type='submit' value='Sign up'/>
+</form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+  <% flash[:errors].each do |error|  %>
+  <li><%= error %></li>
+  <% end %>
+  </ul>
+  <% end %>

@@ -1,0 +1,19 @@
+<form action="/new_user">
+<input type='submit' value='Sign up'/>
+</form>
+
+<form action="/sessions/new">
+<input type='submit' value='Sign in'/>
+</form>
+
+<form action="/chitter">
+<input type='submit' value='See what people are chittering about'/>
+</form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+  <% flash[:errors].each do |error|  %>
+  <li><%= error %></li>
+  <% end %>
+  </ul>
+  <% end %>
