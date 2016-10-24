@@ -1,0 +1,22 @@
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<h1>Peep sign up</h1>
+
+<form action='/users' method='post'>
+  <p><label for='name'>
+    Name: <input name='name' type='text' value='<%= @user.name %>' required>
+  </label></p>
+  <p><label for='nickname'>
+    Nickname: <input name='nickname' type='text' value='<%= @user.nickname %>' required>
+  </label></p>
+  <p><label for='email'>
+    Email: <input name='email' type='text' value='<%= @user.email %>' required>
+  </label></p>
+  <p><label for='password'>
+    Password: <input name='password' type='password'>
+  </label></p>
+  <p><label for='password_confirmation'>
+    Password: <input name='password_confirmation' type='password'>
+  </label></p>
+  <p><input type='submit' value='Sign up'></p>
+</form>

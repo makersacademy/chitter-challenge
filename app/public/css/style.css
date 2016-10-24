@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+body {
+  text-align: center;
+  font-family: Inconsolata, sans-serif;
+  background-color: lightblue;
+}
+
+div {
+  text-align: left;
+  width: 200px;
+  margin: auto;
+}

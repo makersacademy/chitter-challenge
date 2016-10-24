@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<h1> New Peep </h1>
+
+<form action = '/peeps' method = "post">
+  <p><label for='name'>
+    Nickname:
+    <input type='text' name='nickname' value='<%= session[:nickname] %>' readonly>
+  </label></p>
+  <label for='message'>
+    Message:
+    <textarea rows="4" cols="50" placeholder = 'Peep here!' name='message'></textarea>
+  </label>
+  <p><input type='submit' value='Peep this!'></p>
+</form>
