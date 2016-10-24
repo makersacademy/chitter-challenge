@@ -11,7 +11,7 @@ class Peep
   property(:timestamp, DateTime, required: true)
 
   def self.all_in_reverse_order
-    self.all(order: :created_at.desc)
+    self.all(order: :timestamp.desc)
   end
 
 end
