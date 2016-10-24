@@ -8,6 +8,7 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'big secret'
+  set :public_folder, Proc.new { File.join(root, 'static') }
   register Sinatra::Flash
   use Rack::MethodOverride
 

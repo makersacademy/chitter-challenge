@@ -1,9 +1,10 @@
 [![Build Status](https://travis-ci.org/LaszloBogacsi/chitter-challenge.svg?branch=master)](https://travis-ci.org/LaszloBogacsi/chitter-challenge)
 
-Chitter Challenge
+#Chitter Challenge
 =================
-
-![Logo](https://www.dropbox.com/s/h62y7vblmtlf6oq/chitter.png?dl=0)
+___
+![Logo](http://www.clipartbest.com/cliparts/niX/BA5/niXBA5oAT.png)
+___
 Challenge:
 -------
 

@@ -1,7 +1,10 @@
 module SessionHelpers
 
 
-  def sign_up(name: 'Laszlo', user_name: 'laszlobogacsi', email: 'bogacsi.laszlo@gmail.com', password: 'password', password_confirmation: 'password')
+  def sign_up(name: 'Laszlo', user_name: 'laszlobogacsi',
+    email: 'bogacsi.laszlo@gmail.com', password: 'password',
+    password_confirmation: 'password')
+    
     visit '/'
     click_link 'Sign up'
     fill_in('name', with: name)
