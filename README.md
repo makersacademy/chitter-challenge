@@ -1,3 +1,14 @@
+# Setup
+
+1. Clone the repo by running the following code in your relevnt folder:
+
+          git clone "https://github.com/wirsindpapst/chitter-challenge.git"
+2. Enter the chitter-challenge folder created and install relevant gems by running 'bundle' (or 'gem install bundler' and then 'bundle' if this is not already installed)
+3. Set up a database by running the following in the terminal:
+    *
+
+
+
 Chitter Challenge
 =================
 
@@ -77,7 +88,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +106,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +116,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
