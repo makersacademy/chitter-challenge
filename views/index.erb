@@ -1,5 +1,46 @@
 
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAveQVy4kx-ZHmRXBeUfNh6QEIjoqSracM",
+    authDomain: "my-first-app-27e9f.firebaseapp.com",
+    databaseURL: "https://my-first-app-27e9f.firebaseio.com",
+    storageBucket: "my-first-app-27e9f.appspot.com",
+    messagingSenderId: "347460407723"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1789134178001475";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1789134178001475',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div id="top">
+
   <div id="top2">
     <% if flash[:notice] %>
     <div id='notice'>
@@ -73,8 +114,16 @@
       <% end %>
     </div>
     <div style="float:right">
+      <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+      </div>
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
     </div>
   </div>
+  </body>
   <style>
   #top2{
     position:fixed;
@@ -98,7 +147,7 @@
 
   #bottom {
     bottom: 0;
-    background-image: url("https://www.snappdemo.com/wp-content/uploads/2014/06/chitter33.png");
+    /*background-image: url("https://www.snappdemo.com/wp-content/uploads/2014/06/chitter33.png");*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
