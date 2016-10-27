@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  var provider = new firebase.auth.FacebookAuthProvider();
 
 
   helpers do
