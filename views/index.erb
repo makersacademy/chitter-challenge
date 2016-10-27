@@ -1,0 +1,206 @@
+
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAveQVy4kx-ZHmRXBeUfNh6QEIjoqSracM",
+    authDomain: "my-first-app-27e9f.firebaseapp.com",
+    databaseURL: "https://my-first-app-27e9f.firebaseio.com",
+    storageBucket: "my-first-app-27e9f.appspot.com",
+    messagingSenderId: "347460407723"
+  };
+  firebase.initializeApp(config);
+  var provider = new firebase.auth.FacebookAuthProvider();
+
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1789134178001475";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1789134178001475',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="top">
+
+  <div id="top2">
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+
+    <div style="width: 100%;overflow:auto;">
+      <div style="float:left; width: 30%">
+        <h1>Please Login</h1>
+        <form action="/user" method="post">
+          <label for='username'>
+            <h2>Username:</h2>
+            <input type='text' name='username'/>
+          </label>
+          <label for='password'>
+            <h2><h2>Password:</h2>
+            <input type='text' name='password'/>
+          </label>
+          <input class="submit" type='submit' value='Login'/>
+        </form>
+      </div>
+
+      <div style="float:right; width: 60%">
+        <h1>Or sign up if you don't already have an account</h1>
+        <div style="width: 100%;overflow:auto;">
+          <div style="float:left; width: 30%">
+            <form action="/new_user" method="post">
+              <label for='new_username'>
+                <h2>Username:</h2>
+                <input type='text' name='new_username'/>
+              </label>
+              <label for='new_name'>
+                <h2>Name:</h2>
+                <input type='text' name='new_name'/>
+              </div>
+              <div style="float:right;width: 60%">
+              </label>
+              <label for='new_email'>
+                <h2>Email:</h2>
+                <input type='text' name='new_email'/>
+              </label>
+              <label for='new_password'>
+                <h2>Password:</h2>
+                <input type='text' name='new_password'/>
+              </label>
+              <input class="submit" type='submit' value='Sign up'/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bottom">
+  <h1>Newest peeps:</h1>
+  <div style="width: 100%;overflow:auto;">
+    <div id="peeps" style="float:left; width: 34%">
+      <% @peeps.each do |peep| %>
+      <ul>
+        <%= peep.text %><br>
+        <%= peep.created_at %>
+        created by <%= peep.user.username %>
+      </ul>
+      <% end %>
+    </div>
+    <div style="float:right">
+      <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+      </div>
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+    </div>
+  </div>
+  </body>
+  <style>
+  #top2{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:40%;
+    background-image: url("https://i.ytimg.com/vi/qBnmy7d2JSc/maxresdefault.jpg");
+  }
+  #top,
+  #bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 60%;
+  }
+
+  #top {
+    top: 0;
+  }
+
+  #bottom {
+    bottom: 0;
+    /*background-image: url("https://www.snappdemo.com/wp-content/uploads/2014/06/chitter33.png");*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  #peeps {
+    font-family: Comic Sans MS;
+    font-size: 20px; color:#f95f00;
+    text-align:left;
+    background-color:#8fe6ef;
+  }
+  h1 {
+    font-family: Comic Sans MS;
+    font-size: 22px; color:blue;
+    text-align:left;
+    margin-left: 10%
+  }
+  h2 {
+    font-family: Comic Sans MS;
+    font-size: 17px; color:blue;
+  }
+  form {
+    display: block;
+    margin-left: 10%;
+    margin-right: auto;
+  }
+
+  input.submit[type=submit] {
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #003afc;
+    border: none;
+    color: #FFFFFF ;
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    width: 25%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+
+  }
+
+  input.submit[type=submit]:hover {
+    border: 1px solid #999;
+    color: #F344B9;
+  }
+
+  input.submmit[type=submit]:active {
+    background-color: #003afc;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  </style>
