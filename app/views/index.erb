@@ -12,6 +12,7 @@
     <% @peeps.reverse.each do |peep| %>
       <h3><%= peep.message %><br></h3>
       <%= @users.get(peep.user_id).name %> <%= peep.created_at.strftime('%I:%M:%S %p') %>
+      #create helper method
     <% end %>
   </ul>
   </div>

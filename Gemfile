@@ -8,8 +8,9 @@ gem "capybara"
 gem "database_cleaner"
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem "sinatra-partial"
 # gem 'pg'
-# # gem 'rake'
+# gem 'rake'
 
 group :test do
   gem 'rspec'
