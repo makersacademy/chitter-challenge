@@ -1,0 +1,27 @@
+<h1> Chitter </h1>
+
+<% if current_user %>
+  <form method='post' action='/peeps/new'>
+    <label for='text'>
+      Why not peep? <input type='text' name='text'>
+    </label>
+    <input type='submit' value='Peep!'>
+  </form>
+<% else %>
+  <form action='/sessions/new' method='get'>
+    <input type='submit' value='Log in'>
+  </form>
+  <form action='/users/new' method='get'>
+    <input type='submit' value='Sign up'>
+  </form>
+<% end %>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= "#{peep.user.first_name} #{peep.user.last_name} (#{peep.user.username})
+     peeped on #{peep.time.day}-#{peep.time.month}-#{peep.time.year} #{peep.time.strftime("at %I:%M%p")}"%><br/>
+    <%= peep.text %>
+  </li>
+<% end %>
+</ul>
