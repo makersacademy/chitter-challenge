@@ -14,8 +14,8 @@ feature 'Adding responses to peeps' do
 
   scenario 'I can add a response when logged in' do
     sign_in(email: user.email, password: user.password)
-    within find("ul#peeps li:first-child") do
-      fill_in :reply, with: 'Test response'
+    within first('div.responses') do
+      fill_in :response_text, with: 'Test response'
       click_button 'Reply'
     end
     expect(page).to have_content 'Test response'

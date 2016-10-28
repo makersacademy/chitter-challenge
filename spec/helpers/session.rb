@@ -21,7 +21,12 @@ module SessionHelpers
 
   def sign_up_and_create_peep(text)
     sign_up
-    fill_in :text, with: text
+    fill_in :peep_text, with: text
+    click_button 'Peep'
+  end
+
+  def peep(text)
+    fill_in :peep_text, with: text
     click_button 'Peep'
   end
 

@@ -8,12 +8,12 @@
 
 <% if current_user %>
 <form method="post" action="/peeps">
-  <input type="text" name="text" rows = "2" placeholder="What's peeping?" maxlength="140">
+  <input type="text" name="peep_text" rows = "2" placeholder="What's peeping?" maxlength="140">
   <input type="submit" value="Peep">
 </form>
 <% end %>
 
-<ul id='peeps'>
+<ul class='peeps'>
   <% if @peeps %>
     <% @peeps.each do |peep| %>
     <li>
@@ -23,15 +23,15 @@
       <% if !peep.responses.empty? %>
         <% peep.responses.each do |response| %>
             <li><%=response.user.name%>
-            <%=response.timestamp.strftime('%Y-%m-%d %H:%M')%>
+            <%=response.timestamp.strftime("%H:%M, %A %d %B %Y")%>
             <%=response.text%></li>
         <% end %>
       <% end %>
-
+    </ul>
 
       <% if current_user %>
       <form method = "post" action="/responses/<%= peep.id %>">
-        <input type="text" name="text" placeholder="Reply here" maxlength="140">
+        <input type="text" name="response_text" placeholder="Reply here" maxlength="140">
         <input type="submit" value="Reply">
       </form>
       <% end %>
