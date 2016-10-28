@@ -1,41 +1,51 @@
+<div class="sign_in_and_out">
+  <% if !current_user %>
+  <form method='get' action='/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
+  <% end %>
+</div>
 
-<% if !current_user %>
-<form method='get' action='/sessions/new'>
-  <input type='submit' value='Sign in'>
-</form>
-<% end %>
 
+<div class="peep_post">
+  <% if current_user %>
+  <form method="post" action="/peeps">
+    <input type="text" name="peep_text" rows = "2" placeholder="What's peeping?" maxlength="140">
+    <input type="submit" value="Peep">
+  </form>
+  <% end %>
+</div>
 
-<% if current_user %>
-<form method="post" action="/peeps">
-  <input type="text" name="peep_text" rows = "2" placeholder="What's peeping?" maxlength="140">
-  <input type="submit" value="Peep">
-</form>
-<% end %>
-
-<ul class='peeps'>
-  <% if @peeps %>
+<div class="peeps">
+  <ul>
+    <% if @peeps %>
     <% @peeps.each do |peep| %>
     <li>
       <%= peep.user.name %>--/-- <%= peep.timestamp.strftime("%H:%M, %A %d %B %Y") %><br/>
       <%= peep.text %>
       <ul>
-      <% if !peep.responses.empty? %>
-        <% peep.responses.each do |response| %>
-            <li><%=response.user.name%>
+
+        <div class="responses">
+          <% if !peep.responses.empty? %>
+          <% peep.responses.each do |response| %>
+          <li><%=response.user.name%>
             <%=response.timestamp.strftime("%H:%M, %A %d %B %Y")%>
             <%=response.text%></li>
-        <% end %>
-      <% end %>
-    </ul>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
 
-      <% if current_user %>
-      <form method = "post" action="/responses/<%= peep.id %>">
-        <input type="text" name="response_text" placeholder="Reply here" maxlength="140">
-        <input type="submit" value="Reply">
-      </form>
-      <% end %>
-    <% end %>
-  <% end %>
-  </li>
-</ul>
+        <div class="response_post">
+          <% if current_user %>
+          <form method = "post" action="/responses/<%= peep.id %>">
+            <input type="text" name="response_text" placeholder="Reply here" maxlength="140">
+            <input type="submit" value="Reply">
+          </form>
+          <% end %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
