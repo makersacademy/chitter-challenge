@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body {
+      background-color: RoyalBlue;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    #header {
+      min-height: 40px;
+      background-color: teal;
+      margin: 0;
+      padding: 10px;
+      width: 100%;
+    }
+
+    #glitter {
+      margin: auto;
+      background-image:url('https://media.giphy.com/media/JjM1Qqy4GK92M/giphy.gif');
+      background-size:cover;
+      text-align: center;
+      width: 250px;
+      height: 50px;
+      padding: 10px;
+    }
+
+    h1 {
+      text-shadow: #EEEE00 0 0 10px;
+    }
+    form {
+      display: inline-block;
+    }
+
+    button {
+      width: 80;
+      height: 30;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    </style>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <div id = 'header'>
+      <% if current_user %>
+        Welcome, <%= current_user.email %>
+        <form action='/sessions' method='post' id = 'sign_out'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      <% end %>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% if !current_user %>
+        <% if flash[:notice] %>
+          <div id='notice'>
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <form action='/sessions' method='post' id = 'sign_in_form'>
+          <label for='email'>
+            Email: <input name='email' type='email'>
+          </label>
+          <label for='password'>
+            Password: <input name='password' type='password'>
+          </label>
+          <input type='submit' value='Sign in'>
+        </form>
+
+        <form action='/users/new' method='get'>
+          <input type='submit' value='Sign up'>
+        </form>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
