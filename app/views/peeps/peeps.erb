@@ -17,18 +17,17 @@
   <% if @peeps %>
     <% @peeps.each do |peep| %>
     <li>
-      <%= peep.user.name %>--/-- <%= peep.timestamp.strftime("%A %d %B %Y, %H:%M") %><br/>
+      <%= peep.user.name %>--/-- <%= peep.timestamp.strftime("%H:%M, %A %d %B %Y") %><br/>
       <%= peep.text %>
-
-      <% if !peep.responses.empty? %>
       <ul>
-        <li> <% peep.responses.each do |response| %>
-          <% response.user.name %>--/--<% response.timestamp.strftime("%A %d %B %Y, %H:%M")%><br/>
-          <% response.text %>
-          <% end %>
-        </li>
+      <% if !peep.responses.empty? %>
+        <% peep.responses.each do |response| %>
+            <li><%=response.user.name%>
+            <%=response.timestamp.strftime('%Y-%m-%d %H:%M')%>
+            <%=response.text%></li>
         <% end %>
-      </ul>
+      <% end %>
+
 
       <% if current_user %>
       <form method = "post" action="/responses/<%= peep.id %>">

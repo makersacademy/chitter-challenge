@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
                       peep_id: params[:peep_id],
                       timestamp: Time.now)
       redirect to('/peeps')
-    elsif !params[:response_text]
+    elsif !params[:text]
       flash.keep[:errors] = "You need to write something."
       redirect :'/peeps'
     end

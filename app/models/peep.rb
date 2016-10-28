@@ -4,7 +4,7 @@ class Peep
 
   belongs_to :user
 
-  has n, :responses, through: Resource
+  has n, :responses
 
   property(:id, Serial)
   property(:text, String, length: 140, required: true)
