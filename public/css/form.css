@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'widolte_bold_demoregular';
+    src: url('widolte_bold_demo-webfont.woff2') format('woff2'),
+         url('widolte_bold_demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'widolte_light_demoregular';
+    src: url('widolte_light_demo-webfont.woff2') format('woff2'),
+         url('widolte_light_demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'widolte_thin_demoregular';
+    src: url('widolte_thin_demo-webfont.woff2') format('woff2'),
+         url('widolte_thin_demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.header  {
+    width: 90%;
+    float:left;
+    height: 40%;
+    margin-left: 5%;
+}
+
+.welcome  {
+    width: 90%;
+    float:left;
+    height: 40%;
+    margin-left: 6%;
+}
+
+.header h1 {
+    font-family: 'widolte_bold_demoregular';
+    font-size: 80px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-top: 50px;
+    float: left;
+}
+
+.welcome h2 {
+    font-family: 'widolte_light_demoregular';
+    font-size: 30px;
+    margin-top: 0px;
+    margin-left: 10px;
+    float: left;
+}
+
+.line {
+  width: 90%;
+  float:left;
+  margin-left: 6%;
+}
+
+.input h2 {
+  font-family: 'widolte_light_demoregular';
+  font-size: 30px;
+  margin-top: 0px;
+  margin-left: 10px;
+  float: left;
+  display: inline-block;
+  width: 20%;
+}
+
+.input input[type="text"]  {
+  border: 5px solid black;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 20px;
+  width:  300px;
+}
+
+.input input[type="submit"] {
+  font-family: 'widolte_bold_demoregular';
+  float:right;
+  height: 35px;
+  width: 120px;
+  border: 5px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  margin-top: 3%;
+  margin-right: 30%;
+}
