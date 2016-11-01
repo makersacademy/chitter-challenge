@@ -21,7 +21,7 @@ chitter_test
 Download and run the app:
 ```
 $ git clone git@github.com:malinnaleach/chitter-challenge.git
-$ cd rps-challenge
+$ cd chitter-challenge
 $ bundle install
 $ ruby app.rb
 ```
