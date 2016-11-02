@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 
+require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 require_relative 'models/user'
 
@@ -23,12 +24,12 @@ class Chitter < Sinatra::Base
     erb :'peeps/view'
   end
 
-  get '/user/register' do
+  get '/user/new' do
     @user = User.new
-    erb :'user/register'
+    erb :'user/new'
   end
 
-  post '/user/register' do
+  post '/user/new' do
     @user = User.new( name:                  params[:name],
                       email:                 params[:email],
                       username:              params[:username],
@@ -44,18 +45,18 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/user/sign_in' do
-    erb :'user/sign_in'
+  get '/session/new' do
+    erb :'session/new'
   end
 
-  post '/user/sign_in' do
+  post '/session/new' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
       redirect '/'
     else
       flash.now[:errors] =  ['User email or password is incorrect']
-      erb :'user/sign_in'
+      erb :'session/new'
     end
   end
 
@@ -66,5 +67,5 @@ class Chitter < Sinatra::Base
   end
 
   # start the server if ruby file executed directly
-run! if app_file == $0
+  run! if app_file == $0
 end
