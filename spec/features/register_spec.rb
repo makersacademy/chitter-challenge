@@ -11,18 +11,6 @@ feature 'Users can sign up for the service' do
     expect(page).to have_content 'Hi, test'
     expect(User.first.email).to eq('test@test.com')
   end
-
-  it 'but not with two non-identical passwords. Helpful error displayed' do
-    sign_up(name:                   'Another test',
-            email:                  'test@test.com',
-            username:               'test',
-            password:               'test',
-            password_confirmation:  'test',
-            click:                  false)
-    expect{ click_button 'Sign up' }.to change{ User.all.count }.by(0)
-    expect(current_path).to eq '/user/register'
-    expect(page).to have_content('Password does not match the confirmation')
-  end
 end
 
 feature 'User cannot sign up' do
@@ -38,7 +26,7 @@ feature 'User cannot sign up' do
 
   it 'with an invalid email' do
     sign_up(name:                   'Another test',
-            email:                  'test@test.com',
+            email:                  'test',
             username:               'test',
             password:               'test',
             password_confirmation:  'test',
@@ -68,6 +56,18 @@ feature 'User cannot sign up' do
             click:                  false)
     expect{ click_button 'Sign up' }.to change{ User.all.count }.by(0)
     expect(page).to have_content('Username is already taken')
+  end
+
+  it 'with two non-identical passwords. Helpful error displayed' do
+    sign_up(name:                   'Another test',
+            email:                  'test@test.com',
+            username:               'test',
+            password:               'test',
+            password_confirmation:  'nottest',
+            click:                  false)
+    expect{ click_button 'Sign up' }.to change{ User.all.count }.by(0)
+    expect(current_path).to eq '/user/register'
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
 end

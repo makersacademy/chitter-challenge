@@ -31,8 +31,7 @@ class Chitter < Sinatra::Base
                       email:                 params[:email],
                       username:              params[:username],
                       password:              params[:password],
-                      password_confirmation: params[:password_confirmation]
-                    )
+                      password_confirmation: params[:password_confirmation])
 
     if @user.save
       session[:user_id] = @user.id
@@ -49,7 +48,6 @@ class Chitter < Sinatra::Base
 
   post '/user/sign_in' do
     user = User.authenticate(params[:email], params[:password])
-    p user
     if user
       session[:user_id] = user.id
       redirect '/'

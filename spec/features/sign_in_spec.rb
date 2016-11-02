@@ -12,8 +12,14 @@ feature 'User Sign-in' do
     expect(page).to have_content 'Hi, test'
   end
 
-  scenario 'displays sign-in error for wrong credentials' do
-    sign_in(email: 'test@test.com', password: 'test', click: true)
+  scenario 'displays sign-in error for wrong password' do
+    sign_in(email: 'test@test.com', password: 'nottest', click: true)
+    expect(page).not_to have_content 'Hi, test'
+    expect(page).to have_content 'User email or password is incorrect'
+  end
+
+  scenario 'displays sign-in error for invalid email' do
+    sign_in(email: 'nottest@test.com', password: 'test', click: true)
     expect(page).not_to have_content 'Hi, test'
     expect(page).to have_content 'User email or password is incorrect'
   end
