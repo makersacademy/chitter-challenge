@@ -1,7 +1,16 @@
-<form action="/user/new" method="get">
-  <input type="submit" value="Register">
+<h2>New Peeps</h2>
+<form action="peep/new" method="post">
+  <textarea name="peep" rows="2" cols="40" placeholder="Peep to fellow Makers"></textarea>
+  <br>
+  <input type="submit" value="Peep it">
 </form>
 
-<form action="/session/new" method="get">
-  <input type="submit" value="Sign in">
-</form>
+<h2>Peep list</h2>
+
+<ul id = 'peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Peep: <%= peep.peep %>
+    </li>
+  <% end %>
+</ul>

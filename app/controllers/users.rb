@@ -20,5 +20,4 @@ class Chitter < Sinatra::Base
       erb :'user/new'
     end
   end
-
 end

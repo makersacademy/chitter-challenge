@@ -21,7 +21,7 @@ module UserHelpers
      visit '/session/new'
      fill_in :email,    with: email
      fill_in :password, with: password
-     click_button 'Sign in' if click
+     click_button 'Submit' if click
   end
 
   def sign_out

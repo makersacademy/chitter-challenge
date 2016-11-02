@@ -7,9 +7,17 @@
   <body>
     <% if current_user %>
       Hi, <%= current_user.username %>
-      <form method='post' action='/sign_out'>
+      <form method='post' action='/session/end'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <form action="/user/new" method="get">
+        <input type="submit" name="register" value="Register">
+      </form>
+
+      <form action="/session/new" method="get">
+        <input type="submit" name="sign_in" value="Sign in">
       </form>
     <% end %>
 
@@ -21,6 +29,13 @@
         <% end %>
       </ul>
     <% end %>
+
+    <% if flash[:notice] %>
+       <div id='notice'>
+         <%= flash[:notice] %>
+       </div>
+     <% end %>
+     
     <%= yield %>
   </body>
 </html>

@@ -13,4 +13,10 @@ class Chitter < Sinatra::Base
       erb :'session/new'
     end
   end
+
+  delete '/session/end' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Farewell!'
+    redirect '/'
+  end
 end

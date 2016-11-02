@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
-  get '/peeps' do
-    @peeps = Peep.all
-    erb :'peeps/view'
+  post '/peep/new' do
+    Peep.create(peep: params[:peep])
+    redirect('/')
   end
 end
