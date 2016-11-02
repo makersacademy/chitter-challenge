@@ -66,7 +66,7 @@ feature 'User cannot sign up' do
             password_confirmation:  'nottest',
             click:                  false)
     expect{ click_button 'Sign up' }.to change{ User.all.count }.by(0)
-    expect(current_path).to eq '/user/register'
+    expect(current_path).to eq '/user/new'
     expect(page).to have_content('Password does not match the confirmation')
   end
 

@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peeps.all
+    @peeps = Peep.all
     erb :'peeps/view'
   end
 
@@ -41,7 +41,7 @@ class Chitter < Sinatra::Base
       redirect to '/'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'user/register'
+      erb :'user/new'
     end
   end
 

@@ -10,8 +10,6 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-# ENV['RACK_ENV'] = 'test'
-
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 # Gems
@@ -26,6 +24,8 @@ require './app/models/peep'
 require './app/models/user'
 
 require_relative './helpers/user'
+require_relative '../app/data_mapper_setup'
+
 
 Capybara.app = Chitter
 
