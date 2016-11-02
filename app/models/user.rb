@@ -29,7 +29,3 @@ class User
     end
   end
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
