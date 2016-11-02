@@ -1,0 +1,23 @@
+<h1><%= @owl.name %>'s nest</h1>
+<div id="twits">
+  <% if @owl.twits.empty? %>
+    No twits yet!
+  <% else %>
+    <% @owl.twits.each do |twit| %>
+      <div class="twit">
+        <%= twit %>
+        <% twit.twoots.each do |twoo| %>
+          <%= twoo %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<h3>Twit</h3>
+<form action="/twit" method="POST">
+  <label for="twit">
+    <textarea name="twit"></textarea>
+  </label>
+  <br>
+  <input type="submit" value="Twit">
+</form>

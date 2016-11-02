@@ -1,10 +1,17 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.2.4'
+
+gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
+  gem 'rspec-sinatra'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
 end
-
