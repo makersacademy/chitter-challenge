@@ -11,6 +11,7 @@
   <% @peeps.each do |peep| %>
     <li>
       Peep: <%= peep.peep %>
+      Timestamp: <%= peep.timestamp.asctime %>
     </li>
   <% end %>
 </ul>
