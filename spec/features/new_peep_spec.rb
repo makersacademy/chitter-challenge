@@ -4,7 +4,7 @@ feature 'Making Peeps' do
   before do
     sign_up
   end
-  
+
   scenario 'Logged In User Creates a Peep' do
     visit '/home'
     fill_in :peep, with: 'Hello, World'
