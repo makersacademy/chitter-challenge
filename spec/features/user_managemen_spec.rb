@@ -55,6 +55,7 @@ feature 'User signs out' do
   scenario 'while being signed in' do
     login('bo@bo.com', 'bo')
     logout
+    expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome, bo@bo.com')
   end
 end

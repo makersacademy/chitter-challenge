@@ -21,7 +21,6 @@ body {
   background-size: cover;
   color: #fff;
   text-align: center;
-  text-shadow: 5px 5px 5px #666666;
   margin-top:30px;
   margin: 0 auto;
   padding-bottom: 50px;
@@ -90,6 +89,9 @@ body {
   right: 0;
   bottom: 0;
 }
+.footer a{
+  cursor: pointer;
+}
 
 label {
   display: inline-block;
@@ -102,15 +104,30 @@ label {
   text-shadow: 5px 5px 5px #666666;
 }
 
+.peeps {
+  padding: 20px;
+  font-size: 18px;
+  font-family:fantasy;
+  line-height: 150%;
+}
+.peeps:before
+{
+content: '\201C ';
+}
+
+.peeps:after
+{
+content: ' \201D';
+}
+
 
 .message {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
+  margin: 15px;
   font-weight: bold;
   color: #000;
-
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 .panel {
@@ -118,25 +135,55 @@ label {
   width:510px;
   border-radius:6px;
   padding-bottom: 10px;
-  box-shadow: 5px 5px 5px 2px #888888;
+  box-shadow: 5px 5px 5px 2px #999999;
 }
 
 .panel-title{
+  text-shadow: 5px 5px 5px #666666;
   background-color:#efefef;
   border-radius:6px;
   text-align:left;
   padding: 10px 0 10px 10px;
 }
+
 .panel-title span{
   float:right;
 }
+
 .title-post{
+  text-shadow: 5px 5px 5px #666666;
   font-size: 30px;
   color:#fff;
   font-family:fantasy;
   padding:25px 0 15px 0;
 }
 
+.container-peeps{
+  width:650px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+	background-color: rgba(255, 255, 255, 0.37);
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px rgba(181, 181, 181, 0.3);
+	position: relative;
+	min-height: 315px;
+  margin-bottom: 65px;
+}
+
+.post-Signing{
+  width:450px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+	background-color: rgba(255, 255, 255, 0.37);
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px rgba(181, 181, 181, 0.3);
+	position: relative;
+	min-height: 315px;
+}
+
 .btn{
   margin: 15px 0 15px 0;
+  font-size: 20px;
 }

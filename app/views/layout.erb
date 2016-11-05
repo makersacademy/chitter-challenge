@@ -21,7 +21,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/" name="top"> Chitter </a>
+        <a class="brand" href="/" name="top" style="color:#B22222;font-weight:bold;"> Chitter </a>
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><a href="/"><i class="icon-home"></i>  Home </a></li>
@@ -54,9 +54,21 @@
       <!--/.container-fluid -->
       </div>
     <!--/.navbar-inner -->
+
+    <div class="notice">
+      <% if flash[:notice] %>
+        <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+           <div id='notice'>
+             <%= flash[:notice] %>
+           </div>
+        </div>
+      <% end %>
+    </div>
+
     <div class="errors">
       <% if flash[:errors] && !flash[:errors].empty? %>
-      <div class="alert alert-danger" role="alert">
+      <div class="alert alert-danger fade in" role="alert">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         <ul id = 'errors'>
           <% flash[:errors].each do |error| %>
@@ -66,11 +78,16 @@
       </div>
       <% end %>
     </div>
+
   </div>
 <!--/.navbar -->
   <div>
     <%= yield %>
-    <footer class="footer">Made by Manuela Sabatino</footer>
+    <footer class="footer">
+      © 2016 Chitter by Manuela Sabatino |
+      <a href="https://github.com/ManuCiao" target="_blank">GitHub</a> |
+      <a href="https://uk.linkedin.com/in/mnsabatino" target="_blank">LinkedIn</a>
+    </footer>
   </div>
 
 </body>

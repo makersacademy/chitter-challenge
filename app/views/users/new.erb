@@ -1,26 +1,28 @@
-<h2 class="title-post" style="font-size: 30px;color:#fff;font-family:fantasy;padding:25px 0 15px 0;">Please Sign up</h2>
-<div class="post-form">
-  <form action="/users" method="post">
-    <div class="form"style="float:center">
-      <label> Name: </label>
-      <input name="name" type="text" placeholder="Enter name" value="<% @user.name %>">
-    </div>
-    <div class="form">
-      <label> Username: </label>
-      <input name="username" type="text" placeholder="Enter username" value="<% @user.username %>">
-    </div>
-    <div class="form">
-      <label> Email: </label>
-      <input name="email" type="text" placeholder="Enter email address" value="<%= @user.email %>">
-    </div>
-    <div class="form">
-      <label> Password: </label>
-      <input name="password" type="password" placeholder="Enter password">
-    </div>
-    <div class="form">
-      <label> Verify Password: </label>
-      <input name="password_confirmation" type="password" placeholder="Verify password">
-    </div>
-    <button type="submit" class="btn btn-primary" id = "signup">Sign up</button>
-  </form>
+<div class="post-Signing">
+  <h2 class="title-post" style="font-size: 30px;color:#fff;font-family:fantasy;padding:25px 0 15px 0;">Please Sign up</h2>
+  <div class="post-form">
+    <form action="/users" method="post">
+      <div class="form"style="float:center">
+        <label> Name: </label>
+        <input name="name" type="text" placeholder="Enter name" value="<% @user.name %>">
+      </div>
+      <div class="form">
+        <label> Username: </label>
+        <input name="username" type="text" placeholder="Enter username" value="<% @user.username %>" required>
+      </div>
+      <div class="form">
+        <label> Email: </label>
+        <input name="email" type="email" placeholder="Enter email address" value="<%= @user.email %>" required>
+      </div>
+      <div class="form">
+        <label> Password: </label>
+        <input name="password" type="password" placeholder="Enter password" required>
+      </div>
+      <div class="form">
+        <label> Verify Password: </label>
+        <input name="password_confirmation" type="password" placeholder="Verify password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" id = "signup">Sign up</button>
+    </form>
+  </div>
 </div>
