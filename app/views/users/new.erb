@@ -1,7 +1,7 @@
 <div class="post-Signing">
   <h2 class="title-post" style="font-size: 30px;color:#fff;font-family:fantasy;padding:25px 0 15px 0;">Please Sign up</h2>
   <div class="post-form">
-    <form action="/users" method="post">
+    <form action="/users" method="post" class="login" accept-charset="UTF-8">
       <div class="form"style="float:center">
         <label> Name: </label>
         <input name="name" type="text" placeholder="Enter name" value="<% @user.name %>">
@@ -23,6 +23,7 @@
         <input name="password_confirmation" type="password" placeholder="Verify password" required>
       </div>
       <button type="submit" class="btn btn-primary" id = "signup">Sign up</button>
+      <h5>Already a member? <a href="/sessions/new" target="_blank"><strong>Sign in here</strong></a></h5>
     </form>
   </div>
 </div>

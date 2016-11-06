@@ -21,4 +21,6 @@ module SessionHelpers
   def logout
     click_button 'Logout'
   end
+
+
 end

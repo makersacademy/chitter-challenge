@@ -3,11 +3,11 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  property :id,              Serial
-  property :name,            String
-  property :email,           String, unique: true, format: :email_address, message: 'This email is already taken'
-  property :username,        String, unique: true, message: 'This username is already taken'
-  property :password_digest, Text
+  property :id,                   Serial
+  property :name,                 String
+  property :email,                String, unique: true, format: :email_address, message: 'This email is already taken'
+  property :username,             String, unique: true, message: 'This username is already taken'
+  property :password_digest,      Text
 
   has n, :peeps
 

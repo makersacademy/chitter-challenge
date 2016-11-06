@@ -27,7 +27,6 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   min-height: 100%;
   position: relative;
-
 }
 
 .navbar {
@@ -112,14 +111,29 @@ label {
 }
 .peeps:before
 {
-content: '\201C ';
+content: '\201C';
+font-size: 30px;
+font-weight: bolder;
 }
 
 .peeps:after
 {
-content: ' \201D';
+content: '\201D';
+font-size: 30px;
+font-weight: bolder;
 }
 
+.login h5{
+  padding-top: 10px;
+  color: #fff;
+  font-weight: normal;
+  text-shadow: 2px 2px 5px #000;
+  text-decoration: none;
+}
+
+.login a:hover{
+  color:#B22222;
+}
 
 .message {
   display: inline-block;
@@ -172,6 +186,7 @@ content: ' \201D';
 }
 
 .post-Signing{
+  margin-top: 50px;
   width:450px;
   height: 100%;
   margin-left:auto;

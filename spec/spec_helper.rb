@@ -7,7 +7,6 @@ require 'byebug'
 require 'coveralls'
 require 'simplecov'
 
-
 Capybara.app = Sinatra::Application
 
 SimpleCov.formatters = [

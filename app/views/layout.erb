@@ -20,11 +20,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <a class="brand" href="/" name="top" style="color:#B22222;font-weight:bold;"> Chitter </a>
         </a>
-        <a class="brand" href="/" name="top" style="color:#B22222;font-weight:bold;"> Chitter </a>
         <div class="nav-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="/"><i class="icon-home"></i>  Home </a></li>
+            <li><a href="/"><i class="icon-home"></i> Home </a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
@@ -33,7 +33,7 @@
             <li>
               <form method='post' action='/sessions' class="navbar-form navbar-right">
                 <input type='hidden' name='_method' value='delete'>
-                <button type="submit" class="btn btn-danger">Logout</button>
+                <button type="submit" class="btn btn-danger"> Logout </button>
               </form>
             </li>
           </ul>
@@ -43,7 +43,7 @@
             <li>
               <form method='post' action='/sessions/new' class="navbar-form navbar-right">
                 <input type='hidden' name='_method' value='get'>
-                <button type="submit" class="btn btn-primary" id = "login">Login</button>
+                <button type="submit" class="btn btn-primary" id = "login"> Login </button>
               </form>
             </li>
           </ul>
