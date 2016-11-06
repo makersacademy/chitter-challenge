@@ -88,7 +88,8 @@ body {
   right: 0;
   bottom: 0;
 }
-.footer a{
+
+.footer a:hover{
   cursor: pointer;
 }
 
@@ -109,15 +110,14 @@ label {
   font-family:fantasy;
   line-height: 150%;
 }
-.peeps:before
-{
+
+.peeps:before {
 content: '\201C';
 font-size: 30px;
 font-weight: bolder;
 }
 
-.peeps:after
-{
+.peeps:after {
 content: '\201D';
 font-size: 30px;
 font-weight: bolder;
