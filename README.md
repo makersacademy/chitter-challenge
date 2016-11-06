@@ -57,10 +57,10 @@ Deploy to Heroku:
 [https://chitter-post-app.herokuapp.com/](https://chitter-post-app.herokuapp.com/)
 
 #### Homepage
-![alt text](public/img/homepage.png "Homepage page")
+![alt text](public/img/chitter.png "Homepage page")
 
 #### Error messages
-![alt text](public/img/errors.png "Error messages displayed")
+![alt text](public/img/error.png "Error messages displayed")
 
 #### Sign up form
-![alt text](public/img/signup_form.png "Sign up form")
+![alt text](public/img/signup.png "Sign up form")
