@@ -1,0 +1,204 @@
+html{
+  position:relative;
+  min-height: 100%;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*Normalize html and body elements,this style is just good to have*/
+html,body{
+  margin:0;
+  padding:0;
+}
+
+body {
+  background: url("../img/wallpaper2.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  margin-top:30px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100%;
+  position: relative;
+}
+
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.nav li {
+	display: inline;
+  padding-right: 15px;
+}
+
+.nav a {
+	text-decoration: none;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.3em;
+	color: #596365;
+}
+
+.nav a:hover {
+	text-decoration: none;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.3em;
+	color: #000;
+}
+
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important;
+  }
+  .navbar-right {
+    float: right !important;
+    margin-right: -15px;
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0;
+  }
+}
+
+.footer {
+  font-size: 15px;
+  position: fixed;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  color: #000;
+  height: 15px;
+  left: 0 ;
+  right: 0;
+  bottom: 0;
+}
+
+.footer a:hover{
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-shadow: 5px 5px 5px #666666;
+}
+
+.peeps {
+  padding: 20px;
+  font-size: 18px;
+  font-family:fantasy;
+  line-height: 150%;
+}
+
+.peeps:before {
+content: '\201C';
+font-size: 30px;
+font-weight: bolder;
+}
+
+.peeps:after {
+content: '\201D';
+font-size: 30px;
+font-weight: bolder;
+}
+
+.login h5{
+  padding-top: 10px;
+  color: #fff;
+  font-weight: normal;
+  text-shadow: 2px 2px 5px #000;
+  text-decoration: none;
+}
+
+.login a:hover{
+  color:#B22222;
+}
+
+.message {
+  display: inline-block;
+  max-width: 100%;
+  margin: 15px;
+  font-weight: bold;
+  color: #000;
+  padding-bottom: 20px;
+}
+
+.panel {
+  background-color:#fff;
+  width:510px;
+  border-radius:6px;
+  padding-bottom: 10px;
+  box-shadow: 5px 5px 5px 2px #999999;
+}
+
+.panel-title{
+  text-shadow: 5px 5px 5px #666666;
+  background-color:#efefef;
+  border-radius:6px;
+  text-align:left;
+  padding: 10px 0 10px 10px;
+}
+
+.panel-title span{
+  float:right;
+}
+
+.title-post{
+  text-shadow: 5px 5px 5px #666666;
+  font-size: 30px;
+  color:#fff;
+  font-family:fantasy;
+  padding:25px 0 15px 0;
+}
+
+.container-peeps{
+  width:650px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+	background-color: rgba(255, 255, 255, 0.37);
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px rgba(181, 181, 181, 0.3);
+	position: relative;
+	min-height: 315px;
+  margin-bottom: 65px;
+}
+
+.post-Signing{
+  margin-top: 50px;
+  width:450px;
+  height: 100%;
+  margin-left:auto;
+  margin-right:auto;
+	background-color: rgba(255, 255, 255, 0.37);
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px rgba(181, 181, 181, 0.3);
+	position: relative;
+	min-height: 315px;
+}
+
+.btn{
+  margin: 15px 0 15px 0;
+  font-size: 20px;
+}

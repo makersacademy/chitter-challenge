@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+  <title>Chitter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/reset.css" rel="stylesheet">
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <a class="brand" href="/" name="top" style="color:#B22222;font-weight:bold;"> Chitter </a>
+        </a>
+        <div class="nav-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"><i class="icon-home"></i> Home </a></li>
+            <% if current_user %>
+            <li><h4 style="color:black;display:inline-block;"> Welcome, <%= current_user.email %> </h4></li>
+            <li><a href="#"><i class="icon-user"></i> <%= @current_user.username.to_s.capitalize %> </a></li>
+            <li>
+              <form method='post' action='/sessions' class="navbar-form navbar-right">
+                <input type='hidden' name='_method' value='delete'>
+                <button type="submit" class="btn btn-danger"> Logout </button>
+              </form>
+            </li>
+          </ul>
+          <% else %>
+          <ul class="nav pull-right">
+            <li><a href="/users/new"><i class="icon-star"></i> Sign up </a></li>
+            <li>
+              <form method='post' action='/sessions/new' class="navbar-form navbar-right">
+                <input type='hidden' name='_method' value='get'>
+                <button type="submit" class="btn btn-primary" id = "login"> Login </button>
+              </form>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container-fluid -->
+      </div>
+    <!--/.navbar-inner -->
+
+    <div class="notice">
+      <% if flash[:notice] %>
+        <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+           <div id='notice'>
+             <%= flash[:notice] %>
+           </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="errors">
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger fade in" role="alert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <ul id = 'errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+<!--/.navbar -->
+  <div>
+    <%= yield %>
+    <footer class="footer">
+      © 2016 Chitter by Manuela Sabatino |
+      <a href="https://github.com/ManuCiao" target="_blank">GitHub</a> |
+      <a href="https://uk.linkedin.com/in/mnsabatino" target="_blank">LinkedIn</a>
+    </footer>
+  </div>
+
+</body>
+</html>

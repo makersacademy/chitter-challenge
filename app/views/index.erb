@@ -1,0 +1,30 @@
+<div class="container-peeps">
+  <h2 class="title-post">List of Peeps</h2>
+  <div class="post-form">
+    <% if current_user %>
+    <form method = "post" action="/peeps">
+      <div class="form">
+        <textarea style="width:500px;" class="form-control" rows="5" name="peep" placeholder="Post your PEEP here.."></textarea><br>
+        <button type="submit" class="btn btn-primary">Peep me!</button>
+      </div>
+    </form>
+  </div>
+  <% end %>
+<div class="message" style="text-align:center">
+  <% Peep.all(order: [:time.desc]).each do |peep| %>
+  <div class="panel">
+    <h4 class="panel-title">
+      <% if peep.time %>
+      <%= peep.time.strftime("%d/%m/%Y") + peep.time.strftime(" at %I:%M %p")  %>
+      <% end %>
+      <span><%= peep.user.username.to_s.capitalize %> says: &nbsp;</span>
+    </h4>
+    <h5 class="peeps"> <%= peep.peep %> </h5>
+
+    <br>
+  </div>
+  <br>
+  <% end %>
+</div>
+
+</div>
