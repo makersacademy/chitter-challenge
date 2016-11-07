@@ -7,7 +7,7 @@
   <% @peeps.each do |peep| %>
     <li>
       <b><%= peep.user.name %></b> (<%= peep.user.username %>) at <%= peep.created_at %> posted:<br>
-      <%= peep.peep_text %><br><br>
+      <%=h peep.peep_text %><br><br>
     </li>
   <% end %>
 </ul>

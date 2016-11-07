@@ -24,6 +24,10 @@ class ChitterChatter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def h(text)
+      Rack::Utils.escape_html(text)
+    end
   end
 
   post '/users' do
@@ -32,6 +36,8 @@ class ChitterChatter < Sinatra::Base
     password_confirmation: params[:password_confirmation],
     name: params[:name],
     username: params[:username])
+
+    p @user
     if @user.save
       session[:user_id] = @user.id
       redirect to '/'
