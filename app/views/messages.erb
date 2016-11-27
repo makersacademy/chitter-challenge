@@ -12,8 +12,11 @@
         <div>
           <%= message.title %>
           <%= message.content %>
+          <%= message.user.user_name %>
+          <%= message.created_at.strftime("%H:%M / %d-%m-%Y") %>
         </div>
       <% end %>
+
     </div>
 
     <form action='/messages/new'>

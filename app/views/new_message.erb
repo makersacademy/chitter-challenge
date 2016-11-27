@@ -5,11 +5,13 @@
   </head>
 
   <body>
+    <% if current_user %>
     <form action='/messages' method="post">
       <label for='title'> Title: <input type='text' name='title'></label>
       <label for='content'> Message: <input type="text" name='content'></label>
       <input type='submit' value='Submit'>
     </form>
+    <% end %>
 
   </body>
 

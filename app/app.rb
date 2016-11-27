@@ -48,12 +48,12 @@ use Rack::MethodOverride
   end
 
   get '/messages' do
-    @messages = Message.all
+    @messages = Message.all(:order => [:created_at.desc])
     erb :messages
   end
 
   post '/messages' do
-    User.create(messages: [Message.create(title: params[:title], content: params[:content], user_id: session[:user_id])])
+    Message.create(title: params[:title], content: params[:content], user_id: current_user.id)
     redirect '/messages'
   end
 
