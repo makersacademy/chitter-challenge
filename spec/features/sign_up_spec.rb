@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 
 feature "Sign up" do
   scenario "new users can sign up" do

@@ -11,23 +11,23 @@ feature "Post messages" do
 
   scenario "users can post messages" do
     sign_up
-    sign_in(email: "wsmith@gmail.com", password: "123456")
-    click_button('Post a Message')
-    fill_in('title', with: "Faraway land")
-    fill_in('content', with: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.")
-    click_button('Submit')
+    sign_in
+    post_message
     expect(page).to have_content "Faraway land"
   end
 
   scenario "messages are linked to the author" do
     sign_up
-    sign_in(email: "wsmith@gmail.com", password: "123456")
-    click_button('Post a Message')
-    fill_in('title', with: "Alien")
-    fill_in('content', with: "We need to hack into alien's brain")
-    click_button('Submit')
-    current_user = User.first
-    expect(current_user.messages.map(&:title)).to include("Alien")
+    sign_in
+    post_message
+    expect(page).to have_content("William")
+  end
+
+  scenario "messages display their created time" do
+    sign_up
+    sign_in
+    post_message
+    expect(page).to have_content "2016"
   end
 
 end

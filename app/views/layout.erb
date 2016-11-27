@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Chitter</title>
-  </head>
+<head>
+  <title>Chitter-Chatter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-  <body>
+</head>
 
-    <% if current_user %>
-      Welcome, <%= current_user.user_name %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type="submit" value="Sign out">
-      </form>      
+<body>
+  <% if current_user %>
+  <div class="user_info">
+    <div class="left">
+      <h4>Welcome, <%= current_user.user_name %></h4>
+    </div>
+    <form method='post' action='/sessions' class="right">
+      <input type='hidden' name='_method' value='delete'>
+      <input type="submit" value="Sign out" id="sign_out">
+    </form>
+  </div>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
     <% end %>
+  </ul>
+  <% end %>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-   <% end %>
-
-    <%= yield %>
-
-  </body>
-
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+  <%= yield %>
+</body>
 </html>

@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-  </head>
+<head>
+</head>
 
-  <body>
-    <h1>Messages</h1>
+<body>
+  <div class="container">
+    <div class="message_board">
+      <h1>Messages</h1>
 
-    <div id="message_board">
       <% @messages.each do |message| %>
-        <div>
-          <%= message.title %>
-          <%= message.content %>
-          <%= message.user.user_name %>
-          <%= message.created_at.strftime("%H:%M / %d-%m-%Y") %>
-        </div>
+      <div class="user_time">
+        <b><%= message.user.user_name %></b> &nbsp;&nbsp;&nbsp;
+        <%= message.created_at.strftime("%H:%M / %d-%m-%Y") %>
+      </div>
+      <div class="message_content">
+        <h5><%= message.title %></h5>
+        <p><%= message.content %></p>
+      </div><br>
       <% end %>
 
-    </div>
 
     <form action='/messages/new'>
-      <input type='submit' value='Post a Message'>
+      <input type='submit' value='Post a Message' id="button">
     </form>
 
-
-  </body>
+  </div>
+  </div>
+</body>
 
 </html>

@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-timestamps'
 gem 'bcrypt'
 gem 'database_cleaner'
 
