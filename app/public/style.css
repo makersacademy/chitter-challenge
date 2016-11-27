@@ -5,6 +5,18 @@ body {
 }
 
 /*===================================
+Flash
+=====================================*/
+#notice {
+  font-size: 1.3em;
+  text-align: center;
+  color: #fff;
+  margin: 40px;
+}
+
+
+
+/*===================================
 INDEX PAGE
 =====================================*/
 .index_container {
@@ -16,8 +28,9 @@ INDEX PAGE
   background-color: transparent;
   border: 1px solid #000;
   border-radius: 3px;
-  font-size: 1em;
+  font-size: 0.9em;
   padding: 10px;
+  width: 18%;
 }
 
 /*===================================
@@ -87,4 +100,25 @@ h1 {
   margin: 25px 15px;
   font-size: 2.5em;
 }
+
+#message_title {
+  width: 20%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+#message_content {
+  width: 55%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+
+
 /*============================*/

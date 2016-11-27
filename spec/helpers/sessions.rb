@@ -18,10 +18,9 @@ module SessionHelpers
   end
 
   def post_message
-    click_button('Post a Message')
     fill_in('title', with: "Faraway land")
     fill_in('content', with: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.")
-    click_button('Submit')
+    click_button('Post a Message')
   end
 
 end

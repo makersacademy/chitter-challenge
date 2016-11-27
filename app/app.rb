@@ -57,10 +57,6 @@ use Rack::MethodOverride
     redirect '/messages'
   end
 
-  get '/messages/new' do
-    erb :new_message
-  end
-
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Have a nice day!'

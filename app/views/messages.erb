@@ -20,10 +20,13 @@
       </div><br>
       <% end %>
 
-
-    <form action='/messages/new'>
+<% if current_user %>
+    <form action='/messages' method="post">
+        <input type='text' name='title' placeholder="title" id="message_title"></label>
+        <input type="text" name='content' placeholder="message" id="message_content"></label>
       <input type='submit' value='Post a Message' id="button">
     </form>
+    <% end %>
 
   </div>
   </div>
