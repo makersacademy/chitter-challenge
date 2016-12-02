@@ -1,0 +1,3 @@
+class Chitter
+
+end
