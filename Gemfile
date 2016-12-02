@@ -8,6 +8,8 @@ gem "data_mapper"
 gem 'dm-postgres-adapter'
 gem 'rack'
 gem 'bcrypt'
+gem 'rake'
+gem 'sinatra-flash'
 
 group :test do
   gem 'database_cleaner'
@@ -15,6 +17,5 @@ group :test do
   gem "capybara"
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
