@@ -8,5 +8,8 @@ feature 'Signing up' do
     expect(User.first.username).to eq('jsmith2016')
   end
 
-
+  scenario 'Passwords must match' do
+    expect { sign_up(password_confirmation: "incorrect") }.not_to change(User, :count)
+  end
+  
 end
