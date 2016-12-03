@@ -9,7 +9,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    user = User.create(email: params[:email], name: params[:name], user_name: params[:user_name], password: params[:password], password_confirmation: params[:password_confirmation])
+    redirect to("/users/#{user.id}")
+  end
+
+  get "/users/:id" do
+    erb(:user)
   end
 
   # start the server if ruby file executed directly
