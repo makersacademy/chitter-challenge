@@ -1,4 +1,4 @@
-feature "post peep" do
+xfeature "post peep" do
 
   scenario "a user can post a new peep" do
     visit '/peeps/new'
