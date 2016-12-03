@@ -15,6 +15,6 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  validates_format_of :email, as => :email_address
+  validates_format_of :email, :as => :email_address
 
 end
