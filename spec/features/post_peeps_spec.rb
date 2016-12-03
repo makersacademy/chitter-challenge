@@ -1,29 +1,20 @@
-# As a Maker
-# So that I can let people know what I am doing
-# I want to post a message (peep) to chitter
-
 feature "Post Peeps" do
 
   scenario "I want to post a message" do
     sign_up
     sign_in
-
-    visit '/peeps/new'
-    fill_in :message, with: "Chitter is awesome!"
-    click_button "Add Peep"
+    add_peep
 
     expect(current_path).to include '/peeps'
-    expect(page).to have_content "Chitter is awesome!"
+    expect(page).to have_content "Why can't we give love one more chance?"
 
   end
 
   scenario "I can only post a message if I am signed in" do
-    visit '/peeps/new'
-    fill_in :message, with: "Chitter is awesome!"
-    click_button "Add Peep"
+    add_peep
 
     expect(current_path).to include '/'
-    expect(page).not_to have_content "Chitter is awesome!"
+    expect(page).not_to have_content "Why can't we give love one more chance?"
 
   end
 

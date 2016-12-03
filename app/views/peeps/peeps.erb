@@ -1,7 +1,20 @@
-<h1> Peepy Peepy Poo Poo </h1>
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1> Peepy Peepy Poo Poo </h1>
 
-<ul> Peeps:
-  <% @peeps.each do |peep| %>
-    <li> <%= peep.message %> </li>
-  <% end %>
-</ul>
+    <ul> Peeps:
+      <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.message %>
+          Written by <%= peep.name %> ( <%= peep.username %>) at <%= peep.created_at %>
+        </li>
+      <% end %>
+    </ul>
+
+    <form action='/peeps/new'>
+      <input type="submit" value="Add Peep">
+    </form>
+
+  </body>
+</html>

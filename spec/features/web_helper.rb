@@ -13,3 +13,9 @@ def sign_in
   fill_in :password, with: 'test123'
   click_button "Sign In"
 end
+
+def add_peep
+  visit '/peeps/new'
+  fill_in :message, with: "Why can't we give love one more chance?"
+  click_button "Add Peep"
+end

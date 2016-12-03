@@ -6,7 +6,6 @@
   </head>
 
   <body>
-    <%= current_user %>
     <% if current_user %>
       Welcome, <%= current_user.name %>
       <form action='/session' method="post">
