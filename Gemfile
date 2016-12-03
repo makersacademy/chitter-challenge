@@ -3,8 +3,14 @@ ruby '2.2.3'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
+  gem 'rspec-sinatra'
+  gem 'capybara'
   gem 'coveralls', require: false
 end
 
+gem 'rake'
+gem 'sinatra'
+gem 'bcrypt'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pry'
