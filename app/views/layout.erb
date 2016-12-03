@@ -6,7 +6,7 @@
 
   <body>
     <% if flash[:errors] && !flash[:errors].empty? %>
-    <p>Sorry, sign-up could not complete for the following reason(s):</p>
+    <p>Sorry, you cannot proceed for the following reason(s):</p>
       <ul id='flash'>
         <% flash[:errors].each do |error| %>
         <li><%= error %></li>
