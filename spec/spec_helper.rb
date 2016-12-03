@@ -1,5 +1,17 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+require 'database_cleaner'
+require 'data_mapper'
+require 'dm-postgres-adapter'
+
+require './app/models/peep'
+require './app/models/user'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -27,7 +39,7 @@ RSpec.configure do |config|
   end
 
   config.include Capybara::DSL
-  
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
