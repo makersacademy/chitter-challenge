@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(email: params[:email], name: params[:name], username: params[:username], password_digest: params[:password] )
+    User.create(email: params[:email], name: params[:name], username: params[:username], password_digest: params[:password], password_digest_confirmation: params[:confirm_password] )
   end
 
   # start the server if ruby file executed directly
