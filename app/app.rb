@@ -60,7 +60,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    if current_user == nil
+      redirect '/sessions/new'
+    else
+      erb :'peeps/new'
+    end
   end
 
   helpers do
