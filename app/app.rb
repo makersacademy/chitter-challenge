@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -12,8 +13,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    @user = User.create(email: params[:email] , name: params[:name],
-    username: params[:username], password_digest: params[:password_digest] )
+    User.create(email: params[:email], name: params[:name], username: params[:username], password_digest: params[:password_digest] )
   end
 
   # start the server if ruby file executed directly

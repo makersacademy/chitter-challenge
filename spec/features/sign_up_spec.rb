@@ -9,4 +9,8 @@ feature "Signing up" do
      sign_up
      expect{sign_up}.to change{User.count}.by 0
    end
+
+   scenario "A must sign up with a valid email address" do
+     expect{invalid_email_sign_up}.to change{User.count}.by 0
+   end
 end
