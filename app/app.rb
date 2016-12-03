@@ -43,8 +43,10 @@ get '/new_peep' do
   erb :'/peeps/new'
 end
 
-
-
+post '/peep' do
+  p params
+  redirect'/home'
+end
 
 
 
