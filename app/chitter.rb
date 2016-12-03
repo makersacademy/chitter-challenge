@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super_secret'
 
   get '/' do
-    redirect :'/users/new'
+    redirect :'/peeps'
   end
 
   get '/peeps/new' do
