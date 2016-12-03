@@ -1,9 +1,27 @@
 <html>
 <head>
-  <table height=50px>
+  <table>
     <tr>
-      <th align='left' valign='bottom'>Chitter...</th>
+      <th align='left' valign='bottom' width=100px>Chitter...</th>
       <th align='left' valign='bottom'><% if current_user %>Welcome, <%= current_user.username %>!<% end %></th>
+      <th>
+          <form action='/sign-up' method='get'>
+            <button>Sign up</button>
+          </form>
+      </th>
+      <th>
+          <form action='/log-in' method='get'>
+            <button>Log in</button>
+          </form>
+      </th>
+      <% if current_user %>
+      <th>
+          <form action='/log-out' method='post'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Log out'>
+          </form>
+      </th>
+      <% end %>
     </tr>
     <tr height=20px>
     </tr>

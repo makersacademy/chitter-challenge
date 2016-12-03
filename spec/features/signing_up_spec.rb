@@ -1,5 +1,5 @@
 require './app/app.rb'
-require 'web_helper'
+
 
 describe "Sing up" do
 

@@ -1,5 +1,4 @@
 require './app/app.rb'
-require 'web_helper'
 
 describe "Log in" do
 

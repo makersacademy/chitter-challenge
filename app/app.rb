@@ -6,7 +6,7 @@ require './app/models/user.rb'
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
-
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'chitter secret'
 
@@ -50,6 +50,16 @@ class Chitter < Sinatra::Base
     end
     session[:user_id] = log_in_user.id
     redirect('/')
+  end
+
+  delete '/log-out' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect '/'
+  end
+
+  get '/log-out' do
+    erb :log_out
   end
 
 
