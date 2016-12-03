@@ -7,6 +7,8 @@ feature "Signing up to chitter:" do
 
   scenario "user signs up with password mismatch" do
     expect{ sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users/create')
+    expect(page).to have_content 'Password and confirmation do not match'
   end
 
   def sign_up(

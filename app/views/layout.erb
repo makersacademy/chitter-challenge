@@ -8,6 +8,11 @@
     <% if current_user %>
       Welcome to chitter <%= current_user.username %>
     <% end %>
+
+    <% if flash[:password_error] %>
+      <div id='pw_error'><%= flash[:password_error] %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
