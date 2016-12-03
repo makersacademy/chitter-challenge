@@ -11,13 +11,7 @@ RSpec.feature 'User sign-up' do
   end
 
   scenario "- user fills out form and creates a new user account" do
-    visit '/users/new'
-    fill_in :email, with: 'foo@foo.com'
-    fill_in :password, with: '123secret'
-    fill_in :username, with: 'foo'
-    fill_in :name, with: 'Foo McFooface'
-    click_button 'Submit'
-    expect(User.count).to be 1
+    expect{ new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface') }.to change(User, :count).by(1)
   end
 
 end
