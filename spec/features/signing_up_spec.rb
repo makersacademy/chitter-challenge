@@ -27,7 +27,7 @@ describe "Sing up" do
     expect{ sign_up(email: nil)}.not_to change(User, :count)
   end
 
-  scenario 'User cannot sign up with an invalid email address' do
+  scenario 'Users cannot sign up with an invalid email address' do
     sign_up
     expect { sign_up(email: "cat@email.com") }.not_to change(User, :count)
     expect(current_path).to eq('/sign-up')

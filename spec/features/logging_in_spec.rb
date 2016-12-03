@@ -9,9 +9,9 @@ describe "Log in" do
     expect(page).to have_button("Submit")
   end
 
-  scenario "Users get error if the user hasn't signed up" do
+  scenario "Users get error if the user hasn't signed up or input wrong information" do
     log_in
-    expect(page).to have_content("You haven't signed up yet!")
+    expect(page).to have_content("The email or password is incorrect")
   end
 
   scenario "Users go back index page if the user has signed up" do

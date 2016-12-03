@@ -20,6 +20,16 @@ class User
     @password = string
     self.password_encrypted = BCrypt::Password.create(string)
   end
+
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_encrypted) == password
+      user
+    else
+      nil
+    end
+  end
+
 end
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV["RACK_ENV"]}")

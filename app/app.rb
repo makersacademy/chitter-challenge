@@ -43,9 +43,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/log-in-info' do
-    log_in_user ||= User.first(email: params[:email])
-    if log_in_user.nil?
-      flash[:notice] = "You haven't signed up yet!"
+    log_in_user = User.authenticate(params[:email], params[:password])
+    if !log_in_user
+      flash[:notice] = "The email or password is incorrect"
       redirect '/log-in'
     end
     session[:user_id] = log_in_user.id
