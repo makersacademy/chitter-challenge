@@ -1,6 +1,8 @@
 require './app/app.rb'
+require 'web_helper'
 
 describe "Sing up" do
+
   scenario "Users can visit sign up page" do
     visit('/')
     click_button "Sign up"
@@ -8,14 +10,9 @@ describe "Sing up" do
   end
 
   scenario "Users can sign up for Chitter" do
-    visit('/')
-    click_button "Sign up"
-    fill_in :name, with: "one of makers"
-    fill_in :username, with: "cat"
-    fill_in :email, with: "cat@email.com"
-    fill_in :password, with: "secret"
-    click_button "Submit"
+    sign_up
     users = User.all
     expect(users.count).to eq 1
   end
+  
 end
