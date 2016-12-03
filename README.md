@@ -67,6 +67,12 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+The app itself:
+--------------
+
+![Screenshot](https://path_to_your_image)
+
+
 Functionality:
 -------------
 
@@ -94,7 +100,12 @@ Technologies used:
 
 How to install and run the program:
 ----------------------------------
-- download this repository (https://github.com/Unicornelia/chitter-challenge)
+- git clone this repository (https://github.com/Unicornelia/chitter-challenge)
+- bundle install (to install all dependencies)
+- createdb chitter_development
+- rake auto_migrate (for the database)
+- rspec
+- rackup
 - run app/app.rb in your terminal
 - log in on localhost:4567
 - enjoy!
