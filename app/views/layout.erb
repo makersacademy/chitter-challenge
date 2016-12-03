@@ -4,6 +4,13 @@
     <title>Page Title</title>
   </head>
     <body>
+
+      <% if flash %>
+        <% flash.each do |notice, message| %>
+        <%= message %>
+        <% end %>
+      <% end %>
+
       <%= yield %>
     </body>
 </html>
