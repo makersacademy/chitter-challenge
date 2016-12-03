@@ -1,9 +1,12 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
+
   get '/' do
     'Hello Chitter!'
   end
@@ -12,8 +15,17 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  post '/sign_up' do
-    User.create(email: params[:email], name: params[:name], username: params[:username], password_digest: params[:password], password_digest_confirmation: params[:confirm_password] )
+  post '/users' do
+    user = User.new(email: params[:email], name: params[:name],
+    username: params[:username], password: params[:password],
+    password_confirmation: params[:confirm_password] )
+
+    if user.save
+      redirect ('/peeps')
+    else
+      flash.now[:notice] = "Tellytubbies"
+      erb :sign_up
+    end
   end
 
   # start the server if ruby file executed directly
