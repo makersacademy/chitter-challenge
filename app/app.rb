@@ -29,6 +29,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/login' do
+    erb :login
+  end
+
+  post '/users/login' do
+    flash[:login_succesful] = "Welcome back, #{params[:username]}!"
+    redirect to('/dashboard')
+  end
+
   get '/dashboard' do
     erb :dashboard
   end

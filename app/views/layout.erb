@@ -12,6 +12,10 @@
     <% if flash[:mismatch] %>
       <div id='mismatch'><%= flash[:mismatch] %></div>
     <% end %>
+
+    <% if flash[:login_succesful] %>
+      <div id='logged_in'><%= flash[:login_succesful] %></div>
+    <% end %>
     <%= yield %>
 
   </body>
