@@ -1,4 +1,4 @@
-feature "Signing up to chitter" do
+feature "Signing up to chitter:" do
   scenario "user goes to signup page and makes an account" do
     visit '/users/new'
     fill_in("email", with:"hello@gmail.com")
