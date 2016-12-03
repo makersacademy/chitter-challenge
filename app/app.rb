@@ -4,6 +4,9 @@ require "./app/models/user"
 require_relative "datamapper_setup"
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super secret'
+
   get '/users/new' do
     erb(:sign_up)
   end
