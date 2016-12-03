@@ -22,7 +22,7 @@ post '/signup' do
   user = User.create(first_name: params[:first_name], surname: params[:surname], email: params[:email],password: params[:password])
   session[:user_id] = user.id
   session[:first_name] = user.first_name
-  #require'pry';binding.pry
+
   redirect'/home'
 end
 
@@ -37,6 +37,8 @@ end
 
 
 get '/home' do
+  @peeps = Peep.all.map {|a| a.content}
+  #require'pry';binding.pry
   erb :'/peeps/home'
 end
 
@@ -50,8 +52,6 @@ end
 post '/peep' do
   p params
   peep = Peep.create(:content => params[:peep])
-
-
   redirect'/home'
 end
 

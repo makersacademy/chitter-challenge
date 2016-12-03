@@ -1,5 +1,5 @@
 require './app/app.rb'
-require_relative 'web_helper'
+require_relative 'web_helper.rb'
 
 
 feature 'The user views a list of peeps' do
@@ -10,7 +10,7 @@ feature 'The user views a list of peeps' do
     fill_in 'peep', with: 'This is my message'
     click_button('Peep')
     within 'ul#peeps' do
-    expect(page).to have_content("This is my message")
-
+      expect(page).to have_content("This is my message")
+    end
   end
 end
