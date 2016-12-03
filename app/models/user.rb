@@ -6,7 +6,7 @@ class User
   property :name, String, :required => true
   property :username, String, :required => true, :unique => true
   property :email, String, :required => true, :unique => true
-  property :password_digest, Text
+  property :password_digest, Text, :required => true
 
   validates_presence_of :email
   validates_format_of :email, as: :email_address
