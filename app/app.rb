@@ -3,8 +3,11 @@ ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
 require './app/models/user.rb'
 require './app/datamapper_setup.rb'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
+
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -15,16 +18,25 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :homepage
+    erb :sign_in
   end
 
   post '/' do
-    user = User.create(username: params[:username],
+    @user = User.new(username: params[:username],
     email: params[:email],
     password: params[:password],
     password_confirmation: params[:confirm_password])
-    session[:user_id] = user.id
-    redirect to('/')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/logged_in')
+    else
+      flash.now[:notice] = "Your password and confirmation password do not match"
+      erb :new_user
+    end
+  end
+
+  get '/logged_in' do
+    erb :logged_in
   end
 
 
