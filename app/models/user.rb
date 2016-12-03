@@ -8,7 +8,7 @@ class User
   has n, :peeps, :through => Resource
 
   property :id, Serial
-  property :email, String
+  property :email, String, :unique => true
   property :name, String
   property :username, String, :unique => true
 

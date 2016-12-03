@@ -16,5 +16,12 @@ feature "Signing Up" do
     expect(page.status_code).to eq 200
     expect(current_path).to include '/users'
   end
+
+  scenario "Validate that email must be unique" do
+    sign_up
+    sign_up
+    expect(page.status_code).to eq 200
+    expect(current_path).to include '/users'
+  end
   
 end
