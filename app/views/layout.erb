@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Chirper</title>
+  </head>
+
+  <body>
+    <% if flash[:welcome] %>
+      <div id='welcome'><%= flash[:welcome] %></div>
+    <% end %>
+    <%= yield %>
+
+  </body>
+</html>
