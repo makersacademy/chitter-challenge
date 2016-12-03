@@ -5,10 +5,11 @@ class User
 
   has n, :peeps, through: Resource
 
-  property :id, Serial
+  property :id,         Serial
   property :first_name, String
   property :surname,    String
-  property :email, String
+  property :username,   String
+  property :email,      String
 
   property :password_digest, Text
 

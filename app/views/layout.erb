@@ -8,7 +8,9 @@
 
       <h1>Chitter</h1>
       <br>
+      <% if @current_user %>
       Hello <%= @current_user.first_name %>
+      <% end %>
       <br>
       <br>
       <br>

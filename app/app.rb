@@ -24,7 +24,7 @@ end
 
 post '/signup' do
   p params
-  user = User.create(first_name: params[:first_name], surname: params[:surname], email: params[:email],password: params[:password])
+  user = User.create(first_name: params[:first_name], surname: params[:surname], username: params[:username], email: params[:email],password: params[:password])
   session[:user_id] = user.id
   session[:first_name] = user.first_name
 
