@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <form action='/log-in-info' method='post'>
   <table>
     <tr align=left>

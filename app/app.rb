@@ -44,7 +44,10 @@ class Chitter < Sinatra::Base
 
   post '/log-in-info' do
     log_in_user ||= User.first(email: params[:email])
-    return "You haven't signed up yet!" if log_in_user.nil?
+    if log_in_user.nil?
+      flash[:notice] = "You haven't signed up yet!"
+      redirect '/log-in'
+    end
     session[:user_id] = log_in_user.id
     redirect('/')
   end
