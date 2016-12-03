@@ -55,7 +55,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    p current_user
     erb :'peeps/index'
   end
 
