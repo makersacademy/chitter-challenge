@@ -14,8 +14,14 @@
       Welcome to chitter <%= current_user.username %>
     <% end %>
 
-    <% if flash[:error] %>
-      <div id='error'><%= flash[:error] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %><li>
+        <% end %>
+      </ul>
+
     <% end %>
 
     <%= yield %>

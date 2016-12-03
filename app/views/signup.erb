@@ -7,7 +7,7 @@
 
 <body>
   <form action="/users/create" method="post">
-    E-mail:   <input id="email" type='text' name='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<%= @user.email %>" required>
+    E-mail:   <input id="email" type='text' name='email' value="<%= @user.email %>" required>
     <br>
     Password: <input type="password" name="password" required>
     <br>
