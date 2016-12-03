@@ -1,5 +1,7 @@
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+    -<%= error %><br>
+  <% end %>
 <% end %>
 
 <form action='/user-info' method='post'>

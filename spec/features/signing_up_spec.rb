@@ -20,11 +20,18 @@ describe "Sing up" do
     users = User.all
     expect(users.count).to eq 0
     expect(current_path).to eq('/sign-up')
-    expect(page).to have_content("Your passwords don't match")
+    expect(page).to have_content("Password does not match the confirmation")
   end
 
-  scenario "Users can't sign up if they did't provide all information" do
+  scenario "Users cannot sign up if they did't provide email" do
     expect{ sign_up(email: nil)}.not_to change(User, :count)
+  end
+
+  scenario 'User cannot sign up with an invalid email address' do
+    sign_up
+    expect { sign_up(email: "cat@email.com") }.not_to change(User, :count)
+    expect(current_path).to eq('/sign-up')
+    expect(page).to have_content('Email is already taken')
   end
 
 end
