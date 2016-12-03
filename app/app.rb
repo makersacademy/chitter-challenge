@@ -9,6 +9,11 @@ get '/' do
 "Hello world!"
 end
 
+get '/signup' do
+erb :'/users/signup'
+end
+
+
 
 
 
