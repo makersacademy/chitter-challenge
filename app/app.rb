@@ -16,7 +16,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ])
     erb :'peeps/index'
   end
 
