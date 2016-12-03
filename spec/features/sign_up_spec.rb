@@ -13,7 +13,7 @@ RSpec.feature 'Sign up' do
     fill_in 'user_name', with: :username
     fill_in 'password', with: :password
     click_button('Sign Up')
-    expect(page).to have_content 'Welcome To Chitter Jane'
+    expect(current_path).to eq '/'
   end
 
 
