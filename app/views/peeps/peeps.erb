@@ -1,1 +1,7 @@
 <h1> Peepy Peepy Poo Poo </h1>
+
+<ul> Peeps:
+  <% @peeps.each do |peep| %>
+    <li> <%= peep.message %> </li>
+  <% end %>
+</ul>

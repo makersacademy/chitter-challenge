@@ -39,13 +39,22 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/session' do
+    session[:user_id] = nil
+    redirect '/peeps'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'/peeps/peeps'
   end
 
-  delete '/session' do
-    session[:user_id] = nil
+  get '/peeps/new' do
+    erb :'/peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(message: params[:message])
     redirect '/peeps'
   end
 
