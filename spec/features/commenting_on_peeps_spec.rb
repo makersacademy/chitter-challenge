@@ -11,6 +11,7 @@ feature "When commenting on peeps from users" do
   end
 
   scenario "A user will be able to comment on a peep" do
+    log_in
     visit('/peeps/1')
     fill_in("comment", :with => "Cool peep")
     click_button('Add comment')

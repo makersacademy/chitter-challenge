@@ -6,6 +6,8 @@ class User
 
   include DataMapper::Resource
   has n, :peeps
+  has n, :comments
+
   attr_reader :password
   attr_accessor :password_confirmation
 

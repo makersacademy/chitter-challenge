@@ -78,12 +78,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps/:id' do
     @peep = Peep.get(params[:id])
+    @comments = @peep.comments
     erb(:peep)
   end
 
   post '/comments' do
-    peep = Peep.get(params[:peep_id])
-    comment = peep.comments.new(comment: params[:comment])
+    comment = current_user.comments.new(comment: params[:comment], peep_id: params[:peep_id])
     if comment.save
       flash.now[:notice] = ["Comment was created created"]
       redirect to("/comments/#{comment.id}")
