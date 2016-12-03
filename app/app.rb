@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user'
+require_relative './models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -26,7 +27,7 @@ class Chitter < Sinatra::Base
     @user = User.new(email: params[:email], password:params[:password], username: params[:username], name: params[:name])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps'
+      redirect '/'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb:'users/new'
@@ -41,7 +42,7 @@ class Chitter < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect '/peeps'
+      redirect '/'
     else
       flash.now[:errors] = ["Email and/or password were incorrect"]
       erb :'sessions/new'
@@ -54,8 +55,14 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/peeps' do
-    erb :'peeps/index'
+  post '/peeps' do
+    p params
+    Peep.new(content: params[:content])
+
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   helpers do
