@@ -3,18 +3,11 @@ require 'spec_helper'
 RSpec.feature 'New peep' do
 
   scenario "- peeps can be created" do
-    new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface')
-    visit '/peeps/new'
-    fill_in :content, with: 'test'
-    click_button 'Send'
-    expect(Peep.count).to eq 1
+    expect{ sign_up_and_peep('Lorem ipsum dolor sit amet.') }.to change(Peep, :count).by(1)
   end
 
   scenario "- fails if content is empty" do
-    new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface')
-    visit '/peeps/new'
-    click_button 'Send'
-    expect(Peep.count).to eq 0
+    expect{ sign_up_and_peep(nil) }.not_to change(Peep, :count)
   end
 
   scenario "- redirects if noone is logged in" do
