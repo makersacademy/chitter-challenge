@@ -21,11 +21,11 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], pass: params[:password], name: params[:name], username: params[:username])
     session[:user_id] = user.id
-    redirect '/posts'
+    redirect '/peeps'
   end
 
-  get '/posts' do
-    erb :index
+  get '/peeps' do
+    erb :peeps
   end
 
   # start the server if ruby file executed directly
