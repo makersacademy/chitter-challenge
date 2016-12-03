@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'sinatra'
-
+gem 'sinatra-flash'
 gem 'rake'
 gem 'coveralls', require: false
 gem 'pry'
@@ -20,5 +20,4 @@ group :test do
   gem 'cucumber'
   gem 'capybara'
   gem 'database_cleaner'
-
 end
