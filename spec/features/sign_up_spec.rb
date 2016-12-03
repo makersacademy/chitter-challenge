@@ -1,5 +1,3 @@
-
-
 require './app/app.rb'
 
 feature 'sign up' do
