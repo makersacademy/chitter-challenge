@@ -16,14 +16,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.new(email: params[:email], name: params[:name],
+    @user = User.new(email: params[:email], name: params[:name],
     username: params[:username], password: params[:password],
     password_confirmation: params[:confirm_password] )
 
-    if user.save
+    if @user.save
       redirect ('/peeps')
     else
-      flash.now[:notice] = "Tellytubbies"
+      flash.now[:errors]
+      # require 'pry'; binding pry
       erb :sign_up
     end
   end
