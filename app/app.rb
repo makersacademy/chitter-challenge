@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], name: params[:name], password: params[:password], nickname: params[:nickname])
+    @user = User.create(email: params[:email], name: params[:name], password: params[:password], username: params[:username])
     # binding.pry
     erb :user
   end

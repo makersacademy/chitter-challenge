@@ -13,7 +13,7 @@ feature "Email validation" do
       visit '/sign_up'
       fill_in 'name', with: "Maker Star"
       fill_in 'email', with: "maker@gmail.com"
-      fill_in 'nickname', with: "maker"
+      fill_in 'username', with: "maker"
       fill_in 'password', with: "54321"
       click_button 'Sign up'
     end

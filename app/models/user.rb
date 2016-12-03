@@ -10,10 +10,10 @@ class User
   property :name, String, required: true
   property :email, String, unique: true, required: true
   property :password_digest, Text
-  property :nickname, String, unique: true, required: true
+  property :username, String, unique: true
 
 
-  
+
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
