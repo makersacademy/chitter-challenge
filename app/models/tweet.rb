@@ -6,7 +6,7 @@ class Tweet
   include DataMapper::Resource
 
   property :id, Serial
-  property :tweet, Text
+  property :message, Text
 
 end
 

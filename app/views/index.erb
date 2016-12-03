@@ -1,0 +1,10 @@
+<h1> Twitter </h1>
+<h2> You will never find a more wretched hive of scum and villany. </h2>
+
+<ul id='tweets'>
+  <% @tweets.each do |tweet| %>
+  <li>
+    <%= tweet.message %>
+  </li>
+  <% end %>
+</ul>
