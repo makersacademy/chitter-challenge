@@ -10,4 +10,9 @@ RSpec.feature 'User log in' do
       expect(page).to have_content "Welcome Agatina!"
     end
 
+    scenario 'with incorrect credentials' do
+      sign_in
+      expect(page).to have_content 'The email or password is incorrect'
+    end
+
   end
