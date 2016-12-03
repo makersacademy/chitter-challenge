@@ -6,6 +6,12 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
