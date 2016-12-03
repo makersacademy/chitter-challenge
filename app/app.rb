@@ -55,8 +55,9 @@ post '/peep' do
   current_user
   p params
   peep = Peep.create(:content => params[:peep])
-  #require'pry';binding.pry
   @current_user.peeps << peep
+  @timestamp = peep.created_at
+  #require'pry';binding.pry
   redirect'/home'
 end
 
