@@ -28,4 +28,9 @@ RSpec.feature 'User sign-up' do
     expect(page).to have_current_path('/users')
   end
 
+  scenario "- shows the user an error if they fail to enter an email address" do
+    new_user_sign_up(nil, '123secret', 'foo', 'Foo McFooface')
+    expect(page).to have_content("Email must not be blank")
+  end
+
 end
