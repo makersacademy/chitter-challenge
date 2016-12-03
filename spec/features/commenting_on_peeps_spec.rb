@@ -14,7 +14,7 @@ feature "When commenting on peeps from users" do
     visit('/peeps/1')
     fill_in("comment", :with => "Cool peep")
     click_button('Add comment')
-    expect(page).to have_content("cool peep")
+    expect(page).to have_content("Cool peep")
   end
 
 end

@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require "./app/models/user"
 require "./app/models/peep"
+require "./app/models/comment"
 require_relative "datamapper_setup"
 require 'sinatra/flash'
 
@@ -76,8 +77,25 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id' do
-      @peep = Peep.get(params[:id])
-      erb(:peep)
+    @peep = Peep.get(params[:id])
+    erb(:peep)
+  end
+
+  post '/comments' do
+    peep = Peep.get(params[:peep_id])
+    comment = peep.comments.new(comment: params[:comment])
+    if comment.save
+      flash.now[:notice] = ["Comment was created created"]
+      redirect to("/comments/#{comment.id}")
+    else
+      flash.now[:notice] = ["Comment could not be created"]
+      redirect back
+    end
+  end
+
+  get '/comments/:id' do
+    @comment = Comment.get(params[:id])
+    erb(:comment)
   end
 
   helpers do

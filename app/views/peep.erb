@@ -2,7 +2,8 @@
 <p><%= @peep.peep %></p>
 <h3>Comment</h3>
 <p>Mind your language!</p>
-<form action="comments" method="post">
+<form action="/comments" method="post">
   <input type="text" name="comment" required>
-  <input type="submit" value="Add comment"
+  <input type="hidden" name="peep_id" value="<%= @peep.id %>">
+  <input type="submit" value="Add comment">
 </form>
