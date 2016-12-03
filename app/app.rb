@@ -35,11 +35,12 @@ class Chitter < Sinatra::Base
 
   post '/log-in' do
     user = User.first(user_name: params[:user_name])
-      if user
+      if user.authenticated?(params[:password])
         session[:user_id] = user.id
         redirect to("/users/#{user.id}")
       else
-
+        flash.now[:notice] = ["Wrong password"]
+        erb(:log_in)
       end
   end
 

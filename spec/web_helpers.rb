@@ -2,8 +2,8 @@
 def sign_up(email: 'isabel@example.com',
             name: 'Isabel',
             user_name: 'Isabel',
-            password: '12345678',
-            password_confirmation: '12345678')
+            password: 'test',
+            password_confirmation: 'test')
   visit '/users/new'
   fill_in :email, with: email
   fill_in :name, with: name

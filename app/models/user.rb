@@ -23,4 +23,8 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def authenticated?(password)
+    BCrypt::Password.new(self.password_digest) == password
+  end
+
 end
