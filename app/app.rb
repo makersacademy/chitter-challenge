@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    Peep.create(content: params[:content], user_id: current_user.id)
   end
 
   get '/peeps/new' do
