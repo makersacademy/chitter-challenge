@@ -31,9 +31,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/login_successful' do
-    # user = User.get(params[:username])
-    # require 'pry'; binding.pry
-    # # session[:user_id] = user.id
+    user = User.first(username: params[:username])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 

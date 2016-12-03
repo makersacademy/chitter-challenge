@@ -12,6 +12,7 @@ feature "Logging in:" do
     click_button("Submit")
 
     expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'Welcome to chitter thedude'
 
   end
 
