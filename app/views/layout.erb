@@ -5,6 +5,11 @@
   </head>
 
   <body>
+
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
     <p>Sorry, you cannot proceed for the following reason(s):</p>
       <ul id='flash'>
@@ -13,9 +18,19 @@
         <% end %>
       </ul>
     <% end %>
+
     <% if current_user %>
       Welcome, <%= current_user.name %>!
     <% end %>
+
     <%= yield %>
+
+    <% if current_user %>
+      <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Log out'>
+      </form>
+    <% end %>
+
   </body>
 </html>
