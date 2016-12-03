@@ -6,7 +6,7 @@ describe "Sing up" do
   scenario "Users can visit sign up page" do
     visit('/')
     click_button "Sign up"
-    expect(page).to have_button("Submit")
+    expect(page).to have_button("Sign up")
   end
 
   scenario "Users can sign up when they put the same password in confirmation" do

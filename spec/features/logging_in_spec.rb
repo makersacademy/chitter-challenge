@@ -6,7 +6,7 @@ describe "Log in" do
   scenario "Users can visit log in page" do
     visit('/')
     click_button "Log in"
-    expect(page).to have_button("Submit")
+    expect(page).to have_button("Log in")
   end
 
   scenario "Users get error if the user hasn't signed up or input wrong information" do
