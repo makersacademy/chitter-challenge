@@ -9,6 +9,8 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
   gem 'pry'
+  gem 'heroku'
+  gem 'rack'
   gem 'sinatra'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
