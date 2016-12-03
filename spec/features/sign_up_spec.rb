@@ -10,4 +10,8 @@ feature 'sign up' do
     expect(page.status_code).to eq 200
     expect(page).to have_content "Maker Star"
   end
+
+  scenario "I want to check a new account has been created in the database" do
+    expect{sign_up}.to change(User, :count).by(1)
+  end
 end
