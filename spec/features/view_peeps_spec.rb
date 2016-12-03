@@ -14,6 +14,14 @@ feature "View Peeps" do
     expect(page).to have_content "tester1"
   end
 
+  scenario "I want to view the time at which the peep was created" do
+    sign_up
+    sign_in
+    add_peep
+    t = Time.now
+    expect(page).to have_content t.strftime("%FT%R")
+  end
+
   scenario "I want to view peeps in reverse chronological order" do
     sign_up
     sign_in

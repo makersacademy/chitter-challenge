@@ -5,10 +5,10 @@
 
     <ul> Peeps:
       <% @peeps.reverse.each do |peep| %>
-        <li class="show_peep">
+        <li>
           <%= peep.message %>
           <br>
-          <i>Written by <%= peep.name %> ( <%= peep.username %>) on <%= peep.created_at.strftime("%FT%R") %></i>
+          <i>Written by <%= peep.name %> (<%= peep.username %>) on <%= peep.created_at.strftime("%FT%R") %></i>
         </li>
       <% end %>
     </ul>
