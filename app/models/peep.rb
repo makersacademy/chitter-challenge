@@ -7,5 +7,6 @@ class Peep
   property :id, Serial
   property :content, Text
 
+  has 1, :user
 
 end

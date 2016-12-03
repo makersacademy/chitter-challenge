@@ -11,6 +11,8 @@ class User
   property :username, String, required: true
   property :name, String, required: true
 
+  has n, :peeps
+
   attr_reader :password
 
   def password=(password)
