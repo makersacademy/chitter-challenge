@@ -83,10 +83,13 @@ Technologies used:
 * RESTful URLs
 * Rake
 * HTML, CSS
-* Bootstrap
 
 How to install and run the program:
 ----------------------------------
+- download this repository (https://github.com/Unicornelia/chitter-challenge)
+- run app/app.rb in your terminal
+- log in on localhost:4567
+- enjoy!
 
 The program online => Heroku:
 ----------------------------
