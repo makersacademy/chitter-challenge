@@ -5,6 +5,7 @@ RSpec.feature "User signs out" do
 
   scenario "while signed in" do
     sign_in
+    visit '/sessions/delete'
     click_button 'Sign out'
     expect(page).not_to have_content "Welcome Testy"
   end

@@ -11,6 +11,10 @@ class ChitterManager < Sinatra::Base
   enable :sessions
   set :session_secret, 'hashy_ha_ho_ha'
 
+  get '/' do
+    erb :index
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
@@ -50,6 +54,10 @@ class ChitterManager < Sinatra::Base
     else
       redirect '/sessions/new'
     end
+  end
+
+  get '/sessions/delete' do
+    erb :'users/sign_out'
   end
 
   delete '/sessions' do

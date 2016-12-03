@@ -1,0 +1,8 @@
+<% if current_user %>
+  <form action='/sessions' method='post'>
+    <input type='hidden' name='_method' value='DELETE'/>
+    <input id='sign_out' type='submit' value='Sign out'/>
+  </form>
+  <%else%>
+  <a>You are already signed out</a>
+  <%end%>
