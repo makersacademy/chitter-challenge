@@ -10,9 +10,9 @@ describe "Sing up" do
   end
 
   scenario "Users can sign up for Chitter" do
-    sign_up
+    cat_sign_up
     users = User.all
     expect(users.count).to eq 1
   end
-  
+
 end
