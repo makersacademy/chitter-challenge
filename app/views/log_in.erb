@@ -1,0 +1,17 @@
+<form action="/log_in" method="post">
+
+  <div>
+     <label for="email">Please enter your email!</label>
+    <input type='email' name='email' value='<%= @user.email %>' required>
+  </div>
+
+  <div>
+    <label for="password">Please enter your password!</label>
+    <input type='password' name='password'>
+  </div>
+
+  <div>
+    <input type='submit' id='log-in'>
+  </div>
+
+</form>
