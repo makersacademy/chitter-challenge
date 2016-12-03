@@ -1,0 +1,16 @@
+<head>
+  <style>
+    #email:invalid {border: 2px solid red;}
+    #email:valid {border: 2px solid green;}
+  </style>
+</head>
+
+<body>
+  <form action="/users" method="post">
+    E-mail: <input id="email" type='text' name='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    Password: <input type="password" name="password">
+    Name: <input type="text" name="name">
+    Username:<input type="text" name="username">
+    <input type="submit" name="submit" value="Submit">
+  </form>
+</body>
