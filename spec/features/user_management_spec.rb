@@ -21,4 +21,8 @@ feature 'User signs up' do
     expect {sign_up(email: 'dan@dan') }.not_to change(User, :count)
   end
 
+  scenario "the user must enter their name" do
+    expect {sign_up(name: nil)}.not_to change(User, :count)
+  end
+
 end
