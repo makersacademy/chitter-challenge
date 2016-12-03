@@ -11,7 +11,7 @@ namespace :db do
   desc "Destructive upgrade"
   task :auto_migrate do
     DataMapper.auto_migrate!
-    puts "Auto-upgrade complete. Database schema was reubuilt, and all existing data was lost."
+    puts "Auto-migrate complete. Database schema was reubuilt, and all existing data was lost."
   end
 
 end
