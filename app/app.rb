@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Chitter'
+    redirect '/messages'
   end
 
   get '/sign_up' do
@@ -21,6 +21,10 @@ class Chitter < Sinatra::Base
   get '/messages' do
     @current_user = session[:user]
     erb(:'links/messages')
+  end
+
+  get '/peep' do
+    erb(:'links/peep')
   end
 
 
