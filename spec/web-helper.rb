@@ -15,3 +15,12 @@ def wrong_email_sign_up
   fill_in 'password', with: "12345"
   click_button 'Sign up'
 end
+
+def new_sign_up
+  visit '/sign_up'
+  fill_in 'name', with: "Taker Star"
+  fill_in 'email', with: "Taker@gmail.com"
+  fill_in 'username', with: "taker"
+  fill_in 'password', with: "12345"
+  click_button 'Sign up'
+end
