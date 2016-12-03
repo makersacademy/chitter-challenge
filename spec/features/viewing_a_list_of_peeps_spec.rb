@@ -9,8 +9,6 @@ feature 'The user views a list of peeps' do
     visit '/new_peep'
     fill_in 'peep', with: 'This is my message'
     click_button('Peep')
-    within 'ul#peeps' do
-      expect(page).to have_content("This is my message")
-    end
+    expect(page).to have_content("This is my message")
   end
 end

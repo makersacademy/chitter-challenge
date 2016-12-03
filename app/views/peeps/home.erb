@@ -2,10 +2,11 @@
 
 <BODY>
 
-Hello. It's <%= session[:user_id] %> here.
-
-<%= @peeps %>
-This should show the peeps. 
+<% @peeps.each do |peep| %>
+<li>
+  <%= peep %>
+</li>
+<% end %>
 
 
 </BODY>
