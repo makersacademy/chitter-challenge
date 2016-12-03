@@ -21,6 +21,9 @@
 
     <% if current_user %>
       Welcome, <%= current_user.name %>!
+      <form action="/peeps/new" method="get">
+        <input type="submit" value="Peep" />
+      </form>
     <% end %>
 
     <%= yield %>
