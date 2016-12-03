@@ -24,6 +24,13 @@
   <% if flash[:notice] %>
   <div id='notice'> <%= flash[:notice] %> </div>
   <% end %>
+  <nav>
+    <ul>
+      <li> <a href="/">Peeps</a> </li>
+      <li> <a href="/users/new"> Sign up</a></li>
+      <li> <a href="/sessions/new"> Sign in</a></li>
+    </ul>
+  </nav>
   <%= yield %>
 </body>
 
