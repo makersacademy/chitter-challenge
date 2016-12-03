@@ -4,10 +4,11 @@
     <h1> Peepy Peepy Poo Poo </h1>
 
     <ul> Peeps:
-      <% @peeps.each do |peep| %>
-        <li>
+      <% @peeps.reverse.each do |peep| %>
+        <li class="show_peep">
           <%= peep.message %>
-          Written by <%= peep.name %> ( <%= peep.username %>) at <%= peep.created_at %>
+          <br>
+          <i>Written by <%= peep.name %> ( <%= peep.username %>) on <%= peep.created_at.strftime("%FT%R") %></i>
         </li>
       <% end %>
     </ul>

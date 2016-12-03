@@ -13,4 +13,19 @@ feature "View Peeps" do
     expect(page).to have_content "Tester"
     expect(page).to have_content "tester1"
   end
+
+  scenario "I want to view peeps in reverse chronological order" do
+    sign_up
+    sign_in
+
+    visit '/peeps/new'
+    fill_in :message, with: "First peep"
+    click_button "Add Peep"
+
+    visit '/peeps/new'
+    fill_in :message, with: "Second peep"
+    click_button "Add Peep"
+
+    expect(page.body.index("Second peep") < page.body.index("First peep"))
+  end
 end
