@@ -9,12 +9,13 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_presence_of :email
 
   property :id, Serial
-  property :email, String
-  property :username, String
-  property :password_confirmation, String
-  property :password_digest, Text
+  property :email, String, required: true
+  property :username, String, required: true
+  property :password_confirmation, String, required: true
+  property :password_digest, Text, required: true
 
   def password=(password)
     @password = password

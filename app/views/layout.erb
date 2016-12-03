@@ -3,7 +3,15 @@
   <head>
     <title>CHITTER</title>
   </head>
+  <style>
+  input:invalid {
+    border: 1px solid red;
+  }
 
+  input:valid {
+    border: 1px solid green;
+  }
+  </style>
   <body>
     <% if current_user %>
       Welcome <%= current_user.username %>!
