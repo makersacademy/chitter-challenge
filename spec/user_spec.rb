@@ -9,4 +9,10 @@ require 'spec_helper'
         expect(user.authenticated?("test")).to eq true
       end
     end
+
+    describe "When forgetting your password" do
+      it "should generate a new token" do
+        expect{user.generate_token}.to change{user.password_token}
+      end
+    end
 end

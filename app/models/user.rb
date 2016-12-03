@@ -1,6 +1,7 @@
 require "data_mapper"
 require "dm-postgres-adapter"
 require 'bcrypt'
+require 'securerandom'
 
 class User
 
@@ -19,6 +20,7 @@ class User
   property :user_name, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  property :password_token, Text
 
   def password=(password)
     @password = password
@@ -27,6 +29,11 @@ class User
 
   def authenticated?(password)
     BCrypt::Password.new(self.password_digest) == password
+  end
+
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.save
   end
 
 end

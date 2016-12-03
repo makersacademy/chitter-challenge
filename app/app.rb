@@ -28,6 +28,22 @@ class Chitter < Sinatra::Base
       end
   end
 
+  get '/users/reset-password' do
+    erb(:reset_password)
+  end
+
+  post '/users/reset-password' do
+    user = User.first(email: params[:email])
+      if user
+        user.generate_token
+        flash.now[:notice] = ["An email with a confirmation token has ben sent to your inbox"]
+        erb(:reset_password)
+      else
+        flas.now[:notice] = ["The user doesn't exist"]
+        erb(:reset_password)
+      end
+  end
+
   get "/users/:id" do
     if logged_in?
       @user = User.get(params[:id])
@@ -102,6 +118,8 @@ class Chitter < Sinatra::Base
     @comment = Comment.get(params[:id])
     erb(:comment)
   end
+
+
 
   helpers do
 
