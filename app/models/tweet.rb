@@ -10,6 +10,6 @@ class Tweet
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/twitter_test")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/twitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
