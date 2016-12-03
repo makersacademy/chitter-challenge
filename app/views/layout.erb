@@ -6,11 +6,12 @@
 
   <body>
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <div id='flash'>
+    <p>Sorry, sign-up could not complete for the following reason(s):</p>
+      <ul id='flash'>
         <% flash[:errors].each do |error| %>
-        <div class="flash warning"><%= error %></div>
-      </div>
-      <% end %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <% if current_user %>
       Welcome, <%= current_user.name %>!
