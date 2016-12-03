@@ -12,6 +12,6 @@ group :test do
   gem 'rspec-sinatra'
   gem 'cucumber'
   gem 'rake'
-  gem 'coveralls', require: false
+  gem 'coveralls'
   gem 'database_cleaner'
 end

@@ -8,5 +8,6 @@ feature 'sign up' do
   scenario "I want to sign up with email, password, name and username" do
     sign_up
     expect(page.status_code).to eq 200
+    expect(page).to have_content "Maker Star"
   end
 end
