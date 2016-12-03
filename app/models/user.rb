@@ -12,7 +12,7 @@ class User
   validates_presence_of :email
 
   property :id, Serial
-  property :email, String, required: true
+  property :email, String, format: :email_address, required: true
   property :username, String, required: true
   property :password_confirmation, String, required: true
   property :password_digest, Text, required: true
