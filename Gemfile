@@ -8,6 +8,7 @@ ruby '2.2.3'
   gem 'dm-postgres-adapter'
   gem 'rspec-sinatra'
   gem 'bcrypt'
+  gem 'launchy'
 
 
 group :test do
