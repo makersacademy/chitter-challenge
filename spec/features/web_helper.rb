@@ -10,3 +10,10 @@ def sign_up(username: 'louisaspicer',
   fill_in("confirm_password", with: confirm)
   click_button('Register')
 end
+
+def login(username: 'louisaspicer', password: 'greatpassword')
+  visit '/'
+  fill_in 'username', with: username
+  fill_in 'password', with: password
+  click_button('Login')
+end

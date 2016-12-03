@@ -1,14 +1,18 @@
-# require 'spec_helper'
-# require './app/app.rb'
-# require './spec/features/web_helper.rb'
-#
-# feature "Logging in" do
-#   scenario "Should be able to log in" do
-#     visit '/'
-#     fill_in "username", with: "louisaspicer"
-#     fill_in "password", with: "greatpassword"
-#     click_button("Log in")
-#     expect(page).to have_content("Welcome louisaspicer!")
-#   end
-#
-# end
+require 'spec_helper'
+require './app/app.rb'
+require './spec/features/web_helper.rb'
+
+feature "Logging in" do
+  let!(:user) do
+    User.create(email: 'louisa@example.com',
+                username: 'louisaspicer',
+                password: 'greatpassword',
+                password_confirmation: 'greatpassword')
+    end
+
+  scenario "Login with correct username and password" do
+    login
+    expect(page).to have_content("Welcome louisaspicer!")
+  end
+
+end

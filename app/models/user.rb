@@ -17,6 +17,15 @@ class User
   property :password_confirmation, String, required: true
   property :password_digest, Text, required: true
 
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
