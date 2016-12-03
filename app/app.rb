@@ -25,9 +25,18 @@ post '/signup' do
   redirect'/home'
 end
 
+get '/signin' do
+  erb :'/users/signin'
+end
+
+
+
 get '/home' do
   erb :'/peeps/home'
 end
+
+
+
 
 
 
