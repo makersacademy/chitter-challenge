@@ -56,6 +56,7 @@ post '/peep' do
   p params
   peep = Peep.create(:content => params[:peep])
   #require'pry';binding.pry
+  @current_user.peeps << peep
   redirect'/home'
 end
 
