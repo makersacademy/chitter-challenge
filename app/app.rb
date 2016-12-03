@@ -44,18 +44,23 @@ class Chitter < Sinatra::Base
 
   post '/sessions/new' do
     user = User.first(user_name: params[:user_name])
-      if user.authenticated?(params[:password])
-        session[:user_id] = user.id
-        redirect to("/users/#{user.id}")
+      if user
+        if user.authenticated?(params[:password])
+          session[:user_id] = user.id
+          redirect to("/users/#{user.id}")
+        else
+          flash.now[:notice] = ["Wrong password"]
+          erb(:log_in)
+        end
       else
-        flash.now[:notice] = ["Wrong password"]
+        flash.now[:notice] = ["User does not exist"]
         erb(:log_in)
       end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = ['goodbye!']
+    flash.keep[:notice] = ['Goodbye!']
     redirect to('/log-in')
   end
 

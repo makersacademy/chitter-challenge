@@ -2,6 +2,14 @@ require 'spec_helper'
 
 
 feature "when logging in" do
+  before(:each) do
+    User.create(name: "Isabel",
+                user_name: "Isabel",
+                email: 'isabel@example.com',
+                password: 'test',
+                password_confirmation: 'test')
+  end
+
 
   scenario "A user will be able to log in with ncorrect password" do
     sign_up
@@ -22,6 +30,8 @@ feature "when logging in" do
   end
 
   scenario "A user will be able to log out" do
-
+    log_in
+    click_button("Log out")
+    expect(page).to have_content("Goodbye")
   end
 end
