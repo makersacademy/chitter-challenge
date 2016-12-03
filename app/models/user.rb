@@ -9,10 +9,10 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :email, String
+  property :email, String, format: :email_address, required: true
   property :password_hash, Text
-  property :name, String
-  property :username, String
+  property :name, String, required: true
+  property :username, String, required: true
 
   validates_confirmation_of :password
 
