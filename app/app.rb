@@ -35,9 +35,11 @@ post '/signin' do
  redirect'/home'
 end
 
-get '/home' do
-  erb :'/peeps/home'
+
+get '/veiw_peeps' do
+  erb :'/peeps/view_peeps'
 end
+ 
 
 get '/new_peep' do
   erb :'/peeps/new'
@@ -45,7 +47,7 @@ end
 
 post '/peep' do
   p params
-  redirect'/home'
+  redirect'/veiw_peeps'
 end
 
 
