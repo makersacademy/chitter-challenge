@@ -14,12 +14,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    
+    user = User.new(email: params[:email], name: params[:name], username: params[:username])
+    if user.save
+      redirect '/peeps'
+    end
   end
 
+  get '/peeps' do
 
-
-
+  end
 
 
 

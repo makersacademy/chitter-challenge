@@ -12,6 +12,7 @@ require 'dm-postgres-adapter'
 
 require './app/models/peep'
 require './app/models/user'
+require 'features/web_helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
