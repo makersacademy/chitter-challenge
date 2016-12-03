@@ -7,6 +7,7 @@ gem "dm-core"
 gem "sinatra"
 gem "pg"
 gem "rack"
+gem "sinatra-flash"
 
 
 group :test, :development do
@@ -15,5 +16,6 @@ group :test, :development do
   gem "capybara"
   gem "rspec-sinatra"
   gem "database_cleaner"
+  gem "pry"
   gem 'coveralls', require: false
 end

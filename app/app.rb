@@ -1,12 +1,16 @@
 ENV['RACK_ENV']||='development'
 require 'sinatra/base'
+require 'pry'
 require_relative  './models/user.rb'
 require_relative './models/database_setting.rb'
 require 'dm-core'
+require 'sinatra'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -20,20 +24,27 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
-    
     erb :index
   end
 
   get '/sign_up' do
     erb :sign_up
-
   end
 
   post '/new_user' do
     user = User.create(name: params[:name], user_name: params[:user_name],
                         email: params[:email], password: params[:password])
-    session[:id] = user.id
-    redirect '/'
+    if user.save
+      session[:id] = user.id
+      redirect '/'
+    else
+      flash.now[:notice] = "Email is already taken"
+      erb :sign_up
+    end
+  end
+
+  get '/sign_up' do
+
   end
 
   get '/chitter' do

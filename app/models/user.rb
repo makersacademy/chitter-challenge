@@ -7,11 +7,11 @@ require 'bcrypt'
 class User
 
   include DataMapper::Resource
-  property :id, Serial
-  property :name, String
-  property :user_name, String
-  property :email, String
-  property :password_digest, Text
+  property :id, Serial, required: true
+  property :name, String, required: true
+  property :user_name, String, required: true
+  property :email, String, required: true, unique: true
+  property :password_digest, Text, required: true
 
   attr_reader :password
 

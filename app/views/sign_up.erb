@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
 <h2>Sign up<h2/>
 
   <form action='/new_user' method='post'>
