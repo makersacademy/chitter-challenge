@@ -2,7 +2,10 @@ require 'sinatra/base'
 
 class Twitter < Sinatra::Base
   get '/' do
-    'Hello Twitter!'
+  end
+
+  get '/twitter' do
+    erb ':index'
   end
 
   # start the server if ruby file executed directly
