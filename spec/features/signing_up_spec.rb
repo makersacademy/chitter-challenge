@@ -9,4 +9,10 @@ feature 'User sign up' do
     expect(current_path).to eq('/users/new')
     expect(page).to have_content 'Your two passwords do not match.'
   end
+  scenario "can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+  scenario "can't sign up without a valid email" do
+    expect { sign_up(email:nil) }.not_to change(User, :count)
+  end
 end
