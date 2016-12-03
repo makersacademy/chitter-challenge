@@ -14,4 +14,8 @@ RSpec.feature 'User sign-up' do
     expect{ new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface') }.to change(User, :count).by(1)
   end
 
+  scenario "- user does not enter email address" do
+    expect{ new_user_sign_up(nil, '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
+  end
+
 end
