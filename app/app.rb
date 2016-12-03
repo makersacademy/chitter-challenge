@@ -4,6 +4,15 @@ require './app/models/user.rb'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'chitter secret'
+
+  helpers do
+    def current_user
+      @current_user ||= User.all(id: session[:user_id])
+    end
+  end
+
   get '/' do
     erb :index
   end
@@ -13,8 +22,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/user-info' do
-    User.create(name:  params[:name],  username: params[:username],
-                email: params[:email], password: params[:password])
+    user = User.create(name:  params[:name],  username: params[:username],
+                       email: params[:email], password: params[:password])
+    session[:user_id] = user.id 
     redirect '/'
   end
 
