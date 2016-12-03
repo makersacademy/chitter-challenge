@@ -2,9 +2,10 @@
 
   Welcome <%= @user.user_name %>!
 
-  <!-- <form action="/sessions" method="get">
-  <input type="submit" value="sign out">
-</form> -->
+  <form method='post' action='/sessions'>
+       <input type='hidden' name='_method' value='delete'>
+       <input type='submit' value='sign out'>
+     </form>
 
 <% else %>
 

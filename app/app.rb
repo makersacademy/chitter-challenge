@@ -11,6 +11,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
+
 
   helpers do
     def current_user
@@ -61,6 +63,10 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
+  delete '/sessions' do
+    session[:id] = nil
+    redirect to '/'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
