@@ -1,8 +1,9 @@
 
-RSpec.feature "Maker Sign Up" do
+RSpec.feature "User sign in" do
 
-  scenario "should be able to sign up" do
+  scenario "signing in" do
     sign_up
+    sign_in
     expect(page).to have_content "Welcome Django"
   end
 
