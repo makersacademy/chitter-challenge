@@ -7,7 +7,7 @@ describe User do
     it { should have_property :id}
     it { should have_property :email}
     it { should have_property :name}
-    it { should have_property :password}
+    it { should have_property :password_digest}
     it { should have_property :nickname}
 
 
