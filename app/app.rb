@@ -14,9 +14,14 @@ class Chitter < Sinatra::Base
     end
   end
 
+  before do
+    @user = current_user
+  end
+
 
   get '/' do
-    'Hello Chitter!'
+    
+    erb :index
   end
 
   get '/sign_up' do
@@ -28,12 +33,11 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], user_name: params[:user_name],
                         email: params[:email], password: params[:password])
     session[:id] = user.id
-    redirect '/chitter'
+    redirect '/'
   end
 
   get '/chitter' do
-    @user = current_user
-    erb :chitter
+
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
