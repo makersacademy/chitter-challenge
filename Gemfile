@@ -10,6 +10,7 @@ gem "dm-postgres-adapter"
 gem "bcrypt"
 gem "pg"
 gem "database_cleaner"
+gem "sinatra-flash"
 
 group :test do
   gem 'rspec'

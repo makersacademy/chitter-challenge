@@ -21,6 +21,7 @@ feature "When signing up" do
 
   scenario "a user can't sign up with a wrong password confirmation" do
     expect{sign_up(password_confirmation: "rest")}.not_to change{User.count}
+    expect(page).to have_content("Password and password confirmation do not match")
   end
 
   scenario "a user can't sign up with email already taken" do
