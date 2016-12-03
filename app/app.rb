@@ -1,4 +1,6 @@
+ENV["RACK_ENV"]||="development"
 require 'sinatra/base'
+require './app/models/user.rb'
 
 class Chitter < Sinatra::Base
   get '/' do
@@ -7,6 +9,12 @@ class Chitter < Sinatra::Base
 
   get '/sign-up' do
     erb :sign_up
+  end
+
+  post '/user-info' do
+    User.create(name: params[:name], username: params[:username],
+                email: params[:email], password: params[:password])
+    redirect '/'
   end
 
   # start the server if ruby file executed directly
