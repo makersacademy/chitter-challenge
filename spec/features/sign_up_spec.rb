@@ -4,7 +4,7 @@ feature "When signing up" do
 
   scenario "can create a user" do
     expect{sign_up}.to change{User.count}.from(0).to(1)
-    expect(page).to have_content("Wellcome #{User.get(1).user_name}")
+    expect(page).to have_content("Wellcome Isabel")
   end
 
   scenario "a user can't sign up with a blank email" do
@@ -33,5 +33,6 @@ feature "When signing up" do
   scenario "a user can't sign up with a username already taken" do
     sign_up
     expect{sign_up(email: "test@test.com")}.not_to change{User.count}
+    expect(page).to have_content("User name is already taken")
   end
 end

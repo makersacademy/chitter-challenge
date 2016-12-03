@@ -1,10 +1,10 @@
 <form action="/users" method="post">
   <label for="name">Name:</label>
-    <input type="text" name="name" required>
+    <input type="text" name="name" value="<%= @user.name %>" required>
   <label for="user_name">User name:</label>
-    <input type="text" name="user_name" required>
+    <input type="text" name="user_name" value="<%= @user.user_name %>" required>
   <label for="email">Email:</label>
-    <input type="email" name="email" required>
+    <input type="email" name="email" value="<%= @user.email %>" required>
   <label for="password">Password:</label>
     <input type="password" name="password" required>
   <label for="password_confirmation">Password confirmation:</label>

@@ -6,8 +6,10 @@
     <body>
 
       <% if flash %>
-        <% flash.each do |notice, message| %>
-        <%= message %>
+        <% flash.each do |notice, messages| %>
+          <% messages.each do |message| %>
+            <%= message %>
+          <% end %>
         <% end %>
       <% end %>
 
