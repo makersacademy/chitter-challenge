@@ -5,5 +5,5 @@ class Peep
   include DataMapper::Resource
   property :id, Serial
   property :peep, String
-  has 1, :user, :through => Resource
+  belongs_to :user
 end

@@ -9,7 +9,7 @@ class User
   property :name, String, required: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
-  has n, :peep, :through => Resource
+  has n, :peep
 
   attr_reader :password
   attr_accessor :password_confirmation

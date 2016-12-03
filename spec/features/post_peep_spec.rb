@@ -7,5 +7,6 @@ feature "post peep" do
     click_button 'Post peep'
     expect(current_path).to eq '/peeps'
     expect(page).to have_content('This is my first peep!')
+    expect(page).to have_content('=> test')
   end
 end
