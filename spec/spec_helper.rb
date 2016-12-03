@@ -1,5 +1,10 @@
 require 'coveralls'
 require 'simplecov'
+require 'capybara'
+require 'rspec'
+require './app/models/user'
+require 'database_cleaner'
+require 'capybara/rspec'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -11,7 +16,7 @@ Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'lib/app.rb')
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
