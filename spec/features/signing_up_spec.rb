@@ -10,17 +10,21 @@ describe "Sing up" do
   end
 
   scenario "Users can sign up when they put the same password in confirmation" do
-    cat_sign_up
+    sign_up
     users = User.all
     expect(users.count).to eq 1
   end
 
   scenario "Users get error when they didn't put the same password in confirmation" do
-    cat_sign_up_wrong
+    sign_up(password_confirmation: 'wrong')
     users = User.all
     expect(users.count).to eq 0
     expect(current_path).to eq('/sign-up')
     expect(page).to have_content("Your passwords don't match")
+  end
+
+  scenario "Users can't sign up if they did't provide all information" do
+    expect{ sign_up(email: nil)}.not_to change(User, :count)
   end
 
 end
