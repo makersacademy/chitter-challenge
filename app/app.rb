@@ -3,12 +3,13 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'data_mapper'
 require 'pry'
-require_relative './models/user.rb'
-require_relative './models/peep.rb'
-
-# require_relative './models/data_mapper_setup.rb'
+require_relative 'models/user.rb'
+require_relative 'models/peep.rb'
+require_relative 'models/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
+
+   use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -25,7 +26,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:user_name], params[:password])
       if user
         session[:user_id] = user.id
-        redirect '/new_peep'
+        redirect '/peep_board'
       else
         redirect '/log_in'
       end
@@ -49,13 +50,23 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peep_board' do
+    @peeps = Peep.all
+    # binding.pry
+    erb :peep_board
+  end
+
   get '/new_peep' do
     erb :new_peep
   end
 
   post '/peeps' do
-    @peep_1 = Peep.create(peep: params[:peep])
-    erb :peep
+    @peeps = Peep.create(peep: params[:peep])
+    redirect '/peep_board'
+  end
+
+  get '/log_out' do
+    erb :log_out
   end
 
   helpers do

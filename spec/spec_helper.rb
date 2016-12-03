@@ -9,6 +9,7 @@ require 'coveralls'
 require 'simplecov'
 require './app/app'
 require 'database_cleaner'
+require 'web_helper'
 
 Capybara.app = Chitter
 
@@ -28,7 +29,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end 
+end
 
 RSpec.configure do |config|
   config.include Capybara::DSL

@@ -6,6 +6,10 @@
   <body>
     <% if current_user %>
       Welcome <%= current_user.name %>
+      <form action='/log_out' method='get'>
+        <input type="hidden" name="_method" value="delete"> 
+        <input type="submit" value="Log Out">
+      </form>
     <% end %>
     <%= yield %>
   </body>
