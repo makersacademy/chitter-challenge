@@ -26,7 +26,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ["Email and/or username already taken"]
+      flash.keep[:errors] = ["Email and/or username already taken"]
+      redirect '/users/new'
     end
   end
 
@@ -41,7 +42,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ["Email and/or password do not match"]
+      flash.keep[:errors] = ["Email and/or password do not match"]
+      redirect '/session/new'
     end
   end
 

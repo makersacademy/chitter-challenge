@@ -1,7 +1,12 @@
 body {
   font-family: verdana;
-  font-size: 10px;
+  font-size: 14px;
   background-color: #f2f2f2;
+  margin: auto;
+}
+
+.layout {
+  background-color: #fff;
 }
 
 .header {
@@ -9,7 +14,7 @@ body {
   height: 50px;
   color: #fff;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
 }
 
 #sign_up_option {
@@ -19,6 +24,7 @@ body {
   width: 50%;
   text-align: center;
   padding-top: 200px;
+  background-color: #bfbfbf;
 }
 
 #sign_in_option {
@@ -28,9 +34,18 @@ body {
   width: 50%;
   text-align: center;
   padding-top: 200px;
+  background-color: #bfbfbf;
 }
 
-form {
+#logout {
+  font-size: 16px;
+  align: left;
+  background-color: #ffd9cc;
+  width: 100%;
+  padding: 20px;
+}
+
+.form {
   background-color: #bfbfbf;
   width: 50%;
   height: 50%;
@@ -38,7 +53,17 @@ form {
   margin: auto;
 }
 
-label {
+.button {
   padding: 20px;
+}
+
+label {
+  font-size: 12px;
+  padding: 20px 0px;
   display: block;
+}
+
+#peep {
+  padding: 20px 0px;
+  background-color: #bfbfbf;
 }

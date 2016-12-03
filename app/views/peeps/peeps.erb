@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
   </head>
 
   <body>
@@ -10,17 +10,20 @@
       <h1> Peepy Peepy Poo Poo </h1>
     </div>
 
-    <ul> Peeps:
+  <div id="peep">
+    <ul><b> Peeps: </b>
+      <br><br>
       <% @peeps.reverse.each do |peep| %>
-        <li>
+        <li id="peep">
           <%= peep.message %>
           <br>
           <i>Written by <%= peep.name %> (<%= peep.username %>) on <%= peep.created_at.strftime("%FT%R") %></i>
         </li>
       <% end %>
     </ul>
+  </div>
 
-    <form action='/peeps/new'>
+    <form class="button" action='/peeps/new'>
       <input type="submit" value="Add Peep">
     </form>
 
