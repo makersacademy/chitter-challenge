@@ -13,4 +13,5 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+run! if app_file == $0
 end
