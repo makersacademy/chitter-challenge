@@ -23,4 +23,9 @@ RSpec.feature 'User sign-up' do
     expect(page).to have_content "Welcome, Foo McFooface!"
   end
 
+  scenario "- keeps the user on the users page if they do not enter their details correctly" do
+    new_user_sign_up(nil, nil, nil, nil)
+    expect(page).to have_current_path('/users')
+  end
+
 end
