@@ -3,8 +3,11 @@ require 'sinatra/base'
 require "./app/models/user"
 require "./app/models/peep"
 require "./app/models/comment"
+require "./app/models/mailgun"
 require_relative "datamapper_setup"
 require 'sinatra/flash'
+require "dotenv"
+Dotenv.load
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -36,10 +39,12 @@ class Chitter < Sinatra::Base
     user = User.first(email: params[:email])
       if user
         user.generate_token
+        mailer = MailGun.new
+        mailer.send_token(user)
         flash.now[:notice] = ["An email with a confirmation token has ben sent to your inbox"]
         erb(:reset_password)
       else
-        flas.now[:notice] = ["The user doesn't exist"]
+        flash.now[:notice] = ["The user doesn't exist"]
         erb(:reset_password)
       end
   end
@@ -99,7 +104,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/:id' do
     @peep = Peep.get(params[:id])
-    @comments = @peep.comments
+    @comments = @peep.comments.reverse
     erb(:peep)
   end
 

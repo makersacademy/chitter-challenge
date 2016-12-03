@@ -23,6 +23,8 @@
       <%= yield %>
 
       <a href="/peeps">Peeps</a>
+      <a href="/users/new">Sign up</a>
+      <a href="/log-in">Log in</a>
       <% if current_user %>
       <a href="/users/<%= current_user.id %>">Profile</a>
       <% end %>

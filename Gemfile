@@ -11,7 +11,8 @@ gem "bcrypt"
 gem "pg"
 gem "database_cleaner"
 gem "sinatra-flash"
-gem "securerandom"
+gem "mailgun-ruby"
+gem "dotenv"
 
 group :test do
   gem 'rspec'
