@@ -15,8 +15,4 @@ feature 'sign up' do
     expect{sign_up}.to change(User, :count).by(1)
   end
 
-  scenario "I can't login without a proper email format" do
-    wrong_email_sign_up
-    expect(page.current_path).to eq('/sign_up')
-  end
 end

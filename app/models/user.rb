@@ -13,6 +13,8 @@ class User
   property :nickname, String, unique: true, required: true
 
 
+  
+
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end
