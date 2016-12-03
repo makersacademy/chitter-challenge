@@ -3,7 +3,7 @@ require_relative 'web_helper.rb'
 
 
 feature 'Adding a peep' do
-  scenario 'THe user goes to the peep page and adds a peep' do
+  scenario 'The user goes to the peep page and adds a peep' do
 
     visit '/new_peep'
     fill_in 'peep', with: 'This is my message'

@@ -49,6 +49,9 @@ end
 
 post '/peep' do
   p params
+  peep = Peep.create(:content => params[:peep])
+
+
   redirect'/home'
 end
 
