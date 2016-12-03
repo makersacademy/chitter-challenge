@@ -14,4 +14,4 @@ end
 
 DataMapper.setup(:default, "postgres://localhost/chitter")
 DataMapper.finalize
-DataMapper.auto_upgrade
+DataMapper.auto_upgrade!

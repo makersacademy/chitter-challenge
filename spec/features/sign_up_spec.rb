@@ -7,10 +7,10 @@ RSpec.feature 'Sign up' do
   let(:password) { 'abcd1234' }
 
   scenario 'A user can sign up' do
-    visit '/sign-up'
+    visit '/sign-up/new'
     fill_in 'email', with: :email
     fill_in 'name', with: :name
-    fill_in 'user_name', with: :username
+    fill_in 'username', with: :username
     fill_in 'password', with: :password
     click_button('Sign Up')
     expect(current_path).to eq '/'
