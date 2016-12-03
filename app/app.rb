@@ -14,8 +14,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.new(email: params[:email], name: params[:name], username: params[:username])
+    user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
     if user.save
+      redirect '/peeps'
+    end
+  end
+
+  get '/session/new' do
+    erb :'/session/new'
+  end
+
+  post '/session' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
       redirect '/peeps'
     end
   end
