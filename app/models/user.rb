@@ -1,5 +1,5 @@
 require 'data_mapper'
-
+require_relative './datamapper_settings'
 class User
 
   include DataMapper::Resource
@@ -10,6 +10,7 @@ class User
   property :password, String, unique: true, required: true
   property :nickname, String, unique: true, required: true
 
-  
+  data_mapper_settings
+
 
 end

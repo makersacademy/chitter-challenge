@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require_relative './models/user'
 class Chitter < Sinatra::Base
   enable :sessions
 
@@ -12,7 +12,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    session[:name] = params[:name]
+    @user = User.create(email: params[:email], name: params[:name], password: params[:password], nickname: params[:nickname])
+    @users = User.all
+    erb :user
   end
 
   # start the server if ruby file executed directly
