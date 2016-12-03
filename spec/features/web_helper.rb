@@ -9,3 +9,13 @@ def sign_up
   click_button('Sign up')
 
 end
+
+def sign_in
+
+  visit '/signin'
+  expect(page.status_code).to eq 200
+  fill_in 'Email', with: 'simon.conway@condaal.com'
+  fill_in 'password', with: 'Password'
+  click_button('Sign in')
+
+end
