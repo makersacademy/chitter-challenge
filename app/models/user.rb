@@ -6,16 +6,18 @@ class User
 
   include DataMapper::Resource
 
-  attr_accessor :password_digest
   attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
 
   property :id, Serial
-  property :email, String
+  property :email, String, required: true
   property :password_digest, Text
 
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_digest = @password
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 
 end
