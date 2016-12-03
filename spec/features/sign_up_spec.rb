@@ -1,4 +1,6 @@
 require 'spec_helper'
+require_relative 'web_helpers'
+require './app/models/user'
 
 feature 'Sign up' do
 
@@ -14,12 +16,10 @@ feature 'Sign up' do
   end
 
   scenario 'User can fill out sign up form' do
-    visit '/sign_up'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirm, with: password_confirm
-    fill_in :name, with: name
-    fill_in :handle, with: handle
-    click_button 'Sign Up'
+    sign_up
+  end
+
+  scenario 'User can sign up only when passwords are matching' do
+    expect { sign_up(password_confirm: 'wrong') }.not_to change(User, :count)
   end
 end
