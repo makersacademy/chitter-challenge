@@ -115,6 +115,7 @@ GEM
     netrc (0.10.3)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -182,6 +183,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   heroku
+  pg
   pry
   rack
   rake

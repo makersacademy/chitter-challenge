@@ -9,11 +9,11 @@ gem 'coveralls', require: false
 gem 'pry'
 gem 'heroku'
 gem 'rack'
-
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rspec-sinatra'
 gem 'bcrypt'
+gem 'pg'
 
 group :test do
   gem 'rspec'
