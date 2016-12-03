@@ -37,4 +37,9 @@ RSpec.feature 'User sign-up' do
     expect(page).to have_content("Email must not be blank")
   end
 
+  scenario "- prevents user from signing up if email address is already in use" do
+    new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface')
+    expect{ new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
+  end
+
 end
