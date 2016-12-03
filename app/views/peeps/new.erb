@@ -1,0 +1,14 @@
+<% if current_user %>
+<form action='/peeps/new' method='post'>
+  <p> What would you like to post today?
+    <input id='post' type='text' name='content'/>
+  </p>
+  <p>
+    <input id='submit' type='submit' value='Peep this!'/>
+  </p>
+</form>
+<% else %>
+<div id='no_user_box'>
+  You must sign in to peep!
+</div>
+<%end %>

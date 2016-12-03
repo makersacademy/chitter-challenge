@@ -1,0 +1,12 @@
+
+<% Peep.all.reverse.each do |peep| %>
+  <h2>
+    <div id='user'> <%=peep.user.username%> </div>
+  </h2>
+  <h3> <%=peep.post_time.asctime%> </h3>
+  <p>
+    <div id='content'>
+      <%= peep.content %>
+    </div>
+  </p>
+<% end %>

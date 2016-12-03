@@ -1,3 +1,17 @@
-<h1> Welcome <%=@user_first_name%> </h1>
+<% if current_user %>
+<h1> Welcome <%=first_name current_user.name%> </h1>
+
+<form action='/sessions' method='post'>
+  <input type='hidden' name='_method' value='DELETE'/>
+  <input id='sign_out' type='submit' value='Sign out'/>
+</form>
+
+<% end %>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <%= yield %>

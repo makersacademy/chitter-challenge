@@ -8,6 +8,7 @@ class User
   property :username, String
   property :email, Text
   property :password_hash, Text
+  has n, :peeps
 
   def initialize params
     self.username = params[:username]

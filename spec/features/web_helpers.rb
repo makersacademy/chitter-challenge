@@ -13,8 +13,8 @@ def sign_up name: "Django Tarantino",
 end
 
 
-def sign_in username: "realDjango",
-            password: "i_hate_honkys"
+def sign_in username: "test_user",
+            password: "passw0rd"
 
   visit 'sessions/new'
   fill_in 'username', with: username
