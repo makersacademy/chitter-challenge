@@ -1,8 +1,17 @@
 <% if @user!=nil %>
 
   Welcome <%= @user.user_name %>!
+
+  <!-- <form action="/sessions" method="get">
+  <input type="submit" value="sign out">
+</form> -->
+
 <% else %>
 
   Welcome, stranger!
 
+
+  <form action="/users/new" method="get">
+  <input type="submit" value="sign up">
+</form>
 <%end%>

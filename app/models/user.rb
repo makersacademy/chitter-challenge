@@ -1,8 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-
-
 require 'bcrypt'
+require 'pry'
 
 class User
 
@@ -13,7 +12,6 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, Text, required: true
 
-  attr_reader :password
 
 
   def password=(password)
@@ -21,5 +19,13 @@ class User
   end
 
 
+  def self.authenticate(user_name, password)
+    user = first(user_name: user_name)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
+  end
 
 end
