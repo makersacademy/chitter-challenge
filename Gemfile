@@ -6,6 +6,7 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 gem 'rake'
