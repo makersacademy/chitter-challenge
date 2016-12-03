@@ -20,9 +20,20 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
-  post '/users' do
+  post '/users/create' do
     user = User.create(email: params[:email], pass: params[:password], name: params[:name], username: params[:username])
     session[:user_id] = user.id
+    redirect '/peeps'
+  end
+
+  get '/users/login' do
+    erb :login
+  end
+
+  post '/users/login_successful' do
+    # user = User.get(params[:username])
+    # require 'pry'; binding.pry
+    # # session[:user_id] = user.id
     redirect '/peeps'
   end
 
