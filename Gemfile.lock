@@ -108,6 +108,8 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.5.1)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
@@ -130,6 +132,7 @@ DEPENDENCIES
   rake
   rspec
   sinatra (= 1.4.7)
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.2.3p173
