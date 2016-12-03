@@ -2,17 +2,17 @@
 
   <div>
      <label for="email">Please enter your email!</label>
-    <input type='email' name='email' value='email' required>
+    <input type='email' name='email' value='<%= @user.email %>' required>
   </div>
 
   <div>
     <label for="name">Please enter your name!</label>
-    <input type='text' name='name' required>
+    <input type='text' name='name' value='<%= @user.name %>'required>
   </div>
 
   <div>
     <label for="username">Please enter your username!</label>
-    <input type='text' name='username' required>
+    <input type='text' name='username' value='<%=@user.username%>' required>
   </div>
 
   <div>

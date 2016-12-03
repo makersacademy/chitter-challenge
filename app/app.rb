@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign_up' do
+    @user = User.new
     erb :sign_up
   end
 
@@ -24,9 +25,12 @@ class Chitter < Sinatra::Base
       redirect ('/peeps')
     else
       flash.now[:errors]
-      # require 'pry'; binding pry
       erb :sign_up
     end
+  end
+
+  get '/peeps' do
+    "PEEPS"
   end
 
   # start the server if ruby file executed directly
