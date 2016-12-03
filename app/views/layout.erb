@@ -13,12 +13,18 @@
   }
   </style>
   <body>
+    <h1> Chitter </h1>
     <% if current_user %>
       Welcome <%= current_user.username %>!
     <% end %>
 
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please correct the following:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>    
     <% end %>
     <%= yield %>
   </body>

@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :sign_in
+    erb :index
   end
 
   post '/' do
@@ -30,9 +30,13 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/logged_in')
     else
-      flash.now[:notice] = "Your password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :new_user
     end
+  end
+
+  get '/sign_up' do
+    erb :sign_in
   end
 
   get '/logged_in' do

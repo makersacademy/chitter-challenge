@@ -3,6 +3,7 @@ def sign_up(username: 'louisaspicer',
    password: 'greatpassword',
    confirm: 'greatpassword')
   visit '/'
+  click_button('Sign Up')
   fill_in("username", with: username)
   fill_in("email", with: email)
   fill_in("password", with: password)
