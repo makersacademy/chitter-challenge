@@ -7,7 +7,7 @@ feature "Signing up" do
     fill_in('email', with: 'louisa@example.com')
     fill_in('password', with: 'greatpassword')
     fill_in('confirm_password', with: 'greatpassword')
-    click_button('Submit')
+    click_button('Register')
 
     expect(page).to have_content 'Welcome louisaspicer!'
   end

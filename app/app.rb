@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    erb :homepage
   end
 
   # start the server if ruby file executed directly
