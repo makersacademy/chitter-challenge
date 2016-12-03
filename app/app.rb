@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
 
   get '/users/new' do
     @user = User.new
-    erb :signup
+    erb :'/users/new'
   end
 
   post '/users/create' do
@@ -37,22 +37,22 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :signup
+      erb :'users/new'
     end
   end
 
-  get '/users/login' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/users/login_successful' do
+  post '/sessions/new' do
     @user = User.first(username: params[:username])
     session[:user_id] = @user.id
     redirect '/peeps'
   end
 
   get '/peeps' do
-    erb :peeps
+    erb :'/peeps/peeps'
   end
 
   # start the server if ruby file executed directly

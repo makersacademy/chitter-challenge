@@ -12,7 +12,7 @@ feature "Logging in:" do
 
   scenario "user logs in with a valid account" do
 
-    visit '/users/login'
+    visit '/sessions/new'
     fill_in("username", with:"thedude")
     fill_in("password", with:"bowling1234")
     click_button("Submit")
