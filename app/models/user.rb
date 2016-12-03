@@ -11,7 +11,13 @@ class User
   property :email, String
   property :password_encrypted, Text
 
+  attr_reader   :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
+
   def password=(string)
+    @password = string
     self.password_encrypted = BCrypt::Password.create(string)
   end
 end
