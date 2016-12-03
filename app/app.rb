@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(email: params[:email] , name: params[:name],
+    User.new(email: params[:email] , name: params[:name],
     username: params[:username], password_digest: params[:password_digest] )
   end
 
