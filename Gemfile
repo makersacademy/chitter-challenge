@@ -10,6 +10,7 @@ group :test do
   gem 'rspec-sinatra'
   gem "selenium-webdriver"
   gem "database_cleaner"
+  gem "pry"
 end
 
 gem "sinatra"
@@ -17,3 +18,4 @@ gem "datamapper"
 gem "dm-postgres-adapter"
 gem "bcrypt"
 gem "sinatra-flash"
+gem 'dm-validations'

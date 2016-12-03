@@ -18,9 +18,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
-    flash[:welcome] = "Welcome to Chitter, #{params[:username]}!"
-    redirect to('/dashboard')
+    new_user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+
+    if new_user.save
+      flash[:welcome] = "Welcome to Chitter, #{params[:username]}!"
+      redirect to('/dashboard')
+    else
+      flash[:mismatch] = "Passwords don't match, try again"
+      redirect to('/users/new')
+    end
   end
 
   get '/dashboard' do

@@ -8,6 +8,10 @@
     <% if flash[:welcome] %>
       <div id='welcome'><%= flash[:welcome] %></div>
     <% end %>
+
+    <% if flash[:mismatch] %>
+      <div id='mismatch'><%= flash[:mismatch] %></div>
+    <% end %>
     <%= yield %>
 
   </body>

@@ -17,6 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require_relative './features/web_helpers.rb'
 
 DatabaseCleaner.strategy = :truncation
 
