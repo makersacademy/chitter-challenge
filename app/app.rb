@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    "Hello"
+    erb :'entry'
   end
 
   get '/users/new' do
