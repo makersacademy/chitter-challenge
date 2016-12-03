@@ -1,1 +1,8 @@
-<%= flash[:notice] %>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<% if current_user %>
+<form action='/peep' method='get'>
+  <button>Peep!</button>
+</form>
+<% end %>

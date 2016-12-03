@@ -62,6 +62,9 @@ class Chitter < Sinatra::Base
     erb :log_out
   end
 
+  get '/peep' do
+    erb :peep
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
