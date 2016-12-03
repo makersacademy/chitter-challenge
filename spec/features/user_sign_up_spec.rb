@@ -34,4 +34,9 @@ RSpec.feature 'User sign-up' do
     expect{ new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
   end
 
+  scenario "- prevents user from signing up if username is already in use" do
+    new_user_sign_up('bar@foo.com', '123secret', 'foo', 'Foo McFooface')
+    expect{ new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
+  end
+
 end

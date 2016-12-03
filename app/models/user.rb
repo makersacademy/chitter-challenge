@@ -26,6 +26,9 @@ class User
   validates_format_of :email, :as => :email_address
   validates_uniqueness_of :email,
     :message => "User already signed-up. Please log in."
+  validates_uniqueness_of :username,
+    :message => "Username already in use. Please choose another."
+
   validates_presence_of :password
 
 end
