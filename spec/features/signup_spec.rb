@@ -1,15 +1,14 @@
 require 'spec_helper'
 require './app/app.rb'
+require './spec/features/web_helper.rb'
 
-RSpec.feature "Signing up" do
+feature "Signing up" do
   scenario "Should allow user to create a Chitter account" do
-    visit '/'
-    fill_in("username", with: 'louisaspicer')
-    fill_in("email", with: 'louisa@example.com')
-    fill_in("password", with: 'greatpassword')
-    fill_in("confirm_password", with: 'greatpassword')
-    click_button('Register')
-
+    sign_up
     expect(page).to have_content 'Welcome louisaspicer!'
+  end
+
+  scenario "Should not save user details if passwords don't match" do
+    expect{sign_up(confirm: 'wrongpassword')}.not_to change(User, :count)
   end
 end
