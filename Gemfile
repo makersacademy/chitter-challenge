@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-# frozen_string_literal: true
 source "https://rubygems.org"
 
+ruby '2.3.1'
 
 gem 'pry'
 gem 'sinatra'
+gem 'rake'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rspec-sinatra'
@@ -16,15 +16,3 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
-=======
-source 'https://rubygems.org'
-ruby '2.2.3'
-
-group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
-end
-
->>>>>>> 240efd897c01c9e55dcddbe390d78ab5da47565c
