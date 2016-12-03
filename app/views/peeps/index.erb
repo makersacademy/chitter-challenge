@@ -1,1 +1,11 @@
 <h1>Recent Peeps</h1>
+<table>
+  <tr>
+    <th>Peep</th>
+  </tr>
+<% @peeps.each do |peep| %>
+<tr>
+  <td><%= peep.content %></td>
+</tr>
+<% end %>
+</table>

@@ -15,4 +15,9 @@ RSpec.feature 'New peep' do
     expect(page).to have_current_path('/sessions/new')
   end
 
+  scenario "- user can see just created peep" do
+    sign_up_and_peep('Lorem ipsum dolor sit amet.')
+    expect(page).to have_content('Lorem ipsum dolor sit amet.')
+  end
+
 end

@@ -16,6 +16,8 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+    @peeps = Peep.all
+    p @peeps
     erb :'peeps/index'
   end
 
@@ -57,6 +59,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     Peep.create(content: params[:content], user_id: current_user.id)
+    redirect '/'
   end
 
   get '/peeps/new' do
