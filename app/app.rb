@@ -21,6 +21,7 @@ post '/signup' do
   p params
   user = User.create(first_name: params[:first_name], surname: params[:surname], email: params[:email],password: params[:password])
   session[:user_id] = user.id
+  session[:first_name] = user.first_name
   #require'pry';binding.pry
   redirect'/home'
 end
@@ -29,10 +30,17 @@ get '/signin' do
   erb :'/users/signin'
 end
 
-
+post '/signin' do
+ p params
+ redirect'/home'
+end
 
 get '/home' do
   erb :'/peeps/home'
+end
+
+get '/new_peep' do
+  erb :'/peeps/new'
 end
 
 
