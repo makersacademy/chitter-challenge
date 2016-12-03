@@ -15,6 +15,7 @@ feature "Post Peeps" do
 
     expect(current_path).to include '/'
     expect(page).not_to have_content "Why can't we give love one more chance?"
+    expect(page).to have_content "Must sign in or sign up before posting a peep"
 
   end
 

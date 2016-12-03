@@ -1,15 +1,29 @@
-<h1> Welcome to Chitter! </h1>
+<!DOCTYPE html>
+<html>
 
-<div>
-  <form action='/users/new'>
-    <label> Sign Up: </label>
-    <input type="submit" value="Sign Up">
-  </form>
-</div>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  </head>
 
-<div>
-  <form action='/session/new'>
-    <label> Sign In: </label>
-    <input type="submit" value="Sign In">
-  </form>
-</div>
+  <body>
+    <div class="header">
+      <h1> Welcome to Chitter! </h1>
+    </div>
+
+    <div id="sign_up_option">
+      <form action='/users/new'>
+        <label> New Customer? </label>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+
+    <div id="sign_in_option">
+      <form action='/session/new'>
+        <label> Existing Customer? </label>
+        <input type="submit" value="Sign In">
+      </form>
+    </div>
+
+  </body>
+
+</html>

@@ -18,6 +18,7 @@ feature "Signing Up" do
     sign_up
     expect(page.status_code).to eq 200
     expect(current_path).to include '/users'
+    expect(page).to have_content "Email and/or username already taken"
   end
 
 end

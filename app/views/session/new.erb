@@ -1,11 +1,24 @@
-<h1> Sign In! </h1>
+<!DOCTYPE html>
+<html>
 
-<form action='/session' method="post">
-  <label>Email:</label>
-  <input type="email" name="email">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  </head>
 
-  <label>Password:</label>
-  <input type="password" name="password"><br>
+  <body>
+    <div class="header">
+      <h1> Sign In! </h1>
+    </div>
 
-  <input type="submit" value="Sign In">
-</form>
+    <form action='/session' method="post">
+      <label>Email:</label>
+      <input type="email" name="email">
+      <br>
+      <label>Password:</label>
+      <input type="password" name="password"><br>
+      <br>
+      <input type="submit" value="Sign In">
+    </form>
+  </body>
+
+</html>

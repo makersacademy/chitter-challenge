@@ -13,6 +13,7 @@ feature "Signing In" do
     fill_in :password, with: 'test999'
     click_button "Sign In"
     expect(current_path).to include '/session'
+    expect(page).to have_content "Email and/or password do not match"
   end
 
 end

@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <title>Chitter</title>
   </head>
 
@@ -14,6 +15,14 @@
       </form>
     <% end %>
 
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li> <%= error %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+    
     <%= yield %>
 
   </body>

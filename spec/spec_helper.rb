@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'sinatra/flash'
 
 require './app/models/peep'
 require './app/models/user'

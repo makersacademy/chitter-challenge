@@ -2,10 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   use Rack::MethodOverride
 
@@ -19,10 +21,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
       redirect '/peeps'
+    else
+      flash.now[:errors] = ["Email and/or username already taken"]
     end
   end
 
@@ -32,10 +36,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/session' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
       redirect '/peeps'
+    else
+      flash.now[:errors] = ["Email and/or password do not match"]
     end
   end
 
@@ -58,6 +64,7 @@ class Chitter < Sinatra::Base
       peep = Peep.create(message: params[:message], username: current_user.username, name: current_user.name)
       redirect '/peeps'
     else
+      flash.keep[:errors] = ["Must sign in or sign up before posting a peep"]
       redirect '/'
     end
   end

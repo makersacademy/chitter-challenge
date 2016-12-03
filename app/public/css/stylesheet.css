@@ -1,0 +1,44 @@
+body {
+  font-family: verdana;
+  font-size: 10px;
+  background-color: #f2f2f2;
+}
+
+.header {
+  background-color: #CC3838;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+}
+
+#sign_up_option {
+  font-size: 18px;
+  height: 200px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding-top: 200px;
+}
+
+#sign_in_option {
+  font-size: 18px;
+  height: 200px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding-top: 200px;
+}
+
+form {
+  background-color: #bfbfbf;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  margin: auto;
+}
+
+label {
+  padding: 20px;
+  display: block;
+}
