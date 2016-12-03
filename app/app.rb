@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative './models/user'
-# require 'pry'
+require 'pry'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -16,6 +16,7 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email], name: params[:name], password: params[:password], nickname: params[:nickname])
+    # binding.pry
     erb :user
   end
 

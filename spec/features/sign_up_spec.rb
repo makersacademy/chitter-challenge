@@ -14,4 +14,9 @@ feature 'sign up' do
   scenario "I want to check a new account has been created in the database" do
     expect{sign_up}.to change(User, :count).by(1)
   end
+
+  scenario "I can't login without a proper email format" do
+    wrong_email_sign_up
+    expect(page.current_path).to eq('/sign_up')
+  end
 end

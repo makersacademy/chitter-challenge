@@ -5,7 +5,8 @@ require './app/app.rb'
 #
 #   RSpec::Core::RakeTask.new :spec
 #
-#   task default: [:spec]
+  # task default: [:spec]
+# end
 
 namespace :db do
   desc "Non destructive upgrade"
