@@ -1,9 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
 
-require 'pry'
 require 'sinatra/base'
-require_relative './models/user.rb'
 require 'data_mapper'
+require 'pry'
+require_relative './models/user.rb'
+require_relative './models/peep.rb'
+
 # require_relative './models/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
@@ -20,18 +22,30 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_user' do
-    user = User.create(name: params[:name],
+    @user = User.new(name: params[:name],
              user_name: params[:user_name],
              email: params[:email],
              password: params[:password],
              confirm_password: params[:confirm_password])
-    # binding.pry
-    session[:user_id] = user.id
-    redirect '/message'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/new_peep'
+    else
+      redirect '/sign_up'
+    end
   end
 
-  get '/message' do
-    erb :messages
+  get '/log_in' do
+    erb :log_in
+  end
+
+  get '/new_peep' do
+    erb :new_peep
+  end
+
+  post '/peeps' do
+    @peep_1 = Peep.create(peep: params[:peep])
+    erb :peep
   end
 
   helpers do

@@ -170,6 +170,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dm-transactions
   dm-validations
   pry
   rake
