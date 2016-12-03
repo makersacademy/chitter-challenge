@@ -18,6 +18,10 @@ RSpec.feature 'User sign-up' do
     expect{ new_user_sign_up(nil, '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
   end
 
+  scenario "- fails if user does not enter a password" do
+    expect{ new_user_sign_up('foo@foo.com', nil, 'foo', 'Foo McFooface') }.not_to change(User, :count)
+  end
+
   scenario "- welcomes user by their name after sign-up is completed" do
     new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface')
     expect(page).to have_content "Welcome, Foo McFooface!"

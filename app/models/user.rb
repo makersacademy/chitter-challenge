@@ -11,10 +11,14 @@ class User
   property :username, String, required: true
   property :name, String, required: true
 
+  attr_reader :password
+
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
   validates_format_of :email, :as => :email_address
+  validates_presence_of :password
 
 end
