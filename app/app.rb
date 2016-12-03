@@ -8,8 +8,9 @@ class Chitter < Sinatra::Base
   set :session_secret, 'chitter secret'
 
   helpers do
+    attr_writer :current_user
     def current_user
-      @current_user ||= User.all(id: session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
@@ -24,7 +25,7 @@ class Chitter < Sinatra::Base
   post '/user-info' do
     user = User.create(name:  params[:name],  username: params[:username],
                        email: params[:email], password: params[:password])
-    session[:user_id] = user.id 
+    session[:user_id] = user.id
     redirect '/'
   end
 
@@ -33,8 +34,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/log-in-info' do
-    current_user = User.all(email: params[:email])
-    current_user.size == 0 ? error = "You haven't signed up yet!" : redirect('/')
+    log_in_user ||= User.first(email: params[:email])
+    return "You haven't signed up yet!" if log_in_user.nil?
+    session[:user_id] = log_in_user.id
+    redirect('/')
   end
 
 
