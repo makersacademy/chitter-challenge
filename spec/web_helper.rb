@@ -9,6 +9,17 @@ def cat_sign_up
   click_button "Submit"
 end
 
+def cat_sign_up_wrong
+  visit('/')
+  click_button "Sign up"
+  fill_in :name, with: "cat"
+  fill_in :username, with: "CAT"
+  fill_in :email, with: "cat@email.com"
+  fill_in :password, with: "catsecret"
+  fill_in :password_confirmation, with: "cat"
+  click_button "Submit"
+end
+
 def dog_sign_up
   visit('/')
   click_button "Sign up"

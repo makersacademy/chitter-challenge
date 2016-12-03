@@ -1,8 +1,11 @@
 ENV["RACK_ENV"]||="development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/models/user.rb'
 
 class Chitter < Sinatra::Base
+
+  register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'chitter secret'
@@ -26,8 +29,13 @@ class Chitter < Sinatra::Base
     user = User.create(name:  params[:name],  username: params[:username],
                        email: params[:email], password: params[:password],
                        password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect '/'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:notice] = "Your passwords don't match"
+      redirect '/sign-up'
+    end
   end
 
   get '/log-in' do

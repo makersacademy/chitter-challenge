@@ -1,0 +1,15 @@
+<html>
+<head>
+  <table height=50px>
+    <tr>
+      <th align='left' valign='bottom'>Chitter...</th>
+      <th align='left' valign='bottom'><% if current_user %>Welcome, <%= current_user.username %>!<% end %></th>
+    </tr>
+    <tr height=20px>
+    </tr>
+  </table>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>
