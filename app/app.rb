@@ -1,10 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require "./app/models/user"
+require "./app/models/peep"
 require_relative "datamapper_setup"
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -26,14 +28,20 @@ class Chitter < Sinatra::Base
   end
 
   get "/users/:id" do
-    erb(:user)
+    if logged_in?
+      @user = User.get(params[:id])
+      erb(:user)
+    else
+      flash.keep[:notice] = ["You need to login to peep!"]
+      redirect to("/users/new")
+    end
   end
 
   get "/log-in" do
     erb(:log_in)
   end
 
-  post '/log-in' do
+  post '/sessions/new' do
     user = User.first(user_name: params[:user_name])
       if user.authenticated?(params[:password])
         session[:user_id] = user.id
@@ -44,10 +52,42 @@ class Chitter < Sinatra::Base
       end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = ['goodbye!']
+    redirect to('/log-in')
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all.reverse
+    erb(:peeps)
+  end
+
+  post '/peeps' do
+    current_user
+    peep = current_user.peeps.new(peep: params[:peep])
+    if peep.save
+        flash.now[:notice] = ["Peep was created created"]
+        redirect to("/peeps/#{peep.id}")
+    else
+        flash.now[:notice] = ["Peep could not be created"]
+        erb(:user)
+    end
+  end
+
+  get '/peeps/:id' do
+      @peep = Peep.get(params[:id])
+      erb(:peep)
+  end
+
   helpers do
 
     def current_user
       @user = User.get(session[:user_id])
+    end
+
+    def logged_in?
+      !session[:user_id].nil?
     end
 
   end

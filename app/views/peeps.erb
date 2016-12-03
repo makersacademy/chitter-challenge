@@ -1,0 +1,6 @@
+<h3>Peeps: <%= @peeps.count %> </h3>
+<% @peeps.each do |peep| %>
+  <ul>
+    <li><%= peep.id %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago</p></li>
+  </ul>
+<% end %>

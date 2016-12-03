@@ -1,1 +1,5 @@
-<h1>Wellcome <%= current_user.user_name %></h1>
+<form action="/peeps" method="post">
+  <label for="peep">Peep peep:</label>
+  <input type="textarea" name="peep" required>
+  <input type="submit" value="Post">
+</form>
