@@ -2,10 +2,12 @@
 <table>
   <tr>
     <th>Peep</th>
+    <th>User</th>
   </tr>
 <% @peeps.each do |peep| %>
 <tr>
   <td><%= peep.content %></td>
+  <td><%= User.get(peep.user_id).username %></td>
 </tr>
 <% end %>
 </table>

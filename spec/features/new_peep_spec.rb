@@ -20,4 +20,9 @@ RSpec.feature 'New peep' do
     expect(page).to have_content('Lorem ipsum dolor sit amet.')
   end
 
+  scenario "- user can see who peeped a peep" do
+    sign_up_and_peep('Lorem ipsum dolor sit amet.')
+    expect(page).to have_content('foo')
+  end
+
 end
