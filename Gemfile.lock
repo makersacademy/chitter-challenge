@@ -178,6 +178,7 @@ DEPENDENCIES
   database_cleaner
   datamapper
   dm-postgres-adapter
+  dm-validations
   pry
   rake
   rspec

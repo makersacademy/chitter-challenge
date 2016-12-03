@@ -1,7 +1,13 @@
 feature "Logging in:" do
 
   before do
-    created_user = User.create(email: "fly@high.com", pass: "bowling1234", name: "The Dude", username: "thedude")
+    created_user = User.create(
+    email: "fly@high.com",
+    password: "bowling1234",
+    password_confirmation: "bowling1234",
+    name: "The Dude",
+    username: "thedude"
+    )
   end
 
   scenario "user logs in with a valid account" do

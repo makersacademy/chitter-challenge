@@ -16,5 +16,6 @@ gem 'bcrypt'
 gem 'datamapper'
 gem "sinatra"
 gem "dm-postgres-adapter"
+gem "dm-validations"
 gem "rake"
 gem "sinatra-flash"

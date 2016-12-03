@@ -1,16 +1,28 @@
 feature "Signing up to chitter:" do
-  scenario "user goes to signup page and makes an account" do
 
-    visit '/users/new'
-    def sign_up
-      fill_in("email", with:"hello@gmail.com")
-      fill_in("password", with:"averystrongpassword")
-      fill_in("name", with: "John Johnson")
-      fill_in("username", with: "johnnyboi")
-      click_button("Submit")
-    end
-
+  scenario "user signs up with correct confirmation password" do
     expect{ sign_up }.to change{ User.count }.by(1)
     expect(page).to have_content("Welcome to chitter johnnyboi")
   end
+
+  scenario "user signs up with password mismatch" do
+    expect{ sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
+  def sign_up(
+    email: "hello@gmail.com",
+    password: "averystrongpassword",
+    password_confirmation: "averystrongpassword",
+    name: "John Johnson",
+    username: "johnnyboi"
+    )
+    visit '/users/new'
+    fill_in("email", with: email)
+    fill_in("password", with: password)
+    fill_in("password_confirmation", with: password_confirmation )
+    fill_in("name", with: name)
+    fill_in("username", with: username)
+    click_button("Submit")
+  end
+
 end
