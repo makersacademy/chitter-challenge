@@ -8,6 +8,11 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'my secret password'
 
+  helpers do
+    def current_user
+    @current_user ||= User.get(session[:user_id])
+    end
+  end
 
 get '/' do
   "Hello world!"
@@ -37,29 +42,22 @@ end
 
 
 get '/home' do
+  current_user
   @peeps = Peep.all.map {|a| a.content}
-  #require'pry';binding.pry
   erb :'/peeps/home'
 end
-
-
-
 
 get '/new_peep' do
   erb :'/peeps/new'
 end
 
 post '/peep' do
+  current_user
   p params
   peep = Peep.create(:content => params[:peep])
+  #require'pry';binding.pry
   redirect'/home'
 end
-
-
-
-
-
-
 
 
 # start the server if ruby file executed directly
