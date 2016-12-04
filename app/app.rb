@@ -5,6 +5,10 @@ require_relative './models/user'
 
 
 class Twitter < Sinatra::Base
+  enable :session
+  set :session_secret, 'super secret'
+
+
   get '/' do
   end
 
@@ -19,7 +23,8 @@ class Twitter < Sinatra::Base
 
 
   post '/users' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
+    User.create(email: params[:email], username: params[:username],
+              password_method2: params[:password])
     redirect '/twitter'
   end
 
