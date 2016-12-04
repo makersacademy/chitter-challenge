@@ -10,38 +10,30 @@ feature 'sign up' do
   end
 
   scenario 'user can sign up for chitter' do
-    visit('/users/sign-up')
-    fill_in 'email', with: 'hello@example.com'
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'password'
-    expect { click_button('sign up').to change(User, :count).by(1) }
+    expect { sign_up }.to change(User, :count).by(1)
     # expect(page).to have_content('welcome hello@example.com')
     #expect(User.first.email).to eq('hello@example.com')
   end
 
   scenario 'user is unable to sign up without confirming password' do
-    visit('/users/sign-up')
-    fill_in 'email', with: 'hello@example.com'
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'wrong'
-    expect { click_button('sign up') }.not_to change(User, :count)
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'password and confirmation do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'user cannot sign up without and email address' do
-    visit('/users/sign-up')
-    fill_in 'email', with: nil
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'password'
-    expect { click_button('sign up') }.not_to change(User, :count)
+  scenario 'user cannot sign up without an email address' do
+      expect { sign_up(email: nil) }.not_to change(User, :count)
+      expect(page).to have_content('Email must not be blank')
   end
 
   scenario 'user cannot sign up with an invalid email address' do
-    visit('/users/sign-up')
-    fill_in 'email', with: 'invalid@email'
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'password'
-    expect { click_button('sign up') }.not_to change(User, :count)
+    expect { sign_up(email: 'invalid@email') }.not_to change(User, :count)
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario 'user cannot sign up with an email address that is already registered' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 end
