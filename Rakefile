@@ -1,9 +1,9 @@
-# if ENV['RACK_ENV'] != 'production'
-  # require 'rspec/core/rake_task'
+if ENV['RACK_ENV'] != 'production'
+  require 'rspec/core/rake_task'
   require './app/app.rb'
   require 'data_mapper'
 
-  # RSpec::Core::RakeTask.new :spec
+  RSpec::Core::RakeTask.new :spec
 
   namespace :db do
 
@@ -17,6 +17,6 @@
       DataMapper.auto_migrate!
     end
 
-  # end
+  end
 
 end
