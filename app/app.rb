@@ -16,16 +16,16 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
-  get '/login/new' do
+  get '/log_in/new' do
     erb :login
   end
 
-  post '/login' do
+  post '/log_in' do
     @user = User.authenticate(params[:username],params[:password])
     if @user
       erb :user
     else
-      redirect 'login/new'
+      redirect 'log_in/new'
     end
   end
 

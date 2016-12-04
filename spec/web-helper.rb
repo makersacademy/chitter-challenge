@@ -24,3 +24,10 @@ def new_sign_up
   fill_in 'password', with: "12345"
   click_button 'Sign up'
 end
+
+def log_in
+  visit '/log_in/new'
+  fill_in 'username', with: 'maker'
+  fill_in 'password', with: '12345'
+  click_button('Log in')
+end
