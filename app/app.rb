@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   enable  :sessions
   set :session_secret, 'super secret'
   set :root, File.dirname(__FILE__)
+  set :app_file, __FILE__
 
   use Rack::MethodOverride
 
