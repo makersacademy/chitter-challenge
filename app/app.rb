@@ -3,16 +3,23 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/tweet'
 require_relative './models/user'
+require 'pry'
 
 
 class Twitter < Sinatra::Base
 
   register Sinatra::Flash
-  enable :session
+  enable :sessions
   set :session_secret, 'super secret'
 
 
   get '/' do
+  end
+
+  helpers do
+   def current_user
+     @current_user ||= User.get(session[:user_id])
+   end
   end
 
   get '/twitter' do
@@ -25,6 +32,21 @@ class Twitter < Sinatra::Base
     erb :'sign_up'
   end
 
+  get '/sessions/new' do
+    @user = User.new
+    erb :'session/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/twitter'
+    else
+      flash.now[:errors] = ['The email and/or password is incorrect']
+      erb :'session/new'
+    end
+  end
 
   post '/users' do
     @user = User.create(email: params[:email], username: params[:username],

@@ -6,6 +6,9 @@
 
   <body>
 
+    <% if current_user %>
+      Welcome, <%= current_user.email %>!
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Here is what is wrong:
       <ul id='errors'>
@@ -14,8 +17,8 @@
         <% end %>
       </ul>
     <% end %>
-    <%= yield %>
 
+    <%= yield %>
   </body>
 
 </html>
