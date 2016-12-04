@@ -2,10 +2,17 @@
 
   Welcome <%= @user.user_name %>!
 
-  <form method='post' action='/sessions'>
+  <form  action='/sessions' method='post'>
        <input type='hidden' name='_method' value='delete'>
        <input type='submit' value='sign out'>
      </form>
+
+     <form  action='/new' method='post'>
+       <input type='text' name='text'>
+       <input type='submit' value='Post a peep'>
+     </form>
+
+
 
 <% else %>
 
@@ -16,3 +23,15 @@
   <input type="submit" value="sign up">
 </form>
 <%end%>
+
+
+<ul id='peeps'>
+
+ <% @peeps.each do |peep| %>
+   <li>
+      <!-- <%= @user.name %> <br>
+      <%= @user.user_name %> <br> -->
+      <%= peep.text %>
+   </li>
+ <% end %>
+</ul>

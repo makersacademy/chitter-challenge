@@ -2,6 +2,7 @@ ENV['RACK_ENV']||='development'
 require 'sinatra/base'
 require 'pry'
 require_relative  './models/user.rb'
+require_relative  './models/peep.rb'
 require_relative './models/database_setting.rb'
 require 'dm-core'
 require 'sinatra'
@@ -25,12 +26,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    @peeps = Peep.all.reverse
+    erb :'index'
   end
 
-  get '/sessions' do
-    erb :'sessions/index'
+  post '/new' do
+    your_peep = params[:text]
+    @user.peeps << Peep.create(text: your_peep)
+    @user.save
+    redirect '/'
   end
+
 
   post '/sessions' do
     user = User.authenticate(params[:user_name], params[:password])
