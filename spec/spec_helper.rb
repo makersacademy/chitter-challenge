@@ -9,9 +9,10 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './models/user'
+require './models/peep'
 
 RSpec.configure do |config|
-  
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

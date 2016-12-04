@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user.rb'
+require_relative 'models/peep.rb'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -48,6 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
+    @peeps = Peep.all
     erb :chitter
   end
 
