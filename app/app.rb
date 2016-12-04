@@ -61,6 +61,11 @@ class Chitter < Sinatra::Base
     redirect("/peeps")
   end
 
+  post '/peep' do
+    @post = params[:user_message]
+    erb :index
+  end
+
   get '/peeps' do
     erb :index
   end
