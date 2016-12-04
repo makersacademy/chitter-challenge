@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] ||= "development"
 
+require './app/data_mapper_setup.rb'
 require 'sinatra/base'
 # require_relative 'data_mapper_setup.rb'
 
@@ -15,11 +16,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
+    User.new(email: params[:email], password:params[:password],
+    password_again: params[:password_again], handle: params[:handle])
+    redirect to('/index')
+  end
+
+  get '/index' do
     erb :'index'
   end
 
-
-
-
-run! if app_file == $0
+  run! if app_file == $0
 end

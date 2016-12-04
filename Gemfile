@@ -6,12 +6,16 @@ gem 'rspec-sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
-gem 'pry'
-gem 'capybara'
+gem 'bcrypt'
+gem 'sinatra-flash'
+
+
 
 group :test do
   gem 'rspec'
   gem 'cucumber'
+  gem 'capybara'
+  gem 'pry'
   gem 'rake'
   gem 'coveralls', require: false
 end
