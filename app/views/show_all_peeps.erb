@@ -1,0 +1,13 @@
+<!DOCTYPE hmtl>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+    <ul>
+      <% Peep.all.each do |peep| %>
+        <li><%= peep.body %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

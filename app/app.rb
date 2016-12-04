@@ -61,7 +61,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    # binding.pry
     if current_user.id != nil
       current_user.peeps << Peep.create(body: params[:peep])
       @peep = Peep.all
@@ -71,6 +70,7 @@ class Chitter < Sinatra::Base
       flash[:errors] = ['You are not logged in']
       redirect '/peeps/new'
     end
+
   end
 
   get '/all_peeps' do
