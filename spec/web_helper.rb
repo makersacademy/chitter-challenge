@@ -21,7 +21,7 @@ module SessionHelpers
     click_button "Submit"
   end
 
-  def peep( message: "Peeeeeeeeeep")
+  def peep( time: Time.now, message: "Peeeeeeeeeep" )
     visit('/peep')
     fill_in :message, with: message
     click_button 'Submit'

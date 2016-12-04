@@ -27,4 +27,11 @@ describe "Peep" do
     peep
     expect(page).to have_content("Peeeeeeeeeep")
   end
+
+  scenario "User can see peeps with time" do
+    sign_up
+    time = Time.now
+    peep(time: time)
+    expect(page).to have_content(time)
+  end
 end
