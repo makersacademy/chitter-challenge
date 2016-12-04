@@ -4,10 +4,10 @@
 <body>
 
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.map do |peep| %>
     <li>
 
-      @<%=peep.user.username %> Peep: <%= peep.message %>
+      @<%=peep.user.username %> Peep: <%= peep.message %> time: <%= %>
   </li>
   <% end %>
 </ul>
