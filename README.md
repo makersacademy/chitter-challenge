@@ -46,24 +46,24 @@ I want to see the time at which it was made
 -------------
 1. Visit `https://chitter-jenna.herokuapp.com`
 
-![Alt text](/images/Chitter_Add_Peep.png?raw=true "Entry Page")
+![Alt text](/screenshots/Chitter_Add_Peep.png = 100x20)
 
 2. If you already have an account, click "Sign In"
 
-![Alt text](/images/Chitter_Sign_In.png?raw=true "Sign In Page")
+![Alt text](/screenshots/Chitter_Sign_In.png?raw=true "Sign In Page")
 
 3. Otherwise, sign up by clicking "Sign Up"
 
-![Alt text](/images/Chitter_Sign_Up.png?raw=true "Sign Up Page")
+![Alt text](/screenshots/Chitter_Sign_Up.png?raw=true "Sign Up Page")
 
 4. User is taken to peeps page that shows a list of all peeps, along with the name, username of the writer, and the time at which the peep was created
 
-![Alt text](/images/Chitter_View_Peeps.png?raw=true "Peeps Page")
+![Alt text](/screenshots/Chitter_View_Peeps.png?raw=true "Peeps Page")
 
 5. User can click to add a peep, and is taken to a new page
 
-![Alt text](/images/Chitter_Add_Peep.png?raw=true "Peeps Page")
+![Alt text](/screenshots/Chitter_Add_Peep.png?raw=true "Peeps Page")
 
 6. Page navigates back to the list of peeps, which now includes the most recently added peep
 
-![Alt text](/images/Chitter_Updated_Peeps.png?raw=true "Peeps Page")
+![Alt text](/screenshots/Chitter_Updated_Peeps.png?raw=true "Peeps Page")
