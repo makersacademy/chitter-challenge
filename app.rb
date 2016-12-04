@@ -53,6 +53,11 @@ class Chitter < Sinatra::Base
     erb :chitter
   end
 
+  post '/create-peep' do
+    Peep.create(message: params[:message])
+    redirect to '/chitter'
+  end
+
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye :)'
