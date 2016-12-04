@@ -10,5 +10,6 @@ feature 'Viewing peeps' do
     click_button 'Sign out'
     expect(page).to have_content(content)
     expect(page).to have_content(peep_time)
+    expect(page).to have_content('jsmith2016')
   end
 end
