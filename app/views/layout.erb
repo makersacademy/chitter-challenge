@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="../images/favicon.ico">
     <title>Chitter</title>
   </head>
   <a href='/'>
@@ -14,8 +15,8 @@
     <% end %>
     </font>
 
-    <% if flash[:notice] %>
     <font color="blue">
+    <% if flash[:notice] %>
       <div id='notice'><%=flash[:notice]%> </div>
     <% end %>
     </font>

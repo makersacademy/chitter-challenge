@@ -46,7 +46,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => :id.desc)
     erb(:'links/peeps')
   end
 
@@ -55,7 +55,7 @@ class Chitter < Sinatra::Base
     if @current_user
       erb(:'links/peep')
     else
-      flash.now[:errors] = ['Please sign in first to Peep']
+      flash.now[:errors] = 'Please sign in first to Peep'
       erb :'sessions/new'
     end
   end
@@ -76,6 +76,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
+      flash.now[:errors] = 'Sorry, email / password incorrect please try again'
       erb :'sessions/new'
     end
   end
