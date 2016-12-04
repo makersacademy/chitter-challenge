@@ -72,6 +72,10 @@ class Chitter < Sinatra::Base
       redirect '/peeps/new'
     end
   end
+
+  get '/all_peeps' do
+    erb :show_all_peeps
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
