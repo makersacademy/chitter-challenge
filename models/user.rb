@@ -5,13 +5,13 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
 
-  has n, :peeps, through: Resource
-
   property :id, Serial
   property :name, String, required: true
   property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
+
+  has n, :peeps, {:through=>DataMapper::Resource}
 
   attr_reader :password
   attr_accessor :password_confirmation

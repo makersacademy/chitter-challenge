@@ -1,0 +1,72 @@
+body {
+  font-family: "Lato", "Open Sans", "Ariel", sans-serif;
+  text-decoration: none;
+  color: white;
+  background: #FFC500;
+  background: -webkit-linear-gradient(right,rgba(255,189,0,0),rgba(255,189,0,1));
+  background: -o-linear-gradient(left,rgba(255,189,0,0),rgba(255,189,0,1));
+  background: -moz-linear-gradient(left,rgba(255,189,0,0),rgba(255,189,0,1));
+  background: linear-gradient(to left, rgba(255,189,0,0),rgba(255,189,0,1));
+}
+
+h1 {
+  padding-left: 37px;
+  font-size: 5em;
+}
+
+#peeps {
+  padding-top: 40px;
+  list-style-type: none;
+}
+
+.peep {
+  list-style-type: none;
+}
+
+.time {
+  padding-top: 5px;
+  padding-bottom: 20px;
+  list-style-type: none;
+  color: rgba(255,255,255, 0.6);
+}
+
+#new_peep {
+  padding-left: 37px;
+}
+
+#peep_button {
+  margin-left: 5px;
+}
+
+#welcome {
+  display: inline-block;
+  padding-left: 37px;
+  padding-top: 35px;
+}
+
+#sign_out {
+  margin-top: 10px;
+}
+
+.button {
+  background-color: white;
+  font-size: .9em;
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: none;
+  color: #FFBD00;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  color: #FFBD00;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}

@@ -55,9 +55,7 @@ class Chitter < Sinatra::Base
     current_user
     peep = current_user.peeps.new(message: params[:message], created_at: params[Time.now])
     peep.save
-    # peep = Peep.create(message: params[:message], created_at: params[Time.now.strftime('%A, %b %d')])
     redirect to '/chitter'
-    # peep.save
   end
 
   delete '/sessions' do

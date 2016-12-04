@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+
     <title>Chitter</title>
+    <link rel='stylesheet' type='text/css' href='normalize.css'/>
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+
   </head>
 
   <body>
+
     <% if current_user %>
-      welcome, <%= current_user.username %>
+    <div id='welcome'>
+      welcome, <%= current_user.username %>!
       <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='sign out'>
+        <input id="welcome_message" type='hidden' name='_method' value='delete'>
+        <input id="sign_out" class="button" type='submit' value='sign out'>
       </form>
+    </div>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
@@ -29,5 +37,7 @@
     <% end %>
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+
   </body>
+
 </html>

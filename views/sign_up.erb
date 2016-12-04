@@ -1,9 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <link rel='stylesheet' type='text/css' href='normalize.css'/>
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+
+  </head>
+
+
+<body>
+
 <h1>sign up</h1>
 
 <form action='/users' method=POST>
   <label for="name">name
     <input type="text" name="name" placeholder='your name here' required>
-  </label
+  </label>
   <br>
   <label for="username">username
     <input type="text" name="username" placeholder="your username here" required>
@@ -21,5 +34,9 @@
     <input type="password" name="password_confirmation" placeholder="your password again" required>
   </label>
   <br>
-  <input type="submit" value="sign up">
+  <input class="button" type="submit" value="sign up">
 </form>
+
+</body>
+
+</html>
