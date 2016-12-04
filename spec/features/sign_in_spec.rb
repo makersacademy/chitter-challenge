@@ -6,4 +6,9 @@ feature 'Signing in' do
     sign_in
     expect(page).to have_content('Welcome back, James')
   end
+
+  scenario 'A user returns to sign in page if entered incorrect credentials' do
+    incorrect_sign_in
+    expect(page.current_path).to eq('/users')
+  end
 end

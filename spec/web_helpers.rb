@@ -30,3 +30,10 @@ def log_out
   sign_in
   click_button('Log out')
 end
+
+def incorrect_sign_in
+  log_out
+  fill_in('username', with: 'jimmygoldshine')
+  fill_in('password', with: 'tst')
+  click_button('Sign In')
+end

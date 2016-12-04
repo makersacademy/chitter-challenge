@@ -15,7 +15,8 @@ class Chitter < Sinatra::Base
                     username: params[:username],
                     email: params[:email],
                     password: params[:password],
-                    password_confirmation: params[:password_confirmation])
+                    password_confirmation: params[:password_confirmation],
+                    password_digest: BCrypt::Password.create(:password))
     if @user.save
       session[:new_user] = true
       @new_user = session[:new_user]
@@ -32,14 +33,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/verification' do
-    session[:user] = User.first(:username => params[:username])
-    @user = session[:user]
-    if @user
-      session[:new_user] = false
-      redirect to('/users/homepage')
+    user = User.first(username: params[:username])
+    if user
+      if user.authenticated?(params[:password])
+        session[:user] = User.first(:username => params[:username])
+        session[:new_user] = false
+        redirect to('/users/homepage')
+      end
     else
       redirect to('/users')
     end
+    redirect to('/users')
   end
 
   get '/users/homepage' do
@@ -50,16 +54,16 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     @user_peep = Peep.create(author: (session[:user]).name,
-                            # date: how to do this?
+                            time: Time.new,
                             body: params[:peep_field])
     @user_peep.save
-    all_peeps = Peep.all.map { |record| record.body }
+    all_peeps = Peep.all.map { |record| [record.body, record.author, record.time] }
     session[:peeps] = all_peeps
     redirect to('/peeps')
   end
 
   get ('/peeps') do
-    @all_peeps = session[:peeps]
+    @all_peeps = session[:peeps].join("<br>")
     erb :peep_board
   end
 
