@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 require_relative 'controllers/users'
+require_relative 'controllers/sessions'
 
 require_relative './models/user'
 require_relative './models/peep'
@@ -23,42 +24,6 @@ class Chitter < Sinatra::Base
   get '/' do
     @peeps = Peep.all(:order => [ :id.desc ])
     erb :'peeps/index'
-  end
-
-  get '/users/new' do
-    erb :'users/new'
-  end
-
-  post '/users' do
-    @user = User.new(email: params[:email], password:params[:password], username: params[:username], name: params[:name])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect '/'
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      erb:'users/new'
-    end
-  end
-
-  get '/sessions/new' do
-    erb :'sessions/new'
-  end
-
-  post '/sessions' do
-    @user = User.authenticate(params[:email], params[:password])
-    if @user
-      session[:user_id] = @user.id
-      redirect '/'
-    else
-      flash.now[:errors] = ["Email and/or password were incorrect"]
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = "Thanks for using chitter! Come back soon 🙂"
-    redirect '/'
   end
 
   post '/peeps' do
