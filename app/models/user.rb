@@ -3,13 +3,10 @@ require 'dm-postgres-adapter'
 require_relative './data_mapper_setup.rb'
 require 'dm-validations'
 require 'bcrypt'
-# require_relative './peep'
 
 class User
 
   include DataMapper::Resource
-
-  # has n, :peeps, through: Resource
 
   property :id, Serial
   property :name, String, required: true
@@ -38,5 +35,6 @@ class User
       nil
     end
   end
-end 
+end
+
 setup

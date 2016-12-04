@@ -9,7 +9,7 @@ require_relative 'models/data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
-   use Rack::MethodOverride
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -45,6 +45,7 @@ class Chitter < Sinatra::Base
              confirm_password: params[:confirm_password])
     if @user.save
       session[:user_id] = @user.id
+      session[:name] = @user.name
       redirect '/new_peep'
     else
       redirect '/sign_up'
@@ -60,7 +61,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peeps = Peep.create(peep: params[:peep])
+    @peeps = Peep.create(peep: params[:peep], name: session[:name])
     redirect '/'
   end
 
