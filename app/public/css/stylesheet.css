@@ -24,7 +24,7 @@ body {
   width: 50%;
   text-align: center;
   padding-top: 200px;
-  background-color: #bfbfbf;
+  border-color: #bfbfbf;
 }
 
 #sign_in_option {
@@ -34,7 +34,7 @@ body {
   width: 50%;
   text-align: center;
   padding-top: 200px;
-  background-color: #bfbfbf;
+  border-color: #bfbfbf;
 }
 
 #logout {
