@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:confirm_password])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/homepage')
+      redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
@@ -45,15 +45,19 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/homepage')
+      redirect to('/peeps')
     else
       flash.now[:errors] = ["The email or password is incorrect"]
       erb :index
     end
   end
 
-  get '/homepage' do
-    erb :homepage
+  get '/peeps' do
+    erb :peeps
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
   delete '/session' do

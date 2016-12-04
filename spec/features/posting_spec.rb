@@ -2,7 +2,7 @@ require 'spec_helper'
 require './app/app.rb'
 require './spec/features/web_helper.rb'
 
-feature "Logging in" do
+feature "Posting a peep" do
 
   before(:each) do
     User.create(name: 'Louisa Spicer',
@@ -12,9 +12,9 @@ feature "Logging in" do
                 password_confirmation: 'greatpassword')
   end
 
-  scenario "Login with correct username and password" do
+  scenario "Allow logged in user to post a peep" do
     login
-    expect(page).to have_content("Welcome Louisa Spicer!")
+    click_button('Post a Peep')
+    expect(page).to have_content("Please enter your peep below:")
   end
-
 end
