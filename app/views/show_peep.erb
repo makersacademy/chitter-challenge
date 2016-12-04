@@ -1,2 +1,14 @@
-<h1><%= @peep.last.body %></h1>
-<h1><%= @peep.last.created_at.strftime("%I:%M %p") %></h1>
+<!DOCTYPE hmtl>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+  </head>
+  <body>
+    <h1><%= @peep.last.body %></h1>
+    <h1><%= @peep.last.created_at.strftime("%I:%M %p") %></h1>
+    </br>
+    <a href='/peeps/new' class='button'>New Peep</a>
+    <a href='/all_peeps' class='button'>Show all peeps</a>
+  </body>
+</html>
