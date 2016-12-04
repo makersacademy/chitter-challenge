@@ -26,4 +26,15 @@ RSpec.feature 'adding peeps', :type => :feature do
 			expect(page).to have_content('Hello world!')
 		end
 	end
+
+	scenario 'user cannot add a peep if they are not signed in' do
+		visit '/peeps/new'
+		expect(page.status_code).to eq 200
+
+		fill_in :text, :with => 'Hello world!'
+		click_button 'Peep!'
+
+		expect(page).to have_content('You must be signed in to peep!')
+	end
+
 end
