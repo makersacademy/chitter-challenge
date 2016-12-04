@@ -83,19 +83,37 @@ GEM
     docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    excon (0.54.0)
     extlib (0.9.16)
     fastercsv (1.5.5)
     gherkin3 (3.1.1)
+    heroku (3.43.11)
+      heroku-api (= 0.4.2)
+      launchy (= 2.4.3)
+      multi_json (= 1.11.2)
+      net-ssh (= 2.9.2)
+      net-ssh-gateway (= 1.2.0)
+      netrc (= 0.10.3)
+      rest-client (= 1.8.0)
+      rubyzip (= 1.1.7)
+    heroku-api (0.4.2)
+      excon (~> 0.45)
+      multi_json (~> 1.8)
     highline (1.7.8)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     json (1.8.3)
     json_pure (1.8.3)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile2 (2.1.0)
     multi_json (1.11.2)
     multi_test (0.1.2)
+    net-ssh (2.9.2)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     netrc (0.10.3)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -129,6 +147,7 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.3.0)
+    rubyzip (1.1.7)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -170,6 +189,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   dm-transactions
+  heroku
   pry
   rake
   rspec
