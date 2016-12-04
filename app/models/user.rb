@@ -2,6 +2,7 @@ require'./app/data_mapper_setup'
 require 'dm-validations'
 require 'bcrypt'
 
+
 class User
 
   include DataMapper::Resource

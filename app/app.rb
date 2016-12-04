@@ -1,13 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-require 'sinatra/flash'
+require 'data_mapper'
 require 'pry'
 require_relative 'models/user.rb'
 require_relative 'models/peep.rb'
-require_relative 'data_mapper_setup'
-
-ENV['RACK_ENV'] ||= 'development'
+require_relative 'data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
 
