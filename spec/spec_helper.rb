@@ -8,6 +8,14 @@ require 'rspec'
 require 'database_cleaner'
 require './app/models/user'
 require 'web_helpers'
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 Capybara.app = Chitter
 

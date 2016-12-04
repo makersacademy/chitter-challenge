@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem "rspec"
 gem "rspec-sinatra"
 gem "sinatra"
 gem "capybara"
@@ -13,7 +12,6 @@ gem "database_cleaner"
 gem "sinatra-flash"
 gem "mailgun-ruby"
 gem "dotenv"
-gem 'pg'
 
 group :test do
   gem 'rspec'
