@@ -1,32 +1,74 @@
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  register Sinatra::Flash
+
   enable :sessions
+  set :session_secret, 'super secret'
+
+  helpers do
+
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
+  end
 
   get '/' do
-    redirect '/messages'
+    redirect '/peeps'
   end
 
-  get '/sign_up' do
-    erb(:'links/sign_up')
+  get '/users/new' do
+        erb(:'users/new')
   end
 
-  post '/sign_up' do
-    p params
-    session[:user] = params[:email]
-    redirect '/messages'
+  post '/users' do
+    # p params
+    @user = User.new(name: params[:name],
+    username: params[:username],
+    email: params[:email],
+    password: params[:password])
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['We already have that email']
+      erb :'users/new'
+    end
+
   end
 
-  get '/messages' do
-    @current_user = session[:user]
+  get '/peeps' do
     erb(:'links/messages')
   end
 
   get '/peep' do
+
     erb(:'links/peep')
   end
 
+  post '/peep' do
+    redirect '/peeps'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      erb :'sessions/new'
+    end
+  end
 
 
 

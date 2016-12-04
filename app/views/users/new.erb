@@ -2,7 +2,7 @@
 
 <h2> Signup </h2>
 
-<form action="/sign_up" method="post">
+<form action="/users" method="post">
   <label for="name">
     Name
   <input type="text" name="name" autofocus>
@@ -12,15 +12,11 @@
     <input type="text" name="username" >
   </label><label for="email">
     Email address
-    <input type="text" name="email" >
+    <input type="email" name="email" >
   </label>
   <label for="password">
     Password
     <input type="password" name="password">
-  </label>
-  <label for="confirm_password">
-    Comfirm Password
-    <input type="password" name="confirm_password">
   </label>
   <input type="submit" value="Sign up">
 </form>
