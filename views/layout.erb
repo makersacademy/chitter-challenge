@@ -6,7 +6,7 @@
 
   <body>
     <% if current_user %>
-      welcome, <%= current_user.email %>
+      welcome, <%= current_user.username %>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='sign out'>

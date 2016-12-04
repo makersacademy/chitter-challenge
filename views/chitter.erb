@@ -1,11 +1,13 @@
 <h1>chitter</h1>
 
+<% if current_user %>
 <form action='/create-peep' method='post'>
   <label for='message'>
     <input type='text' name='message'/>
   </label>
   <input type='submit' value='peep'>
 </form>
+<% end %>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
