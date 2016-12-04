@@ -75,7 +75,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :home
+    redirect to :peeps
   end
 
   # start the server if ruby file executed directly
