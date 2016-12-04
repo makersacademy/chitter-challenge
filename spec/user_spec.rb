@@ -6,4 +6,6 @@ describe User do
     expect{User.new({})}.to change{User.user_count}.by 1
   end
 
+
+
 end

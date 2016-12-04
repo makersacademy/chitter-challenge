@@ -12,5 +12,9 @@ RSpec.feature 'Sign up' do
     expect(page).to have_content 'Welcome to Chitter'
   end
 
+  scenario 'User info is saved once entered' do
+    sign_up
+    expect(User.first.email).to eq('jane@email.com')
+  end
 
 end

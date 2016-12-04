@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = Peep.create(params[:peep])
+    @peep = Peep.create(peep: params[:peep])
     redirect '/'
   end
 
@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
-  post 'signed-in' do
+  post 'logged-in' do
 
   end
 
