@@ -2,6 +2,11 @@
 <html>
 <head>
   <title> Chitter </title>
+  <link href="<%= url('/css/main.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
   <nav>
     <ul>
       <li> <a href="/">View peeps</a> </li>
@@ -10,9 +15,6 @@
       <li> <a href="/sessions/new"> Sign in</a></li>
     </ul>
   </nav>
-</head>
-
-<body>
   <% if current_user %>
   Welcome, <%= current_user.name %>!
   <form action='/sessions' method='post'>
@@ -32,8 +34,14 @@
   <% if flash[:notice] %>
   <div id='notice'> <%= flash[:notice] %> </div>
   <% end %>
+</header>
 
+<main>
   <%= yield %>
+</main>
+
+<footer>
+</footer>
 </body>
 
 </html>
