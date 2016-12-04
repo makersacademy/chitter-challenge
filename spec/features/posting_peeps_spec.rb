@@ -1,13 +1,8 @@
 feature 'Posting a peep' do
-  let!(:user) do
-    User.create(username: 'Example',
-                name: 'Ex Zample',
-                email: 'user123@example.com',
-                password: 'secret123',
-                password_confirmation: 'secret123')
-  end
+
   scenario 'I can post a peep if signed in' do
-    log_in(username: user.username, password: user.password)
+    sign_up
+    log_in(username: 'Gweaton', password: 'george123')
     visit '/peeps/new'
     fill_in :message, with: 'My first peep'
     click_button 'Post peep'

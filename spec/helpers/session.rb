@@ -21,4 +21,12 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Log in'
   end
+
+  def log_in_post_peep
+    sign_up
+    log_in(username: 'Gweaton', password: 'george123')
+    visit '/peeps/new'
+    fill_in :message, with: 'My first peep'
+    click_button 'Post peep'
+  end
 end
