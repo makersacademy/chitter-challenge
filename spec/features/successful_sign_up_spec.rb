@@ -6,7 +6,7 @@ RSpec.feature 'successful account sign up', :type => :feature do
 	
 	scenario 'a new user can sign up for an account' do
 		sign_up
-		expect(page).to have_current_path('/')
+		expect(page).to have_current_path('/peeps')
 		expect(page).to have_content('Welcome, John!')
 	end
 
