@@ -7,7 +7,18 @@ require_relative 'data_mapper_setup'
 
 require_relative 'helpers'
 
-require_relative 'server'
 require_relative 'controllers/sessions_controller'
 require_relative 'controllers/users_controller'
 require_relative 'controllers/peeps_controller'
+
+class Chitter < Sinatra::Base
+
+	enable :sessions
+	set :session_secret, 'super secret'
+	set :views, File.expand_path('../views', __FILE__)
+	register Sinatra::Flash
+	use Rack::MethodOverride
+
+	include Helpers
+
+end
