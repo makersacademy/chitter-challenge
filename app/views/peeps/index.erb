@@ -7,7 +7,7 @@
   </tr>
 <% @peeps.each do |peep| %>
 <tr>
-  <td><%= peep.content %></td>
+  <td><a href="/peeps/<%= peep.id %>"><%= peep.content %></a></td>
   <td><%= User.get(peep.user_id).username %></td>
   <td><%= peep.created_at.strftime('%l:%M%P ') %> on <%= peep.created_at.strftime('%e %b %Y') %></td>
 </tr>

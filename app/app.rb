@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content], user_id: current_user.id)
+    peep = Peep.create(content: params[:content], user_id: current_user.id)
     redirect '/'
   end
 
@@ -67,6 +67,14 @@ class Chitter < Sinatra::Base
     else
       erb :'peeps/new'
     end
+  end
+
+  get '/peeps/:id' do
+    @peep = Peep.get(params[:id])
+    @username = User.get(@peep.user_id).username
+    # p @peep
+    # p @username
+    erb :'peeps/get'
   end
 
   helpers do
