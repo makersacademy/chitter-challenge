@@ -3,12 +3,16 @@ require 'dm-migrations'
 require 'bcrypt'
 
 class User
+
   include DataMapper::Resource
+
   property :id, Serial
   property :name, String, required: true
   property :username, String, required: true, unique: true
   property :email, String, required: true, unique: true
   property :password_encrypted, Text
+
+  has n, :peeps, through: Resource
 
   attr_reader   :password
   attr_accessor :password_confirmation

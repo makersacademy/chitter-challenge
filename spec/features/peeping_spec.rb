@@ -16,12 +16,14 @@ describe "Peep" do
   end
 
   scenario "User can see all peeps" do
+    sign_up
     peep
     all_peeps = Peep.all
     expect(all_peeps.count).to eq 1
   end
 
   scenario "User can see the message when peeped" do
+    sign_up
     peep
     expect(page).to have_content("Peeeeeeeeeep")
   end

@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
+  <h1><%= flash[:notice] %></h1>
 <% end %>
 <% if current_user %>
 <form action='/peep' method='get'>
@@ -10,4 +10,6 @@
 <% @all_peeps.each do |peep| %>
   <%= peep.time %><br>
   <%= peep.message %><br>
+  by <%= peep.users[0].username %><br>
+  <br>
 <% end %>

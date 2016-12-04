@@ -71,10 +71,12 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     time = Time.now
-    Peep.create(time: time, message: params[:message])
+    peep = Peep.create(time: time, message: params[:message])
+    user = current_user
+    user.peeps << peep
+    user.save
     redirect '/'
   end
-
 
   # start the server if ruby file executed directly
   run! if app_file == $0
