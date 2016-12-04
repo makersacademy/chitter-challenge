@@ -5,19 +5,18 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'coveralls'
+require 'simplecov'
 require './app/app'
 require 'database_cleaner'
 require 'web_helper'
 require_relative 'helpers'
-require 'coveralls'
-require 'simplecov'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
-
 
 Capybara.app = Chitter
 
