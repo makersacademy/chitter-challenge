@@ -48,7 +48,7 @@ class Chitter < Sinatra::Base
              password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      session[:name] = @user.name
+      session[:user_name] = @user.user_name
       redirect '/new_peep'
     else
       flash.next[:error_2] = "Please try again"
@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peeps = Peep.create(peep: params[:peep], name: session[:name])
+    @peeps = Peep.create(peep: params[:peep], user_name: session[:user_name])
     redirect '/'
   end
 

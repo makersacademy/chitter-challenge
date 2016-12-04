@@ -10,7 +10,7 @@ class Peep
   property :id, Serial
   property :peep, Text
   property :created_at, DateTime
-  property :name, String
+  property :user_name, String
 
 end
 
