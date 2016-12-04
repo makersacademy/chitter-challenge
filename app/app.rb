@@ -1,10 +1,13 @@
 ENV['RACK_ENV'] ||='development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './models/tweet'
 require_relative './models/user'
 
 
 class Twitter < Sinatra::Base
+
+  register Sinatra::Flash
   enable :session
   set :session_secret, 'super secret'
 
@@ -18,15 +21,21 @@ class Twitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'sign_up'
   end
 
 
   post '/users' do
-    user = User.create(email: params[:email], username: params[:username],
+    @user = User.create(email: params[:email], username: params[:username],
               password_method2: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id]= user.id
-    redirect '/twitter'
+    if @user.save
+      session[:user_id]= @user.id
+      redirect '/twitter'
+    else
+      flash.now[:notice] = "Cannot sign up: password and password confirmation do not match"
+      erb :'sign_up'
+    end
   end
 
   get '/tweets/new' do

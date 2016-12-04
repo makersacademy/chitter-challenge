@@ -8,7 +8,7 @@ def sign_in
 end
 
 def different_passwords
-  visit 'users/new'
+  visit '/users/new'
   fill_in 'username', with: 'Superhot'
   fill_in 'email', with: 'modern@aol.com'
   fill_in 'password', with: 'password'
