@@ -40,3 +40,18 @@ def requires_username
   fill_in 'password_confirmation', with: 'password'
   click_button 'Create new user'
 end
+
+def duplicate_username
+  visit '/users/new'
+  fill_in 'username', with: 'Supercop'
+  fill_in 'email', with: 'sgtnicholasangel@sandfordpolice.com'
+  fill_in 'password', with: 'password'
+  fill_in 'password_confirmation', with: 'password'
+  click_button 'Create new user'
+  visit '/users/new'
+  fill_in 'username', with: 'Supercop'
+  fill_in 'email', with: 'danny@sandfordpolice.com'
+  fill_in 'password', with: 'password'
+  fill_in 'password_confirmation', with: 'password'
+  click_button 'Create new user'
+end

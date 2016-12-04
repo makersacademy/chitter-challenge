@@ -9,7 +9,7 @@ class User
 
   property :id, Serial
   property :email, String, :required => true, :format => :email_address
-  property :username, String, :required => true
+  property :username, String, :required => true, :unique => true
   property :password_digest, Text
 
   attr_reader :password
