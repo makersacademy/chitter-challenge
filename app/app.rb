@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all(:order => [ :time.desc ])
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :'peeps/index'
   end
 
@@ -75,7 +75,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(time: Time.now, content: params[:content], :user => current_user)
+    Peep.create(content: params[:content], :user => current_user)
     redirect '/peeps'
   end
 

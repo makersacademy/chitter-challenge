@@ -2,7 +2,7 @@
 
 <% @peeps.each do |peep| %>
   <div>
-  At <%= peep.time %> <%= peep.user.name %> (<%= peep.user.username %>) peeped:
+  At <%= peep.created_at %> <%= peep.user.name %> (<%= peep.user.username %>) peeped:
   <%= peep.content %>
   </div>
 <% end %>

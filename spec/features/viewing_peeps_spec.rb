@@ -5,11 +5,9 @@ feature 'Viewing peeps' do
     click_button 'New peep'
     content = "Test content. Test content. Test content."
     fill_in :content, with: content
-    peep_time = Time.now
     click_button 'Post'
     click_button 'Sign out'
     expect(page).to have_content(content)
-    expect(page).to have_content(peep_time)
   end
 
   scenario 'new peeps are above old peeps' do
@@ -19,8 +17,9 @@ feature 'Viewing peeps' do
                 password: 'pizza123!',
                 password_confirmation: 'pizza123!')
 
-    old_peep = Peep.create(time: Time.now, content: "Old", :user => user)
-    new_peep = Peep.create(time: Time.now, content: "New", :user => user)
+    old_peep = Peep.create(content: "Old", :user => user)
+    sign_in(username: 'jsmith2016', password: 'pizza123!')
+    new_peep = Peep.create(content: "New", :user => user)
     visit '/peeps'
     expect("New").to appear_before("Old")
 
