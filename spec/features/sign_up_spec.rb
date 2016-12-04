@@ -4,6 +4,8 @@ feature 'sign up' do
   scenario 'see sign up form' do
     visit('/users/sign-up')
     expect(page).to have_content("sign up")
+    find_field('name')
+    find_field('username')
     find_field('email')
     find_field('password')
     find_button('sign up')
@@ -33,7 +35,23 @@ feature 'sign up' do
 
   scenario 'user cannot sign up with an email address that is already registered' do
     sign_up
-    expect { sign_up }.not_to change(User, :count)
+    expect { sign_up(username: 'lionel') }.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'user cannot sign up without a username' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(page).to have_content('Username must not be blank')
+  end
+
+  scenario 'user cannot sign up with a username that is already registered' do
+    sign_up
+    expect { sign_up(email: 'different@email.com') }.not_to change(User, :count)
+    expect(page).to have_content('Username is already taken')
+  end
+
+  scenario 'user cannot sign up without a name' do
+    expect { sign_up(name: nil) }.not_to change(User, :count)
+    expect(page).to have_content('Name must not be blank')
   end
 end

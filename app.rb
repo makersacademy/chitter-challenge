@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require_relative 'models/user.rb'
 require_relative 'models/peep.rb'
 require_relative 'data_mapper_setup'
+require './helpers.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -11,11 +12,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  end
+  helpers Helpers
 
   get '/users/sign-up' do
     @user = User.new
@@ -38,7 +35,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/chitter')

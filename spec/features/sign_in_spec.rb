@@ -3,7 +3,9 @@ require 'spec_helper.rb'
 feature 'sign in' do
 
   let!(:user) do
-    User.create(email: 'hello@example.com',
+    User.create(name: 'Amanda',
+                username: 'amanda',
+                email: 'hello@example.com',
                 password: 'password',
                 password_confirmation: 'password')
   end

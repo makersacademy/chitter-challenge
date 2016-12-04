@@ -1,16 +1,24 @@
 <h1>sign up</h1>
 
 <form action='/users' method=POST>
+  <label for="name">name
+    <input type="text" name="name" placeholder='your name here' required>
+  </label
+  <br>
+  <label for="username">username
+    <input type="text" name="username" placeholder="your username here" required>
+  </label>
+  <br>
   <label for="email">email
-  <input type="email" name="email" placeholder="your email here" required>
+    <input type="email" name="email" placeholder="your email here" required>
   </label>
   <br>
   <label for="password">password
-  <input type="password" name="password" placeholder="your password here" required>
+    <input type="password" name="password" placeholder="your password here" required>
   </label>
   <br>
   <label for="password_confirmation">confirm your password
-  <input type="password" name="password_confirmation" placeholder="your password again" required>
+    <input type="password" name="password_confirmation" placeholder="your password again" required>
   </label>
   <br>
   <input type="submit" value="sign up">

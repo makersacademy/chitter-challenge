@@ -3,7 +3,9 @@ require 'spec_helper.rb'
 feature 'user is able to sign out' do
 
   before(:each) do
-    User.create(email: 'hello@example.com',
+    User.create(name: 'Amanda',
+                username: 'amanda',
+                email: 'hello@example.com',
                 password: 'password',
                 password_confirmation: 'password')
   end
