@@ -11,22 +11,15 @@ feature "Logging in:" do
   end
 
   scenario "user logs in with a valid account" do
-    log_in
+    log_in(user.username, user.password)
     expect(current_path).to eq '/peeps'
     expect(page).to have_content "Welcome to chitter #{user.username}"
   end
 
   scenario "user logs in with invalid account" do
-    log_in(username: "donny")
+    log_in("donny", user.password)
     expect(current_path).to eq '/sessions'
     expect(page).to have_content 'Errors:'
-  end
-
-  def log_in(username: user.username, password: user.password)
-    visit '/sessions/new'
-    fill_in("username", with: username)
-    fill_in("password", with: password)
-    click_button("Submit")
   end
 
 end
