@@ -26,4 +26,8 @@ RSpec.feature 'account sign up', :type => :feature do
 		expect { sign_up(firstname: nil) }.not_to change(User, :count)
 	end
 
+	scenario 'user cannot sign up without entering a surname' do
+		expect { sign_up(surname: nil) }.not_to change(User, :count)
+	end
+
 end

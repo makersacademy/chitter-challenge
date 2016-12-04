@@ -11,7 +11,7 @@ class User
 
 	property :id, Serial
 	property :firstname, String, required: true
-	property :surname, String
+	property :surname, String, required: true
 	property :username, String
 	property :email, String
 	property :encrypted_password, Text
