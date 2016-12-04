@@ -1,8 +1,10 @@
 <% if current_user %>
-  Welcome <%= current_user.user_name %>
+<h2>Welcome <%= current_user.user_name %></h2>
 <% end %>
-<form action="/peeps" method="post">
-  <label for="peep">Peep peep:</label>
-  <input type="text" name="peep" required>
-  <input type="submit" value="Post">
-</form>
+<div class="details">
+  <form action="/peeps" method="post">
+    <label for="peep">Give the world your peep:</label>
+    <input type="text" name="peep" required>
+    <input type="submit" value="Post">
+  </form>
+</div>

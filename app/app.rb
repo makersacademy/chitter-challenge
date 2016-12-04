@@ -85,7 +85,13 @@ class Chitter < Sinatra::Base
   get "/users/:id" do
     if logged_in?
       @user = User.get(params[:id])
-      erb(:user)
+      if current_user?(@user)
+        @user = User.get(params[:id])
+        erb(:user)
+      else
+        flash.keep[:notice] = ["You can only access your own profile"]
+        redirect to("/users/#{current_user.id}")
+      end
     else
       flash.keep[:notice] = ["You need to login to peep!"]
       redirect to("/users/new")
@@ -160,6 +166,10 @@ class Chitter < Sinatra::Base
 
 
   helpers do
+
+    def current_user?(user)
+      current_user == user
+    end
 
     def current_user
       @user = User.get(session[:user_id])
