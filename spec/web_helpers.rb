@@ -24,5 +24,9 @@ def sign_in
   fill_in('username', with: 'jimmygoldshine')
   fill_in('password', with: 'test')
   click_button('Sign In')
-  user = User.first(:username => 'jimmygoldshine')
+end
+
+def log_out
+  sign_in
+  click_button('Log out')
 end
