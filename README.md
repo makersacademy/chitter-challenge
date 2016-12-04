@@ -46,7 +46,8 @@ I want to see the time at which it was made
 -------------
 1. Visit `https://chitter-jenna.herokuapp.com`
 
-![Alt text](/screenshots/Chitter_Add_Peep.png =100x20)
+<img src="screenshots/Chitter_Add_Peep.png" alt="Drawing" style="width: 200px;"/>
+<!-- ![Alt text](/screenshots/Chitter_Add_Peep.png =100x20) -->
 
 2. If you already have an account, click "Sign In"
 
