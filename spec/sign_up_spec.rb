@@ -17,4 +17,13 @@ feature 'a new user can sign up to chitter' do
     expect { click_button('Sign me up!') }.not_to change(User, :count)
   end
 
+  scenario 'it is not possible to sign up if the user does not provide a valid email address' do
+    visit('/users/new')
+    fill_in :name,      with: 'Gabriel Santiago'
+    fill_in :user_name, with: 'ConsumateProfessional'
+    fill_in :email,     with: 'not_an@email'
+    fill_in :password,  with: 'netrunner2'
+    expect { click_button('Sign me up!') }.not_to change(User, :count)
+  end
+
 end

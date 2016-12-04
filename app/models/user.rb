@@ -4,6 +4,7 @@ require 'bcrypt'
 class User
   include DataMapper::Resource
   validates_presence_of :email
+  validates_format_of :email, as: :email_address
 
   attr_reader :name, :user_name, :email, :password
 
