@@ -19,5 +19,9 @@ def sign_up_and_peep(peep)
   visit '/peeps/new'
   fill_in :content, with: peep
   click_button 'Send'
+end
 
+def peep_and_log_out
+  sign_up_and_peep('Lorem ipsum dolor sit amet.')
+  click_button('Log out')
 end
