@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/my-chitter')
     else
-      flash.now[:notice] = "Sign up not successful"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end

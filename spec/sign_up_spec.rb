@@ -15,6 +15,8 @@ feature 'a new user can sign up to chitter' do
     fill_in :email,     with: nil
     fill_in :password,  with: 'netrunner2'
     expect { click_button('Sign me up!') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email must not be blank')
   end
 
   scenario 'it is not possible to sign up if the user does not provide a valid email address' do
@@ -24,6 +26,14 @@ feature 'a new user can sign up to chitter' do
     fill_in :email,     with: 'not_an@email'
     fill_in :password,  with: 'netrunner2'
     expect { click_button('Sign me up!') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario 'it is not possible to sign up if the email address has already been registered' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 
 end

@@ -1,5 +1,10 @@
-<% if flash[:notice] %>
-  <div id='notice'><%= flash[:notice] %></div>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Your sign up has failed due to the following error/s:
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <h1>Please sign up to peep to the world!</h1>
