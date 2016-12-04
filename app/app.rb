@@ -12,9 +12,13 @@ class Chitter < Sinatra::Base
     @user = User.new(name: params[:name],
                     username: params[:username],
                     email: params[:email],
-                    password_digest: params[:password])
-    @user.save
-    "Welcome to Chitter, #{@user.name}"
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
+    if @user.save
+      "Welcome to Chitter, #{@user.name}"
+    else
+      redirect to('/users/new')
+    end
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
