@@ -18,6 +18,8 @@ class User
   property :password_confirmation, String, required: true
   property :password_digest, Text, required: true
 
+  has n, :peeps
+
   def self.authenticate(username, password)
     user = first(username: username)
     if user && BCrypt::Password.new(user.password_digest) == password

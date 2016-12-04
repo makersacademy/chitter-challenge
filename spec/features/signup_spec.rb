@@ -29,6 +29,7 @@ feature "Signing up" do
 
   scenario "Unable to sign up if email address is already registered" do
     sign_up
+    click_button('Logout')
     expect{sign_up}.not_to change(User, :count)
     expect(page).to have_content('Email is already taken')
   end

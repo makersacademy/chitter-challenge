@@ -17,4 +17,12 @@ feature "Posting a peep" do
     click_button('Post a Peep')
     expect(page).to have_content("Please enter your peep below:")
   end
+
+  scenario "Once Peep has been posted, can be seen on Peeps page" do
+    login
+    click_button('Post a Peep')
+    fill_in('peep', with: 'This is my first peep')
+    click_button('Save')
+    expect(page).to have_content("This is my first peep")
+  end
 end

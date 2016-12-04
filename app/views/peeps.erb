@@ -3,4 +3,10 @@
   <input type="submit" value="Post a Peep">
 </form>
 
-Peep posts go here
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep[:content] %><br>
+        Posted at: <%= peep[:created] %><br>
+        By: <% @peep.user.username %><br>
+  </li>
+  <% end %>

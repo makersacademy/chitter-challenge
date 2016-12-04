@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'development'
 
 require 'sinatra/base'
 require './app/models/user.rb'
+require './app/models/peep.rb'
 require './app/datamapper_setup.rb'
 require 'sinatra/flash'
 
@@ -17,12 +18,18 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
+  #
+  # before do
+  #   @peeps = Peep.all(:order => :created.desc)
+  # end
 
   get '/' do
+    @peeps = Peep.all(:order => :created.desc)
     erb :index
   end
 
   post '/' do
+    @peeps = Peep.all(:order => :created.desc)
     @user = User.new(name: params[:name],
     username: params[:username],
     email: params[:email],
@@ -30,6 +37,7 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:confirm_password])
     if @user.save
       session[:user_id] = @user.id
+      session[:username] = @user.username
       redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -42,6 +50,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/session' do
+    @peeps = Peep.all(:order => :created.desc)
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
@@ -53,11 +62,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all(:order => :created.desc)
     erb :peeps
   end
 
   get '/peeps/new' do
+    @peeps = Peep.all(:order => :created.desc)
     erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    peep = Peep.new(content: params[:peep],
+                    created: Time.now.strftime('%H:%M'))
+    peep.user = User.get(session[:user_id])
+    peep.save
+    redirect to('/peeps')
   end
 
   delete '/session' do

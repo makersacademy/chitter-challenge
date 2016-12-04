@@ -1,7 +1,8 @@
 <form action='/' method="post">
+  Name: <input type="text" name="name">
   Username: <input name='username' type='text' value='<%= @user.username %>' required>
   Email: <input name='email' type='text' value='<%= @user.email %>' required>
-  Password: <input type="text" name="password" required>
-  Confirm Password: <input type="text" name="confirm_password" required>
+  Password: <input type="password" name="password" required>
+  Confirm Password: <input type="password" name="confirm_password" required>
   <input type="submit" value="Register">
 </form>
