@@ -1,25 +1,30 @@
 feature 'Signing in' do
 
-  let!(:user) do
-    User.create(name: "Will Jones",
-                            email: "wjones@gmail.com",
-                            username: "wjones",
-                            password: 'pizza123',
-                            password_confirmation: 'pizza123')
-  end
-
-  def sign_in(username: user.username, password: user.password)
-    visit '/session/new'
-    fill_in :username, with: username
-    fill_in :password, with: password
-    click_button "Sign in"
-  end
-
   scenario 'User can sign in with correct credentials' do
-    sign_in
-    expect(page).to have_content "Welcome #{user.username}"
+    sign_up
+    sign_in(username: 'jsmith2016', password: 'pizza123!')
+    expect(page).to have_content "Welcome jsmith2016"
   end
 
+  scenario 'Sign in fails with incorrect username' do
+    sign_up
+    click_button 'Sign out'
+    sign_in(username: 'wrong username', password: 'pizza123!')
+    expect(page).to have_content "Email or password incorrect"
+  end
 
+  scenario 'Sign in fails with incorrect password' do
+    sign_up
+    click_button 'Sign out'
+    sign_in(username: 'jsmith2016', password: 'wrong pw')
+    expect(page).to have_content "Email or password incorrect"
+  end
+
+  scenario 'Can sign in again after signing out' do
+    sign_up
+    click_button 'Sign out'
+    sign_in(username: 'jsmith2016', password: 'pizza123!')
+    expect(page).to have_content "Welcome jsmith2016"
+  end
 
 end

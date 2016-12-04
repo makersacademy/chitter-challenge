@@ -7,7 +7,8 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require './app/models/user'
 # require './app/models/tag'
 #not sure if requ'd^^^^
-require 'web_helper'
+
+require_relative 'helpers/session'
 
 require 'capybara'
 require 'capybara/rspec'
@@ -43,6 +44,8 @@ Coveralls.wear!
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
