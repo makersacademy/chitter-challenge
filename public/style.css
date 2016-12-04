@@ -9,6 +9,16 @@ body {
   background: linear-gradient(to left, rgba(255,189,0,0),rgba(255,189,0,1));
 }
 
+#notice {
+  padding-left: 37px;
+  padding-top: 30px;
+}
+
+#errors {
+  list-style-type: none;
+  padding-left: 37px;
+}
+
 h1 {
   padding-left: 37px;
   font-size: 5em;
@@ -58,7 +68,7 @@ h1 {
 }
 
 input[type=text] {
-  padding: 12px 20px;
+  padding: 12px 24px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
@@ -69,4 +79,22 @@ input[type=text] {
 input:focus,
 textarea:focus {
   outline: none;
+}
+
+#sign_up {
+  padding: 12px 24px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+#sign_in {
+  padding: 12px 24px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  color: white;
 }
