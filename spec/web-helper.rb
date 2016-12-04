@@ -34,6 +34,6 @@ end
 
 def peep
   visit '/peeps/new'
-  fill_in 'peep' , with: "This is my first peep. And what a peep it is"
+  fill_in 'peep' , with: "This is my first peep. And what a peep it is."
   click_button 'Peep'
 end

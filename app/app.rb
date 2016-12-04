@@ -57,7 +57,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :peep
+    erb :new_peep
+  end
+
+  post '/peeps' do
+    @peep = Peep.create(body: params[:peep])
+    erb :show_peep
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
