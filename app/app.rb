@@ -8,9 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, "himitsu"
   register Sinatra::Flash
+  set :method_override, true
 
   get '/' do
-    'Hello Chitter!'
+    erb :index
   end
 
   get '/users/new' do
@@ -48,6 +49,12 @@ class Chitter < Sinatra::Base
       flash[:login_unsuccesful] = "Wrong username or password"
       redirect to('sessions/new')
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:log_out] = "Good bye! We hope to see you again soon :)"
+    redirect to('/')
   end
 
   get '/dashboard' do

@@ -5,8 +5,19 @@
   </head>
 
   <body>
+    <% if session[:user_id] %>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type="submit" value="Log out">
+      </form>
+      <% end %>
+
     <% if flash[:welcome] %>
       <div id='welcome'><%= flash[:welcome] %></div>
+    <% end %>
+
+    <% if flash[:log_out] %>
+      <div id='log_out'><%= flash[:log_out] %></div>
     <% end %>
 
     <% if flash[:mismatch] %>

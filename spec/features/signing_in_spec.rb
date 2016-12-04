@@ -6,13 +6,9 @@ RSpec.feature "Signing in", :type => :feature do
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
     click_button('Submit')
-    visit '/sessions/new'
-    fill_in('username', with: 'Miko')
-    fill_in('password', with: 'gweatonidas36')
-    click_button('Submit')
+    sign_in
     expect(current_path).to eq '/dashboard'
     message = "Welcome back, Miko!"
     expect(page).to have_content(message)
-    # expect(@current_user.username).to eq "Miko"
   end
 end
