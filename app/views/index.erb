@@ -1,13 +1,26 @@
 <html>
-  <head>
-      <title> Welcome to Chitter! </title>
-  </head>
+    <body>
 
-  <body>
-      <% if current_user %>
-       Hi <%= current_user.name %>!
-      <% end %>
-  </body>
+      <div class="header">
+        <img src= "https://pmcdeadline2.files.wordpress.com/2016/07/logo-tv-logo.png" alt="logo" />
+        <h1> Welcome to Chitter!</h1>
+      </div>
+
+      <div class="greeting">
+        <h2>
+          <% if current_user %>
+            Hi <%= current_user.name %>!
+          <% end %>
+        </h2>
+      </div>
+
+      <div class="peeps">
+        <ul id='peeps'>
+          <% @peeps.each do |peep| %>
+            <li> <%= peep.user_peep %> </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </body>
 </html>
-
-<h1>Peeps</h1>

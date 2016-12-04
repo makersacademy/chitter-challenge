@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret spy mode'
 
   get '/' do
-    #I want erb index to show list of peeps
+    @peeps = Peep.all
     erb :index
   end
 
@@ -34,7 +34,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = Peep.create(peep: params[:peep])
+    Peep.create(user_peep: params[:user_peep])
     redirect '/'
   end
 
@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
   end
 
   post 'logged-in' do
-
+    #need to authenticate user
   end
 
   # start the server if ruby file executed directly

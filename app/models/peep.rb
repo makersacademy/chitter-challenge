@@ -4,13 +4,13 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :peep, Text
+  property :user_peep, Text
   property :created_at, DateTime
 
   @@peep_count = 0
 
   def initialize(params)
-    self.peep = params[:peep]
+    self.user_peep = params[:user_peep]
     @@peep_count += 1
   end
 
