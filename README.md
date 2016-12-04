@@ -23,34 +23,34 @@ How to use
 
 ![Chitter_home](https://github.com/fenglish/images/blob/master/chitter_1.png)
 
-- Click Sign in & fill your infomation
+- Click Sign up & fill your infomation
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_2.png)
+![Chitter_sign_up](https://github.com/fenglish/images/blob/master/chitter_2.png)
 
 - It will show errors if your information is wrong.
 
-![Chitter_sign_in_errors](https://github.com/fenglish/images/blob/master/chitter_3.png)
+![Chitter_sign_up_errors](https://github.com/fenglish/images/blob/master/chitter_3.png)
 
 - Click Log in and fill your information
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_4.png)
+![Chitter_log_in](https://github.com/fenglish/images/blob/master/chitter_4.png)
 
 - It will show errors if your information is wrong.
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_5.png)
+![Chitter_log_in_errors](https://github.com/fenglish/images/blob/master/chitter_8.png)
 
 - You can peep after Sign-in or Log-in, so click 'PEEP!'
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_6.png)
+![Chitter_peep](https://github.com/fenglish/images/blob/master/chitter_5.png)
 
 - Fill in your message and click 'SUBMIT'
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_8.png)
+![Chitter_add_peep](https://github.com/fenglish/images/blob/master/chitter_6.png)
 
 - You will see your peep immediately
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_9.png)
+![Chitter_home](https://github.com/fenglish/images/blob/master/chitter_9.png)
 
 - Click Log out when you want to finish the session
 
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_7.png)
+![Chitter_log_out](https://github.com/fenglish/images/blob/master/chitter_7.png)
