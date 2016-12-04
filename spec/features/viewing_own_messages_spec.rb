@@ -8,9 +8,9 @@ RSpec.feature "New message", :type => :feature do
     click_button('Submit')
     sign_in
     post_message
-    expect(current_path).to eq '/dashboard'
-    message = "Your message has been posted."
+    click_button("See your chirps!")
+    expect(current_path).to eq '/messages/Miko'
+    message = "Hello world!"
     expect(page).to have_content(message)
-    expect(Message.first.content). to eq "Hello world!"
   end
 end

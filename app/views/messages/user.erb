@@ -1,0 +1,7 @@
+<p>Your chirps:</p>
+<ul id="chirps"><% @user_messages.each do |message| %>
+  <li>
+  <%= message.time
+      message.content %>
+  <br>
+<% end %></ul>

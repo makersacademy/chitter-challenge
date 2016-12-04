@@ -67,9 +67,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
-    flash[:new_message] = "Your message has been posted. Click here to see it now."
-    redirect to('/dashboard')
+    message = Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
+      flash[:new_message] = "Your message has been posted."
+      redirect to('/dashboard')
+  end
+
+  post '/messages/view' do
+
+    redirect to("/messages/#{User.first(session[:user_id])[0].username}")
+  end
+
+  get '/messages/*' do
+    @user_messages = User.first(session[:user_id])[0].messages
+    erb :'messages/user'
   end
 
   # start the server if ruby file executed directly
