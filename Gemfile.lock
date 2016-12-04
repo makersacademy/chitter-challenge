@@ -176,6 +176,7 @@ DEPENDENCIES
   coveralls
   data_mapper
   database_cleaner
+  dm-migrations
   dm-postgres-adapter
   factory_girl
   makersinit
