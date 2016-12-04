@@ -1,5 +1,4 @@
 feature 'Posting a peep' do
-
   scenario 'I can post a peep if signed in' do
     sign_up
     log_in_post_peep

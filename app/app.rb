@@ -63,7 +63,6 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @handle = User.first(:user_id).username
     erb :'peeps/index'
   end
 
