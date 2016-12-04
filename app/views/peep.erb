@@ -1,16 +1,18 @@
-<h3>Peep: <%= @peep.id %></h3>
-<p><%= @peep.peep %></p>
-<h3>Add Comment</h3>
-<p>Mind your language!</p>
-<form action="/comments" method="post">
-  <input type="text" name="comment" required>
-  <input type="hidden" name="peep_id" value="<%= @peep.id %>">
-  <input type="submit" value="Add comment">
-</form>
+<div class="details">
+  <h3>Peep: <%= @peep.id %></h3>
+  <p><%= @peep.peep %></p>
+  <h3>Add Comment</h3>
+  <p>Mind your language!</p>
+  <form action="/comments" method="post">
+    <input type="text" name="comment" required>
+    <input type="hidden" name="peep_id" value="<%= @peep.id %>">
+    <input type="submit" value="Add comment">
+  </form>
 
-<h3>Comments</h3>
-<ul>
-  <% @comments.each do |comment| %>
-  <li><%= comment.id %>: "<%= comment.comment %>" | created <%= ((Time.now.to_i - comment.created_at.to_time.to_i)/60).floor %> minutes ago</p></li>
-  <% end %>
-</ul>
+  <h3>Comments</h3>
+  <ul>
+    <% @comments.each do |comment| %>
+    <li><%= comment.id %>: "<%= comment.comment %>" | created <%= ((Time.now.to_i - comment.created_at.to_time.to_i)/60).floor %> minutes ago</p></li>
+    <% end %>
+  </ul>
+</div>

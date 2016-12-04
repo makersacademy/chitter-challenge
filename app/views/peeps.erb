@@ -1,4 +1,5 @@
-<h3>Peeps: <%= @peeps.count %> </h3>
+<div class="details">
+  <h3>Peeps: <%= @peeps.count %> </h3>
   <ul>
     <% @peeps.each do |peep| %>
     <li>
@@ -11,3 +12,4 @@
       <% end %>
     <% end %>
   </ul>
+</div>

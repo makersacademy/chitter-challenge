@@ -3,6 +3,16 @@ body {
 
 }
 
+.main {
+  width: 60%;
+  margin: auto;
+}
+
+.details {
+  width: 60%;
+  margin: auto;
+}
+
 .logo {
   float: left;
   margin: 30px 0px 20px 21%;
@@ -15,7 +25,7 @@ body {
 
 .footer {
   overflow: auto;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .header {
@@ -41,17 +51,13 @@ body {
   text-decoration: none;
 }
 
-.main {
-  width: 60%;
-  margin: auto;
-}
 
 input[type=text] {
       width: 100%;
       border: none;
       border-bottom: 2px solid red;
       outline: none;
-      margin: 10px 0px;
+      margin: 15px 0px;
 }
 
 input[type=email] {
@@ -59,7 +65,7 @@ input[type=email] {
       border: none;
       border-bottom: 2px solid red;
       outline: none;
-      margin: 10px 0px;
+      margin: 15px 0px;
 }
 
 input[type=password] {
@@ -67,7 +73,7 @@ input[type=password] {
       border: none;
       border-bottom: 2px solid red;
       outline: none;
-      margin: 10px 0px;
+      margin: 15px 0px;
 }
 
 .access {
@@ -83,6 +89,6 @@ input[type=password] {
     padding: 10px 24px;
     font-size: 12;
     text-decoration: none;
-    margin: 4px 2px;
+    margin: 10px 2px;
     cursor: pointer;
 }

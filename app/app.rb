@@ -15,6 +15,10 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
 
+  get '/' do
+    redirect to('/peeps')
+  end
+
   get '/users/new' do
     @user = User.new
     erb(:sign_up)
