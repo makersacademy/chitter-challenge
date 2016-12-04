@@ -2,15 +2,18 @@
 <html>
   <head>
     <title>My Chitter</title>
-    <link href="/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
   </head>
     <body>
       <div class="wrapper">
+
         <% if flash %>
-          <% flash.each do |notice, messages| %>
+          <% flash.each do |alert, messages| %>
+          <div class="<%= alert %>">
             <% messages.each do |message| %>
-              <%= message %>
+              <p><%= message %></p>
             <% end %>
+          </div>
           <% end %>
         <% end %>
 

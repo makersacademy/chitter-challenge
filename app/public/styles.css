@@ -3,6 +3,12 @@ body {
 
 }
 
+.notice {
+  display: block;
+  border: solid;
+  padding: 5px;
+}
+
 .main {
   width: 60%;
   margin: auto;
@@ -78,7 +84,6 @@ input[type=password] {
 
 .access {
   margin-top: 20px;
-
 }
 
 .access input[type=submit] {
