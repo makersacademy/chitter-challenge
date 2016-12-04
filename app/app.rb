@@ -18,10 +18,6 @@ class Chitter < Sinatra::Base
 
 	include Helpers
 
-	get '/' do
-		redirect '/peeps'
-	end
-
 end
 
 require_relative 'controllers/sessions_controller'

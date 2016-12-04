@@ -1,6 +1,6 @@
 class Chitter < Sinatra::Base
 
-	get '/peeps' do
+	get '/' do
 		@peeps = Peep.all
 		erb :'peeps/index'
 	end
@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
 			erb :'peeps/new'
 		else @peep = Peep.create(text: params[:text], user_id: current_user.id)
 			@peep.save
-			redirect '/peeps'
+			redirect '/'
 		end
 	end
 end

@@ -15,7 +15,7 @@ RSpec.feature 'viewing peeps', :type => :feature do
 	
 	scenario 'see peeps that have been submitted' do
 		Peep.create(text: 'Hello world!', user_id: user.id)
-		visit '/peeps'
+		visit '/'
 		expect(page.status_code).to eq 200
 		
 		within 'ul#peeps' do
