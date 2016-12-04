@@ -7,9 +7,6 @@ require_relative 'data_mapper_setup'
 
 require_relative 'helpers'
 
-require_relative 'controllers/sessions_controller'
-require_relative 'controllers/users_controller'
-require_relative 'controllers/peeps_controller'
 
 class Chitter < Sinatra::Base
 
@@ -20,5 +17,15 @@ class Chitter < Sinatra::Base
 	use Rack::MethodOverride
 
 	include Helpers
+
+end
+
+require_relative 'controllers/sessions_controller'
+require_relative 'controllers/users_controller'
+require_relative 'controllers/peeps_controller'
+
+class Chitter < Sinatra::Base
+
+	run! if app_file == $0
 
 end
