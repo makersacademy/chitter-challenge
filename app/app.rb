@@ -2,9 +2,11 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative './models/user'
 require 'pry'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     'Hello Chitter!'
@@ -15,9 +17,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], name: params[:name], password: params[:password], username: params[:username])
+    @user = User.new(email: params[:email], name: params[:name], password: params[:password], username: params[:username])
     # binding.pry
-    erb :user
+    if @user.save
+      erb :user
+    else
+      flash[:errors] = @user.errors.full_messages.join(" ")
+      redirect '/sign_up'
+    end
   end
 
   # start the server if ruby file executed directly

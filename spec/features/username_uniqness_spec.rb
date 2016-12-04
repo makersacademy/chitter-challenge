@@ -13,6 +13,6 @@ feature 'Unique username' do
     end
     sign_up
     expect{sign_up_same_username}.to_not change(User, :count)
-
+    expect(page.current_path).to eq '/sign_up'
   end
 end
