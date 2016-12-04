@@ -10,6 +10,7 @@ require 'rspec'
 require_relative 'web_helper'
 require 'database_cleaner'
 require 'dm-postgres-adapter'
+require_relative 'helpers/sessions'
 
 Capybara.app = ChitterApp
 
@@ -44,6 +45,7 @@ Coveralls.wear!
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

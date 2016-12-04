@@ -7,6 +7,7 @@ require 'sinatra/flash'
 
 
 class ChitterApp < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super_secret'
@@ -54,6 +55,12 @@ class ChitterApp < Sinatra::Base
 
   get "/peeps" do
     erb :peeps_list
+  end
+
+  delete "/sessions" do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect to "/"
   end
 
 

@@ -7,7 +7,11 @@
       <div id="header">
         <h1>Chitter</h1>
         <% if current_user %>
+        <form method="Post" action="sessions">
           <h2>Welcome, <%= @current_user.email %></h2>
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log out">
+        </form>
         <% end %>
       </div>
         <div id="centerColumn">
