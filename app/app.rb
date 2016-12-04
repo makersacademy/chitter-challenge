@@ -5,6 +5,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   enable :sessions
@@ -70,6 +72,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Thanks for visiting Chitter, see you again soon'
+    redirect to '/peeps'
+  end
 
 
   # start the server if ruby file executed directly
