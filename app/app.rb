@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+# require_relative 'controllers/peeps'
 require 'pry'
 
 class Chitter < Sinatra::Base
@@ -65,7 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :time.desc ])
     erb :'peeps/index'
   end
 
@@ -74,9 +75,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(time: Time.now, content: params[:content], :user => current_user) 
+    Peep.create(time: Time.now, content: params[:content], :user => current_user)
     redirect '/peeps'
   end
+
+
 
   run! if app_file == $0
 end

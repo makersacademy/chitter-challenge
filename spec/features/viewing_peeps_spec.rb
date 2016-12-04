@@ -11,4 +11,20 @@ feature 'Viewing peeps' do
     expect(page).to have_content(content)
     expect(page).to have_content(peep_time)
   end
+
+  scenario 'new peeps are above old peeps' do
+    user = User.create(name: 'John Smith',
+                email: 'jsmith@gmail.com',
+                username: 'jsmith2016',
+                password: 'pizza123!',
+                password_confirmation: 'pizza123!')
+
+    old_peep = Peep.create(time: Time.now, content: "Old", :user => user)
+    new_peep = Peep.create(time: Time.now, content: "New", :user => user)
+    visit '/peeps'
+    expect("New").to appear_before("Old")
+
+
+  end
+
 end
