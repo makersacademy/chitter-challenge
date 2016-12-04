@@ -14,12 +14,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
-    erb :newuser
+    erb :'users/new'
   end
 
   post '/users' do
-    new_user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-
+    if User.exists?(params[:username], params[:email]) == false
+      new_user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    else
+      problem = User.exists?(params[:username], params[:email])
+      flash[:user_exists] = "'#{params[problem.to_sym]}' is taken already, please choose a different #{problem}."
+      redirect to('/users/new')
+    end
     if new_user.save
       flash[:welcome] = "Welcome to Chitter, #{params[:username]}!"
       redirect to('/dashboard')

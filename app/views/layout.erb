@@ -16,6 +16,10 @@
     <% if flash[:login_succesful] %>
       <div id='logged_in'><%= flash[:login_succesful] %></div>
     <% end %>
+
+    <% if flash[:user_exists] %>
+    <div id='user_exists'><%= flash[:user_exists] %></div>
+  <% end %>
     <%= yield %>
 
   </body>
