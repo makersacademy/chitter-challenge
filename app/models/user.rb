@@ -2,6 +2,8 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
 require 'dm-validations'
+require_relative '../data_mapper_setup'
+
 
 class User
 
@@ -32,7 +34,3 @@ class User
   end
 
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/twitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
