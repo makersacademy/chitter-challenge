@@ -15,8 +15,18 @@
   <body>
     <h1> Chitter </h1>
     <% if current_user %>
-      Welcome <%= current_user.username %>!
+      Welcome <%= current_user.name %>!
+      <form action='/session' method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+      </form>
     <% end %>
+
+    <% if flash[:notice] %>
+     <div id='notice'>
+       <%= flash[:notice] %>
+     </div>
+     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please correct the following:
@@ -24,7 +34,7 @@
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
         <% end %>
-      </ul>    
+      </ul>
     <% end %>
     <%= yield %>
   </body>

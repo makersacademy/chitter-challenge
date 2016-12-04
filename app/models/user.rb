@@ -12,6 +12,7 @@ class User
   validates_presence_of :email
 
   property :id, Serial
+  property :name, String
   property :email, String, format: :email_address, required: true, unique: true
   property :username, String, required: true
   property :password_confirmation, String, required: true
