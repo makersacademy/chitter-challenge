@@ -1,14 +1,16 @@
 require 'spec_helper'
 
-feature "Sign in", type: :feature do
+feature "Log in", type: :feature do
 
   before(:each) do
     sign_up
+    visit('/log_in')
   end
 
   scenario "I would like to be able to sign in" do
-    log_in
     expect(page.status_code).to eq 200
+
+    log_in
     expect(page).to have_content ("Peep Board")
   end
 
@@ -16,5 +18,14 @@ feature "Sign in", type: :feature do
     expect{ fail_log_in }.not_to change(User, :count)
     expect(page.status_code).to eq 200
     expect(page).to have_content("Log In")
+  end
+end
+
+feature 'Switch to sign up' do
+  scenario "I would like to be able to access the sign up page" do
+    visit ('/log_in')
+    click_button("Sign Up")
+
+    expect(page).to have_content("Sign Up")
   end
 end
