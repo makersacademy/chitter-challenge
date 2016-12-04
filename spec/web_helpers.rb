@@ -1,4 +1,4 @@
-def sign_in
+def sign_up
   visit '/users/new'
   fill_in('name', with: 'James Dix')
   fill_in('username', with: 'jimmygoldshine')
@@ -16,4 +16,13 @@ def password_mismatch
   fill_in('password', with: 'test')
   fill_in('password_confirmation', with: 'tst')
   click_button('Sign Up')
+end
+
+def sign_in
+  sign_up
+  visit '/users'
+  fill_in('username', with: 'jimmygoldshine')
+  fill_in('password', with: 'test')
+  click_button('Sign In')
+  user = User.first(:username => 'jimmygoldshine')
 end
