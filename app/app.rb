@@ -6,7 +6,7 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
-
+  use Rack::MethodOverride
   enable :sessions
 
   helpers do
@@ -58,6 +58,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     erb :'/peeps/peeps'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Log out successful. See you soon!"
+    redirect to '/peeps'
   end
 
   # start the server if ruby file executed directly
