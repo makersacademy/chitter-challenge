@@ -12,6 +12,12 @@ require 'database_cleaner'
 require 'web_helper'
 require_relative 'helpers'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 
 Capybara.app = Chitter
 
@@ -37,10 +43,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end
-
-RSpec.configure do |config|
-  config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
 
@@ -53,9 +55,3 @@ RSpec.configure do |config|
   end
 
 end
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
