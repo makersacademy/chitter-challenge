@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/log_in' do
-    # @user = User.new
+     @user = User.new
     erb :log_in
   end
 
@@ -71,9 +71,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-
     @posts = Peep.all
-    @users = Users.all
     erb :index
   end
 

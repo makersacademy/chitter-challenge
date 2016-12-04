@@ -30,11 +30,4 @@ feature "Peeps homepage" do
     expect(Peep.first.created_at).not_to eq nil
   end
 
-  scenario "Every peep belongs to a user" do
-    sign_up
-    correct_log_in
-    post_peep
-    user = User.first
-    expect(user.peeps.map(&:name)).to include peep
-  end
 end
