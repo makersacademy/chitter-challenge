@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'makersinit'
 gem 'rake'
+gem 'pg'
 
 group :test do
   gem 'rspec'
