@@ -13,7 +13,6 @@ scenario 'a user can not sign up when signed in' do
   visit '/users/new'
   expect(page).to have_content("You are already signed in")
   expect(page).not_to have_content("What should we call you?")
-
 end
 
 

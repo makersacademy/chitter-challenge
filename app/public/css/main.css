@@ -17,6 +17,7 @@ li {
 
 nav, li {
   padding: 1.5em;
+
 }
 
 a {
@@ -49,4 +50,17 @@ input[type=submit] {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom-width: 0.19em;
   margin-top: 2em;
+}
+
+input[type=submit] {
+  display: inline-block;
+  color: #666;
+  background-color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.75em;
+  padding: 0.63em 1.88em;
+  border-radius: 0.31em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom-width: 0.19em;
 }

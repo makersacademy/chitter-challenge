@@ -16,8 +16,7 @@
     </ul>
   </nav>
   <% if current_user %>
-  Welcome, <%= current_user.name %>!
-  <form action='/sessions' method='post'>
+   Welcome, <%= current_user.name %>! <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' name='Sign out' value='Sign out'>
   </form>
