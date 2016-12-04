@@ -1,0 +1,6 @@
+feature 'valid email format' do
+  scenario 'I need to enter an email in a valid format to proceed' do
+    invalid_email_format
+    expect{invalid_email_format}.to change{User.count}.by 0
+  end
+end
