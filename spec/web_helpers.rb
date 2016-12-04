@@ -17,7 +17,7 @@ def different_passwords
 end
 
 def requires_email
-  visit 'users/new'
+  visit '/users/new'
   fill_in 'username', with: 'SexyPokemon'
   fill_in 'password', with: 'password'
   fill_in 'password_confirmation', with: 'password'
@@ -25,9 +25,17 @@ def requires_email
 end
 
 def invalid_email_format
-  visit 'users/new'
+  visit '/users/new'
   fill_in 'username', with: 'SexyWarrior'
   fill_in 'email', with: 'abc'
+  fill_in 'password', with: 'password'
+  fill_in 'password_confirmation', with: 'password'
+  click_button 'Create new user'
+end
+
+def requires_username
+  visit '/users/new'
+  fill_in 'email', with: 'stu@vampirehelper.com'
   fill_in 'password', with: 'password'
   fill_in 'password_confirmation', with: 'password'
   click_button 'Create new user'

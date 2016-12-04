@@ -1,7 +1,7 @@
 <h1> Sign up!!! </h1>
 <form action='/users' method='post'>
   <label for='username'>
-    Username: <input name='username' type='text' value='<%= @user.username %>'>
+    Username: <input name='username' type='text' value='<%= @user.username %>' required>
   </label>
   <label for='email'>
     Email: <input name='email' type='email' value='<%= @user.email %>' required>
