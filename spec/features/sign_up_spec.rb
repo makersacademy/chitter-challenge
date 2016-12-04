@@ -19,7 +19,9 @@ feature 'Sign up' do
     sign_up
   end
 
-  scenario 'User can sign up only when passwords are matching' do
-    expect { sign_up(password_confirm: 'wrong') }.not_to change(User, :count)
+  scenario 'User can sign up' do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, test@test.co.uk')
+    expect(User.first.email).to eq email
   end
 end

@@ -1,5 +1,6 @@
 require 'bcrypt'
 require 'dm-validations'
+require './app/data_mapper_setup'
 
 class User
 
@@ -8,6 +9,8 @@ class User
 
   property :id, Serial
   property :email, Text
+  property :name, String
+  property :handle, String
   property :password_hash, Text
   attr_reader :password
   attr_accessor :password_confirm
@@ -27,8 +30,7 @@ class User
   end
 
   def password=(password)
-    @password = password
-    @password_hash = Password.create(password)
+    self.password_hash = BCrypt::Password.create(password)
   end
 
   def count

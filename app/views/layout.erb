@@ -15,6 +15,11 @@
       <li> <a href="/sign_in"> Sign in </a></li>
     </ul>
   </nav>
+
+  <body>
+  <% if current_user %>
+    Welcome, <%= current_user.email %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
