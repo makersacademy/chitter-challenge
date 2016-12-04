@@ -5,8 +5,8 @@
   </head>
   <body>
     <% if flash[:errors] %>
-      <%= flash[:errors].join(" ") %>
-    <% end %>
+      <h2><%= flash[:errors].join(" ") %></h2>
+    <% end %></br>
     <%= yield %>
   </body>
 </html>
