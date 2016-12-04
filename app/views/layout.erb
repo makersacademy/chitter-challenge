@@ -4,6 +4,13 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+      <h1>Welcome <%= current_user.username %></h1>
+      <form action='/users' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+      <% end %>
     <% if flash[:errors] %>
       <h2><%= flash[:errors].join(" ") %></h2>
     <% end %></br>

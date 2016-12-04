@@ -61,8 +61,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(body: params[:peep])
-    erb :show_peep
+    # binding.pry
+    if current_user.id != nil
+      current_user.peeps << Peep.create(body: params[:peep])
+      @peep = Peep.all
+      current_user.save
+      erb :show_peep
+    else
+      flash[:errors] = ['You are not logged in']
+      redirect '/peeps/new'
+    end
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
