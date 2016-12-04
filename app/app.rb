@@ -25,6 +25,9 @@ class Chitter < Sinatra::Base
     erb :my_chitter
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
 
   helpers do
 
