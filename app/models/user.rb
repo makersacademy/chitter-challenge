@@ -10,8 +10,22 @@ class User
   property :name, String
   property :username, String
   property :password, String
-end
 
-# DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-# DataMapper.finalize
-# DataMapper.auto_upgrade!
+  @@user_count = 0
+
+  def initialize(params)
+    self.password = params[:password]
+    self.email = params[:email]
+    self.name = params[:name]
+    self.username = params[:username]
+    @@user_count += 1
+  end
+
+
+  def self.user_count
+    @@user_count
+  end
+
+
+
+end
