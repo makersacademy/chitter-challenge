@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require 'date'
 
 
 class Chitter < Sinatra::Base
@@ -74,11 +75,11 @@ class Chitter < Sinatra::Base
 
   post '/messages/view' do
 
-    redirect to("/messages/#{User.first(session[:user_id])[0].username}")
+    redirect to("/messages/#{User.first(id: session[:user_id]).username}")
   end
 
   get '/messages/*' do
-    @user_messages = User.first(session[:user_id])[0].messages
+    @user_messages = User.first(id: session[:user_id]).messages
     erb :'messages/user'
   end
 
