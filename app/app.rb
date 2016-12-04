@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    # erb :'index'
+    erb :'index'
   end
 
 
