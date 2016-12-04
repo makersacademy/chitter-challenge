@@ -1,5 +1,8 @@
+<% if current_user %>
+  Welcome <%= current_user.user_name %>
+<% end %>
 <form action="/peeps" method="post">
   <label for="peep">Peep peep:</label>
-  <input type="textarea" name="peep" required>
+  <input type="text" name="peep" required>
   <input type="submit" value="Post">
 </form>

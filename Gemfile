@@ -13,6 +13,7 @@ gem "database_cleaner"
 gem "sinatra-flash"
 gem "mailgun-ruby"
 gem "dotenv"
+gem 'pg'
 
 group :test do
   gem 'rspec'

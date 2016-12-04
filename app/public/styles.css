@@ -1,0 +1,89 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.logo {
+  float: left;
+  margin: 30px 0px 20px 21%;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer {
+position:absolute;
+    width:100%;
+    bottom:0px;
+}
+
+.header {
+  overflow: auto;
+}
+
+.navigation {
+  float: right;
+  list-style-type: none;
+  margin: 10px 30px 0px 0px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navigation li {
+  display: inline-block;
+}
+
+.navigation li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.main {
+  width: 60%;
+  margin: auto;
+}
+
+input[type=text] {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid red;
+      outline: none;
+      margin: 10px 0px;
+}
+
+input[type=email] {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid red;
+      outline: none;
+      margin: 10px 0px;
+}
+
+input[type=password] {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid red;
+      outline: none;
+      margin: 10px 0px;
+}
+
+.access {
+  margin-top: 20px;
+
+}
+
+.access input[type=submit] {
+    border-radius: 5px;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    font-size: 12;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}

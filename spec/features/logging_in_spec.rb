@@ -35,12 +35,5 @@ feature "when logging in" do
     expect(page).to have_content("Goodbye")
   end
 
-  # scenario "A user will be able to recover a password" do
-  #
-  #   visit("/log-in")
-  #   click_link("Forgotten password?")
-  #   fill_in("email", :with => "isabel@example.com")
-  #   click_button("Generate new password")
-  #   expect(page).to have_content("An email with a confirmation token has ben sent to your inbox")
-  # end
+
 end

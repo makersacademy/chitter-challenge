@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Page Title</title>
+    <title>My Chitter</title>
+    <link href="/styles.css" rel="stylesheet" type="text/css"/>
   </head>
     <body>
-      <% if flash %>
-        <% flash.each do |notice, messages| %>
-          <% messages.each do |message| %>
-            <%= message %>
+      <div class="wrapper">
+        <% if flash %>
+          <% flash.each do |notice, messages| %>
+            <% messages.each do |message| %>
+              <%= message %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
 
-      <% if current_user %>
-        Welcome <%= current_user.user_name %>
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Log out'>
-        </form>
-      <% end %>
+        <div class="header">
+            <h1 class="logo"><a href="/peeps">my | Chitter</a></h1>
+            <ul class="navigation">
+            <% if current_user %>
+                <li>
+                  <form method='post' action='/sessions'>
+                    <input type='hidden' name='_method' value='delete'>
+                    <input type='submit' value='Log out'>
+                  </form>
+                </li>
+                <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+              <% else %>
+                <li><a href="/log-in">Log in</a></li>
+              <% end %>
+            </ul>
+        </div>
 
-      <%= yield %>
+        <div class="main">
+          <%= yield %>
+        </div>
 
-      <a href="/peeps">Peeps</a>
-      <a href="/users/new">Sign up</a>
-      <a href="/log-in">Log in</a>
-      <% if current_user %>
-      <a href="/users/<%= current_user.id %>">Profile</a>
-      <% end %>
+        <div class="footer">
+          <ul class="navigation">
+            <li><a href="/peeps">Peeps</a></li>
+            <li><a href="/users/new">Sign up</a></li>
+          </ul>
+        </div>
+
+      </div>
     </body>
 </html>
