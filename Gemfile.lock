@@ -20,6 +20,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.2)
       json (~> 1.8)
@@ -100,6 +101,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     json_pure (1.8.3)
+    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
@@ -111,6 +113,10 @@ GEM
     parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     public_suffix (2.0.4)
     rack (1.6.5)
     rack-protection (1.5.3)
@@ -157,6 +163,7 @@ GEM
       tilt (>= 1.3, < 3)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    slop (3.6.0)
     stringex (1.5.1)
     templater (1.0.0)
       diff-lcs (>= 1.1.2)
@@ -190,6 +197,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   factory_girl
+  pry
   rspec
   rspec-sinatra
   rubocop
