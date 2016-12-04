@@ -6,8 +6,10 @@
   <body>
     <ul>
       <% Peep.all.reverse.each do |peep| %>
-        <li><%= peep.body %>;<%= peep.created_at.strftime("%I:%M %p")%></li>
-        </br>
+        <li>
+          <%= peep.body %>;
+          <%= peep.created_at.strftime("%I:%M %p")%>
+        </li></br>
       <% end %>
     </ul>
   </body>

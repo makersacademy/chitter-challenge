@@ -7,6 +7,8 @@ class Peep
   property :id, Serial
   property :body, Text , required: true
   property :created_at, DateTime
+  property :username, String
+  property :name, String
 
   data_mapper_settings
 end
