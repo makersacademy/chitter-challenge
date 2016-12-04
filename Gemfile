@@ -12,6 +12,7 @@ gem "database_cleaner"
 gem "sinatra-flash"
 gem "mailgun-ruby"
 gem "dotenv"
+gem "rake"
 
 group :test do
   gem 'rspec'
