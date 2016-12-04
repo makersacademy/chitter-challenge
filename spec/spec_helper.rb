@@ -9,7 +9,8 @@ require 'rspec'
 require 'database_cleaner'
 require './app/models/peep'
 require './app/app'
-
+require './app/models/user'
+require_relative 'web_helper'
 Capybara.app = Chitter
 
 RSpec.configure do |config|
