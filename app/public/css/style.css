@@ -146,30 +146,29 @@ display: block;
 .view-peeps {
   margin: auto;
   margin-bottom: 20px;
-  padding: 10px;
+  margin-top: 50px;
+  padding: 40px;
   border: 2px solid white;
   border-radius: 30px;
-  width: 50%;
+  width: 70%;
+  height: 90%;
 }
 
 .add_peeps {
   border: 2px solid white;
-  border-radius: 30px;
+  border-radius: 20px;
   width: 50%;
   margin: auto;
   margin-bottom: 40px;
 }
-
-#peeps ul {
+.view-peeps ul {
   margin: auto;
   display: block;
 }
 
-#peeps li {
-  padding: 10px;
+.view-peeps li {
   text-align: left;
   list-style-type: none;
-  border: 1px solid white;
   margin: auto;
 }
 
