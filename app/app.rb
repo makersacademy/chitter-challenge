@@ -16,6 +16,10 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/login' do
+    erb :login
+  end
+
   post '/users' do
     @user = User.new(email: params[:email], name: params[:name], password: params[:password], username: params[:username])
     # binding.pry
