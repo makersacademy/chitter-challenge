@@ -31,6 +31,20 @@ class Chitter < Sinatra::Base
       end
   end
 
+  patch '/users' do
+    user = User.first(password_token: session[:token])
+    if user
+      user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      flash.now[:notice] = ["Password has been updated"]
+      session[:password_token] = nil
+      user.update(password_token: nil)
+      redirect to("/users/#{user.id}")
+    else
+      flash.now[:notice] = ["Token is invalid"]
+      redirect to('/users/reset-password')
+    end
+  end
+
   get '/users/reset-password' do
     erb(:reset_password)
   end
@@ -47,6 +61,21 @@ class Chitter < Sinatra::Base
         flash.now[:notice] = ["The user doesn't exist"]
         erb(:reset_password)
       end
+  end
+
+  get '/users/recover' do
+    if !params[:token].nil?
+      if user = User.first(password_token: params[:token])
+        session[:token] = params[:token]
+        erb(:recover)
+      else
+        flash.keep[:notice] = ["Invalid token"]
+        redirect to('/users/reset-password')
+      end
+    else
+      flash.keep[:notice] = ["Invalid token"]
+      redirect to('/users/reset-password')
+    end
   end
 
   get "/users/:id" do
