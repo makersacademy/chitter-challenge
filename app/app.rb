@@ -34,7 +34,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    if User.login(params[:username], params[:password])
+    user = User.login(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
       flash[:login_succesful] = "Welcome back, #{params[:username]}!"
       redirect to('/dashboard')
     else
