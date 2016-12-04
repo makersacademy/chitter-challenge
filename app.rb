@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user.rb'
 require_relative 'models/peep.rb'
-require_relative 'data_mapper_setup'
+require './data_mapper_setup'
 require './helpers.rb'
 
 class Chitter < Sinatra::Base
