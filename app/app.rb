@@ -1,24 +1,31 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do
     erb :index
   end
 
-  get '/sign-up' do
-    @users = User.all
-    erb :sign_up
+  get '/users/new' do
+    @user = User.new
+    erb :'users/new'
   end
 
-  post '/new-user' do
-    user = User.create(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/my-chitter')
+  post '/users' do
+    @user = User.new(name: params[:name], user_name: params[:user_name], email: params[:email], password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/my-chitter')
+    else
+      flash.now[:notice] = "Sign up not successful"
+      erb :'users/new'
+    end
   end
 
   get '/my-chitter' do
