@@ -13,12 +13,10 @@ gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'rspec-sinatra'
   gem 'dm-rspec'
-  gem 'rack-test'
   gem 'pry'
 end
