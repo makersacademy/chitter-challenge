@@ -1,1 +1,7 @@
-<h1>Welcome <%= @user.username %></h1>
+<% if current_user %>
+  <h1>Welcome <%= current_user.username %></h1>
+<% end %>
+
+<form action method='post'>
+  <input type='submit' value="Log out">
+</form>
