@@ -16,7 +16,7 @@ class User
 	property :email, String, required: true, unique: true
 	property :encrypted_password, Text
 
-	has n, :peeps, :through => Resource
+	has n, :peeps
 
 	validates_confirmation_of :password
 	validates_format_of :email, as: :email_address

@@ -9,10 +9,16 @@
 		<form action='/sessions/new' method='get'>
 			<input type='submit' value='Sign In'>
 		</form>
+		<form action='/users/new' method='get'>
+			<input type='submit' value='Sign Up'>
+		</form>
 	<% end %>
 
 	<% if current_user %>
 		Welcome, <%= current_user.firstname %>!
+		<form action='/peeps/new' method='get'>
+			<input type='submit' value='New Peep!'>
+		</form>
 		<form action='/sessions' method='post'>
 			<input type='hidden' name='_method' value='delete'>
 			<input type='submit' value='Sign Out'>

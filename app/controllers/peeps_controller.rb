@@ -13,10 +13,7 @@ class Chitter < Sinatra::Base
 		if !current_user
 			flash.now[:errors] = ['You must be signed in to peep!']
 			erb :'peeps/new'
-		else @peep = Peep.create(firstname: current_user.firstname,
-				surname: current_user.surname,
-				username: current_user.username,
-				text: params[:text])
+		else @peep = Peep.create(text: params[:text], user_id: current_user.id)
 			@peep.save
 			redirect '/peeps'
 		end
