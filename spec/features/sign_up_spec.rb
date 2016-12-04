@@ -28,4 +28,20 @@ feature 'sign up' do
     expect(current_path).to eq('/users')
     expect(page).to have_content 'password and confirmation do not match'
   end
+
+  scenario 'user cannot sign up without and email address' do
+    visit('/users/sign-up')
+    fill_in 'email', with: nil
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+    expect { click_button('sign up') }.not_to change(User, :count)
+  end
+
+  scenario 'user cannot sign up with an invalid email address' do
+    visit('/users/sign-up')
+    fill_in 'email', with: 'invalid@email'
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+    expect { click_button('sign up') }.not_to change(User, :count)
+  end
 end
