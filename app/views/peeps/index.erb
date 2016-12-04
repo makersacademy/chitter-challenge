@@ -9,7 +9,7 @@
 <tr>
   <td><%= peep.content %></td>
   <td><%= User.get(peep.user_id).username %></td>
-  <td><%= peep.created_at %></td>
+  <td><%= peep.created_at.strftime('%l:%M%P ') %> on <%= peep.created_at.strftime('%e %b %Y') %></td>
 </tr>
 <% end %>
 </table>
