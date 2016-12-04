@@ -17,6 +17,6 @@
       DataMapper.auto_migrate!
     end
 
-  end
+  # end
 
 end
