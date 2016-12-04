@@ -10,7 +10,7 @@ class User
 	include DataMapper::Resource
 
 	property :id, Serial
-	property :firstname, String
+	property :firstname, String, required: true
 	property :surname, String
 	property :username, String
 	property :email, String

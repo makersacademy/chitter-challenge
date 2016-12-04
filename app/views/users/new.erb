@@ -7,7 +7,7 @@
 
 	<form action="/users/add" method="post">
 		<label for='firstname'>First Name: </label>
-			<input type="text" name="firstname" value="<%= @user.firstname %>">
+			<input type="text" name="firstname" value="<%= @user.firstname %>" required>
 		<br>
 		<label for='surname'>Surname: </label>
 			<input type="text" name="surname" value="<%= @user.surname %>">
