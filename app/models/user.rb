@@ -13,7 +13,7 @@ class User
 	property :firstname, String, required: true
 	property :surname, String, required: true
 	property :username, String
-	property :email, String
+	property :email, String, required: true
 	property :encrypted_password, Text
 
 	validates_confirmation_of :password
