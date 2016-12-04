@@ -1,8 +1,8 @@
 require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require_relative './models/user'
-require_relative './models/tweet'
+require_relative './user'
+require_relative './tweet'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/twitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
