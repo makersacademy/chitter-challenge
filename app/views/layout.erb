@@ -5,6 +5,12 @@
 </head>
 
 <body>
+	<% if !current_user %>
+		<form action='/sessions/new' method='get'>
+			<input type='submit' value='Sign In'>
+		</form>
+	<% end %>
+
 	<% if current_user %>
 		Welcome, <%= current_user.firstname %>!
 		<form action='/sessions' method='post'>
