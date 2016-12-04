@@ -1,4 +1,5 @@
 ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user.rb'
@@ -46,13 +47,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ])
     erb :chitter
   end
 
   post '/create-peep' do
-    Peep.create(message: params[:message])
+    current_user
+    peep = current_user.peeps.new(message: params[:message], created_at: params[Time.now])
+    peep.save
+    # peep = Peep.create(message: params[:message], created_at: params[Time.now.strftime('%A, %b %d')])
     redirect to '/chitter'
+    # peep.save
   end
 
   delete '/sessions' do

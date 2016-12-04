@@ -19,3 +19,10 @@ def sign_in(email:, password:)
     fill_in :password, with: password
     click_button 'sign in'
 end
+
+def peep(message: 'I have just joined Chitter!',
+        created_at: Time.now)
+  visit '/chitter'
+  fill_in 'message', with: message
+  click_button 'peep'
+end

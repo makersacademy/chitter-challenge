@@ -10,6 +10,7 @@ require 'rspec'
 require 'database_cleaner'
 require './models/user'
 require './models/peep'
+require 'dm-timestamps'
 
 RSpec.configure do |config|
 

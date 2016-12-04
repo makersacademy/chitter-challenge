@@ -12,9 +12,7 @@ feature 'creating new peeps' do
 
   scenario 'user can create a new peep' do
     sign_in(email: user.email, password: user.password)
-    visit '/chitter'
-    fill_in 'message', with: 'I have just joined Chitter!'
-    click_button 'peep'
+    peep
 
     within 'ul#peeps' do
       expect(page).to have_content('I have just joined Chitter!')

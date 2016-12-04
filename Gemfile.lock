@@ -176,6 +176,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   dm-validations
   pry
   rake
