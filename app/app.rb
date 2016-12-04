@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||='development'
+ENV['RACK_ENV']||='development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/tweet'
@@ -9,6 +9,7 @@ require 'pry'
 class Twitter < Sinatra::Base
 
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 

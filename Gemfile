@@ -9,6 +9,7 @@ gem 'dm-validations'
 gem 'sinatra-flash'
 gem 'pry'
 gem 'rspec'
+gem 'rack'
 
 group :test do
   gem 'rspec'
