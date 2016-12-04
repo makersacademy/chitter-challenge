@@ -17,6 +17,11 @@ h1 {
   padding-left: 10px;
 }
 
+h2 {
+  text-align: center;
+  padding-left: 10px;
+}
+
 img {
   display: block;
   margin-left: auto;

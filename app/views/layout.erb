@@ -19,12 +19,11 @@
           <a href="/sessions/new"> Sign in </a>
           <%end%>
        </li>
+       <% if current_user %>
+       <li> <a> Welcome <%=first_name current_user.name%> </a> </li>
+       <% end %>
     </ul>
   </nav>
-
-<% if current_user %>
-<h1> Welcome <%=first_name current_user.name%> </h1>
-<% end %>
 
 <% if flash[:notice] %>
   <div id='notice'>
