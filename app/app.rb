@@ -1,8 +1,12 @@
 require 'sinatra/base'
 
 class ChitterApp < Sinatra::Base
-  get '/' do
-    'Hello ChitterApp!'
+  get "/" do
+    erb :index
+  end
+
+  post "/peeps" do
+    erb :peeps_list
   end
 
   # start the server if ruby file executed directly

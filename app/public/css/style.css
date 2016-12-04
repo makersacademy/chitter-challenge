@@ -1,0 +1,151 @@
+/*******************************************************
+TITLE: Fixed One-Column #2 Layout (Basic) V1.0 (Beta)
+DATE: 20070807
+AUTHOR: The CSS Tinderbox - http://www.csstinderbox.com
+*******************************************************/
+
+body {
+margin:20px;
+padding:0;
+height:100%;
+background-color:#ffffff;
+color:#000000;
+text-align:center;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:16px;
+}
+
+a {
+color:#cc0000;
+text-decoration:underline;
+}
+
+a:hover {
+color:#cccccc;
+text-decoration:none;
+}
+
+ul {
+margin:0 0 0 20px;
+list-style-type:disc;
+}
+
+li {
+margin:4px 0 5px 10px;
+}
+
+
+blockquote {
+margin:1em;
+padding:.5em;
+background-color:#eeeeee;
+border-top:1px solid #cccccc;
+border-bottom:1px solid #cccccc;
+}
+
+blockquote p {
+margin:.2em;
+}
+
+#container {
+margin:0 auto;
+padding:0;
+width:650px;
+text-align:left;
+vertical-align: middle;
+background-color:#ffffff;
+border:1px solid #cccccc;
+}
+
+
+
+#header {
+margin:0;
+padding:0;
+height:160px;
+background-color:#2c2c2c;
+}
+
+#header h1 {
+margin:0;
+padding:20px 0 0 20px;
+font-size:1.8em;
+letter-spacing:.1em;
+color:#ffffff;
+font-weight:lighter;
+}
+
+#header h2 {
+margin:0;
+padding:0 0 0 20px;
+font-size:.9em;
+font-weight:lighter;
+letter-spacing:.1em;
+color:#eeeeee;
+}
+
+#leftColumn {
+float:left;
+margin:0;
+padding:0;
+width:160px;
+font-size:.9em;
+}
+
+#leftColumn p {
+padding:10px
+}
+
+
+#leftColumn h2 {
+margin:0;
+padding:10px 0 0 10px;
+font-size:1em;
+}
+
+#leftColumn ul {
+margin:0 0 0 0;
+list-style:none;
+}
+
+#leftColumn li {
+margin:4px 0 5px 10px;
+}
+
+#leftColumn li a {
+text-decoration:underline;
+}
+
+#leftColumn li a:hover{
+text-decoration:none;
+}
+
+#centerColumn {
+margin:0 0 0 180px;
+padding:0;
+background-color:#ffffff;
+}
+
+#centerColumn p {
+padding:10px
+}
+
+#centerColumn h2 {
+margin:0;
+padding:10px 0 5px 0;
+font-size:1.3em;
+letter-spacing:.1em;
+}
+
+#footer {
+position:relative;
+bottom:0;
+margin:80px 0 0 0;
+padding:0;
+height:60px;
+line-height:60px;
+text-align:center;
+font-size:.6em;
+background-color:#ffffff;
+border-top:1px solid #cccccc;
+}
