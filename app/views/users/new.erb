@@ -7,16 +7,16 @@
 
 	<form action="/users/add" method="post">
 		<label for='firstname'>First Name: </label>
-			<input type="text" name="firstname" value="<%= @user.firstname %>" required>
+			<input <%= 'class="required"' if error?(:name) %> type="text" name="firstname" value="<%= @user.firstname %>" required>
 		<br>
 		<label for='surname'>Surname: </label>
-			<input type="text" name="surname" value="<%= @user.surname %>" required>
+			<input <%= 'class="required"' if error?(:name) %> type="text" name="surname" value="<%= @user.surname %>" required>
 		<br>
 		<label for='email'>Email Address: </label>
-			<input type="email" name="email" value="<%= @user.email %>" required>
+			<input <%= 'class="required"' if error?(:name) %> type="email" name="email" value="<%= @user.email %>" required>
 		<br>
 		<label for='username'>Username: </label>
-			<input type="text" name="username" value="<%= @user.username %>" required>
+			<input <%= 'class="required"' if error?(:name) %> type="text" name="username" value="<%= @user.username %>" required>
 		<br>
 		<label for='password'>Password: </label>
 			<input type="text" name="password">

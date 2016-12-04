@@ -41,6 +41,10 @@ class Chitter < Sinatra::Base
 			@current_user ||= User.get(session[:user_id])
 		end
 
+		def error?(field)
+			flash.now[:errors].include?(field) if flash.now[:errors]
+		end
+
 	end
 
 	run! if app_file == $0
