@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+
+<body>
+  <nav>
+    <ul>
+      <li> <a href="/">Chitter </a></li>
+      <li> <a href='/links'>View peeps </a></li>
+      <li> <a href="/links/new"> Write peep </a></li>
+      <li> <a href="/sign_up"> Sign up </a></li>
+      <li> <a href="#"> Sign in </a></li>
+    </ul>
+  </nav>
+  <h1> Welcome <%= @user ? @user.email : "Please sign up"  %> </h1> </br>
+
+  <%= yield %>
+
+</body>
+</html>
