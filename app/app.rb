@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'pry'
 require_relative 'data_mapper_setup'
+require_relative 'chitter_helpers'
 
 class ChitterManager < Sinatra::Base
   register Sinatra::Flash
@@ -66,15 +67,7 @@ class ChitterManager < Sinatra::Base
     redirect '/peeps'
   end
 
-  helpers do
-    def current_user
-      User.get session[:current_id]
-    end
-
-    def first_name(name)
-      name.split(' ')[0]
-    end
-  end
+  helpers Helpers
 
   run! if app_file == $0
 end
