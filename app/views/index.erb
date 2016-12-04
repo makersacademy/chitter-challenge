@@ -29,8 +29,8 @@
 
  <% @peeps.each do |peep| %>
    <li>
-      <!-- <%= @user.name %> <br>
-      <%= @user.user_name %> <br> -->
+      <%= peep.user.name %> <br>
+      <%= peep.user.user_name %> <br>
       <%= peep.text %>
    </li>
  <% end %>
