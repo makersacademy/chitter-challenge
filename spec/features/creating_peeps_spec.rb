@@ -53,7 +53,7 @@ feature 'Creating peeps' do
   end
 
 
-  scenario 'I can create multiple peeps' do
+  scenario 'one user can create multiple peeps' do
     sign_up
     visit '/'
     fill_in 'text',   with: 'Hello world'
