@@ -62,7 +62,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     if current_user.id != nil
-      current_user.peeps << Peep.create(body: params[:peep])
+      current_user.peeps << Peep.create(body: params[:peep], name: current_user.name, username: current_user.username)
       @peep = Peep.all
       current_user.save
       erb :show_peep

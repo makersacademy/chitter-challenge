@@ -7,8 +7,10 @@
     <ul>
       <% Peep.all.reverse.each do |peep| %>
         <li>
-          <%= peep.body %>;
-          <%= peep.created_at.strftime("%I:%M %p")%>
+          Peep: <%= peep.body %>;
+          Created at: <%= peep.created_at.strftime("%I:%M %p")%>;
+          By: <%= peep.name %>;
+          User handle: <%= peep.username %>
         </li></br>
       <% end %>
     </ul>
