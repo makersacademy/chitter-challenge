@@ -14,6 +14,7 @@ RSpec.feature 'adding peeps', :type => :feature do
 	end
 	
 	scenario 'user can add a new peep' do
+		sign_in(email: 'john@doe.com', password: 'password123')
 		visit '/peeps/new'
 		expect(page.status_code).to eq 200
 
