@@ -2,6 +2,8 @@ require 'spec_helper'
 
 RSpec.feature 'unsuccessful account sign up', :type => :feature do
 
+	include Helpers
+
 	scenario 'user cannot sign up without entering a firstname' do
 		expect { sign_up(firstname: nil) }.not_to change(User, :count)
 		expect(page).to have_content('Firstname must not be blank')

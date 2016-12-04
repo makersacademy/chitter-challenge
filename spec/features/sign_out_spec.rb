@@ -2,6 +2,8 @@ require 'spec_helper'
 
 RSpec.feature 'signing out', :type => :feature do
 
+	include Helpers
+
 	let!(:user) do
 		User.create(firstname: 'John',
 			surname: 'Doe',

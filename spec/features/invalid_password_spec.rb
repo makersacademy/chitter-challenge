@@ -2,6 +2,8 @@ require 'spec_helper'
 
 RSpec.feature 'invalid password confirmation at sign up', :type => :feature do
 
+	include Helpers
+
 	scenario 'user count does not increase when password confirmation is incorrect' do
 		expect { sign_up(password_confirmation: 'wrongpassword') }.not_to change(User, :count)
 	end

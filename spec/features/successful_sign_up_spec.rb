@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.feature 'successful account sign up', :type => :feature do
+
+	include Helpers
 	
 	scenario 'a new user can sign up for an account' do
 		sign_up
