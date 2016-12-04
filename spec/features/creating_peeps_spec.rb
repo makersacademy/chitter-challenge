@@ -1,3 +1,4 @@
+
 feature 'Creating peeps' do
 
   scenario 'I can create a new peep' do
@@ -37,6 +38,17 @@ feature 'Creating peeps' do
     within 'ul#peeps' do
       expect(page).to have_content('Agata')
       expect(page).to have_content('Agatina')
+    end
+  end
+
+  scenario 'a new peep displays time at which it was created' do
+    sign_up
+    fill_in 'text',   with: 'Hello world'
+    click_button 'Post a peep'
+    visit '/'
+    within 'ul#peeps' do
+      expect(page).to have_content(Time.now.strftime("%H:%M"))
+
     end
   end
 

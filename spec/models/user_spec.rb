@@ -4,7 +4,9 @@ require './app/models/user'
 
 describe User do
 let!(:user) do
-    User.create(name: 'Agata', user_name: 'Agatina', password: 'password', email: 'agata@gmail.com')
+    User.create(name: 'Agata', user_name: 'Agatina',
+                password: 'password',
+                email: 'agata@gmail.com')
   end
 
   it 'authenticates when given a valid email address and password' do
