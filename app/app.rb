@@ -20,8 +20,6 @@ class Chitter < Sinatra::Base
     erb :first_page
   end
 
-
-
   get '/sign_up' do
     erb :sign_up
   end
@@ -58,6 +56,9 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps/new' do
+    erb :peep
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

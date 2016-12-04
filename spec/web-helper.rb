@@ -31,3 +31,9 @@ def log_in
   fill_in 'password', with: '12345'
   click_button('Log in')
 end
+
+def peep
+  visit '/peeps/new'
+  fill_in 'peep' , with: "This is my first peep. And what a peep it is"
+  click_button 'Peep'
+end
