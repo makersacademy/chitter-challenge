@@ -16,6 +16,12 @@ feature "Logging in:" do
     expect(page).to have_content "Welcome to chitter #{user.username}"
   end
 
+  scenario "user logs in with invalid account" do
+    log_in(username: "donny")
+    expect(current_path).to eq '/sessions'
+    expect(page).to have_content 'Errors:'
+  end
+
   def log_in(username: user.username, password: user.password)
     visit '/sessions/new'
     fill_in("username", with: username)
