@@ -3,7 +3,7 @@ ENV['RACK_ENV'] = 'development'
 require 'sinatra/base'
 require './app/models/user.rb'
 require './app/models/peep.rb'
-require './app/datamapper_setup.rb'
+require './app/data_mapper_setup.rb'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -71,11 +71,10 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
-  post '/peeps/new' do
-    peep = Peep.new(content: params[:peep],
-                       created: Time.now.strftime('%H:%M'))
-     peep.user = User.get(session[:user_id])
-     peep.save
+  post '/peeps' do
+    Peep.new(content: params[:peep],
+             created: Time.now.strftime('%H:%M'),
+             :user => current_user)
     redirect to('/peeps')
   end
 
