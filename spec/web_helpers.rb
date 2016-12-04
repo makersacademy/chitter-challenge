@@ -55,3 +55,13 @@ def duplicate_username
   fill_in 'password_confirmation', with: 'password'
   click_button 'Create new user'
 end
+
+def duplicate_email
+  sign_in
+  visit '/users/new'
+  fill_in 'username', with: 'SexyClownfish2'
+  fill_in 'email', with: 'mike@aol.com'
+  fill_in 'password', with: 'password'
+  fill_in 'password_confirmation', with: 'password'
+  click_button 'Create new user'
+end
