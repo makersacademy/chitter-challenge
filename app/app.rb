@@ -31,7 +31,6 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.new(email: params[:email], name: params[:name], password: params[:password], username: params[:username])
-    # binding.pry
     if @user.save
       erb :user
     else

@@ -11,6 +11,7 @@ feature "User Login" do
     visit '/login/new'
     fill_in 'username', with: 'maker'
     fill_in 'password', with: '12345'
+    click_button('Login')
     expect(page.current_path).to eq '/login'
     expect(page).to have_content 'Welcome maker'
   end
