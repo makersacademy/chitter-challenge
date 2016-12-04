@@ -10,10 +10,10 @@ gem 'database_cleaner'
 gem 'bcrypt'
 gem 'dm-validations'
 gem 'sinatra-flash'
+gem 'rake'
 
 group :test do
   gem 'rspec'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'rspec-sinatra'
