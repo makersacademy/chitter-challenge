@@ -13,9 +13,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'chitter secret'
 
   helpers do
-    attr_writer :current_user
     def current_user
-      @current_user ||= User.get(session[:user_id])
+      @current_user ||= User.get( session[:user_id] )
     end
   end
 
@@ -29,9 +28,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/user-info' do
-    user = User.create(name:  params[:name],  username: params[:username],
-                       email: params[:email], password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+    user = User.create( name:  params[:name],  username: params[:username],
+                        email: params[:email], password: params[:password],
+                        password_confirmation: params[:password_confirmation] )
     if user.save
       session[:user_id] = user.id
       redirect '/'
@@ -46,7 +45,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/log-in-info' do
-    log_in_user = User.authenticate(params[:email], params[:password])
+    log_in_user = User.authenticate( params[:email], params[:password] )
     if !log_in_user
       flash[:notice] = "The email or password is incorrect"
       redirect '/log-in'
@@ -71,7 +70,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     time = Time.now
-    peep = Peep.create(time: time, message: params[:message])
+    peep = Peep.create( time: time, message: params[:message] )
     user = current_user
     user.peeps << peep
     user.save

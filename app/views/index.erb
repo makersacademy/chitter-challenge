@@ -1,10 +1,11 @@
 <% if flash[:notice] %>
   <h1><%= flash[:notice] %></h1>
 <% end %>
+
 <% if current_user %>
-<form action='/peep' method='get'>
-  <button>Peep!</button>
-</form>
+  <form action='/peep' method='get'>
+    <button>Peep!</button>
+  </form>
 <% end %>
 
 <% @all_peeps.reverse_each do |peep| %>
