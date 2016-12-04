@@ -34,3 +34,18 @@ def wrong_password_confirmation
   fill_in 'confirm_password', :with => "psswrd"
   click_button('sign-up')
 end
+
+def correct_log_in
+  visit("/log_in")
+  fill_in 'email', :with => "samuel@gmail.com"
+  fill_in 'password', :with => "password"
+  click_button('log-in')
+end
+
+def incorrect_log_in
+  visit('log_in')
+  visit("/log_in")
+  fill_in 'email', :with => "samuel@gmail.com"
+  fill_in 'password', :with => "pass"
+  click_button('log-in')
+end

@@ -5,6 +5,20 @@
   </head>
 
   <body>
+
+
+      <% if get_user_id %>
+        Welcome <%= get_user_id.email %> !
+        <form action="/sessions" method="post">
+          <div>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='log out' id='log-out'>
+          </div>
+        </form>
+
+      <% end %>
+
+
       <% if flash[:errors] && !flash[:errors].empty? %>
         Your account was not created for the following reasons:
         <ul id='errors'>
@@ -12,10 +26,6 @@
             <li><%= puts error %></li>
           <% end %>
         </ul>
-      <% end %>
-
-      <% if get_user_id %>
-        Welcome <%= get_user_id.email %> !
       <% end %>
 
       <% if flash[:notice] %>

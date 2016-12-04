@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
 
   get '/' do
@@ -25,6 +26,7 @@ class Chitter < Sinatra::Base
   post '/log_in' do
     user = User.authenticate(params[:email],params[:password])
     if user
+      session[:id] = user.id
       redirect ('/peeps')
     else
       flash.now[:notice] = "The password is not correct!"
@@ -51,7 +53,12 @@ class Chitter < Sinatra::Base
     def get_user_id
       @user ||= User.get(session[:id])
     end
+  end
 
+  delete '/sessions' do
+    session[:id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect("/peeps")
   end
 
   get '/peeps' do
