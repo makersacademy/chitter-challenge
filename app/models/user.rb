@@ -8,7 +8,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, String
+  property :email, String, format: :email_address, required: true, unique: true
   property :name, String
   property :handle, String
   property :password_hash, Text
@@ -16,6 +16,8 @@ class User
   attr_accessor :password_confirm
 
   validates_confirmation_of :password, confirm: :password_confirm
+
+  validates_format_of :email, as: :email_address
 
   @@count = 0
 
