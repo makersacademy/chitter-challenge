@@ -26,6 +26,7 @@ feature 'Creating peeps' do
     end
   end
 
+
   scenario 'a new peep displays time at which it was created' do
     sign_up
     visit '/'
@@ -38,6 +39,7 @@ feature 'Creating peeps' do
       expect(page).to have_content('Agatina')
     end
   end
+
 
   scenario 'I can create multiple peeps' do
     sign_up
