@@ -2,6 +2,6 @@
 <ul id='peeps'>
   <% @all_peeps.reverse.each do |show_peeps| %>
   <p>
-    <li><%= show_peeps.peep  %> => <%= show_peeps.user.name %>
+    <li><%= show_peeps.peep  %> => <%= show_peeps.user.name %> => <%= show_peeps.created_at %>
     <% end %>
   </ul>
