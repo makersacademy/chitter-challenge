@@ -1,6 +1,6 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
   <% flash[:errors].each do |error| %>
-    -<%= error %><br>
+    <div class="errors">- <%= error %></div>
   <% end %>
 <% end %>
 
@@ -26,16 +26,20 @@
 
     <tr align=left>
       <th>PASSWORD:</th>
-      <th><input type='text' name='password'></th>
+      <th><input type='password' name='password'></th>
     </tr>
 
     <tr align=left>
       <th>PASSWORD:</th>
-      <th><input type='text' name='password_confirmation'></th>
+      <th><input type='password' name='password_confirmation'></th>
     </tr>
 
-    <tr align=right>
-      <th colspan=2><input type='submit' value='Submit'></th>
+    <tr height=20px>
+      <th colspan=2></th>
+    </tr>
+
+    <tr align=left>
+      <th colspan=2><input id="submit_button" type='submit' value='SUBMIT'></th>
     </tr>
 
   <table>

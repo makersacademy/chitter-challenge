@@ -1,16 +1,39 @@
+<link rel='stylesheet' type='text/css' href='/css/style.css'>
+
 <% if flash[:notice] %>
-  <h1><%= flash[:notice] %></h1>
+  <div class="bye"><%= flash[:notice] %></div>
+  <br>
 <% end %>
 
 <% if current_user %>
-  <form action='/peep' method='get'>
-    <button>Peep!</button>
-  </form>
+  <table width=100%>
+    <tr bgcolor="#ff4500"><th height=50px align=left >
+          <div class="normal">&nbsp;&nbsp;&nbsp;Now the time to peep!</div>
+        </th>
+        <th>
+          <a href='/peep'><div class="normal">PEEP!</div></a>
+        </th>
+    </tr>
+    <tr>
+    <th height=30px></th>
+  </tr>
+  </table>
 <% end %>
 
 <% @all_peeps.reverse_each do |peep| %>
-  <%= peep.time_now %><br>
-  <%= peep.message %><br>
-  by <%= peep.users[0].username %><br>
-  <br>
+  <table width=100%>
+    <tr>
+      <th align=left><span class="names"><%= peep.users[0].name %></span>&nbsp;&nbsp;&nbsp;
+                      <span class="usernames">@<%= peep.users[0].username %></span>
+      </th>
+      <th align=right><div class="times"><%= peep.time_now %></div>
+      </th>
+    </tr>
+    <tr>
+      <th colspan=2 align=left><div class="peeps"><%= peep.message %></div></th>
+    </tr>
+    <tr>
+      <th colspan=2><HR size=1 noshade></th>
+    </tr>
+  </table>
 <% end %>

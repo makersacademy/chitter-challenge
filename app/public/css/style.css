@@ -1,0 +1,76 @@
+body{  font-family: 'Dosis', sans-serif;
+       margin-right: auto;
+       margin-left: auto;
+       width: 60%;
+    }
+
+.logo{
+  font-family: 'Knewave', cursive;
+  font-size: 70px;
+}
+
+.peeps{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.times{
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.names{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.usernames{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.errors{
+  font-size: 20px;
+  font-weight: 300;
+  color: #ff0000;
+}
+
+.bye{
+  font-size: 30px;
+  font-weight: 600;
+  color: #ff4500;
+}
+
+.normal{
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.normal2{
+  font-size: 20px;
+}
+
+.buttons{
+  height: 15px;
+  font-family: 'Dosis', sans-serif;
+  border-style: none;
+  font-size: 20px;
+  background-color: #fff;
+  color: #000;
+}
+
+input#submit_button{
+  width: 120px;
+  height: 30px;
+  font-family: 'Dosis', sans-serif;
+  border-style: none;
+  font-size: 15px;
+  background-color: #000;
+  color: #fff
+}
+
+a:link{ color: #000000; text-decoration:none }
+a:visited{ color: #000000; text-decoration:none }
+a:hover{ color: #000000; text-decoration:none }
+a:active{ color: #000000; text-decoration:none }

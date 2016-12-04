@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/test' do
+    erb :test
+  end
+
   get '/' do
     @all_peeps = Peep.all
     erb :index

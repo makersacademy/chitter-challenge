@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
+  <div class="errors">-<%= flash[:notice] %></div>
 <% end %>
 
 <form action='/log-in-info' method='post'>
@@ -13,13 +13,17 @@
 
     <tr align=left>
       <th>PASSWORD:</th>
-      <th><input type='text' name='password'></th>
+      <th><input type='password' name='password'></th>
     </tr>
 
-    <tr align=right>
-      <th colspan=2><input type='submit' value='Submit'></th>
+    <tr height=20px>
+      <th colspan=2></th>
     </tr>
-    
+
+    <tr align=left>
+      <th colspan=2><input id="submit_button" type='submit' value='SUBMIT'></th>
+    </tr>
+
   <table>
 
 </form>

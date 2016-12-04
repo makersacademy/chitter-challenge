@@ -5,14 +5,14 @@ describe "Peep" do
   scenario "User can visit page to add a peep after sign-up" do
     visit '/'
     sign_up
-    click_button "Peep!"
+    click_link "PEEP!"
     expect( current_path ).to eq( '/peep' )
-    expect( page ).to have_button( "Submit" )
+    expect( page ).to have_button( "SUBMIT" )
   end
 
   scenario "User cannot visit page to add a peep before sign-up or log-in" do
     visit '/'
-    expect( page ).not_to have_button( "Peep!" )
+    expect( page ).not_to have_button( "PEEP!" )
   end
 
   scenario "User can see all peeps" do

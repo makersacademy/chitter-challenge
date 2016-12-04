@@ -1,42 +1,55 @@
 <html>
+
+
 <head>
 
-  <table>
+  <table width=100%>
     <tr>
-        <th align='left' valign='bottom' width=100px>Chitter...</th>
-        <th align='left' valign='bottom'>
-            <% if current_user %>
-              Welcome, <%= current_user.username %>!
-            <% end %>
-        </th>
-        <th>
-            <form action='/sign-up' method='get'>
-              <button>Sign up</button>
-            </form>
-        </th>
-        <th>
-            <form action='/log-in' method='get'>
-              <button>Log in</button>
-            </form>
-        </th>
+        <th align='left'><a href='/'><div class="logo">Chitter</div></a></th>
+        <th align=right valign=center>
+            <table height=30px>
+              <tr >
+                 <th>
+                   <% if current_user %>
+                     <div class="normal2">Welcome, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;</div>
+                   <% end %>
+                 </th>
+                 <th>
+                      <form action='/sign-up' method='get'>
+                        <button class="buttons">Sign up</button>
+                      </form>
+                  </th>
+                  <th>
+                      <form action='/log-in' method='get'>
+                        <button class="buttons">Log in</button>
+                      </form>
+                  </th>
 
-      <% if current_user %>
-        <th>
-            <form action='/log-out' method='post'>
-              <input type='hidden' name='_method' value='delete'>
-              <input type='submit' value='Log out'>
-            </form>
+                <% if current_user %>
+                  <th>
+                    <form action='/log-out' method='post'>
+                      <input type='hidden' name='_method' value='delete'>
+                      <button class="buttons">Log out</button>
+                    </form>
+                  </th>
+                <% end %>
+              </tr>
+            </table>
         </th>
-      <% end %>
     </tr>
-    <tr height=20px>
+    <tr height=10px>
     </tr>
   </table>
+
+  <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
 
 </head>
 
 <body>
   <%= yield %>
 </body>
+
 
 </html>
