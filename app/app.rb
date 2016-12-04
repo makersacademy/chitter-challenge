@@ -39,11 +39,10 @@ class Chitter < Sinatra::Base
     user = User.first(password_token: session[:token])
     if user
       user.update(password: params[:password], password_confirmation: params[:password_confirmation])
-      flash.now[:notice] = ["Password has been updated"]
       session[:password_token] = nil
       user.update(password_token: nil)
+      flash.keep[:notice] = ["Password has been updated"]
       sign_in(user)
-      redirect to("/users/#{user.id}")
     else
       flash.now[:notice] = ["Token is invalid"]
       redirect to('/users/reset-password')
