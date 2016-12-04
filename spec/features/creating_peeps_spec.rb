@@ -58,12 +58,13 @@ feature 'Creating peeps' do
     visit '/'
     fill_in 'text',   with: 'Hello world'
     click_button 'Post a peep'
-    fill_in 'text',   with: 'Hello world'
+    fill_in 'text',   with: 'Hi'
     click_button 'Post a peep'
     expect(current_path).to eq '/'
 
     within 'ul#peeps' do
       expect(page).to have_content('Hello world')
+      expect(page).to have_content('Hi')
     end
   end
 end
