@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<% if current_user %>
+  Welcome <%= current_user.email %> to Chitter, now you can start!
+  <% end %>
+  <%= yield %>
+</html>
