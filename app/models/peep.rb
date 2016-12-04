@@ -11,4 +11,8 @@ class Peep
 	property :text, String
 	property :created_at, DateTime
 
+	def self.reverse_chronological_order
+		self.all(order: :created_at.desc)
+	end
+
 end
