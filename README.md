@@ -19,7 +19,7 @@ Settings to play
 How to use
 -------
 
-- Visit home page
+- Visit home page, you can see all peeps
 
 ![Chitter_home](https://github.com/fenglish/images/blob/master/chitter_1.png)
 
@@ -31,17 +31,25 @@ How to use
 
 ![Chitter_sign_in_errors](https://github.com/fenglish/images/blob/master/chitter_3.png)
 
-- Click Log
-
-![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_6.png)
-
-- Click Log
+- Click Log in and fill your information
 
 ![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_4.png)
 
-- Click Log
+- It will show errors if your information is wrong.
 
 ![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_5.png)
+
+- You can peep after Sign-in or Log-in, so click 'PEEP!'
+
+![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_6.png)
+
+- Fill in your message and click 'SUBMIT'
+
+![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_8.png)
+
+- You will see your peep immediately
+
+![Chitter_sign_in](https://github.com/fenglish/images/blob/master/chitter_9.png)
 
 - Click Log out when you want to finish the session
 
