@@ -33,7 +33,11 @@
     <% end %>
 
     <% if flash[:user_exists] %>
-    <div id='user_exists'><%= flash[:user_exists] %></div>
+      <div id='user_exists'><%= flash[:user_exists] %></div>
+    <% end %>
+
+  <% if flash[:new_message] %>
+    <div id='new_message'><%= flash[:new_message] %></div>
   <% end %>
     <%= yield %>
 

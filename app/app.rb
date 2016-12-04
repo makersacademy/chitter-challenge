@@ -62,6 +62,16 @@ class Chitter < Sinatra::Base
     erb :dashboard
   end
 
+  get '/messages/new' do
+    erb :'messages/new'
+  end
+
+  post '/messages' do
+    Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
+    flash[:new_message] = "Your message has been posted. Click here to see it now."
+    redirect to('/dashboard')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

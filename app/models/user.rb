@@ -11,6 +11,8 @@ class User
   property :email, String
   property :password_digest, Text
 
+  has n, :messages
+
   attr_reader :password
   attr_accessor :password_confirmation
 
