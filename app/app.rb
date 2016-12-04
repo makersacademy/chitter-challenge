@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'Hello Chitter!'
+    erb :first_page
   end
 
   get '/sign_up' do
