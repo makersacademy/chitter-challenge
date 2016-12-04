@@ -27,8 +27,7 @@ class Chitter < Sinatra::Base
   post '/users' do
       @user = User.new(email: params[:email], name: params[:name], user_name: params[:user_name], password: params[:password], password_confirmation: params[:password_confirmation])
       if @user.save
-        session[:user_id] = @user.id
-        redirect to("/users/#{@user.id}")
+        log_in(@user)
       else
         flash.now[:notice] = @user.errors.full_messages
         erb(:sign_up)
@@ -42,7 +41,7 @@ class Chitter < Sinatra::Base
       session[:password_token] = nil
       user.update(password_token: nil)
       flash.keep[:notice] = ["Password has been updated"]
-      sign_in(user)
+      log_in(user)
     else
       flash.now[:notice] = ["Token is invalid"]
       redirect to('/users/reset-password')
@@ -106,8 +105,7 @@ class Chitter < Sinatra::Base
     user = User.first(user_name: params[:user_name])
       if user
         if user.authenticated?(params[:password])
-          session[:user_id] = user.id
-          redirect to("/users/#{user.id}")
+          log_in(user)
         else
           flash.now[:notice] = ["Wrong password"]
           erb(:log_in)
@@ -167,7 +165,7 @@ class Chitter < Sinatra::Base
 
   helpers do
 
-    def sign_in(user)
+    def log_in(user)
       session[:user_id] = user.id
       redirect to("/users/#{user.id}")
     end
