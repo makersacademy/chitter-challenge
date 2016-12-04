@@ -7,7 +7,8 @@ class Peep
   belongs_to :user
 
 
-  property :id, Serial, required: true
+  property :id, Serial
   property :text, String, required: true
+  property :time, String
 
 end

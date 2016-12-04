@@ -14,3 +14,6 @@ def sign_in
   fill_in('password', with: 'password')
   click_button 'Sign in'
 end
+
+def sign_out
+end
