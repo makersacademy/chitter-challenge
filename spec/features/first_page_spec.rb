@@ -11,6 +11,6 @@ feature "First Page" do
   scenario "I want to be allowed to login" do
     visit '/'
     click_link "Login"
-    expect(page.current_path).to eq '/login/new'
+    expect(page.current_path).to eq '/log_in/new'
   end
 end

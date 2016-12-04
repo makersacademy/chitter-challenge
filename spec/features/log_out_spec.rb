@@ -10,6 +10,6 @@ feature "Log out" do
     sign_up
     log_in
     click_button "Log out"
-    expect(page).to have_content "Bye maker"
+    expect(page).to have_content "Bye"
   end
 end
