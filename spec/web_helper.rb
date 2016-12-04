@@ -4,7 +4,7 @@ def fail_sign_up
   fill_in("user_name", with: "Court01")
   fill_in("email", with: "examplegmail.com")
   fill_in("password", with: "test")
-  fill_in("confirm_password", with: "test")
+  fill_in("password_confirmation", with: "test")
   click_button("Sign Up")
 end
 

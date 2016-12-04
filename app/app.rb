@@ -45,13 +45,13 @@ class Chitter < Sinatra::Base
              user_name: params[:user_name],
              email: params[:email],
              password: params[:password],
-             confirm_password: params[:confirm_password])
+             password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       session[:name] = @user.name
       redirect '/new_peep'
     else
-      flash.next[:error_2] = "This user already exist"
+      flash.next[:error_2] = "Please try again"
       redirect '/sign_up'
     end
   end

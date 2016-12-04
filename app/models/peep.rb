@@ -8,7 +8,7 @@ class Peep
   has n, :users, through: Resource
 
   property :id, Serial
-  property :peep, String
+  property :peep, Text
   property :created_at, DateTime
   property :name, String
 
