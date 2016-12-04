@@ -8,8 +8,8 @@ gem 'bcrypt'
 gem 'dm-validations'
 gem 'sinatra-flash'
 gem 'pry'
-gem 'rspec'
 gem 'rack'
+gem 'dotenv'
 
 group :test do
   gem 'rspec'
