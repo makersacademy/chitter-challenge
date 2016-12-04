@@ -15,7 +15,6 @@ feature 'Display Peeps in chronological order' do
     log_in_2
     peep_2
     visit '/all_peeps'
-    expect(page).to have_content("This is my first peep. And what a peep it is.")
-    expect(page).to have_content("This is my second peep. And it's even better.")
+    expect(page.body.index("This is my second peep. And it's even better.")).to be < page.body.index("This is my first peep. And what a peep it is.")
   end
 end

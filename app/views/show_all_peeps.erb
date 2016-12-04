@@ -5,7 +5,7 @@
   </head>
   <body>
     <ul>
-      <% Peep.all.each do |peep| %>
+      <% Peep.all.reverse.each do |peep| %>
         <li><%= peep.body %></li>
       <% end %>
     </ul>
