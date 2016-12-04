@@ -9,6 +9,6 @@ feature 'User log in' do
 
   scenario 'with correct credentials' do
     log_in(username: user.username, password: user.password)
-    expect(page).to have_content("Welcome, #{user.username}")
+    expect(page).to have_content("Hello, #{user.username}")
   end
 end

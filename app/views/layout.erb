@@ -4,6 +4,10 @@
   <title> Chitter </title>
 </head>
 
+  <% if current_user %>
+    Hello, <%= current_user.username %>
+  <%end%>
+
 <body>
   <% if flash[:notice] %>
     <div id='notice'>
@@ -20,9 +24,8 @@
   </ul>
   <% end %>
   <%= yield %>
-
+  
   <% if current_user %>
-    Welcome, <%= current_user.username %>
   <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log out'>
