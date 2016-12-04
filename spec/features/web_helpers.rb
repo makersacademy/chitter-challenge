@@ -49,3 +49,8 @@ def incorrect_log_in
   fill_in 'password', :with => "pass"
   click_button('log-in')
 end
+
+def post_peep
+  fill_in 'user_message', :with => peep
+  click_button('peep')
+end

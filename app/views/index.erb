@@ -9,5 +9,8 @@
 </form>
 
 Peeps:
-
-<%=@post%>
+<ul id='peeps'>
+  <%@posts.each do |post| %>
+    <li><%= post.message %></li>
+  <%end%>
+</ul>
