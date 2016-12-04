@@ -9,7 +9,7 @@
 <% end %>
 
 <% @all_peeps.reverse_each do |peep| %>
-  <%= peep.time %><br>
+  <%= peep.time_now %><br>
   <%= peep.message %><br>
   by <%= peep.users[0].username %><br>
   <br>

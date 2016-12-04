@@ -2,7 +2,7 @@ class Peep
 
   include DataMapper::Resource
   property :id, Serial
-  property :time, Time
+  property :time_now, String
   property :message, Text
 
   has n, :users, through: Resource

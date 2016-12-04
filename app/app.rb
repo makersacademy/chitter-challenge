@@ -69,8 +69,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    time = Time.now
-    peep = Peep.create( time: time, message: params[:message] )
+    time_now = Time.now.strftime("%I:%M %p  %Y-%m-%d")
+    peep = Peep.create( time_now: time_now, message: params[:message] )
     user = current_user
     user.peeps << peep
     user.save

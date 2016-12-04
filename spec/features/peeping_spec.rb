@@ -30,9 +30,9 @@ describe "Peep" do
 
   scenario "User can see peeps with time" do
     sign_up
-    time = Time.now
-    peep( time: time )
-    expect( page ).to have_content( time )
+    time_now = Time.now.strftime("%I:%M %p  %Y-%m-%d")
+    peep( time_now: time_now )
+    expect( page ).to have_content( time_now )
   end
 
 end
