@@ -31,6 +31,10 @@ feature "Peeps homepage" do
   end
 
   scenario "Every peep belongs to a user" do
-
+    sign_up
+    correct_log_in
+    post_peep
+    user = User.first
+    expect(user.peeps.map(&:name)).to include peep
   end
 end

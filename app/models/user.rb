@@ -10,6 +10,8 @@ class User
   property :email, String, :required => true, :unique => true
   property :password_digest, Text, :required => true
 
+  has n, :peeps, :through => Resource
+
   attr_reader :password
   attr_accessor :password_confirmation
 

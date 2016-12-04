@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/log_in' do
-    @user = User.new
+    # @user = User.new
     erb :log_in
   end
 
@@ -65,12 +65,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(message: params[:user_message])
+    peep = Peep.create(message: params[:user_message], user_id: get_user_id.id)
+    get_user_id.peeps << peep
     redirect("/peeps")
   end
 
   get '/peeps' do
+
     @posts = Peep.all
+    @users = Users.all
     erb :index
   end
 

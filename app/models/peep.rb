@@ -5,4 +5,6 @@ class Peep
   property :message, String, :required => true
   property :created_at, DateTime
 
+  belongs_to :user
+
 end

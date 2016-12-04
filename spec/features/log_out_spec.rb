@@ -4,6 +4,8 @@ feature "Logging out" do
     correct_log_in
     click_button('log-out')
     expect(page).to have_content("Goodbye!")
+    expect(page).not_to have_button('log_out')
+    expect(page).not_to have_button('peep') 
     expect(page).not_to have_content("Welcome samuel@gmail.com!")
   end
 end

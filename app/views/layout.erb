@@ -9,23 +9,7 @@
 
       <% if get_user_id %>
         Welcome <%= get_user_id.email %> !
-        <form action="/sessions" method="post">
-          <div>
-            <input type='hidden' name='_method' value='delete'>
-            <input type='submit' value='log out' id='log-out'>
-          </div>
-        </form>
-
-        <form action="/peep" method='post'>
-          <div>
-            <label for="msg">Message:</label>
-            <textarea id="msg" name="user_message"></textarea>
-          </div>
-          <div>
-              <input type='submit' id='peep'>
-          </div>
-        </form>
-
+      
 
       <% end %>
 
