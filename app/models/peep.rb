@@ -6,4 +6,5 @@ class Peep
 
   property :id, Serial
   property :message, Text
+
 end
