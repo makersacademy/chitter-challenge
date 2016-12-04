@@ -19,3 +19,4 @@ gem "dm-postgres-adapter"
 gem "dm-validations"
 gem "rake"
 gem "sinatra-flash"
+gem 'sinatra-partial'
