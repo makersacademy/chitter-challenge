@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
 group :development do
   gem 'pry'
   gem 'sinatra'
-  gem 'sinatra-flash'
   gem 'capybara'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 end
 
 group :test do
