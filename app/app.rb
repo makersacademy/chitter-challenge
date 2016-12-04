@@ -21,11 +21,15 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
+  post '/log_in' do
+    redirect ('/peeps')
+  end
+
 
   post '/users' do
     @user = User.new(email: params[:email], name: params[:name],
-    username: params[:username], password: params[:password],
-    password_confirmation: params[:confirm_password] )
+                    username: params[:username], password: params[:password],
+                    password_confirmation: params[:confirm_password] )
 
     if @user.save
       redirect ('/peeps')
@@ -36,7 +40,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    "PEEPS"
+    erb :index
   end
 
   # start the server if ruby file executed directly
