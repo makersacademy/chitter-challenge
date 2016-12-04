@@ -48,6 +48,15 @@ How to use the applicaton
 
 To run the program start a local server by writing ruby app/app.rb in the terminal and the app.rb file from the project directory will be executed.
 
+Technologies used
+-----
+* PostgreSQL database
+* DataMapper
+* Sinatra framework
+* Database Cleaner
+* RSpec & Capybara testing
+* Heroku for web hosting
+* MailGun
 
 Areas to improve
 -----
