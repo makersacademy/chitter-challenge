@@ -9,12 +9,7 @@ require 'web_helper'
       visit ("/")
       expect(page.status_code).to eq 200
 
-      click_button("Add Peep")
-      fill_in("peep", with: "Be somebody and no one thought you can be")
-      click_button("Post")
-      click_button("Add Peep")
-      fill_in("peep", with: "Nothing that easy is rewarding")
-      click_button("Post")
+      add_peep
 
       expect(page).to have_content ("Be somebody and no one thought you can be" && Time)
       expect(page).to have_content ("Nothing that easy is rewarding" && Time)

@@ -1,6 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require_relative './data_mapper_setup.rb'
+require'./app/data_mapper_setup'
 require 'dm-validations'
 require 'bcrypt'
 

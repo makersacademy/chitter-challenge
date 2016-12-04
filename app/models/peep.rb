@@ -1,8 +1,5 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require_relative './data_mapper_setup'
+require './app/data_mapper_setup'
 require 'dm-timestamps'
-require_relative 'user'
 
 class Peep
 

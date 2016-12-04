@@ -10,9 +10,16 @@ require 'simplecov'
 require './app/app'
 require 'database_cleaner'
 require 'web_helper'
+require_relative 'helpers'
 
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+
+  config.include Helpers
+
+end
 
 RSpec.configure do |config|
   config.include Capybara::DSL
