@@ -58,6 +58,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/dashboard' do
+    flash[:welcome] = nil
     erb :dashboard
   end
 

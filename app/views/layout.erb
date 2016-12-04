@@ -25,7 +25,11 @@
     <% end %>
 
     <% if flash[:login_succesful] %>
-      <div id='logged_in'><%= flash[:login_succesful] %></div>
+      <div id='login_succesful'><%= flash[:login_succesful] %></div>
+    <% end %>
+
+    <% if flash[:login_unsuccesful] %>
+      <div id='login_unsuccesful'><%= flash[:login_unsuccesful] %></div>
     <% end %>
 
     <% if flash[:user_exists] %>
