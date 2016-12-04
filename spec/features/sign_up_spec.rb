@@ -11,7 +11,7 @@ require_relative '../../app/models/user.rb'
 feature 'sign up' do
   scenario "I want to sign up with email, password, name and username" do
     sign_up
-    expect(page).to have_content "Maker Star"
+    expect(page).to have_content "Welcome maker"
   end
 
   scenario "I want to check a new account has been created in the database" do

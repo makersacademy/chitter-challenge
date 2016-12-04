@@ -8,6 +8,10 @@ require_relative '../web-helper'
 feature "User Login" do
   scenario "I want to login with my credentials" do
     sign_up
-    # visit
+    visit '/login/new'
+    fill_in 'username', with: 'maker'
+    fill_in 'password', with: '12345'
+    expect(page.current_path).to eq '/login'
+    expect(page).to have_content 'Welcome maker'
   end
 end
