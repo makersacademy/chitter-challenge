@@ -6,7 +6,9 @@
     <div id="container">
       <div id="header">
         <h1>Chitter</h1>
-        <h2>Welcome back keomony@gmail.com </h2>
+        <% if current_user %>
+          <h2>Welcome, <%= @current_user.email %></h2>
+        <% end %>
       </div>
         <div id="centerColumn">
           #will be the list of peeps in reverse chronological order
