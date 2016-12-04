@@ -44,26 +44,26 @@ I want to see the time at which it was made
 
 ###How to Use:
 -------------
-Visit `https://chitter-jenna.herokuapp.com`
+#####1. Visit `https://chitter-jenna.herokuapp.com`
 
 <img src="screenshots/Chitter_Entry_Page.png" width=30% height=40%/>
 
-If you already have an account, click "Sign In"
+#####2. If you already have an account, click "Sign In"
 
 <img src="screenshots/Chitter_Sign_In.png" width=30% height=40%/>
 
-Otherwise, sign up by clicking "Sign Up"
+#####3. Otherwise, sign up by clicking "Sign Up"
 
 <img src="screenshots/Chitter_Sign_Up.png" width=30% height=40%/>
 
-User is taken to peeps page that shows a list of all peeps, along with the name, username of the writer, and the time at which the peep was created
+#####4. User is taken to peeps page that shows a list of all peeps, along with the name, username of the writer, and the time at which the peep was created
 
 <img src="screenshots/Chitter_View_Peeps.png" width=30% height=40%/>
 
-User can click to add a peep, and is taken to a new page
+#####5. User can click to add a peep, and is taken to a new page
 
 <img src="screenshots/Chitter_Add_Peep.png" width=30% height=40%/>
 
-Page navigates back to the list of peeps, which now includes the most recently added peep
+#####6. Page navigates back to the list of peeps, which now includes the most recently added peep
 
 <img src="screenshots/Chitter_Updated_Peeps.png" width=30% height=40%/>
