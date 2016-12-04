@@ -12,10 +12,16 @@ class User
   property :password_digest, Text, required: true
 
   validates_confirmation_of :password
+  validates_format_of :email, as: :email_address
+
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(username, password)
+    first(username: username)
   end
 
 end
