@@ -56,6 +56,11 @@ class Chitter < Sinatra::Base
     erb :'sessions/new'
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
   get '/' do
     erb :home
   end
