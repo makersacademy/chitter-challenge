@@ -36,7 +36,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       erb :user
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash[:errors] = ['The email or password is incorrect']
       redirect 'log_in/new'
     end
   end
@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       erb :user
     else
-      flash[:errors] = user.errors.full_messages.join(" ")
+      flash[:errors] = user.errors.full_messages
       redirect '/sign_up'
     end
   end
