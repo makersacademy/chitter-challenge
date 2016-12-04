@@ -4,8 +4,11 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup.rb'
 require './app/models/user'
 require './app/models/peep'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+
+  helpers Helpers
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -24,12 +27,6 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
-
   # post '/peeps' do
   #   peep = Peep.create(title: params[:title], body: params[:body])
   #   session[:user_id] = peep.id
@@ -38,8 +35,18 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps'
+    erb :'peeps/index'
   end
+
+  get 'peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    Peep.create(title: params[:title], message: params[:message])
+    redirect '/peeps'
+  end
+
 
 run! if app_file == $0
 end

@@ -1,12 +1,3 @@
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
@@ -19,6 +10,15 @@ require './app/app'
 require 'database_cleaner'
 
 Capybara.app = Chitter
+
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 RSpec.configure do |config|
 
