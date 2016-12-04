@@ -26,6 +26,4 @@ class User
     @@user_count
   end
 
-
-
 end

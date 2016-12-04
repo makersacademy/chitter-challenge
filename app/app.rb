@@ -6,6 +6,7 @@ class Chitter < Sinatra::Base
 
 
   get '/' do
+    #I want erb index to show list of peeps
     erb :index
   end
 
@@ -15,6 +16,15 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     @user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    redirect '/'
+  end
+
+  get '/peep/new' do
+    erb :peep
+  end
+
+  post '/peep' do
+    @peep = Peep.create(params[:peep])
     redirect '/'
   end
 

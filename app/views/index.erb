@@ -1,1 +1,12 @@
-Welcome to Chitter!
+Welcome to Chitter <%= @user %>!
+
+<h1>Peeps</h1>
+
+<ul id='peeps'>
+  <% @peep.each do |peep| %>
+    <li>
+      Peep: <%= @peep.peep %>
+      Date: <%= @peep.created_at %>
+    </li>
+  <% end %>
+</ul>
