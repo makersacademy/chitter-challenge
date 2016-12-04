@@ -23,6 +23,9 @@
   <% if current_user %>
     <h1>Welcome, <%= current_user.email %></h1>
   <% end %>
+  <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
   <%= yield %>
 </div>
 <img src='/images/chitter.jpeg'></a>

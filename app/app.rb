@@ -1,12 +1,15 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
 require_relative 'models/peep'
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+
+  register Sinatra::Flash
 
   helpers Helpers
 
@@ -22,9 +25,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    user = User.create(email: params[:email], password: params[:password], password_confirm: params[:password_confirm])
-    session[:user_id] = user.id
-    redirect to '/'
+    user = User.new(email: params[:email], password: params[:password], password_confirm: params[:password_confirm])
+    if user.save
+      session[:user_id] = user.id
+      redirect to '/'
+    else
+      flash.now[:notice] = 'Password and confirmation password do not match'
+      erb :'sign_up'
+    end
   end
 
   get '/peeps' do
@@ -41,5 +49,5 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-run! if app_file == $0
+  run! if app_file == $0
 end
