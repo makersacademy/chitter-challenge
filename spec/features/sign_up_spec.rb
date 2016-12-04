@@ -9,7 +9,7 @@ RSpec.feature 'Sign up' do
 
   scenario 'After sign up user gets a welcome message' do
     sign_up
-    expect(page).to have_content 'Welcome to Chitter'
+    expect(page).to have_content 'Hi Jane Doe!'
   end
 
   scenario 'User info is saved once entered' do

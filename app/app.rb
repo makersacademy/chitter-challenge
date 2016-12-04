@@ -5,6 +5,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+  set :session_secret, 'super secret spy mode'
 
   get '/' do
     #I want erb index to show list of peeps
@@ -17,7 +19,14 @@ class Chitter < Sinatra::Base
 
   post '/sign-up' do
     @user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    session[:user_id] = @user.id
     redirect '/'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   get '/peep/new' do

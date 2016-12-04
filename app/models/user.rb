@@ -2,6 +2,7 @@ require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-validations'
+require 'bcrypt'
 
 class User
   include DataMapper::Resource
@@ -10,12 +11,12 @@ class User
   property :email, String
   property :name, String
   property :username, String
-  property :password, String
+  property :password_hash, Text
 
   @@user_count = 0
 
   def initialize(params)
-    self.password = params[:password]
+    # self.password = params[:password]
     self.email = params[:email]
     self.name = params[:name]
     self.username = params[:username]
@@ -25,6 +26,10 @@ class User
 
   def self.user_count
     @@user_count
+  end
+
+  def password=(password)
+    self.password_hash = BCrypt::Password.create(password)
   end
 
 end
