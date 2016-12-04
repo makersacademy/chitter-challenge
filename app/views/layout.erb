@@ -64,6 +64,9 @@ input:valid {
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Logout">
   </form>
+  <form action='/peeps/new' method="get">
+    <input type="submit" value="Post a Peep">
+  </form>
 <% end %>
 
 <% if flash[:notice] %>

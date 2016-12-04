@@ -73,9 +73,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps/new' do
     peep = Peep.new(content: params[:peep],
-                    created: Time.now.strftime('%H:%M'))
-    peep.user = User.get(session[:user_id])
-    peep.save
+                       created: Time.now.strftime('%H:%M'))
+     peep.user = User.get(session[:user_id])
+     peep.save
     redirect to('/peeps')
   end
 

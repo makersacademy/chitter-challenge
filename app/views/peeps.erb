@@ -1,8 +1,4 @@
-
-<form action='/peeps/new' method="get">
-  <input type="submit" value="Post a Peep">
-</form>
-
+<ul>
 <% @peeps.each do |peep| %>
   <li>
     <%= peep[:content] %><br>
@@ -10,3 +6,4 @@
         By: <% @peep.user.username %><br>
   </li>
   <% end %>
+</ul>
