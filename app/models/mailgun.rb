@@ -13,7 +13,7 @@ class MailGun
                         { from: "chitter@example.com",
                         to:   user.email,
                         subject: "password token",
-                        text:    "click here to reset your password http://localhost:9292/users/recover?token=#{user.password_token}"
+                        text:    "click here to reset your password http://my-chitter.herokuapp.com/users/recover?token=#{user.password_token}"
                       })
   end
 
