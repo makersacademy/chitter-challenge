@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.authenticate(username: params[:username], password: params[:password])
+    @user = User.authenticate(params[:username],params[:password])
     if @user
       erb :user
     else
