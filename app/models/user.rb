@@ -12,7 +12,7 @@ class User
 	property :id, Serial
 	property :firstname, String, required: true
 	property :surname, String, required: true
-	property :username, String
+	property :username, String, required: true
 	property :email, String, required: true
 	property :encrypted_password, Text
 
