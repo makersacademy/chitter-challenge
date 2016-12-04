@@ -29,13 +29,18 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/users/login' do
-    erb :login
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/users/login' do
-    flash[:login_succesful] = "Welcome back, #{params[:username]}!"
-    redirect to('/dashboard')
+  post '/sessions' do
+    if User.login(params[:username], params[:password])
+      flash[:login_succesful] = "Welcome back, #{params[:username]}!"
+      redirect to('/dashboard')
+    else
+      flash[:login_unsuccesful] = "Wrong username or password"
+      redirect to('sessions/new')
+    end
   end
 
   get '/dashboard' do

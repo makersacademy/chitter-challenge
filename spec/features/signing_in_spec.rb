@@ -6,7 +6,7 @@ RSpec.feature "Signing in", :type => :feature do
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
     click_button('Submit')
-    visit '/users/login'
+    visit '/sessions/new'
     fill_in('username', with: 'Miko')
     fill_in('password', with: 'gweatonidas36')
     click_button('Submit')
