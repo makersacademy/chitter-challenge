@@ -2,10 +2,7 @@ feature 'Posting a peep' do
 
   scenario 'I can post a peep if signed in' do
     sign_up
-    log_in(username: 'Gweaton', password: 'george123')
-    visit '/peeps/new'
-    fill_in :message, with: 'My first peep'
-    click_button 'Post peep'
+    log_in_post_peep
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
       expect(page).to have_content("My first peep")

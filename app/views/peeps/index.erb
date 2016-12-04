@@ -4,6 +4,7 @@
   <% @peeps.each do |peep| %>
     <li>
       Peep: <%= peep.message %>
+      Posted by: <%= @handle %>
     </li>
   <% end %>
 </ul>

@@ -8,4 +8,11 @@ feature 'Viewing peeps' do
       expect(page).to have_content("My first peep")
     end
   end
+    scenario 'I can see who posted a peep' do
+    log_in_post_peep
+    visit '/peeps'
+    within 'ul#peeps' do
+      expect(page).to have_content("Gweaton")
+    end
+  end
 end
