@@ -11,6 +11,9 @@
 Peeps:
 <ul id='peeps'>
   <%@posts.reverse.each do |post| %>
-    <li><%= post.message %></li>
+    <dt><%= post.created_at.strftime("printed  on %m/%d/%Y at %I:%M%p") %></dt>
+    <dd><%= post.message  %></dd>
+    <dd> </dd>
+
   <%end%>
 </ul>

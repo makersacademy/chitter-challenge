@@ -1,4 +1,3 @@
-
 describe User do
 
   let(:user) {User.create(email: "abc@gmail.com", name: "abc",

@@ -22,4 +22,11 @@ feature "Peeps homepage" do
 
 
   end
+
+  scenario "post has a timestamp" do
+    sign_up
+    correct_log_in
+    post_peep
+    expect(Peep.first.created_at).not_to eq nil
+  end
 end
