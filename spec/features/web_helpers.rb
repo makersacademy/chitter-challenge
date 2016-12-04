@@ -54,3 +54,10 @@ def post_peep
   fill_in 'user_message', :with => peep
   click_button('peep')
 end
+
+def post_two_peeps
+  fill_in 'user_message', :with => peep
+  click_button('peep')
+  fill_in 'user_message', :with => peep2
+  click_button('peep')
+end
