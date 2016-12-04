@@ -23,8 +23,9 @@ class Twitter < Sinatra::Base
 
 
   post '/users' do
-    User.create(email: params[:email], username: params[:username],
-              password_method2: params[:password])
+    user = User.create(email: params[:email], username: params[:username],
+              password_method2: params[:password], password_confirmation: params[:password_confirmation])
+    session[:user_id]= user.id
     redirect '/twitter'
   end
 

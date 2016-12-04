@@ -25,7 +25,7 @@ Features:
 ```
 As a Maker
 So that I can post messages on Chitter as me
-I want to sign up for Chitter
+I want to sign up for Chitter - done
 
 As a Maker
 So that I can post messages on Chitter as me
@@ -52,10 +52,10 @@ Notes on functionality:
 ------
 
 * Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku). - done
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
+* Use bcrypt to secure the passwords. - done
 * Use data mapper and postgres to save the data. - done
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
