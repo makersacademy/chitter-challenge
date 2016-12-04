@@ -7,14 +7,13 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'dm-validations'
 gem 'rake'
+gem 'pry'
 gem 'sinatra-flash'
 
 group :test do
-  gem 'pry'
   gem 'dm-rspec'
   gem 'rspec-sinatra'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
 end
