@@ -2,7 +2,11 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+
 require_relative 'data_mapper_setup'
+
+require_relative 'controllers/users'
+
 require_relative './models/user'
 require_relative './models/peep'
 
@@ -10,6 +14,7 @@ class Chitter < Sinatra::Base
 
   enable  :sessions
   set :session_secret, 'super secret'
+  set :root, File.dirname(__FILE__)
 
   use Rack::MethodOverride
 
