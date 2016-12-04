@@ -11,15 +11,20 @@
       <li> <a href="/">Home</a></li>
       <li> <a href='/peeps'>View Peeps</a></li>
       <li> <a href="/peeps/new">Add Peep</a></li>
+      <li> <a href="#"> Log In </a></li>
+      <li> <a href="#"> Log Out </a></li>
       <li> <a href="/sign_up"> Sign Up </a></li>
       <li> <a href="/sign_in"> Sign In </a></li>
     </ul>
   </nav>
 
   <body>
+    <div>
   <% if current_user %>
     <h1>Welcome, <%= current_user.email %></h1>
   <% end %>
   <%= yield %>
+</div>
+<img src='/images/chitter.jpeg'></a>
 </body>
 </html>

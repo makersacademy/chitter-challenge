@@ -11,6 +11,13 @@ h1, h2, h3, h4 {
   -webkit-text-stroke: 0.5px black;
 }
 
+img {
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 10%;
+  height: 10%;
+}
+
 nav {
   background-color: #404040;
   width: 100%;
@@ -129,4 +136,28 @@ input[type=password] {
 
 article {
 display: block;
+}
+
+.view-peeps {
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.add_peeps {
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+#peeps ul {
+  display: block;
+}
+
+#peeps li {
+  list-style-type: none;
 }
