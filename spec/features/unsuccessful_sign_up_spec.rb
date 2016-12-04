@@ -22,6 +22,11 @@ RSpec.feature 'unsuccessful account sign up', :type => :feature do
 		expect(page).to have_content('Username must not be blank')
 	end
 
+	scenario 'user cannot sign up without entering a password' do
+		expect { sign_up(password: nil) }.not_to change(User, :count)
+		expect(page).to have_content('Password must not be blank')
+	end
+
 	scenario 'user cannot sign up with an invalid email address' do
 		expect { sign_up(email: 'not-an-email') }.not_to change(User, :count)
 		expect(page).to have_content('Email has an invalid format')

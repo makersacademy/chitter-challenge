@@ -19,10 +19,10 @@
 			<input <%= 'class="required"' if error?(:name) %> type="text" name="username" value="<%= @user.username %>" required>
 		<br>
 		<label for='password'>Password: </label>
-			<input type="text" name="password">
+			<input type="text" name="password" required>
 		<br>
 		<label for='password_confirmation'>Confirm Password: </label>
-			<input type="text" name="password_confirmation">
+			<input type="text" name="password_confirmation" required>
 		<br>
 			<input type="submit" value="Sign Up!">
 	</form>
