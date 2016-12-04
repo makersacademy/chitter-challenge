@@ -1,6 +1,12 @@
 require 'data_mapper'
 require './app/app.rb'
 
+require 'rspec/core/rake_task'
+
+  RSpec::Core::RakeTask.new :spec
+
+  task default: [:spec]
+
 namespace :db do
   desc "Non destructive upgrade"
   task :auto_upgrade do
