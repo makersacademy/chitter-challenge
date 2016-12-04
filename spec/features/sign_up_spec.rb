@@ -38,4 +38,8 @@ RSpec.feature 'account sign up', :type => :feature do
 		expect { sign_up(username: nil) }.not_to change(User, :count)
 	end
 
+	scenario 'user cannot sign up with an invalid email address' do
+		expect { sign_up(email: 'not-an-email') }.not_to change(User, :count)
+	end
+
 end
