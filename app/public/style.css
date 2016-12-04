@@ -1,5 +1,6 @@
 body {
   background-image: url(https://i.ytimg.com/vi/v1SabYdIlZI/maxresdefault.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Lato', sans-serif;
 }
@@ -14,8 +15,6 @@ Flash
   margin: 40px;
 }
 
-
-
 /*===================================
 INDEX PAGE
 =====================================*/
@@ -24,13 +23,17 @@ INDEX PAGE
   margin: 150px auto;
 }
 
+h1 {
+  /*padding: 50px;*/
+}
+
 #button {
   background-color: transparent;
   border: 1px solid #000;
   border-radius: 3px;
   font-size: 0.9em;
   padding: 10px;
-  width: 18%;
+  width: 10%;
 }
 
 /*===================================
@@ -119,6 +122,65 @@ h1 {
   font-size: 1em;
 }
 
+#message_button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 10px;
+  width: 18%;
+}
 
+/*====================================
+NEW USER and NEW SESSION
+=====================================*/
+#new_user {
+  margin: 200px auto;
+  width: 25%;
+}
 
-/*============================*/
+.form_input {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 5px 0 15px 0;
+  padding: 10px;
+  width: 90%;
+}
+
+#sign_up_button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+/*====================================
+PLACEHOLDER
+=====================================*/
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+:-ms-input-placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}

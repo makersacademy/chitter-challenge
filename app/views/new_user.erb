@@ -8,23 +8,23 @@
 
   <body>
 
-    <form action="/users" method="post">
+    <form id="new_user" action="/users" method="post">
       <label for="name"> Name:
-      <input type="text" name="name" value="<%= @user.name %>" required></label>
+      <input type="text" name="name" value="<%= @user.name %>" required class="form_input"></label>
 
       <label for="email"> Email:
-      <input type="email" name="email" value="<%= @user.email %>" required></label>
+      <input type="email" name="email" value="<%= @user.email %>" required class="form_input" id="form_input"></label>
 
       <label for="user_name"> User name:
-      <input type="text" name="user_name" value="<%= @user.user_name %>" required></label>
+      <input type="text" name="user_name" value="<%= @user.user_name %>" required class="form_input"></label>
 
       <label for="password"> Password:
-      <input type="password" name="password" required></label>
+      <input type="password" name="password" required class="form_input"></label>
 
       <label for="password_confirmation"> Verify password:
-      <input type="password" name="password_confirmation" required></label>
+      <input type="password" name="password_confirmation" required class="form_input"></label>
 
-      <input type="submit" value="Sign up">
+      <input type="submit" value="Sign up" id="sign_up_button">
 
     </form>
 
