@@ -2,6 +2,8 @@ ENV["RACK_ENV"]||="development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require './app/models/user.rb'
+require './app/models/peep.rb'
+require './app/models/database_settings.rb'
 
 class Chitter < Sinatra::Base
 
@@ -18,6 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @all_peeps = Peep.all
     erb :index
   end
 
@@ -65,6 +68,13 @@ class Chitter < Sinatra::Base
   get '/peep' do
     erb :peep
   end
+
+  post '/peep' do
+    time = Time.now
+    Peep.create(time: time, message: params[:message])
+    redirect '/'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -15,4 +15,14 @@ describe "Peep" do
     expect(page).not_to have_button("Peep!")
   end
 
+  scenario "User can see all peeps" do
+    peep
+    all_peeps = Peep.all
+    expect(all_peeps.count).to eq 1
+  end
+
+  scenario "User can see the message when peeped" do
+    peep
+    expect(page).to have_content("Peeeeeeeeeep")
+  end
 end

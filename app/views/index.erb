@@ -6,3 +6,8 @@
   <button>Peep!</button>
 </form>
 <% end %>
+
+<% @all_peeps.each do |peep| %>
+  <%= peep.time %><br>
+  <%= peep.message %><br>
+<% end %>
