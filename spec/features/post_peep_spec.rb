@@ -9,4 +9,10 @@ feature "post peep" do
     expect(page).to have_content('This is my first peep!')
     expect(page).to have_content('=> test')
   end
+
+  scenario "a user tries to peep while signed out" do
+    visit '/peeps/new'
+    expect(page).to have_content('Sign in to post a peep!')
+    expect(page).not_to have_content('Post a new peep')
+  end
 end
