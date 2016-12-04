@@ -11,8 +11,8 @@ feature 'sign up' do
 
   scenario 'user can sign up for chitter' do
     expect { sign_up }.to change(User, :count).by(1)
-    # expect(page).to have_content('welcome hello@example.com')
-    #expect(User.first.email).to eq('hello@example.com')
+    expect(page).to have_content('welcome, hello@example.com')
+    expect(User.first.email).to eq('hello@example.com')
   end
 
   scenario 'user is unable to sign up without confirming password' do
