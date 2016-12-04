@@ -1,9 +1,9 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'data_mapper_setup.rb'
-require './app/models/user'
-require './app/models/peep'
+require_relative 'data_mapper_setup'
+require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'helpers'
 
 class Chitter < Sinatra::Base
@@ -27,18 +27,12 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
-  # post '/peeps' do
-  #   peep = Peep.create(title: params[:title], body: params[:body])
-  #   session[:user_id] = peep.id
-  #   redirect to '/peeps'
-  # end
-
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
   end
 
-  get 'peeps/new' do
+  get '/peeps/new' do
     erb :'peeps/new'
   end
 
@@ -46,7 +40,6 @@ class Chitter < Sinatra::Base
     Peep.create(title: params[:title], message: params[:message])
     redirect '/peeps'
   end
-
 
 run! if app_file == $0
 end

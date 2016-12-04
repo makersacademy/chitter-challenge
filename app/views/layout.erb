@@ -8,17 +8,17 @@
 <body>
   <nav>
     <ul>
-      <li> <a href="/">Chitter</a></li>
-      <li> <a href='view_peeps'>View peeps</a></li>
-      <li> <a href="/add_peep">Add peep</a></li>
-      <li> <a href="/sign_up"> Sign up </a></li>
-      <li> <a href="/sign_in"> Sign in </a></li>
+      <li> <a href="/">Home</a></li>
+      <li> <a href='/peeps'>View Peeps</a></li>
+      <li> <a href="/peeps/new">Add Peep</a></li>
+      <li> <a href="/sign_up"> Sign Up </a></li>
+      <li> <a href="/sign_in"> Sign In </a></li>
     </ul>
   </nav>
 
   <body>
   <% if current_user %>
-    Welcome, <%= current_user.email %>
+    <h1>Welcome, <%= current_user.email %></h1>
   <% end %>
   <%= yield %>
 </body>
