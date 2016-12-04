@@ -3,10 +3,18 @@ body {
 
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .notice {
+  width: 40%;
+  margin: auto;
   display: block;
-  border: solid;
-  padding: 5px;
+  border: dashed;
+  padding: 10px;
+  text-align: center;
 }
 
 .main {
@@ -96,4 +104,18 @@ input[type=password] {
     text-decoration: none;
     margin: 10px 2px;
     cursor: pointer;
+}
+
+.comment {
+  display: inline-block;
+  margin: 0px 0px 8px 30px;
+  background-color: #42f1f4;
+  padding: 12px;
+}
+
+.peep {
+  display: inline-block;
+  background-color: #bef7f0;
+  margin: 0px 0px 8px 0px;
+  padding: 12px;
 }

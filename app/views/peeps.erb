@@ -2,13 +2,17 @@
   <h3>Peeps: <%= @peeps.count %> </h3>
   <ul>
     <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.id %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago | <a href="/peeps/<%= peep.id %>">Add comment</a></p>
-    </li>
+      <div class="peep">
+        <li>
+          <p><%= peep.id %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago | <a href="/peeps/<%= peep.id %>">Add comment</a></p>
+        </li>
+      </div>
       <% peep.comments.reverse.each do |comment| %>
-        <ul>
-          <li><p><%= comment.user.user_name %> | <%= comment.comment %></p></li>
-        </ul>
+        <div class="comment">
+          <ul>
+            <li><p><%= comment.user.user_name %> | <%= comment.comment %></p></li>
+          </ul>
+        </div>
       <% end %>
     <% end %>
   </ul>

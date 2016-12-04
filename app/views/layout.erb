@@ -7,16 +7,6 @@
     <body>
       <div class="wrapper">
 
-        <% if flash %>
-          <% flash.each do |alert, messages| %>
-          <div class="<%= alert %>">
-            <% messages.each do |message| %>
-              <p><%= message %></p>
-            <% end %>
-          </div>
-          <% end %>
-        <% end %>
-
         <div class="header">
             <h1 class="logo"><a href="/peeps">my | Chitter</a></h1>
             <ul class="navigation">
@@ -33,6 +23,16 @@
               <% end %>
             </ul>
         </div>
+
+        <% if flash %>
+          <% flash.each do |alert, messages| %>
+          <div class="<%= alert %>">
+            <% messages.each do |message| %>
+              <p><%= message %></p>
+            <% end %>
+          </div>
+          <% end %>
+        <% end %>
 
         <div class="main">
           <%= yield %>
