@@ -15,8 +15,7 @@ class Chitter < Sinatra::Base
                     username: params[:username],
                     email: params[:email],
                     password: params[:password],
-                    password_confirmation: params[:password_confirmation],
-                    password_digest: BCrypt::Password.create(:password))
+                    password_confirmation: params[:password_confirmation])
     if @user.save
       session[:new_user] = true
       @new_user = session[:new_user]
@@ -57,13 +56,13 @@ class Chitter < Sinatra::Base
                             time: Time.new,
                             body: params[:peep_field])
     @user_peep.save
-    all_peeps = Peep.all.map { |record| [record.body, record.author, record.time] }
-    session[:peeps] = all_peeps
     redirect to('/peeps')
   end
 
   get ('/peeps') do
-    @all_peeps = session[:peeps].join("<br>")
+    @all_peeps = Peep.all.map { |record| [record.body, record.author, record.time] }
+    @all_peeps = @all_peeps.join("<br>")
+    @user_logged_in = session[:user]
     erb :peep_board
   end
 
