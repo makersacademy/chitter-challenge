@@ -6,6 +6,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'dm-validations'
+gem 'rake'
 gem 'sinatra-flash'
 
 group :test do
@@ -14,6 +15,6 @@ group :test do
   gem 'rspec-sinatra'
   gem 'cucumber'
   gem 'rake'
-  gem 'coveralls'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
 end
