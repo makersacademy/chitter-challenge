@@ -1,9 +1,9 @@
-if ENV['RACK_ENV'] != 'production'
+# if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'
   require './app/app.rb'
   require 'data_mapper'
 
-  RSpec::Core::RakeTask.new :spec
+  # RSpec::Core::RakeTask.new :spec
 
   namespace :db do
 
