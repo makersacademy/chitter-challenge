@@ -3,15 +3,22 @@
 <ul id="peeps">
   <% @peeps.each do |peep| %>
   <li>
-  <%= peep.peep %>
+  
+  Message: <%= peep.peep %>
+  </li>
+  <li id="time">
+  Time: <%= peep.created_at %>
   </li>
   <% end %>
-</ul>
+  </ul>
 
 <form action="/new_peep" method="get">
   <input type="submit" value="Add Peep" >
 </form>
 
-<!-- <form action='/log_out' method='get'>
-  <input type="submit" value="Log Out">
-</form> -->
+<form action="/change_order" method="get">
+  <input type="submit" value="Oldest First" >
+</form>
+
+<form action="/" method="get">
+  <input type="submit" value="Newest First" >

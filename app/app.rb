@@ -15,7 +15,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Hello Chitter!'
+    @peeps = Peep.all.reverse
+    erb :peep_board
   end
 
   get '/log_in' do
@@ -26,7 +27,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:user_name], params[:password])
       if user
         session[:user_id] = user.id
-        redirect '/peep_board'
+        redirect '/'
       else
         redirect '/log_in'
       end
@@ -50,23 +51,31 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/peep_board' do
-    @peeps = Peep.all
-    # binding.pry
-    erb :peep_board
-  end
-
   get '/new_peep' do
-    erb :new_peep
+    if session[:user_id] == nil
+      redirect '/log_in'
+    else
+      erb :new_peep
+      end
   end
 
   post '/peeps' do
     @peeps = Peep.create(peep: params[:peep])
-    redirect '/peep_board'
+    redirect '/'
+  end
+
+  get '/change_order' do
+    @peeps = Peep.all
+    erb :peep_board
   end
 
   get '/log_out' do
     erb :log_out
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/log_in'
   end
 
   helpers do

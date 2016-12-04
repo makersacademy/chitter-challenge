@@ -11,6 +11,7 @@ require './app/app'
 require 'database_cleaner'
 require 'web_helper'
 
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|

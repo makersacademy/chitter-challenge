@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative './data_mapper_setup'
+require 'dm-timestamps'
 # require_relative './user'
 
 class Peep
@@ -11,6 +12,7 @@ class Peep
 
   property :id, Serial
   property :peep, String
+  property :created_at, DateTime
 
 end
 

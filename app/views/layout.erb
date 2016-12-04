@@ -2,12 +2,17 @@
 <html>
   <head>
     <title>Chitter</title>
+    <!-- /*<style="text/css">
+      .time {
+        list-style-type: none,
+      }
+    </style>*/ -->
   </head>
   <body>
     <% if current_user %>
       Welcome <%= current_user.name %>
-      <form action='/log_out' method='get'>
-        <input type="hidden" name="_method" value="delete"> 
+      <form action='/sessions' method='post'>
+        <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Log Out">
       </form>
     <% end %>

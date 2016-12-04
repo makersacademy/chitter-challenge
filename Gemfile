@@ -13,6 +13,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'dm-transactions'
+gem 'orderly'
 
 group :test do
   gem 'rspec'
