@@ -13,15 +13,15 @@
             <form action="/users" method="POST">
               <tr>
                 <td>Email:</td>
-                <td><input type="email" name="email" value="<%=@user.email %>" autofocus/></td>
+                <td><input type="email" name="email" value="<%=@user.email %>" required autofocus/></td>
               </tr>
               <tr>
                 <td>Password:</td>
-                <td><input type="password" name="password" /></td>
+                <td><input type="password" name="password" required/></td>
               </tr>
               <tr>
                 <td>Password:</td>
-                <td><input type="password" name="password_confirmation" /></td>
+                <td><input type="password" name="password_confirmation" required/></td>
               </tr>
               <tr>
                 <td colspan="2" align="center"><input type="submit" value="Sign up"></td>
