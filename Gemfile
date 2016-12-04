@@ -20,4 +20,5 @@ group :test do
   gem 'rspec-sinatra'
   gem 'dm-rspec'
   gem 'rack-test'
+  gem 'pry'
 end

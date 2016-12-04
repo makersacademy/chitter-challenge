@@ -3,13 +3,9 @@
 <h2> Peep </h2>
 
 <form id='peep' action="/peep" method="post">
-  <label for="name">
-    Name
-  <input type="text" name="name" autofocus>
-  </label>
   <label for="message">
     Enter message
-    <input type="text" name="message" >
+    <input type="text" name="message" maxlength="13">
   </label>
   <input type="submit" value="Peep">
 </form>

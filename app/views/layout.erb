@@ -3,23 +3,45 @@
   <head>
     <title>Chitter</title>
   </head>
+  <a href='/'>
+    <img src="../images/logo.jpg">
+  </a>
 
   <body>
-    <% if flash[:errors] %>
+    <font color="red">
+      <% if flash[:errors] %>
       <div id='error'><%= flash[:errors] %></div>
     <% end %>
+    </font>
 
     <% if flash[:notice] %>
+    <font color="blue">
       <div id='notice'><%=flash[:notice]%> </div>
     <% end %>
+    </font>
 
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign Out'>
-      </form>
-    <% end %>
+    <div><% if current_user %>
+        Welcome, <%= current_user.email %>
+        <form method='get' action='/peep'>
+          <input type='hidden' name='_method'>
+          <input type='submit' value='New Peep'>
+        </form>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign Out'>
+        </form>
+      <% else %>
+        <form method='get' action='/sessions/new'>
+          <input type='hidden' name='_method'>
+          <input type='submit' value='Sign In'>
+        </form>
+        <form method='get' action='/users/new'>
+          <input type='hidden' name='_method'>
+          <input type='submit' value='Sign Up'>
+        </form>
+
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

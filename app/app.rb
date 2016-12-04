@@ -46,15 +46,23 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb(:'links/messages')
+    @peeps = Peep.all
+    erb(:'links/peeps')
   end
 
   get '/peep' do
-
-    erb(:'links/peep')
+    current_user
+    if @current_user
+      erb(:'links/peep')
+    else
+      flash.now[:errors] = ['Please sign in first to Peep']
+      erb :'sessions/new'
+    end
   end
 
   post '/peep' do
+    current_user
+    peep = Peep.create(:user_id => @current_user.id, :message => params[:message])
     redirect '/peeps'
   end
 
