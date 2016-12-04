@@ -8,6 +8,7 @@
     <div id='notice'><%= flash[:error_3] %></div>
   <% end %>
 
+<div id="sign_in">
 <form action='/existing_user' method="post">
   <lable for="user_name"> User Name: </lable>
     <input type="user_name" name="user_name" placeholder="Please enter your user name" required>
@@ -18,3 +19,4 @@
 <form action='/sign_up' method='get'>
   <input type="submit" value="Sign Up">
 </form>
+</div>

@@ -2,23 +2,120 @@
 <html>
   <head>
     <title>Chitter</title>
-    <!-- /*<style="text/css">
-      .time {
-        list-style-type: none,
+    <style type="text/css">
+      h1
+      {
+        text-align: center;
       }
-    </style>*/ -->
+      h3
+      {
+        text-align: center;
+      }
+      #button1
+        {
+           border: none;
+           color: white;
+           padding: 20px 32px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 16px;
+           margin: -20px -50px;
+           position: relative;
+           top:100%;
+           left:33%;
+        }
+        #button2
+          {
+             border: none;
+             color: white;
+             padding: 20px 32px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+             margin: -20px -50px;
+             position: relative;
+             top:100%;
+             left:38%;
+          }
+        #button3
+          {
+            border: none;
+             color: white;
+             padding: 20px 32px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+             margin: -20px -50px;
+             position: relative;
+             top:100%;
+             left:43%;
+        }
+        #button4
+          {
+            border: none;
+           color: white;
+           padding: 20px 32px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 16px;
+           margin: -20px -50px;
+           position: relative;
+           top:100%;
+           left:48%;
+            }
+        #button5
+            {
+              border: none;
+              color: white;
+              padding: 20px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: -20px -50px;
+              position: relative;
+              top:100%;
+              left:53%;
+            }
+      #peep
+        {
+        list-style-type: none;
+        margin: 30px;
+        border: groove;
+        display: block;
+        border-width: 5px;
+        width: 40%;
+        height: 80px;
+        text-align: center;
+        float: left;
+        }
+      #post_peep
+        {
+          text-align: center;
+        }
+      #sign_in
+      {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
+    <header>
     <% if current_user %>
-      Welcome <%= current_user.name %>
+      <h1> Welcome <%= current_user.name.capitalize %> <h1>
+      <form action="/" method="get">
+        <input type="submit" value="Home Page" >
+      </form>
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <input type="submit" value="Log Out">
       </form>
-      <form action="/" method="get">
-        <input type="submit" value="Home Page" >
-      </form>
     <% end %>
     <%= yield %>
+  </header>
   </body>
 </html>

@@ -4,20 +4,22 @@
   <div id='notice'><%= flash[:error_2] %></div>
 <% end %>
 
+<div id="controlls">
 <form action="/new_user" method="post">
+  <div>
   <label for="name"> Name: </label>
-    <input type="text" name="name" placeholder="Please enter name" required>
+    <input type="text" name="name" size="50"placeholder="Please enter name" required>
   <label for="user_name"> User Name: </label>
-    <input type="text" name="user_name" placeholder="Please enter user name" required>
+    <input type="text" name="user_name" size="50" placeholder="Please enter user name" required>
   <label for="email"> Email Address: </label>
-    <input type="email" name="email" placeholder="Please enter your email" required>
+    <input type="email" name="email" size="50" placeholder="Please enter your email" required>
   <label for="password"> Password: </label>
-    <input type="password" name="password" placeholder="Please enter a password" required>
+    <input type="password" name="password" size="50" placeholder="Please enter a password" required>
   <label for="password_confirmation"> Confirm Password: </label>
-    <input type="password" name="password_confirmation" placeholder="Please confirm your password" required>
+    <input type="password" name="password_confirmation" size="50" placeholder="Please confirm your password" required>
     <input type="submit" value="Sign Up">
+  <form action="/log_in" method="get">
+    <input type="submit" value="Log In" >
 </form>
-
-<form action="/log_in" method="get">
-  <input type="submit" value="Log In" >
+  </div>
 </form>
