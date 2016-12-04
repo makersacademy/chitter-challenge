@@ -30,7 +30,7 @@ feature 'User signs up' do
   end
 
   scenario "the user is already signed up" do
-    sign_up
+    User.create(name: 'test', email: 'test@test.com', password: 'password01', password_confirmation: 'password01')
     expect { sign_up }.not_to change(User, :count)
     expect(page).to have_content("Email is already taken")
   end

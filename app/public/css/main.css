@@ -2,7 +2,7 @@
 
 html {
   color: #222;
-  font-size: 2em;
+  font-size: 1em;
   line-height: 1.4;
   font-weight: 500;
   height: 100%;
@@ -37,7 +37,7 @@ body {
   height: 100%;
 }
 
-button {
+input[type=submit] {
   display: inline-block;
   color: #666;
   background-color: #eee;

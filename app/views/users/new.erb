@@ -1,5 +1,8 @@
 <h1> Sign up </h1>
+<% if current_user %>
+You are already signed in. Sign out to create a new account.
 
+<% else %>
 <form action='/users' method='post'>
   <label for='name'> What should we call you?</label>  <input type='text' name='name' value='<%= @user.name %>' required>
   <br>
@@ -11,3 +14,4 @@
   <br>
   <input class='button' type='submit' value='Sign up'>
 </form>
+<% end %>

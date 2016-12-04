@@ -8,4 +8,13 @@ scenario 'signs in correctly' do
   expect(page).to have_content "Welcome, #{user.name}"
 end
 
+scenario 'a user can not sign up when signed in' do
+  sign_in(email: user.email, password: user.password)
+  visit '/users/new'
+  expect(page).to have_content("You are already signed in")
+  expect(page).not_to have_content("What should we call you?")
+
+end
+
+
 end
