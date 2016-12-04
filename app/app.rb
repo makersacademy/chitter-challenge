@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -26,6 +27,14 @@ class Chitter < Sinatra::Base
   post '/peep' do
     @peep = Peep.create(params[:peep])
     redirect '/'
+  end
+
+  get '/log-in/new' do
+    erb :log_in
+  end
+
+  post 'signed-in' do
+
   end
 
   # start the server if ruby file executed directly
