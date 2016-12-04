@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  enable :sessions
 
   get '/' do
     'Hello Chitter!'
@@ -22,7 +23,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_in' do
-    redirect ('/peeps')
+    user = User.authenticate(params[:email],params[:password])
+    if user
+      redirect ('/peeps')
+    else
+      flash.now[:notice] = "The password is not correct!"
+      erb :log_in
+    end
   end
 
 
@@ -32,11 +39,19 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:confirm_password] )
 
     if @user.save
+      session[:id] = @user.id
       redirect ('/peeps')
     else
       flash.now[:errors]
       erb :sign_up
     end
+  end
+
+  helpers do
+    def get_user_id
+      @user ||= User.get(session[:id])
+    end
+
   end
 
   get '/peeps' do

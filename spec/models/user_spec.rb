@@ -10,7 +10,6 @@ describe User do
     it "returns the user if the password is correct" do
 
       authenticated_user = User.authenticate(user.email, user.password)
-      require 'pry'; binding pry
       expect(authenticated_user).to eq user
     end
 
