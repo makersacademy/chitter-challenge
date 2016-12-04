@@ -8,7 +8,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :email, Text
+  property :email, String
   property :name, String
   property :handle, String
   property :password_hash, Text
@@ -30,6 +30,7 @@ class User
   end
 
   def password=(password)
+    @password = password
     self.password_hash = BCrypt::Password.create(password)
   end
 

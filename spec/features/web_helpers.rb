@@ -1,4 +1,4 @@
-def sign_up
+def sign_up(email: 'test@test.co.uk', password: 'password1234', password_confirm: 'password1234')
   visit '/sign_up'
   expect(page.status_code).to eq(200)
   fill_in :email, with: email
