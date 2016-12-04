@@ -10,7 +10,7 @@ require 'rspec'
 require './app/models/user'
 require './app/models/peep'
 require 'database_cleaner'
-require_relative './features/web_helper'
+require_relative './helpers/session'
 
 
 Capybara.app = Chitter
@@ -34,7 +34,7 @@ Capybara.app = Chitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
-
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
