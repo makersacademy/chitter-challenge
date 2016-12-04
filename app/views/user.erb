@@ -1,5 +1,5 @@
 <% if current_user %>
-<h2>Welcome <%= current_user.user_name %></h2>
+<h2 class="welcome">Welcome <%= current_user.user_name %></h2>
 <% end %>
 <div class="details">
   <form action="/peeps" method="post">

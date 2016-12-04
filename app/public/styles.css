@@ -72,6 +72,7 @@ input[type=text] {
       border-bottom: 2px solid red;
       outline: none;
       margin: 15px 0px;
+      padding: 5px;
 }
 
 input[type=email] {
@@ -80,6 +81,7 @@ input[type=email] {
       border-bottom: 2px solid red;
       outline: none;
       margin: 15px 0px;
+      padding: 5px;
 }
 
 input[type=password] {
@@ -88,6 +90,7 @@ input[type=password] {
       border-bottom: 2px solid red;
       outline: none;
       margin: 15px 0px;
+      padding: 5px;
 }
 
 .access {
@@ -104,6 +107,10 @@ input[type=password] {
     text-decoration: none;
     margin: 10px 2px;
     cursor: pointer;
+}
+
+.welcome {
+  text-align: center;
 }
 
 .comment {
