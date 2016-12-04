@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'data_mapper'
 require 'pry'
 require_relative 'models/user.rb'
@@ -10,6 +11,7 @@ require_relative 'data_mapper_setup.rb'
 class Chitter < Sinatra::Base
 
   use Rack::MethodOverride
+  register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -29,6 +31,7 @@ class Chitter < Sinatra::Base
         session[:user_id] = user.id
         redirect '/'
       else
+        flash.next[:error_1] = "Your details are incorrect, please try again or sign up"
         redirect '/log_in'
       end
   end
@@ -48,12 +51,14 @@ class Chitter < Sinatra::Base
       session[:name] = @user.name
       redirect '/new_peep'
     else
+      flash.next[:error_2] = "This user already exist"
       redirect '/sign_up'
     end
   end
 
   get '/new_peep' do
     if session[:user_id] == nil
+      flash.next[:error_3] = "Please log in first"
       redirect '/log_in'
     else
       erb :new_peep

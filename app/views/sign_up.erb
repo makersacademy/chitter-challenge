@@ -1,5 +1,9 @@
 <h3> Sign Up </h3>
 
+<% if flash[:error_2] %>
+  <div id='notice'><%= flash[:error_2] %></div>
+<% end %>
+
 <form action="/new_user" method="post">
   <label for="name"> Name: </label>
     <input type="text" name="name" placeholder="Please enter name" required>

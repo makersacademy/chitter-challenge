@@ -18,6 +18,7 @@ feature "Log in", type: :feature do
     expect{ fail_log_in }.not_to change(User, :count)
     expect(page.status_code).to eq 200
     expect(page).to have_content("Log In")
+    expect(page.current_path).to eq('/log_in')
   end
 end
 

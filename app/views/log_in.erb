@@ -1,5 +1,13 @@
 <h1> Log In </h1>
 
+  <% if flash[:error_1] %>
+    <div id='notice'><%= flash[:error_1] %></div>
+  <% end %>
+
+  <% if flash[:error_3] %>
+    <div id='notice'><%= flash[:error_3] %></div>
+  <% end %>
+
 <form action='/existing_user' method="post">
   <lable for="user_name"> User Name: </lable>
     <input type="user_name" name="user_name" placeholder="Please enter your user name" required>
