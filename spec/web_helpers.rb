@@ -1,23 +1,16 @@
-def sign_up
+def sign_up(firstname: 'John',
+			surname: 'Doe',
+			email: 'john@doe.com',
+			username: 'JayDawg',
+			password: 'password123',
+			password_confirmation: 'password123')
 	visit '/users/new'
 	expect(page.status_code).to eq(200)
-	fill_in 'firstname',  :with => 'John'
-	fill_in 'surname', :with => 'Doe'
-	fill_in 'email', :with => 'john@doe.com'
-	fill_in 'username', :with => 'JayDawg'
-	fill_in 'password', :with => 'password123'
-	fill_in 'password_confirmation', :with => 'password123'
-	click_button 'Sign Up!'
-end
-
-def invalid_sign_up
-	visit '/users/new'
-	expect(page.status_code).to eq(200)
-	fill_in 'firstname',  :with => 'John'
-	fill_in 'surname', :with => 'Doe'
-	fill_in 'email', :with => 'john@doe.com'
-	fill_in 'username', :with => 'JayDawg'
-	fill_in 'password', :with => 'password123'
-	fill_in 'password_confirmation', :with => 'password'
+	fill_in :firstname,  :with => firstname
+	fill_in :surname, :with => surname
+	fill_in :email, :with => email
+	fill_in :username, :with => username
+	fill_in :password, :with => password
+	fill_in :password_confirmation, :with => password_confirmation
 	click_button 'Sign Up!'
 end

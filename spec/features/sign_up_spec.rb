@@ -13,13 +13,17 @@ RSpec.feature 'account sign up', :type => :feature do
 	end
 
 	scenario 'user count does not increase when password confirmation is incorrect' do
-		expect { invalid_sign_up }.to change(User, :count).by(0)
+		expect { sign_up(password_confirmation: 'wrongpassword') }.not_to change(User, :count)
 	end
 
 	scenario 'user receives error when password confirmation is incorrect' do
-		invalid_sign_up
+		sign_up(password_confirmation: 'wrongpassword')
 		expect(page).to have_current_path('/users/add')
 		expect(page).to have_content('Password and confirmation password do not match')
+	end
+
+	scenario 'user cannot sign up without entering a firstname' do
+		expect { sign_up(firstname: nil) }.not_to change(User, :count)
 	end
 
 end
