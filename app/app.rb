@@ -3,6 +3,8 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user.rb'
+require_relative './models/peep.rb'
+
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -12,7 +14,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Hello Chitter!'
+    erb :index
   end
 
   get '/users/new' do
@@ -22,11 +24,21 @@ class Chitter < Sinatra::Base
   post '/users' do
     user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
       session[:user_id] = user.id
-      redirect('/peeps')
+      redirect('/peeps/new')
   end
 
-  get '/peeps' do
-    erb :peeps
+  get '/peeps/index' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/index' do
+    Peep.create(peep: params[:peep], :created_at => Time.now)
+    redirect '/peeps/index'
   end
 
   get '/session/new' do
@@ -37,17 +49,17 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/peeps')
+      redirect to('/peeps/index')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
+      erb :'session/new'
     end
   end
 
   delete '/session' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect to '/peeps'
+    redirect to '/peeps/index'
   end
 
   helpers do

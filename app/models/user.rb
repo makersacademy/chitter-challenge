@@ -13,6 +13,10 @@ class User
   property :name, String, required: true
 
 
+  DataMapper::Logger.new($stdout, :debug)
+  DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+  DataMapper.finalize
+  DataMapper.auto_upgrade!
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
@@ -20,17 +24,10 @@ class User
 
   def self.authenticate(email, password)
   user = first(email: email)
-  if user && BCrypt::Password.new(user.password_digest) == password
-    user
-  else
-    nil
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
   end
 end
-
-
-end
-
-DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!

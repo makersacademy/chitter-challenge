@@ -7,9 +7,6 @@
   <body>
     <% if current_user %>
     Welcome, <%= current_user.name %>
-    <% end %>
-    <% if current_user %>
-    Welcome, <%= current_user.email %>
     <form method='post' action='/session'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign Out'>
@@ -20,6 +17,7 @@
       <%= flash[:notice] %>
     </div>
     <% end %>
-    <%= yield %>
+
   </body>
+  <%= yield %>
 </html>

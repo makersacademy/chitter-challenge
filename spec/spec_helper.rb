@@ -5,6 +5,8 @@ require 'coveralls'
 require 'simplecov'
 require_relative './features/web_helpers.rb'
 require_relative '../app/models/user'
+require_relative '../app/models/peep'
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter

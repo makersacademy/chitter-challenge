@@ -1,2 +1,16 @@
 
 <h1>PEEPS</h1>
+  <ul id='peeps'>
+    <% if @peeps %>
+      <% @peeps.reverse.each do |peep| %>
+        <%= peep.peep %>
+        <br />
+      posted at: <%= peep.created_at.strftime('%d/%m/%Y %I:%M%p') %>
+        <br />
+      <% end %>
+    <% end %>
+    <form action="/peeps/new" method='get'>
+      <input type='submit' value='New Peep'/>
+    </form>
+
+  </ul>
