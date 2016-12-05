@@ -39,24 +39,20 @@ I want to see the time at which it was made
 
 Sign up by entering name, username, email and password. Email and username must be unique, and password must be confirmed
 
-![Imgur](http://i.imgur.com/2TmN2Qz.png)
+![Imgur](http://i.imgur.com/PhIZtCb.png)
 
 If you already have an account useer can simply sign in
 
-![Imgur](http://i.imgur.com/j4Nzswa.png)
+![Imgur](http://i.imgur.com/kafTCOb.png)
 
 Once signed in user can peep all they like! A welcome message is displayed upon sign ins
 
-![Imgur](http://i.imgur.com/VFutUWj.png)
+![Imgur](http://i.imgur.com/N96woBr.png)
 
 Click sign out to sign out...user will still be able to read peeps when they are not logged in. A goodbye message is displayed
 
-![Imgur](http://i.imgur.com/RlFIkAB.png)
+![Imgur](http://i.imgur.com/Nk2IKmb.png)
 
 ### Things still to do
 
-Need to display name and username alongside peeps
-
 Need to tidy up controller
-
-Need to sort out CSS
