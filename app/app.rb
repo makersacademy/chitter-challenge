@@ -18,7 +18,6 @@ class Chitter < Sinatra::Base
     "Hello Chitter"
   end
 
-
   register Sinatra::Flash
   use Rack::MethodOverride
   enable :sessions

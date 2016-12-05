@@ -1,6 +1,5 @@
 class Chitter < Sinatra::Base
 
-
   get '/sessions/new' do
      @user = User.new
     erb :log_in
@@ -17,8 +16,6 @@ class Chitter < Sinatra::Base
       redirect ('sessions/new')
     end
   end
-
-
 
   delete '/sessions' do
     session[:id] = nil

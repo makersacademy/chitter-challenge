@@ -1,18 +1,25 @@
-Chitter Clone
-=============
+Chitter Challenge
+=================
 
-Twitter clone that will allow the users to post messages to a public stream.
+Twitter clone that will allow users to post messages to a public stream.
 
 Features:
 ----------
-* Users sign up with an email, username and password
+* A user can sign up with an email, username and password to create an account.
 
-* Users create make a post by logging
+* Once logged in, users can create a post (or peep).
 
 * Users can log out so no more posts are made.
 
 * Anyone can view all of the posts on the 'peeps' page.
 
+* Only users that are logged in can create a post.
+
+
+Approach and Technologies used:
+-------------------------------
+
+This project uses Datamapper ORM to store instances of User and Peep the two classes as tables. Database cleaner wipes the database after each test is run and RACK switches the database depending whether the application is run in the development or test environment.
 
 Instructions and Installation:
 -------------------------------
@@ -23,19 +30,30 @@ Fork and clone this repo, then in the command prompt run the following:
 $ bundle
 ```
 
-This downloads all the necessary gemfiles. To launch in a browswer enter:
+You will then need to create two databases, you can do this using PostgreSQL by running the following. This downloads all the necessary Gems.
+
+```
+$ psql
+
+=# create database chitter_test
+=# create database chitter_development
+```
+
+To run the application enter:
 
 ```
 $ ruby app/app.rb
 ```
 
-Then visit http://localhost:4567
+then visit http://localhost:4567
 
 Screenshots:
 ------------
 
 ![alt tag](./welcome.png)
+
 ![alt tag](./log_in.png)
+
 ![alt tag](./peeps.png)
 
 
@@ -45,4 +63,4 @@ Further features to implement:
 
 * Users can reply to a post made on the peeps page
 
-* Work on the css to make it look good
+* Password recovery
