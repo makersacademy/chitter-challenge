@@ -1,11 +1,9 @@
 ENV['RACK_ENV'] ||='development'
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'dotenv'
+require_relative './models/data_mapper_setup'
 require_relative './models/tweet'
 require_relative './models/user'
-require_relative './models/data_mapper_setup'
-require 'pry'
 
 
 class Twitter < Sinatra::Base
@@ -58,7 +56,6 @@ class Twitter < Sinatra::Base
       session[:user_id]= @user.id
       redirect '/twitter'
     else
-      # flash.now[:notice] = "Cannot sign up: password and password confirmation do not match"
       flash.now[:errors] = @user.errors.full_messages
       erb :'sign_up'
     end

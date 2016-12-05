@@ -17,7 +17,6 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-require './app/models/tweet'
 require 'database_cleaner'
 
 Capybara.app = Twitter

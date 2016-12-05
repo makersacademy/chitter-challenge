@@ -10,6 +10,7 @@ How to use
 
 Clone this github repository
 Use bundle to install the gems needed for it work
+Create a database using psql called twitter_test and twitter_development
 Run the app using $ ruby app/app.rb
 Got to localhost:4567/twitter to view messages
 Go to localhost:4567/tweets/new to create new messages
@@ -22,6 +23,7 @@ Technologies used
 * capybara
 * sinatra
 * rake
+* heroku
 
 
 Areas that need more work
@@ -29,7 +31,7 @@ Areas that need more work
 2) No way to logout
 3) Is quite ugly
 4) Add time and username to each tweet
-5) Need to refactor into controllers
+5) Need to refactor app.rb into controllers
 
 
 Chitter Challenge
