@@ -2,7 +2,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all.reverse
-    erb(:peeps)
+    erb(:"peeps/peeps")
   end
 
   post '/peeps' do
@@ -13,14 +13,14 @@ class Chitter < Sinatra::Base
         redirect to("/peeps/#{peep.id}")
     else
         flash.now[:notice] = ["Peep could not be created"]
-        erb(:user)
+        erb(:"users/user")
     end
   end
 
   get '/peeps/:id' do
     @peep = Peep.get(params[:id])
     @comments = @peep.comments.reverse
-    erb(:peep)
+    erb(:"peeps/peep")
   end
 
 end

@@ -13,8 +13,7 @@ class Chitter < Sinatra::Base
 
   get '/comments/:id' do
     @comment = Comment.get(params[:id])
-    erb(:comment)
+    erb(:"comments/comment")
   end
-
 
 end

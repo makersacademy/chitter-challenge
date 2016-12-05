@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
       @user = User.get(params[:id])
       if current_user?(@user)
         @user = User.get(params[:id])
-        erb(:user)
+        erb(:"users/user")
       else
         flash.keep[:notice] = ["You can only access your own profile"]
         redirect to("/users/#{current_user.id}")

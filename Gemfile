@@ -13,6 +13,7 @@ gem "sinatra-flash"
 gem "mailgun-ruby"
 gem "dotenv"
 gem "rake"
+gem "sinatra-partial"
 
 group :test do
   gem 'rspec'
