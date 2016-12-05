@@ -1,4 +1,4 @@
-def sign_up(email: 'bryonywatson1@googlemail.com', password: 'lemons', name: 'Bryony Watson', username: 'bryorama', password_confirmation: 'lemons')
+def sign_up(email: 'bryony@bryony.com', password: 'lemons', name: 'Bryony Watson', username: 'bryorama', password_confirmation: 'lemons')
   visit '/users/new'
   expect(page.status_code).to eq(200)
   fill_in :email, with: email
