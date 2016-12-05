@@ -1,6 +1,6 @@
 require 'data_mapper'
 require './app/data_mapper_setup.rb'
-require './app/app.rb'
+
 
 ENV['RACK_ENV'] = "development"
 #   require 'rspec/core/rake_task'

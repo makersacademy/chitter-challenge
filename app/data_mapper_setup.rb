@@ -1,6 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'rake'
+require './app/app.rb'
+#require './spec/spec_helper.rb'
 
 require_relative 'models/user'
 require_relative 'models/peep'

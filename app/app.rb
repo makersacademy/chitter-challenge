@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-    @current_user ||= User.get(session[:user_id])
+    @current_user = User.get(session[:user_id])
     end
   end
 
@@ -44,7 +44,7 @@ end
 get '/home' do
   current_user
   @peeps = Peep.all.reverse.map {|a| [a.content, a.created_at]}
-  #require 'pry';binding.pry
+
   erb :'/peeps/home'
 end
 
@@ -56,8 +56,11 @@ post '/peep' do
   current_user
   p params
   peep = Peep.create(:content => params[:peep])
+  #require 'pry';binding.pry
   @current_user.peeps << peep
   @timestamp = peep.created_at
+  @current_user.save
+
 
   redirect'/home'
 end

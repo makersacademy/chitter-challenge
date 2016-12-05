@@ -8,9 +8,7 @@
 
       <h1>Chitter</h1>
       <br>
-      <% if @current_user %>
-      Hello <%= @current_user.first_name %>
-      <% end %>
+      Hello <%= session[:first_name] ||= ""%>
       <br>
       <br>
       <br>
