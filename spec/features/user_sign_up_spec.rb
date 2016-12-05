@@ -8,25 +8,19 @@ RSpec.feature 'User sign-up' do
 
   scenario "- fails if user does not enter email address" do
     expect{ new_user_sign_up(nil, '123secret', 'foo', 'Foo McFooface') }.not_to change(User, :count)
+    expect(page).to have_current_path('/users')
+    expect(page).to have_content("Email must not be blank")
   end
 
   scenario "- fails if user does not enter a password" do
     expect{ new_user_sign_up('foo@foo.com', nil, 'foo', 'Foo McFooface') }.not_to change(User, :count)
+    expect(page).to have_current_path('/users')
+    expect(page).to have_content("Password must not be blank")
   end
 
   scenario "- welcomes user by their name after sign-up is completed" do
     new_user_sign_up('foo@foo.com', '123secret', 'foo', 'Foo McFooface')
     expect(page).to have_content "Welcome, Foo McFooface!"
-  end
-
-  scenario "- keeps the user on the users page if they do not enter their details correctly" do
-    new_user_sign_up(nil, nil, nil, nil)
-    expect(page).to have_current_path('/users')
-  end
-
-  scenario "- shows the user an error if they fail to enter an email address" do
-    new_user_sign_up(nil, '123secret', 'foo', 'Foo McFooface')
-    expect(page).to have_content("Email must not be blank")
   end
 
   scenario "- prevents user from signing up if email address is already in use" do
