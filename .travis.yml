@@ -1,7 +1,7 @@
 rvm: '2.3.0'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
+  - bundle exec rspec spec
 
 before_install:
 - sed -i '2d' Gemfile
@@ -10,4 +10,4 @@ before_install:
 
 before_script:
   - psql -c 'create database chitter_test;' -U postgres
-  - rake db:auto_migrate RACK_ENV=test
+  - bundle exec rake db:auto_migrate RACK_ENV=test
