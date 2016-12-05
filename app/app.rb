@@ -14,19 +14,51 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
-    # @user = User.new
     erb(:signup)
   end
 
-  post '/home' do
-    User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    # require 'pry'; binding.pry
-    redirect '/home'
+  post '/signup' do
+    @user = User.create(name: params[:name],
+    username: params[:username],
+    email: params[:email],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      erb(:index)
+    end
   end
 
-  get '/home' do
-    @user = User.first(:email)
-    erb(:home)
+  # get '/home' do
+  #   @user = User.first(:email)
+  #   session[:user_id] = @user.id
+  #   erb(:home)
+  # end
+
+  # post '/signup' do
+  #   @user = User.create(name: params[:name],
+  #   username: params[:username],
+  #   email: params[:email],
+  #   password: params[:password],
+  #   password_confirmation: params[:password_confirmation])
+  #     if @user.save
+  #       session[:user_id] = user.id
+  #       redirect to('/')
+  #     else
+  #       erb(:index)
+  #     end
+  # end
+
+  get '/signin' do
+    erb(:signin)
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   # start the server if ruby file executed directly

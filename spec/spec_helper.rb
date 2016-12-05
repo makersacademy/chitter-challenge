@@ -3,7 +3,7 @@ require 'simplecov'
 require 'capybara'
 require 'rspec'
 require './app/models/user.rb'
-# require 'database_cleaner'
+require 'database_cleaner'
 require 'capybara/rspec'
 
 SimpleCov.formatters = [
