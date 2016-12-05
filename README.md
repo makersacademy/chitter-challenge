@@ -34,7 +34,7 @@ I want to see the time at which it was made
 
 ## Instructions of use:  
 
-Either go to chirper_pea.herokuapp.com and chirp away or:  
+Either go to chirper-pea.herokuapp.com and chirp away or:  
 
 1. Download or clone this repo  
 2. Run bundle in your command line like so:  
