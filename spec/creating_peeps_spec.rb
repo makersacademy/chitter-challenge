@@ -4,6 +4,8 @@ require "./app/models/peep"
 feature 'Adding new peeps' do
 
   scenario 'I can create a new peep' do
+    sign_up
+    log_in
     visit '/peeps/new'
     fill_in 'title', :with => 'Hello'
     fill_in 'message', :with => 'First peep, Ed Balls'

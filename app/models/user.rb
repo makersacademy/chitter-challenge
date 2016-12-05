@@ -12,32 +12,27 @@ class User
   property :name, String
   property :handle, String
   property :password_hash, Text
+
   attr_reader :password
   attr_accessor :password_confirm
 
+  has n, :peeps
+
   validates_confirmation_of :password, confirm: :password_confirm
-
   validates_format_of :email, as: :email_address
-
-  @@count = 0
-
-  def initialize(params)
-    self.email = params[:email]
-    self.password = params[:password]
-    self.password_confirm = params[:password_confirm]
-    self.name = params[:name]
-    self.handle = params[:handle]
-    self.save
-    @@count += 1
-  end
+  validates_presence_of :password
 
   def password=(password)
     @password = password
     self.password_hash = BCrypt::Password.create(password)
   end
 
-  def count
-    @@count
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_hash) == password
+      user
+    else
+      nil
+    end
   end
-
 end

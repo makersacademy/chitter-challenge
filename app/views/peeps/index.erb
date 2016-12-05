@@ -6,6 +6,8 @@
         <% @peeps.reverse.each do |peep| %>
         <li>
           <p id='peep-title'><strong>Title:</strong> <%= peep.title %> </p>
+          <p> <%= peep.user.name %> </p>
+          <p> <%= peep.created_at %> </p>
           <p id='peep-msg'><strong>Content:</strong></br> <%= peep.message %></p></br>
         </li>
         <% end %>
