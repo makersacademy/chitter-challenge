@@ -9,11 +9,11 @@ gem 'pry'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'pg'
+gem 'rake'
 
 group :test do
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'database_cleaner'
