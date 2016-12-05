@@ -13,7 +13,7 @@ Instructions
 * Run the app by typing in ```ruby app/chitter.rb```
 * You will have a clean slate, so sign up with as many users as you like, and post whatever you like!
 
-You can save some steps by navigating to http://chitter-pelensky.herokuapp.com/ to see a live version of this.
+You can save some steps by navigating to http://chitter-pelensky.herokuapp.com/ to see a live version of this. 
 
 The Task as described
 -------
