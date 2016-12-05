@@ -7,6 +7,7 @@ require_relative './models/user.rb'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb(:index)
