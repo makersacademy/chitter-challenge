@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 
 

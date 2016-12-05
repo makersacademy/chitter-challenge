@@ -4,7 +4,7 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  propery :content, Text
+  property :content, Text
   property :created_at, DateTime
 
   def self.all_in_reverse_order
