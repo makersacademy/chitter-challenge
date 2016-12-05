@@ -1,19 +1,19 @@
 # Chitter [![Build Status](https://travis-ci.org/TudorTacal/chitter-challenge.svg?branch=master)](https://travis-ci.org/TudorTacal/chitter-challenge)
 
-This project represents our forth weekend challenge at Makers Academy coding bootcamp.  
+This project represents our fourth weekend challenge at Makers Academy coding bootcamp.  
 
-Chitter is a **web app** that allows the users to post a message or peep and see a list of all existing peeps. A user can sign up, log in, log out, send a peep and see a list of all peeps.
+Chitter is a **web app** used for cummunication. A user can sign up, log in, log out, send a peep(message) and see a list of all peeps. The peep comes with the date of creation, name and username of the maker.
 
 ### Technologies used
 
-* Sinatra for running a local server.
-* Heroku for cloud deployment.
-* BCrypt for password hashing.
-* PostgresSQL as database.
-* DataMapper as object-relational mapping for database interaction.
-* Capybara and Rspec for testing.
-* DatabaseCleaner for database upgrading and migration.
-* Rake for automating tasks.
+* **Sinatra** for running a local server.
+* **Heroku** for cloud deployment.
+* **BCrypt** for password hashing.
+* **PostgresSQL** as database.
+* **DataMapper** as object-relational mapping for database interaction.
+* **Capybara** and **Rspec** for testing.
+* **DatabaseCleaner** for database upgrading and migration.
+* **Rake** for automating tasks.
 
 ### Installation and Use
 
