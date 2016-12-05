@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 require_relative 'helpers'
 
@@ -19,8 +20,11 @@ class Chitter < Sinatra::Base
   end
 
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::MethodOverride
   enable :sessions
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   helpers Helpers
 

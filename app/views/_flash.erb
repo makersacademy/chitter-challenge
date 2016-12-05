@@ -1,0 +1,12 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Your account was not created for the following reasons:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= puts error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
