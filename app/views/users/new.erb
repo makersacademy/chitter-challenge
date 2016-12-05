@@ -4,9 +4,9 @@ You are already signed in. Sign out to create a new account.
 
 <% else %>
 <form action='/users' method='post'>
-  <label for='name'> What should we call you?</label>  <input type='text' name='name' value='<%= @user.name %>' required>
+  <label for='name'> What should we call you?</label>  <input type='text' name='name'  required>
   <br>
-  <label for='email'> What is your email address? </label>  <input type='email' name='email' value='<%= @user.email %>' required>
+  <label for='email'> What is your email address? </label>  <input type='email' name='email'  required>
   <br>
   <label for='password'> What will your password be?</label>  <input type='password' name='password' required>
   <br>
