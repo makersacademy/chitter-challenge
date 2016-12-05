@@ -9,7 +9,7 @@ feature "Signing in" do
   scenario "providing the wrong password does not log the user in" do
     sign_up
     incorrect_log_in
-    expect(current_path).to eq "/log_in"
+    expect(current_path).to eq "/sessions/new"
     expect(page).to have_content("Please enter your password!")
   end
 end

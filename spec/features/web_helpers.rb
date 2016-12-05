@@ -1,5 +1,5 @@
 def sign_up
-  visit('/sign_up')
+  visit('/users/new')
   fill_in 'name', :with => "Samuel"
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'username', :with => "sam123"
@@ -9,7 +9,7 @@ def sign_up
 end
 
 def invalid_email_sign_up
-  visit('/sign_up')
+  visit('/users/new')
   fill_in 'name', :with => "Samuel"
   fill_in 'email', :with => "a!@1"
   fill_in 'username', :with => "sam123"
@@ -18,7 +18,7 @@ def invalid_email_sign_up
 end
 
 def no_password_sign_up
-  visit('/sign_up')
+  visit('/users/new')
   fill_in 'name', :with => "Samuel"
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'username', :with => "sam123"
@@ -26,7 +26,7 @@ def no_password_sign_up
 end
 
 def wrong_password_confirmation
-  visit('/sign_up')
+  visit('/users/new')
   fill_in 'name', :with => "Samuel"
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'username', :with => "sam123"
@@ -36,15 +36,15 @@ def wrong_password_confirmation
 end
 
 def correct_log_in
-  visit("/log_in")
+  visit("/sessions/new")
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'password', :with => "password"
   click_button('log-in')
 end
 
 def incorrect_log_in
-  visit('log_in')
-  visit("/log_in")
+  # visit('log_in')
+  visit('/sessions/new')
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'password', :with => "pass"
   click_button('log-in')
