@@ -1,9 +1,11 @@
 feature "User login" do
-  let!(:user) { User.create(email: "keomony@gmail.com", password: "this is password")}
+  before do
+    sign_up(email: "keomony@gmail.com", password: "this is password", password_confirmation: "this is password")
+  end
 
-    xscenario "with correct credentials" do
-      login(email: user.email, password: "this is password")
-      expect(page).to have_content "Welcome, #{user.email}"
+    scenario "with correct credentials" do
+      login(email: "keomony@gmail.com", password: "this is password")
+      expect(page).to have_content "Welcome, keomony@gmail.com"
     end
 
 end

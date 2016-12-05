@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
+require 'pry'
 
-group :development do
   gem 'sinatra'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
@@ -9,7 +9,7 @@ group :development do
   gem 'rake'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
-end
+
 
 group :test do
   gem 'rspec'
