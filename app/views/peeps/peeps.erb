@@ -11,3 +11,11 @@
 
   </form>
 <% end %>
+
+<div class="peep_feed">
+  <ul>
+  <% Peep.each do |peep| %>
+    <li><%= peep.message %></li>
+  <% end %>
+  </ul>
+</div>
