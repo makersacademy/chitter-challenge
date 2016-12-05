@@ -1,7 +1,3 @@
-require './spec/helpers/web_helper'
-require './app/models/user'
-require 'spec_helper'
-
 describe User do
 
   let!(:user) do
