@@ -15,6 +15,7 @@ feature "Logging out:" do
       username: user.username,
       password: user.password
     )
+    expect(current_path).to eq '/peeps'
     click_button("Log out")
     expect(page).to have_content("Log out successful. See you soon!")
     expect(page).not_to have_content("Welcome to chitter #{user.username}")
