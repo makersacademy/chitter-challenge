@@ -1,7 +1,23 @@
 Chitter Challenge
 =================
 
-Settings to play
+![Chitter_peep](https://github.com/fenglish/images/blob/master/chitter_5.png)
+
+
+Technology for this App
+-------
+For storing data
+- DataMapper
+- Postgres
+- Bcrypt for encrypting passwords
+
+For tests
+- Rspec
+- Capybara
+- Database Cleaner
+
+
+Settings to use
 -------
 
 1. Clone this repository to your local
