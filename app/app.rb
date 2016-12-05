@@ -9,7 +9,7 @@ require_relative './models/user'
 class Twitter < Sinatra::Base
 
   register Sinatra::Flash
-  # use Rack::MethodOverride
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -66,9 +66,17 @@ class Twitter < Sinatra::Base
   end
 
   post '/twitter' do
-    Tweet.create(message: params[:message])
+    current_user
+    Tweet.create(message: params[:message], :user_id =>@current_user.id)
     redirect '/twitter'
   end
+
+  delete '/session' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "You have signed out"
+    redirect '/twitter'
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0

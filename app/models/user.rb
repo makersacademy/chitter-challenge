@@ -8,6 +8,8 @@ class User
 
   include DataMapper::Resource
 
+  has n, :tweets
+
   property :id, Serial
   property :email, String, :required => true, :format => :email_address, :unique => true
   property :username, String, :required => true, :unique => true

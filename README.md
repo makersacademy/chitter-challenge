@@ -28,7 +28,6 @@ Technologies used
 
 Areas that need more work
 1) No one to many relationship between tweets and users
-2) No way to logout
 3) Is quite ugly
 4) Add time and username to each tweet
 5) Need to refactor app.rb into controllers
