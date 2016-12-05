@@ -2,8 +2,9 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
+
 require_relative 'data_mapper_setup'
-require 'pry'
 
 require_relative 'controllers/peep_controller'
 require_relative 'controllers/user_controller'
@@ -11,14 +12,15 @@ require_relative 'controllers/session_controller'
 
 class Chitter < Sinatra::Base
 
-  set :root, File.dirname(__FILE__)
-
-  use Rack::MethodOverride
-
-  register Sinatra::Flash
-
   enable :sessions
+  register Sinatra::Flash
+  register Sinatra::Partial
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
+  set :root, File.dirname(__FILE__)
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
