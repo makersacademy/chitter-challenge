@@ -20,7 +20,7 @@ require 'dm-postgres-adapter'
 
 require './app/app'
 require './app/models/user'
-require './spec/web_helper'
+require './spec/helpers/web_helper'
 
 Capybara.app = Chitter
 

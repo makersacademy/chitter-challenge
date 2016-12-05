@@ -1,4 +1,4 @@
-require 'web_helper'
+require './spec/helpers/web_helper'
 require './app/models/user'
 require 'spec_helper'
 

@@ -1,4 +1,4 @@
-require 'web_helper'
+require './spec/helpers/web_helper'
 
 feature 'a user can sign up, log in and go to the peeps page from the home page' do
 
