@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './app.rb'
+require './app/app.rb'
 
 if ENV['RACK_ENV'] != 'production'
   require 'rspec/core/rake_task'

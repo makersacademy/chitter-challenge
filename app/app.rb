@@ -4,8 +4,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user.rb'
 require_relative 'models/peep.rb'
-require './data_mapper_setup'
-require './helpers.rb'
+require_relative 'data_mapper_setup'
+require_relative 'helpers.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
