@@ -5,20 +5,20 @@
 
 <form action='/users/new' method='post'>
   <label for='name'>
-    Name: <input name='name' type='text' value='<%= @user.name %>' required>
-  </label>
+    Name:</br> <input name='name' type='text' value='<%= @user.name %>' required>
+  </label></br></br>
   <label for='username'>
-    Username: <input name='username' type='text' value='<%= @user.username %>' required>
-  </label>
+    Username:</br> <input name='username' type='text' value='<%= @user.username %>' required>
+  </label></br></br>
   <label for='email'>
-    Email: <input name='email' type='email' value='<%= @user.email %>' required>
-  </label>
+    Email: </br><input name='email' type='email' value='<%= @user.email %>' required>
+  </label></br></br>
   <label for='password'>
-    Password: <input name='password' type='password' required>
-  </label>
+    Password:</br> <input name='password' type='password' required>
+  </label></br></br>
   <label for='password_confirmation'>
-    Please confirm your password: <input name='password_confirmation' type='password' required>
-  </label>
+    Please confirm your password: </br><input name='password_confirmation' type='password' required>
+  </label></br></br>
   <input type='submit' value='Sign up'>
 </form>
 
