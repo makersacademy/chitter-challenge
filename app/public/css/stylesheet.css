@@ -1,0 +1,16 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
+}
+
+body {
+  background: #82BFFA;
+  text-align: center;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+
+}

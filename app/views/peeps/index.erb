@@ -1,4 +1,14 @@
+
+<body>
+<% if !current_user %>
+  It looks like you're not logged in. To post a peep, please <a href='/sessions/new'>log in</a> or <a href='/users/new'> sign up </a>.
+<% end %>
+
 <h1> Peeps </h1>
+
+<% if current_user %>
+  <a href='/peeps/new'> Post a peep </a>
+<% end %>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
@@ -9,3 +19,4 @@
     </li>
   <% end %>
 </ul>
+</body>
