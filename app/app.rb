@@ -52,15 +52,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @user_peep = Peep.create(author: (session[:user]).name,
-                            time: Time.new,
-                            body: params[:peep_field])
+    @user_peep = Peep.new(time: Time.new,
+                          body: params[:peep_field],
+                          user_id: session[:user].id)
     @user_peep.save
     redirect to('/peeps')
   end
 
   get ('/peeps') do
-    @all_peeps = Peep.all.map { |record| [record.body, record.author, record.time] }
+    @all_peeps = Peep.all.map { |record| [record.body, record.time] }
     @all_peeps = @all_peeps.join("<br>")
     @user_logged_in = session[:user]
     erb :peep_board
