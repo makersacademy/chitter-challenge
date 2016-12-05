@@ -1,5 +1,3 @@
-require 'web_helper'
-
 feature 'a new user can sign up to chitter' do
 
   scenario 'a new user signs up' do

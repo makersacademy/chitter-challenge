@@ -5,14 +5,14 @@ require 'spec_helper'
 describe User do
 
   let!(:user) do
-    User.create(name: 'Chaos Theory',
-                user_name: 'Wunderkind',
-                email: 'wunderkind@shaper.com',
-                password: 'netrunner3')
+    User.create(name: 'Kate McCaffrey',
+                user_name: 'Mac',
+                email: 'mac@shaper.com',
+                password: 'netrunner1')
   end
 
   it 'will authenticate when a user enters the correct email address and password' do
-    authenticated_user = User.authenticate(user.email, user.password)
+    authenticated_user = User.authenticate('mac@shaper.com', 'netrunner1')
     expect(authenticated_user).to eq user
   end
 

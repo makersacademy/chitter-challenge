@@ -1,5 +1,7 @@
 
 require 'bcrypt'
+require 'data_mapper'
+require 'dm-postgres-adapter'
 
 class User
   include DataMapper::Resource
@@ -20,7 +22,7 @@ class User
 
   def self.authenticate(email, password)
     user = first(email: email)
-    if user && Bcrypt::Password.new(user.password_digest) == password
+    if user && BCrypt::Password.new(user.password_digest) == password
       user
     else
       nil

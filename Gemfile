@@ -8,7 +8,6 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'makersinit'
-gem 'rake'
 gem 'pg'
 
 group :test do
@@ -20,4 +19,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'rake'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
