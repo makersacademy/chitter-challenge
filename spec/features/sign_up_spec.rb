@@ -12,7 +12,7 @@ feature "When signing up" do
   end
 
   scenario "a user can't sign up with a blank user name" do
-    expect{sign_up(user_name: "")}.not_to change{User.count}
+    expect{sign_up(username: "")}.not_to change{User.count}
   end
 
   scenario "a user can't sign up with an invalid email" do
@@ -33,6 +33,6 @@ feature "When signing up" do
   scenario "a user can't sign up with a username already taken" do
     sign_up
     expect{sign_up(email: "test@test.com")}.not_to change{User.count}
-    expect(page).to have_content("User name is already taken")
+    expect(page).to have_content("Username is already taken")
   end
 end

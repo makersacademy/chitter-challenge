@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-      @user = User.new(email: params[:email], name: params[:name], user_name: params[:user_name], password: params[:password], password_confirmation: params[:password_confirmation])
+      @user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
       if @user.save
         log_in(@user)
       else
@@ -102,7 +102,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions/new' do
-    user = User.first(user_name: params[:user_name])
+    user = User.first(username: params[:username])
       if user
         if user.authenticated?(params[:password])
           log_in(user)
