@@ -10,7 +10,10 @@ class Chitter < Sinatra::Base
   set :session_secret, "himitsu"
   register Sinatra::Flash
   set :method_override, true
-  { :expires => Time.now + 3600 }
+  set :public_folder, Proc.new { File.join(root, 'static') }
+  set(:cookie_options) do
+      { :expires => Time.now + 3600 }
+    end
 
   get '/' do
     erb :index
