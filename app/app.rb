@@ -5,13 +5,19 @@ require './app/models/user.rb'
 require './app/models/peep.rb'
 require './app/data_mapper_setup.rb'
 require 'sinatra/flash'
+require 'sinatra/partial'
 
 class Chitter < Sinatra::Base
-  register Sinatra::Flash
-  use Rack::MethodOverride
+
 
   enable :sessions
+  register Sinatra::Flash
+  register Sinatra::Partial
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
@@ -42,7 +48,7 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       session[:username] = @user.username
-      redirect to('/peeps')
+      redirect to('/')
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
@@ -58,16 +64,11 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/peeps')
+      redirect to('/')
     else
       flash.now[:errors] = ["The email or password is incorrect"]
       erb :index
     end
-  end
-
-  get '/peeps' do
-    @peeps = Peep.all(:order => :created.desc)
-    erb :peeps
   end
 
   get '/peeps/new' do
@@ -77,11 +78,10 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     the_peep = params[:peep]
-    time = Time.now.strftime('%H:%M')
     @user.peeps << Peep.create(content: the_peep,
-                               created: time)
+                               created: Time.now.strftime("%H:%M"))
     @user.save
-    redirect to('/peeps')
+    redirect to('/')
   end
 
   delete '/session' do

@@ -58,16 +58,8 @@ input:valid {
 </header>
 
 <article>
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <form action='/session' method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Logout">
-  </form>
-  <form action='/peeps/new' method="get">
-    <input type="submit" value="Post a Peep">
-  </form>
-<% end %>
+<%= partial :welcome %>
+
 
 <% if flash[:notice] %>
  <div id='notice'>
