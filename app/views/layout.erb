@@ -9,7 +9,7 @@
 
 <body>
   <% if current_user %>
-  <h1> Welcome, <%= current_user.email %> <h1>
+  <h2> Welcome, <%= current_user.email %> <h2>
   <% end %>
 
   <% if flash[:errors] && !flash[:errors].empty? %>

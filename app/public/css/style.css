@@ -5,6 +5,16 @@ body {
 h1 {
     color: navy;
     margin-left: 20px;
+    font-size: 80px;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+	  font-weight: 500;
+}
+
+h2 {
+    color: navy;
+    margin-left: 20px;
+    font-family: "Arial", Arial, sans;
+    font-size: 30px;
 }
 
 body { text-align: center }
