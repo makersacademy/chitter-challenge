@@ -9,7 +9,7 @@
 <tr>
   <td><a href="/peeps/<%= peep.id %>"><%= peep.content %></a></td>
   <td><%= peep.user.username %></td>
-  <td><%= peep.created_at.strftime('%l:%M%P ') %> on <%= peep.created_at.strftime('%e %b %Y') %></td>
+  <td><%= peep.created_at.strftime('%l:%M%P on %e %b %Y') %></td>
 </tr>
 <% end %>
 </table>
