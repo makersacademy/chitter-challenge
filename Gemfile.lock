@@ -172,6 +172,7 @@ DEPENDENCIES
   datamapper
   dm-postgres-adapter
   dm-validations
+  rack
   rake
   rspec
   rspec-sinatra
