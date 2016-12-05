@@ -1,9 +1,15 @@
-<form action='/users/verification' method='post'>
-  <input type='text' name='username' placeholder='Username' required>
-  <input type='password' name='password' placeholder='Password' requred>
-  <input type='submit' value='Sign In'>
-</form>
-Or if you don't have an account yet...
-<form action='/users/new' type='get'>
-  <input type='submit' value='Sign Up'>
-</form>
+<head>
+  <link rel='stylesheet' type='text/css' href='style.css' />
+</head>
+
+<body>
+  <form action='/users/verification' method='post'>
+    <input type='text' name='username' placeholder='Username' required>
+    <input type='password' name='password' placeholder='Password' requred>
+    <input type='submit' value='Sign In'>
+  </form>
+  Or if you don't have an account yet...
+  <form action='/users/new' type='get'>
+    <input type='submit' value='Sign Up'>
+  </form>
+</body>
