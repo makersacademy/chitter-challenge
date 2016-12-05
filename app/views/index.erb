@@ -1,8 +1,65 @@
 <html>
+  <head>
+  <style>
+  ul {
+    list-style-type: none;
+    background: #ccffff;
+    padding: 20px;
+    border-style: dotted;
+    line-height: 200%;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ff0000;
+    font-family: 'Verdana';
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+    font-family: "Arial";
+    font-size: 30px;
+  }
+
+  body {
+    font-family: "Arial";
+  }
+
+  div.header {
+    background color: "grey";
+    float: left;
+    clear: right;
+    width: 400px;
+    margin-left: 100px;
+  }
+
+  div.greeting {
+    margin-left: 50px;
+    float: right;
+    width: 300px;
+    background-color: #ff0000;
+    margin-right: 150px;
+  }
+
+  div.peeps {
+    float: right;
+    margin-right: 150px;
+    width: 300px;
+  }
+
+  img {
+    float: left;
+    width: 400px;
+  }
+
+  </style>
+  </head>
+
     <body>
 
       <div class="header">
-        <img src= "https://pmcdeadline2.files.wordpress.com/2016/07/logo-tv-logo.png" alt="logo" />
+        <img src= "http://drive.google.com/uc?export=view&id=0By1LQmtPc5fnRlpNQkthSW5VODA" alt="logo" />
         <h1> Welcome to Chitter!</h1>
       </div>
 
@@ -17,6 +74,7 @@
       <div class="peeps">
         <ul id='peeps'>
           <% @peeps.each do |peep| %>
+            <li> Peep all of your messages here!</li>
             <li> <%= peep.user_peep %> </li>
           <% end %>
         </ul>
