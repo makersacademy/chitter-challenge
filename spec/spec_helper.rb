@@ -19,12 +19,14 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative 'helpers/session'
+require_relative 'helpers/peeping'
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
 
   config.include SessionHelpers
+  config.include PeepHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

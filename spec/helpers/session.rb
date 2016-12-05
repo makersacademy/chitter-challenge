@@ -1,7 +1,8 @@
 module SessionHelpers
 
   def log_in(username: username, password: password)
-    visit '/sessions/new'
+    visit '/'
+    click_button('Log in')
     fill_in("username", with: username)
     fill_in("password", with: password)
     click_button("Submit")
