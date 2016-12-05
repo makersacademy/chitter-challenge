@@ -22,8 +22,6 @@ feature 'Viewing peeps' do
     new_peep = Peep.create(content: "New", :user => user)
     visit '/peeps'
     expect("New").to appear_before("Old")
-
-
   end
 
 end
