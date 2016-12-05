@@ -2,6 +2,7 @@ require 'spec_helper'
 require_relative '../web-helper'
 
 feature "First Page" do
+  include Helpers
   scenario "I want to be allowed to sign up" do
     visit '/'
     click_link "Sign Up"

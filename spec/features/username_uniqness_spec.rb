@@ -1,7 +1,7 @@
 require 'spec_helper'
-require_relative '../web-helper'
 
 feature 'Unique username' do
+  include Helpers
   scenario "I want to sign up witn a unique username" do
     def sign_up_same_username
       visit '/sign_up'

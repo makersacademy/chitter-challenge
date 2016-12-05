@@ -6,6 +6,8 @@ require_relative '../web-helper'
 # I want to see the time at which it was made
 
 feature "Peeps Time of Creation" do
+  include Helpers
+
   scenario "I want to see when a peep was made" do
     time = Time.now
     sign_up

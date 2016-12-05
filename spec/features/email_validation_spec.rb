@@ -1,7 +1,8 @@
 require 'spec_helper'
-require_relative '../web-helper'
+# require_relative '../web-helper'
 
 feature "Email validation" do
+  include Helpers
   scenario "I can't sign up without a proper email format" do
     wrong_email_sign_up
     expect{wrong_email_sign_up}.to_not change(User, :count)

@@ -11,6 +11,7 @@ require 'dm-rspec'
 require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
+require_relative 'web-helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

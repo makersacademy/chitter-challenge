@@ -1,11 +1,11 @@
 require 'spec_helper'
-require_relative '../web-helper'
 
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
 
 feature 'Display Peeps in chronological order' do
+  include Helpers
   scenario 'I want to see all peeeps in chronological order' do
     sign_up
     log_in

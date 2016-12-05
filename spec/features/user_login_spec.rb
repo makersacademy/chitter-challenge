@@ -6,6 +6,7 @@ require_relative '../web-helper'
 # I want to log in to Chitter
 
 feature "User Login" do
+  include Helpers
   scenario "I want to login with my credentials" do
     sign_up
     log_in

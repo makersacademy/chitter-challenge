@@ -6,6 +6,7 @@ require_relative '../web-helper'
 # I want to log out of Chitter
 
 feature "Log out" do
+  include Helpers
   scenario "I want to log out form the system" do
     sign_up
     log_in

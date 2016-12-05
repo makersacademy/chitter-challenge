@@ -1,7 +1,5 @@
 require 'spec_helper'
-require_relative '../web-helper'
-require_relative '../../app/app.rb'
-require_relative '../../app/models/user.rb'
+
 
 
 # As a Maker
@@ -9,6 +7,7 @@ require_relative '../../app/models/user.rb'
 # I want to sign up for Chitter
 
 feature 'sign up' do
+  include Helpers
   scenario "I want to sign up with email, password, name and username" do
     sign_up
     expect(page).to have_content "Welcome maker"

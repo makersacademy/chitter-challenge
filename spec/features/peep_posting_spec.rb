@@ -6,6 +6,7 @@ require_relative '../web-helper'
 # I want to post a message (peep) to chitter
 
 feature "Posting peeps" do
+  include Helpers
   scenario "I want to post a peep to chitter" do
       sign_up
       log_in
