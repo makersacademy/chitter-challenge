@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+
+      <h1>Chitter</h1>
+      <br>
+      Hello <%= session[:first_name] ||= ""%>
+      <br>
+      <br>
+      <br>
+    <%= yield %>
+  </body>
+</html>
