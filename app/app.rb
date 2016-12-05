@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   set :session_secret, "himitsu"
   register Sinatra::Flash
   set :method_override, true
+  { :expires => Time.now + 3600 }
 
   get '/' do
     erb :index
@@ -24,15 +25,15 @@ class Chitter < Sinatra::Base
       new_user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     else
       problem = User.exists?(params[:username], params[:email])
-      flash[:user_exists] = "'#{params[problem.to_sym]}' is taken already, please choose a different #{problem}."
+      flash.next[:error] = ["'#{params[problem.to_sym]}' is taken already, please choose a different #{problem}."]
       redirect to('/users/new')
     end
     if new_user.save
       session[:user_id] = new_user.id
-      flash[:welcome] = "Welcome to Chitter, #{params[:username]}!"
+      flash.next[:notice] = ["Welcome to Chitter, #{params[:username]}!"]
       redirect to('/dashboard')
     else
-      flash[:mismatch] = "Passwords don't match, try again"
+      flash.next[:error] = ["Passwords don't match, try again"]
       redirect to('/users/new')
     end
   end
@@ -45,22 +46,21 @@ class Chitter < Sinatra::Base
     user = User.login(params[:username], params[:password])
     if user
       session[:user_id] = user.id
-      flash[:login_succesful] = "Welcome back, #{params[:username]}!"
+      flash.next[:notice] = ["Welcome back, #{params[:username]}!"]
       redirect to('/dashboard')
     else
-      flash[:login_unsuccesful] = "Wrong username or password"
+      flash.next[:error] = ["Wrong username or password"]
       redirect to('sessions/new')
     end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:log_out] = "Good bye! We hope to see you again soon :)"
+    flash.keep[:notice] = ["Good bye! We hope to see you again soon :)"]
     redirect to('/')
   end
 
   get '/dashboard' do
-    flash[:welcome] = nil
     erb :dashboard
   end
 
@@ -70,9 +70,9 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     message = Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
-      if message
-        flash[:new_message] = "Your message has been posted."
-      else flash[:message_error] = "Something went wrong. Make sure you're logged in!"
+      if session[:user_id]
+        flash.next[:notice] = ["Your message has been posted."]
+      else flash.next[:error] = ["Something went wrong. Make sure you're logged in!"]
       end
       redirect to('/dashboard')
   end

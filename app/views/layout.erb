@@ -21,37 +21,18 @@
       </form>
       <% end %>
 
-    <% if flash[:welcome] %>
-      <div id='welcome'><%= flash[:welcome] %></div>
+      <form action="/messages/all" method="get">
+        <input type="submit" value="See all chirps!" />
+      </form>
+
+    <% if flash[:error] %>
+      <div id='error'><%= flash[:error].join(" ") %></div>
     <% end %>
 
-    <% if flash[:log_out] %>
-      <div id='log_out'><%= flash[:log_out] %></div>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice].join(" ") %></div>
     <% end %>
 
-    <% if flash[:mismatch] %>
-      <div id='mismatch'><%= flash[:mismatch] %></div>
-    <% end %>
-
-    <% if flash[:login_succesful] %>
-      <div id='login_succesful'><%= flash[:login_succesful] %></div>
-    <% end %>
-
-    <% if flash[:login_unsuccesful] %>
-      <div id='login_unsuccesful'><%= flash[:login_unsuccesful] %></div>
-    <% end %>
-
-    <% if flash[:user_exists] %>
-      <div id='user_exists'><%= flash[:user_exists] %></div>
-    <% end %>
-
-  <% if flash[:new_message] %>
-    <div id='new_message'><%= flash[:new_message] %></div>
-  <% end %>
-
-  <% if flash[:message_error] %>
-    <div id='message_error'><%= flash[:message_error] %></div>
-  <% end %>
     <%= yield %>
 
   </body>
