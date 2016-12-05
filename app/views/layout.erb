@@ -20,17 +20,30 @@
 
   <body>
     <div>
-      <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-      <% end %>
-
       <% if current_user %>
       <h1>Welcome, <%= current_user.email %></h1>
       <% end %>
+
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
       <%= yield %>
     </div>
     <div>
-    <img src='/images/chitter.jpeg'></a>
-  </div>
+      <img src='/images/chitter.jpeg'></a>
+    </div>
   </body>
   </html>
