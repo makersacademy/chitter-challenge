@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <link rel='stylesheet' type='text/css' href='normalize.css'/>
+    <link rel='stylesheet' type='text/css' href='/style.css'/>
+
+  </head>
+
+
+<body>
+
+<h1>sign up</h1>
+
+<form id="sign_up" action='/users' method=POST>
+  <label for="name">name <br>
+    <input class='form_field' type="text" name="name" required>
+  </label>
+  <br>
+  <label for="username">username <br>
+    <input class='form_field' type="text" name="username" required>
+  </label>
+  <br>
+  <label for="email">email <br>
+    <input class='form_field' type="email" name="email" required>
+  </label>
+  <br>
+  <label for="password">password <br>
+    <input class='form_field' type="password" name="password" required>
+  </label>
+  <br>
+  <label for="password_confirmation">confirm your password <br>
+    <input class='form_field' type="password" name="password_confirmation" required>
+  </label>
+  <br>
+  <input id='sign_up_button' class="button" type="submit" value="sign up">
+</form>
+
+</body>
+
+</html>

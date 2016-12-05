@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel='stylesheet' type='text/css' href='normalize.css'/>
+  <link rel='stylesheet' type='text/css' href='style.css'/>
+
+</head>
+
+<body>
+
+<h1>chitter :)</h1>
+
+<% if current_user %>
+<form id="new_peep" action='/create-peep' method='post'>
+  <label for='message'>
+    <input type='text' name='message' required/>
+  </label>
+  <input id="peep_button" class="button" type='submit' value='peep'>
+</form>
+<% end %>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li id='peep'>
+      <%= peep.message %>
+    </li>
+    <li class='time'>
+      <%= peep.user.name %> // @<%= peep.user.username %> // <%= peep.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
+    </li>
+  <% end %>
+</ul>
+
+</body>
+
+</html>
