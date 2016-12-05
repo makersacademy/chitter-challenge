@@ -14,6 +14,7 @@ feature "Posting a peep" do
 
   scenario "Allow logged in user to post a peep" do
     login
+    binding.pry
     click_button('Post a Peep')
     expect(page).to have_content("Please enter your peep below:")
   end

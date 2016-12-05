@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
+
+  before do
+    @user = current_user
+  end
   #
   # before do
   #   @peeps = Peep.all(:order => :created.desc)
@@ -72,9 +76,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.new(content: params[:peep],
-             created: Time.now.strftime('%H:%M'),
-             :user => current_user)
+    the_peep = params[:peep]
+    time = Time.now.strftime('%H:%M')
+    @user.peeps << Peep.create(content: the_peep,
+                               created: time)
+    @user.save
     redirect to('/peeps')
   end
 

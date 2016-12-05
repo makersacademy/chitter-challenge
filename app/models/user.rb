@@ -15,7 +15,7 @@ class User
   property :name, String
   property :email, String, format: :email_address, required: true, unique: true
   property :username, String, required: true
-  property :password_confirmation, String, required: true
+  #property :password_confirmation, String, required: true
   property :password_digest, Text, required: true
 
   has n, :peeps
