@@ -1,108 +1,72 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+![Chitter_peep](https://github.com/fenglish/images/blob/master/chitter_5.png)
 
-Challenge:
+
+Technology for this App
+-------
+For storing data
+- DataMapper
+- Postgres
+- Bcrypt for encrypting passwords
+
+For tests
+- Rspec
+- Capybara
+- Database Cleaner
+
+
+Settings to use
 -------
 
-As usual please start by forking this repo.
+1. Clone this repository to your local
+2. Open your terminal
+3. Move into the folder which you cloned
+4. Run this command```bundle install```
+5. Run this command```psql```
+6. Run this command```CREATE DATABASE chitter_test```
+7. Run this command```CREATE DATABASE chitter_developmet```
+7. Run this command```\q```
+8. Run this command```ruby ./app/app.rb```
+9. Open your internet browser and type in ```localhost:4567```
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+How to use
 -------
 
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+- Visit home page, you can see all peeps
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+![Chitter_home](https://github.com/fenglish/images/blob/master/chitter_1.png)
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+- Click 'Sign up' & fill your infomation
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+![Chitter_sign_up](https://github.com/fenglish/images/blob/master/chitter_2.png)
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+- It will show errors if your information is wrong.
 
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
+![Chitter_sign_up_errors](https://github.com/fenglish/images/blob/master/chitter_3.png)
 
-Notes on functionality:
-------
+- Click 'Log in' and fill your information
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+![Chitter_log_in](https://github.com/fenglish/images/blob/master/chitter_4.png)
 
-Bonus:
------
+- It will show errors if your information is wrong.
 
-If you have time you can implement the following:
+![Chitter_log_in_errors](https://github.com/fenglish/images/blob/master/chitter_8.png)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+- You can peep after Sign-up or Log-in, so click 'PEEP!'
 
-And/Or:
+![Chitter_peep](https://github.com/fenglish/images/blob/master/chitter_5.png)
 
-* Work on the css to make it look good (we all like beautiful things).
+- Fill in your message and click 'SUBMIT'
 
-Good luck and let the chitter begin!
+![Chitter_add_peep](https://github.com/fenglish/images/blob/master/chitter_6.png)
 
-Code Review
------------
+- You will see your peep immediately
 
-In code review we'll be hoping to see:
+![Chitter_home](https://github.com/fenglish/images/blob/master/chitter_9.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+- Click 'Log out' when you want to finish the session
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+![Chitter_log_out](https://github.com/fenglish/images/blob/master/chitter_7.png)

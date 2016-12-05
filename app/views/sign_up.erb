@@ -1,0 +1,47 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+    <div class="errors">- <%= error %></div>
+  <% end %>
+<% end %>
+
+
+<form action='/user-info' method='post'>
+
+  <table>
+
+    <tr align=left>
+      <th>NAME:</th>
+      <th><input type='text' name='name'></th>
+    </tr>
+
+    <tr align=left>
+      <th>USERNAME:</th>
+      <th><input type='text' name='username'></th>
+    </tr>
+
+    <tr align=left>
+      <th>E-MAIL:</th>
+      <th><input type='text' name='email'></th>
+    </tr>
+
+    <tr align=left>
+      <th>PASSWORD:</th>
+      <th><input type='password' name='password'></th>
+    </tr>
+
+    <tr align=left>
+      <th>PASSWORD:</th>
+      <th><input type='password' name='password_confirmation'></th>
+    </tr>
+
+    <tr height=20px>
+      <th colspan=2></th>
+    </tr>
+
+    <tr align=left>
+      <th colspan=2><input id="submit_button" type='submit' value='SUBMIT'></th>
+    </tr>
+
+  <table>
+
+</form>
