@@ -97,8 +97,21 @@ GEM
     rack-protection (1.5.3)
       rack
     rake (11.3.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
+    rspec-support (3.5.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -137,6 +150,7 @@ DEPENDENCIES
   dm-validations
   pry
   rake
+  rspec
   rspec-sinatra
   sinatra
   sinatra-flash

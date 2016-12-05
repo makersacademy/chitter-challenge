@@ -6,6 +6,17 @@ Chitter is a **web app** that allows the users to post a message or peep and see
 
  It uses Sinatra for running a local server and Capybara for automated testing.
 
+ ### Technologies used
+
+* Sinatra for running a local server.
+* Heroku for cloud deployment.
+* BCrypt for password hashing.
+* PostgresSQL as database.
+* DataMapper as object-relational mapping for database interaction.
+* Capybara and Rspec for testing.
+* DatabaseCleaner for database cleaning.
+* Rake for automating tasks.
+
 ### Installation and Use
 
 1. To run the program first run **bundle install**.
