@@ -41,18 +41,18 @@ Capybara.app = Twitter
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
-  #
-  # config.before(:each) do
-  #   DatabaseCleaner.start
-  # end
-  #
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
