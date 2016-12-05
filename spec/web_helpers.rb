@@ -1,15 +1,18 @@
-def sign_up
-  visit '/sign_up'
-  expect(page.status_code).to eq(200)
-  fill_in :email,    with: 'test@example.com'
-  fill_in :password, with: 'oranges!'
-  fill_in :username, with: 'test123'
-  click_button 'Sign Up'
-end
+module UsersHelper
+  def create_user(email: "test@makers.com", password: "superscret")
+    User.create(email: email,
+      password: password,
+      password_confirmation: password,
+      name: "Mal",
+      usernam: "testy1")
+  end
 
-def post_a_peep
-  visit 'new'
-  expect(page.status_code).to eq(200)
-  fill_in :content, with: 'hello'
-  click_button 'Peep'
+  def sign_in
+    user = create_user(password: "password")
+    visit "/"
+    click_link "Sign In"
+    fill_in :email, with: user.email
+    fill_in :password, with: "password"
+    click_button "Sign In"
+  end
 end

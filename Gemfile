@@ -19,4 +19,5 @@ group :test do
   gem 'pry'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'timecop'
 end
