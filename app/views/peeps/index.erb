@@ -2,15 +2,22 @@
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
-    <li>
+    <table width=100% border=1>
+        <tr>
+          <th>
+
       <%= peep.user.username %>'s Message: <%= peep.message %>
       at <%= peep.time %>
-    </li>
+    </th>
+  </tr>
+    </table>
   <% end %>
 
+  <% if current_user %>
   <form action='/peeps/new' method='get'>
   <button class="buttons">Peep!</button>
   </form>
+ <% end %>
 
 
 </ul>
