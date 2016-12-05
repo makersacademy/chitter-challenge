@@ -1,11 +1,11 @@
 require './app/app'
 
 RSpec.feature "Signing out", :type => :feature do
+  include Helpers
   scenario "user signs out" do
-    signup
-    fill_in('password_confirmation', with: 'gweatonidas36')
-    click_button('Submit')
-    sign_in
+    user = User.new(username: 'Miko', email: 'miko@o2.pl', password: 'gweatonidas326', password_confirmation: 'gweatonidas326')
+    sign_up(user)
+    sign_in(user)
     click_button('Log out')
     expect(current_path).to eq '/'
     message = "Good bye! We hope to see you again soon :)"

@@ -1,12 +1,12 @@
 require './app/app'
 
 RSpec.feature "Vewing own messages", :type => :feature do
+  include Helpers
   scenario "user wants to see their chirps" do
-    signup
-    fill_in('password_confirmation', with: 'gweatonidas36')
-    click_button('Submit')
-    sign_in
-    post_message
+    user = User.new(username: 'Miko', email: 'miko@o2.pl', password: 'gweatonidas326', password_confirmation: 'gweatonidas326')
+    sign_up(user)
+    sign_in(user)
+    post_message("Hello world!")
     click_button("See your chirps!")
     expect(current_path).to eq '/messages/Miko'
     message = "Hello world!"

@@ -1,11 +1,11 @@
 require './app/app'
 
 RSpec.feature "Signing in", :type => :feature do
+  include Helpers
   scenario "user signs in" do
-    signup
-    fill_in('password_confirmation', with: 'gweatonidas36')
-    click_button('Submit')
-    sign_in
+    user = User.new(username: 'Miko', email: 'miko@o2.pl', password: 'gweatonidas326', password_confirmation: 'gweatonidas326')
+    sign_up(user)
+    sign_in(user)
     expect(current_path).to eq '/dashboard'
     message = "Welcome back, Miko!"
     expect(page).to have_content(message)

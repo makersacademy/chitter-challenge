@@ -1,11 +1,11 @@
 require './app/app'
 
 RSpec.feature "Signing up", :type => :feature do
+  include Helpers
   before do
     @user_count = User.all.count
-    signup
-    fill_in('password_confirmation', with: 'gweatonidas36')
-    click_button('Submit')
+    user = User.new(username: 'Miko', email: 'miko@o2.pl', password: 'gweatonidas326', password_confirmation: 'gweatonidas326')
+    sign_up(user)
   end
 
   scenario "user creates an account" do

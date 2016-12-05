@@ -17,7 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
-require_relative './features/web_helpers.rb'
+require_relative 'helpers'
 
 RSpec.configure do |config|
   config.before(:suite) do
