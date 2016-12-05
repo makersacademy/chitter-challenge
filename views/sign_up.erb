@@ -14,27 +14,27 @@
 <h1>sign up</h1>
 
 <form id="sign_up" action='/users' method=POST>
-  <label for="name">name
-    <input type="text" name="name" placeholder='your name here' required>
+  <label for="name">name <br>
+    <input class='form_field' type="text" name="name" required>
   </label>
   <br>
-  <label for="username">username
-    <input type="text" name="username" placeholder="your username here" required>
+  <label for="username">username <br>
+    <input class='form_field' type="text" name="username" required>
   </label>
   <br>
-  <label for="email">email
-    <input type="email" name="email" placeholder="your email here" required>
+  <label for="email">email <br>
+    <input class='form_field' type="email" name="email" required>
   </label>
   <br>
-  <label for="password">password
-    <input type="password" name="password" placeholder="your password here" required>
+  <label for="password">password <br>
+    <input class='form_field' type="password" name="password" required>
   </label>
   <br>
-  <label for="password_confirmation">confirm your password
-    <input type="password" name="password_confirmation" placeholder="your password again" required>
+  <label for="password_confirmation">confirm your password <br>
+    <input class='form_field' type="password" name="password_confirmation" required>
   </label>
   <br>
-  <input class="button" type="submit" value="sign up">
+  <input id='sign_up_button' class="button" type="submit" value="sign up">
 </form>
 
 </body>

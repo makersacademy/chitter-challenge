@@ -26,7 +26,7 @@
       <%= peep.message %>
     </li>
     <li class='time'>
-      <%= peep.user.name %> // @<%= peep.user.username %> // <%= peep.created_at %>
+      <%= peep.user.name %> // @<%= peep.user.username %> // <%= peep.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
     </li>
   <% end %>
 </ul>

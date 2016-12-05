@@ -55,7 +55,7 @@ h1 {
 }
 
 #sign_out {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .button {
@@ -91,10 +91,22 @@ textarea:focus {
 }
 
 #sign_in {
+  margin-left: 37px;
+}
+
+#sign_in_button {
+  margin-top: 20px;
+}
+
+#sign_up_button {
+  margin-top: 20px;
+}
+
+.form_field {
   padding: 12px 24px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
   border-radius: 20px;
-  color: white;
+  color: #FFBD00;
 }
