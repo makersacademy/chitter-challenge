@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
+<h2>Sign up<h2/>
+
+  <form action='/users' method='post'>
+    Name:<input type='text' name='name'><br>
+    User name: <input type='text' name='user_name'><br>
+    E-mail:<input type='text' name='email'><br>
+    Password:<input type='password' name='password'><br>
+    <input type='submit' value='submit'>
+  </form>

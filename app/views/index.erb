@@ -1,0 +1,28 @@
+<% if @user==nil %>
+
+
+
+<form action="/users/new" method="get">
+<input type="submit" value="sign up">
+</form>
+
+
+<form action='/sessions/new' method="get">
+<input type="submit" value="sign in">
+</form>
+
+<%end%>
+
+
+<ul id='peeps'>
+
+ <% @peeps.each do |peep| %>
+   <li>
+      <%= peep.user.name %> <br>
+      <%= peep.user.user_name %> <br>
+      <%= peep.time %> <br>
+      <%= peep.text %>
+
+   </li>
+ <% end %>
+</ul>
