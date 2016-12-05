@@ -2,6 +2,8 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require './app/models/user'
+require './app/models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -29,7 +31,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    # p params
     @user = User.new(name: params[:name],
     username: params[:username],
     email: params[:email],
@@ -62,7 +63,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     current_user
-    peep = Peep.create(:user_id => @current_user.id, :message => params[:message] )
+    peep = Peep.create(:user_id => @current_user.id, :message => params[:message],:time => Time.now )
     redirect '/peeps'
   end
 

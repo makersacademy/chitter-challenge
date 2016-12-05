@@ -8,5 +8,6 @@ class Peep
 
   property :id,      Serial
   property :message, String, length: 13
+  property :time,    DateTime
 
 end
