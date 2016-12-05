@@ -41,11 +41,11 @@ Sign up by entering name, username, email and password. Email and username must 
 
 ![Imgur](http://i.imgur.com/PhIZtCb.png)
 
-If you already have an account useer can simply sign in
+If they already have an account, a user can simply sign in
 
 ![Imgur](http://i.imgur.com/kafTCOb.png)
 
-Once signed in user can peep all they like! A welcome message is displayed upon sign ins
+Once signed in user can peep all they like! A welcome message is displayed upon sign in
 
 ![Imgur](http://i.imgur.com/N96woBr.png)
 
