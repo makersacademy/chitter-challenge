@@ -10,8 +10,16 @@ require 'database_cleaner'
 require './app/models/peep'
 require './app/app'
 require './app/models/user'
-require_relative 'web_helper'
+require_relative 'helpers/session'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
 Capybara.app = Chitter
+
+
 
 RSpec.configure do |config|
   config.include Capybara::DSL

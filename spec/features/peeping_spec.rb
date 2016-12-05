@@ -1,4 +1,5 @@
 feature 'Viewing peeps' do
+
   scenario 'I can see existing peeps on the peeps page' do
     Peep.create(message: 'Trump here')
     visit '/peeps'
