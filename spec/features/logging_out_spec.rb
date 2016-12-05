@@ -21,4 +21,5 @@ feature "Logging out:" do
     expect(page).not_to have_content("Welcome to chitter #{user.username}")
   end
 
+
 end
