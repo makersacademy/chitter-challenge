@@ -1,3 +1,44 @@
+CHITTER APP
+
+Current Status of What Works ‘/sign-up/new’
+  Sign up Functionality
+    -User can sign up with an account with form
+    -User credentials will be saved in app with params and persisted in Chitter database
+    -User will be automatically redirected upon sign up and greeted by name on ‘/‘
+    –Bcrypt password hash assignment
+
+  Peep Message Functionality ‘/peep/new’
+    -User can submit a peep message with custom form
+    -User peep message will be persisted in Chitter database
+    -User will be automatically redirected to home page after submitting a peep
+
+  Homepage CSS
+    -Users are wow'd with amazing logo branding and custom CSS
+
+  What’s In Progress
+    -Log-in form on '/log-in/new'
+
+  What's Upcoming
+    -Log-in/Log-out
+    -Email authentication
+    -Password confirm form field
+    -Sinatra flash messages for errors
+
+  Trouble shooting (What I couldn't get working)
+    -Getting peeps to show on homepage
+
+
+
+
+
+
+
+
+
+
+
+
+
 Chitter Challenge
 =================
 
@@ -77,7 +118,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +136,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +146,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
