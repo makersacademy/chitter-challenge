@@ -11,7 +11,9 @@ RSpec.feature "User can make account" do
   end
 
   scenario "can log out" do
-
+    sign_up
+    click_button "sign out"
+    expect(page).to have_content('Welcome, stranger')
 
 
 

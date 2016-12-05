@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chitter</title>
+</head>
+
+<body>
+
+
+
+<% if @user!=nil %>
+
+  <header > Welcome <%= @user.user_name %>! </header>
+
+
+    <form  action='/sessions' method='post'>
+         <input type='hidden' name='_method' value='delete'>
+         <input type='submit' value='sign out'>
+       </form>
+
+
+       <form  action='/new' method='post'>
+         <input type='text' name='text'>
+         <input type='submit' value='Post a peep'>
+       </form>
+
+<% else %>
+
+  Welcome, stranger!
+
+
+
+
+<%end%>
+
+<%= yield %>
+
+</body>
+</html>

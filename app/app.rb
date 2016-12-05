@@ -7,12 +7,20 @@ require_relative './models/database_setting.rb'
 require 'dm-core'
 require 'sinatra'
 require 'sinatra/flash'
+require "sinatra/partial"
+
+
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'super secret'
   register Sinatra::Flash
+  register Sinatra::Partial
   use Rack::MethodOverride
+  set :partial_template_engine, :erb
+
+
+  enable :partial_underscores
 
 
   helpers do

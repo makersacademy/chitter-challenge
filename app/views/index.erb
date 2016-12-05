@@ -1,26 +1,9 @@
-<% if @user!=nil %>
-
-  Welcome <%= @user.user_name %>!
-
-  <form  action='/sessions' method='post'>
-       <input type='hidden' name='_method' value='delete'>
-       <input type='submit' value='sign out'>
-     </form>
-
-     <form  action='/new' method='post'>
-       <input type='text' name='text'>
-       <input type='submit' value='Post a peep'>
-     </form>
+<% if @user==nil %>
 
 
 
-<% else %>
-
-  Welcome, stranger!
-
-
-  <form action="/users/new" method="get">
-  <input type="submit" value="sign up">
+<form action="/users/new" method="get">
+<input type="submit" value="sign up">
 </form>
 
 

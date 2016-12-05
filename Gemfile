@@ -8,6 +8,7 @@ gem "sinatra"
 gem "pg"
 gem "rack"
 gem "sinatra-flash"
+gem "sinatra-partial"
 
 
 group :test, :development do
