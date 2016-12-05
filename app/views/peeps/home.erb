@@ -4,7 +4,7 @@
 
 <% @peeps.each do |peep| %>
 <li>
-  
+  <%= peep[2] %> <br>
   <%= peep[0] %> <%= peep[1].day %>.<%= peep[1].month %>.<%= peep[1].year %> - <%= peep[1].hour %>:<%= peep[1].minute %>
 </li>
 <br>

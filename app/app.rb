@@ -43,7 +43,7 @@ end
 
 get '/home' do
   current_user
-  @peeps = Peep.all.reverse.map {|a| [a.content, a.created_at]}
+  @peeps = Peep.all.reverse.map {|a| [a.content, a.created_at, a.username]}
 
   erb :'/peeps/home'
 end
@@ -55,13 +55,13 @@ end
 post '/peep' do
   current_user
   p params
-  peep = Peep.create(:content => params[:peep])
-  #require 'pry';binding.pry
+  peep = Peep.create(:content => params[:peep], :username => @current_user.username)
+
   @current_user.peeps << peep
   @timestamp = peep.created_at
   @current_user.save
 
-
+  #require 'pry';binding.pry
   redirect'/home'
 end
 
