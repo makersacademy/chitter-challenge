@@ -18,12 +18,31 @@ class Chitter_challenge < Sinatra::Base
     erb :'/index'
   end
 
-  post '/signup' do
+  get '/home' do
+    erb :'/home'
+  end
+
+  post 'home' do
+    erb :'/home'
+  end
+
+  get '/signup' do
     erb :'/signup'
   end
 
-  post '/signin' do
+  get '/signin' do
+    erb :'/signin'
+  end
 
+  post 'signin' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/home')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'/signup'
+    end
   end
 
   get '/users/new' do

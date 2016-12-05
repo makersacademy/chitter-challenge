@@ -1,6 +1,9 @@
 Chitter Challenge
 =================
-This application is a Twitter clone, that will allow the users to post messages to a public stream.
+As usual please start by forking this repo.
+
+We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+
 
 Features:
 -------
