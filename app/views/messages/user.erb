@@ -1,9 +1,14 @@
 <p>Your chirps:</p>
-<ul id="chirps"><% @user_messages.each do |message| %>
+<ul id="chirps"><% @user_messages.reverse.each do |message| %>
   <li>
-  <%= message.time
-      message.content %>
-  <br>
+    <%= message.user.username%>
+    <br></br>
+    <%= message.time %>
+      <br></br>
+    <%= message.content %>
+  <br></br>
+  <br></br>
+  <br></br>
 <% end %></ul>
 
 <form action="/dashboard" method="get">

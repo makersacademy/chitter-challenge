@@ -28,6 +28,7 @@ class Chitter < Sinatra::Base
       redirect to('/users/new')
     end
     if new_user.save
+      session[:user_id] = new_user.id
       flash[:welcome] = "Welcome to Chitter, #{params[:username]}!"
       redirect to('/dashboard')
     else
@@ -69,13 +70,20 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     message = Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
-      flash[:new_message] = "Your message has been posted."
+      if message
+        flash[:new_message] = "Your message has been posted."
+      else flash[:message_error] = "Something went wrong. Make sure you're logged in!"
+      end
       redirect to('/dashboard')
   end
 
   post '/messages/view' do
-
     redirect to("/messages/#{User.first(id: session[:user_id]).username}")
+  end
+
+  get '/messages/all' do
+    @messages = Message.all
+    erb :'messages/all'
   end
 
   get '/messages/*' do

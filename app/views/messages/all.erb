@@ -1,0 +1,16 @@
+<ul id='all_messages'><% @messages.reverse.each do |message| %>
+
+<li>
+<%= message.user.username%>
+<br></br>
+<%= message.time %>
+  <br></br>
+<%= message.content %>
+<br></br>
+<br></br>
+<br></br>
+<% end %>
+
+<form action="/dashboard" method="get">
+  <input type="submit" value="Dashboard" />
+</form>

@@ -1,7 +1,7 @@
 require './app/app'
 
-RSpec.feature "New message", :type => :feature do
-  scenario "user submits a new message" do
+RSpec.feature "Vewing own messages", :type => :feature do
+  scenario "user wants to see their chirps" do
     DatabaseCleaner.clean
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
