@@ -3,7 +3,6 @@ feature 'Creating peeps' do
 
   scenario 'I can create a new peep' do
     sign_up
-    visit '/'
     fill_in 'text',   with: 'Hello world'
     click_button 'Post a peep'
     expect(current_path).to eq '/'
@@ -16,7 +15,6 @@ feature 'Creating peeps' do
 
   scenario 'a new peep displays name and user name' do
     sign_up
-    visit '/'
     fill_in 'text',   with: 'Hello world'
     click_button 'Post a peep'
 
@@ -30,7 +28,6 @@ feature 'Creating peeps' do
 
   scenario 'a new peep displays time at which it was created' do
     sign_up
-    visit '/'
     fill_in 'text',   with: 'Hello world'
     click_button 'Post a peep'
 
@@ -55,7 +52,6 @@ feature 'Creating peeps' do
 
   scenario 'one user can create multiple peeps' do
     sign_up
-    visit '/'
     fill_in 'text',   with: 'Hello world'
     click_button 'Post a peep'
     fill_in 'text',   with: 'Hi'
