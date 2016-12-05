@@ -4,13 +4,13 @@
     <% @peeps.each do |peep| %>
       <div class="peep">
         <li>
-          <p><%= peep.user.user_name %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago | <a href="/peeps/<%= peep.id %>">Add comment</a></p>
+          <p><%= peep.user.username %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago | <a href="/peeps/<%= peep.id %>">Add comment</a></p>
         </li>
       </div>
       <% peep.comments.reverse.each do |comment| %>
         <div class="comment">
           <ul>
-            <li><p><%= comment.user.user_name %> | <%= comment.comment %></p></li>
+            <li><p><%= comment.user.username %> | <%= comment.comment %></p></li>
           </ul>
         </div>
       <% end %>

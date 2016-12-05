@@ -1,5 +1,5 @@
 
-Chitter applicationtest
+Chitter application
 ==================
 
 Introduction
