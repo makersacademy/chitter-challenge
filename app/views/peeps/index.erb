@@ -1,0 +1,15 @@
+<h1>Recent Peeps</h1>
+<table>
+  <tr>
+    <th>Peep</th>
+    <th>User</th>
+    <th>Sent at</th>
+  </tr>
+<% @peeps.each do |peep| %>
+<tr>
+  <td><a href="/peeps/<%= peep.id %>"><%= peep.content %></a></td>
+  <td><%= peep.user.username %></td>
+  <td><%= peep.created_at.strftime('%l:%M%P on %e %b %Y') %></td>
+</tr>
+<% end %>
+</table>
