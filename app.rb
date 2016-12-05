@@ -52,8 +52,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create-peep' do
-    current_user
-    peep = current_user.peeps.new(message: params[:message], created_at: params[Time.now])
+    peep = Peep.new(message: params[:message], created_at: params[Time.now], [:user_id] => user.id)
     peep.save
     redirect to '/chitter'
   end
