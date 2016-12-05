@@ -16,8 +16,6 @@ class Chitter < Sinatra::Base
   get '/peeps/:id' do
     @peep = Peep.get(params[:id])
     @username = User.get(@peep.user_id).username
-    # p @peep
-    # p @username
     erb :'peeps/get'
   end
 
