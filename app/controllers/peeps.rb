@@ -9,8 +9,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    peep = Peep.create(message: params[:new_peep])
-    if peep.save
+    current_user.peeps.create(message: params[:new_peep])
+    if current_user.peeps.save
       flash[:notice] = "Thank you, your peep has been posted."
       redirect '/peeps'
     else
