@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li> <a href="/">Chitter </a></li>
+      <li> <a href='/peeps'>View peeps</a></li>
+      <li> <a href="/peeps/new">New peep</a></li>
+      <li> <a href="/users/new"> Sign up</a></li>
+      <li> <% if current_user %>
+          <a href="/sessions/delete"> Sign out</a></li>
+         <% else %>
+          <a href="/sessions/new"> Sign in </a>
+          <%end%>
+       </li>
+       <% if current_user %>
+       <li> <a> Welcome <%=first_name current_user.name%> </a> </li>
+       <% end %>
+    </ul>
+  </nav>
+
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

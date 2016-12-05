@@ -1,0 +1,25 @@
+<style>
+  #reply{
+    appearance: none;
+    color:#333;
+    border: 1px solid #000;
+    padding:0px;
+    font-size:16px;
+    margin-left:2px;
+  }
+  </style>
+<% Peep.all.reverse.each do |peep| %>
+  <h2>
+    <div id='user'> <%=peep.user.username%> </div>
+  </h2>
+  <h3> <%=peep.post_time.asctime%> </h3>
+  <p>
+    <div id='content'>
+      <%= peep.content %>
+    </div>
+    <form method='get' action='/peeps/new'>
+      <input type='hidden' name='default' value='<%="@"+peep.user.username%>'/>
+      <input id='reply' type='submit' value='Reply to this'/>
+    </form>
+  </p>
+<% end %>
