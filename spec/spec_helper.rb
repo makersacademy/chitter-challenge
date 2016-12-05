@@ -4,9 +4,6 @@ ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
-require './app/models/user'
-# require './app/models/tag'
-#not sure if requ'd^^^^
 
 require_relative 'helpers/session'
 
