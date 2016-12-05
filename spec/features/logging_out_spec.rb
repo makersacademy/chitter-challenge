@@ -1,5 +1,5 @@
-require './app/app.rb'
 require 'spec_helper'
+require './app/app.rb'
 require './spec/features/web_helper.rb'
 
 feature "Logging out" do

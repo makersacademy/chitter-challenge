@@ -19,7 +19,7 @@
 <% @peeps.each do |peep| %>
   <li>
     <%= peep[:content] %><br>
-        Posted at: <%= peep[:created] %><br>
+        Posted at: <%= peep[:created_at] %><br>
         By: <%= peep.user.name %><br>
   </li>
   <% end %>

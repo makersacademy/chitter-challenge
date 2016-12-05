@@ -9,11 +9,11 @@ feature "Signing up" do
   end
 
   scenario "Should not save user details if passwords don't match" do
-    expect{sign_up(confirm: 'wrongpassword')}.not_to change(User, :count)
+    expect{sign_up(password_confirmation: 'wrongpassword')}.not_to change(User, :count)
   end
 
   scenario "Should inform the user passwords do not match" do
-    expect{sign_up(confirm: 'wrongpassword')}.not_to change(User, :count)
+    expect{sign_up(password_confirmation: 'wrongpassword')}.not_to change(User, :count)
     expect(current_path).to eq('/')
     expect(page).to have_content("Password does not match the confirmation")
   end

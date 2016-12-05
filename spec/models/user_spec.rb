@@ -2,11 +2,12 @@ require './app/models/user.rb'
 
 describe User do
   let!(:user) do
-    User.create(email: 'louisa@example.com',
+    User.create(name: 'louisa',
+                email: 'louisa@example.com',
                 username: 'louisaspicer',
                 password: 'greatpassword',
                 password_confirmation: 'greatpassword')
-  end
+    end
 
   it "should authenticate when given a correct username and password" do
     authenticated_user = User.authenticate(user.username, user.password)

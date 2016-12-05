@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './app/models/user.rb'
@@ -28,18 +28,18 @@ class Chitter < Sinatra::Base
   before do
     @user = current_user
   end
-  #
-  # before do
-  #   @peeps = Peep.all(:order => :created.desc)
-  # end
+
+  before do
+    @peeps = Peep.all(:order => :created_at.desc)
+  end
 
   get '/' do
-    @peeps = Peep.all(:order => :created.desc)
+    # @peeps = Peep.all(:order => :created_at.desc)
     erb :index
   end
 
   post '/' do
-    @peeps = Peep.all(:order => :created.desc)
+    # @peeps = Peep.all(:order => :created_at.desc)
     @user = User.new(name: params[:name],
     username: params[:username],
     email: params[:email],
@@ -60,7 +60,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/session' do
-    @peeps = Peep.all(:order => :created.desc)
+    # @peeps = Peep.all(:order => :created_at.desc)
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
@@ -72,14 +72,13 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    @peeps = Peep.all(:order => :created.desc)
+    # @peeps = Peep.all(:order => :created_at.desc)
     erb :'peeps/new'
   end
 
   post '/peeps' do
     the_peep = params[:peep]
-    @user.peeps << Peep.create(content: the_peep,
-                               created: Time.now.strftime("%H:%M"))
+    @user.peeps << Peep.create(content: the_peep)
     @user.save
     redirect to('/')
   end

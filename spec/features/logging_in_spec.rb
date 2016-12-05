@@ -10,7 +10,7 @@ feature "Logging in" do
                 username: 'louisaspicer',
                 password: 'greatpassword',
                 password_confirmation: 'greatpassword')
-  end
+    end
 
   scenario "Login with correct username and password" do
     login
