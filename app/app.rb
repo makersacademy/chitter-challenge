@@ -32,13 +32,14 @@ class ChitterManager < Sinatra::Base
   end
 
   get '/peeps/new' do
+    @default = params[:default]
     erb :'peeps/new'
   end
 
   post '/peeps/new' do
     peep = Peep.new(params)
     current_user.peeps << peep
-    binding.pry unless peep.save
+    peep.save
     redirect '/peeps'
   end
 

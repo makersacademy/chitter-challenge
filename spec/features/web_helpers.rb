@@ -22,3 +22,14 @@ def sign_in username: "test_user",
 
   click_button 'submit'
 end
+
+def sign_out
+  visit '/sessions/delete'
+  click_button 'Sign out'
+end
+
+def make_peep content
+  visit '/peeps/new'
+  fill_in 'post', with: content
+  click_button 'submit'
+end

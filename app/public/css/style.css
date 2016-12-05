@@ -1,6 +1,5 @@
 body {
   font-family: Helvetica;
-  background-image: url("turq.jpg");
   color: #312f2c;
 }
 
@@ -144,9 +143,8 @@ nav li.active a {
 
 input{
   color:#333;
-  box-sizing:border-box;
-  border: 1px solid #41a990;
-  padding:15px;
+  border: 1px solid #41b999;
+  padding:10px;
   font-size:18px;
   margin-left:20px;
 }
@@ -168,7 +166,7 @@ label {
 .button{
   background-color:#534d56;
   border:2px solid white;
-  color:white;
+  color:black;
   padding:15px;
   font-size:18px;
   width:100px;
@@ -184,7 +182,7 @@ label {
   outline:0;
 }
 
-input,button{
+input{
   border-radius:3px;
   letter-spacing:1.2pt;
 }
