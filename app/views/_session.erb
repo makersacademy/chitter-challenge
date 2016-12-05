@@ -1,0 +1,20 @@
+<% if current_user %>
+  Welcome <%= current_user.username %>!
+  <form method='post' action='/session'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+
+  <form method='get' action='/peeps/new'>
+    <input type='submit' value='New peep'>
+  </form>
+
+<% else %>
+  <form method='get' action='/session/new'>
+    <input type='submit' value='Go to sign in page'>
+  </form>
+  <form method='get' action='/users/new'>
+    <input type='submit' value='Go to sign up page'>
+  </form>
+
+<% end %>
