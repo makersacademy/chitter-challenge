@@ -19,7 +19,7 @@
     text-align: center;
     color: white;
     font-family: "Arial";
-    font-size: 30px;
+    font-size: 24px;
   }
 
   body {
@@ -31,7 +31,7 @@
     float: left;
     clear: right;
     width: 400px;
-    margin-left: 100px;
+    margin-left: 90px;
   }
 
   div.greeting {
@@ -50,7 +50,7 @@
 
   img {
     float: left;
-    width: 400px;
+    width: 420px;
   }
 
   </style>
@@ -60,13 +60,13 @@
 
       <div class="header">
         <img src= "http://drive.google.com/uc?export=view&id=0By1LQmtPc5fnRlpNQkthSW5VODA" alt="logo" />
-        <h1> Welcome to Chitter!</h1>
+        <h1> Welcome to Chitter! </br> Hatch A PEEP Now</h1>
       </div>
 
       <div class="greeting">
         <h2>
           <% if current_user %>
-            Hi <%= current_user.name %>!
+            Hi <%= current_user.name %> </br>Welcome Back!
           <% end %>
         </h2>
       </div>
