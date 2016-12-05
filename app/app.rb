@@ -39,7 +39,13 @@ class Chitter_challenge < Sinatra::Base
   post '/signup_new_user' do
     @user = User.create(email: params[:email],
     password: params[:password])
-    redirect to(:'/peeps')
+    if @user
+      session[:user_id] = @user.id
+      redirect to(:'/peeps')
+    else
+      flash.keep[:errors] = ["Email already exists, please login"]
+      redirect to('/signin')
+    end
   end
 
   post '/signin' do
