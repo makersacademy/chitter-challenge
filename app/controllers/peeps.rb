@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
     end
 
     get "/peeps" do
-      @peers = Peep.all_in_revsere_rder
+      @peeps = Peep.all_in_reverse_order
       erb :"peeps/index"
     end
   end
