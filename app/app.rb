@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -51,11 +52,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  helpers do
-    def get_user_id
-      @user ||= User.get(session[:id])
-    end
-  end
+  helpers Helpers
 
   delete '/sessions' do
     session[:id] = nil
