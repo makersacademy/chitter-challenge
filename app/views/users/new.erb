@@ -1,0 +1,26 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Your sign up has failed due to the following error/s:
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Please sign up to peep to the world!</h1>
+<br>
+<form action='/users' method='post'>
+  <label for='name'>
+    Name: <input name='name' type='text'>
+  </label>
+  <label for='user_name'>
+    User name: <input name='user_name' type='text'>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='email' required>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <input type='submit' value='Sign me up!'>
+</form>
