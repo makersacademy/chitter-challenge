@@ -1,10 +1,10 @@
-# RPS Challenge [![Build Status](https://travis-ci.org/TudorTacal/chitter-challenge.svg?branch=master)](https://travis-ci.org/TudorTacal/chitter-challenge)
+# Chitter [![Build Status](https://travis-ci.org/TudorTacal/chitter-challenge.svg?branch=master)](https://travis-ci.org/TudorTacal/chitter-challenge)
 
 This project represents our forth weekend challenge at Makers Academy coding bootcamp.  
 
 Chitter is a **web app** that allows the users to post a message or peep and see a list of all existing peeps. A user can sign up, log in, log out, send a peep and see a list of all peeps.
 
- ### Technologies used
+### Technologies used
 
 * Sinatra for running a local server.
 * Heroku for cloud deployment.
@@ -25,13 +25,10 @@ Chitter is a **web app** that allows the users to post a message or peep and see
 
 ### Screenshots
 
-
-https://s12.postimg.org/vhzesoh31/Screen_Shot_2016_12_05_at_00_32_43.png
-
-[First Page](https://s11.postimg.org/fk7a9qedv/Screen_Shot_2016_12_05_at_00_28_29.png)
-[After sign up](https://s14.postimg.org/t4pvv2k9t/Screen_Shot_2016_12_05_at_00_31_16.png)
-[New Peep](https://s16.postimg.org/r0vcahx6t/Screen_Shot_2016_12_05_at_00_32_06.png)
-[All peeps](https://s12.postimg.org/vhzesoh31/Screen_Shot_2016_12_05_at_00_32_43.png)
+* [First Page](https://s11.postimg.org/fk7a9qedv/Screen_Shot_2016_12_05_at_00_28_29.png)
+* [After sign up](https://s14.postimg.org/t4pvv2k9t/Screen_Shot_2016_12_05_at_00_31_16.png)
+* [New Peep](https://s16.postimg.org/r0vcahx6t/Screen_Shot_2016_12_05_at_00_32_06.png)
+* [All peeps](https://s12.postimg.org/vhzesoh31/Screen_Shot_2016_12_05_at_00_32_43.png)
 
 ### To implement
 
