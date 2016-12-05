@@ -1,5 +1,5 @@
 
-RSpec.feature "Maker Sign Up" do
+RSpec.feature "User Sign Up" do
 
   scenario "should be able to sign up" do
     sign_up
