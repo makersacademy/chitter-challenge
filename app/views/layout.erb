@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> CHITTER </title>
+</head>
+
+<body>
+
 <% if @current_user %>
   <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
@@ -12,3 +20,6 @@
 <% end %>
 
 <%= yield %>
+
+</body>
+</html>
