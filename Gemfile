@@ -8,6 +8,7 @@ gem 'rspec-sinatra'
 gem 'pry'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'pg'
 
 group :test do
   gem 'rspec'
