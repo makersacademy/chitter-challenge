@@ -7,7 +7,8 @@
 
 <% if current_user %>
   <table width=100%>
-    <tr bgcolor="#ff4500"><th height=50px align=left >
+    <tr bgcolor="#ff4500">
+        <th height=50px align=left >
           <div class="normal">&nbsp;&nbsp;&nbsp;Now the time to peep!</div>
         </th>
         <th>
@@ -15,25 +16,25 @@
         </th>
     </tr>
     <tr>
-    <th height=30px></th>
-  </tr>
+        <th height=30px></th>
+    </tr>
   </table>
 <% end %>
 
 <% @all_peeps.reverse_each do |peep| %>
   <table width=100%>
     <tr>
-      <th align=left><span class="names"><%= peep.users[0].name %></span>&nbsp;&nbsp;&nbsp;
-                      <span class="usernames">@<%= peep.users[0].username %></span>
-      </th>
-      <th align=right><div class="times"><%= peep.time_now %></div>
-      </th>
+        <th align=left><span class="names"><%= peep.user.name %></span>&nbsp;&nbsp;&nbsp;
+                      <span class="usernames">@<%= peep.user.username %></span>
+        </th>
+        <th align=right><div class="times"><%= peep.time_now %></div>
+        </th>
     </tr>
     <tr>
-      <th colspan=2 align=left><div class="peeps"><%= peep.message %></div></th>
+        <th colspan=2 align=left><div class="peeps"><%= peep.message %></div></th>
     </tr>
     <tr>
-      <th colspan=2><HR size=1 noshade></th>
+        <th colspan=2><HR size=1 noshade></th>
     </tr>
   </table>
 <% end %>

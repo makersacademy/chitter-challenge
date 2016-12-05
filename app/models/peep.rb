@@ -5,6 +5,6 @@ class Peep
   property :time_now, String
   property :message, Text
 
-  has n, :users, through: Resource
+  belongs_to :user
 
 end

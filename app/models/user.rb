@@ -12,7 +12,7 @@ class User
   property :email, String,    required: true, unique: true
   property :password_encrypted, Text
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   attr_reader   :password
   attr_accessor :password_confirmation
