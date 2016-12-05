@@ -1,12 +1,14 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-
+require 'sinatra/flash'
 
 class Chitter_challenge < Sinatra::Base
 
   enable :sessions
-  set :session_secret, 'super secret'
+  register Sinatra::Flash
+
+  use Rack::MethodOverride
 
   helpers do
    def current_user
@@ -18,12 +20,8 @@ class Chitter_challenge < Sinatra::Base
     erb :'/index'
   end
 
-  get '/home' do
-    erb :'/home'
-  end
-
-  post 'home' do
-    erb :'/home'
+  get '/peeps' do
+    erb :'/peeps'
   end
 
   get '/signup' do
@@ -34,24 +32,25 @@ class Chitter_challenge < Sinatra::Base
     erb :'/signin'
   end
 
-  post 'signin' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect to('/home')
-    else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'/signup'
-    end
-  end
-
   get '/users/new' do
     erb :'users/new'
   end
 
   post '/signup_new_user' do
-    User.create(email: params[:email],
+    @user = User.create(email: params[:email],
     password: params[:password])
+    redirect to(:'/peeps')
+  end
+
+  post '/signin' do
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect to(:'/peeps')
+    else
+      flash.keep[:errors] = ["Email or password don't match"]
+      redirect to('/signin')
+    end
   end
   # start the server if ruby file executed directly
   run! if app_file == $0

@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/kgrz/sinatra.git
+  revision: 1dfae3d87e236785cade93b7b2d1adbd4b450eaa
+  branch: use-rack-files-serving-method
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      rack (~> 2.0.0.alpha)
+      rack-protection (~> 1.5)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,6 +113,8 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.4)
     rack (2.0.1)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
@@ -128,13 +140,14 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sinatra (1.0)
-      rack (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     slop (3.6.0)
     stringex (1.5.1)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
     thor (0.19.1)
+    tilt (2.0.5)
     tins (1.6.0)
     unf (0.1.4)
       unf_ext
@@ -158,7 +171,8 @@ DEPENDENCIES
   pry
   rake
   rspec
-  sinatra
+  sinatra!
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.2.3p173

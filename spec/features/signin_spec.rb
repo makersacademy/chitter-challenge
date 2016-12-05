@@ -1,17 +1,18 @@
-# feature 'User sign in' do
-#   let!(:user) do
-#     User.create(email: 'verito@test.com', password: 'password')
-#   end
-#
-#   scenario 'with credentials' do
-#     signin(email: user.email, password: user.password)
-#     expect(page).to have_content "Welcome, #{user.email}"
-#   end
-#
-#   def signin(email:, password:)
-#     visit '/signin'
-#     fill_in :email, with: email
-#     fill_in :password, with: password
-#     click_button 'Sign in'
-#   end
-# end
+require 'spec_helper'
+
+feature 'User sign in' do
+  def sign_in
+    visit '/signin'
+    fill_in :email, with:'vero@test.com'
+    fill_in :password, with:'password'
+    click_button 'Sign in'
+  end
+
+  scenario 'user can sign in' do
+    sign_up
+    sign_in
+    expect(page.status_code).to eq 200
+    expect(current_path).to include '/peeps'
+  end
+
+end

@@ -9,6 +9,8 @@ group :development do
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
   gem "nokogiri"
+  gem 'sinatra-flash'
+
 
 end
 
