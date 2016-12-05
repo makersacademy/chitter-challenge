@@ -44,10 +44,6 @@ nav li:last-child {
   float: right;
 }
 
-nav li:nth-last-child(2) {
-  float: right;
-}
-
 nav li a {
   display: block;
   padding: 5px 20px;
