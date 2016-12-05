@@ -9,6 +9,15 @@ require 'database_cleaner'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear! 
+
 Capybara.app = Chitter
 
 RSpec.configure do |config|

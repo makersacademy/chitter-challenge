@@ -1,11 +1,20 @@
 ENV["RACK_ENV"] ||= "development"
 
-require './app/data_mapper_setup.rb'
 require 'sinatra/base'
+require 'sinata/flash'
+require 'sinatra/partial'
+require './app/models/login'
 require_relative 'data_mapper_setup.rb'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
+  use Rack::MethodOverride
+  register Sinatra::Flash
+  register Sinatra::Partial
+
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 
   get '/' do
     erb :'sign_up'

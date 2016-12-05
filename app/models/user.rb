@@ -1,36 +1,23 @@
 require 'bcrypt'
 
 class User
-  include BCrypt
   include DataMapper::Resource
-
-  property :id, Serial
-  property :email, String
-  property :handle, String
-  property :password_digest, Text
-
-  def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
-  end
 
   attr_reader :password
   attr_accessor :password_again
 
-  validates_confirmation_of :password, confirm:
-  :password_again
+  property :id, Serial
+  property :email, String
+  property :name, String
+  property :username, String
+  property :password_digest, Text
 
-  @@count = 0
+  has n, :peeps
 
-  def initialize(params)
-    self.password = params[:password]
-    self.email = params[:email]
-    self.handle = params[:handle]
-    self.password_again = params[:password_again]
-    self.save
-    @@count += 1
-  end
+  validates_uniqueness_of :email, :username
 
-  def count
-    @@count
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 end
