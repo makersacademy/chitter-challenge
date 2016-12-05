@@ -1,5 +1,4 @@
 require 'spec_helper'
-# require_relative '../web-helper'
 
 feature "Email validation" do
   include Helpers

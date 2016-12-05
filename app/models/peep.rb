@@ -1,5 +1,5 @@
 require 'data_mapper'
-require_relative './datamapper_settings'
+
 
 class Peep
 
@@ -10,5 +10,5 @@ class Peep
   property :username, String
   property :name, String
 
-  data_mapper_settings
+
 end

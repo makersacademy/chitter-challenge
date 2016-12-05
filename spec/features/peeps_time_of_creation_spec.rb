@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../web-helper'
 
 # As a maker
 # So that I can better appreciate the context of a peep
@@ -7,7 +6,6 @@ require_relative '../web-helper'
 
 feature "Peeps Time of Creation" do
   include Helpers
-
   scenario "I want to see when a peep was made" do
     time = Time.now
     sign_up

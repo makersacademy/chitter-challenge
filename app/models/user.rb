@@ -1,5 +1,5 @@
 require 'data_mapper'
-require_relative './datamapper_settings'
+
 require 'bcrypt'
 require_relative './peep.rb'
 class User
@@ -32,7 +32,7 @@ class User
     end
   end
 
-  data_mapper_settings
+
 
 
 end

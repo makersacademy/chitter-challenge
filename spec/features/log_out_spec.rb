@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../web-helper'
 
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me

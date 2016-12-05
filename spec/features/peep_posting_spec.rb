@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../web-helper'
 
 # As a Maker
 # So that I can let people know what I am doing
