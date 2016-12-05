@@ -114,10 +114,10 @@ input[type=password] {
 }
 
 .comment {
-  display: block;
+  display: inline-block;
   margin: 0px 0px 8px 30px;
   background-color: #42f1f4;
-  padding: 12px;
+  padding: 12px 25px 12px 12px;
 }
 
 .peep {
