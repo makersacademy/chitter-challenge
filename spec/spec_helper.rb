@@ -10,7 +10,7 @@ require 'rspec'
 require_relative 'web_helper'
 require 'database_cleaner'
 require 'dm-postgres-adapter'
-require_relative 'helpers/sessions'
+require_relative 'helpers/session'
 
 Capybara.app = ChitterApp
 

@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+
 
 group :development do
-  gem 'pry'
   gem 'sinatra'
-  gem 'capybara'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'bcrypt'
+  gem 'rake'
   gem 'sinatra-flash'
+  gem 'sinatra-partial'
 end
 
 group :test do
   gem 'rspec'
-  gem 'rake'
-  gem 'database_cleaner'
   gem 'rspec-sinatra'
-  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'capybara'
   gem 'coveralls', require: false
 end
