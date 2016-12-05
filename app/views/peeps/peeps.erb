@@ -1,12 +1,13 @@
+<% if current_user %>
+  <form action='/peeps/new' method='post'>
 
-<form action='/peeps/new' method='post'>
+    <div class="peep_field">
+      <label for "new_peep">New Peep</label>
+      <input type="text" name="new_peep"/>
+    </div>
+    <div class="button">
+      <button type="submit">Peep</button>
+    </div>
 
-  <div class="peep_field">
-    <label for "new_peep">New Peep</label>
-    <input type="text" name="new_peep"/>
-  </div>
-  <div class="button">
-    <button type="submit">Peep</button>
-  </div>
-
-</form>
+  </form>
+<% end %>
