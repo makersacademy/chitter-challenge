@@ -3,8 +3,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
-
-
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash

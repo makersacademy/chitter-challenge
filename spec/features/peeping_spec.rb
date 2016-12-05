@@ -3,7 +3,6 @@ feature 'Viewing peeps' do
     Peep.create(message: 'Trump here')
     visit '/peeps'
     expect(page.status_code).to eq 200
-
     within 'ul#peeps' do
       expect(page).to have_content('Trump here')
     end

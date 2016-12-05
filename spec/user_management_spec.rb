@@ -9,10 +9,8 @@ feature 'User sign up' do
     fill_in :username, with: 'bryorama'
     fill_in :password_confirmation, with: 'strawberry'
     click_button 'Sign up'
-
     expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
     expect(page).to have_content 'Password and confirmation password do not match'
-
   end
 
   scenario 'I can sign up as a new user' do

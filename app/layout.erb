@@ -8,9 +8,6 @@
   <% if current_user %>
   Welcome, <%= current_user.username %>
   <% end %>
-  <% if flash[:notice] %>
-  <div id="notice"><%= flash[:notice].flatten.each {|notice| puts notice.inspect } %></div>
-  <% end %>
   <%= yield %>
 </body>
 </html>
