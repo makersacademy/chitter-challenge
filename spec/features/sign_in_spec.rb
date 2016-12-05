@@ -12,7 +12,7 @@ feature 'sign in' do
 
   scenario 'user can sign in with correct email and password' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content 'welcome, amanda'
+    expect(page).to have_content 'welcome, @amanda'
   end
 
 end

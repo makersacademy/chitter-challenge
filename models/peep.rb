@@ -9,6 +9,6 @@ class Peep
   property :message, Text
   property :created_at, DateTime
 
-  has 1, :user, {:through=>DataMapper::Resource}
+  belongs_to :user
 
 end
