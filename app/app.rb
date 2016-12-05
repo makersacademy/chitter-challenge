@@ -12,6 +12,8 @@ require_relative 'controllers/peeps'
 require_relative './models/user'
 require_relative './models/peep'
 
+require_relative 'chitter_helpers'
+
 class Chitter < Sinatra::Base
 
   enable  :sessions
@@ -28,11 +30,7 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers Helpers
 
   # start the server if ruby file executed directly
   run! if app_file == $0
