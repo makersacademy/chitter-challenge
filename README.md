@@ -1,6 +1,35 @@
+Chitter Challenge - Building a twitter clone
+
 How it works
 
 Used reverse.each do to iterate over tweets in reverse order
+Database with two tables: one for users and one for tweets
+
+
+How to use
+
+Clone this github repository
+Use bundle to install the gems needed for it work
+Run the app using $ ruby app/app.rb
+Got to localhost:4567/twitter to view messages
+Go to localhost:4567/tweets/new to create new messages
+Go to localhost:4567/users/new to sign up
+
+
+
+Technologies used
+* rspec
+* capybara
+* sinatra
+* rake
+
+
+Areas that need more work
+1) No one to many relationship between tweets and users
+2) No way to logout
+3) Is quite ugly
+4) Add time and username to each tweet
+5) Need to refactor into controllers
 
 
 Chitter Challenge
