@@ -11,6 +11,13 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+
+    helpers do
+      def current_user
+        @current_user ||= User.get(session[:user_id])
+      end
+    end
+
   post '/users' do
     @user = User.create(email: params[:email],
       password: params[:password],
@@ -64,16 +71,16 @@ end
   end
 
   post '/peeps' do
-    peep = Peep.create(message: params[:message])
-    @current_user.peeps << peep
-    @current_user.save
+    time = Time.now.strftime("%H:%M:%S")
+    peep = Peep.create(time: time, message: params[:message])
+    current_user.peeps << peep
+    current_user.save
     redirect '/peeps'
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
+  get '/' do
+    @peeps = Peep.all
+    erb :'peeps/index'
   end
 
   run! if app_file == $0

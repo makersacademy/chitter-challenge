@@ -1,9 +1,16 @@
-<h1> Welcome </h1>
+<h1> Press peep to get peeping! </h1>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      Message: <%= peep.message %>
+      <%= peep.user.username %>'s Message: <%= peep.message %>
+      at <%= peep.time %>
     </li>
   <% end %>
+
+  <form action='/peeps/new' method='get'>
+  <button class="buttons">Peep!</button>
+  </form>
+
+
 </ul>

@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'dm-migrations'
 
 
 class User
