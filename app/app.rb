@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
       @posts = Peep.all
       redirect ('/peeps')
     else
-      flash.now[:notice] = "The password is not correct!"
+      flash.now[:notice] = "The password or email is not correct!"
       erb :log_in
     end
   end
