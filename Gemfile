@@ -10,9 +10,8 @@ group :test do
   gem "selenium-webdriver"
   gem "database_cleaner"
   gem 'capybara'
-
 end
-gem 'rack'
+
 gem "sinatra"
 gem "datamapper"
 gem "dm-postgres-adapter"
