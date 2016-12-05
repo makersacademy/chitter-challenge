@@ -7,6 +7,9 @@ require 'sinatra/flash'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  set(:cookie_options) do
+    { :expires => Time.now + 3600 }
+  end
   register Sinatra::Flash
   use Rack::MethodOverride
 
@@ -41,7 +44,7 @@ class Chitter < Sinatra::Base
 
   delete '/users' do
     session[:user_id] = nil
-    flash.keep[:errors] = ['Bye']
+    flash[:errors] = ['Bye']
     redirect to '/'
   end
 
@@ -61,7 +64,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    if current_user.id != nil
+    if session[:user_id] != nil
       current_user.peeps << Peep.create(body: params[:peep], name: current_user.name, username: current_user.username)
       @peep = Peep.all
       current_user.save
