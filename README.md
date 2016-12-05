@@ -53,6 +53,10 @@ Click sign out to sign out...user will still be able to read peeps when they are
 
 ![Imgur](http://i.imgur.com/Nk2IKmb.png)
 
+Visit my app on Heroku!
+
+https://amanda-chitter.herokuapp.com/users/sign-up
+
 ### Things still to do
 
 Need to tidy up controller
