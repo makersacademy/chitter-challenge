@@ -17,6 +17,9 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_presence_of :email, :username, :password_digest
+  validates_uniqueness_of :username, :email
+  validates_format_of :email, :as => :email_address
 
   def password=(password)
     @password = password

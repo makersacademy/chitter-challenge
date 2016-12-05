@@ -2,7 +2,6 @@ require './app/app'
 
 RSpec.feature "Viewing all messages", :type => :feature do
   scenario "user wamts to see all messages" do
-    DatabaseCleaner.clean
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
     click_button('Submit')

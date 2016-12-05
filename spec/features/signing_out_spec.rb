@@ -2,7 +2,6 @@ require './app/app'
 
 RSpec.feature "Signing out", :type => :feature do
   scenario "user signs out" do
-    DatabaseCleaner.clean
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
     click_button('Submit')

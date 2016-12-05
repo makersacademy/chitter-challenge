@@ -2,7 +2,6 @@ require './app/app'
 
 RSpec.feature "New message", :type => :feature do
   scenario "user submits a new message" do
-    DatabaseCleaner.clean
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
     click_button('Submit')

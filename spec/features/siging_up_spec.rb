@@ -2,7 +2,6 @@ require './app/app'
 
 RSpec.feature "Signing up", :type => :feature do
   before do
-    DatabaseCleaner.clean
     @user_count = User.all.count
     signup
     fill_in('password_confirmation', with: 'gweatonidas36')
@@ -25,7 +24,7 @@ RSpec.feature "Signing up", :type => :feature do
     click_button('Submit')
 
     expect(current_path).to eq '/users/new'
-    message = "'Miko' is taken already, please choose a different username."
+    message = "Username is already taken"
     expect(page).to have_content(message)
     expect(User.all.count).to eq (@user_count + 1)
   end
