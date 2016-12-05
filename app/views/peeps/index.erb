@@ -7,7 +7,7 @@
 	<ul id='peeps'>
 		<% @peeps.reverse_chronological_order.each do |peep| %>
 			<li>
-				<%= peep.user.firstname %> <%= peep.user.surname %> @<%= peep.user.username %> <%= peep.created_at %>
+				<%= peep.user.firstname %> <%= peep.user.surname %> @<%= peep.user.username %>, <%= peep.time %>
 				<br>
 				<%= peep.text %>
 			</li>

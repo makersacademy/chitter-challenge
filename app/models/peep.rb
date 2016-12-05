@@ -9,10 +9,10 @@ class Peep
 
 	property :id, Serial
 	property :text, String
-	property :created_at, DateTime
+	property :time, String
 
 	def self.reverse_chronological_order
-		self.all(order: :created_at.desc)
+		self.all(order: :time.desc)
 	end
 
 end
