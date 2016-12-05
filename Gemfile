@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-require 'pry'
-
   gem 'sinatra'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
