@@ -3,7 +3,7 @@
 <li>
 <%= message.user.username%>
 <br></br>
-<%= message.time %>
+<%= message.created_at.strftime("Created on: %m/%d/%Y at: %I:%M%p") %>
   <br></br>
 <%= message.content %>
 <br></br>

@@ -5,7 +5,7 @@ class Message
   include DataMapper::Resource
 
   property :id, Serial
-  property :time, DateTime
+  property :created_at, DateTime
   property :content, String
 
   belongs_to :user

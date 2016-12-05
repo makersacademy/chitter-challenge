@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    message = Message.create(time: DateTime.now, content: params[:new_message], user_id: session[:user_id])
+    message = Message.create(content: params[:new_message], user_id: session[:user_id])
       if session[:user_id]
         flash.next[:notice] = ["Your message has been posted."]
       else flash.next[:error] = ["Something went wrong. Make sure you're logged in!"]
