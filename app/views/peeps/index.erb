@@ -1,0 +1,26 @@
+<h2> Peeps make the world go round </h2>
+
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <table width=100% border=1 style="font-family:arial;">
+        <tr>
+          <th>
+
+      <%= peep.user.username %>'s Message: '<%= peep.message %>'
+      at <%= peep.time %>
+    </th>
+  </tr>
+    </table>
+  <% end %>
+
+  <div>
+
+  <% if current_user %>
+  <form action='/peeps/new' method='get'>
+  <button class="buttons">Peep!</button>
+  </form>
+ <% end %>
+
+</div>
+
+</ul>

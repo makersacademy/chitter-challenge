@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <h1> Chitter </h1>
+</head>
+
+<body>
+  <% if current_user %>
+  <h2> Welcome, <%= current_user.email %> <h2>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <%= yield %>
+
+  <% if current_user %>
+   <form method='post' action='/sessions'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign out'>
+   </form>
+ <% end %>
+ <% if flash[:notice] %>
+  <div id='notice'>
+    <h1> <%= flash[:notice] %> <h1>
+  </div>
+ <% end %>
+
+ <% if !current_user %>
+ <form action='/users/new' method='get'>
+ <button class="buttons">Sign up!</button>
+ </form>
+ <form action='/sessions/new' method='get'>
+ <button class="buttons">Sign in!</button>
+ </form>
+ <% end %>
+
+</body>
+</html>
