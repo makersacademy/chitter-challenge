@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 
 feature "Sign Up", type: :feature do
   scenario "I want to sign up to Chitter" do
@@ -12,7 +11,7 @@ feature "Sign Up", type: :feature do
     expect{ fail_sign_up }.not_to change(User, :count)
     expect(page).to have_content("Sign Up")
   end
-end 
+end
 
 feature "Switch to log in" do
   scenario "I want to be able to access the log in page" do

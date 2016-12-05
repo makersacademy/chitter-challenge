@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 
   feature "Time", type: :feature do
     scenario "I want my peeps to show when it was created" do

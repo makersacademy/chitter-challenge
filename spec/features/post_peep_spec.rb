@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 
 feature "Posting a peep", type: :feature do
 
