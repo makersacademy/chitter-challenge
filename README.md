@@ -57,10 +57,6 @@ I am currently unsure whether people who fork this repo will need to use psql to
 4. Enter `CREATE DATABASE chitter_development`
 5. Enter `\q` to exit
 
-Splitting Controllers
----------------------
-Splitting the controllers in Sinatra proved to be quite problematic. This was due to not knowing where to locate the `run!` command once the controllers had been split. My solution was to put it in a class at the end of the `app/app.rb` file, so that the server would be run after all the needed controllers had been required. I believe that this is not optimal, and would like to research the matter further.
-
 Errors
 ------
 I have included errors in my code, which are displayed when a user does not complete the sign up form correctly. At the moment these errors are displayed in a list at the top of the page. I would like to learn how to display each error next to the form field that it applies to (e.g. invalid email error would appear next to the email input).
@@ -77,9 +73,6 @@ Reply to Peeps
 --------------
 I would like to add an extra feature, whereby users can reply to a peep that has been written previously.
 
-Password Security
------------------
-At the moment, when passwords are written they are displayed as ordinary text, as opposed to a series of `*`'s, which is more typical of password inputs. I would like to find out how to change this.
 
 Best Practice
 -------------
