@@ -20,12 +20,8 @@ class User
   end
 
 
-  validates_confirmation_of :password,
-    :message => "Password and confirmation password do not match."
-
+  validates_confirmation_of :password
   validates_format_of :email, :as => :email_address
 
-  validates_uniqueness_of :username,
-    :message => "User already signed up. Please login."
-
+  validates_uniqueness_of :username
 end
