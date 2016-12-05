@@ -34,12 +34,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    # @peeps = Peep.all(:order => :created_at.desc)
     erb :index
   end
 
   post '/' do
-    # @peeps = Peep.all(:order => :created_at.desc)
     @user = User.new(name: params[:name],
     username: params[:username],
     email: params[:email],
@@ -60,7 +58,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/session' do
-    # @peeps = Peep.all(:order => :created_at.desc)
     user = User.authenticate(params[:username], params[:password])
     if user
       session[:user_id] = user.id
@@ -72,7 +69,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    # @peeps = Peep.all(:order => :created_at.desc)
     erb :'peeps/new'
   end
 

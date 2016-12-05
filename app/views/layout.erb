@@ -57,9 +57,13 @@ input:valid {
    <h1>Chitter</h1>
 </header>
 
-<article>
-<%= partial :welcome %>
+<nav>
+  <nav ul>
+  <%= partial :welcome %>
+  </nav ul>
+</nav>
 
+<article>
 
 <% if flash[:notice] %>
  <div id='notice'>
@@ -75,9 +79,25 @@ input:valid {
     <% end %>
   </ul>
 <% end %>
+
+<ul id="peeps">
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep.content %><br>
+        Posted at: <%= peep.created_at %><br>
+        By: <%= peep.user.name %><br>
+  </li>
+  <% end %>
+</ul>
+
 <%= yield %>
 
 </article>
+
+
+
+
+
 
 <footer>Created by Louisa Spicer - Makers Academy Student</footer>
 
