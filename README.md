@@ -48,4 +48,11 @@ $ ruby app/app.rb
 4. open your browser and go to: http://localhost:4567/
 5. chirp away :)  
 
+###Things to work on:
+- separating controllers
+- correct semantics in form markup
+- HTML semantics/syntax
+- introducing CSS
+- view helpers (make them and put in a separate file)
+
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
