@@ -34,4 +34,5 @@ feature 'a new user can sign up to chitter' do
     expect(page).to have_content('Email is already taken')
   end
 
+
 end

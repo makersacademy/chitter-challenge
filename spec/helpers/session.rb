@@ -13,7 +13,7 @@ module SessionHelpers
     visit 'sessions/new'
     fill_in 'email',      :with => 'mac@shaper.com'
     fill_in 'password',   :with => 'netrunner1'
-    click_button 'Log in'
+    click_button('Log in')
   end
 
 end

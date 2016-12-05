@@ -1,4 +1,3 @@
-
 require 'bcrypt'
 require 'data_mapper'
 require 'dm-postgres-adapter'
@@ -12,7 +11,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :user_name, String
+  property :user_name, String, unique: true
   property :email, String, required: true, unique: true
   property :password_digest, Text
 

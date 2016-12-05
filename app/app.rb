@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user.rb'
+require_relative './models/peep.rb'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
@@ -34,6 +35,11 @@ class Chitter < Sinatra::Base
 
   get '/my-chitter' do
     erb :my_chitter
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps'
   end
 
   get '/sessions/new' do
