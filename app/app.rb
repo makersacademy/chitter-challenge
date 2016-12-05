@@ -2,9 +2,12 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require_relative 'helpers.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+
+  include Helpers
 
   get '/users/new' do
     erb :sign_up
@@ -52,7 +55,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new' do
-    @user_peep = Peep.new(time: Time.new,
+    @user_peep = Peep.new(time: current_time,
                           body: params[:peep_field],
                           user_id: session[:user].id)
     @user_peep.save
@@ -60,8 +63,9 @@ class Chitter < Sinatra::Base
   end
 
   get ('/peeps') do
-    @all_peeps = Peep.all.map { |record| [record.body, record.time] }
-    @all_peeps = @all_peeps.join("<br>")
+    @all_peeps = (Peep.all.map { |record| [record.body, record.time, record.user.name] }).reverse
+    @all_peeps = @all_peeps.map { |peep| peep.join("<br>") }
+    @all_peeps = @all_peeps.join("<br><br>")
     @user_logged_in = session[:user]
     erb :peep_board
   end
