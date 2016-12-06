@@ -7,7 +7,7 @@
   <body>
     <% if current_user %>
       <h1>Welcome, <%= current_user.email %><h1>
-        <form class="button" action="/signin" method="POST"/>
+        <form action="/peeps" method="POST"/>
           <input type="hidden" name="_method" value="delete"/>
           <input type="submit" value="Log Out"/>
         </form>

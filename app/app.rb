@@ -21,7 +21,26 @@ class Chitter_challenge < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'/peeps'
+  end
+
+  post '/new_peep' do
+    erb :'/new_peep'
+  end
+
+  get '/new_peep' do
+    erb :'/new_peep'
+  end
+
+  post '/peeps' do
+    if current_user
+      peep = Peep.create(message: params[:message], email: current_user.email)
+      redirect '/peeps'
+    else
+      flash.keep[:errors] = ['Must sign in to post new peeps']
+      redirect '/'
+    end
   end
 
   get '/signup' do
