@@ -1,31 +1,36 @@
-<%if get_current_user%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title> Chitter </title>
+  </head>
 
-<form action="/sessions" method="post">
-  <div>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='log out' id='log-out'>
-  </div>
-</form>
+  <body>
 
-<form action="/peep" method='post'>
-  <div>
-    <label for="msg">Message:</label>
-    <textarea id="msg" name="user_message"></textarea>
-  </div>
-  <div>
-      <input type='submit' id='peep'>
-  </div>
-</form>
+    <%if get_current_user%>
 
-<%end%>
+    <form action="/sessions" method="post">
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='log out' id='log-out'>
+    </form>
+
+    <form action="/peep" method='post'>
+        <label for="msg">Message:</label>
+        <textarea id="msg" name="user_message"></textarea>
+          <input type='submit' id='peep'>
+    </form>
+
+    <%end%>
 
 
-Peeps:
-<ul id='peeps'>
-  <%@peeps.reverse.each do |peep| %>
-    <dt><%= peep.created_at.strftime("printed  on %m/%d/%Y at %I:%M%p") %></dt>
-    <dd><%=User.get(peep.user_id).username %>: <%= peep.message  %></dd>
-    <dd> </dd>
+    Peeps:
+    <ul id='peeps'>
+      <%@peeps.reverse.each do |peep| %>
+        <dt><%= peep.created_at.strftime("printed  on %m/%d/%Y at %I:%M%p") %></dt>
+        <dd><%=User.get(peep.user_id).username %>: <%= peep.message  %></dd>
+        <dd> </dd>
 
-  <%end%>
-</ul>
+      <%end%>
+    </ul>
+  </body>
+</html>

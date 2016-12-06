@@ -1,32 +1,33 @@
-<form action="/users" method="post">
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title> Chitter </title>
+  </head>
 
-  <div>
-     <label for="email">Please enter your email!</label>
-    <input type='email' name='email' value='<%= @user.email %>' required>
-  </div>
+  <body>
 
-  <div>
-    <label for="name">Please enter your name!</label>
-    <input type='text' name='name' value='<%= @user.name %>'required>
-  </div>
+    <form action="/users" method="post">
 
-  <div>
-    <label for="username">Please enter your username!</label>
-    <input type='text' name='username' value='<%=@user.username%>' required>
-  </div>
+        <label for="email">Please enter your email!</label>
+        <input type='email' name='email' value='<%= @user.email %>' required>
 
-  <div>
-    <label for="password">Please enter your password!</label>
-    <input type='password' name='password'>
-  </div>
+        <label for="name">Please enter your name!</label>
+        <input type='text' name='name' value='<%= @user.name %>'required>
 
-  <div>
-    <label for="confirm_password">Please confirm your password!</label>
-    <input type='password' name='confirm_password'>
-  </div>
+        <label for="username">Please enter your username!</label>
+        <input type='text' name='username' value='<%=@user.username%>' required>
 
-  <div>
-    <input type='submit' id='sign-up'>
-  </div>
+        <label for="password">Please enter your password!</label>
+        <input type='password' name='password'>
 
-</form>
+        <label for="confirm_password">Please confirm your password!</label>
+        <input type='password' name='confirm_password'>
+
+        <input type='submit' id='sign-up'>
+
+    </form>
+
+  </body>
+
+</html>
