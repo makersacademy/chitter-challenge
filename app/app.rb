@@ -9,14 +9,13 @@ require_relative 'helpers'
 require_relative 'controllers/peeps'
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
-# require_relative 'controllers/server'
 
 class Chitter < Sinatra::Base
 
   set :root, File.dirname(__FILE__)
 
   get '/' do
-    "Hello Chitter"
+    redirect ('users/new')
   end
 
   register Sinatra::Flash

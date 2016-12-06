@@ -27,7 +27,7 @@ Instructions and Installation:
 Fork and clone this repo, then in the command prompt run the following:
 
 ```
-$ bundle
+$ bundle install
 ```
 
 You will then need to create two databases, you can do this using PostgreSQL by running the following. This downloads all the necessary Gems.
@@ -35,14 +35,14 @@ You will then need to create two databases, you can do this using PostgreSQL by 
 ```
 $ psql
 
-=# create database chitter_test
-=# create database chitter_development
+=# CREATE DATABASE chitter_test;
+=# CREATE DATABASE chitter_development;
 ```
 
 To run the application enter:
 
 ```
-$ ruby app/app.rb
+$ rackup
 ```
 
 then visit http://localhost:4567

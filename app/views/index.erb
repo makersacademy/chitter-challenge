@@ -1,4 +1,4 @@
-<%if get_user_id%>
+<%if get_current_user%>
 
 <form action="/sessions" method="post">
   <div>
@@ -22,9 +22,9 @@
 
 Peeps:
 <ul id='peeps'>
-  <%@posts.reverse.each do |post| %>
-    <dt><%= post.created_at.strftime("printed  on %m/%d/%Y at %I:%M%p") %></dt>
-    <dd><%=User.get(post.user_id).username %>: <%= post.message  %></dd>
+  <%@peeps.reverse.each do |peep| %>
+    <dt><%= peep.created_at.strftime("printed  on %m/%d/%Y at %I:%M%p") %></dt>
+    <dd><%=User.get(peep.user_id).username %>: <%= peep.message  %></dd>
     <dd> </dd>
 
   <%end%>

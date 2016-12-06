@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
-     @user = User.new
+    @user = User.new
     erb :log_in
   end
 
@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email],params[:password])
     if user
       session[:id] = user.id
-      @posts = Peep.all
+      @peeps = Peep.all
       redirect ('/peeps')
     else
       flash.now[:notice] = "The password or email is not correct!"
@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:id] = nil
     flash.keep[:notice] = "Goodbye!"
-    @posts = Peep.all
+    @peeps = Peep.all
     redirect("/peeps")
   end
 

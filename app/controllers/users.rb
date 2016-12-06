@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:id] = @user.id
-      @posts = Peep.all
+      @peeps = Peep.all
       redirect ('/peeps')
     else
       flash.now[:errors]
