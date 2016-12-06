@@ -1,0 +1,27 @@
+html {
+    margin: 30;
+    padding: 0;
+    background-color: #777;
+}
+body {
+    width: 50%;
+    margin: 40 auto;
+    background: white;
+    border: 10px solid gold;
+    text-align: center;
+}
+h1 {
+    font-family: Georgia, "Times New Roman";
+    font-size: 2em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+.inner {
+    display: inline-block;
+    width: 100px
+}
+#outer {
+    width:100%;
+    text-align: center;
+}
