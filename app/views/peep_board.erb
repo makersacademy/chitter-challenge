@@ -1,19 +1,22 @@
 <head>
-  <link rel='stylesheet' type='text/css' href='style.css' />
+  <link rel='stylesheet' type='text/css' href='styles.css' />
 </head>
 
-<%= @all_peeps %>
 
-<% if @user_logged_in %>
+<body>
+  <%= @all_peeps %>
 
-<form action='/users/homepage' type='get'>
-  <input type='submit' value='Homepage'>
-</form>
+  <% if @user_logged_in %>
 
-<% else %>
+  <form action='/users/homepage' type='get'>
+    <input type='submit' value='Homepage'>
+  </form>
 
-<form action='/users' type='get'>
-  <input type='submit' value='Sign In to Peep'>
-</form>
+  <% else %>
 
-<% end %>
+  <form action='/users' type='get'>
+    <input type='submit' value='Sign In to Peep'>
+  </form>
+
+  <% end %>
+</body>

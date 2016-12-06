@@ -1,19 +1,21 @@
 <head>
-  <link rel='stylesheet' type='text/css' href='style.css' />
+  <link rel='stylesheet' type='text/css' href='../styles.css' />
 </head>
 
-Welcome <% if @new_user == true %>
-to Chitter, <%= @user.name %>
-<% else %>
-back, <%= @user.name %>
-<% end %>
+<body>
+  <h1>Welcome <% if @new_user == true %>
+  to Chitter, <%= @user.name %>
+  <% else %>
+  back, <%= @user.name %>
+  <% end %></h1>
 
-<form action='/peeps/new' method='post'>
-  <input type='text' name='peep_field' placeholder='Write your peep here...' style='height:120px; width:180px;'>
-  <input type='submit' value='Peep'>
-</form>
+  <form action='/peeps/new' method='post'>
+    <input type='text' name='peep_field' placeholder='Write your peep here...' style='height:120px; width:180px;'>
+    <input type='submit' value='Peep'>
+  </form>
 
 
-<form action='/users' method='get'>
-  <input type='submit' value='Log out'>
-</form>
+  <form action='/users' method='get'>
+    <input type='submit' value='Log out'>
+  </form>
+</body>
