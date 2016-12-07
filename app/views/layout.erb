@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li> <a href="/">Home</a></li>
+      <li> <a href='/peeps'>View Peeps</a></li>
+      <li> <a href="/peeps/new">Add Peep</a></li>
+      <li> <a href="#"> Log In </a></li>
+      <li> <a href="#"> Log Out </a></li>
+      <li> <a href="/sign_up"> Sign Up </a></li>
+    </ul>
+  </nav>
+
+  <body>
+    <div>
+      <% if current_user %>
+      <h1>Welcome, <%= current_user.email %></h1>
+      <% end %>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+    <div>
+      <img src='/images/chitter.jpeg'></a>
+    </div>
+  </body>
+  </html>

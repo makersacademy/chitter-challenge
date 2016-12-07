@@ -1,0 +1,16 @@
+<h1> Add New Peep </h1>
+<fieldset>
+<article class='add-peep'>
+<form action='/peeps' method='POST'>
+  <label for='title'>
+    <h2>Title:</h2>
+    <input id='title' type='text' name='title' />
+  </label></br>
+  <label for='message'>
+    <h2>Message:</h2>
+    <input id='message' type='text' name='message' required /> <h3> <%= Time.now %> </h3>
+  </label></br></br>
+  <button class='button' type='submit'>Add Peep</button>
+</form>
+</article>
+</fieldset>

@@ -1,0 +1,180 @@
+html {
+  margin: 20px;
+  font-family: Helvetica;
+  background-image: url('/images/grey.jpg');s
+  background-repeat: no-repeat;
+  background-size: 1000px cover;
+  text-align: center;
+  color: white;
+}
+
+h1, h2, h3, h4 {
+  text-shadow: 4px 4px 20px #000;
+  -webkit-text-stroke: 0.5px black;
+}
+
+img {
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 10%;
+  height: 10%;
+}
+
+nav {
+  background-color: #404040;
+  width: 100%;
+  float: left;
+  margin: 0 0 2em 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  color: white;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  float: left;
+}
+
+nav li:last-child {
+  float: right;
+}
+
+nav li a {
+  display: block;
+  padding: 5px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #66b2b2;
+  border-right: 1px solid #ccc;
+}
+
+nav li a:hover {
+  color: #003333;
+  background-color: #d8d8d8;
+}
+
+.button {
+  margin: auto;
+  font-size: 18px;
+  outline: 0;
+  padding: 12px 15px;
+  display: block;
+  color: #cccccc;
+  font-weight: bold;
+  text-shadow: 1px 1px #1f272b;
+  border: 1px solid #808080;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  background: #232B30; /* old browsers */
+  background: -moz-linear-gradient(top, #3D4850 3%, #313d45 4%, #232B30 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3D4850), color-stop(4%,#313d45), color-stop(100%,#232B30)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3D4850', endColorstr='#232B30',GradientType=0 ); /* ie */
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
+  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
+  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #4C5A64; /* old browsers */
+  background: -moz-linear-gradient(top, #4C5A64 3%, #404F5A 4%, #2E3940 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#4C5A64), color-stop(4%,#404F5A), color-stop(100%,#2E3940)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4C5A64', endColorstr='#2E3940',GradientType=0 ); /* ie */
+}
+
+.button:active {
+  background-position: 0 top;
+  position: relative;
+  top: 1px;
+  color: #fff;
+  padding: 6px 12px 4px;
+  background: #20282D; /* old browsers */
+  background: -moz-linear-gradient(top, #20282D 3%, #252E34 51%, #222A30 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#20282D), color-stop(51%,#252E34), color-stop(100%,#222A30)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20282D', endColorstr='#222A30',GradientType=0 ); /* ie */
+  -moz-box-shadow: 1px 1px 1px rgba(255,255,255,0.1); /* Firefox */
+  -webkit-box-shadow: 1px 1px 1px rgba(255,255,255,0.1); /* Safari, Chrome */
+  box-shadow: 1px 1px 1px rgba(255,255,255,0.1); /* CSS3 */
+}
+
+fieldset {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove;
+  width: 50%;
+  border-radius: 20px;
+}
+
+fieldset legend {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+input[type=text] {
+  padding: 5px;
+}
+
+input[type=name] {
+  padding: 5px;
+}
+
+input[type=password] {
+  padding: 5px;
+}
+
+article {
+display: block;
+}
+
+.view-peeps {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  padding: 40px;
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 70%;
+  height: 90%;
+}
+
+.add_peeps {
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.view-peeps ul {
+  margin: auto;
+  display: block;
+}
+
+.view-peeps li {
+  text-align: left;
+  list-style-type: none;
+  margin: auto;
+}
+
+#peep-title {
+  color: #84c1c1;
+}
+
+#peep-msg {
+  font-size: 12px;
+  line-height: 140%;
+  border: 1px dashed #bfbfbf;
+  background-color: #262626;
+}

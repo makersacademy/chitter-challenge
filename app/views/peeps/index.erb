@@ -1,0 +1,16 @@
+</br>
+<div class='view-peeps'>
+  <h1> Peeps </h1> </br>
+  <article >
+      <ul id='peeps'>
+        <% @peeps.reverse.each do |peep| %>
+        <li>
+          <p id='peep-title'><strong>Title:</strong> <%= peep.title %> </p>
+          <p> <%= peep.user.name %> </p>
+          <p> <%= peep.created_at %> </p>
+          <p id='peep-msg'><strong>Content:</strong></br> <%= peep.message %></p></br>
+        </li>
+        <% end %>
+      </ul>
+      </article>
+</div>
