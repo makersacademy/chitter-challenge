@@ -6,7 +6,7 @@ Chitter Challenge
 ### Instructions
 
 * Clone repo
-* Create a postgres database call 'chitter_development'
+* Create a postgres database call 'chitter_development' & 'chitter_test'
 * run ```bundle install``` in repo root folder
 * run rackup
 * go to http://localhost:9292/
