@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="content" align="center">
+        <h1><span>Chitter</span></h1>
+        <h4><font color="powderblue"><%= flash[:notice] %></font></h4>
+        <div id="prevdetails" class="clear">
+          <h5>Please sign up or <a href="/" font-style="italic">already a user?</a></h5>
+          <table>
+            <form action="/users" method="POST">
+              <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" value="<%=@user.email %>" required autofocus/></td>
+              </tr>
+              <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" required/></td>
+              </tr>
+              <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password_confirmation" required/></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><input type="submit" value="Sign up"></td>
+              </tr>
+            </form>
+          </table>
+        </div>
+        <div id="footer">
+          Developed by <a href="https://github.com/keomony" target="_blank">@keomony</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
