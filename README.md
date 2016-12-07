@@ -31,7 +31,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Chitter is built using HTML, Ruby, Sinatra, Postgresql and DataMapper. Users must sign in with a unique username, and cannot sign up if their email address has already been registered.
+Chitter is built using HTML, CSS, Ruby, Sinatra, Postgresql and DataMapper. Users must sign in with a unique username, and cannot sign up if their email address has already been registered.
 
 Testing was done using Capybara and RSpec - to stop new users being created with each test, DatabaseCleaner is used to clear out the database at the beginning of each test.
 
@@ -39,6 +39,8 @@ Testing was done using Capybara and RSpec - to stop new users being created with
 
  - Clone this repo to your local machine and run `bundle`.
 
- - Create a chitter_development database using Postgres on your local machine.
+ - Create a database called 'chitter_development' and one called 'chitter_test' (for testing purposes) using Postgres on your local machine.
 
- - visit https://chitter-123.herokuapp.com/users/new to get started (This will change with improvements and a homepage sign up - yet to come!)
+ - To use locally, run ruby app/app.rb and visit localhost:4567 to get started with Chitter.
+
+ - For the online version, visit https://chitter-123.herokuapp.com/ to sign up, sign in and get peeping!
