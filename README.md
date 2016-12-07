@@ -102,7 +102,7 @@ How to install and run the program:
 ----------------------------------
 - git clone this repository (https://github.com/Unicornelia/chitter-challenge)
 - bundle install (to install all dependencies)
-- createdb chitter_development
+- create postgres databases with the names chitter_development & chitter_test (e.g. createdb chitter_development in your terminal)
 - rake auto_migrate (for the database)
 - rspec
 - rackup
@@ -112,4 +112,4 @@ How to install and run the program:
 
 The program online => Heroku:
 ----------------------------
-https://chitter-unicornelia.herokuapp.com/ 
+https://chitter-unicornelia.herokuapp.com/
