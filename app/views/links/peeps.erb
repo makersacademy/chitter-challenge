@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<ul id='peeps'>
+  <% @peeps.map do |peep| %>
+    <li>
+
+      @<%=peep.user.username %> Peep: <%= peep.message %> Time: <%= peep.time %>
+  </li>
+  <% end %>
+</ul>
+</body>
+</html>
