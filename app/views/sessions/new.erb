@@ -1,0 +1,22 @@
+<body>
+<% if current_user %>
+  <h1> You're already logged in! </h1>
+  <h3>  <a href='/peeps'> View Peeps </a> </h3>
+<% else %>
+
+<h1>Please log in:</h1>
+
+<form class='signup'action='/sessions' method='post'>
+  <label for='username'>
+    Username: <input name='username' type='text'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <input class='button' type='submit' value='Log in'>
+</form>
+<%end%>
+
+
+<h4> Don't have an account yet? <a href='/users/new'> Sign up! </a> <h4>
+</body>
