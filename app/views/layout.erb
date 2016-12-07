@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Chirper</title>
+  </head>
+
+  <body>
+    <h1> 'Hello Chirper!' </h1>
+    <% if session[:user_id] %>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type="submit" value="Log out">
+      </form>
+      <% else %>
+      <form action="/sessions/new" method="get">
+        <input type="submit" value="Log in" />
+      </form>
+
+      <form action="/users/new" method="get">
+        <input type="submit" value="Sign up" />
+      </form>
+      <% end %>
+
+      <form action="/messages/all" method="get">
+        <input type="submit" value="See all chirps!" />
+      </form>
+
+    <% if flash[:error] %>
+      <div id='error'><%= flash[:error].join(" ") %></div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice].join(" ") %></div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

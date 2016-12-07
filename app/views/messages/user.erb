@@ -1,0 +1,17 @@
+<p>Your chirps:</p>
+<ul id="chirps"><% @user_messages.reverse.each do |message| %>
+  <li>
+    <%= message.user.username %>
+    <br></br>
+
+    <%= message.created_at.strftime("Created on: %m/%d/%Y at: %I:%M%p") %>
+      <br></br>
+    <%= message.content %>
+  <br></br>
+  <br></br>
+  <br></br>
+<% end %></ul>
+
+<form action="/dashboard" method="get">
+  <input type="submit" value="Dashboard" />
+</form>
