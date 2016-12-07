@@ -1,10 +1,18 @@
 Chitter Web Application
 =================
+Technologies used
+
 
 Instructions:
 ------------
+
+
 - rackup
 
+- Create a Postgres database with the name chitter_test & chitter_development.
+Screenshots
+
+Future Enhancement
 
 
 
