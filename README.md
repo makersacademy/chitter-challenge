@@ -22,6 +22,7 @@ Chitter is a **web app** used for cummunication. A user can sign up, log in, log
 3. In your browser, open the link **localhost:4567**.
 4. Sign up with the required credentials.
 5. Once signed up or logged in you can create a new peep or see list of existing peeps.
+6. Create a Postgres database with the name chitter_test & chitter_development.
 
 ### Screenshots
 

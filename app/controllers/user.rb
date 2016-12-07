@@ -1,4 +1,4 @@
-class Chitter< Sinatra::Base
+class Chitter < Sinatra::Base
   get '/' do
     erb :first_page
   end

@@ -1,3 +1,5 @@
+#remember about the helper methods. You can add an arguments as user and give the user's credebtuals.
+
 module Helpers
   def sign_up
     visit '/sign_up'
