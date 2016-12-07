@@ -41,12 +41,14 @@ Either go to chirper-pea.herokuapp.com and chirp away or:
 ```
 $ bundle
 ```
-3. run the following command:  
+3. Create databases called chitter_test and chitter_development in Postgres.
+
+4. run the following command:  
 ```
 $ ruby app/app.rb
 ```
-4. open your browser and go to: http://localhost:4567/
-5. chirp away :)  
+5. open your browser and go to: http://localhost:4567/
+6. chirp away :)  
 
 ###Things to work on:
 - separating controllers
