@@ -3,7 +3,7 @@ class Chitter < Sinatra::Base
   get '/' do
     erb :'entry'
   end
-  
+
   get '/session/new' do
     @user = User.new
     erb :'/session/new'
@@ -23,6 +23,10 @@ class Chitter < Sinatra::Base
   delete '/session' do
     session[:user_id] = nil
     redirect '/peeps'
+  end
+
+  get '/session/password-recovery' do
+    erb :'/session/password-recovery'
   end
 
 end

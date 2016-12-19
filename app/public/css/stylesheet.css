@@ -19,7 +19,7 @@ body {
 
 #sign_up_option {
   font-size: 18px;
-  height: 100px;
+  height: 300px;
   float: left;
   width: 50%;
   text-align: center;
@@ -29,7 +29,7 @@ body {
 
 #sign_in_option {
   font-size: 18px;
-  height: 100px;
+  height: 300px;
   float: left;
   width: 50%;
   text-align: center;
