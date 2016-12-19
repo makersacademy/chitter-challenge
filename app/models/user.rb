@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-validations'
 require 'bcrypt'
+require 'securerandom'
 
 class User
 
@@ -13,6 +14,8 @@ class User
   property :name, String
   property :username, String, :unique => true
   property :password_hash, Text
+  property :password_token, Text
+  property :password_token_time, Time
 
 
   def password=(password)
@@ -25,5 +28,20 @@ class User
       user
     end
   end
+
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.password_token_time = Time.now
+    self.save
+  end
+
+  def self.find_user_by_token(token)
+    user = User.first(password_token: token)
+    if user && (Time.now < user.password_token_time + 3600)
+      user
+    end
+  end
+
+
 
 end

@@ -16,4 +16,32 @@ class Chitter < Sinatra::Base
     end
   end
 
+  patch '/users' do
+    user = User.find_user_by_token(session[:token])
+    user.update(password: params[:password])
+    redirect '/session/new'
+  end
+
+  get '/users/password-recovery' do
+    erb :'/users/password-recovery'
+  end
+
+  post '/users/password-recovery' do
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
+    end
+    erb :'users/password-reset-acknowledgement'
+  end
+
+  get '/users/reset_password' do
+    user = User.find_user_by_token(params['token'])
+    session[:token] = params['token']
+    if user
+      erb :'/users/new_password'
+    else
+      "Token invalid"
+    end
+  end
+
 end

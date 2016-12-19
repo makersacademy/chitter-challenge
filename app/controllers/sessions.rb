@@ -25,8 +25,5 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/session/password-recovery' do
-    erb :'/session/password-recovery'
-  end
 
 end

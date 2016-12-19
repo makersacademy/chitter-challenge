@@ -1,15 +1,66 @@
+require 'timecop'
+
 feature "Password Recovery" do
 
+  before do
+    sign_up
+    Capybara.reset!
+  end
+
+  let(:user) { User.first }
+
   scenario "User can request to recover their password" do
-    visit '/session/new'
+    visit '/'
     expect(page).to have_content ("Forgotten Password?")
   end
 
-  scenario "Logs the time the user makes password recovery request" do
-    visit '/session/new'
+  scenario "Directs the user to password recovery page" do
+    visit '/'
     click_link("Forgotten Password?")
-    expect(current_path).to eq '/session/password-recovery'
+    expect(current_path).to eq '/users/password-recovery'
     expect(page).to have_content ("Enter Email")
   end
 
+  scenario "Shows message when email has been entered" do
+    recover_password
+    expect(page).to have_content ("Please check your emails for further instructions")
+  end
+
+  scenario "Generates a password token on recovery request" do
+    expect{recover_password}.to change{User.first.password_token}
+  end
+
+  scenario "It doesn't let you reset your password after an hour" do
+    recover_password
+    Timecop.travel(Time.now + 3601) do
+      visit "/users/reset_password?token=#{user.password_token}"
+      expect(page).to have_content "Token invalid"
+    end
+  end
+
+  scenario "It does let you reset your password before an hour" do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    expect(page).to have_content "Please enter your new password"
+  end
+
+  scenario "User can enter their new password in" do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    click_button "Submit"
+    expect(page).to have_content "Sign In!"
+  end
+
+  scenario "User can log in with new password" do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    click_button "Submit"
+
+    fill_in :email, with: 'tester1@test.com'
+    fill_in :password, with: 'newpassword'
+    click_button "Sign In"
+    expect(page).to have_content "Welcome, Tester"
+  end
 end

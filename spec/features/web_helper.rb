@@ -19,3 +19,9 @@ def add_peep
   fill_in :message, with: "Why can't we give love one more chance?"
   click_button "Add Peep"
 end
+
+def recover_password
+  visit '/users/password-recovery'
+  fill_in :email, with: "tester1@test.com"
+  click_button("Submit")
+end
