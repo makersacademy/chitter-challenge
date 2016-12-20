@@ -1,108 +1,122 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
 ```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
+ :                      :
+  ::                    ::
+  ::`.     .-""-.     .'::
+  : `.`-._ : '>': _.-'.' :
+  :`. `=._`'.  .''_.=' .':
+   : `=._ `- '' -' _.-'.:
+    :`=._`=.    .='_.=':
+     `.._`.      .'_..'
+       `-.:      :.-'
+          :      :
+          `:.__.:'
+           :    :
+          -'=  -'=
 ```
 
-Notes on functionality:
+Description
+-----------
+This is the Week 4 weekend challenge from Makers Academy. The challenge was to design a web app names Chitter to the following specification:
+* New users can sign up
+* Users can log in
+* Users can log out
+* Users can make a "peep" (a short message stating what is on their mind) - but only if logged in
+* Users can view peeps whether they are logged in or not
+* Users can see the time a peep was created
+* Peeps are displayed in reverse chronological order
+
+Project includes a Peep and User class.
+
+###Extra Features
+* Users cannot sign up if they are attempting to sign up with an email that is already registered
+* Users must fill in all fields of the sign up form
+* Users must provide matching password and password confirmations
+
+Technologies
+------------
+* Code is written in Ruby
+* Testing done using RSpec and Capybara
+* Sinatra Framework (DSL) used to create web application using Ruby
+* DataMapper (ORM) used to manipulate databases
+* Database Cleaner used to clean test database before/after each test
+* BCrypt used to encrypt user passwords before storing them in the database
+* Coveralls used to assess test coverage
+* Travis CI used to check build status (badge displayed below)
+
+Heroku
 ------
+This app has been deployed to Heroku. You may play with it [here](https://sleepy-everglades-54950.herokuapp.com/). If you would like to play with the code on your own computer, you may follow the instructions `How to Install` and `How to Use` below.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+How to Install
+--------------
+1. Fork this repo
+2. Clone your forked repo to your local machine
+3. Run the command `gem install bundle` (if you don't have bundle already)
+4. When the installation completes, run `bundle` to install the gems needed to run the program
 
-Bonus:
+How to Use
+----------
+```
+[17:04:04] KimWilson:chitter-challenge git:(master*) $ rackup
+[2016-12-20 17:09:06] INFO  WEBrick 1.3.1
+[2016-12-20 17:09:06] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-12-20 17:09:06] INFO  WEBrick::HTTPServer#start: pid=661 port=9292
+```
+1. Start up the game on a local server by entering command `rackup`
+2. Go to your preferred web browser (I like Chrome) and navigate to localhost:9292
+3. Play with the app!
+
+Optional: If you wish to run the tests for this project, enter `rspec` into your command line. If you wish to view the test coverage, enter `coveralls report` into your command line.
+
+Notes
 -----
 
-If you have time you can implement the following:
+###Databases
+In order to use this app on your own computer, you will first need to create the necessary databases on your computer. This can be done as follows:
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+1. Open a Terminal
+2. Enter `psql`
+3. Enter `CREATE DATABASE chitter_test;`
+4. Enter `CREATE DATABASE chitter_development`
+5. Enter `\q` to exit
 
-And/Or:
+###Errors
+I have included errors in my code, which are displayed when a user does not complete the sign up form correctly. At the moment these errors are displayed in a list at the top of the page. I would like to learn how to display each error next to the form field that it applies to (e.g. invalid email error would appear next to the email input).
 
-* Work on the css to make it look good (we all like beautiful things).
+###Time stamps
+Although I have implemented a feature whereby each peep will be displayed with a timestamp, I have been unable to include any appropriate testing for this. I would like to look into the `timecop` gem so that I can correctly test my timestamps.
 
-Good luck and let the chitter begin!
+###Reply to Peeps
+I would like to add an extra feature, whereby users can reply to a peep that has been written previously.
 
-Code Review
------------
+Examples
+--------
 
-In code review we'll be hoping to see:
+The Chitter homepage, with sign up and sign in buttons:
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+<kbd>![alt text](http://i.imgur.com/q8Q5W3o.png)</kbd>
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Signing up for a Chitter account:
 
-Notes on test coverage
-----------------------
+<kbd>![alt text](http://i.imgur.com/ivtrdBR.png)</kbd>
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+Making a new peep:
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+<kbd>![alt text](http://i.imgur.com/vJEQZLf.png)</kbd>
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+New peep is displayed on the homepage:
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+<kbd>![alt text](http://i.imgur.com/YSDOEdX.png)</kbd>
 
-```
-$ coveralls report
-```
+Logged out, can still view peeps:
+
+<kbd>![alt text](http://i.imgur.com/VGgnlMt.png)</kbd>
+
+***
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
+Travis CI status badge [![Build Status](https://travis-ci.org/kwilson541/chitter-challenge.svg?branch=master)](https://travis-ci.org/kwilson541/chitter-challenge)

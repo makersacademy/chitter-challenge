@@ -1,0 +1,136 @@
+body {
+	margin: 0;
+	display: inline;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #FFFFED;
+}
+
+nav {
+	text-align: right;
+	background-image: url('/images/chitter-bird.png');
+	background-color: orange;
+	background-repeat: no-repeat;
+	background-size: 50%;
+	width: 100%;
+	height: 210px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+form {
+	display: inline;
+}
+
+div.container {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.greeting {
+	color: white;
+	font-size: 48px;
+	font-weight: 500;
+	text-align: center;
+}
+
+input.button1 {
+	padding: 5px;
+	margin-right: 5px;
+	margin-top: 20px;
+	font-size: 18px;
+	color: white;
+	background-color: orange;
+	border: 1px solid #FED7AA;
+	border-radius: 5px;
+	width: 130px;
+	height: 40px;
+}
+
+input.button2 {
+	padding: 5px;
+	margin-left: 5px;
+	margin-top: 20px;
+	margin-right: 100px;
+	font-size: 18px;
+	color: white;
+	background-color: #FED7AA;
+	border: none;
+	border-radius: 5px;
+ 	width: 130px;
+	height: 40px;
+}
+
+input.button1:hover {
+	color: orange;
+	background-color: white;
+}
+
+input.button2:hover {
+	color: orange;
+	background-color: white;
+}
+
+div.box-list {
+	position: relative;
+	min-height: 50px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px;
+	width: 370px;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 5px;
+	color: black;
+	font-size: 14px;
+}
+
+div.box-list .user-full-name {
+	color: black;
+	font-weight: 500;
+}
+
+div.box-list .user-username {
+	color: gray;
+}
+
+div.box-list .peep-time {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: gray;
+}
+
+div.peep-text {
+	margin-top: 20px;
+}
+
+div.latest-peeps {
+	color: gray;
+	font-size: 18px;
+	text-align: center;
+}
+
+div.latest-peeps:before,
+div.latest-peeps:after {
+	background-color: #CBCBCB;
+	content: "";
+	display: inline-block;
+	height: 1px;
+	position: relative;
+	vertical-align: middle;
+	width: 40%;
+}
+
+div.latest-peeps:before {
+	right: 0.5em;
+	margin-left: -10%;
+}
+
+div.latest-peeps:after {
+	left: 0.5em;
+	margin-right: -10%;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+	<div class="container">
+
+		<div class="latest-peeps">Most Recent Peeps</div>
+
+		<ul id='peeps'>
+			<% @peeps.reverse_chronological_order.each do |peep| %>
+				<div class="box-list">
+					<div class="peep-time"><%= peep.time %></div>
+					<div class="user-full-name"><%= peep.user.firstname %> <%= peep.user.surname %></div>
+					<div class="user-username">@<%= peep.user.username %></div>
+					<div class="peep-text"><%= peep.text %></div>
+				</div>
+			<% end %>
+		</ul>
+
+	</div>
+
+</body>
+</html>
