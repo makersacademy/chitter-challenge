@@ -59,15 +59,14 @@ How to Install
 
 How to Use
 ----------
-1. Start up the game on a local server by entering command `ruby app.rb`
 ```
-[16:06:30] KimWilson:rps-challenge git:(master) $ ruby app.rb
-[2016-12-20 16:06:34] INFO  WEBrick 1.3.1
-[2016-12-20 16:06:34] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
-== Sinatra (v1.4.7) has taken the stage on 4567 for development with backup from WEBrick
-[2016-12-20 16:06:34] INFO  WEBrick::HTTPServer#start: pid=99059 port=4567
+[17:04:04] KimWilson:chitter-challenge git:(master*) $ rackup
+[2016-12-20 17:09:06] INFO  WEBrick 1.3.1
+[2016-12-20 17:09:06] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
+[2016-12-20 17:09:06] INFO  WEBrick::HTTPServer#start: pid=661 port=9292
 ```
-2. Go to your preferred web browser (I like Chrome) and navigate to localhost:4567
+1. Start up the game on a local server by entering command `rackup`
+2. Go to your preferred web browser (I like Chrome) and navigate to localhost:9292
 3. Play with the app!
 
 Optional: If you wish to run the tests for this project, enter `rspec` into your command line. If you wish to view the test coverage, enter `coveralls report` into your command line.
