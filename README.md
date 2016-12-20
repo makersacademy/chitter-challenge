@@ -60,7 +60,7 @@ How to Install
 How to Use
 ----------
 1. Start up the game on a local server by entering command `ruby app.rb`
-   ```
+```
 [16:06:30] KimWilson:rps-challenge git:(master) $ ruby app.rb
 [2016-12-20 16:06:34] INFO  WEBrick 1.3.1
 [2016-12-20 16:06:34] INFO  ruby 2.2.3 (2015-08-18) [x86_64-darwin14]
