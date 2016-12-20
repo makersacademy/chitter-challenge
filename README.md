@@ -86,11 +86,8 @@ In order to use this app on your own computer, you will first need to create the
 ###Errors
 I have included errors in my code, which are displayed when a user does not complete the sign up form correctly. At the moment these errors are displayed in a list at the top of the page. I would like to learn how to display each error next to the form field that it applies to (e.g. invalid email error would appear next to the email input).
 
-###CSS
-I have not yet experimented with CSS much, and would like to learn some basics so that my web apps can be less fugly.
-
 ###Time stamps
-Although I have implemented a feature whereby each peep will be displayed with a timestamp, I have been unable to include any appropriate testing for this. I am also displeased with the format of the timestamp as I believe it isn't very user-friendly. I would like to look into the `timecop` gem so that I can correctly test my timestamps, and look into formatting so that I can make the view more user-friendly.
+Although I have implemented a feature whereby each peep will be displayed with a timestamp, I have been unable to include any appropriate testing for this. I would like to look into the `timecop` gem so that I can correctly test my timestamps.
 
 ###Reply to Peeps
 I would like to add an extra feature, whereby users can reply to a peep that has been written previously.

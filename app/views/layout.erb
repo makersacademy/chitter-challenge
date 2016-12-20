@@ -10,7 +10,7 @@
 	<nav>
 		<% if !current_user %>
 			<form action='/sessions/new' method='get'>
-				<input class='button1' type='submit' value='Sign In'>
+				<input class='button1' type='submit' value='Log In'>
 			</form>
 			<form action='/users/new' method='get'>
 				<input class='button2' type='submit' value='Sign Up'>
@@ -23,9 +23,13 @@
 			</form>
 			<form action='/sessions' method='post'>
 				<input type='hidden' name='_method' value='delete'>
-				<input class='button2' type='submit' value='Sign Out'>
+				<input class='button2' type='submit' value='Log Out'>
 			</form>
 		<% end %>
+
+		<div class="greeting">
+			What's up, peepers?
+		</div>
 	</nav>
 
 	<% if flash[:notice] %>
