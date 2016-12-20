@@ -16,7 +16,6 @@ RSpec.feature 'signing out', :type => :feature do
 	scenario 'user can sign out' do
 		sign_in(email: user.email, password: user.password)
 		click_button 'Log Out'
-		expect(page).to have_content('See you again soon!')
 		expect(page).not_to have_content('Welcome, John!')
 	end
 

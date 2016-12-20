@@ -2,15 +2,17 @@
 
 <html>
 <body>
-	<h1>Peeps</h1>
+
+	<div class="featured-peeps">Featured Peeps</div>
 
 	<ul id='peeps'>
 		<% @peeps.reverse_chronological_order.each do |peep| %>
-			<li>
-				<%= peep.user.firstname %> <%= peep.user.surname %> @<%= peep.user.username %>, <%= peep.time %>
-				<br>
-				<%= peep.text %>
-			</li>
+			<div class="box-list">
+				<div class="peep-time"><%= peep.time %></div>
+				<div class="user-full-name"><%= peep.user.firstname %> <%= peep.user.surname %></div>
+				<div class="user-username">@<%= peep.user.username %></div>
+				<div class="peep-text"><%= peep.text %></div>
+			</div>
 		<% end %>
 	</ul>
 

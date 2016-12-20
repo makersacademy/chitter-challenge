@@ -17,9 +17,8 @@
 			</form>
 
 		<% else %>
-			Welcome, <%= current_user.firstname %>!
 			<form action='/peeps/new' method='get'>
-				<input class='button1' type='submit' value='New Peep!'>
+				<input class='button1' type='submit' value='Peep'>
 			</form>
 			<form action='/sessions' method='post'>
 				<input type='hidden' name='_method' value='delete'>
@@ -28,7 +27,12 @@
 		<% end %>
 
 		<div class="greeting">
-			What's up, peepers?
+			<% if !current_user %>
+				What's up, peepers?
+			<% else %>
+				Welcome, <%= current_user.firstname %>!
+			<% end %>
+
 		</div>
 	</nav>
 
