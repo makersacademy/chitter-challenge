@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	display: inline;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #FFFFED;
 }
 
 nav {
@@ -20,6 +21,12 @@ nav {
 
 form {
 	display: inline;
+}
+
+div.container {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 div.greeting {
@@ -67,9 +74,9 @@ input.button2:hover {
 }
 
 div.box-list {
+	position: relative;
 	min-height: 50px;
 	display: inline-block;
-	display: -moz-inline-stack;
 	vertical-align: top;
 	margin: 15px;
 	width: 370px;
@@ -81,32 +88,34 @@ div.box-list {
 	font-size: 14px;
 }
 
-div.user-full-name {
+div.box-list .user-full-name {
 	color: black;
 	font-weight: 500;
 }
 
-div.user-username {
+div.box-list .user-username {
 	color: gray;
 }
 
-div.peep-time {
+div.box-list .peep-time {
+	position: absolute;
+	right: 10px;
+	top: 10px;
 	color: gray;
-	float: right;
 }
 
 div.peep-text {
 	margin-top: 20px;
 }
 
-div.featured-peeps {
+div.latest-peeps {
 	color: gray;
 	font-size: 18px;
 	text-align: center;
 }
 
-div.featured-peeps:before,
-div.featured-peeps:after {
+div.latest-peeps:before,
+div.latest-peeps:after {
 	background-color: #CBCBCB;
 	content: "";
 	display: inline-block;
@@ -116,12 +125,12 @@ div.featured-peeps:after {
 	width: 40%;
 }
 
-div.featured-peeps:before {
+div.latest-peeps:before {
 	right: 0.5em;
 	margin-left: -10%;
 }
 
-div.featured-peeps:after {
+div.latest-peeps:after {
 	left: 0.5em;
 	margin-right: -10%;
 }
