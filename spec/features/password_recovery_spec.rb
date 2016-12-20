@@ -5,9 +5,10 @@ feature "Password Recovery" do
   before do
     sign_up
     Capybara.reset!
+    allow(SendEmail).to receive(:call)
   end
 
-  let(:user) { User.first }
+  let(:user) { User.first(email: "tester1@test.com") }
 
   scenario "User can request to recover their password" do
     visit '/'
@@ -63,4 +64,18 @@ feature "Password Recovery" do
     click_button "Sign In"
     expect(page).to have_content "Welcome, Tester"
   end
+
+  scenario "Password recovery token expires after use" do
+    recover_password
+    visit "/users/reset_password?token=#{user.password_token}"
+    fill_in :password, with: "newpassword"
+    click_button "Submit"
+    expect(User.first.password_token).to eq nil
+  end
+
+  scenario "User is sent an email when they recover password" do
+    expect(SendEmail).to receive(:call).with(user)
+    recover_password
+  end
+
 end

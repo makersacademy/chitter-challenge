@@ -8,6 +8,7 @@ gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'pg'
 gem 'timecop'
+gem 'mailgun-ruby'
 
 group :test do
   gem 'rspec'
