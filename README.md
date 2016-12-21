@@ -1,10 +1,9 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
 Twitter clone that will allow users to post messages to a public stream.
 
-Features:
-----------
+Features
+========
 * A user can sign up with an email, username and password to create an account.
 
 * Once logged in, users can create a post (or peep).
@@ -16,13 +15,25 @@ Features:
 * Only users that are logged in can create a post.
 
 
-Approach and Technologies used:
--------------------------------
+Approach and Technologies used
+==============================
 
-This project uses Datamapper ORM to store instances of User and Peep the two classes as tables. Database cleaner wipes the database after each test is run and RACK switches the database depending whether the application is run in the development or test environment.
+* Code written in Ruby.
 
-Instructions and Installation:
--------------------------------
+* Feature testing using Capybara, unit testing using RSpec.
+
+* Datamapper ORM to store instances of User and Peep, the two classes as tables.
+
+* Database cleaner wipes the tables after each test is run
+
+* Sinatra to run and host the local server.
+
+* BCrypt to encrypt the user's password before it is stored in the database.
+
+* RACK switches the database depending whether the application is run in the development or test environment.
+
+Instructions and Installation
+=============================
 
 Fork and clone this repo, then in the command prompt run the following:
 
@@ -45,22 +56,30 @@ To run the application enter:
 $ rackup
 ```
 
-then visit http://localhost:4567
+Then visit http://localhost:4567 (please note the last four digits of the url will depend on which port Sinatra uses. You can check this in the terminal when you run the command.)
 
-Screenshots:
-------------
+Screenshots
+===========
+
+Signing up.
 
 ![alt tag](./welcome.png)
 
+Signing in.
+
 ![alt tag](./log_in.png)
+
+Posting a peep.
 
 ![alt tag](./peeps.png)
 
 
 
-Further features to implement:
------
+Further features to implement
+=============================
 
 * Users can reply to a post made on the peeps page
 
 * Password recovery
+
+* notifications when a user's peep is replied to.

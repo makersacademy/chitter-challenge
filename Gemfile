@@ -5,17 +5,22 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'rspec-sinatra'
-  gem 'rake'
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
-gem 'data_mapper'
-gem 'database_cleaner'
-gem 'dm-postgres-adapter'
-gem 'sinatra'
-gem 'dm-validations'
-gem 'sinatra-flash'
-gem 'sinatra-partial'
-gem 'pry'
+group :test, :development do
+  gem 'pry'
+  gem 'rake'
+end
+
+group :development do
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'sinatra'
+  gem 'dm-validations'
+  gem 'sinatra-flash'
+  gem 'sinatra-partial'
+end
