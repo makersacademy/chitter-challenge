@@ -1,6 +1,6 @@
 # Chitter Challenge
 
-Twitter clone that will allow users to post messages to a public stream.
+Twitter clone that will allow users to post messages to a public stream. Visit the app [here](https://agile-escarpment-76503.herokuapp.com/)
 
 Features
 ========
