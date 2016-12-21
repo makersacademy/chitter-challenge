@@ -167,6 +167,7 @@ DEPENDENCIES
   dm-rspec
   dm-validations
   pry
+  rack
   rake
   rspec
   rspec-sinatra

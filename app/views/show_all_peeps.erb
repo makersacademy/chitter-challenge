@@ -5,16 +5,20 @@
     <link rel='stylesheet' type='text/css' href='./css/style.css'>
   </head>
   <body>
-    <ul>
-      <% Peep.all.reverse.each do |peep| %>
-        <li>
-          Peep: <%= peep.body %>;
-          Created at: <%= peep.created_at.strftime("%I:%M %p")%>;
-          By: <%= peep.name %>;
-          User handle: <%= peep.username %>
-        </li></br>
-      <% end %>
-    </ul>
-    <a href='/peeps/new' class='button'>New Peep</a>
+    <div class='container'>
+      <div id='button'>
+        <a class='download' href='/peeps/new' class='button'>New Peep</a>
+      </div>
+      <ul id='peeps'>
+        <% Peep.all.reverse.each do |peep| %>
+          <li id='peep-item'>
+            <h2><%= peep.body %></h2>
+            <p>Created at: <%= peep.created_at.strftime("%I:%M %p")%>;
+            By: <%= peep.name %>;
+            User handle: <%= peep.username %></p>
+          </li><hr>
+        <% end %>
+      </ul>
+    </div>
   </body>
 </html>

@@ -22,6 +22,7 @@ a.button {
   float: center;
   text-align: center;
   vertical-align: middle;
+
 }
 
 #first-image {
@@ -52,6 +53,7 @@ a.button {
   -webkit-box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
   box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
   text-shadow: 0 -1px 1px rgb(30,45,77) ;
+  text-decoration: none;
 }
 
 .download:hover {
@@ -92,6 +94,7 @@ body {
     width: 406px;
     max-width: 406px;
     margin: 0 auto;
+
 }
 
 #signup {
@@ -204,3 +207,95 @@ input:-moz-placeholder {
         from(#a4b0cb),
         to(#b9c5dd));
 }
+
+#flash {
+  text-align: center;
+  color: white;
+}
+
+#peeps {
+  color: white;
+  list-style: none;
+  /*box-shadow: 0 0 5px 2px #282a2d;*/
+}
+#button a {
+  text-decoration: none;
+}
+
+#button {
+  text-align: center;
+  float: center;
+  margin-left: 20px;
+}
+
+#type-peep {
+  width: 100%;
+}
+
+.form {
+  text-align: center;
+  margin-left: 60px;
+}
+
+#show-peep {
+  color: white;
+  box-shadow: 0 0 5px 2px #282a2d;
+  text-align: center;
+
+}
+
+#welcome {
+  color: white;
+  text-align: center;
+}
+
+#peep-item {
+  box-shadow: 0 0 5px 2px #282a2d;
+  padding: 5px;
+}
+
+.nav ul {
+  list-style: none;
+  background-color: #00BFFF;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+}
+
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  .nav li {
+    display: inline-block;
+    /*margin-right: -4px;*/
+  }

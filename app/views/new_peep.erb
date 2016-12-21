@@ -1,16 +1,20 @@
 <!DOCTYPE hmtl>
 <html>
-  <head>
-    <title>Chitter</title>
-  </head>
-  <body>
-    <form action='/peeps' method='post'>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-      <label for='peep'>Peep</label>
-      <input type='text' name='peep'>
+</head>
+<body>
+  <div class='container'>
+    <div class='inputs'>
+      <form id='signup' class='form' action='/peeps' method='post'>
 
-      <input type='submit' value="Peep">
-
-    </form>
-  </body>
+        <input id="type-peep" type='text' name='peep' placeholder="Type your peep">
+        <input id="submit-peep" class="download" type='submit' value="Peep">
+        
+      </form>
+    </div>
+  </div>
+</body>
 </html>

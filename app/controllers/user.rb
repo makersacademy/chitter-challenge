@@ -11,6 +11,10 @@ class Chitter < Sinatra::Base
     erb :log_in
   end
 
+  get '/log_out' do
+    erb :user
+  end
+
   post '/log_in' do
     user = User.authenticate(params[:username],params[:password])
     if user

@@ -5,7 +5,16 @@
     <link rel='stylesheet' type='text/css' href='/css/style.css'>
   </head>
   <body>
-    <a href='/peeps/new' class='button'>New Peep</a>
-    <a href='/all_peeps' class='button'>Show all peeps</a>
+    <div class='container' id='welcome'>
+    <% if current_user %>
+      <h1>Welcome <span style="font-weight: bold;"><%= current_user.username %></span></h1>
+      <form action='/users' method='post' >
+        <input type='hidden' name='_method' value='delete'>
+        <input class="download" type='submit' value='Log out'>
+      </form>
+      <% end %>
+    <a href='/peeps/new' class='download'>New Peep</a>
+    <a href='/all_peeps' class='download'>Show all peeps</a>
+  </div>
   </body>
 </html>

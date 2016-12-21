@@ -5,10 +5,12 @@
     <link rel='stylesheet' type='text/css' href='/css/style.css'>
   </head>
   <body>
-    <h1><%= @peep.last.body %></h1>
-    <h1><%= @peep.last.created_at.strftime("%I:%M %p") %></h1>
-    </br>
-    <a href='/peeps/new' class='button'>New Peep</a>
-    <a href='/all_peeps' class='button'>Show all peeps</a>
+    <div class='container' id='show-peep' >
+      <h1><%= @peep.last.body %></h1>
+      <h2><%= @peep.last.created_at.strftime("%I:%M %p") %></h2>
+      </br>
+      <a class='download' href='/peeps/new' >New Peep</a>
+      <a class='download' href='/all_peeps'>Show all peeps</a>
+    </div>
   </body>
 </html>

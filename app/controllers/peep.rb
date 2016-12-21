@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
       erb :show_peep
     else
       flash[:errors] = ['You are not logged in']
-      redirect '/peeps/new'
+      redirect '/log_in/new'
     end
 
   end

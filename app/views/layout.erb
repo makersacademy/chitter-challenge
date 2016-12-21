@@ -6,16 +6,21 @@
   <link async href="http://fonts.googleapis.com/css?family=Nova%20Flat" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
   </head>
   <body>
+    <div class="nav">
+      <ul>
+        <li ><a href="/">Home</a></li>
+        <li ><a href="/sign_up">Sign Up</a></li>
+        <li ><a href="/log_in/new">Log In</a></li>
+        <li ><a href="/log_out">Log Out</a></li>
+        <li ><a href="/peeps/new">New Peep</a></li>
+        <li ><a href="/all_peeps">All Peeps</a></li>
+      </ul>
+  </div>
     <h1 id='chitter'>Chitter</h1>
-    <% if current_user %>
-      <h1>Welcome <%= current_user.username %></h1>
-      <form action='/users' method='post' >
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log out'>
-      </form>
-      <% end %>
     <% if flash[:errors] %>
-      <h2><%= flash[:errors].join(" ") %></h2>
+      <div id='flash'>
+        <h2><%= flash[:errors].join(" ") %></h2>
+      </div>
     <% end %></br>
     <%= yield %>
   </body>
