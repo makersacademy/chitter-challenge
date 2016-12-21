@@ -17,7 +17,6 @@ describe User do
   context "when #login it" do
     it "should authenticate with the proper credentials" do
       authenticated_user = User.authenticate('taker', '12345')
-      # binding.pry
       expect(authenticated_user).to eq user_2
 
     end

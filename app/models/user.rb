@@ -1,5 +1,4 @@
 require 'data_mapper'
-
 require 'bcrypt'
 require_relative './peep.rb'
 class User
@@ -31,8 +30,4 @@ class User
       nil
     end
   end
-
-
-
-
 end

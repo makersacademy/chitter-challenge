@@ -4,7 +4,6 @@ class Chitter < Sinatra::Base
   set(:cookie_options) do
     { :expires => Time.now + 3600 }
   end
-  set :public_folder, Proc.new { File.join(root, 'static') }
   register Sinatra::Flash
   use Rack::MethodOverride
   set :app_file, __FILE__

@@ -6,8 +6,8 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     if session[:user_id] != nil
       current_user.peeps << Peep.create(body: params[:peep], name: current_user.name, username: current_user.username)
-      @peep = Peep.all
       current_user.save
+      @peep = Peep.all
       erb :show_peep
     else
       flash[:errors] = ['You are not logged in']

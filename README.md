@@ -17,12 +17,14 @@ Chitter is a **web app** used for cummunication. A user can sign up, log in, log
 
 ### Installation and Use
 
-1. To run the program first run **bundle install**.
-2. Run **ruby ./app/app.rb**.
-3. In your browser, open the link **localhost:4567**.
-4. Sign up with the required credentials.
-5. Once signed up or logged in you can create a new peep or see list of existing peeps.
-6. Create a Postgres database with the name chitter_test & chitter_development.
+1. First clone or download the repository.
+2. Run **bundle install**.
+3. Create a Postgres database with the name **chitter_test** & **chitter_development**.
+4. Run **rackup**.
+5. In your browser, open the link **localhost:9292**.
+6. Sign up with the required credentials.
+7. Once signed up or logged in you can create a new peep or see list of existing peeps.
+
 
 ### Screenshots
 

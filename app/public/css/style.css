@@ -6,3 +6,6 @@ a.button {
     text-decoration: none;
     color: initial;
 }
+div {
+  background-color: red;
+}
