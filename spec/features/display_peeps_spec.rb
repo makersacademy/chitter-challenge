@@ -10,6 +10,7 @@ feature 'Display Peeps in chronological order' do
     sign_up
     log_in
     peep
+    click_link 'Log Out'
     click_button 'Log out'
     new_sign_up
     log_in_2
