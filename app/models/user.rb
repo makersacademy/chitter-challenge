@@ -17,8 +17,13 @@ class User
   property :password_token, Text
   property :password_token_time, Time
 
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
 
   def password=(password)
+    @password = password
     self.password_hash = BCrypt::Password.create(password)
   end
 

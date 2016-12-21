@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
+    @user = User.new(email: params[:email], name: params[:name], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/peeps'
@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   patch '/users' do
     user = User.find_user_by_token(session[:token])
     session[:token] = nil
-    user.update(password: params[:password])
+    user.update(password: params[:password], password_confirmation: params[:password_confirmation])
     user.update(password_token: nil)
     redirect '/session/new'
   end

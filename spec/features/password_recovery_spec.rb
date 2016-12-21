@@ -49,6 +49,7 @@ feature "Password Recovery" do
     recover_password
     visit "/users/reset_password?token=#{user.password_token}"
     fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
     click_button "Submit"
     expect(page).to have_content "Sign In!"
   end
@@ -57,6 +58,7 @@ feature "Password Recovery" do
     recover_password
     visit "/users/reset_password?token=#{user.password_token}"
     fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
     click_button "Submit"
 
     fill_in :email, with: 'tester1@test.com'
@@ -69,6 +71,7 @@ feature "Password Recovery" do
     recover_password
     visit "/users/reset_password?token=#{user.password_token}"
     fill_in :password, with: "newpassword"
+    fill_in :password_confirmation, with: "newpassword"
     click_button "Submit"
     expect(User.first.password_token).to eq nil
   end

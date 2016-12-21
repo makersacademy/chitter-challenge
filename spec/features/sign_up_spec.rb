@@ -21,4 +21,8 @@ feature "Signing Up" do
     expect(page).to have_content "Email and/or username already taken"
   end
 
+  scenario "Validate that password confirmation must match password" do
+    expect{sign_up_wrong}.not_to change(User, :count)
+  end
+
 end
