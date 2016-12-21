@@ -1,0 +1,27 @@
+<!DOCTYPE hmtl>
+<html>
+  <head>
+    <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link async href="http://fonts.googleapis.com/css?family=Nova%20Flat" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li ><a href="/">Home</a></li>
+        <li ><a href="/sign_up">Sign Up</a></li>
+        <li ><a href="/log_in/new">Log In</a></li>
+        <li ><a href="/log_out">Log Out</a></li>
+        <li ><a href="/peeps/new">New Peep</a></li>
+        <li ><a href="/all_peeps">All Peeps</a></li>
+      </ul>
+  </div>
+    <h1 id='chitter'>Chitter</h1>
+    <% if flash[:errors] %>
+      <div id='flash'>
+        <h2><%= flash[:errors].join(" ") %></h2>
+      </div>
+    <% end %></br>
+    <%= yield %>
+  </body>
+</html>

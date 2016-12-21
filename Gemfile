@@ -1,10 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
-end
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'sinatra'
+gem 'bcrypt'
+gem 'dm-validations'
+gem 'rake'
+gem 'pry'
+gem 'sinatra-flash'
+gem 'rack'
 
+group :test do
+  gem 'dm-rspec'
+  gem 'rspec-sinatra'
+  gem 'cucumber'
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'capybara'
+end
