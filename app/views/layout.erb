@@ -3,8 +3,10 @@
   <head>
     <title>Chitter</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link async href="http://fonts.googleapis.com/css?family=Nova%20Flat" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
   </head>
   <body>
+    <h1 id='chitter'>Chitter</h1>
     <% if current_user %>
       <h1>Welcome <%= current_user.username %></h1>
       <form action='/users' method='post' >

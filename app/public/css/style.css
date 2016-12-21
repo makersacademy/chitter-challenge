@@ -1,11 +1,206 @@
 a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
 
-    text-decoration: none;
-    color: initial;
+  text-decoration: none;
+  color: initial;
 }
-div {
-  background-color: red;
+
+#first-page a {
+  text-decoration: none;
+}
+
+#first-page {
+  float: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#image {
+  margin-top: 70px;
+  float: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#first-image {
+  max-width: 30%;
+  height: auto;
+
+}
+
+.download {
+  vertical-align: middle;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 0 15px;
+  padding: 8px 20px 10px;
+  border: 1px solid rgb(31,45,77);
+  border-top-color: rgb(56,83,140);
+  border-bottom-color: rgb(21,30,51);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font: normal normal bold 14px/1 "Coda", Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgb(65, 98, 168);
+  -webkit-box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
+  box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
+  text-shadow: 0 -1px 1px rgb(30,45,77) ;
+}
+
+.download:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 20px 1px rgb(135,173,255) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
+  box-shadow: 0 0 20px 1px rgb(135,173,255) inset, 0 1px 0 0 rgb(29,44,77) , 0 6px 0 0 rgb(31,48,83) , 0 8px 4px 1px rgb(17,17,17) ;
+}
+
+.download:active {
+  margin: 5px 0 10px;
+  -webkit-box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 2px 0 0 rgb(31,48,83) , 0 4px 3px 0 rgb(17,17,17) ;
+  box-shadow: 0 1px 10px 1px rgb(92,139,238) inset, 0 1px 0 0 rgb(29,44,77) , 0 2px 0 0 rgb(31,48,83) , 0 4px 3px 0 rgb(17,17,17) ;
+}
+
+body {
+  background: linear-gradient(to left, #00d2ff , #3a7bd5);
+}
+
+#chitter {
+  text-align: center;
+  font-size: 80px;
+  color: white;
+  text-shadow: 0 1px 0 #ccc,
+  0 2px 0 #c9c9c9,
+  0 3px 0 #bbb,
+  0 4px 0 #b9b9b9,
+  0 5px 0 #aaa,
+  0 6px 1px rgba(0,0,0,.1),
+  0 0 5px rgba(0,0,0,.1),
+  0 1px 3px rgba(0,0,0,.3),
+  0 3px 5px rgba(0,0,0,.2),
+  0 5px 10px rgba(0,0,0,.25),
+  0 10px 10px rgba(0,0,0,.2),
+  0 20px 20px rgba(0,0,0,.15);
+}
+
+.container {
+    width: 406px;
+    max-width: 406px;
+    margin: 0 auto;
+}
+
+#signup {
+    padding: 0px 25px 25px;
+    background: #fff;
+    box-shadow:
+        0px 0px 0px 5px rgba( 255,255,255,0.4 ),
+        0px 4px 20px rgba( 0,0,0,0.33 );
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: table;
+    position: static;
+}
+#signup .header {
+    margin-bottom: 20px;
+}
+
+#signup .header h3 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#signup .header p {
+    color: #8f8f8f;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#signup .sep {
+    height: 1px;
+    background: #e8e8e8;
+    width: 406px;
+    margin: 0px -25px;
+}
+
+#signup .inputs {
+    margin-top: 25px;
+}
+
+input::-webkit-input-placeholder {
+    color:    #b5b5b5;
+}
+
+input:-moz-placeholder {
+    color:    #b5b5b5;
+}
+
+#signup .inputs input[type=email], input[type=password], input[type=text] {
+    background: #f5f5f5;
+    font-size: 0.8rem;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    padding: 13px 10px;
+    width: 330px;
+    margin-bottom: 20px;
+    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+    clear: both;
+}
+#signup .inputs #submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+        background: -moz-linear-gradient(
+        top,
+        #b9c5dd 0%,
+        #a4b0cb);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#b9c5dd),
+        to(#a4b0cb));
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #737b8d;
+    -moz-box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    -webkit-box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    box-shadow:
+        0px 5px 5px rgba(000,000,000,0.1),
+        inset 0px 1px 0px rgba(255,255,255,0.5);
+    text-shadow:
+        0px 1px 3px rgba(000,000,000,0.3),
+        0px 0px 0px rgba(255,255,255,0);
+    display: table;
+    position: static;
+    clear: both;
+}
+
+#signup .inputs #submit:hover {
+    background: -moz-linear-gradient(
+        top,
+        #a4b0cb 0%,
+        #b9c5dd);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#a4b0cb),
+        to(#b9c5dd));
 }

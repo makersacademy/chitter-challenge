@@ -2,24 +2,27 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
-    <form action='/users' method='post'>
+    <div class='container'>
+      <form id='signup' action='/users' method='post'>
+        <div class="header">
+          <h3>Sign Up<h3>
+          <p>You want to fill out this form</p>
+        </div>
+        <div class="sep">
+        </div>
+        <div class="inputs">
 
-      <label for='name'>Name</label>
-      <input type='text' name='name'>
-
-      <label for='email'>Email</label>
-      <input type='email' name='email' required>
-
-      <label for='username'>Username</label>
-      <input type='text' name='username'>
-
-      <label for='password'>Password</label>
-      <input type='password' name='password' required='true'>
-
-      <input type='submit' value="Sign up">
-
+          <input type='text' name='name' placeholder='Name'>
+          <input type='email' name='email' placeholder='e-mail' required>
+          <input type='text' name='username' placeholder='Username'>
+          <input type='password' name='password' placeholder="Password"required='true'>
+          <input id="submit" type='submit' value="Sign up">
+        </div>
     </form>
+  </div>
+
   </body>
 </html>
