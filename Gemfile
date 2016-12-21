@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'sinatra'
+  gem 'dm-validations'
+  gem 'sinatra-flash'
+  gem 'sinatra-partial'
+  gem 'bcrypt'
+
 group :test do
   gem 'rspec'
   gem 'capybara'
@@ -14,13 +22,4 @@ end
 group :test, :development do
   gem 'pry'
   gem 'rake'
-end
-
-group :development do
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'sinatra'
-  gem 'dm-validations'
-  gem 'sinatra-flash'
-  gem 'sinatra-partial'
 end
