@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <h1> Welcome to Chitter! </h1>
+    </div>
+
+    <div id="sign_up_option">
+      <form class="form" action='/users/new'>
+        <label> New Customer? </label>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+
+    <div id="sign_in_option">
+      <form class="form" action='/session/new'>
+        <label> Existing Customer? </label>
+        <input type="submit" value="Sign In">
+      </form>
+    </div>
+
+    <div>
+      <a href='/users/password-recovery'>
+        Forgotten Password?
+      </a>
+    </div>
+
+  </body>
+
+</html>

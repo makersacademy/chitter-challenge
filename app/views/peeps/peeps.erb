@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <h1> Peeps </h1>
+    </div>
+
+  <div id="peep">
+    <ul>
+      <br><br>
+      <% @peeps.reverse.each do |peep| %>
+        <li id="peep">
+          <%= peep.message %>
+          <br>
+          <i>Written by <%= peep.name %> (<%= peep.username %>) on <%= peep.created_at.strftime("%FT%R") %></i>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+    <form class="button" action='/peeps/new'>
+      <input type="submit" value="Add Peep">
+    </form>
+
+  </body>
+</html>
