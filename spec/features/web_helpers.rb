@@ -61,3 +61,9 @@ def post_two_peeps
   fill_in 'user_message', :with => peep2
   click_button('peep')
 end
+
+def recover_password
+  visit "/users/recover_password"
+  fill_in 'email', with: 'samuel@gmail.com'
+  click_button 'reset password'
+end
