@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+</style>
+<title>Chitter</title>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Chitter</h1>
+</header>
+
+<nav>
+  <nav ul>
+  <%= partial :welcome %>
+  </nav ul>
+</nav>
+
+<article>
+
+<% if flash[:notice] %>
+ <div id='notice'>
+   <%= flash[:notice] %>
+ </div>
+ <% end %>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please correct the following:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<ul id="peeps">
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep.content %><br>
+        Posted at: <%= peep.created_at %><br>
+        By: <%= peep.user.name %><br>
+  </li>
+  <% end %>
+</ul>
+
+<%= yield %>
+
+</article>
+
+
+
+
+
+
+<footer>Created by Louisa Spicer - Makers Academy Student</footer>
+
+</div>
+
+</body>
+</html>

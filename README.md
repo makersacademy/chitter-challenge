@@ -1,21 +1,33 @@
-Chitter Challenge
+Chitter
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Week 4 Weekend Challenge - A twitter clone where you can see a public stream of 'Peeps' posted by users and sign up to post Peeps yourself.
 
-Challenge:
+Visit https://louisa-chitter.herokuapp.com/ to play with the app. If you would like to run the app locally, please see instructions below on how to install.
+
+Technologies used:
 -------
+* Code has been written in Ruby
+* RSpec, Capybara - Test Driven Development
+* Used BCrypt to secure the passwords
+* Used Datamapper and Postgres to save the data
+* Database Cleaner to clean before and after each test
+* Sinatra (DSL) to create the Ruby web application
+* Deployed to Heroku
+* RESTful URLs
+* Rake
+* HTML/CSS
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Functionality:
 -------
+* Can sign up to Chitter with email, password, name and a username
+* The username and email have to be unique
+* Users must provide matching password and password confirmations
+* Peeps (posts to Chitter) have the name of the User and their User handle.
+* All Peeps are public, you don't have to be logged in.
+* You can only post a Peep if you are logged in.
+
+User Stories:
 
 ```
 As a Maker
@@ -31,11 +43,11 @@ So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
 As a Maker
-So that I can let people know what I am doing  
+So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 
 As a maker
-So that I can see what others are saying  
+So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 
 As a maker
@@ -43,66 +55,24 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+
+How to install and run the tests:
 ------
+* Fork and clone the forked repository to your machine
+* Run `gem install bundle` (if you don't have bundler already)
+* In your terminal, run `bundle` to install all the gem dependencies
+* In your terminal, create the postgres databases - chitter_development and chitter_test. To do this, enter `psql` in your terminal, then enter `CREATE DATABASE chitter_test;` and `CREATE DATABASE chitter_development;`. Finally, enter `\q` to exit psql.
+* Run `rackup` to kick start the game on a local server.
+* In your preferred browser, navigate to http://localhost/9292
+* If you would like to run the tests, run `rspec` in your terminal. You may also see the test coverage by running `coveralls report`.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
+Future changes:
 -----
 
-If you have time you can implement the following:
+* Ability to start a conversation by replying to a peep from another user.
+* Refactor controller into individual files and update layout to use partials.
+* Implement password recovery, using Timecop
+* Update layout and CSS.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+## Authors
+[Louisa Spicer](https://github.com/louisaspicer)

@@ -1,0 +1,16 @@
+<% if !current_user %>
+<nav>
+  <ul>
+  <form action='/signup' method="get">
+    <input type="submit" value="Sign Up">
+  </form>
+
+<form action='/session' method="post">
+  Login here:<br>
+  Username:<input type="text" name="username" required>
+  Password:<input type="password" name="password" required>
+  <input type="submit" value="Login">
+</form>
+</ul>
+</nav>
+<% end %>

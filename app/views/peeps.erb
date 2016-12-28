@@ -1,0 +1,9 @@
+<ul id="peeps">
+<% @peeps.each do |peep| %>
+  <li>
+    <%= peep[:content] %><br>
+        Posted at: <%= peep[:created] %><br>
+        By: <%= peep.user.name %><br>
+  </li>
+  <% end %>
+</ul>
