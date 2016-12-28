@@ -73,3 +73,6 @@ Future changes:
 * Refactor controller into individual files and update layout to use partials.
 * Implement password recovery, using Timecop
 * Update layout and CSS.
+
+## Authors
+[Louisa Spicer](https://github.com/louisaspicer)
