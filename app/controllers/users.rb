@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     erb :password_recovery
   end
 
-  get '/users/enter_token' do
+  get '/users/enter_token/:password_token' do
     erb :enter_token
   end
 
@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
     if user
       user.generate_token
       flash.keep[:notice] = "a token has been emailed to you!"
-      redirect("/users/enter_token")
+      redirect("/users/enter_token/#{user.password_token}")
     else
       redirect("/peeps")
     end
