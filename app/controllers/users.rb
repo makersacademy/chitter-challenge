@@ -14,8 +14,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/token_sent' do
-    flash.keep[:notice] = "a token has been emailed to you!"
-    redirect("/users/enter_token")
+    user = User.first(email: params[:email])
+    if user
+      user.generate_token
+      flash.keep[:notice] = "a token has been emailed to you!"
+      redirect("/users/enter_token")
+    else
+      redirect("/peeps")
+    end
   end
 
 

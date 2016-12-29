@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'securerandom'
 
 class User
 
@@ -9,6 +10,7 @@ class User
   property :username, String, :required => true, :unique => true
   property :email, String, :required => true, :unique => true
   property :password_digest, Text, :required => true
+  property :password_token, String
 
   has n, :peeps, :through => Resource
 
@@ -34,5 +36,9 @@ class User
     end
   end
 
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.save!
+  end
 
 end

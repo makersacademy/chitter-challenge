@@ -16,6 +16,10 @@ describe User do
       unauthenticated_user = User.authenticate(user.email, "wrong password")
       expect(unauthenticated_user).to eq nil
     end
+
+    it "saves the password token when a token is generated" do
+      expect{user.generate_token}.to change{user.password_token}
+    end
   end
 
 end

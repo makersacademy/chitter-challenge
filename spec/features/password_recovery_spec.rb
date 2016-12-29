@@ -6,7 +6,14 @@ feature "Password Recovery" do
   end
 
   scenario "filling in email provides you with a confirmation message" do
+    sign_up
     recover_password
     expect(page).to have_content 'a token has been emailed to you!'
   end
+
+  scenario "recovering password releases a token to the user" do
+    sign_up
+    expect{recover_password}.to change{User.first.password_token}
+  end
+
 end
