@@ -28,7 +28,15 @@ feature "Password Recovery" do
     Timecop.travel(3600) do
       visit("/users/enter_token/#{user.password_token}")
       expect(page).to have_content("sorry your token is invalid")
+      expect(page).not_to have_content("please enter your new password")
     end
+  end
+
+  scenario "if the token is valid user can enter a new password" do
+    recover_password
+    visit("/users/enter_token/#{user.password_token}")
+    expect(page).to have_content("please enter your new password")
+    expect(page).not_to have_content("sorry your token is invalid")
   end
 
 end

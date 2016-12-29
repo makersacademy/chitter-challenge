@@ -10,7 +10,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/enter_token/:password_token' do
-    erb :enter_token
+    @user = User.find_by_valid_token(params[:password_token])
+    if @user
+      erb :enter_token
+    else
+      "sorry your token is invalid"
+    end
   end
 
   post '/users/token_sent' do

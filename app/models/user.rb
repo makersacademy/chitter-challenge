@@ -11,6 +11,7 @@ class User
   property :email, String, :required => true, :unique => true
   property :password_digest, Text, :required => true
   property :password_token, String
+  property :password_token_time, Time
 
   has n, :peeps, :through => Resource
 
@@ -36,8 +37,16 @@ class User
     end
   end
 
+  def self.find_by_valid_token(password_token)
+    user = first(password_token: password_token)
+    if user && user.password_token_time + 3600 > Time.now
+      user
+    end
+  end
+
   def generate_token
     self.password_token = SecureRandom.hex
+    self.password_token_time = Time.now
     self.save!
   end
 
