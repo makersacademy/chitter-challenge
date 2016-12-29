@@ -43,7 +43,6 @@ def correct_log_in
 end
 
 def incorrect_log_in
-  # visit('log_in')
   visit('/sessions/new')
   fill_in 'email', :with => "samuel@gmail.com"
   fill_in 'password', :with => "pass"
@@ -72,5 +71,18 @@ def reset_password
   visit("/users/enter_token/#{user.password_token}")
   fill_in 'password', :with => "newpassword"
   fill_in 'password_confirmation', :with => "newpassword"
+  click_button 'submit'
+end
+
+def new_log_in
+  fill_in 'email', :with => 'samuel@gmail.com'
+  fill_in 'password', :with => 'newpassword'
+  click_button 'log-in'
+end
+
+def wrong_password_reset
+  visit("/users/enter_token/#{user.password_token}")
+  fill_in 'password', :with => "newpassword"
+  fill_in 'password_confirmation', :with => "wrongpassword"
   click_button 'submit'
 end

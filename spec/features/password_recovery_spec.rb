@@ -48,11 +48,21 @@ feature "Password Recovery" do
   scenario "can sign in with the new password" do
     recover_password
     reset_password
-    fill_in 'email', :with => 'samuel@gmail.com'
-    fill_in 'password', :with => 'newpassword'
-    click_button 'log-in'
+    new_log_in
     expect(page).to have_content "Welcome samuel@gmail.com"
+  end
 
+  scenario "does not change the password if the password and password confirmation do not match" do
+    recover_password
+    wrong_password_reset
+    expect(page).to have_content "Password does not match the confirmation"
+  end
+
+  scenario "password token is destroyed when password is reset" do
+    recover_password
+    reset_password
+    visit("/users/enter_token/#{user.password_token}")
+    expect(page).to have_content "sorry your token is invalid"
   end
 
 end
