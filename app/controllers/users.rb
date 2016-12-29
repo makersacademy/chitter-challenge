@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
   get '/users/enter_token/:password_token' do
     @user = User.find_by_valid_token(params[:password_token])
     if @user
+      session[:password_token] = params[:password_token]
       erb :enter_token
     else
       "sorry your token is invalid"
@@ -30,6 +31,8 @@ class Chitter < Sinatra::Base
   end
 
   patch '/users' do
+    user = User.find_by_valid_token(session[:password_token])
+    user.update(password: params[:password], password_confirmation: params[:password_confirmation])
     redirect '/sessions/new'
   end
 

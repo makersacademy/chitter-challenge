@@ -41,11 +41,18 @@ feature "Password Recovery" do
 
   scenario "if the token is valid user can enter a new password" do
     recover_password
-    visit("/users/enter_token/#{user.password_token}")
-    fill_in 'password', :with => "newpassword"
-    fill_in 'password_confirmation', :with => "newpassword"
-    click_button 'submit'
+    reset_password
     expect(current_path).to eq "/sessions/new"
+  end
+
+  scenario "can sign in with the new password" do
+    recover_password
+    reset_password
+    fill_in 'email', :with => 'samuel@gmail.com'
+    fill_in 'password', :with => 'newpassword'
+    click_button 'log-in'
+    expect(page).to have_content "Welcome samuel@gmail.com"
+
   end
 
 end

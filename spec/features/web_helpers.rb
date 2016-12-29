@@ -67,3 +67,10 @@ def recover_password
   fill_in 'email', with: 'samuel@gmail.com'
   click_button 'reset password'
 end
+
+def reset_password
+  visit("/users/enter_token/#{user.password_token}")
+  fill_in 'password', :with => "newpassword"
+  fill_in 'password_confirmation', :with => "newpassword"
+  click_button 'submit'
+end
