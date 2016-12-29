@@ -1,5 +1,9 @@
 # Chitter Challenge
 
+[![Build Status](https://travis-ci.org/aabolade/chitter-challenge.svg?branch=master)](https://travis-ci.org/aabolade/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/aabolade/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/aabolade/chitter-challenge?branch=master)
+
+
 Twitter clone that will allow users to post messages to a public stream. Visit the app [here](https://agile-escarpment-76503.herokuapp.com/)
 
 Features
