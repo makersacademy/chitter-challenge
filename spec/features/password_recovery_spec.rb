@@ -32,11 +32,20 @@ feature "Password Recovery" do
     end
   end
 
-  scenario "if the token is valid user can enter a new password" do
+  scenario "asks for a new password if the token is valid" do
     recover_password
     visit("/users/enter_token/#{user.password_token}")
     expect(page).to have_content("please enter your new password")
     expect(page).not_to have_content("sorry your token is invalid")
+  end
+
+  scenario "if the token is valid user can enter a new password" do
+    recover_password
+    visit("/users/enter_token/#{user.password_token}")
+    fill_in 'password', :with => "newpassword"
+    fill_in 'password_confirmation', :with => "newpassword"
+    click_button 'submit'
+    expect(current_path).to eq "/sessions/new"
   end
 
 end

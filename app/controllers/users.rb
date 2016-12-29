@@ -29,6 +29,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  patch '/users' do
+    redirect '/sessions/new'
+  end
+
 
   post '/users' do
     @user = User.new(email: params[:email], name: params[:name],

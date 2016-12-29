@@ -1,1 +1,10 @@
 please enter your new password
+
+<form action='/users' method='post'>
+  <input type='hidden' name='_method' value='patch'>
+  <label for='passord'> enter your new password </label>
+  <input type='password' name='password'>
+  <label for='password_confirmation'> confirm your new password </label>
+  <input type='password' name='password_confirmation'>
+  <input type='submit' value='submit'>
+</form>
