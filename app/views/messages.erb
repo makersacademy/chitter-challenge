@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <div class="container">
+    <div class="message_board">
+      <h1 id="title">Messages</h1>
+
+      <% @messages.each do |message| %>
+      <div class="user_time">
+        <b><%= message.user.user_name %></b> &nbsp;&nbsp;&nbsp;
+        <%= message.created_at.strftime("%H:%M / %d-%m-%Y") %>
+      </div>
+      <div class="message_content">
+        <h5><%= message.title %></h5>
+        <p><%= message.content %></p>
+      </div><br>
+      <% end %>
+
+<% if current_user %>
+    <form action='/messages' method="post">
+        <input type='text' name='title' placeholder="title" id="message_title"></label>
+        <input type="text" name='content' placeholder="message" id="message_content"></label>
+      <input type='submit' value='Post a Message' id="message_button">
+    </form>
+    <% end %>
+
+  </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+body {
+  background-image: url(https://i.ytimg.com/vi/v1SabYdIlZI/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
+}
+
+/*===================================
+Flash
+=====================================*/
+#notice {
+  font-size: 1.3em;
+  text-align: center;
+  color: #fff;
+  margin: 40px;
+}
+
+/*===================================
+INDEX PAGE
+=====================================*/
+.index_container {
+  text-align: center;
+  margin: 150px auto;
+}
+
+h1 {
+  /*padding: 50px;*/
+}
+
+#button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 10px;
+  width: 10%;
+}
+
+/*===================================
+MESSAGES
+=====================================*/
+.user_info {
+  border-bottom: 1px solid #fff;
+  height: 50px;
+}
+
+.left h4 {
+  width: 30%;
+  height:10px;
+  margin: 15px;
+  float: left;
+}
+
+.right {
+  width: 8%;
+  float: right;
+  margin: 10px 5px;
+}
+
+#sign_out {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.8em;
+  padding: 8px;
+}
+
+.message_board {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message_content {
+  background-color: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-left: auto;
+  margin-right:auto;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+
+.message_content h5{
+color: #34324C;
+font-size: 1.2em;
+margin: 5px 15px 5px 15px;
+}
+
+.message_content p {
+  font-style: italic;
+  font-size: 1em;
+  margin: 5px 15px;
+}
+
+.user_time {
+  font-size: 0.9em;
+  padding: 5px 15px;
+
+}
+
+h1 {
+  color: #fff;
+  margin: 25px 15px;
+  font-size: 2.5em;
+}
+
+#message_title {
+  width: 20%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+#message_content {
+  width: 55%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+#message_button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 10px;
+  width: 18%;
+}
+
+/*====================================
+NEW USER and NEW SESSION
+=====================================*/
+#new_user {
+  margin: 200px auto;
+  width: 25%;
+}
+
+.form_input {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 1em;
+  margin: 5px 0 15px 0;
+  padding: 10px;
+  width: 90%;
+}
+
+#sign_up_button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 3px;
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+/*====================================
+PLACEHOLDER
+=====================================*/
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
+
+:-ms-input-placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: #34324C;
+}
