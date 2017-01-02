@@ -27,7 +27,7 @@ feature "Post messages" do
     sign_up
     sign_in
     post_message
-    expect(page).to have_content "2016"
+    expect(page).to have_content "2017"
   end
 
 end
