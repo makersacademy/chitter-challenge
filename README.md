@@ -84,3 +84,7 @@ View peeps.
 Add comment.
 
 ![alt tag](./addcomment.png)
+
+Password recovery.
+
+![alt tag](./passwordRecovery.png)
