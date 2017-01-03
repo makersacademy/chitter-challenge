@@ -65,3 +65,22 @@ Areas to improve
 * Adding notification when commenting
 * Like features to peeps
 * Improving the design features.
+
+Example
+-----
+
+Signing up a user.
+
+![alt tag](./signup.png)
+
+Adding a peep.
+
+![alt tag](./addpeep.png)
+
+View peeps.
+
+![alt tag](./viewpeeps.png)
+
+Add comment.
+
+![alt tag](./addcomment.png)

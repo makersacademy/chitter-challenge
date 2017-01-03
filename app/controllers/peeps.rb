@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
     peep = current_user.peeps.new(peep: params[:peep])
     if peep.save
         flash.now[:notice] = ["Peep was created created"]
-        redirect to("/peeps/#{peep.id}")
+        redirect to("/peeps")
     else
         flash.now[:notice] = ["Peep could not be created"]
         erb(:"users/user")
