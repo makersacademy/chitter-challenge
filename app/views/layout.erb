@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Chitter</title>
+    <link href="<%= url('/styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+    <body>
+      <div class="wrapper">
+
+        <div class="header">
+            <h1 class="logo"><a href="/peeps">my | Chitter</a></h1>
+            <ul class="navigation">
+            <% if current_user %>
+                <li>
+                  <form method='post' action='/sessions'>
+                    <input type='hidden' name='_method' value='delete'>
+                    <input type='submit' value='Log out'>
+                  </form>
+                </li>
+                <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+              <% else %>
+                <li><a href="/log-in">Log in</a></li>
+              <% end %>
+            </ul>
+        </div>
+
+        <%= partial :flash %>
+
+        <div class="main">
+          <%= yield %>
+        </div>
+
+        <div class="footer">
+          <ul class="navigation">
+            <li><a href="/peeps">Peeps</a></li>
+            <li><a href="/users/new">Sign up</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </body>
+</html>

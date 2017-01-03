@@ -1,0 +1,18 @@
+<% if current_user %>
+<h2 class="welcome">Welcome <%= current_user.username %></h2>
+<% end %>
+<div class="details">
+  <form action="/peeps" method="post">
+    <label for="peep">Give the world your peep:</label>
+    <input type="text" name="peep" required>
+    <input type="submit" value="Post">
+  </form>
+
+  <h3 class="welcome">Peeps:</h3>
+  <ul>
+  <% @user.peeps.reverse.each do |peep| %>
+    <li class="peep"><%= peep.peep %></li>
+  <% end %>
+  <ul>
+
+</div>

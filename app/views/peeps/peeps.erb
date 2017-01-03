@@ -1,0 +1,19 @@
+<div class="details">
+  <h3>Peeps: <%= @peeps.count %> </h3>
+  <ul>
+    <% @peeps.each do |peep| %>
+      <div class="peep">
+        <li>
+          <p><%= peep.user.username %>: "<%= peep.peep %>" | created <%= ((Time.now.to_i - peep.created_at.to_time.to_i)/60).floor %> minutes ago | <a href="/peeps/<%= peep.id %>">Add comment</a></p>
+        </li>
+      </div>
+      <div>
+        <ul>
+      <% peep.comments.reverse.each do |comment| %>
+          <li class="comment"><p><%= comment.user.username %> | <%= comment.comment %></p></li><br>
+      <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </ul>
+</div>
