@@ -15,11 +15,15 @@ Then run the following from the command line:
 ```
 $ git clone https://github.com/elizabethvenner/chitter-challenge.git
 $ bundle
-$ psql
-$ create database chitter_development;
-$ ^D
+$ createdb chitter_development
 $ rake auto_migrate
 $ rackup config.ru
+```
+
+To test
+```
+$ createdb chitter_test
+$ rspec
 ```
 
 Elizabeth Venner

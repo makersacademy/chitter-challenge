@@ -22,7 +22,7 @@ class User
   property :password_digest, Text, :required => true
   property :name, String, :required => true,
            :messages => {
-             :presence => "Plesae fill in your name"
+             :presence => "Please fill in your name"
            }
   property :username, String, :required => true, :unique => true,
            :messages => {
