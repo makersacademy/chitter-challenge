@@ -16,7 +16,7 @@ Then run the following from the command line:
 $ git clone https://github.com/elizabethvenner/chitter-challenge.git
 $ bundle
 $ createdb chitter_development
-$ rake auto_migrate
+$ rake db:auto_migrate
 $ rackup config.ru
 ```
 
