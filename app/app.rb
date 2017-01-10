@@ -28,6 +28,10 @@ class ChitterChatter < Sinatra::Base
     def h(text)
       Rack::Utils.escape_html(text)
     end
+
+    def log_in_user(user_id)
+      session[:user_id] = user_id
+    end
   end
 
   post '/users' do
@@ -40,7 +44,8 @@ class ChitterChatter < Sinatra::Base
                         )
 
     if @user.save
-      session[:user_id] = @user.id
+      log_in_user(@user.id)
+      # session[:user_id] = @user.id
       redirect to '/'
     else
       flash.now[:errors] = @user.errors
