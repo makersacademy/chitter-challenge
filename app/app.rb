@@ -58,8 +58,7 @@ class ChitterChatter < Sinatra::Base
   end
 
   post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
+    if (user = User.authenticate(params[:email], params[:password]))
       log_in_user(user.id)
       redirect to '/'
     else
