@@ -43,12 +43,7 @@ class ChitterChatter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to '/'
     else
-      p @user.errors
-      @user_errors = []
-      @user.errors.each do |e|
-        @user_errors << e
-      end
-      flash.now[:errors] = @user_errors.flatten
+      flash.now[:errors] = @user.errors
       erb :sign_up
     end
   end

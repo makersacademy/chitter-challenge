@@ -2,8 +2,8 @@
 <h1>Makers Chitter</h1>
 <h3>To sign up, please enter your details below.</h3>
 <% if flash[:errors] %>
-<ul id='notice'><% flash[:errors].each do |e| %>
-  <li> <%= e %> </li>
+<ul id='errors'><% flash[:errors].each do |e| %>
+  <li> <%= e.join(",") %> </li>
   <% end %>
 </ul>
 <% end %>
