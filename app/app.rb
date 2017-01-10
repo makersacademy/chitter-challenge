@@ -48,7 +48,7 @@ class ChitterChatter < Sinatra::Base
       @user.errors.each do |e|
         @user_errors << e
       end
-      flash.now[:notice] = @user_errors.flatten
+      flash.now[:errors] = @user_errors.flatten
       erb :sign_up
     end
   end
