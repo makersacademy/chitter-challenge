@@ -67,7 +67,7 @@ Screenshots
 
 Signing up.
 
-![alt tag](./welcome.png)
+![alt tag](./sign_up.png)
 
 Signing in.
 
@@ -83,7 +83,5 @@ Further features to implement
 =============================
 
 * Users can reply to a post made on the peeps page
-
-* Password recovery
 
 * notifications when a user's peep is replied to.
