@@ -1,31 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title> Chitter </title>
-  </head>
 
-  <body>
+    <section class="row-alt">
+      <div class="lead container">
 
-    <form action="/sessions" method="post">
-
-      <div>
-         <label for="email">Please enter your email!</label>
-        <input type='email' name='email' required>
+        <h1>Sign in</h1>
+        <p> Sign in to post your peeps!</p>
       </div>
+    </section>
 
-      <div>
-        <label for="password">Please enter your password!</label>
-        <input type='password' name='password'>
+    <section class="row">
+      <div class="grid">
+
+        <form class="col-1-3" action="/sessions" method="post">
+
+          <fieldset class="register-group">
+
+             <label>
+               Please enter your email!
+               <input type='email' name='email' required>
+             </label>
+
+            <label>
+              Please enter your password!
+              <input type='password' name='password'>
+            </label>
+
+          </fieldset>
+
+            <input class="btn btn-default" type='submit' value="Log in" id='log-in'>
+
+        </form>
+
       </div>
-
-      <div>
-        <input type='submit' id='log-in'>
-      </div>
-
-    </form>
+    </section>
 
     <a href='/users/recover_password'>forgotten password?</a>
-  </body>
 
-</html>
+    <footer class="primary-footer container group">
+      <small>&copy; Chitter</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/sessions/new">Sign in</a></li><!--
+          --><li><a href="">Sign out</a></li><!--
+          --><li><a href="/users/new">Sign up</a></li>
+        </ul>
+      </nav>
+
+    </footer>

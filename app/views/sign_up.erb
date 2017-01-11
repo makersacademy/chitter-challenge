@@ -1,33 +1,65 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title> Chitter </title>
-  </head>
 
   <body>
 
-    <form action="/users" method="post">
+    <section class="row-alt">
+      <div class="lead container">
+        <h1>Sign up</h1>
+        <p> Enter your user details to begin!</p>
+      </div>
+    </section>
 
-        <label for="email">Please enter your email!</label>
-        <input type='email' name='email' value='<%= @user.email %>' required>
+    <section class="row">
+      <div class="grid">
 
-        <label for="name">Please enter your name!</label>
-        <input type='text' name='name' value='<%= @user.name %>'required>
+        <form class="col-1-3  " action="/users" method="post">
 
-        <label for="username">Please enter your username!</label>
-        <input type='text' name='username' value='<%=@user.username%>' required>
+            <fieldset class="register-group">
 
-        <label for="password">Please enter your password!</label>
-        <input type='password' name='password'>
+              <label>
+                Please enter your email!
+                <input type='email' name='email' value='<%= @user.email %>' required>
+              </label>
 
-        <label for="confirm_password">Please confirm your password!</label>
-        <input type='password' name='confirm_password'>
+              <label>
+                Please enter your name!
+                <input type='text' name='name' value='<%= @user.name %>'required>
+              </label>
 
-        <input type='submit' id='sign-up'>
+              <label>
+                Please enter your username!
+                <input type='text' name='username' value='<%=@user.username%>' required>
+              </label>
 
-    </form>
+              <label>
+                Please enter your password!
+                <input type='password' name='password'>
+              </label>
+
+              <label>
+                Please confirm your password!
+                <input type='password' name='confirm_password'>
+              </label>
+
+            </fieldset>
+
+              <input class="btn btn-default" type='submit' id='sign-up'>
+
+        </form>
+
+      </div>
+    </section>
+
+    <footer class="primary-footer container group">
+      <small>&copy; Chitter</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/sessions/new">Sign in</a></li><!--
+          --><li><a href="">Sign out</a></li><!--
+          --><li><a href="/users/new">Sign up</a></li>
+        </ul>
+      </nav>
+
+    </footer>
 
   </body>
-
-</html>
