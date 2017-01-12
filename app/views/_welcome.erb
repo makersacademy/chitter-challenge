@@ -1,0 +1,21 @@
+
+<% if get_current_user %>
+  Welcome <%= get_current_user.email %> !
+<% end %>
+
+<header class="primary-header container group">
+  <section class="container">
+    <h1 class="logo">
+      <a href="/peeps"> Chitter </a>
+    </h1>
+  </section>
+
+  <nav class="nav primary-nav">
+    <ul>
+      <li><a href="/sessions/new">Sign in</a></li><!--
+      --><li><a href="">Sign out</a></li><!--
+      --><li><a href="/users/new">Sign up</a></li>
+    </ul>
+
+  </nav>
+</header>

@@ -1,0 +1,65 @@
+
+  <body>
+
+    <section class="row-alt">
+      <div class="lead container">
+        <h1>Sign up</h1>
+        <p> Enter your user details to begin!</p>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="grid">
+
+        <form class="col-1-3  " action="/users" method="post">
+
+            <fieldset class="register-group">
+
+              <label>
+                Please enter your email!
+                <input type='email' name='email' value='<%= @user.email %>' required>
+              </label>
+
+              <label>
+                Please enter your name!
+                <input type='text' name='name' value='<%= @user.name %>'required>
+              </label>
+
+              <label>
+                Please enter your username!
+                <input type='text' name='username' value='<%=@user.username%>' required>
+              </label>
+
+              <label>
+                Please enter your password!
+                <input type='password' name='password'>
+              </label>
+
+              <label>
+                Please confirm your password!
+                <input type='password' name='confirm_password'>
+              </label>
+
+            </fieldset>
+
+              <input class="btn btn-default" type='submit' id='sign-up'>
+
+        </form>
+
+      </div>
+    </section>
+
+    <footer class="primary-footer container group">
+      <small>&copy; Chitter</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="/sessions/new">Sign in</a></li><!--
+          --><li><a href="">Sign out</a></li><!--
+          --><li><a href="/users/new">Sign up</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+
+  </body>

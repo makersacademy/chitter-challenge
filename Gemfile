@@ -1,10 +1,26 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
+  gem 'sinatra'
+  gem 'dm-validations'
+  gem 'sinatra-flash'
+  gem 'sinatra-partial'
+  gem 'bcrypt'
+
 group :test do
   gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
+  gem 'capybara'
+  gem 'rspec-sinatra'
+  gem 'rubocop-rspec'
+  gem 'rubocop'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'timecop'
 end
 
+group :test, :development do
+  gem 'pry'
+  gem 'rake'
+end

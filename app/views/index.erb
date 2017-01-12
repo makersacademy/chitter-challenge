@@ -1,0 +1,80 @@
+
+<section class="row-alt">
+  <div class="lead container">
+
+    <h1>Peeps</h1>
+    <p> Share and Enjoy your Peeps!</p>
+  </div>
+</section>
+
+  <%if get_current_user%>
+
+  <form action="/sessions" method="post">
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='log out' id='log-out'>
+  </form>
+
+  <section class="row">
+    <div class="grid">
+
+
+        <form class="col-1-3" action="/peep" method='post'>
+          <fieldset class="register-group">
+            <label>
+              Message:
+                <textarea id="msg" name="user_message"></textarea>
+             </label>
+           </fieldset>
+
+           <input type='submit' id='peep'>
+
+        </form>
+
+      </div>
+    </section>
+
+  <%end%>
+
+  <section class="row">
+    <div class="container">
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="row">
+              Peeps
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%@peeps.reverse.each do |peep| %>
+            <tr>
+              <th scope="row">
+                <time><%= peep.created_at.strftime("%d/%m/%Y at %I:%M%p") %></time>
+              </th>
+              <td class="schedule-offset" colspan="2">
+                <%=User.get(peep.user_id).username %>: <%= peep.message  %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+
+      </table>
+
+    </div>
+  </section>
+
+<footer class="primary-footer container group">
+
+  <small>&copy; Chitter</small>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="/sessions/new">Sign in</a></li><!--
+      --><li><a href="">Sign out</a></li><!--
+      --><li><a href="/users/new">Sign up</a></li>
+    </ul>
+  </nav>
+
+</footer>
