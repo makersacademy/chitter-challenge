@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/aabolade/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/aabolade/chitter-challenge?branch=master)
 
 
-Twitter clone that will allow users to post messages to a public stream. Visit the app [here](https://agile-escarpment-76503.herokuapp.com/)
+Twitter clone that will allow users to post messages to a public stream. Visit the app [here](https://tranquil-forest-58353.herokuapp.com)
 
 Features
 ========
