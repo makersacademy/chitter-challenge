@@ -11,7 +11,7 @@ feature "Password Recovery" do
   scenario "log in page has 'forgotten password link'" do
     visit "/sessions/new"
     click_link "forgotten password?"
-    expect(page).to have_content 'Please enter your email'
+    expect(page).to have_content 'Enter your email'
   end
 
   scenario "filling in email provides you with a confirmation message" do
