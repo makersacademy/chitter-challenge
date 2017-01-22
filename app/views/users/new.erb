@@ -1,0 +1,17 @@
+<h1> Sign up </h1>
+<% if current_user %>
+You are already signed in. Sign out to create a new account.
+
+<% else %>
+<form action='/users' method='post'>
+  <label for='name'> What should we call you?</label>  <input type='text' name='name'  required>
+  <br>
+  <label for='email'> What is your email address? </label>  <input type='email' name='email'  required>
+  <br>
+  <label for='password'> What will your password be?</label>  <input type='password' name='password' required>
+  <br>
+  <label for='password_confirmation'> Please confirm your password.</label>  <input type='password' name='password_confirmation' required>
+  <br>
+  <input class='button' type='submit' value='Sign up'>
+</form>
+<% end %>

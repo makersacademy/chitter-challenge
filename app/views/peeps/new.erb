@@ -1,0 +1,14 @@
+<% if current_user %>
+<h1> Post a new peep</h1>
+
+<form action='/peeps' method='post'>
+  <label for='peep'> Peep!</label> <input type='text' name='peep'>
+  <br>
+  <input class='button' type='submit' value='Post peep'>
+</form>
+
+<% else %>
+
+<h1> <a href="/sessions/new">Sign in</a> to post a peep! </h1>
+
+<% end %>

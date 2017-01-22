@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Chitter </title>
+  <link href="<%= url('/css/main.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+        <div class='logo'> chitter </div>
+  <nav>
+    <ul>
+      <li> <a href="/">View peeps</a> </li>
+      <li> <a href='/peeps/new'> New Peep</li>
+      <li> <a href="/users/new"> Sign up</a></li>
+      <li> <a href="/sessions/new"> Sign in</a></li>
+    </ul>
+  </nav>
+  <% if current_user %>
+   Welcome, <%= current_user.name %>! <form action='/sessions' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' name='Sign out' value='Sign out'>
+  </form>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please see the error(s) below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+  <% end %>
+  <% if flash[:notice] %>
+  <div id='notice'> <%= flash[:notice] %> </div>
+  <% end %>
+</header>
+
+<main>
+  <%= yield %>
+</main>
+
+<footer>
+</footer>
+</body>
+
+</html>
