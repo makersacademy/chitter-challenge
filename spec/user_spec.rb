@@ -1,5 +1,3 @@
-require_relative "../lib/model/user"
-
 describe User do
   let!(:user) do
     User.create(email:'user@email.com',
@@ -16,13 +14,13 @@ describe User do
   end
 
   describe ".authenticate" do
-    it "should return user if email exists and has the right password" do
+    it "return user if email exists and has the right password" do
       expect(User.authenticate user.email, user.password).to eq user
     end
-    it "should return nil if email exists and has the wrong password" do
+    it "return nil if email exists and has the wrong password" do
       expect(User.authenticate user.email,"CorrectHorse").to be_nil
     end
-    it "should return nil if email does not exist but password matches another" do
+    it "return nil if email doesn't exist but password matches another" do
       expect(User.authenticate "a@ab.com", user.password).to be_nil
     end
   end

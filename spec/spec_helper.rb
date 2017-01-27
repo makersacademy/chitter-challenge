@@ -2,8 +2,7 @@ require 'coveralls'
 require 'rspec'
 require 'simplecov'
 require 'database_cleaner'
-require_relative "../lib/model/user"
-
+require_relative "../lib/data_mapper_setup"
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -19,7 +18,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
