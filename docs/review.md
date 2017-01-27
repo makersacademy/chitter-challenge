@@ -107,7 +107,7 @@ Ensure that all test related gems are in test group, e.g. capybara etc.
 ```ruby
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.4.0'
 
 gem 'sinatra'
 gem 'sinatra-flash'
