@@ -1,0 +1,36 @@
+<!--<link rel="stylesheet" href="css.css" type="text/css" /> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body>
+      <header>
+        <h1> Please sign up </h1>
+      </header>
+    <form action='/users' method='POST'>
+        <label for='email'>
+            Email:
+            <input type='text' name='email' />
+        </label>
+        <label for='name'>
+            Name:
+            <input type='text' name='name' />
+        </label>
+        <label for='user_name'>
+            User-name:
+            <input type='text' name='user_name' />
+        </label>
+        <label for='password'>
+            Password:
+            <input type='password' name='password' />
+        </label>
+        <label for='password_confirmation'>
+            Confirm password:
+            <input type='password' name='password_confirmation' />
+        </label>
+        <input type='submit' value='Sign up'>
+    </form>
+  </body>
+</html>
