@@ -1,21 +1,8 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Disembodied communication system for humans.
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+## User Stories
 
 ```
 As a Maker
@@ -34,75 +21,88 @@ As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a Maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a maker
+As a Maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+## Summary of functionality
+```
+Sign up
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+Login
 
-Bonus:
------
+Logout
 
-If you have time you can implement the following:
+Post a peep
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+View all peeps reverse order
 
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
+View time of peeps
 ```
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+## Set Up
 
 ```
-$ coveralls report
+$ git clone https://github.com/makersacademy/chitter-challenge
+$ bundle
+$ create databases chitter_development and chitter_test
+$ rake auto_migrate
+$ rspec
+$ rackup
 ```
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+## Pages Summary
 
+Logged in: "You are logged in as <email>" at top + logout link/btn
+
+Not logged in: "Login/register to peep" + login/register link/btn
+
+**signup**
+-> **peeps** ...
+FAIL -> **signup** + msg + link to **peeps**
+
+**login**
+[has: link/btn to **signup**]
+-> **peeps** ...
+FAIL -> **login** + msg + link to **peep**
+
+**peeps**
+[has: **peep** btn/link if logged in]
+Displays all peeps in reverse
+
+**peep**
+-> **peeps** ...
+FAIL ->  **peeps**
+
+## TODO
+
+- location and caching for css files
+- feature tests with many expects for efficiency
+- use spec helpers appropriately, see code review notes
+
+## Bookmark Reference Work Through
+
+### Skipped / Still To Do
+
+09 set up datamapper table object (link in this case)
+10 And set erb in relation to viewing links
+11 set up test and form to create link (ie a peep for us)
+15 Adding tags - test, erb, model, controller
+16 filtering by tag - tests, route patterns, has n update to model
+17 multiple tags - tests, controller, use of rakefile on Cmd line
+
+### Done
+
+12 Set up database cleaner
+  todo lines 42-45 in spec_helper - may work once data in db?
+13 config.ru, DataMapper.setup(...) datamapper_setup, app.rb, spec_helper.rb
+14 Heroku
+
+### Current Location
+
+18 signing up

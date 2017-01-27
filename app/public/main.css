@@ -1,0 +1,26 @@
+#main {
+  margin: 10px auto 0px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  width: 600px;
+  height: auto;
+  border:2px solid black;
+  padding: 20px;
+}
+h1 {
+  font-style: italic;
+}
+ul {
+  list-style: none;
+}
+.fname {
+  display: inline-block;
+  padding-right: 10px;
+  width: 50px;
+}
+
+.fvalue {
+  display: inline-block;
+  font-weight: bold;
+  width: 150px;
+}

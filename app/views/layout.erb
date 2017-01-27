@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chitter</title>
+<link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
+<link rel="stylesheet" type="text/css" href="<%= url('/main.css') %>">
+</head>
+<body>
+<div id="main">
+  <% if current_user %>
+    <p>You are logged in as <%= current_user.email %></p>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+</html>
