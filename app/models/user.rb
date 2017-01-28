@@ -28,4 +28,14 @@ class User
     user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
 
+  def peeps
+    user_peeps = 0
+    peeps = Peep.all
+    peeps.each do |peep|
+      peep.users.each {|user| @peep_user = user.username}
+      user_peeps += 1 if @peep_user == self.username
+    end
+    user_peeps
+  end
+
 end

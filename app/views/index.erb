@@ -1,13 +1,103 @@
-<h1> Peeps </h1>
+<head>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<div class="container">
+    <div id="left">
+      <% if current_user %>
+        <div class="userbox">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="10" height="42">&nbsp;</td>
+              <td colspan="2" align="center" class="WhiteText"><span class="MiniTitle">User Account Details</span></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td width="110" rowspan="3"><img src="images/adi.jpg" width="100" height="100" alt="User" /></td>
+              <td height="33" class="WhiteText"><%= @current_user.name %></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td height="33" class="WhiteText">@<%= @current_user.username %></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td height="33" class="WhiteText">Peeps <%= @current_user.peeps %></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <% end %>
 
-<ul id='Peeps'>
-  <% @peeps.each do |peep|
-    peep_user(peep.users)%>
-    <li>
-      ID:         <%= peep.id %>
-      User:       <%= @peep_user.username %>
-      Body:       <%= peep.body %>
-      Time Stamp: <%= peep.time_stamp %>
-    </li>
-  <% end %>
-</ul>
+    <div id="right">
+      <% if current_user %>
+        <div class="newpeepbox">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td width="80">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td width="80" rowspan="3" valign="middle"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
+              <td class="WhiteText">Whats on your mind? send a peep</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <form id="peep" name="form1" method="post" action="/peeps">
+                  <textarea name="body" id="body" cols="90" rows="3"></textarea>
+                  <input type="submit" name="submit" id="submit" value="Submit" />
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td width="80">&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        <% end %>
+          <% @peeps.each do |peep|
+                peep_user(peep.users)%>
+                  <div class="peepbox">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="10" height="35">&nbsp;</td>
+                        <td height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
+                        <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %></td>
+                        <td width="10" height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td width="10">&nbsp;</td>
+                        <td width="90"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
+                        <td bgcolor="#FFFFFF"><%= peep.body %></td>
+                        <td width="10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td width="10" height="30">&nbsp;</td>
+                        <td width="90" height="30">&nbsp;</td>
+                        <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp %></td>
+                        <td width="10" height="30" align="center" class="WhiteText">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <br>
+          <% end %>
+      </div>
+    </div>
+</div>

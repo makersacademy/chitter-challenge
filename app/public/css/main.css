@@ -1,0 +1,89 @@
+.banner {
+  background:url(../images/banner.jpg);
+  background-repeat:no-repeat;
+  background-position:center center;
+  width:100%;
+  height:200px;
+}
+input#signup {
+  background:url(../images/signup.png);
+  background-repeat: no-repeat;
+  font-size: 0em;
+  width:150px;
+  height:50px;
+  border: 0;
+}
+input#signin {
+  background:url(../images/signin.png);
+  background-repeat: no-repeat;
+  font-size: 0em;
+  width:150px;
+  height:50px;
+  border: 0;
+}
+input#signout {
+  background:url(../images/signout.png);
+  background-repeat: no-repeat;
+  font-size: 0em;
+  width:150px;
+  height:50px;
+  border: 0;
+}
+.WhiteText {
+	color: #FFF;
+}
+.SubTitle {
+  font-size: 30px;
+}
+.MiniTitle {
+  font-size: 25px;
+}
+.TitleText {
+	font-size: 50px;
+}
+div.container {
+  position: fixed;
+  float: left;
+  top: 220px;
+  width: 100%;
+  clear: both;
+}
+#left {
+  float: left;
+  width:29%;
+}
+#right {
+  float: right;
+  width: 69%;
+  margin-right: 15px;
+}
+.userbox {
+  width: 100%;
+	height: 170px;
+	background-color: #039;
+	box-shadow: 10px 10px 5px #888888;
+	font-size: 18px;
+	vertical-align: middle;
+	text-align: left;
+	text-indent: 10px;
+}
+.newpeepbox {
+  width: 100%;
+	height: 120px;
+	background-color: #0066CC;
+	box-shadow: 10px 10px 5px #888888;
+	font-size: 18px;
+	vertical-align: middle;
+	text-align: left;
+	text-indent: 10px;
+}
+.peepbox {
+  width: 100%;
+	height: 150px;
+	background-color: #039;
+	box-shadow: 10px 10px 5px #888888;
+	font-size: 18px;
+	vertical-align: middle;
+	text-align: left;
+	text-indent: 10px;
+}

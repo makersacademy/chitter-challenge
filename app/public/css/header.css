@@ -1,0 +1,35 @@
+.banner {
+    background:url(images/banner.jpg);
+    background-repeat:no-repeat;
+    background-position:center center;
+    width:100%;
+    height:200px;
+}
+input#signup {
+background:url(images/signup.png);
+background-repeat: no-repeat;
+font-size: 0em;
+width:150px;
+height:50px;
+border: 0;
+}
+input#signin {
+background:url(images/signin.png);
+background-repeat: no-repeat;
+font-size: 0em;
+width:150px;
+height:50px;
+border: 0;
+}
+input#signout {
+background:url(images/signout.png);
+background-repeat: no-repeat;
+font-size: 0em;
+width:150px;
+height:50px;
+border: 0;
+}
+.WhiteText {
+	color: #FFF;
+	font-size: 20px;
+}

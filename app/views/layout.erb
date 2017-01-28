@@ -1,24 +1,56 @@
-<% if current_user %>
-  Welcome, <%= current_user.email %>
-<% end %>
+<title>Chitter</title>
+<head>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
 
-<% if current_user %>
-  <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='image' value='Sign out' name='Sign Out' align="middle">
-  </form>
-  <form action='/peeps/new'>
-      <input type='image' value='new peep' name='New Peep' align="middle">
-  </form>
-<% else %>
-    <form action='/users/new'>
-        <input type='image' value='Sign up' name='Sign Up' align="middle">
-    </form>
-    <form action='/sessions/new'>
-      <input type='image' value='Sign in' name='Sign In' align="middle">
-    </form>
-<% end %>
-
+<body>
+<table class="banner">
+  <tr>
+    <td height="200"><table width="100%" border="0" cellspacing="0" cellpadding="0" height="200">
+      <tr>
+        <td width="20" height="20">&nbsp;</td>
+        <td width="50" height="20">&nbsp;</td>
+        <td align="center" valign="middle" class="WhiteText">&nbsp;</td>
+        <td width="155" height="20">&nbsp;</td>
+        <td width="155" height="20">&nbsp;</td>
+        <td width="20" height="20">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="20" height="50">&nbsp;</td>
+        <td width="50" height="50"><img src="images/logo.png" width="50" height="50" alt="Logo" /></td>
+        <td align="center" valign="middle" class="WhiteText"><span class="SubTitle"><% if current_user %>Welcome, <%= current_user.email %><% end %></span></td>
+        <td width="155" height="50">
+        	<% if current_user == nil %>
+            <form action='/users/new'>
+        			<input type='submit' value='submit' name='submit' align="middle" id="signup">
+    			  </form>
+          <% end %>
+        </td>
+        <td width="155" height="50">
+          <% if current_user == nil %>
+            <form action='/sessions/new'>
+              <input type='submit' value='submit' name='submit' align="middle" id="signin">
+            </form>
+          <% else %>
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='submit' name='submit' align="middle" id="signout">
+            </form>
+          <% end %>
+        </td>
+        <td width="20" height="50">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="20">&nbsp;</td>
+        <td width="50">&nbsp;</td>
+        <td align="center" valign="middle" class="WhiteText"><span class="TitleText">What's happening?</span></td>
+        <td width="155">&nbsp;</td>
+        <td width="155">&nbsp;</td>
+        <td width="20">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
 
 <% if (flash[:errors] && !flash[:errors].empty?) || flash[:notice] %>
     <div id='errors'>
@@ -42,3 +74,4 @@
 <% end %>
 
 <%= yield %>
+</body>
