@@ -6,7 +6,7 @@ feature 'sign out' do
 
 
   scenario 'user can sign out of Chitter' do
-	  sign_up
+	sign_up
     sign_in 
     click_button 'Sign out'
     expect(page).to have_content('Goodbye!')

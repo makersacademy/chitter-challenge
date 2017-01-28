@@ -11,7 +11,6 @@ feature 'filtering peeps' do
   end
   
   scenario 'filter by a tag' do
-  	visit '/peeps'
   	fill_in 'name', with: 'greetings'
   	click_button('Search!') 
 

@@ -7,7 +7,7 @@ feature 'tag peeps' do
   scenario 'users can add a single tag to a peep' do
     sign_up
     sign_in
-    visit '/peeps/new'
+    click_button 'Get Peeping!'
     fill_in 'content', with: "I love peeping!"
     fill_in 'tags', with: "joy"
     click_button 'Peep!'
@@ -25,7 +25,7 @@ feature 'tag peeps' do
   scenario 'users can add multiple tags to a peep' do
     sign_up
     sign_in
-  	visit '/peeps/new'
+  	click_button 'Get Peeping!'
     fill_in 'content', with: "I love peeping!"
     fill_in 'tags', with: "joy happiness"
     click_button 'Peep!'
