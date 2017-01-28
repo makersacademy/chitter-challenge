@@ -33,6 +33,11 @@ feature 'User sign up' do
         expect { sign_up }.not_to change(User, :count)
         expect(page).to have_content('User name is already taken')
     end
+    
+    scenario "password and password confirmation must match" do
+        expect { sign_up(password_confirmation: "not_password") }.not_to change(User, :count)
+    end
+        
     # scenario "I can't sign up without a password" do
     #     expect { sign_up(password:nil) }.not_to change(User, :count)
     #     expect(page).to have_content('Password must not be blank')

@@ -3,14 +3,11 @@
   <head>
     <title>Chitter</title>
   </head>
-
   <body>
     <header>
     <% if current_user %>
       <h3> Hey there, <%= current_user.user_name %>! </h3>
     <% end %>
-    <%= yield %>
-    </header>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Oh dear, looks like we've got some errors:
       <ul id='errors'>
@@ -19,5 +16,7 @@
         <% end %>
       </ul>
     <% end %>
+    <%= yield %>
+    </header>
   </body>
 </html>
