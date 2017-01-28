@@ -1,5 +1,14 @@
 <h1> Welcome to Chitter </h1>
 
+<form action = '/tags' method = 'GET'>
+
+  <label for="name"> Search for a peep by tag: </label>
+  <input type = "text" name = "name"/>
+
+  <input type = "submit" value = "Search!">
+
+</form>
+
 <ol id = "peeps" style = "list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
   	<li style = "margin-bottom:10px">

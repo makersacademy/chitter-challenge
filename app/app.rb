@@ -27,6 +27,12 @@ class Chitter < Sinatra::Base
   	erb :'peeps/new'
   end
 
+  get '/tags' do
+    tag = Tag.first(name: params[:name])
+    @peeps = tag ? tag.peeps : []
+    erb :'peeps/index'
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
