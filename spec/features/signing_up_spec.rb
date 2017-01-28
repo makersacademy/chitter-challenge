@@ -63,6 +63,4 @@ feature 'sign up' do
     end
   end
 
-
-
 end
