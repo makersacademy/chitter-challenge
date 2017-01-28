@@ -36,3 +36,10 @@ def wrong_email_format
   fill_in :name, with: 'dylan'
   click_button 'Sign Up'
 end
+
+def sign_in
+  visit '/sessions/new'
+  fill_in :email,    with: 'dylan@bossman.com'
+  fill_in :password, with: 'bossman'
+  click_button 'Sign In'
+end

@@ -10,7 +10,26 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Hello ChitterChallenge!'
+    # redirect '/'
+  end
+
+  get '/homepage' do
+    erb :'homepage'
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    @user = User.authenticate(params[:email], params[:password])
+    if (@user)
+      session[:user_id] = @user.id
+      redirect '/homepage'
+    else
+      flash.now[:notices] = ["E-mail or password are incorrect."]
+      erb :'sessions/new'
+    end
   end
 
   get '/users/new' do
