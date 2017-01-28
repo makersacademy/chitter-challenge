@@ -12,9 +12,16 @@ Installation instructions
 > Added the following to gem files:
 gem "data_mapper"
 gem "dm-postgres-adapter"
+gem "sinatra"
+gem "rspec-sinatra"
 gem "capybara" (NB. within the test block)
 > bundle install
 > require 'capybara/rspec' - added spec_helper.rb
+> Created spec/features to hold features test.
+>
+
+
+
 
 ```
 
