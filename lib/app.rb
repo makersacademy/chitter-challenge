@@ -14,8 +14,10 @@ class Tweeter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+    def all_twits
+      @all_twits ||= Twit.all(order: [ :time_stamp.desc ])
+    end
   end
-
 
   get '/' do
     erb :index
@@ -29,7 +31,8 @@ class Tweeter < Sinatra::Base
     erb :'twit/new'
   end
 
-  post '/tweet' do
+  post '/twit' do
+    Twit.create(content: params[:content],user: current_user, time_stamp: Time.new)
     redirect '/'
   end
 

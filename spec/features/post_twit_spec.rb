@@ -7,8 +7,10 @@ feature "posting twits to tweeter" do
     click_link 'compose twit'
     expect(current_path).to eq "/twit/new"
     fill_in :content, with: content
-    click_link 'twit'
+    click_button 'twit'
+
+    expect(Twit.first.content).to eq content
     expect(current_path).to eq "/"
-    expect(page).to have_content message
+    expect(page).to have_content content
   end
 end

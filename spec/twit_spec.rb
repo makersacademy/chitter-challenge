@@ -10,7 +10,7 @@ describe Twit do
   let!(:twit) do
     Twit.create(user: user,
     content: 'gonna build a wall...',
-    date: '30/1/1984')
+    time_stamp: Time.now)
   end
 
   describe "#creation" do
