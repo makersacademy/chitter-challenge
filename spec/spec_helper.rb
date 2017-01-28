@@ -9,7 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
-require_relative 'web_helper'
+require_relative 'helpers/session'
 require './models/data_mapper_setup'
 
 
@@ -34,6 +34,21 @@ Capybara.app = ChitterChallenge
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.include SessionHelpers
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
   #config.include TestHelpers

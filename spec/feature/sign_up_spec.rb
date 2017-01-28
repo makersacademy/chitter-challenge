@@ -35,4 +35,9 @@ feature 'User sign up' do
       expect(page).to have_content('Email is already taken')
     end
 
+    scenario 'User cannot sign up with an already registered user name' do
+      sign_up
+      expect {sign_up }.not_to change(User, :count)
+      expect(page).to have_content('User name is already taken')
+    end
 end

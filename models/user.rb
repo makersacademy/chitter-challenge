@@ -14,6 +14,7 @@ include DataMapper::Resource
   property :id, Serial
   property :email, String, required: true, unique: true
   property :password_digest, Text
+  property :user_name, String, unique: true
 
   def self.authenticate(email, password)
   user = first(email: email)

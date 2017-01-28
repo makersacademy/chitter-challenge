@@ -15,7 +15,7 @@ class ChitterChallenge < Sinatra::Base
 register Sinatra::Flash
 
   get '/' do
-    redirect '/users/new'
+    erb :chitter
   end
 
 get '/users/new' do
@@ -25,6 +25,7 @@ end
 
 post '/users' do
   @user = User.create(email: params[:email],
+                      user_name: params[:user_name],
               password: params[:password],
               password_confirmation: params[:password_confirmation])
   if @user.save
@@ -54,6 +55,12 @@ end
 get '/session/account' do
   @current_user = @user
   erb :'session/account'
+end
+
+delete '/session' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'Goodbye!'
+  redirect to '/session/new'
 end
 
 helpers do

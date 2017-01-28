@@ -5,11 +5,11 @@
   </head>
 
   <body>
-    <!-- <% if flash[:notice] %>
+    <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
     </div>
-    <% end %> -->
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
     Please refer to the following errors below:
     <ul id='errors'>
@@ -20,9 +20,9 @@
     <% end%>
       <!-- <div id='notice'><%= flash[:notice] %>
       </div> -->
-    <!-- <% if current_user %> -->
-    <!--Welcome, <%= current_user.email %> -->
-  <!--  <form method='post' action='/sessions'>
+    <!-- <% if current_user %>
+    Welcome, <%= current_user.email %>
+  <form method='post' action='/session'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Sign out'>
     </form>

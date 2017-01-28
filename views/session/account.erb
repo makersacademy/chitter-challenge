@@ -1,4 +1,11 @@
-<h1> Wecome, <%= current_user.email %></h2>
+<h1> Welcome, <%= current_user.email %></h2>
 <br>
 <br>
 <h2>You are currently logged into Chitter</h2>
+
+<% if current_user %>
+<form method='post' action='/session'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Sign out'>
+</form>
+<% end %>
