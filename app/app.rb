@@ -5,12 +5,19 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class ChitterChallenge < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
 
   get '/' do
     # redirect '/'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/homepage'
   end
 
   get '/homepage' do

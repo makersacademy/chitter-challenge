@@ -8,13 +8,23 @@
 
 
     <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
+   Welcome, <%= current_user.email %>
+   <form method='post' action='/sessions'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign Out'>
+   </form>
+ <% end %>
 
     <% if flash[:notices] && !flash[:notices].empty? %>
       <% flash[:notices].each do |n| %>
        <div> <%= n %> </div>
        <% end %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->

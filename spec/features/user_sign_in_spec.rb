@@ -1,4 +1,4 @@
-feature 'User sign in' do
+feature 'User signs in' do
   scenario 'User can sign in' do
     sign_up
     sign_in
