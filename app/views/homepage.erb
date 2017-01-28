@@ -1,9 +1,0 @@
-<% if current_user %>
-  Welcome, <%= current_user.email %>
-<% end %>
-
-<% if flash[:notices] && !flash[:notices].empty? %>
-  <% flash[:notices].each do |n| %>
-   <div> <%= n %> </div>
-   <% end %>
-<% end %>
