@@ -4,11 +4,45 @@
 <link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 <link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
 <link rel="stylesheet" type="text/css" href="<%= url('/main.css') %>">
+<style> /*
+#main {
+  margin: 10px auto 0px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  width: 600px;
+  height: auto;
+  border:2px solid black;
+  padding: 20px;
+}
+h1 {
+  font-style: italic;
+}
+ul {
+  list-style: none;
+}
+.fname {
+  display: inline-block;
+  padding-right: 10px;
+  width: 50px;
+}
+
+.fvalue {
+  display: inline-block;
+  font-weight: bold;
+  width: 150px;
+}
+#notice {
+  color: red;
+} */
+</style>
 </head>
 <body>
 <div id="main">
   <% if current_user %>
     <p>You are logged in as <%= current_user.email %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
   <% end %>
   <%= yield %>
 </div>

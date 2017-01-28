@@ -1,6 +1,6 @@
 # Chitter Challenge
 
-Disembodied communication system for humans.
+Implement a disembodied communication system for humans.
 
 ## User Stories
 
@@ -43,6 +43,8 @@ Post a peep
 View all peeps reverse order
 
 View time of peeps
+
+Optional extras: reply to peep; css
 ```
 
 ## Set Up
@@ -87,6 +89,10 @@ FAIL ->  **peeps**
 
 ## Bookmark Reference Work Through
 
+### Skipped / Not relevant
+
+14 Heroku
+
 ### Skipped / Still To Do
 
 09 set up datamapper table object (link in this case)
@@ -101,8 +107,11 @@ FAIL ->  **peeps**
 12 Set up database cleaner
   todo lines 42-45 in spec_helper - may work once data in db?
 13 config.ru, DataMapper.setup(...) datamapper_setup, app.rb, spec_helper.rb
-14 Heroku
+18 sign up - tests, model, bcrypt, erb. Confirmation to do
+19 Confirmation password - test, view, model and controller
+20 confirmation fail - flash message with test, controller, model, view
+  todo get email to persist on reload
 
 ### Current Location
 
-18 signing up
+21 validate blank email - test, view/html5, model/dm required/not null
