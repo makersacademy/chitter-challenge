@@ -10,6 +10,17 @@
   	  Welcome to Chitter, <%= current_user.user_name %>
   	<% end %>
 
+  	<% if flash[:notice] %>
+   	  <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+  	<form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+
   	<% if flash[:errors] && !flash[:errors].empty? %>
   	  <ul id = 'errors'>
   	    <% flash[:errors].each do |error| %>
