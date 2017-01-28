@@ -35,6 +35,8 @@ Coveralls.wear!
 > Created first route /signup in app.rb and associated signup_page.erb
 > Updated feature test 1B to expect a welcome page when clicking submit
 > Creating a model called app/models/chitter_user.rb.
+> bundle update - ran this to update all gems, as was getting unexplained error - Users/shereen/.rvm/gems/ruby-2.3.3/gems/dm-types-0.10.0/lib/dm-types.rb:7:in `<module:Types>': undefined method `/' for #<String:0x007f8fc9e99ed0> (NoMethodError)
+>
 
 
 

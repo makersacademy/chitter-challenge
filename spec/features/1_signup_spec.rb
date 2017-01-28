@@ -8,15 +8,15 @@ feature "FEATURE 1: Signup" do
   scenario "1A) Visit signup page" do
     visit '/signup'
     expect(page.status_code).to eq 200
+    expect(page).to have_content('Sign Up')
   end
   scenario "1B) Sign up with email, password, full name and username" do
     visit '/signup'
     fill_in 'user_email', :with => "joebloggs@hotmail.com"
-    fill_in 'user_pw', :with => "P@ssw0rd1234"
+    fill_in 'password', :with => "P@ssw0rd1234"
     fill_in 'user_full_name', :with => "Joe Bloggs"
     fill_in 'user_name', :with => "Joeb"
     click_button 'Sign Up'
-    expect(page).to have_content('Sign Up')
     expect { sign_up }.to change(Chitter_User, :count).by(1)
     expect(page).to have_content('Welcome, Joe Bloggs')
     expect(Chitter_User.first.user_email).to eq('joebloggs@hotmail.com')
