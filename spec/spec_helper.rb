@@ -10,6 +10,7 @@ require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
 require_relative 'web_helper'
+require './models/data_mapper_setup'
 
 
 Capybara.app = ChitterChallenge
