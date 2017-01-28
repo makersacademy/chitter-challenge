@@ -35,8 +35,12 @@
             </tr>
           </table>
         </div>
+    <% else %>
+      <div class="userbox">
+        sdsds
       </div>
     <% end %>
+    </div>
 
     <div id="right">
       <% if current_user %>
@@ -71,33 +75,35 @@
               <td>&nbsp;</td>
             </tr>
           </table>
-        <% end %>
-          <% @peeps.each do |peep|
-                peep_user(peep.users)%>
-                  <div class="peepbox">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td width="10" height="35">&nbsp;</td>
-                        <td height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
-                        <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %></td>
-                        <td width="10" height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
-                      </tr>
-                      <tr>
-                        <td width="10">&nbsp;</td>
-                        <td width="90"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
-                        <td bgcolor="#FFFFFF"><%= peep.body %></td>
-                        <td width="10">&nbsp;</td>
-                      </tr>
-                      <tr>
-                        <td width="10" height="30">&nbsp;</td>
-                        <td width="90" height="30">&nbsp;</td>
-                        <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp %></td>
-                        <td width="10" height="30" align="center" class="WhiteText">&nbsp;</td>
-                      </tr>
-                    </table>
-                  </div>
-                  <br>
-          <% end %>
-      </div>
+        </div>
+        <br>
+      <% end %>
+
+      <% @peeps.each do |peep|
+          peep_user(peep.users)%>
+          <div class="peepbox">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="10" height="35">&nbsp;</td>
+                  <td height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
+                  <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %></td>
+                  <td width="10" height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="10">&nbsp;</td>
+                  <td width="90"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
+                  <td bgcolor="#FFFFFF"><%= peep.body %></td>
+                  <td width="10">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="10" height="30">&nbsp;</td>
+                  <td width="90" height="30">&nbsp;</td>
+                  <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp %></td>
+                  <td width="10" height="30" align="center" class="WhiteText">&nbsp;</td>
+                </tr>
+              </table>
+          </div>
+          <br>
+      <% end %>
     </div>
 </div>
