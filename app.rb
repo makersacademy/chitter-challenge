@@ -29,21 +29,21 @@ post '/users' do
               password_confirmation: params[:password_confirmation])
   if @user.save
   session[:user_id] = @user.id
-  redirect to('/session/account')
+  redirect to('/session/new')
   else
   flash.now[:errors] = @user.errors.full_messages
   erb :'users/new'
   end
 end
 
-get '/session/sign_in' do
-  erb :'session/sign_in'
+get '/session/new' do
+  erb :'session/new'
 end
 
 post'/session' do
-  user = User.authenticate(params[:email], params[:password])
-  if user
-    session[:user_id] = user.id
+  @user = User.authenticate(params[:email], params[:password])
+  if @user
+    session[:user_id] = @user.id
     redirect to('session/account')
   else
     flash.now[:errors] = ['The email or password is incorrect']
@@ -52,7 +52,7 @@ post'/session' do
 end
 
 get '/session/account' do
-
+  @current_user = @user
   erb :'session/account'
 end
 

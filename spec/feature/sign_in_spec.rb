@@ -13,7 +13,7 @@ feature 'User sign in' do
   end
 
   def sign_in(email:, password:)
-    visit '/session/sign_in'
+    visit '/session/new'
     fill_in :email, with: email
     fill_in :password, with: password
     click_button 'Sign in'
