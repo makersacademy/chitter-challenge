@@ -5,15 +5,15 @@
 <form action='/users' method='post'>
   
   <label for='name'>
-    Full Name: <input name='name' type='text'>
+    Full Name: <input name='name' type='text' value='<%= @user.name %>'>
   </label>
 
   <label for='email'>
-    Email: <input name='email' type='text'>
+    Email: <input name='email' type='text' value='<%= @user.email %>'>
   </label>
 
   <label for='user_name'>
-    User Name: <input name='user_name' type='text'>
+    User Name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
   </label>
 
   <label for='password'>

@@ -28,6 +28,8 @@ feature 'Users can sign up for a Chitter account' do
     
 
     expect { click_button 'Sign Up!' }.not_to change(User,:count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Password and confirmation password do not match'
 
   end
 
