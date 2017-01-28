@@ -17,7 +17,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 
-# require_relative 'helpers/session.rb'
+require_relative 'helpers/sign_up.rb'
 # require_relative 'helpers/link.rb'
 # require_relative 'helpers/recover.rb'
 
@@ -26,7 +26,7 @@ Capybara.app = ChitterApp
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-  # config.include SessionHelpers
+  config.include SignUpHelpers
   # config.include LinkHelpers
 
   config.expect_with :rspec do |expectations|
