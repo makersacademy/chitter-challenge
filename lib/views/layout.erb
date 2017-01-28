@@ -8,8 +8,24 @@
     <center>
       <div id='header'>
         <h1> Tweeter </h1>
+
+        <% if current_user %>
+          @<%= current_user.name %>
+        <% else %>
+          <a href="/user/new">new user</a>
+        <% end %>
       </div>
     </center>
+    <% if flash[:errors] %>
+      <br>
+      please fix the following issues
+      <ul>
+        <% flash[:errors].each do |message|%>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <%=yield %>
   </body>
 </html>

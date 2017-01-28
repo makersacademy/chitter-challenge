@@ -1,1 +1,14 @@
-h1 { background-color: aliceblue;}
+h1 {
+  background-color: lightcyan;
+  border: 2px solid cornflowerblue;
+  border-radius: 4px; background-color: darkturquoise;
+}
+
+
+#header {
+  border: black 1px solid;
+  padding: 20px;
+  border-radius: 6px;
+  padding-top: 0px;
+  background-color: lightblue
+}

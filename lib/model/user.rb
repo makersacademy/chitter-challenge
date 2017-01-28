@@ -6,14 +6,20 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  property :id, 	  Serial
-  property :full_name, String
+  property :id, 	  Serial,
+           required: true
+  property :full_name, String,
+           required: true
   property :user_name, String,
-  unique: true
+           required: true,
+           unique: true
   property :email,  String,
+           required: true,
            format: :email_address,
            unique: true
-  property :password_digest, String, length:60
+  property :password_digest, String,
+           length:60,
+           required: true
 
   validates_confirmation_of :password
 
