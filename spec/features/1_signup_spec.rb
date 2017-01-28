@@ -14,7 +14,7 @@ feature "FEATURE 1: Signup" do
     fill_in 'user_pw', :with => "P@ssw0rd1234"
     fill_in 'user_full_name', :with => "Joe Bloggs"
     fill_in 'user_name', :with => "Joeb"
-    click_button 'sign_up'
+    click_button 'Sign Up'
     expect(page).to have_content('Sign Up')
   end
 

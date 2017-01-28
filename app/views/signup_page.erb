@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title></title>
-</head>
-<body>
-Sign Up
+  <head>
+    <style>
+      body {
+        background-color: lightblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-</body>
+    </style>
+  </head>
+    <body>
+      <h1><center>Sign Up</center></h1>
+      <form>
+        <center>
+          <label for="user_email">Email</label>
+          <input type="email" name="user_email" value="user_email" required><p>
+
+          <label for="user_pw">Password</label>
+          <input type="password" required name="user_pw" value="user_pw"><p>
+
+          <label for="user_full_name">Name</label>
+          <input type="text" name="user_full_name" value="user_full_name"><p>
+
+          <label for="user_name">Username</label>
+          <input type="text" name="user_name" value="user_name" required><p>
+
+          <button type="submit" id="sign_up" name="sign_up">Sign Up</button>
+        </center>
+      </form>
+    </body>
 </html>
