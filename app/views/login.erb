@@ -1,0 +1,15 @@
+<form action='/sessions' method='post'>
+  <label>Email:
+    <input type='email' name='email' required>
+  </label>
+
+  <label>Password:
+    <input type='text' name='password' required>
+  </label>
+
+  <input type='submit' value='Sign in'>
+</form>
+
+<% if flash[:fail_login] %>
+<%= flash[:fail_login] %>
+<%end%>
