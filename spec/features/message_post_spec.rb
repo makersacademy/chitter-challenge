@@ -15,7 +15,7 @@ feature 'Message:' do
       post_peep
       expect(page).to have_content("This is a new peep!")
       expect(page).to have_content("test")
-      expect(page).to have_content Time.now
+      expect(page).to have_content Time.now.to_s[0..19]
     end
   end
 

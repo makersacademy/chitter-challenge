@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   # set :views, File.dirname(__FILE__) + '/views'
 
   get '/' do
+    @search = nil
     @peeps = Peep.all(:order => [ :id.desc ])
     erb :index
   end
@@ -27,14 +28,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    p "image ="
-    p params[:image]
-    image = params[:image] == "" ? 'images/default.png' : params[:image]
+    image = params[:image] == "" ? '/images/default.png' : params[:image]
     @user = User.create(email: params[:email],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation],
                         name: params[:name],
-                        username: params[:username],
+                        username: params[:username].downcase,
                         image: image)
     if @user.save
       session[:user_id] = @user.id
@@ -43,6 +42,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
+  end
+
+  get '/users/:search' do
+    @search = params[:search].downcase
+    @peeps = Peep.all(:order => [ :id.desc ])
+    erb :index
   end
 
   get '/sessions/new' do
@@ -81,6 +86,7 @@ class Chitter < Sinatra::Base
     redirect to('/')
   end
 
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -90,6 +96,14 @@ class Chitter < Sinatra::Base
       users.each do |user|
         @peep_user = user
       end
+    end
+
+    def check_tags(peep)
+      peep.split(" ").map{|line| line[0] == "@" ? add_tag(line) : line}.join(" ")
+    end
+
+    def add_tag(tag)
+      "<a href='/users/#{tag}'>#{tag}</a>"
     end
   end
 

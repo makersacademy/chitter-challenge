@@ -19,12 +19,12 @@
             </tr>
             <tr>
               <td width="10">&nbsp;</td>
-              <td height="33" class="WhiteText">@<%= @current_user.username %></td>
+              <td height="33" class="WhiteText">@<%= add_tag(@current_user.username) %></td>
               <td width="10">&nbsp;</td>
             </tr>
             <tr>
               <td width="10">&nbsp;</td>
-              <td height="33" class="WhiteText">Peeps <%= @current_user.peeps %></td>
+              <td height="33" class="WhiteText">Peeps <a href="/users/<%=@current_user.username%>"><%= @current_user.peeps %></a></td>
               <td width="10">&nbsp;</td>
             </tr>
             <tr>
@@ -37,7 +37,38 @@
         </div>
     <% else %>
       <div class="userbox">
-        sdsds
+        <form action='/sessions' method='post'>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="10" height="42">&nbsp;</td>
+              <td colspan="2" align="center" class="WhiteText"><span class="MiniTitle">Log into your account</span></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td width="123" class="WhiteText">Email</td>
+              <td width="579" height="33"><input name='email' type='email'  size="30" required></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td width="123" class="WhiteText">Password</td>
+              <td height="33"><input name='password' type='password'  size="30"></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="10">&nbsp;</td>
+              <td height="33" colspan="2" align="center" valign="middle"><input type="submit" name="submit" id="submit" value="Submit" /></td>
+              <td width="10">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </form>
       </div>
     <% end %>
     </div>
@@ -80,30 +111,32 @@
       <% end %>
 
       <% @peeps.each do |peep|
-          peep_user(peep.users)%>
+          peep_user(peep.users)
+          if @search == @peep_user.username || @search == nil %>
           <div class="peepbox">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="10" height="35">&nbsp;</td>
                   <td height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
-                  <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %> peeps...</td>
+                  <td height="35" align="center" valign="middle" class="WhiteText">@<%= add_tag(@peep_user.username) %> peeps...</td>
                   <td width="10" height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
                 </tr>
                 <tr>
                   <td width="10">&nbsp;</td>
                   <td width="90"><img src="<%= @peep_user.image %>" width="70" height="72" alt="User" /></td>
-                  <td bgcolor="#FFFFFF"><%= peep.body %></td>
+                  <td bgcolor="#FFFFFF"><%= check_tags(peep.body) %></td>
                   <td width="10">&nbsp;</td>
                 </tr>
                 <tr>
                   <td width="10" height="30">&nbsp;</td>
                   <td width="90" height="30">&nbsp;</td>
-                  <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp %></td>
+                  <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp.to_s[0..19] %></td>
                   <td width="10" height="30" align="center" class="WhiteText">&nbsp;</td>
                 </tr>
               </table>
           </div>
           <br>
+          <% end %>
       <% end %>
     </div>
 </div>
