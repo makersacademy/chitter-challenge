@@ -27,11 +27,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
+    p "image ="
+    p params[:image]
+    image = params[:image] == "" ? 'images/default.png' : params[:image]
     @user = User.create(email: params[:email],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation],
                         name: params[:name],
-                        username: params[:username])
+                        username: params[:username],
+                        image: image)
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')

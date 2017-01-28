@@ -13,7 +13,7 @@
             </tr>
             <tr>
               <td width="10">&nbsp;</td>
-              <td width="110" rowspan="3"><img src="images/adi.jpg" width="100" height="100" alt="User" /></td>
+              <td width="110" rowspan="3"><img src="<%= @current_user.image %>" width="100" height="100" alt="User" /></td>
               <td height="33" class="WhiteText"><%= @current_user.name %></td>
               <td width="10">&nbsp;</td>
             </tr>
@@ -53,7 +53,7 @@
             </tr>
             <tr>
               <td width="10">&nbsp;</td>
-              <td width="80" rowspan="3" valign="middle"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
+              <td width="80" rowspan="3" valign="middle"><img src="<%= @current_user.image %>" width="70" height="72" alt="User" /></td>
               <td class="WhiteText">Whats on your mind? send a peep</td>
             </tr>
             <tr>
@@ -86,12 +86,12 @@
                 <tr>
                   <td width="10" height="35">&nbsp;</td>
                   <td height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
-                  <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %></td>
+                  <td height="35" align="center" valign="middle" class="WhiteText">@<%= @peep_user.username %> peeps...</td>
                   <td width="10" height="35" align="center" valign="middle" class="WhiteText">&nbsp;</td>
                 </tr>
                 <tr>
                   <td width="10">&nbsp;</td>
-                  <td width="90"><img src="images/adi.jpg" width="70" height="72" alt="User" /></td>
+                  <td width="90"><img src="<%= @peep_user.image %>" width="70" height="72" alt="User" /></td>
                   <td bgcolor="#FFFFFF"><%= peep.body %></td>
                   <td width="10">&nbsp;</td>
                 </tr>

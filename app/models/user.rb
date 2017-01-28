@@ -13,6 +13,7 @@ class User
   property :password_digest,     Text
   property :name,                String, required: true
   property :username,            String, required: true, unique: true
+  property :image,               Text
 
   validates_confirmation_of :password
   validates_presence_of :email
