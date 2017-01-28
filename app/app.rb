@@ -39,7 +39,7 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/main' do
-    @username = current_user.username
+    @username = current_user.username if current_user
     erb :main
   end
 
