@@ -1,6 +1,6 @@
 require 'rspec/core/rake_task'
 require 'data_mapper'
-require './app/app.rb'
+require './lib/chitter.rb'
 
 RSpec::Core::RakeTask.new :spec
 task default: [:spec]

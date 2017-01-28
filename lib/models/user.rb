@@ -1,11 +1,7 @@
 require 'bcrypt'
-require 'dm-postgres-adapter'
-require 'data_mapper'
 
 class User
   include DataMapper::Resource
-  attr_accessor :password_confirmation
-  attr_reader :password
 
   property :id, Serial
   property :name, String
