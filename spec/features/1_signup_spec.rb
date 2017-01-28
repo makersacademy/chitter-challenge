@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'web_helper'
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
@@ -11,15 +12,9 @@ feature "FEATURE 1: Signup" do
     expect(page).to have_content('Sign Up')
   end
   scenario "1B) Sign up with email, password, full name and username" do
-    visit '/signup'
-    fill_in 'user_email', :with => "joebloggs@hotmail.com"
-    fill_in 'password', :with => "P@ssw0rd1234"
-    fill_in 'user_full_name', :with => "Joe Bloggs"
-    fill_in 'user_name', :with => "Joeb"
-    click_button 'Sign Up'
-    expect { sign_up }.to change(Chitter_User, :count).by(1)
+    expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, Joe Bloggs')
-    expect(Chitter_User.first.user_email).to eq('joebloggs@hotmail.com')
+    expect(User.first.user_email).to eq('joebloggs@hotmail.com')
   end
 
 

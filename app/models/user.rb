@@ -3,7 +3,7 @@ require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'bcrypt'
 
-class Chitter_User
+class User
   include DataMapper::Resource
 
   property :id, Serial
