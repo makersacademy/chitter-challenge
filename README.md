@@ -91,10 +91,10 @@ type `http://localhost:4567` into your web browser
 
 ## <a name="Shots">Screen Shots</a>
 ### Main Chitter Screen
-[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/rps-challenge/master/images/screenshot1.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot1.png "Screen Shot 1")
+[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot1.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot1.png "Screen Shot 1")
 
 ### Sign Up Screen
-[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/rps-challenge/master/images/screenshot2.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot2.png "Screen Shot 2")
+[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot2.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot2.png "Screen Shot 2")
 
 ### Sign In Screen
-[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/rps-challenge/master/images/screenshot3.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot3.png "Screen Shot 3")
+[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot3.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot3.png "Screen Shot 3")
