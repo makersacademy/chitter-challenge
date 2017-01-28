@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Chitter App</title>
+  </head>
+  <body>
+    <div id='title'><h1>Chitter</h1></div>
+    <%if @username%>
+      <div id='welcome'>
+        <h2>Welcome  <%=@username%></h2>
+      </div>
+    <%end%>
+    <div id='main'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
