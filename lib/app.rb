@@ -7,7 +7,7 @@ require_relative 'data_mapper_setup'
 class Tweeter < Sinatra::Base
   enable :sessions
   set :session_secret, "secret"
-
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   helpers do
@@ -15,7 +15,7 @@ class Tweeter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
     def all_twits
-      @all_twits ||= Twit.all(order: [ :time_stamp.desc ])
+      @all_twits ||= Twit.all(order: [ :time_stamp.asc ])
     end
   end
 
@@ -34,6 +34,11 @@ class Tweeter < Sinatra::Base
   post '/twit' do
     Twit.create(content: params[:content],user: current_user, time_stamp: Time.new)
     redirect '/'
+  end
+
+  delete '/session' do
+    session[:user_id] = nil
+    redirect to '/'
   end
 
   post '/user' do

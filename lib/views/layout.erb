@@ -8,13 +8,18 @@
     <center>
       <div id='header'>
         <h1> Tweeter </h1>
-
         <% if current_user %>
-          <a href="/twit/new">compose twit</a> ---
-          @<%= current_user.user_name %>
+          <a href="/twit/new" style="float:left">compose twit</a>
+          <a style="float:middle">@<%= current_user.user_name %></a>
+          <form method='post' action='/session' style="float:right">
+            <input type='hidden' name='_method' value='delete'>
+            <input class='button_as_link' type='submit' value='log off'>
+          </form >
         <% else %>
           <a href="/user/new">new user</a>
+
         <% end %>
+
       </div>
     </center>
     <% if flash[:errors] %>

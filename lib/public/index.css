@@ -1,10 +1,23 @@
+* {
+  font-family: sans-serif;
+}
+
 h1 {
   background-color: lightcyan;
   border: 2px solid cornflowerblue;
   border-radius: 4px; background-color: darkturquoise;
 }
 
-
+body {max-width: 1000px}
+.button_as_link {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+     border-bottom:1px solid #444;
+     cursor: pointer;
+}
 #header {
   border: black 1px solid;
   padding: 20px;

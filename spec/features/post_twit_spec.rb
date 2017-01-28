@@ -1,7 +1,7 @@
 
 feature "posting twits to tweeter" do
+  let (:content) {"build the wall, the best walls, the best, trust me"}
   scenario "user is logged in and posts tweet" do
-    content = "build the wall, the best walls, the best, trust me"
     sign_up
     visit '/'
     click_link 'compose twit'
