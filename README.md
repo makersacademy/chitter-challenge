@@ -1,3 +1,28 @@
+PROCESS
+
+1. ssl cert errors. Fixed with rvm update master and reinstalling ruby 2.3.3.
+2. added gems & bundle install
+3. rspec-sinatra init --app created app file in sinatra modular style. created config.ru file and spec_helper.
+4. added coveralls to spec helper
+5. wrote feature test for sign_up - failed.
+6. created /peeps, get /sign_up, post /sign_up and /log_in routes in controller.
+7. created peeps erb file with sign_up link
+8. created sign_up erb file with sign up form.
+9. created log_in erb file with header.
+10. tested in sinatra, all working.
+11. Rspec test fail - need to add user.
+12. created user model
+13. added datamapper setup file
+14. created database
+15. added database cleaner
+16. created web_helper
+17. Rspec test - pass
+18. added test / dev environments
+19. deployed to heroku
+
+
+
+
 Chitter Challenge
 =================
 
@@ -77,7 +102,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +120,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +130,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
