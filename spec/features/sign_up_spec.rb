@@ -9,7 +9,6 @@ feature 'FEATURE: sign up' do
   scenario 'Can enter user details and create new user' do
     visit('/')
     click_link('sign_up')
-    save_and_open_page
     fill_in :name, with: 'James T. Kirk'
     fill_in :email, with: 'test@test.com'
     fill_in :user_name, with: 'TheShat'
