@@ -2,6 +2,8 @@ require 'coveralls'
 require 'rspec'
 require 'simplecov'
 require 'database_cleaner'
+require 'capybara'
+require 'capybara/rspec'
 require_relative "../lib/data_mapper_setup"
 
 RSpec.configure do |config|
