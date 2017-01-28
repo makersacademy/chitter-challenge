@@ -5,7 +5,8 @@
 feature 'tag peeps' do 
 
   scenario 'users can add a single tag to a peep' do
-    
+    sign_up
+    sign_in
     visit '/peeps/new'
     fill_in 'content', with: "I love peeping!"
     fill_in 'tags', with: "joy"
@@ -22,7 +23,8 @@ feature 'tag peeps' do
   end
 
   scenario 'users can add multiple tags to a peep' do
-
+    sign_up
+    sign_in
   	visit '/peeps/new'
     fill_in 'content', with: "I love peeping!"
     fill_in 'tags', with: "joy happiness"

@@ -9,6 +9,8 @@
 
 </form>
 
+<% if current_user %>
+
 <form action = '/peeps/new' method = 'GET'>
 
   <label for="name"> Write a new peep: </label>
@@ -16,6 +18,7 @@
 
 </form>
 
+<% end %>
 
 
 <ol id = "peeps" style = "list-style-type:none">

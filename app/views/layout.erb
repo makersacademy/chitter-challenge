@@ -6,9 +6,24 @@
   </head>
 
   <body>
+    <form method='get' action='/'>
+      <input type='submit' value='Home'>
+    </form>
+
   	<% if current_user %>
   	  Welcome to Chitter, <%= current_user.user_name %>
-  	<% end %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <form method='get' action='/sessions/new'>
+      <input type = 'submit' value='Sign In'>
+      </form>
+      <form method='get' action='/users/new'>
+      <input type = 'submit' value='Sign Up'>
+      </form>
+    <% end %>
 
   	<% if flash[:notice] %>
    	  <div id='notice'>
@@ -16,10 +31,7 @@
       </div>
     <% end %>
 
-  	<form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
+  	
 
   	<% if flash[:errors] && !flash[:errors].empty? %>
   	  <ul id = 'errors'>

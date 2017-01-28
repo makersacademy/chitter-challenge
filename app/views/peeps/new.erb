@@ -2,6 +2,7 @@
 
 <h2> Get Peeping! </h2>
 
+<% if current_user %>
 
 <h4>Tell everyone what you're thinking:</h4>
 <textarea name="content" form="peepform"></textarea>
@@ -13,3 +14,7 @@
   <input type = "submit" value = "Peep!">
 
 </form>
+
+<% else %>
+	Sign up fool!
+<%end %>

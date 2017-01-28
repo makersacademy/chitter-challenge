@@ -5,7 +5,8 @@
 feature 'add peeps' do 
 
   scenario 'users can add a peep' do
-    
+    sign_up
+    sign_in
     visit '/peeps/new'
     fill_in 'content', with: "I love peeping!"
     click_button 'Peep!'
