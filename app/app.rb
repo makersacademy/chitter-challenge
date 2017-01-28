@@ -18,7 +18,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
   set :views, File.dirname(__FILE__) + '/views'
-  set :public, File.dirname(__FILE__) + '/public'
+  set :public_folder, File.dirname(__FILE__) + '/public'
+  set :public_dir, File.dirname(__FILE__) + '/public'
 
   get '/' do
     @search = nil
