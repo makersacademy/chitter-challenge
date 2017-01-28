@@ -1,0 +1,14 @@
+<% if current_user %>
+    <h1>Welcome, <%=current_user.name%>!</h1>
+<% end %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Sorry, there was a problem:
+  <ul id="errors">
+    <% flash[:errors].each do |error| %>
+    <li>
+      <%=error%>
+    </li>
+    <%end%>
+<%end%>
+
+<%= yield %>

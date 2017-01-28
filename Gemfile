@@ -14,13 +14,13 @@ group :test do
 end
 
 group :development do
+  gem 'data_mapper', '~> 1.2.0'
+  gem 'dm-postgres-adapter'
+  gem 'dm-transactions'
   gem 'sinatra'
   gem 'sinatra-flash'
   gem 'capybara'
   gem 'pry'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'dm-transactions'
   gem 'bcrypt'
   gem 'encrypted_cookie'
 end
