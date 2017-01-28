@@ -10,7 +10,8 @@
         <h1> Tweeter </h1>
 
         <% if current_user %>
-          @<%= current_user.name %>
+          <a href="/twit/new">compose twit</a> ---
+          @<%= current_user.user_name %>
         <% else %>
           <a href="/user/new">new user</a>
         <% end %>

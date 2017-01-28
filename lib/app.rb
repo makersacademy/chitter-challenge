@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 
+ENV["RACK_ENV"] ||= "development"
 require_relative 'data_mapper_setup'
 
 class Tweeter < Sinatra::Base
@@ -22,6 +23,14 @@ class Tweeter < Sinatra::Base
 
   get '/user/new' do
     erb :'user/new'
+  end
+
+  get '/twit/new' do
+    erb :'twit/new'
+  end
+
+  post '/tweet' do
+    redirect '/'
   end
 
   post '/user' do

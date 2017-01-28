@@ -5,8 +5,13 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 
+ENV["RACK_ENV"] = "test"
+
+
 require 'app.rb'
 require_relative "../lib/data_mapper_setup"
+
+require_relative "features/user/user_helpers"
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
