@@ -11,4 +11,11 @@ def sign_up(email: "test@test.com", password: "password",
   click_button 'sign_up'
 end
 
+def sign_in(username:, password:)
+  visit('/sessions/new')
+  fill_in 'username', with: username
+  fill_in 'user_password', with: password
+  click_button 'sign_in'
+end
+
 end
