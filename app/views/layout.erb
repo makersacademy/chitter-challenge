@@ -5,13 +5,18 @@
 <% if current_user %>
   <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
-      <input type='image' value='Sign out' name="Sign Out" align="middle">
+      <input type='image' value='Sign out' name='Sign Out' align="middle">
   </form>
-  <% else %>
+<% else %>
     <form action='/users/new'>
-        <input type='image' value='Sign up' name="Sign Up" align="middle">
+        <input type='image' value='Sign up' name='Sign Up' align="middle">
     </form>
-  <% end %>
+    <form action='/sessions/new'>
+      <input type='image' value='Sign in' name='Sign In' align="middle">
+    </form>
+<% end %>
+
+
 
 <% if (flash[:errors] && !flash[:errors].empty?) || flash[:notice] %>
     <div id='errors'>
