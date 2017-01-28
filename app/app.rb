@@ -12,4 +12,4 @@ require_relative 'helpers'
 include Helpers
 
 require_relative 'controllers/users'
-# require_relative 'controllers/sessions'
+require_relative 'controllers/sessions'
