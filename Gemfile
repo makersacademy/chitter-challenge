@@ -17,5 +17,6 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'selenium-webdriver'
+  gem 'timecop'
   gem 'coveralls', require: false
 end

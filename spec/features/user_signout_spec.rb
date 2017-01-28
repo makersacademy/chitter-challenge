@@ -1,6 +1,7 @@
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
+
 feature 'Sign out:' do
   scenario 'User can sign out of the system' do
     sign_up

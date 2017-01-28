@@ -1,1 +1,13 @@
-TEST
+<h1> Peeps </h1>
+
+<ul id='Peeps'>
+  <% @peeps.each do |peep|
+    peep_user(peep.users)%>
+    <li>
+      ID:         <%= peep.id %>
+      User:       <%= @peep_user.username %>
+      Body:       <%= peep.body %>
+      Time Stamp: <%= peep.time_stamp %>
+    </li>
+  <% end %>
+</ul>

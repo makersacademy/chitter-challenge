@@ -5,7 +5,6 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
-# require_relative 'controllers/server'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -18,6 +17,7 @@ class Chitter < Sinatra::Base
   # set :views, File.dirname(__FILE__) + '/views'
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -62,12 +62,27 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
 
-
+  post '/peeps' do
+    peep = Peep.create(body: params[:body], time_stamp: Time.now)
+    user = User.get(session[:user_id])
+    peep.users << user
+    peep.save
+    redirect to('/')
+  end
 
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
+    end
+
+    def peep_user(users)
+      users.each do |user|
+        @peep_user = user
+      end
     end
   end
 
