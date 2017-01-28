@@ -9,6 +9,15 @@
 
 </form>
 
+<form action = '/peeps/new' method = 'GET'>
+
+  <label for="name"> Write a new peep: </label>
+  <input type = "submit" value = "Get Peeping!">
+
+</form>
+
+
+
 <ol id = "peeps" style = "list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
   	<li style = "margin-bottom:10px">
