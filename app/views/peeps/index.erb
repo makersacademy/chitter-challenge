@@ -1,4 +1,22 @@
 
-<form action="/peeps/new" method="get">
-  <button type="submit" name="add_new_peep" id="add_new_peep">Post a peep</button>
-</form>
+<% if current_user %>
+  Click here to post a peep:
+  <form action="/peeps/new" method="get">
+    <button type="submit" name="add_new_peep" id="add_new_peep">Post a peep</button>
+  </form>
+<% else %>
+  To post a peep you must sign in or sign up!
+  <form action="/sessions/new" method="get">
+    <button type="submit" name="sign_in" id="sign_in">Sign In</button>
+    <button type="submit" formaction="/users/new" name="sign_up" id="sign_up">Sign Up</button>
+  </form>
+<% end %>
+
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <li> <%= peep.content %> <br>
+      Posted on <%= peep.created_at.strftime("%b %e %T %Y") %> by @<%= peep.user.username%>
+    </li>
+    <br>
+  <% end %>
+</ul>

@@ -16,8 +16,12 @@ class ChitterChallenge < Sinatra::Base
     end
   end
 
+  before do
+    @user = current_user
+  end
+
   get '/' do
-    redirect '/users/new'
+    redirect '/peeps'
   end
 
   get '/users/new' do
@@ -32,7 +36,7 @@ class ChitterChallenge < Sinatra::Base
       username: params[:username])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/peeps'
+      redirect to '/'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
@@ -47,7 +51,7 @@ class ChitterChallenge < Sinatra::Base
     user = User.authenticate(params[:username], params[:user_password])
     if user
       session[:user_id] = user.id
-      redirect '/peeps'
+      redirect to '/'
     else
       flash.now[:errors] = ['Email and/or password are incorrect']
       erb :'/sessions/new'
@@ -61,9 +65,20 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
-  # start the server if ruby file executed directly
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(content: params[:content])
+    @user.peeps << peep
+    @user.save
+    redirect to '/'
+  end
+
   run! if app_file == $0
 end

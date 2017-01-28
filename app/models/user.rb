@@ -11,6 +11,8 @@ class User
   property :name, String
   property :username, String, required: true, unique: true
 
+  has n, :peeps
+
   attr_reader :password
   attr_accessor :password_confirmation
 
