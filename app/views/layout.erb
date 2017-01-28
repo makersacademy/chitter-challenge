@@ -1,6 +1,26 @@
 <% if current_user %>
   Welcome, <%= current_user.email %>
 <% end %>
-LAYOUT
+
+<% if (flash[:errors] && !flash[:errors].empty?) || flash[:notice] %>
+    <div id='errors'>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="20" align="center" valign="middle" bgcolor="#FF0000">
+            <% if flash[:notice] %>
+                <%= flash[:notice] %>
+            <% end %>
+            <% if flash[:errors] && !flash[:errors].empty? %>
+                <ul id='errors'>
+                    <% flash[:errors].each do |error| %>
+                        <%= error %>
+                    <% end %>
+                </ul>
+            <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+<% end %>
 
 <%= yield %>
