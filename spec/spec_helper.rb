@@ -8,7 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'rspec'
-require 'support/factory_girl' #to check
+require 'factory_girl'
 
 require 'coveralls'
 require 'simplecov'
