@@ -2,11 +2,15 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', './lib/app.rb')
+require File.join(File.dirname(__FILE__), '..', './app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'factory_girl'
+require 'database_cleaner'
+require_relative 'web_helper'
+
 
 Capybara.app = ChitterChallenge
 
@@ -30,8 +34,21 @@ Capybara.app = ChitterChallenge
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
+  #config.include TestHelpers
 
-
+  # config.before(:suite) do # <-- before entire test run
+  # DatabaseCleaner.strategy = :transaction
+  # DatabaseCleaner.clean_with(:truncation)
+  # end
+  #
+  # config.before(:each) do # <-- create a "save point" before each test
+  # DatabaseCleaner.start
+  # end
+  #
+  # config.after(:each) do # <-- after each individual test roll back to "save point"
+  # DatabaseCleaner.clean
+  # end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
