@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] = "test"
 
 require './app/models/user.rb'
+require './app/models/peep.rb'
 
 require 'web_helper'
 

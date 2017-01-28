@@ -32,4 +32,6 @@ class User
   validates_uniqueness_of   :email
 
   validates_confirmation_of :password
+
+  has n, :peeps
 end

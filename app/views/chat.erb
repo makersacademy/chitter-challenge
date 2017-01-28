@@ -1,1 +1,22 @@
-<h1>Logged in as <%= @user.name %></h1>
+<h2>What's happening?</h2>
+
+<form id='peeping' action='/peeping' method='post'>
+  <textarea form='peeping' rows="2" cols="80" maxlength="140" name='peep' required>
+  </textarea>
+  <br>
+  <input type='submit' value='Peep'>
+</form>
+
+<h2>Posts:</h2>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <div id="peep">
+        <%= peep.content %>
+        <br>
+        Posted at <%= peep.created_at %> by <%= peep.user.name %>
+      </div>
+    </li>
+  <% end %>
+</ul>

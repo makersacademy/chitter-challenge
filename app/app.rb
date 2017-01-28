@@ -68,7 +68,13 @@ class Chitter < Sinatra::Base
 
   get '/chat' do
     @user  = current_user
+    @peeps = Peep.all.reverse
     erb :chat
+  end
+
+  post '/peeping' do
+    Peep.create(content: params[:peep], user: current_user)
+    redirect '/chat'
   end
 
   run! if app_file == $0
