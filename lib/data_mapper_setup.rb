@@ -4,8 +4,8 @@ require 'dm-postgres-adapter'
 require_relative './model/user'
 require_relative './model/twit'
 
-database = ENV['DATABASE_URL'] || "postgres://localhost/tweeter_#{ENV['RACK_ENV']}"
+db = ENV['DATABASE_URL'] || "postgres://localhost/tweeter_#{ENV['RACK_ENV']}"
 
-DataMapper.setup(:default, database)
+DataMapper.setup(:default, db)
 DataMapper.finalize
 DataMapper.auto_upgrade!

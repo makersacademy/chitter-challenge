@@ -2,6 +2,12 @@
   font-family: sans-serif;
 }
 
+label {
+  float:left;
+  text-align: right;
+  margin-right: 15px;
+  width:200px;
+}
 h1 {
   background-color: lightcyan;
   border: 2px solid cornflowerblue;
