@@ -1,5 +1,7 @@
-<h2>Homepage</h2>
-
-<a href='/signup' class="btn btn-success" role="button">Sign up</a>
-
-<a href='/login' class="btn btn-success" role="button">Log in</a>
+<div class='banner'>
+  <% if flash[:notice] %>
+    <h1><%= flash[:notice] %><h1>
+  <% else %>
+    <h1>What's happening?</h1>
+  <% end %>
+</div>

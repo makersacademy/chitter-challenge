@@ -1,3 +1,11 @@
 #main-page {
   margin-top: 80px;
 }
+
+.banner {
+  width: 100%;
+  background-color: #F45D22;
+  padding: 10%;
+  text-align: center;
+  color: #FFFFFF;
+}

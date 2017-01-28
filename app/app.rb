@@ -14,6 +14,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  use Rack::MethodOverride
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -26,10 +28,10 @@ class Chitter < Sinatra::Base
 
   get '/signup' do
     if session[:email].nil?
-      erb :'signup'
+      erb :signup
     else
       @email = session[:email]
-      erb :'signup'
+      erb :signup
     end
   end
 
@@ -59,10 +61,10 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/chat')
+      redirect '/chat'
     else
       flash[:fail_login] = 'The email or password is incorrect'
-      erb :'login'
+      erb :login
     end
   end
 
@@ -75,6 +77,12 @@ class Chitter < Sinatra::Base
   post '/peeping' do
     Peep.create(content: params[:peep], user: current_user)
     redirect '/chat'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Bye! Come again soon.'
+    redirect '/'
   end
 
   run! if app_file == $0

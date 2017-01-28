@@ -20,11 +20,25 @@
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">
-              Logged in as <%= @user.name %>
-              <span class="sr-only">(current)</span></a>
-            </li>
-            <li><a href="#">Log out</a></li>
+            <% if defined? @user %>
+              <li class="active"><a href="#">
+                Logged in as <%= @user.name %>
+                <span class="sr-only">(current)</span></a>
+              </li>
+              <li>
+                <form action='/sessions' method='post'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input type='submit' value='Log out'>
+                </form>
+              </li>
+            <% else %>
+              <li>
+                <a href='/signup'>Sign up</a>
+              </li>
+              <li>
+                <a href='/login'>Log in</a>
+              </li>
+            <% end %>
           </ul>
         </div>
 
