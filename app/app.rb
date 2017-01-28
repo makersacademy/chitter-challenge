@@ -1,8 +1,9 @@
 require 'sinatra/base'
+require_relative 'models/chitter_user'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    'Hello Chitter! please go to signup'
   end
 
   get '/signup' do

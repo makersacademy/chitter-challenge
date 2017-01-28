@@ -31,8 +31,10 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
-
+Coveralls.wear!
+> Created first route /signup in app.rb and associated signup_page.erb
+> Updated feature test 1B to expect a welcome page when clicking submit
+> Creating a model called app/models/chitter_user.rb.
 
 
 
