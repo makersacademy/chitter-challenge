@@ -19,10 +19,10 @@ feature 'sign_up' do
     expect{ click_button('submit')}.not_to change(User, :count)
   end
   scenario 'I cannot sign up with an existing email' do
-  correct_sign_up
-  click_button 'submit'
-  correct_sign_up
-  expect{ click_button('submit')}.not_to change(User, :count)
-  expect(page).to have_content('Email is already taken')
+    correct_sign_up
+    click_button 'submit'
+    correct_sign_up
+    expect{ click_button('submit')}.not_to change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 end

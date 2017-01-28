@@ -36,9 +36,22 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :sign_up
     end
-
   end
 
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/sessions' do
+    @user = User.authenticate(params[:email], params[:password])
+  if @user
+    session[:user_id] = @user.id
+    redirect to('/')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :log_in
+    end
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
