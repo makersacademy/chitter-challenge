@@ -18,7 +18,9 @@ PROCESS
 16. Created web_helper
 17. Rspec test - pass
 18. Added test / dev environments
-19. deployed to heroku
+19. Deployed to heroku
+20. Encrypt password using BCryptHash
+
 
 
 
