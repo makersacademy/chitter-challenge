@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Tweeter </title>
+    <title> Tweetzer </title>
     <link rel="stylesheet" href="/index.css" type="text/css" />
   </head>
   <body>
     <center>
       <div id='header'>
-        <h1> Tweeter </h1>
+        <h1> Tweetzer </h1>
         <% if current_user %>
           <a href="/twit/new" style="float:left">compose twit</a>
-          <a style="float:middle">@<%= current_user.user_name %></a>
+          <a>@<%= current_user.user_name %></a>
           <form method='post' action='/session' style="float:right">
             <input type='hidden' name='_method' value='delete'>
             <input class='button_as_link' type='submit' value='log off'>
           </form >
         <% else %>
+          please log in or sign up to continue
           <a href="/user/new">new user</a>
-
+          <a href="/session/new">log in</a>
         <% end %>
-
       </div>
     </center>
     <% if flash[:errors] %>
@@ -31,7 +31,8 @@
         <% end %>
       </ul>
     <% end %>
-
-    <%=yield %>
+    <div id="page_body">
+      <%=yield %>
+    </div>
   </body>
 </html>

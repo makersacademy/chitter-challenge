@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'sinatra'
-gem 'sinatra-flash'
-gem 'pg'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'database_cleaner'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pg'
+gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
-  gem 'rspec-sinatra'
-  gem 'rspec'
   gem 'capybara'
+  gem 'coveralls', require: false
   gem 'cucumber'
   gem 'rake'
-  gem 'coveralls', require: false
+  gem 'rspec'
+  gem 'rspec-sinatra'
 end

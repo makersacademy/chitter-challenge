@@ -1,8 +1,7 @@
-# understands nothing.
-
+# simple datamapper model class
 class Twit
   include DataMapper::Resource
-  property :id, 	  Serial,
+  property :id, Serial,
            required: true
   property :content, String,
            length: 140,
