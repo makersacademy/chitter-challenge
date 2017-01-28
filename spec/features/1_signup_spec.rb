@@ -16,6 +16,9 @@ feature "FEATURE 1: Signup" do
     fill_in 'user_name', :with => "Joeb"
     click_button 'Sign Up'
     expect(page).to have_content('Sign Up')
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, Joe Bloggs')
+    expect(User.first.email).to eq('joebloggs@hotmail.com')
   end
 
 
