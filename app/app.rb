@@ -25,5 +25,4 @@ class ChitterApp < Sinatra::Base
     erb :main
   end
 
-  run! if app_file == $0
 end
