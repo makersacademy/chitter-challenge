@@ -29,7 +29,7 @@ feature 'Users can sign up for a Chitter account' do
 
     expect { click_button 'Sign Up!' }.not_to change(User,:count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
 
   end
 
@@ -45,6 +45,7 @@ feature 'Users can sign up for a Chitter account' do
 
     expect { click_button 'Sign Up!' }.not_to change(User,:count)
     expect(current_path).to eq '/users'
+    expect(page).to have_content 'Email must not be blank'
   end
 
 
@@ -60,6 +61,28 @@ feature 'Users can sign up for a Chitter account' do
 
     expect { click_button 'Sign Up!' }.not_to change(User,:count)
     expect(current_path).to eq '/users'
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
+  scenario 'Will not accept a duplicate email addresses' do
+  	visit '/users/new'
+
+    fill_in 'name', with: "Sam Jones!"
+    fill_in 'email', with: "sam@email.com"
+    fill_in 'user_name', with: "username"
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+    click_button('Sign Up!')
+    visit '/users/new'
+    fill_in 'name', with: "Sam Jones!"
+    fill_in 'email', with: "sam@email.com"
+    fill_in 'user_name', with: "username"
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+
+    expect { click_button 'Sign Up!' }.not_to change(User,:count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Email is already taken'
   end
 
 end
