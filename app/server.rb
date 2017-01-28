@@ -10,6 +10,6 @@ class ChitterApp < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    'Hello world'
+    erb :index
   end
 end
