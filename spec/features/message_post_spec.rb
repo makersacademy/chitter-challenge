@@ -4,6 +4,10 @@ feature 'Message:' do
   # As a Maker
   # So that I can let people know what I am doing
   # I want to post a message (peep) to chitter
+
+  # As a maker
+  # So that I can better appreciate the context of a peep
+  # I want to see the time at which it was made
   scenario 'Post a peep message, make sure peep, name and time are displayed' do
     Timecop.freeze do
       sign_up
