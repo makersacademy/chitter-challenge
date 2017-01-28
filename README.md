@@ -18,7 +18,20 @@ gem "capybara" (NB. within the test block)
 > bundle install
 > require 'capybara/rspec' - added spec_helper.rb
 > Created spec/features to hold features test.
->
+> 1st feature test is 1_signup_spec.rb created scenario 1A, rspec fails as no app yet.
+> rspec-sinatra init --app Chitter app.rb - to initialize our app from the command line, with RSpec and Capybara all set up.
+> rvm use ruby-2.3.3 - Cannot create app with ruby v2.4.0 so changed to use 2.3.3 (and in gemfile)
+> gem install bundler, bundle install - to update any dependencies
+> rspec-sinatra init --app Chitter app/app.rb - overwrites spec/spec_helper.rb and creates app/app.rb and config.ru
+> Added the following to the top of the spec/spec_helper
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear! 
 
 
 
