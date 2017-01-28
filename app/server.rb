@@ -9,10 +9,6 @@ class Chitter < Sinatra::Base
 
   Slim::Engine.set_options shortcut: {'&' => {tag: 'input', attr: 'type'}, '#' => {attr: 'id'}, '.' => {attr: 'class'}, '@' => {attr: 'role'}, '>' => {tag: 'form', attr: 'method'}, '<' => {tag: 'form', attr: 'method'} }
 
-  get '/' do
-    slim :index
-  end
-
   # start the server if ruby file executed directly
   # run! if app_file == $0
 end

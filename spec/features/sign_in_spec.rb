@@ -1,6 +1,7 @@
 feature 'Sign in' do
   scenario 'I can sign in to my account' do
-    # sign_up
+    sign_up
+    sign_out
     sign_in
     expect(current_path).to eq '/'
     expect(page).to have_content 'Welcome, Cloud Strife'

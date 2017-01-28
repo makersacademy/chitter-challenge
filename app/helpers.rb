@@ -5,4 +5,8 @@ module Helpers
   def error?
     flash[:errors] && !flash[:errors].empty?
   end
+  def peep_poster(peep)
+    @peep_poster ||= User.first(id: peep.user_id)
+    "#{@peep_poster.name} - @#{@peep_poster.username}"
+  end
 end

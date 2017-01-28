@@ -21,8 +21,4 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/' do
-    # slim :index
-  end
-
 end

@@ -1,0 +1,9 @@
+.feed
+  - if @peeps
+    - @peeps.reverse.each do |peep|
+        article.peep-feed
+          header.peep-title
+            == peep_poster(peep)
+          == peep.content
+        
+  

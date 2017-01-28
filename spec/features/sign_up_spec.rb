@@ -10,6 +10,6 @@ feature 'Sign up' do
   end
   scenario 'I need to enter matching passwords to sign up for an account' do
     expect { sign_up_pw_not_match }.not_to change(User, :count)
-    expect(page).to have_content 'Email is already taken'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 end
