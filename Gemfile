@@ -8,10 +8,10 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'bcrypt'
+gem 'rake'
 
 group :test do
   gem 'rspec'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'capybara'
