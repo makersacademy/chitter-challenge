@@ -4,13 +4,17 @@ ruby '2.3.3'
 group :test do
   gem 'coveralls', require: false
   gem 'cucumber'
+  gem 'database_cleaner'
   gem 'poltergeist'
   gem 'rake'
   gem 'rspec'
   gem 'simplecov', require: false
 end
 
+gem 'bcrypt'
 gem 'capybara'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'phantomjs'
 gem 'rack'
 gem 'rspec-sinatra'

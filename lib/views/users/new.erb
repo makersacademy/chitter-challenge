@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<style>
+body.serif {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #0F99C3;
+    padding: 20px;
+}
+
+body {
+  color: white;
+}
+h2 {
+  color: black;
+}
+</style>
+<body class="serif">
+
+  <div>
+
+<h2> Sign up below </h2>
+
+<form method="post" action="/users">
+  <label for="email">Email</label>
+  <input type="text" name="email" required></input><br>
+  <label for="name">Full name</label>
+  <input type="text" name="name" required></input><br>
+  <label for="username">Username</label>
+  <input type="text" name="username" required></input><br>
+  <label for="password">Password</label>
+  <input type="password" name="password" required></input>
+  <label for="password_confirmation">Confirm Password</label>
+  <input type="password" name="password_confirmation" required></input>
+  <input type="submit" value="submit"></input>
+</form>
+
+</div>
+
+</body>
