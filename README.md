@@ -52,6 +52,10 @@ You can see the full task and instructions given to us in [CONTRIBUTING.md](chit
 
 ### Dependencies
 
+* Written using **Ruby 2.4.0** and the **Sinatra** web framework
+* Testing using **RSpec** and **Capybara**
+* Built on a **PostgreSQL** database using **DataMapper** as the ORM
+
 ### Steps in my development process
 
 * **Setting up my README.md structure**
@@ -60,5 +64,7 @@ You can see the full task and instructions given to us in [CONTRIBUTING.md](chit
 * **Setting up initial app structure**
   * Created `app.rb`, `index.erb` and `config.ru` and checked that app runs locally
   * Had an issue with initialising it all automatically in the command line so set it up manually
+* **Dealt with user sign up**
+  * Wrote feature test first using Capybara
 
 ### Ideas for extension

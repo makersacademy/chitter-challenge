@@ -1,0 +1,35 @@
+<form action='/registration' method='post'>
+  <label>Name:
+    <input type='text' name='name' required>
+  </label>
+
+  <label>Email:
+    <input type='email' name='email' value="<%=@email%>" required>
+  </label>
+
+  <label>Password:
+    <input type='text' name='password'>
+  </label>
+
+  <label>Confirm password:
+    <input type='text' name='confirm_password'>
+  </label>
+
+  <input type='submit' value='Submit'>
+</form>
+
+<% if flash[:mismatch] %>
+<%= flash[:mismatch] %>
+<%end%>
+
+<% if flash[:missing_email] %>
+<%= flash[:missing_email] %>
+<%end%>
+
+<% if flash[:invalid_email] %>
+<%= flash[:invalid_email] %>
+<%end%>
+
+<% if flash[:duplicate_email] %>
+<%= flash[:duplicate_email] %>
+<%end%>

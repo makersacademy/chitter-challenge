@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '2.2.3'
 
-gem 'database_cleaner'
 gem 'selenium-webdriver'
 gem 'shotgun'
 
@@ -24,4 +23,5 @@ group :test do
   gem 'coveralls', require: false   # analysing test coverage
   gem 'rubocop-rspec'               # analysing test cleanliness/style
   gem 'rubocop'                     # analysing code cleanliness/style
+  gem 'database_cleaner'
 end
