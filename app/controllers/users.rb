@@ -1,9 +1,9 @@
 class Chitter < Sinatra::Base
-  get '/signup' do
+  get '/users/new' do
     slim :'users/new'
   end
 
-  post '/addnewuser' do
+  post '/users' do
     @user = User.create(email: params[:email],
                         name: params[:name],
                         username: params[:username],
@@ -12,6 +12,9 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       redirect '/'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      slim :'users/new'
     end
   end
 end

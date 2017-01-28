@@ -1,17 +1,17 @@
-form action="/addnewuser" method="post"
+form action="/users" method="post"
   label for="name" Name:
-  input type="text" name="name"
+  &text name="name" required="true"
   br
   label for="email" Email:
-  input type="text" name="email" required="true"
+  &text name="email" required="true"
   br
   label for="username" Username:
-  input type="text" name="username"
+  &text name="username" required="true"
   br
   label for="password" Password:
-  input type="password" name="password"
+  &password name="password" required="true"
   br
   label for="password_confirmation" Confirm password:
-  input type="password" name="password_confirmation"
+  &password  name="password_confirmation" required="true"
   br
-  input type="submit" value="Sign up"
+  &submit value="Sign up"

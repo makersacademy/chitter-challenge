@@ -7,6 +7,8 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :slim
   enable :partial_underscores
 
+  Slim::Engine.set_options shortcut: {'&' => {tag: 'input', attr: 'type'}, '#' => {attr: 'id'}, '.' => {attr: 'class'}, '@' => {attr: 'role'}, '>' => {tag: 'form', attr: 'method'}, '<' => {tag: 'form', attr: 'method'} }
+
   get '/' do
     slim :index
   end

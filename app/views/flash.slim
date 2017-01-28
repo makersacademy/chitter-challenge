@@ -1,0 +1,6 @@
+- if flash[:notice]
+  div id='notice' == flash[:notice]
+- if error?
+  ul id='errors'
+    - flash[:errors].each do |error|
+      li == error
