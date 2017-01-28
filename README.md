@@ -7,8 +7,8 @@ SATURDAY
 3. Rspec-sinatra init --app created app file in Sinatra modular style. created config.ru file and spec_helper.
 4. Added coveralls to spec helper
 5. Wrote feature test for sign_up - failed.
-6. Created /peeps, get /sign_up, post /sign_up and /log_in routes in controller.
-7. Created peeps erb file with sign_up link
+6. Created /landing, get /sign_up, post /sign_up and /sessions/new routes in controller.
+7. Created landing erb file with sign_up link
 8. Created sign_up erb file with sign up form.
 9. Created log_in erb file with header.
 10. Tested in Sinatra, all working.
@@ -27,9 +27,9 @@ SATURDAY
 23. Rspec tests pass
 24. Wrote feature test for log_in - failed.
 25. Added form to log in erb.
-26. Added log in post route
-27. Added peeps logged in route
-28. Added peeps logged in erb
+26. Added /sessions post route
+27. Added /home route
+28. Added home erb with welcome message
 29. Enabled sessions and added current user id as session upon log in.
 30. Added user authentication upon log in
 31. Log in test passes
