@@ -1,5 +1,5 @@
 # Chitter Challenge
-### [Makers Academy] (http://www.makersacademy.com) - Week 4 Solo Weekend Project
+### [Makers Academy] (http://www.makersacademy.com) - Week 4 Solo Weekend Project [![Coveralls](https://camo.githubusercontent.com/6cb0703f2880c5c0741875c3125a009a8e5260d0/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f393838393030342f6261646765)](https://github.com/adrianeyre/chitter-challenge)
 
 ## Index
 * [Gems Used] (#GEMS)
