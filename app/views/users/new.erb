@@ -7,12 +7,12 @@
   </head>
   <body>
       <header>
-        <h1> Please sign up </h1>
+        <h1> Sign up to peep freely </h1>
       </header>
     <form action='/users' method='POST'>
         <label for='email'>
             Email:
-            <input type='text' name='email' />
+            <input type='email' name='email' value='<%= @user.email %>' required />
         </label>
         <label for='name'>
             Name:

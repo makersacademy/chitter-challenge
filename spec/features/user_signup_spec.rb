@@ -6,17 +6,41 @@ feature 'User sign up' do
         expect(User.first.user_name).to eq('mj')
         expect(User.first.name).to eq('Michael Jackson')
     end
+    
+    scenario "I can't sign up without an email address" do
+        expect { sign_up(email:nil) }.not_to change(User, :count)
+        expect(page).to have_content('Email must not be blank')
+    end
+    
+    scenario "I can't sign up without a name" do
+        expect { sign_up(name:nil) }.not_to change(User, :count)
+        expect(page).to have_content('Name must not be blank')
+    end
+    
+    scenario "I can't sign up without a user name" do
+        expect { sign_up(user_name:nil) }.not_to change(User, :count)
+        expect(page).to have_content('User name must not be blank')
+    end
+    
+    scenario "I can't sign up with an email that already exists" do
+        sign_up
+        expect { sign_up }.not_to change(User, :count)
+        expect(page).to have_content('Email is already taken')
+    end
+    
+    scenario "I can't sign up with a username that already exists" do
+        sign_up(email: 'mick@jagger.com')
+        expect { sign_up }.not_to change(User, :count)
+        expect(page).to have_content('User name is already taken')
+    end
+    # scenario "I can't sign up without a password" do
+    #     expect { sign_up(password:nil) }.not_to change(User, :count)
+    #     expect(page).to have_content('Password must not be blank')
+    # end
 end
 
 =begin
 Future tests:
     requires a matching confirmation password
-    
-    I can't sign up without an email address
-    
-    I can't sign up with an invalid email address
-    
-    I can't sign up with an email address that already exists
-    
-    I can't sign up with a user name that already exists
+
 =end

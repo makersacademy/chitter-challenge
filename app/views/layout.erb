@@ -5,9 +5,19 @@
   </head>
 
   <body>
+    <header>
     <% if current_user %>
-      Hey there, <%= current_user.user_name %>!
+      <h3> Hey there, <%= current_user.user_name %>! </h3>
     <% end %>
     <%= yield %>
+    </header>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Oh dear, looks like we've got some errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </body>
 </html>

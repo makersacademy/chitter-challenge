@@ -24,16 +24,22 @@ class Chitter < Sinatra::Base
     end
     
     get '/users/new' do
+        @user = User.new
         erb :'users/new'
     end
     
     post '/users' do
-        user = User.create(email: params[:email],
+        @user = User.create(email: params[:email],
                     name: params[:name],
                     user_name: params[:user_name],
                     password: params[:password])
-        session[:user_id] = user.id
-        redirect '/peeps'
+        if @user.save
+            session[:user_id] = @user.id
+            redirect '/peeps'
+        else
+            flash.now[:errors] = @user.errors.full_messages
+            erb :'users/new'
+        end
     end
     
     get '/peeps' do
