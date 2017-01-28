@@ -87,7 +87,7 @@ type `http://localhost:4567` into your web browser
 
 ## <a name="Heroku">Use live on Heroku</a>
 
-[Chitter] (https://adrianeyre-chitter.com)
+[Chitter] (https://adrianeyre-chitter.herokuapp.com)
 
 ## <a name="Shots">Screen Shots</a>
 ### Main Chitter Screen
