@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   # set :views, File.dirname(__FILE__) + '/views'
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :id.desc ])
     erb :index
   end
 
