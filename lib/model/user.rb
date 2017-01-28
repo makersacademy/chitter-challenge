@@ -7,11 +7,11 @@ class User
   attr_accessor :password_confirmation
 
   property :id, 	  Serial
-  property :email,  String,
-           format: :email_address,
-           unique: true
   property :full_name, String
   property :user_name, String,
+  unique: true
+  property :email,  String,
+           format: :email_address,
            unique: true
   property :password_digest, String, length:60
 

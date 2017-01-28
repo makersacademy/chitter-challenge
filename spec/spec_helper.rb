@@ -4,7 +4,17 @@ require 'simplecov'
 require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
+
+require 'app.rb'
 require_relative "../lib/data_mapper_setup"
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
+Capybara.app = Tweeter
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -19,10 +29,11 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
+  config.include Capybara::DSL
+  config.expect_with :rspec do |expectations|
+
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+end

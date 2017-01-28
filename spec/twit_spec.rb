@@ -4,7 +4,7 @@ describe Twit do
     password: '1234',
     password_confirmation: '1234',
     full_name: "Donald J. Trump",
-    user_name: "@realDonaldTrump")
+    user_name: "realDonaldTrump")
   end
 
   let!(:twit) do
