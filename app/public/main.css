@@ -13,17 +13,17 @@ h1 {
 ul {
   list-style: none;
 }
-.fname {
+.pname {
   display: inline-block;
   padding-right: 10px;
   width: 50px;
 }
 
-.fvalue {
+.pvalue {
   display: inline-block;
   font-weight: bold;
   width: 150px;
 }
-#notice {
+#errors {
   color: red;
 }

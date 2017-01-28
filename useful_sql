@@ -1,0 +1,1 @@
+CREATE TABLE peeps (id  integer PRIMARY KEY,words varchar(200) NOT NULL, email  varchar(100) NOT NULL);

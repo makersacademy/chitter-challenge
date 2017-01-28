@@ -2,10 +2,12 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require_relative 'models/peep'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -15,8 +17,39 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/peeps'
+  end
+
+  delete '/login' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You are now logged out'
+    redirect to('/peeps')
+  end
+
+  get '/login' do
+    erb :'login'
+  end
+
+  post '/login' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'login'
+    end
+  end
+
+  get '/peeps'  do
+    @peeps = Peep.all
+    p @peeps
+    erb :'peeps'
+  end
+
   get '/signup' do
-    erb :signup
+    erb :'signup'
   end
 
   post '/signup' do
@@ -27,13 +60,9 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/peeps')
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
-      erb :signup
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'signup'
     end
-  end
-
-  get '/peeps'  do
-    erb :peeps
   end
 
   run! if app_file == $0

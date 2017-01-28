@@ -95,15 +95,17 @@ FAIL ->  **peeps**
 
 ### Skipped / Still To Do
 
-09 set up datamapper table object (link in this case)
-10 And set erb in relation to viewing links
-11 set up test and form to create link (ie a peep for us)
 15 Adding tags - test, erb, model, controller
 16 filtering by tag - tests, route patterns, has n update to model
 17 multiple tags - tests, controller, use of rakefile on Cmd line
+25 Refactor dir structure. Nice to do at end
 
 ### Done
 
+08 View peeps - test
+09 peeps - model, inc in spec_helper
+10 view links - controller, views, modular sinatra  
+  todo get all tests to pass with instantiation obj row in test
 12 Set up database cleaner
   todo lines 42-45 in spec_helper - may work once data in db?
 13 config.ru, DataMapper.setup(...) datamapper_setup, app.rb, spec_helper.rb
@@ -111,7 +113,17 @@ FAIL ->  **peeps**
 19 Confirmation password - test, view, model and controller
 20 confirmation fail - flash message with test, controller, model, view
   todo get email to persist on reload
+21 validate blank email - test, view/html5, model/dm required/not null
+22 No duplicate blank or invalid emails - test, flash erb update
+23 login - tests, erb, controller, model inc fail if wrong password/email
+24 logout - tests, flash, controller method override delete
 
 ### Current Location
 
-21 validate blank email - test, view/html5, model/dm required/not null
+All tests passing, can view peeps.
+However unable to instantiate Peep in line 5 of peep_spec yet.
+wrt to user stories - 'post a peep'
+note did 'view peeps' out of sequence which may not have been easiest
+
+11 set up test and form to create link (ie a peep for us) is next to look at
+Issue will be joining User and Peep tables via datamapper so is similar
