@@ -3,7 +3,7 @@
 <ol id = "peeps" style = "list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
   	<li style = "margin-bottom:10px">
-  		<%= peep.content %> <br> <%= peep.time %>
+  		<%= peep.content %> <br> <%= peep.time.strftime("%H:%M:%S, %d %B %Y") %>
   	</li>
   <% end %>
 </ol>
