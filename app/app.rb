@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require_relative 'data_mapper_setup'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'bcrypt'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -30,7 +31,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitters' do
-    @user = User.create(name: params[:name], email: params[:email], password: params[:passsword], password_confirmation: params[:password_confirmation])
+    # password_digest = BCrypt::Password.create(params[:password])
+    @user = User.new(name: params[:name], email: params[:email], password_digest: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/chitters')
@@ -47,12 +49,9 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    p user
-    p params
   if user
-    p user
     session[:user_id] = user.id
-    redirect to('/')
+    redirect to('/chitters')
   else
     flash.now[:error] = ['The email or password is incorrect']
     erb :log_in
