@@ -1,25 +1,35 @@
 PROCESS
 
-1. ssl cert errors. Fixed with rvm update master and reinstalling ruby 2.3.3.
+1. ssl cert errors. Fixed with RVM update master and reinstalling ruby 2.3.3.
 2. Added gems & bundle install
-3. Rspec-sinatra init --app created app file in sinatra modular style. created config.ru file and spec_helper.
+3. Rspec-sinatra init --app created app file in Sinatra modular style. created config.ru file and spec_helper.
 4. Added coveralls to spec helper
 5. Wrote feature test for sign_up - failed.
 6. Created /peeps, get /sign_up, post /sign_up and /log_in routes in controller.
 7. Created peeps erb file with sign_up link
 8. Created sign_up erb file with sign up form.
 9. Created log_in erb file with header.
-10. Tested in sinatra, all working.
-11. Rspec test fail - need to add user.
+10. Tested in Sinatra, all working.
+11. RSpec test fail - need to add user.
 12. Created user model
-13. Added datamapper setup file
+13. Added DataMapper setup file
 14. Created database
 15. Added database cleaner
 16. Created web_helper
-17. Rspec test - pass
+17. RSpec test - pass
 18. Added test / dev environments
-19. Deployed to heroku
+19. Deployed to Heroku
 20. Encrypt password using BCryptHash
+21. Wrote feature test for log_in - failed.
+22. Added form to log in erb.
+23. Added log in post route
+23. Added peeps logged in route
+24. Added peeps logged in erb
+25. Enabled sessions and added current user id as session upon log in.
+26. Wrote feature tests for sign up validation - fail
+26. Added required fields in sign up and log in forms, and validation for email.
+27. Prevented duplicate sign ups
+28. Added user validation upon log in
 
 
 

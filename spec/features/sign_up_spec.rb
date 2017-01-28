@@ -15,4 +15,22 @@ end
     expect{ sign_up }.to change{User.count}.by(1)
   end
 
+  scenario 'User cannot sign up without valid email address' do
+    expect{ faulty_email_sign_up }.not_to change{User.count}
+  end
+
+  scenario 'User cannot sign up without completing all fields' do
+    expect{ empty_sign_up }.not_to change{User.count}
+  end
+
+  scenario 'User cannot sign up with the same email multiple times' do
+    sign_up
+    expect{ sign_up_dup_email }.not_to change{User.count}
+  end
+
+  scenario 'User must have a unique username' do
+    sign_up
+    expect{ sign_up_dup_username }.not_to change{User.count}
+  end
+
 end
