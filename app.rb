@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development" # ensures app runs in development mode by defa
 
 require 'sinatra/base'
 require './models/data_mapper_setup'
+require 'sinatra/flash'
 
 class ChitterChallenge < Sinatra::Base
 
@@ -10,6 +11,8 @@ class ChitterChallenge < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+
+register Sinatra::Flash
 
   get '/' do
     redirect '/users/new'
@@ -23,8 +26,13 @@ end
 post '/users' do
   @user = User.create(email: params[:email],
               password: params[:password])
-  session[:user_id] = @user_id
+  if @user.save
+  session[:user_id] = @user.id
   redirect to('/session/account')
+  else
+  flash.now[:errors] = @user.errors.full_messages
+  erb :'users/new'
+  end
 end
 
 get '/session/account' do
