@@ -7,20 +7,28 @@ feature 'FEATURE: sign up' do
   end
 
   scenario 'Can enter user details and create new user' do
-    # visit('/')
-    # click_link('sign_up')
-    # fill_in :name, with: 'James T. Kirk'
-    # fill_in :email, with: 'test@test.com'
-    # fill_in :user_name, with: 'TheShat'
-    # fill_in :password, with: 'password'
-    # fill_in :password_confirmation, with: 'password'
-    # click_button('submit_sign_up')
     sign_up('James T Kirk', 'JTK@test.com', 'TheShat', 'password', 'password')
     expect(User.all.count).to eq 1
   end
 
   scenario 'Must enter a name' do
+    sign_up('', 'JTK@test.com', 'TheShat', 'password', 'password')
+    expect(page).to have_content("Name must not be blank")
+  end
 
+  scenario 'Must enter an email' do
+    sign_up('James T Kirk', '', 'TheShat', 'password', 'password')
+    expect(page).to have_content("Email must not be blank")
+  end
+
+  scenario 'Must enter a username' do
+    sign_up('James T Kirk', 'JTK@test.com', '', 'password', 'password')
+    expect(page).to have_content("User name must not be blank")
+  end
+
+  scenario 'Password and password conf must match' do
+    sign_up('James T Kirk', 'JTK@test.com', 'TheShat', 'password', 'wrongpassword')
+    expect(page).to have_content("Password does not match the confirmation")
   end
 
 end
