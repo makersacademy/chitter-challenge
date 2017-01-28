@@ -8,13 +8,14 @@
       <div id='welcome'>
         <h2>Welcome  <%=@username%></h2>
       </div>
-      <%else%>
+      <%elsif @user%>
       <a href="/sign_up">
         <button>Sign Up!</button>
-      </a>
+      </a><br />
       <a href="/sign_in">
         <button>Sign In!</button>
       </a>
+      <%else%>
     <%end%>
     <div id='main'>
       <%= yield %>
