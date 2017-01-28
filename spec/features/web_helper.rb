@@ -10,13 +10,6 @@ def sign_up
   click_button('Sign up')
 end
 
-
-def log_in
-  fill_in('email', :with => 'micawhitby@gmail.com')
-  fill_in('password', :with => 'password')
-  click_button('Log in')
-end
-
 def faulty_email_sign_up
   visit '/'
   click_link('Sign up')
@@ -55,4 +48,16 @@ def sign_up_dup_username
   fill_in('email', :with => 'micawhitby@hotmail.co.uk')
   fill_in('password', :with => 'password')
   click_button('Sign up')
+end
+
+def log_in
+  fill_in('email', :with => 'micawhitby@gmail.com')
+  fill_in('password', :with => 'password')
+  click_button('Log in')
+end
+
+def log_in_wrong_password
+  fill_in('email', :with => 'micawhitby@gmail.com')
+  fill_in('password', :with => 'badpassword')
+  click_button('Log in')
 end

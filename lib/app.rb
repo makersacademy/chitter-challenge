@@ -1,9 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class App < Sinatra::Base
+
+register Sinatra::Flash
 enable :sessions
 set :session_secret, 'super secret'
 
@@ -14,11 +17,11 @@ helpers do
   end
 
   get '/' do
-    redirect '/peeps'
+    redirect '/landing'
   end
 
-  get '/peeps' do
-    erb:'peeps'
+  get '/landing' do
+    erb:'landing'
   end
 
   get '/sign_up' do
@@ -28,25 +31,29 @@ helpers do
   post '/sign_up' do
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
     if user.save
-    redirect '/log_in'
+    redirect '/sessions/new'
     else
     redirect '/sign_up'
     end
   end
 
-  get '/log_in' do
+  get '/sessions/new' do
     erb:'log_in'
   end
 
-  post '/log_in' do
-    session[:user_id] = user.id
-
-    redirect '/peeps/logged_in'
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect to('/home')
+      else
+        flash.now[:errors] = ['The email or password is incorrect']
+        erb 'log_in'
+      end
   end
 
-  get '/peeps/logged_in' do
-
-    erb:'peeps_logged_in'
+  get '/home' do
+    erb:'home'
   end
 
   # start the server if ruby file executed directly

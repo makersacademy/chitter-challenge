@@ -1,4 +1,6 @@
-PROCESS
+PROCESS including tools used.
+
+SATURDAY
 
 1. ssl cert errors. Fixed with RVM update master and reinstalling ruby 2.3.3.
 2. Added gems & bundle install
@@ -13,23 +15,32 @@ PROCESS
 11. RSpec test fail - need to add user.
 12. Created user model
 13. Added DataMapper setup file
-14. Created database
+14. Created databases (test and development)
 15. Added database cleaner
 16. Created web_helper
 17. RSpec test - pass
-18. Added test / dev environments
-19. Deployed to Heroku
+18. Added test / development environments
+19. Deployed to Heroku - production environment
 20. Encrypt password using BCryptHash
-21. Wrote feature test for log_in - failed.
-22. Added form to log in erb.
-23. Added log in post route
-23. Added peeps logged in route
-24. Added peeps logged in erb
-25. Enabled sessions and added current user id as session upon log in.
-26. Wrote feature tests for sign up validation - fail
-26. Added required fields in sign up and log in forms, and validation for email.
-27. Prevented duplicate sign ups
-28. Added user validation upon log in
+21. Wrote feature tests for sign up validation - fail
+22. Added required fields in sign up form, and validation / unique requirements for email and username. multiple sign ups prevented.
+23. Rspec tests pass
+24. Wrote feature test for log_in - failed.
+25. Added form to log in erb.
+26. Added log in post route
+27. Added peeps logged in route
+28. Added peeps logged in erb
+29. Enabled sessions and added current user id as session upon log in.
+30. Added user authentication upon log in
+31. Log in test passes
+32. Added tests for error messaging
+
+-------
+SUNDAY
+
+32. Added error messaging using flash across sign up and log in.
+33. Error messaging tests pass / user stories 1 & 2 complete.
+
 
 
 
