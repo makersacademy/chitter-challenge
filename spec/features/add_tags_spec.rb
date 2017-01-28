@@ -21,4 +21,22 @@ feature 'tag peeps' do
     end
   end
 
+  scenario 'users can add multiple tags to a peep' do
+
+  	visit '/peeps/new'
+    fill_in 'content', with: "I love peeping!"
+    fill_in 'tags', with: "joy happiness"
+    click_button 'Peep!'
+
+    expect(current_path).to eq '/peeps'
+
+    peep = Peep.first
+    expect(peep.tags.map(&:name)).to include('joy', 'happiness')
+
+    within 'ol#peeps' do
+      expect(page).to have_content "#joy #happiness"
+    end
+
+  end
+
 end

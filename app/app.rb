@@ -17,8 +17,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.new(content: params[:content], time: Time.new)
-    tag = Tag.first_or_create(name: params[:tags])
-    peep.tags << tag
+    params[:tags].split.each do |tag|
+      peep.tags << Tag.create(name: tag)
+    end
     peep.save
     redirect '/peeps'
   end
