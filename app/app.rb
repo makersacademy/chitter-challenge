@@ -4,7 +4,11 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    erb :index
+  end
+
+  post '/peeps' do
+    erb :peeps
   end
 
   # start the server if ruby file executed directly
