@@ -9,3 +9,13 @@
   text-align: center;
   color: #FFFFFF;
 }
+
+.navbar-btn {
+  margin: 5px;
+}
+
+.navbar-brand {
+  font-family: 'Frijole', cursive;
+  font-size: 36px;
+  padding: 20px;
+}

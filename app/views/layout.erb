@@ -5,6 +5,7 @@
     <title>Chitter</title>
     <link rel='stylesheet' href='/bootstrap-3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/stylesheet.css'>
+    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
 </head>
 
   <body>
@@ -21,22 +22,21 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if defined? @user %>
-              <li class="active"><a href="#">
-                Logged in as <%= @user.name %>
-                <span class="sr-only">(current)</span></a>
-              </li>
               <li>
+                <a href="#">Logged in as <%= @user.name %></a>
+              </li>
+              <li class="active">
                 <form action='/sessions' method='post'>
                   <input type='hidden' name='_method' value='delete'>
-                  <input type='submit' value='Log out'>
+                  <input class="btn btn-default navbar-btn" type='submit' value='Log out'>
                 </form>
               </li>
             <% else %>
               <li>
-                <a href='/signup'>Sign up</a>
+                <a href='/signup' class="btn btn-default navbar-btn">Sign up</a>
               </li>
               <li>
-                <a href='/login'>Log in</a>
+                <a href='/login' class="btn btn-default navbar-btn">Log in</a>
               </li>
             <% end %>
           </ul>
