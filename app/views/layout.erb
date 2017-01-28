@@ -8,7 +8,7 @@
       <div id='welcome'>
         <h2>Welcome  <%=@username%></h2>
       </div>
-      <%elsif @user%>
+      <%elsif !@user%>
       <a href="/sign_up">
         <button>Sign Up!</button>
       </a><br />
