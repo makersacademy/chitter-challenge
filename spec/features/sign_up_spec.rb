@@ -33,4 +33,33 @@ feature 'Users can sign up for a Chitter account' do
 
   end
 
+  scenario 'Will not accept a blank email addresses' do
+  	visit '/users/new'
+
+    fill_in 'name', with: "Sam Jones!"
+    fill_in 'email', with: ""
+    fill_in 'user_name', with: "username"
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+    
+
+    expect { click_button 'Sign Up!' }.not_to change(User,:count)
+    expect(current_path).to eq '/users'
+  end
+
+
+  scenario 'Will not accept an invalid email addresses' do
+  	visit '/users/new'
+
+    fill_in 'name', with: "Sam Jones!"
+    fill_in 'email', with: "sam@email"
+    fill_in 'user_name', with: "username"
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'password'
+    
+
+    expect { click_button 'Sign Up!' }.not_to change(User,:count)
+    expect(current_path).to eq '/users'
+  end
+
 end
