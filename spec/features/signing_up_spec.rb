@@ -4,6 +4,14 @@ require './spec/spec_helper'
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
 
+# As a Maker
+# So that I can post messages on Chitter as me
+# I want to log in to Chitter
+#
+# As a Maker
+# So that I can avoid others posting messages on Chitter as me
+# I want to log out of Chitter
+
 feature 'Signing up' do
 
   scenario "so I can sign up to Chitter" do
@@ -21,10 +29,12 @@ feature 'Signing up' do
 
   scenario 'signing up with a bad email adress' do
     expect{sign_up_bad_email}.not_to change(User, :count)
+    expect(page).to have_content("Email has an invalid format")
   end
 
   scenario 'I cannot sign up with an existing email' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
   end
 end

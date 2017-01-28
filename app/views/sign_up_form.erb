@@ -1,4 +1,12 @@
 <h1>Sign Up!</h1>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 <form name ='sign_up' action='/sign_up' method='post'>
   <label for='name'>
   Name <br />
@@ -8,7 +16,7 @@
   <input type='text' name='username' required><br />
   <label for='email'>
   Email<br />
-<input type="text" name="email" required> <br />
+<input type="text" name="email" value='<%= @user.email %>' required> <br />
   <label for='password'>
   Password <br />
 <input type="password" name="password" required> <br />

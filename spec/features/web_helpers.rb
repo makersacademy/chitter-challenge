@@ -10,7 +10,7 @@ def sign_up
 end
 
 def sign_up_no_details
-  visit('/')
+  visit('/sign_up')
   click_button('Sign up')
 end
 
