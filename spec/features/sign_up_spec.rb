@@ -31,4 +31,22 @@ feature 'FEATURE: sign up' do
     expect(page).to have_content("Password does not match the confirmation")
   end
 
+  scenario 'See multiple error messages if more than one field not validated' do
+    sign_up('', 'JTK@test.com', '', 'password', 'password')
+    expect(page).to have_content("User name must not be blank")
+    expect(page).to have_content("Name must not be blank")
+  end
+
+  scenario 'email must be unique' do
+    sign_up('James T Kirk', 'JTK@test.com', 'TheShat', 'password', 'password')
+    sign_up('Spock', 'JTK@test.com', 'TheVulcan', 'password', 'password')
+    expect(page).to have_content("Email is already taken")
+  end
+
+  scenario 'username must be unique' do
+    sign_up('James T Kirk', 'JTK@test.com', 'TheShat', 'password', 'password')
+    sign_up('Spock', 'spock@test.com', 'TheShat', 'password', 'password')
+    expect(page).to have_content("User name is already taken")
+  end
+
 end
