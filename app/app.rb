@@ -5,6 +5,9 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
+require_relative 'controllers/peeps'
+require_relative 'controllers/sessions'
+require_relative 'controllers/users'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -14,78 +17,13 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
   set :session_secret, 'super secret'
   set :partial_template_engine, :erb
-  # set :views, File.dirname(__FILE__) + '/views'
+  set :views, File.dirname(__FILE__) + '/views'
 
   get '/' do
     @search = nil
     @peeps = Peep.all(:order => [ :id.desc ])
     erb :index
   end
-
-  get '/users/new' do
-    @user = User.new
-    erb :'/users/new'
-  end
-
-  post '/users/new' do
-    image = params[:image] == "" ? '/images/default.png' : params[:image]
-    @user = User.create(email: params[:email],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation],
-                        name: params[:name],
-                        username: params[:username].downcase,
-                        image: image)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect to('/')
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      erb :'/users/new'
-    end
-  end
-
-  get '/users/:search' do
-    @search = params[:search].downcase
-    @peeps = Peep.all(:order => [ :id.desc ])
-    erb :index
-  end
-
-  get '/sessions/new' do
-    erb :'sessions/new'
-  end
-
-  post '/sessions' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect to('/')
-    else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    session[:user_id] = nil
-    redirect to '/'
-  end
-
-  get '/peeps/new' do
-    if session[:user_id]
-      erb :'peeps/new'
-    else
-      redirect '/'
-    end
-  end
-
-  post '/peeps' do
-    peep = Peep.create(body: params[:body], time_stamp: Time.now)
-    user = User.get(session[:user_id])
-    peep.users << user
-    peep.save
-    redirect to('/')
-  end
-
 
   helpers do
     def current_user
@@ -103,7 +41,7 @@ class Chitter < Sinatra::Base
     end
 
     def add_tag(tag)
-      "<a href='/users/#{tag}'>#{tag}</a>"
+      "<a href='/users/#{tag[1..-1]}'>#{tag}</a>"
     end
   end
 

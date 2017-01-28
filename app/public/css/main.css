@@ -87,6 +87,27 @@ div.container {
 	text-align: left;
 	text-indent: 10px;
 }
+.darkbluebox {
+  width: 100%;
+	height: 340px;
+	background-color: #039;
+	box-shadow: 10px 10px 5px #888888;
+	font-size: 30px;
+	vertical-align: middle;
+	text-align: left;
+	text-indent: 10px;
+}
+
+.loginbox {
+  width: 100%;
+	height: 180px;
+	background-color: #039;
+	box-shadow: 10px 10px 5px #888888;
+	font-size: 30px;
+	vertical-align: middle;
+	text-align: left;
+	text-indent: 10px;
+}
 a:link {
 	color: #F00;
 	text-decoration: none;

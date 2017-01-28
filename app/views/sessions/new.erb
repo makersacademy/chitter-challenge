@@ -2,14 +2,48 @@
   <link rel="stylesheet" href="/css/main.css"/>
 </head>
 
-<h1>Please sign in</h1>
-
-<form action='/sessions' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Submit'>
-</form>
+<br><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="500">
+      <div class="loginbox">
+      <form id="signup" name="signup" method="post" action="/sessions">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="27%">&nbsp;</td>
+            <td width="73%">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="middle" class="WhiteText"><span class="MiniTitle">Please sign in</span></td>
+            </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="WhiteText">Email</td>
+            <td><input type="text" name="email" id="email" size="50" required></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="WhiteText">Password</td>
+            <td><input type="password" name="password" id="password" size="50"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" valign="middle"><input type="submit" name="submit" id="submit" value="Submit" /></td>
+            </tr>
+        </table>
+      </form>
+      </div>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>

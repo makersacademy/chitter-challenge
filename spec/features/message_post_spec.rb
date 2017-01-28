@@ -29,4 +29,12 @@ feature 'Message:' do
     post_peep(message: 'second message')
     expect(page).to have_content /second message.*first message/
   end
+
+  scenario 'search for users peeps' do
+    sign_up
+    sign_in
+    post_peep(message: 'first message')
+    visit('/users/test')
+    expect(page).to have_content "first message"
+  end
 end
