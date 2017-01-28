@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Sorry, there was a problem:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+        <li>
+          <%=error%>
+        </li>
+        <%end%>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

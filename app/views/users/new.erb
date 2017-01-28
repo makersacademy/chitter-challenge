@@ -1,21 +1,24 @@
 <h1> Sign Up! </h1>
 
-<form action='/signup' method='POST'>
+<form action='/users/new' method='POST'>
   <label for='name'>
-    Name:
-    <input type='text' name='name' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
+    Full Name:
+    <input type='text' name='name' value='<%=@name_res%>' required />
   </label>
-
+  <label for='username'>
+    User Name:
+    <input type='text' name='username' value='<%=@user_res%>' required />
+  </label>
   <label for='email'>
     Email:
     <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
   </label>
   <label for='password'>
     Password:
-    <input type='password' name='password' />
+    <input type='password' name='password' required/>
     <label for='password_confirmation'>
       Confirm Password:
-      <input type='password' name='password_conf' />
+      <input type='password' name='password_conf' required/>
     </label>
   </label>
   <input type='submit' value='Sign Up'>
