@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require './app/dmconfig.rb'
 
 class ChitterChallenge < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -53,8 +54,14 @@ class ChitterChallenge < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/peeps'
+  end
+
   get '/peeps' do
-    erb :'users/new'
+    erb :'peeps/index'
   end
 
   # start the server if ruby file executed directly
