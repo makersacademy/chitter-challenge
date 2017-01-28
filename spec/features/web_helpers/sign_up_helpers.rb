@@ -1,5 +1,5 @@
 def sign_up(name:, email:, password:, password_confirmation:)
-  visit ('/')
+  visit ('/signup')
   fill_in 'name', with: name
   fill_in 'email', with: email
   fill_in 'password', with: password

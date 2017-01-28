@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/' do
+  get '/signup' do
     @user_email = session[:email] ? session[:email] : nil
     erb :index
   end
@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
       session[:email] = params[:email]
       #binding.pry
       flash[:errors] = user.errors.full_messages
-      redirect '/'
+      redirect '/signup'
     end
     erb :peeps
   end

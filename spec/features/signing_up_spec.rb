@@ -50,7 +50,7 @@ feature 'sign up' do
       end
       scenario 'leaves user on the signup page' do
         sign_up_wrong_password_confirmation
-        expect(current_path).to eq '/'
+        expect(current_path).to eq '/signup'
       end
       scenario 'throws an error message' do
         sign_up_wrong_password_confirmation
