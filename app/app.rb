@@ -9,6 +9,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  attr_reader :name
+
   helpers do
     def current_user
       @current_user ||=User.get(session[:user_id])
@@ -28,12 +30,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitters' do
-    @user = User.new(name: params[:name], email: params[:email], password: params[:passsword], password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name], email: params[:email], password: params[:passsword], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/chitters')
     else
-      flash.now[:errors] = @user.errors.full_messages
+
+      flash.now[:error] = @user.errors.full_messages
       erb :sign_up
     end
   end
@@ -43,12 +46,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    @user = User.authenticate(params[:email], params[:password])
-  if @user
-    session[:user_id] = @user.id
+    user = User.authenticate(params[:email], params[:password])
+    p user
+    p params
+  if user
+    p user
+    session[:user_id] = user.id
     redirect to('/')
   else
-    flash.now[:errors] = ['The email or password is incorrect']
+    flash.now[:error] = ['The email or password is incorrect']
     erb :log_in
     end
   end
