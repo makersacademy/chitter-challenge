@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.4.0'
 
 group :test do
@@ -7,4 +7,3 @@ group :test do
   gem 'rake'
   gem 'coveralls', require: false
 end
-
