@@ -12,3 +12,37 @@ h1 {
   padding-top: 0px;
   background-color: lightblue
 }
+
+#all_twits{
+  border: aqua 1px solid;
+  border-radius: 4px;
+  padding:5px;
+}
+
+.twit{
+  border: 3px solid;
+  margin: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.twit_content{
+  float: right;
+  border: 1px cornsilk solid;
+  padding: 2px;
+  min-height: 60px;
+  min-width: 400px;
+  background: cornsilk;
+  font-family: monospace;
+  font-size: 20px
+}
+
+.twit_user_name{
+  padding: 2px;
+}
+.twit_real_name{
+  padding: 2px;
+}
+.twit_time_stamp{
+  padding: 2px;
+}
