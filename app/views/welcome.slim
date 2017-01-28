@@ -2,3 +2,6 @@
   'Welcome,
   = current_user.name
   br
+  form action='/sessions' method="post"
+    &hidden name="_method" value="delete"
+    &submit name="sign_out" value="Sign out"

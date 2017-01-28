@@ -10,3 +10,7 @@ def sign_in_wrong_details
   fill_in :password, with: 'AerithGainsborough'
   click_button 'Sign in'
 end
+def sign_out
+  visit '/'
+  click_button 'Sign out'
+end
