@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require './app/models/user'
+require './app/models/user.rb'
 
 require 'web_helper'
 
