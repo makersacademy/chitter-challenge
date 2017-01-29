@@ -63,7 +63,7 @@ class ChitterChallenge < Sinatra::Base
     @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], username: params[:username], name: params[:name])
     if @user.save
       session[:user_id] = @user.id
-      erb :'homepage'
+      redirect '/chitter'
     else
       flash.now[:notices] = @user.errors.full_messages
       erb :'users/new'

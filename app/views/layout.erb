@@ -8,12 +8,12 @@
 
 
     <% if current_user %>
-   Welcome back, <%= current_user.username %>.
-   <form method='post' action='/sessions'>
-     <input type='hidden' name='_method' value='delete'>
-     <input type='submit' value='Sign Out'>
-   </form>
- <% end %>
+     Welcome back, <%= current_user.username %>.
+     <form method='post' action='/sessions'>
+       <input type='hidden' name='_method' value='delete'>
+       <input type='submit' value='Sign Out'>
+     </form>
+   <% end %>
 
     <% if flash[:notices] && !flash[:notices].empty? %>
       <% flash[:notices].each do |n| %>
