@@ -10,6 +10,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require_relative 'helpers/session'
 
 RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
@@ -27,6 +28,12 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+end
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
 
 end
 

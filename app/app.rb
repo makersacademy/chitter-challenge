@@ -8,10 +8,11 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
 
   get '/home' do
-    "Hello"
+    erb :home
   end
 
   get '/sign_up' do
@@ -31,6 +32,12 @@ class Chitter < Sinatra::Base
       flash.now[:error] = "Signup failed: Those details have already been used"
       erb :sign_up
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/home'
   end
 
   helpers do

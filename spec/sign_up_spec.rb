@@ -1,4 +1,3 @@
-require 'web_helper'
 
 feature "sign up to Chitter" do
   scenario "it allows users to sign up using their name, email, username and password" do
