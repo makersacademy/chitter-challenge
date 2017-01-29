@@ -48,7 +48,6 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       session[:email] = params[:email]
-      #binding.pry
       flash[:errors] = user.errors.full_messages
       redirect '/signup'
     end
@@ -57,6 +56,13 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     erb :peeps
+  end
+
+  post '/logout' do
+    #binding.pry
+    session[:user_id] = nil
+    flash.keep[:notice] = 'See you soon!'
+    redirect to '/peeps'
   end
 
   # start the server if ruby file executed directly

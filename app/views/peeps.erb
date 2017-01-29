@@ -1,1 +1,5 @@
-
+<% if current_user %>
+  <form action='logout' method='post'>
+    <input type='submit' value='log out'>
+  </form>
+<% end %>
