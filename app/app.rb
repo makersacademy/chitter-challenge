@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(content: params[:content], time: Time.new)
+    peep = Peep.new(user_handle: current_user.user_name, user_name: current_user.name, content: params[:content], time: Time.new)
     params[:tags].split.each do |tag|
       peep.tags << Tag.create(name: tag)
     end
