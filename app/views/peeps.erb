@@ -1,1 +1,6 @@
-<h3>Peeps -</h3>
+<h3> Peeps -</h3>
+
+<% @peeps.each do |peep| %>
+<br>
+  Message - <%= peep.message %>
+<% end %>
