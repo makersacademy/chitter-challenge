@@ -112,6 +112,15 @@ Progress
   * The public can freely access a user's peep list at `/username`.
   * A user can post only if they have signed in. Otherwise, they are redirected to the sign in page. A signup button is available there, too.
 
+5. Story 05:
+  * When a user signs in, they can:
+    - go to a new peep form via a button
+    - see a flow of all Chitter users' peeps, in reverse chronological order.  
+
+6. Story 06:
+  * When a user signs in, they can:
+    - see a flow of all Chitter users' peeps, in reverse chronological order, and each with a timestamp
+
 Issues
 -----
 
@@ -134,3 +143,10 @@ Issues
 
 4. Story 04:
   * Nothing so far.
+
+5. Story 05:
+  * I have an idea about how to test for the reverse chronological order, but no clue about how to exactly implement it.
+  * Need to also add a 'profile' page where a user can see the list of their own tweets, in reverse chronological order.
+
+6. Story 06:
+  * Need to display the time in a friendly format. Directly applying `.strftime('%l:%m %p - %e %b %Y')` to the time objects somehow yields an error that signals they're nil (and not time objects after all).

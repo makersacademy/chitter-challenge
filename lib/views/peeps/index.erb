@@ -1,6 +1,44 @@
 <% if current_user %>
 
-  <h3> Your peeps </h3>
+  <form action='/peeps/new' method="get">
+    <button type="submit">You peep!</button>
+  </form>
+
+  <br>
+
+  <h3> Chitter flow </h3>
+
+  <!-- <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= current_user.name %> |
+        @<%= current_user.username %> |
+        <%= peep.peep_time %>
+        <br>
+        <%= peep.content %>
+      </li>
+      <br>
+    <% end %>
+  </ul> -->
+
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= User.get(peep.user_id).name %> |
+        @<%= User.get(peep.user_id).username %> |
+        <%= peep.peep_time %>
+        <br>
+        <%= peep.content %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+  <!-- <form action=@own_path method="get">
+    <button type="submit">Your peeps</button>
+  </form> -->
+
+  <!-- <h3> Your peeps </h3>
 
   <form action='/peeps/new' method="get">
     <button type="submit">New peep</button>
@@ -9,14 +47,15 @@
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        <%= current_user.name %>
-        @<%= current_user.username %>
+        <%= current_user.name %> |
+        @<%= current_user.username %> |
+        <%= peep.peep_time %>
         <br>
         <%= peep.content %>
       </li>
       <br>
     <% end %>
-  </ul>
+  </ul> -->
 
 <% elsif @author %>
 
@@ -25,8 +64,9 @@
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        <%= @author.name %>
-        @<%= @author.username %>
+        <%= @author.name %> |
+        @<%= @author.username %> |
+        <%= peep.peep_time %>
         <br>
         <%= peep.content %>
       </li>

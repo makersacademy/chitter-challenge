@@ -10,13 +10,14 @@ feature 'Peep' do
     expect(page).to have_button 'Peep'
   end
 
-  scenario 'and see the peep on a peep list page' do
+  scenario 'and see the peep on a peep list page, headed with name, username and timestamp' do
     sign_in(email: user.email, password: user.password)
     visit '/peeps/new'
     fill_in :content, with: 'This is my first peep!'
     click_button 'Peep'
     expect(page).to have_content "#{user.name}"
     expect(page).to have_content "#{user.username}"
+    expect(page).to have_content "#{user.peeps.first.peep_time}"
     expect(page).to have_content 'This is my first peep!'
   end
 
