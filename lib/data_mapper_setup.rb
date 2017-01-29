@@ -1,4 +1,5 @@
 require 'data_mapper'
+require 'dm-migrations'
 require 'dm-postgres-adapter'
 require_relative 'chitter'
 require_relative 'models/user'

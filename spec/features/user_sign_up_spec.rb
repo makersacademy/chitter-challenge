@@ -12,6 +12,7 @@ feature 'New user sign up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
   scenario 'User unable to sign up if email field is blank' do
+    sign_up
     expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(page).to have_content 'Email must not be blank'
   end
@@ -20,10 +21,12 @@ feature 'New user sign up' do
     expect(page).to have_content 'Email has an invalid format'
   end
   scenario 'Unable to sign up if email already used' do
+    sign_up
     expect { sign_up }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
   scenario 'Unable to sign up with username that is taken' do
+    sign_up
     expect { sign_up }.not_to change(User, :count)
     expect(page).to have_content 'Username is already taken'
   end

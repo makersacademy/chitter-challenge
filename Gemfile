@@ -3,7 +3,6 @@ ruby '2.3.3'
 
 group :test do
   gem 'coveralls', require: false
-  gem 'cucumber'
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'rake'
