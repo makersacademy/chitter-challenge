@@ -7,6 +7,7 @@ gem 'sinatra'
 gem 'bcrypt'
 gem 'pry'
 gem 'sinatra-flash'
+gem 'rainbow', '2.2.1'
 
 group :test do
   gem 'rspec'
