@@ -2,8 +2,14 @@
 <html>
   <head>
     <title>WELCOME!</title>
+  <style>
+    body {
+      color: white;
+      background-color: lightblue;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
   </head>
-
   <body>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>

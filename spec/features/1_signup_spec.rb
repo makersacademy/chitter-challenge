@@ -26,6 +26,10 @@ feature "FEATURE 1: Signup" do
   expect(page).to have_content 'Erm...Your password and confirmation password do not match'
   end
 
+  scenario "1E) Not possible without an email address" do
+    expect { sign_up(user_email: nil) }.not_to change(User, :count)
+  end
+
 
 
 
