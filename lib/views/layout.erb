@@ -5,32 +5,12 @@
     <link rel="stylesheet" href="/index.css" type="text/css" />
   </head>
   <body>
-    <center>
-      <div id='header'>
-        <h1> Tweetzer </h1>
-        <% if current_user %>
-          <a href="/twit/new" style="float:left">compose twit</a>
-          <a>@<%= current_user.user_name %></a>
-          <form method='post' action='/session' style="float:right">
-            <input type='hidden' name='_method' value='delete'>
-            <input class='button_as_link' type='submit' value='log off'>
-          </form >
-        <% else %>
-          please log in or sign up to continue
-          <a href="/user/new">new user</a>
-          <a href="/session/new">log in</a>
-        <% end %>
-      </div>
-    </center>
-    <% if flash[:errors] %>
-      <br>
-      please fix the following issues
-      <ul>
-        <% flash[:errors].each do |message|%>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <div id="main_header">
+      <%= partial :header %>
+    </div>
+    <div id="flash_messages">
+      <%= partial :flash %>
+    </div>
     <div id="page_body">
       <%=yield %>
     </div>

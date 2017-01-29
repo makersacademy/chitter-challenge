@@ -14,4 +14,5 @@ class Tweeter < Sinatra::Base
     time_stamp: Time.new.strftime("%Y-%m-%d %H:%M:%S"))
     redirect '/'
   end
+  
 end
