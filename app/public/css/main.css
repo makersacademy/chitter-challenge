@@ -1,6 +1,7 @@
 body {
   font-family: 'Merriweather', serif !important;
-  color: #575757; }
+  color: #575757;
+  font-size: 0.8rem; }
 
 html,
 body {
@@ -55,7 +56,8 @@ a {
 
 .navbar {
   box-shadow: 0 0 0 3px #80086E, 0 0 0 6px #51E9D3, 0 0 0 9px #3AC099, 0 0 0 12px #BBE095;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  background-color: rgba(82, 233, 211, 0.1); }
 
 .nav-link {
   margin: 0rem .5rem !important; }
@@ -63,5 +65,20 @@ a {
 .footer {
   border-top: 4px solid #80086E;
   background-color: #3AC099; }
+
+.peep-icon {
+  width: 80px; }
+
+.peep-name {
+  color: #80086E; }
+
+.peep-username, .peep-date {
+  color: #837e7e; }
+
+.peep {
+  border-radius: .5rem;
+  border: 3px solid #80086E;
+  box-shadow: 2px 2px #bbbbbb;
+  background-color: rgba(82, 233, 211, 0.1); }
 
 /*# sourceMappingURL=main.css.map */
