@@ -35,10 +35,6 @@ class ChitterChallenge < Sinatra::Base
     redirect to '/chitter'
   end
 
-  get '/homepage' do
-    erb :'homepage'
-  end
-
   get '/sessions/new' do
     erb :'sessions/new'
   end
