@@ -92,28 +92,12 @@ Although I have implemented a feature whereby each peep will be displayed with a
 ###Reply to Peeps
 I would like to add an extra feature, whereby users can reply to a peep that has been written previously.
 
-Examples
---------
+Screenshot
+----------
 
 The Chitter homepage, with sign up and sign in buttons:
 
-<kbd>![alt text](http://i.imgur.com/q8Q5W3o.png)</kbd>
-
-Signing up for a Chitter account:
-
-<kbd>![alt text](http://i.imgur.com/ivtrdBR.png)</kbd>
-
-Making a new peep:
-
-<kbd>![alt text](http://i.imgur.com/vJEQZLf.png)</kbd>
-
-New peep is displayed on the homepage:
-
-<kbd>![alt text](http://i.imgur.com/YSDOEdX.png)</kbd>
-
-Logged out, can still view peeps:
-
-<kbd>![alt text](http://i.imgur.com/VGgnlMt.png)</kbd>
+<kbd>![alt text](http://i.imgur.com/SKLBqzQ.png)</kbd>
 
 ***
 

@@ -8,6 +8,10 @@
 <body>
 
 	<nav>
+		<span class="icon">
+			<img src="/images/chitter_icon.png" width="35" height="35">
+		</span>
+
 		<% if !current_user %>
 			<form action='/sessions/new' method='get'>
 				<input class='button1' type='submit' value='Log In'>
