@@ -1,4 +1,4 @@
-<% session[:user_id] = nil %>
+
 <%if !(session[:user_id]) %>
   <form id='log_in_button' action='/sessions/new' method='get'>
     <input type='submit' value='Log In'>

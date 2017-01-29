@@ -67,7 +67,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/cheeps' do
-    Cheep.create(content: params[:cheep])
+    cheep = Cheep.create(content: params[:cheep], created_at: DateTime.now, user_id: session[:user_id])
     redirect '/home'
   end
 

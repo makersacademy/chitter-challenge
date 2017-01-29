@@ -6,7 +6,7 @@ require 'dm-validations'
 require_relative 'models/user'
 require_relative 'models/cheep'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
 DataMapper.finalize
 

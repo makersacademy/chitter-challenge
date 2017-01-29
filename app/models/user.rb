@@ -10,6 +10,7 @@ class User
   property :username, String
   property :password_digest, Text
 
+  has n, :cheeps
 
   attr_reader :password
 
