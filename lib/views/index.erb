@@ -9,7 +9,7 @@
         <div class="user info">
           <div class="twit_user_name">@<%= twit.user.user_name %></div>
           <div class="twit_real_name"><%= twit.user.full_name %></div>
-          <div class="twit_time_stamp"><%= twit.time_stamp %></div>
+          <div class="twit_time_stamp"><%= twit.time_stamp.strftime("%c") %></div>
         </div>
       </article>
     <% end %>

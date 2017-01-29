@@ -6,7 +6,7 @@ class Twit
   property :content, String,
            length: 140,
            required: true
-  property :time_stamp, Date,
+  property :time_stamp, DateTime,
            required: true
 
   belongs_to :user
