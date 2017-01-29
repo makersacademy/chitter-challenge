@@ -78,6 +78,7 @@ main {
     padding: 1.2em 1em 1.2em .5em;
     font-size: 130%;
     box-shadow: 0 0 4px -1px #dedede inset;
+    margin-bottom: .7em;
 }
 
 .comments-section {
