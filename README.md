@@ -50,6 +50,8 @@ You can see the full task and instructions given to us in [CONTRIBUTING.md](chit
 
 ### Using my application
 
+* You can view my app online here at [https://chitter-exercise.herokuapp.com/](https://chitter-exercise.herokuapp.com/).
+
 ### Dependencies
 
 * Written using **Ruby 2.4.0** and the **Sinatra** web framework
