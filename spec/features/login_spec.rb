@@ -7,4 +7,11 @@ feature 'Login page' do
     visit '/login'
     expect(page).to have_content('Please Login')
   end
+  scenario 'i can login' do
+    visit '/login'
+    fill_in :Username, with: 'frankiey'
+    #fill_in :password, with: '12345678'
+    click_button 'Log in'
+    expect(page).to have_content('frankie')
+  end
 end
