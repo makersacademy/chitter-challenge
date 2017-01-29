@@ -16,5 +16,8 @@
       User:    <%= post.username %>
     </li>
   <% end %>
-  <form action = "chitter/new" method = "get"> <input type = "submit" value = "Post a peep"> </form>
 </ul>
+
+<% if current_user %>
+<form action = "chitter/new" method = "get"> <input type = "submit" value = "Post a peep"> </form>
+<% end %>
