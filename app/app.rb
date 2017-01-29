@@ -31,8 +31,8 @@ class ChitterChallenge < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'goodbye!'
-    redirect to '/homepage'
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/chitter'
   end
 
   get '/homepage' do
@@ -47,7 +47,7 @@ class ChitterChallenge < Sinatra::Base
     @user = User.authenticate(params[:email], params[:password])
     if (@user)
       session[:user_id] = @user.id
-      redirect '/homepage'
+      redirect '/chitter'
     else
       flash.now[:notices] = ["E-mail or password are incorrect."]
       erb :'sessions/new'
