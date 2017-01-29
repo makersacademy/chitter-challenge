@@ -18,6 +18,7 @@ require 'rspec'
 
 require 'features/web_helpers'
 require 'database_cleaner'
+require 'dm-timestamps'
 require './app/app'
 require './app/models/user'
 require './app/models/peep'

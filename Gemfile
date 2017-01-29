@@ -12,6 +12,7 @@ gem 'database_cleaner'
 gem 'dm-transactions'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'dm-timestamps'
 
 group :test do
   gem 'rspec'
