@@ -28,8 +28,13 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(name: params[:name], user_name: params[:user_name],email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = @user.id
-    redirect '/'
+    if @user.id == nil
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    else
+      session[:user_id] = @user.id
+      redirect '/'
+    end
   end
 
   get '/sessions/new' do
@@ -42,6 +47,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/'
     else
+      flash.now[:errors] = ['Incorrect nickname or password. Try again.']
       erb :'sessions/new'
     end
   end
@@ -52,7 +58,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    current_user = User.get(session[:user_id])
+    # current_user = User.get(session[:user_id])
     peep = Peep.create(content: params[:new_peep], user_id: current_user.id, created_timedate: Time.now)
     redirect '/'
   end

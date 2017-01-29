@@ -9,6 +9,45 @@ feature '1. Sign up' do
     sign_up
     expect(page).to have_content('Welcome Enrico Fermi @atom1901!')
   end
+
+  scenario 'a new user won\'t be able to sign up if the user name is not available' do
+    sign_up
+    visit '/'
+    click_button('New User')
+    fill_in(:name, with: 'Luigi Fermi')
+    fill_in(:user_name, with: 'atom1901')
+    fill_in(:email, with: 'luis@gmail.com')
+    fill_in(:password, with: 'littleBrother')
+    fill_in(:password_confirmation, with: 'littleBrother')
+    click_button('Sign Up')
+    expect(page).to have_content('User name is already taken')
+  end
+
+  scenario 'a new user won\'t be able to sign up if email already taken' do
+    sign_up
+    visit '/'
+    click_button('New User')
+    fill_in(:name, with: 'Luigi Fermi')
+    fill_in(:user_name, with: 'LuisAtom')
+    fill_in(:email, with: 'efermi@gmail.com')
+    fill_in(:password, with: 'littleBrother')
+    fill_in(:password_confirmation, with: 'littleBrother')
+    click_button('Sign Up')
+    expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'a new user won\'t be able to sign up if password confirmation doesn\'t match password' do
+    sign_up
+    visit '/'
+    click_button('New User')
+    fill_in(:name, with: 'Luigi Fermi')
+    fill_in(:user_name, with: 'LuisAtom')
+    fill_in(:email, with: 'luis@gmail.com')
+    fill_in(:password, with: 'littleBrother')
+    fill_in(:password_confirmation, with: 'littleBother')
+    click_button('Sign Up')
+    expect(page).to have_content('Password does not match the confirmation')
+  end
 end
 
 # As a Maker
@@ -20,6 +59,11 @@ feature '2. Log In' do
   scenario 'an existing user wants to log in' do
     log_in(user_name: user.user_name, password: user.password)
     expect(page).to have_content('Welcome Ada Lovelace @Mech01001!')
+  end
+
+  scenario 'an new user cannot log in (must sign up)' do
+    log_in(user_name: 'Marie', password: 'curie')
+    expect(page).to have_content('Incorrect nickname or password. Try again.')
   end
 end
 
