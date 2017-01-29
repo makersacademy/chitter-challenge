@@ -13,7 +13,7 @@ feature "FEATURE 1: Signup" do
   end
   scenario "1B) With email, password, full name and username" do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, Joe Bloggs')
+    expect(page).to have_content('Welcome, joebloggs@hotmail.com')
     expect(User.first.user_email).to eq('joebloggs@hotmail.com')
   end
   scenario "1C) Requires a matching confirmation password" do

@@ -15,7 +15,7 @@
     <% end %>
 
     <% if current_user %>
-      Welcome, <%= current_user.user_full_name %>
+      Welcome, <%= current_user.user_email %>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
