@@ -67,7 +67,7 @@ a {
   background-color: #3AC099; }
 
 .peep-icon {
-  width: 80px; }
+  width: 60px; }
 
 .peep-name {
   color: #80086E; }
@@ -80,5 +80,8 @@ a {
   border: 3px solid #80086E;
   box-shadow: 2px 2px #bbbbbb;
   background-color: rgba(82, 233, 211, 0.1); }
+
+.peep-text {
+  margin: 0px; }
 
 /*# sourceMappingURL=main.css.map */

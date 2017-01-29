@@ -110,7 +110,7 @@ a {
 //PEEP STYLES
 
 .peep-icon {
-  width: 80px;
+  width: 60px;
 }
 
 .peep-name {
@@ -126,4 +126,8 @@ a {
   border: 3px solid $primary-tint;
   box-shadow: 2px 2px #bbbbbb;
   background-color: $peep-bkgrnd;
+}
+
+.peep-text {
+  margin: 0px;
 }
