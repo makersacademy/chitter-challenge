@@ -130,11 +130,54 @@
                 <tr>
                   <td width="10" height="30">&nbsp;</td>
                   <td width="90" height="30">&nbsp;</td>
-                  <td height="30" align="center" valign="middle" class="WhiteText"><%= peep.time_stamp.to_s[0..19] %></td>
-                  <td width="10" height="30" align="center" class="WhiteText">&nbsp;</td>
+                  <td height="30" align="center" valign="middle" class="WhiteText"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td rowspan="2" valign="middle" class="WhiteText"><%= peep.time_stamp.to_s[0..19] %></td>
+                      <td width="50">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td width="50" align="right">
+                        <% if current_user && session[:peep_id] != peep.id %>
+                          <form name="repeep" method="post" action="/repeep/new">
+                            <input type='hidden' name="peep_id" value='<%= peep.id %>'>
+                            <input type="submit" name="submit" id="submit" value="Repeep">
+                          </form>
+                        <% else %>
+                          &nbsp;
+                        <% end %>
+                      </td>
+                    </tr>
+                  </table></td>
+                  <td width="10" height="30">&nbsp;</td>
                 </tr>
               </table>
           </div>
+          <% if current_user && session[:peep_id] == peep.id %>
+          <div class="repeepbox">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="10">&nbsp;</td>
+                <td width="50">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10">&nbsp;</td>
+                <td width="50" valign="top"><img src="<%= @current_user.image %>" width="40" height="40" alt="User" /></td>
+                <td class="WhiteText">
+                  <form id="peep" name="repeep" method="post" action="/repeep/message">
+                    <textarea name="repeep_body" id="repeep_body" cols="90" rows="3"></textarea>
+                    <input type="submit" name="submit" id="submit" value="Repeep" />
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td width="50">&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+          <% end %>
           <br>
           <% end %>
       <% end %>

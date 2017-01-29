@@ -23,7 +23,8 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @search = nil
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peep_id = nil
+    load_peeps
     erb :index
   end
 
@@ -44,6 +45,10 @@ class Chitter < Sinatra::Base
 
     def add_tag(tag)
       "<a href='/users/#{tag[1..-1]}'>#{tag}</a>"
+    end
+
+    def load_peeps
+      @peeps = Peep.all(:order => [ :id.desc ])
     end
   end
 

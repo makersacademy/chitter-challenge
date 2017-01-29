@@ -37,4 +37,14 @@ feature 'Message:' do
     visit('/users/test')
     expect(page).to have_content "first message"
   end
+
+  scenario 'repeep to a peep' do
+    sign_up
+    sign_in
+    post_peep(message: 'first message')
+    click_button 'Repeep'
+    fill_in :repeep_body, with: "repeep message"
+    click_button 'Repeep'
+    expect(page).to have_content "repeep message"
+  end
 end
