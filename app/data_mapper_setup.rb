@@ -5,10 +5,7 @@ require_relative 'models/peep'
 
 env = ENV['RACK_ENV'] || 'development'
 
-# Separate dev and test dbs not found useful for this execise
-# DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-DataMapper.setup(:default, "postgres://localhost/chitter")
+DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 DataMapper.finalize
-# DataMapper.auto_upgrade!
-DataMapper.auto_migrate!
-# DataMapper::Logger.new($stdout, :debug)
+DataMapper.auto_upgrade!
+# DataMapper.auto_migrate!

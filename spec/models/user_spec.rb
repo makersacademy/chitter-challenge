@@ -11,7 +11,7 @@ describe User do
   end
 
   it 'don\'t authenticate when incorrect password' do
-  expect(User.authenticate(user.email, 'not_erics_password')).to be_nil
-end
+    expect(User.authenticate(user.email, 'not_erics_password')).to be_nil
+  end
 
 end

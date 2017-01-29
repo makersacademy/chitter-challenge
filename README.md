@@ -43,29 +43,10 @@ Post a peep
 View all peeps reverse order
 
 View time of peeps
-
-Optional extras: CSS; reply to peep
 ```
 
-## Pages
+## Issues
 
-Logged in: "You are logged in as <email>" at top + logout link/btn
+If rackup Ctl-C shutdown without logging out, user ID persists.
 
-Not logged in: "Login/register to peep" + login/register link/btn
-
-**signup**
--> **peeps** ...
-FAIL -> **signup** + msg + link to **peeps**
-
-**login**
-[has: link/btn to **signup**]
--> **peeps** ...
-FAIL -> **login** + msg + link to **peep**
-
-**peeps**
-[has: **peep** btn/link if logged in]
-Displays all peeps in reverse
-
-**peep**
--> **peeps** ...
-FAIL ->  **peeps**
+Time not showing; date is.

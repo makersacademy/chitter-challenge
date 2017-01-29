@@ -13,7 +13,7 @@ group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
   gem 'rubocop-rspec'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.47.1', require: false
   gem 'database_cleaner'
   gem 'rake'
   gem 'coveralls', require: false

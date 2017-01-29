@@ -15,6 +15,9 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+    def current_path
+      @current_path = request.path_info
+    end
   end
 
   get '/' do
@@ -22,13 +25,12 @@ class Chitter < Sinatra::Base
   end
 
   delete '/login' do
-    session[:user_id] = nil
-    flash.keep[:notice] = 'You are now logged out'
+    session.clear
     redirect to('/peeps')
   end
 
   get '/login' do
-    erb :'login'
+    erb :login
   end
 
   post '/login' do
@@ -38,12 +40,12 @@ class Chitter < Sinatra::Base
       redirect to('/peeps')
     else
       flash.now[:errors] = ['The email or password is incorrect']
-      erb :'login'
+      erb :login
     end
   end
 
   get '/newpeep' do
-    erb :'newpeep'
+    erb :newpeep
   end
 
   post '/peeps' do
@@ -53,11 +55,11 @@ class Chitter < Sinatra::Base
 
   get '/peeps'  do
     @peeps = Peep.all.reverse
-    erb :'peeps'
+    erb :peeps
   end
 
   get '/signup' do
-    erb :'signup'
+    erb :signup
   end
 
   post '/signup' do
@@ -69,7 +71,7 @@ class Chitter < Sinatra::Base
       redirect to('/peeps')
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :'signup'
+      erb :signup
     end
   end
 

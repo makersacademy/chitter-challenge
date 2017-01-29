@@ -8,7 +8,6 @@ feature 'Create peep' do
     expect(current_path).to eq '/peeps'
     within 'ul#peepfeed' do
       expect(page).to have_content('Would you like a cup of tea?')
-      expect(page).to have_content('')
     end
   end
   scenario 'cannot create peep if not logged in' do
@@ -21,7 +20,7 @@ feature 'Create peep' do
     newpeep
     expect(current_path).to eq '/peeps'
     within 'ul#peepfeed' do
-      expect(page).to have_content /at.*on.*/
+      expect(page).to have_content (/at.*on.*/)
     end
   end
 end

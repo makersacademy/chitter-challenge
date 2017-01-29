@@ -7,7 +7,7 @@ class User
   property :id, Serial
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
-  has n, :peeps, :through => Resource
+  has n, :peeps, through: Resource
   validates_confirmation_of :password
 
   def password=(password)

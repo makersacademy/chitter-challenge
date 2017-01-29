@@ -6,5 +6,5 @@ class Peep
   property :words, String
   property :email, String
   property :time, Date
-  has 1, :user, :through => Resource
+  has 1, :user, through: Resource
 end

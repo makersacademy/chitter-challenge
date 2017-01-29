@@ -9,8 +9,12 @@ feature 'View peeps' do
     newpeep(words: 'SecondPeep')
     expect(current_path).to eq '/peeps'
     within 'ul#peepfeed' do
-      expect(page).to have_content /SecondPeep.*FirstPeep/
+      expect(page).to have_content (/SecondPeep.*FirstPeep/)
     end
+  end
+  scenario 'root redirects to peeps/' do
+    visit '/'
+    expect(current_path).to eq '/peeps'
   end
 
 end

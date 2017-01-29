@@ -3,12 +3,8 @@
 <ul id='peepfeed'>
   <% @peeps.each do |peep| %>
     <li>
-      <span class="pname">Peep: </span><br />
-      <span class="pvalue"><%= peep.words %></span><br />
-      <span class="pname">Email: </span>
-      <span class="pvalue"><%= peep.email %></span>
-      <span class="pname">Time: </span>
-      <span class="pvalue"><%= peep.time.strftime("at %k:%M on %-d-%b") %></span>
+      <p><span class='thepeep'><%= peep.words %></span><br />
+        <%= peep.email %> <%= peep.time.strftime("at %k:%M on %-d-%b") %></p>
     </li>
   <% end %>
 </ul>

@@ -3,7 +3,39 @@
 <head><title>Chitter</title>
 <link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 <link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
-<link rel="stylesheet" type="text/css" href="<%= url('/main.css') %>">
+<style>
+#main {
+  margin: 10px auto 0px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  width: 890px;
+  height: auto;
+  border:2px solid black;
+  padding: 20px;
+}
+h1 {
+  font-style: italic;
+}
+ul {
+  list-style: none;
+}
+.pname {
+  display: inline-block;
+  padding-right: 10px;
+  width: 50px;
+}
+.pvalue {
+  display: inline-block;
+  font-weight: bold;
+  width: 600px;
+}
+#errors {
+  color: red;
+}
+.thepeep {
+  font-weight: bold;
+}
+</style>
 </head>
 <body>
 <div id="main">
@@ -13,6 +45,16 @@
     <form method='post' action='/login'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Logout'>
+    </form><br />
+    <% if current_path != '/newpeep' %>
+      <form action='/newpeep'>
+        <input type='submit' value='New peep'>
+      </form>
+    <% end %>
+  <% elsif current_path != '/login' && current_path != '/signup' %>
+    <form action='/login'>
+      <label for='login'>Log in or register to create a new peep</label>
+      <input type='submit' value='Login'>
     </form>
   <% end %>
 

@@ -2,3 +2,4 @@
 /coverage
 irb*
 todo*
+.rubocop_log
