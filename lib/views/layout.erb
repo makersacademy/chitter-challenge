@@ -65,10 +65,19 @@ h2 {
 
     <div>
       <h1>
+        <% if current_user %>
         <form method='post' action='/sessions'>
           <input type='hidden' name='_method' value='delete'>
           <input type='submit' value='sign out'>
         </form>
+        <% else %>
+        <form method='get' action='/sessions/new'>
+          <input type='submit' value='sign in'>
+        </form>
+        <form method='get' action='/users/new'>
+          <input type='submit' value='sign up'>
+        </form>
+        <% end %>
         <% if flash[:notice] %>
           <div id='notice'><%= flash[:notice] %></div>
         <% end %>
