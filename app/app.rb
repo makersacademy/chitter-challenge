@@ -56,7 +56,7 @@ set :public_folder, Proc.new { File.join(root, "public") }
     end
 
     post  '/peep' do
-        @peep = Peep.create(content: params[:content], created_at: Time.now, user: current_user)
+        @peep = Peep.create(peep_content: params[:peep_content], created_at: Time.now, user: current_user)
         @peep.save
         redirect ('/peeps')
     end

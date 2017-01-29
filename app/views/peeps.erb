@@ -3,7 +3,7 @@
 		<ul id = 'peeps' >
 		  <% @peeps.each do |peep| %>
 		<li>
-		  <p class="peep"><%= peep.content %></p> posted by
+		  <p class="peep"><%= peep.peep_content %></p> posted by
 		  <%= peep.user.name %>
 		  on <%=(peep.created_at.to_s[0..15].sub! "T", " ")%> 
 		</li>

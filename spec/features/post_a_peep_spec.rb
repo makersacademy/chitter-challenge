@@ -4,7 +4,7 @@ feature 'Post a peep' do
 
 	scenario 'Non user cannot post a peep' do
 		visit('/peep')
-		fill_in('content', with: "Happy birthday to the ground")
+		fill_in('peep_content', with: "Happy birthday to the ground")
 		click_button('Post')
 		expect(page).to_not have_content("Happy birthday to the ground")
 	end
@@ -21,7 +21,7 @@ end
 		fill_in('password', with: '123')
 		click_button("Log In")
 		click_on("peep")
-		fill_in('content', with: "Happy birthday to the ground!")
+		fill_in('peep_content', with: "Happy birthday to the ground!")
 		click_button('Post')
 		within "li" do
 		expect(page).to have_content("Happy birthday to the ground!")
