@@ -6,5 +6,14 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'rubocop-rspec'
+  gem 'rubocop'
 end
 
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'selenium-webdriver'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'pg'
+gem 'bcrypt'
