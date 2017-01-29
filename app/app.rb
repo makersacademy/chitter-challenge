@@ -6,6 +6,7 @@ require 'sinatra/flash'
 
 class ChitterApp < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -19,12 +20,12 @@ class ChitterApp < Sinatra::Base
     redirect '/main'
   end
 
-  get '/sign_up' do
+  get '/users/new' do
     @user = User.new
     erb :'users/sign_up_form'
   end
 
-  post '/sign_up' do
+  post '/users' do
     @user = User.create( name: params[:name],
                         username: params[:username],
                         email: params[:email],
@@ -38,11 +39,11 @@ class ChitterApp < Sinatra::Base
     end
   end
 
-  get '/sign_in' do
+  get '/sessions/new' do
     erb :'users/sign_in'
   end
 
-  post '/sign_in' do
+  post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
@@ -53,8 +54,13 @@ class ChitterApp < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'Goodbye!'
+  redirect to '/main'
+end
+
   get '/main' do
-    @username = current_user.username if current_user
     erb :main
   end
 
