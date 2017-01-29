@@ -1,6 +1,6 @@
-# Chitter Challenge
+# Chitter Chatter
 
-Implement a disembodied communication system for humans.
+A disembodied communication system for humans.
 
 ## User Stories
 
@@ -81,11 +81,18 @@ Displays all peeps in reverse
 -> **peeps** ...
 FAIL ->  **peeps**
 
-## TODO
+## TODO & Notes
 
 - location and caching for css files
 - feature tests with many expects for efficiency
 - use spec helpers appropriately, see code review notes
+- at end go through stack: understand what is calling what in what order, what configs etc.
+- wrt going through stack, then refactor nicely as poss
+- text/varchar best to use in postgres (https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/)
+
+## Extra Things Done
+
+- use one db not test and dev. Having two served no useful purpose for this exercise
 
 ## Bookmark Reference Work Through
 
@@ -119,11 +126,6 @@ FAIL ->  **peeps**
 24 logout - tests, flash, controller method override delete
 
 ### Current Location
-
-All tests passing, can view peeps.
-However unable to instantiate Peep in line 5 of peep_spec yet.
-wrt to user stories - 'post a peep'
-note did 'view peeps' out of sequence which may not have been easiest
 
 11 set up test and form to create link (ie a peep for us) is next to look at
 Issue will be joining User and Peep tables via datamapper so is similar

@@ -1,1 +1,2 @@
-CREATE TABLE peeps (id  integer PRIMARY KEY,words varchar(200) NOT NULL, email  varchar(100) NOT NULL);
+create table peeps (id integer primary key, words varchar not null, email varchar not null);
+create table users (email varchar primary key, password_digest varchar not null);
