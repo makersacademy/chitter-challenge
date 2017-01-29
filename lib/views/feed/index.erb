@@ -20,10 +20,11 @@ Welcome to Chitter!
 <ul id='Peeps'>
   <% if @peeps %>
   <% @peeps.each do |peep| %>
-  <%= peep.body %><br>
   <% user = User.get(peep.user_id) %>
-  <%= user.username %><br>
-  <%= user.name %> peeped this at <%= peep.created_at.strftime('%T') + ' on ' + peep.created_at.strftime('%D') %><br>
+    <peeptext><%= peep.body %></peeptext>
+    <username><%= user.username %></username><br>
+  <timeanddate><%= user.name %> peeped this at
+    <%= peep.created_at.strftime('%T') + ' on ' + peep.created_at.strftime('%D') %></timeanddate><br>
   <% end %>
   <% end %>
 </ul>
