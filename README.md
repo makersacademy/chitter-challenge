@@ -23,4 +23,4 @@ In the web browser: http://localhost:9292
 
 ## Screenshot
 
-![Alt text](/app/public/img/screenshot.jpg?raw=true "Screenshot")
+![Alt text](/app/public/img/screenshot.png?raw=true "Screenshot")
