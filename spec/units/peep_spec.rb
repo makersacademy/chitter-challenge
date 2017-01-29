@@ -21,6 +21,7 @@ describe Peep do
       peep.save
       sleep 1
       peep2.save
+      binding.pry
       expect(Peep.sort_time_rev).to eq([peep2, peep])
     end
   end

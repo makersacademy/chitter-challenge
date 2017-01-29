@@ -1,6 +1,6 @@
 <div id="peeps_list">
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep.message %></li>
+  <li><%= "#{peep.user.username} (#{peep.created_at.strftime("%d/%m/%y %R")}): #{peep.message}" %></li>
   <% end %>
 </ul>
