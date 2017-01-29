@@ -37,7 +37,7 @@ Project includes a Peep and User class.
 
 Technologies
 ------------
-* Code is written in Ruby
+* Code is written in Ruby, HTML, and CSS
 * Testing done using RSpec and Capybara
 * Sinatra Framework (DSL) used to create web application using Ruby
 * DataMapper (ORM) used to manipulate databases
