@@ -24,6 +24,8 @@ class User
     property :user_name,        String, required: true, unique: true
     property :password_digest,  Text
     
+    has n, :peeps, #:through => Resource
+    
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)

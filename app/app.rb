@@ -65,7 +65,18 @@ class Chitter < Sinatra::Base
     end
     
     get '/peeps' do
+        @peeps = Peep.all
         erb(:peeps)
+    end
+    
+    post '/peeps' do
+        peep = Peep.create(body: params[:peep])
+        current_user.peeps << peep
+        current_user.save
+        if peep.save
+            flash.keep[:notice] = "Your peep is free!"
+        end
+        redirect '/peeps'
     end
     
     # start the server if ruby file executed directly
