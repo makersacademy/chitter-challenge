@@ -1,36 +1,17 @@
+require 'web_helper'
+
 feature "sign up to Chitter" do
-  scenario "it allows users to sign up using their name" do
-    visit '/sign_up'
-      fill_in :name, with: "James"
-      click_button :Submit
-      expect(current_path).to eq '/home'
-    end
-
-  scenario "it allows users to sign up using their email" do
-    visit '/sign_up'
-    fill_in :name, with: "James"
-    fill_in :email, with: "james@email.com"
-    click_button :Submit
-    expect(current_path).to eq '/home'
+  scenario "it allows users to sign up using their name, email, username and password" do
+    expect { sign_up }.to change(User, :count).by(1)
   end
 
-  scenario "it allows users to sign up with a username" do
-    visit '/sign_up'
-    fill_in :name, with: "James"
-    fill_in :email, with: "james@email.com"
-    fill_in :username, with: "jimbo"
-    click_button :Submit
-    expect(current_path).to eq '/home'
+  scenario "it prevents users from signing up if their email has already been registered" do
+    sign_up
+    expect { sign_up_with_used_email }.not_to change(User, :count)
   end
 
-  scenario "it allows users to sign up with a password" do
-    visit '/sign_up'
-    fill_in :name, with: "James"
-    fill_in :email, with: "james@email.com"
-    fill_in :username, with: "jimbo"
-    fill_in :password, with: "llama123"
-    click_button :Submit
-    expect(current_path).to eq '/home'
+  scenario "it prevents users from signing up if their username has already been registered" do
+    sign_up
+    expect { sign_up_with_used_username}.not_to change(User, :count)
   end
-
 end
