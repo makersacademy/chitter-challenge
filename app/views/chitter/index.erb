@@ -1,4 +1,5 @@
 <% if !current_user %>
+<h1>Welcome to Chitter!</h1>
 <form action = "sessions/new" method = "get">
   <input type = "submit" value = "Sign In">
 </form>
@@ -11,13 +12,13 @@
 
 <% if current_user %>
   <form action="/chitter" method="post">
-    <label> Peep </label>
+    <label> Post a peep </label>
     <input type="text" name="message">
     <input type="submit" value="Peep!">
   </form>
 <% end %>
 
-<h1> Peeps </h1>
+<h2> Latest peeps </h2>
 <ul id='peeps'>
   <% @posts.each do |post| %>
     <li>
