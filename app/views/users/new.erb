@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+
+    <h1>Sign Up and start peeping!</h1>
+
+    <form action='/users' method='post'>
+      <label for='name'>
+        Name: <input name='name' type='text'>
+      </label>
+      <label for='user_name'>
+        Nickname: <input name='user_name' type='text'>
+      </label>
+      <label for='email'>
+        Email: <input name='email' type='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+      </label>
+      <label for='password'>
+        Password: <input name='password' type='password'>
+      </label>
+      <label for="password_confirmation">
+        Confirm password: <input type="password" name="password_confirmation">
+      </label>
+      <input type='submit' value='Sign Up'>
+    </form>
+    
+  </body>
+</html>
