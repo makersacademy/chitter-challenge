@@ -10,3 +10,8 @@ require_relative 'server'
 require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/twits'
+
+
+class Tweeter < Sinatra::Base
+  run! if $PROGRAM_NAME == "lib/app.rb"
+end
