@@ -8,13 +8,12 @@ feature 'sign_up' do
   xscenario 'fails if passwords do not match' do
     incorrect_sign_up
     expect{ click_button('submit')}.not_to change(User, :count)
-    expect(page).to have_content('Passwords do not match')
   end
   scenario 'cant sign up without an email address' do
     no_email_sign_up
     expect{ click_button('submit')}.not_to change(User, :count)
   end
-  scenario "I can't sign up with an invalid email address" do
+  scenario "I cant sign up with an invalid email address" do
     incorrect_email_address
     expect{ click_button('submit')}.not_to change(User, :count)
   end

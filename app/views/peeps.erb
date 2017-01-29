@@ -1,6 +1,7 @@
 <h3> Peeps -</h3>
 
 <% @peeps.each do |peep| %>
-<br>
+<ul style="list-style-type:disc">
   Message - <%= peep.message %>
+</ul>
 <% end %>
