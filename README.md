@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+[![Coverage Status](https://coveralls.io/repos/github/shezdev/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/shezdev/chitter-challenge?branch=master)
 
 Installation instructions
 ==========================
@@ -36,7 +37,22 @@ Coveralls.wear!
 > Updated feature test 1B to expect a welcome page when clicking submit
 > Creating a model called app/models/chitter_user.rb.
 > bundle update - ran this to update all gems, as was getting unexplained error - Users/shereen/.rvm/gems/ruby-2.3.3/gems/dm-types-0.10.0/lib/dm-types.rb:7:in `<module:Types>': undefined method `/' for #<String:0x007f8fc9e99ed0> (NoMethodError)
->
+> Using the following gems:
+gem 'sinatra'
+gem 'rake'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'database_cleaner'
+
+  gem 'rspec'
+  gem 'rspec-sinatra'
+  gem 'capybara'
+  gem 'cucumber'
+
+  gem 'coveralls', require: false
 
 
 
