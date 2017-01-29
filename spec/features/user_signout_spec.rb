@@ -5,6 +5,6 @@ feature 'Signing out' do
     sign_in(email: 'johndoe@internet.com', password: 'test')
     click_button 'Sign out'
     expect(page).to have_content 'See you later!'
-    expect(page).not_to have_content 'Hi, John Doe!'
+    expect(page).not_to have_content "Hi, John Doe!"
   end
 end

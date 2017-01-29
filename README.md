@@ -104,6 +104,13 @@ Progress
     - a sign out confirmation message is displayed
     - the user's salutation by name is absent
 
+4. Story 04:
+  * When a user signs in, they can
+    - see their own peep list
+    - create a new peep via a dedicated peep form.
+  * Each peep has a header with the user's name and username
+  * The public can freely access a user's peep list at `/username`.
+  * A user can post only if they have signed in. Otherwise, they are redirected to the sign in page. A signup button is available there, too.
 
 Issues
 -----
@@ -123,4 +130,7 @@ Issues
   * More thorough unit testing might be required for the User.rb model. Aside from #authenticate, a test for #password= might be needed.
 
 3. Story 03:
+  * Nothing so far.
+
+4. Story 04:
   * Nothing so far.

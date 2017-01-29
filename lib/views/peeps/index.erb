@@ -1,1 +1,37 @@
-No peeps yet!
+<% if current_user %>
+
+  <h3> Your peeps </h3>
+
+  <form action='/peeps/new' method="get">
+    <button type="submit">New peep</button>
+  </form>
+
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= current_user.name %>
+        @<%= current_user.username %>
+        <br>
+        <%= peep.content %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+<% elsif @author %>
+
+  <h3> <%= @author.name %>'s peeps: </h3>
+
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= @author.name %>
+        @<%= @author.username %>
+        <br>
+        <%= peep.content %>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+
+<% end %>

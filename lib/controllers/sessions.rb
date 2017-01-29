@@ -19,5 +19,4 @@ class Chitter < Sinatra::Base
     flash.keep[:sign_out] = 'See you later!'
     redirect '/peeps'
   end
-
 end
