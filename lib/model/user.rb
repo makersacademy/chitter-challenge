@@ -30,7 +30,7 @@ class User
   end
 
   def password_requirements_check
-    return true if @password == nil
+    return true if @password.nil?
     return false if @password.length < 1
     # other password rules here
     true
