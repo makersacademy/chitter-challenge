@@ -2,6 +2,12 @@ require 'spec_helper'
 
 feature 'sign up form' do
 
+  scenario "can return to homepage" do
+    visit('/users/new')
+    click_button('Back')
+    expect(page).to have_current_path('/')
+  end
+
   context 'password verification' do
     context 'password matches' do
       scenario 'can sign up' do

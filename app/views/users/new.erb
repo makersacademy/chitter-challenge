@@ -1,4 +1,4 @@
-<div class='new' style="font-family: arial">
+<span style="font-family: arial">
   <h2> Sign up to Chitter </h2>
 
   <form action='/users/new' method='POST'>
@@ -22,6 +22,13 @@
       Confirm Password:
       <input type='password' name='password_conf' required/>
     </label><br>
+  <div id="sign_up" style='float:left; margin: 0 1em 0 0'>
     <input type='submit' value='Sign Up'>
+  </div>
   </form>
-</div>
+  <div id="back">
+    <form action='/' method='GET'>
+      <input type='submit' value='Back'>
+    </form>
+  </div>
+</span>
