@@ -8,7 +8,9 @@ describe Peep do
     end
     
     let!(:peep) do
-        Peep.create(body: 'This is a peep')
+        Timecop.freeze do
+            Peep.create(body: 'This is a peep')
+        end
     end
     
     before do
@@ -22,5 +24,10 @@ describe Peep do
     
     it 'can return the creators user_name' do
         expect(peep.user_name).to eq "mj"
+    end
+        
+    it 'can return the formatted date of creation' do
+        time = Time.now
+        expect(peep.creation_date).to eq(time.strftime("%b %e %k:%M"))
     end
 end

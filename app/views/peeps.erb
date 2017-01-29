@@ -32,7 +32,7 @@
       <div>
         <dl id='peeps'>
           <% @peeps.each do |peep| %>
-            <dt><%= peep.name %> @<%= peep.user_name %></dt>
+            <dt><%= peep.name %> @<%= peep.user_name %> - <%= peep.creation_date %></dt>
             <dd><%= peep.body %></dd>
             <br>
           <% end %>

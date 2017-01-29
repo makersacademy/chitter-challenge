@@ -60,12 +60,12 @@ class Chitter < Sinatra::Base
     
     delete '/sessions' do
         session[:user_id] = nil
-        flash.keep[:notice] = 'Farewell!'
+        flash.keep[:notice] = 'Peep you later!'
         redirect to '/peeps'
     end
     
     get '/peeps' do
-        @peeps = Peep.all
+        @peeps = Peep.reverse_chronological
         erb(:peeps)
     end
     

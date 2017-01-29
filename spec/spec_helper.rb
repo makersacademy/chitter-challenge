@@ -8,6 +8,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'database_cleaner'
+require 'timecop'
 
 require './app/app'
 require './app/models/user'
