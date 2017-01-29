@@ -1,8 +1,10 @@
 <div id="peeps-container">
   <% recent_peeps.each do |peep| %>
-  <p><%= peep.user.name %></p>
-  <p><%= peep.user.user_name %></p>
-  <p><%= peep.peep_text %></p>
-  <p><%= peep.created_at.strftime("%l:%M%P on %d/%m/%Y") %></p>
+  <div class="peep">
+    <p><%= peep.user.name %></p>
+    <p><%= peep.user.user_name %></p>
+    <p><%= peep.peep_text %></p>
+    <p><%= peep.created_at.strftime("%l:%M%P on %d/%m/%Y") %></p>
+  </div>
   <% end  %>
 </div>

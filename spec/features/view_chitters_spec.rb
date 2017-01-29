@@ -7,6 +7,8 @@ feature "FEATURE: view chitters" do
   let(:password_confirmation) { 'password' }
   let(:peep_user_id) { 1 }
   let(:peep_text) { "Second star to the right and straight on 'til morning." }
+  let(:max_peeps) { Peep::MAX_PEEP_PER_PAGE }
+  max_peeps = Peep::MAX_PEEP_PER_PAGE
 
   context "user created with one peep" do
     before do
@@ -37,6 +39,20 @@ feature "FEATURE: view chitters" do
       visit('/')
       within('#peeps-container') do
         expect(page).to have_content(Time.now.strftime("%l:%M%P on %d/%m/%Y"))
+      end
+    end
+  end
+
+  context "#{max_peeps + 1} peeps created" do
+    before do
+      user = User.create(name: name, email: email, user_name: user_name, password: password, password_confirmation: password_confirmation)
+      (max_peeps + 1).times { user.peeps.create(peep_text: peep_text) }
+    end
+
+    scenario "Maximum of #{max_peeps} can be displayed at one time" do
+      visit('/')
+      within('#peeps-container') do
+        expect(page).to have_selector('.peep', count: 10)
       end
     end
 

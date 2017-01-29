@@ -3,6 +3,8 @@ require 'dm-timestamps'
 
 class Peep
 
+  MAX_PEEP_PER_PAGE = 10
+
   include DataMapper::Resource
 
   property :id, Serial
