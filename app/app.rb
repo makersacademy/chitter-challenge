@@ -5,8 +5,6 @@ require 'sinatra/flash'
 
 require_relative 'datamapper_setup'
 
-EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -46,8 +44,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/chat'
     else
-      flash.now[:errors] = user.errors
-      puts "*************", user.errors
+      flash[:errors] = user.errors.full_messages
       session[:email] = params[:email]
       redirect '/signup'
     end
@@ -63,7 +60,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/chat'
     else
-      flash[:fail_login] = 'The email or password is incorrect'
+      flash[:authenticate] = 'Your email or password is incorrect.'
       erb :login
     end
   end

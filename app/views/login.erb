@@ -8,11 +8,6 @@
   <input class="btn btn-lg btn-primary btn-block" type='submit' value='Log in'>
 </form>
 
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<% if flash[:authenticate] %>
+  <%= flash[:authenticate] %>
+<%end%>

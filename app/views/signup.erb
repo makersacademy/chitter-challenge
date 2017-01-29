@@ -17,11 +17,10 @@
   <input class="btn btn-lg btn-primary btn-block" type='submit' value='Submit'>
 </form>
 
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
+<% if flash[:errors] %>
+  <div id="errors">
     <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+      <div class='error'><p><%= error %></p></div>
     <% end %>
-  </ul>
+  </div>
 <% end %>
