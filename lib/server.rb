@@ -18,5 +18,8 @@ class Tweeter < Sinatra::Base
     def all_twits
       @all_twits ||= Twit.all(order: [:time_stamp.desc])
     end
+
+    # start the server if ruby file executed directly
+    run! if app_file == $PROGRAM_NAME
   end
 end
