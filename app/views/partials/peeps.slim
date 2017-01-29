@@ -1,7 +1,8 @@
 .feed
   - if @peeps
     - @peeps.reverse.each do |peep|
-        - id = peep.id
+        - id = peep.user_id
+        - p peep
         article.peep-feed id="peep-#{id}"
           header.peep-title
             == peep_header(peep)

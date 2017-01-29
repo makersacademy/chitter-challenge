@@ -8,7 +8,7 @@ module Helpers
   end
 
   def peep_header(peep)
-    @peep_poster ||= User.first(id: peep.user_id)
+    @peep_poster = User.first(id: peep.user_id)
     user = "<strong>#{@peep_poster.name}</strong> - @#{@peep_poster.username}"
     post_time = (peep.timestamp.strftime 'on %a %d %b at %H:%M').to_s
     user + ' ' + post_time
