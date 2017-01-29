@@ -1,0 +1,14 @@
+<div align='center'>
+  <br><br><br><br>
+
+ <%if current_user%>
+  <h3><a href="/write_peep">Click here to write Peeps</a></h3>
+   <% else%>
+   <h3>To write peeps: <a href="/sign_up"> Sign Up </a> / <a href="/sign_in"> Sign In </h3> </a>
+   <%end%>
+     <% if @peep %>
+     <% @peep.each do |peep| %>
+    <ul> Peep: <%=peep.body%>, Date: <%=peep.created_at%>, Author_name: <%=peep.peep_author_name%>, Author_username <%=peep.peep_author_username%></ul>
+    <% end %>
+   <% end %>
+ </div>

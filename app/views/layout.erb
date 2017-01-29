@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+    p {
+        color: blue;
+    }
+    h1,
+    h3 {
+        font-family: Impact, Charcoal, sans-serif;
+        color: green;
+    }
+
+    h2 {
+      color: blue;
+    }
+    h4{
+      color: blue;
+    }
+
+    h5 {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border-radius: : 2px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    fieldset {
+        font-size: 12px;
+        padding: 10px;
+        width: 250px;
+        line-height: 1.8;
+    }
+
+
+</style>
+  <head>
+    <% if current_user %>
+      <form action='/sign_out' method='post' >
+      <table align='right'>
+        <tr>
+          <td><h4>Welcome, <%= current_user.email %></h4></td>
+          <td><input type='hidden' name='_method' value='delete'></td>
+          <td><input type='submit' value='Sign out'></td>
+        </tr>
+        </table>
+      </form> <br>
+    <% end %>
+<div align='center'>
+  <br>
+  <br>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <h4><%= error %></h4>
+    <% end %>
+  </ul>
+<% end %>
+    <title>Chitter</title>
+  </head>
+
+  <body background='https://www.lowthiandesign.com/wp-content/uploads/2016/02/light-background.jpg'>
+
+    <%= yield %>
+  </body>
+</div>
+
+<h5>®Chitter2017</h5>
+</html>
