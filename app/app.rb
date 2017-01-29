@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -60,6 +61,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    flash.keep[:notice] = "Goodbye #{current_user.username}!"
+    session[:user_id] = nil
+    redirect to '/'
+  end
   #run! if app_file == $0
   run! if app_file == $0
 end

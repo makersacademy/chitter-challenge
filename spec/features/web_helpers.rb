@@ -9,6 +9,7 @@ def sign_up(email: 'test@example.com', password_confirmation: 'secret')
 end
 
 def sign_in(email:, password:)
+  sign_up
   visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password

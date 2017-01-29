@@ -1,15 +1,4 @@
-<html>
-<head><title>Chitter</title>
-  <link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png"
-  rel="icon" sizes="16x16" type="image/png">
-  <link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
-  <link rel="stylesheet" type="text/css" href="<%= url('/main.css') %>">
-</head>
-<body>
-<% if flash[:notice] %>
-  <div id='notice'><%= flash[:notice] %></div>
-<% end %>
-<div id="main">
+<div id="signup">
 <h1> User signup </h1>
 <form action='/user/signing_up' method='POST' >
   Email:   <input type="text" type='email' name="email" required><br /><br />
@@ -20,5 +9,3 @@
   <input type="submit" value="Sign up" />
 </form>
 </div>
-</body>
-</html>
