@@ -5,8 +5,8 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-# Coveralls.wear!
-SimpleCov.start
+Coveralls.wear!
+# SimpleCov.start
 
 require 'capybara'
 require 'capybara/rspec'
