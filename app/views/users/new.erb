@@ -1,0 +1,34 @@
+<span style="font-family: arial">
+  <h2> Sign up to Chitter </h2>
+
+  <form action='/users/new' method='POST'>
+    <label for='name'>
+      Full Name:
+      <input type='text' name='name' value='<%=@name_res%>' required />
+    </label><br>
+    <label for='username'>
+      User Name:
+      <input type='text' name='username' value='<%=@user_res%>' required />
+    </label><br>
+    <label for='email'>
+      Email:
+      <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
+    </label><br>
+    <label for='password'>
+      Password:
+      <input type='password' name='password' required/>
+    </label><br>
+    <label for='password_confirmation'>
+      Confirm Password:
+      <input type='password' name='password_conf' required/>
+    </label><br>
+  <div id="sign_up" style='float:left; margin: 0 1em 0 0'>
+    <input type='submit' value='Sign Up'>
+  </div>
+  </form>
+  <div id="back">
+    <form action='/' method='GET'>
+      <input type='submit' value='Back'>
+    </form>
+  </div>
+</span>

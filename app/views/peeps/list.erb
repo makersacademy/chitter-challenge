@@ -1,0 +1,42 @@
+<div id='welcome' style='float:left; margin: 0 1em 0 0'>
+  <% if current_user %>
+  Welcome, <%= current_user.email %>
+  <% end %>
+</div>
+<div id='sign_out' >
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign Out'>
+   </form>
+</div>
+
+
+<h3> Let's peep </h3>
+<div id='peep_add' style='float:left; margin: 0 1em 0 0'>
+  <form action='/peeps' method='POST'>
+    <label for='title'>
+      Peep:
+      <input type='text' name='message' />
+    </label>
+</div>
+<div id='add'>
+    <input type='submit' value='Add'>
+  </form>
+</div>
+<div id='peeps'>
+  <% if @peeps %>
+    <h3>Recent Peeps</h3>
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.message %><br>
+        By: <%= peep.name %>,
+        @<%= peep.username %><br>
+        Created: <%="#{ peep.created_at.strftime("%H:%M, %d/%m/%y") }"%>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h3>No Peeps yet :(</h3>
+  <% end %>
+</div>
