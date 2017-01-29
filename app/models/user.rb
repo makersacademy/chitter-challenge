@@ -10,6 +10,7 @@ class User
 
   property :id,              Serial
   property :name,            String
+  property :username,        String
   property :email,           String
   property :password_digest, Text
 
@@ -26,6 +27,8 @@ class User
       nil
     end
   end
+
+  validates_uniqueness_of   :username
 
   validates_presence_of     :email
   validates_format_of       :email, as: :email_address

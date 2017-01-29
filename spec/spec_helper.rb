@@ -7,6 +7,7 @@ require 'web_helper'
 
 require 'coveralls'
 require 'simplecov'
+require 'timecop'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,

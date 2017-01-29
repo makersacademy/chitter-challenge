@@ -19,3 +19,4 @@ gem 'coveralls', require: false   # analysing test coverage
 gem 'rubocop-rspec'               # analysing test cleanliness/style
 gem 'rubocop'                     # analysing code cleanliness/style
 gem 'database_cleaner'
+gem 'timecop'
