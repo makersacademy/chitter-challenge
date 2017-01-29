@@ -1,5 +1,14 @@
 <h1>Welcome to the Chitter feed!</h1>
-<h2>You are <%= @user.name %></h2>
+<h2>You are <%= @user.name.capitalize %>  (<%= @user.username %>)</h2>
+
+<h2>Write a peep?</h2>
+<form action="/peep" method="post">
+  <textarea name="peep" cols="40" rows="5"></textarea>
+  <input type="submit" value="Peep!">
+  <input name='name' type='hidden' value="<%=  @user.name %>">
+  </label>
+</form>
+
 <form action="/logout">
   <input type="submit" value="Logout">
 </form>

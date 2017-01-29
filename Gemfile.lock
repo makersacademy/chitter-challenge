@@ -148,7 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (~> 3.1.7)
   capybara
   coveralls
   cucumber

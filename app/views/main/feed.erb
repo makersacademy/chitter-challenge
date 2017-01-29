@@ -3,3 +3,12 @@
 <form action="/login">
   <input type="submit" value="Login">
 </form>
+
+<ul id='links'>
+  <% @feed.reverse.each do |peep| %>
+    <li>
+      <h2><%= peep.name %></h2>
+      <h3><%= peep.peep %></h3>
+    </li>
+  <% end %>
+</ul>

@@ -6,7 +6,7 @@ gem 'capybara'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 gem 'sinatra-flash'
 
 
