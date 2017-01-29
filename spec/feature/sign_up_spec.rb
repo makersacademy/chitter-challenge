@@ -18,7 +18,7 @@ feature 'sign_up' do
     incorrect_email_address
     expect{ click_button('submit')}.not_to change(User, :count)
   end
-  scenario 'I cannot sign up with an existing email' do
+  xscenario 'I cannot sign up with an existing email' do
     correct_sign_up
     click_button 'submit'
     correct_sign_up

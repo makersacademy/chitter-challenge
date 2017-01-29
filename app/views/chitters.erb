@@ -1,14 +1,3 @@
-<% if current_user %>
-  Welcome, <%= current_user.name %>
-<% end %>
-<% if flash[:error] && !flash[:error].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:error].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
 </br>
 Welcome to Chitter!
 </br>

@@ -30,6 +30,11 @@ def incorrect_email_address
 end
 
 def correct_sign_in
+  visit '/sign_up'
+  fill_in :name, with: 'Fred'
+  fill_in :email, with: 'fred@example.com'
+  fill_in :password, with: 'fred123'
+  fill_in :password_confirmation, with: 'fred123'
   visit '/log_in'
   fill_in :email, with: 'fred@example.com'
   fill_in :password, with: 'fred123'

@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require 'bcrypt'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super_secret'
 
@@ -31,14 +32,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/chitters' do
-    # password_digest = BCrypt::Password.create(params[:password])
     @user = User.new(name: params[:name], email: params[:email], password_digest: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/chitters')
     else
-
-      flash.now[:error] = @user.errors.full_messages
+      flash[:error] = @user.errors.full_messages
       erb :sign_up
     end
   end
@@ -53,9 +52,15 @@ class Chitter < Sinatra::Base
     session[:user_id] = user.id
     redirect to('/chitters')
   else
-    flash.now[:error] = ['The email or password is incorrect']
+    flash[:error] = ['The email or password is incorrect']
     erb :log_in
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:error] = 'goodbye!'
+    redirect to '/'
   end
 
   # start the server if ruby file executed directly

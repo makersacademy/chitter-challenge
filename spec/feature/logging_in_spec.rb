@@ -6,6 +6,6 @@ feature 'Logging in' do
     click_button 'Log-in'
     correct_sign_in
     click_button 'Log-in'
-    expect(page).to have_content "Welcome, #{current_user.name}"
+    expect(page).to have_content "Welcome, #{user.email}"
   end
 end
