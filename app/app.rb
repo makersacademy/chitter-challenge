@@ -17,7 +17,17 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/' do
+    @user = User.new
     erb :'users/new'
+  end
+
+  post '/users/new' do
+    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
+    redirect '/feed'
+  end
+
+  get '/feed' do
+    erb :'main/feed'
   end
 
 
