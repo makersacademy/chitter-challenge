@@ -73,7 +73,7 @@ class Chitter < Sinatra::Base
     if session[:user_id]
       erb(:'peeps/list')
     else
-      flash[:sign] = "Please sign in to view this page"
+      flash[:notice] = "Please sign in to view this page"
       redirect '/'
     end
   end

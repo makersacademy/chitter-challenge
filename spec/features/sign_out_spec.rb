@@ -13,5 +13,6 @@ feature 'User signs out' do
     click_button 'Sign Out'
     expect(page).to have_content('Goodbye!')
     expect(page).not_to have_content('Welcome, test@test.com')
+    expect(page).to have_current_path('/')
   end
 end

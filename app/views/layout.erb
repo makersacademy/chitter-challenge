@@ -6,26 +6,23 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:sign] %>
-      <div id='sign'>
-        <%= flash[:sign] %>
-      </div>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Sorry, there was a problem:
-      <ul id="errors">
-        <% flash[:errors].each do |error| %>
-        <li>
-          <%=error%>
-        </li>
-        <%end%>
-      </ul>
-    <%end%>
-    <%= yield %>
+    <span style="font-family: arial">
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Sorry, there was a problem:
+        <ul id="errors">
+          <% flash[:errors].each do |error| %>
+          <li>
+            <%=error%>
+          </li>
+          <%end%>
+        </ul>
+      <%end%>
+      <%= yield %>
+    </span>
   </body>
 </html>
