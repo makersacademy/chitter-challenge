@@ -11,9 +11,9 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <% if flash[:post] %>
-      <div id='post'>
-        <%= flash[:post] %>
+    <% if flash[:sign] %>
+      <div id='sign'>
+        <%= flash[:sign] %>
       </div>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
@@ -24,6 +24,7 @@
           <%=error%>
         </li>
         <%end%>
+      </ul>
     <%end%>
     <%= yield %>
   </body>

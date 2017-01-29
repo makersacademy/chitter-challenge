@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   before do
-    @peeps = Peep.all(order: :created_at.desc)
+    Peep.count > 0 ? @peeps = Peep.all(order: :created_at.desc) : @peeps = nil
   end
 
   get '/' do
@@ -73,7 +73,7 @@ class Chitter < Sinatra::Base
     if session[:user_id]
       erb(:'peeps/list')
     else
-      flash[:errors] = ["Please sign in to view this page"]
+      flash[:sign] = "Please sign in to view this page"
       redirect '/'
     end
   end
