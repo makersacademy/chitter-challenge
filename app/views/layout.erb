@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chitter</title>
+    <title>Chittle</title>
   </head>
+  <h1> Welcome to Chitter</h1>
 </body>
   <% if current_user %>
-    Welcome, <%= current_user.username %>
+    Welcome back, <%= current_user.username %>
       <form method='post' action='/sessions'>
         <input type='hidden' name= '_method' value='delete'>
         <input type='submit' value = 'Sign Out'>
@@ -21,7 +22,7 @@
   <% if flash[:error] %>
     <div id='error'><%= flash[:error] %></div>
   <% end %>
-  
+
   <%= yield %>
 </body>
 </html>
