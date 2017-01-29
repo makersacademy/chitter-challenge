@@ -1,17 +1,40 @@
-<h1> Welcome to Chitter! </h1>
-<h4> Please sign in... </h4>
-<form action='/users/existing' method='POST'>
-  <label for='email'>
-    Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
-  </label><br>
-  <label for='password'>
-    Password:
-    <input type='password' name='password' />
-  </label><br>
-  <input type='submit' value='Sign In'>
-</form>
+<span style="font-family: arial">
+  <h1> Welcome to Chitter! </h1>
+  <h4> Please sign in... </h4>
 
-<form action='/users/new' method='GET'>
-  <input type='submit' value='Sign Up'>
-</form>
+    <form action='/users/existing' method='POST'>
+      <label for='email'>
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
+      </label><br>
+      <label for='password'>
+        Password:
+        <input type='password' name='password' />
+      </label><br>
+  <div id='sign_in' style='float:left; margin: 0 1em 0 0'>
+      <input type='submit' value='Sign In'>
+    </form>
+  </div>
+  <div id='sign_up'>
+    <form action='/users/new' method='GET'>
+      <input type='submit' value='Sign Up'>
+    </form>
+  </div>
+  <div id='peeps'>
+    <% if @peeps %>
+      <h3>Recent Peeps</h3>
+      <ul id="peeps">
+        <% @peeps.each do |peep| %>
+        <li>
+          <%= peep.message %><br>
+          By: <%= peep.name %>,
+          @<%= peep.username %><br>
+          On: <%="#{ peep.created_at.strftime("%H:%M, %d/%m/%y") }"%>
+        </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2>No Peeps yet :(</h2>
+    <% end %>
+  </div>
+</span>

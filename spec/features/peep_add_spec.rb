@@ -22,8 +22,8 @@ feature "Adding peeps" do
 
     within 'ul#peeps' do
       expect(page).to have_content(message)
-      expect(page).to have_content('user')
-      expect(page).to have_content('name')
+      expect(page).to have_content('By: name')
+      expect(page).to have_content('@user')
     end
   end
 end

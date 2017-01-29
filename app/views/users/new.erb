@@ -1,25 +1,27 @@
-<h1> Sign Up! </h1>
+<div class='new' style="font-family: arial">
+  <h2> Sign up to Chitter </h2>
 
-<form action='/users/new' method='POST'>
-  <label for='name'>
-    Full Name:
-    <input type='text' name='name' value='<%=@name_res%>' required />
-  </label><br>
-  <label for='username'>
-    User Name:
-    <input type='text' name='username' value='<%=@user_res%>' required />
-  </label><br>
-  <label for='email'>
-    Email:
-    <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
-  </label><br>
-  <label for='password'>
-    Password:
-    <input type='password' name='password' required/>
-  </label><br>
-  <label for='password_confirmation'>
-    Confirm Password:
-    <input type='password' name='password_conf' required/>
-  </label><br>
-  <input type='submit' value='Sign Up'>
-</form>
+  <form action='/users/new' method='POST'>
+    <label for='name'>
+      Full Name:
+      <input type='text' name='name' value='<%=@name_res%>' required />
+    </label><br>
+    <label for='username'>
+      User Name:
+      <input type='text' name='username' value='<%=@user_res%>' required />
+    </label><br>
+    <label for='email'>
+      Email:
+      <input type='text' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='<%=@email_res%>' required />
+    </label><br>
+    <label for='password'>
+      Password:
+      <input type='password' name='password' required/>
+    </label><br>
+    <label for='password_confirmation'>
+      Confirm Password:
+      <input type='password' name='password_conf' required/>
+    </label><br>
+    <input type='submit' value='Sign Up'>
+  </form>
+</div>

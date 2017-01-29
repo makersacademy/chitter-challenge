@@ -20,6 +20,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  before do
+    @peeps = Peep.all
+  end
+
   get '/' do
     erb(:index)
   end
@@ -58,12 +62,14 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+    session[:email] = nil
+    session[:name] = nil
+    session[:username] = nil
     flash.keep[:notice] = "Goodbye!"
     redirect to '/'
   end
 
   get '/peeps' do
-    @peeps = Peep.all
     erb(:'peeps/list')
   end
 

@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'dm-core'
+require 'dm-timestamps'
+
 class Peep
   include DataMapper::Resource
 
@@ -5,5 +9,7 @@ class Peep
   property :message, String, length: 2000
   property :name, String
   property :username, String
+  property :created_at, DateTime
+  property :created_on, Date
   belongs_to :user
 end
