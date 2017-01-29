@@ -3,7 +3,7 @@
 <form action="/users" method="post">
 
   Email Address:
-  <input type="text" name="email"> value='<%= @user.email %>' <br>
+  <input type="text" name="email" value='<%= @user.email %>'> <br>
 
   Password:
   <input type="text" name="password"><br>
@@ -12,10 +12,10 @@
   <input type="text" name="password_confirmation"><br>
 
   Name
-  <input type="text" name="name"><br>
+  <input type="text" name="name" value='<%= @user.name %>'> <br>
 
   Username
-  <input type="text" name="user_name"><br>
+  <input type="text" name="user_name" value='<%= @user.name %>'><br>
 
   <label for="Sign Up">
   <input type="submit" name="Sign Up" value="Sign Up">
