@@ -164,7 +164,7 @@ DEPENDENCIES
   phantomjs
   poltergeist
   rack
-  rainbow (>= 2.1.0, < 2.2.0)
+  rainbow (~> 2.1.0)
   rake
   rspec
   rspec-sinatra

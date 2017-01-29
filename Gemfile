@@ -16,7 +16,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'phantomjs'
 gem 'rack'
-gem 'rainbow', '>=2.1.0', '< 2.2.0'
+gem 'rainbow', '~>2.1.0'
 gem 'rspec-sinatra'
 gem 'rubocop', '~> 0.47.1', require: false
 gem 'sinatra'
