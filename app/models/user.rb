@@ -6,7 +6,7 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
-
+  #validates_confirmation_of is a datamapper method. it stops the model from saving unless password matches.
   validates_confirmation_of :password
 
   property :id, Serial
@@ -16,6 +16,7 @@ class User
   property :user_name, String
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

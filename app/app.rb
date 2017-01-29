@@ -22,19 +22,29 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password], name: params[:name], user_name: params[:user_name])
-    session[:user_id] = @user.id #setting the session equal to the user id, so that they stay logged in.
+    @user = User.create(email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation],
+                        name: params[:name],
+                        user_name: params[:user_name])
+     #setting the session equal to the user id, so that they stay logged in.
     #session equal to user id, NOT THE OTHER WAY AROUND
-    # if @user.save
+    if @user.save #the save method returns a boolean depending on whether the instance of user is saved.
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:notice] = "Passwords do not match!"
+      erb :'users/new'
+    end
     #   session[:user_id] = @user.id
     #   redirect to('/peeps')
     # else
     #   flash.now[:notice] = "Passwords do not match"
-    redirect to('/peeps')
   end
 
   get '/peeps' do
