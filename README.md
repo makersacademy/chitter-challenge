@@ -16,11 +16,11 @@ visit <http://localhost:4567/>
 
 * Play with Chitter online on  **Heroku**: https://makers-chitter-app.herokuapp.com/
 
-* Chitter uses the following **technologies**:
-⋅⋅⋅`gem 'data_mapper'` - [DataMapper](http://datamapper.org/) > a Object-Relational Map (ORM) that 'speaks ruby' to interact with databases.⋅⋅
-⋅⋅⋅`gem 'dm-postgres-adapter'` - [PostgresQL](https://www.postgresql.org/) > an open source relational database management system (DBMS).⋅⋅
-⋅⋅⋅`gem 'bcrypt'` - [BCrypt](https://github.com/codahale/bcrypt-ruby) > a library to encrypt/decrypt strings to keep passwords safe.⋅⋅
-⋅⋅⋅ And - of course - [Sinatra](http://www.sinatrarb.com/) to develop Ruby Web Applications.
+Chitter uses the following **technologies**:
+* `gem 'data_mapper'` - [DataMapper](http://datamapper.org/) a Object-Relational Map (ORM) that 'speaks ruby' to interact with databases.
+* `gem 'dm-postgres-adapter'` - [PostgresQL](https://www.postgresql.org/) an open source relational database management system (DBMS).
+* `gem 'bcrypt'` - [BCrypt](https://github.com/codahale/bcrypt-ruby) a library to encrypt/decrypt strings to keep passwords safe.
+* And - of course - [Sinatra](http://www.sinatrarb.com/) to develop Ruby Web Applications.
 
 Travis CI Status Budge:
 [![Build Status](https://travis-ci.org/nenoch/chitter-challenge.svg?branch=master)](https://travis-ci.org/nenoch/chitter-challenge)
