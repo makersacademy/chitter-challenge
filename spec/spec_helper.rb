@@ -9,6 +9,7 @@ require 'database_cleaner'
 require 'features/web_helpers'
 require 'coveralls'
 require 'simplecov'
+require 'pry-byebug'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
