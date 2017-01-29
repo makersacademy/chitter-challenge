@@ -1,6 +1,5 @@
 # in /spec/models/user_spec.rb
 require 'spec_helper'
-require 'web_helper'
 
 describe User do
 

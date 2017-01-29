@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter

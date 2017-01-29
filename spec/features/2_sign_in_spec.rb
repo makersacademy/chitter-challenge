@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'web_helper'
 
 # As a Maker
 # So that I can post messages on Chitter as me
@@ -18,11 +17,6 @@ feature "FEATURE 2: Sign in" do
     expect(page).to have_content "Welcome, #{user.user_email}"
   end
 
-  def sign_in(user_email:, password:)
-     visit '/sessions/new'
-     fill_in :user_email, with: user_email
-     fill_in :password, with: password
-     click_button 'Sign in'
-   end
+
 
 end
