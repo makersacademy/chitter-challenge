@@ -14,6 +14,20 @@ class ChitterChallenge < Sinatra::Base
     # redirect '/'
   end
 
+  get '/chitter' do
+    @posts = Peep.all
+    erb :'chitter/index'
+  end
+
+  get '/chitter/new' do
+    erb :'chitter/new'
+  end
+
+  post '/chitter' do
+    post = Peep.create(peep: params[:message], username: "DaUserID")
+    redirect '/chitter'
+  end
+
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'

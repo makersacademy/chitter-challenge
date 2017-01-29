@@ -20,6 +20,8 @@ require 'features/web_helpers'
 require 'database_cleaner'
 require './app/app'
 require './app/models/user'
+require './app/models/peep'
+
 
 
 Capybara.app = ChitterChallenge
