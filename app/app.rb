@@ -22,6 +22,10 @@ class Chitter < Sinatra::Base
     erb :signup
   end
 
+  post '/tosignup' do
+    redirect '/signup'
+  end
+
   post '/login' do
     user = User.authenticate(params[:email], params[:password])
     if user

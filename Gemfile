@@ -11,6 +11,7 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop'
   gem 'factory_girl'
+  gem 'waiting_rspec_matchers'
 end
 
 group :development do
