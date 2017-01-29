@@ -16,8 +16,11 @@
 <hi> Cheeps:</h1>
 
 <ul id='links'>
-  <% @cheeps.each do |cheep| %>
+  <% @cheeps_by_time.each do |cheep| %>
     <li>
+      <%= cheep.user.name %>
+      <%= cheep.user.username %>
+      <%= (cheep.created_at).strftime("at %H:%M") %>
       <%= cheep.content %>
     </li>
   <% end %>

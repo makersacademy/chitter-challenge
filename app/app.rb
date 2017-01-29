@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 
 
   get '/home' do
-    @cheeps = Cheep.all
+    @cheeps_by_time = Cheep.all(:order => [:created_at.desc])
     erb :home
   end
 
