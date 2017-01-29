@@ -1,16 +1,4 @@
 <header> Sign up below </header>
-
-<style>
-input[type=email], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-</style>
 <form method="post" action="/users">
   <label for="email">Email</label>
   <input type="email" name="email" value='<%= @user.email %>' required></input><br>

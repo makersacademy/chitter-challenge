@@ -13,6 +13,8 @@ Open browser and navigate to http://localhost:9292/
 ```
 
 <img src="http://imgur.com/vteiDV6.png"></img>
+<img src="http://imgur.com/lcuZ0Ly.png"></img>
+<img src="http://imgur.com/VyvlE2F.png"></img>
 <img src="http://imgur.com/3av7yvl.png"></img>
 <img src="http://imgur.com/GCLX9Mp.png"></img>
 <img src="http://imgur.com/dUHRovN.png"></img>
