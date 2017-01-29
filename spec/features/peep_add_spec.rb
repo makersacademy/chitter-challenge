@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Viewing peeps" do
+feature "Adding peeps" do
   before(:each) do
     user = User.create(name: 'name',
     username: 'user',
@@ -14,14 +14,16 @@ feature "Viewing peeps" do
 
     sign_in('test@test.com', 'password')
   end
-
-  scenario "displays a list of existing links" do
-    visit ('/peeps')
-    expect(page.status_code).to eq(200)
+  scenario "add the site's address and title to my bookmark manager" do
+    visit ('/peeps/new')
+    message = "Hello"
+    fill_in 'message', with: message
+    click_button 'Add'
 
     within 'ul#peeps' do
-      expect(page).to have_content("Hello")
-      #update to include name and user handle
+      expect(page).to have_content(message)
+      expect(page).to have_content('user')
+      expect(page).to have_content('name')
     end
   end
 end
