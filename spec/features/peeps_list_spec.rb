@@ -9,9 +9,12 @@ feature "Viewing messages" do
     password_conf: 'password')
 
     user.peeps.create(message: 'Hello',
-    name: 'Test',
-    username: 'Test')
+    name: 'name',
+    username: 'user')
+
+    sign_in('test@test.com', 'password')
   end
+  
   scenario "displays a list of existing links" do
     visit ('/peeps')
     expect(page.status_code).to eq(200)
