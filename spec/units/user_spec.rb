@@ -86,5 +86,18 @@ describe User do
         obj2.save
         expect(obj2.errors[:username]).to eq(["We already have that username."])
     end
+
+    it 'authenticates when given a valid email address and password' do
+      user = described_class.create(
+          email: 'test@examp.le',
+          password: 'secret',
+          password_confirmation: 'secret',
+          username: 'jonodoe',
+          name: 'John Doe')
+      authenticated_user = User.authenticate(user.email, user.password)
+      expect(authenticated_user).to eq user
+
+      expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+    end
   end
 end

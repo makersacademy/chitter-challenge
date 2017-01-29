@@ -1,9 +1,9 @@
-feature 'user' do
+feature 'user signup' do
   # As a Maker
   # So that I can post messages on Chitter as me
   # I want to sign up for Chitter
-  scenario 'signing up' do
-    expect { signup }.to change(User, :count).by(1)
+  scenario 'fill in correctly the form' do
+    expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_current_path('/')
     expect(page).to have_content("Welcome, jonodoe")
   end
