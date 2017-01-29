@@ -46,3 +46,9 @@ def sign_in_wrong_details
   fill_in('password', with: 'wrong')
   click_button('Sign in')
 end
+
+def create_peep
+  visit('/main')
+  fill_in('peep_content', with: 'This is my first peep')
+  click_button('Post')
+end
