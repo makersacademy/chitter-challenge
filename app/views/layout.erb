@@ -6,9 +6,6 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Sorry, there was a problem:
       <ul id="errors">

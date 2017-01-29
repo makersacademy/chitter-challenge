@@ -11,6 +11,8 @@ class Chitter < Sinatra::Base
   use Rack::Session::EncryptedCookie,
     secret: 'ad51d97857116860975480f71544061c7b6212d63073ae587c463928c793c7c9'
 
+  DataMapper::Logger.new($stdout, :debug)
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -18,7 +20,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    # flash[:errors]
     'Hello Chitter!'
   end
 
@@ -40,6 +41,21 @@ class Chitter < Sinatra::Base
       session[:username] = params[:username]
       flash[:errors] = user.errors.full_messages
       redirect '/users/new'
+    end
+  end
+
+  get '/users/existing' do
+    erb(:'users/existing')
+  end
+
+  post '/users/existing' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/chitter'
+    else
+      flash[:errors] = ['The email or password is incorrect.']
+      redirect '/users/existing'
     end
   end
 
