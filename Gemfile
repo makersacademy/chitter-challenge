@@ -13,6 +13,7 @@ group :test do
 end
 
 gem 'sinatra'
+gem 'rainbow', '>= 2.1.0', '< 2.2.0'
 gem 'sinatra-flash'
 gem 'selenium-webdriver'
 gem 'data_mapper'

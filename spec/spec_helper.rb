@@ -1,3 +1,13 @@
+require 'coveralls'
+require 'simplecov'
+require 'coveralls'
+require 'simplecov'
+require 'capybara'
+require 'capybara/rspec'
+require 'rspec'
+require 'web_helpers'
+require 'database_cleaner'
+
 ENV['RACK_ENV'] = 'test'
 
 require './app/models/user'
@@ -6,21 +16,16 @@ require './app/models/peep'
 
 require File.join(File.dirname(__FILE__), '..', './app/chitter.rb')
 
-require 'coveralls'
-require 'simplecov'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-
 Coveralls.wear!
-
-require 'capybara'
-require 'capybara/rspec'
-require 'rspec'
-require 'database_cleaner'
-require 'web_helpers'
+# replace following line with SimpleCov.start to get coverage stats locally
+SimpleCov.start
+# run `open coverage/index.html` from the command line to view details
 
 Capybara.app = Chitter
 
