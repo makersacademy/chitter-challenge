@@ -14,8 +14,8 @@ feature "Adding peeps" do
 
     sign_in('test@test.com', 'password')
   end
-  scenario "add the site's address and title to my bookmark manager" do
-    visit ('/peeps/new')
+  scenario "adds a peep to chitter with a message, name and user handle" do
+    visit ('/peeps')
     message = "Hello"
     fill_in 'message', with: message
     click_button 'Add'

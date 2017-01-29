@@ -1,22 +1,42 @@
-<% if current_user %>
+<div id='welcome' style='float:left; margin: 0 1em 0 0'>
+  <% if current_user %>
   Welcome, <%= current_user.email %>
-  <form method='post' action='/sessions'>
-     <input type='hidden' name='_method' value='delete'>
-     <input type='submit' value='Sign Out'>
-   </form>
-<% end %>
-
-<h2>Current peeps are as follows:</h2>
-<ul id="peeps">
-  <% @peeps.each do |peep| %>
-  <li>
-    Peep: <%= peep.message %>
-    By: <%= peep.name %>
-    User Handle: <%= peep.username %>
-  </li>
   <% end %>
-</ul>
+</div>
+<div id='sign_out' >
+</div>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign Out'>
+   </form>
+</div>
 
-<form action='/peeps/new' method='GET'>
-  <input type='submit' value='Add Link'>
-</form>
+
+<h3> New Peep :) </h3>
+<div id='welcome' style='float:left; margin: 0 1em 0 0'>
+  <form action='/peeps' method='POST'>
+    <label for='title'>
+      Peep:
+      <input type='text' name='message' />
+    </label>
+</div>
+<div id='add'>
+    <input type='submit' value='Add'>
+  </form>
+</div>
+<div id='peeps'>
+  <% if @peeps %>
+    <h3>Recent Peeps</h3>
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.message %><br>
+        by: <%= peep.name %>
+        @<%= peep.username %>
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2>Current peeps are as follows:</h2>
+  <% end %>
+</div>

@@ -67,10 +67,6 @@ class Chitter < Sinatra::Base
     erb(:'peeps/list')
   end
 
-  get '/peeps/new' do
-    erb(:'peeps/new')
-  end
-
   post '/peeps' do
     user = User.get(session[:user_id])
     peep = user.peeps.create(message: params[:message], name: user.name, username: user.username)
