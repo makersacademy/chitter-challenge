@@ -1,7 +1,7 @@
 .feed
   - if @peeps
     - @peeps.reverse.each do |peep|
-        - id = peep.user_id
+        - id = peep.id
         - p peep
         article.peep-feed id="peep-#{id}"
           header.peep-title
@@ -16,6 +16,7 @@
                 &submit id="comment-#{id}" value="Comment" 
           section.list-comments
             ul.comments-section
+              - p peep.latest_comments
               - peep.latest_comments.each do |comment|
                 li.comments
                   header.comment-title
