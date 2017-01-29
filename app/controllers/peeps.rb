@@ -30,7 +30,13 @@ class Chitter < Sinatra::Base
 
   post '/repeep/message' do
     if session[:user_id]
-      
+      repeep = Repeep.create(repeep_body: params[:repeep_body], time_stamp: Time.now)
+      peep = Peep.get(session[:peep_id])
+      user = User.get(session[:user_id])
+      repeep.users << user
+      repeep.peeps << peep
+      repeep.save
+      redirect to('/')
     else
       redirect '/'
     end

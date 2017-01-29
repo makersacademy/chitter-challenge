@@ -39,6 +39,25 @@ class Chitter < Sinatra::Base
       end
     end
 
+    def repeep(peep)
+      #user_peeps = 0
+      p "BEGIN"
+      p peep
+      #@repeeps = []
+      #peeps = Peep.all
+      # repeepsd = Repeep.all
+      # repeepsd.each do |peep|
+      #   p peep
+      # #
+      # #   # p "REPEEP = "
+      # #   p peep
+      # #   #repeep.peeps.each {|repeeps_data| @repeeps << repeeps_data}
+      # #   #user_peeps += 1 if @peep_user == self.username
+      # end
+      p "END"
+      #user_peeps
+    end
+
     def check_tags(peep)
       peep.split(" ").map{|line| line[0] == "@" ? add_tag(line) : line}.join(" ")
     end
