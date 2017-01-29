@@ -31,4 +31,9 @@ feature 'FEATURE: Sign in' do
     expect(page).to have_content("Invalid email or password")
   end
 
+  scenario "cannot click to sign in if already signed in" do
+    sign_in(email, password)
+    expect(page).not_to have_selector("#sign_in")
+  end
+
 end

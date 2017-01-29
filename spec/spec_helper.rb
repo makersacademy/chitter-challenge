@@ -20,7 +20,7 @@ require 'timecop'
 
 require_relative 'helpers/sign_up.rb'
 require_relative 'helpers/sign_in.rb'
-# require_relative 'helpers/recover.rb'
+require_relative 'helpers/post_peep.rb'
 
 
 Capybara.app = ChitterApp
@@ -29,6 +29,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include SignUpHelpers
   config.include SignInHelpers
+  config.include PostPeepHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

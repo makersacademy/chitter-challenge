@@ -16,4 +16,9 @@ feature 'FEATURE: sign out' do
     expect(page).to have_content("Successfully logged out")
   end
 
+  scenario 'cannot click to sign out if not signed in' do
+    visit('/')
+    expect(page).not_to have_selector("#sign_out")
+  end
+
 end
