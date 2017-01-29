@@ -4,6 +4,15 @@
 body.serif {
     font-family: Tahoma, Geneva, sans-serif;
 }
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 input[type=text], select {
     width: 100%;
@@ -62,6 +71,14 @@ h2 {
         <% end %>
         <% if flash[:notice] %>
           <div id='notice'><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+          </ul>
         <% end %>
         <%= yield %>
       </h1>
