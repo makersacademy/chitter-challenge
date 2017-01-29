@@ -47,7 +47,7 @@ end
 def post_peep
   sign_up
   sign_in
-  visit '/chitter/new'
+  visit '/chitter'
   fill_in :message, with: "Peeping!"
   click_button 'Peep!'
 end
