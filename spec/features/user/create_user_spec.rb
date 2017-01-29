@@ -24,7 +24,11 @@ feature 'users can be created' do
       expect(current_path).to eq '/user'
       expect(page).to have_content 'Email has an invalid format'
     end
-    xscenario 'empty passwords'
+    scenario 'empty passwords' do
+      sign_up(password: '',password_confirmation: '')
+      expect(User.first).to be_nil
+      expect(current_path).to eq '/user'
+    end
     scenario 'empty fields' do
       sign_up(full_name: '')
       expect(page).to have_content 'Full name must not be blank'

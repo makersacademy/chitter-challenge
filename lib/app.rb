@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/flash'
-#require 'date'
 
 ENV['RACK_ENV'] ||= 'development'
 require_relative 'data_mapper_setup'
@@ -38,7 +37,7 @@ class Tweeter < Sinatra::Base
   end
 
   post '/twit' do
-    Twit.create(content: params[:content],
+    twit = Twit.create(content: params[:content],
                 user: current_user,
                 time_stamp: Time.new.strftime("%Y-%m-%d %H:%M:%S"))
     redirect '/'

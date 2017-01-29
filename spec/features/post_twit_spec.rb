@@ -1,4 +1,3 @@
-
 feature 'posting twits to tweeter' do
   let(:content) { 'build the wall, the best walls, the best, trust me' }
 
@@ -10,8 +9,8 @@ feature 'posting twits to tweeter' do
     fill_in :content, with: content
     click_button 'twit'
 
-    expect(Twit.first.content).to eq content
     expect(current_path).to eq '/'
     expect(page).to have_content content
+    expect(Twit.first.content).to eq content
   end
 end

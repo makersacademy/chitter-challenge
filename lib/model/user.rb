@@ -22,10 +22,18 @@ class User
            required: true
 
   validates_confirmation_of :password
+  validates_with_method :password, method: :password_requirements_check
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def password_requirements_check
+    return true if @password == nil
+    return false if @password.length < 1
+    # other password rules here
+    true
   end
 
   def self.authenticate(email, password)

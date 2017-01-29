@@ -4,6 +4,7 @@ AllCops:
   DisplayStyleGuide: true
   Exclude:
     - 'spec/spec_helper.rb'
+    - 'spec/features/user/user_helpers.rb'
 
 Rails:
   Enabled: false
