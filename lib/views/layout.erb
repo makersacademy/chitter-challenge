@@ -43,7 +43,6 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-
 input[type=submit]:hover {
     background-color: #45a049;
 }
@@ -69,6 +68,10 @@ h2 {
         <% if current_user %>
         Hi, <%= current_user.email %>.
         <% end %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='sign out'>
+        </form>
         <% if flash[:notice] %>
           <div id='notice'><%= flash[:notice] %></div>
         <% end %>
