@@ -4,6 +4,7 @@
     <li>
       Peep:    <%= post.peep %>
       Time:    <%= post.created_at %>
+      User:    <%= post.username %>
     </li>
   <% end %>
   <form action = "chitter/new" method = "get"> <input type = "submit" value = "Post a peep"> </form>

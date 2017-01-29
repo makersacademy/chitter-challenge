@@ -24,7 +24,8 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/chitter' do
-    post = Peep.create(peep: params[:message], username: "DaUserID")
+    user = User.get(session[:user_id])
+    post = user.peeps.create(peep: params[:message], username: user.username)
     redirect '/chitter'
   end
 

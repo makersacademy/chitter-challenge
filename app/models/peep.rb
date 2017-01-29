@@ -4,5 +4,5 @@ class Peep
   property :peep, String, length: 140
   property :username, String
   property :created_at, DateTime
-  # belongs_to :user
+  belongs_to :user
 end
