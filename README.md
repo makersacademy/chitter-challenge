@@ -3,6 +3,8 @@ Chitter Challenge
 
 * Clone this repo to your local machine
 * In a terminal, navigate to the repo directory and run the command: bundle
+* Using postgres, create a database called chitter_test. This is used for running rspec and capybara test
+* Using postgres, create a database called chitter_development. This is used for adding data using the browser
 * Start the server with the command: rackup
 * In a web browser, navigate to: http://localhost:9292
 * You can view "Peeps" (posts) and comments on the homepage without logging in
@@ -17,6 +19,10 @@ $ git clone https://github.com/treborb/chitter-challenge.git
 $ cd chitter-challenge
 $ gem install bundler
 $ bundle
+$ psql
+$ CREATE DATABASE chitter_test;
+$ CREATE DATABASE chitter_development;
+$ \q
 $ rackup
 In the web browser: http://localhost:9292
 ```
