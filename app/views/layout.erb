@@ -13,9 +13,9 @@
     <% if current_user %>
       Welcome <%= current_user.name %>
     <% end %>
-    <% if flash[:error] %>
-    <div id='notice'>
-      <%= flash[:error] %>
+    <% if flash[:notices] %>
+    <div id='notices'>
+      <%= flash[:notices] %>
     </div>
   <% end %>
     <%= yield %>

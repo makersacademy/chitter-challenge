@@ -5,7 +5,7 @@ feature 'sign_up' do
     expect(current_path).to eq('/chitters')
   end
 
-  xscenario 'fails if passwords do not match' do
+  scenario 'fails if passwords do not match' do
     incorrect_sign_up
     expect{ click_button('submit')}.not_to change(User, :count)
   end
@@ -17,7 +17,7 @@ feature 'sign_up' do
     incorrect_email_address
     expect{ click_button('submit')}.not_to change(User, :count)
   end
-  xscenario 'I cannot sign up with an existing email' do
+  scenario 'I cannot sign up with an existing email' do
     correct_sign_up
     click_button 'submit'
     correct_sign_up

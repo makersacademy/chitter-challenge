@@ -2,6 +2,6 @@
 
 <% @peeps.each do |peep| %>
 <ul style="list-style-type:disc">
-  Message - <%= peep.message %>
+  Message was sent at <%= peep.created_at.strftime("%H:%M, %d/%m/%y") %> - <%= peep.message %>
 </ul>
 <% end %>
