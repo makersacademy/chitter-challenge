@@ -1,0 +1,34 @@
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+<div class="bs-example">
+    <form class="form-horizontal" action="/session/create" method="post">
+        <div class="form-group <%= 'has-error' if flash[:error]%>">
+            <label class="col-xs-2 control-label" for="username">Username</label>
+            <div class="col-xs-2">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter username">
+                <% if flash[:error] %>
+                  <span class="help-block"><%= flash[:error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group <%= 'has-error' if flash[:error]%>">
+            <label class="col-xs-2 control-label" for="password">Password</label>
+            <div class="col-xs-2">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password">
+                <% if flash[:error] %>
+                  <span class="help-block"><%= flash[:error] %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="form-group">
+           <div class="col-xs-offset-2">
+             <div class="login">
+               <input type="submit" class="btn btn-primary" value="Login">
+             </div>
+           </div>
+       </div>
+    </form>
+</div>
