@@ -43,3 +43,9 @@ def sign_in
   fill_in :password, with: 'bossman'
   click_button 'Sign In'
 end
+
+def post_peep
+  visit '/chitter/new'
+  fill_in :message, with: "Peeping!"
+  click_button 'Peep!'
+end
