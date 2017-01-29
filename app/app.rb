@@ -7,5 +7,6 @@ require_relative 'dmconfig'
 require_relative 'server'
 require_relative 'controllers/user.rb'
 require_relative 'controllers/session.rb'
+require_relative 'controllers/peep.rb'
 
 ChitterApp.run! if $0 == 'app/app.rb'

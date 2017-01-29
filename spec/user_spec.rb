@@ -11,7 +11,7 @@ describe User do
   describe "#password" do
     it 'Creates a hashed password' do
       allow(BCrypt::Password).to receive(:create) { 'hashed password' }
-      user.password=password
+      user.password = password
       expect(user.password_digest).to eq 'hashed password'
     end
   end
