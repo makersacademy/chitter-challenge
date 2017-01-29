@@ -20,3 +20,4 @@ gem 'rack'
 gem 'rspec-sinatra'
 gem 'rubocop', '~> 0.47.1', require: false
 gem 'sinatra'
+gem 'sinatra-flash'
