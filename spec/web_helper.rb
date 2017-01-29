@@ -19,3 +19,8 @@ def sign_in(email:, password:)
     fill_in :password, with: password
     click_button 'Sign in'
 end
+
+def peep
+    fill_in 'peep', with: "This is a peep"
+    click_button 'Post my peep'
+end
