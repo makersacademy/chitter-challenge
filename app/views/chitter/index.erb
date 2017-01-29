@@ -1,0 +1,30 @@
+<% if !current_user %>
+<h1>Welcome to Chitter!</h1>
+<form action = "sessions/new" method = "get">
+  <input type = "submit" value = "Sign In">
+</form>
+<form action = "users/new" method = "get">
+  <input type = "submit" value = "Register">
+</form>
+<% end %>
+
+<br>
+
+<% if current_user %>
+  <form action="/chitter" method="post">
+    <label> Post a peep </label>
+    <input type="text" name="message">
+    <input type="submit" value="Peep!">
+  </form>
+<% end %>
+
+<h2> Latest peeps </h2>
+<ul id='peeps'>
+  <% @posts.each do |post| %>
+    <li>
+      Peep:    <%= post.peep %>
+      Time:    <%= post.created_at.strftime("%H:%M, %d/%m/%y") %>
+      User:    <%= post.username %>
+    </li>
+  <% end %>
+</ul>
