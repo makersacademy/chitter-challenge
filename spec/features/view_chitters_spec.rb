@@ -16,7 +16,17 @@ feature "FEATURE: view chitters" do
 
     scenario "can see peeps on home page" do
       visit('/')
-      expect(page).to have_content(peep_text)
+      within('#peeps-container') do
+        expect(page).to have_content(peep_text)
+      end
+    end
+
+    scenario "peep contains user's name and username" do
+      visit('/')
+      within('#peeps-container') do
+        expect(page).to have_content(name)
+        expect(page).to have_content(user_name)
+      end
     end
   end
 
@@ -25,7 +35,9 @@ feature "FEATURE: view chitters" do
       user = User.create(name: name, email: email, user_name: user_name, password: password, password_confirmation: password_confirmation)
       user.peeps.create(peep_text: "Peep at frozen time")
       visit('/')
-      expect(page).to have_content(Time.now.strftime("%l:%M%P on %d/%m/%Y"))
+      within('#peeps-container') do
+        expect(page).to have_content(Time.now.strftime("%l:%M%P on %d/%m/%Y"))
+      end
     end
 
   end
