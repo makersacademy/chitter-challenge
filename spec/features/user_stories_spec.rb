@@ -22,10 +22,19 @@ feature '2. Log In' do
     expect(page).to have_content('Welcome Ada Lovelace @Mech01001!')
   end
 end
+
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
-#
+feature '3. Log Out' do
+  let(:user) { User.create(name: 'Ada Lovelace', user_name: 'Mech01001',email: 'adalove@gmail.com', password: 'LogicLove', password_confirmation: 'LogicLove') }
+
+  scenario 'an existing user wants to log out' do
+    log_in(user_name: user.user_name, password: user.password)
+    log_out
+    expect(page).to_not have_content('Welcome Ada Lovelace @Mech01001!')
+  end
+end
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter

@@ -9,6 +9,11 @@ describe User do
       expect(existing_user).to eq user
     end
 
+    it 'doesn\'t authenticate unexisting users' do
+      existing_user = User.authenticate('blabla123', user.password)
+      expect(existing_user).to eq nil
+    end
+
   end
 
 end

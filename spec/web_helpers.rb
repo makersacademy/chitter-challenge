@@ -16,3 +16,8 @@ def log_in(user_name:, password:)
   fill_in :password, with: password
   click_button('Log In')
 end
+
+def log_out
+  visit '/'
+  click_button('Log Out')
+end
