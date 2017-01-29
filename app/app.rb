@@ -31,6 +31,14 @@ class Chitter < Sinatra::Base
     erb :chitters
   end
 
+  get '/chitters/new' do
+    erb :creating_peeps
+  end
+
+  get '/peeps' do
+    erb :peeps
+  end
+
   post '/chitters' do
     @user = User.new(name: params[:name], email: params[:email], password_digest: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
