@@ -56,6 +56,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    #binding.pry
     erb :peeps
   end
 
@@ -68,7 +69,6 @@ class Chitter < Sinatra::Base
   post '/postpeep' do
     time = Time.new.strftime('%I:%M%p, %d %b %Y')
     Peep.create(text: params[:peep], time: time, user_name: current_user.name)
-    #binding.pry
     redirect to '/peeps'
   end
 
