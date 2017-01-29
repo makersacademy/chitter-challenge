@@ -65,7 +65,7 @@ class Chitter < Sinatra::Base
     end
     
     get '/peeps' do
-        @peeps = Peep.reverse_chronological
+        @peeps ||= Peep.reverse_chronological
         erb(:peeps)
     end
     
