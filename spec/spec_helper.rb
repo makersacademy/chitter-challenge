@@ -1,7 +1,8 @@
+ENV["RACK_ENV"] = "test"
+
+
 require 'coveralls'
 require 'simplecov'
-
-
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -9,20 +10,37 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
+
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
+
 require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
+require 'database_cleaner'
 
-require 'web_helper'
-require './app/models/user'
+require_relative 'web_helper'
 
-
-require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 
 Capybara.app = Chitter
 #
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

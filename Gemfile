@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'rake'
 gem 'sinatra'
 gem 'rspec-sinatra'
+require 'database_cleaner'
 
   gem 'rspec'
   gem 'capybara'

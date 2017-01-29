@@ -1,4 +1,6 @@
 def sign_up
+  visit '/signup'
+  expect(page.status_code).to eq(200)
   fill_in :name, with: "Barbara"
   fill_in :username, with: 'barbara_s'
   fill_in :email, with: 'hello@mail.com'
