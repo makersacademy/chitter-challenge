@@ -1,5 +1,28 @@
 Chitter Challenge
 =================
+To Run
+
+```
+$ git clone https://github.com/J-Marriott/chitter-challenge.git
+$ gem install bundler
+$ bundler
+$ rackup
+Open browser and navigate to http://localhost:9292/
+
+
+```
+
+<img src="http://imgur.com/vteiDV6.png"></img>
+<img src="http://imgur.com/3av7yvl.png"></img>
+<img src="http://imgur.com/GCLX9Mp.png"></img>
+<img src="http://imgur.com/dUHRovN.png"></img>
+<img src="http://imgur.com/CAfQj7n.png"></img>
+<img src="http://imgur.com/WPqU8t7.png"></img>
+<img src="http://imgur.com/lp1MEAk.png"></img>
+<img src="http://imgur.com/jWjZXM1.png"></img>
+
+
+
 
 ```
 As a Maker
@@ -32,61 +55,3 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
-```
-
-
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
