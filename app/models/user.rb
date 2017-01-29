@@ -9,9 +9,11 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
   validates_confirmation_of :password
+  # validates_presence_of :user_email # This DataMapper validation will prevent the model from saving if the email is blank.
+  validates_format_of :user_email, as: :email_address
 
   property :id, Serial
-  property :user_email, String
+  property :user_email, String, required: true #DB level constraint to ensure this field is NOT NULL.
   property :user_full_name, String
   property :user_name, String
   property :password_digest, Text
