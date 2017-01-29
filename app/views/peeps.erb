@@ -1,5 +1,21 @@
 <% if current_user %>
-  <form action='logout' method='post'>
-    <input type='submit' value='log out'>
+  <form action = 'logout' method = 'post'>
+    <button type = 'submit'>log out</button>
   </form>
 <% end %>
+
+<% if current_user %>
+  <form action = 'postpeep' method = 'post'>
+    <input type = 'text' name = 'peep' required>
+    <button type = 'submit'>post</button>
+  </form>
+<% end %>
+
+<% @peeps.each do |peep| %>
+  <li>
+    <p>Published by: <%= peep.user_name %>
+    <p>Published on: <%= peep.time %></p>
+    <p>Text: <%= peep.text %></p>
+  </li>
+<% end %>
+</ul>

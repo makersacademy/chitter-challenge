@@ -1,4 +1,4 @@
-# User Story 3
+# User Story Three
 #
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me

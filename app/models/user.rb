@@ -8,7 +8,10 @@ class User
   property :name,           String, required: true
   property :email,          String, required: true, unique: true, format: :email_address
   property :password,       BCryptHash, required: true
+
   attr_accessor :password_confirmation
+
+  #has n, :peeps, through: Resource
 
   validates_confirmation_of :password, confirm: :password_confirmation
 

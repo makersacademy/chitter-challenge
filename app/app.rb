@@ -55,14 +55,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :peeps
   end
 
   post '/logout' do
-    #binding.pry
     session[:user_id] = nil
     flash.keep[:notice] = 'See you soon!'
     redirect to '/peeps'
+  end
+
+  post '/postpeep' do
+    time = Time.new.strftime('%I:%M%p, %d %b %Y')
+    Peep.create(text: params[:peep], time: time, user_name: current_user.name)
+    #binding.pry
+    redirect '/peeps'
   end
 
   # start the server if ruby file executed directly
