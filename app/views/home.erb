@@ -1,8 +1,9 @@
+<%if !(session[:user_id]) %>
+  <form id='log_in_button' action='/sessions/new' method='get'>
+    <input type='submit' value='Log In'>
+  </form>
 
-<form id='log_in_button' action='/sessions/new' method='get'>
-  <input type='submit' value='Log In'>
-</form>
-
-<form id='sign_up_button' action='/sign_up' method='get'>
-  <input type='submit' value='Sign Up'>
-</form>
+  <form id='sign_up_button' action='/sign_up' method='get'>
+    <input type='submit' value='Sign Up'>
+  </form>
+<% end %>

@@ -45,7 +45,7 @@ class Chitter < Sinatra::Base
       redirect '/home'
     else
       flash.now[:error] = "The username or password is incorrect"
-      erb :sign_up
+      erb :sign_in
     end
   end
 
