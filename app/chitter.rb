@@ -13,12 +13,12 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-    @current_user ||= User.get(session[:user_id])
+    @current_user = User.get(session[:user_id])
     end
   end
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :created_timedate.desc ])
     erb :index
   end
 
@@ -53,7 +53,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     current_user = User.get(session[:user_id])
-    peep = Peep.create(content: params[:new_peep], user_id: current_user.id)
+    peep = Peep.create(content: params[:new_peep], user_id: current_user.id, created_timedate: Time.now)
     redirect '/'
   end
 
