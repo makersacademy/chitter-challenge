@@ -1,6 +1,8 @@
 class Peep
     include DataMapper::Resource
     
+    TIME_FORMAT = "%b %e %k:%M"
+    
     def self.reverse_chronological
         all(:order => [ :created_at.desc ])
     end
@@ -20,6 +22,6 @@ class Peep
     end
     
     def creation_date
-        self.created_at.strftime("%b %e %k:%M")
+        self.created_at.strftime(TIME_FORMAT)
     end
 end

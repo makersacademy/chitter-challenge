@@ -8,25 +8,36 @@ feature 'Posting a peep' do
                     password_confirmation: 'password')
     end
     
-    scenario 'I can post a peep' do
+    before do
         sign_in(email: user.email, password: user.password)
-        peep
+        Timecop.freeze do
+            peep
+        end
+    end
+    
+    scenario "I can't post when I'm not signed in" do
+        click_button 'Sign out'
+        expect(page).not_to have_css('#peep_form')
+    end
+    
+    scenario 'I can post a peep' do
         expect(current_path).to eq '/peeps'
         within 'dl#peeps' do
             expect(page).to have_content("This is a peep")
         end
     end
     
-    scenario "I can't post when I'm not signed in" do
-        expect(page).not_to have_css('#peep_form')
-    end
-    
     scenario "I can see peeps when I'm not logged in" do
-        sign_in(email: user.email, password: user.password)
-        peep
         click_button 'Sign out'
         within 'dl#peeps' do
             expect(page).to have_content("This is a peep")
+        end
+    end
+    
+    scenario "I can see the time that a peep was posted" do
+        time = Time.now
+        within 'dl#peeps' do
+            expect(page).to have_content(time.strftime("%b %e %k:%M"))
         end
     end
 end
