@@ -46,16 +46,21 @@ feature "FEATURE: view chitters" do
   context "#{max_peeps + 1} peeps created" do
     before do
       user = User.create(name: name, email: email, user_name: user_name, password: password, password_confirmation: password_confirmation)
-      (max_peeps + 1).times { user.peeps.create(peep_text: peep_text) }
+      (max_peeps + 1).times { |time|  user.peeps.create(peep_text: "Peep number #{time + 1}") }
     end
 
     scenario "Maximum of #{max_peeps} can be displayed at one time" do
       visit('/')
       within('#peeps-container') do
-        expect(page).to have_selector('.peep', count: 10)
+        expect(page).to have_selector('.peep', count: max_peeps)
       end
     end
-
+    scenario "Peeps are in reverse chron order" do
+      visit('/')
+      within('#peeps-container') do
+        expect(first('.peep')).to have_content("Peep number #{max_peeps + 1}")
+      end
+    end
   end
 
 end
