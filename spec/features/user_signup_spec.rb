@@ -17,6 +17,18 @@ feature 'Signing up' do
     expect(page).to have_content('Email must not be blank')
   end
 
+  scenario "with no name yields error" do
+    expect { sign_up(name: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Name must not be blank')
+  end
+
+  scenario "with no username yields error" do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Username must not be blank')
+  end
+
   scenario "with invalid email address yields error" do
     expect { sign_up(email: 'been@drinking') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -27,5 +39,11 @@ feature 'Signing up' do
     sign_up
     expect { sign_up }.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
+  end
+
+  scenario "with existing username yields error" do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content 'Username is already taken'
   end
 end
