@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-group :test do
+# group :test do
   gem 'database_cleaner'
   gem 'rspec-sinatra'
   gem 'rspec'
@@ -12,9 +12,9 @@ group :test do
   gem 'rubocop'
   gem 'factory_girl'
   gem 'waiting_rspec_matchers'
-end
+# end
 
-group :development do
+# group :development do
   gem 'data_mapper', '~> 1.2.0'
   gem 'dm-postgres-adapter'
   gem 'dm-transactions'
@@ -24,4 +24,4 @@ group :development do
   gem 'pry'
   gem 'bcrypt'
   gem 'encrypted_cookie'
-end
+# end

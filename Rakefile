@@ -1,4 +1,4 @@
-require 'data_mapper_setup'
+require './app/app.rb'
 require 'data_mapper'
 
 if ENV['RACK_ENV'] != 'production'

@@ -69,7 +69,7 @@ class Chitter < Sinatra::Base
 
   post '/postpeep' do
     time = Time.new.strftime('%I:%M%p, %d %b %Y')
-    Peep.create(text: params[:peep], time: time, user_name: current_user.name)
+    Peep.create(text: params[:peep], time: time, user_name: current_user.name, user_pic: current_user.id)
     redirect to '/peeps'
   end
 

@@ -1,20 +1,19 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+How to set up the application:
 
-Challenge:
--------
+```
+$ git clone https://github.com/kateloschinina/chitter-challenge
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+```
 
-As usual please start by forking this repo.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User Stories:
 -------
 
 ```
@@ -43,66 +42,36 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+About application:
+-------
+The application is rather self-explanatory.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+At the landing page you should see the options either to log in, if you already have a Chitter account, or to sign up, or potentially you can see peeps without registration, but in this case you won't be able to post other teets.
+For your information please see below couple of screenshots:
 
-Bonus:
------
+Landin page:
 
-If you have time you can implement the following:
+![Imgur](http://i.imgur.com/j4OCRr6.png)
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+Sign up page:
 
-And/Or:
+![Imgur](http://i.imgur.com/agX9cwg.png)
 
-* Work on the css to make it look good (we all like beautiful things).
+Peeps feed when user is logged in:
 
-Good luck and let the chitter begin!
+![Imgur](http://i.imgur.com/fGV3LcS.png)
 
-Code Review
------------
+Peeps feed when user is not logged in:
 
-In code review we'll be hoping to see:
+![Imgur](http://i.imgur.com/fAvrwwy.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+Please note, that each user has been assigned random, but its own unique user picture, that belongs only to them!
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+![Imgur](http://i.imgur.com/PVUbWHf.png)
 
-Notes on test coverage
-----------------------
+Badges
+------------------
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+[![Build Status](https://travis-ci.org/kateloschinina/chitter-challenge.svg?branch=master)](https://travis-ci.org/kateloschinina/chitter-challenge)
 
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+[![Coverage Status](https://coveralls.io/repos/github/kateloschinina/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/kateloschinina/chitter-challenge?branch=master)

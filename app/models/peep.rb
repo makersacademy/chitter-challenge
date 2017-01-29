@@ -8,6 +8,7 @@ class Peep
   property :text,           Text
   property :time,           String
   property :user_name,      String
+  property :user_pic,       Integer
 
   #has 1, :user, through: Resource
 
