@@ -4,6 +4,9 @@ require 'dm-validations'
 class User
   include DataMapper::Resource
 
+  has n, :peeps
+
+
   property :id, Serial
   property :name, String
   property :username, String, :required => true, :unique => true,
@@ -19,6 +22,7 @@ class User
       :is_unique => "We already have that email.",
       :format    => "Doesn't look like an email address to me ..."
     }
+
 
   ### FROM WALKTHROUGH
   # this will store both the password and the salt

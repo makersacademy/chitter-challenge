@@ -14,6 +14,13 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
       </form>
+      <div id="peep_new">
+        <textarea rows="4" cols="50" name="peep_new_message" form="peep_new" id='peep_new_message'>
+        <form method='post' action="/peep/new" id="peep_new">
+          <input type="submit" value='Peep!'>
+        </form>
+        <br>
+      </div>
     <% end %>
     <% if flash[:notice] %>
       <div id='notice'>

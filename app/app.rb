@@ -18,6 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.sort_time_rev
     erb :index
   end
 
@@ -27,17 +28,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/user/signing_up' do
-    @user = User.new(
+    user = User.new(
       email: params[:email],
       password: params[:password],
       password_confirmation:  params[:password_confirmation],
       name:  params[:name],
       username:  params[:username])
-    if @user.save
-      session[:user_id] = @user.id
+    if user.save
+      session[:user_id] = user.id
       redirect to('/')
     else
-      flash.now[:notice] = @user.errors.to_hash.map do |property, messages|
+      flash.now[:notice] = user.errors.to_hash.map do |property, messages|
         messages.map do |message|
           "Problems with #{property}: #{message}"
         end
@@ -66,6 +67,16 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     redirect to '/'
   end
+
+  post '/peep/new' do
+    peep = Peep.new(message: params[:peep_new_message],user: current_user)
+      if peep.save
+        redirect to('/')
+      else
+        flash[:notice] = 'Cannot peep: some troubles while peeping!'
+      end
+  end
+
   #run! if app_file == $0
   run! if app_file == $0
 end
