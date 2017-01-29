@@ -1,20 +1,43 @@
-<% if current_user %>
-    <h1>Welcome, <%=current_user.name%>!</h1>
-<% end %>
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Sorry, there was a problem:
-  <ul id="errors">
-    <% flash[:errors].each do |error| %>
-    <li>
-      <%=error%>
-    </li>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Kalam:300,400,700" rel="stylesheet">
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+  <header>
+    <p class = 'logo'>Chitter</p>
+    <% if current_user %>
+        <h1 class = 'welcome'>Welcome, <%=current_user.name%>!</h1>
+    <% end %>
+  </header>
+
+  <div class = 'row'>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Sorry, there was a problem:
+      <ul id="errors">
+        <% flash[:errors].each do |error| %>
+        <li>
+          <%=error%>
+        </li>
+        <%end%>
     <%end%>
-<%end%>
 
-<%= yield %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
-<% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
+    <%= yield %>
+
   </div>
-<% end %>
+
+</body>
+</html>

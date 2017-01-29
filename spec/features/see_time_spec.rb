@@ -10,6 +10,6 @@ feature 'see time of peep' do
     text = 'Sample text.'
     allow(Time).to receive(:new).and_return(Time.new(2017, 1, 29, 16, 05, 00))
     post(text)
-    expect(page).to have_content 'Published on: 04:05PM, 29 Jan 2017'
+    expect(page).to have_content 'on: 04:05PM, 29 Jan 2017'
   end
 end

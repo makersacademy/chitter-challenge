@@ -2,7 +2,7 @@ feature 'General logic of the application' do
   context 'when logging in' do
     scenario 'can choose to sign up instead' do
       visit ('/')
-      expect(page).to have_content 'If you are not registered to Chitter yet, you should sign up!'
+      expect(page).to have_content 'If you are not registered with Chitter yet, but would like to, you can always sign up!'
       click_button 'sign up'
       expect(current_path).to eq '/signup'
     end
@@ -16,7 +16,7 @@ feature 'General logic of the application' do
         password:               'qwerty',
         password_confirmation:  'qwerty')
     end
-    
+
     scenario 'can log in back again' do
       log_in_existing_user
       click_button 'log out'
