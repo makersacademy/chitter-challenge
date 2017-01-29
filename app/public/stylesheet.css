@@ -48,7 +48,6 @@
 
 .footnote {
   font-style: italic;
-  background-color: #E7E7E7;
   padding: 3px 6px 3px 6px;
   margin: 0px;
   font-size: 12px;
@@ -66,5 +65,37 @@ textarea {
 }
 
 .form-signin {
-  width: 100px;
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+#email, #password, .btn-block {
+  margin-top: 10px;
+}
+
+.sample {
+  height: 250px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 15px;
+  border-color: #E7E7E7;
+  border-style: solid;
+  font-size: 24px;
+  position: relative;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.author {
+  font-size: 18px;
 }

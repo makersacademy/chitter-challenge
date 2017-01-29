@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all(limit: 4, order: [ :created_at.desc ])
     erb :index
   end
 

@@ -13,8 +13,9 @@
     <% @peeps.each do |peep| %>
       <li>
         <div id="peep">
+          <p class='header'><b><%= peep.user.name %></b> <em>@<%= peep.user.username %></em></p>
           <p class='content'><%= peep.content %></p>
-          <p class='footnote'>Posted on <%= peep.created_at.strftime('%d %B %Y at %H:%M') %> by <%= peep.user.name %></p>
+          <p class='footnote'>Posted on <%= peep.created_at.strftime('%d %B %Y at %H:%M') %></p>
         </div>
       </li>
     <% end %>
