@@ -6,6 +6,7 @@ class User
 
   attr_reader :password
   attr_accessor :password_confirmation
+  attr_accessor :name
   #validates_confirmation_of is a datamapper method. it stops the model from saving unless password matches.
   validates_confirmation_of :password
 

@@ -4,6 +4,7 @@ require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
 
   register Sinatra::Flash
 
@@ -46,7 +47,7 @@ class Chitter < Sinatra::Base
     # else
     #   flash.now[:notice] = "Passwords do not match"
   end
-
+  #
   get '/peeps' do
     erb :peeps
   end
@@ -54,15 +55,24 @@ class Chitter < Sinatra::Base
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
+      "it did definitely authenticate"
       session[:user_id] = user.id
+      redirect to('/peeps')
     else
-      flash.now[:errors] = ["Incorrect email or password"]
-      erb :'sessions/new'
+      "it didn't authenticate"
+      # flash.now[:errors] = ["Incorrect email or password"]
+      # erb :'sessions/new'
     end
   end
 
   get '/sessions/new' do
     erb :'sessions/new'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "goodbye!"
+    redirect to '/peeps'
   end
 
   run! if app_file == $0
