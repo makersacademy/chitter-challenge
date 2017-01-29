@@ -6,6 +6,7 @@ require './models/user.rb'
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+   use Rack::MethodOverride
 
   get '/' do
     redirect '/timeline'
@@ -41,6 +42,11 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+  session[:user_id] = nil
+  redirect to '/timeline'
   end
 
   helpers do
