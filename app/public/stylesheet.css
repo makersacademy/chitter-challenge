@@ -70,7 +70,7 @@ textarea {
   margin-top: 100px;
 }
 
-#email, #password, .btn-block {
+#name, #username, #email, #password, #confirm_password, .btn-block {
   margin-top: 10px;
 }
 

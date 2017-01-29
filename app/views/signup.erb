@@ -1,25 +1,20 @@
-<form action='/registration' method='post'>
-  <label>Name:
-    <input type='text' name='name' required>
-  </label>
+<form action='/registration' method='post' class="form-signin">
+  <label for='name' class='sr-only'>Name:</label>
+  <input placeholder="Name" type='text' name='name' id='name' class="form-control" required>
 
-  <label>Username:
-    <input type='text' name='username' required>
-  </label>
+  <label for='username' class='sr-only'>Username:</label>
+  <input placeholder="Username" type='text' name='username' id='username' class="form-control" required>
 
-  <label>Email:
-    <input type='email' name='email' value="<%=@email%>" required>
-  </label>
+  <label for='email' class='sr-only'></label>
+  <input placeholder="Email address" type='email' name='email'  id='email' class="form-control" value="<%=@email%>" required>
 
-  <label>Password:
-    <input type='text' name='password'>
-  </label>
+  <label for='password' class='sr-only'></label>
+  <input placeholder="Password" type='text' name='password' id='password' class="form-control">
 
-  <label>Confirm password:
-    <input type='text' name='confirm_password'>
-  </label>
+  <label for='confirm_password' class='sr-only'></label>
+  <input placeholder="Confirm password" type='text' name='confirm_password' id='confirm_password' class="form-control" >
 
-  <input type='submit' value='Submit'>
+  <input class="btn btn-lg btn-primary btn-block" type='submit' value='Submit'>
 </form>
 
 <% if flash[:mismatch] %>

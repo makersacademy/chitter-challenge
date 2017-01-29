@@ -37,13 +37,13 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
+* _Drive the creation of your app using tests - either cucumber or rspec as you prefer_
+* _Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku)._
 * The username and email are unique.
 * _Peeps (posts to chitter) have the name of the maker and their user handle._
 * _Use bcrypt to secure the passwords._
 * _Use data mapper and postgres to save the data._
-* You don't have to be logged in to see the peeps.
+* _You don't have to be logged in to see the peeps._
 * _You only can peep if you are logged in._
 
 You can see the full task and instructions given to us in [CONTRIBUTING.md](chitter-challenge/CONTRIBUTING.md).
