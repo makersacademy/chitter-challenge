@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/mbgimot/chitter-challenge.svg?branch=master)](https://travis-ci.org/mbgimot/chitter-challenge)  
 
 The aim of the game is to write a little Twitter clone that will allow the users to post messages to a public stream.
 
@@ -41,7 +42,6 @@ Additional Functional Requirements:
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 
 Installation Instructions
 -----------
@@ -77,13 +77,9 @@ rackup
 Future Developments:
 -----
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
-
 * Pure design development with CSS
-
 * Maker can delete their own peep but not other peeps
-
 * Maker can reset password
-
 * Maker can filter peeps for specific content
 
 Technologies Used
@@ -95,3 +91,7 @@ Technologies Used
 * BCrypt password hashing
 * Datamapper as a ORM
 * Postgresql powered databases
+
+Contributors
+-----
+Mitchell Goldbay [github](https://github.com/mbgimot/) [mitchellgoldbay@gmail.com](mailto: mitchellgoldbay@gmail.com)
