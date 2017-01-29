@@ -1,0 +1,14 @@
+
+
+
+<h2> View the latest from Chitter </h2>
+<!-- <form action="chitter/peep" method="get" > -->
+  <ul id='peeps'>
+    <% @peeps.each do |peep|%>
+    <li>
+      from: <%= peep.user_name %><br>
+      Message: <%= peep.message %><br>
+    </li>
+    <% end %>
+  </ul>
+</form>

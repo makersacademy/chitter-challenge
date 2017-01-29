@@ -16,6 +16,10 @@ include DataMapper::Resource
   property :password_digest, Text
   property :user_name, String, unique: true
 
+  has n, :peeps, through: Resource
+
+  #belongs_to :peep
+
   def self.authenticate(email, password)
   user = first(email: email)
 

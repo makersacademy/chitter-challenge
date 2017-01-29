@@ -15,7 +15,7 @@ class ChitterChallenge < Sinatra::Base
 register Sinatra::Flash
 
   get '/' do
-    erb :chitter
+    erb :index
   end
 
 get '/users/new' do
@@ -62,6 +62,26 @@ delete '/session' do
   flash.keep[:notice] = 'Goodbye!'
   redirect to '/session/new'
 end
+
+
+get '/chitter/index' do
+  @peep = Peep.all
+  erb :'chitter/index'
+end
+
+get '/chitter/peep' do
+  @peeps = Peep.all
+  erb :'chitter/peep'
+end
+
+post '/chitter/peep' do
+  message = Peep.create(message: params[:message])
+  user = @current_user
+  message.user = user
+  message.save
+  redirect '/chitter/peep'
+end
+
 
 helpers do
   def current_user
