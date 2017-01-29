@@ -6,6 +6,11 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Sorry, there was a problem:
       <ul id="errors">

@@ -94,7 +94,7 @@ feature 'sign up form' do
       expect{sign_up('name', 'user', 'test@test.com', 'password', 'password')}.to change{User.count}.by(0)
     end
     scenario "non unique email throws error" do
-      sign_up('name', 'user', 'test@test.com', 'password', 'password')
+      User.create(name: 'name', username: 'user', email: 'test@test.com', password: 'password', password_conf: 'password')
       sign_up('name', 'user', 'test@test.com', 'password', 'password')
       expect(page).to have_content("Email is already taken")
     end

@@ -8,6 +8,7 @@ require 'pry'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   use Rack::Session::EncryptedCookie,
     secret: 'ad51d97857116860975480f71544061c7b6212d63073ae587c463928c793c7c9'
 
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello Chitter!'
+    erb(:'users/existing')
   end
 
   get '/users/new' do
@@ -44,10 +45,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/users/existing' do
-    erb(:'users/existing')
-  end
-
   post '/users/existing' do
     user = User.authenticate(params[:email], params[:password])
     if user
@@ -55,8 +52,14 @@ class Chitter < Sinatra::Base
       redirect '/chitter'
     else
       flash[:errors] = ['The email or password is incorrect.']
-      redirect '/users/existing'
+      redirect '/'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Goodbye!"
+    redirect to '/'
   end
 
   get '/chitter' do
