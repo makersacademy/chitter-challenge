@@ -10,6 +10,5 @@ feature '#Sign Up' do
     fill_in 'Password', with: 'worldsbestpassword'
     click_button 'Submit'
     expect(current_path).to eq '/timeline'
-    expect(page).to have_content 'Welcome, ByronBest'
   end
 end
