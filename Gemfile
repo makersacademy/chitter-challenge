@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '2.3.3'
 
 gem 'data_mapper'                 # ORM for sinatra
 gem 'dm-postgres-adapter'         # database

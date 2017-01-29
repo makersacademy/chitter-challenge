@@ -17,18 +17,11 @@
   <input class="btn btn-lg btn-primary btn-block" type='submit' value='Submit'>
 </form>
 
-<% if flash[:mismatch] %>
-<%= flash[:mismatch] %>
-<%end%>
-
-<% if flash[:missing_email] %>
-<%= flash[:missing_email] %>
-<%end%>
-
-<% if flash[:invalid_email] %>
-<%= flash[:invalid_email] %>
-<%end%>
-
-<% if flash[:duplicate_email] %>
-<%= flash[:duplicate_email] %>
-<%end%>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

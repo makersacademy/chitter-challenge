@@ -28,13 +28,20 @@ class User
     end
   end
 
-  validates_uniqueness_of   :username
+  validates_uniqueness_of   :username,
+    message: 'Chosen username is already in use.'
 
-  validates_presence_of     :email
-  validates_format_of       :email, as: :email_address
-  validates_uniqueness_of   :email
+  validates_presence_of     :email,
+    message: 'You must enter an email to sign up.'
 
-  validates_confirmation_of :password
+  validates_format_of       :email, as: :email_address,
+    message: 'You must enter a valid email to sign up.'
+
+  validates_uniqueness_of   :email,
+    message: 'Account with that email already exists.'
+
+  validates_confirmation_of :password,
+    message: 'Password and confirmation password do not match.'
 
   has n, :peeps
 end

@@ -46,10 +46,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/chat'
     else
-      flash[:mismatch] ='Password and confirmation password do not match.' if params[:password] != params[:confirm_password]
-      flash[:missing_email] = 'You must enter an email to sign up.' if params[:email].empty?
-      flash[:invalid_email] = 'You must enter a valid email to sign up.' if !(params[:email] =~ EMAIL_REGEX)
-      flash[:duplicate_email] = 'Account with that email already exists.'
+      flash.now[:errors] = user.errors
+      puts "*************", user.errors
       session[:email] = params[:email]
       redirect '/signup'
     end
