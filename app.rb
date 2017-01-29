@@ -9,6 +9,8 @@ class ChitterChallenge < Sinatra::Base
 
   use Rack::MethodOverride
 
+set :views, Proc.new { File.join(root, 'views') }
+
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -42,7 +44,7 @@ get '/session/new' do
 end
 
 post'/session' do
-  @user = User.authenticate(params[:email], params[:password])
+  @user = User.authenticate(params[:user_name], params[:password])
   if @user
     session[:user_id] = @user.id
     redirect to('session/account')
@@ -65,23 +67,19 @@ end
 
 
 get '/chitter/index' do
-  @peep = Peep.all
-  erb :'chitter/index'
-end
-
-get '/chitter/peep' do
-  @peeps = Peep.all
-  erb :'chitter/peep'
+    @peeps = Peep.all
+  erb :'/chitter/index'
 end
 
 post '/chitter/peep' do
-  message = Peep.create(message: params[:message])
-  user = @current_user
-  message.user = user
-  message.save
+    @message = Peep.create(message: params[:message])
+    @message.save
   redirect '/chitter/peep'
 end
 
+get '/chitter/peep' do
+  erb :'chitter/peep'
+end
 
 helpers do
   def current_user

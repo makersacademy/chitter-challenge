@@ -20,8 +20,8 @@ include DataMapper::Resource
 
   #belongs_to :peep
 
-  def self.authenticate(email, password)
-  user = first(email: email)
+  def self.authenticate(user_name, password)
+  user = first(user_name: user_name)
 
   if user && BCrypt::Password.new(user.password_digest) == password
     user
