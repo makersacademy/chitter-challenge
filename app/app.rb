@@ -1,6 +1,6 @@
 require 'sinatra/base'
 #require_relative 'data_mapper_setup'
-require './app/models/user'
+require_relative 'models/user'
 
 
 class Chitter < Sinatra::Base
@@ -14,14 +14,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/registration' do
-    user = User.create(email: params[:email],
-                       password: params[:password],
-                       name: params[:name],
-                       username: params[:username])
-    redirect '/'
+    User.new(name: params[:name],
+                       username: params[:username],
+                       email: params[:email],
+                       password: params[:password])
+    redirect '/messenger'
   end
 
+  get '/messenger' do
 
+  end
+
+  run! if $0 == 'app/app.rb'
 end
-
-Chitter.run! if $0 == 'app/app.rb'
