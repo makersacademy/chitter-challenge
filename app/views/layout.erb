@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='sign out' style="float: right;">
+  </form>
+
+  <body>
+    <% if current_user %>
+      Welcome <%= current_user.name %>
+    <% end %>
+    <% if flash[:notices] %>
+    <div id='notices'>
+      <%= flash[:notices] %>
+    </div>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>
