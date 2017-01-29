@@ -11,11 +11,11 @@ class ChitterChallenge < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    # redirect '/'
+    redirect '/chitter'
   end
 
   get '/chitter' do
-    @posts = Peep.all
+    @posts = Peep.all(order: :created_at.desc)
     erb :'chitter/index'
   end
 
