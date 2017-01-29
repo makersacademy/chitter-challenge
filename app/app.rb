@@ -1,4 +1,5 @@
 require_relative 'data_mapper_setup'
+require 'data_mapper'
 
 class Chitter < Sinatra::Base
 
