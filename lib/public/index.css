@@ -8,7 +8,7 @@ label {
   margin-right: 15px;
   width:200px;
 }
-h1 {
+h1, h2 {
   background-color: lightcyan;
   border: 2px solid cornflowerblue;
   border-radius: 4px; background-color: darkturquoise;
@@ -38,22 +38,28 @@ body {max-width: 1000px}
   padding:5px;
 }
 
-.twit{
+article{
   border: 3px solid;
   margin: 5px;
   border-radius: 5px;
   margin-bottom: 20px;
+  min-height: 70px;
+  max-height: 70px;
 }
 
 .twit_content{
+  z-index:-1;
   float: right;
   border: 1px cornsilk solid;
   padding: 2px;
-  min-height: 60px;
-  min-width: 400px;
+  min-height: 64px;
+  max-height: 64px;
+  min-width: 70%;
+  max-width: 70%;
   background: cornsilk;
   font-family: monospace;
   font-size: 20px
+
 }
 
 .twit_user_name{
