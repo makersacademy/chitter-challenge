@@ -13,7 +13,7 @@ class User
   validates_format_of :user_email, as: :email_address
 
   property :id, Serial
-  property :user_email, String, required: true #DB level constraint to ensure this field is NOT NULL.
+  property :user_email, String, required: true, unique: true #DB level constraint to ensure this field is NOT NULL, unique to ensure only unique email addresses allowed
   property :user_full_name, String
   property :user_name, String
   property :password_digest, Text

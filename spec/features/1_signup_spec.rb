@@ -30,6 +30,12 @@ feature "FEATURE 1: Signup" do
     expect { sign_up(user_email: nil) }.not_to change(User, :count)
   end
 
+  scenario "1F) Not possible if email address already registered by user" do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+  end
+
 
 
 
