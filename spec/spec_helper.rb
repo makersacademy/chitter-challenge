@@ -16,6 +16,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'timecop'
 
 require_relative 'helpers/sign_up.rb'
 require_relative 'helpers/sign_in.rb'
