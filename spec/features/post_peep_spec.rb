@@ -39,4 +39,12 @@ feature "FEATURE: post peep" do
     expect(page).to have_content "Peep text must not be blank"
   end
 
+  scenario "Cannot add a peep over 250 characters" do
+    sign_in(email, password)
+    click_link('new_peep')
+    fill_in :peep_text, with: "This is the Captain of the Enterprise. Our respect for other life forms requires that we give you this... warning. There is one critical item of information that has never been incorporated into the memory banks of any Earth ship. Since the early years of space exploration, Earth vessels have had incorporated into them a substance known as... corbomite. It is a material and a device which prevents attack on us. If any destructive energy touches our vessel, a reverse reaction of equal strength is created, destroying -..."
+    click_button('submit_peep')
+    expect(page).to have_content "Peep text must be at most 250 characters long"
+  end
+
 end
