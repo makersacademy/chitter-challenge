@@ -52,8 +52,8 @@ Development & use:
 * Ruby
 * DataMapper with dm-postgres-adapter
 * Postgresql
-* Sinatra with Sinatra Flash and Sinatra Partial
 * Bcrypt
+* Sinatra with Sinatra Flash and Sinatra Partial
 * Heroku
 
 Testing:
@@ -65,7 +65,6 @@ Testing:
 * Rubocop with rubocop-rspec
 * Travis CI
 * Coveralls
-
 
 How To Download and Run the App
 -------
@@ -97,8 +96,14 @@ Progress
 
 2. Story 02:
   * A user can sign into Chitter. Feature tests check for the process to:
-    - succeed with correct username and password (a greeting is displayed)
+    - succeed with correct username and password (a name-specific greeting is displayed)
     - fail with incorrect username and/or password (an error message is displayed and the user is redirected to the sign in form)
+
+3. Story 03:
+  * A user can sign out of Chitter. Feature tests check for the `Sign out` button to work and display a page where:
+    - a sign out confirmation message is displayed
+    - the user's salutation by name is absent
+
 
 Issues
 -----
@@ -116,3 +121,6 @@ Issues
 
 2. Story 02:
   * More thorough unit testing might be required for the User.rb model. Aside from #authenticate, a test for #password= might be needed.
+
+3. Story 03:
+  * Nothing so far.

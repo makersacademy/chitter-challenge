@@ -8,3 +8,9 @@
     </ul>
   </div>
 <% end %>
+
+<% if flash[:sign_out] %>
+  <div id='sign_out_message'>
+    <%= flash[:sign_out] %>
+  </div>
+<% end %>

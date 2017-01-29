@@ -5,7 +5,7 @@ feature 'Signing up' do
     expect(User.first.email).to eq('johndoe@internet.com')
   end
 
-  scenario 'with improper password confirmation yields error' do
+  scenario 'with wrong password confirmation yields error' do
     expect { sign_up(password_confirmation: 'otherpassword')}.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content 'Password does not match the confirmation'
@@ -29,7 +29,7 @@ feature 'Signing up' do
     expect(page).to have_content('Username must not be blank')
   end
 
-  scenario "with invalid email address yields error" do
+  scenario "with wrong email address yields error" do
     expect { sign_up(email: 'been@drinking') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email has an invalid format')
