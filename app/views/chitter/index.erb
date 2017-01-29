@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
     <li>
       Peep:    <%= post.peep %>
-      Time:    <%= post.created_at %>
+      Time:    <%= post.created_at.strftime("%H:%M, %d/%m/%y") %>
       User:    <%= post.username %>
     </li>
   <% end %>
