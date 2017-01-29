@@ -42,9 +42,17 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/newpeep' do
+    erb :'newpeep'
+  end
+
+  post '/peeps' do
+    Peep.create(words: params[:words], email: params[:email])
+    redirect '/peeps'
+  end
+
   get '/peeps'  do
     @peeps = Peep.all
-    p @peeps
     erb :'peeps'
   end
 

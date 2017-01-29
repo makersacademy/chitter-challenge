@@ -8,10 +8,10 @@ def sign_up(email: 'eric@example.com',
   click_button 'Sign Up'
 end
 
-def sign_in(email:, password:)
+def sign_in(email: 'eric@example.com',
+            password: 'password1')
   visit '/login'
   fill_in :email, with: email
   fill_in :password, with: password
   click_button 'Login'
 end
- 
