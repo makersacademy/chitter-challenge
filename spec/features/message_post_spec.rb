@@ -19,6 +19,13 @@ feature 'Message:' do
     end
   end
 
+  scenario 'Post a blank peep and display error message' do
+    sign_up
+    sign_in
+    post_peep(message: nil)
+    expect(page).to have_content("Body must not be blank")
+  end
+
   # As a maker
   # So that I can see what others are saying
   # I want to see all peeps in reverse chronological order
@@ -39,12 +46,25 @@ feature 'Message:' do
   end
 
   scenario 'repeep to a peep' do
+    Timecop.freeze do
+      sign_up
+      sign_in
+      post_peep(message: 'first message')
+      click_button 'Repeep'
+      fill_in :repeep_body, with: "repeep message"
+      click_button 'Repeep'
+      expect(page).to have_content("first message")
+      expect(page).to have_content "repeep message"
+      expect(page).to have_content Time.now.to_s[0..19]
+    end
+  end
+
+  scenario 'Post a blank peep and display error message' do
     sign_up
     sign_in
     post_peep(message: 'first message')
     click_button 'Repeep'
-    fill_in :repeep_body, with: "repeep message"
     click_button 'Repeep'
-    expect(page).to have_content "repeep message"
+    expect(page).to have_content("Repeep body must not be blank")
   end
 end

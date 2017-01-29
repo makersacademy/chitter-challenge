@@ -5,7 +5,8 @@
 * [Gems Used] (#GEMS)
 * [Installtion] (#Install)
 * [User Stories] (#US)
-* [Usage] (#Usage)
+* [Usage] (#Usage
+* [Database Schema] (#Schema)
 * [Screen Shots] (#Shots)
 * [Use live on Heroku] (#Heroku)
 
@@ -50,6 +51,12 @@ $ rvm install ruby-2.3.3
 $ gem install bundle
 $ bundle
 ```
+* To setup the postgres database
+```
+$ createdb chitter_development
+$ createdb chitter_test
+$ rake db:auto_migrate
+```
 
 ## <a name="US">User Stories</a>
 ```
@@ -85,9 +92,8 @@ $ rackup -p 4567
 ```
 type `http://localhost:4567` into your web browser
 
-## <a name="Heroku">Use live on Heroku</a>
-
-[Chitter] (https://adrianeyre-chitter.herokuapp.com)
+## <a name="Schema">Database Schema</a>
+[![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/schema.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/schema.png "Database Schema")
 
 ## <a name="Shots">Screen Shots</a>
 ### Main Chitter Screen
@@ -98,3 +104,7 @@ type `http://localhost:4567` into your web browser
 
 ### Sign In Screen
 [![ScreenShot1](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot3.png)](https://raw.githubusercontent.com/adrianeyre/chitter-challenge/master/images/screenshot3.png "Screen Shot 3")
+
+## <a name="Heroku">Use live on Heroku</a>
+
+[Chitter] (https://adrianeyre-chitter.herokuapp.com)

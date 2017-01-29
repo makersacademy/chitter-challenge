@@ -5,7 +5,7 @@ class Repeep
   has n, :peeps, through: Resource
 
   property :id,             Serial
-  property :repeep_body,    String, required: true
+  property :repeep_body,    Text, required: true
   property :time_stamp,     Time, required: true
 
 end

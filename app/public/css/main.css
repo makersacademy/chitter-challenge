@@ -41,8 +41,11 @@ input#signout {
 .TitleText {
 	font-size: 50px;
 }
+.FontSize9 {
+	font-size: 9px;
+}
 div.container {
-  position: fixed;
+  position: absolute;
   float: left;
   top: 220px;
   width: 100%;
@@ -127,6 +130,14 @@ div.container {
 	vertical-align: middle;
 	text-align: left;
 	text-indent: 10px;
+}
+.errors {
+  position: absolute;;
+  top: 190px;
+  height: 20px;
+  width: 99%;
+  background-color: #FF0000;
+  z-index: 1000;
 }
 a:link {
 	color: #F00;

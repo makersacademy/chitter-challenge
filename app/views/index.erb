@@ -24,7 +24,9 @@
             </tr>
             <tr>
               <td width="10">&nbsp;</td>
-              <td height="33" class="WhiteText">Peeps <a href="/users/<%=@current_user.username%>"><%= @current_user.peeps %></a></td>
+              <td height="33" class="WhiteText">Peeps <a href="/users/<%=@current_user.username%>"><%= @current_user.peeps %></a>&nbsp;&nbsp;
+                                                Repeeps <a href="/users/<%=@current_user.username%>"><%= @current_user.repeeps %></a>
+              </td>
               <td width="10">&nbsp;</td>
             </tr>
             <tr>
@@ -114,6 +116,7 @@
           peep_user(peep.users)
           repeeps = peep.repeeps
           if @search == @peep_user.username || @search == nil %>
+          <a href="#peep<%=peep.id%>"></a>
           <div class="peepbox">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
@@ -153,7 +156,7 @@
                 </tr>
               </table>
           </div>
-          <% if repeeps && current_user%>
+          <% if repeeps%>
             <% repeeps.each do |repeep|
               peep_user(repeep.users)%>
               <div class="replypeepbox">
@@ -167,13 +170,13 @@
                   <tr>
                     <td width="10">&nbsp;</td>
                     <td width="60" valign="top"><img src="<%= @peep_user.image %>" width="40" height="40" alt="User" /></td>
-                    <td bgcolor="#FFFFFF"><%= repeep.repeep_body %></td>
+                    <td bgcolor="#FFFFFF"><%= check_tags(repeep.repeep_body) %></td>
                     <td width="10" class="WhiteText">&nbsp;</td>
                   </tr>
                   <tr>
                     <td>&nbsp;</td>
                     <td width="50">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="FontSize9"><span class="WhiteText"><%= repeep.time_stamp.to_s[0..19]  %></span></td>
                     <td width="10">&nbsp;</td>
                   </tr>
                 </table>

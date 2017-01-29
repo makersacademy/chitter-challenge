@@ -31,9 +31,19 @@ class User
   end
 
   def peeps
-    user_peeps = 0
     peeps = Peep.all
+    user_peeps = 0
     peeps.each do |peep|
+      peep.users.each {|user| @peep_user = user.username}
+      user_peeps += 1 if @peep_user == self.username
+    end
+    user_peeps
+  end
+
+  def repeeps
+    repeeps = Repeep.all
+    user_peeps = 0
+    repeeps.each do |peep|
       peep.users.each {|user| @peep_user = user.username}
       user_peeps += 1 if @peep_user == self.username
     end

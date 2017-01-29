@@ -1,4 +1,5 @@
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   enable :partial_underscores
   set :session_secret, 'super secret'
@@ -16,6 +17,7 @@ class Chitter < Sinatra::Base
     user = User.get(session[:user_id])
     peep.users << user
     peep.save
+    peep.save ? session[:errors] = nil : session[:errors] = peep.errors.full_messages
     redirect to('/')
   end
 
@@ -36,8 +38,7 @@ class Chitter < Sinatra::Base
       repeep.users << user
       repeep.peeps << peep
       repeep.save
-      redirect to('/')
-    else
+      repeep.save ? session[:errors] = nil : session[:errors] = repeep.errors.full_messages
       redirect '/'
     end
   end
