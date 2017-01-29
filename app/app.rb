@@ -1,6 +1,8 @@
 require_relative 'data_mapper_setup'
 require 'data_mapper'
 
+ENV["RACK_ENV"] ||= "development"
+
 class Chitter < Sinatra::Base
 
   register Sinatra::Flash
