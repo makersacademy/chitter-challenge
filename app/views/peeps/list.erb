@@ -1,0 +1,22 @@
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+  <form method='post' action='/sessions'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign Out'>
+   </form>
+<% end %>
+
+<h2>Current peeps are as follows:</h2>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.message %>
+    By: <%= peep.name %>
+    User Handle: <%= peep.username %>
+  </li>
+  <% end %>
+</ul>
+
+<form action='/peeps/new' method='GET'>
+  <input type='submit' value='Add Link'>
+</form>

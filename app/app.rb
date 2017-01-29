@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
     user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_conf: params[:password_conf])
     if user.save
       session[:user_id] = user.id
-      redirect '/chitter'
+      redirect '/peeps'
     else
       session[:email] = params[:email]
       session[:name] = params[:name]
@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/chitter'
+      redirect '/peeps'
     else
       flash[:errors] = ['The email or password is incorrect.']
       redirect '/'
@@ -62,9 +62,21 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
-  get '/chitter' do
-    erb(:'chitter/index')
+  get '/peeps' do
+    @peeps = Peep.all
+    erb(:'peeps/list')
   end
+
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
+  post '/peeps' do
+    user = User.get(session[:user_id])
+    peep = user.peeps.create(message: params[:message], name: user.name, username: user.username)
+    redirect '/peeps'
+  end
+
 
 
   # start the server if ruby file executed directly

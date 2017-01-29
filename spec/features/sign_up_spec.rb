@@ -6,7 +6,7 @@ feature 'sign up form' do
     context 'password matches' do
       scenario 'can sign up' do
         sign_up('name', 'user', 'test@test.com', 'password', 'password')
-        expect(current_path).to eq('/chitter')
+        expect(current_path).to eq('/peeps')
         expect(page).to have_content("Welcome, test@test.com")
       end
 

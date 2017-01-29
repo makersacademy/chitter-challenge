@@ -12,7 +12,7 @@ feature 'sign in' do
   context 'valid sign in' do
     scenario 'user can sign in' do
       sign_in('test@test.com', 'password')
-      expect(current_path).to eq('/chitter')
+      expect(current_path).to eq('/peeps')
     end
     scenario 'welcome message is displayed' do
       sign_in('test@test.com', 'password')
