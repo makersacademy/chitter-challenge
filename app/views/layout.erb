@@ -5,7 +5,8 @@
     <title>Chitter</title>
     <link rel='stylesheet' href='/bootstrap-3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/stylesheet.css'>
-    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet">
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </head>
 
   <body>
@@ -28,15 +29,15 @@
               <li class="active">
                 <form action='/sessions' method='post'>
                   <input type='hidden' name='_method' value='delete'>
-                  <input class="btn btn-default navbar-btn" type='submit' value='Log out'>
+                  <input class="btn btn-danger navbar-btn" type='submit' value='Log out'>
                 </form>
               </li>
             <% else %>
               <li>
-                <a href='/signup' class="btn btn-default navbar-btn">Sign up</a>
+                <a href='/signup' class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-user"></span> Sign up</a>
               </li>
               <li>
-                <a href='/login' class="btn btn-default navbar-btn">Log in</a>
+                <a href='/login' class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Log in</a>
               </li>
             <% end %>
           </ul>

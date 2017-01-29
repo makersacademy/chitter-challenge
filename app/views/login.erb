@@ -1,13 +1,11 @@
-<form action='/sessions' method='post'>
-  <label>Email:
-    <input type='email' name='email' required>
-  </label>
+<form action='/sessions' method='post' class="form-signin">
+  <label for="inputEmail" class="sr-only">Email:</label>
+  <input placeholder="Email address" type='email' name='email' required id="inputEmail" class="form-control">
 
-  <label>Password:
-    <input type='text' name='password' required>
-  </label>
+  <label for="inputPassword" class="sr-only">Password:</label>
+  <input placeholder="Password" type="password" id="inputPassword" class="form-control" name='password' required>
 
-  <input type='submit' value='Sign in'>
+  <input class="btn btn-lg btn-primary btn-block" type='submit' value='Sign in'>
 </form>
 
 <% if flash[:fail_login] %>

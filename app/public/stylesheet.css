@@ -1,21 +1,70 @@
-#main-page {
-  margin-top: 80px;
-}
-
 .banner {
   width: 100%;
-  background-color: #F45D22;
+  background-color: #5056DD;
   padding: 10%;
   text-align: center;
   color: #FFFFFF;
 }
 
-.navbar-btn {
-  margin: 5px;
+.navbar {
+  position: relative;
+  height: 75px;
+  line-height: 75px;
 }
 
 .navbar-brand {
-  font-family: 'Frijole', cursive;
-  font-size: 36px;
-  padding: 20px;
+  font-family: 'Sonsie One', cursive;
+  font-size: 48px;
+  padding: 26px;
+}
+
+.navbar-btn {
+  margin: 10px 0px 10px 10px;
+}
+
+.posting {
+  width: 100%;
+  background-color: #65C6F4;
+  padding: 2%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#peep {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px;
+  border-color: #E7E7E7;
+  border-style: solid;
+}
+
+.posts {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footnote {
+  font-style: italic;
+  background-color: #E7E7E7;
+  padding: 3px 6px 3px 6px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.content {
+  font-weight: bold;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid #E7E7E7;
+  resize: none;
+  color: #000000;
+}
+
+.form-signin {
+  width: 100px;
 }
