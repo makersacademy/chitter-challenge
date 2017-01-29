@@ -17,3 +17,7 @@ group :test do
   gem 'capybara'
   gem 'timecop'
 end
+
+group :development do
+  gem 'sass'
+end
