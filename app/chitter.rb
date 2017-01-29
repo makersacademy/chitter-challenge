@@ -13,11 +13,12 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-    @current_user = User.get(session[:user_id])
+    @current_user ||= User.get(session[:user_id])
     end
   end
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -48,6 +49,12 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
       session[:user_id] = nil
       redirect '/'
+  end
+
+  post '/peeps' do
+    current_user = User.get(session[:user_id])
+    peep = Peep.create(content: params[:new_peep], user_id: current_user.id)
+    redirect '/'
   end
 
   # start the server if ruby file executed directly

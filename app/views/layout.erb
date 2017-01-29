@@ -11,7 +11,14 @@
       <form action='/sessions' method='post'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Log Out'>
-   </form>
+      </form>
+
+      <form action='/peeps' method='post'>
+        <label for='new_peep'>
+          New Peep: <input name='new_peep' type='text'>
+        </label>
+        <input type='submit' value='Peep!'>
+      </form>
     <% end %>
 
     <%= yield %>

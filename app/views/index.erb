@@ -7,6 +7,17 @@
   <body>
     <h1>Chitter</h1>
 
+    <h3>Your feed</h3>
+
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <% user = User.get(peep.user_id) %>
+        <li>
+        <%= user.name %> - @<%= user.user_name %> | <%= peep.content %>
+        </li>
+      <% end %>
+    </ul>
+
     <form action='/users/new' method='get'>
       <input type='submit' value='New User'>
     </form>

@@ -1,6 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
 require './app/models/user'
+require './app/models/peep'
+
 
 require File.join(File.dirname(__FILE__), '..', './app/chitter.rb')
 

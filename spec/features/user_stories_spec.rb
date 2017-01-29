@@ -35,10 +35,21 @@ feature '3. Log Out' do
     expect(page).to_not have_content('Welcome Ada Lovelace @Mech01001!')
   end
 end
+
 # As a Maker
 # So that I can let people know what I am doing
 # I want to post a message (peep) to chitter
-#
+feature '4. Post' do
+  let(:user) { User.create(name: 'Ada Lovelace', user_name: 'Mech01001',email: 'adalove@gmail.com', password: 'LogicLove', password_confirmation: 'LogicLove') }
+
+  scenario 'an user wants to post a message (peep) to chitter' do
+    log_in(user_name: user.user_name, password: user.password)
+    fill_in(:new_peep, with: 'This is my first peep!')
+    click_button('Peep!')
+    expect(page).to have_content('Ada Lovelace - @Mech01001 | This is my first peep!')
+  end
+end
+
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
