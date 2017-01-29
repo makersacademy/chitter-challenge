@@ -74,7 +74,7 @@ class Chitter < Sinatra::Base
         current_user.peeps << peep
         current_user.save
         if peep.save
-            flash.keep[:notice] = "Your peep is free!"
+            flash.keep[:notice] = "Peep... away!"
         end
         redirect '/peeps'
     end
