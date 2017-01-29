@@ -5,3 +5,7 @@
   Message was sent at <%= peep.created_at.strftime("%H:%M, %d/%m/%y") %> - <%= peep.message %>
 </ul>
 <% end %>
+
+<form action="/chitters" method='get'>
+  <input type="submit" name="" value="Back">
+</form>

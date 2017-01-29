@@ -31,10 +31,6 @@ class Chitter < Sinatra::Base
     erb :chitters
   end
 
-  get '/chitters/new' do
-    erb :creating_peeps
-  end
-
   get '/peeps' do
     @peeps = Peep.all(order: :created_at.desc)
     erb :peeps
