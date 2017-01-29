@@ -30,6 +30,10 @@ class BookmarkManager < Sinatra::Base
     erb :'main/feed'
   end
 
+  get '/login' do
+    erb :'main/login'
+  end
+
 
 
   run! if app_file == $0

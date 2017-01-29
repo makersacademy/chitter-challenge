@@ -10,7 +10,7 @@ require_relative '../web_helper.rb'
 end
 =end
 
-feature 'user sign up page' do
+feature 'User sign up page' do
   scenario 'its there' do
     visit '/'
     expect(page).to have_content('Please')
@@ -22,8 +22,8 @@ feature 'user sign up page' do
   end
 end
 
-feature 'User sign up' do
-  scenario 'I can sign up as a new user' do
+feature 'sign up' do
+  scenario 'i can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(User.first.email).to eq('franklin.shaw@gmail.com')
   end
