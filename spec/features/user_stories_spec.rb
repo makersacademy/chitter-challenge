@@ -117,9 +117,9 @@ end
 # I want to see the time at which it was made
 feature '6. Display time of peep' do
   let(:user) { User.create(name: 'Ada Lovelace', user_name: 'Mech01001',email: 'adalove@gmail.com', password: 'LogicLove', password_confirmation: 'LogicLove') }
-  let(:peep) { Peep.create(content: "I'm peeping!", user_id: user.id, created_timedate: Time.new(2017, 01, 29, 18, 53)) }
 
   scenario 'an user wants to see the time at which a peep was made' do
+    peep = Peep.create(content: "I'm peeping!", user_id: user.id, created_timedate: Time.new(2017, 01, 29, 18, 53))
     visit '/'
     expect(page).to have_content("Ada Lovelace - @Mech01001 | I'm peeping! | 06:53PM Sunday 29/01/2017")
   end
