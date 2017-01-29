@@ -1,4 +1,7 @@
 require 'rubygems'
-require File.join(File.dirname(__FILE__), 'app/app.rb')
+require 'bundler'
 
-run Chitter
+Bundler.require
+
+require File.expand_path 'app/app.rb', File.dirname(__FILE__)
+run App
