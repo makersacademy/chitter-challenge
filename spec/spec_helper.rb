@@ -16,6 +16,7 @@ require 'dm-transactions'
 
 require 'features/web_helpers/sign_up_helpers'
 require 'features/web_helpers/logging_in_helpers'
+require 'features/web_helpers/post_helper'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
