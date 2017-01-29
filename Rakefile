@@ -1,4 +1,4 @@
-require_relative 'app/data_mapper_setup'
+require 'data_mapper_setup'
 require 'data_mapper'
 
 if ENV['RACK_ENV'] != 'production'
