@@ -6,4 +6,13 @@ class ChitterApp < Sinatra::Base
     end
   end
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = current_user.peeps.create(peep_text: params[:peep_text])
+    redirect '/'
+  end
+
 end
