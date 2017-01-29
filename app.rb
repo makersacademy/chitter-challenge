@@ -5,6 +5,8 @@ require './models/user.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     redirect '/timeline'
   end
@@ -14,8 +16,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name], email: params[:email], username: params[:username])
-    session[:username] = user.username
+    user = User.create(name: params[:name],
+                      email: params[:email],
+                      username: params[:username],
+                      password: params[:password])
     redirect '/timeline'
   end
 
@@ -26,6 +30,23 @@ class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     erb :'/sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/timeline'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
   # start the server if ruby file executed directly
