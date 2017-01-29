@@ -29,6 +29,8 @@ require 'database_cleaner'
 require_relative 'support/database_cleaner'
 require_relative 'helpers/session_helpers'
 require_relative 'helpers/user_helpers'
+require_relative 'helpers/peep_helpers'
+require_relative 'helpers/comment_helpers'
 
 
 include DatabaseCleaner

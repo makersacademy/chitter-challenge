@@ -14,8 +14,3 @@ def sign_out
   visit '/'
   click_button 'Sign out'
 end
-def peep
-  visit '/'
-  fill_in 'content', with: 'Hello world, this is my first Peep!!'
-  click_button 'Peep'
-end
