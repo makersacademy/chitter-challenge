@@ -7,8 +7,6 @@ feature 'User sign up' do
       fill_in :user_name, with: "John"
       fill_in :password, with: "John"
       click_button "submit"
+      expect(page).to have_content("Welcome, John")
     end
-
-
-
-end
+  end
