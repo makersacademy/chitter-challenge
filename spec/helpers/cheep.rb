@@ -1,10 +1,10 @@
-feature "User can send cheeps" do
-  scenario "when signed in" do
+module CheepHelpers
+
+  def sign_in_and_cheep
     sign_in
     click_button "Compose Cheep"
     expect(current_path).to eq '/cheep/new'
     fill_in :cheep, with: "Hello, this is a test!"
     click_button "Cheep!"
-    expect(page).to have_content("Hello, this is a test!")
   end
 end

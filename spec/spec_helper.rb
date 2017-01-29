@@ -11,6 +11,8 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative 'helpers/session'
+require_relative 'helpers/cheep'
+
 
 RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
