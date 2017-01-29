@@ -2,6 +2,21 @@ Chitter Challenge
 =================
 [![Coverage Status](https://coveralls.io/repos/github/shezdev/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/shezdev/chitter-challenge?branch=master)
 
+The first 3 user stories have been implemented:
+```
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+```
+
 Installation instructions
 ==========================
 ```
@@ -10,6 +25,28 @@ Installation instructions
 > makersinit - to report git transactions to MA
 > coveralls report - to show test coverage
 > Created a database chitter_development in postgresql
+> Using the following gems:
+gem 'sinatra'
+gem 'rake'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'database_cleaner'
+
+  gem 'rspec'
+  gem 'rspec-sinatra'
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'coveralls', require: false
+
+>ruby app/app.rb to start the server
+> Navigate to http://localhost:4567/signup
+> Register :)
+
+More on my approach
+====================
 > Added the following to gem files:
 gem "data_mapper"
 gem "dm-postgres-adapter"
@@ -37,25 +74,6 @@ Coveralls.wear!
 > Updated feature test 1B to expect a welcome page when clicking submit
 > Creating a model called app/models/chitter_user.rb.
 > bundle update - ran this to update all gems, as was getting unexplained error - Users/shereen/.rvm/gems/ruby-2.3.3/gems/dm-types-0.10.0/lib/dm-types.rb:7:in `<module:Types>': undefined method `/' for #<String:0x007f8fc9e99ed0> (NoMethodError)
-> Using the following gems:
-gem 'sinatra'
-gem 'rake'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'dm-transactions'
-gem 'bcrypt'
-gem 'sinatra-flash'
-gem 'database_cleaner'
-
-  gem 'rspec'
-  gem 'rspec-sinatra'
-  gem 'capybara'
-  gem 'cucumber'
-
-  gem 'coveralls', require: false
-
-
-
 ```
 
 Challenge instructions
