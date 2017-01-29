@@ -12,7 +12,12 @@ class ChitterApp < Sinatra::Base
 
   post '/peeps' do
     peep = current_user.peeps.create(peep_text: params[:peep_text])
-    redirect '/'
+    if peep.save
+      redirect '/'
+    else
+      flash[:error] = peep.errors.full_messages
+      redirect '/peeps/new'
+    end
   end
 
 end

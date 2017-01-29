@@ -31,4 +31,12 @@ feature "FEATURE: post peep" do
     expect(page).to have_content peep_text
   end
 
+  scenario "Cannot add a blank peep" do
+    sign_in(email, password)
+    click_link('new_peep')
+    fill_in :peep_text, with: ""
+    click_button('submit_peep')
+    expect(page).to have_content "Peep text must not be blank"
+  end
+
 end
