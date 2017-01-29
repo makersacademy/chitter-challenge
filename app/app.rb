@@ -20,7 +20,11 @@ class Chitter < Sinatra::Base
     end
     
     get '/' do
-       redirect '/users/new' 
+        if current_user
+            redirect '/peeps'
+        else
+            redirect '/users/new' 
+        end
     end
     
     get '/users/new' do
