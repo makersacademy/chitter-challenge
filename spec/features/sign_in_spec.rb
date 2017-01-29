@@ -18,7 +18,7 @@ feature 'FEATURE: Sign in' do
 
   scenario "can sign in with existing username and password" do
     sign_in(email, password)
-    expect(page).to have_content("Welcome, @#{user_name}")
+    expect(page).to have_content("@#{user_name}")
   end
 
   scenario "cannot sign in with invalid email" do

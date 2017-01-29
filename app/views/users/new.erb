@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-5">
   <div class="row">
     <form action="/users" method="post" class="col-xs-12 col-md-6 offset-md-3 py-3">
       <div class="form-group row">
@@ -11,18 +11,15 @@
       </div>
       <div class="form-group row">
         <label class="col-4" for="user_name">User Name</label>
-        <div class="input-group col-8">
-          <div class="input-group-addon">@</div>
-          <input class="form-control" type="text" name="user_name" value="" required>
-        </div>
+        <input class="col-8 form-control" type="text" name="user_name" value="" required>
       </div>
       <div class="form-group row">
-        <label class="col-4" for="password">Password</label>
-        <input class="form-control col-8" type="password" name="password" value="" required>
+        <label class="col-6" for="password">Password</label>
+        <input class="form-control col-6" type="password" name="password" value="" required>
       </div>
       <div class="form-group row">
-        <label class="col-4" for="password_confirmation">Password Confirmation</label>
-        <input class="form-control col-8" type="password" name="password_confirmation" value="" required>
+        <label class="col-6" for="password_confirmation">Password Confirmation</label>
+        <input class="form-control col-6" type="password" name="password_confirmation" value="" required>
       </div>
       <div class="form-group d-flex justify-content-center">
           <button class="btn btn-lg" type="submit" name="submit_sign_up" id="submit_sign_up">Sign Up</button>

@@ -1,0 +1,105 @@
+//VARIABLES
+
+$main-font-color: rgb(87, 87, 87);
+$primary-tint: #80086E;
+$second-tint: #51E9D3;
+$third-tint: #3AC099;
+$fourth-tint: #BBE095;
+$light-shadow: rgb(159, 159, 159);
+
+
+//GLOBAL STYLES
+
+body {
+  font-family: 'Merriweather', serif !important;
+  color: $main-font-color
+}
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#main-wrapper {
+	min-height:100%;
+	position:relative;
+  padding-bottom: 35px;
+}
+
+#footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+}
+
+.small-text {
+  font-size: 0.6em;
+}
+
+.main-font-color {
+  color: $main-font-color !important;
+}
+
+a {
+  color: $primary-tint;
+  &:hover {
+    color: $second-tint;
+  }
+}
+
+.btn {
+  background-color: $third-tint;
+  color: $main-font-color;
+  font-family: 'Merriweather', serif !important;
+  font-weight: bold;
+  &:hover {
+    background-color: $second-tint;
+    cursor: pointer;
+  }
+}
+
+.form-control {
+  border-color: $third-tint;
+  font-family: 'Merriweather', serif !important;
+  color: $main-font-color !important;
+  &:focus {
+    border-color: $primary-tint;
+  }
+
+}
+
+.main-content {
+  height: 100%;
+}
+
+
+//HEADER STYLES
+
+.chitter-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar {
+  box-shadow:
+  0 0 0 3px $primary-tint,
+  0 0 0 6px $second-tint,
+  0 0 0 9px $third-tint,
+  0 0 0 12px $fourth-tint;
+  margin-bottom: 12px;
+}
+
+.nav-link {
+  margin: 0rem .5rem !important;
+}
+
+
+//FOOTER STYLES
+
+.footer {
+  border-top: 4px solid $primary-tint;
+  background-color: $third-tint;
+}
