@@ -1,10 +1,16 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.3.3'
 
-group :test do
+
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'dm-transactions'
+gem 'bcrypt'
+gem 'rake'
+gem 'sinatra'
+gem 'rspec-sinatra'
+
   gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
+  gem 'capybara'
   gem 'coveralls', require: false
-end
-
+  gem 'database_cleaner'
