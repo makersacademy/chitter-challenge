@@ -8,3 +8,11 @@ def sign_up
   fill_in(:password_confirmation, with: 'nuclearReactor')
   click_button('Sign Up')
 end
+
+def log_in(user_name:, password:)
+  visit '/'
+  click_button('Log In')
+  fill_in :user_name, with: user_name
+  fill_in :password, with: password
+  click_button('Log In')
+end

@@ -10,10 +10,18 @@ feature '1. Sign up' do
     expect(page).to have_content('Welcome Enrico Fermi @atom1901!')
   end
 end
+
 # As a Maker
 # So that I can post messages on Chitter as me
 # I want to log in to Chitter
-#
+feature '2. Log In' do
+  let(:user) { User.create(name: 'Ada Lovelace', user_name: 'Mech01001',email: 'adalove@gmail.com', password: 'LogicLove', password_confirmation: 'LogicLove') }
+
+  scenario 'an existing user wants to log in' do
+    log_in(user_name: user.user_name, password: user.password)
+    expect(page).to have_content('Welcome Ada Lovelace @Mech01001!')
+  end
+end
 # As a Maker
 # So that I can avoid others posting messages on Chitter as me
 # I want to log out of Chitter
