@@ -22,8 +22,8 @@ Welcome to Chitter!
   <% @peeps.each do |peep| %>
   <%= peep.body %><br>
   <% user = User.get(peep.user_id) %>
-  <%= user.name %> <br>
-  <%= user.username %> <br>
+  <%= user.username %><br>
+  <%= user.name %> peeped this at <%= peep.created_at.strftime('%T') + ' on ' + peep.created_at.strftime('%D') %><br>
   <% end %>
   <% end %>
 </ul>
