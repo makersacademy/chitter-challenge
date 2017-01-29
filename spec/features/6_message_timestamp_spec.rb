@@ -12,7 +12,7 @@ feature '6: message timestamps' do
     post_peep
 
     within('div#peep') do
-      expect( page ).to have_content('Posted on 29 January 2017 at 10:05 by Kat')
+      expect( page ).to have_content('Posted on 29 January 2017 at 10:05')
     end
 
   end
