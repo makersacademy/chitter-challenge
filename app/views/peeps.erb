@@ -2,6 +2,10 @@
   <form action = 'logout' method = 'post'>
     <button type = 'submit'>log out</button>
   </form>
+<% else %>
+  <form action = 'loginback' method = 'post'>
+    <button type = 'submit'>log in</button>
+  </form>
 <% end %>
 
 <% if current_user %>

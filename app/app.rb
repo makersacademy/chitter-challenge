@@ -23,19 +23,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/tosignup' do
-    redirect '/signup'
+    redirect to '/signup'
   end
 
   post '/login' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/peeps'
+      redirect to '/peeps'
     else
       flash[:errors] = ['The email or password is incorrect. If you have not regitered with us yet, please follow the link to sign up page.']
-      redirect '/'
+      redirect to '/'
     end
-    redirect '/peeps'
+    redirect to '/peeps'
   end
 
   post '/signup' do
@@ -45,13 +45,13 @@ class Chitter < Sinatra::Base
         password: params[:password], password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      redirect '/peeps'
+      redirect to '/peeps'
     else
       session[:email] = params[:email]
       flash[:errors] = user.errors.full_messages
-      redirect '/signup'
+      redirect to '/signup'
     end
-    redirect '/peeps'
+    redirect to '/peeps'
   end
 
   get '/peeps' do
@@ -69,7 +69,11 @@ class Chitter < Sinatra::Base
     time = Time.new.strftime('%I:%M%p, %d %b %Y')
     Peep.create(text: params[:peep], time: time, user_name: current_user.name)
     #binding.pry
-    redirect '/peeps'
+    redirect to '/peeps'
+  end
+
+  post '/loginback' do
+    redirect to '/'
   end
 
   # start the server if ruby file executed directly
