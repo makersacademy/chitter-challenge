@@ -95,6 +95,11 @@ Progress
 
   Unit tests check for user authentication (with email and password).
 
+2. Story 02:
+  * A user can sign into Chitter. Feature tests check for the process to:
+    - succeed with correct username and password (a greeting is displayed)
+    - fail with incorrect username and/or password (an error message is displayed and the user is redirected to the sign in form)
+
 Issues
 -----
 
@@ -108,3 +113,6 @@ Issues
   ```
   Once the table is in place (i.e. after running the app once and creating a user), everything worked well - I didn't need the workaround I had found [here](https://github.com/makersacademy/slack-overflow/issues/180).
   * Unit tests for user authentication might be premature (better suited for Story 02?)
+
+2. Story 02:
+  * More thorough unit testing might be required for the User.rb model. Aside from #authenticate, a test for #password= might be needed.

@@ -1,7 +1,7 @@
 feature 'Signing up' do
   scenario 'as new user increases user count by 1, stores user data in DB, and uses it' do
     expect { sign_up }.to change(User, :count).by 1
-    expect(page).to have_content 'Welcome johndoe@internet.com'
+    expect(page).to have_content 'Hi, John Doe!'
     expect(User.first.email).to eq('johndoe@internet.com')
   end
 
