@@ -1,0 +1,298 @@
+body {
+	font-family: sans-serif;
+	background-color: #c0deed;
+	margin: 0;
+	padding: 0;
+
+}
+
+#header {
+	background-color: #ffffff;
+}
+
+#headerdivide{
+	color:  #00aced;
+}
+
+#icon{
+	height: 70px;
+	padding-left: 25px;
+	margin-top: -10px;
+	display: inline-flex;
+}
+
+#logo{
+	display: inline-block;
+	padding-top: -10px;
+	margin-top: -10px;
+	margin-bottom: 0;
+}
+
+#slogan {
+	margin-top: 0;
+}
+
+#branding{
+	display: inline-block;
+	margin-bottom: -20px;
+	margin-top: -10px;
+	padding-top:-10px;
+	color: #00aced;
+}
+
+.headerbuttonform{
+	display: inline-block;
+	float: right;
+	height: 100%;
+	padding-top: 25px;
+	padding-right: 15px;
+}
+
+.headerbutton {
+	float:right;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: #0084b4;
+	letter-spacing: 1px;
+	font-size: inherit;
+	outline: none;
+	transition: all .3s;
+	display: inline-block;
+}
+
+.headerbutton:hover {
+	color: white;
+	background: #0084b4;
+}
+
+#stream{
+	float: right;
+	width: 65%;
+	margin-right: 20px;
+}
+
+.peep{
+	background: #ffffff;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#search {
+	float: right;
+	width: 61.5%;
+	margin-right: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#search h3, #getin h3 {
+	color: #0084b4;
+}
+
+#search form {
+	padding-bottom: 10px;
+	margin-left: 15%;
+}
+
+#makepeep input[type="submit"], #search input[type="submit"] {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: #0084b4;
+	letter-spacing: 1px;
+	font-size: inherit;
+	outline: none;
+	transition: all .3s;
+	display: inline-block;
+}
+
+#makepeep input[type="submit"]:hover, #search input[type="submit"]:hover {
+	color: white;
+	background: #0084b4;
+}
+
+#makepeep input[type="submit"] {
+	margin-left: 32%;
+	margin-bottom: 10px;
+}
+
+#welcome, #makepeep {
+	border: black solid 2px;
+	margin-left: 20px;
+	background: #ffffff;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#makepeep h3 {
+	color: #0084b4;
+}
+
+#welcome p {
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+.handle {
+	color: #0084b4;
+	font-weight: 700;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+#left {
+	float: left;
+	width: 33%;
+}
+
+#notice, #getin {
+	float: left;
+	margin-left: 20px;
+	background: #ffffff;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+	width: 30%;
+}
+
+.getinbuttonform{
+	display: inline-block;
+	float: left;
+	margin-left: 70px;
+	margin-bottom: 18px;
+}
+
+#welcome p{
+	margin: 5px;
+}
+
+.peepcontent{
+	margin-left: 10px;
+}
+
+.peeptime{
+	margin-right: 10px;
+}
+
+.peepline{
+	width: 90%;
+	margin-top: 20px;
+	color: #1dcaff;
+}
+
+#signupwarn {
+	margin: auto;
+	width: 50%;
+	background: #ffffff;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+	width: 30%;
+	color: #0084b4;
+}
+
+#newpeep {
+	float: right;
+	width: 61.5%;
+	margin-right: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#newpeep h2, #newpeep h4 {
+	color: #0084b4
+}
+
+textarea {
+	resize: none;
+	margin-left: 16%;
+}
+
+#addtags{
+	margin-left: 25%;
+	margin-bottom: 5px;
+}
+
+#newpeep input[type="submit"]{
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: #0084b4;
+	letter-spacing: 1px;
+	font-size: inherit;
+	outline: none;
+	transition: all .3s;
+	display: inline-block;
+}
+
+#newpeep input[type="submit"]:hover{
+	color: white;
+	background: #0084b4;
+}
+
+#signin {
+	float: right;
+	width: 61.5%;
+	margin-right: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#signin h2 {
+	color: #0084b4
+}
+
+.form {
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+#signinform, #signupform {
+	margin-left: 28%;
+	margin-bottom: 15px;
+}
+
+#signinform input[type="submit"], #signupform input[type="submit"]{
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: #0084b4;
+	letter-spacing: 1px;
+	font-size: inherit;
+	outline: none;
+	transition: all .3s;
+	display: inline-block;
+	margin-left: 25%;
+}
+
+#signinform input[type="submit"]:hover, #signinform input[type="submit"]:hover{
+	color: white;
+	background: #0084b4;
+}
+
+#signup{
+	float: right;
+	width: 61.5%;
+	margin-right: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	border: solid 2px rgba(0, 132, 180, 0.5);
+}
+
+#signup h2 {
+	color: #0084b4
+}

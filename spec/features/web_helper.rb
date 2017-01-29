@@ -1,5 +1,5 @@
 def sign_up
-	visit '/users/new'
+	visit '/newusers'
     fill_in 'name', with: "Sam Jones!"
     fill_in 'email', with: "sam@email.com"
     fill_in 'user_name', with: "username"
@@ -11,7 +11,7 @@ end
 
 
 def sign_in
-	visit '/sessions/new'
+	visit '/newsessions'
     fill_in :user_name, with: 'username'
     fill_in :password, with: 'password'
     click_button 'Sign in'

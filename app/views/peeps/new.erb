@@ -1,20 +1,48 @@
-<h1> Welcome to Chitter </h1>
+<!DOCTYPE html>
+<html>
 
-<h2> Get Peeping! </h2>
+  <head>
+    <title>Welcome to Chitter</title>
+    <link rel="stylesheet" href="/stylesheet" type="text/css">
+  </head>
+
+<body>
+
+
 
 <% if current_user %>
 
-<h4>Tell everyone what you're thinking:</h4>
-<textarea name="content" form="peepform"></textarea>
-<form id= 'peepform' action = '/peeps' method = 'POST'>
+<div id = 'left'>
+<div id = 'welcome'>
+    <% if current_user %>
+         <p>Welcome to Chitter, <%= current_user.name %>.  Get stuck in.</p>
+         <p class='handle'>@<%=current_user.user_name%></p> 
+    <% end %>
+</div>
+</div>
 
-  <label for="tags"> tags: </label>
+<div id = 'newpeep'>
+<h2 align = 'center'> What are you up to then? </h2>
+<textarea cols = '75' rows = '2' name="content" form="peepform"></textarea>
+<form id= 'peepform' action = '/peeps' method = 'POST'>
+  <h4 align = 'center'> Whack some tags on it.  Just seperate them with a space alright?</h4>
+  
+<div id = 'addtags'>
+  <label for="tags"> tags: # </label>
+  
+  
   <input type = "text" name = "tags"/>
 
   <input type = "submit" value = "Peep!">
-
+</div>
 </form>
+</div>
 
 <% else %>
-	Sign up fool!
+	<div id = 'signupwarn'>
+	  <h3 align = 'center'>Sign up first, yeah?</h3>
+	</div>
 <%end %>
+
+</body>
+</html>
