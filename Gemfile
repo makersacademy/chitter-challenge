@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'rainbow', '>= 2.1.0', '< 2.2.0'
+gem 'sinatra-partial'
 
 
 
