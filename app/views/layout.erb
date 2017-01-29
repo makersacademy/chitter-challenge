@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="css.css" type="text/css" />
+<!--<link rel="stylesheet" href="layout.css" type="text/css" />-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+  <body class="centered-wrapper">
+    <header class = "centered-content">
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if current_user %>
+      <h2> Hey there, <%= current_user.user_name %>! </h2>
+      <br>
+      <div id="sign_out_button">
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class="button" type='submit' value='Sign out'>
+        </form>
+      </div>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Oh dear, looks like we've got some errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>
