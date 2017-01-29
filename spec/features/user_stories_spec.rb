@@ -99,17 +99,15 @@ end
 # I want to see all peeps in reverse chronological order
 feature '5. Live feed' do
   let(:user) { User.create(name: 'Ada Lovelace', user_name: 'Mech01001',email: 'adalove@gmail.com', password: 'LogicLove', password_confirmation: 'LogicLove') }
-  # let(:peep1) { Peep.create(content: "I'm peeping!", user_id: user.id, created_timedate: Time.now) }
-  # let(:peep2) { Peep.create(content: "I'm peeping too!", user_id: user.id, created_timedate: Time.now) }
 
   scenario 'a user wants to see peeps in reverse chronological order' do
-    sign_up
-    fill_in(:new_peep, with: 'This is my first peep!')
-    click_button('Peep!')
-    fill_in(:new_peep, with: 'This is my second peep!')
-    click_button('Peep!')
-    expect(page).to have_selector("ul#peeps li:nth-child(1)", text: 'This is my second peep!')
-    expect(page).to have_selector("ul#peeps li:nth-child(2)", text: 'This is my first peep!')
+    peep1 = Peep.create(content: "This is my first peep!", user_id: user.id, created_timedate: Time.new(2017, 01, 29, 18, 50))
+    peep2 = Peep.create(content: "This is my second peep!", user_id: user.id, created_timedate: Time.new(2017, 01, 29, 19, 10))
+    visit '/'
+    within('ul#peeps') do
+    find(:xpath, './/li[1]').text.should match("This is my second peep!")
+    find(:xpath, './/li[2]').text.should match("This is my first peep!")
+    end
   end
 end
 # As a maker
