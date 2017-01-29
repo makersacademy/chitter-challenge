@@ -44,21 +44,10 @@ View all peeps reverse order
 
 View time of peeps
 
-Optional extras: reply to peep; css
+Optional extras: CSS; reply to peep
 ```
 
-## Set Up
-
-```
-$ git clone https://github.com/makersacademy/chitter-challenge
-$ bundle
-$ create databases chitter_development and chitter_test
-$ rake auto_migrate
-$ rspec
-$ rackup
-```
-
-## Pages Summary
+## Pages
 
 Logged in: "You are logged in as <email>" at top + logout link/btn
 
@@ -80,57 +69,3 @@ Displays all peeps in reverse
 **peep**
 -> **peeps** ...
 FAIL ->  **peeps**
-
-## TODO & Notes
-
-- location and caching for css files
-- feature tests with many expects for efficiency
-- use spec helpers appropriately, see code review notes
-- at end go through stack: understand what is calling what in what order, what configs etc.
-- wrt going through stack, then refactor nicely as poss
-- text/varchar best to use in postgres (https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/)
-
-## Extra Things Done
-
-- use one db not test and dev. Having two served no useful purpose for this exercise
-
-## Bookmark Reference Work Through
-
-### Skipped / Not relevant
-
-14 Heroku
-
-### Skipped / Still To Do
-
-15 Adding tags - test, erb, model, controller
-16 filtering by tag - tests, route patterns, has n update to model
-17 multiple tags - tests, controller, use of rakefile on Cmd line
-25 Refactor dir structure. Nice to do at end
-
-### Done
-
-08 View peeps - test
-09 peeps - model, inc in spec_helper
-10 view links - controller, views, modular sinatra  
-  todo get all tests to pass with instantiation obj row in test
-11 new peep - test, models, controller, views
-12 Set up database cleaner
-  todo lines 42-45 in spec_helper - may work once data in db?
-13 config.ru, DataMapper.setup(...) datamapper_setup, app.rb, spec_helper.rb
-18 sign up - tests, model, bcrypt, erb. Confirmation to do
-19 Confirmation password - test, view, model and controller
-20 confirmation fail - flash message with test, controller, model, view
-  todo get email to persist on reload
-21 validate blank email - test, view/html5, model/dm required/not null
-22 No duplicate blank or invalid emails - test, flash erb update
-23 login - tests, erb, controller, model inc fail if wrong password/email
-24 logout - tests, flash, controller method override delete
-
-### Current Location
-
-12 completed up to here, review following.
-Need to test cannot add new peep not logged in
-View peeps in reverse order
-Add timestamps
-Make look nice
-refactor and understand call sequence thoroughly

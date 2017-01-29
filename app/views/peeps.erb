@@ -7,6 +7,8 @@
       <span class="pvalue"><%= peep.words %></span><br />
       <span class="pname">Email: </span>
       <span class="pvalue"><%= peep.email %></span>
+      <span class="pname">Time: </span>
+      <span class="pvalue"><%= peep.time.strftime("at %k:%M on %-d-%b") %></span>
     </li>
   <% end %>
 </ul>

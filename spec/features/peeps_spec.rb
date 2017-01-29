@@ -2,15 +2,11 @@ require 'spec_helper'
 
 feature 'View peeps' do
 
-  scenario 'peeps are visible in reverse order' do
+  scenario 'peeps visible in reverse order' do
     sign_up
     sign_in
-    visit '/newpeep'
-    fill_in 'words',   with: 'FirstPeep'
-    click_button 'Peep'
-    visit '/newpeep'
-    fill_in 'words',   with: 'SecondPeep'
-    click_button 'Peep'
+    newpeep(words: 'FirstPeep')
+    newpeep(words: 'SecondPeep')
     expect(current_path).to eq '/peeps'
     within 'ul#peepfeed' do
       expect(page).to have_content /SecondPeep.*FirstPeep/

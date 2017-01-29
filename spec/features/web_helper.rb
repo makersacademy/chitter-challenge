@@ -15,3 +15,9 @@ def sign_in(email: 'eric@example.com',
   fill_in :password, with: password
   click_button 'Login'
 end
+
+def newpeep(words: 'have a banana')
+  visit '/newpeep'
+  fill_in :words, with: words
+  click_button 'Peep'
+end

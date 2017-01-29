@@ -5,7 +5,6 @@ feature 'Sign up' do
   scenario 'can sign up new user' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('You are logged in as eric@example.com')
-    # pointless and not feature test: expect(User.first.email).to eq('eric@example.com')
   end
   scenario 'cannot sign up with mismatched confirmation' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
