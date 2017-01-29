@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <span style="font-family: arial">
+    <article class='layout' style="font-family: arial">
       <% if flash[:notice] %>
         <div id='notice'>
           <%= flash[:notice] %>
@@ -23,6 +23,6 @@
         </ul>
       <%end%>
       <%= yield %>
-    </span>
+    </article>
   </body>
 </html>

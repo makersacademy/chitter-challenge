@@ -5,8 +5,10 @@ require 'sinatra/flash'
 require 'encrypted_cookie'
 require_relative 'data_mapper_setup'
 require 'pry'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
+  set :public_folder, Proc.new { File.join(root, 'static') }
   register Sinatra::Flash
   use Rack::MethodOverride
   use Rack::Session::EncryptedCookie,
@@ -14,11 +16,7 @@ class Chitter < Sinatra::Base
 
   DataMapper::Logger.new($stdout, :debug)
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers Helpers
 
   before do
     Peep.count > 0 ? @peeps = Peep.all(order: :created_at.desc) : @peeps = nil

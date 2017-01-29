@@ -13,11 +13,11 @@ Coveralls.wear!
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara'
+require './app/app'
 require 'capybara/rspec'
 require 'rspec'
 require 'orderly'
 require_relative 'helpers/session'
-require './app/app'
 require 'database_cleaner'
 require 'dm-transactions'
 
