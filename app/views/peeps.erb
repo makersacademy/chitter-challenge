@@ -1,14 +1,14 @@
-<!--<link rel="stylesheet" href="css.css" type="text/css" /> -->
+<link rel="stylesheet" href="css.css" type="text/css" /> 
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>Chitter</title>
   </head>
-  <body>
-      <header>
-        <h1> Peeps! </h1>
-      </header>
+  <body class="centered-wrapper">
+    <header>
+      <h1> Peeps! </h1>
+    </header>
       <div>
         <% if current_user %>
         <div id='peep_form'>
@@ -19,7 +19,7 @@
                 <textarea name='peep' maxlength='140' placeholder='Peep here...' cols='35' rows='4'></textarea>
               </div>
             </label>
-            <input type='submit' value='Post my peep'>
+            <input class="button" type='submit' value='Post my peep'>
           </form>
         </div>
         <% else %>
@@ -32,11 +32,12 @@
       <div>
         <dl id='peeps'>
           <% @peeps.each do |peep| %>
-            <dt><%= peep.name %> @<%= peep.user_name %> - <%= peep.creation_date %></dt>
-            <dd><%= peep.body %></dd>
+            <dt>"<%= peep.body %>"</dt>
+            <dd>by <%= peep.name %> @<%= peep.user_name %> - <%= peep.creation_date %></dd>
             <br>
           <% end %>
         </ul>
       </div>
   </body>
 </html>
+

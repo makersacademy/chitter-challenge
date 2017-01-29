@@ -1,0 +1,44 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #494ab2;
+    background: #9bbf78;
+    margin-top: 1cm;
+}
+
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+dt {
+    font-size: 150%
+}
+
+.button {
+    background-color: #2b7284;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none
+}
