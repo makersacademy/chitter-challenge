@@ -1,0 +1,72 @@
+
+
+<div class="container">
+  <h2 align="center">Sign Up Form</h2>
+  <form action='/users' method='post'>
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-4">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" name="email" placeholder="Enter email" value="<% if @user %><%= @user.email %><% end %>">
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row"></div>
+        <span><br></span>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-4">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter password">
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row"></div>
+        <span><br></span>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-4">
+          <label for="password_confirmation">Password Confirmation:</label>
+          <input type="password" class="form-control" name="password_confirmation" placeholder="Enter password again">
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row"></div>
+        <span><br></span>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-4">
+          <button type="submit" class="btn btn-default btn-primary-spacing">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="container">
+      <div class="row"></div>
+      <span><br></span>
+    </div>
+
+
+    <div class="container">
+      <div class="col-md-4 col-md-offset-4">
+      <span>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          <ul>
+            <% flash[:errors].each do |error| %>
+            <li>
+              <%=error%>
+            </li>
+          <% end %>
+
+          </ul>
+        <% end %>
+      </span>
+    </div>
+    </div>
+
+</div>
