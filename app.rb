@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require './models/user.rb'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -26,6 +26,7 @@ class Chitter < Sinatra::Base
 
   get '/timeline' do
     @username = session[:username]
+    @peeps = Peep.all
     erb :timeline
   end
 
@@ -47,6 +48,16 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
   session[:user_id] = nil
   redirect to '/timeline'
+  end
+
+  get '/timeline/new' do
+    erb :'timeline/new'
+  end
+
+  post '/timeline' do
+    peep = Peep.new(message: params[:peep])
+    peep.save
+    redirect '/timeline'
   end
 
   helpers do

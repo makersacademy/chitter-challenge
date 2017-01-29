@@ -1,0 +1,11 @@
+<ul id=peeps>
+  <% if current_user %>
+  <form action='/timeline/new' method='get'>
+    <input type="submit" value="Post Peep">
+  </form>
+  <% end %>
+  
+  <% @peeps.each do |peep| %>
+    <%= peep.message %><br>
+  <% end %>
+</ul>
