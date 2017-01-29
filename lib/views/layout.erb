@@ -2,23 +2,26 @@
 <html>
 <style>
 body.serif {
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 62.5%;
+}
+header {
+  text-align: center;
 }
 
 username {
-  font-family: Tahoma, Geneva, sans-serif;
-  font-size: 60.0%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70.0%;
 }
 
 peeptext {
-  font-family: Tahoma, Geneva, sans-serif;
-  font-size: 100.0%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 110.0%;
 }
 
 timeanddate {
-  font-family: Tahoma, Geneva, sans-serif;
-  font-size: 40.0%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 65.0%;
 }
 
 }
@@ -52,8 +55,8 @@ input[type=password], select {
 }
 
 input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
+    width: 20%;
+    background-color: #06789e;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -62,7 +65,7 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #4CAF50;
 }
 
 div {
@@ -97,7 +100,7 @@ h2 {
         </form>
         <% end %>
         <% if flash[:notice] %>
-          <div id='notice'><%= flash[:notice] %></div>
+          <div id='notice'><%=flash[:notice]%></div>
         <% end %>
         <% if flash[:errors] && !flash[:errors].empty? %>
           Please refer to the following errors below:
