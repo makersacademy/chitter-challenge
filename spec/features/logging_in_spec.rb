@@ -5,10 +5,21 @@
 # I want to log in to Chitter
 
 feature 'logging in' do
+
+  before do
+    User.create(
+      name:                   'Test User Name',
+      email:                  'test@test.com',
+      password:               'qwerty',
+      password_confirmation:  'qwerty')
+  end
+
   scenario 'if user exists he can log in' do
-
+    log_in_existing_user
+    expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'Welcome, Test User Name!'
   end
-  scenario 'if user does not exist error is raised and he is referred to sign_up' do
-
-  end
+  # scenario 'if user does not exist error is raised and he is referred to sign_up' do
+  #
+  # end
 end

@@ -1,19 +1,11 @@
-<form action = 'peeps' method = 'post'>
-  <label for 'name'>
-    please enter your name:
-    <input type = 'text' name = 'name' required>
-  </label>
+<form action = 'login' method = 'post'>
   <label for 'email'>
     your email address:
-    <input type = 'email' name = 'email' value = '<%=@user_email%>' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required>
+    <input type = 'email' name = 'email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required>
   </label>
   <label for 'password'>
     your password:
     <input type = 'password' name = 'password' required>
   </label>
-  <label>
-    and please confirm your password:
-    <input type = 'password_confirmation' name = 'password_confirmation' required>
-  </label>
-  <button type = 'submit'>sign up</button>
+  <button type = 'submit'>log in</button>
 </form>

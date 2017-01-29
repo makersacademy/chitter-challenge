@@ -13,12 +13,20 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/signup' do
-    @user_email = session[:email] ? session[:email] : nil
+  get '/' do
     erb :index
   end
 
-  post '/peeps' do
+  get '/signup' do
+    @user_email = session[:email] ? session[:email] : nil
+    erb :signup
+  end
+
+  post '/login' do
+    redirect '/peeps'
+  end
+
+  post '/signup' do
     user = User.create(
         name: params[:name],
         email: params[:email],
@@ -32,7 +40,7 @@ class Chitter < Sinatra::Base
       flash[:errors] = user.errors.full_messages
       redirect '/signup'
     end
-    erb :peeps
+    redirect '/peeps'
   end
 
   get '/peeps' do
