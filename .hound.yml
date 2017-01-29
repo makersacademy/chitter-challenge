@@ -1,2 +1,2 @@
-ruby:
+ruby: '2.4.0'
   config_file: .rubocop.yml

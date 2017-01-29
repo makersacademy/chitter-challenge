@@ -1,8 +1,8 @@
 <div id='peep_post'>
   <%if current_user %>
-    <form action='/peep/new' method='post'>
+    <form id='post peep' action='/peep/new' method='post'>
     <input type='text' name='peep_content' placeholder='Please input your peep'> <br />
-    <input type="submit" value='Post'>
+    <input type="submit" name='post' value='Post'>
   <%else%>
       <h3>Please sign up or sign in to start peeping</h3>
   <%end%>
@@ -14,7 +14,7 @@
       <li>
         <%= peep.user.username %>: </br>
         <%= peep.peep_content %> </br>
-        <%= peep.created_at %> </br>
+        <%= "#{peep.created_on.strftime('%a %d %b %Y')}: #{peep.created_at.strftime('%I:%M:%S %p')}" %> </br>
         <br />
       </li>
     <% end %>

@@ -12,14 +12,14 @@
     <%if current_user%>
       <div id='welcome'>
         <h2>Welcome  <%=current_user.username%></h2>
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input type='submit' value='Log out'>
+        <a href='/sessions/log_out'>
+          <button>Log out</button>
+        </a><br />
       </div>
       <%else%>
       <a href='/users/new'>
         <button>Sign Up!</button>
-      </a><br />
+      </a>
       <a href='/sessions/new'>
         <button>Sign In!</button>
       </a>

@@ -53,6 +53,11 @@ class ChitterApp < Sinatra::Base
     end
   end
 
+  get '/sessions/log_out' do
+    erb :'users/log_out', layout: :layout_empty
+  end
+
+
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
@@ -61,7 +66,7 @@ class ChitterApp < Sinatra::Base
 
   get '/main' do
     current_user
-    peep = Peep.all
+    peep = Peep.all(:order => [ :created_at.desc ])
     @peeps = peep ? peep : []
     erb :main
   end

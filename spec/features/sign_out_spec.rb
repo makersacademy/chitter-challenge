@@ -7,6 +7,7 @@ require './spec/spec_helper'
 feature 'logging out' do
   scenario 'so I can log out of chitter' do
     sign_in
+    visit('/sessions/log_out')
     click_button('Log out')
     expect(page).to have_content 'Goodbye!'
   end
