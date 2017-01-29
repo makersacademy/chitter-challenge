@@ -16,13 +16,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(user_email: params[:user_email], password: params[:password], password_confirmation: params[:password_confirmation], user_full_name: params[:user_full_name], user_name: params[:user_name])
-    if user.save
+    @user = User.create(user_email: params[:user_email], password: params[:password], password_confirmation: params[:password_confirmation], user_full_name: params[:user_full_name], user_name: params[:user_name])
+    if @user.save
         # session[:user_id] = user.id
-        session[:id] = user.id
+        session[:id] = @user.id
         redirect to('/welcome')
       else
-        flash.now[:notice] = "Erm...Your password and confirmation password do not match"
+        flash.now[:errors] = @user.errors.full_messages
         erb :signup_page
       end
   end

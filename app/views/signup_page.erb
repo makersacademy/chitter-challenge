@@ -16,7 +16,14 @@
             Email
           <input type="email" name="user_email" value="you@domain.com" required>
           </label><p>
-
+            <% if flash[:errors] && !flash[:errors].empty? %>
+              Please refer to the following errors below:
+                <ul id='errors'>
+                  <% flash[:errors].each do |error| %>
+                    <li><%= error %></li>
+                    <% end %>
+                </ul>
+            <% end %>
           <label for="password">
             Password
           <input type="password" required name="password" value="password">
