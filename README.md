@@ -113,6 +113,7 @@ FAIL ->  **peeps**
 09 peeps - model, inc in spec_helper
 10 view links - controller, views, modular sinatra  
   todo get all tests to pass with instantiation obj row in test
+11 new peep - test, models, controller, views
 12 Set up database cleaner
   todo lines 42-45 in spec_helper - may work once data in db?
 13 config.ru, DataMapper.setup(...) datamapper_setup, app.rb, spec_helper.rb
@@ -127,5 +128,9 @@ FAIL ->  **peeps**
 
 ### Current Location
 
-11 set up test and form to create link (ie a peep for us) is next to look at
-Issue will be joining User and Peep tables via datamapper so is similar
+12 completed up to here, review following.
+Need to test cannot add new peep not logged in
+View peeps in reverse order
+Add timestamps
+Make look nice
+refactor and understand call sequence thoroughly

@@ -13,6 +13,7 @@ feature 'Create peep' do
     end
   end
   scenario 'cannot create peep if not logged in' do
-    
+    visit '/newpeep'
+    expect(page).to have_content('You must login first to create a new peep')
   end
 end

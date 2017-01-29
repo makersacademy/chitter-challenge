@@ -2,13 +2,19 @@ require 'spec_helper'
 
 feature 'View peeps' do
 
-  scenario 'peeps are visible' do
-    #Peep.create(words: 'Have a banana', email: 'ron@example.com')
-    visit '/peeps'
-    expect(page.status_code).to eq 200
-    # to do reinstate this test after have set up test to create peeps
-    # within 'ul#peepfeed' do
-    #   expect(page).to have_content('have a banana')
-    # end
+  scenario 'peeps are visible in reverse order' do
+    sign_up
+    sign_in
+    visit '/newpeep'
+    fill_in 'words',   with: 'FirstPeep'
+    click_button 'Peep'
+    visit '/newpeep'
+    fill_in 'words',   with: 'SecondPeep'
+    click_button 'Peep'
+    expect(current_path).to eq '/peeps'
+    within 'ul#peepfeed' do
+      expect(page).to have_content /SecondPeep.*FirstPeep/
+    end
   end
+
 end

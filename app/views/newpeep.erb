@@ -1,7 +1,11 @@
 <h1>New Peep</h1>
-<form action='/peeps' method='post'>
-  <label for='words'>Peep &nbsp;&nbsp;</label>
-    <input type='text' name='words' />
-    <input type='hidden' name='email' value='<%= current_user.email %>'/>
-  <input type='submit' value='Peep'>
-</form>
+<% if !current_user %>
+  <p>You must login first to create a new peep</p>
+<% else %>
+  <form action='/peeps' method='post'>
+    <label for='words'>Peep &nbsp;&nbsp;</label>
+      <input type='text' name='words' />
+      <input type='hidden' name='email' value='<%= current_user.email %>'/>
+    <input type='submit' value='Peep'>
+  </form>
+<% end%>
