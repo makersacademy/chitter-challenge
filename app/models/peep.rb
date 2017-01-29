@@ -6,7 +6,7 @@ class Peep
   property :id, Serial
   property :words, String
   property :email, String
-  property :time, Date
-  
+  property :time, DateTime
+
   has 1, :user, through: Resource
 end

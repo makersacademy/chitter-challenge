@@ -162,7 +162,6 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   pry
-  rainbow (= 2.2.1)
   rake
   rspec
   rspec-sinatra
