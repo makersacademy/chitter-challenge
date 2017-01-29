@@ -70,7 +70,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    erb(:'peeps/list')
+    if session[:user_id]
+      erb(:'peeps/list')
+    else
+      flash[:errors] = ["Please sign in to view this page"]
+      redirect '/'
+    end
   end
 
   post '/peeps' do
@@ -79,8 +84,5 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-
-
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end

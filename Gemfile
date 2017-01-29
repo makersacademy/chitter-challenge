@@ -18,4 +18,5 @@ group :test do
   gem 'rspec-sinatra'
   gem 'rspec'
   gem 'coveralls', require: false
+  gem 'orderly'
 end

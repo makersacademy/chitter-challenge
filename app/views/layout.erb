@@ -11,6 +11,11 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+    <% if flash[:post] %>
+      <div id='post'>
+        <%= flash[:post] %>
+      </div>
+    <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Sorry, there was a problem:
       <ul id="errors">
