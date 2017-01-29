@@ -4,8 +4,8 @@
     <input type="submit" value="Post Peep">
   </form>
   <% end %>
-  
-  <% @peeps.each do |peep| %>
-    <%= peep.message %><br>
+
+  <% @peeps.reverse.each do |peep| %>
+    <%= peep.message %> - <%= peep.time %><br>
   <% end %>
 </ul>
