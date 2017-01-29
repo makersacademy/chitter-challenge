@@ -10,6 +10,7 @@ class User
   property :username, String
   property :password_digest, Text
 
+
   attr_reader :password
 
   validates_uniqueness_of(:username, :email)

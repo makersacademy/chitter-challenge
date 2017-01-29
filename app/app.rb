@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
 
 
   get '/home' do
+    @cheeps = Cheep.all
     erb :home
   end
 
@@ -59,6 +60,15 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+  end
+
+  get '/cheep/new' do
+    erb :'/cheep/new'
+  end
+
+  post '/cheeps' do
+    Cheep.create(content: params[:cheep])
+    redirect '/home'
   end
 
   # start the server if ruby file executed directly

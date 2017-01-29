@@ -27,4 +27,13 @@ module SessionHelpers
     click_button :Submit
   end
 
+  def sign_in
+    sign_up
+    click_button "Sign Out"
+    click_button "Log In"
+    fill_in :username, with: "jimbo"
+    fill_in :password, with: "llama123"
+    click_button :Submit
+  end
+
 end

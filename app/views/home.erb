@@ -1,3 +1,4 @@
+<% session[:user_id] = nil %>
 <%if !(session[:user_id]) %>
   <form id='log_in_button' action='/sessions/new' method='get'>
     <input type='submit' value='Log In'>
@@ -7,3 +8,17 @@
     <input type='submit' value='Sign Up'>
   </form>
 <% end %>
+
+<form id='compose_cheep' action='cheep/new' method='get'>
+    <input type='submit' value='Compose Cheep'>
+</form>
+
+<hi> Cheeps:</h1>
+
+<ul id='links'>
+  <% @cheeps.each do |cheep| %>
+    <li>
+      <%= cheep.content %>
+    </li>
+  <% end %>
+</ul>
