@@ -21,20 +21,19 @@ class ChitterApp < Sinatra::Base
   end
 
   get '/users/new' do
-    @user = User.new
     erb :'users/sign_up_form'
   end
 
   post '/users' do
-    @user = User.create( name: params[:name],
+    user = User.create( name: params[:name],
                         username: params[:username],
                         email: params[:email],
                         password: params[:password])
-    if @user.save
-      session[:user_id] = @user.id
+    if user.save
+      session[:user_id] = user.id
       redirect '/'
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = user.errors.full_messages
       erb :'users/sign_up_form'
     end
   end
@@ -49,7 +48,7 @@ class ChitterApp < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = ['The email or password is incorrect']
       erb :'users/sign_in'
     end
   end
