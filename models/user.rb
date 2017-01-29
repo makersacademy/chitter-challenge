@@ -4,10 +4,13 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'bcrypt'
+require './models/peeps.rb'
 
 class User
 
   include DataMapper::Resource
+
+  has n, :peeps
 
   property :id,    Serial
   property :email,  String
@@ -28,7 +31,16 @@ class User
       nil
     end
 end
+end
 
+class Peep
+  include DataMapper::Resource
+
+belongs_to :user
+
+  property :id,   Serial
+  property :peep, Text
+  property :time, Time
 
 end
 # DataMapper::Logger.new($stdout, :debug)

@@ -2,8 +2,8 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require './models/user.rb'
+require './models/peeps.rb'
 require 'sinatra/flash'
-
 
 class Chitter < Sinatra::Base
 
@@ -27,6 +27,7 @@ class Chitter < Sinatra::Base
                         password: password)
     session[:user_id] = @user.id
     erb :sign_up
+    redirect '/peeps'
   end
 
   get '/sessions_new' do
@@ -38,6 +39,7 @@ class Chitter < Sinatra::Base
     if @user
       session[:user_id] = @user.id
       erb :sessions_new
+      redirect to '/peeps_new'
     else
       flash.now[:errors] = ['The user_name or password is incorrect']
       erb :sessions_new
@@ -46,7 +48,23 @@ class Chitter < Sinatra::Base
     delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    #redirect to '/links'
+  end
+
+  get '/peeps_new' do
+    erb :new_peep
+  end
+
+  post '/peeps' do
+    peep = params[:peep]
+    @peep = Peep.new(user: current_user,peep: peep, time: Time.new)
+    @peep.save
+    redirect '/peeps'
+  end
+
+  get '/peeps' do
+    @peeps = Peep.all.reverse
+    @users = User.all
+    erb :peep
   end
 
   helpers do
