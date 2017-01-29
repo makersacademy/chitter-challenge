@@ -13,9 +13,9 @@ require 'factory_girl'
 require 'coveralls'
 require 'simplecov'
 
-# require './lib/models/...'
-#
-# require 'helpers/...'
+require './lib/models/user'
+
+require 'helpers/feature_helpers'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -115,8 +115,11 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
 
+RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include FeatureHelpers
 
   config.before(:suite) do
     FactoryGirl.find_definitions
@@ -134,5 +137,4 @@ RSpec.configure do |config|
   config.after(:each) do # <-- after each individual test roll back to "save point"
     DatabaseCleaner.clean
   end
-
 end

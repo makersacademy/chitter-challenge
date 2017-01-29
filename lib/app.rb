@@ -1,14 +1,15 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
-# require 'sinatra/flash'
-# require 'sinatra/partial'
+require 'sinatra/flash'
+require 'sinatra/partial'
+
+require_relative 'server'
 require_relative 'data_mapper_setup'
+require_relative 'controllers/users'
+require_relative 'controllers/peeps'
 
 class Chitter < Sinatra::Base
-
-  set :public_folder, Proc.new { File.join(root, 'static') }
-
   get '/' do
     'Hello Chitter!'
   end

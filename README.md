@@ -1,4 +1,4 @@
-Chitter Challenge ![Travis CI](https://travis-ci.org/sliute/chitter-challenge.svg?branch=master)
+Chitter Challenge ![Travis CI](https://travis-ci.org/sliute/chitter-challenge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/sliute/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/sliute/chitter-challenge?branch=master)
 =================
 
 Features:
