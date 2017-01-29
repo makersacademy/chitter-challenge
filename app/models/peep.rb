@@ -11,5 +11,5 @@ class Peep
   property :username, String
   property :created_at, DateTime
   property :created_on, Date
-  belongs_to :user
+  belongs_to :user, order: :created_at
 end

@@ -33,7 +33,7 @@
           <%= peep.message %><br>
           By: <%= peep.name %>,
           @<%= peep.username %><br>
-          On: <%="#{ peep.created_at.strftime("%H:%M, %d/%m/%y") }"%>
+          Created: <%="#{ peep.created_at.strftime("%H:%M, %d/%m/%y") }"%>
         </li>
         <% end %>
       </ul>

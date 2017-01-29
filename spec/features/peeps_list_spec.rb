@@ -11,18 +11,30 @@ feature "Viewing peeps" do
     user.peeps.create(message: 'Hello',
     name: 'name',
     username: 'user')
-
-    sign_in('test@test.com', 'password')
   end
 
-  scenario "displays a list of existing peeps" do
-    visit ('/peeps')
-    expect(page.status_code).to eq(200)
+  context "signed in" do
+    scenario "displays a list of existing peeps" do
+      sign_in('test@test.com', 'password')
+      visit ('/peeps')
+      expect(page.status_code).to eq(200)
 
-    within 'ul#peeps' do
-      # expect(page).to have_content("Hello")
-      expect(page).to have_content("name")
-      # expect(page).to have_content("@user")
+      within 'ul#peeps' do
+        expect(page).to have_content("Hello")
+        expect(page).to have_content("name")
+        expect(page).to have_content("@user")
+      end
+    end
+  end
+
+  context "not signed in" do
+    scenario "displays a list of existing peeps" do
+      visit ('/')
+      within 'ul#peeps' do
+        expect(page).to have_content("Hello")
+        expect(page).to have_content("name")
+        expect(page).to have_content("@user")
+      end
     end
   end
 end

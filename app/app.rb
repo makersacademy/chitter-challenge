@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   before do
-    @peeps = Peep.all
+    @peeps = Peep.all(order: :created_at.desc)
   end
 
   get '/' do
