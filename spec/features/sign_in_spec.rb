@@ -17,29 +17,17 @@ feature 'FEATURE: Sign in' do
   end
 
   scenario "can sign in with existing username and password" do
-    visit('/')
-    click_link('sign_in')
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button('submit_sign_in')
+    sign_in(email, password)
     expect(page).to have_content("Welcome, @#{user_name}")
   end
 
   scenario "cannot sign in with invalid email" do
-    visit('/')
-    click_link('sign_in')
-    fill_in :email, with: "wrongemail"
-    fill_in :password, with: password
-    click_button('submit_sign_in')
+    sign_in('wrongemail', password)
     expect(page).to have_content("Invalid email or password")
   end
 
   scenario "cannot sign in with invalid password" do
-    visit('/')
-    click_link('sign_in')
-    fill_in :email, with: email
-    fill_in :password, with: "wrongpassword"
-    click_button('submit_sign_in')
+    sign_in(email, 'wrongpassword')
     expect(page).to have_content("Invalid email or password")
   end
 
