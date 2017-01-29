@@ -23,7 +23,7 @@ feature "FEATURE 1: Signup" do
   scenario '1D) With a password that does not match' do
   expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
-  expect(page).to have_content 'Password and confirmation password do not match'
+  expect(page).to have_content 'Erm...Your password and confirmation password do not match'
   end
 
 

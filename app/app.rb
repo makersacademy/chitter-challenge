@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'models/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do
     'Hello Chitter! please go to signup'
@@ -15,8 +17,14 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     user = User.create(user_email: params[:user_email], password: params[:password], password_confirmation: params[:password_confirmation], user_full_name: params[:user_full_name], user_name: params[:user_name])
-    session[:id] = user.id
-    redirect '/welcome'
+    if user.save
+        # session[:user_id] = user.id
+        session[:id] = user.id
+        redirect to('/welcome')
+      else
+        flash.now[:notice] = "Erm...Your password and confirmation password do not match"
+        erb :signup_page
+      end
   end
 
   get '/welcome' do
