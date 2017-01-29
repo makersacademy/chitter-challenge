@@ -13,7 +13,13 @@ class User
   validates_format_of :user_email, as: :email_address
 
   property :id, Serial
-  property :user_email, String, required: true, unique: true #DB level constraint to ensure this field is NOT NULL, unique to ensure only unique email addresses allowed
+  property :user_email, String, required: true, unique: true, #DB level constraint to ensure this field is NOT NULL, unique to ensure only unique email addresses allowed
+    :format   => :email_address,
+    :messages => {
+        :presence  => "Email must not be blank",
+        :is_unique => "We already have that email",
+        :format    => "Email has an invalid format"
+    }
   property :user_full_name, String
   property :user_name, String
   property :password_digest, Text
@@ -21,6 +27,16 @@ class User
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(user_email, password)
+    user = first(user_email: user_email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      # return this user
+      user
+    else
+      nil
+    end
   end
 
 

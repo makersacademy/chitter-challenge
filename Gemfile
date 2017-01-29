@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'database_cleaner'
 
   gem 'rspec'
   gem 'rspec-sinatra'

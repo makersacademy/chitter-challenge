@@ -24,28 +24,26 @@ feature "FEATURE 1: Signup" do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
     expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
     # expect(page).to have_content 'Password and confirmation password do not match'
-    expect(page).to have_content 'Please refer to the following errors below:'
   end
 
-  scenario "1E) Not possible without an email address" do
+  scenario "1E) Not possible without an email address (presence)" do
     expect { sign_up(user_email: nil) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email must not be blank')
   end
 
-  scenario "1F) Not possible if email address already registered by user" do
+  scenario "1F) Not possible if email address already registered by user (not unique)" do
     sign_up
     expect { sign_up }.to_not change(User, :count)
-    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content('We already have that email')
+
   end
 
-  scenario '1G) Not possible with an invalid email address' do
+  scenario '1G) Not possible with an invalid email address (format)' do
     expect { sign_up(user_email: "invalid@email") }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email has an invalid format')
   end
-
-
 
 
 

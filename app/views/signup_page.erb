@@ -10,22 +10,25 @@
     </style>
       <body>
       <h1><center>Sign Up</center></h1>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+              <li><%= error %></li>
+              <% end %>
+          </ul>
+      <% end %>
+
       <form action='/users' method=POST>
         <center>
           <label for="user_email">
-            Email
+            Email:
           <input type="email" name="user_email" value="you@domain.com" required>
           </label><p>
-            <% if flash[:errors] && !flash[:errors].empty? %>
-              Please refer to the following errors below:
-                <ul id='errors'>
-                  <% flash[:errors].each do |error| %>
-                    <li><%= error %></li>
-                    <% end %>
-                </ul>
-            <% end %>
+
           <label for="password">
-            Password
+            Password:
           <input type="password" required name="password" value="password">
           </label><p>
 
@@ -35,12 +38,12 @@
               </label><p>
 
           <label for="user_full_name">
-            Name
+            Name:
           <input type="text" name="user_full_name" value="Firstname Surname">
           </label><p>
 
           <label for="user_name">
-            Username
+            Username:
           <input type="text" name="user_name" value="Needs to be unique" required>
           </label><p>
 
