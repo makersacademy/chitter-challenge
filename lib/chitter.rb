@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user'
+require_relative './models/peep'
 
 class Chitter < Sinatra::Base
   use Rack::MethodOverride
@@ -15,7 +16,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :'feed/index'
+  end
+
+  post '/feed' do
+    p params[:body]
+    user = current_user
+    Peep.create(body: params[:body], created_at: params[:created_at], user_id: session[:user_id])
+    redirect to '/feed'
   end
 
   get '/users/new' do

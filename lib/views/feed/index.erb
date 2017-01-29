@@ -1,1 +1,30 @@
-Welcome to Chitter
+<% if current_user %>
+<header>
+Hi,
+<%= current_user.email %>.
+
+
+
+<form method="post" action="/feed">
+  <label for="body">What will you peep about?</label>
+  <input type="text" name="body" required></input><br>
+  <input type="submit" value="peep this"></input>
+</form>
+
+<%else%>
+Welcome to Chitter!
+<% end %>
+</header>
+<body>
+
+<ul id='Peeps'>
+  <% if @peeps %>
+  <% @peeps.each do |peep| %>
+  <%= peep.body %><br>
+  <% user = User.get(peep.user_id) %>
+  <%= user.name %> <br>
+  <%= user.username %> <br>
+  <% end %>
+  <% end %>
+</ul>
+</body>
