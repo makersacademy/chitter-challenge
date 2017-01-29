@@ -24,4 +24,5 @@ group :development do
   gem 'pry'
   gem 'bcrypt'
   gem 'encrypted_cookie'
+  gem 'rack'
 end

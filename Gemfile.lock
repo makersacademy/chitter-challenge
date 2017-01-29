@@ -196,6 +196,7 @@ DEPENDENCIES
   encrypted_cookie
   factory_girl
   pry
+  rack
   rake
   rspec
   rspec-sinatra
