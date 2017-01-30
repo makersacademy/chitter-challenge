@@ -1,0 +1,30 @@
+<h3>Join Chitter today.</h3>
+
+<form action='/registration' method='POST'>
+
+  <label for='name'>
+    Enter your name:
+    <input type="text" name='name' />
+  </label>
+  <label for='username'>
+    Create a username:
+    <input type="text" name="username" />
+  </label>
+  <label for='email'>
+    Enter your email:
+    <input type="email" name="email" value='<%= @user.email %>'/>
+  </label>
+  <label for='password'>
+    Create a password:
+    <input type="text" name="password" />
+  </label>
+  <input type="submit" value="Submit">
+</form>
+
+<% if flash[:duplicate_email] %>
+<%= flash[:duplicate_email] %>
+<%end%>
+
+<% if flash[:missing_email] %>
+<%= flash[:missing_email] %>
+<%end%>
