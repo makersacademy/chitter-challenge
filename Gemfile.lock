@@ -123,7 +123,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rainbow (2.1.0)
+    rainbow (2.2.1)
     rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -196,7 +196,7 @@ DEPENDENCIES
   encrypted_cookie
   factory_girl
   pry
-  rainbow (~> 2.1.0)
+  rainbow (~> 2.2.1)
   rake
   rspec
   rspec-sinatra
