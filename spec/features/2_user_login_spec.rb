@@ -4,7 +4,7 @@ feature '2: user log in' do
     sign_up
     login
 
-    expect( current_path ).to eq '/chat'
+    expect( current_path ).to eq '/peeps'
     expect( page ).to have_content('Logged in as Kat')
 
   end

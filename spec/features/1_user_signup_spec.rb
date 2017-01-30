@@ -3,7 +3,7 @@ feature '1: user sign up' do
 
     sign_up
 
-    expect( current_path ).to eq '/chat'
+    expect( current_path ).to eq '/peeps'
     expect( page ).to have_content('Logged in as Kat')
     expect( User.first.email ).to eq('kmhicks92@gmail.com')
 
