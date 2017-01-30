@@ -110,7 +110,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rainbow (2.2.1)
+    rainbow (2.1.0)
     rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
