@@ -1,0 +1,72 @@
+* {
+  font-family: sans-serif;
+}
+
+label {
+  float:left;
+  text-align: right;
+  margin-right: 15px;
+  width:200px;
+}
+h1, h2 {
+  background-color: lightcyan;
+  border: 2px solid cornflowerblue;
+  border-radius: 4px; background-color: darkturquoise;
+}
+
+body {max-width: 1000px}
+.button_as_link {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     border-bottom:1px solid #444;
+     cursor: pointer;
+}
+#header {
+  border: black 1px solid;
+  padding: 20px;
+  border-radius: 6px;
+  padding-top: 0px;
+  background-color: lightblue
+}
+
+#all_twits{
+  border: aqua 1px solid;
+  border-radius: 4px;
+  padding:5px;
+}
+
+article{
+  border: 3px solid;
+  margin: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  min-height: 70px;
+  max-height: 70px;
+}
+
+.twit_content{
+  z-index:-1;
+  float: right;
+  border: 1px cornsilk solid;
+  padding: 2px;
+  min-height: 64px;
+  max-height: 64px;
+  min-width: 70%;
+  max-width: 70%;
+  background: cornsilk;
+  font-family: monospace;
+  font-size: 20px
+
+}
+
+.twit_user_name{
+  padding: 2px;
+}
+.twit_real_name{
+  padding: 2px;
+}
+.twit_time_stamp{
+  padding: 2px;
+}

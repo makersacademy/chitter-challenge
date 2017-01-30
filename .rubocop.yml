@@ -2,9 +2,12 @@ AllCops:
   DisabledByDefault: true
   DisplayCopNames: true
   DisplayStyleGuide: true
-  RunRailsCops: false
   Exclude:
     - 'spec/spec_helper.rb'
+    - 'spec/features/user/user_helpers.rb'
+
+Rails:
+  Enabled: false
 
 inherit_from:
   - enabled.yml
@@ -49,4 +52,3 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Max: 7
-

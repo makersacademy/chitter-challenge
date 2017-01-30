@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Tweetzer </title>
+    <link rel="stylesheet" href="/index.css" type="text/css" />
+  </head>
+  <body>
+    <div id="main_header">
+      <%= partial :header %>
+    </div>
+    <div id="flash_messages">
+      <%= partial :flash %>
+    </div>
+    <div id="page_body">
+      <%=yield %>
+    </div>
+  </body>
+</html>
