@@ -39,13 +39,14 @@ class Chitter < Sinatra::Base
     if @user
       session[:user_id] = @user.id
       erb :sessions_new
-      redirect to '/peeps_new'
+      redirect to '/peeps'
     else
       flash.now[:errors] = ['The user_name or password is incorrect']
       erb :sessions_new
     end
   end
-    delete '/sessions' do
+
+  delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
   end
@@ -72,6 +73,6 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
-  # start the server if ruby file executed directly
+
   run! if app_file == $0
 end

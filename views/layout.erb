@@ -14,7 +14,13 @@
     <form method='get' action='/peeps_new'>
     <input type='submit' value='press button to Peep'>
   </form>
-
+    <%else%>
+    <form method='get' action='/sign_up'>
+    <input type='submit' value='press to sign up'>
+  </form>
+  <form method='get' action='/sessions_new'>
+  <input type='submit' value='press to sign in'>
+  </form>
     <%end%>
     <%if flash[:errors]%>
       <div id='notice'><%=flash[:errors]%></div>

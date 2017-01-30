@@ -12,7 +12,8 @@ feature "create peeps and see a list of peeps in reverse chronological order" do
       fill_in :user_name, with: "John"
       fill_in :password, with: "John"
       click_button "submit"
-      expect(current_path).to eq('/peeps_new')
+      expect(current_path).to eq('/peeps')
+      click_button "press button to Peep"
       fill_in :peep, with: "Today I am busy building a twitter clone"
       click_button "submit"
     end
@@ -28,6 +29,7 @@ feature "create peeps and see a list of peeps in reverse chronological order" do
       fill_in :user_name, with: "John"
       fill_in :password, with: "John"
       click_button "submit"
+      click_button "press button to Peep"
       fill_in :peep, with: "Today I am busy building a twitter clone"
       click_button "submit"
       expect(current_path).to eq('/peeps')
