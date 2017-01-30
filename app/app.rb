@@ -73,7 +73,7 @@ class ChitterApp < Sinatra::Base
 
   post '/peep/new' do
     peep = Peep.create(peep_content: params[:peep_content], user: current_user)
-    current_user.peeps << peep
+    # current_user.peeps << peep
     redirect to '/main'
   end
 

@@ -26,4 +26,4 @@ I took the validation, log in and log out methods from the end of the Bookmark M
 
 ## Further improvements
 
-Use buttons for post actions and links for something else. 
+Use buttons for post actions and links for something else. is IMportant and could have resolved a lot of issues. click_link rather than click_button.
