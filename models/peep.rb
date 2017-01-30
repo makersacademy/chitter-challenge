@@ -2,10 +2,20 @@ class Peep
 
   include DataMapper::Resource
 
-  property :id, Serial
-  property :message, Text, length: 120
+  TIME_FORMAT = "%b %e %k:%M"
+
+  def self.reverse_chronological
+      all(:order => [ :created_at.desc ])
+  end
+
+  property :id,         Serial
+  property :peep,    Text,   required: true
   property :created_at, DateTime
 
  belongs_to :user
+
+  def creation_date
+        self.created_at.strftime(TIME_FORMAT)
+    end
 
 end

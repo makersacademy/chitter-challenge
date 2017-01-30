@@ -4,20 +4,30 @@ ENV["RACK_ENV"] ||= "development" # ensures app runs in development mode by defa
 require 'sinatra/base'
 require './models/data_mapper_setup'
 require 'sinatra/flash'
+#require 'tilt/erb'
 
 class ChitterChallenge < Sinatra::Base
 
   use Rack::MethodOverride
 
-set :views, Proc.new { File.join(root, 'views') }
-
   enable :sessions
   set :session_secret, 'super secret'
 
-register Sinatra::Flash
+  register Sinatra::Flash
+
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/' do
-    erb :index
+    if current_user
+      redirect '/peep'
+    else
+      redirect '/session/new'
+    end
   end
 
 get '/users/new' do
@@ -27,12 +37,13 @@ end
 
 post '/users' do
   @user = User.create(email: params[:email],
+                      name: params[:name],
                       user_name: params[:user_name],
-              password: params[:password],
-              password_confirmation: params[:password_confirmation])
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation])
   if @user.save
   session[:user_id] = @user.id
-  redirect to('/session/new')
+  redirect to('/peep')
   else
   flash.now[:errors] = @user.errors.full_messages
   erb :'users/new'
@@ -43,50 +54,38 @@ get '/session/new' do
   erb :'session/new'
 end
 
-post'/session' do
-  @user = User.authenticate(params[:user_name], params[:password])
-  if @user
-    session[:user_id] = @user.id
-    redirect to('session/account')
+post '/session' do
+  user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect '/peep'
   else
     flash.now[:errors] = ['The email or password is incorrect']
     erb :'session/new'
   end
 end
 
-get '/session/account' do
-  @current_user = @user
-  erb :'session/account'
-end
 
 delete '/session' do
   session[:user_id] = nil
   flash.keep[:notice] = 'Goodbye!'
-  redirect to '/session/new'
+  redirect to '/peep'
 end
 
-# issues with retreiving posts
 
-get '/chitter/index' do
-    @peeps = Peep.all
-  erb :'/chitter/index'
+get '/peep' do
+    @peeps ||= Peep.reverse_chronological
+  erb :peep
 end
 
-post '/chitter/peep' do
-    @message = Peep.create(message: params[:message])
-    @message.save
-  redirect '/chitter/peep'
+post '/peep' do
+  peep = Peep.create(peep: params[:peep])
+      current_user.peeps << peep
+      current_user.save
+  redirect '/peep'
 end
 
-get '/chitter/peep' do
-  erb :'chitter/peep'
-end
 
-helpers do
-  def current_user
-    @current_user ||= User.get(session[:user_id])
-  end
-end
 
   # start the server if ruby file executed directly
   run! if app_file == $0

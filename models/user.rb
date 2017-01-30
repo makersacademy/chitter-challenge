@@ -3,7 +3,7 @@ require 'bcrypt'
 
 class User
 
-include DataMapper::Resource
+  include DataMapper::Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
@@ -11,24 +11,22 @@ include DataMapper::Resource
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
 
-  property :id, Serial
-  property :email, String, required: true, unique: true
-  property :password_digest, Text
-  property :user_name, String, unique: true
+  property :id,              Serial
+  property :email,           String,  required: true, unique: true
+  property :password_digest, Text,    required: true
+  property :user_name,       String,  required: true, unique: true
+  property :name,            String,  required: true
 
-  has n, :peeps, through: Resource
+  has n, :peeps #through: Resource
 
-  #belongs_to :peep
-
-  def self.authenticate(user_name, password)
-  user = first(user_name: user_name)
-
-  if user && BCrypt::Password.new(user.password_digest) == password
-    user
-  else
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
       nil
+    end
   end
-end
 
   def password=(password)
     @password = password

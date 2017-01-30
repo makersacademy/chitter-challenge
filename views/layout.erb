@@ -1,33 +1,40 @@
+
+<link rel="stylesheet" href="css.css" type="text/css" />
+
 <!DOCTYPE html>
-<html>
+
+
+<center>
+  <html>
   <head>
     <title>Chitter</title>
   </head>
-
-<center>
-  <body>
+  <body class="centered-wrapper">
+    <header class = "centered-content">
     <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if current_user %>
+      <h2> Welcome, <%= current_user.user_name %>! </h2>
+      <br>
+      <div id="sign_out_button">
+        <form method='post' action='/session'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class="button" type='submit' value='Sign out'>
+        </form>
+      </div>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
-    <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
+      Oh dear, looks like we've got some errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
         <% end %>
       </ul>
-    <% end%>
-      <!-- <div id='notice'><%= flash[:notice] %>
-      </div> -->
-    <!-- <% if current_user %>
-    Welcome, <%= current_user.email %>
-  <form method='post' action='/session'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-    <% end %> -->
+    <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

@@ -1,13 +1,26 @@
-<center>
-  <h1> Please sign in </h1>
+<link rel="stylesheet" href="../css.css" type="text/css" />
 
-<form action='/session' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign in'>
-</form>
-</center>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Chitter </title>
+  </head>
+<body class="centered-wrapper">
+    <header>
+      <h1> Welcome to Chitter </h1>
+      <h2> Please sign in </h2>
+    </header>
+  <form action='/session' method='post'>
+      <label for='email'>
+          Email: <input type='email' name='email'>
+      </label>
+      <label for='password'>
+          Password: <input type='password' name='password' >
+      </label>
+      <input class="button" type='submit' value='Sign in'>
+  </form>
+  <h3>
+    ...or if you don't have an account, <a href="/users/new"> Sign up! </a>
+  </h3>
+</body>
+</html>

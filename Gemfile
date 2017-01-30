@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.2.3'
 
 gem 'sinatra' # Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort
 gem 'sinatra-flash' # A Sinatra extension for setting and showing Rails-like flash messages
