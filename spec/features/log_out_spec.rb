@@ -8,7 +8,6 @@ before(:each) do
               password_confirmation: 'secret1234',
               name: 'Jack Henderson',
               user_name: 'art_ful_gar_funk')
-
             end
 
 scenario 'while being signed in' do

@@ -1,13 +1,11 @@
 require 'bcrypt'
 # require 'peep'
-#
 class User
   include DataMapper::Resource
 
   attr_reader :password
   attr_accessor :password_confirmation
   attr_accessor :name
-  #validates_confirmation_of is a datamapper method. it stops the model from saving unless password matches.
   validates_confirmation_of :password
 
   property :id, Serial
@@ -31,6 +29,5 @@ class User
   end
 
   has n, :peeps, through: Resource
-  # haven't defined that class yet, leave it in
 
 end
