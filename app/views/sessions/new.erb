@@ -1,0 +1,54 @@
+<div class="container">
+  <h2 align="center">Log In Form</h2>
+
+  <div class="container">
+    <div class="row"></div>
+    <span><br></span>
+  </div>
+
+  <form action='/sessions' method='post'>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter password">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <button type="submit" class="btn btn-primary btn-primary-spacing">Log in</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% flash[:errors].each do |error| %>
+              <li>
+                <%=error%>
+              </li>
+            <% end %>
+            </ul>
+          <% end %>
+          </div>
+      </div>
+    </div>
+
+</div>

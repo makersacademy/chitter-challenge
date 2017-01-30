@@ -1,0 +1,81 @@
+
+
+<div class="container">
+  <div class="row"></div>
+  <span><br></span>
+</div>
+
+<div class = "container-fluid">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2> Peeps </h2>
+
+        <ul id='peeps'>
+          <% if !@peeps.nil? %>
+            <% @peeps.each do |peep| %>
+              <li id="peep-<%= peep.id%>">
+                <span class="user"></span>
+                <span class="content"><%= peep.content %></span>
+                <span class="timestamp"><%= peep.created_at.strftime("%-d %B %Y at %I:%M%P") %></span>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+
+    </div>
+
+    <div class="container">
+      <div class="row"></div>
+      <span><br></span>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3">
+
+      <% if logged_in? %>
+
+      <div class="container">
+        <p>Type your peep below (maximum no of characters: 100):</p>
+        <form action='/peeps' method='post'>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-6">
+                <label for="comment"></label>
+                <textarea class="form-control" rows="5" name="comment"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary btn-primary-spacing">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="col-lg-6">
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% flash[:errors].each do |error| %>
+          <li>
+            <%=error%>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+      </div>
+  </div>
+</div>
