@@ -45,6 +45,13 @@ class Chitter < Sinatra::Base
     erb :peeps
   end
 
+  post '/peeps' do
+    @peep = Peep.new(params[:peep_text])
+    # @peeps = []
+    # @peeps << peep
+    erb :peeps
+  end
+
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
