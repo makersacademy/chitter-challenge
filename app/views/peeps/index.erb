@@ -17,7 +17,7 @@
               <li id="peep-<%= peep.id%>">
                 <span class="user"></span>
                 <span class="content"><%= peep.content %></span>
-                <span class="timestamp"><%= peep.created_at %></span>
+                <span class="timestamp"><%= peep.created_at.strftime("%-d %B %Y at %I:%M%P") %></span>
               </li>
             <% end %>
           <% end %>

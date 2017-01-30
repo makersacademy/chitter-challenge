@@ -4,7 +4,7 @@ class Peep
 
   property :id, Serial
   property :content, Text
-  property :created_at, DateTime
+  property :created_at, DateTime, :default => DateTime.now
 
   validates_length_of :content, :max => 100
 
