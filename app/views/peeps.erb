@@ -1,0 +1,33 @@
+<% if current_user %>
+  <form action = 'logout' method = 'post'>
+    <button class = 'log' type = 'submit'>log out</button>
+  </form>
+<% else %>
+  <form action = 'loginback' method = 'post'>
+    <button class = 'log' type = 'submit'>log in</button>
+  </form>
+<% end %>
+
+<% if current_user %>
+  <form action = 'postpeep' method = 'post'>
+    <label for 'peep'>
+      What's on your mind?
+      <input type = 'text' name = 'peep' wrap = 'hard' required>
+    </label>
+    <button class = 'post_button' type = 'submit'>post</button>
+  </form>
+<% end %>
+
+<% @peeps.reverse.each do |peep| %>
+  <div class = 'peep-box'>
+    <div class = 'peep-title'>
+      <div class = 'peep-user-img'>
+        <img src = 'http://lorempixel.com/output/abstract-q-c-50-50-<%= peep.user_pic %>.jpg'>
+        <p class = 'peep-user-name'><b>Published by:</b> <%= peep.user_name %>
+      </div>
+      <p class = 'peep-time'><b>on:</b> <%= peep.time %></p>
+    </div>
+    <p class = 'peep' ><%= peep.text %></p>
+  </div>
+<% end %>
+</ul>

@@ -1,0 +1,18 @@
+<h2>Would you like to login?</h2>
+<form action = 'login' method = 'post'>
+  <label for 'email'>
+    your email address:
+    <input type = 'email' name = 'email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' required>
+  </label>
+  <label for 'password'>
+    your password:
+    <input type = 'password' name = 'password' required>
+  </label>
+  <button type = 'submit'>log in</button>
+</form>
+
+<h2>If not, you are <a href = '/peeps'>WELCOME</a> to browse website, but you won't be able to leave any posts.</h2>
+<h2>If you are not registered with Chitter yet, but would like to, you can always sign up!</h2>
+<form action = 'tosignup' method = 'post'>
+  <button type = 'submit'>sign up</button>
+</form>

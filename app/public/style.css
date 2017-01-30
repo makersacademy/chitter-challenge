@@ -1,0 +1,154 @@
+/* Main */
+
+html, body, h1, p, button, input {
+  font-family: 'Kalam', cursive;
+}
+
+body {
+  margin: 0;
+}
+
+/* Typography */
+
+html, body, input {
+  font-size: 16px;
+}
+
+h1 {
+  color: #585858;
+}
+
+p, h2 {
+  color: #214552;
+  text-align: center;
+}
+
+/* Header */
+
+header {
+  height: 15vh;
+  width: 100vw;
+  background-color: #fff7fa;
+  top: 0;
+}
+
+.logo {
+  position: absolute;
+  font-size: 4em;
+  margin: 0;
+  top: 1.5vh;
+  left: 15vw;
+  color: 	#214552;
+  font-weight: bold;
+}
+
+.welcome {
+  position: absolute;
+  right: 15vw;
+  top: 2vh;
+}
+
+/* Main body */
+
+.row {
+  width: 768px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+
+button {
+  background-color: #fff7fa;
+  color: 	#214552;
+  border: 3px dashed #585858;
+
+  font-size: 1em;
+  text-align: center;
+
+  padding: 0.3em;
+  margin: 1em auto;
+
+  display: flex;
+}
+
+/* Forms */
+
+form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=password_confirmation] {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    font-weight: 300;
+    border: 1px solid #b6e9e3;
+    padding: 0.5em;
+    margin: 10px auto;
+    display: inline-block;
+    text-align: center;
+}
+
+input[type=submit] {
+    text-align: center;
+}
+
+input[name=peep] {
+    height: 150px;
+}
+
+textarea {
+    font-size: 3em;
+    font-weight: 300;
+    outline: none;
+}
+
+label {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 1em;
+}
+
+/* Peeps */
+
+.peep-box {
+  border: 1px solid #b6e9e3;
+  border-radius: 0;
+  margin: 1em;
+  padding: 0;
+}
+
+.peep {
+  font-weight: 300;
+  border: 1px solid #b6e9e3;
+  margin: 0;
+  padding: 1em;
+  text-align: justify;
+}
+
+.peep-title {
+  border: 1px solid #b6e9e3;
+  background-color: #b6e9e3;
+  display: block;
+}
+
+.peep-user-img {
+  display: inline-block;
+  margin: 5px;
+}
+
+.peep-user-name, .peep-time {
+  margin: 0.3em;
+  color: 	#585858;
+}
+
+.peep-user-name {
+  float: right;
+  font-size: 1.3em;
+}
+
+.peep-time {
+  text-align: right;
+}
