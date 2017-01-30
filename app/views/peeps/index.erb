@@ -1,9 +1,15 @@
-<h1> Peeps </h1>
+
+
+<div class="container">
+  <div class="row"></div>
+  <span><br></span>
+</div>
 
 <div class = "container-fluid">
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-6 col-md-offset-3">
+      <h2> Peeps </h2>
 
         <ul id='peeps'>
           <% @peeps.each do |peep| %>
@@ -17,12 +23,17 @@
 
     </div>
 
-    <div class="col-lg-6">
+    <div class="container">
+      <div class="row"></div>
+      <span><br></span>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3">
 
       <% if logged_in? %>
 
       <div class="container">
-        <p>Type your peep below:</p>
+        <p>Type your peep below (maximum no of characters: 100):</p>
         <form action='/peeps' method='post'>
 
           <div class="form-group">
