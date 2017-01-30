@@ -136,7 +136,9 @@
                   <td width="90" height="30">&nbsp;</td>
                   <td height="30" align="center" valign="middle" class="WhiteText"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td rowspan="2" valign="middle" class="WhiteText"><%= peep.time_stamp.to_s[0..19] %></td>
+                      <td rowspan="2" valign="middle" class="WhiteText">
+                        <%= @peep_user.name %> - <a href="/users/<%= @peep_user.username %>">@<%= @peep_user.username %></a> on
+                        <%= (peep.time_stamp.strftime '%a %d %b %Y at %H:%M').to_s%>
                       <td width="50">&nbsp;</td>
                     </tr>
                     <tr>
@@ -176,7 +178,11 @@
                   <tr>
                     <td>&nbsp;</td>
                     <td width="50">&nbsp;</td>
-                    <td class="FontSize9"><span class="WhiteText"><%= repeep.time_stamp.to_s[0..19]  %></span></td>
+                    <td class="FontSize9">
+                      <span class="WhiteText">
+                        <%= @peep_user.name %> - <a href="/users/<%= @peep_user.username %>">@<%= @peep_user.username %></a> on
+                        <%= (repeep.time_stamp.strftime '%a %d %b %Y at %H:%M').to_s%>
+                      </span></td>
                     <td width="10">&nbsp;</td>
                   </tr>
                 </table>

@@ -15,7 +15,7 @@ feature 'Message:' do
       post_peep
       expect(page).to have_content("This is a new peep!")
       expect(page).to have_content("test")
-      expect(page).to have_content Time.now.to_s[0..19]
+      expect(page).to have_content (Time.now.strftime '%a %d %b %Y at %H:%M').to_s
     end
   end
 
@@ -55,7 +55,7 @@ feature 'Message:' do
       click_button 'Repeep'
       expect(page).to have_content("first message")
       expect(page).to have_content "repeep message"
-      expect(page).to have_content Time.now.to_s[0..19]
+      expect(page).to have_content (Time.now.strftime '%a %d %b %Y at %H:%M').to_s
     end
   end
 
