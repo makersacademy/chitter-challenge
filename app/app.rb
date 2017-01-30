@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require './app/dmconfig.rb'
 
 class ChitterChallenge < Sinatra::Base
@@ -9,6 +10,10 @@ class ChitterChallenge < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
