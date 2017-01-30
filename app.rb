@@ -65,6 +65,7 @@ delete '/session' do
   redirect to '/session/new'
 end
 
+# issues with retreiving posts
 
 get '/chitter/index' do
     @peeps = Peep.all
