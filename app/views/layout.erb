@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chitter</title>
+  <link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png"
+  rel="icon" sizes="16x16" type="image/png">
+  <link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
+  <link rel="stylesheet" type="text/css" href="<%= url('/main.css') %>">
+</head>
+  <body>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if current_user %>
+      <div id="user">
+        <h1> Welcome, <%= current_user.username %>!</h1>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      </div>
+    <% else %>
+      <div id="nouser">
+        <a href="/user/new">Sign up</a><br>
+        <a href="/sessions/new">Sign in</a><br>
+      </div>
+    <% end %>
+<%= yield %>
+  </body>
+</html>
