@@ -9,6 +9,7 @@ end
 
 require 'data_mapper'
 require './app/data_mapper_setup'
+require 'app/app.rb'
 
 task :auto_upgrade do
   DataMapper.auto_upgrade!
