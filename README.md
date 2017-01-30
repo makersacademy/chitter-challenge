@@ -25,8 +25,6 @@ Chitter uses the following **technologies**:
 Travis CI Status Budge:
 [![Build Status](https://travis-ci.org/nenoch/chitter-challenge.svg?branch=master)](https://travis-ci.org/nenoch/chitter-challenge)
 
-* **RSpec and the Time class** Still struggling to reach GREEN. How to test Time? Still working on it...
-
 Challenge:
 -------
 
