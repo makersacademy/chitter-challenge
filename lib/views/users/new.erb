@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        body {
+            background-color: #00BFFF;
+            font-family: "Helvetica Neue",Helvetica,Arial,
+        sans-serif;
+        }
+        h1 {color: white;}
+        h2 {color: white;}
+      </style>
+    </head>
+  <body>
+    <h1>Welcome to Chitter</h1><br>
+
+    <h2>Sign up below</h2><br>
+    <form action='/user' method='POST'>
+      <!-- <label for='full_name'> full name: </label> -->
+        <input name='full_name' type='text' placeholder="Your name"/>
+    <br>
+      <!-- <label for='user_name'> user name: </label> -->
+        <input name='user_name' type='text' placeholder="Your user name"/>
+    <br>
+      <!-- <label for='email'> email: </label> -->
+        <input name='email' type='email' placeholder="Your email"/>
+    <br>
+      <!-- <label for='password'> password: </label> -->
+        <input name='password' type='password' placeholder="Your password"/>
+    <br>
+      <!-- <label for='password_confirmation'> password confirmation: </label> -->
+        <input name='password_confirmation' type='password' placeholder="Confirm your password"/>
+    <br>
+      <input type='submit' value='Sign up for Chitter'/>
+    </form>
+  </body>
+  </html>
