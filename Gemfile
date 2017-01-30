@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+
+
 # group :test do
   gem 'database_cleaner'
   gem 'rspec-sinatra'
@@ -24,5 +26,5 @@ ruby '2.3.3'
   gem 'pry'
   gem 'bcrypt'
   gem 'encrypted_cookie'
-  gem 'rainbow', '~> 2.2.1' 
+  gem 'rainbow', '~> 2.2.1'
 # end
