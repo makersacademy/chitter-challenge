@@ -7,10 +7,8 @@ feature 'Log in/out' do
     expect(page).to have_content "You are logged in as "
   end
   scenario 'cannot login if incorrect email and password' do
-    sign_up(email: 'eric@example.com',
-            password: 'password1',
-            password_confirmation: 'password1')
-    sign_in(email: 'eric@example.com',   password: '2k*_34dBt?£')
+    sign_up
+    sign_in(password: 'completely wrong')
     expect(page).to have_content "The email or password is incorrect"
   end
   scenario 'can logout' do
