@@ -20,7 +20,6 @@ feature "FEATURE: Peeps page" do
   scenario "peep has a timestamp" do
     sign_up
     post_a_peep(content: peep1.content)
-    save_and_open_page
     expect(Peep.first.created_at).not_to eq nil
   end
 
