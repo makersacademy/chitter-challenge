@@ -1,18 +1,9 @@
+[![Build Status](https://travis-ci.org/rkclark/chitter-challenge.svg?branch=master)](https://travis-ci.org/rkclark/chitter-challenge)[![Coverage Status](https://coveralls.io/repos/github/rkclark/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/rkclark/chitter-challenge?branch=master)
+
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -57,52 +48,38 @@ Notes on functionality:
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 * Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
-Bonus:
------
+## Approach
 
-If you have time you can implement the following:
+I employed a test-driven approach to create the Chitter web application using the Sinatra framework.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+Users are able to sign up with a unique username and email address, their passwords are encrypted and saved as hashes using BCrypt. Once registered, they are able to sign in and post "Peeps".
 
-And/Or:
+Peeps are displayed on the homepage in reverse chronological order. For the purposes of the demo site, only the 10 most recent peeps are displayed. Each peep is given a feather icon to bring some visual interest to the page, and is listed with the user's name, username and the time and date of posting.
 
-* Work on the css to make it look good (we all like beautiful things).
+The app is deployed to Heroku and you [can access the demo here!](https://rkclark-chitter.herokuapp.com/)
 
-Good luck and let the chitter begin!
+### Technologies Used
 
-Code Review
------------
+**Framework**
+- Sinatra (modular)
 
-In code review we'll be hoping to see:
+**Testing**
+- RSpec
+- Capybara
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+**Database**
+- Postgresql
+- DataMapper
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+**Front-end**
+- Bootstrap 4
+- Sass
 
-Notes on test coverage
-----------------------
+## Screenshots
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+**Homepage**
 
-```ruby
-require 'coveralls'
-require 'simplecov'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+**Register**
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+**New Peep**
