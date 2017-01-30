@@ -1,15 +1,15 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
-require_relative 'models/peep'
 require 'sinatra/flash'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
+  set :sessions, user_id: nil
 
   helpers do
     def current_user
@@ -54,8 +54,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps'  do
-    @peeps = Peep.all
-    p @peeps
+    @peeps = Peep.all.reverse
     erb :peeps
   end
 

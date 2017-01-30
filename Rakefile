@@ -6,7 +6,6 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
-
 require 'data_mapper'
 require './app/data_mapper_setup'
 

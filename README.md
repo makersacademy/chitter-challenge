@@ -1,6 +1,6 @@
 # Chitter Chatter
 
-A disembodied communication system for humans.
+Disembodied communication system for humans.
 
 ## User Stories
 
@@ -47,6 +47,4 @@ View time of peeps
 
 ## Issues
 
-If rackup Ctl-C shutdown without logging out, user ID persists.
-
-Time not showing; date is.
+Peeps not always being saved to db

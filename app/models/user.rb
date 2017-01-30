@@ -10,7 +10,7 @@ class User
   property :password_digest, Text
 
   has n, :peeps, through: Resource
-   validates_confirmation_of :password
+  validates_confirmation_of :password
 
   def password=(password)
     @password = password
