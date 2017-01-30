@@ -1,14 +1,6 @@
 require 'spec_helper'
 require_relative '../web_helper.rb'
 
-=begin
-  scenario 'require a matching confirmation password' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
-    expect(current_path).to eq('/users')
-    expect(page).to have_content 'Passwords do not match'
-  end
-end
-=end
 
 feature 'User sign up page' do
   scenario 'its there' do

@@ -32,6 +32,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/userfeed' do
+    @feed = Feed.all
     @user = User.first(username: params[:username])
     erb :'main/userfeed'
   end
@@ -41,7 +42,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/peep' do
-    @peep = Feed.create(peep: params[:peep], username: params[:username], name: params[:name])
+    @peep = Feed.create(peep: params[:peep], name: params[:name])
     redirect '/feed'
   end
 
@@ -49,11 +50,6 @@ class BookmarkManager < Sinatra::Base
   get '/logout' do
     redirect '/feed'
   end
-
-  #post '/loginer' do
-  #  user = User.first(username: params[:username])
-  #  redirect '/feed'
-  #end
 
 
   run! if app_file == $0

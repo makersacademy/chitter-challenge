@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'sinatra'
-gem 'capybara'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
@@ -17,4 +16,5 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls'
+  gem 'capybara'
 end
