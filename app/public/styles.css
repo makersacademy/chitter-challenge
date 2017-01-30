@@ -1,5 +1,5 @@
 body {
-    background-color: #f5f8fa;
+    background-color: #f5f5f5;
     margin: 0;
     passing: 0;
     font-family: 'Cambay', sans-serif;
@@ -12,7 +12,7 @@ body {
 }
 
 .bottombar {
-    background-color: #f5f8fa;
+    background-color: #f5f5f5;
     margin: auto;
     width: 1000px;
     text-align: right;
@@ -55,7 +55,7 @@ main {
 }
 
 .peep-feed:hover {
-    background-color: #f5f8fa;
+    background-color: #f5f5f5;
 }
 
 .peep-feed {
@@ -129,7 +129,7 @@ main {
 }
 
 .sign-in, .register {
-    background-color: #f5f8fa;
+    background-color: #f5f5f5;
     padding-bottom: 1em;
     padding-top: .5em;
     padding-right: .5em;
@@ -148,7 +148,9 @@ main {
 }
 
 #existing-user {
-    display: ruby;
+    display: flex;
+    margin: auto;
+    padding-left: 16%;
 }
 
 #new-user {
