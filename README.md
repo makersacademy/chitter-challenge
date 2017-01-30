@@ -74,6 +74,6 @@ You can also enjoy it for free [online](https://chitter-by-kateloschinina.heroku
 Badges
 ------------------
 
-[![Build Status](https://travis-ci.org/kateloschinina/chitter-challenge.svg?branch=master)](https://travis-ci.org/kateloschinina/chitter-challenge)
+[![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
 
 [![Coverage Status](https://coveralls.io/repos/github/kateloschinina/chitter-challenge/badge.svg)](https://coveralls.io/github/kateloschinina/chitter-challenge)
