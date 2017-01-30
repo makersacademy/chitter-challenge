@@ -15,7 +15,8 @@ run these commands in a bash terminal
 - rake auto_migrate
 - rspec
 - rackup  
--
+
+
 -----
 Usage
 ---
