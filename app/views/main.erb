@@ -1,0 +1,22 @@
+<div id='peep_post'>
+  <%if current_user %>
+    <form id='post peep' action='/peep/new' method='post'>
+    <input type='text' name='peep_content' placeholder='Please input your peep'> <br />
+    <input type="submit" name='post' value='Post'>
+  <%else%>
+      <h3>Please sign up or sign in to start peeping</h3>
+  <%end%>
+</div>
+
+<div id='peeps'>
+    <ul id='links'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <%= peep.user.username %>: </br>
+        <%= peep.peep_content %> </br>
+        <%= "Posted at: #{peep.created_at.strftime('%I:%M:%S %p')} on #{peep.created_on.strftime('%a %d %b %Y')}: " %> </br>
+        <br />
+      </li>
+    <% end %>
+  </ul>
+</div>

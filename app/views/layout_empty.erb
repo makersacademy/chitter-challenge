@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Chitter App</title>
+  </head>
+  <body>
+    <div id='title'><h1>Chitter</h1></div>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <div id='main'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
