@@ -22,19 +22,19 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all(limit: 4, order: [ :created_at.desc ])
-    erb :index
+    erb :'/index'
   end
 
-  get '/signup' do
+  get '/users/new' do
     if session[:email].nil?
-      erb :signup
+      erb :'/users/new'
     else
       @email = session[:email]
-      erb :signup
+      erb :'/users/new'
     end
   end
 
-  post '/registration' do
+  post '/users' do
     user = User.new(name: params[:name],
                     username: params[:username],
                     email: params[:email],
@@ -42,38 +42,38 @@ class Chitter < Sinatra::Base
                     password_confirmation: params[:confirm_password])
     if user.save
       session[:user_id] = user.id
-      redirect '/chat'
+      redirect '/peeps'
     else
       flash[:errors] = user.errors.full_messages
       session[:email] = params[:email]
-      redirect '/signup'
+      redirect '/users/new'
     end
   end
 
-  get '/login' do
-    erb :login
+  get '/sessions/new' do
+    erb :'/sessions/new'
   end
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect '/chat'
+      redirect '/peeps'
     else
       flash[:authenticate] = 'Your email or password is incorrect.'
-      erb :login
+      erb :'/sessions/new'
     end
   end
 
-  get '/chat' do
+  get '/peeps' do
     @user  = current_user
     @peeps = Peep.all.reverse
-    erb :chat
+    erb :peeps
   end
 
-  post '/peeping' do
+  post '/peeps/new' do
     Peep.create(content: params[:peep], user: current_user)
-    redirect '/chat'
+    redirect '/peeps'
   end
 
   delete '/sessions' do

@@ -101,12 +101,12 @@ You can see the full task and instructions given to us in [CONTRIBUTING.md](chit
   * Next developed the error messages for account validation in sign up
   * Have five conditions for successful sign up; username must be unique, email must be unique, email must be valid, email is required and password & confirmation password must match
   * Used the built in error object in datamapper and the `full_messages` method to access an array of custom error messages added into the User model
+* **Refactored to use RESTful routing**
+  * Currently routes are very poorly designed - having essentially prioritised getting the app to work
+  * Did some reading into the logic, history and application of RESTful routing and have redesigned my routing and views file structure to be more RESTful in its design
 
 ### Ideas for extension
 
-* **Refactoring to use RESTful routing**
-  * Currently routes are very poorly designed having essentially prioritised getting the app to work
-  * I'd like to restructure the routing logic to follow conventions
 * **Finish styling**
   * Made good progress over the weekend with styling but it is not finished
   * Particularly want to work out how to style flash error messages
