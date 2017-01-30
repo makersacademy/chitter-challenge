@@ -46,10 +46,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.new(params[:peep_text])
-    # @peeps = []
-    # @peeps << peep
-    erb :peeps
+    # @peep = Peep.new(params[:peep_text])
+    # # @peeps = []
+    # # @peeps << peep
+    # erb :peeps
   end
 
   post '/sessions' do

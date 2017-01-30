@@ -1,5 +1,5 @@
 require 'bcrypt'
-# require 'peep'
+
 class User
   include DataMapper::Resource
 

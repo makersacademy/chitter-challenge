@@ -7,12 +7,3 @@
   </label>
     <input type="submit" value="Peep!">
 </form>
-
-<ul id='Peeps'>
-  <%= @peep.peep_text %>
-  <% @peep.peep_text do |peep| %>
-  <li>
-    <%= peep.peep_text %>
-  </li>
-  <% end %>
-</ul>
