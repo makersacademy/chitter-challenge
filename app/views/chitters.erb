@@ -1,0 +1,17 @@
+<h1>Welcome to Chitter!</h1>
+
+<% if current_user %>
+<form action='/peeps' method='post'>
+<label for='message'>
+  Please type your message:
+  <br>
+  <textarea name='message' cols='40' rows='5' required></textarea>
+</label>
+<br>
+  <input type='submit' value='Post peep'>
+</form>
+ <% end %>
+
+<form action="/peeps" method='get'>
+  <input type="submit" name="" value="Show peeps!">
+</form>

@@ -1,0 +1,13 @@
+<h3> Peeps -</h3>
+
+<% @peeps.each do |peep| %>
+<ul style="list-style-type:disc">
+   User - <%= peep.user.username %> at <%= peep.created_at.strftime("%H:%M, %d/%m/%y") %>
+   <br>
+  Message - <%= peep.message %>
+</ul>
+<% end %>
+
+<form action="/chitters" method='get'>
+  <input type="submit" name="" value="Back">
+</form>
