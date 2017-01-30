@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body style="text-align:center;">
+
+    <h1>Chitter</h1>
+
+    <h3>Your feed</h3>
+
+    <ul id="peeps"  style="list-style-type: none;">
+      <% @peeps.each do |peep| %>
+      <% user = User.get(peep.user_id) %>
+        <li>
+        <%= user.name %> - @<%= user.user_name %> | <%= peep.content %> | <%= peep.time_format %>
+        </li>
+      <% end %>
+    </ul>
+
+    <form action='/users/new' method='get'>
+      <input type='submit' value='New User'>
+    </form>
+
+    <form action='/sessions/new' method='get'>
+      <input type='submit' value='Log In'>
+    </form>
+    </form>
+  </body>
+</html>

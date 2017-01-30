@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body style="text-align:center;">
+
+    <% if current_user %>
+      Welcome <%= current_user.name %> @<%= current_user.user_name %>!
+      <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log Out'>
+      </form>
+
+      <form action='/peeps' method='post'>
+        <label for='new_peep'>
+          New Peep: <input name='new_peep' type='text'>
+        </label>
+        <input type='submit' value='Peep!'>
+      </form>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Something is wrong here...
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
