@@ -14,6 +14,8 @@ Chitter Challenge
 * To sign out, click the "Sign out" button
 * If you return and want to log in again, click the "Sign in" button and enter your credentials
 
+* The app can also be viewed at: https://robs-chitter.herokuapp.com/
+
 ```
 $ git clone https://github.com/treborb/chitter-challenge.git
 $ cd chitter-challenge
