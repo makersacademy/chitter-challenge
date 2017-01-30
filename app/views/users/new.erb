@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Welcome to Chitter</title>
-    <link rel="stylesheet" href="<%= url("/style.css")%>" type="text/css">
-  </head>
+<head>
+  <title>Welcome to Chitter</title>
+  <link rel="stylesheet" href="<%= url("/style.css")%>" type="text/css">
+</head>
 
-<div id = 'signup'>
-
-<h2 align = 'center'> If your name's not down your not coming in. </h2>
-
-<form id = 'signupform' action='/users' method='post'>
+<body>
   
-  <div class = 'form'>
-  <label for='name'>
-    Full Name: <input name='name' type='text' value='<%= @user.name %>'>
-  </label>
-  </div>
-  <div class = 'form'>
-  <label for='email'>
-    Email: <input name='email' type='email' value='<%= @user.email %>' required>
-  </label>
-  </div>
-  <div class = 'form'>
-  <label for='user_name'>
-    User Name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
-  </label>
-  </div>
-  <div class = 'form'>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  </div>
-  <div class = 'form'>
-  <label for='password_confirmation'>
-    Password Confirmation: <input name='password_confirmation' type='password'>
-  </label>
-  </div>
-  <input type='submit' value='Sign Up!'>
+  <div id = 'newpeep'>
 
-</form>
-</div>
+    <h2 align = 'center'> If your name's not down your not coming in. </h2>
+
+    <form id = 'signupform' action='/users' method='post'>
+      
+      <div class = 'form'>
+        <label for='name'>
+          Full Name: <input name='name' type='text' value='<%= @user.name %>'>
+        </label>
+      </div>
+
+      <div class = 'form'>
+        <label for='email'>
+          Email: <input name='email' type='email' value='<%= @user.email %>' required>
+        </label>
+      </div>
+
+      <div class = 'form'>
+        <label for='user_name'>
+          User Name: <input name='user_name' type='text' value='<%= @user.user_name %>'>
+        </label>
+      </div>
+
+      <div class = 'form'>
+        <label for='password'>
+          Password: <input name='password' type='password'>
+        </label>
+      </div>
+
+      <div class = 'form'>
+        <label for='password_confirmation'>
+          Password Confirmation: <input name='password_confirmation' type='password'>
+        </label>
+      </div>
+
+      <input type='submit' value='Sign Up!'>
+      
+    </form>
+
+  </div>
+
+</body>
+</html>
+
