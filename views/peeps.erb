@@ -1,0 +1,10 @@
+<p>List of peeps:</p>
+
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      Message: <%= peep.message %>
+      Posted By: <%= peep.user %>
+    </li>
+  <% end %>
+</ul>
