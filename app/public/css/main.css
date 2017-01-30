@@ -1,7 +1,8 @@
 body {
   font-family: 'Merriweather', serif !important;
   color: #575757;
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  background-color: rgba(82, 233, 211, 0.1); }
 
 html,
 body {
