@@ -1,0 +1,79 @@
+body{
+	background-color: lightblue;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+	font-family:futura;
+}
+
+.button, input.button {
+	padding: 5px;
+	background-color: white;
+	border-radius: 5px;
+	font-family:futura;
+	border: none;
+}
+
+input.button {
+	font-size: 100%;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	font-family: futura;
+}
+
+form {
+	font-family: futura;
+	border: none;
+
+}
+
+
+
+ul {
+	padding: 10px;
+	list-style: none;
+}
+
+
+li {
+	padding: 1%;
+	margin: 2% 20%;
+	border-radius: 0.5em;
+	background-color: #e1edec;
+	opacity: 0.9;
+	list-style-position:inside;
+
+}
+
+.peep {
+	font-weight: bold;
+}
+
+.message {	
+	margin: 0 20% 0 20%;
+	padding: 0.5%;
+	background-color: #e1edec;
+	opacity: 0.8;
+	border-radius: 5px;
+	font-family:futura;
+	border: none; }
+
+.form {
+	text-align: left;
+	margin: 1% 30%;
+}
+
+input {
+	padding: 1%;
+	margin: 1%;
+}
+
+#peep_content {
+	align:left; 
+	width: 300px;
+	height: 50px;}
+

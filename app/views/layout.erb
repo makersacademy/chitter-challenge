@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<title>Chitter</title>
+			<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	</head>
+<body>
+	<div>
+		<% if current_user %>
+			<div id="logged_in" class="message">Welcome, <%= current_user.username%></div>
+			    	<form method='delete' action='/sessions' style="text-align: left;">
+				    	<input type='hidden' name='_method' value='delete'>
+				    	<input type="submit" name="log_out" value="Log out" class="button">
+				 <a class="button" href="/peep" name="peep" style="float: right;">Write a peep!</a>
+    				</form>
+			</div>
+
+    		<% else %>
+    			<div id="not_logged_in"><a class="button" href="/log_in" style="float: right" >Log In</a><a class="button" href="sign_up" style="float:left">Sign Up</a></div>
+		<% end%>
+
+	<% if flash[:notice] %>
+		    <div id='notice' class="message">
+		      <%= flash[:notice] %>
+		    </div>
+	    	<% elsif flash[:error] %>
+		    <div id='notice' class="message">
+		      <%= flash[:error] %>
+		    </div>
+	  <% end %>
+    	</div>
+
+		<%= yield %> 
+
+</body>

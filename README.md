@@ -106,3 +106,33 @@ $ coveralls report
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
+How to install
+----------------------
+
+1. Fork and/or Clone this repository to your local machine `git clone https://github.com/herecomesjaycee/chitter-challenge.git`
+2. Navigate to the Chitter Challenge folder `cd chitter-challenge`
+3. Run `gem install bundler` if bundler is not installed, then run `bundle`
+4. To set up a corresponding database on your local machine, `brew install pqsl` if psql is not installed in your machine
+5. Run command `psql` and command `createdb chitter_development;` and `createdb chitter_test;` to complete setting up the database
+6. Run command `rake db:auto_migrate`
+7. Run `rspec` to view the tests written for this application
+8. To deploy the app on your local machine, run `rackup` and navigate to `localhost: 9292` on any web broswer. 
+9. If you don't wish to deploy the app on your local machine, there is a live production of chitter challenge on [Heroku]( https://chitter-jaycee.herokuapp.com/)
+
+Screenshot
+----------------------
+Home page
+![screen shot 2017-01-30 at 09 14 05](https://cloud.githubusercontent.com/assets/13175171/22417522/95587010-e6cc-11e6-904a-7237f759591d.png)
+Sign Up page
+![screen shot 2017-01-30 at 09 14 18](https://cloud.githubusercontent.com/assets/13175171/22417519/95515bcc-e6cc-11e6-9517-e55f321dd8e1.png)
+Log In page
+![screen shot 2017-01-30 at 09 14 29](https://cloud.githubusercontent.com/assets/13175171/22417517/9550d472-e6cc-11e6-9051-e759b9bb97f5.png)
+Write a peep page
+![screen shot 2017-01-30 at 09 14 39](https://cloud.githubusercontent.com/assets/13175171/22417518/9551316a-e6cc-11e6-95ea-4ef55fb61942.png)
+Peeps page
+![screen shot 2017-01-30 at 09 14 50](https://cloud.githubusercontent.com/assets/13175171/22417520/9554ca00-e6cc-11e6-8025-8728ce43bb5b.png)
+
+
+
+
+
