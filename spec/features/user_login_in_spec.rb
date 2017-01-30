@@ -2,11 +2,7 @@ feature "User Log In" do
 
   context '#successful login' do
     scenario 'user is authenticated before logging in to the app' do
-      sign_up
-      find(:css, "a[href='/sessions/new']").click
-      fill_in('email', with: "test@test.com")
-      fill_in('password', with: "password")
-      click_button('Log in')
+      sign_up_and_login
       expect(page).to have_content "Welcome, test@test.com"
     end
   end

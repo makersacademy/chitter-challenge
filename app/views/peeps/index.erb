@@ -1,39 +1,68 @@
 <h1> Peeps </h1>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-      Content: <%= peep.content %>
-      Time Created:   <%= peep.created_at   %>
-    </li>
-  <% end %>
-</ul>
+<div class = "container-fluid">
 
-<% if logged_in? %>
+  <div class="row">
+    <div class="col-lg-6">
 
-<div class="container">
-  <p>Type your peep below:</p>
-  <form>
+        <ul id='peeps'>
+          <% @peeps.each do |peep| %>
+            <li id="peep-<%= peep.id%>">
+              <span class="user"></span>
+              <span class="content"><%= peep.content %></span>
+              <span class="timestamp"><%= peep.created_at %></span>
+            </li>
+          <% end %>
+        </ul>
 
-    <div class="form-group">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-3">
-          <label for="comment"></label>
-          <textarea class="form-control" rows="5" id="comment"></textarea>
-        </div>
-      </div>
     </div>
 
-    <div class="form-group">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-3">
-          <button type="submit" class="btn btn-primary btn-primary-spacing">Submit</button>
-        </div>
-      </div>
-    </div>
+    <div class="col-lg-6">
 
-  </form>
+      <% if logged_in? %>
+
+      <div class="container">
+        <p>Type your peep below:</p>
+        <form action='/peeps' method='post'>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-6">
+                <label for="comment"></label>
+                <textarea class="form-control" rows="5" name="comment"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary btn-primary-spacing">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
 </div>
 
-
-<% end %>
+<div class="container">
+  <div class="col-lg-6">
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% flash[:errors].each do |error| %>
+          <li>
+            <%=error%>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+      </div>
+  </div>
+</div>
