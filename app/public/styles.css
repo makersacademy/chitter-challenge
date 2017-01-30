@@ -106,9 +106,19 @@ main {
 #content {
     width: 100%;
     text-align-last: center;
-    color: blue;
+    color: deepskyblue;
     font-size: 150%;
     height: 30px;
+    padding-top: .5em;
+}
+
+#content:focus {
+    width: 100%;
+    text-align: left;
+    text-align-last: left;
+    height: 80px;
+    color: deepskyblue;
+    font-size: 130%;
     padding-top: .5em;
 }
 
