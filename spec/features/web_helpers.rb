@@ -15,3 +15,9 @@ def sign_in(email: 'test@example.com', password:'secret')
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def insert_message(message: 'This is my message')
+  visit '/'
+  fill_in 'peep_new_message', with: message
+  click_button 'Peep!'
+end

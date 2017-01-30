@@ -4,21 +4,16 @@ require 'sinatra/flash'
 require 'pry-byebug' if ENV["RACK_ENV"] == "development"
 
 require_relative 'data_mapper_setup'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'secret'
   register Sinatra::Flash
   use Rack::MethodOverride
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
+  helpers ApplicationHelper
 
   get '/' do
-    @peeps = Peep.sort_time_rev
     erb :index
   end
 
@@ -69,12 +64,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-    peep = Peep.new(message: params[:peep_new_message],user: current_user)
-      if peep.save
-        redirect to('/')
-      else
-        flash[:notice] = 'Cannot peep: some troubles while peeping!'
-      end
+    peep = Peep.new(message: params[:peep_new_message], user: current_user)
+    peep.source = Peep.get(params[:source]) if params[:source]
+    flash[:notice] = 'Cannot peep: some troubles while peeping!' unless peep.save
+    redirect to('/')
   end
 
   #run! if app_file == $0

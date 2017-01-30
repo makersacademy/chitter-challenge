@@ -45,7 +45,8 @@ Peep
 -------
 - coverall badge
 - css
-- everything
+- feature test: peep_sorted_reverse_chrono_order_spec is failing
+- clean up the code
 
 Technologies used:
 -------
@@ -57,3 +58,5 @@ Technologies used:
 
 Else:
 -------
+- depth first search pattern is working, somehow!!!
+- I'm sorry but I'm tired, I'll skip the Travis CI and etc stuff...
