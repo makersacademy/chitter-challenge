@@ -113,10 +113,11 @@ How to install
 2. Navigate to the Chitter Challenge folder `cd chitter-challenge`
 3. Run `gem install bundler` if bundler is not installed, then run `bundle`
 4. To set up a corresponding database on your local machine, `brew install pqsl` if psql is not installed in your machine
-5. Run command `psql` and command `createdb chitter_development;` to complete setting up the database
-6. Run `rspec` to view the tests written for this application
-7. To deploy the app on your local machine, run `rackup` and navigate to `localhost: 9292` on any web broswer. 
-8. If you don't wish to deploy the app on your local machine, there is a live production of chitter challenge on [Heroku]( https://chitter-jaycee.herokuapp.com/)
+5. Run command `psql` and command `createdb chitter_development;` and `createdb chitter_test;` to complete setting up the database
+6. Run command `rake db:auto_migrate`
+7. Run `rspec` to view the tests written for this application
+8. To deploy the app on your local machine, run `rackup` and navigate to `localhost: 9292` on any web broswer. 
+9. If you don't wish to deploy the app on your local machine, there is a live production of chitter challenge on [Heroku]( https://chitter-jaycee.herokuapp.com/)
 
 Screenshot
 ----------------------
