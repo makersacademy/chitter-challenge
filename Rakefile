@@ -7,7 +7,7 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 require 'data_mapper'
-require_relative '.app/models/data_mapper_setup'
+require_relative 'app/app'
 
 
 task :auto_upgrade do
