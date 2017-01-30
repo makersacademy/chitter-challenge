@@ -14,6 +14,7 @@ group :test do
   gem 'cucumber'
   gem 'rubocop-rspec'
   gem 'rubocop'
+  gem 'simplecov', require: false
   gem 'coveralls', require: false
   gem 'rspec-sinatra'
   gem 'capybara'

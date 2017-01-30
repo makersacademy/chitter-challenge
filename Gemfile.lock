@@ -187,6 +187,7 @@ DEPENDENCIES
   rspec-sinatra
   rubocop
   rubocop-rspec
+  simplecov
   sinatra
   sinatra-flash
 
