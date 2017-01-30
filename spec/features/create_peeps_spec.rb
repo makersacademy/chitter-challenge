@@ -31,7 +31,7 @@ feature 'Creating peeps' do
     context "when logged on"  do
       scenario "user can type a peep" do
         sign_up_and_login
-        expect(page).to have_content('Type your peep below:')
+        expect(page).to have_content('Type your peep below (maximum no of characters: 100):')
       end
     end
 end
