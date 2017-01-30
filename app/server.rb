@@ -4,8 +4,6 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
    use Rack::MethodOverride
 
-
-
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

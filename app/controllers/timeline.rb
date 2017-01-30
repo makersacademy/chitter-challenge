@@ -15,7 +15,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/timeline' do
-    peep = Peep.new(message: params[:peep], time: Time.now)
+    timenow = Time.now
+    peep = Peep.new(message: params[:peep], time: timenow.strftime("%H:%M"))
     peep.save
     redirect '/timeline'
   end

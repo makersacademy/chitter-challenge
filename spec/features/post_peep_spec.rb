@@ -28,7 +28,7 @@ time = Time.now
 click_button 'Submit'
 expect(current_path).to eq '/timeline'
 expect(page).to have_content 'Byron Rocks!'
-expect(page).to have_content time
+expect(page).to have_content time.strftime("%H:%M")
 end
 
 end
