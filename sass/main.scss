@@ -31,15 +31,15 @@ body {
 }
 
 #main-wrapper {
-	min-height:100%;
-	position:relative;
+	min-height: 100%;
+	position: relative;
   padding-bottom: 35px;
 }
 
 #footer {
-  position:absolute;
-  bottom:0;
-  left:0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
 }
 
@@ -53,6 +53,7 @@ body {
 
 a {
   color: $primary-tint;
+
   &:hover {
     color: $second-tint;
   }
@@ -63,6 +64,7 @@ a {
   color: $main-font-color;
   font-family: 'Merriweather', serif !important;
   font-weight: bold;
+
   &:hover {
     background-color: $second-tint;
     cursor: pointer;
@@ -73,6 +75,7 @@ a {
   border-color: $fourth-tint;
   font-family: 'Merriweather', serif !important;
   color: $main-font-color !important;
+
   &:focus {
     border-color: $primary-tint;
   }
@@ -87,18 +90,18 @@ a {
 //HEADER STYLES
 
 .chitter-icon {
-  width: 40px;
   height: 40px;
+  width: 40px;
 }
 
 .navbar {
+  background-color: $nav-bkgrnd;
   box-shadow:
   0 0 0 4px $primary-tint,
   0 0 0 8px $second-tint,
   0 0 0 12px $third-tint,
   0 0 0 16px $fourth-tint;
   margin-bottom: 12px;
-  background-color: $nav-bkgrnd;
 }
 
 .nav-link {
@@ -112,8 +115,8 @@ a {
 //FOOTER STYLES
 
 .footer {
-  border-top: 4px solid $primary-tint;
   background-color: $nav-bkgrnd;
+  border-top: 4px solid $primary-tint;
   color: $footer-text;
 }
 
@@ -127,16 +130,17 @@ a {
   color: $primary-tint;
 }
 
-.peep-username, .peep-date {
+.peep-username,
+.peep-date {
   color: $light-font-color;
 }
 
 .peep {
-  border-radius: .5rem;
-  border: 3px solid $peep-border;
   background-color: $peep-bkgrnd;
+  border: 3px solid $peep-border;
+  border-radius: 0.5rem;
 }
 
 .peep-text {
-  margin: 0px;
+  margin: 0;
 }

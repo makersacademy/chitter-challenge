@@ -52,13 +52,13 @@ a {
   height: 100%; }
 
 .chitter-icon {
-  width: 40px;
-  height: 40px; }
+  height: 40px;
+  width: 40px; }
 
 .navbar {
+  background-color: #ab84a5;
   box-shadow: 0 0 0 4px #80086E, 0 0 0 8px #51E9D3, 0 0 0 12px #3AC099, 0 0 0 16px #BBE095;
-  margin-bottom: 12px;
-  background-color: #ab84a5; }
+  margin-bottom: 12px; }
 
 .nav-link {
   margin: .5rem .5rem !important; }
@@ -67,8 +67,8 @@ a {
   color: #ffffff !important; }
 
 .footer {
-  border-top: 4px solid #80086E;
   background-color: #ab84a5;
+  border-top: 4px solid #80086E;
   color: #ffffff; }
 
 .peep-icon {
@@ -77,15 +77,16 @@ a {
 .peep-name {
   color: #80086E; }
 
-.peep-username, .peep-date {
+.peep-username,
+.peep-date {
   color: #837e7e; }
 
 .peep {
-  border-radius: .5rem;
+  background-color: rgba(82, 233, 211, 0.1);
   border: 3px solid #ab84a5;
-  background-color: rgba(82, 233, 211, 0.1); }
+  border-radius: 0.5rem; }
 
 .peep-text {
-  margin: 0px; }
+  margin: 0; }
 
 /*# sourceMappingURL=main.css.map */
