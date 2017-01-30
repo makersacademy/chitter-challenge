@@ -55,7 +55,8 @@ The app is deployed to Heroku and you [can access the demo here!](https://rkclar
 
 **Database**
 - Postgresql
-- DataMapper
+- DataMapper (ORM)
+- BCrypt (Encryption)
 
 **Front-end**
 - Bootstrap 4
