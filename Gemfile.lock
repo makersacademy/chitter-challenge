@@ -168,7 +168,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
-  rubocop (~> 0.47.1)
+  rubocop
   simplecov
   sinatra
   sinatra-flash

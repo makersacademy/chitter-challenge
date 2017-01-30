@@ -7,7 +7,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :username, String, required: true, unique: true, :length => 25
+  property :username, String, required: true, unique: true, length: 25
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
