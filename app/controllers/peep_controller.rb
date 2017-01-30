@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
     if @peep.save
       redirect to('/')
     else
-      p flash.now[:errors] = @peep.errors.full_messages
+      flash.now[:errors] = @peep.errors.full_messages
       erb(:'/peeps/index')
     end
   end
