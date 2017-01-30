@@ -17,6 +17,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require './app/dmconfig.rb'
 
 require './spec/helpers/sessions.rb'
 require './spec/helpers/peeps.rb'
