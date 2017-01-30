@@ -24,5 +24,5 @@ ruby '2.3.3'
   gem 'pry'
   gem 'bcrypt'
   gem 'encrypted_cookie'
-  gem 'rainbow'
+  gem 'rainbow', '~> 2.2.1' 
 # end

@@ -196,7 +196,7 @@ DEPENDENCIES
   encrypted_cookie
   factory_girl
   pry
-  rainbow
+  rainbow (~> 2.2.1)
   rake
   rspec
   rspec-sinatra
