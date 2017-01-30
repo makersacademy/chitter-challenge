@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative "data_mapper_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
