@@ -2,12 +2,14 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -20,17 +22,26 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
+    @user = User.new
     erb :'sign_up'
   end
 
   post '/registration' do
-    user= User.create(name: params[:name],
+    @user= User.new(name: params[:name],
                   username: params[:username],
                   email: params[:email],
                   password: params[:password])
-    session[:user_id] = user.id
+  if @user.save
+    session[:user_id] = @user.id
     redirect to('/peeps')
+  else
+    flash[:missing_email] = 'No email entered' if params[:email].empty?
+    flash[:duplicate_email] = 'This email is already in use'
+  #  session[:email] = params[:email]
+    erb :'sign_up'
+
   end
+end
 
   get '/peeps' do
     erb :'peeps'

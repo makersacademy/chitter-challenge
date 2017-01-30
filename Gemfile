@@ -9,9 +9,9 @@ gem 'bcrypt'
 gem 'rake'
 gem 'sinatra'
 gem 'rspec-sinatra'
-require 'database_cleaner'
-
-  gem 'rspec'
-  gem 'capybara'
-  gem 'coveralls', require: false
-  gem 'database_cleaner'
+gem 'database_cleaner'
+gem 'sinatra-flash'
+gem 'rspec'
+gem 'capybara'
+gem 'coveralls', require: false
+gem 'database_cleaner'

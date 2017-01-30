@@ -13,4 +13,19 @@ feature '1.Sign up for Chitter' do
     expect(page).to have_content('Welcome, hello@mail.com!')
 
   end
+
+  scenario "can't sign up without an email address" do
+    visit '/signup'
+    fill_in :name, with: "Barbara"
+    fill_in :username, with: 'barbara_s'
+    fill_in :email, with: ""
+    fill_in :password, with: '1234'
+    click_button('Submit')
+
+   expect(page).to have_content 'No email entered'
+  end
+
+  scenario 'email and username should be unique' do
+
+  end
 end

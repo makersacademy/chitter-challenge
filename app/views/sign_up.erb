@@ -12,19 +12,19 @@
   </label>
   <label for='email'>
     Enter your email:
-    <input type="email" name="email" />
+    <input type="email" name="email" value='<%= @user.email %>'/>
   </label>
   <label for='password'>
     Create a password:
     <input type="text" name="password" />
   </label>
-
-  <!-- <label>Confirm password:
-    <input type="text" name="confirm_password">
-  </label>
-  <input type="submit" value="Submit"> -->
-
   <input type="submit" value="Submit">
-
-
 </form>
+
+<% if flash[:duplicate_email] %>
+<%= flash[:duplicate_email] %>
+<%end%>
+
+<% if flash[:missing_email] %>
+<%= flash[:missing_email] %>
+<%end%>
