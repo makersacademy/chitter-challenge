@@ -1,8 +1,8 @@
 feature 'Creating a peep' do
   scenario 'want to be able to post a peep' do
 
-    visit '/chitters/new'
-    fill_in 'message',   with: 'Hello world'
+    visit '/chitters'
+    fill_in 'message', with: 'Hello world'
     click_button 'Post peep'
 
     expect(current_path).to eq '/peeps'
