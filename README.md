@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-
+[![Coverage Status](https://coveralls.io/repos/github/shezdev/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/shezdev/chitter-challenge?branch=master)
 
 The first 3 user stories have been implemented:
 ```
