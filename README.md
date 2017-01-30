@@ -65,13 +65,13 @@ The app is deployed to Heroku and you [can access the demo here!](https://rkclar
 ## Screenshots
 
 **Homepage**
-![Chitter homepage](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_home.png)
+![Chitter homepage](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_home2.png)
 
 **Register**
-![Chitter register](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_register.png)
+![Chitter register](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_register2.png)
 
 **New Peep**
-![Chitter Peep](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_peep.png)
+![Chitter Peep](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_peep2.png)
 
 ## Installation and Usage
 
