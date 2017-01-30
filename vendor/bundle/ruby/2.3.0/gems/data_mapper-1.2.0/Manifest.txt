@@ -1,6 +1,0 @@
-.gitignore
-History.txt
-Manifest.txt
-README.txt
-Rakefile
-lib/data_mapper.rb

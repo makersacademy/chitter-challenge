@@ -1,5 +1,0 @@
---exclude "spec,^/"
---sort coverage
---callsites
---xrefs
---text-summary
