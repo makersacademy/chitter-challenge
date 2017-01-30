@@ -10,7 +10,13 @@
 <% end %>
 
 <% if flash[:sign_out] %>
-  <div id='sign_out_message'>
+  <article id='sign_out_message'>
     <%= flash[:sign_out] %>
-  </div>
+  </article>
+
+  <br>
+
+  <form action='/sessions/new' method="get">
+    <button type="submit">Sign in</button>
+  </form>
 <% end %>

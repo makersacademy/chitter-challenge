@@ -8,25 +8,13 @@
 
   <h3> Chitter flow </h3>
 
-  <!-- <ul id='peeps'>
-    <% @peeps.each do |peep| %>
-      <li>
-        <%= current_user.name %> |
-        @<%= current_user.username %> |
-        <%= peep.peep_time %>
-        <br>
-        <%= peep.content %>
-      </li>
-      <br>
-    <% end %>
-  </ul> -->
 
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
         <%= User.get(peep.user_id).name %> |
         @<%= User.get(peep.user_id).username %> |
-        <%= peep.peep_time %>
+        <%= (peep.peep_time).strftime('%l:%m %p - %e %b %Y') %>
         <br>
         <%= peep.content %>
       </li>
@@ -66,12 +54,20 @@
       <li>
         <%= @author.name %> |
         @<%= @author.username %> |
-        <%= peep.peep_time %>
+        <%= (peep.peep_time).strftime('%l:%m %p - %e %b %Y') %>
         <br>
         <%= peep.content %>
       </li>
       <br>
     <% end %>
   </ul>
+
+<% else %>
+
+  <h3> No such chitter, bae! </h3>
+
+  <form action='/sessions/new' method="get">
+    <button type="submit">Sign in</button>
+  </form>
 
 <% end %>

@@ -121,6 +121,11 @@ Progress
   * When a user signs in, they can:
     - see a flow of all Chitter users' peeps, in reverse chronological order, and each with a timestamp
 
+7. Cleanup #1:
+  * Displayed time in a Twitter-like format with the .strftime above.
+  * Added buttons on various pages to make navigation across the app easier.
+  * Cleaned up dead code and unnecessary requires (models in spec_helper). Tests still pass :-)
+
 Issues
 -----
 
@@ -150,3 +155,8 @@ Issues
 
 6. Story 06:
   * Need to display the time in a friendly format. Directly applying `.strftime('%l:%m %p - %e %b %Y')` to the time objects somehow yields an error that signals they're nil (and not time objects after all).
+
+7. Cleanup #1:
+  * Need to add password reset functionality. Did it in the week's assignment (except for a 301 redirect error from Mailgun).
+  * Haven't used cucumber and factory_girl, although I wanted to.
+  * Need to add uniqueness tests - I think I've missed them so far.

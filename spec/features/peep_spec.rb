@@ -17,7 +17,7 @@ feature 'Peep' do
     click_button 'Peep'
     expect(page).to have_content "#{user.name}"
     expect(page).to have_content "#{user.username}"
-    expect(page).to have_content "#{user.peeps.first.peep_time}"
+    expect(page).to have_content "#{(user.peeps.first.peep_time).strftime('%l:%m %p - %e %b %Y')}"
     expect(page).to have_content 'This is my first peep!'
   end
 

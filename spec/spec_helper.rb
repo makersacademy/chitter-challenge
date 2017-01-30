@@ -13,8 +13,6 @@ require 'factory_girl'
 require 'coveralls'
 require 'simplecov'
 
-require './lib/models/user'
-
 require 'helpers/feature_helpers'
 
 SimpleCov.formatters = [

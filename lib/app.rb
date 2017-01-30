@@ -12,9 +12,8 @@ require_relative 'controllers/peeps'
 
 class Chitter < Sinatra::Base
   get '/' do
-    'Hello Chitter!'
+    redirect '/sessions/new'
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
