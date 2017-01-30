@@ -1,0 +1,28 @@
+<h1>Please sign up to post in Chitter</h1>
+
+<form action='/users/new' method='post'>
+  <label for='email'>
+    Email: <input name='email' type='text'>
+  </label>
+  <label for='name'>
+    Name: <input name='name' type='text'>
+  </label>
+  <label for='username'>
+    Username: <input name='username' type='text'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for='password_confirmation'>
+    Password Confirmation: <input name='password_confirmation' type='password'>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>
+
+<form action="/feed">
+  <input type="submit" value="Go straight to feed">
+</form>
+
+<form action="/login">
+  <input type="submit" value="Login as existing user">
+</form>
