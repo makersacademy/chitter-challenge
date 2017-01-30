@@ -49,7 +49,7 @@ The application is rather self-explanatory.
 At the landing page you should see the options either to log in, if you already have a Chitter account, or to sign up, or potentially you can see peeps without registration, but in this case you won't be able to post other teets.
 For your information please see below couple of screenshots:
 
-Landin page:
+Landing page:
 
 ![Imgur](http://i.imgur.com/j4OCRr6.png)
 
@@ -69,9 +69,11 @@ Please note, that each user has been assigned random, but its own unique user pi
 
 ![Imgur](http://i.imgur.com/PVUbWHf.png)
 
+You can also enjoy it for free [online](https://chitter-by-kateloschinina.herokuapp.com/).
+
 Badges
 ------------------
 
 [![Build Status](https://travis-ci.org/kateloschinina/chitter-challenge.svg?branch=master)](https://travis-ci.org/kateloschinina/chitter-challenge)
 
-[![Coverage Status](https://coveralls.io/repos/github/kateloschinina/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/kateloschinina/chitter-challenge?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/kateloschinina/chitter-challenge/badge.svg)](https://coveralls.io/github/kateloschinina/chitter-challenge)
