@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<style>
+body.serif {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+header {
+  text-align: center;
+}
+
+username {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70.0%;
+}
+
+peeptext {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 110.0%;
+}
+
+timeanddate {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 65.0%;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #06789e;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #4CAF50;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #0F99C3;
+    padding: 20px;
+}
+
+body {
+  color: white;
+}
+h2 {
+  color: black;
+}
+</style>
+
+  <body class="serif">
+
+    <div>
+      <h1>
+        <% if current_user %>
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='sign out'>
+        </form>
+        <% else %>
+        <form method='get' action='/sessions/new'>
+          <input type='submit' value='sign in'>
+        </form>
+        <form method='get' action='/users/new'>
+          <input type='submit' value='sign up'>
+        </form>
+        <% end %>
+        <% if flash[:notice] %>
+          <div id='notice'><%=flash[:notice]%></div>
+        <% end %>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Please refer to the following errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= yield %>
+      </h1>
+
+    </div>
+
+  </body>
+</html>

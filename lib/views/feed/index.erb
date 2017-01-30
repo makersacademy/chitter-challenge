@@ -1,0 +1,30 @@
+<header>
+  <% if current_user %>
+  Hi,
+  <%= current_user.username %>.
+  <form method="post" action="/feed">
+    <label for="body">What will you peep about?</label>
+    <input type="text" name="body" required></input><br>
+    <input type="submit" value="peep this"></input>
+  </form>
+<% else %>
+  <h1>Welcome to Chitter!</h1>
+
+  Check out what people are 'peeping' below
+  <% end %>
+</header>
+<body>
+
+  <ul id='Peeps'>
+    <% if @peeps %>
+    <% @peeps.each do |peep| %>
+    <% user = User.get(peep.user_id) %>
+    <peeptext>"<%= peep.body %>"</peeptext>
+    <username><%= user.username %></username><br>
+    <timeanddate><%= user.name %>
+      peeped this at
+      <%= peep.created_at.strftime('%T') + ' on ' + peep.created_at.strftime('%D') %></timeanddate><br><br>
+    <% end %>
+    <% end %>
+  </ul>
+</body>
