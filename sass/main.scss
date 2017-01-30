@@ -8,6 +8,11 @@ $third-tint: #3AC099;
 $fourth-tint: #BBE095;
 $light-shadow: rgb(159, 159, 159);
 $peep-bkgrnd: rgba(82, 233, 211, 0.1);
+$nav-bkgrnd: #ab84a5;
+$peep-border: #ab84a5;
+$brand-text: #ffffff;
+$footer-text: #ffffff;
+
 
 //GLOBAL STYLES
 
@@ -54,7 +59,7 @@ a {
 }
 
 .btn {
-  background-color: $third-tint;
+  background-color: $fourth-tint;
   color: $main-font-color;
   font-family: 'Merriweather', serif !important;
   font-weight: bold;
@@ -65,7 +70,7 @@ a {
 }
 
 .form-control {
-  border-color: $third-tint;
+  border-color: $fourth-tint;
   font-family: 'Merriweather', serif !important;
   color: $main-font-color !important;
   &:focus {
@@ -88,24 +93,28 @@ a {
 
 .navbar {
   box-shadow:
-  0 0 0 3px $primary-tint,
-  0 0 0 6px $second-tint,
-  0 0 0 9px $third-tint,
-  0 0 0 12px $fourth-tint;
+  0 0 0 4px $primary-tint,
+  0 0 0 8px $second-tint,
+  0 0 0 12px $third-tint,
+  0 0 0 16px $fourth-tint;
   margin-bottom: 12px;
-  background-color: $peep-bkgrnd;
+  background-color: $nav-bkgrnd;
 }
 
 .nav-link {
-  margin: 0rem .5rem !important;
+  margin: .5rem .5rem !important;
 }
 
+.navbar-brand {
+  color: $brand-text !important;
+}
 
 //FOOTER STYLES
 
 .footer {
   border-top: 4px solid $primary-tint;
-  background-color: $third-tint;
+  background-color: $nav-bkgrnd;
+  color: $footer-text;
 }
 
 //PEEP STYLES
@@ -124,8 +133,7 @@ a {
 
 .peep {
   border-radius: .5rem;
-  border: 3px solid $primary-tint;
-  box-shadow: 2px 2px #bbbbbb;
+  border: 3px solid $peep-border;
   background-color: $peep-bkgrnd;
 }
 
