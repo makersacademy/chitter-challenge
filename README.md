@@ -34,22 +34,20 @@ I want to see the time at which it was made
 ```
 
 The list of gem used in this project :
-
-gem 'sinatra'
-gem 'sinatra-flash'
-gem 'bcrypt'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
-gem 'dm-timestamps'
-
-group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
-  gem 'coveralls', require: false
-  gem 'rspec-sinatra'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'factory_girl'
-end
+```
+ sinatra
+ sinatra-flash
+ bcrypt
+ data_mapper
+ dm-postgres-adapter
+ dm-timestamps
+ rspec
+ cucumber
+ rubocop-rspec
+ rubocop
+ coveralls
+ rspec-sinatra
+ capybara
+ database_cleaner
+ factory_girl 
+```
