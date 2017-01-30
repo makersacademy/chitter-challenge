@@ -1,3 +1,7 @@
+
+[![Build
+Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
+
 Chitter Challenge
 =================
 This project aims to replicate twitter. My application can be found on Heroku  
@@ -49,5 +53,5 @@ The list of gem used in this project :
  rspec-sinatra
  capybara
  database_cleaner
- factory_girl 
+ factory_girl
 ```
