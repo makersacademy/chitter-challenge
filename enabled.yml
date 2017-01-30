@@ -131,10 +131,10 @@ Style/DefWithParentheses:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#method-parens'
   Enabled: true
 
-Style/DeprecatedHashMethods:
-  Description: 'Checks for use of deprecated Hash methods.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-key'
-  Enabled: true
+# Style/DeprecatedHashMethods:
+#   Description: 'Checks for use of deprecated Hash methods.'
+#   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-key'
+#   Enabled: true
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
@@ -247,7 +247,7 @@ Style/LineEndConcatenation:
                  line end.
   Enabled: true
 
-Style/MethodCallParentheses:
+Style/MethodCallWithoutArgsParentheses:
   Description: 'Do not use parentheses for method calls with no arguments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-args-no-parens'
   Enabled: true
@@ -515,7 +515,7 @@ Style/WhileUntilDo:
   Description: 'Checks for redundant do after while or until.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-multiline-while-do'
   Enabled: true
-# enable for later challenge 
+# enable for later challenge
 
   # Align ends correctly.
 Lint/EndAlignment:
@@ -524,7 +524,7 @@ Lint/EndAlignment:
   # The value `variable` means that in assignments, `end` should be aligned
   # with the start of the variable on the left hand side of `=`. In all other
   # situations, `end` should still be aligned with the keyword.
-  AlignWith: keyword
+  EnforcedStyleAlignWith: keyword
   SupportedStyles:
     - keyword
     - variable
@@ -604,17 +604,17 @@ Lint/EndInMethod:
   Description: 'END blocks should not be placed inside method definitions.'
   Enabled: true
 
-Lint/DefEndAlignment:
-  # The value `def` means that `end` should be aligned with the def keyword.
-  # The value `start_of_line` means that `end` should be aligned with method
-  # calls like `private`, `public`, etc, if present in front of the `def`
-  # keyword on the same line.
-  AlignWith: start_of_line
-  SupportedStyles:
-    - start_of_line
-    - def
-  AutoCorrect: false
-  Enabled: true
+# Lint/DefEndAlignment:
+#   # The value `def` means that `end` should be aligned with the def keyword.
+#   # The value `start_of_line` means that `end` should be aligned with method
+#   # calls like `private`, `public`, etc, if present in front of the `def`
+#   # keyword on the same line.
+#   EnforcedStyleAlignWith: start_of_line
+#   SupportedStyles:
+#     - start_of_line
+#     - def
+#   AutoCorrect: false
+#   Enabled: true
 
 Lint/RescueException:
   Description: 'Avoid rescuing the Exception class.'
@@ -695,3 +695,7 @@ Metrics/PerceivedComplexity:
                  A complexity metric geared towards measuring complexity for a
                  human reader.
   Enabled: true
+
+# Warning: unrecognized cop Style/DeprecatedHashMethods found in /Users/rossbenzie/chitter-challenge/enabled.yml
+# Warning: unrecognized parameter Lint/DefEndAlignment:SupportedStyles found in /Users/rossbenzie/chitter-challenge/enabled.yml
+# Error: The `Style/TrailingComma` cop no longer exists. Please use `Style/TrailingCommaInLiteral` and/or `Style/TrailingCommaInArguments` instead.

@@ -1,0 +1,11 @@
+<h1>Peeps</h1>
+
+<ul id='peepfeed'>
+  
+  <% @peeps.each do |peep| %>
+    <li>
+      <p><span class='thepeep'><%= peep.words %></span><br />
+        <%= peep.email %> <%= peep.time.strftime("at %k:%M on %-d-%b") %></p>
+    </li>
+  <% end %>
+</ul>

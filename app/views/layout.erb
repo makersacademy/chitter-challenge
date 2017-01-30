@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chitter</title>
+<link href="http://assets.makersacademy.com/images/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link rel="stylesheet" type="text/css" href="<%= url('/normalize.css') %>">
+<style>
+#main {
+  margin: 10px auto 0px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  width: 890px;
+  height: auto;
+  border:2px solid black;
+  padding: 20px;
+}
+h1 {
+  font-style: italic;
+}
+ul {
+  list-style: none;
+}
+#errors {
+  color: red;
+}
+.thepeep {
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div id="main">
+
+  <% if current_user %>
+    <p>You are logged in as <%= current_user.email %></p>
+    <form method='post' action='/login'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Logout'>
+    </form><br />
+    <% if current_path != '/newpeep' %>
+      <form action='/newpeep'>
+        <input type='submit' value='New peep'>
+      </form>
+    <% end %>
+  <% elsif current_path != '/login' && current_path != '/signup' %>
+    <form action='/login'>
+      <label for='login'>Log in or register to create a new peep</label>
+      <input type='submit' value='Login'>
+    </form>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li><br />
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+</div>
+</body>
+</html>

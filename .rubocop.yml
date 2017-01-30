@@ -2,7 +2,8 @@ AllCops:
   DisabledByDefault: true
   DisplayCopNames: true
   DisplayStyleGuide: true
-  RunRailsCops: false
+  Rails: 
+    Enabled: true
   Exclude:
     - 'spec/spec_helper.rb'
 
@@ -50,3 +51,7 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 7
 
+# Error: obsolete parameter RunRailsCops (for AllCops) found in /Users/rossbenzie/chitter-challenge/.rubocop.yml
+# Use the following configuration instead:
+# Rails:
+#   Enabled: true
