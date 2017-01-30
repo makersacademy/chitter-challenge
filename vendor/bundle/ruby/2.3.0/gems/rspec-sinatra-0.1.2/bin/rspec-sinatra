@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'rspec/sinatra'
+require 'rspec/sinatra/generators'
+
+RSpec::Sinatra::Generators.run_cli Dir.pwd, File.basename(__FILE__), RSpec::Sinatra::VERSION, ARGV

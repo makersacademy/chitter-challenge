@@ -1,0 +1,167 @@
+---
+AllCops:
+  RSpec:
+    Patterns:
+    - _spec.rb
+    - "(?:^|/)spec/"
+
+RSpec/AnyInstance:
+  Description: Check that instances are not being stubbed globally.
+  Enabled: true
+
+RSpec/BeEql:
+  Description: Check for expectations where `be(...)` can replace `eql(...)`.
+  Enabled: true
+
+RSpec/DescribeClass:
+  Description: Check that the first argument to the top level describe is a constant.
+  Enabled: true
+
+RSpec/DescribedClass:
+  Description: Checks that tests use `described_class`.
+  SkipBlocks: false
+  Enabled: true
+
+RSpec/DescribeMethod:
+  Description: Checks that the second argument to `describe` specifies a method.
+  Enabled: true
+
+RSpec/EmptyExampleGroup:
+  Description: Checks if an example group does not include any tests.
+  Enabled: true
+  CustomIncludeMethods: []
+
+RSpec/ExampleLength:
+  Description: Checks for long examples.
+  Enabled: true
+  Max: 5
+
+RSpec/ExampleWording:
+  Description: Checks that example descriptions do not start with "should".
+  Enabled: true
+  CustomTransform:
+    be: is
+    have: has
+    not: does not
+  IgnoredWords: []
+
+RSpec/ExpectActual:
+  Description: Checks for `expect(...)` calls containing literal values.
+  Enabled: true
+
+RSpec/ExpectOutput:
+  Description: Checks for opportunities to use `expect { ... }.to output`.
+  Enabled: true
+
+RSpec/FilePath:
+  Description: Checks that spec file paths are consistent with the test subject.
+  Enabled: true
+  CustomTransform:
+    RuboCop: rubocop
+    RSpec: rspec
+  IgnoreMethods: false
+
+RSpec/Focus:
+  Description: Checks if examples are focused.
+  Enabled: true
+
+RSpec/HookArgument:
+  Description: Checks the arguments passed to `before`, `around`, and `after`.
+  Enabled: true
+  EnforcedStyle: implicit
+  SupportedStyles:
+  - implicit
+  - each
+  - example
+
+RSpec/ImplicitExpect:
+  Description: Check that a consistent implicit expectation style is used.
+  Enabled: true
+  EnforcedStyle: is_expected
+  SupportedStyles:
+  - is_expected
+  - should
+
+RSpec/InstanceVariable:
+  Description: Checks for instance variable usage in specs.
+  AssignmentOnly: false
+  Enabled: true
+
+RSpec/LeadingSubject:
+  Description: Checks for `subject` definitions that come after `let` definitions.
+  Enabled: true
+
+RSpec/LetSetup:
+  Description: Checks unreferenced `let!` calls being used for test setup.
+  Enabled: true
+
+RSpec/MessageChain:
+  Description: Check that chains of messages are not being stubbed.
+  Enabled: true
+
+RSpec/MessageExpectation:
+  Description: Checks for consistent message expectation style.
+  Enabled: false
+  EnforcedStyle: allow
+  SupportedStyles:
+  - allow
+  - expect
+
+RSpec/MessageSpies:
+  Description: Checks that message expectations are set using spies.
+  Enabled: true
+  EnforcedStyle: have_received
+  SupportedStyles:
+  - have_received
+  - receive
+
+RSpec/MultipleDescribes:
+  Description: Checks for multiple top level describes.
+  Enabled: true
+
+RSpec/MultipleExpectations:
+  Description: Checks if examples contain too many `expect` calls.
+  Enabled: true
+  Max: 1
+
+RSpec/NamedSubject:
+  Description: Checks for explicitly referenced test subjects.
+  Enabled: true
+
+RSpec/NestedGroups:
+  Description: Checks for nested example groups.
+  Enabled: true
+  Max: 3
+
+RSpec/NotToNot:
+  Description: Checks for consistent method usage for negating expectations.
+  EnforcedStyle: not_to
+  SupportedStyles:
+  - not_to
+  - to_not
+  Enabled: true
+
+RSpec/RepeatedDescription:
+  Enabled: true
+  Description: Check for repeated description strings in example groups.
+
+RSpec/RepeatedExample:
+  Enabled: true
+  Description: Check for repeated examples within example groups.
+
+RSpec/SingleArgumentMessageChain:
+  Description: Checks that chains of messages contain more than one element.
+  Enabled: true
+
+RSpec/ScatteredSetup:
+  Description: Checks for setup scattered across multiple hooks in an example group.
+  Enabled: true
+
+RSpec/SubjectStub:
+  Description: Checks for stubbed test subjects.
+  Enabled: true
+
+RSpec/VerifiedDoubles:
+  Description: Prefer using verifying doubles over normal doubles.
+  Enabled: true
+  IgnoreSymbolicNames: false
