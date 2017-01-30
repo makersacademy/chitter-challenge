@@ -2,7 +2,7 @@ Chitter Challenge
 ===
 This is the week four weekend challenge for makers academy, to produce a "twitter" clone. Full text for the challenge can be found [here](challenge_text.md). here is a link to the app deployed onto [heroku](tweetzer.herokuapp.com)
 
-![image of app](app.jpg)
+![image of app](app.JPG)
 
 -----
 Installing
