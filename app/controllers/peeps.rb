@@ -6,7 +6,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    current_user.peeps << Peep.create(text: params[:text], time: Time.now)
+    peep = Peep.create(text: params[:text], time: Time.now)
+    current_user.peeps << peep
     current_user.save
     redirect '/peeps'
   end

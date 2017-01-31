@@ -53,7 +53,8 @@ end
   patch '/users' do
     @user_page = true
     user = User.find_by_valid_token(session[:token])
-    if user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+    if user.update( password: params[:password],
+                    password_confirmation: params[:password_confirmation])
       session[:token] = nil
       user.update(password_token: nil)
       redirect "/sessions/new"

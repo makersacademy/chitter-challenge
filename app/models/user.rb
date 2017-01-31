@@ -11,6 +11,7 @@ class User
   has n, :peeps
   has n, :comments
 
+
   property :id,                  Serial
   property :name,                String,  required: true
   property :username,            String,  required: true,
@@ -28,7 +29,11 @@ class User
                                               is_unique: "The inserted email is already registered. Choose a different one.",
                                               format: "Doesn't look like an email address."
                                           }
-  property :password_digest,     String, length: 60
+  property :password_digest,     String,  length: 60,
+                                          required: true,
+                                          messages: {
+                                             required: "A password must be inserted."
+                                          }
   property :password_token,      String, length: 60
   property :password_token_time, Time
 
@@ -36,6 +41,7 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, confirm: :password_confirmation
+  validates_presence_of :password, :password_confirmation
 
   def password=(password)
     @password = password
