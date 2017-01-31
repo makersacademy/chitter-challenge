@@ -4,7 +4,7 @@ ENV["RACK_ENV"] ||= "development" # ensures app runs in development mode by defa
 require 'sinatra/base'
 require './models/data_mapper_setup'
 require 'sinatra/flash'
-#require 'tilt/erb'
+
 
 class ChitterChallenge < Sinatra::Base
 
