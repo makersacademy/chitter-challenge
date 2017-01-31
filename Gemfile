@@ -1,10 +1,21 @@
-source 'https://rubygems.org'
-ruby '2.4.0'
+source 'http://rubygems.org'
+ruby '2.3.0'
 
-group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
-end
-
+gem 'rspec'
+gem 'cucumber'
+gem 'capybara'
+gem 'sinatra'
+gem 'rspec-sinatra'
+gem 'selenium-webdriver'
+gem 'shotgun'
+gem 'rubocop-rspec'
+gem 'rubocop'
+gem 'coveralls'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+gem 'database_cleaner'
+gem 'rack'
+gem 'rake'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'dm-migrations'

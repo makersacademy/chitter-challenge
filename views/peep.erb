@@ -1,0 +1,11 @@
+<ul>
+<%@peeps.each do |item|%>
+  <li>
+    <%=item.peep%>
+    <br/>
+    <%=item.time.strftime("at %I:%M%p")%>
+    posted by
+    <%=@users.get(id=item.user_id).user_name%>
+  </li>
+  <%end%>
+</ul>
