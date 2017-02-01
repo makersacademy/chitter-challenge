@@ -18,8 +18,6 @@ gem 'database_cleaner'
 gem 'rspec'
 gem 'cucumber'
 gem 'coveralls'
-gem 'rubocop'
-gem 'rubocop-rspec'
 gem 'rspec-sinatra'
 gem 'capybara'
 
