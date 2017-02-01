@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <h1>CHITTER</h1>
+   <link href="/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+   <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="btn-default">
+  <br>
+  <% if current_user %>
+    <form action="/sessions" method="post" align='right'>
+      <input type='hidden' name='_method' value='delete'>
+      Welcome, <%= current_user.name %>
+      <input class ='btn-primary' type="submit" name="signout" value="Sign out">
+    </form>
+
+  <% elsif !@user_page %>
+    <form action="/users/new" align='right'>
+      <label for="sign_up">If you don't have an account, please feel free to sign up!</label>
+      <a href="/users/new">sign up</a>
+    </form>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= yield %>
+
+</body>
+
+</html>

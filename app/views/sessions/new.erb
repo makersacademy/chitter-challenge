@@ -1,0 +1,31 @@
+<div>
+  <form action='/sessions' method='post' class="btn-primary" align="center">
+    <br>
+    <h1>Sign in</h1>
+    <label for='username'>Username</label>
+    <div>
+      <input name='username' type='text' style="color:black">
+    </div>
+    <label for='password'>Password</label>
+    <div>
+      <input name='password' type='password' style="color:black">
+    </div>
+    <div>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <div>
+      <br>
+      <input class ='btn-primary' type='submit' value='Sign in'>
+      <br>
+      <a href="/users/recover">I forgot my password</a>
+    </div>
+    <br>
+  </form>
+</div>

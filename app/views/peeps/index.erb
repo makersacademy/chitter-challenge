@@ -1,0 +1,24 @@
+<body>
+
+  <form action="/peeps/new" class="btn-primary" align="center" method="post">
+    <br><br>
+    <input  type="text" name="text" style="width:800px;height:50px;color:black;font-size:20px">
+    <br><br>
+    <input class ='btn-primary' type="submit" name="new_peep" value="Add Peep">
+    <br><br>
+  </form>
+
+  <div>
+    <% @peeps.each do |peep|%>
+      <ul>
+        <div class="btn-default">
+          <p><%= @users.get(id=peep.user_id).name %>  @<%= @users.get(id=peep.user_id).username %></p>
+          <b style="font-size:20px"><%= peep.text %></b>
+          <br><br>
+          <p style="font-size:12px">Posted at <%= peep.time.strftime("%I:%M%p") %> <%= peep.time.strftime("%m/%d/%Y") %></p>
+      </div>
+      </ul>
+    <% end %>
+  </div>
+
+</body>

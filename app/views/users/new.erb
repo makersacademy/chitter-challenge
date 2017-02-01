@@ -1,0 +1,46 @@
+<form action="/users" method="post" class="btn-primary" align="center">
+  <div>
+    <br>
+    <label for="text">Name</abbr></label>
+    <br>
+    <input type="text" name="name" value='<%= @name %>' style="color:black" required>
+  </div>
+  <div>
+    <br>
+    <label for="text">Username</abbr></label>
+    <br>
+    <input type="text" name="username" value='<%= @username %>' style="color:black" >
+  </div>
+  <div>
+    <br>
+    <label for="text">Email</abbr></label>
+    <br>
+    <input type="email" name="email" value='<%= @email %>' style="color:black" required>
+  </div>
+  <div>
+    <br>
+    <label for="password">Password</label>
+    <br>
+    <input type="text" name="password" style="color:black" >
+  </div>
+  <div>
+    <br>
+    <label for="password_confirmation">Password Confirmation</label>
+    <br>
+    <input type="text" name="password_confirmation" style="color:black" >
+  </div>
+  <br>
+  <input class ='btn-primary' type="submit" name="signup" value="Sign up">
+  <br><br>
+</form>
+
+<div>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
