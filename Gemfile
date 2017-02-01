@@ -23,5 +23,5 @@ gem 'capybara'
 
 gem 'bcrypt'
 gem 'timecop'
-gem 'mailgun-ruby'
+# gem 'mailgun-ruby'
 gem 'dotenv'
