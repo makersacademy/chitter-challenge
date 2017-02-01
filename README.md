@@ -1,4 +1,5 @@
 # Chitter Challenge
+#### Technologies: Ruby, Rspec, Sinatra, Heroku, HTML, CSS
 ### [Makers Academy] (http://www.makersacademy.com) - Week 4 Solo Weekend Project [![Coveralls](https://camo.githubusercontent.com/8f47be91a0ee2f287efe64a0a9c1de10c213c772/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f393839333235392f6261646765)](https://github.com/adrianeyre/chitter-challenge)
 
 ## Index
