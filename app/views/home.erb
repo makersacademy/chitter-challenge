@@ -18,7 +18,7 @@
         <div id='details'>
           <%= cheep.user.name %> -
           <%= cheep.user.username %>
-          <%= (cheep.created_at).strftime("at %H:%M") %>
+          <%= cheep.created_at.strftime("at %H:%M") %>
         </div>
         <div id='content'>
           <%= cheep.content %>
