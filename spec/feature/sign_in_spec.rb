@@ -20,13 +20,4 @@ feature 'User sign in' do
     expect(page).to have_content "Got something to say?"
   end
 
-  scenario "authenticated user can post a chitter message" do
-        sign_up
-        click_button "Post a Peep"
-        expect(page).to have_content "Submit Peep"
-        fill_in :message, with: "Test!"
-        click_button "Submit Peep"
-        expect(page).to have_content  "test!"
-        expect(page).to have_content "From: Timmy1"
-  end
 end

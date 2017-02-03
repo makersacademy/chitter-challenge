@@ -4,17 +4,29 @@
 
 require 'spec_helper'
 
+
+
 feature 'User sign up' do
+
+  let!(:user) do
+    User.create(email: 'test@test.com',
+                name: 'Testy McTest',
+                user_name: 'Test1',
+                password: '123456',
+                password_confirmation: '123456')
+  end
 
   scenario 'I can sign up as a new user' do
     visit '/users/new'
     expect(page).to have_content('Please create a Chitter account')
     end
 
+
     scenario 'sign up with correct details' do
-      sign_up
-    expect(page).to have_content "Welcome, #{user.user_name}"
-        end
+    sign_up
+    visit '/session'
+    expect(page).to have_content "Welcome, "
+    end
 
 
 
