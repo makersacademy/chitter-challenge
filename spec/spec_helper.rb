@@ -18,8 +18,9 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
-require_relative 'helpers/session'
+require 'web_helper'
 require './models/data_mapper_setup'
+
 
 
 Capybara.app = ChitterChallenge
@@ -57,7 +58,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include SessionHelpers
+
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
   #config.include TestHelpers

@@ -11,6 +11,11 @@ feature 'User sign up' do
     expect(page).to have_content('Please create a Chitter account')
     end
 
+    scenario 'sign up with correct details' do
+      sign_up
+    expect(page).to have_content "Welcome, #{user.user_name}"
+        end
+
 
 
     scenario 'requires a matching confirmation password' do

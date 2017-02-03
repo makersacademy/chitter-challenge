@@ -12,7 +12,7 @@ class User
   validates_format_of :email, as: :email_address
 
   property :id,              Serial
-  property :email,           String,  required: true, unique: true
+  property :email,           String,  format: :email_address, required: true, unique: true
   property :password_digest, Text,    required: true
   property :user_name,       String,  required: true, unique: true
   property :name,            String,  required: true
