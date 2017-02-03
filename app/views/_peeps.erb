@@ -1,0 +1,27 @@
+<div id="peeps-container" class="row">
+  <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 py-3">
+    <% recent_peeps.each_with_index do |peep, idx| %>
+    <div class="peep row no-gutters my-4 p-2">
+      <div class="col-3 d-flex align-items-center">
+        <img class="peep-icon" src="/img/feather_<%= "#{idx+1}" %>.svg" alt="Peep icon">
+      </div>
+      <div class="col-9">
+        <div class="row">
+          <div class="col-12">
+            <span class="peep-name"><%= peep.user.name %></span>
+            <span class="peep-username">@<%= peep.user.user_name %></span>
+
+          </div>
+          <div class="col-12 py-2">
+            <p class="peep-text"><%= peep.peep_text %></p>
+          </div>
+          <div class="col-12 text-right">
+            <span class="peep-date small-text"><%= peep.created_at.strftime("%l:%M%P on %d/%m/%Y") %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end  %>
+  </div>
+
+</div>

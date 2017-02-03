@@ -1,18 +1,9 @@
+[![Build Status](https://travis-ci.org/rkclark/chitter-challenge.svg?branch=master)](https://travis-ci.org/rkclark/chitter-challenge)[![Coverage Status](https://coveralls.io/repos/github/rkclark/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/rkclark/chitter-challenge?branch=master)
+
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -43,66 +34,60 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+## Approach
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+I employed a test-driven approach to create the Chitter web application using the Sinatra framework.
 
-Bonus:
------
+Users are able to sign up with a unique username and email address, their passwords are encrypted and saved as hashes using BCrypt. Once registered, they are able to sign in and post "Peeps".
 
-If you have time you can implement the following:
+Peeps are displayed on the homepage in reverse chronological order. For the purposes of the demo site, only the 10 most recent peeps are displayed. Each peep is given a feather icon to bring some visual interest to the page, and is listed with the user's name, username and the time and date of posting.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+The app is deployed to Heroku and you [can access the demo here!](https://rkclark-chitter.herokuapp.com/)
 
-And/Or:
+### Technologies Used
 
-* Work on the css to make it look good (we all like beautiful things).
+**Framework**
+- Sinatra (modular)
 
-Good luck and let the chitter begin!
+**Testing**
+- RSpec
+- Capybara
 
-Code Review
------------
+**Database**
+- Postgresql
+- DataMapper (ORM)
+- BCrypt (Encryption)
 
-In code review we'll be hoping to see:
+**Front-end**
+- Bootstrap 4
+- Sass
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+## Screenshots
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+**Homepage**
+![Chitter homepage](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_home2.png)
 
-Notes on test coverage
-----------------------
+**Register**
+![Chitter register](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_register2.png)
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+**New Peep**
+![Chitter Peep](https://github.com/rkclark/chitter-challenge/blob/master/screenshots/chitter_peep2.png)
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+## Installation and Usage
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+To install the app locally:
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+- Clone the repo, go to project root folder
+- Run `bundle install`
+- Create local postgresql databases named `chitter_app_dev` and `chitter_app_test` so they are accessible on the localhost, i.e. `postgres://localhost/chitter_app_test`
+- Run `rake db:auto_migrate_test` to build test database
+- Run `rake db:auto_migrate_dev` to build dev database
 
-```
-$ coveralls report
-```
+To run the test suite:
+- Run `rspec`
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+To run the app on a local webserver:
+- Run `ruby app/app.rb`, by default it will be accessible on port 4567
 
+To enable Sass auto compiling:
+- Run `sass --watch sass/main.scss:app/public/css/main.css`

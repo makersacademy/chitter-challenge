@@ -1,0 +1,146 @@
+//VARIABLES
+
+$main-font-color: rgb(87, 87, 87);
+$light-font-color: rgb(131, 126, 126);
+$primary-tint: #80086E;
+$second-tint: #51E9D3;
+$third-tint: #3AC099;
+$fourth-tint: #BBE095;
+$light-shadow: rgb(159, 159, 159);
+$peep-bkgrnd: rgba(82, 233, 211, 0.1);
+$nav-bkgrnd: #ab84a5;
+$peep-border: #ab84a5;
+$brand-text: #ffffff;
+$footer-text: #ffffff;
+
+
+//GLOBAL STYLES
+
+body {
+  font-family: 'Merriweather', serif !important;
+  color: $main-font-color;
+  font-size: 0.8rem;
+  background-color: $peep-bkgrnd;
+}
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#main-wrapper {
+	min-height: 100%;
+	position: relative;
+  padding-bottom: 35px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.small-text {
+  font-size: 0.6em;
+}
+
+.main-font-color {
+  color: $main-font-color !important;
+}
+
+a {
+  color: $primary-tint;
+
+  &:hover {
+    color: $second-tint;
+  }
+}
+
+.btn {
+  background-color: $fourth-tint;
+  color: $main-font-color;
+  font-family: 'Merriweather', serif !important;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $second-tint;
+    cursor: pointer;
+  }
+}
+
+.form-control {
+  border-color: $fourth-tint;
+  font-family: 'Merriweather', serif !important;
+  color: $main-font-color !important;
+
+  &:focus {
+    border-color: $primary-tint;
+  }
+
+}
+
+.main-content {
+  height: 100%;
+}
+
+
+//HEADER STYLES
+
+.chitter-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar {
+  background-color: $nav-bkgrnd;
+  box-shadow:
+  0 0 0 4px $primary-tint,
+  0 0 0 8px $second-tint,
+  0 0 0 12px $third-tint,
+  0 0 0 16px $fourth-tint;
+  margin-bottom: 12px;
+}
+
+.nav-link {
+  margin: .5rem .5rem !important;
+}
+
+.navbar-brand {
+  color: $brand-text !important;
+}
+
+//FOOTER STYLES
+
+.footer {
+  background-color: $nav-bkgrnd;
+  border-top: 4px solid $primary-tint;
+  color: $footer-text;
+}
+
+//PEEP STYLES
+
+.peep-icon {
+  width: 60px;
+}
+
+.peep-name {
+  color: $primary-tint;
+}
+
+.peep-username,
+.peep-date {
+  color: $light-font-color;
+}
+
+.peep {
+  background-color: $peep-bkgrnd;
+  border: 3px solid $peep-border;
+  border-radius: 0.5rem;
+}
+
+.peep-text {
+  margin: 0;
+}
