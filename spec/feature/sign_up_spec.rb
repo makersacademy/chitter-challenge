@@ -23,9 +23,14 @@ feature 'User sign up' do
 
 
     scenario 'sign up with correct details' do
-    sign_up
-    visit '/session'
-    expect(page).to have_content "Welcome, "
+    sign_up(email: user.email,
+                name: user.name,
+                user_name: user.user_name,
+                password: user.password,
+                password_confirmation: user.password_confirmation)
+    visit '/peep'
+    expect(page).to have_content "Got something to say?"
+    puts user.user_name
     end
 
 

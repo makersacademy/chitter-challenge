@@ -2,13 +2,15 @@ feature 'User signs out' do
 
    before(:each) do
     User.create(email: 'test@test.com',
-                 password: 'test123',
-                 password_confirmation: 'test123')
+                name: 'Testy McTest',
+                user_name: 'Test1',
+                password: '123456',
+                password_confirmation: '123456')
    end
 
     scenario 'while being signed in' do
-      sign_in(email: 'test@test.com', password: 'test123')
-      visit '/layout'
+      sign_in(email: 'test@test.com', password: '123456')
+      visit '/peep'
       click_button 'Sign out'
       expect(page).not_to have_content('Welcome, test@test.com')
     end

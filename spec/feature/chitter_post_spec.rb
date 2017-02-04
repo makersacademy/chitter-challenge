@@ -14,9 +14,11 @@ feature 'User posts a peep' do
   end
 
   scenario "authenticated user can post a chitter message" do
-        sign_up
+        sign_in
+        visit '/peep'
         fill_in :peep, with: "Test!"
-        click_button "Submit Peep"
+        puts :peep
+        click_button "Submit peep"
         expect(page).to have_content  "Test!"
         expect(page).to have_content "Test1"
   end

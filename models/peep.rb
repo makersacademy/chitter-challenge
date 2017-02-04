@@ -9,7 +9,7 @@ class Peep
   end
 
   property :id,         Serial
-  property :peep,    Text,   required: true
+  property :peep,    String,   required: true
   property :created_at, DateTime
 
  belongs_to :user
