@@ -12,6 +12,6 @@ feature 'User signs out' do
       sign_in(email: 'test@test.com', password: '123456')
       visit '/peep'
       click_button 'Sign out'
-      expect(page).not_to have_content('Welcome, test@test.com')
+      expect(page).to have_content('Goodbye')
     end
 end
