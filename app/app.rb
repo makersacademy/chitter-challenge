@@ -58,7 +58,7 @@ class Chitter < Sinatra::Base
 
   get '/new_peep' do
     if session[:user_id] == nil
-      flash.next[:error_3] = "Please log in first"
+      flash.next[:error_3] = "Please Log in First"
       redirect '/log_in'
     else
       erb :new_peep

@@ -42,6 +42,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
 
   end
+end 
 
   config.expect_with :rspec do |expectations|
 
