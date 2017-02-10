@@ -9,6 +9,7 @@ source 'https://rubygems.org'
   gem 'rake'
   gem 'sinatra-flash'
   gem 'sinatra-partial'
+  gem 'pry-stack_explorer'
 
 
 group :test do
