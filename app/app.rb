@@ -10,13 +10,13 @@ require_relative 'helpers'
 
 class Chitter < Sinatra::Base
 
-	enable :sessions
-	set :session_secret, 'super secret'
-	set :views, File.expand_path('../views', __FILE__)
-	register Sinatra::Flash
-	use Rack::MethodOverride
+  enable :sessions
+  set :session_secret, 'super secret'
+  set :views, File.expand_path('../views', __FILE__)
+  register Sinatra::Flash
+  use Rack::MethodOverride
 
-	include Helpers
+  include Helpers
 
 end
 

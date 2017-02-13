@@ -3,16 +3,16 @@ require 'dm-postgres-adapter'
 
 class Peep
 
-	include DataMapper::Resource
+  include DataMapper::Resource
 
-	belongs_to :user
+  belongs_to :user
 
-	property :id, Serial
-	property :text, String
-	property :time, String
+  property :id, Serial
+  property :text, String
+  property :time, String
 
-	def self.reverse_chronological_order
-		self.all(order: :time.desc)
-	end
+  def self.reverse_chronological_order
+    self.all(order: :time.desc)
+  end
 
 end
