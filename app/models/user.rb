@@ -1,5 +1,5 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+# require 'data_mapper'
+# require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
@@ -12,7 +12,7 @@ class User
   property :password_digest, Text
 
   has n, :peeps
-  
+
   attr_reader :password
   attr_accessor :password_confirmation
 

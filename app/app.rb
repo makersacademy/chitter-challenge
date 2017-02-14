@@ -5,22 +5,21 @@ require 'sinatra/flash'
 
 require_relative 'data_mapper_setup'
 
-require_relative 'models/user.rb'
-require_relative 'models/peep.rb'
+require_relative 'controllers/peep_controller'
 
-require_relative 'helpers.rb'
+# require_relative 'models/user.rb'
+# require_relative 'models/peep.rb'
+
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+  set :session_secret, 'super secret'
+  set :root, File.dirname(__FILE__)
 
   helpers Helpers
-
-  get '/' do
-    redirect to('/chitter')
-  end
 
   get '/users/sign-up' do
     @user = User.new
@@ -53,15 +52,15 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/chitter' do
-    @peeps = Peep.all(:order => [ :id.desc ])
-    erb :chitter
-  end
-
-  post '/create-peep' do
-    current_user.peeps.create(message: params[:message], created_at: params[Time.now])
-    redirect to '/chitter'
-  end
+  # get '/chitter' do
+  #   @peeps = Peep.all(:order => [ :id.desc ])
+  #   erb :chitter
+  # end
+  #
+  # post '/create-peep' do
+  #   current_user.peeps.create(message: params[:message], created_at: params[Time.now])
+  #   redirect to '/chitter'
+  # end
 
   delete '/sessions' do
     session[:user_id] = nil
