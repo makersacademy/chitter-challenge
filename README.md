@@ -35,6 +35,21 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
+### Install and run this project
+
+* Clone this repository to your local machine.
+* Run `bundle` to get all the necessary dependencies
+* Run `createdb chitter_challenge_development` to set up the database on your local machine
+* Run `rake auto-migrate`
+* Run `ruby app/app.rb` to start the local server
+* Visit localhost:4567 in your browser
+
+To run the test suite for this project run `rspec`
+
+Or visit my app on Heroku!
+
+https://amanda-chitter.herokuapp.com/users/sign-up
+
 ### How to use
 
 Sign up by entering name, username, email and password. Email and username must be unique, and password must be confirmed
@@ -52,10 +67,6 @@ Once signed in user can peep all they like! A welcome message is displayed upon 
 Click sign out to sign out...user will still be able to read peeps when they are not logged in. A goodbye message is displayed
 
 ![Imgur](http://i.imgur.com/Nk2IKmb.png)
-
-Visit my app on Heroku!
-
-https://amanda-chitter.herokuapp.com/users/sign-up
 
 ### Things still to do
 
