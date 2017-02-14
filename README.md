@@ -9,6 +9,7 @@ To use this app :
 $ git clone https://github.com/agata-anastazja/chitter_challenge
 $ bundle
 $ createdb chitter_development
+$ createdb  chitter_test
 $ rake auto_migrate
 $ rspec
 $ rackup
