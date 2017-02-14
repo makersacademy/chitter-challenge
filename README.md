@@ -41,8 +41,8 @@ I want to see the time at which it was made
 * Run `bundle` to get all the necessary dependencies
 * Run `createdb chitter_challenge_development` to set up the database on your local machine
 * Run `rake auto-migrate`
-* Run `ruby app/app.rb` to start the local server
-* Visit localhost:4567 in your browser
+* Run `rackup` to start the local server
+* Visit localhost:9292 in your browser
 
 To run the test suite for this project run `rspec`
 
