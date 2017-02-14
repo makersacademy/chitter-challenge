@@ -10,13 +10,13 @@
   <body>
 
     <% if current_user %>
-    <div id='welcome'>
-      welcome, @<%= current_user.username %>!
-      <form method='post' action='/sessions'>
-        <input id="welcome_message" type='hidden' name='_method' value='delete'>
-        <input id="sign_out" class="button" type='submit' value='sign out'>
-      </form>
-    </div>
+      <div id='welcome'>
+        welcome, @<%= current_user.username %>!
+        <form method='post' action='/sessions'>
+          <input id="welcome_message" type='hidden' name='_method' value='delete'>
+          <input id="sign_out" class="button" type='submit' value='sign out'>
+        </form>
+      </div>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>

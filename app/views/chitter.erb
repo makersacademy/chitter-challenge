@@ -9,6 +9,15 @@
 
 <body>
 
+<% if !current_user %>
+  <form action="/users/sign-up">
+    <input id="sign-up-form-button" type="submit" class="button" value="sign up"/>
+  </form>
+  <form action="/sessions/new">
+    <input id="sign-in-form-button" type="submit" class="button" value="sign in"/>
+  </form>
+<% end %>
+
 <h1>chitter :)</h1>
 
 <% if current_user %>

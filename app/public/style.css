@@ -12,7 +12,7 @@ body {
 #notice {
   padding-left: 37px;
   padding-top: 30px;
-  
+
 }
 
 #errors {
@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  padding-left: 37px;
+  margin-left: 37px;
   font-size: 5em;
 }
 
@@ -101,6 +101,17 @@ textarea:focus {
 
 #sign_up_button {
   margin-top: 20px;
+}
+
+#sign-up-form-button, #sign-in-form-button {
+  margin-left: 37px;
+  margin-top: 10px;
+  display: inline;
+}
+
+.sign-up-or-in {
+  display: flex;
+  flex-direction: row;
 }
 
 .form_field {
