@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
 
   helpers Helpers
 
+  get '/' do
+    redirect to('/chitter')
+  end
+
   get '/users/sign-up' do
     @user = User.new
     erb :sign_up
