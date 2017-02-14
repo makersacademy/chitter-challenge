@@ -48,7 +48,7 @@ To run the test suite for this project run `rspec`
 
 Or visit my app on Heroku!
 
-https://amanda-chitter.herokuapp.com/users/sign-up
+https://amanda-chitter.herokuapp.com
 
 ### How to use
 
