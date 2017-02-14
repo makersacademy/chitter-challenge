@@ -8,4 +8,8 @@ class Peep
 
   belongs_to :user
 
+  def self.all_in_reverse_order
+    self.all(:order => [ :id.desc ])
+  end
+
 end

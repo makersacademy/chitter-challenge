@@ -4,7 +4,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter' do
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peeps = Peep.all_in_reverse_order
     erb :chitter
   end
 
