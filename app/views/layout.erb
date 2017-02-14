@@ -9,30 +9,9 @@
 
   <body>
 
-    <% if current_user %>
-      <div id='welcome'>
-        welcome, @<%= current_user.username %>!
-        <form method='post' action='/sessions'>
-          <input id="welcome_message" type='hidden' name='_method' value='delete'>
-          <input id="sign_out" class="button" type='submit' value='sign out'>
-        </form>
-      </div>
-    <% end %>
+    <%= partial :welcome_message %>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+    <%= partial :flash %>
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
 
