@@ -1,5 +1,3 @@
-require_relative 'helpers'
-
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
