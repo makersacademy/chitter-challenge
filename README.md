@@ -67,17 +67,3 @@ $ rackup
 
 * Then visit http://localhost:4567 (please note the last four digits of the url will depend on which port Sinatra uses. You can check this in the terminal when you run the command.)
 
-Screenshots
-===========
-
-Signing up.
-
-![alt tag]()
-
-Signing in.
-
-![alt tag]()
-
-Posting a peep.
-
-![alt tag]()
