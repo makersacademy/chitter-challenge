@@ -10,7 +10,6 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
-  set :public_folder, 'public'
 
 
    helpers do
