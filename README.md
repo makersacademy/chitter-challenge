@@ -4,7 +4,10 @@ Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://t
 
 Chitter Challenge
 =================
-This project aims to replicate twitter.To use it you should sign up first. Then you can write and post and read peeps.  My application can be found on Heroku  
+This project aims to replicate twitter.  
+To use it you should sign up first.   
+Then you can write and post and read peeps.  
+My application can be found on Heroku    
 [Chitter2017](https://chitter2017.herokuapp.com/)
 
 
