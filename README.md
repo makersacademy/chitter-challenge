@@ -80,7 +80,7 @@ $ rspec
 $ rackup
 ```
 
-... then open `localhost:9292` in a browser and enjoy.
+... then open [localhost:9292](http://localhost:9292) in a browser and enjoy.
 
 Or you can go straight to [Heroku](https://shielded-tundra-78712.herokuapp.com) to play with it.
 
