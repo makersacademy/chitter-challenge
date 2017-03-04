@@ -4,7 +4,6 @@ require 'dm-postgres-adapter'
 class Peep
   include DataMapper::Resource
 
-#has 1, :user, through: Resource
   belongs_to :user
 
   property :id, Serial
