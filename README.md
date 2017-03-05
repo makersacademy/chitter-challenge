@@ -71,10 +71,12 @@ How To Download and Run the App
 
 ```
 $ git clone https://github.com/sliute/chitter-challenge.git
+$ cd chitter-challenge
 $ bundle
 $ psql
-$ create database test
+$ create database chitter_test
 $ create database chitter_development
+$ \q
 $ rake auto_migrate
 $ rspec
 $ rackup
