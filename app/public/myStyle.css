@@ -1,0 +1,40 @@
+body {
+    background-color: #F0EAD6;
+}
+
+h1 {
+    font-family:'Crete Round', serif;
+    font-style: italic;
+    font-size: 120px;
+    color: #F7882F;
+    text-align: center;
+    position: relative;
+    top:-50px;
+}
+
+input[id='sign_up_button'], input[id='log_in_button']{
+    background-color: #F0EAD6;
+    border: none;
+    font-family:'Crete Round', serif;
+    border-color: #F0EAD6;
+    font-size: 20px;
+    color: #6B78AF;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    position: relative;
+    top:-275px;
+  }
+
+  div[id='details']{
+    font-size: 25px;
+    font-family:'Raleway', sans-serif;
+    color:#6B78AF;
+  }
+
+  div[id='cheeps']{
+    position:relative;
+    top:-200px;
+    text-align:center;
+    margin-bottom:20px;
+  }

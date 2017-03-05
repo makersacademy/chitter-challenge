@@ -1,0 +1,28 @@
+
+<%if !(session[:user_id]) %>
+  <form action='/sessions/new' method='get'>
+    <input id='log_in_button' type='submit' value='Log In'>
+  </form>
+
+  <form action='/sign_up' method='get'>
+    <input id='sign_up_button' type='submit' value='Sign Up'>
+  </form>
+<%else%>
+    <form id='compose_cheep' action='cheep/new' method='get'>
+        <input type='submit' value='Compose Cheep'>
+    </form>
+<% end %>
+<div id='cheeps'>
+  <ul>
+    <% @cheeps_by_time.each do |cheep| %>
+        <div id='details'>
+          <%= cheep.user.name %> -
+          <%= cheep.user.username %>
+          <%= cheep.created_at.strftime("at %H:%M") %>
+        </div>
+        <div id='content'>
+          <%= cheep.content %>
+        </div>
+    <% end %>
+  </ul>
+</div>

@@ -1,108 +1,91 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+As part of one of the Makers Academy weekend challenges, I have been asked to produce a website which is similar in nature to 'Twitter'.
 
-Challenge:
--------
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
+## Specifications / User Stories
 
 ```
+User Story 1:
+
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
+
+User Story 2:
 
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
+User Story 3:
+
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
+
+User Story 4:
 
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
+User Story 5:
+
 As a maker
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
+
+User Story 6:
 
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
+## Installing
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Fork or clone this repository
 
-Bonus:
------
+* Create the following local databases using psql:
+    'chitter_development'
+    'chitter_test'
 
-If you have time you can implement the following:
+* At the command line, run '$ rackup'
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Within your web browser, visit 'http://localhost:9292'
 
-And/Or:
+## Using the App
 
-* Work on the css to make it look good (we all like beautiful things).
+On landing at the http://localhost:9292, for the first time, the user will see a page, inviting them to 'Sign Up'.  This page also displays a list of any previous posts made by users (this will be empty the first time the app is run)
 
-Good luck and let the chitter begin!
+![Create new](app/images/index.png)
 
-Code Review
------------
+If the user has not previously used the app, they are required to 'Sign up' before they are permitted to make a post.  
 
-In code review we'll be hoping to see:
+![Create new](app/images/sign_up.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+When the user wishes to compose a new 'cheep', they should click on the 'Compose Cheep' button.  This takes the user to the following screen:
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+![Create new](app/images/cheep.png)
 
-Notes on test coverage
-----------------------
+On clicking the 'Cheep' button, the user is redirected back to the index page, with their cheep displayed at the top of the page.
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+![Create new](app/images/new_index.png)
 
-```ruby
-require 'coveralls'
-require 'simplecov'
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+## Running Tests
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+In order to run the test suite, please use the command '$ rspec'
 
-```
-$ coveralls report
-```
+## Additional Features
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
+In the future, I would like to implement the following additions to this project:
 
+* Improved interface using HTML and CSS;
+
+* Requesting that a user repeats his/her password when signing up to the service;
+
+* Allowing a user to reset his/her password;
+
+* Allowing a user to 'respond' to another user's cheeps;
