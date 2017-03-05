@@ -1,20 +1,7 @@
-Chitter Challenge
+Chitter Challenge ![Travis CI](https://travis-ci.org/sliute/chitter-challenge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/sliute/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/sliute/chitter-challenge?branch=master)
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+Task (Stories)
 -------
 
 ```
@@ -43,7 +30,7 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
+Notes on functionality
 ------
 
 * Drive the creation of your app using tests - either cucumber or rspec as you prefer
@@ -55,54 +42,123 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 * Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am.
 
-Bonus:
+Technologies
+-------
+
+Development & use:
+
+* Ruby
+* DataMapper with dm-postgres-adapter
+* Postgresql
+* Bcrypt
+* Sinatra with Sinatra Flash and Sinatra Partial
+* Heroku
+
+Testing:
+
+* Rspec with rspec-sinatra
+* Capybara
+* Database Cleaner
+* Rake
+* Rubocop with rubocop-rspec
+* Travis CI
+* Coveralls
+
+How To Download and Run the App
+-------
+
+```
+$ git clone https://github.com/sliute/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ psql
+$ create database chitter_test
+$ create database chitter_development
+$ \q
+$ rake auto_migrate
+$ rspec
+$ rackup
+```
+
+... then open [localhost:9292](http://localhost:9292) in a browser and enjoy.
+
+Or you can go straight to [Heroku](https://shielded-tundra-78712.herokuapp.com) to play with it.
+
+Progress
 -----
 
-If you have time you can implement the following:
+1. Story 01:
+  * A user can sign up for Chitter. Feature tests check for:
+    - the email and username to exist and both be unique
+    - the name to exist.
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+  Unit tests check for user authentication (with email and password).
 
-And/Or:
+2. Story 02:
+  * A user can sign into Chitter. Feature tests check for the process to:
+    - succeed with correct username and password (a name-specific greeting is displayed)
+    - fail with incorrect username and/or password (an error message is displayed and the user is redirected to the sign in form)
 
-* Work on the css to make it look good (we all like beautiful things).
+3. Story 03:
+  * A user can sign out of Chitter. Feature tests check for the `Sign out` button to work and display a page where:
+    - a sign out confirmation message is displayed
+    - the user's salutation by name is absent
 
-Good luck and let the chitter begin!
+4. Story 04:
+  * When a user signs in, they can
+    - see their own peep list
+    - create a new peep via a dedicated peep form.
+  * Each peep has a header with the user's name and username
+  * The public can freely access a user's peep list at `/username`.
+  * A user can post only if they have signed in. Otherwise, they are redirected to the sign in page. A signup button is available there, too.
 
-Code Review
------------
+5. Story 05:
+  * When a user signs in, they can:
+    - go to a new peep form via a button
+    - see a flow of all Chitter users' peeps, in reverse chronological order.  
 
-In code review we'll be hoping to see:
+6. Story 06:
+  * When a user signs in, they can:
+    - see a flow of all Chitter users' peeps, in reverse chronological order, and each with a timestamp
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+7. Cleanup #1:
+  * Displayed time in a Twitter-like format with the .strftime above.
+  * Added buttons on various pages to make navigation across the app easier.
+  * Cleaned up dead code and unnecessary requires (models in spec_helper). Tests still pass :-)
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+Issues
+-----
 
-Notes on test coverage
-----------------------
+1. Story 01:
+  * I learned that if you run tests locally (or via Travis CI) with the proper databases in place but before actually creating a User table, you will encounter this database error:
+  ```
+  ERROR:  syntax error at or near "IDENTITY" (DataObjects::SyntaxError)
+  LINE 1: TRUNCATE TABLE  RESTART IDENTITY;
+                                ^
+    from /Users/
+  ```
+  Once the table is in place (i.e. after running the app once and creating a user), everything worked well - I didn't need the workaround I had found [here](https://github.com/makersacademy/slack-overflow/issues/180).
+  * Unit tests for user authentication might be premature (better suited for Story 02?)
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+2. Story 02:
+  * More thorough unit testing might be required for the User.rb model. Aside from #authenticate, a test for #password= might be needed.
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+3. Story 03:
+  * Nothing so far.
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+4. Story 04:
+  * Nothing so far.
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
+5. Story 05:
+  * I have an idea about how to test for the reverse chronological order, but no clue about how to exactly implement it.
+  * Need to also add a 'profile' page where a user can see the list of their own tweets, in reverse chronological order.
 
-```
-$ coveralls report
-```
+6. Story 06:
+  * Need to display the time in a friendly format. Directly applying `.strftime('%l:%m %p - %e %b %Y')` to the time objects somehow yields an error that signals they're nil (and not time objects after all).
 
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+7. Cleanup #1:
+  * Need to add password reset functionality. Did it in the week's assignment (except for a 301 redirect error from Mailgun).
+  * Haven't used cucumber and factory_girl, although I wanted to.
+  * Need to add uniqueness tests - I think I've missed them so far.

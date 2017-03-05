@@ -1,0 +1,22 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <div>
+    Oops!
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if flash[:sign_out] %>
+  <article id='sign_out_message'>
+    <%= flash[:sign_out] %>
+  </article>
+
+  <br>
+
+  <form action='/sessions/new' method="get">
+    <button type="submit">Sign in</button>
+  </form>
+<% end %>
