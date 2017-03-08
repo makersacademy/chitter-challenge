@@ -19,7 +19,7 @@ We are going to write a little Twitter clone that will allow the users to post m
 
 ## Screenshots  
 #### Landing Screen
-
+![Landing Screen](/app/chitter.png?raw=true "Landing Screen")
 
 
 ## User Stories
