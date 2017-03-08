@@ -16,6 +16,9 @@ We are going to write a little Twitter clone that will allow the users to post m
    * You only can peep if you are logged in.
 
 ## Outline
+This project really helped me to get to grips with using databases and setting associations between models.  As with other projects, I used the user stories below to guide me through the TDD process implementing new features incrementally.
+
+Having fulfilled all of the user stories, I decided to also implement the tagging of posts in order to practice setting a many to many association (posts can have many tags, tags can have many posts).
 
 ## Screenshots  
 #### Landing Screen
