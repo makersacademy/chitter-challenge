@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Chitter</title>
+  <link rel="stylesheet" href="/stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <% if current_user %>
+
+    <div id = 'left'>
+
+      <div id = 'welcome'>
+        <% if current_user %>
+         <p>Welcome to Chitter, <%= current_user.name %>.  Get stuck in.</p>
+         <p class='handle'>@<%=current_user.user_name%></p> 
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class = 'topright'>
+
+      <h2 align = 'center'> What are you up to then? </h2>
+
+      <textarea cols = '75' rows = '2' name="content" form="peepform"></textarea>
+
+      <form id= 'peepform' action = '/peeps' method = 'POST'>
+        
+        <h4 align = 'center'> Whack some tags on it.  Just seperate them with a space alright?</h4>
+        
+        <div id = 'addtags'>
+          <label for="tags"> 
+            tags: #<input type = "text" name = "tags"/>
+          </label>
+          <input type = "submit" value = "Peep!">
+        
+        </div>
+
+      </form>
+      
+    </div>
+
+  <% end %>
+
+  <% if !current_user %>
+	  
+    <div id = 'signupwarn'>
+	    <h3 align = 'center'>Sign up first, yeah?</h3>
+	  </div>
+
+  <%end %>
+
+</body>
+</html>

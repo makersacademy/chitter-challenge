@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Chitter</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+</head>
+
+<body>
+  <div id = 'header'>
+    
+    <img id = 'icon' src = 'img/bird.png'/>
+    <div id = branding>
+      <h1 id = 'logo'>Chitter</h1>
+      <h3 id = 'slogan'>Blast some Peeps out</h3>
+    </div>
+    
+    <form class= 'headerbuttonform' method='get' action='/'>
+      <input class= 'headerbutton' type='submit' value='Home'>
+    </form>
+
+  	<% if current_user %>
+      <form class = 'headerbuttonform' method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input class = 'headerbutton' type='submit' value='Sign out'>
+      </form>
+    <%end %>
+
+    <% if !current_user %>
+      <form class= 'headerbuttonform' method='get' action='/newsessions'>
+        <input class = 'headerbutton' type = 'submit' value='Sign In'>
+      </form>
+      <form class = 'headerbuttonform' method='get' action='/newusers'>
+        <input class = 'headerbutton' type = 'submit' value='Sign Up'>
+      </form>
+    <% end %>
+   
+    <hr id = 'headerdivide'>
+
+  </div>
+
+	<% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id = 'errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+  	 </ul>
+  <% end %>
+  
+  <%= yield %>
+
+</body>
+</html>

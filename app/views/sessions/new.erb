@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Chitter</title>
+  <link rel="stylesheet" href="<%= url("/style.css")%>" type="text/css">
+</head>
+
+<body>
+ 
+  <div class = 'topright'>
+    
+    <h2 align = 'center'>Get in here then</h2>
+
+    <form id = 'signinform' action = '/sessions' method = 'POST'>
+      
+      <div class = form>
+        <label for='user_name'>
+          User Name:<input name = 'user_name' type = 'text'>
+        </label> 
+      </div>
+
+      <div class = form>
+        <label for='password'>
+          Password:<input name = 'password' type = 'password'>
+        </label>
+      </div>
+
+      <input type = 'submit' value = 'Sign in'>
+      
+    </form>
+
+  </div> 
+
+</body>
+</html>
+
