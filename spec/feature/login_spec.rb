@@ -1,6 +1,6 @@
 feature 'login to chitter' do
   scenario 'form allowing people to sign in' do
-    visit '/'
+    visit'/sign_up'
     fill_in 'first_name', with: 'John'
     fill_in 'last_name', with: 'Smith'
     fill_in 'user_name', with: 'JSmith'

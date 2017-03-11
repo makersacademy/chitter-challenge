@@ -4,7 +4,15 @@ require_relative 'models/user'
 class Chitter < Sinatra::Base
 # attr_reader :first_name, :happy
 get '/' do
-erb :login
+  erb :first_screen
+end
+
+get'/login' do
+  erb :login
+end
+
+get '/sign_up' do
+erb :sign_up
 end
 
 
