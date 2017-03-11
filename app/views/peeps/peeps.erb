@@ -1,6 +1,8 @@
 <!-- Main page showing peeps(tweets) -->
+<% if !current_user %>
 <h1> Welcome to Chitter Homepage </h1>
 
 <form action="users/new" method="GET" >
   <input type="submit" value="Sign Up">
 </form>
+<% end %>
