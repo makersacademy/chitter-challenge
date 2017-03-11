@@ -14,6 +14,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require './spec/helpers/session'
 
 Capybara.app = Chitter
 
@@ -36,6 +37,8 @@ Capybara.app = Chitter
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+    # this line includes the helper module methods for each example
+  config.include SessionHelpers
     # database cleaning  - before all (truncation - slower than transaction)
     # after & before test transaction strategy which rolls back the changes
     # hence is faster than truncation
