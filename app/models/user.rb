@@ -19,6 +19,8 @@ class User
       :is_unique => "We already have that username."
     }
 
+    has n, :peeps
+
     attr_accessor :password_confirmation
     attr_reader :password
 
@@ -32,7 +34,7 @@ class User
     def self.authenticate(email, password)
       user = User.first(:email => email)
 
-      user && BCrypt::Password.new(user.password_salt) == password ? user : nil 
+      user && BCrypt::Password.new(user.password_salt) == password ? user : nil
     end
 
 end
