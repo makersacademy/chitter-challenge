@@ -7,13 +7,11 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'pg'
 gem 'rake'
-
+gem 'rspec'
+gem 'capybara'
 
 group :test do
   gem 'database_cleaner'
-  gem 'rspec'
-  gem 'capybara'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
