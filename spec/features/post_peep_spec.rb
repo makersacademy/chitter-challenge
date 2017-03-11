@@ -2,12 +2,10 @@ require 'date'
 
 feature "User can sign in and post peeps" do
 
+  given(:user) {User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')}
+
   scenario "allows user to post a peeps" do
-    user = User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')
-    visit ('/session/new')
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button 'Sign In'
+    sign_in(email: user.email, password: user.password)
     expect(page).to have_current_path '/peeps'
     expect(page).to have_content "Welcome, #{user.username}"
     click_button 'Post Peep'
@@ -25,11 +23,7 @@ feature "User can sign in and post peeps" do
   end
 
   scenario "doesn't allow user to post a short or long peep" do
-    user = User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')
-    visit ('/session/new')
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button 'Sign In'
+    sign_in(email: user.email, password: user.password)
     expect(page).to have_current_path '/peeps'
     expect(page).to have_content "Welcome, #{user.username}"
     click_button 'Post Peep'
