@@ -1,7 +1,7 @@
 feature "User can sign in to post messages" do
 
   before (:each) do
-    @user = User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')
+    @user = User.create(email: 'test@test.com', password: 'test123', password_confirmation: 'test123', name: 'Ex Name', username: 'ename')
   end
 
   scenario "allows user to signin with correct crediential" do

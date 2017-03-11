@@ -2,7 +2,7 @@ require 'date'
 
 feature "User can sign in and post peeps" do
 
-  given(:user) {User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')}
+  given(:user) {User.create(email: 'test@test.com', password: 'test123', password_confirmation: 'test123', name: 'Ex Name', username: 'ename')}
 
   scenario "allows user to post a peeps" do
     sign_in(email: user.email, password: user.password)
