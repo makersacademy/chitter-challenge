@@ -32,8 +32,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash[:message] = @user.errors.full_messages.flatten.join(',')
-      redirect '/users/new'
+      flash.now[:message] = @user.errors.full_messages.flatten.join(', ')
+      erb :'users/signup'
     end
   end
 
@@ -73,7 +73,7 @@ class Chitter < Sinatra::Base
     if peep.valid?
       redirect '/peeps'
     else
-      flash[:message] = peep.errors.full_messages.join(',')
+      flash[:message] = peep.errors.full_messages.flatten.join(', ')
       redirect '/peeps/new'
     end
   end
