@@ -40,5 +40,20 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
+  get '/session/new' do
+    erb :'users/signin'
+  end
+
+  post '/session' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:message] = "Yours crediential do not match"
+      redirect '/session/new'
+    end
+  end
+
   run if app_file == $0
 end

@@ -28,4 +28,11 @@ class User
     end
 
     validates_confirmation_of :password, :message => "Password and confirmation password do not match"
+
+    def self.authenticate(email, password)
+      user = User.first(:email => email)
+
+      user && BCrypt::Password.new(user.password_salt) == password ? user : nil 
+    end
+
 end
