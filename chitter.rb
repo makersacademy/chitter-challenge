@@ -18,11 +18,15 @@ class Chitter < Sinatra::Base
     erb(:create_account)
   end
 
-  post "/account_created" do
+  post "/users" do
     User.create(email: params[:email], password: params[:password])
     session[:user_id] = User.id
     User.id
-    erb(:logged_in)
+    redirect to('/peeps')
+  end
+
+  get "/peeps" do
+    erb(:peeps)
   end
 
   helpers do
