@@ -11,7 +11,7 @@ feature 'Sign Up' do
     fill_in 'password', with: 'password'
     click_button 'submit'
     expect(page). to have_current_path('/peeps')
-    # have a pop up message which confirms
+    # have a pop up message which confirms? Flash maybe
     expect(page). to have_content('Welcome, ayanit1')
   end
 end
