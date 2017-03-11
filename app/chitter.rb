@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require './app/data_mapper_setup'
+require 'date'
 
 class Chitter < Sinatra::Base
 
@@ -37,6 +38,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all.sort_by{|peep| peep.created_at}.reverse
     erb :'peeps/index'
   end
 
@@ -59,6 +61,20 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash[:message] = "Thanks for using Chitter. Hope to see you soon"
     redirect '/peeps'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps/new' do
+    peep = Peep.create(text: params[:text], created_at: DateTime.now, user_id: current_user.id)
+    if peep.valid?
+      redirect '/peeps'
+    else
+      flash[:message] = peep.errors.full_messages.join(',')
+      redirect '/peeps/new'
+    end
   end
 
   run if app_file == $0
