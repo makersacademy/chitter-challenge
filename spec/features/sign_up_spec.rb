@@ -24,11 +24,20 @@ feature "New user should be able to register/sign up" do
   end
 
   scenario "doesn't allow user to sign up with invalid email " do
-
+    visit('/users/new')
+    fill_in :email, with: 'invalid@mail'
+    expect{click_button 'Sign Up'}.to_not change(User, :count)
+    expect(page).to have_current_path('/users/new')
+    expect(page).to have_content("Doesn't look like an email address to me ...")
   end
 
   scenario "doesn't allow user to sign up with an existing email" do
-
+    User.create(email: 'test@test.com', password: 'test', password_confirmation: 'test', name: 'Ex Name', username: 'ename')
+    visit('/users/new')
+    fill_in :email, with: 'test@test.com'
+    expect{click_button 'Sign Up'}.to_not change(User, :count)
+    expect(page).to have_current_path('/users/new')
+    expect(page).to have_content("We already have that email.")
   end
 
   scenario "doesn't allow user to sign up if password and confirm password don't match" do
