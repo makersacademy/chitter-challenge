@@ -11,4 +11,6 @@ class User
   property :username,   String
   property :email,      String
 
+  has n, :peeps
+
 end

@@ -1,13 +1,13 @@
-<h1>Welcome to Chitter, <%= current_user.first_name %>!</h1>
+<h1>Welcome to Chitter, <%= current_user.first_name%>!</h1>
 
 <form action= "peeps/new" method= "get">
   <input type= "submit" value= "Compose New Peep">
 </form>
 
 <ul id = peeps>
-  <% Peep.all.each do |peep| %>
+  <% @peeps.each do |peep| %>
     <li>
-      <%= peep.message %>
+       <%= peep.user.username %> peeped: <%= peep.message %>
     </li>
   <% end %>
 </ul>

@@ -7,9 +7,9 @@ class Chitter < Sinatra::Base
 
   ENV['RACK_ENV'] ||= 'development'
   enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
-    'Hello world'
     erb :home
   end
 
@@ -27,6 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :peeps_list
   end
 
@@ -35,7 +36,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    peep = Peep.create(message: params[:message])
+    current_user.peeps << peep
+    current_user.save
+    p peep
+    p peep.user
     redirect '/peeps'
   end
 
