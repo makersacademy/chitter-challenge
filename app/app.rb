@@ -9,7 +9,7 @@ require_relative 'models/user'
 class Chitter < Sinatra::Base
 
   get '/' do
-    "Hello Chitter!"
+    redirect '/users/new'
   end
 
   get'/users/new' do

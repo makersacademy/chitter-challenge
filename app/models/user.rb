@@ -8,9 +8,9 @@ class User
   include BCrypt
 
   property :id , Serial
-  property :name , String
-  property :username , String
-  property :email , String
+  property :name , String, required: true
+  property :username , String, required: true, unique: true
+  property :email , String, required: true, unique: true
   property :password_digest , Text
 
   attr_reader :password
@@ -24,4 +24,3 @@ class User
     end
 
 end
-  
