@@ -5,6 +5,7 @@ gem 'datamapper', '~> 1.2'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'bcrypt'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'
