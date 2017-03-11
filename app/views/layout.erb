@@ -7,6 +7,10 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.username %>
+      <form method='post' action='/session'>
+        <input type='hidden' name='_method' value='delete'> <!-- to use _method we need to enable method_override or 'use Rack::MethodOverride' -->
+        <input type='submit' value='Sign Out'>
+      </form>
     <% end %>
     <% if flash[:message] %>
       <div id='error'><%= flash[:message] %></div>
