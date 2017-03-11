@@ -31,7 +31,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/peeps'
     else
-      flash.now[:message] = @user.errors.full_messages.flatten.join(',')
+      flash[:message] = @user.errors.full_messages.flatten.join(',')
       redirect '/users/new'
     end
   end

@@ -15,7 +15,7 @@ class User
    property :name,          String
    property :username,      String, :required => true, :unique => true,:length => 5..10,
    :messages => {
-      :presence  => "We need you to enter a valid username",
+      :presence  => "We need you to enter a username",
       :is_unique => "We already have that username."
     }
 

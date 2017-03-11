@@ -17,7 +17,10 @@ feature "New user should be able to register/sign up" do
   end
 
   scenario "doesn't allow user to sign up without email" do
-
+    visit('/users/new')
+    expect{click_button 'Sign Up'}.to_not change(User, :count)
+    expect(page).to have_current_path('/users/new')
+    expect(page).to have_content('We need your email address.')
   end
 
   scenario "doesn't allow user to sign up with invalid email " do
