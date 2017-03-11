@@ -1,0 +1,28 @@
+<font face="verdana">
+<h2>Newsfeed</h2>
+
+<!-- <form method="get" action="/bookmarks/new">
+  <input type="submit" value="Create new bookmark">
+</form> -->
+<form action="/newsfeed/new" method="POST">
+  <label for="username">
+  <input type="text" name="username" />
+</label>
+<label for"message">
+  <input type="text" name="message" />
+</label>
+
+<input type="submit" value="Cheep away..." />
+</form>
+
+
+<ul id='cheeps'>
+  <% @cheeps.each do |cheep| %> <!-- order by reverse id/timestamp -->
+  <li>
+    <i><%= cheep.username %></i>
+    <strong><%= cheep.message %></strong>
+    <small><%= cheep.timestamp %></small>
+  </li>
+  <% end %>
+</ul>
+</font>
