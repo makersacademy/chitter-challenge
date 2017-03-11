@@ -22,6 +22,10 @@ class Chitter < Sinatra::Base
     redirect('/peeps')
   end
 
+  post '/signup' do
+    erb(:signup)
+  end
+
   get '/peeps' do
     "peeps"
   end

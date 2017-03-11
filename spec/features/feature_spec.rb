@@ -8,10 +8,10 @@ feature "/" do
     expect(page).to have_content("Chitter")
   end
 
-  scenario "clicking log in takes user to log in page" do
-    visit '/'
-    click_button("Log in")
-    expect(current_path).to eq('/login')
-  end
+  # scenario "clicking log in takes user to log in page" do
+  #   visit '/'
+  #   click_button("Log in")
+  #   expect(current_path).to eq('/login')
+  # end
 
 end

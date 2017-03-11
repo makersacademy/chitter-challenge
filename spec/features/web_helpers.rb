@@ -1,5 +1,6 @@
 def sign_up
   visit '/'
+  click_button('Register New User')
   fill_in :full_name,     with: "Noo Userson"
   fill_in :user_name,     with: "Noobie"
   fill_in :email,         with: "new@user.com"
