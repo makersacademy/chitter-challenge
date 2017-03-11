@@ -6,11 +6,12 @@ feature 'Sign Up' do
     visit('/')
     click_button('Sign Up')
     fill_in 'username', with: 'ayanit1'
+    fill_in 'name', with: 'Albert'
     fill_in 'email_address', with: 'albert@hotmails.com'
     fill_in 'password', with: 'password'
     click_button 'Create Account'
     expect(page). to have_current_path('/peeps')
     # have a pop up message which confirms? Flash maybe
-    expect(page). to have_content('Welcome, ayanit1')
+    expect(page). to have_content('Welcome, Albert')
   end
 end
