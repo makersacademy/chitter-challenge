@@ -1,9 +1,11 @@
-<form action='/logged_in' method='post'>
-  <label for='email_address'><strong>Email Address:</strong></label>
-  <input type='text' name='email_address'>
-  <label for='password'><strong>Password:</strong></label>
-  <input type='text' name='password'>
+<h2> Please Sign Up </h2>
 
-  <br><br>
-  <button type='button'> <input type='submit' value='Submit'</button>
+<form action='/account_created' method='post'>
+  <label for='email'>
+    Email: <input name='email' type='text'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <input type='submit' value='Sign Up'>
 </form>

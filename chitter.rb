@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require './models/dm_start'
+require './models/user'
 
 
 class Chitter < Sinatra::Base
@@ -13,13 +14,11 @@ class Chitter < Sinatra::Base
   end
 
   get "/create_account" do
-    params[:email_address]
-    params[:password]
     erb(:create_account)
   end
 
-  post "/logged_in" do
-    @user = session[:email_address]=params[:email_address]
+  post "/account_created" do
+    User.create(email: params[:email], password: params[:password])
     erb(:logged_in)
   end
 end
