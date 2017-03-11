@@ -8,6 +8,7 @@ require './models/user'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'secret'
 
   get "/" do
     erb(:homepage)
@@ -19,6 +20,14 @@ class Chitter < Sinatra::Base
 
   post "/account_created" do
     User.create(email: params[:email], password: params[:password])
+    session[:user_id] = User.id
+    User.id
     erb(:logged_in)
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 end
