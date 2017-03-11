@@ -35,7 +35,8 @@ class App < Sinatra::Base
     user = User.create(username: params[:username],
                       name: params[:name],
                       email_address: params[:email_address],
-                      password: params[:password])
+                      password: params[:password],
+                      password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect ('/peeps')
   end
