@@ -16,6 +16,6 @@ group :test do
 end
 
 group :database do
-  gem 'data_mapper'
+  gem 'datamapper', '~> 1.2'
   gem 'dm-postgres-adapter'
 end
