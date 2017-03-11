@@ -11,3 +11,4 @@ end
 gem 'sinatra'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
+gem 'database_cleaner'
