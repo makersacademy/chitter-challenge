@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require 'data_mapper'
 require_relative '../app/app'
 require_relative '../app/models/user'
+require_relative '../spec/helpers/web_helpers'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
