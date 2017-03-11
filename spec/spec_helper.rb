@@ -1,6 +1,7 @@
 require 'coveralls'
 require 'simplecov'
 require 'capybara/rspec'
+require 'data_mapper'
 require_relative './app/app'
 
 SimpleCov.formatters = [
