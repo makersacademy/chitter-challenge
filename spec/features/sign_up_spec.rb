@@ -7,5 +7,6 @@ feature "Signing up" do
     fill_in :email, with: "funny_man@haha.com"
     fill_in :password, with: "IloveMonica"
     click_button "Sign up"
+    expect(page).to have_content("Welcome to Chitter, Chandler")
   end
 end
