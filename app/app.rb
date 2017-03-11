@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'models/peep'
+require_relative 'models/user'
 require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
@@ -16,9 +17,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(full_name: params[:full_name],
+    @user = User.create(full_name: params[:full_name],
                 username: params[:username],
                 email: params[:email])
+    redirect '/peeps'
   end
 
   get '/peeps' do

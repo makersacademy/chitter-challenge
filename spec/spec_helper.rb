@@ -6,6 +6,7 @@ require 'rspec'
 require 'database_cleaner'
 
 require './app/models/peep'
+require_relative 'web_helpers'
 
 ENV['RACK_ENV'] = 'test'
 
