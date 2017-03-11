@@ -38,3 +38,4 @@ Technologies Used:
 - Rspec
 - Database Cleaner
 - Capybara
+- Rake
