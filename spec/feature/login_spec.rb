@@ -6,7 +6,7 @@ feature 'login to chitter' do
     fill_in 'user_name', with: 'JSmith'
     fill_in 'email', with: 'john.smith@yahoo.co.uk'
     fill_in 'password', with: 'Password'
-    click_button('Sign up')
+    click_button 'Sign up'
     expect(page).to have_content('John')
   end
 end
