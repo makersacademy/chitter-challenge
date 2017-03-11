@@ -8,6 +8,17 @@ class Chitter < Sinatra::Base
 
   get '/' do
     'Hello world'
+    erb :home
+  end
+
+  get '/signup' do
+    erb :new_user
+  end
+
+  post '/users/new' do
+    User.create(full_name: params[:full_name],
+                username: params[:username],
+                email: params[:email])
   end
 
   get '/peeps' do
