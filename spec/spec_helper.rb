@@ -39,6 +39,7 @@ Capybara.app = Chitter
 RSpec.configure do |config|
     # this line includes the helper module methods for each example
   config.include SessionHelpers
+  
     # database cleaning  - before all (truncation - slower than transaction)
     # after & before test transaction strategy which rolls back the changes
     # hence is faster than truncation
