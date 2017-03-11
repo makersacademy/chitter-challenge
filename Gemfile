@@ -10,4 +10,10 @@ group :test do
   gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+end
+
+group :database do
+  gem 'data_mapper'
+  gem 'dm-postgres-adapter'
 end
