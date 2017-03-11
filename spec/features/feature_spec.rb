@@ -11,10 +11,11 @@ feature 'log in functionality' do
     fill_in 'Password', with: 's3cret'
     fill_in 'Confirm Password', with: 's3cret'
     click_button 'Submit'
-    expect(current_page).to eq '/log_in'
+    expect(page).to have_current_path('/log_in')
     fill_in 'Username', with: 'jimmy324'
     fill_in 'Password', with: 's3cret'
     click_button 'Log in'
-    expect(current_page).to eq '/homepage'
+    expect(page).to have_current_path('/homepage')
+    expect(page).to have_content 'Welcome Jimmy'
   end
 end
