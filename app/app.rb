@@ -6,6 +6,7 @@ require_relative 'datamapper_setup'
 class Chitter < Sinatra::Base
 
   ENV['RACK_ENV'] ||= 'development'
+  enable :sessions
 
   get '/' do
     'Hello world'
@@ -17,9 +18,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    @user = User.create(full_name: params[:full_name],
+    user = User.create(first_name: params[:first_name],
+                last_name: params[:last_name],
                 username: params[:username],
                 email: params[:email])
+    session['user_id'] = user.id
     redirect '/peeps'
   end
 
@@ -34,6 +37,12 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     Peep.create(message: params[:message])
     redirect '/peeps'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session['user_id'])
+    end
   end
 
 end
