@@ -11,7 +11,7 @@ class User
      :format    => "Doesn't look like an email address to me ..."
    }
 
-   property :password_salt, Text
+   property :password_salt, Text, :required => true
    property :name,          String
    property :username,      String, :required => true, :unique => true,:length => 5..10,
    :messages => {
@@ -30,6 +30,7 @@ class User
     end
 
     validates_confirmation_of :password, :message => "Password and confirmation password do not match"
+    validates_length_of :password, :min => 6, :message => "Password is too short"
 
     def self.authenticate(email, password)
       user = User.first(:email => email)
