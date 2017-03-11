@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter - Let the world know</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+    <% if flash[:message] %>
+      <div id='error'><%= flash[:message] %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
