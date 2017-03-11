@@ -13,7 +13,7 @@ feature "New user should be able to register/sign up" do
     fill_in :username, with: 'ewindsor'
     expect{click_button 'Sign Up'}.to change(User, :count)
     expect(page).to have_current_path('/peeps')
-    expect(page).to have_content('Welcome, test@test.com')
+    expect(page).to have_content('Welcome, ewindsor')
   end
 
   scenario "doesn't allow user to sign up without email" do
