@@ -6,7 +6,7 @@ require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
   set :session_secret, 'secret'
   register Sinatra::Flash
 
@@ -53,6 +53,12 @@ class Chitter < Sinatra::Base
       flash[:message] = "Yours crediential do not match"
       redirect '/session/new'
     end
+  end
+
+  delete '/session' do
+    session[:user_id] = nil
+    flash[:message] = "Thanks for using Chitter. Hope to see you soon"
+    redirect '/peeps'
   end
 
   run if app_file == $0
