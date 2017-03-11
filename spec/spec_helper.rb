@@ -9,7 +9,7 @@ SimpleCov.formatters = [
 ]
 Coveralls.wear!
 
-# ENV['RACK_ENV']='test'
+s
 Capybara.app = App
 
 RSpec.configure do |config|
