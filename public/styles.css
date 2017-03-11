@@ -1,3 +1,23 @@
 .intro {
-  color:blue;
+  color:black;
+}
+
+label {
+  display: block;
+  width: 200px;
+}
+
+form {
+  width: 200px;
+}
+
+input[type=text], input[type=password] {
+    background-color: ccddff;
+    height: 25px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
 }

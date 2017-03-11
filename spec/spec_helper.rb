@@ -7,7 +7,8 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-# require './app'
+require 'database_cleaner'
+# require '../app'
 # require_relative '../../app/models/peep'
 
 Capybara.app = Chitter
@@ -29,6 +30,26 @@ Capybara.app = Chitter
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+RSpec.configure do |config|
+  # Everything in this block runs once before all the tests run
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
+
 RSpec.configure do |config|
   config.include Capybara::DSL
   # rspec-expectations config goes here. You can use an alternate
