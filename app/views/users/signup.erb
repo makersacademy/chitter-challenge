@@ -6,8 +6,8 @@
   <p><label>Confirm Password</label>
     <input type="password" name="password_confirmation" required/></p>
   <p><label>Name</label>
-    <input type="text" name="name" placeholder="Emma Watson"/></p>
+    <input type="text" name="name" value="<%= @user.name %>" placeholder="Emma Watson"/></p>
   <p><label>Username</label>
-    <input type="text" name="username" placeholder="ewatson" required/></p>
+    <input type="text" name="username" value="<%= @user.username %>" placeholder="ewatson" required/></p>
   <p><input type="submit" value="Sign Up"/></p>
 </form>
