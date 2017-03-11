@@ -1,7 +1,10 @@
 require 'sinatra/base'
 require_relative 'models/peep'
+require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
+
+  ENV['RACK_ENV'] ||= 'development'
 
   get '/' do
     'Hello world'
