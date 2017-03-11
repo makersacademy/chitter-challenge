@@ -9,9 +9,6 @@ gem 'pg'
 gem 'rake'
 gem 'rspec'
 gem 'capybara'
-
-group :test do
   gem 'database_cleaner'
   gem 'cucumber'
   gem 'coveralls', require: false
-end
