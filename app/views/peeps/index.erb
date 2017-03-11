@@ -1,1 +1,12 @@
-<h2> Peeps List </h2>
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <%@peeps.each  do |peep| %>
+    <li>
+      <%=peep.text%>
+      by <%=peep.user.name%>
+      <%=peep.user.username%>
+      at <%=peep.created_at.strftime('%H:%M %d %b %Y')%>
+    </li>
+    <%end%>
+</ul>
