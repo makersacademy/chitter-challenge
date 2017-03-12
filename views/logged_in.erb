@@ -1,0 +1,15 @@
+<%= "Welcome #{@user_name}" %>
+
+<form action = '/logged_in' method ='post'>
+  <input type ='text' name = 'post'>
+  <input type = 'submit' value ='post to Chitter'>
+</form>
+<% @post.each do |post| %>
+<li>
+  Title: <%=post.post%>
+  at: <%=@time%>
+</li>
+<% end %>
+<form action ='/' method = 'get'>
+  <input type ='submit' value = 'Log out'>
+</form>
