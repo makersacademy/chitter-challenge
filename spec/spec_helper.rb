@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require 'features/web_helpers'
 # require '../app'
 # require_relative '../../app/models/peep'
 

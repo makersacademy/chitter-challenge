@@ -14,6 +14,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    commonjs (0.2.7)
     coveralls (0.8.19)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -83,9 +84,13 @@ GEM
       data_objects (= 0.10.17)
     docile (1.1.5)
     fastercsv (1.5.5)
+    font-awesome-less (4.7.0)
+      less (>= 2.4.0)
     gherkin (4.0.0)
     json (1.8.6)
     json_pure (1.8.6)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -138,12 +143,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   coveralls
   cucumber
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  font-awesome-less
   pg
   rake
   rspec
