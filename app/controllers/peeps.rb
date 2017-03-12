@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
     slim :index
   end
 
-  post '/peep' do
+  post '/peeps/new' do
     Peep.create(content: params[:'content'], timestamp: Time.now, user_id: session[:user_id])
     redirect '/'
   end

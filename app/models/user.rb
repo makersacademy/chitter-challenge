@@ -10,8 +10,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-  has n, :peeps, through: Resource
-  has n, :comments, through: :peeps
+  has n, :peeps
+  has n, :comments
 
   property :id, Serial
   property :email, String, format: :email_address, required: true, unique: true

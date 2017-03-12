@@ -6,14 +6,14 @@ class Peep
   include DataMapper::Resource
 
   belongs_to :user
-
   has n, :comments
+
   property :id, Serial
   property :content, Text, length: 140, required: true
   property :timestamp, Time, required: true
 
   def latest_comments
-    self.comments.map(&:content)
+    comments.map(&:content)
   end
 
 end

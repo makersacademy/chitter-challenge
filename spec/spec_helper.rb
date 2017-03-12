@@ -1,18 +1,8 @@
-require 'coveralls'
-require 'simplecov'
-
-# START coveralls
-# SimpleCov.formatters = [
-#   SimpleCov::Formatter::HTMLFormatter,
-#   Coveralls::SimpleCov::Formatter
-# ]
-# Coveralls.wear!
-# END coveralls
-
-# START simplecov
 require 'simplecov'
 SimpleCov.start
-# END simplecov
+
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 ENV['RACK_ENV'] = 'test'
 

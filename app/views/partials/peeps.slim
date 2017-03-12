@@ -9,7 +9,7 @@
             == peep.content
           - if current_user
             section.comment
-              form action="/comment" method="post"
+              form action="/comments/new" method="post"
                 &hidden name="peep-id" value="#{id}"
                 &text id="peep-#{id}-comment" class="peep-comment-text" name="comment-content" placeholder="Add a comment…"
                 &submit id="comment-#{id}" value="Comment" 
