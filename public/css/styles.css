@@ -124,6 +124,7 @@ form {
   -webkit-transition: background-color 0.4s ease-in-out;
   transition: background-color 0.4s ease-in-out;
   background-color: rgba(255, 218, 209, 0.90);
+  -webkit-appearance: none;
 }
 .peep-button {
   width: 98%;
@@ -224,16 +225,6 @@ and (max-device-width : 667px) {
     font-size: 60%;
   }
 
-  @media only screen
-  and (min-device-width : 0px)
-  and (max-device-width : 667px)
-  and (orientation : landscape) {
-    .peep_meta, .reply_meta {
-      right: -206px;
-      font-size: 70%;
-    }
-  }
-
 
   .peep_body, .reply_body {
     padding: 15px 40px;
@@ -266,6 +257,7 @@ and (max-device-width : 667px) {
     position: absolute;
     margin: 500px 0px 0px 40px;
     width: 96%;
+    left: 0;
   }
 
   #verify_form tr {
@@ -296,5 +288,15 @@ and (max-device-width : 667px) {
 
   .fa-sign-out {
     font-size: 50%;
+  }
+}
+
+@media only screen
+and (min-device-width : 0px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
+  .peep_meta, .reply_meta {
+    right: -206px;
+    font-size: 70%;
   }
 }
