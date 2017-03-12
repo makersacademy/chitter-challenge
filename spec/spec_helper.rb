@@ -1,15 +1,15 @@
  ENV['RACK_ENV'] = 'test'
-# #required by makers
-#
-# require 'coveralls'
-# require 'simplecov'
-#
-# SimpleCov.formatters = [
-#   SimpleCov::Formatter::HTMLFormatter,
-#   Coveralls::SimpleCov::Formatter
-# ]
-# Coveralls.wear!
-#
+ #required by makers
+
+require 'coveralls'
+require 'simplecov'
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 # #required by me
 
 require 'database_cleaner'

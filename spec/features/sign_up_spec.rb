@@ -3,6 +3,7 @@
 # I want to sign up for Chitter
 
 feature 'Users can sign up' do
+  include Helpers
   scenario 'users can sign up with their full details' do
     visit '/'
     sign_up

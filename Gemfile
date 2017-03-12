@@ -13,7 +13,7 @@ group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
-  # gem 'coveralls', require: false
+  gem 'coveralls', require: false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'orderly'

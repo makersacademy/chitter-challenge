@@ -3,15 +3,12 @@
 # I want to see the time at which it was made
 
 feature 'so that users can better appreciate the context of a peep' do
+  include Helpers
   scenario 'a user wants to see the time which it was made' do
     visit '/'
     sign_up
-    visit ('/post-peep')
-    fill_in 'peep_content', with: "Hello chitter!"
-    click_button ('Post peep')
-
+    first_peep
     time = Time.now.to_s[0..15].sub! "T", " "
-
-    expect(page).to have_content "Hello chitter! #{time}"
+    expect(page).to have_content "First peep! #{time}"
   end
 end

@@ -4,10 +4,12 @@ require "sinatra/base"
 require './app/models/peep'
 require './app/models/user'
 require_relative "helpers/dm_config"
+require_relative "helpers/helpers"
 
 class ChitterApp < Sinatra::Base
   enable :sessions
   use Rack::MethodOverride
+  helpers Helpers
 
   get '/' do
     redirect '/post-peep'
@@ -58,12 +60,6 @@ class ChitterApp < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     redirect to '/homepage'
-  end
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
   end
 
   # start the server if ruby file executed directly
