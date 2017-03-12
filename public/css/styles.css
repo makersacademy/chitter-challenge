@@ -117,7 +117,7 @@ form {
   background-color: rgba(255, 218, 209, 0.90);
 }
 .peep-button {
-  width: 100%;
+  width: 98%;
 }
 .chitter-button:hover, .chitter-button:active, .peep-button:hover, .peep-button:active, .reply-button:hover, .reply-button:active {
   border: none;
@@ -132,7 +132,7 @@ form {
 }
 
 #reply_writer {
-  padding-bottom: 15px;
+  padding-bottom: 50px;
 }
 
 .reply_body {
@@ -142,7 +142,7 @@ form {
 }
 
 .reply-button {
-  width: 86.4%;
+  width: 84.4%;
   margin-left: 100px;
 }
 

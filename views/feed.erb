@@ -27,21 +27,6 @@
         </div>
       </li>
 
-      <% if logged_in_user %>
-        <ul class="reply_list">
-          <li id="reply_writer" >
-            <form action="/post_reply?peep_id=<%= peep.id %>" method="POST" id="reply_form">
-              <table style="width:100%;">
-                <tr>
-                  <td><input class="reply-button" type="text" name="reply_body" placeholder="Write a reply..." required></input></td>
-                  <td style="width: 1px;"><button class="chitter-button" type="submit" id="post-reply" value="Post Reply" name="new_reply"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
-                </tr>
-              </table>
-            </form>
-          </li>
-        </ul>
-      <% end %>
-
       <% Reply.all(:peep_id => peep.id).each do |reply|%>
         <li class="reply">
           <div class="reply_body">
@@ -52,6 +37,21 @@
           </div>
         </li>
       <%end%>
+
+      <% if logged_in_user %>
+        <ul class="reply_list">
+          <li id="reply_writer" >
+            <form action="/post_reply?peep_id=<%= peep.id %>" method="POST" id="reply_form">
+              <table style="width:100%;">
+                <tr>
+                  <td><input class="reply-button" type="text" name="reply_body" placeholder="Write a reply..." required></input></td>
+                  <td style="width: 1px;"><button class="chitter-button" type="submit" id="post-reply" value="Post Reply" name="new_reply"><i class="fa fa-reply" aria-hidden="true"></i></i></button></td>
+                </tr>
+              </table>
+            </form>
+          </li>
+        </ul>
+      <% end %>
 
     <%end%>
 
