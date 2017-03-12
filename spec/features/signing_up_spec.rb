@@ -8,15 +8,15 @@ feature 'signing up for Chitter' do
     expect(page).to have_content('Signed in as santaclaus')
   end
 
-  scenario 'user must confirm with identical password to sign up' do
-    expect{sign_up(password_confirmation: 'blitzen')}.to_not change(User, :count)
-    expect(page).to have_content('Password does not match the confirmation')
-  end
-
   scenario 'user must fill in all fields' do
     expect{sign_up(username: nil)}.to_not change(User, :count)
     expect{sign_up(name: nil)}.to_not change(User, :count)
     expect{sign_up(email: nil)}.to_not change(User, :count)
+  end
+
+  scenario 'user must confirm with identical password to sign up' do
+    expect{sign_up(password_confirmation: 'blitzen')}.to_not change(User, :count)
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'user cannot sign up with already taken username' do
