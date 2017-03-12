@@ -9,7 +9,8 @@
 
   <% @peeps.reverse_each do |peep| %>
   "<%= peep.peep_content %>"<br>
-  <%= User.get(peep.user_id).username %> - <%= peep.time_peeped.to_s[0..15].sub! "T", " " %><br><br>
+  <%= User.get(peep.user_id).username %> - <%= peep.time_peeped.to_s[0..15].sub! "T", " " %>
+  <br><br>
   <%end %>
 
   <a href="/post-peep">Post a new peep</a>

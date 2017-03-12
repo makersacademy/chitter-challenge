@@ -17,7 +17,7 @@ require 'capybara/rspec'
 require 'orderly'
 
 require './app/app'
-# require './app/models/peep'
+require './app/helpers/dm_config'
 require_relative 'web_helper'
 
 Capybara.app = ChitterApp

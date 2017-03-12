@@ -11,11 +11,6 @@ main {
   text-align: center;
 }
 
-div {
-    width: 300px;
-    height: 100px;
-    border: 1px solid blue;
-
 h1 {
   color: #b800e6;
   font-family: 'Helvetica Neue';
@@ -55,8 +50,4 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   margin: 10px;
-}
-
-.btn:hover {
-	background-color: gray;
 }

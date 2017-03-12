@@ -8,8 +8,8 @@ gem 'rspec-sinatra'
 gem 'pg'
 gem 'dm-migrations'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
-gem 'simplest_auth'
 
+group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
@@ -17,3 +17,4 @@ gem 'simplest_auth'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'orderly'
+end

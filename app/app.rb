@@ -7,7 +7,6 @@ require_relative "helpers/dm_config"
 
 class ChitterApp < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
   use Rack::MethodOverride
 
   get '/' do
@@ -16,7 +15,6 @@ class ChitterApp < Sinatra::Base
 
   get '/homepage' do
     @peeps = Peep.all
-    @user = session[:user_id]
     erb :homepage
   end
 
@@ -54,7 +52,6 @@ class ChitterApp < Sinatra::Base
 
   post '/posted-peep' do
     Peep.create(peep_content: params[:peep_content], time_peeped: Time.now, user_id: session[:user_id])
-    #Above will also have functionality to save username to peep.
     redirect '/homepage'
   end
 
