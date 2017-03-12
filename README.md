@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/treborb/chitter-challenge.svg?branch=master)](https://travis-ci.org/treborb/chitter-challenge)
 [![codecov](https://codecov.io/gh/treborb/chitter-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/treborb/chitter-challenge)
 
-## [users Academy](http://www.usersacademy.com) - Week 4 - Solo Weekend Challenge
+## [Makers Academy](http://www.makersacademy.com) - Week 4 - Solo Weekend Challenge
 
 ## Technologies
 * [Ruby v2.3.3](https://www.ruby-lang.org/en/)
