@@ -8,7 +8,7 @@ class Peep
 
   property :id , Serial
   property :time_created , DateTime
-  property :message , String , required: true
+  property :message , Text , required: true
 
   has 1, :user, through: Resource
 

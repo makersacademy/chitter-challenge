@@ -14,9 +14,13 @@
         </form>
 
         <form action='/peeps' method='post'>
-        <input type='text' name='message'/>
-        <input type='submit' value='Peep!'/>
-      </form>
+          <input type='text' name='message'/>
+          <input type='submit' value='Peep!'/>
+        </form>
+      <% else %>
+        <form action='/sessions/new'>
+          <input type='submit' value='Sign In'>
+        </form>
       <% end %>
 
       <% if flash[:errors] && !flash[:errors].empty? %>

@@ -13,10 +13,9 @@ feature 'posting peeps/messages' do
   end
 
   scenario 'user can post a peep' do
-    fill_in 'message', with: 'Counting down until Christmas!'
-    click_button 'Peep!'
+    add_peep('Counting down until Christmas!')
+    expect(user.peeps.map(&:message)).to include('Counting down until Christmas!')
     within 'ul#messages' do
-      expect(user.peeps.map(&:message)).to include('Counting down until Christmas!')
       expect(page).to have_content 'Counting down until Christmas!'
     end
   end
