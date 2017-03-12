@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
 
@@ -10,3 +12,6 @@ Coveralls.wear!
 require 'rspec'
 require 'capybara'
 require 'capybara/rspec'
+require './app/app'
+
+Capybara.app = Chitter
