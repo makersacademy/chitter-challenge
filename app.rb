@@ -1,11 +1,13 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/models/dm_config'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
   set :session_secret, 'super secret'
 
   get '/' do
@@ -13,14 +15,21 @@ class Chitter < Sinatra::Base
   end
 
   get '/signup' do
+    @user = User.new
     erb :signup
   end
 
   post '/create_user' do
-    user = User.create(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    session[:user_email] = user.email
-    redirect '/confirmation'
+    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+
+    if @user.save
+      session[:user_id] = @user.id
+      session[:user_email] = @user.email
+      redirect '/confirmation'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'signup'
+    end
   end
 
   helpers do

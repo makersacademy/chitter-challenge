@@ -14,3 +14,4 @@ gem 'capybara'
   gem 'cucumber'
   gem 'coveralls', require: false
   gem 'bcrypt'
+  gem 'sinatra-flash'
