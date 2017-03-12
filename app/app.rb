@@ -48,14 +48,14 @@ class Chitter < Sinatra::Base
       redirect '/'
     end
   end
-  
+
   post '/peeps' do
     Peep.create(content: params[:peep], user_id: current_user.id)
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all_reverse
     erb :'peeps/index'
   end
 

@@ -31,4 +31,10 @@ module Helpers
       password: 'password',
       password_confirmation: 'password')
   end
+
+  def create_peep(peep_content)
+    visit '/peeps/new'
+    fill_in :peep, with: peep_content
+    click_button 'Post'
+  end
 end
