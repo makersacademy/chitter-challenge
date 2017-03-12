@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
+  </head>
+  <body>
+    <div>
+      <h1>Sign up</h1>
+      <form method='post' action='/sign_up'>
+        <ul>
+          <li>
+            <label for='e_mail'>E-mail:</label>
+            <input class='field' type='text' name='e_mail'>
+          </li>
+          <li>
+            <label for='name'>Your name:</label>
+            <input class='field' type='text' name='name'>
+          </li>
+          <li>
+            <label for='username'>Username:</label>
+            <input class='field' type='text' name='username'>
+          </li>
+          <li>
+            <label for='password'>Password</label>
+            <input class='field' type='password' name='password'>
+          </li>
+          <li>
+            <input class="button" type='submit' value='Sign up'>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>

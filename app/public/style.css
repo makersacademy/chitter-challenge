@@ -1,0 +1,53 @@
+html {
+  font-family: 'Gudea';
+  font-size: 20px;
+}
+
+body {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div {
+  background-color: rgba(180, 211, 232, 0.5);
+  padding: 30px;
+}
+
+.button {
+  font-size: 25px;
+  background-color: white;
+  text-decoration: none;
+  padding: 7px;
+  display: inline-block;
+}
+
+h1 {
+  color: navy;
+}
+
+ul.peeps {
+  font-size: 25px;
+  line-height: 40px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul.peeps li {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+span {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.field {
+  margin: 7px;
+  line-height: 40px;
+  font-size: 20px;
+}
