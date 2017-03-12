@@ -1,5 +1,4 @@
  ENV['RACK_ENV'] = 'test'
- #required by makers
 
 require 'coveralls'
 require 'simplecov'
@@ -9,8 +8,6 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 Coveralls.wear!
-
-# #required by me
 
 require 'database_cleaner'
 require 'capybara/rspec'
