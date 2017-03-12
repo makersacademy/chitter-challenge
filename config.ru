@@ -1,4 +1,4 @@
 require 'rubygems'
-require './app.rb'
+require './app/app.rb'
 
 run Chitter
