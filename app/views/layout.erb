@@ -11,6 +11,10 @@
   </head>
   <% if current_maker %>
     <div>Logged in as <%= current_maker.email %></div>
+    <form action="/sessions" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log Out">
+    </form>
   <% end %>
   <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
