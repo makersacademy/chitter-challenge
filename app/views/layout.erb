@@ -5,7 +5,8 @@
      </head>
      <body>
        <% if current_user %>
-         Welcome, <%= current_user.username %>
+         Logged in as: <%= current_user.username %>
+       <% else %>
        <% end %>
 
        <% if flash[:errors] && !flash[:errors].empty? %>
