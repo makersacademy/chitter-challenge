@@ -2,9 +2,10 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './app/helpers/db_helper'
-require './lib/model'
+require './app/helpers/model_helpers'
 
 class Chitter < Sinatra::Base
+  include Helpers
 
   enable :sessions
   set :session_secret, 's3cr3t'
