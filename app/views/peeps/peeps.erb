@@ -13,7 +13,7 @@
   <% @peep.reverse.each do |peep| %>
     <li>
       <%= peep.peep_content %>
-      posted @<%= peep.created_at.strftime("%H:%M")   %> by @<%= peep.id  %>
+      posted @<%= peep.created_at.strftime("%H:%M %d/%m/%Y")   %> by @<%= peep.user.username  %>
     </li>
   <% end %>
 </ul>

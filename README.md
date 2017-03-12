@@ -64,3 +64,4 @@ If I had more time
 - Didn't know how to test for a time constraint
 - Testing for edge casing
 - Add buttons for users to move throughout pages
+- Instead of peep Id have username
