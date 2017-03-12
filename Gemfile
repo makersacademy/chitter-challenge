@@ -6,6 +6,8 @@ gem 'data_mapper'
 gem 'database_cleaner'
 gem 'sinatra'
 gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'rerun'
 
 group :test do
   gem 'rspec'
