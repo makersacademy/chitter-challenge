@@ -5,7 +5,7 @@ require 'dm-validations'
 
 
 require_relative 'models/peep.rb'
-# require_relative 'models/hashtag.rb'
+require_relative 'models/hashtag.rb'
 require_relative 'models/user.rb'
 
 def setup
