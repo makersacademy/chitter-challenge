@@ -8,5 +8,7 @@ feature "sign up" do
     expect(page).to have_content 'Welcome, Natalia!'
     expect(page).to have_content 'Username: Nat-Nat'
     expect(page).to have_content 'E-mail: nst@mail.com'
+    user = User.first
+    expect(user.username).to eq 'Nat-Nat'
   end
 end
