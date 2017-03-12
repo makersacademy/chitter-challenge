@@ -1,0 +1,150 @@
+body {
+  font-family: monospace;
+  margin: 0;
+  font-size: 20px;
+  background-color: rgb(255, 209, 206);
+}
+
+i.fa {
+  color: initial;
+}
+
+.header-logo {
+  padding: 0px 30px;
+}
+
+.logo-icon {
+  font-size: 500%;
+  padding: 30px;
+  margin-top: 1em;
+}
+
+#login_box {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+#login_box > * {
+  display: inline;
+}
+
+.welcome_message {
+  padding: 10px 0px 0px 30px;
+}
+
+.scroller {
+  position: fixed;
+  right: 0;
+  padding: 45px 50px 0px 0px;
+  height: 100px;
+  z-index: 1;
+}
+
+#login_box, .welcome_message {
+  position: fixed;
+  z-index: 1;
+}
+
+form {
+  margin: 0;
+}
+
+#signup_form > * {
+  height: 60%;
+}
+
+.warning {
+  color: darkred;
+  padding: 0px 30px;
+}
+
+#peep_writer {
+  padding-bottom: 15px;
+}
+
+.peep_body {
+  font-size: 200%;
+  margin-bottom: -20px;
+  word-wrap: break-word;
+  padding: 1px 20px;
+}
+
+.peep_meta {
+  text-decoration: overline;
+  text-align: right;
+  padding: 0px 10px 0px 0px;
+  color: lightpink;
+}
+
+.peep_list {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+  width: 800px;
+}
+
+.peep {
+  background: antiquewhite;
+    border-radius: 12px 50px;
+    padding-bottom: 1px;
+    margin-bottom: 15px;
+}
+
+.feed_container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  min-height: 100vh;
+}
+.chitter-button, .peep-button {
+  display: inline-block;
+  border: none;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  font-family: monospace;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  padding: 20px 20px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+  background-color: rgba(255, 218, 209, 0.90);
+}
+.peep-button {
+  width: 100%;
+}
+.chitter-button:hover, .chitter-button:active, .peep-button:hover, .peep-button:active {
+  border: none;
+  background-color: rgba(255, 248, 226, 1);
+}
+.chitter-button img {
+  width: 250px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari only...? :(*/
+  color: black;
+}
+
+.animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.slide {
+  animation-name: fadeIn;
+}

@@ -1,0 +1,8 @@
+<%= erb :header %>
+
+<% if logged_in_user %>
+  <div class="welcome_message">
+    <p>Welcome to Chitter, <b><%= logged_in_user.name %></b>. <a href="/logout" id="log-out" class="chitter-button"><i class="fa fa-sign-out" aria-hidden="true"></i></a></p>
+  </div>
+<% end %>
+<%= yield %>

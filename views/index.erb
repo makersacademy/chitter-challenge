@@ -1,0 +1,30 @@
+<%= erb :header %>
+
+<div id="login_box" class="animated fadeIn">
+  <h1 class="header-logo">Chitter</h1>
+
+  <form action="/signup_or_login" method="POST" id="signup_form">
+    <table style="display:inline;">
+      <tr>
+        <td><input class="chitter-button" type="text" name="username" placeholder="Username" required></input></td>
+        <td><input class="chitter-button" type="password" name="password" placeholder="Password" required></input></td>
+        <td><input class="chitter-button" type="submit" value="Log In" name="login"></input></td>
+        <td><input class="chitter-button" type="submit" value="Sign Up" name="new_signup"></input></td>
+      </tr>
+    </table>
+  </form>
+
+
+
+  <div class="warning">
+    <%if params[:login] == "failed"%>
+      <span>Login Failed. Try Again.</span>
+    <%end%>
+
+    <%if params[:logout] == "true"%>
+      <span>You have been logged out.</span>
+    <%end%>
+  </div>
+</div>
+
+<%= erb :feed %>

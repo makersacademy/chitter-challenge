@@ -1,0 +1,32 @@
+<div class="scroller"><a class="chitter-button" href="#top"><i class="fa fa-angle-double-up" aria-hidden="true"></i>
+</a></div>
+<div class="feed_container animated fadeIn">
+  <i name="top" class="fa fa-commenting-o logo-icon" aria-hidden="true"></i>
+  <ul class="peep_list">
+
+    <% if logged_in_user %>
+      <li id="peep_writer" >
+        <form action="/post_peep" method="POST" id="peep_form">
+          <table style="width:100%;">
+            <tr>
+              <td><input class="peep-button" type="text" name="peep_body" placeholder="What's on your mind?" required></input></td>
+              <td style="width: 1px;"><button class="chitter-button" type="submit" id="post-peep" value="Post Peep" name="new_peep"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
+            </tr>
+          </table>
+        </form>
+      </li>
+    <% end %>
+
+    <% Peep.all.reverse.each do |peep| %>
+      <li class="peep">
+        <div class="peep_body">
+          <p><i class="fa fa-quote-left" aria-hidden="true"></i> <%= peep.peep_body %> <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+        </div>
+        <div class="peep_meta">
+          <p>Peep from <b><%= User.get(peep.user_id).username %></b> on <em><%= peep.created_at.strftime("%m/%d/%Y at %I:%M%p") %></em></p>
+        </div>
+      </li>
+    <%end%>
+
+  </ul>
+</div>
