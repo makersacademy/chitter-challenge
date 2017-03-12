@@ -1,3 +1,5 @@
+require 'sinatra/flash'
+
 class Chitter < Sinatra::Base
 
   get '/users/new' do
@@ -22,6 +24,7 @@ class Chitter < Sinatra::Base
 
   get '/users/:id' do
     @user = User.first(id: params[:id])
+    @peeps = Peep.all(user_id: @user.id)
     erb :'users/profile'
   end
 

@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(message: params[:message], media: params[:media], user: current_user, date: Time.now)
+    @peep = Peep.create(message: params[:message], user: current_user, media: params[:media], date: Time.now)
     params[:tags].split(',').map!(&:strip).each do |tag|
       @peep.tags << Tag.first_or_create(tag: tag)
     end

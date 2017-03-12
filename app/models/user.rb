@@ -1,5 +1,6 @@
 require 'bcrypt'
 
+
 class User
   attr_reader :password
   attr_accessor :password_confirmation
@@ -13,10 +14,11 @@ class User
   property :password_digest, Text
   property :avatar, String, :length => 250
 
-  validates_format_of :avatar, :with => /https?:\/\/[\S]+/
+  validates_format_of       :avatar, :with => /https?:\/\/[\S]+/
   validates_confirmation_of :password
-  validates_presence_of :email
-  validates_format_of :email, as: :email_address
+  validates_presence_of     :email
+  validates_presence_of     :password, :if => :password_required
+  validates_format_of       :email, as: :email_address
 
   has n, :peeps, :through => Resource, constraint: :destroy
 
@@ -32,6 +34,10 @@ class User
     else
       nil
     end
+  end
+
+  def password_required
+      self.password_digest.nil? || !@password.nil?
   end
 
 end
