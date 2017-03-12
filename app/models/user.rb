@@ -9,6 +9,7 @@ class User
   property :name, Text
 
   has n, :peeps, :through => Resource
+  has n, :replies, :through => Resource
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)

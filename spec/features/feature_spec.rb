@@ -88,3 +88,14 @@ feature 'peep date and time' do
     expect(page).to have_content "#{Time.now.strftime("%m/%d/%Y at %I:%M%p")}"
   end
 end
+
+# extra credit
+
+feature 'replies' do
+  scenario 'i can reply to a peep' do
+    sign_up_and_peep
+    fill_in('reply_body', with: "Cool Peep")
+    click_button 'post-reply'
+    expect(page).to have_content "Cool Peep"
+  end
+end

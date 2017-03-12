@@ -36,3 +36,7 @@ end
 def post_peep(params)
   Peep.create(peep_body: params[:peep_body], user_id: session[:user_id])
 end
+
+def post_reply(params)
+  Reply.create(reply_body: params[:reply_body], user_id: session[:user_id], peep_id: params[:peep_id])
+end

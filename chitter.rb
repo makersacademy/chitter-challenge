@@ -31,4 +31,9 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
+  post '/post_reply' do
+    post_reply(params)
+    redirect '/feed'
+  end
+
 end

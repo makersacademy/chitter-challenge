@@ -100,7 +100,7 @@ form {
   font-family: monospace;
   min-height: 100vh;
 }
-.chitter-button, .peep-button {
+.chitter-button, .peep-button, .reply-button {
   display: inline-block;
   border: none;
   border-radius: 200px;
@@ -119,7 +119,7 @@ form {
 .peep-button {
   width: 100%;
 }
-.chitter-button:hover, .chitter-button:active, .peep-button:hover, .peep-button:active {
+.chitter-button:hover, .chitter-button:active, .peep-button:hover, .peep-button:active, .reply-button:hover, .reply-button:active {
   border: none;
   background-color: rgba(255, 248, 226, 1);
 }
@@ -129,6 +129,42 @@ form {
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari only...? :(*/
   color: black;
+}
+
+#reply_writer {
+  padding-bottom: 15px;
+}
+
+.reply_body {
+  margin-bottom: -20px;
+  word-wrap: break-word;
+  padding: 1px 20px;
+}
+
+.reply-button {
+  width: 86.4%;
+  margin-left: 100px;
+}
+
+.reply_meta {
+  text-decoration: overline;
+  text-align: right;
+  padding: 0px 10px 0px 0px;
+  color: lightpink;
+}
+
+.reply_list {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+  width: 800px;
+}
+
+.reply {
+  background: rgba(209, 254, 255, 0.67);
+  border-radius: 12px 50px;
+  padding-bottom: 1px;
+  margin-bottom: 15px;
+  margin-left: 100px;
 }
 
 .animated {
