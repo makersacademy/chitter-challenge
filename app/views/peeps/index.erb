@@ -1,29 +1,45 @@
-<h2> Peeps </h2>
+<div style="border-style:solid;color:black;border-width:0px" align="left">
 
-<ul id='peeps'>
-  <%@peeps.each  do |peep| %>
-    <li>
-      <%=peep.text%>
-      by <%=peep.user.name%>
-      @<%=peep.user.username%>
-      at <%=peep.created_at.strftime('%H:%M %d %b %Y')%>
+      <h2> Peeps People</h2>
 
-        <% if current_user %>
-          <form id="comments" action="/peeps/<%=peep.id%>" method="GET">
-            <input type="submit" value="Comment" id="<%= peep.id %>"/>
-          </form>
-        <% end %>
+      <ul id='peeps'>
+        <%@peeps.each  do |peep| %>
+          <li>
+            <table border="0">
+              <tr>
+                <td><strong><%=peep.user.name%></strong></td>
+                <td><label style="color:grey">@<%=peep.user.username%></label></td>
+              </tr>
+              <tr>
+                <td><%=peep.text%></td>
+                <td>
+                    <% if current_user %>
+                      <form id="comments" action="/peeps/<%=peep.id%>" method="GET">
+                        <input type="submit" value="Comment" id="<%= peep.id %>"/>
+                      </form>
+                    <% end %>
+                </td>
+              </tr>
+              <tr>
+                 <td></td>
+                 <td><label style="color:grey"><%=peep.created_at.strftime('%H:%M %d %b %Y')%></label></td>
+              </tr>
+              <tr>
+                <td colspan=2>
+                  <ul id='comments'>
+                    <% peep.comments.each do |comment|%>
+                    <li>
+                      <%= comment.text %>
+                      by @<%= comment.user.username%>
+                      at <%= comment.created_at.strftime('%H:%M %d %b %Y') %>
+                    </li>
+                  <%end%>
+                 </ul>
+                </td>
+              </tr>
+            </table>
 
-      <ul id='comments'>
-        <% peep.comments.each do |comment|%>
-        <li>
-          <%= comment.text %>
-          by @<%= comment.user.username%>
-          at <%= comment.created_at.strftime('%H:%M %d %b %Y') %>
-        </li>
-        <%end%>
+          </li>
+          <%end%>
       </ul>
-
-    </li>
-    <%end%>
-</ul>
+</div>
