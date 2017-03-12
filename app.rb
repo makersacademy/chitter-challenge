@@ -1,7 +1,7 @@
 require 'sinatra/base'
-require_relative 'models/peep'
-require_relative 'models/user'
-require_relative 'datamapper_setup'
+require_relative 'app/models/peep'
+require_relative 'app/models/user'
+require_relative 'app/datamapper_setup'
 
 class Chitter < Sinatra::Base
 

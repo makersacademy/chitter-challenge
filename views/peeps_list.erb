@@ -1,0 +1,42 @@
+<link rel="stylesheet" type="text/css" href="/style.css" />
+
+<% if current_user %>
+<h1>Welcome to Chitter, <%= current_user.first_name%>!</h1>
+
+<div class= "right_buttons">
+  <form action= "/peeps/new" method= "get">
+    <input type= "submit" value= "New Peep" id="main_button">
+  </form>
+
+  <form action= "/sessions" method= "post">
+    <input type="hidden" name="_method" value="delete">
+    <input type= "submit" value= "Sign out" id="main_button">
+  </form>
+  <% end %>
+</div>
+
+<div class= "feed">
+  <div class="clear">
+<h3>Peeps</h3>
+<ul id = peeps>
+  <% @peeps.reverse.each do |peep| %>
+  <div id= "peep">
+    <li>
+        <div id= "fullname">
+          <%= peep.user.first_name %><%= peep.user.last_name %>
+        </div>
+        <div id= "username">
+          @<%= peep.user.username %><br>
+        </div>
+        <div id= "message">
+          <%= peep.message %><br>
+        </div>
+        <div id= "time">
+          <%= peep.created_at.strftime("%d/%m/%Y at %I:%M%p") %>
+        </div>
+    </li>
+  </div>
+  <% end %>
+</ul>
+</div>
+</div>
