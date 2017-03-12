@@ -10,10 +10,10 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  # get '/user' do
-  #   @user = User.all
-  #   erb :sign_in
-  # end
+  get '/user' do
+    User.create(email: params[:email],
+    password: params[:password])
+  end
 
   get '/user/new' do
     erb :sign_up

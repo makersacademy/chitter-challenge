@@ -11,8 +11,6 @@ feature 'Sign up' do
     click_button 'Create account'
 
     User.create(email: 'vicky@makers.co.uk', password: '1234')
-    # expect(page).to have_content('Welcome, vicky@makers.com')
-    # expect(user(&:email)).to include("vicky@makers.co.uk")
     expect(User.first.email).to eq('vicky@makers.co.uk')
   end
 end
