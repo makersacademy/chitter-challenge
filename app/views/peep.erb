@@ -20,6 +20,6 @@
 <h1>What's happening now:</h1>
 <ul>
   <% @peeps.each do |peep| %>
-  <li><%= peep.name %></li>
+  <li><%= peep.name %> - By <%= peep.user.name %> on <%= peep.time.asctime %> </li>
   <% end %>
 </ul>
