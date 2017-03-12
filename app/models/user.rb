@@ -20,6 +20,7 @@ class User
     }
 
     has n, :peeps
+    has n, :comments
 
     attr_accessor :password_confirmation
     attr_reader :password
