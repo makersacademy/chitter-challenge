@@ -301,8 +301,7 @@ and (orientation : portrait){
   }
 
   .peep_meta, .reply_meta {
-    right: -325px;
-    font-size: 60%;
+    right: -250px;
   }
 
 
