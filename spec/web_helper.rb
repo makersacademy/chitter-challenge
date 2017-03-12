@@ -6,3 +6,9 @@ def sign_up
     fill_in :username, with: 'tansaku'
     click_button 'Submit'
 end
+
+def first_peep
+  visit ('/post-peep')
+  fill_in 'peep_content', with: "First peep!"
+  click_button ('Post peep')
+end

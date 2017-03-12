@@ -4,13 +4,6 @@
 
 feature 'User signs out' do
 
-  # before(:each) do
-  # User.create(email: 'sam@makersacademy.com',
-  #             password: 's3cr3t',
-  #             name: 'Samuel Russell Hampden Joseph',
-  #             username: 'tansaku')
-  # end
-
   scenario 'while being signed in' do
     visit '/homepage'
     sign_up

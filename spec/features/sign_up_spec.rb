@@ -5,7 +5,6 @@
 feature 'Users can sign up' do
   scenario 'users can sign up with their full details' do
     visit '/'
-    # expect{sign_up}.to change(User, :count).by(1)
     sign_up
     expect(page).to have_content "Logged in as: tansaku"
   end
