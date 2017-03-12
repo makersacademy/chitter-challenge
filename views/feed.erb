@@ -23,7 +23,7 @@
           <p><i class="fa fa-quote-left" aria-hidden="true"></i> <%= peep.peep_body %> <i class="fa fa-quote-right" aria-hidden="true"></i></p>
         </div>
         <div class="peep_meta">
-          <p>Peep from <b><%= User.get(peep.user_id).username %></b> on <em><%= peep.created_at.strftime("%m/%d/%Y at %I:%M%p") %></em></p>
+          <p><b><%= User.get(peep.user_id).name %></b> <em>(@<%= User.get(peep.user_id).username %>)</em> / <%= peep.created_at.strftime("%e-%m-%y %H:%M") %></p>
         </div>
       </li>
 
@@ -33,7 +33,7 @@
             <p>"<%= reply.reply_body %>"</p>
           </div>
           <div class="reply_meta">
-            <p>Reply from <b><%= User.get(reply.user_id).username %></b> on <em><%= reply.created_at.strftime("%m/%d/%Y at %I:%M %p") %></em></p>
+            <p><b><%= User.get(reply.user_id).name %></b> <em>(@<%= User.get(reply.user_id).username %>)</em> / <%= reply.created_at.strftime("%e-%m-%y %H:%M") %></p>
           </div>
         </li>
       <%end%>

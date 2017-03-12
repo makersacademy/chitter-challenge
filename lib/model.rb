@@ -13,9 +13,10 @@ def check_user_signup_login_details(params)
 end
 
 def process_new_signup(params)
-  return '/?login=failed' if params[:username] == ""
+  return '/?signup=failed&user=nil' if params[:username] == ""
+  return '/?signup=failed&user=taken' if User.first(:name => params[:username])
   session[:user_id] = User.create(username: params[:username], password: params[:password], name: params[:username]).id
-  '/feed'
+  proceed_sign_in
 end
 
 def process_new_login(params)
@@ -27,10 +28,14 @@ end
 def check_password(possible_user, password)
   if BCrypt::Password.new(possible_user.password_digest) == password
     session[:user_id] = possible_user.id
-    '/feed'
+    proceed_sign_in
   else
     '/?login=failed'
   end
+end
+
+def proceed_sign_in
+  logged_in_user.email ? '/feed' : '/verify'
 end
 
 def post_peep(params)
@@ -39,4 +44,12 @@ end
 
 def post_reply(params)
   Reply.create(reply_body: params[:reply_body], user_id: session[:user_id], peep_id: params[:peep_id])
+end
+
+def verify_account(params)
+  return '/verify?verify=failed&user=nil' unless User.first(:username => logged_in_user.username)
+  return '/verify?verify=failed&email=taken' if User.first(:email => params[:email])
+  return '/verify?verify=failed&pass=failed' unless BCrypt::Password.new(logged_in_user.password_digest) == params[:pass]
+  logged_in_user.update(name: params[:name], email: params[:email])
+  '/feed'
 end

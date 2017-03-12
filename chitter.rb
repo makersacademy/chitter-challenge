@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
-    erb :feed
+    logged_in_user.email ? erb(:feed) : erb(:verify)
   end
 
   post '/post_peep' do
@@ -34,6 +34,14 @@ class Chitter < Sinatra::Base
   post '/post_reply' do
     post_reply(params)
     redirect '/feed'
+  end
+
+  get '/verify' do
+    erb :verify
+  end
+
+  post '/verify_account' do
+    redirect verify_account(params)
   end
 
 end

@@ -5,8 +5,9 @@ def sign_up
   click_button "Sign Up"
 end
 
-def sign_up_and_peep
+def sign_up_verify_and_peep
   sign_up
+  verify
   fill_in('peep_body', with: 'Hello World')
   click_button "post-peep"
 end
@@ -20,4 +21,11 @@ end
 def peep_again
   fill_in('peep_body', with: 'Hello Again')
   click_button "post-peep"
+end
+
+def verify
+  fill_in('email', with: 'johndoe@example.com')
+  fill_in('name', with: 'John')
+  fill_in('pass', with: 'password123')
+  click_button "verify-account"
 end

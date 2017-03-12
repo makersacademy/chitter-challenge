@@ -18,11 +18,25 @@
 
   <div class="warning">
     <%if params[:login] == "failed"%>
-      <span>Login Failed. Try Again.</span>
+      <%if params[:user] == "nil"%>
+        <span>Could not log in. There is no such user.</span>
+      <%else%>
+        <span>Log In failed. Sorry.</span>
+      <%end%>
     <%end%>
 
     <%if params[:logout] == "true"%>
       <span>You have been logged out.</span>
+    <%end%>
+
+    <%if params[:signup] == "failed"%>
+      <%if params[:user] == "nil"%>
+        <span>You must enter a username.</span>
+      <%elsif params[:user] == "taken"%>
+        <span>That username is taken. Please try another.</span>
+      <%else%>
+        <span>Sign Up failed. Sorry.</span>
+      <%end%>
     <%end%>
   </div>
 </div>
