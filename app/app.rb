@@ -17,11 +17,22 @@ class Chitter < Sinatra::Base
     erb :new_user
   end
 
+  get '/signin' do
+    erb :sign_in
+  end
+
   post '/users/new' do
     user = User.create(first_name: params[:first_name],
                 last_name: params[:last_name],
                 username: params[:username],
-                email: params[:email])
+                email: params[:email],
+                password: params[:password])
+    session['user_id'] = user.id
+    redirect '/peeps'
+  end
+
+  post '/users/signin' do
+    user = User.authenticate(params[:email], params[:password])
     session['user_id'] = user.id
     redirect '/peeps'
   end
@@ -39,8 +50,6 @@ class Chitter < Sinatra::Base
     peep = Peep.create(message: params[:message])
     current_user.peeps << peep
     current_user.save
-    p peep
-    p peep.user
     redirect '/peeps'
   end
 
