@@ -204,9 +204,10 @@ form {
     transition: right 0.5s;
 }
 
-a.peeparea {
+a.peeparea, a.replyarea {
   text-decoration: none;
   color: black;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .peeparea:hover .peep_meta, .peeparea:active .peep_meta, .peeparea:focus .peep_meta {
