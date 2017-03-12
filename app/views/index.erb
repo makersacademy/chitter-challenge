@@ -8,5 +8,18 @@
   </form>
   <body>
     <h1 style="color:purple;" align="center">Chitter</h1>
+  <% if current_maker %>
+    <form action="/peeps/post" method="POST">
+      <input type="text" name="peep">
+      <input type="submit" value="Peep">
+  <% end %>
+  <% if Peep.all.length > 0 %>
+  <h3 align="center">RECENT PEEPS</h3>
+  <div align="center"><% Peep.all.reverse.each do |peep| %>
+    "<%= peep.message %>"<div><em>peeped by:</em></div>
+    <%= peep.maker.user_name%> @
+    <%= peep.time%><p></p>
+    <% end %></div>
+  <% end %>
   </body>
 </html>

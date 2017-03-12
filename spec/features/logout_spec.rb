@@ -1,13 +1,12 @@
-feature 'Log out' do
+feature '#Log out' do
 
   before(:each) do
     Maker.create( full_name: "maker makerson",
                   user_name: "maker",
                   email: "maker@example.com",
                   password: "secret1234",
-                  password_confirmation: "secret1234"
-                  )
-  end
+                  password_confirmation: "secret1234")
+                end
 
   scenario 'log out while being logged in' do
     log_in(email: "maker@example.com", password: "secret1234")

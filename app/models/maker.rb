@@ -15,6 +15,8 @@ class Maker
   property :email,      String, format: :email_address, required: true
   property :password_digest,   Text
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
