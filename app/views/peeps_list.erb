@@ -15,7 +15,8 @@
 <ul id = peeps>
   <% @peeps.each do |peep| %>
     <li>
-       <%= peep.user.username %> peeped: <%= peep.message %>
+       <%= peep.message %>
+       <%= peep.user.username %> posted on <%= peep.created_at.strftime("%d/%m/%Y at %I:%M%p") %>
     </li>
   <% end %>
 </ul>
