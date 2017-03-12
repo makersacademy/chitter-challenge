@@ -19,7 +19,7 @@
 
     <% Peep.all.reverse.each do |peep| %>
       <li class="peep">
-        <a class="peeparea">
+        <a class="peeparea" href="javascript:void(0)">
           <div class="peep_body">
             <p><i class="fa fa-quote-left" aria-hidden="true"></i> <%= peep.peep_body %> <i class="fa fa-quote-right" aria-hidden="true"></i></p>
           </div>
@@ -30,7 +30,7 @@
       </li>
 
       <% Reply.all(:peep_id => peep.id).each do |reply|%>
-        <a class="replyarea">
+        <a class="replyarea" href="javascript:void(0)">
           <li class="reply">
             <div class="reply_body">
               <p><%= reply.reply_body %></p>

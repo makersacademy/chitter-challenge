@@ -204,6 +204,11 @@ form {
     transition: right 0.5s;
 }
 
+a.peeparea {
+  text-decoration: none;
+  color: black;
+}
+
 .peeparea:hover .peep_meta, .peeparea:active .peep_meta, .peeparea:focus .peep_meta {
     right: 0px;
 }
