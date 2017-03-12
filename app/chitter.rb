@@ -84,7 +84,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/:peep_id' do
-    # create a comment with peep_id = params[:peep_id] and user_id = current_user.id
+    comment = Comment.create(text: params[:comment], created_at: DateTime.now, user_id: current_user.id, peep_id: params[:peep_id])
+    flash[:message] = comment.errors.full_messages.flatten unless comment.valid?
     redirect '/peeps'
   end
 
