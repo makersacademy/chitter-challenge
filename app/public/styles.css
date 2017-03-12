@@ -1,0 +1,194 @@
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    passing: 0;
+    font-family: 'Cambay', sans-serif;
+}
+
+.topbar {
+    border-bottom: 1px solid #e1e8ed;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
+.bottombar {
+    background-color: #f5f5f5;
+    margin: auto;
+    width: 1000px;
+    text-align: right;
+    margin-top: .5em;
+}
+
+h1 {
+    margin: auto;
+    line-height: 1.8;
+    text-align: center;
+    font-family: 'Slackey', sans-serif;
+    color: deepskyblue
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    width: 1000px;
+    margin: auto;
+    margin-bottom: 4em;
+}
+
+.top-header {
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.welcome-header {
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+    color: deepskyblue;
+}
+
+.sign_out_form {
+    float: right;
+}
+
+.peep-feed:hover {
+    background-color: #f5f5f5;
+}
+
+.peep-feed {
+    border: 1px solid #e1e8ed;
+    cursor: pointer;
+    position: relative;
+    min-height: 51px;
+    padding: 1em;
+    background-color: #ffffff;
+    margin-bottom: 1em;
+}
+
+.peep-title {
+    padding: 1em 0 1em 0;
+    font-size: 110%;
+    border-bottom: 1px solid #efefef;
+}
+
+.peep {
+    padding: 1.2em 1em 1.2em .5em;
+    font-size: 130%;
+    box-shadow: 0 0 4px -1px #dedede inset;
+    margin-bottom: .7em;
+}
+
+.comments-section {
+    padding: 0;
+    color: #666;
+}
+
+.comments {
+    padding: .5em;
+    list-style: none;
+    border-bottom: 1px solid #efefef;
+}
+
+.new-peep {
+    border-bottom: 1px solid #e1e8ed;
+    padding-bottom: 1.5em;
+}
+
+#peep_form {
+    margin: auto;
+    text-align: center;
+    width: 80%;
+}
+
+#content {
+    width: 100%;
+    text-align-last: center;
+    color: deepskyblue;
+    font-size: 150%;
+    height: 30px;
+    padding-top: .5em;
+}
+
+#content:focus {
+    width: 100%;
+    text-align: left;
+    text-align-last: left;
+    height: 80px;
+    color: deepskyblue;
+    font-size: 130%;
+    padding-top: .5em;
+}
+
+#peep_form {
+    text-align: right;
+}
+
+.peep-comment-text {
+    width: 98%;
+    padding: .8em 0 .8em .8em;
+    color: blue;
+    font-size: 90%;
+}
+
+#notice {
+    padding: 1em;
+    font-size: 170%;
+}
+
+.sign-in, .register {
+    background-color: #f5f5f5;
+    padding-bottom: 1em;
+    padding-top: .5em;
+    padding-right: .5em;
+    margin: auto;
+    text-align: right;
+    display: inline-block;
+}
+
+.sign-in a, .register a {
+    background-color: #fff;
+    padding: 5px 15px 1px 14px;
+    border-radius: 6px;
+    border: 1px solid skyblue;
+    box-shadow: 0 0 4px 0px #efefef;
+    text-decoration: none;
+}
+
+#existing-user {
+    display: flex;
+    margin: auto;
+    padding-left: 16%;
+}
+
+#new-user {
+    width: 67%;
+    text-align: right;
+}
+
+.sign-in-form, .sign-up-form {
+    padding: 3em;
+    text-align: center;
+    background: #fff;
+    margin: 2em;
+    border: 1px solid skyblue;
+}
+
+.sign-in-form input[type="text"], .sign-in-form input[type="password"], .sign-up-form input[type="text"], .sign-up-form input[type="password"] {
+    width: 25%;
+    font-size: 100%;
+    padding: 5px;
+    margin-right: 1em;
+    margin-left: 5px;
+}
+
+.sign-up-form input[type="text"], .sign-up-form input[type="password"] {
+    width: 40%;
+    font-size: 100%;
+    padding: 5px;
+    margin-right: 1em;
+    margin-left: 5px;
+    margin-bottom: .5em
+}

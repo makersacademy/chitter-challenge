@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Chitter
+    link href="/styles.css" rel="stylesheet"
+    link href="//fonts.googleapis.com/css?family=Slackey&subset=latin" rel="stylesheet"
+    link href="//fonts.googleapis.com/css?family=Cambay&subset=latin" rel="stylesheet"
+  body
+    include partials/header.slim
+    header.welcome-header
+      include partials/welcome.slim
+      include partials/flash.slim
+    main
+      == yield

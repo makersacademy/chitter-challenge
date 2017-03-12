@@ -1,0 +1,18 @@
+.sign-up-form
+  form id="new-user" action="/users" method="post"
+    label for="name" Name:
+    &text name="name" required="true"
+    br
+    label for="email" Email:
+    &text name="email" required="true"
+    br
+    label for="username" Username:
+    &text name="username" required="true"
+    br
+    label for="password" Password:
+    &password name="password" required="true"
+    br
+    label for="password_confirmation" Confirm password:
+    &password  name="password_confirmation" required="true"
+    br
+    &submit value="Sign up"

@@ -1,0 +1,23 @@
+.feed
+  - if @peeps
+    - @peeps.reverse.each do |peep|
+        - id = peep.id
+        article.peep-feed id="peep-#{id}"
+          header.peep-title
+            == peep_header(peep)
+          section.peep
+            == peep.content
+          - if current_user
+            section.comment
+              form action="/comments/new" method="post"
+                &hidden name="peep-id" value="#{id}"
+                &text id="peep-#{id}-comment" class="peep-comment-text" name="comment-content" placeholder="Add a comment…"
+                &submit id="comment-#{id}" value="Comment" 
+          section.list-comments
+            ul.comments-section
+              - peep.latest_comments.each do |comment|
+                li.comments
+                  header.comment-title
+                    == comment_user(comment)
+                  section.comment-content
+                    == comment

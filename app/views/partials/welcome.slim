@@ -1,0 +1,5 @@
+- if current_user
+  h2 Welcome, #{current_user.name}
+  form class="sign_out_form" action='/sessions' method="post"
+    &hidden name="_method" value="delete"
+    &submit name="sign_out" value="Sign out"

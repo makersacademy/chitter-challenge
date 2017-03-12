@@ -1,0 +1,10 @@
+.topbar
+  header
+    a href="/"
+      h1 Chitter
+- if !current_user
+  .bottombar
+    .register
+      a href="/users/new" Sign up
+    .sign-in
+      a href="/sessions/new" Sign in
