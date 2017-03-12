@@ -1,2 +1,4 @@
-Logged in as: [Functionality to come] [logout]<br>
+<% if current_user %>
+  Logged in as: <%=current_user.username%> [logout]<br>
+<% end %>
 <hr>

@@ -7,6 +7,8 @@ gem 'sinatra'
 gem 'rspec-sinatra'
 gem 'pg'
 gem 'dm-migrations'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'

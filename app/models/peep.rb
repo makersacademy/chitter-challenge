@@ -8,6 +8,6 @@ class Peep
   property :peep_content, Text
   property :time_peeped,  DateTime
 
-  #belongs_to :username
+#  belongs_to :user
 
 end

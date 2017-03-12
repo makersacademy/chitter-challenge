@@ -18,7 +18,7 @@ require 'orderly'
 
 require './app/app'
 # require './app/models/peep'
-#require 'features/web_helpers'
+require_relative 'web_helper'
 
 Capybara.app = ChitterApp
 
