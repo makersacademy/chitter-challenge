@@ -4,19 +4,28 @@
        <title> Chitter | Peep away! </title>
      </head>
      <body>
+       <%= yield %>
        <% if current_user %>
          Logged in as: <%= current_user.username %>
-       <% else %>
+         <form action = '/sessions' method = 'POST'>
+           <input type = 'hidden' name = '_method' value = 'delete'/>
+           <input type = 'submit' value = 'Sign Out'/>
+         </form>
        <% end %>
 
        <% if flash[:errors] && !flash[:errors].empty? %>
-     Sorry, something went wrong! Please refer to the following errors:
-     <ul id='errors'>
-       <% flash[:errors].each do |error| %>
-       <li> <%= error %></li>
-         <% end %>
-     </ul>
-         <% end %>
-       <%= yield %>
+       Sorry, something went wrong! Please refer to the following errors:
+         <ul id='errors'>
+         <% flash[:errors].each do |error| %>
+         <li> <%= error %></li>
+           <% end %>
+         </ul>
+       <% end %>
+
+       <% if flash[:notice] %>
+         <div id='notice'>
+           <%= flash[:notice] %>
+         </div>
+       <% end %>
     </body>
   </html>

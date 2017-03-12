@@ -6,8 +6,7 @@ module Helpers
     password: 'password',
     password_confirmation: 'password')
 
-    visit '/'
-    click_link 'Sign Up'
+    visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :name, with: name
     fill_in :username, with: username
@@ -19,10 +18,9 @@ module Helpers
 
 
   def sign_in(email: 'noora@example.com', password: 'password')
-    visit '/'
-    click_link 'Sign In'
-    fill_in :email, with: 'noora@example.com'
-    fill_in :password, with: 'password'
+    visit '/sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
     click_button 'Sign In'
   end
 
