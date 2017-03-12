@@ -1,0 +1,7 @@
+<%= erb :logged_in_as %>
+
+<% @peeps.reverse_each do |peep| %>
+<%= peep.peep_content %> - <%= peep.time_peeped.to_s[0..15].sub! "T", " " %><br>
+<%end %><br>
+
+<a href="/post-peep">Post a new peep</a>
