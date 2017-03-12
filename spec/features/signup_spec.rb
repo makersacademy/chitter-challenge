@@ -80,8 +80,6 @@ describe 'Sign up' do
 
     scenario 'user can sign out' do
       visit '/'
-      fill_in 'name', with: 'Example'
-      fill_in 'username', with: 'eg1'
       fill_in 'email', with: 'example_one@domain.com'
       fill_in 'password', with: 'apples5'
       click_button 'Sign in'
