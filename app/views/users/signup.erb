@@ -1,13 +1,30 @@
-<form id="signup" action="/users" method="POST" class="welcome">
-  <p><label>Email</label>
-    <input type="email" name="email" value="<%= @user.email %>" placeholder="example@eg.com" required/></p>
-  <p><label>Password</label>
-    <input type="password" name="password" required/></p>
-  <p><label>Confirm Password</label>
-    <input type="password" name="password_confirmation" required/></p>
-  <p><label>Name</label>
-    <input type="text" name="name" value="<%= @user.name %>" placeholder="Emma Watson"/></p>
-  <p><label>Username</label>
-    <input type="text" name="username" value="<%= @user.username %>" placeholder="ewatson" required/></p>
-  <p><input type="submit" value="Sign Up"/></p>
-</form>
+<div style="color:black;padding:50px;" align="center">
+  <form id="signup" action="/users" method="POST" class="welcome">
+    <table>
+      <tr>
+        <td width="40%"><label>Email</label></td>
+        <td width="60%"><input style="display:table-cell; width:100%" width="100%" type="email" name="email" value="<%= @user.email %>" autofocus placeholder="example@eg.com" required/></td>
+      </tr>
+      <tr>
+        <td width="40%"><label>Password</label></td>
+        <td width="60%"><input style="display:table-cell; width:100%" type="password" name="password" required/></td>
+      </tr>
+      <tr>
+        <td width="40%"><label>Confirm Password</label></td>
+        <td width="60%"><input style="display:table-cell; width:100%" type="password" name="password_confirmation" required/></td>
+      </tr>
+      <tr>
+        <td width="40%"><label>Name</label></td>
+        <td width="60%"><input style="display:table-cell; width:100%" type="text" name="name" value="<%= @user.name %>" placeholder="Emma Watson"/></td>
+        </tr>
+      <tr>
+        <td width="40%"><label>Username</label></td>
+        <td width="60%"><input style="display:table-cell; width:100%" type="text" name="username" value="<%= @user.username %>" placeholder="ewatson" required/></td>
+      </tr>
+      <tr height="30px"><td></td><td></td></tr>
+      <tr height ="30px">
+        <td width="100%" colspan=2 align="center"><input  style="display:table-cell; width:30%; height:70%;" type="submit" value="Sign Up"/></td>
+      </tr>
+      </table>
+  </form>
+</div>
