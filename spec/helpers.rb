@@ -17,7 +17,7 @@ module Helpers
   end
 
 
-  def sign_in(email: 'noora@example.com', password: 'password')
+  def sign_in(email:, password:)
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password

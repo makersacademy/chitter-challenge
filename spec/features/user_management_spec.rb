@@ -21,8 +21,8 @@ end
 feature 'User sign in' do
   scenario 'I can sign in as a user' do
     create_user
-    sign_in
-    expect(page).to have_content("Logged in as: Noora-q")
+    sign_in(email: 'noora@example.com', password: 'password')
+    expect(page).to have_content('Logged in as: Noora-q')
   end
 end
 
@@ -32,9 +32,11 @@ end
 feature 'User sign out' do
   scenario 'while being signed in as a user' do
     create_user
-    sign_in
+    sign_in(email: 'noora@example.com', password: 'password')
     click_button 'Sign Out'
     expect(page).to have_content('Goodbye!')
-    expect(page).not_to have_content("Logged in as: Noora-q")
+    expect(page).not_to have_content('Logged in as: Noora-q')
+    visit '/peeps/new'
+    expect(page).to have_content('You must be signed in to post peeps')
   end
 end
