@@ -9,6 +9,6 @@ feature "Writing a new peep" do
     sign_up
     write_a_peep
     expect(page).to have_content ("It's sunny today :)")
-    expect(page).to have_content ("Bingaling posted on")
+    expect(page).to have_content ("Bingaling")
   end
 end

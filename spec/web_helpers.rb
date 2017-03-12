@@ -18,7 +18,7 @@ def sign_in
 end
 
 def write_a_peep
-  click_button "Compose New Peep"
+  click_button "New Peep"
   fill_in :message, with: ("It's sunny today :)")
   click_button "Peep"
 end
