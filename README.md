@@ -45,5 +45,5 @@ Technologies Used:
 If I had more time
 ==================
 - Validation of forms. Make sure name only contains letters, email_address have an "@" sign
-- Users are unable to create an account with the same email address
-- Password recovery. If user loses/forgets their password.
+- Users are unable to create an account with the same email address. Username cannot be the same as email address.
+- Password recovery. If user loses/forgets their password
