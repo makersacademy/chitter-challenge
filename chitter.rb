@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    redirect '/' if logged_in_user == nil
     logged_in_user.email ? erb(:feed) : erb(:verify)
   end
 
