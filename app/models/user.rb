@@ -11,6 +11,12 @@ class User
   # Password isn't stored directly, its stored as a password digest provided by bcrypt.
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  attr_reader :password
+  attr_accessor :password_confirmation
+
+  validates_confirmation_of :password
 end

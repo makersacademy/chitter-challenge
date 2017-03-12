@@ -9,6 +9,7 @@ require 'database_cleaner'
 
 require './app/app'
 require './app/models/user'
+require 'features/web_helper.rb'
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
