@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :'peeps/welcome'
   end
 
   get '/users/new' do
