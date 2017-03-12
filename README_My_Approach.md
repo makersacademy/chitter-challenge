@@ -1,10 +1,10 @@
- ## Weekend 4 - Chitter Challenge
+##Weekend 4 - Chitter Challenge
 
 [![Build Status](https://travis-ci.org/AAMani5/chitter-challenge.svg?branch=master)](https://travis-ci.org/AAMani5/chitter-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/AAMani5/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/AAMani5/chitter-challenge?branch=master)
 
 
-
-Have a go it at [Ashwini's Chitter](https://chitter-ash.herokuapp.com)
+Have a go at [Ashwini's Chitter](https://chitter-ash.herokuapp.com)
 
 Started the challenge by writing feature test for signing up (including the validations required). Then made the required views and then the models to store users. Followed the same approach for sign in and sign out features as well. When I moved on to users being able to post peeps, I had an idea about the association between Peep and User model. Once I finished the MVP, I refactored the tests using helper modules in Rspec. I decided on trying to implement an extra feature of adding comments to existing peeps by users. Was wondering if I should use 'one to many' or 'one to many through'. I decided to go with one to many to keep things simple. Should think about what impact these two ways have on speed of querying data in database. Took me sometime to add styling but I think the website looks better :)
 
