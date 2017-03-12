@@ -11,7 +11,7 @@ feature 'Log in sessions/new' do
 
   scenario 'with correct credentials' do
     log_in(email: maker.email, password: maker.password)
-    expect(page).to have_content "Welcome, #{maker.email}"
+    expect(page).to have_content "Logged in as #{maker.email}"
   end
 
 

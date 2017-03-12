@@ -18,7 +18,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @maker = Maker.new
     erb(:index)
   end
 

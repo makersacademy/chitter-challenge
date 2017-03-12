@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href='//fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet'>
-    <style>
-      body {
-          font-family: 'Josefin Slab';font-size: 22px;
-          background-color: lightblue;
-        }
-    </style>
-  </head>
-  <% if current_maker %>
-    <div>Welcome, <%= current_maker.email %></div>
-  <% end %>
-    <form action="/users/new" method="GET" align="right">
-      <input type="submit" value="Register New User">
-    </form>
-    <form action="/sessions/new" method="GET" align="right">
-      <input type="submit" value="Log In">
-    </form>
+  <form action="/users/new" method="GET" align="right">
+    <input type="submit" value="Register New User">
+  </form>
+  <form action="/sessions/new" method="GET" align="right">
+    <input type="submit" value="Log In">
+  </form>
   <body>
     <h1 style="color:purple;" align="center">Chitter</h1>
   </body>

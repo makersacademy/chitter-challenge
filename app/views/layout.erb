@@ -9,6 +9,9 @@
         }
     </style>
   </head>
+  <% if current_maker %>
+    <div>Logged in as <%= current_maker.email %></div>
+  <% end %>
   <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
   <% end %>
