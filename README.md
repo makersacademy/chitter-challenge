@@ -2,6 +2,20 @@ Narayan's Chitter Challenge
 =================
 [![Build Status](https://travis-ci.org/nryn/chitter-challenge.svg?branch=master)](https://travis-ci.org/nryn/chitter-challenge)
 
+```
+              .----.
+       .---. '      \ _       \   |    /
+     /`     `     o  |<    -  Peep peep. -
+, _.' _.---.        / `      /   |    \
+ `\  `\         ;.-'
+   \   '._.'    /
+    '.        .'
+      \_/--;`
+       |   _\_
+      --;--.  \`--
+         '.    `
+```
+
 Description:
 -------
 
