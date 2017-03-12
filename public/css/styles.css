@@ -204,11 +204,11 @@ form {
     transition: right 0.5s;
 }
 
-.peep:hover .peep_meta, .peep:active .peep_meta, .peep:focus .peep_meta {
+.peeparea:hover .peep_meta, .peeparea:active .peep_meta, .peeparea:focus .peep_meta {
     right: 0px;
 }
 
-.peep:hover .peep_meta, .peep:active .peep_meta, .peep:focus .peep_meta {
+.replyarea:hover .reply_meta, .replyarea:active .reply_meta, .replyarea:focus .reply_meta {
     right: 0px;
 }
 
