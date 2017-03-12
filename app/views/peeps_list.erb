@@ -1,12 +1,16 @@
+
+<% if current_user %>
 <h1>Welcome to Chitter, <%= current_user.first_name%>!</h1>
 
-<form action= "users/signout" method= "post">
-  <input type= "submit" value= "Sign out">
-</form>
-
-<form action= "peeps/new" method= "get">
+<form action= "/peeps/new" method= "get">
   <input type= "submit" value= "Compose New Peep">
 </form>
+
+<form action= "/sessions" method= "post">
+  <input type="hidden" name="_method" value="delete">
+  <input type= "submit" value= "Sign out">
+</form>
+<% end %>
 
 <ul id = peeps>
   <% @peeps.each do |peep| %>

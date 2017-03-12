@@ -8,6 +8,7 @@ class Chitter < Sinatra::Base
   ENV['RACK_ENV'] ||= 'development'
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     erb :home
@@ -37,7 +38,8 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  post '/users/signout' do
+  delete '/sessions' do
+    session['user_id'] = nil
     redirect '/signout'
   end
 
