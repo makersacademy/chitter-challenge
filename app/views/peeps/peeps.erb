@@ -6,3 +6,14 @@
   <input type="submit" value="Sign Up">
 </form>
 <% end %>
+
+<h1> Peeps around the world </h1>
+
+<ul id='peeps'>
+  <% @peep.reverse.each do |peep| %>
+    <li>
+      <%= peep.peep_content %>
+      posted @<%= peep.created_at.strftime("%H:%M")   %> by @<%= peep.id  %>
+    </li>
+  <% end %>
+</ul>

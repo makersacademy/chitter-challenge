@@ -49,3 +49,4 @@ If I had more time
 - Users are unable to create an account with the same email address. Username cannot be the same as email address.
 - Password recovery. If user loses/forgets their password
 - Use rake/rakefiles to refactor datamapper tasks like upgrade and migrate database methods
+- Didn't know how to test for a time constraint

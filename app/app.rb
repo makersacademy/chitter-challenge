@@ -1,9 +1,9 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
+require_relative './data_mapper_setup'
+require_relative 'models/peep'
 require_relative 'models/user'
-require_relative 'datamapper_setup'
-
 
 class App < Sinatra::Base
   use Rack::MethodOverride
@@ -17,20 +17,19 @@ class App < Sinatra::Base
   end
 
   get '/peeps' do
+    @peep = Peep.all
     erb :'peeps/peeps'
   end
 
-  # get '/peeps/new' do
-  #
-  # end
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
 
-  # post '/peeps' do
-  #
-  # end
-
-  # get '/users' do
-  #
-  # end
+  post '/peeps' do
+    peep = Peep.new(peep_content: params[:peep], user_id: current_user.id)
+    peep.save
+    redirect('/peeps')
+  end
 
   get '/users/new' do
     @user = User.new
@@ -66,10 +65,6 @@ class App < Sinatra::Base
       erb :'sessions/new'
     end
   end
-
-  # get '/sessions' do
-  #
-  # end
 
   delete '/sessions' do
     session[:user_id] = nil

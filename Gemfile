@@ -9,6 +9,7 @@ gem "bcrypt"
 gem "database_cleaner"
 gem "sinatra-flash"
 gem "dm-timestamps"
+gem "dm-core"
 
 group :test do
   gem 'rspec'

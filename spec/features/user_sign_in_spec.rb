@@ -13,4 +13,10 @@ feature 'User sign in' do
     expect(page).to have_content "Welcome, #{user.username}"
   end
 
+  scenario 'can post a peep' do
+    visit('/peeps/new')
+    fill_in 'peep', with: 'Testing peeps'
+    click_button 'post peep'
+    expect(page).to have_content 'Testing peeps'
+  end
 end
