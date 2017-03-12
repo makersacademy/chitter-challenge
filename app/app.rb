@@ -2,6 +2,10 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
 
+  get '/' do
+    erb :sign_up
+  end
+
   get '/peep' do
     erb :peep
   end
@@ -12,10 +16,6 @@ class Chitter < Sinatra::Base
     @e_mail = params[:e_mail]
     @new_peep = params[:new_peep]
     erb :peep
-  end
-
-  get '/' do
-    erb :sign_up
   end
 
   run! if app_file == $0
