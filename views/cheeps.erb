@@ -1,2 +1,10 @@
-<%=@time%>
-<%="go"%>
+<%= "Cheeps"%>
+
+<%if !@post.nil?%>
+<% @post.each do |post| %>
+<li>
+  Post: <%=post.post%>
+  at: <%=post.created_at%>
+</li>
+<% end %>
+<% end %>

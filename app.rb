@@ -16,32 +16,36 @@ get'/login' do
 end
 
 get '/sign_up' do
+
 erb :sign_up
 end
 get  '/logged_in' do
     @user_name=session[:user_name]
+
   erb :logged_in
 end
-get '/cheeps' do
 
+get '/cheeps' do
+  @post =Post.all
   erb :cheeps
 end
 post '/cheeps' do
-  @time
+@post = Post.all.reverse
   erb :cheeps
 end
 
 post '/logged_in' do
-    @user_name=session[:user_name]
+  @user_name=session[:user_name]
   post=Post.create(post: params[:post])
   @post= Post.all
+  # if @post == []
   # @post = params[:post]
-  p @post
+  #  end
   @time = post.created_at
-
   post.save
   erb :logged_in
 end
+
 
 
  post '/login' do

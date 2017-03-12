@@ -4,11 +4,13 @@
   <input type ='text' name = 'post'>
   <input type = 'submit' value ='post to Chitter'>
 </form>
+<%if !@post.nil?%>
 <% @post.each do |post| %>
 <li>
-  Title: <%=post.post%>
-  at: <%=@time%>
+  Post: <%=post.post%>
+  at: <%=post.created_at%>
 </li>
+<% end %>
 <% end %>
 <form action ='/' method = 'get'>
   <input type ='submit' value = 'Log out'>
