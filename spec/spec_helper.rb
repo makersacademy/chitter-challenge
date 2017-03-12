@@ -5,7 +5,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'database_cleaner'
 
-require_relative '../app/chitter'
+require_relative '../app/app'
 require_relative '../app/models/maker'
 require_relative './helpers/session'
 
