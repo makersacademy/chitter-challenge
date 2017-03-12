@@ -1,4 +1,4 @@
-Chitter Challenge
+Chitter Challenge [![Build Status](https://travis-ci.org/tvfb85/chitter-challenge.svg?branch=master)](https://travis-ci.org/tvfb85/chitter-challenge)
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
