@@ -12,6 +12,8 @@ describe 'Sign up' do
 
   scenario 'user must use an email address for signup' do
     visit '/signup'
+    fill_in :name, with: 'Jose'
+    fill_in :username, with: 'jc85'
     fill_in :email, with: nil
     fill_in :password, with: 'football'
     fill_in :password_confirmation, with: 'football'
@@ -20,6 +22,8 @@ describe 'Sign up' do
 
   scenario 'user must provide a valid email address' do
     visit '/signup'
+    fill_in :name, with: 'Tony'
+    fill_in :username, with: 'ninja'
     fill_in :email, with: 'tony@something'
     fill_in :password, with: 'football'
     fill_in :password_confirmation, with: 'football'
@@ -52,7 +56,7 @@ describe 'Sign up' do
     end
 
     let!(:user) do
-      User.create(email: 'example@domain.com', password: 'apples5',
+      User.create(name: 'Example', username: 'eg1', email: 'example@domain.com', password: 'apples5',
                  password_confirmation: 'apples5')
     end
 
@@ -70,18 +74,20 @@ describe 'Sign up' do
   describe 'Sign out' do
 
     before(:each) do
-      User.create(email: 'example_two@domain.com', password: 'apples5',
+      User.create(name: 'Example', username: 'eg1', email: 'example_one@domain.com', password: 'apples5',
                  password_confirmation: 'apples5')
     end
 
     scenario 'user can sign out' do
       visit '/'
-      fill_in 'email', with: 'example_two@domain.com'
+      fill_in 'name', with: 'Example'
+      fill_in 'username', with: 'eg1'
+      fill_in 'email', with: 'example_one@domain.com'
       fill_in 'password', with: 'apples5'
       click_button 'Sign in'
       click_button 'Sign out'
       expect(page).to have_content('Hasta luego')
-      expect(page).not_to have_content('Welcome, example@domain.com')
+      expect(page).not_to have_content('Welcome, example_one@domain.com')
     end
 
   end

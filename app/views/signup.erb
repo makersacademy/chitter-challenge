@@ -7,6 +7,8 @@
 <h1 class="intro"> Create an account </h1>
 
 <form action="/create_user" method="post">
+  <div style="font-size:20px;margin:20px 0"><label for="name">Name:</label><input type="text" name="name" required value='<%= @user.name %>' ></div>
+  <div style="font-size:20px;margin:20px 0"><label for="username">Username:</label><input type="text" name="username" required value='<%= @user.username %>' ></div>
   <div style="font-size:20px;margin:20px 0"><label for="email">Email:</label><input type="text" name="email" required value='<%= @user.email %>' ></div>
   <div style="clear:both;font-size:20px;margin:20px 0"><label for="password">Password:</label><input type="password" name="password" required/></div>
   <div style="clear:both;font-size:20px;margin:20px 0"><label for="password_confirmation">Confirm Password:</label><input type="password" name="password_confirmation" required/></div>

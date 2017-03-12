@@ -9,7 +9,6 @@ gem 'sinatra-partial'
 gem 'sinatra-flash'
 gem 'pg'
 gem 'bcrypt'
-gem 'rake'
 gem 'font-awesome-less'
 
 group :test do
@@ -17,5 +16,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber'
+  # gem "timecop"
+  gem 'rake'
   gem 'coveralls', require: false
 end

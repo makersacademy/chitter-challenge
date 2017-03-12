@@ -1,8 +1,5 @@
 class Chitter < Sinatra::Base
 
-  get '/' do
-    erb :index
-  end
 
   get '/signup' do
     @user = User.new
@@ -10,7 +7,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_user' do
-    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
 
     if @user.save
       session[:user_id] = @user.id
@@ -39,7 +36,7 @@ class Chitter < Sinatra::Base
 
   delete '/' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Hasta luego'
+    flash.keep[:notice] = 'Hasta luego, ' + session[:user_email] + '!'
     redirect to '/'
   end
 

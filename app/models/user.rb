@@ -11,8 +11,13 @@ class User
 
   validates_confirmation_of :password
   validates_format_of :email, as: :email_address
+  validates_uniqueness_of :email, :username
+
+  has n, :peeps
 
   property :id, Serial
+  property :name, String
+  property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 

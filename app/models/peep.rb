@@ -1,13 +1,16 @@
 class Peep
   include DataMapper::Resource
 
-  has n, :hashtags, through: Resource
-  
-  property :id, Serial
-  # property :name, String
-  # property :username, String
-  property :content, Text
+  # has n, :hashtags, through: Resource
 
-  # belongs to :user
+  property :id, Serial
+  property :content, Text
+  property :created_at, DateTime
+
+  def self.reverse
+    self.all(order: :created_at.desc)
+  end
+
+  belongs_to :user
 
 end

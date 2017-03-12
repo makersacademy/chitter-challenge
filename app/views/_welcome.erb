@@ -1,7 +1,11 @@
 <% if current_user %>
-  <i style="color:black;" class="fa fa-twitter"> </i> Welcome, <%= current_user.email %>
-  <form method='post' action='/'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
+  <div class="nav-bar">
+    <div class="nav-bar-content">
+      <p style="display:inline-block"><i style="color:white;" class="fa fa-twitter"> </i> Welcome, <%= current_user.email %></p>
+      <form style="display:inline-block; padding-left:10px" method='post' action='/'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    </div>
+  </div>
 <% end %>
