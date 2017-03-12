@@ -1,5 +1,5 @@
 def sign_up
-  visit '/'
+  visit '/sign_up'
   fill_in 'e_mail', with: 'nst@mail.com'
   fill_in 'name', with: 'Natalia'
   fill_in 'username', with: 'Nat-Nat'
