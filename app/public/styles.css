@@ -4,6 +4,7 @@ body {
 }
 
 .nav-bar {
+  border-bottom:2px solid white;
   height:65px;
   width:100%;
   background-color: #222;
