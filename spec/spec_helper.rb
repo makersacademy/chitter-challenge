@@ -1,3 +1,5 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'coveralls'
 require 'simplecov'
 require 'web_helper'
@@ -11,7 +13,5 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 SimpleCov.start
-
-ENV['RACK_ENV'] = 'test'
 
 Capybara.app = Chitter
