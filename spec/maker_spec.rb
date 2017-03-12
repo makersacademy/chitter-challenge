@@ -1,4 +1,4 @@
-describe Maker do
+describe "Maker (unit test)" do
 
   let!(:maker) do
     Maker.create( full_name: "Yu Nit Test",

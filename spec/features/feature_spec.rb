@@ -1,5 +1,5 @@
 
-feature "/" do
+feature "Homepage" do
   scenario "finds \"Chitter\" on homepage" do
     visit '/'
     expect(page).to have_content("Chitter")

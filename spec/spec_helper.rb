@@ -7,7 +7,7 @@ require 'database_cleaner'
 
 require_relative '../app/chitter'
 require_relative '../app/models/maker'
-require_relative './features/web_helpers'
+require_relative './helpers/session'
 
 Capybara.app = Chitter
 
@@ -20,6 +20,8 @@ Coveralls.wear!
 
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
