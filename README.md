@@ -50,3 +50,4 @@ If I had more time
 - Password recovery. If user loses/forgets their password
 - Use rake/rakefiles to refactor datamapper tasks like upgrade and migrate database methods
 - Didn't know how to test for a time constraint
+- Testing for edge casing

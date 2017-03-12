@@ -1,6 +1,3 @@
-require 'data_mapper'
-require 'dm-core'
-require 'dm-postgres-adapter'
 require 'dm-timestamps'
 
 class Peep

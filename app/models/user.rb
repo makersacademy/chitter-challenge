@@ -1,5 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+require_relative 'peep'
 require 'bcrypt'
 
 class User
@@ -27,7 +26,3 @@ class User
     user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
