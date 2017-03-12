@@ -4,22 +4,22 @@
 <form action='/users' method='POST'>
 <label for='username'>
   Username:
-  <input  name='username' type='text' />
+  <input  name='username' type='text' required />
 </label>
 <label for='name'>
   Full name:
-  <input  name='name' type='text' />
+  <input  name='name' type='text' required />
 </label>
 <label for='email_address'>
   Email Address:
-  <input type='text' name='email_address' value='<%= @user.email_address %>'/>
+  <input type='text' name='email_address' value='<%= @user.email_address %>' required/>
 </label>
 <label for='password'>
   Password:
-  <input name='password' type='password' />
+  <input name='password' type='password' required />
 </label>
 <label for='password_confirmation'>
-    Password confirmation: <input name='password_confirmation' type='password'>
+    Password confirmation: <input name='password_confirmation' type='password' required>
   </label>
 <input type='submit' value='Create Account'>
 </form>

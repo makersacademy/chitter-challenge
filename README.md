@@ -40,3 +40,8 @@ Technologies Used:
 - Capybara
 - Rake
 - HTML
+- Flash
+
+If I had more time
+==================
+- Validation of forms. Make sure name only contains letters, email_address have an "@" sign
