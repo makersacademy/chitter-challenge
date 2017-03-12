@@ -42,9 +42,10 @@ Usage
 - Go to localhost:PORT
 - You can sign up, sign in, sign out and post peeps
 
-![Image usage in irb]
-
-![Image usage in irb]
+![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.44.59.png)
+![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.46.48.png)
+![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.45.46.png)
+![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.44.13.png)
 
 Status
 -----
