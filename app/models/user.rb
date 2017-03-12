@@ -8,8 +8,12 @@ class User
 
   property :id, Serial
   property :handle, String, required: true, unique: true
+  property :bio, String, :length => 140, required: false
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
+  property :avatar, String, :length => 250
+
+  validates_format_of :avatar, :with => /https?:\/\/[\S]+/
   validates_confirmation_of :password
   validates_presence_of :email
   validates_format_of :email, as: :email_address

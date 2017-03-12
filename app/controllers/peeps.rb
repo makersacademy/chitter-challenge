@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @peep = Peep.create(message: params[:message], media: params[:media], user: current_user, date: Time.now)
     params[:tags].split(',').map!(&:strip).each do |tag|
-    @peep.tags << Tag.first_or_create(tag: tag)
+      @peep.tags << Tag.first_or_create(tag: tag)
     end
     if @peep.save
       session[:draft_message] = @peep.message

@@ -29,3 +29,15 @@ margin-bottom: 0;
   max-width: 30%;
    height: auto;
 }
+
+.profile-img{
+
+  max-width: 25%;
+   height: auto;
+}
+
+.timeline-img{
+
+  max-width: 5%;
+   height: auto;
+}

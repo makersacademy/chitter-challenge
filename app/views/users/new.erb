@@ -2,19 +2,24 @@
 
 <form action='/users' method='post'>
 <div class="form-group">
-  <label for='email' class="control-label">
+  <label for='email' class="control-label"></label>
     Email <input class="form-control" name='email' type='email' value='<%= @user.email %>'>
-  </label></br>
-  <label for='handle' class="control-label">
+  </br>
+  <label for='handle' class="control-label"></label>
     Handle <input class="form-control" name='handle' type='text' value='<%= @user.handle %>'>
-  </label></br>
-  <label for='password' class="control-label">
+  </br>
+  <label for='bio' class="control-label"></label>
+    Bio (140 characters) <input class="form-control" name='bio' type='text' value='<%= @user.bio %>'>
+  </br>
+  <label for='avatar' class="control-label">Avatar (URL)</label>
+  <input class="form-control" type="text" name="avatar" value='<%= @user.avatar %>'>
+  </br>
+  <label for='password' class="control-label"></label>
     Password <input class="form-control" name='password' type='password'>
-  </label></br>
-    <label for='password_confirmation' class="control-label">
-    Password confirmation: <input class="form-control" name='password_confirmation' type='password'>
-  </label></br>
-  <input class="btn btn-success" type='submit' value='&nbsp;Sign Up&nbsp;'>
+  </br>
+    <label for='password_confirmation' class="control-label"></label>
+    Password confirmation<input class="form-control" name='password_confirmation' type='password'>
+  </br>
+  <input class="btn btn-success btn-block" type='submit' value='&nbsp;Sign Up&nbsp;'>
 </div>
 </form>
-<a class="btn btn-primary" href="/sessions/new">&nbsp;Sign In&nbsp;&nbsp;</a>

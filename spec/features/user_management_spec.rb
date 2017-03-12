@@ -34,7 +34,7 @@ feature 'User sign up' do
   scenario 'cannot create a new account with the same email address' do
     sign_up(email:email, handle: handle, password: password)
     expect{sign_up(email:email, handle: handle, password: password)}.to_not change(User, :count)
-    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content  ('Email is already taken')
   end
 
 end
@@ -49,7 +49,7 @@ feature 'User sign in' do
 
   let!(:user) do
     User.create(email: email, handle: handle,
-                password: password,
+                bio: "", password: password,
                 password_confirmation: password)
   end
 
@@ -74,7 +74,7 @@ feature 'User sign out' do
 
   let!(:user) do
     User.create(email: email,
-                password: password, handle: handle,
+                bio: "", password: password, handle: handle,
                 password_confirmation: password)
   end
 

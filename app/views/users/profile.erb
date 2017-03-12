@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-6">
+    <% if @user %>
+      <% if @user.avatar %>
+        <img class="profile-img" src="<%= @user.avatar %>" /></br></br>
+      <% end %>
+
+        <h3><%= @user.handle %></h3><br>
+      <h6>Email</h6>
+        <%= @user.email %></br></br>
+      <h6>Bio</h6>
+        <%= @user.bio %><br></br>
+      <h6>Peep count</h6>
+        <%= @user.peeps.count %>
+  </div>
+<div class="col-sm-6">
+
+  asdsadas
+
+asdasd
+
+<% else %>
+That user does not exist!
+<% end %>
+
+</div>
+</div>
