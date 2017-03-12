@@ -1,4 +1,4 @@
-Chitter Challenge [![Build Status](https://travis-ci.org/tvfb85/chitter-challenge.svg?branch=master)](https://travis-ci.org/tvfb85/chitter-challenge)
+Chitter Challenge [![Build Status](https://travis-ci.org/tvfb85/chitter-challenge.svg?branch=master)](https://travis-ci.org/tvfb85/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/tvfb85/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/tvfb85/chitter-challenge?branch=master)
 =================
 
 * Challenge time: rest of the day and weekend, until Monday 9am
