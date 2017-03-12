@@ -3,7 +3,7 @@
 # I want to log out of Chitter
 
 feature 'User signs out' do
-   include Helpers
+  include Helpers
 
   scenario 'while being signed in' do
     visit '/homepage'

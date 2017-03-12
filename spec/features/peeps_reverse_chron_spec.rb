@@ -4,6 +4,7 @@
 
 feature 'so that users can see what others are saying' do
   include Helpers
+  
   scenario 'all peeps are in reverse chronological order' do
     visit '/'
     sign_up

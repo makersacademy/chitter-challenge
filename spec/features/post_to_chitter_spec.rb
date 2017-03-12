@@ -4,6 +4,7 @@
 
 feature 'so that users can let people know what they are doing' do
   include Helpers
+  
   scenario 'a user wants to post a peep to chitter' do
     visit '/'
     sign_up

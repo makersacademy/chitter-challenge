@@ -1,6 +1,5 @@
 #Chitter Challenge: Makers Weekend Challenge 4
 =================
-
 ```
 As a Maker
 So that I can post messages on Chitter as me
@@ -27,28 +26,14 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-
-
 ## How to run
 
-- Clone this repo to your local machine `git clone [url]``
+- Clone this repo to your local machine `git clone [url]`
 - Navigate to the `chitter-challenge` folder `cd rps-challenge`
 - Run `gem install bundle` if bundler isn't installed & run `bundle`
 - On your terminal, run `rackup` to launch the web app
 - Enter `localhost:9292` in the address bar of a web browser
-- Sign up, view peeps and post peeps.
+- Sign up, view peeps and post peeps
 
 ## Tools/Languages
 
@@ -67,3 +52,4 @@ Notes on functionality:
 - Users cannot interact with one another. I would like to bring in this functionality.
 - Passwords may be entered incorrectly, which is not ideal for privacy.
 - Users cannot post unless they are logged in, but the app does not currently make this clear.
+- I call my spec files 'log in/log out' but my view files 'sign in/sign out' - an oversight I would like to change.

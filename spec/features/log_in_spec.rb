@@ -13,7 +13,6 @@ feature 'User sign in' do
     fill_in :username, with: 'tansaku'
     fill_in :password, with: 's3cr3t'
     click_button 'Submit'
-    visit '/'
     expect(page).to have_content 'Logged in as: tansaku'
   end
 end
