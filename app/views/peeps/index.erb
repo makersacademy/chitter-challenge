@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="/style.css">
+<h3> Peeps </h3>
+<% if @peeps.length == 0 %>
+  No peeps found
+<% end %>
+<% @peeps.each do |peep| %>
+ <div class="panel-item">
+ <h6><%= peep.message %></a></h6>
+  Tags:
+  <% if peep.tags.length == 0 %>
+    No tags
+  <% end %>
+  &nbsp;|
+  <% peep.tags.each do |tag| %>
+    <a href="/tags/<%= tag.tag%>"><%= tag.tag%></a>&nbsp;|&nbsp;
+  <% end %>
+
+  <form class="form-inline my-2 my-lg-0" method='post' action='/peeps'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='hidden' name='id' value='<%= peep.id %>'>
+    </br>
+    </br>
+    <input class="btn btn-danger" type="submit" value="Delete" class="btn btn-primary">
+  </form>
+ </div>
+ </br>
+<% end %>

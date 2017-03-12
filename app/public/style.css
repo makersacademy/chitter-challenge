@@ -1,0 +1,25 @@
+.panel-item{
+border: solid black 2px;
+border-radius:5px;padding:5px;
+}
+
+.warnings{
+border: solid red 2px;
+border-radius:5px;padding:5px;
+}
+
+.navbar-custom {
+    background-color:#5da246;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.footer {
+    background-color:#5da246;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.no-bottom{
+margin-bottom: 0;
+}

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-custom">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/peeps"><img src="/logo_chitter.png"></a>
+    <% if current_user %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+           <li class="nav-item">
+            <span class="navbar-text"><%= current_user.email %></span>
+           </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        &nbsp;
+        <form class="form-inline my-2 my-lg-0" method='get' action='/peeps/new'>
+            <input class="btn btn-success" type='submit' value='Peep'>
+        </form>
+        &nbsp;
+        <form class="form-inline my-2 my-lg-0" method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input class="btn btn-danger" type='submit' value='Sign out'>
+        </form>
+    </div>
+    <% end %>
+</nav>
