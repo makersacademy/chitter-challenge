@@ -19,7 +19,7 @@
 * [Usage](#usage)
 * [Implemented Features](#features)
 * [Tests](#tests)
-* [Heroku Demo](#demo)
+* [Heroku Demo](https://robs-chitter.herokuapp.com/)
 * [Screenshots](#screenshots)
 
 ## The Brief
@@ -105,9 +105,6 @@ $ open http://localhost:9292
 ```
 $ rspec
 ```
-
-## <a name="demo">[Heroku Demo](https://robs-chitter.herokuapp.com/)</a>
-Click on the link above to see a live demo
 
 ## <a name="screenshots">Screenshots</a>
 
