@@ -5,7 +5,7 @@ require_relative 'models/user'
 
 
 class App < Sinatra::Base
-
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -61,7 +61,7 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/peeps')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
   end
@@ -70,6 +70,11 @@ class App < Sinatra::Base
   #
   # end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
+  end
 
   helpers do
     def current_user
