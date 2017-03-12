@@ -5,8 +5,25 @@
     <li>
       <%=peep.text%>
       by <%=peep.user.name%>
-      <%=peep.user.username%>
+      @<%=peep.user.username%>
       at <%=peep.created_at.strftime('%H:%M %d %b %Y')%>
+
+        <% if current_user %>
+          <form id="comments" action="/peeps/<%=peep.id%>" method="GET">
+            <input type="submit" value="Comments" id="<%= peep.id %>"/>
+          </form>
+        <% end %>
+
+      <ul id='comments'>
+        <% peep.comments.each do |comment|%>
+        <li>
+          <%= comment.text %>
+          by @<%= comment.user.username%>
+          at <%= comment.created_at.strftime('%H:%M %d %b %Y') %>
+        </li>
+        <%end%>
+      </ul>
+
     </li>
     <%end%>
 </ul>
