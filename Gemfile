@@ -4,10 +4,10 @@ ruby '2.3.3'
 group :test do
   gem 'rspec'
   gem 'rake'
-  gem 'rubocop-rspec'
-  gem 'rubocop'
+  gem 'rubocop-rspec', :require => false, :group => :test
+  gem 'rubocop', :require => false, :group => :test
   gem 'capybara'
-  gem 'pry-byebug'
+  gem 'pry-byebug', :require => false, :group => :test
   gem 'rspec-sinatra'
   gem 'database_cleaner'
   gem 'codecov', :require => false, :group => :test
