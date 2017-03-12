@@ -73,19 +73,16 @@ describe 'Sign up' do
 
   describe 'Sign out' do
 
-    before(:each) do
-      User.create(name: 'Example', username: 'eg1', email: 'example_one@domain.com', password: 'apples5',
-                 password_confirmation: 'apples5')
-    end
+    # before(:each) do
+    #   user = User.create(name: 'Example', username: 'eg1', email: 'example_one@domain.com', password: 'apples5',
+    #              password_confirmation: 'apples5')
+    # end
 
     scenario 'user can sign out' do
-      visit '/'
-      fill_in 'email', with: 'example_one@domain.com'
-      fill_in 'password', with: 'apples5'
-      click_button 'Sign in'
+      sign_up
       click_button 'Sign out'
       expect(page).to have_content('Hasta luego')
-      expect(page).not_to have_content('Welcome, example_one@domain.com')
+      expect(page).not_to have_content('Welcome')
     end
 
   end
