@@ -4,6 +4,8 @@
 
 feature 'so that users can better appreciate the context of a peep' do
   scenario 'a user wants to see the time which it was made' do
+    visit '/'
+    sign_up
     visit ('/post-peep')
     fill_in 'peep_content', with: "Hello chitter!"
     click_button ('Post peep')

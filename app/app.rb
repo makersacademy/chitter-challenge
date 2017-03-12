@@ -16,17 +16,8 @@ class ChitterApp < Sinatra::Base
 
   get '/homepage' do
     @peeps = Peep.all
+    @user = session[:user_id]
     erb :homepage
-  end
-
-  get '/post-peep' do
-    erb :post_peep
-  end
-
-  post '/posted-peep' do
-    Peep.create(peep_content: params[:peep_content], time_peeped: Time.now)
-    #Above will also have functionality to save username to peep.
-    redirect '/homepage'
   end
 
   get '/users/sign_up' do
@@ -54,6 +45,17 @@ class ChitterApp < Sinatra::Base
     else
       erb :'sessions/sign_in'
     end
+  end
+
+  get '/post-peep' do
+    @user = session[:user_id]
+    erb :post_peep
+  end
+
+  post '/posted-peep' do
+    Peep.create(peep_content: params[:peep_content], time_peeped: Time.now, user_id: session[:user_id])
+    #Above will also have functionality to save username to peep.
+    redirect '/homepage'
   end
 
   delete '/sessions' do

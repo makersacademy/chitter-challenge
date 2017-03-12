@@ -1,6 +1,17 @@
-<% if current_user %>
+<!DOCTYPE html>
+  <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+<body><main>
+
+<p><% if current_user %>
    <form method='post' action='/sessions'>
      <input type='hidden' name='_method' value='delete'>
-     <input type='submit' value='Sign Out'>
+     <input type='submit' class='btn' value='Sign Out'>
    </form>
  <% end %>
+</p>
+
+ </main></body>
+ </html>

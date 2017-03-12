@@ -20,6 +20,6 @@ class User
     first(email: email)
   end
 
-  #has n, :peeps
+  has n, :peeps
 
 end

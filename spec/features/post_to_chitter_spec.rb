@@ -4,6 +4,8 @@
 
 feature 'so that users can let people know what they are doing' do
   scenario 'a user wants to post a peep to chitter' do
+    visit '/'
+    sign_up
     visit ('/post-peep')
     fill_in 'peep_content', with: "Hello chitter!"
     click_button ('Post peep')
