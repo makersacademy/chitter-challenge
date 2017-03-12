@@ -1,5 +1,10 @@
-<p><label>What are your thoughts about the peep "<%= @peep.text %>" </label></p>
-<form id="postcomment" action="/peeps/<%= @peep.id %>" method="POST">
-    <textarea type="text" name="comment" placeholder="Well done" maxlength="140" rows="10" cols="20" autofocus></textarea>
-  <p><input type="submit" value="Submit"/></p>
-</form>
+<div style="color:black;padding:50px;" align="center">
+
+  <p style="font-family:courier;" ><label>What are your thoughts about the peep</label><p>
+  <p>"<%= @peep.text %>"</p>
+  <form id="postcomment" action="/peeps/<%= @peep.id %>" method="POST">
+      <textarea rows="7" cols="40" style="background-color:#ebfafa;font-family:courier;font-size:14px" type="text" name="comment" placeholder="Well done" maxlength="140" autofocus></textarea>
+    <p><input style="background-color:#d6f5f5;border-radius:4px;" type="submit" id="Submit" value="Add Comment"/></p>
+  </form>
+
+</div>
