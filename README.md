@@ -43,6 +43,18 @@ Technologies Used:
 - HTML
 - Flash
 
+How to use
+==========
+To use chitter please do the following:
+
+```
+$ git clone git@github.com:ayanit1/chitter-challenge.git
+$ cd chitter-challenge
+$ run 'bundle'
+$ run 'rackup'
+```
+Make sure you sign up and you can then post peeps.
+
 If I had more time
 ==================
 - Validation of forms. Make sure name only contains letters, email_address have an "@" sign
@@ -51,3 +63,4 @@ If I had more time
 - Use rake/rakefiles to refactor datamapper tasks like upgrade and migrate database methods
 - Didn't know how to test for a time constraint
 - Testing for edge casing
+- Add buttons for users to move throughout pages
