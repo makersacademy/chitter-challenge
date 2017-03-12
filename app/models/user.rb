@@ -16,5 +16,10 @@ class User
   property :name,         String
   property :username,     String
 
+  def self.authenticate(email, password)
+    first(email: email)
+  end
+
   #has n, :peeps
+
 end

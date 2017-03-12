@@ -4,5 +4,5 @@ def sign_up
     fill_in :password, with: 's3cr3t'
     fill_in :name, with: 'Samuel Russell Hampden Joseph'
     fill_in :username, with: 'tansaku'
-  click_button 'Submit'
+    click_button 'Submit'
 end

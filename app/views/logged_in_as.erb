@@ -1,4 +1,6 @@
 <% if current_user %>
-  Logged in as: <%=current_user.username%> [logout]<br>
+  Logged in as: <%=current_user.username%> </br> <%= erb :'sessions/sign_out' %>
+<% else %>
+  <a href='users/sign_up'>Sign Up</a> or <a href='sessions/sign_in'>Sign In</a> to peep.
 <% end %>
 <hr>

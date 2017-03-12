@@ -8,6 +8,7 @@ gem 'rspec-sinatra'
 gem 'pg'
 gem 'dm-migrations'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'simplest_auth'
 
   gem 'rspec'
   gem 'cucumber'

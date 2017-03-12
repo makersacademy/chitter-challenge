@@ -8,6 +8,7 @@ require_relative "helpers/dm_config"
 class ChitterApp < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     redirect '/post-peep'
@@ -28,8 +29,8 @@ class ChitterApp < Sinatra::Base
     redirect '/homepage'
   end
 
-  get '/signup' do
-    erb :users_sign_up
+  get '/users/sign_up' do
+    erb :'users/sign_up'
   end
 
   post '/users' do
@@ -39,7 +40,26 @@ class ChitterApp < Sinatra::Base
               username: params[:username])
   session[:user_id] = user.id
   redirect to('/homepage')
-end
+  end
+
+  get '/sessions/sign_in' do
+    erb :'sessions/sign_in'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/homepage')
+    else
+      erb :'sessions/sign_in'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/homepage'
+  end
 
   helpers do
     def current_user

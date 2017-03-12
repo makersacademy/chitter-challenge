@@ -115,6 +115,8 @@ GEM
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     rspec-support (3.5.0)
+    simplest_auth (0.3.1)
+      bcrypt-ruby (>= 2.1.1)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -145,6 +147,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
+  simplest_auth
   sinatra
 
 RUBY VERSION

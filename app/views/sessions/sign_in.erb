@@ -1,0 +1,9 @@
+<%= erb :logged_in_as %>
+
+<h1>Sign into your Chitter Account:</h1>
+
+<form action="/sessions" method="post">
+  Username: <input name='username' type='text'>
+  Password: <input name='password' type='password'>
+  <input type="submit" value="Submit">
+</form>
