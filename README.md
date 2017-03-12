@@ -7,7 +7,7 @@ Description:
 
 A little Twitter clone that allows users to post messages and replies to a public stream.
 
-Lives on the internet here: [Chitter by nryn](about:blank)
+Lives on the internet here: [Chitter by nryn](https://immense-citadel-54407.herokuapp.com)
 
 Usage:
 ------
@@ -23,7 +23,7 @@ Usage:
 
 Alternative Usage Instructions:
 
-* Have a go with the live version on [Heroku](about:blank).
+* Have a go with the live version on [Heroku](https://immense-citadel-54407.herokuapp.com).
 
 
 Dependencies:
