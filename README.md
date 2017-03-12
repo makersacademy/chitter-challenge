@@ -64,9 +64,9 @@ Screenshots:
 -------
 ![desktop logged in](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144435.png)
 
-![mobile portrait logged in](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143741.png) ![mobile portait logged out](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144058.png)
+<img src="http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143741.png" width="49%"> <img src="http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144058.png" width="49%">
 
-![desktop closeup](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144257.png) ![desktop zoomed](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143839.png)
+<img src="http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144257.png" width="75%"> <img src="http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143839.png" width="23.5%">
 
 User Stories Implemented:
 -------
