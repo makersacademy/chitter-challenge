@@ -37,6 +37,14 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/users/signout' do
+    redirect '/signout'
+  end
+
+  get '/signout' do
+    erb :signout
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :peeps_list

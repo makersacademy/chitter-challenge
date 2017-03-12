@@ -1,5 +1,9 @@
 <h1>Welcome to Chitter, <%= current_user.first_name%>!</h1>
 
+<form action= "users/signout" method= "post">
+  <input type= "submit" value= "Sign out">
+</form>
+
 <form action= "peeps/new" method= "get">
   <input type= "submit" value= "Compose New Peep">
 </form>
