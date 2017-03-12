@@ -9,13 +9,23 @@
   <body background="http://www.androidguys.com/wp-content/uploads/2016/08/Minimalistic-Wallpaper-09.jpg" background-size>
 
     <div style="background-color:black;color:white;padding:20px;" align="right">
+      <% if !current_user %>
+      <table bordercolor="red" border="0">
+        <tr>
+          <td>
+            <form method='get' action='/'>
+              <input type="submit" value="home" style="display:table-cell;background-color:#3F9776;color:white;border-radius:15px">
+            </form>
+          </td>
+        </tr>
+      </table>
+      <% end %>
       <% if current_user %>
       <table width="100%">
         <tr>
           <td><form method='get' action='/peeps/new'>
             <input type='submit' value='Post Peep' align="right">
           </form></td>
-
           <td width="70%"></td>
 
           <td>Welcome, <%= current_user.username %>!</td>
