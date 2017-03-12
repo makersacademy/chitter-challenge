@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative './models/data_mapper_setup'
 require_relative './models/user'
+require_relative './models/peep'
 
 class Chitter < Sinatra::Base
 
@@ -17,6 +18,7 @@ class Chitter < Sinatra::Base
 
   get '/peep' do
     @user = current_user
+    @peeps = Peep.all
     erb :peep
   end
 
@@ -43,13 +45,17 @@ class Chitter < Sinatra::Base
 
   get '/sign_out' do
     session[:id] = nil
+    @user = nil
+    @peeps = Peep.all
     erb :peep
   end
 
   post '/peep' do
     @user = current_user
-    @new_peep = params[:new_peep]
-    erb :peep
+    new_peep = Peep.create(name: params[:new_peep], time: Time.now)
+    @user.peeps << new_peep
+    @user.save
+    redirect '/peep'
   end
 
   run! if app_file == $0
