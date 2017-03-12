@@ -7,7 +7,7 @@ require './app/models/peep'
 require './app/models/reply'
 
 def setup_datamapper
-  DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.auto_upgrade!
   DataMapper.finalize
 end

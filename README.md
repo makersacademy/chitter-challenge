@@ -1,20 +1,60 @@
-Chitter Challenge
+Narayan's Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/nryn/chitter-challenge.svg?branch=master)](https://travis-ci.org/nryn/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
-Challenge:
+Description:
 -------
 
-As usual please start by forking this repo.
+A little Twitter clone that allows users to post messages and replies to a public stream.
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Lives on the internet here: [Chitter by nryn](about:blank)
 
-Features:
+Usage:
+------
+
+* Clone repo and `cd` into project root directory.
+* To download dependencies, `gem install bundle` then `bundle`.
+* Set up databases, make sure you've a local version of psql (if you don't, but have homebrew then do `brew install psql`)
+* `createdb chitter_test` will create the database used by the test environment (automatically wiped before and after each test)
+* `createdb chitter_development` will create the database for messing around locally
+* `rspec` to run tests
+* `rackup` to set up the local server, then you can visit `http://localhost:9292/` in your web browser to give it a spin.
+* Enjoy.
+
+Alternative Usage Instructions:
+
+* Have a go with the live version on [Heroku](about:blank).
+
+
+Dependencies:
+------
+
+* Ruby 2.4.0
+* To run locally, you can get the following gems with `gem install bundle` followed by `bundle`
+* Sinatra, BCrypt, Postgres, DataMapper (+psql adapter), DatabaseCleaner
+* Tests: RSpec, Capybara
+
+Notes:
+------
+
+* TDD used (RSpec). Feel like the models helper methods are under-tested, but I found they were hard to test since they rely on local variables coming from a browser which are hard to mock.
+* Makers sign up to chitter with a username which must be unique
+* They are then prompted to confirm the account by providing and email (must be unique), first name, and confirming their password.
+* Using bcrypt to secure the passwords.
+* Peeps (posts to chitter) have the name of the maker and their user handle.
+* Used DataMapper and postgres for DB stuff.
+* You don't have to be logged in to see the peeps.
+* You only can peep or reply if you are logged in.
+
+Screenshots:
+-------
+![desktop logged in](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144435.png)
+
+![mobile portrait logged in](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143741.png) ![mobile portait logged out](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144058.png)
+
+![desktop closeup](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_144257.png) ![desktop zoomed](http://img1.imagilive.com/0317/Screen_Shot_2017-03-12_at_143839.png)
+
+User Stories Implemented:
 -------
 
 ```
@@ -41,68 +81,8 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a maker
+In order to start a conversation as a maker
+I want to reply to a peep from another maker
 ```
-
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
