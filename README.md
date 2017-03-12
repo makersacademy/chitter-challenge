@@ -23,3 +23,9 @@ I want to see all peeps in reverse chronological order
 - As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+
+
+A feature test that I wanted to write (comparing the password on the database with that provided by the current user) was beyond my reach.
+
+In order to pass the less robust test that I ended up going with I disabled the 'after' block of the Database Cleaner in my spec_helper file, so that my test had something to match against. This was not ideal but I couldn't figure out a way around it yet.

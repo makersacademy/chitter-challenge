@@ -1,10 +1,12 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'database_cleaner'
 require 'coveralls'
 require 'simplecov'
 require 'web_helper'
 require 'capybara/rspec'
-require './app'
+require './app/app'
+
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
@@ -15,3 +17,22 @@ Coveralls.wear!
 SimpleCov.start
 
 Capybara.app = Chitter
+
+RSpec.configure do |config|
+# Everything in this block runs once before all the tests run
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # config.append_after(:each) do
+  #   DatabaseCleaner.clean
+  # end
+
+
+end

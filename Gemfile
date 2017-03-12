@@ -5,6 +5,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 
 group :test do
+  gem 'database_cleaner'
   gem 'rspec'
   gem 'cucumber'
   gem 'capybara'
@@ -14,5 +15,7 @@ group :test do
 end
 
 gem 'sinatra'
+gem 'sinatra-partial'
+
 
 gem 'bcrypt'

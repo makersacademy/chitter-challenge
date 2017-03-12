@@ -1,0 +1,17 @@
+<%= erb(:HTML) %>
+
+<center>
+
+  <h1>Welcome <%=@username%>! You are now registered on Chitter.</h1>
+  <br>
+
+  <form action=/sessions method=post>
+    <input type='hidden' name='_method' value='delete'>
+    <button type=submit class="btn btn-warning">Log out</button>
+  </form>
+  <br>
+  <br>
+
+  <button type=submit class="btn btn-warning">&nbsp;&nbsp;Peep!&nbsp;&nbsp;</button>
+
+</center>
