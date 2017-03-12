@@ -17,18 +17,21 @@ feature 'signing up for Chitter' do
   scenario 'user must confirm with identical password to sign up' do
     expect{sign_up(password_confirmation: 'blitzen')}.to_not change(User, :count)
     expect(page).to have_content('Password does not match the confirmation')
+
   end
 
   scenario 'user cannot sign up with already taken username' do
     sign_up
     expect{sign_up(username: 'santaclaus')}.to_not change(User, :count)
     expect(page).to have_content('Username is already taken')
+
   end
 
   scenario 'user cannot sign up with already taken email' do
     sign_up
     expect{sign_up(email: 'santa@northpole.com')}.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
+
   end
 
 end
