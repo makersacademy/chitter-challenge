@@ -36,15 +36,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_in' do
-    p params[:username]
     user = User.first(:username => params[:username])
-    p user
     session[:id] = user.id
     redirect '/peep'
   end
 
+  get '/sign_out' do
+    session[:id] = nil
+    erb :peep
+  end
+
   post '/peep' do
-    p @user = current_user
+    @user = current_user
     @new_peep = params[:new_peep]
     erb :peep
   end
