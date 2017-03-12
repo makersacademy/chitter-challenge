@@ -1,5 +1,5 @@
-# require 'coveralls'
-# require 'simplecov'
+require 'coveralls'
+require 'simplecov'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -14,12 +14,12 @@ require File.join(File.dirname(__FILE__), '..', '/app.rb')
 
 
 Capybara.app = Chitter
-#
-# SimpleCov.formatters = [
-#   SimpleCov::Formatter::HTMLFormatter,
-#   Coveralls::SimpleCov::Formatter
-# ]
-# Coveralls.wear!
+
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 RSpec.configure do |config|
 
