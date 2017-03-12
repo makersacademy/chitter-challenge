@@ -2,13 +2,7 @@
 # So that I can post messages on Chitter as me
 # I want to sign up for Chitter
 
-feature 'Sign up/sign in' do
-
-  scenario 'user can sign into Chitter' do
-    visit '/'
-    expect(page.status_code).to eq 200
-    expect(page).to have_content('Sign in')
-  end
+describe 'Sign up' do
 
   scenario 'user can create account' do
     expect { sign_up }.to change(User, :count).by(1)
@@ -47,6 +41,49 @@ feature 'Sign up/sign in' do
     expect { click_button 'Create account' }.not_to change(User, :count)
     expect(page).to have_content 'Password does not match the confirmation'
     # expect(current_path).to eq('/signup') # current_path is a helper provided by Capybara
+  end
+
+  describe 'Sign-in' do
+
+    scenario 'user can sign into Chitter' do
+      visit '/'
+      expect(page.status_code).to eq 200
+      expect(page).to have_content('Sign in')
+    end
+
+    let!(:user) do
+      User.create(email: 'example@domain.com', password: 'apples5',
+                 password_confirmation: 'apples5')
+    end
+
+    it 'authenticates when given a valid email address and password' do
+      authenticated_user = User.authenticate(user.email, user.password)
+      expect(authenticated_user).to eq user
+    end
+
+    it 'does not authenticate when given an incorrect password' do
+      expect(User.authenticate(user.email, 'oranges10')).to be_nil
+    end
+
+  end
+
+  describe 'Sign out' do
+
+    before(:each) do
+      User.create(email: 'example_two@domain.com', password: 'apples5',
+                 password_confirmation: 'apples5')
+    end
+
+    scenario 'user can sign out' do
+      visit '/'
+      fill_in 'email', with: 'example_two@domain.com'
+      fill_in 'password', with: 'apples5'
+      click_button 'Sign in'
+      click_button 'Sign out'
+      expect(page).to have_content('Hasta luego')
+      expect(page).not_to have_content('Welcome, example@domain.com')
+    end
+
   end
 
 end

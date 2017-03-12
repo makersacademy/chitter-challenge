@@ -5,10 +5,10 @@ require 'sinatra/flash'
 require './app/models/dm_config'
 
 class Chitter < Sinatra::Base
-
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -43,11 +43,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/signin' do
-    #some magic to check credentials
-    session[:email] = params[:email]
-    session[:password] = params[:password]
-    redirect '/peeps'
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :index
+    end
   end
+
 
   get '/peeps' do
     @peeps = Peep.all
@@ -68,10 +73,17 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
   end
 
+
   get '/hashtags/:name' do
     hashtag = Hashtag.first(name: params[:name])
     @peeps = hashtag ? hashtag.peeps : []
     erb :'peeps/index'
+  end
+
+  delete '/' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Hasta luego'
+    redirect to '/'
   end
 
 end

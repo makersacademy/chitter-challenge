@@ -3,13 +3,27 @@
 
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+<body style="padding:0; margin:0; background:url('http://michaelamusto.com/wp-content/uploads/2014/07/instagram-photos.jpg') center center fixed;background-size: contain">
+  <!-- <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/Q7mvIzM6r7Y?ecver=2&showinfo=0&controls=0&autoplay=1&loop=1" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe> -->
 
-<h1 class="intro"> Sign in </h1>
+    <div style="position:absolute;right:0;z-index:999;border-left: 5px solid black;background-color:#ddd;color:black; width:310px;height:100%;">
+      <div style="padding:10px">
+      <h1 style="margin:0 3px 15px;color:#3ba289; text-shadow: 2px 2px black;font-size:80px">Chitter</h1>
+      <h2 style="margin:0;padding:0 0 0 10px;color:black"> Sign in </h2>
 
-<form action="/signin" method="post">
-  <div style="font-size:20px;margin:20px 0"><label for="email">Email:</label><input type="text" name="email" required></div>
-  <div style="clear:both;font-size:20px;margin:20px 0"><label for="password">Password:</label><input type="password" name="password" required/></div>
-  <input style="background-color:#ddd;border-radius:5%;margin-top:20px; padding:3px 20px;font-size:24px;" type="submit" value="Sign in">
-</form>
+      <form style="padding-left:10px;" action="/signin" method="post">
+        <div style="font-size:20px;margin:20px 0"><label for="email">Email:</label><input type="text" name="email" required></div>
+        <div style="clear:both;font-size:20px;margin:20px 0"><label for="password">Password:</label><input type="password" name="password" required/></div>
+        <input style="background-color:#ddd;border-radius:5%;margin-top:20px; padding:3px 20px;font-size:24px;" type="submit" value="Sign in">
+      </form>
 
-<h5> New to Chitter? Create an account <a href="/signup">here</a> </h5>
+      <h5 style="padding-left:10px;"> New to Chitter? Create an account <a href="/signup">here</a> </h5>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- <div id="vid" style="position: fixed; top: 0; z-index: -99;  margin-top: -150px; margin-left: -150px">
+  <iframe src="https://youtu.be/Q7mvIzM6r7Y" width="1300" height="700" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div> -->
+</body>
