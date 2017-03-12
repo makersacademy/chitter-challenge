@@ -1,16 +1,27 @@
-<h1>or sign in</h1>
-  <form method='post' action='/sign_in'>
-      <ul>
-        <li>
-          <label for='username'>Username:</label>
-          <input type='text' name='username'>
-        </li>
-        <li>
-          <label for='password'>Password</label>
-          <input type='pasword' name='password'>
-        </li>
-        <li>
-          <input type='submit' value='Sign in'>
-        </li>
-      </ul>
-  </form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
+  </head>
+  <body>
+    <div>
+      <h1>Sign in</h1>
+          <form method='post' action='/sign_in'>
+              <ul>
+                <li>
+                  <label for='username'>Username:</label>
+                  <input class='field' type='text' name='username'>
+                </li>
+                <li>
+                  <label for='password'>Password</label>
+                  <input class='field' type='pasword' name='password'>
+                </li>
+                <li>
+                  <input class="button" type='submit' value='Sign in'>
+                </li>
+              </ul>
+          </form>
+    </div>
+  </body>
+</html>

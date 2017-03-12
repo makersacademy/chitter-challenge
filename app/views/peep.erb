@@ -1,25 +1,36 @@
-<% if @user %>
-  <form method='get' action='/sign_out'>
-    <input type='submit' value='Sign out'>
-  </form>
-  <h1>Welcome, <%= @user.name %>!</h1>
-  <h2>Username: <%= @user.username %></h2>
-  <h2>E-mail: <%= @user.e_mail %></h2>
-  <h1> Add a new peep </h1>
-  <form method='post' action='/peep'>
-    <input tupe='text' name='new_peep'>
-    <input type='submit' value='Add'>
-  </form>
-<% else %>
-  <h1>Welcome to Chitter!</h1>
-  <h3>Please, sign in to peep.</h3>
-  <a href='/sign_up'>Sign up</a>
-  <a href='/sign_in'>Sign in</a>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
+  </head>
+  <body>
+    <div>
+      <% if @user %>
+        <form method='get' action='/sign_out'>
+          <input class="button" type='submit' value='Sign out'>
+        </form>
+        <h1>Welcome, <%= @user.name %>!</h1>
+        <h2>Username: <%= @user.username %></h2>
+        <h2>E-mail: <%= @user.e_mail %></h2>
+        <h1> Add a new peep </h1>
+        <form method='post' action='/peep'>
+          <input class='field' tupe='text' name='new_peep'>
+          <input class="button" type='submit' value='Add'>
+        </form>
+      <% else %>
+        <h1>Welcome to Chitter!</h1>
+        <h3>Please, sign in to peep.</h3>
+        <a href='/sign_up' class='button'>Sign up</a>
+        <a href='/sign_in' class='button'>Sign in</a>
+      <% end %>
 
-<h1>What's happening now:</h1>
-<ul>
-  <% @peeps.each do |peep| %>
-  <li><%= peep.name %> - By <%= peep.user.name %> on <%= peep.time.asctime %> </li>
-  <% end %>
-</ul>
+      <h1>What's happening now:</h1>
+      <ul class='peeps'>
+        <% @peeps.each do |peep| %>
+        <li class='box'><%= peep.name %><span class='comment'> - By <%= peep.user.name %> on <%= peep.time.asctime %></span> </li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
