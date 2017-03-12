@@ -1,5 +1,5 @@
 .panel-item{
-border: solid black 2px;
+border: solid #7ec2d6 2px;
 border-radius:5px;padding:5px;
 }
 
@@ -22,4 +22,10 @@ border-radius:5px;padding:5px;
 
 .no-bottom{
 margin-bottom: 0;
+}
+
+.peep-img{
+
+  max-width: 30%;
+   height: auto;
 }

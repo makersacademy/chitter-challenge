@@ -1,7 +1,8 @@
-def create_peep(message:, tag: nil)
+def create_peep(message:, media: nil, tag: nil)
   visit('/peeps')
   click_button 'Peep'
   fill_in 'message', with: message
+  fill_in 'media', with: media unless media.nil?
   fill_in 'tags', with: tag unless tag.nil?
   click_button 'Send'
 end

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
            <li class="nav-item">
-            <span class="navbar-text"><%= current_user.email %></span>
+            <span class="navbar-text">Signed in as <%= current_user.handle %></span>
            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">
@@ -16,13 +16,26 @@
         </form>
         &nbsp;
         <form class="form-inline my-2 my-lg-0" method='get' action='/peeps/new'>
-            <input class="btn btn-success" type='submit' value='Peep'>
+            <input class="btn btn-success" type='submit' value='&nbsp;&nbsp;&nbsp;Peep&nbsp;&nbsp;&nbsp;'>
         </form>
         &nbsp;
         <form class="form-inline my-2 my-lg-0" method='post' action='/sessions'>
             <input type='hidden' name='_method' value='delete'>
             <input class="btn btn-danger" type='submit' value='Sign out'>
         </form>
+    </div>
+    <% else %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+        <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        &nbsp;
+        <a class="btn btn-success" href="/sessions/new">&nbsp;Sign In&nbsp;&nbsp;</a>
+        &nbsp;
+        <a class="btn btn-primary" href="/users/new">Sign Up</a>
     </div>
     <% end %>
 </nav>

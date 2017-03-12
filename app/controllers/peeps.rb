@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @peep = Peep.create(message: params[:message])
+    @peep = Peep.create(message: params[:message], media: params[:media], user: current_user, date: Time.now)
     params[:tags].split(',').map!(&:strip).each do |tag|
     @peep.tags << Tag.first_or_create(tag: tag)
     end
@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
   end
 
   delete '/peeps' do
-    peep = Peep.get(params[:id])
+    peep = Peep.first(id: params[:id])
     peep.destroy
     redirect '/peeps'
   end

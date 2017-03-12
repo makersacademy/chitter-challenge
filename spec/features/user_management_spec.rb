@@ -8,13 +8,13 @@ feature 'User sign up' do
 
   scenario 'I can sign up as a new user' do
     sign_up(email:email, handle: handle, password: password)
-    expect(page).to have_content("#{email}")
+    expect(page).to have_content("#{handle}")
     expect(User.first.email).to eq(email)
     expect(User.count).to eq(1)
   end
 
   scenario 'User is not signed up if passwords do not match' do
-    expect {  sign_up(email:email, handle: handle, password: password, 
+    expect {  sign_up(email:email, handle: handle, password: password,
                       password_confirm: password_wrong)
                     }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -55,7 +55,7 @@ feature 'User sign in' do
 
   scenario 'has correct email and password to login' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "#{user.email}"
+    expect(page).to have_content "#{user.handle}"
   end
 
   scenario 'has incorrect email and password to login' do

@@ -1,7 +1,6 @@
 class Chitter < Sinatra::Base
 
   get '/tags/:tag' do
-     redirect 'sessions/new' if !current_user
     tag = Tag.first(tag: params[:tag])
     @peeps = tag ? tag.peeps : []
     erb :'peeps/index'

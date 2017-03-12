@@ -1,6 +1,7 @@
 feature 'Adding a tag to a Peep' do
 
   message = 'This is a test Peep! Peep!'
+  media = 'http://localhost:9292/logo_chitter.png'
   tag = "tag_one"
 
   message_two = 'This is a test Peep again!! Peep Peep!'
@@ -19,14 +20,14 @@ feature 'Adding a tag to a Peep' do
   end
 
   scenario 'user adds a tag to a peep' do
-    create_peep(message: message, tag: tag)
+    create_peep(message: message, media: media, tag: tag)
     peep = Peep.first
     expect(peep.tags.map(&:tag)).to include(tag)
     expect(page).to have_text(tag)
   end
 
   scenario 'user adds multiple tag to a Peep' do
-    create_peep(message: message, tag: tag_multi_one)
+    create_peep(message: message, media: media, tag: tag_multi_one)
     peep = Peep.first
     expect(peep.tags.map(&:tag)).to include("tag one", "tag two")
   end
