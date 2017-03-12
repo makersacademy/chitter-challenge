@@ -1,6 +1,3 @@
-# As a Maker
-# So that I can post messages on Chitter as me
-# I want to sign up for Chitter
 
 feature "/" do
   scenario "finds \"Chitter\" on homepage" do
@@ -8,10 +5,10 @@ feature "/" do
     expect(page).to have_content("Chitter")
   end
 
-  # scenario "clicking log in takes user to log in page" do
-  #   visit '/'
-  #   click_button("Log in")
-  #   expect(current_path).to eq('/login')
-  # end
+  scenario "clicking log in takes user to log in page" do
+    visit '/'
+    click_button("Log In")
+    expect(current_path).to eq('/sessions/new')
+  end
 
 end

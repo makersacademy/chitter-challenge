@@ -9,12 +9,15 @@
         }
     </style>
   </head>
-  <form action="/signup" method="POST" align="right">
-    <input type="submit" value="Register New User">
-  </form>
-  <form action="/login" method="POST" align="right">
-    <input type="submit" value="Log In">
-  </form>
+  <% if current_maker %>
+    <div>Welcome, <%= current_maker.email %></div>
+  <% end %>
+    <form action="/users/new" method="GET" align="right">
+      <input type="submit" value="Register New User">
+    </form>
+    <form action="/sessions/new" method="GET" align="right">
+      <input type="submit" value="Log In">
+    </form>
   <body>
     <h1 style="color:purple;" align="center">Chitter</h1>
   </body>

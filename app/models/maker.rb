@@ -20,4 +20,13 @@ class Maker
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, password)
+    maker = first(email: email)
+    if maker && BCrypt::Password.new(maker.password_digest) == password
+      maker
+    else
+      nil
+    end
+  end
+
 end
