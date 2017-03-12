@@ -78,5 +78,15 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps/:peep_id' do
+    @peep = Peep.first(:id => params[:peep_id])
+    erb :'peeps/comment'
+  end
+
+  post '/peeps/:peep_id' do
+    # create a comment with peep_id = params[:peep_id] and user_id = current_user.id
+    redirect '/peeps'
+  end
+
   run if app_file == $0
 end
