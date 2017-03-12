@@ -1,5 +1,5 @@
 feature 'Opening homepage' do
-  xscenario 'Upon entering the webpage, whether I have an account or not, I want to see peeps in reverse chronological order' do
+  scenario 'Upon entering the webpage, whether I have an account or not, I want to see peeps in reverse chronological order' do
     visit('/')
     # add peeps
     expect(page.status_code).to eq 200

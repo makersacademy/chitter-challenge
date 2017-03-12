@@ -33,6 +33,7 @@ I want to see the time at which it was made
 Technologies Used:
 ==================
 - DataMapper
+- DataMapper(timestamps)
 - SQL/postgres
 - Sinatra
 - Rspec
@@ -47,3 +48,4 @@ If I had more time
 - Validation of forms. Make sure name only contains letters, email_address have an "@" sign
 - Users are unable to create an account with the same email address. Username cannot be the same as email address.
 - Password recovery. If user loses/forgets their password
+- Use rake/rakefiles to refactor datamapper tasks like upgrade and migrate database methods
