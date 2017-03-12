@@ -17,10 +17,6 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
       peep = Peep.create(content: params[:peep_content], created_at: DateTime.now, user_id: current_user.id)
-      # params[:hashtags].split.each do |h|
-      #   peep.hashtags << Hashtag.first_or_create(name: h)
-      # end
-      # peep.save
       redirect '/peeps'
   end
 

@@ -1,6 +1,5 @@
 class Chitter < Sinatra::Base
 
-
   get '/signup' do
     @user = User.new
     erb :signup

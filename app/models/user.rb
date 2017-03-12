@@ -1,7 +1,4 @@
 require 'bcrypt'
-# require 'dm-core'
-# require 'dm-validations'
-
 
 class User
   include DataMapper::Resource
