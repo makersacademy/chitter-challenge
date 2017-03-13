@@ -6,7 +6,6 @@ describe 'Sign up' do
 
   scenario 'user can create account' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content 'Welcome to Chitter! A confirmation email has been sent to john.smith@yournamedomain.co.uk'
     expect(User.first.email).to eq 'john.smith@yournamedomain.co.uk'
   end
 
@@ -79,14 +78,8 @@ describe 'Sign up' do
     # end
 
     scenario 'user can sign out' do
-<<<<<<< HEAD
       sign_up
-=======
-      visit '/'
-      fill_in 'email', with: 'example_one@domain.com'
-      fill_in 'password', with: 'apples5'
-      click_button 'Sign in'
->>>>>>> 6b1c536c24cfc89b80928270401b7a997deeb4f3
+      visit '/peeps'
       click_button 'Sign out'
       expect(page).to have_content('Hasta luego')
       expect(page).not_to have_content('Welcome')

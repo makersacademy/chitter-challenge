@@ -1,5 +1,6 @@
 
 class Chitter < Sinatra::Base
+set :public_folder, '/app/public'
 
   enable :sessions
   register Sinatra::Flash
