@@ -1,8 +1,8 @@
-Chitter Challenge
-=================
+#Chitter Challenge
+#=================
 
-Features:
-=========
+##Features:
+##=========
 
 ```As a Maker
 So that I can post messages on Chitter as me
@@ -29,8 +29,8 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
 
-Technologies Used:
-==================
+##Technologies Used:
+##==================
 - DataMapper
 - SQL/postgres
 - Sinatra
@@ -41,23 +41,21 @@ Technologies Used:
 - HTML
 - Flash
 
-How to use
-==========
+##How to use
+##==========
 To use chitter please do the following:
 
-```$ git clone git@github.com:ayanit1/chitter-challenge.git
+```$ git clone git@github.com:aleximm1/chitter-challenge.git
 $ cd chitter-challenge
 $ run 'bundle'
 $ run 'rackup'
 ```
 Make sure you sign up and you can then post peeps.
 
-If I had more time
-==================
+##If I had more time
+##==================
 - Validation of forms. Make sure name only contains letters, email_address has an "@" sign
 - Password recovery. If user loses/forgets their password
 - Use rake/rakefiles to refactor datamapper tasks like upgrade and migrate database methods
 - Didn't know how to test for a time constraint
 - Testing for edge casing
-- Add buttons for users to move throughout pages
-- Instead of peep Id have username
