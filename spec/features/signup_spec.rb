@@ -79,7 +79,14 @@ describe 'Sign up' do
     # end
 
     scenario 'user can sign out' do
+<<<<<<< HEAD
       sign_up
+=======
+      visit '/'
+      fill_in 'email', with: 'example_one@domain.com'
+      fill_in 'password', with: 'apples5'
+      click_button 'Sign in'
+>>>>>>> 6b1c536c24cfc89b80928270401b7a997deeb4f3
       click_button 'Sign out'
       expect(page).to have_content('Hasta luego')
       expect(page).not_to have_content('Welcome')
