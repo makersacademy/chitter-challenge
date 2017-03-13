@@ -46,7 +46,7 @@ Notes on functionality
 
 Screenshots
 -----------
-(https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/chitter_peep_1.png)
+![Alt text](/screenshots/chitter_peep_1.png)
 
 Potential improvements
 -----
