@@ -1,18 +1,18 @@
 class Chitter < Sinatra::Base
 
   get '/tags/:tag' do
-    tag = Tag.first(tag: params[:tag])
+    tag = Tag.first(tag: params[:tag].downcase)
     @peeps = tag ? tag.peeps : []
-    @search_term = params[:tag]
+    @search_term = params[:tag].downcase
     erb :'peeps/index'
   end
 
+  get '/tags/' do
+    redirect '/peeps'
+  end
+
   post '/tags' do
-    if params[:tag] != ""
-      redirect('/tags/' + params[:tag])
-    else
-      redirect '/peeps'
-    end
+    redirect('/tags/' + params[:tag])
   end
 
 end

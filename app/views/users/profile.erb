@@ -26,7 +26,11 @@
         <h3>
           Recent Peeps from
           <%= @user.handle %></h3>
+          <% if @peeps.length == 0 %>
+            No peeps found
+          <% else %>
           <%= partial :'/peeps_list' %>
+          <% end %>
     <% else %>
       That user does not exist!
     <% end %>

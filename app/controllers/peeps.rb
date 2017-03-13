@@ -1,11 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    if session[:peep_order] == 1
-      @peeps = Peep.all
-    else
-      @peeps = Peep.all.reverse
-    end
+    session[:peep_order] == 1 ? @peeps = Peep.all : @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
@@ -18,7 +14,7 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @peep = Peep.create(message: params[:message], user: current_user, media: params[:media], date: Time.now)
     params[:tags].split(',').map!(&:strip).each do |tag|
-      @peep.tags << Tag.first_or_create(tag: tag)
+      @peep.tags << Tag.first_or_create(tag: tag.downcase)
     end
     if @peep.save
       session[:draft_message] = @peep.message
