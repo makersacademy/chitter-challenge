@@ -10,10 +10,12 @@ body {
   background-color: #222;
   color:#fff;
   font-size: 18px;
+
   font-family: sans-serif;
 }
 
 .nav-bar-content {
+    font-weight: 200;
   padding: 4px 10px;
 }
 
@@ -38,4 +40,11 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #aaa;
     box-sizing: border-box;
+}
+
+footer div {
+  background-color: black;
+  color:white;
+  position:relative;
+  margin-bottom:0;
 }

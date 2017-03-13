@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      session[:user_email] = @user.email
+      session[:name] = @user.name
       redirect '/confirmation'
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -35,7 +35,7 @@ class Chitter < Sinatra::Base
 
   delete '/' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Hasta luego, ' + session[:user_email] + '!'
+    flash.keep[:notice] = 'Hasta luego, ' + session[:name] + '!'
     redirect to '/'
   end
 

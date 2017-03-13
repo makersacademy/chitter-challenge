@@ -1,10 +1,10 @@
 <% if current_user %>
   <div class="nav-bar">
-    <div class="nav-bar-content">
-      <p style="display:inline-block"><i style="color:white;" class="fa fa-twitter"> </i> Welcome, <%= current_user.email %></p>
+    <div class="nav-bar-content" style="font-weight:100;">
+      <p style="display:inline-block"><i style="color:white;" class="fa fa-twitter"> </i> Welcome, <span style="color:#fd2d98"><%= current_user.name %></span></p>
       <form style="display:inline-block; padding-left:10px" method='post' action='/'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <button style="padding:1px 3px 2px 3px;border-radius: 12px;font-size:10px;" type='submit' value='Sign out'>Sign out</button>
       </form>
     </div>
   </div>
