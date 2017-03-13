@@ -4,7 +4,6 @@ ruby '2.4.0'
 group :test do
   gem 'rspec'
   gem 'capybara'
-  gem 'rake'
   gem 'database_cleaner'
   gem 'coveralls', require: false
 end
@@ -15,3 +14,4 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'rake'
