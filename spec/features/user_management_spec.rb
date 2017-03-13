@@ -119,6 +119,8 @@ feature 'User update' do
     click_button 'Update profile'
     fill_in :email,    with: email_new
     fill_in :handle,   with: handle_new
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password
     click_button 'Update'
     expect(page).to have_content(email_new)
     expect(page).to have_content(handle_new)
