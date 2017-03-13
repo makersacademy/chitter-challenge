@@ -20,4 +20,9 @@ group :test do
   gem 'cucumber'
   # gem "timecop"
   gem 'coveralls', require: false
+<<<<<<< HEAD
 end
+=======
+  gem 'bcrypt'
+  gem 'sinatra-flash'
+>>>>>>> 030ed49... flash error messages added for incorrect user signup
