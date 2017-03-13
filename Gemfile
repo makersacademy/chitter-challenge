@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 group :production, :development do
+  gem 'sendgrid-ruby'
   gem 'sinatra'
   gem 'bcrypt'
   gem 'pg'

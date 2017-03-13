@@ -42,7 +42,8 @@ module Helpers
   end
 
   def post_reply(params)
-    Reply.create(reply_body: params[:reply_body], user_id: session[:user_id], peep_id: params[:peep_id])
+    reply = Reply.create(reply_body: params[:reply_body], user_id: session[:user_id], peep_id: params[:peep_id])
+    send_reply_notification_email(reply)
   end
 
   def verify_account(params)

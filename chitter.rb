@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require './app/helpers/db_helper'
 require './app/helpers/model_helpers'
+require './app/helpers/email_helper'
 
 class Chitter < Sinatra::Base
   include Helpers
