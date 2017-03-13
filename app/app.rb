@@ -38,10 +38,10 @@ class App < Sinatra::Base
 
   post '/users' do
     @user = User.create(username: params[:username],
-                      name: params[:name],
-                      email_address: params[:email_address],
-                      password: params[:password],
-                      password_confirmation: params[:password_confirmation])
+    name: params[:name],
+    email_address: params[:email_address],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect ('/peeps')

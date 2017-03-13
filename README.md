@@ -65,3 +65,8 @@ If I had more time
 - Testing for edge casing
 - Add buttons for users to move throughout pages
 - Instead of peep Id have username
+- Ensure assest routes are set correctly
+- Make feature test more unlike unit tests
+- Refactor routes into separate controller files
+- Use module for my helper in app.rb file
+- Use placeholder in html and remove labels

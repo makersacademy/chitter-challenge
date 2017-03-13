@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chitter</title>
-  </head>
+<head>
+  <title>Chitter</title>
+</head>
 
-  <body>
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-      <% end %>
+<body>
+  <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
 
-    <% if current_user %>
-      <h1> Welcome, <%= current_user.name %> </h1>
-        <form method='post' action='/sessions'>
-     <input type='hidden' name='_method' value='delete'>
-     <input type='submit' value='Sign out'>
-   </form>
-   <form method='get' action='/peeps/new'> 
-     <input type='submit' value='Post a Peep'>
-</form>
-    <% end %>
-    <%= yield %>
-  </body>
+  <% if current_user %>
+  <h1> Welcome, <%= current_user.name %> </h1>
+  <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+  <form method='get' action='/peeps/new'>
+    <input type='submit' value='Post a Peep'>
+  </form>
+  <% end %>
+  <%= yield %>
+</body>
 </html>
