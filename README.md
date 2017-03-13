@@ -77,7 +77,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +95,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -106,3 +106,22 @@ $ coveralls report
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
 
+
+technologies used:
+.rspec
+.DataMapper
+.Capybara
+.bcrypt
+.rackup
+.ruby 2.4.0
+.Heroku
+
+In order to run login test:
+Enter details into sign up screen and then click sign up button. Then go back to main screen click on login and enter the user name and password you used for sign up. Then click the login button again.
+
+In order to run logout test:
+
+Enter details into sign up screen and then click sign up button. Then go back to main screen click on login and enter the user name and password you used for sign up. Then click the login button again. Once on logged in screen click the log out button on order to check logout feature.
+
+In order to run sign up test:
+Enter details into sign up screen and then click sign up button. 
