@@ -11,5 +11,7 @@ feature 'Sign up' do
 
   scenario 'requires passwords to match' do
     expect{incorrect_sign_up_password}.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content "Passwords don't match."
   end
 end
