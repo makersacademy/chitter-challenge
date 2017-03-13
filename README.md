@@ -1,7 +1,7 @@
 Chitter
 =======
 
-A Twitter clone that will allow the users to post messages to a public stream, the week 4 weekend challenge at Makers academy.
+A Twitter clone that will allow the users to post messages to a public stream, the week 4 weekend challenge at Makers academy. Demo available here: https://chitter-week4.herokuapp.com/peeps
 
 User Stories
 -------
@@ -47,10 +47,10 @@ Notes on functionality
 Screenshots
 -----------
 New peeps
-![Peeps](chitter-challenge/blob/master/screenshots/peep.png)
+![Peeps](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
 
 User profiles
-![Profile](/chitter-challenge/blob/master/screenshots/profile.png)
+![Profile](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/profile.png)
 
 Potential improvements
 -----
