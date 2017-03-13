@@ -1,20 +1,9 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+A clone of Twitter that allows users to post messages to a public stream.
 
-Challenge:
--------
-
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
+User stories:
 -------
 
 ```
@@ -45,64 +34,44 @@ I want to see the time at which it was made
 
 Notes on functionality:
 ------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
+* Users sign up to chitter with their email, password, name and a user name.
+* Peeps (posts to chitter) have the name of the user, their username, and the date and time posted.
+* Passwords are secured with BCrypt
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
-Bonus:
+How to use
+----
+https://chitter-chat-app.herokuapp.com/
+- Sign up with name, username, email, and password
+- Start peeping!
+
+How to download and run tests
 -----
+- Clone repository
+- In the Command Line do 'gem install bundler', then 'bundle', to download the necessary gems
+- Run 'rspec' from within the root to run tests
+- Run 'coveralls report' to view test coverage
 
-If you have time you can implement the following:
+Technologies used
+-----
+Sinatra, Capybara, RSpec, Heroku, DataMapper, DatabaseCleaner, BCrypt
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+How it looks
+-----
+![alt text](screenshots/Screenshot 2017-03-12 22.20.29.png)
 
-And/Or:
+Issues I encountered
+--------
+- Getting datamapper gem to work correctly - struggled to upgrade an old version.
+- When I added a one-to-many relationship between user and peeps, existing peeps which had null values in the user_id column kept making rackup fail until I realised and deleted them.
+- BCrypt - realising that using 'password_digest' is necessary, and 'password_hash' will not work!
+- Using DataMapper's DateTime stamp, and then testing with Capybara!
 
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
-
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+Thing I would do if I had more time...
+-----
+- Add a password confirmation box to the sign up form
+- Prevent users from signing up with the same email/username as another user
+- Prevent users from signing up with any of the fields missing
+- Forgotten password recovery
+- Allow users to reply to peeps and start a thread

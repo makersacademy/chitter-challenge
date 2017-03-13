@@ -3,8 +3,14 @@ ruby '2.4.0'
 
 group :test do
   gem 'rspec'
-  gem 'cucumber'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'capybara'
 end
 
+gem 'sinatra'
+gem 'dm-postgres-adapter'
+gem 'data_mapper'
+gem 'database_cleaner'
+gem 'bcrypt'
+gem 'dm-timestamps'
