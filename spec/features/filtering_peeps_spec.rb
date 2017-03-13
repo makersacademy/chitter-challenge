@@ -21,6 +21,7 @@ feature 'Viewing Peeps' do
     visit "/tags/#{tag_two}"
     expect(page).not_to have_content(message)
     expect(page).to have_content(message_two)
+    expect(page).to have_content("Peeps tagged with: #{tag_two}")
   end
 
 end

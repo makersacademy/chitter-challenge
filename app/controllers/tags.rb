@@ -3,6 +3,7 @@ class Chitter < Sinatra::Base
   get '/tags/:tag' do
     tag = Tag.first(tag: params[:tag])
     @peeps = tag ? tag.peeps : []
+    @search_term = params[:tag]
     erb :'peeps/index'
   end
 

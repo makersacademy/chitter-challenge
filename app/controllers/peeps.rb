@@ -1,7 +1,11 @@
 class Chitter < Sinatra::Base
 
   get '/peeps' do
-    @peeps = Peep.all
+    if session[:peep_order] == 1
+      @peeps = Peep.all
+    else
+      @peeps = Peep.all.reverse
+    end
     erb :'peeps/index'
   end
 
@@ -23,6 +27,16 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @peep.errors.full_messages
       erb :'peeps/new'
     end
+  end
+
+  post '/peeps/ascending' do
+    session[:peep_order] = 1
+    redirect to('/peeps')
+  end
+
+  post '/peeps/descending' do
+    session[:peep_order] = 0
+    redirect to('/peeps')
   end
 
   delete '/peeps' do

@@ -1,0 +1,19 @@
+<h5>Update your details below</h5>
+
+<form action="/users/update/<%= @user.id %>" method='post'>
+<div class="form-group">
+  <label for='email' class="control-label"></label>
+    Email <input class="form-control" name='email' type='email' value='<%= @user.email %>'>
+  </br>
+  <label for='handle' class="control-label"></label>
+    Handle <input class="form-control" name='handle' type='text' value='<%= @user.handle %>'>
+  </br>
+  <label for='bio' class="control-label"></label>
+    Bio (140 characters) <input class="form-control" name='bio' type='text' value='<%= @user.bio %>'>
+  </br>
+  <label for='avatar' class="control-label">Avatar (URL)</label>
+  <input class="form-control" type="text" name="avatar" value='<%= @user.avatar %>'>
+  </br>
+  <input class="btn btn-success btn-block" type='submit' value='&nbsp;Update&nbsp;'>
+</div>
+</form>

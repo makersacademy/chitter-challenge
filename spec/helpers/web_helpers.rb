@@ -24,6 +24,6 @@ def sign_in(email:, password:)
 end
 
 def sign_out
-    visit '/links'
+    visit '/peeps'
     click_button 'Sign Out'
 end

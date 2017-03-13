@@ -3,7 +3,7 @@ describe "User Profile" do
   email = "joemaidman@gmail.com"
   handle = "joe"
   password = "password"
-  message = 'Hell there!!'
+  message = 'Hello there!!'
 
   before(:each) do
     sign_up(email: email, handle: handle, password: password)

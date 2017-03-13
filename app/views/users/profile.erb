@@ -10,10 +10,13 @@
       <h6>Bio</h6>
       <%= @user.bio %><br></br>
       <h6>Peep count</h6>
-      <%= @peeps.count %>
+      <%= @peeps.count %></br></br>
+      <form class="form-inline my-2 my-lg-0" method='get' action="/users/update/<%= current_user.id %>">
+          <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Update profile&nbsp;&nbsp;'>
+      </form>
   </div>
   <div class="col-sm-6">
-  <h3> Peeps from <%= @user.handle %></h3>
+  <h3> Recent Peeps from <%= @user.handle %></h3>
   <%= partial :'/peeps_list' %>
   <% else %>
     That user does not exist!
