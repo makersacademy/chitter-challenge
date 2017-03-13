@@ -11,11 +11,8 @@ describe 'Sign up' do
 
   scenario 'user must use an email address for signup' do
     visit '/signup'
-<<<<<<< HEAD
     fill_in :name, with: 'Jose'
     fill_in :username, with: 'jc85'
-=======
->>>>>>> 030ed49... flash error messages added for incorrect user signup
     fill_in :email, with: nil
     fill_in :password, with: 'football'
     fill_in :password_confirmation, with: 'football'
@@ -24,11 +21,8 @@ describe 'Sign up' do
 
   scenario 'user must provide a valid email address' do
     visit '/signup'
-<<<<<<< HEAD
     fill_in :name, with: 'Tony'
     fill_in :username, with: 'ninja'
-=======
->>>>>>> 030ed49... flash error messages added for incorrect user signup
     fill_in :email, with: 'tony@something'
     fill_in :password, with: 'football'
     fill_in :password_confirmation, with: 'football'
@@ -52,7 +46,6 @@ describe 'Sign up' do
     # expect(current_path).to eq('/signup') # current_path is a helper provided by Capybara
   end
 
-<<<<<<< HEAD
   describe 'Sign-in' do
 
     scenario 'user can sign into Chitter' do
@@ -94,6 +87,4 @@ describe 'Sign up' do
 
   end
 
-=======
->>>>>>> 030ed49... flash error messages added for incorrect user signup
 end
