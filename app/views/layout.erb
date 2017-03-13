@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chitter</title>
+  <script src="https://use.fontawesome.com/677dbff421.js"></script>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body style="background:url('http://michaelamusto.com/wp-content/uploads/2014/07/instagram-photos.jpg') center center fixed;background-size: contain;">
+  <%= partial :welcome %>
+  <%= partial :flash %>
+  <%= yield %>
+
+  <footer style="position:absolute; width:100%;bottom:0;font-family: Helvetica;height:40px;background-color:#222;color:white">
+    <p style="margin: 13px 0 0 5px; font-weight: 100; font-size: 11px;"> Chitter Challenge, Feb 2017 cohort - Makers Academy </p>
+  </footer>
+</body>
+
+
+</html>

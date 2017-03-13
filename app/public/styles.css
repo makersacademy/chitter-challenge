@@ -1,0 +1,50 @@
+body {
+  margin:0;
+  padding:0;
+}
+
+.nav-bar {
+  border-bottom:2px solid white;
+  height:65px;
+  width:100%;
+  background-color: #222;
+  color:#fff;
+  font-size: 18px;
+
+  font-family: sans-serif;
+}
+
+.nav-bar-content {
+    font-weight: 200;
+  padding: 4px 10px;
+}
+
+.test {
+  color:red;
+}
+label {
+  display: block;
+  width: 200px;
+}
+
+form {
+  width: 200px;
+}
+
+input[type=text], input[type=password] {
+    background-color: ccddff;
+    height: 25px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+}
+
+footer div {
+  background-color: black;
+  color:white;
+  position:relative;
+  margin-bottom:0;
+}

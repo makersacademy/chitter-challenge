@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+<div class="nav-bar">
+  <div class="nav-bar-content" style="padding-top:16px" id='notice'>
+    <%= flash[:notice] %>
+  </div>
+</div>
+<% end %>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+<div class="nav-bar" style="font-size:14px;margin:0; padding: 8px 0 10px 10px;height:auto">
+  <p>Login failure:</p>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>
+</div>
+<% end %>

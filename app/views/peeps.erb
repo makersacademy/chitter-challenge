@@ -1,0 +1,18 @@
+<div style="border-left:2px solid black; border-right:2px solid black;position:relative;background-color:grey;padding:0; margin:0 auto;width:70%; height:100%; padding:0;text-align:center;">
+
+<ul id='peeps' style="margin:0;padding:10px 20px;list-style:none; text-align:center;max-width:100%">
+  <% @peeps.each do |peep| %>
+    <li style="font-size:25px;margin:auto;list-style:none;background-color:white;margin: 10px 0; padding:0; border-radius:10px;">
+      <div style="width:auto;padding:10px 30px;text-align:center">
+        <span style="font-weight:900"><%= peep.user.name %></span>
+      <span><em>(@<%= peep.user.username %>): </em></span>
+      <span><%= peep.content %></span></br>
+      <span style="font-size:14px;"><em><%= peep.created_at.strftime("%a %e %B, %G %H:%M")  %></em></span>
+    </div>
+    </li>
+  <% end %>
+</ul>
+
+<a href='/peeps/add'><button style="margin:10px;text-decoration:none;background-color:orange; font-size:20px;padding:10px 20px">Add peep</button></a>
+
+</div>
