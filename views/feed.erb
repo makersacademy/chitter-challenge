@@ -1,0 +1,63 @@
+<div class="scroller"><a class="chitter-button" href="#top"><i class="fa fa-angle-double-up" aria-hidden="true"></i>
+</a></div>
+<div class="feed_container animated fadeIn">
+  <i name="top" class="fa fa-commenting-o logo-icon" aria-hidden="true"></i>
+  <ul class="peep_list">
+
+    <% if logged_in_user %>
+      <li id="peep_writer" >
+        <form action="/post_peep" method="POST" id="peep_form">
+          <table style="width:100%;">
+            <tr>
+              <td><input class="peep-button" type="text" name="peep_body" placeholder="What's on your mind?" required></input></td>
+              <td style="width: 1px;"><button class="chitter-button" type="submit" id="post-peep" value="Post Peep" name="new_peep"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
+            </tr>
+          </table>
+        </form>
+      </li>
+    <% end %>
+
+    <% Peep.all.reverse.each do |peep| %>
+      <li class="peep">
+        <a class="peeparea" href="javascript:void(0)">
+          <div class="peep_body">
+            <p><i class="fa fa-quote-left" aria-hidden="true"></i> <%= peep.peep_body %> <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+          </div>
+          <div class="peep_meta">
+            <p><b><%= User.get(peep.user_id).name %></b> <em>(@<%= User.get(peep.user_id).username %>)</em> &nbsp; <%= peep.created_at.strftime("%e-%m-%y %H:%M") %></p>
+          </div>
+        </a>
+      </li>
+
+      <% Reply.all(:peep_id => peep.id).each do |reply|%>
+        <a class="replyarea" href="javascript:void(0)">
+          <li class="reply">
+            <div class="reply_body">
+              <p><%= reply.reply_body %></p>
+            </div>
+            <div class="reply_meta">
+              <p><b><%= User.get(reply.user_id).name %></b> <em>(@<%= User.get(reply.user_id).username %>)</em> &nbsp; <%= reply.created_at.strftime("%e-%m-%y %H:%M") %></p>
+            </div>
+          </li>
+        </a>
+      <%end%>
+
+      <% if logged_in_user %>
+        <ul class="reply_list">
+          <li id="reply_writer" >
+            <form action="/post_reply?peep_id=<%= peep.id %>" method="POST" id="reply_form">
+              <table style="width:100%;">
+                <tr>
+                  <td><input class="reply-button" type="text" name="reply_body" placeholder="Write a reply..." required></input></td>
+                  <td style="width: 1px;"><button class="chitter-button" type="submit" id="post-reply" value="Post Reply" name="new_reply"><i class="fa fa-reply" aria-hidden="true"></i></i></button></td>
+                </tr>
+              </table>
+            </form>
+          </li>
+        </ul>
+      <% end %>
+
+    <%end%>
+
+  </ul>
+</div>

@@ -1,0 +1,377 @@
+body {
+  font-family: monospace;
+  margin: 0;
+  font-size: 20px;
+  background-color: rgb(255, 209, 206);
+}
+
+i.fa {
+  color: initial;
+}
+
+.header-logo {
+  padding: 0px 30px;
+}
+
+.logo-icon {
+  font-size: 500%;
+  padding: 30px;
+  margin-top: 1em;
+}
+
+#login_box {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+#login_box > * {
+  display: inline;
+}
+
+.welcome_message {
+  padding: 30px 0px 0px 50px;
+}
+
+.verify_message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.scroller {
+  position: fixed;
+  right: 0;
+  padding: 45px 50px 0px 0px;
+  height: 100px;
+  z-index: 1;
+}
+
+#login_box, .welcome_message {
+  position: fixed;
+  z-index: 1;
+}
+
+form {
+  margin: 0;
+}
+
+#signup_form > * {
+  height: 60%;
+}
+
+.warning {
+  color: darkred;
+  padding: 0px 30px;
+}
+
+#peep_writer {
+  padding-bottom: 15px;
+}
+
+.peep_body {
+  font-size: 200%;
+  margin-bottom: -20px;
+  word-wrap: break-word;
+  padding: 1px 20px;
+}
+
+.peep_meta {
+  text-decoration: overline;
+  text-align: right;
+  padding: 0px 10px 0px 0px;
+  color: lightpink;
+}
+
+.peep_list {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+  width: 800px;
+}
+
+.peep {
+  background: antiquewhite;
+    border-radius: 12px 50px;
+    padding-bottom: 1px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.feed_container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  min-height: 100vh;
+}
+.chitter-button, .peep-button, .reply-button {
+  display: inline-block;
+  border: none;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  font-family: monospace;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  padding: 20px 20px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+  background-color: rgba(255, 218, 209, 0.90);
+  -webkit-appearance: none;
+}
+.peep-button {
+  width: 98%;
+}
+.chitter-button:hover, .chitter-button:active, .peep-button:hover, .peep-button:active, .reply-button:hover, .reply-button:active {
+  border: none;
+  background-color: rgba(255, 248, 226, 1);
+}
+.chitter-button img {
+  width: 250px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari only...? :(*/
+  color: black;
+}
+
+#reply_writer {
+  padding-bottom: 50px;
+}
+
+.reply_body {
+  margin-bottom: -20px;
+  word-wrap: break-word;
+  padding: 1px 20px;
+}
+
+.reply-button {
+  width: 84.4%;
+  margin-left: 100px;
+}
+
+.reply_meta {
+  text-decoration: overline;
+  text-align: right;
+  padding: 0px 10px 0px 0px;
+  color: lightpink;
+}
+
+.reply_list {
+  list-style-type: none;
+  -webkit-padding-start: 0px;
+  width: 800px;
+}
+
+.reply {
+  background: rgba(209, 254, 255, 0.67);
+  border-radius: 12px 50px;
+  padding-bottom: 1px;
+  margin-bottom: 15px;
+  margin-left: 100px;
+  overflow: hidden;
+}
+
+.animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.slide {
+  animation-name: fadeIn;
+}
+
+
+.peep_meta, .reply_meta {
+    position: relative;
+    right: -200px;
+    -webkit-transition: right 0.5s; /* Safari */
+    transition: right 0.5s;
+}
+
+a.peeparea, a.replyarea {
+  text-decoration: none;
+  color: black;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.peeparea:hover .peep_meta, .peeparea:active .peep_meta, .peeparea:focus .peep_meta {
+    right: 0px;
+}
+
+.replyarea:hover .reply_meta, .replyarea:active .reply_meta, .replyarea:focus .reply_meta {
+    right: 0px;
+}
+
+@media only screen
+and (min-device-width : 0px)
+and (max-device-width : 667px)
+and (orientation : landscape){
+  .chitter-button {
+    font-size: 300%;
+  }
+
+  .peep_meta, .reply_meta {
+    right: -206px;
+    font-size: 70%;
+  }
+
+
+  .peep_body, .reply_body {
+    padding: 15px 40px;
+  }
+
+  #login_box tr {
+    display: flex;
+    flex-direction: column;
+    margin: 400px 0px 0px 50px;
+    justify-content: space-around;
+    height: 400px;
+  }
+
+  #login_box h1.header-logo {
+    display: none;
+  }
+
+  .logo-icon {
+    font-size: 1000%;
+    padding: 50px 0px 150px 0px;
+    margin-top: 1em;
+  }
+
+  .scroller {
+    padding: 55px 50px 0px 0px;
+  }
+
+  .warning {
+    font-size: 200%;
+    position: absolute;
+    margin: 500px 0px 0px 40px;
+    width: 96%;
+    left: 0;
+  }
+
+  #verify_form tr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 400px;
+  }
+
+  .verify_message {
+    font-size: 200%;
+    padding: 100px;
+  }
+  .welcome_message {
+    padding: 55px;
+  }
+  .welcome_message .msg {
+    display: none;
+  }
+
+  .peep-button, .reply-button {
+    font-size: 300%;
+  }
+
+  #log-out {
+    font-size: 500%;
+  }
+
+  .fa-sign-out {
+    font-size: 50%;
+  }
+}
+
+
+@media only screen
+and (min-device-width : 0px)
+and (max-device-width : 667px)
+and (orientation : portrait){
+  .chitter-button {
+    font-size: 300%;
+  }
+
+  .peep_meta, .reply_meta {
+    right: -250px;
+  }
+
+
+  .peep_body, .reply_body {
+    padding: 15px 40px;
+  }
+
+  #login_box tr {
+    display: flex;
+    flex-direction: column;
+    margin: 400px 0px 0px 50px;
+    justify-content: space-around;
+    height: 400px;
+  }
+
+  #login_box h1.header-logo {
+    display: none;
+  }
+
+  .logo-icon {
+    font-size: 1000%;
+    padding: 50px 0px 150px 0px;
+    margin-top: 1em;
+  }
+
+  .scroller {
+    padding: 55px 50px 0px 0px;
+  }
+
+  .warning {
+    font-size: 200%;
+    position: absolute;
+    margin: 500px 0px 0px 40px;
+    width: 96%;
+    left: 0;
+  }
+
+  #verify_form tr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 400px;
+  }
+
+  .verify_message {
+    font-size: 200%;
+    padding: 100px;
+  }
+  .welcome_message {
+    padding: 55px;
+  }
+  .welcome_message .msg {
+    display: none;
+  }
+
+  .peep-button, .reply-button {
+    font-size: 300%;
+  }
+
+  #log-out {
+    font-size: 500%;
+  }
+
+  .fa-sign-out {
+    font-size: 50%;
+  }
+}

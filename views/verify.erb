@@ -1,0 +1,28 @@
+<div class="verify_message">
+
+  <div class="warning">
+    <%if params[:verify] == "failed"%>
+      <%if !logged_in_user%>
+        <span>Could not verify account. There is no such user.</span>
+      <%elsif params[:pass] == "failed"%>
+        <span>Password for <b><%=logged_in_user.username%></b> incorrect.</span>
+      <%elsif params[:email] == "taken"%>
+        <span>That email is already in use. Please try another.</span>
+      <%else%>
+        <span>Verification failed. Sorry.</span>
+      <%end%>
+    <%end%>
+  </div>
+
+  <p>Please enter your email address and first name to confirm your account.</p>
+  <form action="/verify_account" method="POST" id="verify_form">
+    <table style="display:inline;">
+      <tr>
+        <td><input class="chitter-button" type="text" name="email" placeholder="Email" required></input></td>
+        <td><input class="chitter-button" type="text" name="name" placeholder="First Name" required></input></td>
+        <td><input class="chitter-button" type="password" name="pass" placeholder="Confirm Password" required></input></td>
+        <td><button class="chitter-button" type="submit" id="verify-account" value="Verify Account" name="verification"><i class="fa fa-arrow-right" aria-hidden="true"></i></button></td>
+      </tr>
+    </table>
+  </form>
+</div>
