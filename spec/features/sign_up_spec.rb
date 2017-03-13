@@ -9,6 +9,9 @@ feature "Sign up functionality" do
     fill_in 'Username', with: ('Azntastic')
     fill_in 'Email', with: ('Ryanchu.ws@gmail.com')
     fill_in 'Password', with: ('ryanchu1234')
-    click_button 'Submit'
+    click_button "Submit"
+    expect(current_path).to eq '/sign_up_success'
+    expect(page).to have_content 'Sign up succesful'
+    expect(User.count).to eq 1
   end
 end
