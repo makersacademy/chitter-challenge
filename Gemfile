@@ -1,18 +1,21 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
-group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
-  gem 'capybara'
-end
-
-  gem 'data_mapper'
+group :production, :development do
+  gem 'sinatra'
+  gem 'bcrypt'
+  gem 'pg'
+  gem 'data_mapper', '1.2.0'
   gem 'dm-postgres-adapter'
   gem 'rack'
-  gem 'sinatra'
   gem 'rerun'
+end
+
+group :test do
   gem 'database_cleaner'
-  gem 'pg'
+  gem 'rspec'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rake'
+  gem 'coveralls', require: false
+end

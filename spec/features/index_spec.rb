@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'it will display the cheeps' do
   scenario 'so the user can see what cheeps have been posted' do
-    Cheep.create(:username => 'Foo', :message => 'Bar')
+    Cheeps.create(:username => 'Foo', :message => 'Bar', :timestamp => Time.now)
     visit "/newsfeed"
     click_button('Log-in')
     expect(page).to have_content ('Bar')

@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||='development'
+# ENV['RACK_ENV'] ||='development'
 
 require 'sinatra/base'
 require './app/models/cheeps'
@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get "/newsfeed" do
-    @cheeps = Cheep.all
+    @cheeps = Cheeps.all
     erb(:newsfeed)
   end
 
@@ -19,9 +19,11 @@ class Chitter < Sinatra::Base
   # end
 
   post '/newsfeed/new' do
-    Cheep.create(
+    Cheeps.create(
+    # :id => 1,
     :username => params[:username], #eventually change to @username
-    :message => params[:message]
+    :message => params[:message],
+    :timestamp => Time.now
     )
     redirect "/newsfeed"
   end
