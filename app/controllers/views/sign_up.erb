@@ -1,0 +1,28 @@
+<%= erb(:HTML) %>
+
+<center>
+  <br>
+  <br>
+
+  <form action=/new_user method=post>
+    <label for=first_name>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:</label>
+    <input type=text name="name" >
+    <br>
+
+    <label for=username>Username:</label>
+    <input type=text name=username>
+    <br>
+
+    <label for=password>Password:</label>
+    <input type=text name=password>
+    <br>
+
+    <label for=email>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:</label>
+    <input type=text name=email>
+    <br>
+    <br>
+
+    <button type=submit class="btn btn-warning">Submit</button>
+
+  </form>
+</center>
