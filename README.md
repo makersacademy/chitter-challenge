@@ -25,7 +25,14 @@ So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 
 
+#ISSUES
 
-A feature test that I wanted to write (comparing the password on the database with that provided by the current user) was beyond my reach.
+- A feature test that I wanted to write (comparing the password on the database with that provided by the current user) was beyond my reach.
 
 In order to pass the less robust test that I ended up going with I disabled the 'after' block of the Database Cleaner in my spec_helper file, so that my test had something to match against. This was not ideal but I couldn't figure out a way around it yet.
+
+#Things I would like to implement given more time.
+
+- Error message when blank fields are submitted.
+
+- Avoidance of double login.

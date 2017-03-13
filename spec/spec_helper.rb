@@ -19,7 +19,6 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-# Everything in this block runs once before all the tests run
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
