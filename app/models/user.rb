@@ -27,26 +27,23 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def get_auth_user
-
-  end
-
-  def authenticated?
-
-  end
-
   def self.authenticate(email, password)
-    user = first(email: email)
-    if user && BCrypt::Password.new(user.password_digest) == password
-      user
-    else
-      nil
-    end
+    user = get_auth_user(email)
+    user && authenticated(user, password) ? user : nil
   end
-  # reduce to two lines
 
   def password_required
       self.password_digest.nil? || !@password.nil?
+  end
+
+  private
+
+  def self.get_auth_user(email)
+    first(email: email)
+  end
+
+  def self.authenticated(user, password)
+    BCrypt::Password.new(user.password_digest) == password
   end
 
 end
