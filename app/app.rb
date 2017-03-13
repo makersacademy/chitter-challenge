@@ -1,10 +1,10 @@
 ENV["RACK_ENV"] ||= 'development'
 
-require "sinatra/base"
+require 'sinatra/base'
 require './app/models/peep'
 require './app/models/user'
-require_relative "helpers/dm_config"
-require_relative "helpers/helpers"
+require_relative 'helpers/dm_config'
+require_relative 'helpers/helpers'
 
 class ChitterApp < Sinatra::Base
   enable :sessions
@@ -25,12 +25,12 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/users' do
-  user = User.create(email: params[:email],
-              password: params[:password],
-              name: params[:name],
-              username: params[:username])
-  session[:user_id] = user.id
-  redirect to('/homepage')
+    user = User.create(email:           params[:email],
+                       password:        params[:password],
+                       name:            params[:name],
+                       username:        params[:username])
+    session[:user_id] = user.id
+    redirect to('/homepage')
   end
 
   get '/sessions/sign_in' do
@@ -53,7 +53,9 @@ class ChitterApp < Sinatra::Base
   end
 
   post '/posted-peep' do
-    Peep.create(peep_content: params[:peep_content], time_peeped: Time.now, user_id: session[:user_id])
+    Peep.create(peep_content: params[:peep_content],
+                time_peeped:  Time.now,
+                user_id:       session[:user_id])
     redirect '/homepage'
   end
 
@@ -62,6 +64,5 @@ class ChitterApp < Sinatra::Base
     redirect to '/homepage'
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -51,5 +51,4 @@ I want to see the time at which it was made
 - Styling for Chitter leaves much to be desired.
 - Users cannot interact with one another. I would like to bring in this functionality.
 - Passwords may be entered incorrectly, which is not ideal for privacy.
-- Users cannot post unless they are logged in, but the app does not currently make this clear.
-- I call my spec files 'log in/log out' but my view files 'sign in/sign out' - an oversight I would like to change.
+- Users cannot post unless they are logged in, but the app does not currently make this clear. They are directed to the log in page again.
