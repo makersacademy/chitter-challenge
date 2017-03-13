@@ -47,10 +47,10 @@ Notes on functionality
 Screenshots
 -----------
 New peeps
-![Peeps](/peep.png)
+![Peeps](chitter-challenge/blob/master/screenshots/peep.png)
 
 User profiles
-![Profile](/profile.png)
+![Profile](/chitter-challenge/blob/master/screenshots/profile.png)
 
 Potential improvements
 -----
