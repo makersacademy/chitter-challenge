@@ -8,7 +8,7 @@
     <div>
       <% if current_user %>
         Login successful
-        Welcome, <%current_user.name %>
+        Welcome, <%=@current_user.name %>
         <% end %>
     <%= yield %>
   </div>
