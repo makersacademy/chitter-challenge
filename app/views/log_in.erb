@@ -1,0 +1,29 @@
+<html class='page'>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+  </head>
+  <body align="center">
+    <img src="http://chitter3000.herokuapp.com/chitterlogo.png"/>
+    <h1> Log in </h1>
+    <form action='/log_in' method='post'>
+      <p>
+        <input type='text' name='Username' value="Username" onfocus="value=''" class='textbox' required/><br/>
+        <input type='text' name='Password' value="Password" onfocus="type='password', value=''" class='textbox' required/><br/>
+      </p>
+      <input type='submit' value='Log in' class='button'/>
+    </form>
+
+    <form action='/homepage' method=post>
+      <input type='hidden' name='Username' value='Guest'/>
+      <input type='submit' value='Sign in as Guest' class='button'/>
+    </form>
+
+    <a href='/sign_up' class='button'>Sign up</a>
+    <%if !!flash[:username]%>
+    <h3><%=flash[:username]%></h3>
+    <%elsif !!flash[:password]%>
+    <h3><%=flash[:password]%></h3>
+    <%end%>
+  </body>
+</html>

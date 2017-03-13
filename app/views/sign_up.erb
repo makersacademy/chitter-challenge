@@ -1,0 +1,22 @@
+<html class='page'>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Sign up</h1>
+    <form action='/sign_up' method='post'>
+      <p>
+        <input type='text' name='Email' value='Email' onfocus="value=''" class='textbox' required/> <br/>
+        <input type='text' name='Username' value='Username' onfocus="value=''" class='textbox' required/><br/>
+        <input type='text' name='Name' value='Name' onfocus="value=''" class='textbox' required/><br/>
+        <input type='text' value='Password' name='Password' onfocus="type='password', value=''" class='textbox' required/><br/>
+        <input type='text' value='Confirm Password' name='ConfirmPassword' onfocus="type='password', value=''" class='textbox' required/><br/>
+      </p>
+      <input type='submit' value='Submit' class='button'/>
+    </form>
+    <%if @sign_up_error != (nil || false)%>
+      <h3><%=@sign_up_error%></h3>
+    <%end%>
+  </body>
+</html>
