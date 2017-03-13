@@ -35,7 +35,6 @@ describe "Navbar" do
       expect(page).not_to have_selector(:link_or_button, 'Profile')
       expect(page).not_to have_selector(:link_or_button, 'Peep')
       expect(page).not_to have_content('Signed in as joe')
-
     end
   end
 

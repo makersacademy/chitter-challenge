@@ -5,6 +5,7 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'rake'
   gem 'coveralls', require: false
 end
 
@@ -14,4 +15,3 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'rake'

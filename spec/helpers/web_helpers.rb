@@ -1,3 +1,4 @@
+
 def create_peep(message:, media: nil, tag: nil)
   visit('/peeps')
   click_button 'Peep'
@@ -17,13 +18,13 @@ def sign_up(email:,handle:, password:, password_confirm: password)
 end
 
 def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Sign In'
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign In'
 end
 
 def sign_out
-    visit '/peeps'
-    click_button 'Sign Out'
+  visit '/peeps'
+  click_button 'Sign Out'
 end

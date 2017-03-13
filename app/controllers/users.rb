@@ -10,8 +10,11 @@ class Chitter < Sinatra::Base
   post '/users' do
     params[:bio] ||= ""
     params[:avatar] ||= ""
-    @user = User.create(email: params[:email], handle: params[:handle],
-                        bio: params[:bio], avatar: params[:avatar], password: params[:password],
+    @user = User.create(email: params[:email],
+                        handle: params[:handle],
+                        bio: params[:bio],
+                        avatar: params[:avatar],
+                        password: params[:password],
                         password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
@@ -45,8 +48,12 @@ class Chitter < Sinatra::Base
 
   post '/users/update/:id' do
     @user = User.first(id: current_user.id)
-    if @user.update(email: params[:email], handle: params[:handle], bio: params[:bio],
-                    avatar: params[:avatar])
+    if @user.update(email: params[:email],
+                    handle: params[:handle],
+                    bio: params[:bio],
+                    avatar: params[:avatar],
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
       redirect to("/users/#{@user.id}")
     else
       flash.now[:errors] = @user.errors.full_messages

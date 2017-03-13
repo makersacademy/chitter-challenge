@@ -2,24 +2,31 @@
   <div class="col-sm-6">
     <% if @user %>
       <% if @user.avatar %>
-        <img class="profile-img" src="<%= @user.avatar %>" /></br></br>
+        <img class="profile-img" src="<%= @user.avatar %>"/></br>
+        </br>
       <% end %>
-      <h3><%= @user.handle %></h3><br>
+      <h3><%= @user.handle %></h3>
+      <br>
       <h6>Email</h6>
-      <%= @user.email %></br></br>
+      <%= @user.email %></br>
+      </br>
       <h6>Bio</h6>
-      <%= @user.bio %><br></br>
+      <%= @user.bio %>
+      <br></br>
       <h6>Peep count</h6>
-      <%= @peeps.count %></br></br>
+      <%= @peeps.count %></br>
+      </br>
       <form class="form-inline my-2 my-lg-0" method='get' action="/users/update/<%= current_user.id %>">
-          <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Update profile&nbsp;&nbsp;'>
+        <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Update profile&nbsp;&nbsp;'>
       </form>
-  </div>
-  <div class="col-sm-6">
-  <h3> Recent Peeps from <%= @user.handle %></h3>
-  <%= partial :'/peeps_list' %>
-  <% else %>
-    That user does not exist!
+      </div>
+      <div class="col-sm-6">
+        <h3>
+          Recent Peeps from
+          <%= @user.handle %></h3>
+          <%= partial :'/peeps_list' %>
+    <% else %>
+      That user does not exist!
     <% end %>
   </div>
 </div>

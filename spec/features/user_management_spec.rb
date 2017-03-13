@@ -14,7 +14,9 @@ feature 'User sign up' do
   end
 
   scenario 'User is not signed up if passwords do not match' do
-    expect {  sign_up(email:email, handle: handle, password: password,
+    expect {  sign_up(email:email,
+                      handle: handle,
+                      password: password,
                       password_confirm: password_wrong)
                     }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -48,8 +50,10 @@ feature 'User sign in' do
   password_wrong = "password2"
 
   let!(:user) do
-    User.create(email: email, handle: handle,
-                bio: "", password: password,
+    User.create(email: email,
+                handle: handle,
+                bio: "",
+                password: password,
                 password_confirmation: password)
   end
 
@@ -74,7 +78,9 @@ feature 'User sign out' do
 
   let!(:user) do
     User.create(email: email,
-                bio: "", password: password, handle: handle,
+                bio: "",
+                password: password,
+                handle: handle,
                 password_confirmation: password)
   end
 
@@ -99,8 +105,11 @@ feature 'User update' do
   password = "password"
 
   let!(:user) do
-    User.create(email: email, avatar: avatar,
-                bio: bio, password: password, handle: handle,
+    User.create(email: email,
+                avatar: avatar,
+                bio: bio,
+                password: password,
+                handle: handle,
                 password_confirmation: password)
   end
 
