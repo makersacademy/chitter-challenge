@@ -46,7 +46,11 @@ Notes on functionality
 
 Screenshots
 -----------
-![Alt text](/screenshots/chitter_peep_1.png)
+New peeps
+![Peeps](/peep.png)
+
+User profiles
+![Profile](/profile.png)
 
 Potential improvements
 -----
