@@ -65,7 +65,19 @@ class Chitter < Sinatra::Base
 
   get '/homepage' do
     @user = session['user']
+    @peeps = Peep.all
     erb :homepage
+  end
+
+  get '/peep/new' do
+    @user = session['user']
+    @peeps = Peep.all
+    erb :new_peep
+  end
+
+  post '/peep/new' do
+    Peep.create(username: session['user'].username, content: params[:Content], time: Time.now)
+    redirect('/homepage')
   end
 
   run! if app_file == $0

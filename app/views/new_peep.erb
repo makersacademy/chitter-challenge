@@ -1,0 +1,17 @@
+<html class='page'>
+  <head>
+    <link rel="stylesheet" href="<%= url('/style.css') %>" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+  </head>
+  <body>
+    <h1> Welcome <%=@user.name%> </h1>
+    <h2> New Peep </h2>
+    <form action='/peep/new' method='post'>
+      <p>
+        <textarea rows="4" cols="50" name='Content' onfocus="value=''" class='peepcontent' required/>Peep here</textarea><br/>
+      </p>
+      <input type='submit' value='Peep' class='button'/>
+    </form>
+    <a href='/homepage' class='button'>Cancel</a>
+  </body>
+</html

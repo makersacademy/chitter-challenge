@@ -31,6 +31,13 @@ h1, h2, h3 {
   padding: 3px;
 }
 
+.peepcontent{
+  border: 3px inset;
+  color: white;
+  background-color: dodgerblue;
+  padding: 3px;
+}
+
 .page {
   background-color: dodgerblue;
   color: white;

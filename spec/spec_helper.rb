@@ -17,6 +17,7 @@ require 'capybara'
 require 'rspec'
 require 'data_mapper'
 require 'database_cleaner'
+require 'features/web_helper'
 
 Capybara.app = Chitter
 
