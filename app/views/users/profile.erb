@@ -16,9 +16,11 @@
       <h6>Peep count</h6>
       <%= @peeps.count %></br>
       </br>
+      <% if current_user %>
       <form class="form-inline my-2 my-lg-0" method='get' action="/users/update/<%= current_user.id %>">
         <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Update profile&nbsp;&nbsp;'>
       </form>
+      <% end %>
       </div>
       <div class="col-sm-6">
         <h3>

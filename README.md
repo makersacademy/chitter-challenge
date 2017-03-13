@@ -46,10 +46,12 @@ Notes on functionality
 
 Screenshots
 -----------
-New peeps
+*New peeps*
+
 ![Peeps](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
 
-User profiles
+*User profiles*
+
 ![Profile](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/profile.png)
 
 Potential improvements
@@ -57,14 +59,3 @@ Potential improvements
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 * Password validation.
 * Password recovery.
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
