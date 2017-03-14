@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+<body><main>
+  <%= erb :logged_in_as %>
+
+  <h1>Sign into your Chitter Account:</h1>
+  <form action="/sessions" method="post">
+    Username: <input name='username' type='text'>
+    Password: <input name='password' type='password'>
+    <input type="submit" value="Submit" class="btn">
+  </form>
+
+</main></body>
+</html>

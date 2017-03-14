@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="public/style.css">
+</head>
+<body><main>
+
+<%= erb :logged_in_as %>
+
+<% if @user == nil %>
+  <%= "You must be logged in to peep: "%><a href='/sessions/sign_in'>Sign in!</a>
+<%else%>
+
+  Post a peep:<br>
+
+  <form action='/posted-peep' method="post">
+    <input type="text" name="peep_content" /><br>
+    <input type="submit" class='btn' value="Post peep" />
+  </form>
+
+<%end%>
+
+</main></body>
+</html>
