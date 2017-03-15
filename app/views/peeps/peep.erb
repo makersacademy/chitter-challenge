@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-sm-6">
 <h3> Peep</h3>
 <div class="panel-item">
  <img src="<%= User.get(@peep.user_id).avatar %>" class="timeline-img" />
@@ -29,7 +31,8 @@
  <% end %>
 <% end %>
 </div>
-</br>
+</div>
+<div class="col-sm-6">
 <h3>Replies</h3>
 <% @replies.each do |reply| %>
   <div class="panel-item-reply">
@@ -47,4 +50,6 @@
     <input type="submit" class="btn btn-success" class="button" value="Send"/>
 </div>
 </form>
+</div>
+</div>
 </div>
