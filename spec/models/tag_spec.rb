@@ -1,5 +1,5 @@
-  describe Tag do
+describe Tag do
 
-subject(:tag) {described_class.new}
+  subject(:tag) {described_class.new}
 
 end

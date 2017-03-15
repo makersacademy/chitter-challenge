@@ -7,6 +7,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
+  property :name, String, required:true, unique: false
   property :handle, String, required: true, unique: true
   property :bio, String, :length => 140, required: false
   property :email, String, format: :email_address, required: true, unique: true

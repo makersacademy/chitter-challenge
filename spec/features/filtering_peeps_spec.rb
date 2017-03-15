@@ -1,4 +1,4 @@
-feature 'Viewing Peeps' do
+feature 'Filtering Peeps' do
 
   message = 'This is a test Peep! Peep!'
   tag = "tag_one"
@@ -6,16 +6,17 @@ feature 'Viewing Peeps' do
   message_two = 'This is a test Peep again!! Peep Peep!'
   tag_two = "tag_two"
 
-  email = "joemaidman@gmail.com"
-  handle = "joe"
+  email = "bob@gmail.com"
+  name = "Bob Smith"
+  handle = "Bob"
   password = "password"
 
   before(:each) do
-    sign_up(email: email, handle: handle, password: password)
+    sign_up(email: email, name: name, handle: handle, password: password)
     sign_in(email: email, password: password)
   end
 
-  scenario 'filter peeps by tag' do
+  scenario 'user can filter peeps by tag' do
     create_peep(message: message, tag: tag)
     create_peep(message: message_two, tag: tag_two)
     visit "/tags/#{tag_two}"

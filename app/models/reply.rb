@@ -1,3 +1,4 @@
+# Not implemented yet!
 class Reply
 
  include DataMapper::Resource

@@ -12,6 +12,7 @@ class Chitter < Sinatra::Base
     params[:avatar] ||= ""
     @user = User.create(email: params[:email],
                         handle: params[:handle],
+                        name: params[:name],
                         bio: params[:bio],
                         avatar: params[:avatar],
                         password: params[:password],
