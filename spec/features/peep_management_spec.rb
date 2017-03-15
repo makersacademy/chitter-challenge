@@ -17,7 +17,6 @@ feature "Peep management" do
                   bio: bio, password_confirmation: password)
   end
 
-
   before(:each) do
     sign_up(email: email, name: name, handle: handle, password: password)
     sign_in(email: email, password: password)
@@ -36,7 +35,7 @@ feature "Peep management" do
     expect(page).not_to have_content("#{message}")
   end
 
-  scenario 'show a list of all peeps on the peeps route regardless of session' do
+  scenario 'all visitors are shown a list of all peeps on the homepage' do
     Timecop.freeze(Time.now)
     create_peep(message: message, media: media)
     create_peep(message: message_two, media: media)
@@ -47,5 +46,19 @@ feature "Peep management" do
     expect(page).to have_content("Bob on #{Time.now.strftime('%A, %d %b %Y')} @ #{Time.now.strftime('%l:%M %p')}")
     Timecop.return
   end
+
+  scenario 'signed-in users can reply to peeps' do
+    Timecop.freeze(Time.now)
+    create_peep(message: message, media: media)
+    visit '/peeps'
+    click_link 'Reply'
+    fill_in :message, with: 'I thought this Peep was awesome'
+    click_button('Send')
+    expect(page).to have_content("Bob on #{Time.now.strftime('%A, %d %b %Y')} @ #{Time.now.strftime('%l:%M %p')}")
+    expect(page).to have_content('I thought this Peep was awesome')
+    Timecop.return
+  end
+
+
 
 end

@@ -1,4 +1,3 @@
-
 def create_peep(message:, media: nil, tag: nil)
   visit('/peeps')
   click_button 'Peep'

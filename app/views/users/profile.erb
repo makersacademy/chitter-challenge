@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-6">
     <% if @user %>
-      <% if !@user.avatar == "" %>
+      <% if @user.avatar != "" %>
         <img class="profile-img" src="<%= @user.avatar %>"/></br>
       <% else %>
         <img class="profile-img" src="/profile-placeholder.png"/></br>

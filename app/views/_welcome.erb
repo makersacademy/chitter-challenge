@@ -10,10 +10,10 @@
             <span class="navbar-text">Signed in as <%= current_user.handle %></span>
            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/descending'>
+        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/ascending'>
             <input class="btn btn-primary" type='submit' value='&#x25B2;'>
         </form>&nbsp;
-        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/ascending'>
+        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/descending'>
             <input class="btn btn-primary" type='submit' value='&#x25BC;'>
         </form>&nbsp;
         <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">

@@ -1,6 +1,11 @@
 .panel-item{
-  border: solid #7ec2d6 2px;
+  border: solid #7ec2d6 5px;
   border-radius:5px;padding:5px;
+}
+
+.panel-item-reply{
+  border: solid darkgreen 3px;
+  border-radius: 5px;padding:5px;
 }
 
 .warnings{
@@ -37,4 +42,7 @@
 .timeline-img{
   max-width: 5%;
   height: auto;
+}
+form {
+    display: inline;
 }

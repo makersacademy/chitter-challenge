@@ -35,10 +35,29 @@ class Chitter < Sinatra::Base
     redirect to('/peeps')
   end
 
-  delete '/peeps' do
+  delete '/peeps/destroy' do
     peep = Peep.first(id: params[:id])
     peep.destroy
     redirect '/peeps'
+  end
+
+  get '/peeps/peep/:id' do
+    redirect 'sessions/new' if !current_user
+    @reply ||= Reply.new
+    @peep = Peep.first(id: params[:id])
+    @replies = Reply.all(peep_id: @peep.id)
+    erb :'peeps/peep'
+  end
+
+  post '/peeps/peep/reply/:id' do
+    @peep = Peep.first(id: params[:id])
+    @reply = Reply.create(message: params[:message], peep: @peep, user: current_user,  date: Time.now)
+    if @reply.save
+      redirect to("/peeps/peep/#{@peep.id}")
+    else
+      flash.now[:errors] = @reply.errors.full_messages
+      erb :'peeps/peep'
+    end
   end
 
 end

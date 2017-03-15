@@ -4,6 +4,9 @@ class Reply
  include DataMapper::Resource
 
  property :id, Serial
- property :content, String
+ property :message, String
+ property :date, DateTime, required: true
 
+ belongs_to :peep
+ belongs_to :user
 end

@@ -33,15 +33,15 @@ describe User do
 
   describe "Creating a user" do
 
-  it 'requires a handle that is not blank' do
-    expect{ User.create(email: email, name: name, password: password,
-                       handle: "", bio: bio, password_confirmation: password)}.not_to change(User, :count)
-  end
+    it 'requires a handle that is not blank' do
+      expect{ User.create(email: email, name: name, password: password,
+                         handle: "", bio: bio, password_confirmation: password)}.not_to change(User, :count)
+    end
 
-  it 'requires a name that is not blank' do
-    expect{ User.create(email: email, name: '', password: password,
-                       handle: handle, bio: bio, password_confirmation: password)}.not_to change(User, :count)
-  end
+    it 'requires a name that is not blank' do
+      expect{ User.create(email: email, name: '', password: password,
+                         handle: handle, bio: bio, password_confirmation: password)}.not_to change(User, :count)
+    end
 
     it 'requries matching passwords' do
       expect { User.create(email: email, name: name, password: password,
@@ -67,7 +67,5 @@ describe User do
     end
 
   end
-
-  # Add an anonymous user avatar if none is supplied!
 
 end

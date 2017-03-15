@@ -4,6 +4,8 @@ feature "Navbar" do
   name = "Bob Smith"
   handle = "Bob"
   password = "password"
+  message_one = "First one"
+  message_two = "Second Peep"
 
   before(:each) do
     sign_up(email: email, name: name, handle: handle, password: password)
@@ -38,11 +40,24 @@ feature "Navbar" do
     end
   end
 
-  feature 'User can sort Peeps in ascending order' do
+  feature 'User can sort Peeps by date' do
+    scenario 'in ascending order' do
+      create_peep(message: message_one)
+      Timecop.travel(Time.now + 60)
+      create_peep(message: message_two)
+      click_button '▲'
+      expect(page.all(".panel-item .message").map(&:text)).to eq([message_one, message_two])
+      Timecop.return
+    end
 
-
-
-
+    scenario 'in descending order' do
+      create_peep(message: message_one)
+      Timecop.travel(Time.now + 60)
+      create_peep(message: message_two)
+      click_button '▼'
+      expect(page.all(".panel-item .message").map(&:text)).to eq([message_two, message_one])
+      Timecop.return
+    end
   end
 
 end
