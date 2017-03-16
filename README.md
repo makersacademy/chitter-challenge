@@ -1,7 +1,17 @@
 Chitter
 =======
 
-Chitter is a Twitter clone that allows users to post messages to a public stream, the week 4 weekend challenge at Makers academy. Demo available here: https://chitter-week4.herokuapp.com/peeps
+Chitter is a web application build on the Sinatra framework that emulates the core functionality of Twitter. Users are able to register with a unique email address and once signed-in, can post 'Peeps' (tweets) with tags and images to a public stream.
+
+Users can also:
+- View user profiles
+- Update a user profile
+- Sign out
+- Reply to Peeps
+- Search Peeps by tag
+- Sort peeps in ascending or descending order
+
+A demo of the application can be found at https://chitter-week4.herokuapp.com/peeps
 
 User Stories
 -------
@@ -33,17 +43,17 @@ I want to see the time at which it was made
 
 Notes on functionality
 ------
-* Users sign up to chitter with their email, password, name and a handle. Bio and avatar are optional fields.
-* The handle and email must be unique.
-* Peeps (posts to chitter) have the handle of their user.
-* bcrypt is used to secure the passwords.
-* data mapper and postgres are used to save the data.
-* You don't have to be logged in to see peeps or user profiles.
-* You only can peep if you are logged in.
+* Users sign up to chitter with their Email, Password, Name,  Handle, Biography and Avatar.
+* The email and handle must be unique.
+* Biography and Avatar are optional.
+* Peeps (posts to chitter) show the handle of the authoring user.
+* Users can only can peep if logged in.
+* Users don't have to be logged in to see peeps or view user profiles.
+* Peeps can be created with an image URL which will display in the peep.
 
 Screenshots
 -----------
-*New peeps*
+*New peep*
 
 ![Peeps](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
 
@@ -51,35 +61,53 @@ Screenshots
 
 ![Profile](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/profile.png)
 
+*Replies*
+![Homepage](htt)
+
 *Homepage*
 
 ![Homepage](htt)
 
 Technologies used
 -------
-Backend
-Ruby
-Sinatra
-postgres
+*Backend*
+- Ruby
+- Sinatra
 
-Frontend
-html
-css
-bootstrap
+*Database*
+- Postgresql
+- Datamapper (ORM)
+- BCrypt (Password encryption)
 
-Testing
-rspec
-capybara
+*Frontend*
+- Bootstrap
+- CSS
 
-Deployment
-Heroku
+*Testing*
+- RSpec
+- Capybara
+
+*Deployment*
+- Heroku
 
 Installation
-------
+------------
+- Clone the repo
+- CD to the project folder
+- Run bundle install
+- Create two local postrgresql databases called chitter_development and chitter_test
+- Run rake db:auto_migrate_test to build test database
+- Run rake db:auto_migrate_dev to build dev database
 
-Potential improvements
------
-* In order to start a conversation as a user I want to reply to a peep from another user.
-* Feature: Follow and unfollow other users, with a user specific Peeps page.
+To test:
+- Run rspec
+
+To run the application on localhost:
+- Run rackup
+- Visit http://localhost:9292/
+
+Potential feature improvements
+------------------------------
+* Follow and unfollow other users.
 * Password validation.
 * Password recovery.
