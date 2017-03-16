@@ -43,9 +43,10 @@ class Chitter < Sinatra::Base
 
   get '/peeps/peep/:id' do
     redirect 'sessions/new' if !current_user
-    @reply ||= Reply.new
     @peep = Peep.first(id: params[:id])
     @replies = Reply.all(peep_id: @peep.id)
+    # puts "Replies is:"
+    # p @replies
     erb :'peeps/peep'
   end
 
@@ -55,8 +56,8 @@ class Chitter < Sinatra::Base
     if @reply.save
       redirect to("/peeps/peep/#{@peep.id}")
     else
-      flash.now[:errors] = @reply.errors.full_messages
-      erb :'peeps/peep'
+      flash.next[:errors] = @reply.errors.full_messages
+      redirect to("/peeps/peep/#{@peep.id}")
     end
   end
 
