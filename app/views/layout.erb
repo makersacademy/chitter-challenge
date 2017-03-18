@@ -1,0 +1,79 @@
+<title>Chitter</title>
+<head>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+
+<body>
+<table class="banner">
+  <tr>
+    <td height="200"><table width="100%" border="0" cellspacing="0" cellpadding="0" height="200">
+      <tr>
+        <td width="20" height="20">&nbsp;</td>
+        <td width="50" height="20">&nbsp;</td>
+        <td align="center" valign="middle" class="WhiteText">&nbsp;</td>
+        <td width="155" height="20">&nbsp;</td>
+        <td width="155" height="20">&nbsp;</td>
+        <td width="20" height="20">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="20" height="50">&nbsp;</td>
+        <td width="50" height="50"><img src="/images/logo.png" width="50" height="50" alt="Logo" /></td>
+        <td align="center" valign="middle" class="WhiteText"><span class="SubTitle"><% if current_user %>Welcome, <%= current_user.name %><% end %></span></td>
+        <td width="155" height="50">
+        	<% if current_user == nil %>
+            <form action='/users/new'>
+        			<input type='submit' value='Sign up'' name='Sign up' align="middle" id="signup">
+    			  </form>
+          <% end %>
+        </td>
+        <td width="155" height="50">
+          <% if current_user == nil %>
+            <form action='/sessions/new'>
+              <input type='submit' value='Sign in' name='Sign in' align="middle" id="signin">
+            </form>
+          <% else %>
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Sign out' name='Sign out' align="middle" id="signout">
+            </form>
+          <% end %>
+        </td>
+        <td width="20" height="50">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="20">&nbsp;</td>
+        <td width="50">&nbsp;</td>
+        <td align="center" valign="middle" class="WhiteText"><span class="TitleText">What's happening?</span></td>
+        <td width="155">&nbsp;</td>
+        <td width="155">&nbsp;</td>
+        <td width="20">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<% if (flash[:errors] && !flash[:errors].empty?) || flash[:notice] || session[:errors]%>
+    <div class="errors">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="20" align="center" valign="middle" bgcolor="#FF0000">
+            <% if flash[:notice] %>
+                <%= flash[:notice] %>
+            <% end %>
+            <% if session[:errors] %>
+                <%= session[:errors][0] %>
+            <% end %>
+            <% if flash[:errors] && !flash[:errors].empty? %>
+                <ul id='errors'>
+                    <% flash[:errors].each do |error| %>
+                        <%= error %>
+                    <% end %>
+                </ul>
+            <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+<% end %>
+
+<%= yield %>
+</body>
