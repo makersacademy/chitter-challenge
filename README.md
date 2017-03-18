@@ -1,15 +1,15 @@
 # Chitter Challenge
 #### Technologies: Ruby, Rspec, Sinatra, Heroku, HTML, CSS, Postgres, SQL, DataMapper
-### [Makers Academy] (http://www.makersacademy.com) - Week 4 Solo Weekend Project [![Coveralls](https://camo.githubusercontent.com/8f47be91a0ee2f287efe64a0a9c1de10c213c772/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f393839333235392f6261646765)](https://github.com/adrianeyre/chitter-challenge)
+### [Makers Academy](http://www.makersacademy.com) - Week 4 Solo Weekend Project [![Coveralls](https://camo.githubusercontent.com/8f47be91a0ee2f287efe64a0a9c1de10c213c772/68747470733a2f2f636f766572616c6c732e696f2f6275696c64732f393839333235392f6261646765)](https://github.com/adrianeyre/chitter-challenge)
 
 ## Index
-* [Gems Used] (#GEMS)
-* [Installtion] (#Install)
-* [User Stories] (#US)
-* [Usage] (#Usage)
-* [Database Schema] (#Schema)
-* [Screen Shots] (#Shots)
-* [Use live on Heroku] (#Heroku)
+* [Gems Used](#GEMS)
+* [Installtion](#Install)
+* [User Stories](#US)
+* [Usage](#Usage)
+* [Database Schema](#Schema)
+* [Screen Shots](#Shots)
+* [Use live on Heroku](#Heroku)
 
 ## <a name="GEMS">Gems Used</a>
 ```ruby
@@ -108,4 +108,4 @@ type `http://localhost:4567` into your web browser
 
 ## <a name="Heroku">Use live on Heroku</a>
 
-[Chitter] (https://adrianeyre-chitter.herokuapp.com)
+[![heroku-48](https://raw.githubusercontent.com/adrianeyre/codewars/master/Ruby/Authored/heroku.png)](https://adrianeyre-chitter.herokuapp.com) [Use on Heroku](https://adrianeyre-chitter.herokuapp.com)
