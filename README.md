@@ -3,7 +3,9 @@
 
 [![Build Status](https://travis-ci.org/KatHicks/chitter-challenge.svg?branch=master)](https://travis-ci.org/KatHicks/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/KatHicks/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/KatHicks/chitter-challenge?branch=master)
 
+---
 ![Chitter Landing Page](/docs/landing_page.png?raw=true "Screenshot of landing page")
+---
 
 ### Instructions
 
