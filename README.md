@@ -50,20 +50,20 @@ I want to see the time at which it was made
 * Peeps can be created with an image URL which will display in the peep.
 
 ## Screenshots
-**New peep**
+**Homepage**
 
-![Peeps](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
+![home](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peeps.png)
 
 **User profiles**
 
 ![Profile](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/profile.png)
 
+**New Peep**
+![peep](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
+
 **Replies**
-![Homepage](htt)
 
-**Homepage**
-
-![Homepage](htt)
+![reply](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/replies.png)
 
 ## Technologies used
 **Backend**
@@ -90,7 +90,7 @@ I want to see the time at which it was made
 - Clone the repo
 - `cd` to the project folder
 - Run `bundle install`
-- Create two local postrgresql databases called chitter_development and chitter_test
+- Create two local postrgresql databases called `chitter_development` and `chitter_test`
 
 To test:
 - Run `rspec`
