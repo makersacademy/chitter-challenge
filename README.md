@@ -3,15 +3,6 @@ Chitter Challenge
 
 Author: Courtney Osborn
 
-![alt text](images/Screen Shot 2017-01-02 at 15.44.46.png)
-
-![alt text](images/Screen Shot 2017-01-02 at 15.45.34.png)
-
-![alt text](images/Screen Shot 2017-01-02 at 15.44.56.png)
-
-![alt text](images/Screen Shot 2017-01-02 at 15.45.10.png)
-
-
 Task:
 ----
 
