@@ -15,7 +15,7 @@ end
 
 feature "Switch to log in" do
   scenario "I want to be able to access the log in page" do
-    visit("/sign_up")
+    visit("/user/new")
     expect(page.status_code).to eq 200
     click_button("Log In")
 

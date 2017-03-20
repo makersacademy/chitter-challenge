@@ -7,7 +7,5 @@ feature "Sign Out", type: :feature do
     expect(page.status_code).to eq 200
 
     click_button("Log Out")
-    # expect(page).to have_content("Good Bye")
-    # expect(page).to_not have_content("Peeps")
   end
 end

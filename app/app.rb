@@ -18,11 +18,11 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @peeps = Peep.all.reverse
-    erb :peep_board
+    erb :'peep/board'
   end
 
-  get '/log_in' do
-    erb :log_in
+  get '/session/new' do
+    erb :'session/new'
   end
 
   post '/existing_user' do
@@ -32,12 +32,12 @@ class Chitter < Sinatra::Base
         redirect '/'
       else
         flash.next[:error_1] = "Your details are incorrect, please try again or sign up"
-        redirect '/log_in'
+        redirect '/session/new'
       end
   end
 
-  get '/sign_up' do
-    erb :sign_up
+  get '/user/new' do
+    erb :'user/new'
   end
 
   post '/new_user' do
@@ -52,16 +52,16 @@ class Chitter < Sinatra::Base
       redirect '/new_peep'
     else
       flash.next[:error_2] = "Please try again"
-      redirect '/sign_up'
+      redirect '/user/new'
     end
   end
 
   get '/new_peep' do
     if session[:user_id] == nil
       flash.next[:error_3] = "Please Log in First"
-      redirect '/log_in'
+      redirect '/session/new'
     else
-      erb :new_peep
+      erb :'peep/new'
       end
   end
 
@@ -72,7 +72,7 @@ class Chitter < Sinatra::Base
 
   get '/change_order' do
     @peeps = Peep.all
-    erb :peep_board
+    erb :'peep/board'
   end
 
   get '/log_out' do
@@ -81,7 +81,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    redirect to '/log_in'
+    redirect to '/session/new'
   end
 
   helpers do
