@@ -49,14 +49,14 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       session[:user_name] = @user.user_name
-      redirect '/new_peep'
+      redirect '/peep/new'
     else
       flash.next[:error_2] = "Please try again"
       redirect '/user/new'
     end
   end
 
-  get '/new_peep' do
+  get '/peep/new' do
     if session[:user_id] == nil
       flash.next[:error_3] = "Please Log in First"
       redirect '/session/new'
