@@ -35,5 +35,3 @@ class User
     end
   end
 end
-
-setup

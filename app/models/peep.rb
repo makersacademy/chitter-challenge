@@ -13,5 +13,3 @@ class Peep
   property :user_name, String
 
 end
-
-setup
