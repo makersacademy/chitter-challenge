@@ -79,7 +79,7 @@ class Chitter < Sinatra::Base
     erb :log_out
   end
 
-  delete '/sessions' do
+  delete '/session' do
     session[:user_id] = nil
     redirect to '/session/new'
   end
