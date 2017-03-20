@@ -13,6 +13,7 @@ require_relative 'data_mapper_setup.rb'
 require_relative 'controllers/peep'
 require_relative 'controllers/user'
 require_relative 'controllers/session'
+require_relative 'helpers'
 
 class Chitter < Sinatra::Base
 
@@ -34,11 +35,7 @@ enable :partial_underscores
   end
 
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  end
+  helpers Helpers
 
 
   # start the server if ruby file executed directly
