@@ -10,6 +10,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
 gem 'dm-transactions'
+gem 'sinatra-partial'
 
 group :test do
   gem 'rspec',  '3.4.0'
