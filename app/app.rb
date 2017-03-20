@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
     erb :'session/new'
   end
 
-  post '/existing_user' do
+  post '/user' do
     user = User.authenticate(params[:user_name], params[:password])
       if user
         session[:user_id] = user.id
