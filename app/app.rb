@@ -40,7 +40,7 @@ class Chitter < Sinatra::Base
     erb :'user/new'
   end
 
-  post '/new_user' do
+  post '/user/new' do
     @user = User.new(name: params[:name],
              user_name: params[:user_name],
              email: params[:email],
@@ -70,13 +70,9 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/change_order' do
+  get '/peep/oldest_first' do
     @peeps = Peep.all
     erb :'peep/board'
-  end
-
-  get '/log_out' do
-    erb :log_out
   end
 
   delete '/session' do
