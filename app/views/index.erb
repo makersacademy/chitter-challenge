@@ -1,0 +1,22 @@
+<div class='banner'>
+  <% if flash[:notice] %>
+    <h1><%= flash[:notice] %><h1>
+  <% else %>
+    <h1>What's happening?</h1>
+  <% end %>
+</div>
+
+<div class='container-fluid highlights'>
+  <h3 class='subtitle'> Moments | <a href='/login'>View all</a></h3>
+  <div class='row'>
+    <% @peeps.each do |peep| %>
+        <div class="col-md-3 col-xs-6">
+          <div class='sample'>
+            <p class='content'><%= peep.content %></p>
+            <p class='author'><b><%= peep.user.name %></b> <em>@<%= peep.user.username %></em></p>
+            <p class='footnote'>Posted on <%= peep.created_at.strftime('%d %B %Y at %H:%M') %></p>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

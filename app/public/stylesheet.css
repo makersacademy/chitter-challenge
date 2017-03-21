@@ -1,0 +1,109 @@
+.banner {
+  width: 100%;
+  background-color: #5056DD;
+  padding: 10%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.navbar {
+  position: relative;
+  height: 75px;
+  line-height: 75px;
+}
+
+.navbar-brand {
+  font-family: 'Sonsie One', cursive;
+  font-size: 48px;
+  padding: 26px;
+}
+
+.navbar-btn {
+  margin: 10px 0px 10px 10px;
+}
+
+.posting {
+  width: 100%;
+  background-color: #65C6F4;
+  padding: 2%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#peep {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px;
+  border-color: #E7E7E7;
+  border-style: solid;
+  position: relative;
+  height: 100px;
+}
+
+.posts {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footnote {
+  font-style: italic;
+  padding: 3px 6px 3px 6px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.content {
+  font-weight: bold;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid #E7E7E7;
+  resize: none;
+  color: #000000;
+}
+
+.form-signin {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+#name, #username, #email, #password, #confirm_password, .btn-block {
+  margin-top: 10px;
+}
+
+.sample {
+  height: 250px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 15px;
+  border-color: #E7E7E7;
+  border-style: solid;
+  font-size: 24px;
+  position: relative;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 8px;
+  margin-left: -5px;
+}
+
+.subtitle {
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+.author {
+  font-size: 18px;
+}
+
+#errors {
+  text-align: center;
+  margin: 0 auto;
+}

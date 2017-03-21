@@ -1,0 +1,13 @@
+<form action='/sessions' method='post' class="form-signin">
+  <label for="email" class="sr-only">Email:</label>
+  <input placeholder="Email address" type='email' name='email' required id="email" class="form-control">
+
+  <label for="password" class="sr-only">Password:</label>
+  <input placeholder="Password" type="password" id="password" class="form-control" name='password' required>
+
+  <input class="btn btn-lg btn-primary btn-block" type='submit' value='Log in'>
+</form>
+
+<% if flash[:authenticate] %>
+  <%= flash[:authenticate] %>
+<%end%>

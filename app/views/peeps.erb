@@ -1,0 +1,23 @@
+<div class='posting'>
+  <h2>What's happening?</h2>
+  <form id='peeping' action='/peeps/new' method='post'>
+    <textarea class="message form-control" form='peeping' rows="2" maxlength="140" name='peep' required></textarea>
+    <br>
+    <input class="btn btn-default navbar-btn" type='submit' value='Peep'>
+    <span class="countdown"></span>
+  </form>
+</div>
+
+<div class='posts'>
+  <ul class="list-unstyled posts">
+    <% @peeps.each do |peep| %>
+      <li>
+        <div id="peep">
+          <p class='header'><b><%= peep.user.name %></b> <em>@<%= peep.user.username %></em></p>
+          <p class='content'><%= peep.content %></p>
+          <p class='footnote'>Posted on <%= peep.created_at.strftime('%d %B %Y at %H:%M') %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

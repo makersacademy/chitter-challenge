@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Chitter</title>
+    <link rel='stylesheet' href='/bootstrap-3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/stylesheet.css'>
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet">
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          	<span class="sr-only">Toggle navigation</span>
+          	<span class="glyphicon glyphicon-th-list icon-ok"></span>
+          </button>
+          <a class="navbar-brand" href="#">Chitter</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if defined? @user %>
+              <li>
+                <a href="#">Logged in as <%= @user.name %></a>
+              </li>
+              <li class="active">
+                <form action='/sessions' method='post'>
+                  <input type='hidden' name='_method' value='delete'>
+                  <input class="btn btn-danger navbar-btn" type='submit' value='Log out'>
+                </form>
+              </li>
+            <% else %>
+              <li>
+                <a href='/users/new' class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+              </li>
+              <li>
+                <a href='/sessions/new' class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Log in</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container" id="main-page">
+      <%= yield %>
+    </div>
+  </body>
+
+</html>
