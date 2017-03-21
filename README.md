@@ -1,7 +1,7 @@
 # Chitter Challenge
 ### Makers Academy Weekend Challenge No.4
 
-[![Build Status](https://travis-ci.org/KatHicks/chitter-challenge.svg?branch=master)](https://travis-ci.org/KatHicks/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/KatHicks/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/KatHicks/chitter-challenge?branch=master)
+[![Build Status](https://travis-ci.org/KatHicks/chitter-challenge.svg?branch=master)](https://travis-ci.org/KatHicks/chitter-challenge) [![Coverage Status](https://coveralls.io/repos/github/KatHicks/chitter-challenge/badge.svg?branch=master)](https://coveralls.io/github/KatHicks/chitter-challenge?branch=master) [![Code Climate](https://codeclimate.com/github/KatHicks/chitter-challenge/badges/gpa.svg)](https://codeclimate.com/github/KatHicks/chitter-challenge)
 
 ![Chitter Landing Page](/docs/landing_page.png?raw=true "Screenshot of landing page")
 
