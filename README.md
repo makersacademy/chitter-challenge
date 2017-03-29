@@ -41,17 +41,17 @@ I want to see the time at which it was made
 
 The list of gem used in this project :
 ```ruby
- sinatra
- sinatra-flash
- bcrypt
- data_mapper
- dm-postgres-adapter
- dm-timestamps
- rspec
- rubocop-rspec
- rubocop
- coveralls
- rspec-sinatra
- capybara
- database_cleaner
+ gem 'sinatra'
+ gem 'sinatra-flash'
+ gem 'bcrypt'
+ gem 'data_mapper'
+ gem 'dm-postgres-adapter'
+ gem 'dm-timestamps'
+ gem 'rspec'
+ gem 'rubocop-rspec'
+ gem 'rubocop'
+ gem 'coveralls'
+ gem 'rspec-sinatra'
+ gem 'capybara'
+ gem 'database_cleaner'
 ```
