@@ -8,7 +8,7 @@
    <%end%>
      <% if @peep %>
      <% @peep.each do |peep| %>
-    <ul> Peep: <%=peep.body%>, Date: <%=peep.created_at%>, Author_name: <%=peep.peep_author_name%>, Author_username <%=peep.peep_author_username%></ul>
+    <ul> Post: <%=peep.body%>, Posted on: <%=peep.created_at.strftime("%d %B %Y")%>, Posted by: <%=peep.peep_author_name%></ul>
     <% end %>
    <% end %>
  </div>

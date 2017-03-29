@@ -5,10 +5,9 @@ Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://t
 Chitter Challenge
 =================
 This project aims to replicate twitter.  
-To use it you should sign up first.   
-Then you can write and post and read peeps.  
-My application can be found on Heroku    
-[Chitter2017](https://chitter2017.herokuapp.com/)
+To read current posts, click on 'read peeps'  
+To write your own posts, you need to sign up first.  
+My application can be found on Heroku [Chitter2017](https://chitter2017.herokuapp.com/)  
 
 
 User Story:
@@ -41,7 +40,7 @@ I want to see the time at which it was made
 ```
 
 The list of gem used in this project :
-```
+```ruby
  sinatra
  sinatra-flash
  bcrypt
@@ -49,12 +48,10 @@ The list of gem used in this project :
  dm-postgres-adapter
  dm-timestamps
  rspec
- cucumber
  rubocop-rspec
  rubocop
  coveralls
  rspec-sinatra
  capybara
  database_cleaner
- factory_girl
 ```
