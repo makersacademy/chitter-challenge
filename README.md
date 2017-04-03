@@ -9,10 +9,25 @@ To read current posts, click on 'read peeps'
 To write your own posts, you need to sign up first.  
 My application can be found on Heroku [Chitter2017](https://chitter2017.herokuapp.com/)  
 
+**Setup**
+```
+$ git clone https://github.com/BasileKoko/chitter-challenge
+$ cd chitter-challenge
+```
+**To run program**
+```
+$ ruby app/app.rb
+$ open http:localhost:4567
+```
 
-User Story:
+**To run tests**
+```
+$ rspec
+```
+
+
+User Stories:
 -------
-
 ```
 As a Maker
 So that I can post messages on Chitter as me
