@@ -1,0 +1,35 @@
+<h1>Welcome to Chitter</h1>
+
+<form action="/sign-up" method="post">
+  <label for="email">
+    email:
+    <input type="text" class="field" name="email">
+  </label>
+  <label for="password">
+    password:
+    <input type="text" class="field" name="password">
+  </label>
+  <p>
+  <label for="name">
+    name:
+    <input type="text" class="field" name="name">
+  </label>
+  <label for="user_name">
+    user name:
+    <input type="text" class="field" name="user_name">
+  </label>
+
+  <button type="submit" class="btn">
+    Sign up
+  </button>
+</form>
+
+<br>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Name: <%= peep.name %>
+      User name: <%= peep.name %>
+    </li>
+  <% end %>
+</u1>
