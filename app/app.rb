@@ -2,31 +2,37 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-require_relative 'models/peep'
+require_relative 'models/user'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  # set :public_folder, File.dirname(__FILE__) + '/'
+  set    :session_secret, 'super secret'
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @user = User.first
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
+  get '/users/new' do
+    @user = User.all
+    erb :'users/new'
   end
 
-  post '/sign-up' do
+  post '/users' do
     email = params[:email]
     password = params[:password]
     name = params[:name]
     user_name = params[:user_name]
-    Peep.create(email: email, password: password, name: name, user_name: user_name)
-    redirect '/peeps', 302
+    User.create(email: email, password: password, name: name, user_name: user_name)
+    redirect '/peeps', 303
   end
 
-  # get '/home' do
-  #   erb :home
-  # end
+  run! if app_file == $0
+
 end

@@ -2,12 +2,12 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Peep
+class User
 
   include DataMapper::Resource
 
     property :id, Serial
-    property :email, String
+    property :email, String, :required => true, :format => :email_address, unique: true
     property :password, String
     property :name, String
     property :user_name, String
