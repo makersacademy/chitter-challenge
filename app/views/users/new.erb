@@ -1,22 +1,11 @@
 
 
 <form action="/users" method="post">
-  <label for="email">
-    email:
-    <input type="email" class="field" name="email">
-  </label>
-  <label for="password">
-    password:
-    <input type="text" class="field" name="password">
-  </label>
+    email: <input type="email" class="field" name="email" required/>
+    password: <input type="password" class="field" name="password">
+    confirm password: <input type='password' name='password_confirmation' />
   <p>
-  <label for="name">
-    name:
-    <input type="text" class="field" name="name">
-  </label>
-  <label for="user_name">
-    user name:
-    <input type="text" class="field" name="user_name">
-  </label>
+    name: <input type="text" class="field" name="name">
+    user name:<input type="text" class="field" name="user_name">
   <input type='submit' value='Sign up' class="btn" />
 </form>

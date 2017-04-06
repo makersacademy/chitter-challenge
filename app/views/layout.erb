@@ -8,6 +8,14 @@
     <% if @user %>
       <h2>Welcome, <%= @user.name %></h2>
     <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      You have errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
