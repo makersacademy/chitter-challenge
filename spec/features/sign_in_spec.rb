@@ -12,4 +12,11 @@ feature 'User sign in' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, #{user.name}"
   end
+
+  scenario 'unsuccessful sign in' do
+    sign_up
+    sign_in(password: 'incorrect')
+    expect(current_path).to eq '/sessions'
+    expect(page).to have_content 'The email or password is incorrect'
+  end
 end
