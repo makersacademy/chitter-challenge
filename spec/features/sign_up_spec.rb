@@ -2,11 +2,11 @@ feature 'Sign up for Chitter' do
   scenario 'To post user must sign up' do
     expect { sign_up }.to change(User, :count).by 1
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'Welcome, Bob'
+    expect(page).to have_content 'Welcome, Ruan'
   end
 
   scenario 'user enters incorrect password confirmation' do
-    expect { sign_up }.not_to change(User, :count)
+    expect { sign_up(password_confirmation: 'incorrect') }.not_to change(User, :count)
     expect(current_path).to eq '/users'
     expect(page).to have_content 'Password does not match the confirmation'
   end
