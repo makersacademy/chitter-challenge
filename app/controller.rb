@@ -1,19 +1,23 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do
     erb :home
   end
 
-  get '/sign-up' do
-    erb :"sign-up"
+  get '/users/new' do
+    erb :'users/new'
   end
 
-  post '/new_user_sign_up' do #Is new_user_sign_up too verbose?
+  post '/users/new' do #Is new_user_sign_up too verbose?
     name = params[:name]
     username = params[:username]
     password = params[:password]
@@ -28,20 +32,36 @@ class Chitter < Sinatra::Base
 
     if new_user.valid?
       new_user.save
-      redirect('/feed')
+      redirect('/cheeps/index')
+    else
+      redirect('/')
     end
+
   end
 
-  get '/feed' do
-    erb :feed
+  get '/cheeps/index' do
+    erb :'cheeps/index'
   end
 
-  get '/sign-in' do
-    erb :'sign-in'
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/attempt_sign_in' do
-    redirect '/feed'
+  post '/sessions/new' do
+
+    email = params[:email]
+    password = params[:password]
+    user = User.authenticate(email,password)
+    #I AM SORTING OUT THIS
+
+    if User
+      session[:user_id] = user.id
+      redirect '/cheeps/index'
+    else
+      flash.now[:errors]=['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+    redirect '/cheeps/index'
   end
 
 

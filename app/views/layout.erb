@@ -8,7 +8,16 @@
   </head>
 
   <body>
+    <%if session[:user_id] %>
 
+      <%@user= User.first(id: session[:user_id])%>
+      <div id='user'><%=@user.email%></div>
+    <%end%>
+
+
+    <% if flash[:errors] %>
+      <div id='notice'><%= flash[:errors] %></div>
+    <% end %>
     <%= yield %>
 
   </body>

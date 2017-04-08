@@ -3,7 +3,7 @@ require 'bcrypt'
 class User
   attr_reader :password
   attr_accessor :password_confirmation
-
+  # require 'pry'; binding.pry
   include DataMapper::Resource
 
   property :username, String
@@ -15,6 +15,17 @@ class User
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(email,password)
+    user = first(email:email)
+
+    if user && BCrypt::Password.new(user.password_digest) == password #this is not a string comparison
+      #This converts password to bcrypt and then compares the two bcrypt-ed passwords
+      user
+    else
+      nil
+    end
   end
 
   validates_presence_of :name, :email, :username

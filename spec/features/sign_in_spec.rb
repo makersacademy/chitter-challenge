@@ -19,11 +19,11 @@ feature "Sign-In Functionality" do
 
   scenario 'existing user signs in successfully on sign in page' do
     create_user(sign_in_params)
-    visit '/sign-in'
+    visit '/sessions/new'
     fill_in('email', with: email)
     fill_in('password', with: password)
     click_button 'Sign In'
-    expect(current_path).to eq('/feed')
+    expect(page).to have_content(email)
   end
 
 

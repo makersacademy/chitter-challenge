@@ -6,7 +6,7 @@ def fill_in_sign_up_form(params)
   password  =params[:password]
   username  =params[:username]
   password_confirmation =params[:password_confirmation]
-  visit '/sign-up'
+  visit '/users/new'
 
   fill_in('email',    with: email)
   fill_in('username', with: username)

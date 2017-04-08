@@ -5,7 +5,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'rspec'
 
-# require './app/models/link'
+# require './app/models/user'
 require './app/controller'
 require 'features/web_helpers'
 
