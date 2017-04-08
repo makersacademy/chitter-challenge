@@ -17,4 +17,10 @@ signed in as <%=current_maker.username%>
 <div><a href='/peeps/filter/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:</div>
 <div><%=peep.text%></div>
 <div>on: <%=peep.time%></div>
+<div>
+<form action='peeps/comments'>
+  <input type='submit' value='comments'>
+  <input type='hidden' name='peep_id' value='<%=peep.id%>'>
+</form>
+<div>
 <% end %>

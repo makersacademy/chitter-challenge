@@ -62,6 +62,10 @@ class Chitter < Sinatra::Base
     erb :'makers/peeper'
   end
 
+  get '/peeps/comments' do
+    "#{params[:peep_id]}"
+  end
+
   helpers do
 
     def current_maker
