@@ -2,12 +2,14 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'data_mapper' #Add in
+require 'sinatra/flash'
 require_relative 'models/user'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 enable :sessions
 set :session_secret, 'super secret'
+register Sinatra::Flash
 
   get '/' do
     session[:id] ||= 0
@@ -20,9 +22,14 @@ set :session_secret, 'super secret'
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:username])
+    @user = User.create(email: params[:email], password: params[:password], name: params[:name], username: params[:username])
+    if @user.save
     session[:user_id] = @user.id
     redirect to('/')
+  else
+    flash.now[:errors] = @user.errors.full_messages
+    erb :'users/new'
+    end
   end
 
   helpers do
