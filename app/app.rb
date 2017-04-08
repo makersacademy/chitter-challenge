@@ -40,7 +40,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    redirect to '/peeps'
+    if User.authenticate(params[:email], params[:password])
+      redirect to '/peeps'
+    end
   end
 
   get '/peeps' do
