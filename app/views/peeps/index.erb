@@ -1,0 +1,10 @@
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |x| %>
+    <li>
+      Title:  <%= x.peep %>
+      Body:    <%= x.body %>
+    </li>
+  <% end %>
+</ul>
