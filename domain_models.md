@@ -13,7 +13,6 @@ h) Extracted datamapper setup
 
 2. Welcome to Chitter!
 
-
 Sign up (email, password, name and username)
 - Registration
 
