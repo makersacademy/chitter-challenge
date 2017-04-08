@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
+
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
@@ -17,6 +18,11 @@ SimpleCov.formatters = [
 Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include Capybara::DSL
+
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
