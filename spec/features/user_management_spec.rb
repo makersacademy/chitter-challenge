@@ -49,4 +49,16 @@ feature 'User sign-up' do
     expect{click_button 'Sign up'}.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
+
+  scenario 'username must be unique' do
+    sign_up
+    visit '/users/new'
+    fill_in 'name', with: 'Pete Jones'
+    fill_in 'email', with: 'pete2@example.com'
+    fill_in 'username', with: 'peteypops'
+    fill_in 'password', with: 'password123'
+    fill_in 'password_confirmation', with: 'password123'
+    expect{click_button 'Sign up'}.not_to change(User, :count)
+    expect(page).to have_content 'Username is already taken'
+  end
 end
