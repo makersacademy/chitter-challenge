@@ -1,0 +1,13 @@
+<ul id = 'posts'>
+
+<% @posts.each do |post| %>
+<li>
+  Content: <%=post.content %>
+</li>
+<% end %>
+</ul>
+
+
+<form action="/posts/new" method="get">
+  <input type="submit" value="Peep!">
+</form>
