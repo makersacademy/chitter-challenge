@@ -1,7 +1,9 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 require_relative 'models/peep'
+require_relative 'models/tag'
 
 class Chitter < Sinatra::Base
   get '/peeps' do
@@ -14,7 +16,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    peep = Peep.create(content: params[:content])
+    tag = Tag.first_or_create(name: params[:tags])
+    peep.tags << tag
+    peep.save
     redirect '/peeps'
   end
 
