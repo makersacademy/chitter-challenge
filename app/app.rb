@@ -11,4 +11,10 @@ require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 
 class Knitter < Sinatra::Base
+
+  get '/' do
+    redirect('/peeps')
+  end
+
+  run! if app_file == $0
 end
