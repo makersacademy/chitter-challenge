@@ -4,6 +4,7 @@ class Peep
   property :id, Serial
   property :pweep, String
   property :time, String
+  property :poster, String
 
 end
 

@@ -43,8 +43,9 @@ class Chitter < Sinatra::Base
   end
 
   post "/hub" do
-    @peep = Peep.create(pweep: params[:pweep],
-                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'))
+    @peeps = Peep.create(pweep: params[:pweep],
+                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'),
+                        poster: params[:poster] = current_user)
     redirect to "/hub"
   end
 

@@ -6,9 +6,8 @@
 
 <ul id="hub">
   <% @peeps.reverse_each do |peep| %>
-      <h3><%= peep.pweep %></h3>
-      <h3>Time posted: <%= peep.time %></h3>
+      <h4><%= peep.pweep %></h4>
+      <p>Time posted: <%= peep.time%></p>
     <% end %>
-
 </ul>
 
