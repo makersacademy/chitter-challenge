@@ -5,15 +5,11 @@
 a) Install data_mapper and dm-postgres-adapter
 b) Added rspec, capybara, rack in Gemfile
 c) Added 'capybara/rspec' to spec_helper
-d) Required all the files
-e) Set up config.ru
-
-
-d) Heruko web application
-e) Database
-
-f) Database Cleaner - No need until database gets very full
-
+d) Set up rack and required all files
+Set up testing and development environments
+f) Added Database Cleaner
+g) Deployed Heroku
+h) Extracted datamapper setup
 
 2. Welcome to Chitter!
 
