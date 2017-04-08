@@ -8,6 +8,7 @@ class Chitter < Sinatra::base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::flash
+  use Rack::MethodOverride
 
   # returns an instance of User for
   # the currently logged in user
@@ -37,6 +38,11 @@ class Chitter < Sinatra::base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:error] = 'Goodbye!'
+    redirect to '/users/new'
+  end
   # View peeps
   get '/peeps' do
     erb :'peeps'
