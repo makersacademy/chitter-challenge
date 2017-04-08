@@ -4,6 +4,8 @@ ruby '2.4.0'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-migrations'
+gem 'sinatra'
+gem 'database_cleaner'
 
 group :test do
   gem 'rspec'
@@ -11,7 +13,5 @@ group :test do
   gem 'rake'
   gem 'capybara'
   gem 'rack'
-  gem 'sinatra'
-  gem 'database_cleaner'
   gem 'coveralls', require: false
 end
