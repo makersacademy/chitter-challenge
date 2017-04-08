@@ -15,6 +15,7 @@ def sign_up (first_name: "Darth",
 end
 
 def log_in (username: "Darth Vader", password: "notanakin")
+  visit('/sessions/new')
   fill_in :username, with: username
   fill_in :password, with: password
   click_button "Log In"
