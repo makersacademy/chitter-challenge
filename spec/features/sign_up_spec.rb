@@ -8,6 +8,6 @@ feature 'Users can sign up for Chitter' do
 
   scenario 'User can sign up' do
     expect { sign_up }.to change(User, :count).by(1)
-    
+  end
 
 end
