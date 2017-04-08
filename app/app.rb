@@ -9,17 +9,32 @@ class Chitter < Sinatra::base
   set :session_secret, 'super secret'
   register Sinatra::flash
 
+  # returns an instance of User for
+  # the currently logged in user
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   # User sign up
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   # Store user details
   post 'users' do
-    User.create(email: params[:email],
-                password: params[:password])
-    session[:user_id] = user.id
-    redirect to :'/peeps'
+    @user = User.new(email: params[:email],
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:error] = "Password does not match the confirmation"
+      erb :'users/new'
+    end
   end
 
   # View peeps
