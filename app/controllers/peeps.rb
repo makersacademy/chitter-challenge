@@ -11,7 +11,7 @@ class Knitter < Sinatra::Base
 
   post '/peeps' do
     new_text = params[:text]
-    peep = Peep.create(text: new_text)
+    peep = Peep.first_or_create(text: new_text)
     peep.save
     redirect '/peeps'
   end
