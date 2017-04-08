@@ -1,22 +1,23 @@
 feature 'sign up' do
 
   scenario 'user signs up succesfully' do
-    visit '/users/new'
-    fill_in(:name, with: 'Trisha')
-    fill_in(:email, with: 'Trisha@person.com')
-    fill_in(:username, with: 'Wizard_Trish')
-    fill_in(:password, with: 'password')
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, Wizard_Trish')
     expect(User.first.email).to eq 'Trisha@person.com'
   end
 
-  def sign_up
+  scenario 'cannot sign up without an email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  def sign_up(email: 'Trisha@person.com',
+              username: 'Wizard_Trish',
+              password: 'password')
     visit '/users/new'
     fill_in(:name, with: 'Trisha')
-    fill_in(:email, with: 'Trisha@person.com')
-    fill_in(:username, with: 'Wizard_Trish')
-    fill_in(:password, with: 'password')
+    fill_in(:email, with: email)
+    fill_in(:username, with: username)
+    fill_in(:password, with: password)
     click_button('Sign up')
   end
 
