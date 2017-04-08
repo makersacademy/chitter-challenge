@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -30,7 +31,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/hub' do
-    erb :hub
+    @peeps = Peep.all
+    erb :'/hub/index'
+  end
+
+  get "/hub/new" do
+    erb :"hub/new"
+  end
+
+  post "/hub" do
+    Peep.create(pweep: params[:pweep])
+    redirect to "/hub"
   end
 
   get '/sessions/new' do
@@ -54,8 +65,6 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = "See you later!"
     redirect to "/sessions/new"
   end
-
-
 
   helpers do
     def current_user
