@@ -28,13 +28,19 @@ class Chitter < Sinatra::Base
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect to('/')
     else
       flash.now[:error] = "Passwords didn't match, please try agian"
       erb :'/user/new'
     end
 
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
 
