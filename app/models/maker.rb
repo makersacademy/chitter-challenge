@@ -21,5 +21,9 @@ class Maker
     :message => 'oops.  this username is already taken.'
   validates_format_of :email, as: :email_address,
     :message => 'oops.  please enter a valid email address.'
+  validates_presence_of :username,
+    :message => 'oops.  please enter a username.'
+  validates_presence_of :email,
+    :message => 'oops.  please enter a username.'
 
 end
