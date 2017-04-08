@@ -36,5 +36,13 @@ class Chitter < Sinatra::Base
     erb :feed
   end
 
+  get '/sign-in' do
+    erb :'sign-in'
+  end
+
+  post '/attempt_sign_in' do
+    redirect '/feed'
+  end
+
 
 end

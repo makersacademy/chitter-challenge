@@ -1,3 +1,5 @@
+
+
 def fill_in_sign_up_form(params)
   name      =params[:name]
   email     =params[:email]
@@ -11,4 +13,9 @@ def fill_in_sign_up_form(params)
   fill_in('password', with: password)
   fill_in('password_confirmation', with: password_confirmation)
   fill_in('name',     with: name)
+end
+
+def create_user(params)
+  fill_in_sign_up_form(params)
+  click_button 'Sign Up'
 end
