@@ -1,3 +1,5 @@
+Hi <%=@maker.username%>
+
 <form action='/peeps/new_peep' method='post'>
   <input type='text' name='peep'>
   <input type='submit' value='peep!'>
@@ -8,7 +10,7 @@
 <%=peep.text%>
 </div>
 <div>
-  peeped on:  
+  peeped on:
 <%=peep.time%>
 </div>
 <% end %>

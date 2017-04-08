@@ -1,6 +1,7 @@
-feature 'signing up' do
-  scenario 'User can sign up with username, email and password' do
+feature 'viewing peeps' do
+  scenario 'User can view peeps' do
 
+    Maker.create(username: 'sallywag', email: 'sally@dogs.com', password: 'sally1')
     Peep.create(text: 'Peep peep!', time: Time.now)
 
     visit '/peeps'

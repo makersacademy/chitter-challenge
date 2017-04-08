@@ -1,5 +1,6 @@
 feature 'User creates a peep' do
   scenario 'User can enter a peep and see it on the peeps page' do
+    Maker.create(username: 'sallywag', email: 'sally@dogs.com', password: 'sally1')
     visit '/peeps'
     fill_in 'peep', with: 'what I am thinking'
     click_button 'peep!'
