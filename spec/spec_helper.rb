@@ -5,11 +5,29 @@ require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
 require 'data_mapper'
+require 'database_cleaner'
 
 require 'coveralls'
 require 'simplecov'
 
 Capybara.app = NomDiaries
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
 
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
