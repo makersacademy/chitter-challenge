@@ -53,5 +53,21 @@ class Kitter < Sinatra::Base
 #   redirect '/meows'
 # end
 
+  # get '/meows' do
+  #   @meows = Meow.all
+  #   @user = User.first
+  #   erb :'meows/index'
+  # end
+
+  get '/meows/new' do
+    erb :'meows/new'
+  end
+
+  # post '/meows' do
+  # meow = Meow.new(message: params[:message])
+  # meow.save
+  # redirect '/meows'
+  # end
+
   run! if app_file == $0
 end
