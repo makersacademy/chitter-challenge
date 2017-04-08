@@ -21,4 +21,16 @@ feature 'Viewing peeps' do
     expect(page).not_to have_content("first")
     expect(page).to have_content("gaming")
   end
+
+  scenario 'Shows name' do
+    sign_up
+    create_a_peep
+    expect(page).to have_content("pete@example.com")
+  end
+
+  scenario 'Shows username' do
+    sign_up
+    create_a_peep
+    expect(page).to have_content("peteypops")
+  end
 end
