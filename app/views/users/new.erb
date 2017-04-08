@@ -1,0 +1,20 @@
+<h1>Sign up</h1>
+
+<form action="/users" method="post">
+  <label for="email" >
+    Email:
+      <input type="email" name="email" value='<%= @user.email %>' required>
+  </label>
+
+  <label for="password">
+    Password:
+    <input type="password" name="password">
+  </label>
+
+  <label for="password_confirmation">
+    Password Confirmation:
+    <input type="password" name="password_confirmation">
+  </label>
+
+  <button type="submit" value="Sign up">Sign up</button>
+</form>
