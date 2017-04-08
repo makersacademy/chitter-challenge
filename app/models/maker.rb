@@ -12,7 +12,12 @@ class Maker
   property :password_digest, Text
 
   def password=(password)
-    self.password_digest == BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.authentic?(username, password)
+    maker = first(username: username)
+    maker && BCrypt::Password.new(maker.password_digest) == password
   end
 
   validates_uniqueness_of :email,

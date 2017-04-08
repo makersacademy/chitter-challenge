@@ -22,8 +22,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/makers/new_maker' do
-    if params[:password] != params[:confirm_password]
-      flash.next[:error] = ['oops.  make sure your password and confirmation passwords match.']
+    if params[:password] != params[:confirm_password] || params[:password] == ''
+      flash.next[:error] = 'oops.  make sure you entered a valid password and matching confirmation.'
       redirect '/makers/sign_up'
     end
     maker = Maker.create(username: params[:username], email: params[:email], password: params[:password])
@@ -31,22 +31,27 @@ class Chitter < Sinatra::Base
       session[:maker_id] = maker.id
       redirect '/peeps'
     else
-      flash.next[:error] = maker.errors.full_messages
+      flash.next[:error] = maker.errors.full_messages[-1]
       redirect '/makers/sign_up'
     end
   end
 
-  get '/makers/sign_in' do
+  get '/sessions/sign_in' do
     erb :'makers/sign_in'
   end
 
-  post '/makers/sign_in' do
-    maker = Maker.first(:username => params[:username])
-    session[:maker_id] = maker.id
-    redirect '/peeps'
+  post '/sessions/sign_in' do
+    if Maker.authentic?(params[:username], params[:password])
+      maker = Maker.first(:username => params[:username])
+      session[:maker_id] = maker.id
+      redirect '/peeps'
+    else
+      flash.next[:error] = 'wrong username or password'
+      redirect '/sessions/sign_in'
+    end
   end
 
-  post '/sign_out' do
+  post '/sessions/sign_out' do
     session[:maker_id] = nil
     redirect '/peeps'
   end

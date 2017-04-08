@@ -1,7 +1,9 @@
-<form action='/makers/sign_in' method='post'>
+<form action='/sessions/sign_in' method='post'>
   username
   <input type='test' name='username'>
   password
   <input type='password' name='password'>
   <input type='submit' value='sign in'>
 </form>
+
+<%=flash[:error]%>
