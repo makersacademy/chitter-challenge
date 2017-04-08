@@ -1,4 +1,6 @@
-Hi <%=@maker.username%>
+<% if current_maker %>
+Hi <%=current_maker.username%>
+<% end %>
 
 <form action='/peeps/new_peep' method='post'>
   <input type='text' name='peep'>

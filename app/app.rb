@@ -4,9 +4,9 @@ require_relative './models/peep'
 require_relative './models/maker'
 
 class Chitter < Sinatra::Base
+  enable :sessions
 
   get '/peeps' do
-    @maker = Maker.first
     @peeps = Peep.all
     erb :'peeps/index'
   end
@@ -21,8 +21,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/makers/new_maker' do
-    Maker.create(username: params[:username], email: params[:email], password: params[:password])
+    maker = Maker.create(username: params[:username], email: params[:email], password: params[:password])
+    session[:maker_id] = maker.id
     redirect '/peeps'
+  end
+
+  helpers do
+
+    def current_maker
+      Maker.get(session[:maker_id])
+    end
+
   end
 
 end
