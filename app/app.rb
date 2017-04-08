@@ -16,8 +16,12 @@ class Chitter < Sinatra::Base
   post '/users' do
     @user = User.create(name: params[:name], email: params[:email],
                         username: params[:username], password: params[:password])
-    session[:user_id] = @user.id
-    redirect to('/peeps')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      erb :'users/new'
+    end
   end
 
   get '/peeps' do

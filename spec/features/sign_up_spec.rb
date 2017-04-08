@@ -12,11 +12,13 @@ feature 'sign up' do
 
   scenario 'cannot sign up with an invalid email' do
     expect { sign_up(email: 'invalid@invalid') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
   end
 
   scenario 'cannot sign up with existing email address' do
     sign_up
     expect { sign_up }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
   end
 
   def sign_up(email: 'Trisha@person.com',
