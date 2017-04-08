@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'datamapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'

@@ -13,7 +13,8 @@ class Chitter < Sinatra::Base
     User.create(first_name: params[:first_name],
             last_name: params[:second_name],
                   email: params[:email],
-               username: params[:username])
+               username: params[:username],
+               password: params[:password])
     redirect to '/peeps'
   end
 
