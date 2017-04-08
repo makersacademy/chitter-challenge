@@ -14,7 +14,11 @@ class Chitter < Sinatra::Base
     erb :'posts/index'
   end
 
-  post 'posts' do
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts' do
     peep = Post.create(content: params[:content])
     peep.save
     redirect('/posts')

@@ -3,6 +3,8 @@ require 'capybara/rspec'
 require './app/app.rb'
 require 'database_cleaner'
 require 'features/web_helper'
+require 'coveralls'
+require 'simplecov'
 
 Capybara.app = Chitter
 
