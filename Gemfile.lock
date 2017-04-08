@@ -162,8 +162,10 @@ DEPENDENCIES
   cucumber
   data_mapper
   database_cleaner
+  dm-core
   dm-migrations
   dm-postgres-adapter
+  dm-timestamps
   heroku-rake
   pry
   rake

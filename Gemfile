@@ -9,6 +9,8 @@ gem 'bcrypt'
 gem 'heroku-rake'
 gem 'pry'
 gem 'sinatra-flash'
+gem 'dm-core'
+gem 'dm-timestamps'
 
 group :test do
   gem 'rspec'

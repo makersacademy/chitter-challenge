@@ -3,6 +3,9 @@
 <% @posts.each do |post| %>
 <li>
   Content: <%=post.content %>
+  Name: <%=(User.first(id: post.user_id)).name%>
+  Username: <%=(User.first(id: post.user_id)).username%>
+  Time: <%= post.created_at %>
 </li>
 <% end %>
 </ul>

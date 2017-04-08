@@ -20,14 +20,16 @@ class User
   end
 
   def self.authenticate(username, password)
-  user = first(username: username)
+    user = first(username: username)
 
-  if user && BCrypt::Password.new(user.password_digest) == password
-    user
-  else
-    nil
+    if user && BCrypt::Password.new(user.password_digest) == password
+      user
+    else
+      nil
+    end
   end
-end
+
+  has n, :posts
 
   private
 

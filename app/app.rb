@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @posts = Post.all
+    @posts = Post.all(:order => [:created_at.desc])
     erb :'posts/index'
   end
 
@@ -23,9 +23,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    peep = Post.create(content: params[:content])
+    peep = Post.create(content: params[:content], user_id: current_user.id)
     peep.save
     redirect('/posts')
+  end
+
+  get '/posts/:username' do
+    user = User.first(:username => params[:username])
+    @posts = Post.all(:user_id => user.id)
+    erb :'posts/index'
   end
 
   get '/user/new' do
