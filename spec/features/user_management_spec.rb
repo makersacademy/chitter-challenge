@@ -14,7 +14,7 @@ feature 'User sign-up' do
     fill_in 'password_confirmation', with: 'notmatching'
     expect{click_button 'Sign up'}.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario 'email is blank' do
@@ -24,6 +24,7 @@ feature 'User sign-up' do
     fill_in 'password', with: 'password123'
     fill_in 'password_confirmation', with: 'password123'
     expect{click_button 'Sign up'}.not_to change(User, :count)
+    expect(page).to have_content 'Email must not be blank'
   end
 
   scenario 'email is an invalid format' do
@@ -34,5 +35,18 @@ feature 'User sign-up' do
     fill_in 'password', with: 'password123'
     fill_in 'password_confirmation', with: 'password123'
     expect{click_button 'Sign up'}.not_to change(User, :count)
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
+  scenario 'cant sign up twice with same email address' do
+    sign_up
+    visit '/users/new'
+    fill_in 'name', with: 'Pete Jones'
+    fill_in 'email', with: 'pete@example.com'
+    fill_in 'username', with: 'peteypops2'
+    fill_in 'password', with: 'password123'
+    fill_in 'password_confirmation', with: 'password123'
+    expect{click_button 'Sign up'}.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
   end
 end
