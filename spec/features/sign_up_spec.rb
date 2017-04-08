@@ -1,4 +1,9 @@
 feature 'Sign up for Chitter' do
+  scenario 'user can sign up from homepage' do
+    visit '/peeps'
+    expect(page).to have_selector(:link_or_button, 'Join')
+  end
+
   scenario 'To post user must sign up' do
     expect { sign_up }.to change(User, :count).by 1
     expect(current_path).to eq '/peeps'

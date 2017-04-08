@@ -1,9 +1,10 @@
-# new signed up peeps
 require 'bcrypt'
 
 class User
 
   include DataMapper::Resource
+
+    has n, :peeps, through: Resource
 
     property :id, Serial
     property :email, String, required: true, format: :email_address, unique: true

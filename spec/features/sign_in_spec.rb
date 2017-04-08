@@ -19,4 +19,9 @@ feature 'User sign in' do
     expect(current_path).to eq '/sessions'
     expect(page).to have_content 'The email or password is incorrect'
   end
+
+  scenario 'should have the ability to sign in from home' do
+    visit '/peeps'
+    expect(page).to have_selector(:link_or_button, 'Log in')
+  end
 end

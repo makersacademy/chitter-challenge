@@ -4,7 +4,7 @@ module SessionHelpers
               password: 's3cr3t',
               password_confirmation: 's3cr3t',
               name: 'Ruan',
-              user_name: 'ruan')
+              user_name: 'ruanodendaal')
     visit '/users/new'
     fill_in :email, with: email
     fill_in :password, with: password

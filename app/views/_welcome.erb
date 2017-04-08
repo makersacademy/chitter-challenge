@@ -1,7 +1,21 @@
 <% if current_user %>
-  <h2>Welcome, <%= current_user.name %></h2>
-  <form action='/sessions' method='post'>
-    <input type='hidden' name="_method" value="delete">
-    <input type="submit" value="Sign out">
-  </form>
+  <div>
+    <h1>Welcome, <%= current_user.name %></h1>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name="_method" value="delete">
+      <input type="submit" value="Sign out" class="btn_sign">
+    </form>
+  </div>
+
+<% else %>
+  <div>
+    <h1>Welcome to Chitter</h1>
+    <form action='/sessions/new' method='get'>
+      <input type="submit" value="Log in" name="Log in" class="btn_sign">
+    </form>
+    <form action='/users/new' method='get'>
+      <input type="submit" value="Join" class="btn_sign">
+    </form>
+  </div>
 <% end %>
+<br>
