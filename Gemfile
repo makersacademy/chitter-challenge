@@ -8,3 +8,11 @@ group :test do
   gem 'coveralls', require: false
 end
 
+gem 'capybara'
+gem 'database_cleaner'
+
+gem 'pry'
+
+gem 'bcrypt'
+gem 'sinatra-flash'
+
