@@ -4,9 +4,8 @@
   <% @peeps.reverse_each do |peep| %>
     <li>
       Peep: <%= peep.message %>
-      Hashtags:
       <% peep.hashtags.each do |tag| %>
-        <%= tag.name %>
+        #<%= tag.name %>
       <% end %>
     </li>
   <% end %>
