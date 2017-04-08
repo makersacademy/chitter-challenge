@@ -1,10 +1,10 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
-# require_relative './models/peep'
-# require_relative './models/maker'
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
 
   get '/peeps' do
@@ -22,9 +22,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/makers/new_maker' do
+    if params[:password] != params[:confirm_password]
+      flash.next[:error] = ['oops.  make sure your password and confirmation passwords match.']
+      redirect '/makers/sign_up'
+    end
     maker = Maker.create(username: params[:username], email: params[:email], password: params[:password])
-    session[:maker_id] = maker.id
-    redirect '/peeps'
+    if maker.save
+      session[:maker_id] = maker.id
+      redirect '/peeps'
+    else
+      flash.next[:error] = maker.errors.full_messages
+      redirect '/makers/sign_up'
+    end
   end
 
   get '/makers/sign_in' do
@@ -40,6 +49,12 @@ class Chitter < Sinatra::Base
   post '/sign_out' do
     session[:maker_id] = nil
     redirect '/peeps'
+  end
+
+  get '/peeps/filter/:name' do
+    maker = Maker.first(username: params[:name])
+    @peeps = maker.peeps
+    erb :'peeps/index'
   end
 
   helpers do
