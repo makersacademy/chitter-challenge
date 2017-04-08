@@ -11,6 +11,7 @@ Coveralls.wear!
 require 'capybara/rspec'
 require_relative '../app/app'
 require 'database_cleaner'
+require_relative 'web_helper'
 
 Capybara.app = Chitter
 

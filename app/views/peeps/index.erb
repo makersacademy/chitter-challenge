@@ -1,11 +1,16 @@
 <% if current_maker %>
 Hi <%=current_maker.username%>
-<% end %>
+
+<form action='/sign_out' method='post'>
+  <input type='submit' value='sign out'>
+</form>
 
 <form action='/peeps/new_peep' method='post'>
   <input type='text' name='peep'>
   <input type='submit' value='peep!'>
 </form>
+
+<% end %>
 
 <% @peeps.each do |peep| %>
 <div>

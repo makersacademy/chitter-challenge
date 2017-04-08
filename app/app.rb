@@ -36,6 +36,11 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  post '/sign_out' do
+    session[:maker_id] = nil
+    redirect '/peeps'
+  end
+
   helpers do
 
     def current_maker
