@@ -1,7 +1,8 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
-require_relative './models/peep'
-require_relative './models/maker'
+require_relative 'data_mapper_setup'
+# require_relative './models/peep'
+# require_relative './models/maker'
 
 class Chitter < Sinatra::Base
   enable :sessions
