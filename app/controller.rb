@@ -52,9 +52,8 @@ class Chitter < Sinatra::Base
     email = params[:email]
     password = params[:password]
     user = User.authenticate(email,password)
-    #I AM SORTING OUT THIS
 
-    if User
+    if user
       session[:user_id] = user.id
       redirect '/cheeps/index'
     else
