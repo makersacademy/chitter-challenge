@@ -1,1 +1,31 @@
+<!-- This page will eventually list all of my meows -->
+
 <h1>Kitter</h1>
+
+<h2>What are your feline friends up to?</h2>
+
+<% if current_user %>
+Welcome <%= current_user.username %>
+<% end %>
+
+<ul id='meows'>
+<% @meows.each do |meow| %>
+    <li>
+      <%= meow.message %>
+
+
+
+<!--      <ul id='time'>
+      <% meow.time.each do |time| %>
+      <li>                                 -->
+     <!-- Some erb time shite -->
+<!--    </li>
+    <% end %>
+  </ul>                      -->
+
+
+
+  
+    </li>
+  <% end %>
+</ul>
