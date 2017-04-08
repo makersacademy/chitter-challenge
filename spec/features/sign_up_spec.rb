@@ -24,6 +24,26 @@ feature "User sign Up" do
     fill_in :password, with: "123"
     fill_in :password_confirmation, with: "123"
     expect { click_button "Sign up" }.not_to change(User, :count)
+    expect(page).to have_content "Email must not be blank"
+  end
+
+  scenario "user can't sign up with an invalid email address" do
+    visit "/users/new"
+    fill_in :email, with: "cat@catmail"
+    fill_in :password, with: "123"
+    fill_in :password_confirmation, with: "123"
+    expect { click_button "Sign up" }.not_to change(User, :count)
+    expect(page).to have_content "Email has an invalid format"
+  end
+
+  scenario "user can't sign up if email already exists" do
+    sign_up
+    visit '/users/new'
+    fill_in :email, with: "cat@catmail.com"
+    fill_in :password, with: "123"
+    fill_in :password_confirmation, with: "123"
+    expect { click_button "Sign up" }.not_to change(User, :count)
+    expect(page).to have_content "Email is already taken"
   end
 
 end
