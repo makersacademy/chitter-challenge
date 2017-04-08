@@ -27,6 +27,6 @@ class User
     end
   end
 
-  validates_confirmation_of :password, as: :email_address
+  validates_confirmation_of :password, as: :username
 
 end

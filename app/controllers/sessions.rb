@@ -18,7 +18,7 @@ class Knitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Goodbye!'
-    redirect('/links')
+    redirect('/peeps')
   end
 
 end
