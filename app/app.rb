@@ -57,9 +57,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/filter/:name' do
-    maker = Maker.first(username: params[:name])
-    @peeps = maker.peeps
-    erb :'peeps/index'
+    @maker = Maker.first(username: params[:name])
+    @peeps = @maker.peeps
+    erb :'makers/peeper'
   end
 
   helpers do

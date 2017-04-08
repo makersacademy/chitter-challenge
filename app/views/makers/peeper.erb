@@ -1,16 +1,14 @@
 <% if current_maker %>
+
 signed in as <%=current_maker.username%>
 
 <form action='/sessions/sign_out' method='post'>
   <input type='submit' value='sign out'>
 </form>
 
-<form action='/peeps/new_peep' method='post'>
-  <input type='text' name='peep'>
-  <input type='submit' value='peep!'>
-</form>
-
 <% end %>
+
+<%=@maker.username%>'s peeps:
 
 <% @peeps.reverse! %>
 <% @peeps.each do |peep| %>
