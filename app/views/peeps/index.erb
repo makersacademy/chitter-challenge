@@ -1,9 +1,9 @@
+<form action='/peeps/new_peep' method='post'>
+  <input type='text' name='peep'>
+  <input type='submit' value='peep!'>
+</form>
+
 <% @peeps.each do |peep| %>
 <%=peep.text%>
 <%=peep.time%>
 <% end %>
-
-<form action='/peeps/new_peep' method='post'>
-  <input type='text' name='peep'>
-  <input type='submit' value='peep!'
-</form>
