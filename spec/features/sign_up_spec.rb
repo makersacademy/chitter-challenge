@@ -12,6 +12,19 @@ feature 'sign up' do
     expect { sign_up(last_name: nil) }.not_to change { User.count }
   end
 
+  scenario 'user does not enter an email' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'user enters an invalid email' do
+    expect { sign_up(email: "dv") }.not_to change(User, :count)
+  end
+
+  scenario 'user enters an email that is already taken' do
+    sign_up
+    expect { sign_up(email: 'darth_vader@gmail.com', username: "DV") }.not_to change { User.count }
+  end
+
   scenario 'user does not enter a username' do
     expect { sign_up(username: nil) }.not_to change(User, :count)
   end
