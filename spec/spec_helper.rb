@@ -11,9 +11,8 @@ Coveralls.wear!
 
 require 'capybara/rspec'
 require './app/app'
-require_relative 'features/web_helper'
 require 'database_cleaner'
-# require '/app/models/hub'
+require_relative 'features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 Capybara.app = Chitter

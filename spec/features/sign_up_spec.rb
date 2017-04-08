@@ -5,7 +5,7 @@ feature "User sign Up" do
   # I want to sign up for Chitter
   scenario "new user signs up" do
     expect { sign_up }.to change(User, :count).by 1
-    expect(page).to have_content "Welcome cat@catmail.com!"
+    expect(page).to have_content "Welcome, cat@catmail.com!"
     expect(User.first.email).to eq("cat@catmail.com")
   end
 
@@ -45,5 +45,4 @@ feature "User sign Up" do
     expect { click_button "Sign up" }.not_to change(User, :count)
     expect(page).to have_content "Email is already taken"
   end
-
 end
