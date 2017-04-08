@@ -12,15 +12,25 @@ class User
   property :username, String
   property :password_digest, Text
   attr_accessor :password_confirmation
+  attr_reader :password
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(username, password)
+  user = first(username: username)
+
+  if user && BCrypt::Password.new(user.password_digest) == password
+    user
+  else
+    nil
+  end
+end
+
   private
 
-  attr_reader :password
   validates_confirmation_of :password
   validates_format_of :email, :as => :email_address
   validates_presence_of :email
