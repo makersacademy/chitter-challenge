@@ -20,7 +20,7 @@ feature 'sign up' do
     expect { sign_up(email: "dv") }.not_to change(User, :count)
   end
 
-  scenario 'user enters an email that is already taken' do
+  scenario 'user enters an existing email' do
     sign_up
     expect { sign_up(email: 'darth_vader@gmail.com', username: "DV") }.not_to change { User.count }
   end
@@ -29,8 +29,12 @@ feature 'sign up' do
     expect { sign_up(username: nil) }.not_to change(User, :count)
   end
 
-  scenario 'user enters a username that is already taken' do
+  scenario 'user enters an existing username' do
     sign_up
     expect { sign_up(email: 'dv@gmail.com', username: "Darth Vader") }.not_to change { User.count }
+  end
+
+  scenario 'user enters mismatching passwords' do
+    expect { sign_up(password_confirmation: 'hateyoda') }.not_to change { User.count }
   end
 end
