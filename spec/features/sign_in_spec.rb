@@ -23,12 +23,16 @@ feature "Sign up functionality" do
 
     user_count = User.count
 
-    visit '/sign-up'
     fill_in_sign_up_form(sign_up_params)
-
 
     expect { click_button 'Sign Up' }.to change(User, :count).by(1)
 
+  end
+
+  scenario "User doesn't add name" do
+    sign_up_params[:name] = nil
+    fill_in_sign_up_form(sign_up_params)
+    expect {}
   end
 
 end

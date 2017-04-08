@@ -7,3 +7,8 @@ body
 {
   background-color: grey;
 }
+
+label
+{
+  font-family:"Helvetica",sans-serif;
+}
