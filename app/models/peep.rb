@@ -6,11 +6,8 @@ require 'dm-migrations'
 class Peep
   include DataMapper::Resource
 
+  has n, :hashtags, through: Resource
+
   property :id, Serial
   property :message, String
-
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_challenge_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!

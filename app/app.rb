@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'models/peep'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
@@ -15,7 +15,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:message])
+    peep = Peep.new(message: params[:message])
+    hashtag = Hashtag.first_or_create(name: params[:hashtags])
+    peep.hashtags << hashtag
+    peep.save
     redirect '/peeps'
   end
 end
