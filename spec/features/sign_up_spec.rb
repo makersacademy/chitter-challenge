@@ -1,4 +1,4 @@
-feature 'User sign up' do
+feature 'User registration' do
   scenario 'able to sign up as a new user' do
     visit '/users/new'
     expect(page.status_code).to eq(200)
@@ -52,6 +52,6 @@ feature 'User sign up' do
     click_button 'Sign up'
     expect(current_path).to eq '/users'
     expect(User.count).to eq 1
-    expect(page).to have_content 'Email is already taken'
+    expect(page).to have_content 'Email is already been taken'
   end
 end
