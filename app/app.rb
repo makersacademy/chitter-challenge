@@ -15,9 +15,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(message: params[:message])
-    hashtag = Hashtag.first_or_create(name: params[:hashtags])
-    peep.hashtags << hashtag
+    peep = Peep.create(message: params[:message])
+    hashtags = params[:hashtags].gsub(/\s/,'').split(',')
+    hashtags.each do |hashtag|
+      peep.hashtags << Hashtag.first_or_create(name: hashtag)
+    end
     peep.save
     redirect '/peeps'
   end
