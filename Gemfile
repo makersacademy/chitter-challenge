@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
   gem 'sinatra'
+  gem 'sinatra-flash'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'pry'
@@ -12,4 +13,5 @@ group :test do
   gem 'capybara'
   gem 'rake'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
