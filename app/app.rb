@@ -14,7 +14,8 @@ class Chitter < Sinatra::Base
             last_name: params[:last_name],
                   email: params[:email],
                username: params[:username],
-               password: params[:password])
+               password: params[:password],
+               password_confirmation: params[:password_confirmation])
     redirect to '/peeps'
   end
 
