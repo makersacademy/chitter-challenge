@@ -11,6 +11,7 @@ gem 'bcrypt'
 
 group :test do
   gem 'rspec'
+  gem 'pry'
   gem 'cucumber'
   gem 'rake'
   gem 'capybara'

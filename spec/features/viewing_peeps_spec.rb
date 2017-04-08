@@ -10,6 +10,7 @@ feature 'Viewing peeps' do
   end
 
   scenario 'Filter by hashtags' do
+    sign_up
     create_a_peep
     visit '/peeps/new'
     fill_in 'message', with: 'Another peep with a different hashtag'
