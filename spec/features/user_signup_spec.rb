@@ -1,5 +1,3 @@
-require_relative '../../app/models/user'
-
 feature 'signing up users' do
   scenario 'user signs up' do
     expect{signup}.to change(User, :count).by 1
