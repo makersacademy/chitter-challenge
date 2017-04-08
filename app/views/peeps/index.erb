@@ -9,8 +9,13 @@
     </li>
   <% end %>
 </ul>
-<form action='/peeps/new' method="get">
-  <button type='submit' class="btn">
-  Create Peep!
-</button>
-</form>
+
+<% if current_user %>
+<div>
+  <form action='/peeps/new' method="get">
+    <button type='submit' class="btn">
+      Create Peep!
+    </button>
+  </form>
+</div>
+<% end %>

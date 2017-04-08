@@ -6,8 +6,9 @@ feature 'Add a peep' do
     expect(page).to have_content 'Create Peep!'
   end
 
-  xscenario 'Cannot peep if not logged in' do
-
+  scenario 'Cannot peep if not logged in' do
+    visit '/peeps'
+    expect(page).not_to have_selector(:link_or_button, 'Create Peep!')
   end
 
   scenario 'Add a specific peep' do
