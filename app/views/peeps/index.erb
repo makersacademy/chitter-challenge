@@ -4,6 +4,11 @@
 </form>
 
 <% @peeps.each do |peep| %>
+<div>
 <%=peep.text%>
+</div>
+<div>
+  peeped on:  
 <%=peep.time%>
+</div>
 <% end %>
