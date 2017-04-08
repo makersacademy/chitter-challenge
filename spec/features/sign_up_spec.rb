@@ -7,4 +7,8 @@ feature 'sign up' do
   scenario 'user does not enter first name' do
     expect { sign_up(first_name: "") }.not_to change { User.count }
   end
+
+  scenario 'user does not enter last name' do
+    expect { sign_up(last_name: "") }.not_to change { User.count }
+  end
 end
