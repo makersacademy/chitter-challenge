@@ -1,5 +1,5 @@
 <% if current_maker %>
-Hi <%=current_maker.username%>
+hi <%=current_maker.username%>
 
 <form action='/sign_out' method='post'>
   <input type='submit' value='sign out'>
@@ -14,10 +14,15 @@ Hi <%=current_maker.username%>
 
 <% @peeps.each do |peep| %>
 <div>
+<%=peep.maker.username%>
+</div>
+peeped:
+<div>
+<div>
 <%=peep.text%>
 </div>
 <div>
-  peeped on:
+on:
 <%=peep.time%>
 </div>
 <% end %>
