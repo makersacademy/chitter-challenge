@@ -3,10 +3,11 @@
 <ul id='peeps'>
   <% @peeps.reverse_each do |peep| %>
     <li>
-      Peep: <%= peep.message %>
+      <h3><%= peep.message %></h3>
       <% peep.hashtags.each do |tag| %>
         #<%= tag.name %>
-      <% end %>
+      <% end %><br />
+      by: <%= peep.name %>
     </li>
   <% end %>
 </ul>
