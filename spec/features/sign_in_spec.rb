@@ -32,7 +32,10 @@ feature "Sign up functionality" do
   scenario "User doesn't add name" do
     sign_up_params[:name] = nil
     fill_in_sign_up_form(sign_up_params)
-    expect {}
+    expect { click_button 'Sign Up' }.not_to change(User,:count)
+    expect(page).to have_content(email)
+    expect(page).to have_content(username)
+
   end
 
 end
