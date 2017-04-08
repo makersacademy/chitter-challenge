@@ -11,16 +11,6 @@ feature 'Signup Form' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  def sign_up(email: 'cat@cat.com',
-              password: 'cat',
-              password_confirmation: 'cat' )
-    visit 'users/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    fill_in :password_confirmation, with: password_confirmation
-    click_button 'Complete Registration'
-  end
-
   scenario "I can't sign up without an email address" do
     expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq '/users'
@@ -33,7 +23,7 @@ feature 'Signup Form' do
     expect(page).to have_content 'Email has an invalid format'
   end
 
-  scenario "I cna't sign up with an existing email" do
+  scenario "I can't sign up with an existing email" do
     sign_up
     expect{ sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
