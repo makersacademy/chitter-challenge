@@ -7,11 +7,7 @@
 <ul id="hub">
   <% @peeps.reverse_each do |peep| %>
       <h3><%= peep.pweep %></h3>
-      <h3>Time posted: <%= peep.time_of_post %></h3>
-      <h3>User:</h3>
-        <% peep.user.each do |user| %>
-          <%= user.email %>
-        <% end %>
+      <h3>Time posted: <%= peep.time %></h3>
     <% end %>
 
 </ul>

@@ -43,7 +43,8 @@ class Chitter < Sinatra::Base
   end
 
   post "/hub" do
-    Peep.create(pweep: params[:pweep])
+    @peep = Peep.create(pweep: params[:pweep],
+                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'))
     redirect to "/hub"
   end
 
@@ -53,7 +54,6 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
-
     if @user
       session[:user_id] = @user.id
       redirect to "/hub"
