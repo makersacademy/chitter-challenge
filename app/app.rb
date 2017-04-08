@@ -10,6 +10,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
+    User.create(first_name: params[:first_name],
+            last_name: params[:second_name],
+                  email: params[:email],
+               username: params[:username])
     redirect to '/peeps'
   end
 
