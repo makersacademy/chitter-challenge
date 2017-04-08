@@ -2,6 +2,7 @@ feature 'User sign up' do
   scenario 'with no errors' do
     expect { sign_up }.to change { User.count }.by 1
     expect(current_path).to eq '/peeps'
+    expect(page).to have_content 'Logged in as Darth_Vader'
   end
 
   scenario 'without entering a first name' do

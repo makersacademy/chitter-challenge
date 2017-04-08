@@ -18,4 +18,6 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
+
+  # def self.authenticate
 end
