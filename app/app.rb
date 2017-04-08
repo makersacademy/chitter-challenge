@@ -26,6 +26,16 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  get '/makers/sign_in' do
+    erb :'makers/sign_in'
+  end
+
+  post '/makers/sign_in' do
+    maker = Maker.first(:username => params[:username])
+    session[:maker_id] = maker.id
+    redirect '/peeps'
+  end
+
   helpers do
 
     def current_maker
