@@ -1,4 +1,9 @@
 <% @peeps.each do |peep| %>
 <%=peep.text%>
 <%=peep.time%>
-<% end %> 
+<% end %>
+
+<form action='/peeps/new_peep' method='post'>
+  <input type='text' name='peep'>
+  <input type='submit' value='peep!'
+</form>
