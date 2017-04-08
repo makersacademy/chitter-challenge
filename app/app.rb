@@ -10,14 +10,19 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
     @user = User.create(email: params[:email], password: params[:password])
-    @user.save
-    session[:user_id] = @user.id
-    redirect '/feed'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/feed'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   get '/feed' do
@@ -34,7 +39,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/feed'
     else
-      flash.now[:notice] = 'The email or password is incorrect'
+      flash.now[:errors] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
   end
@@ -42,7 +47,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'You are now logged out. Goodbye!'
-    redirect '/users/new'
+    redirect '/sessions/new'
   end
 
   helpers do

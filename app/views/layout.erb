@@ -4,6 +4,7 @@
     <title>Chitter!</title>
   </head>
   <body>
+
     <% if current_user %>
     <h1>Welcome <%=current_user.email%></h1>
     <div id='sign_out'>
@@ -13,10 +14,19 @@
       </form>
     </div>
     <% end %>
-    <% if flash[:notice]%>
-      <ul id='notice'>
+
+    <% if flash[:errors] %>
+    <div id='errors'>
+      <% flash[:errors].each do |error| %>
+      <%= error %>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
         <%= flash[:notice] %>
-      </ul>
+      </div>
     <% end %>
     <%= yield %>
   </body>

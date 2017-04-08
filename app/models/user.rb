@@ -3,13 +3,12 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class User
-
   include DataMapper::Resource
+  has n, :chits, through: Resource
   attr_reader :password
 
   property :id, Serial
-  property :email, String
-
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
   def password=(password)
