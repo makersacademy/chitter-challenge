@@ -11,9 +11,26 @@ Coveralls.wear!
 
 require 'capybara/rspec'
 require './app/app'
-# require 'features/web_helpers'
+require_relative 'features/web_helper'
+require 'database_cleaner'
 # require '/app/models/hub'
 
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 Capybara.app = Chitter
-# require 'features/web_helpers'
-# require File.join(File.dirname(__FILE__), '..', '.app/app.rb')
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
