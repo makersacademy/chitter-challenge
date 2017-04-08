@@ -6,7 +6,13 @@
   <body>
     <% if current_user %>
       Welcome, <%= current_user.email %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Log out'>
+    </form>
     <% end %>
+
+
     <%if flash[:error] %>
       <div id='error'><%= flash[:error] %></div>
     <% end %>
