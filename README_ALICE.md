@@ -1,5 +1,7 @@
 Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
 
+Welcome. Nom Diaries is twitter for food-lovers. A social network specifically for sharing thoughts and pictures of noms.
+
 ## How to
 ## Technologies used
 ## Approach
