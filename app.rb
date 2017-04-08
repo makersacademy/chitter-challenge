@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require 'data_mapper' #Add in
 require_relative 'models/user'
