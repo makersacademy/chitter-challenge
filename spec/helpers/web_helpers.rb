@@ -4,3 +4,13 @@ def create_a_peep
   fill_in 'hashtags', with: 'first'
   click_button 'Post Peep!'
 end
+
+def sign_up
+  visit '/users/new'
+  expect(page.status_code).to eq 200
+  fill_in 'name', with: 'Pete Smith'
+  fill_in 'email', with: 'pete@example.com'
+  fill_in 'username', with: 'peteypops'
+  fill_in 'password', with: 'password123'
+  click_button 'Sign up'
+end
