@@ -18,6 +18,9 @@ Clone repository
 Install gems
 `bundle install`
 
+Create local database
+
+
 Run rackup
 `rackup`
 
@@ -27,7 +30,7 @@ nb - check port when running rackup - replace '9292' with relevant port value
 
 **Test production**
 In browser
-"TBC.herokuapp.com"
+"https://nom-diaries.herokuapp.com/"
 
 
 ### TECHNOLOGIES USED

@@ -140,6 +140,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   capybara
   coveralls
   data_mapper
@@ -158,4 +159,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.6
+   1.13.7

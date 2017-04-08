@@ -1,7 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'models/nom'
+require_relative 'data_mapper_setup'
 
 class NomDiaries < Sinatra::Base
 
