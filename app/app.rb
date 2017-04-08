@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require 'pry'
 
 class Kitter < Sinatra::Base
   enable :sessions

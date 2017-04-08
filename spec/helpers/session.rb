@@ -1,8 +1,7 @@
 module SessionHelpers
 
-  def sign_in(email:, username:, password:)
+  def sign_in(username:, password:)
     visit '/sessions/new'
-    fill_in :email, with: email
     fill_in :password, with: password
     fill_in :username, with: username
     click_button 'Sign in'
