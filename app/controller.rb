@@ -17,14 +17,23 @@ class Chitter < Sinatra::Base
     name = params[:name]
     username = params[:username]
     password = params[:password]
+    password_confirmation = params[:password_confirmation]
     email =params[:email]
 
     new_user = User.new(name: name,
                         username: username,
                         password: password,
+                        password_confirmation: password_confirmation,
                         email: email)
-    new_user.save
-    
+
+    if new_user.valid?
+      new_user.save
+      redirect('/feed')
+    end
+  end
+
+  get '/feed' do
+    erb :feed
   end
 
 
