@@ -19,4 +19,11 @@ feature "User sign Up" do
     expect(page).to have_content "Password does not match the confirmation"
   end
 
+  scenario "user can't sign up without an email address" do
+    visit "/users/new"
+    fill_in :password, with: "123"
+    fill_in :password_confirmation, with: "123"
+    expect { click_button "Sign up" }.not_to change(User, :count)
+  end
+
 end

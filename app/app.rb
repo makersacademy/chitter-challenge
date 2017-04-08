@@ -11,12 +11,12 @@ class Chitter < Sinatra::Base
 
 
   get '/users/new' do #sign up
-    # @user = User.new
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do # user goes to this page after signing up
-    @user = User.create(email: params[:email],
+    @user = User.new(email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     if @user.save
