@@ -1,8 +1,11 @@
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
 
@@ -34,6 +37,12 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You are now logged out. Goodbye!'
+    redirect '/users/new'
   end
 
   helpers do

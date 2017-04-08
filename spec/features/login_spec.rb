@@ -5,7 +5,7 @@ feature 'login to Chitter' do
   end
 
   scenario 'credentials are correct' do
-    register_new_user
+    sign_up
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content("Welcome #{user.email}")
   end
