@@ -3,6 +3,8 @@ class Peep
 
   TIME = Time.new
 
+  has n, :user, through: Resource
+
   property :id, Serial
   property :pweep, String
 

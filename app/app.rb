@@ -11,6 +11,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get "/" do
+    redirect to '/sessions/new'
+  end
 
   get '/users/new' do #sign up
     @user = User.new

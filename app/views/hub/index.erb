@@ -1,13 +1,18 @@
 <h1> Your Peeps</h1>
 
+<form action="/hub/new" method="get">
+  <input type="submit" value="Post new peep">
+</form>
+
 <ul id="hub">
   <% @peeps.reverse_each do |peep| %>
       <h3><%= peep.pweep %></h3>
       <h3>Time posted: <%= peep.time_of_post %></h3>
-      <h3>
+      <h3>User:</h3>
+        <% peep.user.each do |user| %>
+          <%= user.email %>
+        <% end %>
     <% end %>
+
 </ul>
 
-<form action="/hub/new" method="get">
-  <input type="submit" value="Post new peep">
-</form>
