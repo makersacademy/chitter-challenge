@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'dm-migrations'
+# require 'dm-migrations'
 
 class Nom
   include DataMapper::Resource

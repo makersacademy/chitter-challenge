@@ -9,6 +9,7 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'pg'
 gem 'pry'
+gem 'rake'
 gem 'rack'
 gem 'selenium-webdriver'
 gem 'sinatra'
@@ -16,6 +17,5 @@ gem 'sinatra'
 group :test do
   gem 'capybara'
   gem 'rspec'
-  gem 'rake'
   gem 'coveralls', require: false
 end
