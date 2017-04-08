@@ -15,10 +15,10 @@ h) Extracted datamapper setup
 
 Sign up (email, password, name and username)
 - Registration
-
-
 - User name and email must be unique
 - User BCrypt to secure passwords
+
+
 3. Log in
 4. Log out
 5. Peep (post message)
