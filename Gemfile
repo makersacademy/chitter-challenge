@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '2.3.3'
 
 gem 'sinatra'
 gem 'data_mapper'
@@ -10,11 +10,13 @@ gem 'pry'
 gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'timecop'
+
 
 group :test, :development do
   gem 'simplecov', require: false
+  gem 'timecop'
   gem 'rspec'
   gem 'cucumber'
+  gem 'capybara'
   gem 'coveralls', require: false
 end
