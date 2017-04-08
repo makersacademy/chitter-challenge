@@ -1,9 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
 
   get '/users/new' do
     erb :'users/signup'
@@ -19,7 +21,7 @@ class Chitter < Sinatra::Base
     if user.save
       redirect to '/peeps'
     else
-      flash.now[:error] = user.errors.full_messages
+      flash.now[:errors] = user.errors.full_messages
       erb :'users/signup'
     end
   end
