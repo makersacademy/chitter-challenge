@@ -7,5 +7,6 @@ require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
 require_relative 'server'
-require_relative 'controllers/users'
 require_relative 'controllers/home'
+require_relative 'controllers/sessions'
+require_relative 'controllers/users'
