@@ -13,6 +13,7 @@ require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
 require_relative 'features/web_helper'
+require_relative 'helpers/session'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 Capybara.app = Chitter
@@ -31,5 +32,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include SessionHelpers
 
 end
