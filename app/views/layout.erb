@@ -15,7 +15,7 @@
         <h4>Welcome, <%= current_user.email %>!</h4>
         <form method="post" action="/sessions">
           <input type="hidden" name="_method" value="delete">
-          <button type="submit" class="btn btn-default">Sign out</button>
+          <button type="submit" class="btn peep-button-signout">Sign out</button>
         </form>
       </div>
     <% end %>
