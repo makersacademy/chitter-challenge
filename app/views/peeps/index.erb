@@ -1,7 +1,7 @@
 <h1>Chitter</h1>
 <h3>Twitter for the really bitter!</h3>
 <% if current_user %>
-  <div id="new-peep">
+  <div class="new-peep">
     <textarea name='content' form='peep_box'>Enter your Peep here...</textarea>
     <form action='/peeps' method='post' id='peep_box'>
       <input type='submit' value='Peep'>
@@ -11,11 +11,11 @@
     <h2>Sign up or in to start peeping!</h2>
   <% end %>
 
-<ul id='peeps'>
+<ul>
   <% if @peeps %>
     <li>
       <% @peeps.reverse.each do |peep| %>
-          <ul>
+          <ul class='peep-feed'>
             <li><%= peep.content %></li>
               Peeped at:<br><%= peep.created_at %></li>
           </ul>
