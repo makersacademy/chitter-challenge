@@ -8,17 +8,31 @@
   </head>
 
   <body>
-    <%@user= User.first(id: session[:user_id])%>
-    <%if @user %>
+    <%current_user= User.first(id: session[:user_id])%>
+    <%if current_user %>
 
-      <div id='user'><%=@user.email%></div>
+      <div id='user'><%=current_user.email%></div>
+
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
     <%end%>
 
 
     <% if flash[:errors] %>
       <div id='notice'><%= flash[:errors] %></div>
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+
 
   </body>
 </html>
