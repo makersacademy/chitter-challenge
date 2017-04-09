@@ -1,0 +1,18 @@
+<h1> The greatest Twitter look-a-like site... In the world! </h1>
+
+<form action="/create_user" method='post'>
+  Name:
+  <input type='text' name='name' value='<%= @user.name%>' required>
+  Email:
+  <input type='email' name='email' value='<%= @user.email%>' required>
+  User Name:
+  <input type='text' name='user_name' value='<%= @user.user_name%>' required>
+  Password:
+  <input type='password' name='password' required>
+  Confirm Password:
+  <input type='password' name='confirm_password' required>
+  <input type='submit' value='Sign up'>
+</form>
+<form action='/'>
+  <input type='submit' value='Back'>
+</form>

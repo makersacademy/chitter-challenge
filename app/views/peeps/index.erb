@@ -1,0 +1,19 @@
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+    <%= peep.name %>,
+    <%= peep.user_name %>, <br />
+    Peep:
+    <%= peep.peep %> <br />
+    <%= peep.time %> <br />
+    <br />
+  <% end %>
+</ul>
+
+<% if current_user %>
+  <form action='/peeps/new'>
+    <input type='submit' value='New Peep'>
+  </form>
+<% end %>
+<form action='/'>
+  <input type='submit' value='Back to sign in page'>
+</form>
