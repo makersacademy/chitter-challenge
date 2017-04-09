@@ -1,5 +1,14 @@
 <h1>Tips</h1>
 
+<style>
+ul {
+    transform: rotate(180deg);
+}
+ul > li {
+    transform: rotate(-180deg);
+}
+</style>
+
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
