@@ -1,0 +1,17 @@
+<h1> Peeps </h1>
+
+<ol id = 'peeps'>
+
+<% @peeps.reverse.each do |peep| %>
+<li>
+  <%= peep.message %>
+  <br></br>
+  by <%= peep.user.name %> (@<%= peep.user.username %>) Time: <%= peep.created_at.strftime("%d/%m/%Y at %I:%M%p") %>
+</li>
+  <br></br>
+<% end %>
+</ol>
+
+<form action= "/peeps/new" method= "get">
+    <input type= "submit" value= "New peep">
+  </form>

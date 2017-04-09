@@ -1,0 +1,8 @@
+<form action='/user' method='post'>
+  Email: <input type='text' name='email' id='email' value = '<%= @user.email %>' required pattern='[A-Z|a-z|1-9]+@[A-Z|a-z|1-9]+\.[A-Z|a-z|1-9]+' >
+  Name: <input type='text' name='name' id='name'>
+  User name: <input type='text' name='user_name' id='user_name'>
+  Password: <input type='password' name='password' id='password'>
+  Confirm Password: <input type='password' name='password_confirmation' id='password_confirmation'>
+  <input type='submit' value='Submit'>
+</form>
