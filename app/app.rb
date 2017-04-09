@@ -4,19 +4,14 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/peep'
+require_relative 'models/user'
 
 class Chitter < Sinatra::Base
-  configure do
-    set :public_folder, File.expand_path('../public', __FILE__)
-    set :views        , File.expand_path('../views', __FILE__)
-    set :root         , File.dirname(__FILE__)
-   end
+
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
-
-
 
   get "/" do
     redirect to '/sessions/new'
@@ -51,8 +46,7 @@ class Chitter < Sinatra::Base
 
   post "/hub" do
     @peeps = Peep.create(pweep: params[:pweep],
-                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'),
-                        poster: params[:poster] = current_user)
+                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'))
     redirect to "/hub"
   end
 
@@ -62,6 +56,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
+
     if @user
       session[:user_id] = @user.id
       redirect to "/hub"
@@ -73,7 +68,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = "See you later!"
+    flash.keep[:notice] = "You have successfully signed out"
     redirect to "/sessions/new"
   end
 

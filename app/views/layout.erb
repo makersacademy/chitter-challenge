@@ -20,17 +20,18 @@
       </div>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
+
+<!--         <p>Please refer to the following errors below:</p> -->
+      <div id='errors'>
         <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
+          <%= error %>
         <% end %>
-      </ul>
+      </div>
     <% end %>
     <% if flash[:notice] %>
-      <div id="notice">
-        <%= flash[:notice] %>
-      </div>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
     <% end %>
     <%= yield %>
   </body>
