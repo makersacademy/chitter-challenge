@@ -68,6 +68,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/new_comment/:id' do
+    peep = Peep.get(params[:id])
+    Comment.create(text: params[:words], time: Time.now, peep: peep, maker: current_maker)
     redirect "/peeps/comments/#{params[:id]}"
   end
 
