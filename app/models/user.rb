@@ -1,10 +1,7 @@
 require 'bcrypt'
-require 'data_mapper'
-require 'dm-postgres-adapter'
-
 class User
   include DataMapper::Resource
-  has n, :chits, through: Resource
+  has n, :peeps, through: Resource
   attr_reader :password
 
   property :id, Serial

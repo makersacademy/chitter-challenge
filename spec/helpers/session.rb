@@ -13,4 +13,5 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Register'
   end
+
 end

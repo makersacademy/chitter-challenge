@@ -1,7 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
-require_relative 'models/user'
 require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
@@ -9,8 +8,17 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
 
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    peep = Peep.create(content: params[:content])
+    peep.save
+    redirect '/feed'
+  end
+
   get '/users/new' do
-    @user = User.new
     erb :'users/new'
   end
 
@@ -26,6 +34,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @peeps = Peep.all
     erb :feed
   end
 
