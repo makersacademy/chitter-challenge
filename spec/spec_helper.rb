@@ -8,7 +8,7 @@ require 'rspec'
 # require './app/models/user'
 require './app/controller'
 
-Capybara.app = Chitter
+Capybara.app = Ricker
 
 require 'coveralls'
 require 'simplecov'

@@ -1,4 +1,4 @@
-feature 'User signs out' do
+feature 'Sign-Out' do
   before(:each) do
     create_user
   end

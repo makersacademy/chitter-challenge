@@ -4,7 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
-class Chitter < Sinatra::Base
+class Ricker < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -36,7 +36,7 @@ class Chitter < Sinatra::Base
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect '/cheeps/index'
+      redirect '/rolls/index'
     else
       flash.now[:errors]=@user.errors.full_messages
       erb :'users/new'
@@ -44,8 +44,8 @@ class Chitter < Sinatra::Base
 
   end
 
-  get '/cheeps/index' do
-    erb :'cheeps/index'
+  get '/rolls/index' do
+    erb :'rolls/index'
   end
 
   get '/sessions/new' do
@@ -59,7 +59,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(email,password)
     if user
       session[:user_id] = user.id
-      redirect '/cheeps/index'
+      redirect '/rolls/index'
     else
       flash.now[:errors]=['The email or password is incorrect']
 

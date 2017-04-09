@@ -1,6 +1,4 @@
-
-
-feature "Sign-In Functionality" do
+feature "Sign-In" do
 
   scenario 'existing user signs in successfully on sign in page' do
     email = "rick@astely.com"
