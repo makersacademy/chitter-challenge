@@ -21,7 +21,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/sign_out' do
     session[:maker_id] = nil
-    redirect '/peeps'
+    redirect '/sessions/sign_in'
   end
 
 end

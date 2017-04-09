@@ -1,13 +1,42 @@
-<%=@maker.username%>'s peeps:
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+  </style>
+</head>
 
-<% @peeps.reverse! %>
-<% @peeps.each do |peep| %>
-<div><%=peep.maker.username%> peeped:</div>
-<div><%=peep.text%></div>
-<div>on: <%=peep.time%></div>
-<% end %>
 
+<body class='chitter'>
 
-<form action='/peeps'>
-  <input type='submit' value='see all peeps'>
-</form>
+  <p>
+
+    <b><%=@maker.username%></b>'s peeps:
+
+  </p>
+
+  <p>
+
+    <% @peeps.reverse! %>
+    <% @peeps.each do |peep| %>
+      <%=peep.maker.username%> peeped:<br/>
+      <b><%=peep.text%></b><br/>
+      on: <%=peep.time%><br/>
+      <form action='peeps/comments/<%=peep.id%>'>
+       <input type='submit' value='comments(<%=peep.comments.count%>)'>
+      </form>
+    <% end %>
+
+  </p>
+
+  <p>
+
+    <form action='/peeps'>
+      <input type='submit' value='see all peeps'>
+    </form>
+
+  </p>
+
+</body>
