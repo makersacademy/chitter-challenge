@@ -1,9 +1,9 @@
 <% if current_user %>
   <div>
-    <h1>Welcome, <%= current_user.name %></h1>
+    <h1>Welcome, <%= current_user.user_name %></h1>
     <form action='/sessions' method='post'>
       <input type='hidden' name="_method" value="delete">
-      <input type="submit" value="Sign out" class="btn_sign">
+      <input type="submit" value="Log out" class="btn_sign">
     </form>
   </div>
 
