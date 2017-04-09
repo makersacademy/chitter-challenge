@@ -10,8 +10,8 @@ class User
   property :username,         String, required: true, unique: true
   property :password_digest,  Text
 
-  has n, :peeps, through: Resource
-
+  has n, :peeps
+  
   validates_confirmation_of :password
   attr_accessor :password_confirmation
   attr_reader :password

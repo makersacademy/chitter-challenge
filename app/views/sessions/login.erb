@@ -1,58 +1,6 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-<style>
-  body {
-    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/4d/5a/b0/4d5ab01b078ed79957cf0ec6ee77a83e.jpg");
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-attachment: fixed;
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-  }
-  section {
-    background-color: hsla(0,0%,100%,0.50);
-    height: 300px;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  form {
-    /*background-color: hsla(0,0%,100%,0.50);
-    height: 300px;
-    width: 300px;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  h1 {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 30px;
-  }
 
-  input {
-    display: block;
-    margin: 5px;
-
-  }
-
-  label {
-    text-align: center;
-    font-family: 'Gloria Hallelujah', cursive;
-  }
-
-  #button {
-    height: 0px;
-    width: 50px;
-  }
-</style>
-</head>
-
-<body>
-  <section>
+<div class='rowSec'>
+  <section id='login'>
     <h1>Welcome Back</h1>
     <form action='/sessions' method='post'>
       <label for='username'>Username
@@ -64,4 +12,4 @@
         <input type='submit' value='Log In' id='button'  />
     </form>
   </section>
-</body>
+</div>

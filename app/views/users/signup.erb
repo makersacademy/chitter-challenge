@@ -1,38 +1,27 @@
-<h1> Welcome to Chitter. Please sign up below. </h1>
+<h1 id='login_title'> Welcome to Road Tripper. Please sign up below. </h1>
 
-
-<form action='/users' method='post'>
-  <ul>
-    <li>
-      <label for='first_name'>First Name
+<div class='rowSec'>
+  <section id='signup'>
+  <form action='/users' method='post'>
+    <label for='first_name'>First Name
       <input type='text' name='first_name' required />
-      </label>
-    </li>
-    <li>
-      <label for='last_name'>Last Name
+    </label>
+    <label for='last_name'>Last Name
       <input type='text' name='last_name' required  />
-      </label>
-    </li>
-    <li>
-      <label for='email'>Email
+    </label>
+    <label for='email'>Email
       <input type='email' name='email' required  />
-      </label>
-    </li>
-    <li>
-      <label for='username'>Username
+    </label>
+    <label for='username'>Username
       <input type='text' name='username' required  />
-      </label>
-    </li>
-    <li>
-      <label for='password'>Password
+    </label>
+    <label for='password'>Password
       <input type='password' name='password' required  />
-      </label>
-    </li>
-    <li>
-      <label for='password_confirmation'>Password Confirmation
+    </label>
+    <label for='password_confirmation'>Password Confirmation
       <input type='password' name='password_confirmation' required  />
-      </label>
-    </li>
+    </label>
     <input type='submit' value='Sign Up'  />
-  </ul>
-</form>
+  </form>
+</section>
+</div>

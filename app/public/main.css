@@ -1,0 +1,154 @@
+* {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+        box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/4d/5a/b0/4d5ab01b078ed79957cf0ec6ee77a83e.jpg");
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+}
+.grid {
+  margin: 10px auto;
+  max-width: 1260px;
+  width: 100%;
+  height: 100%;
+}
+.rowSec {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; /* This will make the columns align next to each other, if their width is defined. */
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+section#login {
+  background-color: hsla(0,0%,100%,0.50);
+  height: 300px;
+  width: 300px;
+  text-align: center;
+}
+
+section#signup {
+  background-color: hsla(0,0%,100%,0.50);
+  height: 500px;
+  width: 500px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 30px;
+}
+
+#login_title {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+
+input {
+  display: block;
+  margin: 5px;
+}
+
+label {
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#button {
+  height: 0px;
+  width: 50px;
+}
+
+
+.peep {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: hsla(0,0%,100%,0.50);
+  border-radius: 10px;
+  border-style: dashed;
+  font-family: 'Gloria Hallelujah', cursive;
+  border-color: grey;
+  border-width: thin;
+}
+
+.username {
+  text-align: left;
+  padding-left: 5px;
+  color: rgba(255, 255, 0, 0.5);
+  font-size: 20px;
+}
+.experience {
+  height: 50px;
+  text-align: left;
+  padding-left: 5px;
+  font-size: 18px;
+}
+.date {
+  text-align: right;
+  padding-right: 5px;
+  font-size: 12px;
+}
+.time {
+  text-align: right;
+  padding-right: 5px;
+  font-size: 12px;
+}

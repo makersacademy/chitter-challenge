@@ -1,3 +1,4 @@
+
 <% if current_user %>
 <form action='/peeps' method='post'>
   <label for='experience'>Travel experience
@@ -7,11 +8,13 @@
 </form>
 <% end %>
 
+<div class='rowSec'>
 <% @peeps.each do |peep| %>
-  <div class='peep'>
-    <%= peep.user.username %>
-    <%= peep.experience %>
-    <%= peep.created_at.strftime("Posted on %d %B %Y") %>
-    <%= peep.created_at.strftime("%l:%M %p") %>
+  <div class='col-4 peep'>
+    <div class='col-6 username'> #<%= peep.user.username %> </div>
+    <div class='col-6 date'> <%= peep.created_at.strftime("Posted on %d %B %Y") %> </div>
+    <div class='col-10 experience'> <%= peep.experience %> </div>
+    <div class='col-2 time'> <%= peep.created_at.strftime("%l:%M %p") %> </div>
   </div>
 <% end %>
+</div>
