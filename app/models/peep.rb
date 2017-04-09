@@ -3,5 +3,6 @@ class Peep
   property :id, Serial
   property :content, String
   property :time, String
-  property :user, String
+
+  belongs_to :user
 end

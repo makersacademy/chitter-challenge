@@ -14,8 +14,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.create(
+    user: current_user,
     content: params[:content],
-    user: params[:user] = current_user,
     time: params[:time] = Time.now.strftime('%d/%m/%y')
     )
     peep.save
