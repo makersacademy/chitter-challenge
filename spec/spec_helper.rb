@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] = 'test'
 
 require './app/models/nom'
+require './app/models/user'
 require './app/app'
 
 require 'capybara'
