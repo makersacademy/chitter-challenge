@@ -6,6 +6,8 @@ require_relative 'models/user'
 require 'sinatra/flash'
 
 class MessageInABottle < Sinatra::Base
+  use Rack::MethodOverride
+
   set :sessions, true
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -48,6 +50,12 @@ class MessageInABottle < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:id] = nil
+    flash.keep[:notice] = 'Come back whenever you like'
+    redirect '/stream'
   end
 
   get '/bottle/new' do

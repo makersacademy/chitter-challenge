@@ -10,7 +10,11 @@ require 'features/web_helpers'
 require 'database_cleaner'
 require 'timecop'
 
+require_relative 'helpers/session'
+
 RSpec.configure do |config|
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)

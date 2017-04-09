@@ -1,8 +1,8 @@
 rvm: '2.4.0'
 
 script:
-  - mkdir -p spec && bundle exec rspec spec
   - bundle exec rake db:auto_migrate RACK_ENV=test
+  - mkdir -p spec && bundle exec rspec spec
 
 before_install:
 - sed -i '2d' Gemfile
