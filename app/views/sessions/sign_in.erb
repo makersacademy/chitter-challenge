@@ -1,11 +1,34 @@
-<form action='/sessions/sign_in' method='post'>
-  username
-  <input type='test' name='username'>
-  password
-  <input type='password' name='password'>
-  <input type='submit' value='sign in'>
-</form>
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+    a {
+    color: yellow
+    }
+  </style>
+</head>
 
-<%=flash[:error]%>
+<body>
 
-don't have chitter account?  sign up <a href='/makers/sign_up'>here</a>.
+  <p>
+    <form class ='chitter' action='/sessions/sign_in' method='post'>
+      username
+      <input type='test' name='username'>
+      password
+      <input type='password' name='password'>
+      <input type='submit' value='sign in'>
+    </form>
+  </p>
+
+  <p>
+    <font color="yellow" face='courier new'><%=flash[:error]%></font>
+  </p>
+
+  <p class='chitter'>
+    don't have chitter account?  sign up <a href='/makers/sign_up'>here</a>.
+  </p>
+
+</body>

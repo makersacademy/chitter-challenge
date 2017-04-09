@@ -1,20 +1,45 @@
-<% if current_maker %>
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+    a {
+      color: yellow
+    }
+  </style>
+</head>
 
-<form action='/peeps/new_peep' method='post'>
-  <input type='text' name='peep'>
-  <input type='submit' value='peep!'>
-</form>
+<body class='chitter'>
 
-<% end %>
+  <p>
+
+    <% if current_maker %>
+
+      <form action='/peeps/new_peep' method='post'>
+        <input type='text' name='peep'>
+        <input type='submit' value='peep!'>
+      </form>
+
+    <% end %>
+
+  </p>
 
 <% @peeps.reverse! %>
 <% @peeps.each do |peep| %>
-<div><a href='/makers/profile/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:</div>
-<div><%=peep.text%></div>
-<div>on <%=peep.time.strftime('%b %d at %R')%></div>
-<div>
-<form action='peeps/comments/<%=peep.id%>' >
-  <input type='submit' value='comments(<%=peep.comments.count%>)'>
-</form>
-<div>
+
+   <p>
+
+    <a href='/makers/profile/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:<br/>
+    <%=peep.text%><br/>
+    on <%=peep.time.strftime('%b %d at %R')%><br/>
+    <form action='peeps/comments/<%=peep.id%>'>
+     <input type='submit' value='comments(<%=peep.comments.count%>)'>
+    </form>
+
+  </p>
+
 <% end %>
+
+</body>

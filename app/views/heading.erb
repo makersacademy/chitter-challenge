@@ -1,14 +1,50 @@
-<div>chitter</div>
+<!DOCTYPE html>
+<html>
 
-<% if current_maker %>
-signed in as <%=current_maker.username%>
+<head>
+<style>
+body {
+    background-color: rgb(102, 153, 153);
+}
+.chitter {
+  font-family: 'courier new';
+  font-style: normal;
+  color: rgb(0, 102, 204);
+}
+</style>
+</head>
 
-<form action='/sessions/sign_out' method='post'>
-  <input type='submit' value='sign out'>
-</form>
+<body>
 
-<% end %>
+  <header><h1 style='text-align:center' class='chitter'>chitter</h1></header>
 
+  <div class='chitter' style="border-bottom-style:solid;border-color:rgb(0, 102, 204);border-width:2px">
 
+    <p>
 
-<%= yield %>
+      <% if current_maker %>
+        signed in as <%=current_maker.username%>
+
+    </p>
+
+    <p>
+
+        <form action='/sessions/sign_out' method='post'>
+        <input type='submit' value='sign out'>
+        </form>
+
+      <% end %>
+
+    </p>
+
+  </div>
+
+  <div>
+
+    <%= yield %>
+
+  </div>
+
+</body>
+
+</html>
