@@ -12,4 +12,10 @@ feature 'Users can sign up for Chitter' do
     expect(User.first.email).to eq("mail@magnusholm.com")
   end
 
+  scenario 'User can not sign up with the same email adress' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content("Email is already taken")
+  end
+
 end

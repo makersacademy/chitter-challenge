@@ -7,6 +7,6 @@ feature 'Confirmation password' do
     fill_in('password', with: "123banana")
     fill_in('password_confirmation', with: "123apple")
     click_button('Sign up')
-    expect(page).to have_content("Passwords didn't match, please try again")
+    expect(page).to have_content("Password does not match the confirmation")
   end
 end

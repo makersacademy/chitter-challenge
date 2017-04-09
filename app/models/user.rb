@@ -10,7 +10,7 @@ class User
 
   property :id, Serial
   property :username, String
-  property :email, String
+  property :email, String, required: true, unique: true
   property :password_digest, Text
 
   validates_confirmation_of :password
@@ -23,6 +23,6 @@ class User
 
 
 end
-# 
+#
 # DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
 # DataMapper.finalize

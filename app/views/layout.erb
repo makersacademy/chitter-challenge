@@ -11,9 +11,14 @@
     <% end %>
     <%= yield %>
 
-    <% if flash[:error] %>
-      <div id='error'> <%=flash[:error] %> </div>
-    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Woopsidaisy, something went wrong:
+      <ul id='errors'>
+        <%flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <%end%>
 
   </body>
 </html>
