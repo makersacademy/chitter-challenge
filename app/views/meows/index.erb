@@ -1,18 +1,18 @@
-<h2>What are your feline friends up to?</h2>
-
 <% if current_user %>
-Welcome <%= current_user.username %>
+<h2>Welcome <%= current_user.username %>, tell your feline friends what's up</h2>
+<a class="head" href="/meows/new">Meow</a>
 <% end %>
 
 <ul id='meows'>
-<% @meows.each do |meow| %>
+<% @meows.each_with_index do |meow, index| %>
     <li>
-        <span class="message"><%= meow.message %></span>
-        <span class="time"><%= meow.time %></span>
-        <span class="username"><%= meow.user.username %></span>
-        <span class="name"><%= meow.user.name %></span>
+        <div class="box">
+          <div class="avatar <%= index.odd? ? 'odd' : 'even' %>"></div>
+          <div class="message"><%= meow.message %></div>
+        </div>
+        <span class="info"><%= meow.time %></span>
+        <span class="info"><%= meow.user.username %></span>
+        <span class="info"><%= meow.user.name %></span>
     </li>
   <% end %>
 </ul>
-
-<a class="head" href="/meows/new">Meow</a>

@@ -5,12 +5,16 @@ html {
 body {
   background-image: url("cat_wallpaper.jpg");
   background-size: cover;
+  margin: 0;
 }
 h1 {
   font-family: 'Baloo Bhaina', cursive;
   font-size: 70px;
   margin: 0;
   padding-left: 25px;
+  width: 70%;
+  display: inline-block;
+  height: 118px;
 }
 a {
   display: block;
@@ -29,40 +33,26 @@ a:visited {
   color: rgb(53,27,102);
 }
 footer {
-  color: rgb(53,27,102);
+  background-color: rgb(0, 204, 163);
   bottom: 0;
   height: 80px;
-  position: absolute;
+  position: sticky;
   left: 0;
   right: 0;
-}
-footer .wrapper {
-  background-color: rgba(0, 204, 163, .5);
-
-  padding: 0;
-  margin: 0 auto;
 }
 header {
   background-color: rgba(0, 204, 163, .5);
-  height: 80px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
 }
 li {
-  background-color: white;
   padding: 10px;
-  margin: 20px;
+  margin-bottom: 20px;
   font-family: 'Questrial', sans-serif;
   font-size: 16px;
-  border-radius: 12px
 }
 h2 {
-  padding-top: 50px;
   font-family: 'Questrial', sans-serif;
   font-size: 30px;
-  padding-left: 50px;
+  text-align: center;
 }
 p {
   font-family: 'Questrial', sans-serif;
@@ -70,10 +60,44 @@ p {
 }
 ul {
   list-style-type: none;
+  margin: 0 auto;
+  width: 500px;
+  padding: 0;
 }
 li .message {
-  width: 150px;
+  display: inline-block;
+  height: 75px;
+  vertical-align: bottom;
 }
-.head {
-  position: absolute;
+form.signout {
+  display: inline-block;
+  width: 20%;
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  background-image: url('cat-avatar.jpg');
+  background-blend-mode: multiply;
+  background-size: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.even {
+  background-color: red;
+}
+
+.odd {
+  background-color: green;
+}
+.box {
+  background-color: white;
+  border-radius: 12px;
+  height: 75px;
+}
+.info {
+  float: right;
+  padding-right: 10px;
 }

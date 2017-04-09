@@ -6,23 +6,29 @@
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+
+
+    <link rel="icon" type="image/png" href="favicon.ico">
+
+
   </head>
   <body>
     <header class="head">
-    <h1>kitter</h1>
-  </header>
+      <h1>kitter</h1>
+      <% if current_user %>
+          <form class="signout" method='post' action="/sessions">
+            <input type='hidden' name="_method" value="delete">
+            <input type="submit" value="Sign out">
+          </form>
+        <% end %>
+    </header>
     <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
     </div>
     <% end %>
 
-    <% if current_user %>
-        <form method='post' action="/sessions">
-          <input type='hidden' name="_method" value="delete">
-          <input type="submit" value="Sign out">
-        </form>
-      <% end %>
+    <%= yield %>
 
     <footer>
       <div class="wrapper">
@@ -32,9 +38,5 @@
     </div>
     </footer>
 
-
-
-
-    <%= yield %>
   </body>
 </html>
