@@ -45,6 +45,7 @@ GEM
       dm-validations (~> 1.2.0)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.5.3)
     diff-lcs (1.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -130,6 +131,8 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.5.1)
     term-ansicolor (1.5.0)
       tins (~> 1.0)
@@ -145,16 +148,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   coveralls
   cucumber
   data_mapper
+  database_cleaner
   dm-migrations
   dm-postgres-adapter
   rake
   rspec
   selenium-webdriver
   sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.4.0p0
