@@ -33,20 +33,27 @@ body {
 
 .title-in-session {
     text-align: center;
+    margin-top: 50px;
 }
 .title-in-session img {
     width: 50px;
 }
 
-.post-new-peep {
+.post-new-peep-button {
     text-align: center;
 }
 
 .peep-button {
-    background-color: #1685BB;
+    background-color: #b62c13;
     color: #FFF;
     text-align: center;
 }
+
+.peep-button:hover {
+    background-color: #D4624E;
+    color: #FFF;
+
+  }
 
 .peep-block {
     border-style: solid;
@@ -67,5 +74,12 @@ body {
     color: rgba(192,192,192,1.0);
 }
 
+.title-new-peep {
+    margin-top: 50px;
+    text-align: center;
+}
 
+.title-new-peep img {
+    width: 50px;
+}
 
