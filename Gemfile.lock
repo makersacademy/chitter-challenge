@@ -102,8 +102,6 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.5)
     rack (1.6.5)
-    rack-flash-session (1.0.2)
-      rack (>= 1.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -157,7 +155,6 @@ DEPENDENCIES
   dm-postgres-adapter
   pry
   rack
-  rack-flash-session
   rake
   rspec
   sinatra

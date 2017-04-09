@@ -1,0 +1,36 @@
+body {
+    background-color: #f6f6f6;
+    color: #1D1D1D;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+  }
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.title img {
+    width: 90px;
+  }
+
+.container {
+    width: 30%;
+}
+
+.container .form-group {
+    margin-top: 20px;
+
+}
+
+.signup-form {
+    margin-top: 20px;
+}
+
+
+
+.test {
+    border-style: solid;
+    border-width: 1px;
+  }
+

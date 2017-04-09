@@ -1,28 +1,37 @@
 <html>
-  <head>
-
-  </head>
   <body>
 
+  <div class="title">
+    <img src="/logo.png">
+    <h1>Sign in to your Chitter account</h1>
+  </div>
 
-  <h1>Sign in to your Chitter account</h1>
+  <div class="row">
+    <div class="container signin-form">
+      <form action="/sessions" method="post">
 
-  <form action="/sessions" method="post">
-    <label for="email">
-      Email:
-      <input name="email" type="email">
-    </label>
-    <label for="password">
-      Password:
-      <input name="password" type="password">
-    </label>
-    <input type="submit" value="Sign in">
-  </form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input class="form-control" name="email" id="email" placeholder="Enter email" type="email">
+        </div>
 
-  <h2>Don't have an account? Sign up now!</h2>
-  <form action="/users/new" method="get">
-    <input type="submit" value="Get an account">
-  </form>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input class="form-control" name="password" id="pwd" placeholder="Enter password" type="password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container signup-form">
+      <form action="/users/new" method="get">
+        <h5>Don't have an account?<a href = "/users/new"> Sign up now!</a></h5>
+      </form>
+    </div>
+  </div>
 
   </body>
 </html>
