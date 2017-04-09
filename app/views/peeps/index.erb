@@ -1,7 +1,7 @@
 <h1> Peeps </h1>
 
 <ul id='peeps'>
-  <% @peeps.each do |x| %>
+  <% @peeps.reverse.map do |x| %>
     <li>
       Title:  <%= x.peep %>
       Body:    <%= x.body %>
