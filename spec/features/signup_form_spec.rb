@@ -36,9 +36,14 @@ feature 'Signup Form' do
   end
 
   scenario "I can't sign up with an existing username" do
-    sign_up
+    sign_up(email: "saucy@cat.com")
     expect{ sign_up }.to_not change(User, :count)
     expect(page).to have_content('Username is already taken')
   end
 
+  scenario "I can't sign up without a name" do
+    expect { sign_up(name: nil) }.not_to change(User, :count)
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Name must not be blank'
+  end
 end

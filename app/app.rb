@@ -58,7 +58,7 @@ class Kitter < Sinatra::Base
   end
 
   get '/meows' do
-    @meows = Meow.all
+    @meows = Meow.all(order: [:time.desc])
     @user = User.first
     erb :'meows/index'
   end

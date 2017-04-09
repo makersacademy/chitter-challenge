@@ -10,8 +10,8 @@ class User
 
   property :id,       Serial
   property :email,    String, format: :email_address, required: true, unique: true
-  property :username, String
-  property :name,     String
+  property :username, String, required: true, unique: true
+  property :name,     String, required: true
 
   property :password_digest, Text
   validates_confirmation_of :password
