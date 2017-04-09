@@ -28,11 +28,11 @@ def sign_up
     fill_in('password_confirmation', with: 'password')
     click_button('Get Bottle')
 end
-def sign_in(email, password)
+def sign_in(email:, password:)
     visit '/sessions/new'
     expect(page.status_code).to eq(200)
-    fill_in('email', with: 'email')
-    fill_in('password', with: 'password')
+    fill_in('email', with: email)
+    fill_in('password', with: password)
     click_button('Rejoin the fold')
 
 end

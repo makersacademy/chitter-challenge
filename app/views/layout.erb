@@ -5,6 +5,9 @@
   </head>
 
   <body>
+    <% if current_user %>
+      Welcome to Message in a Bottle, <%= current_user.username %>
+  <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
       <ul id='errors'>
