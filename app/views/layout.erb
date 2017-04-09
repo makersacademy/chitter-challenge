@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <title> Chitter </title>
     <%if current_user%>
-    <img width='70px' height='70px' align='right' src="<%=current_user.image_url%>">
+    <a href="/posts/<%=current_user.username%>"><img border='2px' width='85px' height='85px' align='right' src="<%=current_user.image_url%>"></a>
     <%end%>
     <a href='/'><img class='fixed' src='/chitter.png' width='100px'></a>
     <% if current_user %>
