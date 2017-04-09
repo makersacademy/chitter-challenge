@@ -1,20 +1,50 @@
-<h1>Tips</h1>
 
 <style>
+#mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.5;
+
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+}
 ul {
     transform: rotate(180deg);
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: black;
+    <%# filter: blur(10px); %>
+    opacity: 0.5;
+    font-size: 18px;
+      font-family: "Futura", "Helvetica";
 }
 ul > li {
     transform: rotate(-180deg);
+    list-style-type: none;
 }
+
 </style>
 
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
-    <li>
+      <li>
       <%= peep.text %>
-    </li>
+      </li>
   <% end %>
+  <li>
+  </li>
 </ul>
 
 <form action='/peeps/new' method='get'>
