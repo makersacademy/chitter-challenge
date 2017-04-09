@@ -13,8 +13,7 @@ class Ricker < Sinatra::Base
   end
 
   get '/rolls/index' do
-
-    @rolls = Roll.all
+    @rolls = Roll.all.sort_by {|roll| roll.time}.reverse!
     erb :'rolls/index'
   end
 

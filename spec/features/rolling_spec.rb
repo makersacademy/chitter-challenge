@@ -8,15 +8,36 @@ feature 'User posts a Roll' do
     expect(page).to have_content "Never going to give you up"
   end
 
-  scenario 'Username and Name are Put in a Roll' do
+  scenario 'Username is Put in a Roll' do
     post_roll
     expect(page).to have_content(SessionHelpers::DEFAULT_USERNAME)
   end
 
-  scenario 'Username and Name are Put in a Roll' do
+  scenario 'Name is Put in a Roll' do
     post_roll
     expect(page).to have_content(SessionHelpers::DEFAULT_NAME)
   end
+
+  scenario 'Rolls are posted in Chronological Order' do
+    time1 = Time.now
+    time2 = Time.now - 3600
+    time3 = Time.now + 3600
+
+    allow(Time).to receive(:now) { time1 }
+    post_roll(message: "Now")
+
+    allow(Time).to receive(:now) { time2 }
+    post_roll(message: "Before")
+
+    allow(Time).to receive(:now) { time3 }
+    post_roll(message: "After")
+
+    expect(page.find('li:nth-child(1)')).to have_content 'After'
+    expect(page.find('li:nth-child(2)')).to have_content 'Now'
+    expect(page.find('li:nth-child(3)')).to have_content 'Before'
+
+  end
+
 
 
 
