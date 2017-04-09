@@ -2,13 +2,13 @@ comments
 
 <div><a href='/makers/profile/<%=@peep.maker.username%>'><%=@peep.maker.username%></a> peeped:</div>
 <div><%=@peep.text%></div>
-<div>on: <%=@peep.time%></div>
+<div>on: <%=@peep.time.strftime('%b %d at %R')%></div>
 <div>
 
 <% @peep.comments.each do |comment| %>
   <div><%=comment.maker.username%> commented:</div>
   <div><%=comment.text%></div>
-  <div>on <%=comment.time%></div>
+  <div>on <%=comment.time.strftime('%b %d at %R')%></div>
 <% end %>
 
 <% if current_maker %>

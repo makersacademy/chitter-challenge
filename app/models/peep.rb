@@ -6,7 +6,7 @@ class Peep
 
   property :id, Serial
   property :text, Text, required: true
-  property :time, String
+  property :time, Time
 
   belongs_to :maker
 
