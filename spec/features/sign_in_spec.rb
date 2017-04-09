@@ -18,10 +18,4 @@ feature 'User sign in' do
     expect(page).to have_content('The username or password is incorrect')
   end
 
-  def sign_in(username: 'Wizard_Trish', password: 'password')
-    visit '/sessions/new'
-    fill_in(:username, with: username)
-    fill_in(:password, with: password)
-    click_button('Sign in')
-  end
 end
