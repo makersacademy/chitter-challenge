@@ -11,13 +11,20 @@
     </head>
   <body>
     <% if current_user %>
+
       <div class="s-out">
-        <h4>Welcome, <%= current_user.email %>!</h4>
-        <form method="post" action="/sessions">
-          <input type="hidden" name="_method" value="delete">
-          <button type="submit" class="btn peep-button-signout">Sign out</button>
-        </form>
-      </div>
+        <div class="header-contents">
+          <form method="post" action="/sessions">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn peep-button-signout">Sign out</button>
+          </form>
+          <!-- <form action="/sessions" method="post">
+            <h4><input type="hidden" name="_method" value="delete">
+            <a href= "/sessions/new">Sign out</a></h4>
+          </form> -->
+          <h4>Welcome, <%= current_user.email %>!</h4>
+        </div>
+        </div>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
 

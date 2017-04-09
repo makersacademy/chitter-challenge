@@ -32,7 +32,41 @@ body {
 }
 
 .s-out {
-    margin-left: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: #f1f3f4;
+    line-height: 2;
+}
+
+.s-out h4 {
+    float: right;
+    color: #394146;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.s-out a {
+    color: #FFF;
+}
+
+.peep-button-signout {
+    background-color: Transparent;
+    color: #394146;
+    text-align: center;
+    float: right;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/*.peep-button-signout:hover {
+    opacity: 0;
+    color: #FFF;
+}*/
+
+.header-contents {
+    margin-top: 0px;
+    text-align: right;
+    margin-right: 5px;
 }
 
 .title-in-session {
@@ -86,17 +120,6 @@ body {
 
 .title-new-peep img {
     width: 120px;
-}
-
-.peep-button-signout {
-    background-color: #B3B3B3;
-    color: #000;
-    text-align: center;
-}
-
-.peep-button-signout:hover {
-    background-color: #D4624E;
-    color: #FFF;
 }
 
 #notice {
