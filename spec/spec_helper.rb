@@ -10,7 +10,7 @@ Coveralls.wear!
 
 require 'capybara/rspec'
 require './app/models/user'
-require_relative './web_helpers'
+require_relative 'helpers/session'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -35,5 +35,11 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+end
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
 
 end
