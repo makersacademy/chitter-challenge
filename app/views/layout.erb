@@ -29,11 +29,12 @@
 
   <body>
     <% if flash[:error] %>
-      <div id='error'><%= flash[:error] %></div>
+      <div align='center' id='error'>
+      <h2><%= flash[:error] %></h2></div>
     <% end %>
     <%if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
+      <div align='center' id='notice'>
+        <h2><%= flash[:notice] %></h2>
       </div>
     <% end %>
     <%= yield %>

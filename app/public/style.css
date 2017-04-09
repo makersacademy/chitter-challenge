@@ -6,17 +6,11 @@ div.back {
   padding: 5px;
 }
 
-div.fore {
-  op
-  font-weight: bold;
-  padding: 5px;
-}
-
 div.peep {
   margin: auto;
   border-radius: 15px;
   text-align: center;
-  height: 100px;
+  height: 130px;
   width: 400px;
   box-sizing: border-box;
   padding: 5px;
@@ -37,9 +31,23 @@ input.entry {
   width: 200px;
 }
 
-input.fixed {
+input.fixed1 {
     position: fixed;
     top: 150px;
+    background: rgba(23, 176, 176, 0.6);
+    border-radius: 5px;
+    border: 4px solid #0489bd;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input.fixed2 {
+    position: fixed;
+    top: 215px;
     background: rgba(23, 176, 176, 0.6);
     border-radius: 5px;
     border: 4px solid #0489bd;

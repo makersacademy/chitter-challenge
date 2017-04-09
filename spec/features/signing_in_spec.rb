@@ -7,7 +7,7 @@ feature 'user signing in to Chitter' do
     fill_in('username', with: 'StephanieJane')
     fill_in('password', with: 'steph123')
     click_button 'Submit'
-    expect(page).to have_content 'Welcome Steph'
+    expect(page).to have_content 'Welcome to Chitter Steph'
   end
 
 end

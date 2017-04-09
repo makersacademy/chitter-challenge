@@ -5,8 +5,8 @@
 <% @posts.each do |post| %>
 <% @user = User.first(id: post.user_id) %>
   <div class='peep'>
-      <img width='20px' height='20px' src="<%= @user.image_url %>">
-      <p><%=@user.name%>:
+      <p><a href="/posts/<%=@user.username%>"><img width='30px' height='30px' src="<%= @user.image_url %>"></a>
+      <%=@user.name%>:
       <%= post.created_at %></p>
       <p><%=post.content %></p>
     </div>
@@ -14,8 +14,11 @@
 <% end %>
 
 <% if current_user %>
-<form class='fixed' action="/posts/new" method="get">
-  <input class='fixed' type="submit" value="Peep!">
+<form action="/posts/new" method="get">
+  <input class='fixed1' type="submit" value="Peep!">
+</form>
+<form action="/posts/<%=current_user.username%>" method="get">
+  <input class='fixed2' type="submit" value="My peeps">
 </form>
 <% end %>
 </body>

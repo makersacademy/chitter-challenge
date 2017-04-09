@@ -2,7 +2,7 @@ feature 'user uses sign in form' do
 
   scenario 'successful sign in' do
     sign_up_steph
-    expect(page).to have_content 'Welcome Steph!'
+    expect(page).to have_content 'Welcome to Chitter Steph!'
   end
 
   scenario 'email incorrectly formatted' do
