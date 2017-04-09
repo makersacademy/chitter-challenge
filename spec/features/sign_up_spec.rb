@@ -27,6 +27,11 @@ feature 'sign up' do
     expect(current_path).to eq('/users')
   end
 
+  scenario 'cannot sign up without username' do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+  end
+
   def sign_up(email: 'Trisha@person.com',
               username: 'Wizard_Trish',
               password: 'password')
