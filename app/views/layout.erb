@@ -11,13 +11,13 @@
 
     <% if flash[:errors] %>
       The following error/s have occurred:
-      <ul id='errors'>
+      <ul id='errors' style='color: red'>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>
         <% end %>
       </ul>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
