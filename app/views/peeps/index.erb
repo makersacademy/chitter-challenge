@@ -1,3 +1,4 @@
 <% @peeps.each do |peep| %>
   <%= peep.text %>
+  <%= peep.created_at.strftime("Posted on %d %B %Y") %>
 <% end %>
