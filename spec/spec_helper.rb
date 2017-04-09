@@ -3,6 +3,12 @@ ENV["RACK_ENV"] = 'test'
 require 'coveralls'
 require 'simplecov'
 
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
+
 require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
@@ -12,12 +18,6 @@ require 'pry'
 # require_relative './features/web_helpers'
 require_relative './helpers/session'
 Capybara.app = Knitter
-
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 RSpec.configure do |config|
   config.include SessionHelpers
