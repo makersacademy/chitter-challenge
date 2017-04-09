@@ -10,7 +10,7 @@ group :development do
   gem 'rack'
   gem 'sinatra-flash'
   gem 'selenium-webdriver'
-
+  gem 'timecop'
 end
 
 group :test do

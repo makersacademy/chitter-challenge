@@ -1,3 +1,13 @@
 <h1> Welcome to the Stream </h1>
 
-<div> <%= @bottle.message %> </div>
+<% @bottles.each do |bottle| %>
+  <div id="<%= bottle.id %>" class='bottle' border='solid; 1px'>
+    <div class='message'>
+      <%= bottle.message %>
+    </div>
+    <div class='time'>
+      <%= bottle.time.strftime("%c")%>
+    </div>
+  </div>
+<% end%>
+

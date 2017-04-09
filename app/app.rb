@@ -15,12 +15,12 @@ class MessageInABottle < Sinatra::Base
   end
 
   post '/message' do
-    Bottle.create(message: params[:message])
+    Bottle.create(message: params[:message], time: Time.now)
     redirect '/stream'
   end
 
   get '/stream' do
-    @bottle = Bottle.first
+    @bottles = Bottle.all
     erb :'/stream/index'
   end
 end
