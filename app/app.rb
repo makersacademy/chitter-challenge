@@ -63,7 +63,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/comments' do
-    "#{params[:peep_id]}"
+    @peep = Peep.get(params[:peep_id])
+    erb :'peeps/comments'
+    # "#{params[:peep_id]}"
   end
 
   helpers do

@@ -1,0 +1,11 @@
+comments
+
+<div><a href='/peeps/filter/<%=@peep.maker.username%>'><%=@peep.maker.username%></a> peeped:</div>
+<div><%=@peep.text%></div>
+<div>on: <%=@peep.time%></div>
+<div>
+
+<form action='peeps/comments' method='post'>
+  <input type='text' name='comment'>
+  <input type='submit' value='comment'>
+</form>
