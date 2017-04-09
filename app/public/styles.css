@@ -144,4 +144,38 @@ body {
 
 }
 
+@media only screen and (min-width: 150px) and (max-width: 600px) {
+
+.container {
+    width: 90%;
+}
+
+.container .form-group {
+    margin-top: 1%;
+
+}
+
+.form-group label {
+    font-size: 16px;
+
+
+}
+
+.form-group input {
+    height: 40px;
+}
+
+.peep-button {
+    margin-top: 5%;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.signup-link h5 {
+    text-align: center;
+    font-size: 16px;
+}
+
+}
 
