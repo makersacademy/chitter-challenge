@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Road Tripper</title>
+  </head>
+  <body>
+    <% if current_user %>
+      <h1>Logged in as <%=current_user.username%></h1>
+    <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+        <li> <%= error %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

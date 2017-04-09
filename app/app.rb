@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user ||= session[:user_id]
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
@@ -40,11 +40,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    if User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
       redirect to '/peeps'
+    else
+      erb :'sessions/login'
     end
   end
 
   get '/peeps' do
+    erb :'sessions/login'
   end
 end

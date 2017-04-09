@@ -44,7 +44,7 @@ feature 'User sign up' do
 
   scenario 'with an existing username' do
     sign_up
-    expect { sign_up(email: 'dv@gmail.com', username: "Darth Vader") }.not_to change { User.count }
+    expect { sign_up(email: 'dv@gmail.com', username: "Darth_Vader") }.not_to change { User.count }
     expect(current_path).to eq '/users'
     expect(page).to have_content 'Username is already taken'
   end

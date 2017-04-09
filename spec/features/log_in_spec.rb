@@ -7,19 +7,21 @@ feature 'User log in' do
     expect(page).to have_content 'Logged in as Darth_Vader'
   end
 
-  scenario 'email does not match records' do
+  scenario 'username does not match records' do
     sign_up
     visit '/sessions/new'
-    log_in(email:'dv')
+    log_in(username:'dv')
     expect(current_path).to eq '/sessions'
-    # expect(page).to have_content 'Logged in as Darth_Vader'
+    # expect(page).not_to have_content 'Logged in as Darth_Vader'
   end
 
-  scenario 'email does not match records' do
+  scenario 'password does not match records' do
+    User.create(password: 'Yoda')
+
     sign_up
     visit '/sessions/new'
     log_in(password:'hateyoda')
     expect(current_path).to eq '/sessions'
-    # expect(page).to have_content 'Logged in as Darth_Vader'
+    # expect(page).not_to have_content 'Logged in as Darth_Vader'
   end
 end

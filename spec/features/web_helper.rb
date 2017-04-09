@@ -1,7 +1,7 @@
 def sign_up (first_name: "Darth",
              last_name: "Vader",
              email: 'darth_vader@gmail.com',
-             username: "Darth Vader",
+             username: "Darth_Vader",
              password: "notanakin",
              password_confirmation: "notanakin")
   visit('/users/new')
@@ -14,7 +14,7 @@ def sign_up (first_name: "Darth",
   click_button "Sign Up"
 end
 
-def log_in (username: "Darth Vader", password: "notanakin")
+def log_in (username: "Darth_Vader", password: "notanakin")
   visit('/sessions/new')
   fill_in :username, with: username
   fill_in :password, with: password
