@@ -9,6 +9,7 @@ class Kitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -40,18 +41,18 @@ class Kitter < Sinatra::Base
 
   post '/sessions' do
   user = User.authenticate(params[:username], params[:password])
-  if user
-    session[:user_id] = user.id
-    redirect '/meows'
-  else
-    flash.now[:errors] = ['The username or password is incorrect']
-    erb :'sessions/new'
+    if user
+      session[:user_id] = user.id
+      redirect '/meows'
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'sessions/new'
+    end
   end
-end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Goodbye kitty!'
+    flash.keep[:notice] = 'Bye Bye Kitty!'
     redirect '/meows'
   end
 
