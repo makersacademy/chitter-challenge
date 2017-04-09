@@ -21,6 +21,14 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
+  def single_peep
+    sign_up
+    sign_in
+    visit '/peeps/new'
+    fill_in 'message', with: 'My first peep'
+    click_button 'Post Peep!'
+  end
+
   def multi_peep
     sign_up
     sign_in

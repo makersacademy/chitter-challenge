@@ -1,15 +1,23 @@
 <h2>All Peeps</h2>
 
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-      Message: <%= peep.message %>
-      Handle: <%= peep.user.user_name %>
-      Name:   <%= peep.user.name %>
-    </li>
-  <% end %>
-</ul>
+<% if !@peeps.empty? %>
+<div class="peep">
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      @<%= peep.user.user_name %>
+      <p>
+      <strong><%= peep.message %></strong>
+      <p>
+        <strong>Name:   </strong><%= peep.user.name %>
+        <strong>Posted:   </strong><%= peep.format_time(peep.created_at) %>
+        <hr>
+      </p>
+    <% end %>
+  </ul>
+<% end %>
+</div>
 
+<br>
 <% if current_user %>
 <div>
   <form action='/peeps/new' method="get">

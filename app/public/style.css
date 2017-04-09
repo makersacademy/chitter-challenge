@@ -42,6 +42,11 @@ ul {
    font-size: 14px;
 }
 
+.peep {
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
+}
+
 .peep_field {
    width: 250px;
    height: 20px;
