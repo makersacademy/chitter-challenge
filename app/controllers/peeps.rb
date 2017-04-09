@@ -13,6 +13,7 @@ class Knitter < Sinatra::Base
     new_text = params[:text]
     # require 'pry'; binding.pry;
     peep = Peep.create(text: new_text)
+    # peep.users << peep
     peep.save
     redirect '/peeps'
   end
