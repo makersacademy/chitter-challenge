@@ -1,7 +1,7 @@
 feature 'login to Chitter' do
 
   let!(:user) do
-    User.create(email: 'user@whatever.com', name: 'Dave', username: 'superdave', password: 'password123')
+    User.create(email: 'user@whatever.com', name: 'Dave', username: 'superdave', password: 'password123', password_confirmation: 'password123')
   end
 
   scenario 'credentials are correct' do

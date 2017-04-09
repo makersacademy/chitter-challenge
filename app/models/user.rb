@@ -9,6 +9,8 @@ class User
   property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
+  attr_reader :password
+  attr_accessor :password_confirmation
 
   def password=(password)
     @password = password
@@ -23,5 +25,5 @@ class User
       nil
     end
   end
-
+  validates_confirmation_of :password
 end

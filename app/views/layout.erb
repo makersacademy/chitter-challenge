@@ -6,7 +6,7 @@
   <body>
 
     <% if current_user %>
-    <h1>Welcome <%=current_user.name%></h1>
+    <h1 style="font-family: 'Droid+Sans', sans-serif;">Welcome <%=current_user.name%></h1>
     <div id='sign_out'>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
