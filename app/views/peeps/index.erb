@@ -34,6 +34,10 @@ ul > li {
     transform: rotate(-180deg);
     list-style-type: none;
 }
+.time {
+  font-size: 10px;
+  padding-bottom: 10px;
+}
 
 </style>
 
@@ -41,6 +45,9 @@ ul > li {
   <% @peeps.each do |peep| %>
       <li>
       <%= peep.text %>
+      <div class="time">
+      <%= peep.time %>
+      </div>
       </li>
   <% end %>
   <li>

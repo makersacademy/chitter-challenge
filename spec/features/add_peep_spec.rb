@@ -16,4 +16,13 @@ feature 'Add to the list of peeps' do
       expect(page).to have_content "The crotchet hook is a knitter's best friend"
     end
   end
+
+  # scenario 'Time is automatically added to a peep' do
+  #   signup
+  #   login
+  #   click_button 'Add Tip'
+  #   within 'ul#peeps' do
+  #     expect(page).to have_content "time"
+  #   end
+  # end
 end
