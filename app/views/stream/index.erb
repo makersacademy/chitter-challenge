@@ -8,6 +8,13 @@
     <div class='time'>
       <%= bottle.time.strftime("%H:%M on %a %b %e %Y")%>
     </div>
+    <div class='username'>
+    <%= User.get(bottle.user_id).username %>
+    </div>
+    <div class='name'>
+    <%= User.get(bottle.user_id).name %>
+    </div>
+
   </div>
 <% end%>
 

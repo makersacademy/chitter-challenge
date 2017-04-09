@@ -8,6 +8,8 @@ class Bottle
   property :message, Text
   property :time, DateTime
 
+  belongs_to :user
+
   def self.reverse_chronological_order
     all(order: :time.desc)
   end

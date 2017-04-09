@@ -16,6 +16,8 @@ class User
   property :name, String
   property :username, String, required: true, unique: true
 
+  has n, :bottles
+
   validates_confirmation_of :password
 
   def password=(password)

@@ -7,6 +7,7 @@ feature 'bottle' do
     expect(current_path).to eq('/user/new')
     expect(page).to have_content('You need a bottle to send your message.')
   end
+
   scenario 'create new bottle' do
     sign_up
     sign_in(email: 'b@ttle.com', password: 'password')
@@ -14,6 +15,20 @@ feature 'bottle' do
     expect { create_message_bottle }.to change(Bottle, :count).by(1)
     expect(current_path).to eq '/stream'
     expect(page).to have_content 'Will anyone ever read this?'
+  end
+
+  scenario 'check username of person who sent message is displayed' do
+    sign_up
+    sign_in(email: 'b@ttle.com', password: 'password')
+    create_message_bottle
+    expect(first(:css, '.username')).to have_content('Bcakes')
+  end
+
+  scenario 'check name of person who sent message is displayed' do
+    sign_up
+    sign_in(email: 'b@ttle.com', password: 'password')
+    create_message_bottle
+    expect(first(:css, '.name')).to have_content('Bea')
   end
 
     before do

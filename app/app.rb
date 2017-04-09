@@ -13,7 +13,7 @@ class MessageInABottle < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    'Hello, world!'
+    redirect '/stream'
   end
 
   get '/user/new' do
@@ -66,7 +66,7 @@ class MessageInABottle < Sinatra::Base
   end
 
   post '/message' do
-    Bottle.create(message: params[:message], time: Time.now)
+    current_user.bottles.create(message: params[:message], time: Time.now)
     redirect '/stream'
   end
 
