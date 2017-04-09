@@ -1,3 +1,4 @@
-<% @peeps.each do |peep| %>
-<%= peep.content %>
+<h1>Peeps</h1>
+<% @peeps.reverse_each do |peep| %>
+<div id='peep'>Time: <%= peep.time %> <%= peep.content %></div>
 <% end %>

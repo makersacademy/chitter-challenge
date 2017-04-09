@@ -13,7 +13,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(content: params[:content])
+    peep = Peep.create(
+    content: params[:content],
+    user: params[:user] = current_user,
+    time: params[:time] = Time.now.strftime('%d/%m/%y')
+    )
     peep.save
     redirect '/feed'
   end
@@ -63,6 +67,7 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
   end
 
 end
