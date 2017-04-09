@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/sign_in' do
-    erb :'makers/sign_in'
+    erb :'sessions/sign_in'
   end
 
   post '/sessions/sign_in' do
@@ -56,10 +56,10 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
-  get '/peeps/filter/:name' do
+  get '/makers/profile/:name' do
     @maker = Maker.first(username: params[:name])
     @peeps = @maker.peeps
-    erb :'makers/peeper'
+    erb :'makers/profile'
   end
 
   get '/peeps/comments/:id' do

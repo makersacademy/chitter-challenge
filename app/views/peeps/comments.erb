@@ -1,19 +1,19 @@
 comments
 
-<div><a href='/peeps/filter/<%=@peep.maker.username%>'><%=@peep.maker.username%></a> peeped:</div>
+<div><a href='/makers/profile/<%=@peep.maker.username%>'><%=@peep.maker.username%></a> peeped:</div>
 <div><%=@peep.text%></div>
 <div>on: <%=@peep.time%></div>
 <div>
 
-  <% @peep.comments.each do |comment| %>
-    <div><%=comment.maker.username%> commented:</div>
-    <div><%=comment.text%></div>
-    <div>on <%=comment.time%></div>
-  <% end %>
+<% @peep.comments.each do |comment| %>
+  <div><%=comment.maker.username%> commented:</div>
+  <div><%=comment.text%></div>
+  <div>on <%=comment.time%></div>
+<% end %>
 
 <% if current_maker %>
-<form action='/peeps/new_comment/<%=@peep.id%>' method='post'>
-  <input type='text' name='words'>
-  <input type='submit' value='comment'>
-</form>
+  <form action='/peeps/new_comment/<%=@peep.id%>' method='post'>
+    <input type='text' name='words'>
+    <input type='submit' value='comment'>
+  </form>
 <% end %>
