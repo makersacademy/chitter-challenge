@@ -32,9 +32,9 @@
    <p>
 
     <a href='/makers/profile/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:<br/>
-    <b><%=peep.text%></b><br/>
+    <b>&nbsp;<%=peep.text%></b><br/>
     on <%=peep.time.strftime('%b %d at %R')%><br/>
-    <form action='peeps/comments/<%=peep.id%>'>
+    <form action='/peeps/comments/<%=peep.id%>'>
      <input type='submit' value='comments(<%=peep.comments.count%>)'>
     </form>
 

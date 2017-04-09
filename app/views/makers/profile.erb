@@ -13,6 +13,17 @@
 
   <p>
 
+    <b><%=@maker.username%></b> is currently
+    <% if current_maker == @maker %>
+      <b>online</b>
+    <% else %>
+      <b>offline</b>
+    <%end%>
+
+  </p>
+
+  <p>
+
     <b><%=@maker.username%></b>'s peeps:
 
   </p>
@@ -22,9 +33,9 @@
     <% @peeps.reverse! %>
     <% @peeps.each do |peep| %>
       <%=peep.maker.username%> peeped:<br/>
-      <b><%=peep.text%></b><br/>
+      <b>&nbsp;<%=peep.text%></b><br/>
       on: <%=peep.time%><br/>
-      <form action='peeps/comments/<%=peep.id%>'>
+      <form action='/peeps/comments/<%=peep.id%>'>
         <input type='submit' value='comments(<%=peep.comments.count%>)'>
       </form>
     <% end %>

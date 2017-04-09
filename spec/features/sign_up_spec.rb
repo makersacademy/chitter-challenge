@@ -20,6 +20,17 @@ feature 'new maker signup' do
     expect(page).to have_content 'oops'
   end
 
+  scenario 'password is encrypted' do
+    visit '/makers/sign_up'
+    fill_in 'username', with: 'sallywag'
+    fill_in 'email', with: 'sally@dogs.com'
+    fill_in 'password', with: 'sally1'
+    fill_in 'confirm_password', with: 'sally1'
+    click_button 'sign up'
+    maker = Maker.first
+    expect(BCrypt::Password.new(maker.password_digest)).to eq 'sally1'
+  end
+
   scenario 'email must be unique' do
     Maker.create(username: 'sallywag', email: 'sally@dogs.com', password: 'sally1')
     visit '/makers/sign_up'
