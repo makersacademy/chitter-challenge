@@ -59,6 +59,9 @@ class MessageInABottle < Sinatra::Base
   end
 
   get '/bottle/new' do
+    unless current_user
+      redirect '/user/new'
+    end
     erb :'bottle/new'
   end
 
