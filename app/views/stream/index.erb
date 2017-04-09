@@ -1,7 +1,7 @@
 <h1> Welcome to the Stream </h1>
 
 <% @bottles.each do |bottle| %>
-  <div id="<%= bottle.id %>" class='bottle' border='solid; 1px'>
+  <div id="post<%= bottle.id %>" class='bottle' style='border: solid; padding: 5px; margin: 5px;'>
     <div class='message'>
       <%= bottle.message %>
     </div>

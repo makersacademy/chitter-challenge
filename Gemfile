@@ -11,6 +11,7 @@ group :development do
   gem 'sinatra-flash'
   gem 'selenium-webdriver'
   gem 'timecop'
+  gem 'pry'
 end
 
 group :test do

@@ -20,7 +20,7 @@ class MessageInABottle < Sinatra::Base
   end
 
   get '/stream' do
-    @bottles = Bottle.all
+    @bottles = Bottle.reverse_chronological_order
     erb :'/stream/index'
   end
 end
