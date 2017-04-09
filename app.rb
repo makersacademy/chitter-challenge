@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'data_mapper' #Add in
 require 'sinatra/flash'
 require_relative 'models/user'
+require_relative 'models/peep'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -13,9 +14,20 @@ register Sinatra::Flash
 use Rack::MethodOverride
 
   get '/' do
-    session[:id] ||= 0
+    # session[:id] ||= 0
+    @peeps = Peep.all
     erb(:'/index')
   end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/' do
+    Peep.create(message: params[:message])
+    redirect '/'
+  end
+
 
   get '/users/new' do
     @user = User.new
@@ -56,7 +68,6 @@ use Rack::MethodOverride
     flash.keep[:notice] = 'Logged out'
     redirect to '/'
   end
-
 
   helpers do
     def current_user

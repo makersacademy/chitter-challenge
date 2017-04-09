@@ -11,11 +11,11 @@
          <input type='submit' value='Sign out'>
        </form>
        <% end %>
-    <%= yield %>
     <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
     </div>
     <% end %>
+        <%= yield %>
   </body>
   </html>
