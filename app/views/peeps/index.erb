@@ -6,7 +6,7 @@
 <li>
   <%= peep.message %>
   <br></br>
-  by <%= peep.user.email %>
+  by <%= peep.user.email %>, peeped at <%= peep.created_at.strftime("%d/%m/%Y at %I:%M%p") %>
 </li>
   <br></br>
 <% end %>
