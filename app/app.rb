@@ -64,15 +64,24 @@ class Kitter < Sinatra::Base
   end
 
   get '/meows/new' do
+    if current_user == nil
+      flash[:errors] = ["You must sign in to meow"]
+      redirect 'sessions/new'
+    end
     erb :'meows/new'
   end
 
   post '/meows' do
   time = Time.new
   meow = Meow.new(message: params[:message], time: time)
-  meow.user = current_user
-  meow.save
-  redirect '/meows'
+    if current_user == nil
+      flash[:errors] = ["You must sign in to meow"]
+      redirect 'sessions/new'
+    else
+      meow.user = current_user
+      meow.save
+      redirect '/meows'
+    end
   end
 
   run! if app_file == $0
