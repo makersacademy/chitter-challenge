@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
 enable :sessions
 set :session_secret, 'super secret'
 register Sinatra::Flash
+use Rack::MethodOverride
 
   get '/' do
     session[:id] ||= 0
@@ -50,6 +51,11 @@ register Sinatra::Flash
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Logged out'
+    redirect to '/'
+  end
 
 
   helpers do

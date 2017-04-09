@@ -9,9 +9,16 @@ require 'coveralls'
 require 'simplecov'
 require 'database_cleaner'
 
-
 require './models/user'
 require './app'
+require_relative 'helpers/session'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+  
+end
+
 
 Capybara.app = Chitter
 
