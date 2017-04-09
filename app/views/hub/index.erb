@@ -1,19 +1,28 @@
 <html>
-
   <body>
 
-<h1> Your Peeps</h1>
+  <div class="title-in-session">
+    <img src="/logo.png">
+    <h3> Your Peeps</h3>
+  </div>
 
-<form action="/hub/new" method="get">
-  <input type="submit" value="Post new peep">
-</form>
+  <div class="post-new-peep">
+    <form action="/hub/new" method="get">
+      <button type="submit" class="btn peep-button">Post new peep</button>
+    </form>
+  </div>
 
-<ul id="hub">
-  <% @peeps.reverse_each do |peep| %>
-      <h4><%= peep.pweep %></h4>
-      <p>Time posted: <%= peep.time%></p>
-    <% end %>
-</ul>
+  <div class="row">
+    <div class="container">
+      <ul id="hub">
+        <% @peeps.reverse_each do |peep| %>
+          <div class="peep-block">
+            <p class="pweep"><%= peep.pweep %></p>
+            <p>Time posted: <%= peep.time%></p>
+          </div>
+          <% end %>
+      </ul>
+    </div>
 
   </body>
 </html>

@@ -23,14 +23,49 @@ body {
 
 }
 
-.signup-form {
+.s-form {
     margin-top: 20px;
 }
 
+.s-out {
+    margin-left: 10px;
+}
 
+.title-in-session {
+    text-align: center;
+}
+.title-in-session img {
+    width: 50px;
+}
 
-.test {
+.post-new-peep {
+    text-align: center;
+}
+
+.peep-button {
+    background-color: #1685BB;
+    color: #FFF;
+    text-align: center;
+}
+
+.peep-block {
     border-style: solid;
     border-width: 1px;
-  }
+    border-color: rgba(192,192,192,0.2);
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.peep-block .pweep{
+    margin: 10px;
+    color: #000;
+    font-size: 16px;
+}
+
+.peep-block p {
+    margin: 10px;
+    color: rgba(192,192,192,1.0);
+}
+
+
 

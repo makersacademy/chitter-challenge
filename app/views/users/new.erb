@@ -1,26 +1,31 @@
-<h1>Sign up to Chitter</h1>
+<html>
+  <body>
+    <div class="title">
+      <img src="/logo.png">
+      <h1>Sign up to Chitter</h1>
+    </div>
 
-<form action="/users" method="post">
-  <div>
-    <label for="email">
-      Email:
-      <input type="email" name="email" value="<%= @user.email %>" required>
-    </label>
-  </div>
-  <div>
-    <label for="password">
-      Password:
-    <input type="password" name="password">
-    </label>
-  </div>
-  <div>
-    <label for="password_confirmation">
-      Confirm password:
-      <input type="password" name="password_confirmation">
-    </label>
+    <div class="row">
+      <div class="container s-form">
+        <form action="/users" method="post">
 
-  <div>
-    <input type="submit" value="Sign up">
-  </div>
-</form>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input class="form-control" type="email" name="email" value="<%= @user.email %>" placeholder="Enter new email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input class="form-control" type="password" name="password" id="pwd" placeholder="Enter new password">
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation">Confirm password:</label>
+            <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm new password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+   </body>
+</html>
 

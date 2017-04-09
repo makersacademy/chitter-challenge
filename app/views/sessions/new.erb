@@ -1,37 +1,37 @@
 <html>
   <body>
 
-  <div class="title">
-    <img src="/logo.png">
-    <h1>Sign in to your Chitter account</h1>
-  </div>
-
-  <div class="row">
-    <div class="container signin-form">
-      <form action="/sessions" method="post">
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input class="form-control" name="email" id="email" placeholder="Enter email" type="email">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input class="form-control" name="password" id="pwd" placeholder="Enter password" type="password">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </form>
+    <div class="title">
+      <img src="/logo.png">
+      <h1>Sign in to your Chitter account</h1>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="container signup-form">
-      <form action="/users/new" method="get">
-        <h5>Don't have an account?<a href = "/users/new"> Sign up now!</a></h5>
-      </form>
+    <div class="row">
+      <div class="container s-form">
+        <form action="/sessions" method="post">
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input class="form-control" name="email" id="email" placeholder="Enter email" type="email">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input class="form-control" name="password" id="pwd" placeholder="Enter password" type="password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+      </div>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="container signup-form">
+        <form action="/users/new" method="get">
+          <h5>Don't have an account?<a href = "/users/new"> Sign up now!</a></h5>
+        </form>
+      </div>
+    </div>
 
   </body>
 </html>
