@@ -65,7 +65,10 @@ class Chitter < Sinatra::Base
   get '/peeps/comments/:id' do
     @peep = Peep.get(params[:id])
     erb :'peeps/comments'
-    # "#{params[:peep_id]}"
+  end
+
+  post '/peeps/new_comment/:id' do
+    redirect "/peeps/comments/#{params[:id]}"
   end
 
   helpers do
