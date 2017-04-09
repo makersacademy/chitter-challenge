@@ -3,41 +3,16 @@
   <head>
     <title>Ricker</title>
 
-    <link rel="stylesheet" href="/basic_style.css">
+    <link rel="stylesheet" href="/stylesheets/basic_style.css">
 
   </head>
 
   <body>
-    <%current_user= User.first(id: session[:user_id])%>
-    <%if current_user %>
 
-      <div id='user'><%=current_user.email%></div>
-
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign Out'>
-      </form>
-    <%end%>
-
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
+    <%= partial :welcome%>
+    <%= partial :start_session%>
+    <%= partial :flash%>
     <%= yield %>
-
-
 
   </body>
 </html>

@@ -1,0 +1,8 @@
+<%if current_user %>
+  <div id='user'><%=current_user.email%></div>
+
+  <form action='/sessions' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign Out'>
+  </form>
+<%end%>

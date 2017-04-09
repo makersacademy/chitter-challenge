@@ -1,0 +1,9 @@
+<%if !current_user%>
+<form action='/users/new' method='get'>
+  <input type=submit name='Sign Up Bar' value="Sign Up Now">
+</form>
+
+<form action='/sessions/new' method='get'>
+  <input type=submit name='Sign In Bar' value="Sign In Now">
+</form>
+<%end%>
