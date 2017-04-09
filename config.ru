@@ -1,3 +1,3 @@
-require'./app/controller'
+require'./app/app'
 
 run Ricker

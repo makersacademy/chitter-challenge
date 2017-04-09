@@ -6,7 +6,7 @@ require 'database_cleaner'
 require 'rspec'
 
 # require './app/models/user'
-require './app/controller'
+require './app/app'
 
 Capybara.app = Ricker
 
@@ -30,7 +30,7 @@ RSpec.configure do |config|
 
   config.include SessionHelpers
   config.include RollHelpers
-  
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
