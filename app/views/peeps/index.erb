@@ -9,6 +9,7 @@
 
 <% @peeps.each do |peep| %>
   <div class='peep'>
+    <%= peep.user.username %>
     <%= peep.experience %>
     <%= peep.created_at.strftime("Posted on %d %B %Y") %>
     <%= peep.created_at.strftime("%l:%M %p") %>
