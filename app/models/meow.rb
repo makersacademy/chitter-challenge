@@ -8,7 +8,7 @@ class Meow
   has 1, :user, through: Resource
 
   property :id,       Serial
-  property :message,  String
+  property :message,  String, length: 140
   property :time,     DateTime
 
 end
