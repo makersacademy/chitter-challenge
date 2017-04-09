@@ -4,10 +4,9 @@
 </form>
 
 <ul id='peeps'>
-  <%= @peeps %>
   <% @peeps.each do |peep| %>
     <li>
-      Peeper: Name and Handle
+      Peeper: <%= peep.user.username %>
       Peep: <%= peep.content %>
     </li>
   <% end %>
