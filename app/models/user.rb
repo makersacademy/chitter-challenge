@@ -6,10 +6,12 @@ class User
 
   include DataMapper::Resource
 
-  attr_reader :password, :email
+  has n, :peeps, through: Resource
+
+  attr_reader   :password, :email
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password
+  validates_confirmation_of       :password
   validates_format_of :email, as: :email_address
 
   property :id,               Serial
