@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<% @posts.each do |post| %>
+<% @user = User.first(id: post.user_id) %>
+  <div class='peep'>
+      <p><a href="/posts/<%=@user.username%>"><img width='30px' height='30px' src="<%= @user.image_url %>"></a>
+      <%=@user.name%>:
+      <%= post.created_at %></p>
+      <p><%=post.content %></p>
+    </div>
+    <br><br>
+<% end %>
+
+<% if current_user %>
+<form action="/posts/new" method="get">
+  <input class='fixed' type="submit" value="Peep!">
+</form>
+<% end %>
+</body>
+</html>

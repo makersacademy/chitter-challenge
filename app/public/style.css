@@ -1,0 +1,110 @@
+div.back {
+  margin: auto;
+  width: 1000px;
+  box-sizing: border-box;
+  background: rgba(216, 255, 255, 0.5);
+  padding: 5px;
+}
+
+div.peep {
+  margin: auto;
+  border-radius: 15px;
+  text-align: center;
+  height: 130px;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 5px;
+  background: rgba(23, 176, 176, 0.4);
+}
+
+body {
+  background-image: url('/teal_pattern.jpg')
+}
+
+img.fixed {
+  position: fixed;
+  top: 20px;
+}
+
+input.entry {
+  height: 30px;
+  width: 200px;
+}
+
+input.fixed {
+    position: fixed;
+    top: 150px;
+    background: rgba(23, 176, 176, 0.6);
+    border-radius: 5px;
+    border: 4px solid #0489bd;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input.button {
+  background: rgba(23, 176, 176, 0.6);
+    border-radius: 5px;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 4px solid #0489bd;
+}
+
+h1 {
+	font-family: arial;
+	font-size: 50px;
+	font-style: bold;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+h2 {
+	font-family: arial;
+	font-size: 30px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 20.4px;
+}
+
+h3 {
+	font-family: arial;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+p {
+	font-family: arial;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+blockquote {
+	font-family: arial;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: arial;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}

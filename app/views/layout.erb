@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<div class='back'>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <title> Chitter </title>
+    <%if current_user%>
+    <a href="/posts/<%=current_user.username%>"><img border='2px' width='85px' height='85px' align='right' src="<%=current_user.image_url%>"></a>
+    <%end%>
+    <a href='/'><img class='fixed' src='/chitter.png' width='100px'></a>
+    <% if current_user %>
+    <h1 align='center' color='black' underline='none'>Welcome to Chitter <%= current_user.name %>!</h1>
+    <form align='center' method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input class='button' type='submit' value='Sign out'>
+    </form>
+    <%else%>
+    <h1 align='center' color='black' underline='none'>Chitter!</h1>
+    <table align='center'>
+      <tr><td>
+    <form action='/sessions/new'>
+      <input class='button' type='submit' value='Log in'>
+    </form>
+  </td><td>
+    <form action='/user/new'>
+      <input class='button' type='submit' value='Sign up'>
+    </form>
+  </td></tr></table>
+    <% end %>
+    <br><br>
+  </head>
+
+  <body>
+    <% if flash[:error] %>
+      <div align='center' id='error'>
+      <h2><%= flash[:error] %></h2></div>
+    <% end %>
+    <%if flash[:notice] %>
+      <div align='center' id='notice'>
+        <h2><%= flash[:notice] %></h2>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</div>
+</html>

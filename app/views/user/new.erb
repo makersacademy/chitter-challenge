@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<form align='center' action='/user' method='post'>
+  <table align='center'>
+    <tr>
+      <td>
+  <h2>Name:</h2> <input class='entry' type='text' name='name' id='name' required>
+</td><td>
+  <h2>Username:</h2> <input class='entry' type='text' name='username' id='username' required>
+</td></tr><tr><td>
+  <h2>Email:</h2> <input class='entry' type='text' name='email' id='email' required pattern='[A-Z|a-z|1-9]+@[A-Z|a-z|1-9]+\.[A-Z|a-z|1-9]+' >
+</td>
+<td>
+  <h2>Image url:</h2> <input class='entry' type='text' name='image_url' id='image_url' >
+</td></tr>
+<tr><td>
+  <h2>Password:</h2> <input class='entry' type='password' name='password' id='password' required>
+</td><td>
+  <h2>Confirm Password:</h2> <input class='entry' type='password' name='password_confirmation' id='password_confirmation' required>
+</td></tr></table>
+  <br><br><br>
+  <input class='button' type='submit' value='Submit'>
+</form>
+</body>
+</html>
