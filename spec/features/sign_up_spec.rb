@@ -17,7 +17,13 @@ feature 'sign up' do
 
   scenario 'cannot sign up with existing email address' do
     sign_up
-    expect { sign_up }.not_to change(User, :count)
+    expect { sign_up(username: 'Muggle_Trish') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+  end
+
+  scenario 'cannot sign up with existing username' do
+    sign_up
+    expect { sign_up(email: 'Ben@person.com') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
   end
 
