@@ -13,4 +13,8 @@ class Peep
     time.strftime('%a %e %B, %H:%M')
   end
 
+  def self.reverse_order
+    self.all(:order => :created_at.desc)
+  end
+
 end
