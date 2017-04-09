@@ -1,3 +1,3 @@
-require_relative 'app/app'
+require './app/app.rb'
 
-run Twitter
+run Chitter
