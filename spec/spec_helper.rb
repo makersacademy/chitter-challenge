@@ -6,6 +6,7 @@ require './app/app'
 require './app/models/user'
 require 'rspec'
 require 'database_cleaner'
+require 'timecop'
 
 Capybara.app = Chitter
 require 'coveralls'

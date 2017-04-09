@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   post '/users/mypeeps' do
     @peep = Peep.new(peep: params[:peep],user: current_user,created_at: Time.now)
     @peep.save
-    require 'pry';binding.pry
     erb :'users/mypeeps'
   end
 

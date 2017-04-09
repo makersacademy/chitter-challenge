@@ -9,6 +9,7 @@ ruby '2.4.0'
   gem 'pry'
   gem 'database_cleaner'
   gem 'sinatra-partial'
+  gem 'timecop'
 
 
 group :test do

@@ -4,7 +4,7 @@
 <ul id='peeps' >
 <% Peep.all(:user => current_user,order: [:created_at.desc]).each do |peep| %>
   <li>
-    Peep: <%= peep.peep %>
+    Peep: <%= peep.peep %> <%= peep.created_at %>
   </li>
 <% end %>
 </ul>
