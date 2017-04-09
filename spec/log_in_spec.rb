@@ -7,7 +7,7 @@ feature 'User signs in' do
     fill_in 'email', with: 'bob@gmail.com'
     fill_in 'password', with: 's3cr3t'
     click_button 'Sign in'
-    expect(current_path).to eq '/users/mycheets'
+    expect(current_path).to eq '/users/mypeeps'
     expect(page).to have_content 'bob@gmail.com logged in'
   end
 

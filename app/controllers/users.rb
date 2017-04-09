@@ -9,8 +9,18 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  get '/users/mycheets' do
-    erb :'users/mycheets'
+  get '/users/mypeeps' do
+    erb :'users/mypeeps'
+  end
+
+  post '/users/mypeeps' do
+    @peep = Peep.new(peep: params[:peep],user: current_user)
+    @peep.save
+    erb :'users/mypeeps'
+  end
+
+  post '/users/new_peep' do
+    erb :'users/new_peep'
   end
 
   post '/users' do
