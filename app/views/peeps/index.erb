@@ -1,5 +1,7 @@
 <% @peeps.each do |peep| %>
-  <%= peep.text %>
-  <%= peep.created_at.strftime("Posted on %d %B %Y") %>
-  <%= peep.created_at.strftime("%l:%M %p") %>
+  <div class='peep'>
+    <%= peep.text %>
+    <%= peep.created_at.strftime("Posted on %d %B %Y") %>
+    <%= peep.created_at.strftime("%l:%M %p") %>
+  </div>
 <% end %>
