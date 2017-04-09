@@ -17,6 +17,10 @@ class Kitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/meows'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
