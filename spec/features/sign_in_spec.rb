@@ -26,6 +26,15 @@ feature "Sign-In Functionality" do
     expect(page).to have_content(email)
   end
 
+  scenario "non-existing user can't sign in" do
+    visit'/sessions/new'
+    fill_in('email', with: email)
+    fill_in('password', with: password)
+    click_button 'Sign In'
+    expect(page).not_to have_content(email)
+    expect(page).to have_content("The email or password is incorrect")
+  end
+
 
 
 end

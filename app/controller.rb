@@ -52,15 +52,17 @@ class Chitter < Sinatra::Base
     email = params[:email]
     password = params[:password]
     user = User.authenticate(email,password)
-
     if user
       session[:user_id] = user.id
+      require 'pry'; binding.pry
       redirect '/cheeps/index'
     else
       flash.now[:errors]=['The email or password is incorrect']
+      require 'pry'; binding.pry
+
       erb :'sessions/new'
+
     end
-    redirect '/cheeps/index'
   end
 
 
