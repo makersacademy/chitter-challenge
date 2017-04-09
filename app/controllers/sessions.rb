@@ -1,5 +1,9 @@
 class Chitter < Sinatra::Base
 
+  get '/' do
+    redirect '/sessions/sign_in'
+  end
+
   get '/sessions/sign_in' do
     erb :'sessions/sign_in'
   end

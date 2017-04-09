@@ -19,7 +19,7 @@ signed in as <%=current_maker.username%>
 <div>on: <%=peep.time.strftime('%b %d at %R')%></div>
 <div>
 <form action='peeps/comments/<%=peep.id%>' >
-  <input type='submit' value='comments'>
+  <input type='submit' value='comments(<%=peep.comments.count%>)'>
 </form>
 <div>
 <% end %>
