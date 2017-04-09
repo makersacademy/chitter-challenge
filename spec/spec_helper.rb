@@ -7,6 +7,7 @@ require 'database_cleaner'
 
 require './app/app'
 require './app/models/peep'
+# require 'web_helper'
 
 Capybara.app = Chitter
 
