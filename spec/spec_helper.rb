@@ -15,6 +15,11 @@ require 'coveralls'
 require 'simplecov'
 
 Capybara.app = NomDiaries
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!
 
 RSpec.configure do |config|
 
@@ -43,11 +48,6 @@ RSpec.configure do |config|
 
 end
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 
 # Capybara.app = Nom
