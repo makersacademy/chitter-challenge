@@ -51,7 +51,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all.reverse!
+    @peeps = Peep.chronological
     erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    Peep.create(experience: params[:experience])
+    redirect to '/peeps'
   end
 end

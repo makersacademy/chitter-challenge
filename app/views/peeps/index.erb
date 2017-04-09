@@ -1,6 +1,13 @@
+<form action='/peeps' method='post'>
+  <label for='experience'>Travel experience
+    <input type='text' name='experience' />
+  </label>
+    <input type='submit' value='Share'  />
+</form>
+
 <% @peeps.each do |peep| %>
   <div class='peep'>
-    <%= peep.text %>
+    <%= peep.experience %>
     <%= peep.created_at.strftime("Posted on %d %B %Y") %>
     <%= peep.created_at.strftime("%l:%M %p") %>
   </div>
