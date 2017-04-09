@@ -4,6 +4,9 @@
   <head>
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <title> Chitter </title>
+    <%if current_user%>
+    <img width='70px' height='70px' align='right' src="<%=current_user.image_url%>">
+    <%end%>
     <a href='/'><img class='fixed' src='/chitter.png' width='100px'></a>
     <% if current_user %>
     <h1 align='center' color='black' underline='none'>Welcome to Chitter <%= current_user.name %>!</h1>
