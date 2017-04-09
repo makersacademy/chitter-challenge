@@ -19,3 +19,9 @@ def write_a_peep
   fill_in :message, with: 'Lorem ipsum'
   click_button 'Peep'
 end
+
+def write_another_peep
+  click_button 'New peep'
+  fill_in :message, with: 'Smelly cat'
+  click_button 'Peep'
+end
