@@ -13,7 +13,11 @@ class Ricker < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    erb :home
+    if session[:user_id]
+     redirect '/rolls/index'
+    else
+      erb :home
+    end
   end
 
   get '/users/new' do
@@ -44,9 +48,6 @@ class Ricker < Sinatra::Base
 
   end
 
-  get '/rolls/index' do
-    erb :'rolls/index'
-  end
 
   get '/sessions/new' do
     erb :'sessions/new'
@@ -74,4 +75,20 @@ class Ricker < Sinatra::Base
     redirect '/'
   end
 
+  get '/rolls/new' do
+    erb :'rolls/new'
+  end
+
+  post '/rolls' do
+    text = params[:new_roll]
+    id = session[:user_id]
+    Roll.create(text: text, user_id: id)
+    redirect '/rolls/index'
+  end
+
+  get '/rolls/index' do
+
+    @rolls = Roll.all
+    erb :'rolls/index'
+  end
 end

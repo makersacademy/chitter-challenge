@@ -1,1 +1,17 @@
 <h1>Rick Rolls </h1>
+
+<form action='/rolls/new' method='get'>
+  <input type='submit' value='New Roll'>
+</form>
+
+
+<%if !@rolls.empty?%>
+  <ul>
+    <%@rolls.each do |roll|%>
+      <li>
+          <%=User.first(id: roll.user_id).username%>
+          <%=roll.text%>
+      </li>
+    <%end%>
+  </ul>
+<%end%>

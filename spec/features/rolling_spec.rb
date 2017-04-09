@@ -1,8 +1,11 @@
 feature 'User posts a Roll' do
+  before(:each) do
+    sign_up
+  end
 
-  scenario 'User fills out cheep and posts it' do
-    visit '/rolls/new'
-    fill_in('new_roll', with: email)
+  scenario 'Signed In User fills out roll and posts it' do
+    post_roll(message: "Never going to give you up")
+    expect(page).to have_content "Never going to give you up"
   end
 
 end

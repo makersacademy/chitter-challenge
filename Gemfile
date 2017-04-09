@@ -12,6 +12,9 @@ gem 'rack'
 gem 'pg'
 gem 'pry'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
+gem 'timecop'
+gem 'mailgun'
 
 group :test do
   gem 'rspec'

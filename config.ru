@@ -1,3 +1,3 @@
 require'./app/controller'
 
-run Chitter
+run Ricker
