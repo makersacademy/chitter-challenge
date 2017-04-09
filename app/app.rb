@@ -38,6 +38,9 @@ class Chitter < Sinatra::Base
     if user
       session[:user_id] = user.id
       redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'sessions/new'
     end
   end
 

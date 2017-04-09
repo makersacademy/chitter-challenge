@@ -8,7 +8,14 @@ feature 'User sign in' do
 
   scenario 'with correct credentials' do
     sign_in(username: user.username, password: user.password)
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content("Welcome, #{user.username}")
+  end
+
+  scenario 'raises error when incorrect username used' do
+    sign_in(username:'Muggle_Trish', password:user.password)
+    expect(current_path).to eq '/sessions'
+    expect(page).to have_content('The username or password is incorrect')
   end
 
   def sign_in(username: 'Wizard_Trish', password: 'password')
