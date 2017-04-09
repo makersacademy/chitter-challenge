@@ -30,6 +30,7 @@ class MessageInABottle < Sinatra::Base
                     name: params[:name],
                     username: params[:username])
     if @user.save
+      session[:id] = @user.id
       redirect to('bottle/new')
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -37,6 +38,18 @@ class MessageInABottle < Sinatra::Base
     end
 
   end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to ('/bottle/new')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
   get '/bottle/new' do
     erb :'bottle/new'
   end
@@ -49,5 +62,11 @@ class MessageInABottle < Sinatra::Base
   get '/stream' do
     @bottles = Bottle.reverse_chronological_order
     erb :'/stream/index'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:id])
+    end
   end
 end
