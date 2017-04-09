@@ -32,5 +32,11 @@ feature 'Creating meows' do
     expect(current_path).to eq '/meows/new'
   end
 
-
+  scenario "There is a cancel button on the create meow page" do
+    sign_in(username: user.username, password: user.password)
+    click_link 'Meow'
+    expect(page).to have_selector("a[href='/meows']")
+    click_link('Cancel')
+    expect(current_path).to eq '/meows'
+  end
 end
