@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(experience: params[:experience])
+    Peep.create(experience: params[:experience], user: current_user)
     redirect to '/peeps'
   end
 end

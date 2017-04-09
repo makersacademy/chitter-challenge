@@ -6,6 +6,9 @@ class Peep
   property :created_at, DateTime
   property :created_on, Date
 
+  belongs_to :user
+
+
   def self.chronological
     Peep.all.reverse
   end

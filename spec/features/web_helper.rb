@@ -20,3 +20,9 @@ def log_in (username: "Darth_Vader", password: "notanakin")
   fill_in :password, with: password
   click_button "Log In"
 end
+
+def add_peep (experience: "Turning on a lightsaber")
+  sign_up
+  log_in
+  Peep.create(experience: experience, user: User.first)
+end

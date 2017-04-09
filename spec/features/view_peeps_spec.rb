@@ -1,9 +1,8 @@
 feature 'view peeps' do
   scenario 'peeps are displayed to everyone' do
-    time = Time.now
-    Peep.create(experience:"Backpacking SouthEast Asia", created_at: time)
+    peep = add_peep(experience:"Backpacking SouthEast Asia")
     visit('/peeps')
     expect(Peep.count).to eq 1
-    expect(page).to have_content "Backpacking SouthEast Asia #{time.strftime('Posted on %d %B %Y')} #{time.strftime("%l:%M %p")}"
+    expect(page).to have_content "Backpacking SouthEast Asia #{peep.created_on.strftime('Posted on %d %B %Y')} #{peep.created_at.strftime("%l:%M %p")}"
   end
 end
