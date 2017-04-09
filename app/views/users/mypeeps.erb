@@ -1,7 +1,10 @@
 <h1> <%= current_user.email %> logged in</h1>
 
-<% Peep.all(:user => current_user).each do |peep| %>
+
+<ul id='peeps' >
+<% Peep.all(:user => current_user,order: [:created_at.desc]).each do |peep| %>
   <li>
     Peep: <%= peep.peep %>
   </li>
 <% end %>
+</ul>

@@ -4,6 +4,8 @@ class Peep
 
   property :id, Serial
   property :peep, Text, :required => true
+  property :created_at, DateTime
+
 
   belongs_to :user, :required => true
 
