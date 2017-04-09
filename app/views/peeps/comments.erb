@@ -8,13 +8,16 @@
     a {
       color: yellow
     }
+    .comments {
+    margin-left: 30px
+    }
   </style>
 </head>
 
 <body class='chitter'>
 
   <p>
-    comments
+    <b>comments</b>
   </p>
 
   <p>
@@ -25,7 +28,7 @@
 
   </p>
 
-  <p>
+  <p class='comments'>
 
     <% @peep.comments.each do |comment| %>
       <a href='/makers/profile/<%=comment.maker.username%>'><%=comment.maker.username%></a> commented:<br/>

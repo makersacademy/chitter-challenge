@@ -11,6 +11,9 @@ body {
   font-style: normal;
   color: rgb(0, 102, 204);
 }
+a {
+  color: yellow
+}
 </style>
 </head>
 
@@ -23,7 +26,7 @@ body {
     <p>
 
       <% if current_maker %>
-        signed in as <b><%=current_maker.username%></b>
+        signed in as <b><a href='/makers/profile/<%=current_maker.username%>'><%=current_maker.username%></a></b>
 
     </p>
 
