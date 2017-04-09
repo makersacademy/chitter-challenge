@@ -1,8 +1,15 @@
 <h1> You need a bottle to send your message. Provide details to get one </h1>
 
 <form action='/user' method='post'>
+  <label for='name'>
+    Name: <input type='text' name='name' value='<%= @user.name %>'>
+  </label>
   <label for='email'>
-    Email: <input type='text' name='email' value='<%= @user.email %>'>
+    Email: <input type='email' name='email' value='<%= @user.email %>' 
+    required>
+  </label>
+  <label for='username'>
+    Choose username: <input type='text' name='username' required>
   </label>
   <label for='password'>
     Password: <input type='password' name='password' required>

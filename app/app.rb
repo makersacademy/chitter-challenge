@@ -19,14 +19,20 @@ class MessageInABottle < Sinatra::Base
     erb :'user/new'
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
   post '/user' do
     @user = User.new(email: params[:email],
                      password: params[:password],
-                     password_confirmation: params[:password_confirmation])
+                     password_confirmation: params[:password_confirmation],
+                    name: params[:name],
+                    username: params[:username])
     if @user.save
       redirect to('bottle/new')
     else
-      flash.now[:error] = "Password and confirmation password do not amtch"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
     end
 
