@@ -5,8 +5,8 @@ require 'dm-postgres-adapter'
 class Meow
   include DataMapper::Resource
 
-  property :id, Serial
-  property :message, String
-  # property :time, DateTime
+  property :id,       Serial
+  property :message,  String
+  property :time,     DateTime
 
 end

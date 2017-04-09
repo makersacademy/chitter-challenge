@@ -12,13 +12,8 @@ Welcome <%= current_user.username %>
 <% @meows.each do |meow| %>
     <li>
       <%= meow.message %>
-
-
-
-<!-- HAVE A WEE LOOK AT YOUR NOTEBOOK FOR THE PSEUDO TIME METHOD -->
-
-
-
+        <%= meow.time %>
+        <%= meow.user_id %>
 
     </li>
   <% end %>
