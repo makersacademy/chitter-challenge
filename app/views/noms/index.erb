@@ -1,0 +1,16 @@
+<h1> Noms </h1>
+
+<ul id='noms'>
+  <% @noms.each do |nom| %>
+
+  <li>
+    Nom: <%= nom.nom %>
+    Posted: <%= nom.posted %>
+  </li>
+
+  <% end %>
+</ul>
+
+<form action="/noms/new" method="get">
+  <input type="submit" value="New nom">
+</form>
