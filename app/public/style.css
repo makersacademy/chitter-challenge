@@ -62,6 +62,7 @@ li .message {
   display: inline-block;
   height: 75px;
   vertical-align: bottom;
+  max-width: 375px;
 }
 form.signout {
   display: inline-block;
