@@ -3,7 +3,6 @@
 
 <form action="/users" method="post">
 
-
   <% if flash[:errors] && !flash[:errors].empty? %>
     Please refer to the following errors below:
     <ul id='errors'>
@@ -13,24 +12,30 @@
     </ul>
   <% end %>
 
-
-
-
   <label for="email">
     <p>Email:</p>
     <input type="text" name="email" value="" required>
   </label>
+
+  <label>
+    <p>Name:</p>
+    <input type="text" name="name">
+  </label>
+
   <label for="username">
     <p>Username:</p>
     <input type="text" name="username">
   </label>
+
   <label for="password">
     <p>Password:</p>
     <input type="password" name="password">
   </label>
+
   <label for="password_confirmation">
     <p>Confirm Password:</p>
     <input type="password" name='password_confirmation'>
   </label>
+
   <input type="submit" value='Sign up'>
 </form>

@@ -13,7 +13,8 @@ Welcome <%= current_user.username %>
     <li>
       <%= meow.message %>
         <%= meow.time %>
-        <%= meow.user_id %>
+        <%= meow.user.username %>
+        <%= meow.user.name %>
 
     </li>
   <% end %>

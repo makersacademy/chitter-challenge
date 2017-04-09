@@ -59,7 +59,6 @@ class Kitter < Sinatra::Base
   get '/meows' do
     @meows = Meow.all
     @user = User.first
-
     erb :'meows/index'
   end
 
@@ -70,6 +69,7 @@ class Kitter < Sinatra::Base
   post '/meows' do
   time = Time.new
   meow = Meow.new(message: params[:message], time: time)
+  meow.user = current_user
   meow.save
   redirect '/meows'
   end
