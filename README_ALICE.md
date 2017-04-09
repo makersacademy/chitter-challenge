@@ -57,7 +57,7 @@ Implement minimum functionality
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-- [ ] Create user - with unique email and twitter handle
+- [x] Create user - with unique email and twitter handle
 
 **User story 2**
 As a Maker
@@ -75,7 +75,7 @@ I want to log out of Chitter
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
-- [ ] Post peeps to message board
+- [x] Post peeps to message board
 
 **User story 5**
 As a maker
@@ -87,4 +87,4 @@ I want to see all peeps in reverse chronological order
 As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
-- [ ] Peeps have timestamps
+- [x] Peeps have timestamps

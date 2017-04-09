@@ -140,6 +140,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bundler
   capybara
   coveralls
@@ -147,6 +148,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dm-validations
   pg
   pry
   rack

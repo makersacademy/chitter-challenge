@@ -31,7 +31,9 @@ class NomDiaries < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], nom_name: params[:nom_name])
+    user = User.create(email: params[:email],
+                        nom_name: params[:nom_name],
+                        password: params[:password])
     session[:id] = user.id
     redirect to('/noms')
   end

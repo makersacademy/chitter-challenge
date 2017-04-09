@@ -9,7 +9,7 @@ scenario 'user can see list of noms on wall' do
   end
 end
 
-scenario 'noms include time stamp' do
+xscenario 'noms include time stamp' do
   Nom.create(nom: 'pizza', posted: 'today')
   visit '/noms'
   expect(page.status_code).to eq(200)
