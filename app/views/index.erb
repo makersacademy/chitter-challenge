@@ -1,2 +1,10 @@
-Welcome11
-<h1> <%= flash[:notice] %> </h1>
+<h1> Welcome, <%= current_user.email %>  </h1>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  You have errors:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
