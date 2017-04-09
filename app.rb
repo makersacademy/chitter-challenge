@@ -15,19 +15,10 @@ use Rack::MethodOverride
 
   get '/' do
     # session[:id] ||= 0
+    @users = User.all
     @peeps = Peep.all
     erb(:'/index')
   end
-
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
-
-  post '/' do
-    Peep.create(message: params[:message])
-    redirect '/'
-  end
-
 
   get '/users/new' do
     @user = User.new
@@ -63,10 +54,26 @@ use Rack::MethodOverride
     end
   end
 
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.keep[:notice] = 'Logged out'
-    redirect to '/'
+  get '/' do
+    @peeps = Peep.all
+    @user = User.first
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/' do
+    peep = Peep.create(message: params[:message])
+    if current_user
+        @user = current_user
+        @user.peeps << peep
+        @user.save
+      redirect '/'
+      else
+      redirect '/sessions/new'
+      erb :'peeps/new'
+    end
   end
 
   helpers do
@@ -74,5 +81,11 @@ use Rack::MethodOverride
       @current_user ||= User.get(session[:user_id])
     end
   end
+
+    delete '/sessions' do
+      session[:user_id] = nil
+      flash.keep[:notice] = 'Logged out'
+      redirect to '/'
+    end
 
 end
