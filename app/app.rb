@@ -45,11 +45,14 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/peeps'
     else
+      # add an error message
       erb :'sessions/login'
     end
   end
 
   get '/peeps' do
-    erb :'sessions/login'
+    @peeps = Peep.all
+    p @peeps
+    erb :'peeps/index'
   end
 end
