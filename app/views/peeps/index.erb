@@ -1,9 +1,4 @@
 <% if current_maker %>
-signed in as <%=current_maker.username%>
-
-<form action='/sessions/sign_out' method='post'>
-  <input type='submit' value='sign out'>
-</form>
 
 <form action='/peeps/new_peep' method='post'>
   <input type='text' name='peep'>
@@ -16,7 +11,7 @@ signed in as <%=current_maker.username%>
 <% @peeps.each do |peep| %>
 <div><a href='/makers/profile/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:</div>
 <div><%=peep.text%></div>
-<div>on: <%=peep.time.strftime('%b %d at %R')%></div>
+<div>on <%=peep.time.strftime('%b %d at %R')%></div>
 <div>
 <form action='peeps/comments/<%=peep.id%>' >
   <input type='submit' value='comments(<%=peep.comments.count%>)'>

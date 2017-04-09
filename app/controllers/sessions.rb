@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/sign_in' do
-    erb :'sessions/sign_in'
+    erb :'sessions/sign_in', :layout => :heading
   end
 
   post '/sessions/sign_in' do

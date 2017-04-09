@@ -1,0 +1,14 @@
+<div>chitter</div>
+
+<% if current_maker %>
+signed in as <%=current_maker.username%>
+
+<form action='/sessions/sign_out' method='post'>
+  <input type='submit' value='sign out'>
+</form>
+
+<% end %>
+
+
+
+<%= yield %>

@@ -2,7 +2,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/index', :layout => :heading
   end
 
   post '/peeps/new_peep' do
@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 
   get '/peeps/comments/:id' do
     @peep = Peep.get(params[:id])
-    erb :'peeps/comments'
+    erb :'peeps/comments', :layout => :heading
   end
 
   post '/peeps/new_comment/:id' do

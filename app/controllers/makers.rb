@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/makers/sign_up' do
-    erb :'makers/sign_up'
+    erb :'makers/sign_up', :layout => :heading
   end
 
   post '/makers/new_maker' do
@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   get '/makers/profile/:name' do
     @maker = Maker.first(username: params[:name])
     @peeps = @maker.peeps
-    erb :'makers/profile'
+    erb :'makers/profile', :layout => :heading
   end
 
 end
