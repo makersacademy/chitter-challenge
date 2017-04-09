@@ -1,0 +1,9 @@
+body {
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("http://orig09.deviantart.net/879c/f/2012/119/1/0/pixel_waterfall_bg__by_isohei-d4xntof.gif") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    font-family: 'Space Mono', monospace;
+  }

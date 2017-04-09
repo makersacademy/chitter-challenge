@@ -1,18 +1,28 @@
-<h1>Sign in to your Chitter account</h1>
+<html>
+  <head>
 
-<form action="/sessions" method="post">
-  <label for="email">
-    Email:
-    <input name="email" type="email">
-  </label>
-  <label for="password">
-    Password:
-    <input name="password" type="password">
-  </label>
-  <input type="submit" value="Sign in">
-</form>
+  </head>
+  <body>
 
-<h2>Don't have an account? Sign up now!</h2>
-<form action="/users/new" method="get">
-  <input type="submit" value="Get an account">
-</form>
+
+  <h1>Sign in to your Chitter account</h1>
+
+  <form action="/sessions" method="post">
+    <label for="email">
+      Email:
+      <input name="email" type="email">
+    </label>
+    <label for="password">
+      Password:
+      <input name="password" type="password">
+    </label>
+    <input type="submit" value="Sign in">
+  </form>
+
+  <h2>Don't have an account? Sign up now!</h2>
+  <form action="/users/new" method="get">
+    <input type="submit" value="Get an account">
+  </form>
+
+  </body>
+</html>

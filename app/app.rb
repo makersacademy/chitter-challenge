@@ -6,10 +6,17 @@ require_relative 'data_mapper_setup'
 require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
+  configure do
+    set :public_folder, File.expand_path('../public', __FILE__)
+    set :views        , File.expand_path('../views', __FILE__)
+    set :root         , File.dirname(__FILE__)
+   end
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+
+
 
   get "/" do
     redirect to '/sessions/new'

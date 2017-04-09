@@ -10,6 +10,7 @@ gem 'sinatra-flash'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rack'
+gem 'rack-flash-session'
 
 group :test do
   gem 'rspec'
