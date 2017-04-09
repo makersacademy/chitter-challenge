@@ -12,6 +12,7 @@ group :development do
   gem 'selenium-webdriver'
   gem 'timecop'
   gem 'pry'
+  gem 'rake'
 end
 
 group :test do
