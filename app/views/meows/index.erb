@@ -10,7 +10,7 @@
           <div class="avatar <%= index.odd? ? 'odd' : 'even' %>"></div>
           <div class="message"><%= meow.message %></div>
         </div>
-        <span class="info"><%= meow.time %></span>
+        <span class="info"><%= meow.time.strftime('%a, %d %b %Y %H:%M') %></span>
         <span class="info"><%= meow.user.username %></span>
         <span class="info"><%= meow.user.name %></span>
     </li>

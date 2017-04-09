@@ -37,6 +37,7 @@ class Kitter < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @disable_sign_in_button = true
     erb :'sessions/new'
   end
 

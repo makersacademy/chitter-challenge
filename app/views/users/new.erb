@@ -1,10 +1,9 @@
 <h2>Sign up for feline friendly social media</h2>
-<p>Where all the cool cats hang out</p>
 
-<form action="/users" method="post">
+<form class="centre_form" action="/users" method="post">
 
   <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
+    <p>Please refer to the following errors below:</p>
     <ul id='errors'>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>

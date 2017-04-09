@@ -9,7 +9,7 @@ feature 'view meows' do
   end
 
   scenario 'see meows on homepage' do
-    Meow.create(message: 'Hey kitty girl!', user: user)
+    Meow.create(message: 'Hey kitty girl!', user: user, time: ('2017-04-09 00:00:00 +0100'))
     visit '/meows'
     expect(page.status_code).to eq 200
 

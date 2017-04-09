@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
 
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.ico">
 
 
   </head>
@@ -22,6 +22,11 @@
           </form>
         <% end %>
     </header>
+
+    <% if current_user == nil && !@disable_sign_in_button %>
+    <a href="/sessions/new">Sign in</a>
+    <% end %>
+
     <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
@@ -32,8 +37,7 @@
 
     <footer>
       <div class="wrapper">
-      <p>Created by Elaine for my week four Makers Academy weekend task. Follow me: <a href="https://twitter.com/kittylainey"> @kittylainey</a>
-      Check out my code on <a href="https://github.com/kittysquee/chitter-challenge">Github</a>
+      <p>Created by Elaine. Follow me:<a class="footer_link" href="https://twitter.com/kittylainey"> @kittylainey</a><a href="https://github.com/kittysquee/chitter-challenge">Github</a>
       </p>
     </div>
     </footer>

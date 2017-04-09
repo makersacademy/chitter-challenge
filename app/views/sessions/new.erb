@@ -1,9 +1,11 @@
-<h1>Please Sign In to Get Meowing</h1>
+<h2>Please Sign In to Get Meowing</h2>
 
-<form action='/sessions' method='post'>
+<a href="/users/new">Sign Up</a>
+
+<form class="centre_form" action='/sessions' method='post'>
 
   <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
+    <p>Please refer to the following errors below:</p>
     <ul id='errors'>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>
