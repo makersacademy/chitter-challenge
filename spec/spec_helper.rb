@@ -1,9 +1,10 @@
 ENV["RACK_ENV"] = 'test'
 
+require_relative 'helpers/session'
+
 require './app/models/nom'
 require './app/models/user'
 require './app/app'
-require 'features/web_helpers'
 
 require 'capybara'
 require 'rspec'
@@ -15,13 +16,10 @@ require 'coveralls'
 require 'simplecov'
 
 Capybara.app = NomDiaries
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear!
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -48,6 +46,8 @@ RSpec.configure do |config|
 
 end
 
-
-
-# Capybara.app = Nom
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+Coveralls.wear!

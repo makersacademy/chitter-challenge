@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class NomDiaries < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
   set :session_secret, 'super secret'
@@ -60,6 +61,12 @@ class NomDiaries < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/noms'
   end
 
   helpers do
