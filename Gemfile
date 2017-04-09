@@ -8,6 +8,8 @@ gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'rake'
 gem 'database_cleaner'
+gem 'dm-timestamps'
+gem 'heroku-rake'
 
 group :test do
   gem 'rspec'

@@ -9,14 +9,18 @@ set :session_secret, 'super secret'
 register Sinatra::Flash
 use Rack::MethodOverride
 
+  get '/' do
+    erb :'home'
+  end
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-    erb :'peeps/new'
-  end
+   get '/peeps/new' do
+     erb :'peeps/new'
+   end
 
   post '/peeps' do
     peep = Peep.create(message: params[:message])
@@ -31,7 +35,7 @@ use Rack::MethodOverride
   end
 
   post '/user' do
-    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], name: params[:name], username: params[:user_name])
     if @user.save
       session[:user_id] = @user.id
       redirect('/peeps')
@@ -47,7 +51,11 @@ use Rack::MethodOverride
   delete '/user' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect('/peeps')
+    redirect('/signout')
+  end
+
+  get '/signout' do
+    erb :'signout'
   end
 
   get '/user/signin' do

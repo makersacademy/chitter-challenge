@@ -87,6 +87,7 @@ GEM
     fastercsv (1.5.5)
     ffi (1.9.18)
     gherkin (4.1.1)
+    heroku-rake (0.0.2)
     json (1.8.6)
     json_pure (1.8.6)
     mime-types (3.1)
@@ -156,6 +157,8 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dm-timestamps
+  heroku-rake
   rake
   rspec
   selenium-webdriver
