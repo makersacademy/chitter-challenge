@@ -5,3 +5,11 @@ def sign_up
   fill_in('nom_name', with: 'newbie')
   click_button('Sign up')
 end
+
+def sign_up_fail(email: 'newbie@gmail.com', password: '123', password_confirmation: '123')
+  visit '/users/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password, with: password_confirmation
+  click_button 'Sign up'
+end
