@@ -2,11 +2,11 @@
 
 <form action='/users/new' method='post'>
   <label>
-    Email: <input type='text' name='email'required><br>
+    Email: <input type='text' name='email' required value=<%=@user.username%> ><br>
   </label>
 
   <label>
-    Username: <input type='text' name='username' required><br>
+    Username: <input type='text' name='username' required value=<%=@user.username%> ><br>
   </label>
 
   <label>
@@ -18,7 +18,7 @@
   </label>
 
   <label>
-    Name: <input type='text' name='name' required><br>
+    Name: <input type='text' required name='name' value=<%=@user.name%> ><br>
   </label>
 
   <label>

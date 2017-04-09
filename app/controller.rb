@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
@@ -27,18 +28,18 @@ class Chitter < Sinatra::Base
     password_confirmation = params[:password_confirmation]
     email =params[:email]
 
-    new_user = User.new(name: name,
+    @user = User.new(name: name,
                         username: username,
                         password: password,
                         password_confirmation: password_confirmation,
                         email: email)
-
-    if new_user.valid?
-      new_user.save
-      session[:user_id] = new_user.id
-      redirect('/cheeps/index')
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+      redirect '/cheeps/index'
     else
-      redirect('/')
+      flash.now[:errors]=@user.errors.full_messages
+      erb :'users/new'
     end
 
   end
