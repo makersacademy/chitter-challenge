@@ -1,9 +1,11 @@
+<% if current_user %>
 <form action='/peeps' method='post'>
   <label for='experience'>Travel experience
-    <input type='text' name='experience' />
+    <input type='text' name='experience' id='experience'/>
   </label>
     <input type='submit' value='Share'  />
 </form>
+<% end %>
 
 <% @peeps.each do |peep| %>
   <div class='peep'>
