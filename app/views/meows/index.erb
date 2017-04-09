@@ -7,13 +7,12 @@ Welcome <%= current_user.username %>
 <ul id='meows'>
 <% @meows.each do |meow| %>
     <li>
-      <%= meow.message %>
-        <%= meow.time %>
-        <%= meow.user.username %>
-        <%= meow.user.name %>
-
+        <span class="message"><%= meow.message %></span>
+        <span class="time"><%= meow.time %></span>
+        <span class="username"><%= meow.user.username %></span>
+        <span class="name"><%= meow.user.name %></span>
     </li>
   <% end %>
 </ul>
 
-<a href="/meows/new">Meow</a>
+<a class="head" href="/meows/new">Meow</a>

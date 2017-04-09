@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Kitter! Send Meows to your fellow kitties!</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
   </head>
   <body>
-
-    <h1>KITTER</h1>
-
+    <header class="head">
+    <h1>kitter</h1>
+  </header>
     <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
@@ -20,6 +23,17 @@
           <input type="submit" value="Sign out">
         </form>
       <% end %>
+
+    <footer>
+      <div class="wrapper">
+      <p>Created by Elaine for my week four Makers Academy weekend task. Follow me: <a href="https://twitter.com/kittylainey"> @kittylainey</a>
+      Check out my code on <a href="https://github.com/kittysquee/chitter-challenge">Github</a>
+      </p>
+    </div>
+    </footer>
+
+
+
 
     <%= yield %>
   </body>

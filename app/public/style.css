@@ -1,0 +1,79 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  background-image: url("cat_wallpaper.jpg");
+  background-size: cover;
+}
+h1 {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 70px;
+  margin: 0;
+  padding-left: 25px;
+}
+a {
+  display: block;
+  font-size: 14px;
+  background-color: slateblue;
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: rgb(53,27,102);
+  font-size: 14px;
+}
+a:visited {
+  color: rgb(53,27,102);
+}
+footer {
+  color: rgb(53,27,102);
+  bottom: 0;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+footer .wrapper {
+  background-color: rgba(0, 204, 163, .5);
+
+  padding: 0;
+  margin: 0 auto;
+}
+header {
+  background-color: rgba(0, 204, 163, .5);
+  height: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+li {
+  background-color: white;
+  padding: 10px;
+  margin: 20px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+  border-radius: 12px
+}
+h2 {
+  padding-top: 50px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 30px;
+  padding-left: 50px;
+}
+p {
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+}
+ul {
+  list-style-type: none;
+}
+li .message {
+  width: 150px;
+}
+.head {
+  position: absolute;
+}
