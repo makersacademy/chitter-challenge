@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
 enable :sessions
 set :session_secret, 'super secret'
 register Sinatra::Flash
+use Rack::MethodOverride
 
   get '/peeps' do
     erb :'peeps/index'
@@ -29,6 +30,12 @@ register Sinatra::Flash
       flash.now[:error] = "Email already registered"
       erb :'/user/new'
     end
+  end
+
+  delete '/user' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect('/peeps')
   end
 
   get '/user/signin' do
