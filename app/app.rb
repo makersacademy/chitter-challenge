@@ -9,7 +9,12 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    if current_user == nil
+      flash.keep[:login] = 'You are not logged in, please log in or sign up'
+      redirect '/users/new'
+    else
+      erb :'peeps/new'
+    end
   end
 
   post '/peeps' do
@@ -27,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], name: params[:name], password: params[:password])
+    @user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
     if @user.save
       session[:user_id] = @user.id
       redirect '/feed'

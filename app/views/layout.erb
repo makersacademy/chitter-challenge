@@ -28,6 +28,12 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+
+    <% if flash[:login] %>
+    <div id='login'>
+      <%= flash[:login] %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
