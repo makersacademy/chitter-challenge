@@ -4,6 +4,8 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
 class NomDiaries < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     redirect 'noms'
@@ -22,6 +24,23 @@ class NomDiaries < Sinatra::Base
     nom = Nom.new(nom: params[:nom])
     nom.save
     redirect to('/noms')
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], nom_name: params[:nom_name])
+    session[:id] = user.id
+    redirect to('/noms')
+  end
+
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:id])
+    end
   end
 
 end

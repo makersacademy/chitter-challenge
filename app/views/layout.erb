@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Nom Diaries</title>
+  </head>
+
+  <body>
+    <%if current_user %>
+    Welcome, <%= current_user.nom_name%>
+    <%end%>
+
+    <%= yield %>
+  </body>
+
+</html>
