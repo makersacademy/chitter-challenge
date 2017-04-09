@@ -12,9 +12,21 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   set :session_secret, 'super_secret'
 
-
   get '/' do
-    erb :'/index'
+    redirect to ('/peeps/index')
+  end
+
+  get '/peeps/index' do
+    @peeps = Peep.all
+    @username = current_user.username if current_user
+    erb :'peeps/index'
+  end
+
+  post '/peeps' do
+    peep = Peep.new(peep: params[:peep])
+    peep.save
+    redirect to ('/peeps/index')
+    erb :'peeps/index'
   end
 
   get '/user/new' do
@@ -29,13 +41,14 @@ class Chitter < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/')
+      redirect to('/peeps/index')
     else
-      flash.now[:error] = "Passwords didn't match, please try agian"
+      flash.now[:error] = "Passwords didn't match, please try again"
       erb :'/user/new'
     end
-
   end
+
+
 
   helpers do
     def current_user

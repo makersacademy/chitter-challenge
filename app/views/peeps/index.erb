@@ -1,0 +1,19 @@
+<form action='/user/new' method='get'>
+  <input type="submit" value="Sign up">
+</form>
+
+<form action='/peeps' method='post'>
+  <input type='text' name='peep'>
+  <input type='submit' value='Submit message'>
+</form>
+
+<h1> Messages: </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+
+  <li>
+    <%= @username %>: <%= peep.peep %>
+    <% end %>
+  </li>
+</ul>
