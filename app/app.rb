@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password])
+    @user = User.create(email: params[:email], name: params[:name], password: params[:password])
     if @user.save
       session[:user_id] = @user.id
       redirect '/feed'

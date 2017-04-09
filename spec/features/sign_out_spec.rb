@@ -1,7 +1,7 @@
 feature 'User sign out' do
 
   before do
-    User.create(email: 'hello@goobye.com', password: 'cheese123')
+    User.create(email: 'hello@goobye.com', name: 'Bill', password: 'cheese123')
   end
 
   scenario 'While signed in' do

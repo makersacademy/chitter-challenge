@@ -7,9 +7,10 @@ module SessionHelpers
     click_button 'Sign in'
   end
 
-  def sign_up(email: 'freddy@chillvibes.com', password: 'staychill22')
+  def sign_up(email: 'freddy@chillvibes.com', name: 'Freddy', password: 'staychill22')
     visit 'users/new'
     fill_in :email, with: email
+    fill_in :name, with: name
     fill_in :password, with: password
     click_button 'Register'
   end
