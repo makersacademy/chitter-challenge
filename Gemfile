@@ -8,6 +8,7 @@ ruby '2.4.0'
   gem 'bcrypt'
   gem 'pry'
   gem 'database_cleaner'
+  gem 'sinatra-partial'
 
 
 group :test do

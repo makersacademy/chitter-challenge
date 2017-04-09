@@ -6,6 +6,11 @@
 
   <body>
     <%= flash[:notice] %>
+    <% if current_user %>
+      <form action='/sessions/end' method='post' >
+        <input type='submit' value='Log Out' >
+      </form>
+    <% end %>
   <%= yield %>
   </body>
 </html>
