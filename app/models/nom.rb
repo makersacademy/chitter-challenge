@@ -7,5 +7,6 @@ class Nom
 
   property :id, Serial
   property :nom, String
+  property :posted, DateTime
 
 end

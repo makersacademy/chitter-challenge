@@ -21,7 +21,7 @@ class NomDiaries < Sinatra::Base
   end
 
   post '/noms' do
-    nom = Nom.new(nom: params[:nom])
+    nom = Nom.new(nom: params[:nom], posted: Time.now)
     nom.save
     redirect to('/noms')
   end
