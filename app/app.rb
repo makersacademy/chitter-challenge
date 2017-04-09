@@ -10,6 +10,9 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   use Rack::MethodOverride
 
+  get '/' do
+    redirect('users/new')
+  end
 
   get '/peeps' do
     @peeps = Peep.all
@@ -17,7 +20,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.new(body: params[:body], peep: params[:peep])
+    peep = Peep.new(peep: params[:peep],
+                    time: params[:time],
+                    name: params[:name],
+                    username: params[:username])
     peep.save
     redirect '/peeps'
   end
@@ -32,7 +38,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(email: params[:email],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation],
+                        name: params[:name],
+                        username: params[:username])
     if @user.save
       session[:user_id] = @user.id
       redirect '/peeps'

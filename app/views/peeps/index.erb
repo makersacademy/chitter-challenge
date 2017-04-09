@@ -1,10 +1,19 @@
 <h1> Peeps </h1>
+<p>Please sign in or sign up to peep to your heart's content!</p>
+
+<form action="/sessions/new">
+  <button type="submit" value="Sign in">Sign in</button>
+</form>
+
+<form action="/users/new">
+  <button type="submit" value="Sign up">Sign up</button>
+</form>
 
 <ul id='peeps'>
   <% @peeps.reverse.map do |x| %>
-    <li>
-      Title:  <%= x.peep %>
-      Body:    <%= x.body %>
-    </li>
+      <%= x.name %>
+      <%= x.username %>
+      <%= x.peep %>
+      (<%= x.time %>)
   <% end %>
 </ul>
