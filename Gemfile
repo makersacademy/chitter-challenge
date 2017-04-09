@@ -8,6 +8,7 @@ ruby '2.4.0'
   gem 'dm-postgres-adapter'
   gem 'pry'
   gem 'google-webfonts'
+  gem 'rubocop'
 
 group :test do
   gem 'rspec'
