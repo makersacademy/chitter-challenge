@@ -1,16 +1,20 @@
-<ul id = 'posts'>
-
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
 <% @posts.each do |post| %>
-<li>
-  Content: <%=post.content %>
-  Name: <%=(User.first(id: post.user_id)).name%>
-  Username: <%=(User.first(id: post.user_id)).username%>
-  Time: <%= post.created_at %>
-</li>
+  <div class='peep'>
+      <%=(User.first(id: post.user_id)).name%>:
+      <%= post.created_at %>
+      <br><br>
+      <%=post.content %>
+    </div>
+    <br><br>
 <% end %>
-</ul>
 
 
 <form action="/posts/new" method="get">
   <input type="submit" value="Peep!">
 </form>
+</body>
+</html>

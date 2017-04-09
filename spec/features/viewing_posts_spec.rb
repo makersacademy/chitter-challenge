@@ -1,6 +1,7 @@
 feature 'adding a post' do
 
   scenario 'adding a post' do
+    sign_up_steph
     visit '/posts/new'
     fill_in('content', with: 'This is a test peep')
     click_button('Peep!')

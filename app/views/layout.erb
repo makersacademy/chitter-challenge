@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Bookmark Manager </title>
+    <title> Chitter </title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <% if current_user %>
+    <h1 align='center'>Welcome to Chitter <%= current_user.name %>!</h1>
+    <form align='center' method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input class='button' type='submit' value='Sign out'>
+    </form>
+    <%else%>
+    <h1 align='center'>Chitter!</h1>
+    <table align='center'>
+      <tr><td>
+    <form action='/sessions/new'>
+      <input class='button' type='submit' value='Log in'>
+    </form>
+  </td><td>
+    <form action='/user/new'>
+      <input class='button' type='submit' value='Sign up'>
+    </form>
+  </td></tr></table>
+    <% end %>
+    <br><br>
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome <%= current_user.name %>!
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <%else%>
-    <form action='/sessions/new'>
-      <input type='submit' value='Sign in'>
-    </form>
-    <% end %>
     <% if flash[:error] %>
       <div id='error'><%= flash[:error] %></div>
     <% end %>
