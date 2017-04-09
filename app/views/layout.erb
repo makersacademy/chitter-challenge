@@ -10,9 +10,10 @@
     <div id='notice'>
       <%= flash[:notice] %>
     </div>
-    <% if flash[:error] %>
-      <div id='error'><%= flash[:error] %></div>
-    <% end %>
+  <% end %>
+
+  <% if flash[:error] %>
+    <div id='error'><%= flash[:error] %></div>
   <% end %>
 
     <% if current_user %>
