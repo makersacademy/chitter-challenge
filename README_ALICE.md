@@ -5,7 +5,7 @@ Welcome. Nom Diaries is twitter for food-lovers. A social network specifically f
 ## How to
 ## Technologies used
 ## Approach
-## Resources
+## Next Steps
 
 ___
 
@@ -18,8 +18,7 @@ Clone repository
 Install gems
 `bundle install`
 
-Create local database
-
+Create local database (test and development)
 
 Run rackup
 `rackup`
@@ -50,6 +49,7 @@ Database
 - [x] Postgres
 - [x] Datamapper
 
+
 ### APPROACH
 Implement minimum functionality
 
@@ -63,13 +63,13 @@ I want to sign up for Chitter
 As a Maker
 So that I can post messages on Chitter as me
 I want to log in to Chitter
-- [ ] User login via email
+- [x] User login via email and password
 
 **User story 3**
 As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-- [ ] User logout
+- [x] User logout
 
 **User story 4**
 As a Maker
@@ -88,3 +88,10 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 - [x] Peeps have timestamps
+
+### NEXT STEPS
+- Improve navigation - permanent sign-up / sign-in button as appropriate
+- Reverse chronological order
+- Add user stamp to peeps
+- Add photos
+- See own peeps

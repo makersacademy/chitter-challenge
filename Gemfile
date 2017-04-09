@@ -16,6 +16,7 @@ gem 'rack'
 gem 'selenium-webdriver'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 group :test do
   gem 'capybara'
