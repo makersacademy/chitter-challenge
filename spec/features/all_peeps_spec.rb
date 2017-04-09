@@ -17,7 +17,6 @@ feature 'All peeps' do
   scenario 'Peeps should display time' do
     Timecop.freeze do
       single_peep
-      # expect(peep.created_at).to eq Time.now
 
       visit '/peeps'
       expect(page.status_code).to eq 200
@@ -26,5 +25,11 @@ feature 'All peeps' do
         expect(page).to have_content peep.format_time(peep.created_at)
       end
     end
+  end
+
+  xscenario 'Should be in reverse chronological order' do
+    # multi_peep
+    # can't get this to work
+
   end
 end
