@@ -17,11 +17,11 @@ Coveralls.wear!
 RSpec.configure do |config|
 
   config.before(:each) do
-    DataMapper.setup(:default, "postgres://localhost/bookmark_manager_test")
+    DataMapper.setup(:default, "postgres://localhost/chitter_test")
   end
 
   config.after(:each) do
-    DataMapper.setup(:default, "postgres://localhost/bookmark_manager_development")
+    DataMapper.setup(:default, "postgres://localhost/chitter_development")
   end
 
   config.before(:suite) do
