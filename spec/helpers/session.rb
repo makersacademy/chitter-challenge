@@ -10,7 +10,7 @@ module SessionHelpers
     fill_in 'confirm_password', with: "sam1"
     click_button "Sign up"
   end
-
+ 
   def sign_in
     visit '/'
     click_button 'Sign in'
