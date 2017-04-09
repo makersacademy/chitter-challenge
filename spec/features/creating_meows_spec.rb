@@ -24,4 +24,13 @@ feature 'Creating meows' do
     expect(current_path).to eq '/sessions/new'
     expect(page).to have_content "You must sign in to meow"
   end
+
+  scenario "From meows display page I can create a new meow" do
+    sign_in(username: user.username, password: user.password)
+    expect(page).to have_selector("a[href='/meows/new']")
+    click_link 'Meow'
+    expect(current_path).to eq '/meows/new'
+  end
+
+
 end
