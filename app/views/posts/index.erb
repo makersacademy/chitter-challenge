@@ -3,18 +3,20 @@
 <head></head>
 <body>
 <% @posts.each do |post| %>
+<% @user = User.first(id: post.user_id) %>
   <div class='peep'>
-      <%=(User.first(id: post.user_id)).name%>:
-      <%= post.created_at %>
-      <br><br>
-      <%=post.content %>
+      <img width='20px' height='20px' src="<%= @user.image_url %>">
+      <p><%=@user.name%>:
+      <%= post.created_at %></p>
+      <p><%=post.content %></p>
     </div>
     <br><br>
 <% end %>
 
-
-<form action="/posts/new" method="get">
-  <input type="submit" value="Peep!">
+<% if current_user %>
+<form class='fixed' action="/posts/new" method="get">
+  <input class='fixed' type="submit" value="Peep!">
 </form>
+<% end %>
 </body>
 </html>

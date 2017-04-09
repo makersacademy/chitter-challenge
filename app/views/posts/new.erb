@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+</head>
 <body>
 
 <%if current_user%>
 <textarea form='peep' rows="4" cols="50" name='content'>
   Compose your peep!
 </textarea>
-
+<br><br>
 <form action='/posts' method='post' id='peep'>
-  <input type='submit' value='Peep!'>
+  <input class='button' type='submit' value='Peep!'>
 </form>
 <%else%>
 <p>You must be logged in to peep</p>

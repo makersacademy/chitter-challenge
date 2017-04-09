@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+<div class='back'>
   <head>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <title> Chitter </title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <a href='/'><img class='fixed' src='/chitter.png' width='100px'></a>
     <% if current_user %>
-    <h1 align='center'>Welcome to Chitter <%= current_user.name %>!</h1>
+    <h1 align='center' color='black' underline='none'>Welcome to Chitter <%= current_user.name %>!</h1>
     <form align='center' method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input class='button' type='submit' value='Sign out'>
     </form>
     <%else%>
-    <h1 align='center'>Chitter!</h1>
+    <h1 align='center' color='black' underline='none'>Chitter!</h1>
     <table align='center'>
       <tr><td>
     <form action='/sessions/new'>
@@ -37,4 +38,5 @@
     <% end %>
     <%= yield %>
   </body>
+</div>
 </html>

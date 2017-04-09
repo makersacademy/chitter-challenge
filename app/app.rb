@@ -43,8 +43,10 @@ class Chitter < Sinatra::Base
       name: params[:name],
       username: params[:username],
       email: params[:email],
+      image_url: params[:image_url],
       password: params[:password],
       password_confirmation: params[:password_confirmation])
+      puts @user.image_url
     if @user.save
       session[:id] = @user.id
       redirect('/posts')
@@ -55,7 +57,7 @@ class Chitter < Sinatra::Base
       flash.now[:error] = "Email already registered"
       erb :'/user/new'
     else
-      flash.now[:error] = "An error occurred"
+      flash.now[:error] = "An error occurred #{@user.errors.inspect}"
       erb :'/user/new'
     end
   end

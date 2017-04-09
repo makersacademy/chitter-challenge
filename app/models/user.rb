@@ -8,6 +8,7 @@ class User
 
   property :id, Serial
   property :email, String
+  property :image_url, Text
   property :name, String
   property :username, String
   property :password_digest, Text
