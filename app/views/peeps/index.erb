@@ -16,8 +16,13 @@
     <li class='post'>
       <% @peeps.reverse.each do |peep| %>
           <ul class='peep-feed' id='peeps'>
-            <li><%= peep.content %></li>
-              Peeped at:<br><%= peep.created_at %></li>
+            <li><%= peep.content %><br>
+              <span class='peep-deets'>
+                Peeped by: <%= peep.user.username%></br>
+                Peeped at: <%= date_and_time(peep.created_at) %>
+              </span>
+            </li>
+              </div>
           </ul>
         <% end %>
     </li>

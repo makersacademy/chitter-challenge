@@ -86,21 +86,6 @@
     margin: 25px;
   }
 
-  input[type=submit].inline-button{
-    display: inline-block;
-    margin: 0 0 0 10px;
-    border-radius: 10px;
-    padding: 5px 10px;
-  }
-
-  form#sign-out{
-    width: 50%;
-    display: inline-block;
-    margin-top: 30px;
-    text-align: center;
-
-  }
-
   /* Add background color to the top navigation */
 .topnav {
     background-color: #55ACEE;
@@ -130,6 +115,11 @@
     color: white;
 }
 
+  span.peep-deets{
+    color: #708090;
+    font-size: 11px;
+  }
+
   li.post{
     width: 622px;
   }
@@ -141,6 +131,7 @@
     color: #000;
     border-color: #fff;
   }
+
   ul.peep-feed {
     margin-bottom: 10px;
     border: none;
