@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <%= flash[:notice] %>
+    <form action='/sessions/global_feed' >
+      <input type='submit' value='Peep Feed' >
+    </form>
+    <% if current_user %>
+      <form action='/users/new_peep' method="post" >
+        <input type='submit' value='New Peep' >
+      </form>
+      <form action='/sessions/end' method='post' >
+        <input type='hidden' name='_method' value='delete' >
+        <input type='submit' value='Log Out' >
+      </form>
+    <% end %>
+    <% if current_user.nil? %>
+      <form action='/users/new' >
+        <input type='submit' value='Register?' >
+      </form>
+    <% end %>
+  <%= yield %>
+  </body>
+</html>

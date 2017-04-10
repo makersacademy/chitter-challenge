@@ -1,0 +1,10 @@
+<h1> <%= current_user.email %> logged in</h1>
+
+
+<ul id='peeps' >
+<% @peep.each do |peep| %>
+  <li>
+    Peep: <%= peep.peep %> <%= peep.created_at %>
+  </li>
+<% end %>
+</ul>
