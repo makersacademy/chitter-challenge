@@ -7,9 +7,10 @@ feature 'User log out' do
   end
 
   scenario 'user successfully logs out' do
-    sign_in(email: 'echai93@gmail.com', password: 'broccoli')
+    log_in
     click_button 'Log out'
     expect(current_path).to eq '/users/new'
     expect(page).to have_content 'Goodbye!'
     expect(page).not_to have_content 'Welcome, echai93@gmail.com'
+  end
 end

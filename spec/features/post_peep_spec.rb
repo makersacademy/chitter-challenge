@@ -5,7 +5,7 @@ feature 'Posting peeps' do
   end
 
   scenario 'post a new peep' do
-    visit '/peeps/new'
+    visit '/peeps/new_peep'
     fill_in(:peep, with: 'This is my first peep')
     click_button 'Post'
     expect(current_path).to eq '/peeps'

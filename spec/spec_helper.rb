@@ -1,7 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
 require './app/app'
-require 'helpers/web_helpers'
 
 require './app/models/user'
 require './app/models/peep'
@@ -11,6 +10,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require_relative 'helpers/session'
 
 require 'coveralls'
 require 'simplecov'
@@ -39,7 +39,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

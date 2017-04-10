@@ -5,10 +5,11 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
-gem 'sinatra'
+gem 'sinatra', '2.0.0.beta2'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 gem 'pry'
-gem 'rails'
+gem 'rack'
 
 group :test do
   gem 'capybara'
