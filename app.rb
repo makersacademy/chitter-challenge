@@ -82,5 +82,13 @@ use Rack::MethodOverride
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def date_and_time(time)
+      time.strftime("%m/%d at %I:%M%p")
+    end
   end
 end
+
+
+# d.strftime("Printed on %m/%d/%Y")   #=> "Printed on 11/19/2007"
+# d.strftime("at %I:%M%p")            #=> "at 08:37AM"
