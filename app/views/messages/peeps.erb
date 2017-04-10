@@ -1,0 +1,17 @@
+<h1>Peeps</h1>
+
+<div id="peep">
+  <ul>
+    <% @peeps.reverse.each do |peep| %>
+      <li id="peep">
+        <%= peep.message %>
+        <br>
+        <i>Written by <%= peep.email %> on <%= peep.created_at.strftime("%FT%R") %></i>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<form action="/peeps/new" method="get">
+  <input type="submit" value="New peep">
+</form>

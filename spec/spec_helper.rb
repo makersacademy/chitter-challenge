@@ -10,6 +10,7 @@ Coveralls.wear!
 require 'capybara/rspec'
 require './app/app'
 require './app/models/user'
+require './app/models/peep'
 require 'database_cleaner'
 require_relative 'helpers/session'
 

@@ -14,4 +14,13 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign in'
   end
+
+  def new_peep
+    sign_up(email: 'test@test.com', password: 'password', password_confirmation: 'password')
+    sign_in(email: 'test@test.com', password: 'password')
+
+    visit '/peeps/new'
+    fill_in :message, with: 'Hello, welcome to my peep posts'
+    click_button 'Add Peep'
+  end
 end

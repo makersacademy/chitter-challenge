@@ -1,0 +1,11 @@
+<% if !current_user %>
+  Welcome to chitter
+
+  <form method='get' action='/users/new'>
+    <input type='submit' value='Create Account'>
+  </form>
+
+  <form method='get' action='/peeps'>
+    <input type='submit' value='See Peeps'>
+  </form>
+<% end %>
