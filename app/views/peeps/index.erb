@@ -13,7 +13,7 @@
 
 <ul>
   <% if @peeps %>
-    <li>
+    <li class='post'>
       <% @peeps.reverse.each do |peep| %>
           <ul class='peep-feed'>
             <li><%= peep.content %></li>
