@@ -1,7 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'google-webfonts'
 require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
@@ -22,7 +21,7 @@ class Chitter < Sinatra::Base
     peep = Peep.create(
     user: current_user,
     content: params[:content],
-    time: params[:time] = Time.now.strftime('%d/%m/%y')
+    time: params[:time] = Time.now.strftime('%c')
     )
     peep.save
     redirect '/feed'
