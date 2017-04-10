@@ -1,9 +1,13 @@
 class Ricker < Sinatra::Base
 
   get '/users/recover' do
-
     erb :'users/recover'
   end
+
+  post '/users/recover' do
+    flash.now[:notice] = "Thanks, please check your inbox for the link"
+  end
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
