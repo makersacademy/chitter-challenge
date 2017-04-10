@@ -10,13 +10,15 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/mypeeps' do
+    @peeps = Peep.all_in_reverse_order
+    @peep = @peeps.all(user: current_user)
     erb :'users/mypeeps'
   end
 
   post '/users/mypeeps' do
     @peep = Peep.new(peep: params[:peep],user: current_user,created_at: Time.now)
     @peep.save
-    erb :'users/mypeeps'
+    redirect '/users/mypeeps'
   end
 
   post '/users/new_peep' do

@@ -5,6 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/global_feed' do
+    @peeps = Peep.all_in_reverse_order
     erb :'sessions/global_feed'
   end
 

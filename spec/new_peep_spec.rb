@@ -41,7 +41,7 @@ feature 'user writes a new peep' do
       fill_in 'peep', with: 'my first peep'
       click_button 'Peep'
       expect(current_path).to eq '/users/mypeeps'
-      expect(page.find('li:nth-child(1)')).to have_content Time.now
+      expect(page.find('li:nth-child(1)')).to have_content DateTime.now
     end
   end
 

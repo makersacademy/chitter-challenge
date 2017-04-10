@@ -1,4 +1,4 @@
-<% Peep.all(order: [:created_at.desc]).each do |peep| %>
+<% @peeps do |peep| %>
   <li>
     Peep: <%= peep.peep %> <%= peep.created_at %>
   </li>
