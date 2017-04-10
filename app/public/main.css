@@ -1,0 +1,165 @@
+
+  *{
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue';
+  }
+
+  html {
+    background-color: #55ACEE;
+    color: #fff;
+  }
+  body{
+    margin: auto;
+    letter-spacing: 3px;
+    color: #1D345C;
+  }
+
+  h1{
+    font-size: 500%;
+    color: #fff;
+    width: 50%;
+  }
+  h2{
+    font-size: 200%;
+    margin: 20px 0;
+
+  }
+  h3{
+    font-size: 125%;
+  }
+
+  header{
+    letter-spacing: initial;
+    width: 100%;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 90px;
+  }
+
+  textarea{
+    width: 500px;
+    height: 100px;
+  }
+
+  input{
+    display: block;
+    margin: 0 0 20px 0;
+    font-size: 120%;
+  }
+
+  input[type=text]{
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    width: 210px;
+    height: 30px;
+    margin: 10px;
+  }
+
+  input[type=password]{
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    width: 210px;
+    height: 30px;
+    margin: 10px;
+  }
+
+  input[type=email]{
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    width: 210px;
+    height: 30px;
+    margin: 10px;
+  }
+
+  input[type=submit]{
+    font-size: 130%;
+    color: #fff;
+    background-color: #708090;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    width: 100px;
+    text-align: center;
+    margin: 25px;
+  }
+
+  input[type=submit].inline-button{
+    display: inline-block;
+    margin: 0 0 0 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+
+  form#sign-out{
+    width: 50%;
+    display: inline-block;
+    margin-top: 30px;
+    text-align: center;
+
+  }
+
+  /* Add background color to the top navigation */
+.topnav {
+    background-color: #55ACEE;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 20px;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+  li.post{
+    width: 622px;
+  }
+
+  ul{
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    color: #000;
+    border-color: #fff;
+  }
+  ul.peep-feed {
+    margin-bottom: 10px;
+    border: none;
+    list-style-type: none;
+    margin: auto;
+    padding: auto;
+    border-radius: 50px;
+    color: #000;
+    border-color: #fff;
+  }
+  ul.peep-feed li:first-child{
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  ul.peep-feed li:nth-child(2){
+    border-bottom: solid 2px;
+    padding: 15px;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    letter-spacing: initial;
+  }
