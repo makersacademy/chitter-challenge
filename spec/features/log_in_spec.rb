@@ -14,7 +14,7 @@ feature 'User log in' do
     visit '/sessions/new'
     log_in(username:'dv')
     expect(current_path).to eq '/sessions'
-    # expect(page).not_to have_content 'Logged in as Darth_Vader'
+    expect(page).not_to have_content 'Logged in as Darth_Vader'
   end
 
   scenario 'password does not match records' do
@@ -24,12 +24,18 @@ feature 'User log in' do
     visit '/sessions/new'
     log_in(password:'hateyoda')
     expect(current_path).to eq '/sessions'
-    # expect(page).not_to have_content 'Logged in as Darth_Vader'
+    expect(page).not_to have_content 'Logged in as Darth_Vader'
   end
 
-  scenario 'unless already logged in' do
+  scenario 'redirect to peeps if already logged in' do
     sign_up
     visit '/sessions/new'
     expect(current_path).to eq '/peeps'
   end
+
+  # scenario 'from peeps page' do
+  #   sign_up
+  #   click_button "Log out"
+  #   expect(page).to have_content "Log in"
+  # end
 end

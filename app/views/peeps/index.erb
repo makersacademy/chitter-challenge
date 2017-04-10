@@ -1,4 +1,9 @@
-
+<% if !current_user %>
+  <form action='/sessions/new' id='button_action'>
+    <button type='submit'>Log In</button>
+    <button type='submit' formaction='/users/new'>Sign Up</button>
+  </form>
+<% end %>
 
 <div class='rowSec'>
 <% @peeps.each do |peep| %>

@@ -106,6 +106,12 @@ form {
   padding: 20px;
 }
 
+form#button_action {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
 h1 {
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 30px;
