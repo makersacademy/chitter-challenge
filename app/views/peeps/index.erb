@@ -1,0 +1,17 @@
+<% if !current_user %>
+  <form action='/sessions/new' id='button_action'>
+    <button type='submit'>Log In</button>
+    <button type='submit' formaction='/users/new'>Sign Up</button>
+  </form>
+<% end %>
+
+<div class='rowSec'>
+<% @peeps.each do |peep| %>
+  <div class='col-4 peep'>
+    <div class='col-6 username'> #<%= peep.user.username %> </div>
+    <div class='col-6 date'> <%= peep.created_at.strftime("Posted on %d %B %Y") %> </div>
+    <div class='col-10 experience'> <%= peep.experience %> </div>
+    <div class='col-2 time'> <%= peep.created_at.strftime("%l:%M %p") %> </div>
+  </div>
+<% end %>
+</div>
