@@ -1,0 +1,45 @@
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+    a {
+      color: yellow
+    }
+  </style>
+</head>
+
+<body class='chitter'>
+
+  <p>
+
+    <% if current_maker %>
+
+      <form action='/peeps/new_peep' method='post'>
+        <input type='text' name='peep'>
+        <input type='submit' value='peep!'>
+      </form>
+
+    <% end %>
+
+  </p>
+
+<% @peeps %>
+<% @peeps.each do |peep| %>
+
+   <p>
+
+    <a href='/makers/profile/<%=peep.maker.username%>'><%=peep.maker.username%></a> peeped:<br/>
+    <b>&nbsp;<%=peep.text%></b><br/>
+    on <%=peep.time.strftime('%b %d at %R')%><br/>
+    <form action='/peeps/comments/<%=peep.id%>'>
+     <input type='submit' value='comments(<%=peep.comments.count%>)'>
+    </form>
+
+  </p>
+
+<% end %>
+
+</body>

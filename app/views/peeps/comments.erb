@@ -1,0 +1,60 @@
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+    a {
+      color: yellow
+    }
+    .comments {
+    margin-left: 30px
+    }
+  </style>
+</head>
+
+<body class='chitter'>
+
+  <p>
+
+    <a href='/makers/profile/<%=@peep.maker.username%>'><%=@peep.maker.username%></a> peeped:<br/>
+    <b>&nbsp;<%=@peep.text%></b><br/>
+    on: <%=@peep.time.strftime('%b %d at %R')%><br/>
+
+  </p>
+
+  <p class='comments'>
+    <b>comments:</b>
+  </p>
+
+  <p class='comments'>
+
+    <% @peep.comments.each do |comment| %>
+      <a href='/makers/profile/<%=comment.maker.username%>'><%=comment.maker.username%></a> commented:<br/>
+      <b>&nbsp;<%=comment.text%></b><br/>
+      on <%=comment.time.strftime('%b %d at %R')%><br/>
+    <% end %>
+
+  </p>
+
+  <p>
+
+    <% if current_maker %>
+      <form class='comments' action='/peeps/new_comment/<%=@peep.id%>' method='post'>
+        <input type='text' name='words'>
+        <input type='submit' value='comment'>
+      </form>
+    <% end %>
+
+  </p>
+
+  <p>
+
+    <form action='/peeps'>
+      <input type='submit' value='back to peeps'>
+    </form>
+
+  </p>
+
+</body>

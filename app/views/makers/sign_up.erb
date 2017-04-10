@@ -1,0 +1,31 @@
+<head>
+  <style>
+    .chitter {
+    font-family: 'courier new';
+    font-style: normal;
+    color: rgb(0, 102, 204);
+    }
+  </style>
+</head>
+
+<body class='chitter'>
+
+  <p>
+    <form action='/makers/new_maker' method='post'>
+      username
+      <input type='text' name='username'>
+      email
+      <input type='text' name='email'>
+      password
+      <input type='password' name='password'>
+      confirm password
+      <input type='password' name='confirm_password'>
+      <input type='submit' value='sign up'>
+    </form>
+  </p>
+
+  <p>
+    <font color='yellow' face='courier new'><%=flash[:error]%></font>
+  </p>
+
+</body>
