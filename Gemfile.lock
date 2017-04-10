@@ -85,6 +85,7 @@ GEM
     docile (1.1.5)
     fastercsv (1.5.5)
     gherkin (4.1.1)
+    heroku-rake (0.0.2)
     json (1.8.6)
     json_pure (1.8.6)
     method_source (0.8.2)
@@ -156,6 +157,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  heroku-rake
   pry
   rake
   rspec
@@ -168,4 +170,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.13.7
+   1.14.6
