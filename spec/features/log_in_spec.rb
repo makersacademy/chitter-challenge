@@ -33,9 +33,9 @@ feature 'User log in' do
     expect(current_path).to eq '/peeps'
   end
 
-  # scenario 'from peeps page' do
-  #   sign_up
-  #   click_button "Log out"
-  #   expect(page).to have_content "Log in"
-  # end
+  scenario 'from peeps page' do
+    sign_up
+    click_button "Log out"
+    expect(page).to have_content "Log In"
+  end
 end

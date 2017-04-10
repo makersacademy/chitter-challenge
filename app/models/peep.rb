@@ -10,6 +10,6 @@ class Peep
 
 
   def self.chronological
-    Peep.all.reverse
+    self.all.reverse
   end
 end
