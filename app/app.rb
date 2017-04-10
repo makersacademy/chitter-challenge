@@ -3,8 +3,6 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
-require_relative 'models/peep'
-require_relative 'models/user'
 
 class Chitter < Sinatra::Base
 
@@ -12,6 +10,12 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get "/" do
     redirect to '/sessions/new'
@@ -25,8 +29,9 @@ class Chitter < Sinatra::Base
   post '/users' do # user goes to this page after signing up
     @user = User.new(email: params[:email],
                      password: params[:password],
-                     password_confirmation: params[:password_confirmation])
-    if @user.save
+                     password_confirmation: params[:password_confirmation],
+                     username: params[:username])
+      if @user.save
       session[:user_id] = @user.id
       redirect to "/hub"
     else
@@ -41,12 +46,19 @@ class Chitter < Sinatra::Base
   end
 
   get "/hub/new" do
-    erb :"hub/new"
+    if current_user == nil
+      flash.next[:errors] = ["You must be logged in to post a peep"]
+      redirect to "/"
+    else
+      erb :"hub/new"
+    end
   end
 
   post "/hub" do
     @peeps = Peep.create(pweep: params[:pweep],
-                        time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'))
+                         time: params[:time] = Time.now.strftime('%a, %d %b %Y %H:%M:%S'),
+                         user_id: current_user.id)
+    # require 'pry';binding.pry
     redirect to "/hub"
   end
 
@@ -56,7 +68,6 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     @user = User.authenticate(params[:email], params[:password])
-
     if @user
       session[:user_id] = @user.id
       redirect to "/hub"
@@ -70,12 +81,6 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = "You have successfully signed out"
     redirect to "/sessions/new"
-  end
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
   end
 
 end

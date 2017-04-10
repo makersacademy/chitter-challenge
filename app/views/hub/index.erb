@@ -18,7 +18,9 @@
           <% @peeps.reverse_each do |peep| %>
             <div class="peep-block">
               <p class="pweep"><%= peep.pweep %></p>
-              <p>Time posted: <%= peep.time%></p>
+            </div>
+            <div class ="peep-details">
+              <p><%= peep.user.username %> - <%= peep.time %></p>
             </div>
             <% end %>
         </ul>

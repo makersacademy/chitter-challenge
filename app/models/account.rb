@@ -1,6 +1,6 @@
-class Account
+# class Account
 
-  property :email, String
-  property :password, String
+#   property :email, String
+#   property :password, String
 
-end
+# end
