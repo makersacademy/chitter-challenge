@@ -30,7 +30,7 @@ ul {
 .centered {
   position: absolute;
   height: 100px;
-  width: 600px;
+  max-width: 600px;
   margin: auto;
   top: 10%;
   left: 50%;
@@ -38,7 +38,7 @@ ul {
 }
 
 .field {
-   width: 150px;
+   max-width: 150px;
    height: 20px;
    font-size: 14px;
 }
@@ -49,8 +49,7 @@ ul {
 }
 
 .peep_field {
-   width: 250px;
-   height: 20px;
+   max-width: 350px;
    font-size: 14px;
 }
 
@@ -70,7 +69,7 @@ ul {
   padding: 10px 20px 10px 20px;
   border: solid #ffffff 0px;
   text-decoration: none;
-  width: 130px;
+  max-width: 130px;
   line-height: 10px;
 }
 
@@ -100,6 +99,6 @@ ul {
   padding: 10px 20px 10px 20px;
   border: solid #ffffff 0px;
   text-decoration: none;
-  width: 100px;
+  max-width: 100px;
   line-height: 8px;
 }
