@@ -14,8 +14,6 @@ register Sinatra::Flash
 use Rack::MethodOverride
 
   get '/' do
-    # session[:id] ||= 0
-    @users = User.all
     @peeps = Peep.all
     erb(:'/index')
   end
@@ -64,11 +62,8 @@ use Rack::MethodOverride
   end
 
   post '/' do
-    peep = Peep.create(message: params[:message])
     if current_user
-        @user = current_user
-        @user.peeps << peep
-        @user.save
+    peep = Peep.create(message: params[:message], email: current_user.email)
       redirect '/'
       else
       redirect '/sessions/new'

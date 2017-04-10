@@ -4,12 +4,10 @@
 
 
 <h1> Peeps </h1>
-<ul id='username'>
-  <% @users.each do |user| %>
+<ul id='peep'>
+  <% @peeps.each do |peep| %>
   <li>
-    <% user.peeps.each do |peep| %>
       <%=peep.message%>
-      <% end %>
   </li>
   <% end %>
 </ul>
