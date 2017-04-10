@@ -515,7 +515,7 @@ Style/WhileUntilDo:
   Description: 'Checks for redundant do after while or until.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-multiline-while-do'
   Enabled: true
-# enable for later challenge 
+# enable for later challenge
 
   # Align ends correctly.
 Lint/EndAlignment:
