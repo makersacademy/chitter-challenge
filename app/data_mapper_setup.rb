@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-migrations'
 
 require_relative 'models/peep'
 require_relative 'models/tag'
