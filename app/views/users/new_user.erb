@@ -1,0 +1,27 @@
+<h1> Please sign up here </h1>
+
+<form action='/users' method='POST'>
+  <label for='name'>
+    Name: <input type='password' name='name'>
+  </label>
+
+  <label for='username'>
+    Username: <input type='password' name='username'>
+  </label>
+
+  <label for='email'>
+    Email: <input type='email' name='email' value='<%= @user.email %>' required>
+  </label>
+
+  <label for='password'>
+    Password: <input type='password' name='password'>
+  </label>
+
+  <label for='password_confirmation'>
+    Password confirmation:
+    <input type='password' name='password_confirmation'
+  </label>
+
+  <input type='submit' value='Sign up'
+
+</form>
