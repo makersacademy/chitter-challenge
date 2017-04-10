@@ -19,10 +19,10 @@ class Chitter < Sinatra::Base
   end
 end
 
-  post '/sessions/end' do
-  flash.next[:goodbye_message] = "Goodbye"
-  session[:user_id] = nil
-  redirect '/sessions/new'
+  delete '/sessions/end' do
+    flash.next[:goodbye_message] = "Goodbye"
+    session[:user_id] = nil
+    redirect '/sessions/new'
   end
 
 end
