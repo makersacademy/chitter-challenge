@@ -27,9 +27,9 @@ feature 'All peeps' do
     end
   end
 
-  xscenario 'Should be in reverse chronological order' do
-    # multi_peep
-    # can't get this to work
-
+  scenario 'Should be in reverse chronological order' do
+    multi_peep
+    expect(page.find("li:nth-child(1)")).to have_content "My first peep"
+    expect(page.find("li:nth-child(2)")).to have_content "Hello World"
   end
 end

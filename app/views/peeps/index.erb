@@ -4,14 +4,16 @@
 <div class="peep">
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
-      @<%= peep.user.user_name %>
-      <p>
-      <strong><%= peep.message %></strong>
-      <p>
-        <strong>Name:   </strong><%= peep.user.name %>
-        <strong>Posted:   </strong><%= peep.format_time(peep.created_at) %>
-        <hr>
-      </p>
+      <li>
+        @<%= peep.user.user_name %>
+        <p>
+        <strong><%= peep.message %></strong>
+        <p>
+          <strong>Name:   </strong><%= peep.user.name %>
+          <strong>Posted:   </strong><%= peep.format_time(peep.created_at) %>
+          <hr>
+        </p>
+      </li>
     <% end %>
   </ul>
 <% end %>
