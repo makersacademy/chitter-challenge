@@ -8,9 +8,15 @@
   </head>
   <body>
     <div class='grid'>
-      <% if current_user %>
-        <h1>Logged in as <%=current_user.username%></h1>
-      <% end %>
+      <div id='current_user'>
+        <% if current_user %>
+          <h1>Logged in as <%=current_user.username%></h1>
+          <form action='/sessions' method='post'>
+            <input type='hidden' name='_method' value='delete'/>
+            <input type='submit' value='Log out' />
+          </form>
+        <% end %>
+      </div>
 
       <% if flash[:errors] && !flash[:errors].empty? %>
         <ul>

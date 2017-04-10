@@ -6,6 +6,7 @@ require './app/data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
 
@@ -48,6 +49,12 @@ class Chitter < Sinatra::Base
       # add an error message
       erb :'sessions/login'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    
+    redirect to '/peeps'
   end
 
   get '/peeps' do
