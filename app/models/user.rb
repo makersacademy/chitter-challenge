@@ -27,6 +27,8 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, Text
   validates_confirmation_of :password
+  validates_length_of :password, min: 8
+
   validates_presence_of :email
   validates_format_of :email, :as => :email_address
   validates_uniqueness_of :email
