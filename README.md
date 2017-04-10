@@ -42,33 +42,34 @@ I want to see the time at which it was made
 
 ## Application structure:
 
-├── app
-│   ├── controller
-│   ├── data_mapper_setup.rb
-│   ├── models
-│   │   ├── rb file
-│   │   └── rb file
-│   ├── public
-│   │   └── CSS
-│   └── views
-│       ├── hub
-│       │   ├── erb files
-│       │   └── erb files
-│       ├── layout
-│       ├── sessions
-│       │   └── erb files
-│       └── users
-│           └── erb files
-├── config.ru
-└── spec
-    ├── features
-    │   ├── rspec tests
-    │   └── rspec tests
-    ├── helpers
-    │   └── module
-    ├── models
-    │   └── rspec tests
-    └── spec_helper.rb
+├── app . 
+│   ├── controller . 
+│   ├── data_mapper_setup.rb . 
+│   ├── models . 
+│   │   ├── rb file . 
+│   │   └── rb file . 
+│   ├── public . 
+│   │   └── CSS . 
+│   └── views . 
+│       ├── hub . 
+│       │   ├── erb files . 
+│       │   └── erb files . 
+│       ├── layout . 
+│       ├── sessions . 
+│       │   └── erb files . 
+│       └── users . 
+│           └── erb files . 
+├── config.ru . 
+└── spec . 
+    ├── features . 
+    │   ├── rspec tests . 
+    │   └── rspec tests . 
+    │   └── rspec tests . 
+    ├── helpers . 
+    │   └── module . 
+    ├── models . 
+    │   └── rspec tests . 
+    └── spec_helper.rb  
 
 ## Technologies used:
 
