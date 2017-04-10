@@ -15,7 +15,7 @@
   <% if @peeps %>
     <li class='post'>
       <% @peeps.reverse.each do |peep| %>
-          <ul class='peep-feed'>
+          <ul class='peep-feed' id='peeps'>
             <li><%= peep.content %></li>
               Peeped at:<br><%= peep.created_at %></li>
           </ul>
