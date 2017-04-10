@@ -10,6 +10,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'timecop'
+gem 'heroku-rake'
 
 group :test do
    gem 'capybara'
