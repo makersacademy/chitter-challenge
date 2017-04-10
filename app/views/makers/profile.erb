@@ -34,7 +34,7 @@
     <% @peeps.each do |peep| %>
       <%=peep.maker.username%> peeped:<br/>
       <b>&nbsp;<%=peep.text%></b><br/>
-      on: <%=peep.time%><br/>
+      on: <%=peep.time.strftime('%b %d at %R')%><br/>
       <form action='/peeps/comments/<%=peep.id%>'>
         <input type='submit' value='comments(<%=peep.comments.count%>)'>
       </form>

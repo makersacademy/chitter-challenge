@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/makers/new_maker' do
-    if params[:password] != params[:confirm_password] || params[:password] == ''
+    if ! valid?(params[:password], params[:confirm_password])
       flash.next[:error] = 'oops.  make sure you entered a valid password and matching confirmation.'
       redirect '/makers/sign_up'
     end

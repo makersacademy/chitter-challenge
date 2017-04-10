@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
 
   post '/sessions/sign_in' do
     if Maker.authentic?(params[:username], params[:password])
-      maker = Maker.first(:username => params[:username])
+      maker = Maker.first(username: params[:username])
       session[:maker_id] = maker.id
       redirect '/peeps'
     else
