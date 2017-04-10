@@ -1,5 +1,9 @@
 class Ricker < Sinatra::Base
 
+  get '/users/recover' do
+
+    erb :'users/recover'
+  end
   get '/users/new' do
     @user = User.new
     erb :'users/new'
