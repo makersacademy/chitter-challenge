@@ -75,6 +75,7 @@ I want to see the time at which it was made
 * Ruby 2.4
 * Sinatra
 * RSpec
+* Heroku
 * Capybara
 * Rack
 * DataMapper
