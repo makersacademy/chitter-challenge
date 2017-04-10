@@ -15,7 +15,6 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/app'
 require 'pry'
-# require_relative './features/web_helpers'
 require_relative './helpers/session'
 Capybara.app = Knitter
 

@@ -16,7 +16,6 @@
     -ms-filter: blur(10px);
 }
 ul {
-    transform: rotate(180deg);
     list-style: none;
     padding-left: 0px;
     padding-top: 20px;
@@ -28,10 +27,9 @@ ul {
     <%# filter: blur(10px); %>
     opacity: 0.5;
     font-size: 18px;
-      font-family: "Futura", "Helvetica";
+    font-family: "Futura", "Helvetica";
 }
 ul > li {
-    transform: rotate(-180deg);
     list-style-type: none;
 }
 .time {
@@ -42,11 +40,11 @@ ul > li {
 </style>
 
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
       <li>
       <%= peep.text %>
       <div class="time">
-      <%= peep.time %>
+        <%= peep.time %> by <%= peep.user.username %>
       </div>
       </li>
   <% end %>
