@@ -3,7 +3,7 @@ Chitter Challenge
 
 A Twitter clone that allows registered users to post messages to a public stream.
 
-Tech used
+Technologies used
 ---
 
 Ruby, Sinatra, Postgreql, DataMapper, Rspec/Capybara, CSS, Heroku
