@@ -1,7 +1,7 @@
 feature 'adding peep' do
   scenario 'to homepage' do
     sign_up
-    log_in
+    # log_in
     fill_in :experience, with: "Life is good"
     click_button 'Share'
     expect(current_path).to eq '/peeps'

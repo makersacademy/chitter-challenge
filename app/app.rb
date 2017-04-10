@@ -37,7 +37,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb :'sessions/login'
+    if current_user
+      redirect to '/peeps'
+    else
+      erb :'sessions/login'
+    end
   end
 
   post '/sessions' do
@@ -53,7 +57,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    
+
     redirect to '/peeps'
   end
 

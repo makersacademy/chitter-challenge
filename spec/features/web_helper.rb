@@ -23,6 +23,5 @@ end
 
 def add_peep (experience: "Turning on a lightsaber")
   sign_up
-  log_in
   Peep.create(experience: experience, user: User.first)
 end
