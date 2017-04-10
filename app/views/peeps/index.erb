@@ -1,0 +1,21 @@
+<body style="background: #E0EAFC;
+background: -webkit-linear-gradient(to left, #E0EAFC , #CFDEF3);
+background: linear-gradient(to left, #E0EAFC , #CFDEF3);
+font-family: Verdana, Geneva, sans-serif;">
+  <h1> Peeps! </h1>
+
+  <ul id='peeps'>
+    <% @peeps.reverse_each do |peep| %>
+      <li>
+        <h3><%= peep.message %></h3>
+        <% peep.hashtags.each do |tag| %>
+          #<%= tag.name %>
+        <% end %><br />
+        by: <%= peep.name %> - <%= peep.username %>
+        <%= peep.timeposted %>
+      </li>
+    <% end %>
+  </ul>
+
+  <a href="/users/new">New</a> to Chitter?
+</body>

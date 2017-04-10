@@ -1,0 +1,20 @@
+<body style="background: #E0EAFC;
+background: -webkit-linear-gradient(to left, #E0EAFC , #CFDEF3);
+background: linear-gradient(to left, #E0EAFC , #CFDEF3);
+font-family: Verdana, Geneva, sans-serif;">
+  <h1> Please sign in </h1>
+
+  <form action='/sessions' method='POST'>
+    <label for='email'>
+      Email:
+      <input type='email' name='email'>
+    </label>
+    <label for='password'>
+      Password:
+      <input type='password' name='password'>
+    </label>
+    <input type='submit' value='Sign in'>
+  </form>
+  <br />
+  <a href="/users/new">New</a> to Chitter?
+</body>
