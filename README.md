@@ -52,6 +52,9 @@ Clone repository:
 $ git clone git@github.com:nazwhale/knitter.git
 $ cd knitter
 $ bundle
+$ rake db auto_migrate
+$ rspec
+$ rackup
 ```
 
 Install dependencies with bundle:
@@ -59,3 +62,9 @@ Install dependencies with bundle:
 $ gem install bundler
 $ bundle install
 ```
+
+Screenshots
+----------
+![Screenshot](https://cdn-images-1.medium.com/max/1400/1*3IYVuJUq4O0W2hEf98Dstg.png)
+![Screenshot](https://cdn-images-1.medium.com/max/1400/1*i2m881wSUo57jvuGQ1tRhw.png)
+![Screenshot](https://cdn-images-1.medium.com/max/1400/1*zhGp7x8AcJF3ma6uk6S8dQ.png)
