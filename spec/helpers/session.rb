@@ -14,8 +14,8 @@ def sign_up
   fill_in :email, with: 'clownfish@keepswimming.com'
   fill_in :password, with: 'Dory'
   fill_in :name, with: 'Nemo Clownfish'
-  fill_in :username, with: '@NemoClown'
+  fill_in :username, with: 'Nemo123'
   click_button('Sign up')
 end
 
-end 
+end

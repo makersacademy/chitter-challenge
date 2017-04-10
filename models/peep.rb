@@ -8,6 +8,6 @@ class Peep
 
   property :id, Serial
   property :message, String
-  property :email, String
+  property :username, String
 
 end

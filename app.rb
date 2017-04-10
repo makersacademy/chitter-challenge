@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
 require 'data_mapper' #Add in
+require 'dm-postgres-adapter'
 require 'sinatra/flash'
 require_relative 'models/user'
 require_relative 'models/peep'
@@ -47,9 +48,15 @@ use Rack::MethodOverride
       session[:user_id] = user.id
       redirect to('/')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = "The email or password is incorrect"
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Logged out'
+    redirect to '/'
   end
 
   get '/' do
@@ -63,7 +70,7 @@ use Rack::MethodOverride
 
   post '/' do
     if current_user
-    peep = Peep.create(message: params[:message], email: current_user.email)
+    peep = Peep.create(message: params[:message], username: current_user.username)
       redirect '/'
       else
       redirect '/sessions/new'
@@ -76,11 +83,4 @@ use Rack::MethodOverride
       @current_user ||= User.get(session[:user_id])
     end
   end
-
-    delete '/sessions' do
-      session[:user_id] = nil
-      flash.keep[:notice] = 'Logged out'
-      redirect to '/'
-    end
-
 end
