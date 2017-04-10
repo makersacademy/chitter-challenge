@@ -14,6 +14,12 @@
       </form>
     <% end %>
 
+    <% if !current_user %>
+      <form action='/sessions/new' method='get'>
+        <input type='submit' value='Sign in'>
+      </form>
+    <% end %>
+
     <%= yield %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
