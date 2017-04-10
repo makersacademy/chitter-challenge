@@ -10,12 +10,12 @@ gem 'database_cleaner'
 gem 'pry'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'rake'
 
 group :test do
   gem 'rack'
   gem 'rspec'
   gem 'capybara'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
 end
