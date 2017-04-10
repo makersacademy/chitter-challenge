@@ -1,12 +1,4 @@
 
-<% if current_user %>
-<form action='/peeps' method='post'>
-  <label for='experience'>Travel experience
-    <input type='text' name='experience' id='experience'/>
-  </label>
-    <input type='submit' value='Share'  />
-</form>
-<% end %>
 
 <div class='rowSec'>
 <% @peeps.each do |peep| %>

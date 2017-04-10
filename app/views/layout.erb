@@ -8,12 +8,20 @@
   </head>
   <body>
     <div class='grid'>
-      <div id='current_user'>
+      <div id='user_logout'>
         <% if current_user %>
-          <h1>Logged in as <%=current_user.username%></h1>
+          <p>Logged in as <%=current_user.username%></p>
           <form action='/sessions' method='post'>
             <input type='hidden' name='_method' value='delete'/>
             <input type='submit' value='Log out' />
+          </form>
+      </div>
+      <div id='user_share'
+          <form action='/peeps' method='post'>
+            <label for='experience'>Travel experience
+              <input type='text' name='experience' id='experience'/>
+            </label>
+              <input type='submit' value='Share'  />
           </form>
         <% end %>
       </div>
