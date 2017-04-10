@@ -7,6 +7,7 @@ require 'sinatra/flash'
 # require_relative 'models/user'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
 
   enable :sessions
   register Sinatra::Flash
@@ -49,6 +50,27 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:username],
+                              params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/peeps/index'
+    else
+      flash.now[:errors] = [ "Username or password is incorrect" ]
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Bye!'
+    redirect to '/peeps/index'
+  end 
 
 
   helpers do
