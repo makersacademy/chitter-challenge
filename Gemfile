@@ -3,16 +3,17 @@ ruby '2.4.0'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'dm-migrations'
-
 gem 'sinatra'
-gem 'database_cleaner'
-gem 'pry'
+gem 'sinatra-partial'
+gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'rake'
+
+# gem 'dm-migrations'
+gem 'pry'
 
 group :test do
+  gem 'database_cleaner'
   gem 'rack'
   gem 'rspec'
   gem 'capybara'
