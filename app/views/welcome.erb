@@ -1,0 +1,12 @@
+<% unless current_user %>
+  <h3> Please either sign in or sign up: </h3>
+  <form action='/sessions/new'>
+    <input type='submit' value='Sign in'>
+  </form>
+  <form action='/users/new'>
+    <input type='submit' value='Sign up'>
+  </form>
+<% end %>
+<form action='/home'>
+  <input type='submit' value='Continue to peeps'>
+</form>
