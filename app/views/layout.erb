@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <head>
+      <title>Chitter</title>
+    </head>
+
+    <% if current_user %>
+      <form action='/sign_out' method='post' >
+      <table align='right'>
+        <tr>
+          <td><h4>Welcome, <%= current_user.email %></h4></td>
+          <td><input type='hidden' name='_method' value='delete'></td>
+          <td><input type='submit' value='Sign out'></td>
+        </tr>
+        </table>
+      </form> <br>
+    <% end %>
+<div align='center'>
+  <br>
+  <br>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <h4><%= error %></h4>
+    <% end %>
+  </ul>
+<% end %>
+
+  <body background='https://www.lowthiandesign.com/wp-content/uploads/2016/02/light-background.jpg'>
+
+    <%= yield %>
+  </body>
+</div>
+
+<h5>®Chitter2017</h5>
+</html>

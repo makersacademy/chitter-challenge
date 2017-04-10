@@ -1,0 +1,32 @@
+<div align='center'>
+  <br>
+  <br>
+  <br>
+  <h3> Sign up -- <a href="/read_peep"> Read Peeps</a></h3>
+
+ <form action='/users' method='post'>
+  <table>
+    <tr>
+      <td align="right">Full Name:</td>
+      <td align="left"><input type="text" name="full_name" value="<%=@user.full_name%>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Username:</td>
+      <td align="left"><input type="text" name="username" value="<%=@user.username%>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Email:</td>
+      <td align="left"><input type="email" name="email" value="<%=@user.email%>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Password:</td>
+      <td align="left"><input type="password" name="password" /></td>
+    </tr>
+    <tr>
+      <td align="right">Confirm Password:</td>
+      <td align="left"><input type="password" name="password_confirmation" /></td>
+    </tr>
+  </table>
+  <input type='submit' value='Sign up'>
+ </form>
+</div>
