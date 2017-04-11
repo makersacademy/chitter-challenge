@@ -53,7 +53,7 @@ Notes on functionality:
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
 
-![Sign Up](http://i.imgur.com/d92OuCr.png)
+![Sign Up](http://i.imgur.com/V4ygfDg.png)
 
 To run...
 -------
