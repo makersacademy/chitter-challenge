@@ -1,0 +1,30 @@
+<h1>Chitter</h1>
+<h3>Twitter for the really bitter!</h3>
+<% if current_user %>
+  <div class="new-peep">
+    <textarea name='content' form='peep_box' placeholder='Unleash your bitterness here'></textarea>
+    <form action='/peeps' method='post' id='peep_box'>
+      <input type='submit' value='Peep'>
+    </form>
+  </div>
+  <% else %>
+    <h2>Sign up or in to start peeping!</h2>
+  <% end %>
+
+<ul>
+  <% if @peeps %>
+    <li class='post'>
+      <% @peeps.reverse.each do |peep| %>
+          <ul class='peep-feed' id='peeps'>
+            <li><%= peep.content %><br>
+              <span class='peep-deets'>
+                Peeped by: <%= peep.user.username%></br>
+                Peeped at: <%= date_and_time(peep.created_at) %>
+              </span>
+            </li>
+              </div>
+          </ul>
+        <% end %>
+    </li>
+  <%end%>
+</ul>
