@@ -8,7 +8,7 @@ feature 'User sign in' do
 
   scenario 'with correct credentials' do
     sign_in(username: user.username, password: user.password)
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/'
     expect(page).to have_content("Welcome, #{user.username}")
   end
 

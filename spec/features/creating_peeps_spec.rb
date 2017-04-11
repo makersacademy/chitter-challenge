@@ -6,7 +6,7 @@ feature 'User creates peeps' do
   scenario 'form enables peep to be submitted' do
     create_peep('Shout out to the fans!')
 
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/'
 
     within 'ul#peeps' do
       expect(page).to have_content('Shout out to the fans!')
@@ -15,7 +15,7 @@ feature 'User creates peeps' do
   end
 
   def create_peep(message)
-    visit '/peeps'
+    visit '/'
     fill_in(:content, with: message)
     click_button('Peep')
   end

@@ -2,7 +2,7 @@
 <h3>Twitter for the really bitter!</h3>
 <% if current_user %>
   <div class="new-peep">
-    <textarea name='content' form='peep_box'>Enter your Peep here...</textarea>
+    <textarea name='content' form='peep_box' placeholder='Unleash your bitterness here'></textarea>
     <form action='/peeps' method='post' id='peep_box'>
       <input type='submit' value='Peep'>
     </form>
