@@ -5,7 +5,7 @@ class Peep
   belongs_to :user
 
   property :id, Serial
-  property :text, String
+  property :text, Text, :length => 140
   property :time, String
 
   def self.set_time

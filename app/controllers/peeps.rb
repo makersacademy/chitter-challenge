@@ -6,7 +6,12 @@ class Knitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    erb :'peeps/new'
+    unless current_user
+      flash.keep[:login] = 'Please sign up or log in to add a tip'
+      redirect '/users/new'
+    else
+      erb :'peeps/new'
+    end
   end
 
   post '/peeps' do
