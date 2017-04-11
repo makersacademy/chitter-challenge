@@ -1,5 +1,6 @@
 Chitter Challenge
 =================
+![Bitter-Chitter](http://i.imgur.com/d92OuCr.png)
 
 A Twitter clone that allows registered users to post messages to a public stream.
 
@@ -51,6 +52,8 @@ Notes on functionality:
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
+
+![Sign Up](http://i.imgur.com/d92OuCr.png)
 
 To run...
 -------
