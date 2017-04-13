@@ -7,7 +7,7 @@
 <ul id='peep'>
   <% @peeps.reverse.each do |peep| %>
   <li>
-      <%=date_and_time(peep.created_at)%> <%=peep.username%> : <%=peep.message%> 
+      <%=date_and_time(peep.created_at)%> <%=peep.username%> : <%=peep.message%>
   </li>
   <% end %>
 </ul>

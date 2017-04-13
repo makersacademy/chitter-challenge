@@ -4,6 +4,8 @@
     <title>Chitter</title>
   </head>
   <body>
+    <center>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/e9/96/f0/e996f06df8e26ef92a3c1db0fcc3ada1.png" style="width:304px;height:228px;">
     <% if current_user %>
        <h1>Welcome <%= current_user.username %></h1>
        <form method='post' action='/sessions'>
@@ -17,5 +19,6 @@
     </div>
     <% end %>
         <%= yield %>
+      </center>
   </body>
   </html>
