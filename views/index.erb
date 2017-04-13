@@ -1,0 +1,13 @@
+<%if current_user.nil?%>
+<h1> Welcome to Chitter! </h1>
+<%end%>
+
+
+<h1> Peeps </h1>
+<ul id='peep'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+      <%=date_and_time(peep.created_at)%> <%=peep.username%> : <%=peep.message%>
+  </li>
+  <% end %>
+</ul>
