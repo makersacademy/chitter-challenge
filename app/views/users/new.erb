@@ -1,0 +1,28 @@
+<h1>Sign Up</h1>
+
+<form action='/users/new' method='post'>
+  <label>
+    Email: <input type='text' name='email' required value=<%=@user.username%> ><br>
+  </label>
+
+  <label>
+    Username: <input type='text' name='username' required value=<%=@user.username%> ><br>
+  </label>
+
+  <label>
+    Password: <input type='password' name='password' required><br>
+  </label>
+
+  <label>
+    Confirm Password: <input type='password' name='password_confirmation'required><br>
+  </label>
+
+  <label>
+    Name: <input type='text' required name='name' value=<%=@user.name%> ><br>
+  </label>
+
+  <label>
+    <input type='submit' name='Sign Up' value='Sign Up'><br>
+  </label>
+
+</form>

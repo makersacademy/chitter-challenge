@@ -1,0 +1,20 @@
+<h1>Rick Rolls </h1>
+<%if current_user%>
+  <form action='/rolls/new' method='get'>
+    <input type='submit' value='New Roll'>
+  </form>
+<%end%>
+
+
+<%if !@rolls.empty?%>
+  <ul>
+    <%@rolls.each do |roll|%>
+      <li>
+          <%=User.first(id: roll.user_id).username%>
+          <%=User.first(id: roll.user_id).name%>
+          <%=roll.text%>
+          <%=roll.time.strftime("at %k:%M on %d/%m/%y")%>
+      </li>
+    <%end%>
+  </ul>
+<%end%>
