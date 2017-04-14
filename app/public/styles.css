@@ -1,0 +1,13 @@
+#error {
+  background-color: red;
+  position: sticky;
+  width: 100%;
+  height: 32px;
+}
+
+#success-header {
+  background-color: green;
+  position: sticky;
+  width: 100%;
+  height: 32%;
+}

@@ -1,19 +1,41 @@
-<% if !current_user %>
-  <form action='/user/new' method='get'>
-    <input type="submit" value="Sign up">
-  </form>
-<% end %>
+<html>
 
-<form action='/peeps' method='post'>
-  <input type='text' name='peep'>
-  <input type='submit' value='Submit message'>
-</form>
+  <body>
 
-<h1> Messages: </h1>
+    <div class="logo">
 
-  <% @peeps.each do |peep| %>
+    </div>
 
-  <li>
-    <%= peep.user %>: <%= peep.peep %>
+
+    <% if !current_user %>
+    <h1>Please sign in </h1>
+
+
+      <form action='/sessions' method='post'>
+
+        Username: <input type='text' name='username'>
+        Password: <input type='password' name='password'>
+        <input type='submit' value="Sign in">
+
+      </form>
     <% end %>
-  </li>
+
+    <% if current_user %>
+    <form action='/peeps' method='post'>
+      <input type='text' name='peep'>
+      <input type='submit' value='Submit message'>
+    </form>
+    <% end %>
+
+    <h1> Messages: </h1>
+
+    <% @peeps.reverse.each do |peep| %>
+
+    <li>
+      <%= peep.user %>: <%= peep.peep %>
+      <% end %>
+    </li>
+
+  </body>
+
+</html>
