@@ -1,0 +1,52 @@
+<html>
+  <head></head>
+
+  <body>
+
+      <% if !current_user %>
+        <div class="title">
+         <i class="fa fa-comments-o" aria-hidden="true"></i>
+          <h1>Welcome to Chitter! Please sign in </h1>
+        </div>
+
+          <div class="container">
+            <div class="row">
+            
+              <form class="form" action='/sessions' method='post'>
+
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type='text' class="form-control"  placeholder="Email" name='username'>
+                </div>
+
+                <div class="form-group">
+                  <label for="Password">Password</label>
+                  <input type='password' class="form-control" placeholder="Password" name='password'>
+                </div>
+                
+                <div class="checkbox">
+                  <label>
+                  <input type="checkbox"> Remember me
+                  </label>
+                </div>
+
+                <div id="log-in-btn">
+                <button type='submit' class="btn btn-default">Log in</button>
+                </div>
+              </form>
+
+              <div id="sign-up">
+              <p> Don't have an account? <a href = '../user/new'>Sign up!</a></p>
+              </div>
+          </div>
+        </div>
+
+
+        
+      <% end %>
+
+
+    </div>
+  </body>
+
+</html>

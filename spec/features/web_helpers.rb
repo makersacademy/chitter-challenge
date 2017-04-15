@@ -9,7 +9,7 @@ def sign_up
 end
 
 def log_in(username:, password:)
-  visit('/sessions/new')
+  visit('/peeps/index')
   fill_in(:username, with: "Magnus")
   fill_in(:password, with: "123banana" )
   click_button("Log in")

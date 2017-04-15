@@ -11,19 +11,24 @@
   <body>
 
     <% if flash[:notice] %>
-      <div id="notice">
+
+      <div id="success-header">
         <%= flash[:notice] %>
       </div>
     <% end %>
 
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <div id="error">
-        <%flash[:errors].each do |error| %>
-          <%= error %>
+
+      <div>
+        <% flash[:errors].each do |error| %>
+        <div id="error">
+        <%= error %>
+        </div>
         <% end %>
       </div>
-    <%end%>
+
+    <% end %>
 
 
   </body>

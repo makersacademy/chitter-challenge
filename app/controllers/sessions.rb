@@ -9,17 +9,18 @@ class Chitter < Sinatra::Base
                               params[:password])
     if user
       session[:user_id] = user.id
+      flash.now[:notice] = 'Successfully logged in'
       redirect to '/peeps/index'
     else
-      flash.now[:errors] = [ "Username or password is incorrect" ]
+      flash.now[:errors] =  ["Username or password is incorrect"]
       erb :'sessions/new'
     end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'Bye!'
-    redirect to '/peeps/index'
+    flash.keep[:notice] = 'You have successfully signed out'
+    redirect to '/sessions/new'
   end
 
 end

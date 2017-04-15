@@ -1,13 +1,57 @@
-#error {
-  background-color: red;
-  position: sticky;
-  width: 100%;
-  height: 32px;
+body {
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fa {
+  font-size: 700%;
+}
+
+.title {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+/*   text-align: center; */
+/*   background-color: green; */
+}
+
+.form-control {
+/*   width: 50%; */
+/*   margin: 0 auto; */
+}
+
+.row {
+/*   background-color: red; */
+  margin: auto;
+  width: 40%;
+  margin-top: 40px;
+
+}
+
+#log-in-btn {
+  margin-bottom: 23px;
+}
+
+#sign-up {
+  font-size: 100%;
 }
 
 #success-header {
-  background-color: green;
-  position: sticky;
-  width: 100%;
-  height: 32%;
+  text-align: center;
+  background-color: #CCEFCC;
+}
+
+#welcome {
+  text-align: center;
+  background-color: #CCEFCC;
+}
+
+#error {
+  text-align: center;
+  background-color: #efcccc;
 }

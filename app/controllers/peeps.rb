@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/' do
-    redirect to ('/peeps/index')
+    redirect to ('/sessions/new')
   end
 
   get '/peeps/index' do

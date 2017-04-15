@@ -6,19 +6,11 @@
 
     </div>
 
-
-    <% if !current_user %>
-    <h1>Please sign in </h1>
-
-
-      <form action='/sessions' method='post'>
-
-        Username: <input type='text' name='username'>
-        Password: <input type='password' name='password'>
-        <input type='submit' value="Sign in">
-
-      </form>
-    <% end %>
+    <!-- <% if !current_user %>
+    <form action='/user/new' method='get'>
+      <button type='submit' class='btn btn-default'>Sign up</button>
+    </form>
+    <% end %> -->
 
     <% if current_user %>
     <form action='/peeps' method='post'>
@@ -27,7 +19,7 @@
     </form>
     <% end %>
 
-    <h1> Messages: </h1>
+    <h1> Peeps: </h1>
 
     <% @peeps.reverse.each do |peep| %>
 
