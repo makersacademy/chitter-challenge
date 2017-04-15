@@ -1,25 +1,52 @@
-<form action='/user' method='post'>
 
-<div>
-  Prefered username: <input type='text' name='username'>
-</div>
 
-<div>
-  Name: <input type='text' name='name'>
-</div>
+<html>
+  <head></head>
 
-<div>
-  Email: <input type='text' name='email'>
-</div>
+  <body>
 
-<div>
-  Password: <input type='password' name='password'>
-</div>
 
-<div>
-  Confirm Password: <input type='password' name='password_confirmation'>
-</div>
+        <div class="title">
+         <i class="fa fa-comments-o" aria-hidden="true"></i>
+          <h1>Please fill in the form below</h1>
+        </div>
 
-  <input type='submit' value="Sign up">
+          <div class="container">
+            <div class="row">
 
-</form>
+              <form class="form" action='/user' method='post'>
+
+                <div class="form-group">
+                  <label for="username">Preferred Username</label>
+                  <input type='text' class="form-control"  placeholder="Username" name='username'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Name</label>
+                  <input type='text' class="form-control"  placeholder="Name" name='name'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Email</label>
+                  <input type='text' class="form-control"  placeholder="Email" name='email'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Password</label>
+                  <input type='password' class="form-control"  placeholder="Password" name='password'>
+                </div>
+
+                <div class="form-group">
+                  <label for="Password">Confirm password</label>
+                  <input type='password' class="form-control" placeholder="Password again" name='password_confirmation'>
+                </div>
+
+                <div id="sign-up-btn">
+                <button type='submit' class="btn btn-default">Sign up</button>
+                </div>
+              </form>
+          </div>
+        </div>
+  </body>
+
+</html>
