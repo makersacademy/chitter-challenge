@@ -47,6 +47,11 @@ Usage
 ![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.45.46.png)
 ![alt tag](https://github.com/Noora-q/chitter-challenge/blob/master/Screen%20Shot%202017-03-12%20at%2022.44.13.png)
 
+
+Things I want to complete in the future:
+- Relying to peeps feature
+- Better/more styling, room for improvement there
+
 Status
 -----
 [![Build Status](https://travis-ci.org/makersacademy/chitter-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/chitter-challenge)
