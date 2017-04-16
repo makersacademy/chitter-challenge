@@ -40,6 +40,14 @@ I want to see all peeps in reverse chronological order
 As a User
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a User
+So that I can be involved in the community
+I want to be able to reply to peeps
+
+As a User
+So that I can see information about myself and other Users
+I want to be able to visit a profile page for users
 ```
 
 ## Notes on functionality
