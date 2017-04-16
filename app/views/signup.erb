@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1 style="color:purple;" align="center">Chitter</h1>
+  </body>
+  <form action="/users" method="POST" align="center">
+
+    <p><label for="full_name">Full Name:<label>
+      <input type="text" name="full_name" value="<%= @maker.full_name %>" placeholder="Joe Bloggs" size="25" required></p>
+
+    <p><label for="user_name">User Name:<label>
+      <input type="text" name="user_name" value="<%= @maker.user_name %>" placeholder="joe_bloggsy" size="25" required></p>
+
+    <p><label for="email">Email Address:<label>
+      <input type="email" name="email" value="<%= @maker.email %>" placeholder="joe@bloggs.com" size="25" required></p>
+
+    <p><label for="password">Password:<label>
+      <input type="password" name="password" placeholder="super secret password" size="25" required></p>
+
+    <p><label for="password_confirmation">Confirm Password:<label>
+      <input type="password" name="password_confirmation" placeholder="super secret password, again" size="25" required></p>
+
+    <input type="submit" value="Sign Up" style="width: 100px;">
+  </form>
+</html>

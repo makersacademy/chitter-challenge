@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <% unless current_maker %>
+    <form action="/users/new" method="GET" align="right">
+      <input type="submit" value="Register New User">
+    </form>
+    <form action="/sessions/new" method="GET" align="right">
+      <input type="submit" value="Log In">
+    </form>
+  <% end %>
+  <body>
+    <h1 style="color:purple;" align="center"><font size="+5">Chitter</font></h1>
+  <% if current_maker %>
+    <form action="/peeps/post" method="POST" align="center">
+      <textarea name="peep" style="width:250px;height:50px;"></textarea><div></div>
+      <input type="submit" value="PEEP" style="width:100px;">
+  <% end %>
+  <% if Peep.all.length > 0 %>
+  <h3 align="center">recent peeps:</h3>
+  <div align="center"><font size="+2"><% Peep.all.reverse.each do |peep| %>
+    <b>"<%= peep.message %>"</b></font><div><font size="+1"><em>peeped by:</em>
+        <%= peep.maker.full_name %><b>(@<%=peep.maker.user_name%>)</b></div><div><em>
+        <%= peep.time.strftime("%d %B %Y at %H:%M")%></font><p></p></em></div>
+    <% end %></div>
+  <% end %>
+  </body>
+</html>

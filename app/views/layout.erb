@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='//fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet'>
+    <style>
+      body {
+          font-family: 'Josefin Slab';font-size: 22px;
+          background-color: lightblue;
+        }
+    </style>
+  </head>
+  <% if current_maker %>
+    <div>Logged in as <%= current_maker.email %></div>
+    <form action="/sessions" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log Out">
+    </form>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:errors] %>
+    <div id='errors'><%= flash[:errors] %></div>
+  <% end %>
+  <%= yield %>
+</html>
