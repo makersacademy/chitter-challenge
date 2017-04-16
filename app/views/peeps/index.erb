@@ -1,0 +1,14 @@
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <div class = 'peep'>
+      <div class = 'content'>
+        <li><%= peep.content %></li>
+      </div>
+
+      <div class = 'timestamp'>
+        <%= time_and_date(peep.created_at) %>
+      </div>
+        author: <%= peep.user.name %>
+    </div>
+  <% end %>
+</ul>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html>
+     <head>
+       <title> Chitter | Peep away! </title>
+       <nav>
+         <ul>
+           <li><a href="sessions/new">Sign In</a></li>
+           <li><a href="users/new">Sign Up</a></li>
+           <li><a href="peeps/new">New peep</a></li>
+         </ul>
+     </head>
+
+     <body>
+       <% if current_user %>
+         Logged in as: <%= current_user.username %>
+         <form action = '/sessions' method = 'POST'>
+           <input type = 'hidden' name = '_method' value = 'delete'/>
+           <input type = 'submit' value = 'Sign Out'/>
+         </form>
+       <% end %>
+
+       <% if flash[:errors] && !flash[:errors].empty? %>
+       Sorry, something went wrong! Please refer to the following errors:
+         <ul id='errors'>
+         <% flash[:errors].each do |error| %>
+         <li> <%= error %></li>
+           <% end %>
+         </ul>
+       <% end %>
+
+       <% if flash[:notice] %>
+         <div id='notice'>
+           <%= flash[:notice] %>
+         </div>
+       <% end %>
+       
+    <%= yield %>
+    </body>
+  </html>
