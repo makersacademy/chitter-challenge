@@ -22,4 +22,9 @@ module SessionHelpers
     fill_in :password, with: password
     click_button('Log In')
   end
+
+  def log_out
+    visit '/sessions'
+    click_button('Log Out')
+  end
 end

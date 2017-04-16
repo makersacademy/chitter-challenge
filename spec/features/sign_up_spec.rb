@@ -4,4 +4,5 @@ feature "Sign up" do
     expect{sign_up}.to change(Maker, :count).by(1)
     expect(current_path).to eq('/sessions')
   end
+
 end

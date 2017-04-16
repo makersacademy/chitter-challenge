@@ -14,7 +14,6 @@ class Chitter < Sinatra::Base
       session[:user_id] = authenticated_maker.id
       redirect('/sessions')
     else
-      p 'not authenticated'
       flash.now[:errors] = "The email or password is incorrect. Please try again."
       erb(:'sessions/new')
     end

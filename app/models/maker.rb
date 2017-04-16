@@ -26,9 +26,18 @@ class Maker
     maker = first(email: email)
     if maker && BCrypt::Password.new(maker.password_digest) == password
       maker
-    else
-      nil
     end
   end
+
+  def user_exists?(maker)
+    maker.exists? ? maker : false
+  end
+
+  def password_check(email, password)
+    maker = first(email: email)
+    BCrypt::Password.new(maker.password_digest) == password
+  end
+
+
 
 end
