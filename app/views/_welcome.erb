@@ -10,20 +10,24 @@
 
   <body>
 
-    <div>
       <% if current_user %>
-      <div id="welcome">
-      Succes! Welcome to Chitter, <%= current_user.username %>
-      </div>
+        <div id="welcome">
 
-        <form action='/sessions' method='post'>
-          <input type='hidden' name='_method' value='delete'>
+            <p id="welcome-text">
+              Welcome to Chitter, <%= current_user.username %>
+            </p>
 
-          <input type='submit' value='Sign out'>
-        </form>
-        <div>
-          <h2> Welcome <%= current_user.name %> </h2>
+            <form action='/sessions' method='post'>
+              <input type='hidden' name='_method' value='delete'>
+                <div id="sign-out-btn">
+                <input type='submit' value='Sign out' style="border: none; background: none; padding: 0;" >
+                </div>
+            </form>
+
         </div>
+
+
+
       <% end %>
 
 

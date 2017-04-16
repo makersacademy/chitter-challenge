@@ -12,7 +12,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.new(user: current_user.username,
-                    peep: params[:peep])
+                    peep: params[:peep],
+                    created_at: DateTime.now.to_s)
     peep.save
     redirect to ('/peeps/index')
     erb :'peeps/index'
