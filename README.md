@@ -30,7 +30,6 @@ $ createdb chitter_test
 
 ![Sign in](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_signin.png)  
 ![Post peep](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_postpeep.png)  
-![View peeps](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_viewpeep.png)
 
 
 
