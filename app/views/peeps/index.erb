@@ -3,7 +3,9 @@
   <body>
 
     <div class="title">
-      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      <a href='/'>
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+      </a>
     </div>
 
 
@@ -15,7 +17,7 @@
         <div id="post-peep">
           <form class="form-horizontal" action='/peeps' method='post'>
             <div class="form-inline">
-              <input type='text' class="form-control" placeholder="Share a peep!" name='peep'>
+              <input type='text' class="form-control" placeholder="Share a line!" name='peep'>
               <button type="submit" class="btn btn-default">Post!</button>
             </div>
           </form>
@@ -31,7 +33,7 @@
            <%= peep.peep %>
         </div>
         <div id="posted-by">
-          @<%= peep.user %> | <%= peep.created_at %> 
+          @<%= peep.user %> | <%= peep.created_at %>
         </div>
           <% end %>
       </div>

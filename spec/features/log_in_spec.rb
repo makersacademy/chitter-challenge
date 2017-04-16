@@ -10,7 +10,7 @@ feature 'User can log in' do
 
   scenario 'with correct creditentials' do
     log_in(username: user.username, password: user.password)
-    expect(page).to have_content("Successfully logged in as: #{user.username}")
+    expect(page).to have_content("Welcome to Chitter, #{user.username}")
   end
 
 end

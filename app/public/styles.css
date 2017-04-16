@@ -41,7 +41,7 @@ body {
 
 .col-md-6 {
   /*background-color: red;*/
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
   /*#peep-row {
@@ -58,6 +58,7 @@ body {
 }*/
 
 .fa {
+  margin-top: -20px;
   font-size: 700%;
 }
 
@@ -79,8 +80,9 @@ body {
 }
 
 #success-header {
-  text-align: right;
-  background-color: #1EA8EF;
+  text-align: center;
+  margin-top: 10px;
+  /*background-color: #1EA8EF;*/
 }
 
 #welcome-text {
@@ -90,7 +92,8 @@ body {
 
 #sign-out-btn {
   margin-right: 20px;
-  margin-top: -20px;
+  margin-top: -30px;
+  text-align: right;
 }
 
 
@@ -99,10 +102,23 @@ body {
   display: inline;
 }*/
 
+p {
+  margin-top: 10px;
+}
+
+#welcome-text {
+  background-color: red;
+  text-align: center;
+}
+
+#welcome-text-p {
+  background-color: red;
+}
+
 #welcome {
-  text-align: right;
+  /*text-align: right;*/
 /*   background-color: #ABDCEA; */
-  height: 200%;
+  /*height: 200%;*/
 }
 
 #error {

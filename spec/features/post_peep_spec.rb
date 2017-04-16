@@ -4,7 +4,7 @@ feature 'User can post a peep' do
     sign_up
     visit('/')
     fill_in('peep', with: "This app is amazing!")
-    click_button('Submit message')
+    click_button('Post!')
     expect(page).to have_content("This app is amazing!")
   end
 
@@ -12,7 +12,7 @@ feature 'User can post a peep' do
     sign_up
     visit('/')
     fill_in('peep', with: "This app is amazing!")
-    click_button('Submit message')
+    click_button('Post!')
     expect(page).to have_content("Magnus")
   end
 
