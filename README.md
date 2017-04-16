@@ -3,7 +3,7 @@ Chitter
 
 Message posting board / Twitter clone - written over the weekend of my fourth week at Makers Academy.
 
-Instructions for use:
+#### Instructions for use:
 - Clone this repo
 - Run ```bundle``` to install dependencies
 - Run ```rspec``` to view tests
@@ -16,8 +16,9 @@ $ createdb chitter_test
 - Run ```rackup``` to auto-upgrade and start server
 - In your browser, visit http://localhost:9292/
 
+---
 
-Technologies used:
+#### Technologies used:
 - Ruby
 - Sinatra
 - RSpec
@@ -27,10 +28,9 @@ Technologies used:
 - PostgreSQL (a relational DBMS)
 
 
-
-![Screenshot]()
-![Screenshot]()
-![Screenshot]()
+![Sign in](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_signin.png)  
+![Post peep](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_postpeep.png)  
+![View peeps](https://github.com/rorymcgit/chitter-challenge/blob/master/Chitter_viewpeep.png)
 
 
 
