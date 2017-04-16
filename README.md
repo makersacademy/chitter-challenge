@@ -2,7 +2,7 @@
 
 Task
 ----
-Week 4 challenge at Maker Academy: We are going to write a little Twitter clone that will allow the users to post messages to a public stream. See the user stories below:
+Week 4 challenge at Makers Academy: We are going to write a little Twitter clone that will allow the users to post messages to a public stream. See the user stories below:
 
 Features
 --------
