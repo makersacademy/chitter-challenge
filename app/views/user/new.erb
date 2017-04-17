@@ -1,0 +1,54 @@
+
+
+<html>
+  <head></head>
+
+  <body>
+
+
+        <div class="title">
+          <a href='/'>
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
+          </a>
+          <h1>Please fill in the form below</h1>
+        </div>
+
+          <div class="container">
+            <div id="sign-up-row" class="row">
+
+              <form class="form" action='/user' method='post'>
+
+                <div class="form-group">
+                  <label for="username">Preferred Username</label>
+                  <input type='text' class="form-control"  placeholder="Username" name='username'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Name</label>
+                  <input type='text' class="form-control"  placeholder="Name" name='name'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Email</label>
+                  <input type='text' class="form-control"  placeholder="Email" name='email'>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Password</label>
+                  <input type='password' class="form-control"  placeholder="Password" name='password'>
+                </div>
+
+                <div class="form-group">
+                  <label for="Password">Confirm password</label>
+                  <input type='password' class="form-control" placeholder="Password again" name='password_confirmation'>
+                </div>
+
+                <div id="sign-up-btn">
+                <button type='submit' class="btn btn-default">Sign up</button>
+                </div>
+              </form>
+          </div>
+        </div>
+  </body>
+
+</html>

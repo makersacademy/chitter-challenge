@@ -1,0 +1,139 @@
+body {
+  background-color: #F3FDFF;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+   /*background-color: green;*/
+}
+
+#peeps {
+  margin-top: 30px;
+}
+
+#post-peep {
+  text-align: center;
+}
+
+#posted-by {
+  text-align: right;
+  color: grey;
+  font-size: 85%;
+  margin-top: -5px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+
+#peep-rows {
+  padding-bottom: 50px;
+  background-color: #D4EEF5;
+  padding: 10px;
+  margin: 10px;
+  word-wrap: break-word;
+  letter-spacing: 0.6px;
+  border-radius: 5px;
+  /*font-family: 'Comic Sans';*/
+}
+
+.col-md-6 {
+  /*background-color: red;*/
+  margin-top: 40px;
+}
+
+  /*#peep-row {
+  background-color: red;
+  margin: auto;
+  text-align: center;
+  }*/
+
+/*.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+   text-align: center;
+   background-color: green;
+}*/
+
+.fa {
+  margin-top: -20px;
+  font-size: 700%;
+}
+
+.title {
+  text-align: center;
+  margin-top: 80px;
+}
+
+#sign-out {
+
+}
+
+#welcome-text #sign-out {
+  display: inline;
+}
+
+#log-in-btn {
+  margin-bottom: 23px;
+}
+
+#success-header {
+  text-align: center;
+  margin-top: 10px;
+  /*background-color: #1EA8EF;*/
+}
+
+#welcome-text {
+  margin-right: 100px;
+  display: inline;
+}
+
+#sign-out-btn {
+  margin-right: 20px;
+  margin-top: -30px;
+  text-align: right;
+}
+
+
+
+/*#sign-out {
+  display: inline;
+}*/
+
+p {
+  margin-top: 10px;
+}
+
+#welcome-text {
+  background-color: red;
+  text-align: center;
+}
+
+#welcome-text-p {
+  background-color: red;
+}
+
+#welcome {
+  /*text-align: right;*/
+/*   background-color: #ABDCEA; */
+  /*height: 200%;*/
+}
+
+#error {
+  text-align: center;
+  background-color: #F5A2A2;
+}
+
+#login-row {
+  margin: auto;
+  width: 40%;
+  margin-top: 40px;
+}
+
+#sign-up-row {
+  margin: auto;
+  width: 40%;
+  margin-top: 40px;
+}

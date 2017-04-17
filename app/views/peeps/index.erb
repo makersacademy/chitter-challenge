@@ -1,0 +1,44 @@
+<html>
+
+  <body>
+
+    <div class="title">
+      <a href='/'>
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+      </a>
+    </div>
+
+
+    <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+      <div id="peep-row" class="row">
+
+        <% if current_user %>
+        <div id="post-peep">
+          <form class="form-horizontal" action='/peeps' method='post'>
+            <div class="form-inline">
+              <input type='text' class="form-control" placeholder="Share a line!" name='peep'>
+              <button type="submit" class="btn btn-default">Post!</button>
+            </div>
+          </form>
+        </div>
+        <% end %>
+      </div>
+
+      <div id="peeps" class="row">
+
+        <% @peeps.reverse.each do |peep| %>
+
+        <div id="peep-rows" class="row">
+           <%= peep.peep %>
+        </div>
+        <div id="posted-by">
+          @<%= peep.user %> | <%= peep.created_at %>
+        </div>
+          <% end %>
+      </div>
+  </div>
+</div>
+  </body>
+
+</html>
