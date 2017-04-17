@@ -1,4 +1,4 @@
-Chitter [![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)   [![Build Status](https://travis-ci.org/joemaidman/chitter-challenge.svg?branch=master)](https://travis-ci.org/joemaidman/chitter-challenge)
+Chitter [![Build Status](https://travis-ci.org/joemaidman/chitter-challenge.svg?branch=master)](https://travis-ci.org/joemaidman/chitter-challenge)  [![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)
 =======
 
 Chitter is a web application build on the Sinatra framework that emulates the core functionality of Twitter. Users are able to register with a unique email address and once signed-in, can post 'Peeps' (tweets) with tags and images to a public stream.
