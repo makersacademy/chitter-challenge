@@ -1,0 +1,48 @@
+.panel-item{
+  border: solid #7ec2d6 5px;
+  border-radius:5px;padding:5px;
+}
+
+.panel-item-reply{
+  border: solid darkgreen 3px;
+  border-radius: 5px;padding:5px;
+}
+
+.warnings{
+  border: solid red 2px;
+  border-radius:5px;padding:5px;
+}
+
+.navbar-custom {
+  background-color:#7ec2d6;
+  color:#ffffff;
+  border-radius:0;
+}
+
+.footer {
+  background-color:#7ec2d6;
+  color:#ffffff;
+  border-radius:0;
+}
+
+.no-bottom{
+  margin-bottom: 0;
+}
+
+.peep-img{
+  max-width: 30%;
+  height: auto;
+}
+
+.profile-img{
+  max-width: 25%;
+  height: auto;
+}
+
+.timeline-img{
+  max-width: 5%;
+  height: auto;
+}
+form {
+    display: inline;
+}

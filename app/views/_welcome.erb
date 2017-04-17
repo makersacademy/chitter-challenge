@@ -1,0 +1,57 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-custom">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/peeps"><img src="/logo_chitter.png"></a>
+    <% if current_user %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+           <li class="nav-item">
+            <span class="navbar-text">Signed in as <%= current_user.handle %></span>
+           </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/ascending'>
+            <input class="btn btn-primary" type='submit' value='&#x25B2;'>
+        </form>&nbsp;
+        <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/descending'>
+            <input class="btn btn-primary" type='submit' value='&#x25BC;'>
+        </form>&nbsp;
+        <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        &nbsp;
+        <form class="form-inline my-2 my-lg-0" method='get' action='/peeps/new'>
+            <input class="btn btn-success" type='submit' value='&nbsp;&nbsp;&nbsp;Peep&nbsp;&nbsp;&nbsp;'>
+        </form>
+        &nbsp;
+        <form class="form-inline my-2 my-lg-0" method='get' action="/users/<%= current_user.id %>">
+            <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Profile&nbsp;&nbsp;'>
+        </form>
+        &nbsp;
+        <form class="form-inline my-2 my-lg-0" method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input class="btn btn-danger" type='submit' value='Sign Out'>
+        </form>
+    </div>
+    <% else %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/descending'>
+          <input class="btn btn-primary" type='submit' value='&#x25B2;'>
+      </form>&nbsp;
+      <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/ascending'>
+          <input class="btn btn-primary" type='submit' value='&#x25BC;'>
+      </form>&nbsp;
+        <form class="form-inline my-2 my-lg-0" action="/tags" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="tag">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        &nbsp;
+        <a class="btn btn-success" href="/sessions/new">&nbsp;Sign In&nbsp;&nbsp;</a>
+        &nbsp;
+        <a class="btn btn-primary" href="/users/new">Sign Up</a>
+    </div>
+    <% end %>
+</nav>

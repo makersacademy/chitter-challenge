@@ -1,0 +1,10 @@
+<h3> Peeps
+<% if @search_term %>
+  tagged with: <%= @search_term %>
+<% end %>
+</h3>
+<% if @peeps.length == 0 %>
+  No peeps found
+<% else %>
+<%= partial :'/peeps_list' %>
+<% end %>

@@ -1,0 +1,33 @@
+<% @peeps.each do |peep| %>
+ <div class="panel-item">
+  <img src="<%= User.get(peep.user_id).avatar %>" class="timeline-img" />
+ <b><a href="/users/<%= peep.user_id %>"><%= User.get(peep.user_id).handle %></a></b> on <%= peep.date.strftime('%A, %d %b %Y') %> @ <%= peep.date.strftime('%l:%M %p')%>
+ </br></br><h6 class="message"><%= peep.message %></h6>
+ <% unless peep.media == "" %>
+ <img class="peep-img" src="<%= peep.media %>" /></br>
+ <% end %>
+  Tags:
+  <% if peep.tags.length == 0 %>
+    No tags
+  <% end %>
+  &nbsp;|
+  <% peep.tags.each do |tag| %>
+    <a href="/tags/<%= tag.tag%>"><%= tag.tag%></a>&nbsp;|&nbsp;
+  <% end %>
+  <% if current_user %>
+  </br>
+  </br>
+    <a class="btn btn-success" href="/peeps/peep/<%= peep.id %>">&nbsp;Reply</a>
+  <% if peep.user_id == current_user.id %>
+  <form class="form-inline my-2 my-lg-0" method='post' action='/peeps/destroy'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='hidden' name='id' value='<%= peep.id %>'>
+    </br>
+    </br>
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+  <% end %>
+ <% end %>
+ </div>
+ </br>
+<% end %>

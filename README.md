@@ -1,108 +1,114 @@
-Chitter Challenge
-=================
+Chitter [![Build Status](https://travis-ci.org/joemaidman/chitter-challenge.svg?branch=master)](https://travis-ci.org/joemaidman/chitter-challenge)  [![Coverage Status](https://coveralls.io/repos/github/makersacademy/chitter-challenge/badge.svg?branch=rjlynch)](https://coveralls.io/github/makersacademy/chitter-challenge?branch=rjlynch)
+=======
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Chitter is a web application build on the Sinatra framework that emulates the core functionality of Twitter. Users are able to register with a unique email address and once signed-in, can post 'Peeps' (tweets) with tags and images to a public stream.
 
-Challenge:
--------
+Users can also:
+- View user profiles
+- Update a user profile
+- Sign out
+- Reply to Peeps
+- Search Peeps by tag
+- Sort peeps in ascending or descending order
 
-As usual please start by forking this repo.
+A demo of the application can be found on Heroku at https://chitter-week4.herokuapp.com/
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
-Features:
--------
-
+## User Stories
 ```
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to log in to Chitter
 
-As a Maker
+As a User
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-As a Maker
+As a User
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
 
-As a maker
+As a User
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
 
-As a maker
+As a User
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
+
+As a User
+So that I can be involved in the community
+I want to be able to reply to peeps
+
+As a User
+So that I can see information about myself and other Users
+I want to be able to visit a profile page for users
 ```
 
-Notes on functionality:
-------
+## Notes on functionality
+* Users sign up to chitter with their Email, Password, Name,  Handle, Biography and Avatar.
+* The Email and Handle must be unique.
+* The Biography and Avatar are optional.
+* Peeps (posts to chitter) show the handle of the authoring user.
+* Users can only can peep if logged in.
+* Users don't have to be logged in to see peeps or view user profiles.
+* Peeps can be created with an image URL which will display in the peep.
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+## Screenshots
+**Homepage**
 
-Bonus:
------
+![home](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peeps.png)
 
-If you have time you can implement the following:
+**User profiles**
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+![Profile](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/profile.png)
 
-And/Or:
+**New Peep**
+![peep](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/peep.png)
 
-* Work on the css to make it look good (we all like beautiful things).
+**Replies**
 
-Good luck and let the chitter begin!
+![reply](https://github.com/joemaidman/chitter-challenge/blob/master/screenshots/replies.png)
 
-Code Review
------------
+## Technologies used
+**Backend**
+- Ruby
+- Sinatra
 
-In code review we'll be hoping to see:
+**Database**
+- Postgresql
+- Datamapper (ORM)
+- BCrypt (Password encryption)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+**Testing**
+- RSpec
+- Capybara
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+**Frontend**
+- Bootstrap
+- CSS
 
-Notes on test coverage
-----------------------
+**Deployment**
+- Heroku
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+## Installation
+- Clone the repo
+- `cd` to the project folder
+- Run `bundle install`
+- Create two local postrgresql databases called `chitter_development` and `chitter_test`
 
-```ruby
-require 'coveralls'
-require 'simplecov'
+To test:
+- Run `rspec`
 
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
-Coveralls.wear! 
-```
+To run the application on localhost:
+- Run `rackup`
+- Visit http://localhost:9292/
 
-You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
-
-```
-$ coveralls report
-```
-
-This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
+## Potential feature improvements
+* Follow and unfollow users.
+* Password validation.
+* Password recovery.
+* Improve responsiveness of design.

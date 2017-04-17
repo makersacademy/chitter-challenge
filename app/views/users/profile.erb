@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-6">
+    <% if @user %>
+      <% if @user.avatar != "" %>
+        <img class="profile-img" src="<%= @user.avatar %>"/></br>
+      <% else %>
+        <img class="profile-img" src="/profile-placeholder.png"/></br>
+      <% end %>
+      </br>
+      <h3><%= @user.handle %></h3>
+      <br>
+      <h6>Email</h6>
+      <%= @user.email %></br>
+      </br>
+      <h6>Bio</h6>
+      <%= @user.bio %>
+      <br></br>
+      <h6>Peep count</h6>
+      <%= @peeps.count %></br>
+      </br>
+      <% if current_user %>
+      <form class="form-inline my-2 my-lg-0" method='get' action="/users/update/<%= current_user.id %>">
+        <input class="btn btn-primary" type='submit' value='&nbsp;&nbsp;Update profile&nbsp;&nbsp;'>
+      </form>
+      <% end %>
+      </div>
+      <div class="col-sm-6">
+        <h3>
+          Recent Peeps from
+          <%= @user.handle %></h3>
+          <% if @peeps.length == 0 %>
+            No peeps found
+          <% else %>
+          <%= partial :'/peeps_list' %>
+          <% end %>
+    <% else %>
+      That user does not exist!
+    <% end %>
+  </div>
+</div>

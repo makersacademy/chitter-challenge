@@ -1,0 +1,16 @@
+<div>
+<form  action="/peeps" method="POST">
+<div class="form-group">
+    <label class="control-label">Message</label>
+    <textarea class="form-control" type="text" name="message" value='<%= @peep.message %>'></textarea>
+    </br>
+    <label class="control-label">Media (URL)</label>
+    <input class="form-control" type="text" name="media" value='<%= @peep.media %>'>
+    </br>
+     <label class="control-label">Tags (comma separated)</label>
+    <input class="form-control" type="text" name="tags">
+    </br>
+    <input type="submit" class="btn btn-success" class="button" value="Send"/>
+</div>
+</form>
+</div>

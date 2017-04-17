@@ -1,0 +1,40 @@
+<h5>Update your details below</h5>
+<form action="/users/update/<%= @user.id %>" method='post'>
+  <div class="form-group">
+    <label for='email' class="control-label">
+      Email</label>
+    <input class="form-control" name='email' type='email' value='<%= @user.email %>'>
+    </br>
+    <label for='handle' class="control-label">
+      Name
+    </label>
+    <input class="form-control" name='name' type='text' value='<%= @user.name %>'>
+    </br>
+    <label for='handle' class="control-label">
+      Handle
+    </label>
+    <input class="form-control" name='handle' type='text' value='<%= @user.handle %>'>
+    </br>
+    <label for='bio' class="control-label">
+      Bio (140 characters)
+    </label>
+    <input class="form-control" name='bio' type='text' value='<%= @user.bio %>'>
+    </br>
+    <label for='avatar' class="control-label">
+      Avatar (URL)
+    </label>
+    <input class="form-control" type="text" name="avatar" value='<%= @user.avatar %>'>
+    </br>
+    <label for='password' class="control-label">
+      Password
+    </label>
+    <input class="form-control" name='password' type='password'>
+    </br>
+    <label for='password_confirmation' class="control-label">
+      Password confirmation
+    </label>
+    <input class="form-control" name='password_confirmation' type='password'>
+    </br>
+    <input class="btn btn-success btn-block" type='submit' value='&nbsp;Update&nbsp;'>
+  </div>
+</form>
