@@ -1,0 +1,15 @@
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse_each do |peep| %>
+    <li>
+      Content: <%= peep.content %>
+      Tags:
+      <% unless peep.tags.empty? %>
+        <% peep.tags.each do |tag| %>
+          #<%= tag.name %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
