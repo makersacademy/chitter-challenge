@@ -5,11 +5,11 @@
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
       <li>
-        @<%= peep.user.user_name %>
+        <strong><%= peep.user.name %></strong>&nbsp; @<%= peep.user.user_name %>
         <p>
-        <strong><%= peep.message %></strong>
+        <%= peep.message %>
         <p>
-          <strong>Name:   </strong><%= peep.user.name %>
+          <strong>Name:   </strong><%= peep.user.name %>&nbsp;
           <strong>Posted:   </strong><%= peep.format_time(peep.created_at) %>
           <hr>
         </p>
