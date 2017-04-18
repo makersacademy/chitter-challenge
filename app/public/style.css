@@ -1,0 +1,104 @@
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+form {
+  font-size: 18px;
+  display: inline;
+}
+
+ul {
+  font-size: 16px;
+  list-style: none;
+}
+
+
+.left {
+  position: relative;
+  text-align: left;
+  left: 4%;
+}
+
+.centered {
+  position: absolute;
+  height: 100px;
+  max-width: 600px;
+  margin: auto;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.field {
+   max-width: 165px;
+   height: 20px;
+   font-size: 14px;
+}
+
+.peep {
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.peep_field {
+   max-width: 350px;
+   font-size: 14px;
+}
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffffff 0px;
+  text-decoration: none;
+  max-width: 130px;
+  line-height: 10px;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.btn_sign {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffffff 0px;
+  text-decoration: none;
+  max-width: 100px;
+  line-height: 8px;
+}

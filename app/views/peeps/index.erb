@@ -1,0 +1,31 @@
+<h2>All Peeps</h2>
+
+<% if !@peeps.empty? %>
+<div class="peep">
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+      <li>
+        <strong><%= peep.user.name %></strong>&nbsp; @<%= peep.user.user_name %>
+        <p>
+        <%= peep.message %>
+        <p>
+          <strong>Name:   </strong><%= peep.user.name %>&nbsp;
+          <strong>Posted:   </strong><%= peep.format_time(peep.created_at) %>
+          <hr>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+<br>
+<% if current_user %>
+<div>
+  <form action='/peeps/new' method="get">
+    <button type='submit' class="btn">
+      Create Peep!
+    </button>
+  </form>
+</div>
+<% end %>
