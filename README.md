@@ -1,18 +1,10 @@
 Chitter Challenge
 =================
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
-
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Write a Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -44,20 +36,29 @@ I want to see the time at which it was made
 ```
 
 ## Approach
+- First of all after reviewing the user stories I determined a rough user experience and journey.
+- From that understanding I designed a class model.
+- Which then allowed me to map out the relationships between a user, multiple peeps and other users.
+- After which I started to write my first pieces of code following TDD principles.
+
 
 ## How to run
-http://salty-springs-83529.herokuapp.com/peeps
+Navigate to: http://immense-everglades-69491.herokuapp.com/peeps
+
 
 ## Tools/Languages
 
+- Ruby v 2.4.0
+- RSpec
 - Sinatra
 - Capybara
-- Ruby v 2.4.0
-- rspec
 - Timecop
 - BCrypt
 - DataMapper ORM
 
 
-### TODO
 ## Future enhancements...
+- Sending user token for password reset journey.
+- Replying to peeps.
+- Displaying a profile page of only the users peeps.
+- Profile pictures.
