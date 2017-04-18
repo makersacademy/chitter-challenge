@@ -11,7 +11,3 @@ require_relative 'controllers/peeps'
 require_relative 'controllers/tags'
 require_relative 'controllers/sessions'
 require_relative 'controllers/users'
-
-# require_relative 'models/peep'
-# require_relative 'models/tag'
-# require_relative 'models/user'

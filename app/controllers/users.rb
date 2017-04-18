@@ -19,5 +19,9 @@ class Chitter < Sinatra::Base
       erb :'users/new'
     end
   end
-  
+
+  get '/users/recover' do
+    "Please enter your email address"
+  end
+
 end
