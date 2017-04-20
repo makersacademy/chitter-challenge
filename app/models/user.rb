@@ -9,6 +9,7 @@ class User
   include DataMapper::Resource
 
   has n, :peeps
+  has n, :replys
 
   property :id, Serial
   property :email, String, format: :email_address, required: true, unique: true
