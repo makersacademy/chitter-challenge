@@ -15,4 +15,12 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign In'
   end
+
+  def peep
+    visit '/peeps'
+    click_button 'Write new tip'
+    fill_in 'text', with: "The crotchet hook is a knitter's best friend"
+    click_button 'Add Tip'
+    expect(current_path).to eq '/peeps'
+  end
 end

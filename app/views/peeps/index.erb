@@ -46,6 +46,12 @@ ul > li {
       <div class="time">
         <%= peep.time %> by <%= peep.user.username %>
       </div>
+
+      <form action='/peeps/new' method='get' name='add_reply'>
+        <button type='submit' name="reply">
+        Reply
+        </button>
+      </form>
       </li>
   <% end %>
   <li>
