@@ -2,6 +2,7 @@ class Knitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
+    @replys = Reply.all
     erb :'peeps/index'
   end
 
@@ -21,4 +22,14 @@ class Knitter < Sinatra::Base
     current_user.save
     redirect '/peeps'
   end
+
+  # post '/replys' do
+  #   @this_peep = Peep.first(id: sessions[:peep_id])
+  #   session[:pad_id] = params[:id]
+  #   reply = Reply.create(text: new_reply, time: Reply.set_time)
+  #   current_peep.replys << reply
+  #   current_peep.save
+  #   redirect '/peeps'
+  # end
+
 end

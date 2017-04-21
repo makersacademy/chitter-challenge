@@ -1,7 +1,9 @@
 feature 'Add to the list of peeps' do
 
   scenario 'Have ability to add new peep' do
-    visit '/peeps/new'
+    signup
+    expect(current_path).to eq '/peeps'
+    click_button 'Write new tip'
     expect(page).to have_content 'add your knit tip'
   end
 
@@ -20,9 +22,11 @@ feature 'Add to the list of peeps' do
   # scenario 'Time is automatically added to a peep' do
   #   signup
   #   login
+  #   click_button 'Write new tip'
   #   click_button 'Add Tip'
   #   within 'ul#peeps' do
   #     expect(page).to have_content "time"
   #   end
   # end
+
 end
