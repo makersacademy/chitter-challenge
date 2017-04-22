@@ -23,4 +23,12 @@ module SessionHelpers
     click_button 'Add Tip'
     expect(current_path).to eq '/peeps'
   end
+
+  def reply
+    visit '/peeps'
+    click_button 'Reply'
+    fill_in 'text', with: "Thats so true"
+    click_button 'Submit Reply'
+    expect(current_path).to eq '/peeps'
+  end
 end

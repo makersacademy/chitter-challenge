@@ -5,7 +5,8 @@ feature 'Reply to a peep' do
     expect(current_path).to eq '/peeps'
     peep
     click_button 'Reply'
-    # expect(page).to have_content 'add your knit tip'
+    reply
+    expect(page).to have_content 'Thats so true'
   end
 
 end
