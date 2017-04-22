@@ -1,0 +1,67 @@
+
+<style>
+#mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.5;
+
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+}
+ul {
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: black;
+    <%# filter: blur(10px); %>
+    opacity: 0.5;
+    font-size: 18px;
+    font-family: "Futura", "Helvetica";
+}
+ul > li {
+    list-style-type: none;
+}
+.time {
+  font-size: 10px;
+  padding-bottom: 10px;
+}
+
+</style>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+      <li>
+      <%= peep.text %>
+      <div class="time">
+        <%= peep.time %> by <%= peep.user.username %>
+      </div>
+
+      <form action='/peeps/new' method='get' name='add_reply'>
+        <button type='submit' name="reply">
+        Reply
+        </button>
+        <%# when clicked, opens up textarea to post reply in %> 
+        <%# then, submit button adds to the peep's replys %>
+      </form>
+      </li>
+  <% end %>
+  <li>
+  </li>
+</ul>
+
+<form action='/peeps/new' method='get' name='add_tip'>
+  <button type='submit'>
+    Write new tip
+  </button>
+</form>

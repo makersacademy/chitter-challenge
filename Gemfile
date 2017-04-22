@@ -1,10 +1,23 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+
+ruby '2.3.3'
+
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+
+gem 'bcrypt'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'sinatra-partial'
+gem 'timecop'
+gem 'heroku-rake'
 
 group :test do
-  gem 'rspec'
-  gem 'cucumber'
-  gem 'rake'
-  gem 'coveralls', require: false
+   gem 'capybara'
+   gem 'coveralls', require: false
+   gem 'cucumber'
+   gem 'database_cleaner'
+   gem 'pry'
+   gem 'rake'
+   gem 'rspec'
 end
-
