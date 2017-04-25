@@ -2,9 +2,25 @@
 
 # Chitter Challenge
 
-I was tasked with making a [Twitter](www.twitter.com) clone for my week four weekend task for [Makers Academy](www.makersacademy.com). I made a social network for cats called Kitter, Some of the technologies I used were PostgreSQL, Heroku, Sinatra, RSpec, Capybara, Rack, HTML5, CSS3, Database Cleaner, DataMapper, SQL, BCrypt, Ruby, Sinatra Flash.
+I was tasked with making a [Twitter](www.twitter.com) clone for my week four weekend task for [Makers Academy](www.makersacademy.com). I made a social network for cats called [Kitter](https://kitterapp.herokuapp.com/).
 
-Notes on functionality:
+## Technologies Used
+* PostgreSQL
+* Heroku
+* Sinatra 
+* RSpec 
+* Capybara
+* Rack
+* HTML5
+* CSS3
+* Database Cleaner 
+* DataMapper
+* SQL
+* BCrypt
+* Ruby
+* Sinatra Flash
+
+## Notes on functionality:
 * Users must sign in with their name, username, email and password.
 * I encrypted the password with BCrypt.
 * My code was made using test driven development with Capybara.
