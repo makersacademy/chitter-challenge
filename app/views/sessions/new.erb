@@ -1,0 +1,25 @@
+<h2>Please Sign In to Get Meowing</h2>
+
+<a href="/users/new">Sign Up</a>
+
+<form class="centre_form" action='/sessions' method='post'>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <p>Please refer to the following errors below:</p>
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <label for='username'>
+    <p>Username:</p>
+    <input name='username' type='text'>
+  </label>
+  <label for='password'>
+    <p>Password:</p>
+    <input name='password' type='password'>
+  </label>
+  <input type='submit' value='Sign in'>
+</form>

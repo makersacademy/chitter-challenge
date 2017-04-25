@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kitter! Send Meows to your fellow kitties!</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+  </head>
+  <body>
+    <header class="head">
+      <h1>kitter</h1>
+      <% if current_user %>
+          <form class="signout" method='post' action="/sessions">
+            <input type='hidden' name="_method" value="delete">
+            <input type="submit" value="Sign out">
+          </form>
+        <% end %>
+    </header>
+
+    <% if current_user == nil && !@disable_sign_in_button %>
+    <a href="/sessions/new">Sign in</a>
+    <% end %>
+
+    <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer>
+      <div class="wrapper">
+      <p>Created by Elaine. Follow me:<a class="footer_link" href="https://twitter.com/kittylainey"> @kittylainey</a><a href="https://github.com/kittysquee/chitter-challenge">Github</a>
+      </p>
+    </div>
+    </footer>
+
+  </body>
+</html>

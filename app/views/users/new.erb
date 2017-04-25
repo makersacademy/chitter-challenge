@@ -1,0 +1,40 @@
+<h2>Sign up for feline friendly social media</h2>
+
+<form class="centre_form" action="/users" method="post">
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <p>Please refer to the following errors below:</p>
+    <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <label for="email">
+    <p>Email:</p>
+    <input type="text" name="email" value="" required>
+  </label>
+
+  <label for="name">
+    <p>Name:</p>
+    <input type="text" name="name">
+  </label>
+
+  <label for="username">
+    <p>Username:</p>
+    <input type="text" name="username">
+  </label>
+
+  <label for="password">
+    <p>Password:</p>
+    <input type="password" name="password">
+  </label>
+
+  <label for="password_confirmation">
+    <p>Confirm Password:</p>
+    <input type="password" name='password_confirmation'>
+  </label>
+
+  <input type="submit" value='Sign up'>
+</form>

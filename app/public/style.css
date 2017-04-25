@@ -1,0 +1,123 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  background-image: url("cat_wallpaper.jpg");
+  background-size: cover;
+  margin: 0;
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+}
+h1 {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 70px;
+  margin: 0;
+  padding-left: 25px;
+  width: 70%;
+  display: inline-block;
+  height: 118px;
+}
+a {
+  display: block;
+  background-color: rgb(0, 175, 175);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+a:visited {
+  color: black;
+}
+footer {
+  background-color: rgb(0, 204, 163);
+  bottom: 0;
+  height: 80px;
+  position: sticky;
+  left: 0;
+  right: 0;
+}
+header {
+  background-color: rgba(0, 204, 163, .5);
+}
+li {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  width: 500px;
+  padding: 0;
+}
+li .message {
+  display: inline-block;
+  height: 75px;
+  vertical-align: bottom;
+  max-width: 375px;
+}
+form.signout {
+  display: inline-block;
+  width: 20%;
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  background-image: url('cute_avatar.png');
+  background-blend-mode: multiply;
+  background-size: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.even {
+  background-color: rgb(0, 204, 163);
+}
+
+.odd {
+  background-color: rgb(0, 175, 175);
+}
+.box {
+  background-color: white;
+  border-radius: 12px;
+  height: 75px;
+}
+.info {
+  float: right;
+  padding-right: 10px;
+}
+.wrapper {
+  text-align: center;
+}
+.footer_link {
+  margin-bottom: 5px;
+}
+.centre_form {
+  width: 300px;
+  margin: 0 auto 250px auto;
+}
+input[type="submit"] {
+  display: block;
+  background-color: rgb(0, 175, 175);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: black;
+  border: none;
+  color: black;
+  font-family: 'Questrial', sans-serif;
+  font-size: 16px;
+}
