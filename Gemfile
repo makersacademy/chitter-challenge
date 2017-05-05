@@ -5,6 +5,7 @@ group :test do
   gem 'rspec'
   gem 'cucumber'
   gem 'rake'
-  gem 'coveralls', require: false
+  gem 'rubocop'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
-
