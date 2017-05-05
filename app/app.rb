@@ -6,6 +6,13 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/users/new' do
     erb :'users/new'
@@ -18,7 +25,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    @user = session[:user_id]
     erb :'posts/index'
   end
 
