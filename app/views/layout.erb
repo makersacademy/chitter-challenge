@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <title>Chitter</title>
+    <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="/styles.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+      <meta name="viewport" content="width=device-width">
+    </head>
+  <body>
+
+    <% if current_user %>
+      <div class="s-out">
+        <div class="header-contents">
+          <form method="post" action="/sessions">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn peep-button-signout">Sign out</button>
+          </form>
+          <h4>Welcome, <%= current_user.email %>!</h4>
+        </div>
+        </div>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <div id='errors'>
+        <% flash[:errors].each do |error| %>
+          <%= error %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+

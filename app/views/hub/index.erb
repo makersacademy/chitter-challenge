@@ -1,0 +1,30 @@
+<html>
+  <body>
+
+    <div class="title-in-session">
+      <img src="/blabla.png">
+      <h3> Your Peeps</h3>
+    </div>
+
+    <div class="post-new-peep-button">
+      <form action="/hub/new" method="get">
+        <button type="submit" class="btn peep-button">Post new peep</button>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="container">
+        <ul id="hub">
+          <% @peeps.reverse_each do |peep| %>
+            <div class="peep-block">
+              <p class="pweep"><%= peep.pweep %></p>
+            </div>
+            <div class ="peep-details">
+              <p><%= peep.user.username %> - <%= peep.time %></p>
+            </div>
+            <% end %>
+        </ul>
+      </div>
+  </body>
+</html>
+
