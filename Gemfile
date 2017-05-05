@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 group :test do
-  gem 'rspec'
   gem 'cucumber'
+  gem 'rspec'
   gem 'rake'
   gem 'rubocop'
   gem 'simplecov', require: false
