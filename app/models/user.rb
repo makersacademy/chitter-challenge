@@ -1,5 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
@@ -10,11 +8,16 @@ class User
   property :id,       Serial
   property :name,     String
   property :username, String
-  property :email,    String, required: true
+  property :email,    String
   property :password_hash, Text
 
   attr_reader :password
   attr_accessor :password_confirmation
+
+  validates_presence_of :email, :message => "Please enter an email address"
+  validates_format_of :email, as: :email_address, :message => "Incorrect email format"
+  validates_confirmation_of :password, :message => "Password and confirmation do not match"
+  validates_uniqueness_of :email, :message => "Email is already registered"
 
   def password=(password)
     @password = Password.create(password)
@@ -22,7 +25,3 @@ class User
   end
 
 end
-
-DataMapper.setup(:default, "postgres://localhost/chitter_test")
-DataMapper.finalize
-DataMapper.auto_upgrade!
