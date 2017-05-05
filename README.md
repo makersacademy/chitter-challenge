@@ -40,9 +40,8 @@ I want to see the time at which it was made
 * Run Rackup and type in browser your localhost address to start using the application.
 * Follow the app structure below as a guide to the application structure.
 
-## Application structure:
-
-![app-structure](https://raw.githubusercontent.com/j-rods/chitter-challenge/master/readme-assets/structure.png)
+![Sign in]()
+![Hub]()
 
 ## Technologies used:
 
