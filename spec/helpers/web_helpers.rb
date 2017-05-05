@@ -11,3 +11,14 @@ def signup(name: "Sophie",
   fill_in 'password_confirmation', with: password_confirmation
   click_button 'Submit'
 end
+
+def signin(name: "Sophie",
+  username: "sophie",
+  email: 'sophie@example.com',
+  password: "password",
+  password_confirmation: "password")
+  visit '/sessions/new'
+  fill_in 'username', with: username
+  fill_in 'password', with: password
+  click_button 'Submit'
+end

@@ -1,5 +1,5 @@
-feature 'Registers users' do
-  scenario 'a new user registers to the website' do
+feature 'User Signup' do
+  scenario 'a new user can sign up to the website' do
     expect { signup }.to change(User, :count).by(1)
     expect(current_path).to eq '/posts'
     expect(page).to have_content('Welcome to Chitter, Sophie!')
