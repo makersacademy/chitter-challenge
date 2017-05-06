@@ -9,9 +9,9 @@ class User
 
   property :id, Serial
   property :email, String, format: :email_address, required: true
-  property :username, String
-  property :name, String
-  property :password_encrypt, Text
+  property :username, String, required: true
+  property :name, String, required: true
+  property :password_encrypt, Text, required: true
 
   validates_confirmation_of :password
   validates_presence_of :email

@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/home'
     else
-      flash.now[:signup_error] = @user.errors.full_messages.pop
+      flash.now[:signup_errors] = @user.errors.full_messages
       erb(:signup)
     end
   end

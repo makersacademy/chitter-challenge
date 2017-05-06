@@ -1,5 +1,11 @@
 <form action='/signup' method='post'>
-  <%= flash[:signup_error] %> <br />
+  <% if flash[:signup_errors] %>
+    <ul>
+      <% flash[:signup_errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
   Name: <input type='text' name='name' value='<%= @user.name %>' required /> <br />
   Username: <input type='text' name='username' value='<%= @user.username %>' required /> <br />
   Email: <input type='email' name='email' value='<%= @user.email %>' required /> <br />
