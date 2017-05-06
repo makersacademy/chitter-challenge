@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    'Chitter!'
+    "Welcome to Chitter, #{User.get(session[:user_id]).name}"
   end
 
 end

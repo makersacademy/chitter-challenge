@@ -5,6 +5,7 @@ require 'capybara'
 require 'capybara/rspec'
 require_relative '../app/data_mapper_setup'
 require_relative '../app/app'
+require 'signing_in_helper'
 
 Capybara.app = Chitter
 

@@ -5,11 +5,12 @@ feature 'Homepage loads successfully' do
   end
 
   scenario 'users can sign up and head to the homepage' do
-    visit '/signup'
-    fill_in :email, with: 'example@email.com'
-    fill_in :name, with: 'Jack Dorsey'
-    fill_in :username, with: 'jack'
-    click_button 'Submit'
+    signs_in_successfully
     expect(page).to have_current_path('/home')
+  end
+
+  scenario 'user is greeted upon signing up' do
+    signs_in_successfully
+    expect(page).to have_content 'Welcome to Chitter, Jack Dorsey'
   end
 end
