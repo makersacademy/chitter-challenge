@@ -1,20 +1,16 @@
 ENV['RACK_ENV'] = 'test'
 
-require_relative '../app/app'
-# require 'features/web_helpers'
-require './app/models/link'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
-require_relative './features/web_helpers'
+require_relative '../app/app.rb'
 
-
-Capybara.app = BookmarkManager
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
+Capybara.app = Chitter
+# DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.clean
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -24,25 +20,25 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+  #
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  #
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
-  
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods

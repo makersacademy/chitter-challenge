@@ -10,6 +10,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'pg'
 gem 'bcrypt'
+gem 'bootstrap'
 
 group :test do
   gem 'capybara'
