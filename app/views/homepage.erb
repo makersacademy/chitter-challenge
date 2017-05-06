@@ -6,11 +6,11 @@
     <form action='/new_user' method='post'>
       <li>
       <label for='name'>Name:</label>
-      <input type='text' name='name' placeholder="Enter your name"> <li>
+      <input type='text' name='name' placeholder="Enter your name" value='<%=@user.name%>'> <li>
       <label for='user_name'>User-name:</label>
-      <input type='text' name='user_name' placeholder="Enter a user-name"> <li>
+      <input type='text' name='user_name' placeholder="Enter a user-name" value='<%=@user.user_name%>'> <li>
       <label for='email'>Email:</label>
-      <input type='text' name='email' placeholder="Enter your email"> <li>
+      <input type='text' name='email' placeholder="Enter your email" value='<%=@user.email%>'> <li>
       <label for='password'>Password:</label>
       <input type='text' name='password' placeholder="Enter your password">
       <label for='password'>Password confirmation:</label>
