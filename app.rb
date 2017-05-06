@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def user
-      User.first(id: session[:user_id])
+      @current_user ||= User.first(id: session[:user_id])
     end
   end
 
