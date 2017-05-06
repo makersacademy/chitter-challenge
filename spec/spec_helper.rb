@@ -1,9 +1,11 @@
 ENV["RACK_ENV"] = "test"
 
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app/app'
+require './data_mapper_setup'
 
 Capybara.app = Chitter
 
@@ -15,7 +17,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  config.before(:suit) do
+  config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -27,7 +29,6 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
-
 
   config.after(:suite) do
     puts
