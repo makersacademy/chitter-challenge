@@ -32,7 +32,6 @@
 
   input[type=text]{
     padding: 10px;
-    border: solid 2px;
     border-radius: 5px;
     width: 210px;
     height: 30px;
@@ -41,7 +40,6 @@
 
   input[type=password]{
     padding: 10px;
-    border: solid 2px;
     border-radius: 5px;
     width: 210px;
     height: 30px;
@@ -50,7 +48,6 @@
 
   input[type=email]{
     padding: 10px;
-    border: solid 2px;
     border-radius: 5px;
     width: 210px;
     height: 30px;
@@ -63,9 +60,8 @@
     background-color: #708090;
     border: none;
     padding: 10px;
-    border: solid 2px;
     border-radius: 5px;
-    width: 150px;
+    width: 120px;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
@@ -100,7 +96,7 @@
       border-radius: 5px;
   }
 
-  .nav input.active {
+  .nav .active {
       background-color: #4CAF50;
       color: white;
   }
@@ -125,7 +121,7 @@
     background-color: #fff;
   }
 
-  .posts #comments {
+  .posts ul #comments {
     border: none;
   }
 
