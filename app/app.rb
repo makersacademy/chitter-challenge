@@ -6,8 +6,14 @@ require_relative 'models/user'
 
 class Chitter < Sinatra::Base
 
-  get '/signup' do
-    erb :signup
+  get '/users/signup' do
+    erb :'users/signup'
+  end
+
+  post '/users' do
+    User.create(user_name: params[:user_name],
+              email: params[:email])
+    redirect to('/users/signup')
   end
 
   run! if app_file == $0
