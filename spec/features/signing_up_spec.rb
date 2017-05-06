@@ -13,4 +13,14 @@ feature 'Homepage loads successfully' do
     signs_in_successfully
     expect(page).to have_content 'Welcome to Chitter, Jack Dorsey'
   end
+
+  scenario 'User cannot sign in without email address' do
+    expect { signs_in_without_email }.not_to change { User.count }
+    expect(page).to have_content 'Email must not be blank'
+  end
+
+  scenario 'User cannot sign in with invalid email address' do
+    expect { signs_in_with_bad_email }.not_to change { User.count }
+    expect(page).to have_content 'Email has an invalid format'
+  end
 end

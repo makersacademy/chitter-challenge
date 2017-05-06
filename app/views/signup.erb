@@ -1,9 +1,9 @@
 <form action='/signup' method='post'>
   <%= flash[:signup_error] %> <br />
-  Name: <input type='text' name='name' value='<%= @user.name %>' /> <br />
-  Username: <input type='text' name='username' value='<%= @user.username %>' /> <br />
-  Email: <input type='email' name='email' value='<%= @user.email %>' /> <br />
-  Password: <input type='text' name='password' /> <br />
-  Confirm Password: <input type='text' name='confirm_password' /> <br />
+  Name: <input type='text' name='name' value='<%= @user.name %>' required /> <br />
+  Username: <input type='text' name='username' value='<%= @user.username %>' required /> <br />
+  Email: <input type='email' name='email' value='<%= @user.email %>' required /> <br />
+  Password: <input type='text' name='password' required /> <br />
+  Confirm Password: <input type='text' name='confirm_password' required /> <br />
   <input type='submit' value='Submit' />
 </form>
