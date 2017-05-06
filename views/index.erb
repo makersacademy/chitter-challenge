@@ -36,9 +36,9 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <% @replies.each do |reply| %>
           <% if reply.peep_id == peep.id %>
           <li>
-            <%= @users.get(reply.user_id).handle %>:
+            <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>):
             <br><%= reply.text %><br>
-            <%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>
+
           </li>
           <% end %>
           <% end %>
