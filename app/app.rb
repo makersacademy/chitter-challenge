@@ -1,9 +1,11 @@
 ENV["RACK_ENV"] ||= "development"
 
-require 'data_mapper_setup'
+require "sinatra/base"
 
-class Chitter
+class Chitter < Sinatra::Base
 
-
+  get '/' do
+    erb :index
+  end
 
 end
