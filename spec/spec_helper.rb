@@ -1,5 +1,21 @@
+ENV['RACK_ENV'] = 'test'
+
+require_relative '../app/app.rb'
+
+require 'capybara'
+require 'capybara/rspec'
+require 'database_cleaner'
+require 'data_mapper'
+require 'dm-migrations'
+require 'dm-postgres-adapter'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+
+Capybara.app = Chitter
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+DataMapper.finalize.auto_upgrade!
+DatabaseCleaner.strategy = :truncation
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
