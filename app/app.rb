@@ -6,4 +6,7 @@ class Chitter < Sinatra::Base
     erb(:signup_login)
   end
 
+  get '/feed' do
+    erb(:feed)
+  end
 end
