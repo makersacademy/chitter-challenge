@@ -9,9 +9,9 @@ feature 'Sign up' do
 		fill_in 'username', with: 'sam'
 		fill_in 'password', with: '1234'
 		click_button 'Submit'
-		expect(current_path).to eq '/account'
 		expect(page).to have_content 'Name: Sam Blausten'
 		expect(page).to have_content 'Email: test@test.com'
 		expect(page).to have_content 'Username: sam'
+		expect(current_path).to eq '/account'
 	end
 end

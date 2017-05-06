@@ -1,11 +1,11 @@
-<form action="/account">
+<form action="/users" method='post'>
   Name:<br>
-  <input type="text" name="name"><br>
+  <input name="name" required aria-required=”true” pattern="[A-Za-z-0-9]+\s[A-Za-z-0-9]+"><br>
   Email:<br>
-  <input type="text" name="email">
+  <input type="email" name="email" required><br>
   Username:<br>
-  <input type="text" name="username">
+  <input name="username" required aria-required=”true” pattern="[A-Za-z-0-9]+"><br>
   Password:<br>
-  <input type="text" name="password">
+  <input type="password" name="password"><br>
   <input type="submit" value="Submit">
 </form>
