@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if current_user %>
+      <p>Logged in as <%= current_user.username %> </p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
