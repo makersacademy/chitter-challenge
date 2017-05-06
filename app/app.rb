@@ -3,21 +3,33 @@ require 'sinatra/base'
 require 'data_mapper'
 require_relative './models/user'
 require_relative './models/data_mapper_setup'
+require 'pry'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    erb(:signup_login)
+    erb(:signup)
   end
 
   post '/' do
-    @user = User.first_or_create(name: params[:user_name],
-          email: params[:user_email], password: params[:password])
+    @user = User.generate(name: params[:newuser_name],
+          email: params[:newuser_email], password: params[:newuser_password])
+    redirect '/login'
+  end
+
+  before do
+    @user = User.instance
+  end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
     redirect '/feed'
   end
 
   get '/feed' do
-    @user = User.first
     erb(:feed)
   end
 end
