@@ -5,7 +5,13 @@ class User
   property :id, Serial
   property :name, String, required: true
   property :user_name, String, required: true
-  property :email, String, format: :email_address, required: true
+  property :email, String, required: true, unique: true,
+  format: :email_address,
+  messages: {
+    :presence => "You must provide an email address",
+    :is_unique => "This email is already registered",
+    :format => "Email must have correct format"
+  }
   property :password_digest, Text, required: true
   attr_reader :password
   attr_accessor :password_confirmation

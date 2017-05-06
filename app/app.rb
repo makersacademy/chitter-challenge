@@ -28,7 +28,7 @@ post '/new_user' do
     session[:user_id] = @user.id
     redirect '/chitter'
   else
-    flash.now[:notice] = 'Oh No !!! Your password and password confirmation dont match, try again.'
+    flash.now[:errors] = @user.errors.full_messages
     erb(:homepage)
   end
 end

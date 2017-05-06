@@ -1,7 +1,11 @@
 <h1> Sign up for Chitter <h1>
-<%if flash[:notice]%>
-<%=flash[:notice]%>
+<%if flash[:errors] && !flash[:errors].empty?%>
+The following errors have occured:
+<%flash[:errors].each do |error|%>
+<li><%=error%></li>
 <%end%>
+<%end%>
+
   <body>
     <form action='/new_user' method='post'>
       <li>
