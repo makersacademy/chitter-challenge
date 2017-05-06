@@ -13,10 +13,10 @@
   </form></li>
 <% end %>
 <% if current_user == nil %>
-  <li><form method='post' action='/sessions/new'>
+  <li><form action='/sessions/new'>
     <input type='submit' value='Sign In'>
   </form></li>
-  <li><form method='post' action='/users/new'>
+  <li><form action='/users/new'>
     <input type='submit' value='Sign Up'>
   </form></li>
 <% end %>
