@@ -11,3 +11,12 @@ feature 'Sign up' do
     click_button 'Register'
   end
 end
+
+feature 'Log in' do
+  scenario 'I want to log in to Chitter' do
+    visit '/'
+    fill_in 'user name', with: 'kyojin'
+    fill_in 'password', with: 'password'
+    click_button 'Log in'
+  end
+end
