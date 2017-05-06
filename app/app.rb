@@ -24,6 +24,15 @@ class ChitterApp < Sinatra::Base
     erb :welcome
   end
 
+  get '/user_log_in' do
+    erb :user_log_in
+  end
+
+  post '/user_log_in' do
+    @user = User.get
+    redirect '/welcome'
+  end
+
   run! if app_file == $0
 
 end
