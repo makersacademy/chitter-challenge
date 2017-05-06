@@ -34,4 +34,10 @@ module Helpers
     click_button "Peep"
   end
 
+  def add_comment(comment: "Hey, this is a comment!")
+    visit '/posts'
+    fill_in :comment, with:  comment
+    click_button "Add Comment"
+  end
+
 end
