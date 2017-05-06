@@ -21,5 +21,6 @@ feature 'log in capability' do
     fill_in 'password_confirmation', with: 'dsfsdf'
     click_button 'submit'
     expect(User.count).to eq 1
+    expect(page).to have_content 'Oh No !!! Your password and password confirmation dont match, try again.'
   end
 end

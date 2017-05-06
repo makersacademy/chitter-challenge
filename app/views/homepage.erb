@@ -1,5 +1,7 @@
 <h1> Sign up for Chitter <h1>
-
+<%if flash[:notice]%>
+<%=flash[:notice]%>
+<%end%>
   <body>
     <form action='/new_user' method='post'>
       <li>
