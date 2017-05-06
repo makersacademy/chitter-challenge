@@ -1,14 +1,13 @@
-require 'sinatra'
+require 'sinatra/base'
 
 class Chitter < Sinatra::Base
   set :sessions, true
 
   get '/' do
-    'hello'
+    erb(:index)
   end
 
-  get '/secret' do
-    'secret hello'
+  get '/signup' do
+    erb(:signup)
   end
-
 end
