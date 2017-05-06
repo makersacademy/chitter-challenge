@@ -49,7 +49,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/reply_to/:peep_id' do
-    session[:reply_to] = params[:peep_id]
+    session[:peep_id] = params[:peep_id]
     @peep = Peep.get(params[:peep_id])
     @users = User.all
     @replies = Reply.all(Reply.peep_id => params[:peep_id])
@@ -57,7 +57,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_reply' do
-    Reply.create(user_id: session[:user_id], text: params[:reply], peep_id: session[:reply_to], date_time: DateTime.now)
+    Reply.create(user_id: session[:user_id], text: params[:reply], peep_id: session[:peep_id], date_time: DateTime.now)
     link = "/"
     redirect link
   end
