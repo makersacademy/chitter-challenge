@@ -1,8 +1,12 @@
+<% if flash[:pass_error] %>
+  <div id='pass_error'><%= flash[:pass_error] %></div>
+<% end %>
+
 <form action="/create_user" method="post" id="sign_up_form">
       Name
     <input type="text" name="name">
       Email
-    <input type="text" name="email">
+     <input name='email' type='text'>
       User Name
     <input type="text" name="username">
       Password

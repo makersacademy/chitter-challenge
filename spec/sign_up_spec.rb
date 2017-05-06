@@ -22,6 +22,7 @@ feature "User can sign up to Chitter" do
   end
   scenario 'requires a matching password to sign_up' do
     expect { sign_up_wrong_password }.not_to change { User.all.count }
+    expect(page).to have_content('Passwords do not match')
   end
 end
 
