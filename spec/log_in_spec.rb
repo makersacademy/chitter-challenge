@@ -8,6 +8,7 @@ feature 'Users' do
 
   scenario 'log in and are redirected' do
       log_in
+      expect(page).to have_content "Hi #{user.email}"
     end
 
 end

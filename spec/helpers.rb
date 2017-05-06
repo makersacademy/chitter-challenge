@@ -5,5 +5,4 @@ def log_in
   fill_in 'email', with: user.email
   fill_in 'password', with: user.password
   click_button 'Log In'
-  expect(page).to have_content "Hi #{user.email}"
 end

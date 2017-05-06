@@ -31,8 +31,15 @@ class Chitter < Sinatra::Application
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :'peeps/index'
+  end
+
+  post '/peeps/new' do
+    owner = current_user
+    #owner.peeps << Peep.create(content: params[:content])
+    owner.peeps.create(content: params[:content])
+    redirect '/peeps'
   end
 
   get '/sessions/new' do
