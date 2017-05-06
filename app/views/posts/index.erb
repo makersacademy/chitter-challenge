@@ -4,7 +4,7 @@
   <ul>
     <li>Peep: <%= post.message %></li>
     <li>User: <%= post.user.username %></li>
-    <li>Date: <%= (post.created_at).strftime("%d/%m/%y: %H:%M:%S %Z") %></li>
+    <li>Date: <%= (post.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
   </ul>
   <% end %>
 </div>
