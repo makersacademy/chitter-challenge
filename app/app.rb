@@ -1,4 +1,10 @@
 ENV["RACK_ENV"] ||= "development"
 
-class Chitter
+require 'sinatra/base'
+
+class Chitter < Sinatra::Base
+
+  get '/' do
+
+  end
 end
