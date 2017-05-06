@@ -8,7 +8,10 @@
     <% if current_user %>
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
+      <input type='submit' value='Sign Out'>
+    </form>
+    <form action='/posts/new'>
+      <input type='submit' value='New Peep'>
     </form>
     <% end %>
     <h2>Chitter</h2>

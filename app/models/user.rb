@@ -34,6 +34,6 @@ class User
     end
   end
 
-  has n, :posts, :through => Resource
+  has n, :posts
 
 end

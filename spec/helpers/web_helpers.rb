@@ -25,6 +25,13 @@ module Helpers
   end
 
   def signout
-    click_button 'Sign out'
+    click_button 'Sign Out'
   end
+
+  def add_post(message: "Hey, I'm a new peeper!")
+    click_button "New Peep"
+    fill_in :message, with:  message
+    click_button "Peep"
+  end
+
 end
