@@ -1,4 +1,3 @@
-ENV['RACK_ENV'] = "test"
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
