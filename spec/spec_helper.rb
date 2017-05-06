@@ -7,8 +7,10 @@ require 'capybara'
 require 'pry'
 require 'rspec'
 require 'database_cleaner'
+require_relative 'web_helpers'
 require_relative '../app'
 require_relative '../models/user'
+require_relative '../models/peep'
 require_relative '../data_mapper_setup'
 
 DatabaseCleaner.strategy = :truncation

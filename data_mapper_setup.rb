@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative './models/user'
+require_relative './models/peep'
 
 if ENV['RACK_ENV'] == 'test'
   @database = "postgres://localhost/chitter_test"
