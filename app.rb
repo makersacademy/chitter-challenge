@@ -49,7 +49,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/reply_to/:peep_id' do
-    session[:keep_peep] = params[:peep_id]
     @peep = Peep.get(session[:keep_peep])
     @users = User.all
     @replies = Reply.all(Reply.peep_id => params[:peep_id])
