@@ -9,4 +9,5 @@ class User
   property :email, String
   property :name, String
   property :password, String
+  property :password_confirmation, String
 end
