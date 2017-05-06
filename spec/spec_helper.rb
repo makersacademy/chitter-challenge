@@ -1,7 +1,9 @@
+ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require_relative '../app/data_mapper_setup'
 require_relative '../app/app'
 
 Capybara.app = Chitter
