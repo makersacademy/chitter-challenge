@@ -1,1 +1,10 @@
 <h1>chitter</h1>
+
+<ul id='links'>
+  <% @peeps.each do |peep| %>
+    <li> <%= @users.get(peep.user_id).name %> peeped:<br>
+    <%= peep.text %> <br>
+    <%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>
+    </li>
+  <% end %>
+</ul>

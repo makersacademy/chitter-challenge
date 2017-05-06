@@ -11,7 +11,7 @@ class User
   property :password_digest, Text
 
   has n, :peeps
-  
+
   def password=(pass)
     self.password_digest = BCrypt::Password.create(pass)
   end
@@ -31,15 +31,11 @@ class User
 
   def self.login(params)
     @user = first(email: params[:email])
-    if @user && BCrypt::Password.new(@user.password_digest) == params[:password]
-      return @user
-    else
-      nil
-    end
+    return @user if @user && BCrypt::Password.new(@user.password_digest) == params[:password]
   end
 
   def self.duplicate_email?
-    User.count(:conditions => [ 'email = ?' , @email ]) > 0
+    User.count(:conditions => ['email = ?', @email]) > 0
   end
 
 end
