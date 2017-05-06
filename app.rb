@@ -6,7 +6,8 @@ require_relative './data_mapper_setup'
 ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
-  use Rack::Session::Cookie
+  enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
 
   get '/' do
