@@ -5,5 +5,17 @@ def sign_up
   fill_in :email, with: "Test.email@test.com"
   fill_in :username, with: "BertZ"
   fill_in :password, with: "Password1234"
+  fill_in :password_confirmation, with: "Password1234"
+  click_button "Create Account"
+end
+
+def sign_up_wrong_password
+  visit '/'
+  click_link 'Sign Up'
+  fill_in :name, with: "Bertie"
+  fill_in :email, with: "Test.email@test.com"
+  fill_in :username, with: "BertZ"
+  fill_in :password, with: "Password1234"
+  fill_in :password_confirmation, with: "Password2345"
   click_button "Create Account"
 end
