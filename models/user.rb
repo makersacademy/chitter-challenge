@@ -30,7 +30,7 @@ class User
   end
 
   def self.login(params)
-    @user = first(email: params[:email])
+    @user = User.first(email: params[:email])
     return @user if @user && BCrypt::Password.new(@user.password_digest) == params[:password]
   end
 

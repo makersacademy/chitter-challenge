@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'pry'
 gem 'selenium-webdriver'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'

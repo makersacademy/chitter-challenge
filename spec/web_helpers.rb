@@ -18,3 +18,11 @@ def sign_up_2_users
   User.create("Name", "email", "password")
   User.create("Other Name", "other email", "password")
 end
+
+def sign_in
+  visit '/'
+  click_link 'sign in'
+  fill_in 'email', with: 'email'
+  fill_in 'password', with: 'password'
+  click_button 'submit'
+end
