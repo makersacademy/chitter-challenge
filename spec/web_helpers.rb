@@ -30,3 +30,10 @@ def sign_up_wrong_email
   fill_in :password_confirmation, with: "Password1234"
   click_button "Create Account"
 end
+
+def sign_in(username:, password:)
+  visit '/login_form'
+  fill_in :username, with: "BertZ"
+  fill_in :password, with: "Password1234"
+  click_button 'Login'
+end

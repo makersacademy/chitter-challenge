@@ -1,0 +1,22 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please use the suggestions below to proceed:
+  <ul id='errors'>
+    <%flash[:errors].each do |error|%>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1> Login to Chitter </h1>
+
+<form action="/login" method="post" id="sign_in_form">
+
+  User Name
+  <input name='username' type='text'>
+  Password
+  <input name='password' type='password'>
+</form>
+
+<button type="submit" form="sign_in_form" value="Login"> Login </button>
+
+No account? Sign Up for Chiter here <a class="btn btn-default" href="/sign_up" role="button">Sign Up</a>

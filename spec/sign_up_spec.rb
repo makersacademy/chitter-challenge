@@ -18,20 +18,19 @@ feature "User can sign up to Chitter" do
     expect(page).to have_content('Password does not match the confirmation')
   end
   scenario "Can't sign up with an invalid email adress" do
-  expect { sign_up_wrong_email }.not_to change { User.all.count }
+    expect { sign_up_wrong_email }.not_to change { User.all.count }
   end
 end
-
 
 feature "A User cannot sign up with the same Username or Email" do
   scenario "I cannot sign up with the same Username" do
     sign_up
-    expect { sign_up }.to_not change {User.all.count}
+    expect { sign_up }.to_not change { User.all.count }
     expect(page).to have_content('Username is already taken')
   end
   scenario "I cannot sign up with the same Email" do
     sign_up
-    expect { sign_up }.to_not change {User.all.count}
+    expect { sign_up }.to_not change { User.all.count }
     expect(page).to have_content('Email is already taken')
   end
 end

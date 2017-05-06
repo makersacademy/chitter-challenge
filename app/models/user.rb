@@ -3,7 +3,6 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-migrations'
 
-
 class User
   include DataMapper::Resource
   attr_reader :password
@@ -21,6 +20,15 @@ class User
   def password=(password)
     @password = password
     self.password_encrypt = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(username, password)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.password_encrypt) == password
+      user
+    else
+      nil
+    end
   end
 end
 
