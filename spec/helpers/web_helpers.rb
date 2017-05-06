@@ -13,11 +13,8 @@ module Helpers
     click_button 'Submit'
   end
 
-  def signin(name: "Sophie",
-    username: "sophie",
-    email: 'sophie@example.com',
-    password: "password",
-    password_confirmation: "password")
+  def signin(username: "sophie",
+    password: "password")
     visit '/sessions/new'
     fill_in 'username', with: username
     fill_in 'password', with: password
@@ -30,13 +27,13 @@ module Helpers
 
   def add_post(message: "Hey, I'm a new peeper!")
     click_button "New Peep"
-    fill_in :message, with:  message
+    fill_in :message, with: message
     click_button "Peep"
   end
 
   def add_comment(comment: "Hey, this is a comment!")
     visit '/posts'
-    fill_in :comment, with:  comment
+    fill_in :comment, with: comment
     click_button "Add Comment"
   end
 

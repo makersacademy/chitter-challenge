@@ -13,7 +13,7 @@ require_relative 'controllers/comments'
 class Chitter < Sinatra::Base
 
   get '/' do
-    erb :'index'
+    erb :'/index'
   end
 
 end
