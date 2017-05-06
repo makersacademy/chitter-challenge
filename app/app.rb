@@ -7,11 +7,12 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user ||= User.get(session[:user_id])
+      @current_user ||= p User.get(session[:user_id])
     end
   end
 
   get '/home' do
+    @users = User.all
     erb :feed
   end
 
@@ -20,7 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    p user = User.create(email: params[:email],
+    user = User.create(email: params[:email],
                 name: params[:name],
                 username: params[:username],
                 password: params[:password])

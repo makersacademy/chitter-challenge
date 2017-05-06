@@ -5,10 +5,15 @@
   </head>
 
   <body>
-    <h1 align='center'>Chitter</h1>
     <form action='/sign-up'>
       <input type='submit' value='Sign Up' style="float:right">
     </form>
+    <br>
+    <h1 align='center'>Chitter</h1>
+    <% if current_user %>
+      <h3 align='center'> Welcome, <%= current_user.name %></h3>
+    <% end %>
+    <%= yield %>
   </body>
 
 </html>

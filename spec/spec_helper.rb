@@ -10,14 +10,24 @@ SimpleCov.start
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara/rspec'
+require 'database_cleaner'
 require_relative 'web_helper.rb'
+
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
-  config.after(:suite) do
-    puts
-    puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
-    puts "\e[33mTry it now! Just run: rubocop\e[0m"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end
