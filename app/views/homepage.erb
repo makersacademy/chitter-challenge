@@ -6,15 +6,23 @@
     <form action='/new_user' method='post'>
       <li>
       <label for='name'>Name:</label>
-      <input type='text' name='name' placeholder="Enter your name" value='<%=@user.name%>'> <li>
+      <input type='text' name='name' placeholder="Enter your name" value='<%=@user.name%>' required> <li>
       <label for='user_name'>User-name:</label>
-      <input type='text' name='user_name' placeholder="Enter a user-name" value='<%=@user.user_name%>'> <li>
+      <input type='text' name='user_name' placeholder="Enter a user-name" value='<%=@user.user_name%>' required> <li>
       <label for='email'>Email:</label>
-      <input type='text' name='email' placeholder="Enter your email" value='<%=@user.email%>'> <li>
+      <input type='email' name='email' placeholder="Enter your email" value='<%=@user.email%>' required> <li>
       <label for='password'>Password:</label>
-      <input type='text' name='password' placeholder="Enter your password">
+      <input type='text' name='password' placeholder="Enter your password" required> <li>
       <label for='password'>Password confirmation:</label>
-      <input type='text' name='password_confirmation' placeholder="Re-enter your password">
+      <input type='text' name='password_confirmation' placeholder="Re-enter your password" required>
       <input type='submit' value='submit'>
+    </form>
+
+    <form action='/chitter' method='post'>
+      <label for='user_name'>User-name:</label>
+      <input type='text' name='login_id' placeholder="Enter your user-name"> <li>
+      <input type='text' name='login_pass' placeholder="Enter your password"> <li>
+      <label for='password'>Password:</label>
+      <input type='submit' value='login'>
     </form>
   </body>
