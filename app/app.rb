@@ -13,6 +13,10 @@ class Chitter < Sinatra::Base
     end
 
   get '/' do
+    erb :index
+  end
+
+  get '/signup' do
     erb :signup
   end
 
@@ -21,7 +25,7 @@ class Chitter < Sinatra::Base
                        email: params[:email],
                        password: params[:password],
                        username: params[:username])
-    session[:user_id] = user.id                   
+    session[:user_id] = user.id
     erb :home
   end
 
