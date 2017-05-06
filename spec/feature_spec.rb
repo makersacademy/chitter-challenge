@@ -10,7 +10,7 @@ feature 'Homepage' do
 
   scenario 'see peeps' do
     visit '/'
-    expect(page).to have_content 'Name'
+    expect(page).to have_content 'handle'
   end
 
   scenario 'see peeps' do
@@ -30,11 +30,21 @@ feature 'User accounts' do
     visit '/'
     click_link 'sign up'
     expect(page).to have_content 'sign up'
+    expect(page).to_not have_content 'your passwords did not match, try again'
   end
 
   scenario 'signed in' do
     sign_in
     expect(page).to have_content 'welcome Name'
+  end
+
+  scenario 'get password wrong' do
+    visit '/'
+    click_link 'sign in'
+    fill_in 'email', with: 'email'
+    fill_in 'password', with: 'notmypassword'
+    click_button 'submit'
+    expect(page).to have_content 'you could not be signed in, try again'
   end
 
   scenario 'can log out' do
@@ -55,9 +65,31 @@ feature 'User accounts' do
     click_link 'sign up'
     fill_in 'name', with: 'Testy McTestface'
     fill_in 'email', with: 'new@emailcom'
+    fill_in 'handle', with: 'stuff'
     fill_in 'password', with: 'password'
     fill_in 'verify_password', with: 'password'
     click_button 'submit'
     expect(page).to have_content 'welcome Testy'
+  end
+
+  scenario 'can\'t sign up with mismatched password' do
+    visit '/'
+    click_link 'sign up'
+    fill_in 'name', with: 'Testy McTestface'
+    fill_in 'handle', with: 'stuff'
+    fill_in 'email', with: 'new@emailcom'
+    fill_in 'password', with: 'password'
+    fill_in 'verify_password', with: 'passwird'
+    click_button 'submit'
+    expect(page).to have_content 'your passwords did not match, try again'
+  end
+
+  scenario 'add a reply' do
+    sign_in
+    visit '/'
+    click_link('peep back', :match => :first)
+    fill_in 'reply', with: 'a reply of some sort'
+    click_button 'submit'
+    expect(page).to have_content 'a reply of some sort'
   end
 end

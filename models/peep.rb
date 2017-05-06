@@ -1,6 +1,7 @@
 require 'bcrypt'
 require 'data_mapper'
 require_relative 'user'
+require_relative 'reply'
 
 class Peep
   include DataMapper::Resource
@@ -10,5 +11,6 @@ class Peep
   property :date_time, DateTime
 
   belongs_to :user
+  has n, :replies
 
 end

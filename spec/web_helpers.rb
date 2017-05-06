@@ -15,8 +15,8 @@ def bunch_of_peeps
 end
 
 def sign_up_2_users
-  User.create("Name", "email", "password")
-  User.create("Other Name", "other email", "password")
+  User.create("Name", "handle", "email", "password")
+  User.create("Other Name", "handler", "other email", "password")
 end
 
 def sign_in

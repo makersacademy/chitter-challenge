@@ -14,6 +14,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="hot-container">
 <form action="/sign_up" method="post">
   <input type="text" name="name" placeholder="name">
+  <input type="text" name="handle" placeholder="handle/username">
   <input type="text" name="email" placeholder="email">
   <input type="password" name="password" placeholder="password">
   <input type="password" name="verify_password" placeholder="verify password">
@@ -21,5 +22,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <input class="btn" type="submit" value="submit">
 </form>
 </div>
+<%= flash[:notice] %>
 </body>
 </html>

@@ -1,9 +1,9 @@
-.hot-container p { margin-top: 10px; }
-a { text-decoration: none; margin: 0 10px; }
+.hot-container p { margin-top: 5px; }
+a { text-decoration: none; margin: 0 5px; }
 
 .hot-container {
 	min-height: 30px;
-	margin-top: 30px;
+	margin-top: 20px;
 	width: 100%;
 	text-align: left;
 }
@@ -13,12 +13,18 @@ a { text-decoration: none; margin: 0 10px; }
 	color: #666;
 	background-color: #eee;
 	text-transform: lowercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	font-size: 10px;
-	padding: 10px 10px;
+	padding: 5px 5px;
 	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
 	border: 1px solid rgba(0,0,0,0.3);
 	border-bottom-width: 3px;
+}
+
+input.break {
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 80px;
 }

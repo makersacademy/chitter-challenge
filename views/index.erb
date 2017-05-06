@@ -10,32 +10,43 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 
 <body>
-<h1>chitter</h1>
+  <h1>chitter</h1>
 
-<% if session[:user] == nil %>
-<a href="/sign_in">sign in</a><p>
-<a href="/sign_up">sign up</a>
-<% else %>
-  <h2> welcome <%= session[:user] %> </h2>
-  <div class="hot-container">
-    <form action="/log_out">
-      <input class="btn" type="submit" value="log out" name="log_out">
-    </form>
-  <form action="/peep" method="post">
-    <input type="text" name="peep" placeholder="new peep" size="100">
-    <input class="btn" type="submit" value="submit">
-  </form>
-</div>
-<% end %>
+  <% if session[:user] == nil %>
+  <a href="/sign_in">sign in</a><p>
+    <a href="/sign_up">sign up</a>
+    <% else %>
+    <h2> welcome <%= session[:user] %> </h2>
+    <div class="hot-container">
+      <form action="/log_out">
+        <input class="btn" type="submit" value="log out" name="log_out">
+      </form>
+      <form action="/peep" method="post">
+        <textarea name="peep" placeholder="new peep" rows="3" cols="60" wrap="soft" maxlength="40" style="overflow:hidden; resize:none;"></textarea><br>
+        <input class="btn" type="submit" value="submit">
+      </form>
+    </div>
+    <% end %>
 
-<ul id='links' border="1px">
-  <% @peeps.each do |peep| %>
-    <li>
-      <h5><%= @users.get(peep.user_id).name %> <br> </h5>
-      <h3><%= peep.text %></h3>
-      <%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>
-    </li>
-  <% end %>
-</ul>
+    <ul id="peeps">
+      <% @peeps.each do |peep| %>
+      <li>
+        <h4><%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
+        <h3><%= peep.text %></h3>
+        <ul id="replies">
+          <% @replies.each do |reply| %>
+          <% if reply.peep_id == peep.id %>
+          <li>
+            <%= @users.get(reply.user_id).handle %>:
+            <br><%= reply.text %><br>
+            <%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>
+          </li>
+          <% end %>
+          <% end %>
+            </ul>
+        <a href="/reply_to/<%= peep.id %>" >peep back</a>
+      </li>
+      <% end %>
+    </ul>
 
-</html>
+    </html>
