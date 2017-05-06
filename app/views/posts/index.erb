@@ -1,0 +1,9 @@
+<h2> Peeps </h2>
+<ul id='posts'>
+  <% @posts.each do |post| %>
+  <li>
+    Peep: <%= post.message %>
+    Date: <%= post.created_at %>
+  </li>
+  <% end %>
+</ul>

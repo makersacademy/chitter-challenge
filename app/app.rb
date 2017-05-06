@@ -38,10 +38,6 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/posts' do
-    erb :'posts/index'
-  end
-
   get '/sessions/new' do
     erb :'sessions/new'
   end
@@ -61,6 +57,11 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.next[:notice] = "Goodbye!"
     redirect to '/posts'
+  end
+
+  get '/posts' do
+    @posts = Post.all
+    erb :'posts/index'
   end
 
 end
