@@ -1,0 +1,18 @@
+<body>
+<h1> Chitter </h1>
+
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+  <form action='/login' method='post'>
+  <label for='username'>
+    Username: <input type='text' name='username'></br>
+  </label>
+  <label for='password'>
+    Password: <input type='text' name='password'></br>
+  </label>
+    <input type='submit' value='Login'>
+  </form>
+  Or <a href='/signup'>Signup</a>
+</body>

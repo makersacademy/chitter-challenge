@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <% if current_user %>
+    Welcome, <%= current_user.username %>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= yield %>
+
+  <footer>
+      <form action='/logout' method='post'>
+      <input type='submit' value='Logout'>
+    </form>
+  </footer>
+</html>
