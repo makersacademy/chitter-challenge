@@ -7,7 +7,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, ENV['SESSION_SECRET'] || 'something'
   register Sinatra::Flash
 
   get '/' do
