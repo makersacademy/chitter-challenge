@@ -1,18 +1,22 @@
-<% if flash[:pass_error] %>
-  <div id='pass_error'><%= flash[:pass_error] %></div>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please use the suggestions below to proceed:
+  <ul id='errors'>
+    <%flash[:errors].each do |error|%>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
-
 <form action="/create_user" method="post" id="sign_up_form">
       Name
-    <input type="text" name="name">
+    <input name='name' type='text'>
       Email
-     <input name='email' type='text'>
+     <input name='email' type='email'>
       User Name
-    <input type="text" name="username">
+    <input name='username' type='text'>
       Password
-    <input type="text" name="password">
+    <input name='password' type='text'>
     Password Confirmation
-    <input type="text" name="password_confirmation">
+    <input name='password_confirmation' type='text'>
 </form>
 
 <button type="submit" form="sign_up_form" value="Create Account"> Create Account </button>

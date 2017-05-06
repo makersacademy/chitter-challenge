@@ -12,9 +12,11 @@ class User
 
   property :id, Serial
   property :name, String
-  property :email, String
-  property :username, String
+  property :email, String, required: true, unique: true
+  property :username, String, required: true, unique: true
   property :password_encrypt, Text
+
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password
