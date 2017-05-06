@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    @user = User.generate(name: params[:newuser_name],
+    @user = User.generate(name: params[:newuser_name], username: params[:newuser_username],
           email: params[:newuser_email], password: params[:newuser_password])
     redirect '/login'
   end
