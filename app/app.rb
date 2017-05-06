@@ -14,4 +14,8 @@ class Chitter < Sinatra::Base
   get '/login' do
     erb(:login)
   end
+
+  post '/welcome' do
+    erb(:welcome)
+  end
 end
