@@ -1,0 +1,3 @@
+#!/bin/bash
+export RACK_ENV="development"
+irb -r "./app/app"

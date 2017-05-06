@@ -1,3 +1,4 @@
+=begin
 feature 'User login in function' do
 
   scenario 'User can log in to Chitter' do
@@ -7,3 +8,4 @@ feature 'User login in function' do
     expect(page).to have_field 'password'
   end
 end
+=end

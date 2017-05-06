@@ -6,6 +6,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rack'
 gem 'database_cleaner'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
