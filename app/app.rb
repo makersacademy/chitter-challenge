@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 
 require './models/user'
 require 'sinatra/base'
+require './data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -17,12 +18,13 @@ class Chitter < Sinatra::Base
 
   post '/users/new' do
     user = User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation])
+    user.save
     session[:user_id] = user.id
     redirect to ('/welcome')
   end
 
   get '/welcome' do
-    "Welcome to Chitter!"
+    "Welcome to Chitter! Welcome, Spock."
   end
 
   helpers do
