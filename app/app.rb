@@ -6,10 +6,6 @@ require_relative 'models/user'
 
 class Chitter < Sinatra::Base
 
-  get '/chitter' do
-    erb :chitter
-  end
-
   get '/signup' do
     erb :signup
   end
