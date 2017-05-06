@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.0/cerulean/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body class="preview">
+
+ <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container-fluid">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="../">Jaiye's Bookmark Manager</a>
+       <div class="nav-collapse collapse" id="main-menu">
+
+       <ul class="nav pull-right" id="main-menu-right">
+
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+
+         </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="container-fluid" style="margin-top: 70px; margin-left: 40px; margin-right: 40px">
+    <header class="jumbotron subhead" id="overview">
+
+      <div class="row">
+
+        <% if current_user %>
+        Hi <%= current_user.email %>
+        <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log Out'>
+        </form>
+        <% end %>
+
+        <% if flash[:notice] %>
+        <div id='notice'>
+        <%= flash[:notice] %>
+        </div>
+        <% end %>
+
+        <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+        <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+        </ul>
+        <% end %>
+
+
+      </div>
+
+        <div class="row">
+        <div>
+          <%= yield %>
+        </div>
+      </div>
+    </header>
+
+    <br><br><br><br>
+
+    <hr>
+
+    <footer id="footer">
+      <p class="text-center"><a href="#top">Back to top</a></p>
+    </footer>
+
+  </div>
+  </body>
+</html>
