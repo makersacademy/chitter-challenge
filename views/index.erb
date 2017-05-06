@@ -11,7 +11,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <body>
   <h1>chitter</h1>
-
+  <%= session[:keep_peep]%>
   <% if session[:user] == nil %>
   <a href="/sign_in">sign in</a><p>
     <a href="/sign_up">sign up</a>
