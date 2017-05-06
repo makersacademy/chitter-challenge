@@ -32,4 +32,10 @@ class Chitter < Sinatra::Base
   get '/feed' do
     erb(:feed)
   end
+
+  get '/logout' do
+    @user.username = nil
+    @user.password = nil
+    redirect '/login'
+  end
 end

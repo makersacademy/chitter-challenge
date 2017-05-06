@@ -8,11 +8,11 @@ gem 'dm-postgres-adapter'
 group :test do
   gem 'capybara'
   gem 'cucumber'
+  gem 'pry'
   gem 'rake'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'sinatra'
-  gem 'pry'
 end
