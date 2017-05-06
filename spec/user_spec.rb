@@ -1,9 +1,9 @@
 describe User do
   subject(:user) do
-      user = User.create(email_address: 'james@aol.com',
-                         password: 'password',
-                         user_name: 'james',
-                         real_name: 'James Giant')
+      User.create(email_address: 'james@aol.com',
+                  password: 'password',
+                  user_name: 'james',
+                  real_name: 'James Giant')
   end
     
   describe '#create' do
