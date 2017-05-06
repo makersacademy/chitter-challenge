@@ -1,4 +1,5 @@
 feature "Signing in" do
+  include Helpers
   let!(:user) do
     User.create(name: "Sophie",
       username: "sophie",
