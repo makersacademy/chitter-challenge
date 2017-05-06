@@ -16,7 +16,3 @@ class User
     self.password_encrypt = BCrypt::Password.create(password)
   end
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
