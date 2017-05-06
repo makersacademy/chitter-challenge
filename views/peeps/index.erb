@@ -1,4 +1,5 @@
 <% @peeps.each do |p| %>
 <p>Peep content <%=p.content%></p>
 <p>By <%=p.user.email%></p>
+<p>At <%=p.created_at%></p>
 <% end %>
