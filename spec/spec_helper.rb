@@ -2,6 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require_relative '../app/app'
+require './app/models/user'
 
 Capybara.app = Chitter
 
