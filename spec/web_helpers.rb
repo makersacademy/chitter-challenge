@@ -7,3 +7,11 @@ def sign_up
   fill_in :password, with: 'jessica'
   click_button 'Sign up'
 end
+
+def sign_in
+  visit '/sessions/new'
+  expect(page.status_code).to eq(200)
+  fill_in :email, with: 'jessica@email.com'
+  fill_in :password, with: 'jessica'
+  click_button 'Sign in'
+end
