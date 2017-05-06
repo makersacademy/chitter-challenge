@@ -1,10 +1,15 @@
 require 'simplecov'
 require 'simplecov-console'
+require_relative './web_helpers'
+require_relative '../chitter'
+require 'rspec'
+require 'capybara'
+require 'capybara/rspec'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
