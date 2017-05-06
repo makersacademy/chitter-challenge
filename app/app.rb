@@ -4,6 +4,8 @@ require './models/user'
 require 'sinatra/base'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb :index
@@ -14,11 +16,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation])
+    user = User.create(username: params[:username], email: params[:email], name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation])
+    session[:user_id] = user.id
     redirect to ('/welcome')
   end
 
   get '/welcome' do
     "Welcome to Chitter!"
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 end
