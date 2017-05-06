@@ -4,10 +4,11 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
 
   get '/' do
-    redirect '/registration'
+    redirect '/sign_up'
   end
 
-  get '/registration' do
-
+  get '/sign_up' do
+    erb:'sign_up'
   end
+
 end
