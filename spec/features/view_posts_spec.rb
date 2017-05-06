@@ -11,7 +11,7 @@ feature 'Viewing Posts' do
     Post.create(user: user, message: "Hey, I've posted this message on Chitter!", created_at: Time.now)
     visit '/posts'
     expect(page.status_code).to eq 200
-    within "ul#posts" do
+    within "div#posts" do
       expect(page).to have_content("Hey, I've posted this message on Chitter!")
     end
   end

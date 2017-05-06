@@ -2,7 +2,7 @@ feature 'User Signup' do
   include Helpers
   scenario 'a new user can sign up to the website' do
     expect { signup }.to change(User, :count).by(1)
-    expect(current_path).to eq '/posts'
+    expect(current_path).to eq '/'
     expect(page).to have_content('Welcome to Chitter, Sophie!')
   end
   scenario 'user fills in password confirmation incorrectly' do
