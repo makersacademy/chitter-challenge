@@ -2,16 +2,17 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 gem 'bcrypt'
-gem 'capybara'
+gem 'data_mapper', '~>1.2.0'
 gem 'database_cleaner'
-gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'rack', '<2.0'
+gem 'rack'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
-  gem 'rspec'
+  gem 'capybara'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
