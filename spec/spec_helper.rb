@@ -7,10 +7,11 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require_relative '../app/app.rb'
+require './app/models/user'
 
 Capybara.app = Chitter
-# DatabaseCleaner.strategy = :truncation
-# DatabaseCleaner.clean
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -20,18 +21,18 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
-  #
-  # config.before(:each) do
-  #   DatabaseCleaner.start
-  # end
-  #
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.after(:suite) do
     puts

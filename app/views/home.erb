@@ -1,0 +1,5 @@
+<% if current_user %>
+  <h1> Welcome to Chitter <%= current_user.username %> </h1>
+<% end %>
+<a class="btn btn-default" href="/peep" role="button">Send a Peep</a>
+<a class="btn btn-default" href="/sign_out" role="button">Sign out</a>
