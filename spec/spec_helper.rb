@@ -1,6 +1,9 @@
+ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -16,11 +19,3 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
-
-# Capybara.configure do |config|
-#   config.run_server = false
-#   config.default_driver = :selenium
-#   # config.app_host = 'https://www.google.com' # change url
-# end
-# 
-# Capybara.app = Chitter
