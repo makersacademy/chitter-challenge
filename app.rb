@@ -36,9 +36,7 @@ class Chitter < Sinatra::Application
   end
 
   post '/peeps/new' do
-    owner = current_user
-    #owner.peeps << Peep.create(content: params[:content])
-    owner.peeps.create(content: params[:content])
+    current_user.peeps.create(content: params[:content])
     redirect '/peeps'
   end
 
