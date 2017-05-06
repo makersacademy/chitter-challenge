@@ -6,8 +6,7 @@ require_relative './data_mapper_setup'
 ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
-  enable :sessions
-  set :session_secret, ''
+  use Rack::Session::Cookie
   register Sinatra::Flash
 
   get '/' do
@@ -50,7 +49,7 @@ class Chitter < Sinatra::Base
 
   get '/reply_to/:peep_id' do
     session[:peep_id] = params[:peep_id].to_i
-    @peep = Peep.get(params[:peep_id])
+    @peep = Peep.get(session[:peep_id])
     @users = User.all
     @replies = Reply.all(Reply.peep_id => params[:peep_id])
     erb :reply
