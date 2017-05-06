@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  get '/' do
+    erb :index
+  end
+
   get '/users/signup' do
     erb :'users/signup'
   end
