@@ -21,6 +21,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    erb :'index'
+  end
+
   get '/users/new' do
     erb :'users/new'
   end
@@ -31,7 +35,7 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
-      redirect to('/posts')
+      redirect to('/')
     else
       flash.now[:errors] = user.errors.full_messages
       erb :'users/new'
@@ -56,7 +60,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.next[:notice] = "Goodbye!"
-    redirect to '/posts'
+    redirect to '/'
   end
 
   get '/posts' do

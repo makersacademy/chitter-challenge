@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
     <title>Chitter</title>
   </head>
 
   <body>
-    <% if current_user %>
-    <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign Out'>
-    </form>
-    <form action='/posts/new'>
-      <input type='submit' value='New Peep'>
-    </form>
-    <% end %>
-    <h2>Chitter</h2>
+    <%= partial :nav %>
+    <h1>Chitter</h1>
     <%= partial :welcome %>
     <%= partial :flash %>
     <%= yield %>
