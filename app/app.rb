@@ -9,8 +9,8 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  get '/users/signup' do
-    erb :'users/signup'
+  get '/users/new' do
+    erb :'users/new'
   end
 
   post '/users' do
@@ -33,6 +33,12 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     Peep.create(username: params[:username], peep: params[:peep])
     redirect '/peeps'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:username])
+    end
   end
 
   run! if app_file == $0
