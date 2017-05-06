@@ -5,11 +5,11 @@
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Sign Out'>
   </form></li>
-  <li><form action='/posts'>
-    <input type='submit' value='View Peeps'>
-  </form></li>
   <li><form action='/posts/new'>
     <input type='submit' value='New Peep'>
+  </form></li>
+  <li><form action='/posts'>
+    <input type='submit' value='View Peeps'>
   </form></li>
 <% end %>
 <% if current_user == nil %>
@@ -18,6 +18,9 @@
   </form></li>
   <li><form action='/users/new'>
     <input type='submit' value='Sign Up'>
+  </form></li>
+  <li><form action='/posts'>
+    <input type='submit' value='View Peeps'>
   </form></li>
 <% end %>
 </ul>

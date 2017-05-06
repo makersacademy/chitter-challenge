@@ -1,12 +1,12 @@
 
-  *{
+  * {
     box-sizing: border-box;
   }
 
   html {
     background-color: #7FCFD2;
-    color: #fff;
   }
+
   body{
     text-align: center;
     margin: auto;
@@ -25,14 +25,12 @@
   }
 
   input{
-    align-self: center;
+    border: solid 2px;
     display: block;
-    margin: 0 0 20px 0;
     font-size: 100%;
   }
 
   input[type=text]{
-    border: none;
     padding: 10px;
     border-radius: 5px;
     width: 210px;
@@ -41,7 +39,6 @@
   }
 
   input[type=password]{
-    border: none;
     padding: 10px;
     border-radius: 5px;
     width: 210px;
@@ -50,7 +47,6 @@
   }
 
   input[type=email]{
-    border: none;
     padding: 10px;
     border-radius: 5px;
     width: 210px;
@@ -65,9 +61,9 @@
     border: none;
     padding: 10px;
     border-radius: 5px;
-    width: 100px;
+    width: 120px;
+    margin: 0 auto;
     text-align: center;
-    margin: 25px;
     display: inline-block;
   }
 
@@ -76,13 +72,8 @@
     text-align: center;
   }
 
-  .nav {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-  }
-
   .nav form {
+    position: relative;
     display: inline-block;
     text-align: center;
   }
@@ -95,7 +86,6 @@
   .nav input {
       color: #f2f2f2;
       text-align: center;
-      padding: 10%, 10%;
       text-decoration: none;
       font-size: 100%;
   }
@@ -111,25 +101,32 @@
       color: white;
   }
 
-  .posts{
-
-  }
-
   .posts ul {
-    width: 50%;
+    width: 40%;
     display: block;
     text-align: center;
     margin: auto;
-    padding: 0.5em;
-    border: solid 1px;
+    padding: 15px;
+    border: solid 2px;
     border-radius: 5px;
     background-color: #fff;
+  }
+
+  .posts ul #peep {
+    width: 80%;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .posts ul #comments {
+    border: none;
   }
 
   ul{
     list-style-type: none;
     margin: 10px;
     padding: 10px;
-    color: #000;
-    border-color: #fff;
   }
