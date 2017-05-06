@@ -57,8 +57,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_reply' do
-    Reply.create(user_id: session[:user_id], text: params[:reply], peep_id: session[:peep_id], date_time: DateTime.now)
-    link = "/reply_to/#{session[:peep_id].to_s}"
+    @user_id = session[:user_id]
+    @peep_id = session[:peep_id]
+    Reply.create(user_id: @user_id, text: params[:reply], peep_id: @peep_id, date_time: DateTime.now)
+    link = "/reply_to/#{@peep_id}"
     redirect link
   end
 
