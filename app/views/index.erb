@@ -1,1 +1,3 @@
-Let's peep now!
+<% if current_user %>
+  Welcome to Chitter, <%= current_user.email %>
+<% end %>

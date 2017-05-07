@@ -1,5 +1,5 @@
 def create_account
-  visit '/signup'
+  visit '/users/new'
   fill_in 'name', with: 'Ana Maria Suciu'
   fill_in 'username', with: 'ana'
   fill_in 'password', with: 'apples'
