@@ -1,7 +1,8 @@
 feature 'User can sign up for Chitter' do
-  scenario 'user creates and account on Chitter' do
+  scenario 'Ana creates snd account on Chitter' do
     create_account
-    expect(current_path).to eq '/home'
-    expect(page).to have_content 'Howdy, @ana! Peep now or forever hold your piss (Oh, noooo!)'
+    expect { create_account }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome to Chitter, ana@great.com')
+    expect(User.first.email).to eq('ana@great.com')
   end
 end
