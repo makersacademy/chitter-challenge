@@ -4,7 +4,7 @@ feature 'A new user can create an account' do
 
 	 scenario 'sign-up was successful' do
  		 expect { sign_up }.to change(User, :count).by(1)
- 		 expect(page).to have_content 'Welcome Anthony'
+ 		 expect(page).to have_content "Hello Anthony"
  	end
 
 	 scenario 'user did not enter matching email addresses' do
@@ -37,12 +37,23 @@ feature 'Signing in' do
 
 	 scenario 'user can sign in' do
  		 sign_in
- 		 expect(page).to have_content 'Welcome Anthony'
+ 		 expect(page).to have_content 'Hello Anthony'
  	end
 
 	 scenario 'user enters an incorrect password' do
  		 sign_in(password: 'wrong')
  		 expect(page).to have_content "Incorrect email or password, please try again."
+ 	end
+
+  scenario 'user enters an incorrect email' do
+		  sign_in(email: 'wrong@email.co.uk')
+		  expect(page).to have_content "Incorrect email or password, please try again."
+	 end
+
+	 scenario 'user can sign out' do
+ 		 sign_in
+ 		 click_link "Sign out"
+ 		 expect(page).to have_content "Login"
  	end
 
 end

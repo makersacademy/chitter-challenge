@@ -8,6 +8,8 @@ class User
 	 attr_accessor :password_confirmation
 	 include DataMapper::Resource
 
+	 has n, :peeps
+
 	 property :id, Serial
 	 property :email, String, required: true, unique: true
 	 property :username, String, required: true, unique: true

@@ -3,16 +3,25 @@
 	<title>Chitter</title>
 </head>
 <body>
-	<ul>
-		<strong>Menu:</strong>
-		<% if current_user %>
-			<li><a href="/user/logout">Sign out</a></li>
-			<% else %>
-			<li><a href="/user/new">Sign up</a></li>
-			<li><a href="/user/login">Login</a></li>
+  <div class="menu">
+				<h1>Hello
+					<% if current_user %>
+						<%= current_user.username %>.
+					<% end %>
+          Welcome to CHITTER - What would you like to do?
+				</h1>
+			<% if current_user %>
+				<li><a href="/peep/new"><strong>Send a peep</strong></a></li>
+				<li><a href="/user/logout"><strong>Sign out</strong></a></li>
+				<% else %>
+				<li><a href="/user/login"><strong>Login</strong></a></li>
+				<li><a href="/user/new"><strong>Sign up</strong></a></li>
 			<% end %>
-	</ul>
-	<h3><% if current_user %>Welcome <%= current_user.username %><% end %></h3>
+		</ul>
+	</div>
+
+	<%= yield %>
+
 	<% if flash[:errors] && !flash[:errors].empty? %>
 		<ul id="error">
 			<% flash[:errors].each do |error| %>
@@ -22,7 +31,5 @@
       <% end %>
     </ul>
   <% end %>
-
-	<%= yield %>
 </body>
 </html>
