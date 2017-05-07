@@ -38,11 +38,11 @@ Run on a local server:
 ## Technologies:
 
 * Web framework: [Sinatra](http://www.sinatrarb.com/)
-* Password Encryption: [BCrypt](https://github.com/codahale/bcrypt-ruby)
+* Password encryption: [BCrypt](https://github.com/codahale/bcrypt-ruby)
 * ORM: [DataMapper](http://datamapper.org/)
 * Database: [PostgreSQL](https://www.postgresql.org/)
 * Feature testing: [Capybara](https://github.com/teamcapybara/capybara)
-* Unit Testing: [RSpec](http://rspec.info/)
+* Unit testing: [RSpec](http://rspec.info/)
 * Other technologies of note: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner), [Sinatra::Flash](https://github.com/SFEley/sinatra-flash), [Sinatra Partial](https://github.com/yb66/Sinatra-Partial).
 
 ## Tests
