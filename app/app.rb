@@ -1,10 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative '../data_mapper_setup'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'my secret'
+  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -17,32 +19,36 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign-up' do
+    @user = User.new
     erb(:sign_up)
   end
 
   post '/sign-up' do
-    user = User.create(email: params[:email],
+    @user = User.new(email: params[:email],
     password: params[:password],
     name: params[:name], username: params[:username],
     password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    user.save
-    redirect to '/'
-  end
-
-  get '/sign-in' do
-    erb(:sign_in)
-  end
-
-  post '/sign-in' do
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect '/'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to '/'
     else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb(:sign_in)
+      flash.now[:errors] = @user.errors.full_messages
+      erb(:sign_up)
     end
   end
 
-end
+    get '/sign-in' do
+      erb(:sign_in)
+    end
+
+    post '/sign-in' do
+      user = User.authenticate(params[:email], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect to('/')
+      else
+        flash.now[:errors] = ['The email or password is incorrect']
+        erb(:sign_in)
+      end
+    end
+  end
