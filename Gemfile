@@ -14,4 +14,5 @@ group :test do
   gem 'dm-postgres-adapter'
   gem 'rack', '1.5'
   gem 'bcrypt'
+  gem 'database_cleaner'
 end

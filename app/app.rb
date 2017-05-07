@@ -38,3 +38,7 @@ class Chitter < Sinatra::Base
     erb(:login)
   end
 end
+
+DataMapper.setup(:default, "postgres://localhost/chitter_users_#{ENV['RACK_ENV']}")
+DataMapper.finalize
+DataMapper.auto_upgrade!

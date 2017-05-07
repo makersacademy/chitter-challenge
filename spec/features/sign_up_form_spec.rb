@@ -11,6 +11,6 @@ feature 'Sign Up Form' do
     enter_details
     fill_in('confirm_password', :with => 'cliveallen')
 
-  expect { click_button 'Submit Details' }.not_to change(User, :count)
-end
+    expect { click_button 'Submit Details' }.not_to change(User, :count)
+  end
 end
