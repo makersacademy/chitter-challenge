@@ -3,9 +3,9 @@
 <ul id='users'>
   <% @users.each do |user| %>
     <li>
-      ID: <%= user.id %>
       Name: <%= user.name %>
       Username: <%= user.username %>
+      Email: <%= user.email %>
     </li>
   <% end %>
 </ul>

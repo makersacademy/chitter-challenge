@@ -1,3 +1,0 @@
-= dm-do-adapter
-
-A DataObjects Adapter for DataMapper
