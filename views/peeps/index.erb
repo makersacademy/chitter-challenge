@@ -1,3 +1,11 @@
+<h2>Post A New Peep</h2>
+<form method='post' action='/peeps/new'>
+<input type='text' name='content'>
+<input type='submit' value='Post Peep'>
+</form>
+
+
+
 <% @peeps.each do |p| %>
 <p>Peep: <%=p.content%></p>
 <p>By <%=p.user.email%></p>
