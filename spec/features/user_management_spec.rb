@@ -1,7 +1,4 @@
-require 'web_helper'
-
 feature 'User sign up' do
-
   scenario 'user can sign up for a Chitter account' do
     expect { sign_up }.to change(User, :count).by 1
     expect(page).to have_content('Welcome, chitmeister49')
@@ -42,7 +39,6 @@ feature 'User sign up' do
 end
 
 feature 'User log in' do
-
   let!(:user) do
     User.create(email: 'propeeper@email.com',
                 username: 'manicstreetpeeper',
@@ -55,5 +51,20 @@ feature 'User log in' do
     log_in(email: user.email,   password: user.password)
     expect(page).to have_content "Welcome, #{user.username}"
   end
+end
 
+feature 'User log out' do
+  let!(:user) do
+    User.create(email: 'propeeper@email.com',
+                username: 'manicstreetpeeper',
+                name: 'Yono',
+                password: 'shh999',
+                password_confirmation: 'shh999')
+  end
+  scenario 'while being logged in' do
+    log_in(email: user.email,   password: user.password)
+    click_button 'Log out'
+    expect(page).to have_content('goodbye!')
+    expect(page).not_to have_content('Welcome, manicstreetpeeper')
+  end
 end

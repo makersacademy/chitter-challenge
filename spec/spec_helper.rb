@@ -7,6 +7,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './app/app'
+require_relative 'helpers/session'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -18,6 +19,8 @@ SimpleCov.start
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
