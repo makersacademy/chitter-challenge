@@ -73,6 +73,11 @@ class Chitter < Sinatra::Base
     erb(:peep_focus)
   end
 
+  get '/user/:name' do
+    @page_owner = User.all(username: params[:name]).first
+    erb(:userpage)
+  end
+
   post '/comment' do
     @peep = Peep.current
     comment = Comment.create(body: params[:comment],

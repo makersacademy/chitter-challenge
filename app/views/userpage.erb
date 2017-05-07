@@ -1,0 +1,10 @@
+<h1><%= @page_owner.name %></h1>
+<h2><%= "@#{@page_owner.username}" %></h2>
+<h4>Peeps:</h4>
+<% @page_owner.peeps.reverse.each do |peep| %>
+  <h3><strong><%= "#{@page_owner.name} " %></strong><em><small><a href='/user/<%= @page_owner.username %>'><%= "@#{@page_owner.username}" %></a></small></em> <%= " -- #{peep.timestamp}" %></h3>
+  <h4><%= peep.body %></h4>
+  <form method='get' action='/peeps/<%= peep.id %>'>
+    <input type='submit' value='Comment'>
+  </form>
+<% end %>

@@ -20,7 +20,7 @@
   <% end %>
 <% @peeps.reverse.each do |peep| %>
   <% @author = User.get(peep.user_id) %>
-  <h3><strong><%= "#{@author.name} " %></strong><em><small><%= "@#{@author.username}" %></small></em> <%= " -- #{peep.timestamp}" %></h3>
+  <h3><strong><%= "#{@author.name} " %></strong><em><small><a href='/user/<%= @author.username %>'><%= "@#{@author.username}" %></a></small></em> <%= " -- #{peep.timestamp}" %></h3>
   <h4><%= peep.body %></h4>
   <form method='get' action='/peeps/<%= peep.id %>'>
     <input type='submit' value='Comment'>
