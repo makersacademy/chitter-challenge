@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts' do
-    post = Post.first_or_create(message: params[:message], user: current_user, created_at: Time.now)
+    post = Post.create(message: params[:message], user: current_user, created_at: Time.now)
     current_user.posts << post
     current_user.save
     redirect to '/posts'
