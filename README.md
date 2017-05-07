@@ -1,4 +1,4 @@
-#Chitter Challenge
+# Chitter Challenge
 
 A (very) basic Twitter clone.
 
