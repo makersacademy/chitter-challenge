@@ -1,6 +1,6 @@
 require 'sinatra/base'
-require 'data_mapper'
-require 'dm-postgres-adapter'
+require_relative 'data_mapper_setup'
+require_relative 'models/user'
 
 class Chitter < Sinatra::Base
 
