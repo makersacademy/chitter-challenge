@@ -1,12 +1,13 @@
+ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './app/app'
-# require 'database_cleaner'
+require 'database_cleaner'
 
-# DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.strategy = :truncation
 
 Capybara.app = Chitter
 
