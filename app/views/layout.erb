@@ -8,6 +8,10 @@
     <% if current_user %>
       Welcome to Chitter, <%= current_user.name %>.
     <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%=flash[:notice] %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
