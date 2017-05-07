@@ -13,12 +13,14 @@ SimpleCov.start
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara/rspec'
 require 'database_cleaner'
-require_relative 'web_helper.rb'
+require_relative 'helpers/session'
 
 
 Capybara.app = Chitter
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
