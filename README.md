@@ -31,7 +31,7 @@ Run on a local server:
 
 ## Strengths:
 
-1. I kept it simple this weekend. It may just have been a simple challenge, especially considering its similarity to the week's Bookmark Manager Challenge re: user account functionality, but still, a plus for sure. I did all my modelling with two small classes and a one-method mixin, and I'm happy with that. I also didn't start coding until I had constructed a plan for how I'd write the project that I considered very simple—it took time but was worth the wait.
+1. I kept it simple this weekend. It may just have been a simple challenge, especially considering its similarity to the week's Bookmark Manager Challenge re: user account functionality, but still, a plus for sure. I did all my modelling with two small classes and a one-method mixin, and I'm happy with that. I also didn't start coding until I had constructed a 'keep-it-simple' plan for writing the project—it took time but it made a difference.
 2. Not losing focus due to debugging nightmares. When it takes several hours to resolve infuriating and cryptic-looking error messages, my concentration can definitely go. I managed to stay focussed in spite of that during this challenge. That's definitely something to build on moving forwards.
 
 
