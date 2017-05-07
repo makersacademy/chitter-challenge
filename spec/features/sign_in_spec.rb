@@ -6,10 +6,10 @@ feature 'User signs in' do
                 password: "imzadi",
                 password_confirmation: "imzadi")
   end
-  
+
   scenario 'with correct credentials' do
     sign_in(username: user.username, password: user.password)
-    expect(page).to have_content "Welcome, #{user.name}."
+    expect(page).to have_content "Welcome to Chitter, #{user.name}."
   end
 
   def sign_in(username:, password:)
