@@ -1,10 +1,10 @@
 require 'spec/helpers.rb'
 
-feature 'User sign up form' do
+feature 'User sign up' do
   include Helpers
   scenario 'Signs up a user' do
     expect { sign_up }.to change { User.count }.by 1
-    expect(current_path).to eq '/welcome'
+    expect(current_path).to eq '/peeps'
     expect(page).to have_content('Welcome, chun-li')
     expect(User.last.email).to eq 'chun-li@streetfighter.com'
   end
