@@ -33,7 +33,6 @@ feature 'User sign out' do
     expect(page).to have_content "You have signed out"
     DatabaseCleaner.clean
   end
-
 end
 
 feature 'User posts peeps' do
@@ -45,7 +44,13 @@ feature 'User posts peeps' do
     DatabaseCleaner.clean
   end
 
-  scenario ' ' do
-    
+  scenario 'A posted peep appears on the next screen' do
+    DatabaseCleaner.start
+    sign_up
+    click_button 'Post new peep'
+    fill_in :peep,    with: 'This is a test peep'
+    click_button 'Post'
+    expect(page).to have_content 'This is a test peep'
+    DatabaseCleaner.clean
   end
 end

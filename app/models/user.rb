@@ -5,6 +5,8 @@ class User
 
   attr_reader :password
 
+  has n, :peeps, through: Resource
+
   property :id, Serial
   property :name, String
   property :email, String
