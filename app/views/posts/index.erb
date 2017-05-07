@@ -1,11 +1,16 @@
 <h1 align='center'>Feed</h1>
 
+<form align="float:right" action='/posts/new' method='get'>
+  <input type='submit' value='Write Peep'>
+</form>
+
+
 <ul id='posts'>
   <% @posts.each do |post| %>
     <li>
-      From: <%= post.user.username %>
-      Message: <%= post.message %>
-      at: <%= post.created_at %>
+      From: <%= post.user.username %><br>
+      Message: <%= post.message %><br>
+      Left at <%= post.created_at.strftime("%R on  %a %d %b %G") %>
     </li>
   <% end %>
 </ul>

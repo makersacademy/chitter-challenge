@@ -21,4 +21,15 @@ module SessionHelpers
     fill_in :password, with: password
     click_button 'Sign In'
   end
+
+  def sign_out
+    click_button 'Sign Out'
+  end
+
+  def write_post(message: "I'm a new Peep!")
+    click_button 'Write Peep'
+    expect(current_path).to eq '/posts/new'
+    fill_in :message, with: message
+    click_button 'Post'
+  end
 end
