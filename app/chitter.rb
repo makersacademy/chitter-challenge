@@ -33,9 +33,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    User.create(name:  params[:name],  username: params[:username],
+    user = User.create(name:  params[:name],  username: params[:username],
                 email: params[:email], password: params[:password])
-    redirect to('/')
+      if user.errors.count >= 0
+        flash.now[:notice] = "Sorry"
+      else
+      redirect to('/')
+      end
   end
 
   post '/logout' do

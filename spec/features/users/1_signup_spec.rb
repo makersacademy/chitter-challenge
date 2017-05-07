@@ -10,9 +10,9 @@ feature '#signup', %q{
     expect { signup }.to change { User.count }.by(1)
   end
 
-  # scenario '&& users cannot choose a username or email that is already taken' do
-  #   user = User.create(username: 'foo', email: 'foo@bar.com', password: '123')
-  #   signup
-  #   expect(page).to have_content('Sorry')
-  # end
+  scenario '&& users cannot choose a username or email that is already taken' do
+    user = User.create(username: 'foo', email: 'foo@bar.com', password: '123')
+    signup
+    expect(page).to have_content('Sorry')
+  end
 end

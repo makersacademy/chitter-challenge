@@ -1,18 +1,22 @@
 <body>
 <h1> Create a Chitter Profile </h1>
 
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
   <form action='/signup' method='post'>
   <label for='name'>
-    Name: <input type='text' name='name'></br>
+    Name: <input type='text' name='name' required></br>
   </label>
   <label for='username'>
-    Username: <input type='text' name='username'></br>
+    Username: <input type='text' name='username' required></br>
   </label>
   <label for='email'>
-    Email: <input type='text' name='email'></br>
+    Email: <input type='text' name='email' required></br>
   </label>
   <label for='password'>
-    Password: <input type='text' name='password'></br>
+    Password: <input type='text' name='password' required></br>
   </label>
     <input type='submit' value='Sign up'>
   </form>
