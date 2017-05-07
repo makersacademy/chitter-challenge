@@ -3,6 +3,7 @@ feature 'User signs out' do
   before(:each) do
     User.create(email: 'test@test.com',
                 name: 'Mr McTest',
+                username: 'tester',
                 password: 'testy',
                 password_confirmation: 'testy')
   end

@@ -8,6 +8,9 @@ class User
   property :name, String
   property :username, String
   property :password_digest, Text
+
+  has n, :posts, :through => Resource
+
   attr_reader :password
   attr_accessor :password_confirmation
 

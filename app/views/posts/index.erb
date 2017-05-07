@@ -1,0 +1,11 @@
+<h1 align='center'>Feed</h1>
+
+<ul id='posts'>
+  <% @posts.each do |post| %>
+    <li>
+      From: <%= post.user.username %>
+      Message: <%= post.message %>
+      at: <%= post.created_at %>
+    </li>
+  <% end %>
+</ul>

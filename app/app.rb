@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    #@users = User.all
+    p @posts =  Post.all
     erb :feed
   end
 
@@ -61,6 +61,12 @@ class Chitter < Sinatra::Base
     flash.keep[:notice] = 'Goodbye'
     redirect to '/'
   end
+
+  get '/posts' do
+    @posts = Post.all
+    erb :'posts/index'
+  end
+
 
 
   run! if app_file == $0

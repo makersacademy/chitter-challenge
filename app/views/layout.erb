@@ -11,15 +11,17 @@
     <form action='/sessions/new' style="float:right">
       <input type='submit' value='Sign In'>
     </form>
+    <% if current_user %>
+      <form style="float:right" method="POST" action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign Out'>
+      </form>
+    <% end %>
     <br>
 
     <h1 align='center'>Chitter</h1>
     <% if current_user %>
       <h3 align='center'>Welcome, <%= current_user.name %></h3>
-      <form method="POST" action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign Out'>
-      </form>
     <% end %>
     <%= yield %>
 
