@@ -16,6 +16,9 @@ We are going to write a little Twitter clone that will allow the users to post m
 
 
 Instructions for use:
+
+![Chitter Image](/images/peeps-animals.jpg)
+
 -------
 $ git clone https://github.com/chrisjmit/chitter_challenge
 $ bundle
