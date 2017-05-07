@@ -7,4 +7,8 @@ class Chitter < Sinatra::Base
   get '/' do
     erb :'links/index'
   end
+
+  get '/signup' do
+    erb :'links/register'
+  end
 end
