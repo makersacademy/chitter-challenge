@@ -6,7 +6,7 @@
   </form>
 <% end %>
 <% if @messages %>
-  <ul id='posts'><% @messages.each do |message| %>
+  <ul id='posts'><% @messages.reverse.each do |message| %>
     <li><%= "#{message.content}, @#{message.user.user_name}, #{message.timestamp}" %></li>
   <% end %></ul>
 <% end %> 
