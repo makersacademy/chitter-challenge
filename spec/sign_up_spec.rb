@@ -15,7 +15,7 @@ feature 'Users' do
 
   scenario 'cannot sign up with passwords that do not match' do
     expect {
-      sign_up(confirm_password = 'secret*124')
+      sign_up(email = 'user@example.com', password = 'secret*123', confirm_password = 'secret*124')
     }.not_to change { User.count }
     expect(page).to have_content 'Password does not match the confirmation'
   end
