@@ -8,7 +8,6 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
-
   property :id,            Serial
   property :name,          String
   property :username,      String, required: true, unique: true
