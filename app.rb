@@ -30,7 +30,7 @@ class Chitter < Sinatra::Base
 
   post '/sign_in' do
     @user = User.login(params)
-    bad_sign_in if @user == nil
+    bad_sign_in if @user.nil?
     session[:user] = @user.name
     session[:user_id] = @user.id
     redirect '/home'
@@ -63,7 +63,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/log_reply/:peep_id' do
-    Reply.create(user_id: session[:user_id], text: params[:reply], peep_id: params[:peep_id], date_time: DateTime.now)
+    Reply.create(user_id: session[:user_id], text: params[:reply],
+    peep_id: params[:peep_id], date_time: DateTime.now)
     link = "/reply_to/#{params[:peep_id]}"
     redirect link
   end
@@ -72,7 +73,7 @@ class Chitter < Sinatra::Base
 
   def register_user(params)
     @user = User.create(params[:name], params[:handle],
-      params[:email], params[:password], params[:avatar])
+    params[:email], params[:password], params[:avatar])
     session[:user] = @user.name
     session[:user_id] = @user.id
     redirect '/home'

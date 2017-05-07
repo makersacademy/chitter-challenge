@@ -33,15 +33,13 @@ class User
 
   def self.login(params)
     @user = User.first(email: params[:email])
-    if @user && BCrypt::Password.new(@user.password_digest) == params[:password]
-      return @user
-    else
-      return nil
-    end
+    @bcrypt = BCrypt::Password.new(@user.password_digest)
+    return nil unless @user && @bcrypt == params[:password]
+    return @user
   end
 
   def self.duplicate_email?
-    User.count(:conditions => ['email = ?', @email]) > 0
+    User.count(:conditions => ['email = ?', @email]).positive?
   end
 
 end
