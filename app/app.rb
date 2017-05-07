@@ -18,7 +18,14 @@ class Chitter < Sinatra::Base
                 username: params[:username],
                 email: params[:email],
                 password: params[:password])
+    session[:user_id] = user.id
     erb(:'users/welcome')
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id]) 
+    end
   end
 
   get '/users/new' do
