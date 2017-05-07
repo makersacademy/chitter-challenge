@@ -3,6 +3,19 @@ Chitter Challenge
 
 Created as week 4 Makers weekend project.
 
+Installation instructions:
+------
+$ git clone https://github.com/pmuldoon86/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ createdb chitter_test
+$ rake auto_migrate
+$ rspec
+$ rackup
+
+Link to deployed version on Heroku:
+https://chitter-muldoon.herokuapp.com/
+
 Challenge:
 -------
 
