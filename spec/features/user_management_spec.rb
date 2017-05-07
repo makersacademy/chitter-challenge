@@ -18,35 +18,52 @@ feature 'Signing up' do
   end
 
   scenario 'with a password that does not match' do
-  expect { sign_up_confirmation(password_confirmation: 'no') }.not_to change(User, :count)
-  expect(current_path).to eq('/sign-up')
-  expect(page).to have_content 'Password does not match the confirmation'
-end
+    expect { sign_up_confirmation(password_confirmation: 'no') }.not_to change(User, :count)
+    expect(current_path).to eq('/sign-up')
+    expect(page).to have_content 'Password does not match the confirmation'
+  end
 end
 
 feature 'Signing in' do
+  let!(:user) do
+    User.new(email: 'izzy@example.com',
+    password: 'password1')
+  end
+  scenario 'login with right info' do
+    sign_up
+    sign_in(email: user.email, password: user.password)
+    expect(page).to have_content "Welcome, #{user.email}"
+  end
+end
+
+  feature 'Signing out' do
     let!(:user) do
       User.new(email: 'izzy@example.com',
-              password: 'password1')
+      password: 'password1')
     end
-    scenario 'login with right info' do
-      sign_up
+
+    scenario 'I can log out if signed in' do
       sign_in(email: user.email, password: user.password)
-      expect(page).to have_content "Welcome, #{user.email}"
+      click_button 'Sign out'
+      expect(page).to have_content('See you soon!')
+      expect(page).not_to have_content('Welcome, izzy@example.com')
+    end
   end
 
-feature 'Signing out' do
-  before(:each) do
-    User.create(email: 'izzy@example.com',
-                password: 'password1',
-                password_confirmation: 'password1')
-  end
+feature 'Resetting password' do
+    scenario 'I can reset a forgotten password' do
+      visit '/sign-in'
+      click_link 'Forgotten password?'
+      expect(page).to have_content("Please enter your email address")
+    end
 
-  scenario 'I can log out if signed in' do
-    sign_in(email: user.email, password: user.password)
-    click_button 'Sign out'
-    expect(page).to have_content('See you soon!')
-    expect(page).not_to have_content('Welcome, izzy@example.com')
+    scenario 'When I enter my email I am told to check my inbox' do
+      recover_password
+      expect(page).to have_content "Thanks, please check your inbox."
+    end
+
+    scenario 'assigned a reset token to the user when they recover' do
+    sign_up
+    expect{ recover_password }.to change{ User.first.password_token }
   end
-end
-end
+  end

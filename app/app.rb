@@ -59,4 +59,12 @@ class Chitter < Sinatra::Base
         erb(:sign_in)
       end
     end
+
+    get '/recover-password' do
+    "Please enter your email address"
+   end
+
+   post '/recover-password' do
+    erb(:acknowledgement)
   end
+end
