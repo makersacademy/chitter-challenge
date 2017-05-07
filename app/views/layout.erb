@@ -15,8 +15,12 @@
       <h3 align='center'> Welcome, <%= current_user.name %></h3>
     <% end %>
     <%= yield %>
-    <% if flash[:notice] %>
-      <div id='flash' align='center'><%= flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <ul align= 'center' id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
   </body>
 
