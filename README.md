@@ -19,4 +19,4 @@ rackup
 
 #### Screenshot
 
-<img width="400" alt="screen shot 2017-05-07 at 15 32 50" src="https://cloud.githubusercontent.com/assets/24992029/25782047/7fe10f7a-333a-11e7-87e7-1a73d82179ee.png">
+<img width="500" alt="screen shot 2017-05-07 at 16 45 53" src="https://cloud.githubusercontent.com/assets/24992029/25782522/b16bb112-3344-11e7-9e00-e96a68a46966.png">
