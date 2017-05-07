@@ -1,6 +1,6 @@
 module SessionHelpers
 
-  def sign_up(arg=:correct)
+  def sign_up(arg = :correct)
     visit '/users/new'
     if arg == :email_incorrect
       fill_in 'email_address', with: 'test@example'

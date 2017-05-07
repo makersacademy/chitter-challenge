@@ -1,9 +1,8 @@
 class Chitter < Sinatra::Base
   post '/messages' do
-    time = Time.now.to_s
     @message = Message.new(content: params[:message_content],
                            user_id: session[:user_id],
-                           timestamp: time)
+                           timestamp: Time.now)
     if @message.save
       redirect '/chitter-newsfeed'
     else
