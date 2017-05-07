@@ -13,7 +13,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <h1>chitter</h1>
 
     <h2> welcome <%= session[:user] %> </h2>
-    <div class="hot-container">
       <form action="/log_out">
         <input class="btn" type="submit" value="log out" name="log_out">
       </form>
@@ -21,20 +20,20 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <textarea name="peep" placeholder="new peep" rows="3" cols="60" wrap="soft" maxlength="140" style="overflow:hidden; resize:none;"></textarea><br>
         <input class="btn" type="submit" value="submit">
       </form>
-    </div>
 
-    <ul id="peeps">
+
+    <ul id="peeps" style="list-style: none;">
       <% @peeps.each do |peep| %>
       <li>
         <h4> <img src=<%= @users.get(peep.user_id).avatar %> height="60"><br>
-        <%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
+        <%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%H:%M %d-%m-%Y") %>)<br> </h4>
         <h3><%= peep.text %></h3>
-        <ul id="replies">
+        <ul id="replies" style="list-style: none;">
           <% @replies.each do |reply| %>
           <% if reply.peep_id == peep.id %>
           <li>
-            <img src=<%= @users.get(peep.user_id).avatar %> height="30"><br>
-            <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>):
+            <img src=<%= @users.get(reply.user_id).avatar %> height="30">
+            <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%H:%M %d-%m-%Y") %>):
             <br><%= reply.text %><br>
           </li>
           <% end %>

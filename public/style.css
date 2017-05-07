@@ -5,8 +5,10 @@ a { text-decoration: none; margin: 0 5px; }
 	min-height: 30px;
 	margin-top: 20px;
 	width: 100%;
-	text-align: left;
+
 }
+
+
 
 .btn {
 	display: inline-block;
