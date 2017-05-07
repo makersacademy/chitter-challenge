@@ -34,4 +34,19 @@ feature 'Signing in' do
       sign_in(email: user.email, password: user.password)
       expect(page).to have_content "Welcome, #{user.email}"
   end
+
+feature 'Signing out' do
+  before(:each) do
+    User.create(email: 'izzy@example.com',
+                password: 'password1',
+                password_confirmation: 'password1')
+  end
+
+  scenario 'I can log out if signed in' do
+    sign_in(email: user.email, password: user.password)
+    click_button 'Sign out'
+    expect(page).to have_content('See you soon!')
+    expect(page).not_to have_content('Welcome, izzy@example.com')
+  end
+end
 end

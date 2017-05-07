@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'my secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -35,6 +36,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb(:sign_up)
     end
+  end
+
+  delete '/user' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'See you soon!'
+    redirect to '/'
   end
 
     get '/sign-in' do
