@@ -10,7 +10,7 @@ describe User do
 
   it 'authenticates when given a valid username and password' do
     authenticated_user = User.authenticate(user.username, user.password)
-    expect(authenticated_user).to eq user
+    expect(authenticated_user.username).to eq user.username
   end
 
   it 'does not authenticate when given the incorrect password' do
