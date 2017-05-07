@@ -8,6 +8,8 @@ describe 'signing up' do
     fill_in :password_confirmation, with: 'passwordwad'
     click_button('Sign Up')
     expect(User.all.count).to eq 0
+    expect(current_path).to eq('/register_user') # current_path is a helper provided by Capybara
+    expect(page).to have_content 'Passwords do not match'
   end
   it 'goes to the right page and increases user count' do
     sign_up

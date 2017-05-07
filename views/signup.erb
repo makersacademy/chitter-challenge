@@ -1,5 +1,9 @@
 <h1> Sign Up for Chitter! </h1>
 
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+
 <form action="/register_user" method="post">
   Name: <input type="text" name="name">
   Username: <input type="text" name="username">
