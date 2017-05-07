@@ -8,8 +8,7 @@ feature 'Messages (peeps)' do
   end
   scenario 'When logged in, a user can post a message' do
     log_in(email: user.email, password: user.password)
-    fill_in :message, with: 'test peep'
-    click_button 'Peep!'
+    expect { fill_in :message, with: 'test peep'; click_button 'Peep!' }.to change(Message, :count).by 1
     expect(current_path).to eq('/')
     expect(page).to have_content 'manicstreetpeeper peeped: test peep'
   end

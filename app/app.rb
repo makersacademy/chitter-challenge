@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative 'models/user'
+require_relative 'models/message'
 
 class Chitter < Sinatra::Base
 
@@ -19,6 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Message.all
     erb :index
   end
 
@@ -30,7 +32,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
+      redirect '/'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
@@ -40,7 +42,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect to '/'
+    redirect '/'
   end
 
   get '/users/new' do
@@ -61,6 +63,11 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
+  end
+
+  post '/message/new' do
+    Message.create(content: params[:message], user: current_user.username)
+    redirect '/'
   end
 
 end

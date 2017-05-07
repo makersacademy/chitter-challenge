@@ -2,3 +2,20 @@
   <a href='/users/new'>Sign up</a>
   <a href='/sessions/new'>Log in</a>
 </h2>
+<h3>
+  <form action='/message/new' method='POST'>
+    <label for='message'>
+      Peep on Chitter:
+      <input type='text' name='message'/>
+    </label>
+    <input type='submit' value='Peep!'>
+  </form>
+</h3>
+<br>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user %> peeped: <%= peep.content %>
+    </li>
+  <% end %>
+</ul>
