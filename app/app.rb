@@ -5,10 +5,6 @@ require_relative "data_mapper_setup"
 
 class Chitter < Sinatra::Base
 
-  get '/' do
-    erb :index
-  end
-
   get '/testroute' do
     erb :index
   end
