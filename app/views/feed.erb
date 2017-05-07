@@ -1,0 +1,15 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Everyone's peeps</h1>
+    <p>
+      <% Peep.all.each do |post| %>
+      <h3><%= User.all(id: post.user_id).first.username %></h3><p>
+      <%= post.content %><p>
+      <% end %>
+    <a href='/profile'>Back to profile</a><p>
+    <a href='/profile/peep'>Peep</a><p>
+    <a href='/logout'>Logout</a>
+  </body>
+</html>

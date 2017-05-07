@@ -54,4 +54,8 @@ class Chitter < Sinatra::Base
     @peeps = Peep.all(Peep.user.id => session[:id])
     erb(:my_peeps)
   end
+
+  get '/feed' do
+    erb(:feed)
+  end
 end
