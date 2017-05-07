@@ -1,0 +1,11 @@
+<h2>Latest Peeps:</h2>
+
+<% @peeps.each do |peep| %>
+	<div class="peep">
+		<h4><%= User.get(peep.user_id).username %></h4>
+		<p>
+			<%= peep.text %>
+		</p>
+		<i>Peeped on <%= peep.created_at.strftime("%A, %b %d %r")%></i>
+	</div>
+<% end %>
