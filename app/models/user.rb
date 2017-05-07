@@ -1,7 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'bcrypt'
-# require 'dm-validations'
+require 'dm-validations'
 
 class User
 include DataMapper::Resource
@@ -13,11 +13,10 @@ include BCrypt
   property :email,          String
   property :password_hash,  Text
 
-
   attr_reader :password
 
-  def password=(new_password)
-    @password = Password.create(new_password)
+  def password=(password)
+    @password = Password.create(password)
     self.password_hash = @password
   end
 

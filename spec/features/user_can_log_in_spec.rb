@@ -6,6 +6,7 @@ feature 'User can log in with email and password' do
                   email: 'ana@great.com',
                   password: 'apples')
     end
+
     scenario 'user logs in with correct info' do
       visit '/sessions/new'
       fill_in :email, with: 'ana@great.com'
