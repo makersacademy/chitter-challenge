@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<title>chitter - peep back</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="../style.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+
+<body>
+  <h1>chitter</h1>
+  <%= @peep_id %>
+  <div class="peepbox">
+    <h4>
+    <img src=../<%= @users.get(@peep.user_id).avatar %> height="60"><br>
+    <%= @users.get(@peep.user_id).handle %> (<%= @peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
+    <h3><%= @peep.text %></h3>
+
+    <ul id="replies" class="replies">
+      <% @replies.each do |reply| %>
+      <li>
+        <img src=../<%= @users.get(reply.user_id).avatar %> height="40"><br>
+        <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>):
+        <br><%= reply.text %><br>
+      </li>
+      <% end %>
+    </ul>
+
+      <form action="/log_reply/<%= @peep.id %>" method="post">
+        <textarea name="reply" placeholder="peep back" rows="3" cols="70" wrap="soft" maxlength="140" style="overflow:hidden; resize:none;"></textarea><br>
+        <input class="btn" type="submit" value="submit">
+      </form>
+      <br>
+    <a href="/home">back to peeps</a>
+    </div>
+  </body>

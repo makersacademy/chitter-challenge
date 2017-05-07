@@ -1,5 +1,22 @@
+ENV['RACK_ENV'] = 'test'
+
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'pry'
+require 'rspec'
+require 'database_cleaner'
+require_relative 'web_helpers'
+require_relative '../app'
+require_relative '../models/user'
+require_relative '../models/peep'
+require_relative '../models/reply'
+require_relative '../data_mapper_setup'
+
+DatabaseCleaner.strategy = :truncation
+
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
