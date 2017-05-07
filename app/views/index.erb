@@ -6,12 +6,13 @@
   <form action='/message/new' method='POST'>
     <label for='message'>
       Peep on Chitter:
-      <input type='text' name='message'/>
+      <input type='text' name='message' required/>
     </label>
     <input type='submit' value='Peep!'>
   </form>
 </h3>
 <br>
+<% if @peeps %>
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
@@ -19,3 +20,4 @@
     </li>
   <% end %>
 </ul>
+<% end %>

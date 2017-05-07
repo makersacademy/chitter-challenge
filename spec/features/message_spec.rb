@@ -12,4 +12,8 @@ feature 'Messages (peeps)' do
     expect(current_path).to eq('/')
     expect(page).to have_content 'manicstreetpeeper peeped: test peep'
   end
+  scenario 'message content is required to make a post' do
+    log_in(email: user.email, password: user.password)
+    expect { click_button 'Peep!' }.not_to change(Message, :count)
+  end
 end

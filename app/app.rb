@@ -66,8 +66,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/message/new' do
-    Message.create(content: params[:message], user: current_user.username)
-    redirect '/'
+    @peep = Message.new(content: params[:message], user: current_user.username)
+    if @peep.save
+      redirect '/'
+    else
+      flash.now[:errors] = @peep.errors.full_messages
+      erb :index
+    end
   end
 
 end
