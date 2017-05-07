@@ -34,6 +34,21 @@ get '/home' do
 erb(:home)
 end
 
+get '/signin' do
+  erb(:signin)
+end
+
+post '/signin_user' do
+  @user = User.authenticate(params[:username], params[:password])
+  if @user
+    session[:user_id] = @user.id
+    redirect '/home'
+  else
+    flash.now[:errors] = ['The username or password is incorrect']
+    erb (:signin)
+  end
+end
+
 helpers do
  def current_user
    @current_user ||= User.get(session[:user_id])
