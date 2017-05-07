@@ -21,9 +21,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign-up' do
-    @user = User.new(email: params[:email],
-                name: params[:name],
-                username: params[:username])
+    @user = User.new()
     erb :'users/new'
   end
 
