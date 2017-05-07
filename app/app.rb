@@ -26,7 +26,7 @@ class Chitter < Sinatra::Base
   post '/login' do
     @user = User.all(username: params[:user_name], password: params[:user_password])
     session[:id] = @user.first.id
-    redirect '/feed'
+    redirect '/profile'
   end
 
   get '/profile' do
