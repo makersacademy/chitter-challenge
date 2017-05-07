@@ -10,9 +10,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps/submitted' do
     peep = Peep.create(peep: params[:peep])
-    if peep.save
-      redirect to('/peeps/all')
-    end
+    current_user.peeps << peep
+    current_user.save
   end
 
 end
