@@ -3,17 +3,17 @@
 <form action='/users' method='POST'>
   <label for='email'>
     Email:
-    <input type='text' name='email' />
+    <input type='text' name='email' value='<%= @user.email %>' />
   </label>
   <br>
   <label for='name'>
     Name:
-    <input type='text' name='name' />
+    <input type='text' name='name' value='<%= @user.name %>'/>
   </label>
   <br>
   <label for='username'>
     Username:
-    <input type='text' name='username' />
+    <input type='text' name='username' value='<%= @user.username %>'/>
   </label>
   <br>
   <label for='password'>
