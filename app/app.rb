@@ -6,6 +6,7 @@ require_relative 'models/user'
 ENV["RACK_ENV"] ||= "development"
 
 class Chitter < Sinatra::Base
+
   enable :sessions
   set :sessions_secret, 'super secret'
 
@@ -19,7 +20,7 @@ class Chitter < Sinatra::Base
                 email: params[:email],
                 password: params[:password],
                 confirm_password: params[:confirm_password])
-    session[:user_id] = user.id
+    session[:user_id] = @user.id
     erb(:'users/welcome')
   end
 

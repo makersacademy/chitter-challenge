@@ -8,6 +8,9 @@ class User
 
   include DataMapper::Resource
 
+  attr_reader :password
+  attr_accessor :confirm_password
+
   property :id, Serial
   property :name, String
   property :username, String
@@ -18,6 +21,7 @@ class User
   validates_format_of :email, as: :email_address
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 end
