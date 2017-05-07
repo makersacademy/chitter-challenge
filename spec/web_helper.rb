@@ -1,5 +1,5 @@
 def sign_up
-  visit '/user/new'
+  visit '/new_user'
   fill_in :email, with: 'eren@makersacademy.com'
   fill_in :password, with: 'password'
   fill_in :name, with: 'Eren Jaeger'

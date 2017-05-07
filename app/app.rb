@@ -8,10 +8,6 @@ class Chitter < Sinatra::Base
     redirect '/index'
   end
 
-  # get '/sign_up' do
-  #   erb :'sign_up'
-  # end
-
   get '/index' do
     erb :'index'
   end
