@@ -29,23 +29,40 @@ describe User do
                   real_name: 'John Giant')
       expect(User.first(email_address: 'john@gmail.com')).to be_nil
     end
+  end
 
+  describe '#password=' do
+    it 'sets @password' do
+      user.password = "string"
+      expect(user.password).to eq "string"
+    end
+
+    it 'sets password_digest to salted hash of new password' do
+      user.password = "string"
+      expect(BCrypt::Password.new(user.password_digest)).to eq "string"
+    end
   end
 
   describe '#authenticate' do
     context 'email and password are correct' do
-      it 'returns true' do
-        expect(User.authenticate(email_address: user.email_address, password: user.password)).to eq user
+      it 'returns user' do
+        expect(User.authenticate(email_address: user.email_address,
+                                 password: user.password))
+          .to eq user
       end
     end
     context 'password is incorrect' do
-      it 'returns false' do
-        expect(User.authenticate(email_address: user.email_address, password: 'wrong_password')).to eq nil
+      it 'returns nil' do
+        expect(User.authenticate(email_address: user.email_address,
+                                 password: 'wrong_password'))
+          .to eq nil
       end
     end
     context 'no user with specified email address' do
-      it 'returns false' do
-        expect(User.authenticate(email_address: 'chocolate@rain.com', password: 'password')).to eq nil
+      it 'returns nil' do
+        expect(User.authenticate(email_address: 'chocolate@rain.com',
+                                 password: 'password'))
+          .to eq nil
       end
     end
   end
