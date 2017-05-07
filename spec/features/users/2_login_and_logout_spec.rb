@@ -25,8 +25,9 @@ feature '#logout', %q{
   } do
 
   scenario 'I want to log out of Chitter' do
+    signup
     login
     click_button('Logout')
-    expect(page).not_to have_content('foo')
+    expect(page).not_to have_content('Welcome, @foo')
   end
 end
