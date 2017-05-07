@@ -36,7 +36,8 @@ class Chitter < Sinatra::Base
     user = User.create(name:  params[:name],  username: params[:username],
                 email: params[:email], password: params[:password])
       if user.errors.count >= 1
-        flash.now[:notice] = "Sorry! " + user.errors.full_messages.join(", ")
+        flash.now[:notice] = "Sorry! " + user.errors.full_messages.join(", ") +
+                             " Do you need to <a href='/'>Login?</a>"
         erb :signup
       else
         redirect to('/')
