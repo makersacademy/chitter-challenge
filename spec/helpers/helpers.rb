@@ -1,4 +1,6 @@
-def sign_up
+module SessionHelpers
+
+  def sign_up
     visit 'users/new'
     expect(page.status_code).to eq 200
     fill_in :name,      with: "Martina Navratilova"
@@ -15,3 +17,5 @@ def sign_up
     fill_in :password, with: password
     click_button 'Sign in'
   end
+
+end

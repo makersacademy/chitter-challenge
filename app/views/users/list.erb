@@ -1,6 +1,7 @@
 <h1> Chitter users </h1>
 
 <ul id='users'>
+  <% @users.sort { |a, b| b.name <=> a.name} %>
   <% @users.each do |user| %>
     <li>
       Name: <%= user.name %>

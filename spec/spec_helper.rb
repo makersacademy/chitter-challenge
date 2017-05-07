@@ -8,6 +8,9 @@ require 'database_cleaner'
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 require './app/models/user'
+require './app/models/peep'
+
+require_relative 'helpers/helpers'
 
 Capybara.app = Chitter
 
@@ -19,6 +22,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.include SessionHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

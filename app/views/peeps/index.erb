@@ -1,0 +1,21 @@
+<h1>PEEPS</h1>
+
+<div>
+  <img src="https://www.dropbox.com/pri/get/Web/peeps-animals.jpg?_subject_uid=63541668&w=AAACyCudr2ETl0SVupWob3RG0Z8YKFw5V9suS8oWkGxbnA">
+</div>
+
+<form action='/peeps' method='post'>
+Add a message:
+  <label for='message'>
+    <input type='text' name='message' required>
+  </label>
+  <input type='submit' name='Submit' value='Submit'>
+</form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Message: <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
