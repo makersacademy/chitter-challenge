@@ -56,7 +56,7 @@ $ rackup
 
 ![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/password-confirmation.png "password-confirmation")
 
-### Users can Peep to the /peep padding-left
+### Users can Peep to the /peeps feed
 
 *Peeps are displayed at /peeps*
 
