@@ -12,9 +12,9 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
-  property :email, String, format: :email_address, required: true
+  property :email, String, format: :email_address, required: true, unique: true
   property :name, String
-  property :username, String, required: true
+  property :username, String, required: true, unique: true
   property :password_digest, Text
 
   def password=(password)
