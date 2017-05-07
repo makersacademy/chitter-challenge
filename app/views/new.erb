@@ -27,6 +27,7 @@ input[type=submit]:hover {
 }
 
 div {
+    width: 40%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -34,12 +35,12 @@ div {
 </style>
 <body>
 
-<h3>Chitter Account Creation</h3>
+<h3>Join Chitter</h3>
 
 <div>
-  <form action="/action_page.php">
+  <form action='/welcome' method='post'>
     <label for="e-mail">E-mail</label>
-    <input type="text" name="e-mail" placeholder="Your e-mail..">
+    <input type="text" name="email" placeholder="Your e-mail..">
 
     <label for="password">Password</label>
     <input type="text" name="password" placeholder="Your password..">

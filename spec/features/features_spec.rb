@@ -4,7 +4,7 @@ require 'web_helper'
 
 feature 'Sign up' do
   scenario 'I want to sign up for Chitter' do
-    visit '/sign_up'
+    # visit '/users/new'
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content('Welcome, eren@makersacademy.com')
     expect(User.first.email).to eq('eren@makersacademy.com')

@@ -27,6 +27,7 @@ input[type=submit]:hover {
 }
 
 div {
+    width: 40%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -37,7 +38,7 @@ div {
 <h1>Chitter</h1>
 
 <div>
-  <form action="/log_in">
+  <form action="/log_in" method='get'>
     <label for="e-mail">User Name</label>
     <input type="text" name="user name" placeholder="Your user name..">
 
@@ -45,6 +46,9 @@ div {
     <input type="text" name="password" placeholder="Your password..">
 
     <input type="submit" value="Log In">
+  </form>
+  <form action="/new_user" method='get'>
+    <input type="submit" value="Sign up">
   </form>
 </div>
 
