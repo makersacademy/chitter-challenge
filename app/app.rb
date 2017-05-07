@@ -19,16 +19,24 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(name: params[:name],
+    @user = User.new(name: params[:name],
                       user_name: params[:user_name],
                       email: params[:email],
                       password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/')
+    # session[:user_id] = user.id
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
+    else
+      flash.now[:notice] = "Email is already taken"
+      erb :'users/new'
+    end
+    # redirect to('/')
   end
 
 end

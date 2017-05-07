@@ -7,12 +7,12 @@ class User
   property :id, Serial
   property :name, String
   property :user_name, String
-  property :email, String, format: :email_address, required: true
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
-  # validates_presence_of :email
+  validates_presence_of :email
 
-  # has n, :peeps
+  has n, :peeps
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
