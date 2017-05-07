@@ -26,4 +26,14 @@ class Chitter < Sinatra::Base
     redirect to '/index'
   end
 
+  helpers do
+    def current_user(email)
+      "#{email}"
+    end
+  end
+
+  get '/:email' do
+    current_user(params['email'])
+  end
+
 end
