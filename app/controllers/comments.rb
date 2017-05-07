@@ -6,8 +6,6 @@ class Chitter < Sinatra::Base
     post = Post.get(params[:post_id])
     post.comments << comment
     post.save
-    current_user.comments << comment
-    current_user.save
     redirect to '/posts'
   end
 
