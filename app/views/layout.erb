@@ -14,4 +14,18 @@
       <h3 align='center'> Welcome, <%= current_user.name %></h3>
     <% end %>
     <%= yield %>
+
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out' style="float:right">
+    </form>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
   </body>
