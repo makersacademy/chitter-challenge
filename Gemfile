@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pry'
+gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
 
