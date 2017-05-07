@@ -11,11 +11,11 @@ feature 'User sign up' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario "I can't sign up without an email address" do
+  scenario "I cannot sign up without an email address" do
     expect { email_field_nil }.not_to change(User, :count)
   end
 
-  scenario 'I cannot sign up with an existing email' do
+  scenario 'I must sign up with a unique email address' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')

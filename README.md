@@ -42,7 +42,7 @@ $ rackup
 
 ### Test coverage 100%
 
-![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/test-coverage.png "test-coverage")
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/testcoverage.png "testcoverage")
 
 ### Functionality
 
