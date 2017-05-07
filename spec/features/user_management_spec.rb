@@ -9,14 +9,26 @@ feature 'User sign up' do
     expect { sign_up(email: nil)}.not_to change(User, :count)
   end
 
+  scenario 'cannot sign up with a blank username' do
+    expect {sign_up(username: nil)}.not_to change(User, :count)
+  end
+
   scenario 'cannot sign up with an invalid email address' do
-    expect {sign_up(email: "spock@starfleet")}.not_to change(User, :count)
+    expect {sign_up(email: "spockstarfleet")}.not_to change(User, :count)
+     expect(current_path).to eq('/users/new')
+    expect(page).to have_content("Email has an invalid format")
   end
 
   scenario 'cannot sign up with an existing email address' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
+  end
+
+  scenario 'cannot sign up wtih an existing username' do
+    sign_up
+    expect {sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Username is already taken')
   end
 
   def sign_up(username:'spock45', email: 'spock@starfleet.com', name: 'Spock',
