@@ -1,7 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/' do
-    redirect '/users/new'
+    redirect '/chitter-newsfeed'
   end
 
   get '/chitter-newsfeed' do
