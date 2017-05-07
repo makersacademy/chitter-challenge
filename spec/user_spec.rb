@@ -1,19 +1,20 @@
 describe User do
 
   def create_user
-      User.create(email_address: 'james@aol.com',
+    @user ||= User.create(email_address: 'james@aol.com',
                   password: 'password',
                   password_confirmation: 'password',
                   user_name: 'james',
                   real_name: 'James Giant')
   end
-    
-  subject(:user) { create_user }
+  
   before(:example) { create_user }
+  subject(:user) { create_user }
     
   describe '#create' do
     it 'saves user to database' do
       user_id = user.id
+      p User.all
       expect(User.first(id: user_id)).to eq user
     end
 
