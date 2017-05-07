@@ -17,7 +17,6 @@ feature 'Users' do
     expect(page).to have_content reply
   end
 
-
   scenario 'cannot have responses over 150 characters long' do
     log_in
     post_peep

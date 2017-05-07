@@ -48,7 +48,7 @@
 
       <% if flash[:errors] && !flash[:errors].empty? %>
       Please refer to the following errors below:
-      <ul id='errors'>
+      <ul id='errors' style="list-style: none;">
       <% flash[:errors].each do |error| %>
       <li><%= error %></li>
       <% end %>

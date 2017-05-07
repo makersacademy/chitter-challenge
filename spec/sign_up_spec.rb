@@ -9,8 +9,15 @@ feature 'Users' do
   scenario 'cannot sign up with an invalid email address' do
     email = 'email.com-@'
     expect { sign_up(email) }.not_to change { User.count }
-    expect(current_path).to eq('/users')
-    expect(page).to have_content('Email has an invalid format')
+    expect(current_path).to eq '/users'
+    expect(page).to have_content 'Email has an invalid format'
+  end
+
+  scenario 'cannot sign up with passwords that do not match' do
+    expect {
+      sign_up(confirm_password = 'secret*124')
+    }.not_to change { User.count }
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
 end
