@@ -1,0 +1,106 @@
+
+<style>
+  .navbar-brand {
+      font-family: Lobster, monospace;
+      color: #1b314f !important;
+      font-size: 34 !important;
+    }
+
+  .navbar-nav  li a:hover {
+      color: #A643A0 !important;
+  }
+
+  .navbar-nav {
+
+  }
+  .sign_up {
+    background-color: #caccce;
+    opacity: 0.95;
+  }
+    #sign_up {
+      font-family: Raleway, monospace;
+    }
+    div.sign_up {
+    position:absolute;
+    z-index:9999000;
+    top:150px;
+    left:10px;
+    right:auto;
+    bottom:auto;
+    }
+    div#myCarousel {
+    position:relative;
+
+}
+
+</style>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway|Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <head>
+    <nav class="navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">ChitterApp</a>
+        </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">Trending</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </head>
+  <body>
+    <div class="row">
+      <div class="container-fluid">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel"  data-interval="5000">
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="http://dontpaniconline.com/media/magazine/body/2015-04-10/images/20150409_MakersAcademy_0208.jpg">
+            </div>
+            <div class="item">
+              <img src="http://dontpaniconline.com/media/magazine/body/2015-04-10/images/20150409_MakersAcademy_0199.jpg">
+            </div>
+            <div class="item">
+              <img src="http://dontpaniconline.com/media/magazine/body/2015-04-10/images/20150409_MakersAcademy_0072.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="sign_up col-sm-4">
+          <h2 id='sign_up'> Sign up and join the peeps!</h2>
+          <form id='sign_up'>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="name" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="user_name">User name:</label>
+              <input type="user_name" class="form-control" id="user_name">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <div class="form-group">
+              <label for="password_confirmation">Confirm Password:</label>
+              <input type="password" class="form-control" id="password_confirmation">
+            </div>
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
