@@ -6,15 +6,20 @@ The following errors have occured:
 <%end%>
 <%end%>
 
+<%if flash[:notice]%>
+The following error has occured
+<%=flash[:notice]%>
+<%end%>
+
   <body>
     <form action='/new_user' method='post'>
       <li>
       <label for='name'>Name:</label>
-      <input type='text' name='name' placeholder="Enter your name" value='<%=@user.name%>' required> <li>
+      <input type='text' name='name' placeholder="Enter your name" value='<%=@user?@user.name : nil%>' required> <li>
       <label for='user_name'>User-name:</label>
-      <input type='text' name='user_name' placeholder="Enter a user-name" value='<%=@user.user_name%>' required> <li>
+      <input type='text' name='user_name' placeholder="Enter a user-name" value='<%=@user?@user.user_name : nil%>' required> <li>
       <label for='email'>Email:</label>
-      <input type='email' name='email' placeholder="Enter your email" value='<%=@user.email%>' required> <li>
+      <input type='email' name='email' placeholder="Enter your email" value='<%=@user?@user.email : nil%>' required> <li>
       <label for='password'>Password:</label>
       <input type='text' name='password' placeholder="Enter your password" required> <li>
       <label for='password'>Password confirmation:</label>
@@ -22,7 +27,7 @@ The following errors have occured:
       <input type='submit' value='submit'>
     </form>
 
-    <form action='/chitter' method='post'>
+    <form action='/login' method='post'>
       <label for='user_name'>User-name:</label>
       <input type='text' name='login_id' placeholder="Enter your user-name"> <li>
       <input type='text' name='login_pass' placeholder="Enter your password"> <li>

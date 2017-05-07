@@ -49,13 +49,11 @@ feature 'log in capability' do
     expect(page).to have_content 'This email is already registered'
   end
 
-
-
-  #scenario 'user can log in after signing up' do
-  #  visit '/'
-  #  fill_in 'login_id', with: 'hyper0009'
-  #  fill_in 'login_pass', with: 'hot7575'
-  #  click_button 'login'
-  #  expect(page).to have_content 'Welcome hyper0009'
-  #end
+  scenario 'user can log in after signing up' do
+    visit '/'
+    fill_in 'login_id', with: 'hyper0009'
+    fill_in 'login_pass', with: 'hot7575'
+    click_button 'login'
+    expect(page).to have_content 'Welcome hyper0009'
+  end
 end

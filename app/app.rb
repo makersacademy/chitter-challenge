@@ -33,6 +33,17 @@ post '/new_user' do
   end
 end
 
+post '/login' do
+    @user = User.authenticate(params[:login_id], params[:login_pass])
+    if @user.nil?
+      flash.now[:notice] = "Login Id and Password dont match"
+      erb(:homepage)
+    else
+      session[:user_id] = @user.id
+      redirect(:chitter)
+    end
+  end
+
 get '/chitter' do
   erb(:chitter)
 end
