@@ -6,7 +6,7 @@ feature 'Users' do
     User.create(email: email, password: password, password_confirmation: password)
   end
 
-  scenario 'when not signed in' do
+  scenario 'when not signed in cannot signout' do
     visit '/'
     expect(page).not_to have_button 'Sign Out Now!'
   end

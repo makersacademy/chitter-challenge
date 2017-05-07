@@ -6,9 +6,10 @@ feature 'Peeps' do
     User.create(email: email, password: password, password_confirmation: password)
   end
 
-  scenario 'posted by logged in users' do
+  scenario 'are posted by logged in users and page shows poster email address' do
     log_in
     post_peep
+    expect(page).to have_content "By #{user.email}"
   end
 
   scenario 'cannot be over 150 characters long' do
