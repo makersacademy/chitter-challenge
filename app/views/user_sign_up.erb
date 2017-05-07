@@ -1,5 +1,10 @@
-<% if flash[:notice] %>
-<div id="notice"><%= flash[:notice] %></div>
+<% if flash.now[:errors] && !flash.now[:errors].empty? %>
+  Please see the following errors:
+  <ul id="errors">
+    <% flash.now[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <h1>Welcome to Chitter sign up page</h1>

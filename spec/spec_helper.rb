@@ -3,8 +3,8 @@ require_relative "../app/app"
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
-require 'web_helpers'
 require 'database_cleaner'
+require 'pry'
 
 Capybara.app = ChitterApp
 

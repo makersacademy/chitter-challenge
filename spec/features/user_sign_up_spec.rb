@@ -1,7 +1,8 @@
-feature 'User sign up form' do
+require 'spec/helpers.rb'
 
-  scenario 'User can sign up' do
-    sign_up
+feature 'User sign up form' do
+  include Helpers
+  scenario 'Signs up a user' do
     expect { sign_up }.to change { User.count }.by 1
     expect(current_path).to eq '/welcome'
     expect(page).to have_content('Welcome, chun-li')
@@ -12,11 +13,31 @@ feature 'User sign up form' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
   end
 
+  scenario 'I cannot sign up without an email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/create_user')
+    expect(page).to have_content('Email must not be blank')
+end
+
   context 'when a password does not match' do
     scenario 'Returns a message to user' do
       expect { sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
       expect(current_path).to eq '/create_user'
-      expect(page).to have_content 'Passwords do not match'
+      expect(page).to have_content 'Password does not match the confirmation'
+    end
+  end
+
+  scenario 'I cannot sign up with an invalid email address' do
+    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+    expect(current_path).to eq('/create_user')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  context 'when a user has signed up with an email address' do
+    scenario 'Cannot sign up with that same email address' do
+      sign_up
+      expect { sign_up }.to_not change(User, :count)
+      expect(page).to have_content 'Email is already taken'
     end
   end
 
