@@ -1,10 +1,11 @@
 <body>
   <h1>Sign up to Chitter!</h1>
-  <form>
-    First Name:<input type='text' name='first_name'><br>
-    Last Name:<input type='text' name='last_name'><br>
-    Email Address:<input type='email' name='email_address'><br>
-    Password:<input type='password' name='password'><br>
-    <input type='submit' value='Sign Up!'' action='user/registered' method='post'
+  <form action='/user/registered' method='post'>
+      First Name:<input type='text' name='first_name'><br>
+      Last Name:<input type='text' name='last_name'><br>
+      Username:<input type='text' name='username'><br>
+      Email Address:<input type='email' name='email_address'><br>
+      Password:<input type='password' name='password'><br>
+    <input type='submit' value='Sign Up!'>
   </form>
 </body>
