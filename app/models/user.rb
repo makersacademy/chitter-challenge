@@ -8,12 +8,4 @@ class User
   property :email, String
   property :password, String
 
-  def self.generate(params)
-    @user = User.create(params)
-  end
-
-  def self.instance
-    @user
-  end
-
 end

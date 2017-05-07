@@ -1,9 +1,7 @@
 require './spec/spec_helper'
+require 'pry'
 
 feature 'logout' do
-  before do
-    @user = User.instance
-  end
   scenario 'user is able to log out' do
     visit '/'
     fill_in 'newuser_name', with: 'FirstName LastName'
@@ -17,7 +15,6 @@ feature 'logout' do
     fill_in 'user_password', with: '123456'
     click_button 'Log in'
     click_link 'Log out'
-    visit '/feed'
     expect(page).to_not have_content 'Welcome, User!'
   end
 end

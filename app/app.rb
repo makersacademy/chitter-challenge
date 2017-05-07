@@ -7,18 +7,17 @@ require 'pry'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb(:signup)
   end
 
   post '/' do
-    @user = User.generate(name: params[:newuser_name], username: params[:newuser_username],
+    @user = User.create(name: params[:newuser_name], username: params[:newuser_username],
           email: params[:newuser_email], password: params[:newuser_password])
+    session[:id] = @user[:id]
     redirect '/login'
-  end
-
-  before do
-    @user = User.instance
   end
 
   get '/login' do
@@ -26,16 +25,19 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
+    session[:username] = params[:user_name]
+    session[:password] = params[:user_password]
+    @user = User.find { session[:id] }
     redirect '/feed'
   end
 
   get '/feed' do
+    @user = User.find { session[:id] }
     erb(:feed)
   end
 
   get '/logout' do
-    @user.username = nil
-    @user.password = nil
+    session.clear
     redirect '/login'
   end
 end
