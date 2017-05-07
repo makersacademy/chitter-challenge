@@ -59,7 +59,6 @@ class Chitter < Sinatra::Base
     peep = Peep.create(body: params[:peep], timestamp: time)
     @user.peeps << peep
     @user.save
-    p peep.timestamp
     redirect '/home'
   end
 

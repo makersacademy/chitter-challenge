@@ -19,6 +19,7 @@
   </form>
   <% end %>
 <% @peeps.reverse.each do |peep| %>
-  <h3><%= "@#{User.get(peep.user_id).username} -- #{peep.timestamp}" %></h3>
+  <% @author = User.get(peep.user_id) %>
+  <h3><strong><%= "#{@author.name} " %></strong><em><small><%= "@#{@author.username}" %></small></em> <%= " -- #{peep.timestamp}" %></h3>
   <h4><%= peep.body %></h4>
 <% end %>
