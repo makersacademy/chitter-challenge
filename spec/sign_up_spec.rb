@@ -1,3 +1,5 @@
+require './spec/web_helpers'
+
 feature "Signs up a user" do
 
   scenario "accesses the sign up page" do
@@ -9,6 +11,10 @@ feature "Signs up a user" do
     end
   end
 
-
+  scenario "user adds details" do
+    expect { sign_up }.to change(User, :count).by(1)
+    expect(page).to have_content('Welcome, allcourter@allsurfaces.com')
+    expect(User.first.email).to eq ('allcourter@allsurfaces.com')
+  end
 
 end
