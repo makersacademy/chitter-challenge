@@ -5,4 +5,9 @@ feature 'New user signs up' do
     expect(page).to have_content 'Welcome, Frodo Baggins'
     expect(User.first.name).to eq 'Frodo Baggins'
   end
+
+  scenario 'Gets password confirmation' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
 end

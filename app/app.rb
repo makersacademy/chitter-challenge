@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||= 'development' 
+ENV['RACK_ENV'] ||= 'development'
 
 require_relative 'data_mapper_setup'
 require 'sinatra/base'
@@ -23,10 +23,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(email: params[:email],
+    p user = User.create(email: params[:email],
                 name: params[:name],
                 username: params[:username],
-                password: params[:password])
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to '/home'
   end
