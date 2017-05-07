@@ -39,20 +39,19 @@ Bonus:
 
 Gems used:
 ----------
-* bcrypt
-* data_mapper
-* capybara
-* cucumber
-* database_cleaner
-* dm-postgres-adapter
-* rack
-* rake
-* rspec
-* rubocop
-* simplecov
+* [bcrypt](https://github.com/codahale/bcrypt-ruby)
+* [data_mapper](http://datamapper.org/)
+* [capybara](https://github.com/teamcapybara/capybara)
+* [cucumber](https://github.com/cucumber/cucumber)
+* [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
+* [dm-postgres-adapter](https://github.com/datamapper/dm-postgres-adapter)
+* [rack](https://github.com/rack/rack)
+* [rake](https://github.com/ruby/rake)
+* [rspec](https://github.com/rspec/rspec)
+* [rubocop](https://github.com/bbatsov/rubocop)
+* [simplecov](https://github.com/colszowka/simplecov)
 * [sinatra](https://github.com/sinatra/sinatra)
-* sinatra-flash
-
+* [sinatra-flash](https://github.com/SFEley/sinatra-flash)
 
 Running locally
 -----------
