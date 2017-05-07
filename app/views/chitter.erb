@@ -1,6 +1,8 @@
 <h1> Peeps </h1>
 <%if current_user%>
 Welcome <%=current_user.user_name%>
+<%else%>
+<h2>Sign up to peep<h2>
 <%end%>
 
 <%User.all.each do |user|%>
@@ -16,7 +18,14 @@ Welcome <%=current_user.user_name%>
   <input type='submit' value='logout'>
 </form>
 
+<%if current_user%>
 <form action='/peep' method='post'>
   <input type='text' name='peep_content'>
   <input type='submit' value='peep'>
 </form>
+<%else%>
+<form action='/' method='get'>
+  <input type='submit' value='back_to_signup'>
+</form>
+
+<%end%>

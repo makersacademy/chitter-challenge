@@ -14,4 +14,12 @@ feature 'viewing and writing peeps' do
     click_button 'peep'
     expect(page).to have_content 'blah blah'
   end
+
+  scenario 'cant peep when browsing' do
+    visit '/'
+    click_button 'browse_peeps'
+    expect(page).to have_content 'Sign up to peep'
+    click_button 'back_to_signup'
+    expect(page).to have_content 'Sign up for Chitter'
+  end
 end
