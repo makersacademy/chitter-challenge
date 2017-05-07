@@ -1,27 +1,17 @@
-<div class="nav">
+<div class="nav" id="user-links">
   <ul>
 <% if current_user %>
-  <li><form method='post' action='/sessions'>
+  <form method='post' action='/sessions'>
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Sign Out'>
-  </form></li>
-  <li><form action='/posts/new'>
-    <input type='submit' value='New Peep'>
-  </form></li>
-  <li><form action='/posts'>
-    <input type='submit' value='View Peeps'>
-  </form></li>
+  </form>
+  <a href="/posts/new" class="button highlighted">New Peep</a>
+  <a href="/posts" class="button highlighted">View Peeps</a>
 <% end %>
 <% if current_user == nil %>
-  <li><form action='/sessions/new'>
-    <input type='submit' value='Sign In'>
-  </form></li>
-  <li><form action='/users/new'>
-    <input type='submit' value='Sign Up'>
-  </form></li>
-  <li><form action='/posts'>
-    <input type='submit' value='View Peeps'>
-  </form></li>
+  <a href="/sessions/new" class="button highlighted">Sign In</a>
+  <a href="/users/new" class="button highlighted">Sign Up</a>
+  <a href="/posts" class="button highlighted">View Peeps</a>
 <% end %>
 </ul>
 </div>

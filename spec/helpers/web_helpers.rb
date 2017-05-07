@@ -26,7 +26,7 @@ module Helpers
   end
 
   def add_post(message: "Hey, I'm a new peeper!")
-    click_button "New Peep"
+    click_link "New Peep"
     fill_in :message, with: message
     click_button "Peep"
   end

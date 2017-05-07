@@ -3,23 +3,25 @@
   <% @posts.reverse.each do |post| %>
   <ul>
     <li id="peep"><%= post.message %></li>
-    <li>Posted by: <%= post.user.username %></li>
-    <li>Date: <%= (post.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
+    <li class="posted_by">Posted by: <%= post.user.username %></li>
+    <li class="created_at">Date: <%= (post.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
     <% if current_user %>
     <form action="/comments" method="post">
-      <label for="comment">Comment:</label>
       <input type="hidden" name="post_id" value="<%= post.id %>">
       <input type="text" name="comment">
-      <input type="submit" value="Add Comment">
+      <input id="comment_button" type="submit" value="Add Comment">
     </form>
     <%end%>
-  <ul id="comments">
-    <% post.comments.reverse.each do |comment| %>
+  <% if post.comments != [] %>
+    <ul id="comments">
+      <p>Comments:</p>
+      <% post.comments.reverse.each do |comment| %>
       <li><%= comment.comment %></li>
-      <li>Posted by: <%= comment.user.username %></li>
-      <li>Date: <%= (comment.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
-    <%end%>
-  </ul>
+      <li class="posted_by">Posted by: <%= comment.user.username %></li>
+      <li class="created_at">Date: <%= (comment.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
+      <%end%>
+    </ul>
+  <%end%>
   </ul>
   <% end %>
 </div>

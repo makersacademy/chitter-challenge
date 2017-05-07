@@ -1,6 +1,5 @@
-
   * {
-    box-sizing: border-box;
+   box-sizing: border-box;
   }
 
   html {
@@ -16,103 +15,65 @@
 
   h1{
     font-size: 250%;
-    margin: 20px 0;
+    margin: 20px;
   }
 
   h2{
-    font-size: 175%;
-    margin: 20px 0;
+    font-size: 170%;
+    margin: 20px;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  form {
+    margin: 10px;
+    display: inline-block;
   }
 
   input{
     border: solid 2px;
     display: block;
+    text-align: center;
     font-size: 100%;
-  }
-
-  input[type=text]{
-    padding: 10px;
     border-radius: 5px;
-    width: 210px;
-    height: 30px;
     margin: 10px;
-  }
-
-  input[type=password]{
-    padding: 10px;
-    border-radius: 5px;
-    width: 210px;
-    height: 30px;
-    margin: 10px;
-  }
-
-  input[type=email]{
-    padding: 10px;
-    border-radius: 5px;
-    width: 210px;
-    height: 30px;
-    margin: 10px;
+    padding: 5px;
+    font: inherit;
+    letter-spacing: 3px;
   }
 
   input[type=submit]{
-    font-size: 100%;
+    display: inline-block;
     color: #fff;
     background-color: #708090;
-    border: none;
     padding: 10px;
+    width: 120px
+  }
+
+  input:hover {
+    background-color: #ddd;
+    color: black;
     border-radius: 5px;
-    width: 120px;
-    margin: 0 auto;
-    text-align: center;
-    display: inline-block;
   }
 
-  form {
-    display: inline-block;
-    text-align: center;
-  }
-
-  .nav form {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-  }
-
-  .nav li {
-    display: inline-block;
-    text-align: center;
-  }
-
-  .nav input {
-      color: #f2f2f2;
-      text-align: center;
-      text-decoration: none;
-      font-size: 100%;
-  }
-
-  .nav input:hover {
-      background-color: #ddd;
-      color: black;
-      border-radius: 5px;
-  }
-
-  .nav .active {
-      background-color: #4CAF50;
-      color: white;
+  ul{
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
   }
 
   .posts ul {
-    width: 40%;
-    display: block;
-    text-align: center;
-    margin: auto;
+    width: 600px;
+    margin: 10px auto;
     padding: 15px;
     border: solid 2px;
     border-radius: 5px;
     background-color: #fff;
   }
 
-  .posts ul #peep {
+  .posts #peep {
     width: 80%;
     display: block;
     text-align: center;
@@ -121,12 +82,41 @@
     background-color: #fff;
   }
 
-  .posts ul #comments {
-    border: none;
+  .posts #comments {
+    width: 90%;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
   }
 
-  ul{
-    list-style-type: none;
-    margin: 10px;
+  .nav a.button {
+    font-size: 100%;
+    color: #fff;
+    background-color: #708090;
     padding: 10px;
+    border-radius: 5px;
+    border: solid 2px;
+    width: 120px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .nav a:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 5px;
+  }
+
+  #comment_button {
+    width: 160px;
+    text-align: center;
+  }
+
+  .posted_by {
+    color:  #708090;
+  }
+
+  .created_at {
+    color:  #708090;
   }
