@@ -5,6 +5,13 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require 'pry'
+require 'helpers/session'
+
+RSpec.configure do |config|
+
+  config.include SessionHelpers
+
+end
 
 Capybara.app = ChitterApp
 

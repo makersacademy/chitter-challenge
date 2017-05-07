@@ -8,6 +8,7 @@ class ChitterApp < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -43,6 +44,12 @@ class ChitterApp < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:id] = nil
+    flash.keep[:notice] = 'See you again soon!'
+    redirect to '/peeps'
+  end
+
   get '/sessions/new' do
     erb :'sessions/new'
   end
@@ -53,7 +60,7 @@ class ChitterApp < Sinatra::Base
       session[:id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:errors] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
   end

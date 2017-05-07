@@ -1,1 +1,13 @@
-<h1><%= "Welcome, #{@user.username}." %></h1>
+<% if flash[:notice] %>
+   <div id='notice'>
+     <%= flash[:notice].to_s %>
+   </div>
+ <% end %>
+
+ <% if current_user %>
+   <h1>Welcome, <%= current_user.username %>.</h1>
+   <form action='/sessions' method='post'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Log Out'>
+   </form>
+ <% end %>

@@ -1,3 +1,9 @@
+<% if flash[:errors] %>
+   <div id='notice'>
+     <%= flash[:errors] %>
+   </div>
+ <% end %>
+
 <h1>Welcome to Chitter log in page</h1>
 <h2>Log in, and start peeping!</h2>
 
