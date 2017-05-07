@@ -1,0 +1,86 @@
+<img src="https://wallpaperscraft.com/image/white_partridge_bird_snow_72451_1920x1080.jpg"
+style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+
+<header> <h1> Sign up for Chitter <h1> </header>
+<%if flash[:errors] && !flash[:errors].empty?%>
+The following errors have occured:
+<%flash[:errors].each do |error|%>
+<li><%=error%></li>
+<%end%>
+<%end%>
+
+<%if flash[:notice]%>
+<%=flash[:notice]%>
+<%end%>
+
+
+
+<html>
+<style>
+body {
+    font: normal 20px Courier, Courier, sans-serif;
+}
+</style>
+<style>
+input[type="submit"]{
+  position: relative;
+  vertical-align: top;
+  width: 15%;
+  height: 30px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2c3e50;
+  border: 0;
+  border-bottom: 2px solid #22303f;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #22303f;
+  box-shadow: inset 0 -2px #22303f;
+}
+{
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+</style>
+  <body>
+    <form action='/new_user' method='post'>
+      Enter your name:<br>
+      <input type='text' name='name' placeholder="Enter your name" size="27" value='<%=@user?@user.name : nil%>' required>
+      <br>
+      Enter a Username:<br>
+      <input type='text' name='user_name' placeholder="Enter a user-name" size="27" value='<%=@user?@user.user_name : nil%>' required>
+      <br>
+      Enter your email:<br>
+      <input type='email' name='email' placeholder="Enter your email" size="27" value='<%=@user?@user.email : nil%>' required>
+      <br>
+      Enter your password:<br>
+      <input type='text' name='password' placeholder="Enter your password" size="27" required>
+      <br>
+      Confirm your password:<br>
+      <input type='text' name='password_confirmation' placeholder="Re-enter your password" size="27" required>
+      <br>
+      <br>
+      <input type='submit' value='submit'>
+    </form>
+
+    <form action='/login' method='post'>
+      Username:<br>
+      <input type='text' name='login_id' placeholder="Enter your user-name">
+      <br>
+      Password:<br>
+      <input type='text' name='login_pass' placeholder="Enter your password">
+      <br>
+      <br>
+      <input type='submit' value='login'>
+    </form>
+
+    <form action='/chitter'>
+      <input type='submit' value='browse_peeps'>
+    </form>
+  </body>
+  </html>

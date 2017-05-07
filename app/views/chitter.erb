@@ -1,0 +1,31 @@
+<h1> Peeps </h1>
+<%if current_user%>
+Welcome <%=current_user.user_name%>
+<%else%>
+<h2>Sign up to peep<h2>
+<%end%>
+
+<%User.all.each do |user|%>
+<%user.peeps.each do |peep|%>
+<br>
+<br><%=user.user_name%> &ensp;&ensp;Time-of-post: <%=peep.time%><br>
+<br>
+<p style="padding: 10px; color: red; background-color: white; border: black 4px solid; width: 600px; height: 20px;"><%=peep.post%></p>
+<br>
+<%end%>
+<%end%>
+
+<%if current_user%>
+<form action='/logout' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='logout'>
+</form>
+<form action='/peep' method='post'>
+  <input type='text' name='peep_content'>
+  <input type='submit' value='peep'>
+</form>
+<%else%>
+<form action='/' method='get'>
+  <input type='submit' value='back_to_signup'>
+</form>
+<%end%>
