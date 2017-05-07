@@ -6,19 +6,18 @@ Welcome <%=current_user.user_name%>
 <%end%>
 
 <%User.all.each do |user|%>
-<li><%=user.name%><li>
 <%user.peeps.each do |peep|%>
+
 <li><%=user.name%>: <%=peep.time%> <li>
 <li><%=peep.post%><li>
 <%end%>
 <%end%>
 
+<%if current_user%>
 <form action='/logout' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='logout'>
 </form>
-
-<%if current_user%>
 <form action='/peep' method='post'>
   <input type='text' name='peep_content'>
   <input type='submit' value='peep'>
@@ -27,5 +26,4 @@ Welcome <%=current_user.user_name%>
 <form action='/' method='get'>
   <input type='submit' value='back_to_signup'>
 </form>
-
 <%end%>
