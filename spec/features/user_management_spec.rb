@@ -6,6 +6,16 @@ feature 'Signing up' do
     expect(page).to have_content('Welcome, izzy@example.com')
     expect(User.first.email).to eq('izzy@example.com')
   end
+
+  scenario 'I cannot sign up with existing email' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email already exists')
+  end
+
+  scenario 'I need to enter a matching confirmation password' do
+    expect { sign_up_confirmation(password_confirmation: 'no') }.not_to change(User, :count)
+  end
 end
 
 feature 'Signing in' do
