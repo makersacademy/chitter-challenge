@@ -56,4 +56,13 @@ feature 'log in capability' do
     click_button 'login'
     expect(page).to have_content 'Welcome hyper0009'
   end
+
+  scenario 'user can log out of acount' do
+    visit '/'
+    fill_in 'login_id', with: 'hyper0009'
+    fill_in 'login_pass', with: 'hot7575'
+    click_button 'login'
+    click_button 'logout'
+    expect(page).to have_content 'successfully logged out'
+  end
 end

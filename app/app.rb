@@ -7,8 +7,10 @@ require 'bcrypt'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
+
 
 helpers do
   def current_user
@@ -43,6 +45,12 @@ post '/login' do
       redirect(:chitter)
     end
   end
+
+delete '/logout' do
+  session[:user_id] = nil
+  flash[:notice] = 'successfully logged out'
+  redirect '/'
+end
 
 get '/chitter' do
   erb(:chitter)
