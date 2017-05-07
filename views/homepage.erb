@@ -20,19 +20,32 @@
     #sign_up {
       font-family: Raleway, monospace;
     }
+
+
+
     div.sign_up {
     position:absolute;
     z-index:9999000;
-    top:150px;
-    left:10px;
+    top:20%;
+    left:4%;
     right:auto;
     bottom:auto;
     }
     div#myCarousel {
     position:relative;
-
+}
+@media (min-width:800px){
+  
+}
+@media (max-width:800px) {
+    #myCarousel {
+        display:none !important;
+    }
+    div.sign_up {
+    display:none !important;
 }
 
+}
 </style>
 <html>
   <meta charset="utf-8">
@@ -43,7 +56,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <head>
     <nav class="navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" id="navbar">
         <div class="navbar-header">
           <a class="navbar-brand">ChitterApp</a>
         </div>
