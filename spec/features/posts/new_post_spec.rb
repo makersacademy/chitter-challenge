@@ -18,4 +18,18 @@ feature '#new_post', %q{
     add_post
     expect(page).to have_content('Test post')
   end
+
+  scenario '&& the displayed message should include name' do
+    signup
+    login
+    add_post
+    expect(page).to have_content('foobar')
+  end
+
+  scenario '&& the displayed message should include username with an @' do
+    signup
+    login
+    add_post
+    expect(page).to have_content('@foo')
+  end
 end

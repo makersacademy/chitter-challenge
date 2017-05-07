@@ -174,6 +174,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-rspec
+  dm-timestamps
   dm-validations
   rack_session_access
   rake

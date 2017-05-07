@@ -19,13 +19,14 @@
   <% end %>
 
   <% unless @posts.nil? %>
-    <ul id='posts'>
+    <id='posts'>
       <% @posts.each do |post| %>
-      <li>
-          <%= post.post + ", said @" + User.get(post.user_id).username %>
-      </li>
+          <%= post.post + ' ' +
+          post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s + ' @' +
+          User.get(post.user_id).username + ' ' +
+          User.get(post.user_id).name%>
+        </br>
       <% end %>
-    </ul>
   <% end %>
 
 </body>
