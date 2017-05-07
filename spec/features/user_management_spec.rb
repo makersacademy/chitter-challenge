@@ -40,6 +40,7 @@ end
 
     scenario 'I can log out if signed in' do
       sign_in(email: 'izzy@example.com', password: 'password1')
+      visit '/'
       click_on 'Sign out'
       expect(page).to have_content('See you soon!')
       expect(page).not_to have_content('Welcome, izzy@example.com')
@@ -50,6 +51,7 @@ feature 'Resetting password' do
   before do
   sign_up
   Capybara.reset!
+   allow(RecoveryLink).to receive(:call)
 end
 let(:user) { User.first }
 
@@ -81,4 +83,37 @@ scenario 'it asks for your new password when your token is valid' do
    visit("/reset_password?token=#{user.password_token}")
    expect(page).to have_content("Please enter your new password")
  end
+
+ scenario 'it lets you enter a new password with a valid token' do
+  recover_password
+  visit("/reset_password?token=#{user.password_token}")
+  fill_in :password, with: "newpassword"
+  fill_in :password_confirmation, with: "newpassword"
+  click_button "Submit"
+  expect(page).to have_content("Sign in")
+end
+
+scenario 'it lets you sign in after password reset' do
+   recover_password
+   visit("/reset_password?token=#{user.password_token}")
+   fill_in :password, with: "newpassword"
+   fill_in :password_confirmation, with: "newpassword"
+   click_button "Submit"
+   sign_in(email: "izzy@example.com", password: "newpassword")
+   expect(page).to have_content "Welcome, izzy@example.com"
+ end
+
+ scenario 'it lets you know if your new passwords do not match' do
+   recover_password
+   visit("/reset_password?token=#{user.password_token}")
+   fill_in :password, with: "newpassword"
+   fill_in :password_confirmation, with: "wrongpassword"
+   click_button "Submit"
+   expect(page).to have_content("Password does not match the confirmation")
+ end
+
+ scenario 'it calls the SendRecoverLink service to send the link' do
+  expect(RecoveryLink).to receive(:call).with(user)
+  recover_password
+end
   end

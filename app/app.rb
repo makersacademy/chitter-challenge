@@ -45,30 +45,31 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
-    get '/sign-in' do
+  get '/sign-in' do
+    erb(:sign_in)
+  end
+
+  post '/sign-in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
       erb(:sign_in)
     end
+  end
 
-    post '/sign-in' do
-      user = User.authenticate(params[:email], params[:password])
-      if user
-        session[:user_id] = user.id
-        redirect to('/')
-      else
-        flash.now[:errors] = ['The email or password is incorrect']
-        erb(:sign_in)
-      end
-    end
-
-    get '/recover-password' do
+  get '/recover-password' do
     "Please enter your email address"
     erb(:password_recovery)
-   end
+  end
 
-   post '/recover-password' do
-     user = User.first(email: params[:email])
+  post '/recover-password' do
+    user = User.first(email: params[:email])
     if user
       user.generate_token
+      RecoveryLink.call(user)
     end
     erb(:acknowledgement)
   end
@@ -76,9 +77,23 @@ class Chitter < Sinatra::Base
   get '/reset_password' do
     @user = User.find_by_valid_token(params[:token])
     if(@user)
-      "Please enter your new password"
+      session[:token] = params[:token]
+      erb(:reset_password)
     else
       "Your token is invalid"
     end
   end
+
+  patch '/users' do
+  user = User.find_by_valid_token(session[:token])
+   if user.update(password: params[:password],
+     password_confirmation: params[:password_confirmation])
+     session[:token] = nil
+     user.update(password_token: nil)
+    redirect "/sign-in"
+  else
+    flash.now[:errors] = user.errors.full_messages
+    erb(:reset_password)
+  end
+end
 end

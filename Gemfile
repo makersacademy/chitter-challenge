@@ -12,6 +12,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'sinatra-flash'
 gem 'timecop'
+gem 'mailgun'
 
 group :test do
   gem 'cucumber'
