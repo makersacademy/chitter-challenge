@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-validations'
 require 'dm-timestamps'
 require 'bcrypt'
 require 'sinatra/flash'

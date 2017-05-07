@@ -31,13 +31,21 @@ class Chitter < Sinatra::Application
   end
 
   get '/peeps' do
+    redirect_if_not_logged_in
     @peeps = Peep.all(:order => [ :created_at.desc ])
     erb :'peeps/index'
   end
 
-  post '/peeps/new' do
-    current_user.peeps.create(content: params[:content])
-    redirect '/peeps'
+  post '/peeps' do
+    peep = current_user.peeps.new(content: params[:content])
+    if current_user.peeps.save
+      redirect '/peeps'
+    else
+      flash.now[:errors] = peep.errors
+      @peeps = Peep.all(:order => [ :created_at.desc ])
+      erb :'peeps/index'
+    end
+
   end
 
   get '/sessions/new' do
@@ -70,7 +78,6 @@ class Chitter < Sinatra::Application
 
   post '/comments' do
     peep = Peep.get(params[:peep_id])
-    #p peep
     peep.responses.create(content: params[:comment_content])
     redirect '/peeps'
   end

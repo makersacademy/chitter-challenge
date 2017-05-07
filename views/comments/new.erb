@@ -2,7 +2,7 @@
 
 <h2>Reply to this peep</h2>
 <form method='post' action='/comments'>
-<input type='text' name='comment_content'>
+<textarea name='comment_content' rows="4" cols="140" class="form-control"></textarea>
 <input type='hidden' name='peep_id' value="<%=@peep.id%>">
-<input type='submit' value='Reply'>
+<input type='submit' value='Reply' class="btn btn-default">
 </form>

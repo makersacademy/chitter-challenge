@@ -9,85 +9,74 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.0/cerulean/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   </head>
 
-  <body class="preview">
+  <body>
 
- <div class="navbar navbar-fixed-top">
-   <div class="navbar-inner">
-     <div class="container-fluid">
-       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </a>
-       <a class="brand" href="/">April 2007 Chitter</a>
-       <div class="nav-collapse collapse" id="main-menu">
+ <div class="container">
 
-       <ul class="nav pull-right" id="main-menu-right">
+    <div class="jumbotron">
+  <h1>April 2017 Chitter</h1>
 
-            <li>
+</div>
 
-            </li>
-            <li>
-
-            </li>
-
-         </ul>
-       </div>
-     </div>
-   </div>
- </div>
-
- <div class="container-fluid" style="margin-top: 70px; margin-left: 40px; margin-right: 40px">
-    <header class="jumbotron subhead" id="overview">
-
-      <div class="row">
-
-        <% if current_user %>
-        Hi <%= current_user.email %>
-        <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log Out'>
-        </form>
-
-
-        <% end %>
-
-        <% if flash[:notice] %>
-        <div id='notice'>
-        <%= flash[:notice] %>
-        </div>
-        <% end %>
-
-        <% if flash[:errors] && !flash[:errors].empty? %>
-        Please refer to the following errors below:
-        <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-        </ul>
-        <% end %>
-
-
-      </div>
-
-        <div class="row">
-        <div>
-          <%= yield %>
-        </div>
-      </div>
-    </header>
-
-    <br><br><br><br>
+   <br><br><br>
 
     <hr>
 
-    <footer id="footer">
-      <p class="text-center"><a href="#top">Back to top</a></p>
-    </footer>
 
-  </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+
+      <% if current_user %>
+      Hi <%= current_user.email %>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete' class="form-control">
+      <input type='submit' value='Log Out' class="btn btn-primary">
+      </form>
+
+
+      <% end %>
+
+      <% if flash[:notice] %>
+      <div id='notice'>
+      <%= flash[:notice] %>
+      </div>
+      <% end %>
+
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+      </ul>
+      <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
+
+
+</div> <!--  close container-->
+
+<br><br><br>
+
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">April 2017 Chitter</div>
+      <div class="panel-body">
+        <p>Makers Academy</p>
+      </div>
+    </div>
+
+
+
+
+
+
   </body>
 </html>

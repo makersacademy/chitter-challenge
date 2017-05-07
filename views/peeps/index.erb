@@ -1,24 +1,33 @@
 
 <% if current_user %>
 <h2>Post A New Peep</h2>
-<form method='post' action='/peeps/new'>
-<input type='text' name='content'>
-<input type='submit' value='Post Peep'>
+<form method='post' action='/peeps'>
+<label>Peep</label>
+<textarea name='content' rows="4" cols="140" class="form-control"></textarea>
+<br>
+<input type='submit' value='Post Peep' class="btn btn-primary">
 </form>
 <% end %>
 
 
 <% @peeps.each do |p| %>
 <p>Peep: <%=p.content%></p>
+<% p.responses.each do |reply| %>
+<div class="text-right">
+<p>Reply: <%= reply.content %></p>
+<p>At: <%=reply.created_at.strftime("%c")%></p>
+<p>By: <%= reply.peep.user.email %></p>
+</div>
+<% end %>
+
 <p>By <%=p.user.email%></p>
 <p>At <%=p.created_at.strftime("%c")%></p>
 <p>Number of replies = <%=p.responses.count%></p>
 
-  <% p.responses.each do |reply| %>
-  <p>Reply: <%= reply.content %></p>
-  <p>At: <%=reply.created_at.strftime("%c")%></p>
-  <p>By: <%= reply.peep.user.email %></p>
-  <% end %>
-
 <a href="/comments/new?peep_id=<%= p.id %>">Respond to this peep</a>
+
+
+
+
+
 <% end %>
