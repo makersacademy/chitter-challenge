@@ -9,7 +9,7 @@ feature 'user can log in' do
   end
 
   scenario 'user enters correct login details' do
-    sign_in(email: user.email_address, password: user.password)
+    sign_in(email_address: user.email_address, password: user.password)
     expect(current_path).to eq '/chitter-newsfeed'
     expect(page).to have_content "Welcome, #{user.real_name}"
   end

@@ -40,7 +40,7 @@ end
 
 def sign_in(params)
   visit '/sessions/new'
-  fill_in 'email_address', with: params[:email]
+  fill_in 'email_address', with: params[:email_address]
   fill_in 'password', with: params[:password]
   click_on 'Sign In'
 end
