@@ -19,14 +19,16 @@
   <% end %>
 
   <% unless @posts.nil? %>
-    <id='posts'>
-      <% @posts.each do |post| %>
+    <div id='posts'>
+      <% sorted_posts = @posts.sort_by(&:created_at).reverse!
+      sorted_posts.each do |post| %>
           <%= post.post + ' ' +
           post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s + ' @' +
           User.get(post.user_id).username + ' ' +
           User.get(post.user_id).name%>
         </br>
       <% end %>
+    </div>
   <% end %>
 
 </body>

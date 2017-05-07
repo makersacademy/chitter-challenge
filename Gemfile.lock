@@ -98,6 +98,9 @@ GEM
     mustermann (1.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -176,6 +179,7 @@ DEPENDENCIES
   dm-rspec
   dm-timestamps
   dm-validations
+  orderly
   rack_session_access
   rake
   rspec

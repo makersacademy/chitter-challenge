@@ -20,3 +20,9 @@ def add_post
   fill_in('post', with: 'Test post')
   click_button('Submit')
 end
+
+def add_another_post
+  visit '/'
+  fill_in('post', with: 'Another post')
+  click_button('Submit')
+end

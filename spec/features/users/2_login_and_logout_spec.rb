@@ -17,8 +17,14 @@ feature '#login', %q{
     login
     expect(page).to have_content('Sorry')
   end
+end
 
-  scenario '&& a logged in user should be able to log out' do
+feature '#logout', %q{
+  As a Maker
+  So that I can avoid others posting messages on Chitter as me
+  } do
+
+  scenario 'I want to log out of Chitter' do
     login
     click_button('Logout')
     expect(page).not_to have_content('foo')
