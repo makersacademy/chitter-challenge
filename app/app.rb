@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   post '/' do
     @user = User.create(name: params[:newuser_name], username: params[:newuser_username],
           email: params[:newuser_email], password: params[:newuser_password])
-    session[:id] = @user[:id]
     redirect '/login'
   end
 
@@ -25,14 +24,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/login' do
-    session[:username] = params[:user_name]
-    session[:password] = params[:user_password]
-    @user = User.find { session[:id] }
+    @user = User.all(username: params[:user_name], password: params[:user_password])
+    session[:id] = @user.first.id
     redirect '/feed'
   end
 
   get '/feed' do
-    @user = User.find { session[:id] }
+    @user = User.all(id: session[:id]).first
     erb(:feed)
   end
 
