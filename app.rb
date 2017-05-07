@@ -25,7 +25,7 @@ post '/register_user' do
     session[:user_id] = @user.id
     redirect '/home'
   else
-    flash.now[:notice] = "Passwords do not match"
+    flash.now[:errors] = @user.errors.full_messages
     erb(:signup)
   end
   end
