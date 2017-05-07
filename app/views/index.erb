@@ -1,0 +1,6 @@
+<h1>CHITTER</h1>
+
+<% if current_user %>
+  Welcome, <%= current_user.username %>
+<% end %>
+<%= yield %>
