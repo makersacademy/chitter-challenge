@@ -18,12 +18,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <ul id="peeps">
       <% @peeps.each do |peep| %>
       <li>
-        <h4><%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
+        <h4> <img src=<%= @users.get(peep.user_id).avatar %> height="60"><br>
+        <%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
         <h3><%= peep.text %></h3>
         <ul id="replies">
           <% @replies.each do |reply| %>
           <% if reply.peep_id == peep.id %>
           <li>
+            <img src=<%= @users.get(peep.user_id).avatar %> height="30"><br>
             <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%d-%m-%Y %H:%M") %>):
             <br><%= reply.text %><br>
 

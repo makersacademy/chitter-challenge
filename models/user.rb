@@ -9,6 +9,7 @@ class User
   property :name, String
   property :handle, String
   property :email, String, :unique => true
+  property :avatar, String
   property :password_digest, Text
 
   has n, :peeps
@@ -17,15 +18,15 @@ class User
     self.password_digest = BCrypt::Password.create(pass)
   end
 
-  def self.create(name, handle, email, password)
+  def self.create(name, handle, email, password, avatar)
     @email = email
     return if duplicate_email?
-    new_user(name, handle, email, password)
+    new_user(name, handle, email, password, avatar)
     return @user
   end
 
-  def self.new_user(name, handle, email, password)
-    @user = User.new(name: name, handle: handle, email: email)
+  def self.new_user(name, handle, email, password, avatar)
+    @user = User.new(name: name, handle: handle, email: email, avatar: avatar)
     @user.password = password
     @user.save!
   end

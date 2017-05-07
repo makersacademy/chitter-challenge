@@ -13,6 +13,11 @@ feature 'Homepage' do
     expect(page).to have_content 'handle'
   end
 
+  scenario 'see avatars' do
+    visit '/'
+    page.should have_xpath("//img[@src=\"egg.png\"]")
+  end
+
   scenario 'see peeps' do
     visit '/'
     expect(page).to have_content 'practice peep'

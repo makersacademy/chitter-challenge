@@ -72,7 +72,7 @@ class Chitter < Sinatra::Base
 
   def register_user(params)
     @user = User.create(params[:name], params[:handle],
-      params[:email], params[:password])
+      params[:email], params[:password], params[:avatar])
     session[:user] = @user.name
     session[:user_id] = @user.id
     redirect '/home'

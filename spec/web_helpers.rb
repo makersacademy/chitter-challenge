@@ -1,9 +1,10 @@
 
 PEEPS = [
   "Some text practice peep",
-   "Some more text, for variety practice peep",
-   "A longer practice peep, perhaps slightly humourous, maybe it's a political comment, or just what I had for dinner"
- ]
+  "Some more text, for variety practice peep",
+  "A longer practice peep, perhaps slightly humourous, maybe it's a political comment, or just what I had for dinner"
+]
+
 def bunch_of_peeps
   10.times do
     Peep.create(
@@ -15,8 +16,8 @@ def bunch_of_peeps
 end
 
 def sign_up_2_users
-  User.create("Name", "handle", "email", "password")
-  User.create("Other Name", "handler", "other email", "password")
+  User.create("Name", "handle", "email", "password", "egg.png")
+  User.create("Other Name", "handler", "other email", "password", "8biticon(2).jpg")
 end
 
 def sign_in
