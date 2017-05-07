@@ -6,6 +6,7 @@ require 'bcrypt'
 require File.join(File.dirname(__FILE__), 'lib', 'data_mapper_setup.rb')
 require File.join(File.dirname(__FILE__), 'lib', 'user.rb')
 require File.join(File.dirname(__FILE__), 'lib', 'message.rb')
+require File.join(File.dirname(__FILE__), 'lib', 'printer.rb')
 
 require_relative 'server.rb'
 require_relative 'controllers/main.rb'

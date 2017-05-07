@@ -1,5 +1,9 @@
+require 'date'
+require_relative 'printer'
+
 class Message
   include DataMapper::Resource
+  extend Printer
 
   property :id, 	Serial
   property :content, 	String, length: 140, required: true

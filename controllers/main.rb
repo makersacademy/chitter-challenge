@@ -5,7 +5,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chitter-newsfeed' do
-    @messages = Message.all
+    @message = Message
     erb :chitter_newsfeed
   end
 
