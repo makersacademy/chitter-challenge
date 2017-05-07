@@ -1,0 +1,10 @@
+<h1> News Feed of Peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Username: <%= "#{@current_user}" %>
+      Content: <%= peep.content   %>
+    </li>
+  <% end %>
+</ul>
