@@ -7,9 +7,11 @@ Welcome <%=current_user.user_name%>
 
 <%User.all.each do |user|%>
 <%user.peeps.each do |peep|%>
-
-<li><%=user.name%>: <%=peep.time%> <li>
-<li><%=peep.post%><li>
+<br>
+<br><%=user.user_name%> &ensp;&ensp;Time-of-post: <%=peep.time%><br>
+<br>
+<p style="padding: 10px; color: red; background-color: white; border: black 4px solid; width: 600px; height: 20px;"><%=peep.post%></p>
+<br>
 <%end%>
 <%end%>
 
