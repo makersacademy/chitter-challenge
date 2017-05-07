@@ -48,7 +48,7 @@ feature 'User log in' do
   end
 
   scenario 'with correct credentials' do
-    log_in(email: user.email,   password: user.password)
+    log_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, #{user.username}"
   end
 end
@@ -62,7 +62,7 @@ feature 'User log out' do
                 password_confirmation: 'shh999')
   end
   scenario 'while being logged in' do
-    log_in(email: user.email,   password: user.password)
+    log_in(email: user.email, password: user.password)
     click_button 'Log out'
     expect(page).to have_content('goodbye!')
     expect(page).not_to have_content('Welcome, manicstreetpeeper')
