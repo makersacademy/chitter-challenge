@@ -10,8 +10,8 @@ feature "User can sign up to Chitter" do
     expect(user.username).to eq('BertZ')
     expect(page).to have_current_path("/home")
     expect(page).to have_content("Welcome to Chitter BertZ")
-    expect(page).to have_link("Peep")
-    expect(page).to have_link("Sign out")
+    expect(page).to have_button("Peep")
+    expect(page).to have_button("Sign Out")
   end
   scenario 'requires a matching password to sign_up' do
     expect { sign_up_wrong_password }.not_to change { User.all.count }

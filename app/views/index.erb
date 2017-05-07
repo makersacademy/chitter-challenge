@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+  <div id = 'notice'><%= flash[:notice] %></div>
+<% end %>
+
+<h1> Welcome to Chitter </h1>
+
+<form class="form-inline my-2 my-sm-0" method='get' action='/sign_up'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Up</button>
+</form>
+
+<form class="form-inline my-2 my-sm-0" method='get' action='/login_form'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="login">Login</button>
+</form>
+
+
+<h1> Peeps </h1>

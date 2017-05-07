@@ -1,6 +1,6 @@
 def sign_up
   visit '/'
-  click_link 'Sign Up'
+  click_button 'Sign Up'
   fill_in :name, with: "Bertie"
   fill_in :email, with: "Test.email@test.com"
   fill_in :username, with: "BertZ"
@@ -11,7 +11,7 @@ end
 
 def sign_up_wrong_password
   visit '/'
-  click_link 'Sign Up'
+  click_button 'Sign Up'
   fill_in :name, with: "Bertie"
   fill_in :email, with: "Test.email@test.com"
   fill_in :username, with: "BertZ"
@@ -22,7 +22,7 @@ end
 
 def sign_up_wrong_email
   visit '/'
-  click_link 'Sign Up'
+  click_button 'Sign Up'
   fill_in :name, with: "Bertie"
   fill_in :email, with: "invalid@email"
   fill_in :username, with: "BertZ"

@@ -1,8 +1,17 @@
 <% if current_user %>
   <h1> Welcome to Chitter <%= current_user.username %> </h1>
 <% end %>
-<a class="btn btn-default" href="/peep" role="button">Send a Peep</a>
-<a class="btn btn-default" href="/sign_out" role="button">Sign out</a>
+<% if flash[:notice] %>
+  <div id = 'notice'><%= flash[:notice] %></div>
+<% end %>
+<form class="form-inline my-2 my-sm-0" method='get' action='/peep'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Send a Peep</button>
+</form>
+
+<form class="form-inline my-2 my-sm-0" method='post' action='/signout'>
+  <input type='hidden' name='_method' value='delete'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Out</button>
+</form>
 
 
 <h1> Peeps </h1>

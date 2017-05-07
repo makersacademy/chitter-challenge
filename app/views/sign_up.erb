@@ -1,5 +1,5 @@
 <% if flash[:errors] && !flash[:errors].empty? %>
-  Please use the suggestions below to proceed:
+  Oh Dear, Looks like that didn't go as planned
   <ul id='errors'>
     <%flash[:errors].each do |error|%>
       <li><%= error %></li>
@@ -20,3 +20,5 @@
 </form>
 
 <button type="submit" form="sign_up_form" value="Create Account"> Create Account </button>
+
+<h2> Already have an account? Click here to login. </h2> 

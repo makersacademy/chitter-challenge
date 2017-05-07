@@ -1,3 +1,6 @@
+<% if flash[:notice] %>
+  <div id = 'notice'><%= flash[:notice] %></div>
+<% end %>
 <% if flash[:errors] && !flash[:errors].empty? %>
   Please use the suggestions below to proceed:
   <ul id='errors'>
@@ -19,4 +22,7 @@
 
 <button type="submit" form="sign_in_form" value="Login"> Login </button>
 
-<h2> No account? Sign Up for Chiter here <a class="btn btn-default" href="/sign_up" role="button">Sign Up</a><h2>
+<h2> No account? Sign Up for Chiter here</h2>
+<form class="form-inline my-2 my-sm-0" method='get' action='/sign_up'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Up</button>
+</form>

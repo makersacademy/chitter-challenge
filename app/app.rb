@@ -5,11 +5,12 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
 
   get '/' do
-    erb(:homepage)
+    erb(:index)
   end
 
   get '/sign_up' do
@@ -44,6 +45,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['Username or Password is incorrect']
       erb(:login_form)
     end
+  end
+
+  delete '/signout' do
+    session[:user_id] = nil
+    flash.keep[:notice] = "Thank you for visiting Chitter"
+    redirect('/')
   end
 
   helpers do

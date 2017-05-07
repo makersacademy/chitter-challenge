@@ -8,6 +8,7 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative '../app/app.rb'
 require './app/models/user'
+require_relative "./web_helpers"
 
 Capybara.app = Chitter
 DatabaseCleaner.strategy = :truncation
