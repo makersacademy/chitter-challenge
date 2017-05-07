@@ -11,4 +11,14 @@ class Chitter < Sinatra::Base
   get '/signup' do
     erb :'links/register'
   end
+
+  post '/profile' do
+    $name = params[:name]
+
+    redirect '/home'
+  end
+
+  get '/home' do
+    erb :'links/home'
+  end
 end
