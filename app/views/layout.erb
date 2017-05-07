@@ -9,11 +9,15 @@
       <input type='submit' value='Sign Up' style="float:right">
     </form>
     <br>
+
     <h1 align='center'>Chitter</h1>
     <% if current_user %>
       <h3 align='center'> Welcome, <%= current_user.name %></h3>
     <% end %>
     <%= yield %>
+    <% if flash[:notice] %>
+      <div id='flash' align='center'><%= flash[:notice] %></div>
+    <% end %>
   </body>
 
 </html>

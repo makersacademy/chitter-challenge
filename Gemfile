@@ -6,6 +6,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rack'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 
 
