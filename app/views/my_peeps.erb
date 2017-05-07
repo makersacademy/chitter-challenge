@@ -1,0 +1,12 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>My peeps</h1>
+    <p>
+      <% @peeps.each do |peep| %>
+        <%= peep.content %><p>
+        <% end %>
+    <a href='/profile'>Back to profile</a>
+  </body>
+</html>

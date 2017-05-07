@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'data_mapper'
 require_relative './models/user'
+require_relative './models/peep'
 require_relative 'data_mapper_setup'
 require 'pry'
 
@@ -37,5 +38,20 @@ class Chitter < Sinatra::Base
   get '/logout' do
     session.clear
     redirect '/login'
+  end
+
+  get '/profile/peep' do
+    erb(:peep)
+  end
+
+  post '/profile/peep' do
+    user = User.all(id: session[:id]).first
+    user.peeps.create(content: params[:peep])
+    redirect '/profile/mypeeps'
+  end
+
+  get '/profile/mypeeps' do
+    @peeps = Peep.all(Peep.user.id => session[:id])
+    erb(:my_peeps)
   end
 end

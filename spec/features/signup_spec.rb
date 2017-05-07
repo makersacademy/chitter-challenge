@@ -1,5 +1,4 @@
 require './spec/spec_helper'
-require 'pry'
 
 feature 'signup' do
   scenario 'user can signup to chitter' do
