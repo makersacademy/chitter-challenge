@@ -1,12 +1,16 @@
+<% if flash[:notice] %>
+<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <h1>Welcome to Chitter sign up page</h1>
 <h2>Sign up, and start peeping!</h2>
 
 <form action="/create_user" method="post">
   <label for="username">
-    Pick a username:<br><input type="text" name="username"><br>
+    Pick a username:<br><input type="text" name="username" value="<%= @user.username %>"><br>
   </label>
   <label for="email">
-    Enter your email:<br><input type="text" name="email"><br>
+    Enter your email:<br><input type="text" name="email" value="<%= @user.email %>"><br>
   </label>
   <label for="password">
     Enter a password:<br><input type="password" name="password"><br>
