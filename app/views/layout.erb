@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <form action='/sign-up'>
+      <input type='submit' value='Sign Up' style="float:right">
+    </form>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out' style="float:right">
+    </form>
+    <br>
+    <h1 align='left'>Chitter</h1>
+    <% if current_user %>
+      <h3 align='center'> Welcome, <%= current_user.name %></h3>
+    <% end %>
+    <%= yield %>
+  </body>
