@@ -17,6 +17,16 @@ body {
 
 }
 
+.centered-heading {
+
+  display: block;
+  width:250px;
+  margin:0 auto;
+  text-align: center;
+  font-weight: bold;
+
+}
+
 .center-notice {
 
   display: block;
