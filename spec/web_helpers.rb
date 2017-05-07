@@ -1,18 +1,9 @@
-def create_account (name: 'Ana Maria Suciu',
-                    username: 'ana',
-                    email: 'ana@great.com',
-                    password: 'apples')
+
+def create_account
   visit '/users/new'
-  fill_in 'name', with: name
-  fill_in 'username', with: username
-  fill_in 'email', with: email
-  fill_in 'password', with: password
+  fill_in 'name', with: 'Ana Maria'
+  fill_in 'username', with: 'ana'
+  fill_in 'email', with: 'ana@great.com'
+  fill_in 'password', with: 'apples'
   click_button 'Create Account'
 end
-
-def sign_in(email:, password:)
-    visit '/sessions/new'
-    fill_in :email, with: email
-    fill_in :password, with: password
-    click_button 'Log In'
-  end

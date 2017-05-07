@@ -1,9 +1,12 @@
+
 <% if current_user %>
   Welcome to Chitter, <%= current_user.email %>
 <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Log Out'>
     </form>
+    <%else%>
+     Welcome to Chitter!
 <% end %>
 
 <% if flash[:notice] %>
