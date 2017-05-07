@@ -13,7 +13,7 @@ include BCrypt
   property :email,          String
   property :password_hash,  Text
 
-  attr_reader :password
+  attr_reader :password, :user
 
   def password=(password)
     @password = Password.create(password)
@@ -21,9 +21,9 @@ include BCrypt
   end
 
   def self.authenticate(email, password)
-    user = first(email: email)
-    if user && BCrypt::Password.new(user.password_hash) == password
-      user
+    @user = first(email: email)
+    if @user && BCrypt::Password.new(@user.password_hash) == password
+      @user
     else
       nil
     end

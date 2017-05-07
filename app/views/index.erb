@@ -1,6 +1,10 @@
 
 <% if current_user %>
   Welcome to Chitter, <%= current_user.email %>
+  Peep here:
+  <form method = 'post' action = '/peeps'>
+      <textarea name = 'peep' rows="2" cols="20"></textarea>
+      <input type = 'submit' value = 'Peep!'>
 <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Log Out'>
