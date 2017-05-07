@@ -1,0 +1,28 @@
+current directory: /Users/chrismitchell/Projects/chitter-challenge/vendor/bundle/ruby/2.4.0/gems/do_postgres-0.10.17/ext/do_postgres
+/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/bin/ruby -r ./siteconf20170507-19404-1mlpxy7.rb extconf.rb
+checking for -lpq... yes
+checking for libpq-fe.h... yes
+checking for libpq/libpq-fs.h... yes
+checking for postgres.h... yes
+checking for mb/pg_wchar.h... yes
+checking for catalog/pg_type.h... yes
+checking for localtime_r()... yes
+checking for gmtime_r()... yes
+checking for PQsetClientEncoding()... yes
+checking for pg_encoding_to_char()... yes
+checking for PQfreemem()... yes
+checking for rb_thread_fd_select()... yes
+creating Makefile
+
+current directory: /Users/chrismitchell/Projects/chitter-challenge/vendor/bundle/ruby/2.4.0/gems/do_postgres-0.10.17/ext/do_postgres
+make "DESTDIR=" clean
+
+current directory: /Users/chrismitchell/Projects/chitter-challenge/vendor/bundle/ruby/2.4.0/gems/do_postgres-0.10.17/ext/do_postgres
+make "DESTDIR="
+compiling do_common.c
+compiling do_postgres.c
+linking shared-object do_postgres/do_postgres.bundle
+
+current directory: /Users/chrismitchell/Projects/chitter-challenge/vendor/bundle/ruby/2.4.0/gems/do_postgres-0.10.17/ext/do_postgres
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 do_postgres.bundle ./.gem.20170507-19404-i9og2s/do_postgres

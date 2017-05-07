@@ -1,0 +1,370 @@
+have_library: checking for -lpq... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib     -lruby.2.4.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib     -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: 
+14: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for libpq-fe.h... -------------------- yes
+
+"gcc -E -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libpq-fe.h>
+/* end */
+
+--------------------
+
+have_header: checking for libpq/libpq-fs.h... -------------------- yes
+
+"gcc -E -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libpq/libpq-fs.h>
+/* end */
+
+--------------------
+
+have_header: checking for postgres.h... -------------------- yes
+
+"gcc -E -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG  conftest.c -o conftest.i"
+In file included from conftest.c:3:
+In file included from /usr/local/Cellar/postgresql/9.6.2/include/server/postgres.h:47:
+/usr/local/Cellar/postgresql/9.6.2/include/server/c.h:120:9: warning: '_' macro redefined [-Wmacro-redefined]
+#define _(x) gettext(x)
+        ^
+/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/defines.h:158:10: note: previous definition is here
+# define _(args) args
+         ^
+1 warning generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <postgres.h>
+/* end */
+
+--------------------
+
+have_header: checking for mb/pg_wchar.h... -------------------- yes
+
+"gcc -E -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG  conftest.c -o conftest.i"
+In file included from conftest.c:3:
+In file included from /usr/local/Cellar/postgresql/9.6.2/include/server/postgres.h:47:
+/usr/local/Cellar/postgresql/9.6.2/include/server/c.h:120:9: warning: '_' macro redefined [-Wmacro-redefined]
+#define _(x) gettext(x)
+        ^
+/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/defines.h:158:10: note: previous definition is here
+# define _(args) args
+         ^
+1 warning generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <postgres.h>
+4: #include <mb/pg_wchar.h>
+/* end */
+
+--------------------
+
+have_header: checking for catalog/pg_type.h... -------------------- yes
+
+"gcc -E -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG  conftest.c -o conftest.i"
+In file included from conftest.c:3:
+In file included from /usr/local/Cellar/postgresql/9.6.2/include/server/postgres.h:47:
+/usr/local/Cellar/postgresql/9.6.2/include/server/c.h:120:9: warning: '_' macro redefined [-Wmacro-redefined]
+#define _(x) gettext(x)
+        ^
+/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/defines.h:158:10: note: previous definition is here
+# define _(args) args
+         ^
+1 warning generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <postgres.h>
+4: #include <catalog/pg_type.h>
+/* end */
+
+--------------------
+
+have_func: checking for localtime_r()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'localtime_r'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))localtime_r; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))localtime_r; return !p; }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void localtime_r();
+14: int t(void) { localtime_r(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for gmtime_r()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'gmtime_r'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))gmtime_r; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))gmtime_r; return !p; }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void gmtime_r();
+14: int t(void) { gmtime_r(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQsetClientEncoding()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'PQsetClientEncoding'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))PQsetClientEncoding; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))PQsetClientEncoding; return !p; }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void PQsetClientEncoding();
+14: int t(void) { PQsetClientEncoding(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for pg_encoding_to_char()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'pg_encoding_to_char'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))pg_encoding_to_char; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))pg_encoding_to_char; return !p; }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void pg_encoding_to_char();
+14: int t(void) { pg_encoding_to_char(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQfreemem()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'PQfreemem'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))PQfreemem; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))PQfreemem; return !p; }
+/* end */
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void PQfreemem();
+14: int t(void) { PQfreemem(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_fd_select()... -------------------- yes
+
+"gcc -o conftest -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/x86_64-darwin14 -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0/ruby/backward -I/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/include/ruby-2.4.0 -I. -I/usr/local/Cellar/postgresql/9.6.2/include -I/usr/local/Cellar/postgresql/9.6.2/include/server  -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration -Wdivision-by-zero -Wdeprecated-declarations -Wextra-tokens  -fno-common -pipe -DHAVE_NO_DATETIME_NEWBANG conftest.c  -L. -L/Users/chrismitchell/.rvm/rubies/ruby-2.4.0/lib -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl@1.1/lib    -lpq  -lruby.2.4.0 -lpq  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_fd_select; return !p; }
+/* end */
+
+--------------------
+

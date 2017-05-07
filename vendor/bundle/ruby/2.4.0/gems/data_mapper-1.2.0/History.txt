@@ -1,0 +1,61 @@
+=== 1.1.0 / 2011-03-16
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 1.1.0
+
+=== 1.0.2 / 2010-09-07
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 1.0.2
+
+=== 1.0.1 / 2010-09-07
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 1.0.1
+
+=== 1.0.0 / 2010-06-08
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 1.0.0
+  * Added dependency on dm-transactions since that has been extracted from dm-core
+
+=== 0.10.1 / 2009-09-30
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 0.10.1
+
+=== 0.10.0 / 2009-09-15
+
+* 2 major enhancements:
+
+  * Updated gem dependencies to 0.10.0
+  * Updated gems to include in meta-gem
+
+=== 0.9.11 / 2009-03-29
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 0.9.11
+
+=== 0.9.10 / 2009-01-19
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 0.9.10
+
+=== 0.9.9 / 2009-01-04
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 0.9.9
+
+=== 0.9.8 / 2008-12-07
+
+* 1 minor enhancement:
+
+  * Updated gem dependencies to 0.9.8
