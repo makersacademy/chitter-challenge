@@ -48,6 +48,8 @@ config.after(:each) do
   DatabaseCleaner.clean
 end
 
+config.include Capybara::DSL
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
