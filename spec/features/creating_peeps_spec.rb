@@ -1,14 +1,9 @@
-feature 'Create peep' do
-
-  scenario 'I can write and post a new peep' do
+feature 'Create Peep' do
+  scenario 'write peep and view peep in feed' do
+    sign_up
     visit '/peeps/new'
-    fill_in :username,   with: 'jessica123'
-    fill_in :peep, with: 'My first peep'
+    fill_in :comment, with: 'example'
     click_button 'Create peep'
-    expect(current_path).to eq '/peeps'
-
-    within 'ul#peeps' do
-      expect(page).to have_content('My first peep')
-    end
+    expect(page).to have_content('example')
   end
 end

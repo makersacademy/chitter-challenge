@@ -65,14 +65,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    @user = User.create(name: params[:name],
-                        username: params[:username],
-                        email: params[:email],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation])
-    Peep.create(username: params[:username],
-                peep: params[:peep])
-    redirect to('/peeps')
+    peep = Peep.create(comment: params[:comment],
+                       user: current_user)
+    current_user.peeps << peep
+    current_user.save
+    redirect to '/peeps'
   end
 
   run! if app_file == $0

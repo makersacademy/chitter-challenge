@@ -6,8 +6,9 @@ class Peep
 
   include DataMapper::Resource
 
-  property :id,            Serial
-  property :username,      String
-  property :peep,          String, required: true
+  property :id,       Serial
+  property :comment,    Text
+
+  belongs_to :user
 
 end
