@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
   post '/sign-up' do
     user = User.create(email: params[:email], name: params[:name], username: params[:username], password: params[:password])
     session[:user_id] = user.id
-    redirect to '/home'
+    redirect to '/peeps/index'
   end
 
   helpers do
