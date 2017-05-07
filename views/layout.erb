@@ -10,5 +10,8 @@
       Welcome, <%= current_user.real_name %>
     <% end %>
     <%= yield %>
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
   </body>
 </html>

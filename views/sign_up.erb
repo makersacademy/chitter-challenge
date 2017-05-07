@@ -2,15 +2,14 @@
 Sign Up:<br>
 <form action="/new-user" method="post" >
   Name:
-  <input type="text" name="real_name" value=<%=@real_name%> ><br>
+  <input type="text" name="real_name" value=<%=@user.real_name%> ><br>
   User Name:
-  <input type="text" name="user_name" value=<%=@user_name%> ><br>
+  <input type="text" name="user_name" value=<%=@user.user_name%> ><br>
   Email Address:
-  <input type="text" name="email_address" value=<%=@email_address%> ><br>
+  <input type="text" name="email_address" value=<%=@user.email_address%> ><br>
   Password:
   <input type="password" name="password" ><br>
   Confirm Password:
   <input type="password" name="password_confirmation" ><br>
   <input type="submit" value="Sign Up" ><br>
 </form>
-<%= @flash_message %>

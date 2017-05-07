@@ -14,24 +14,22 @@ class Chitter < Sinatra::Base
   end
 
   get '/sign-up' do
-    @flash_message = flash[:error]
-    @email_address, @user_name, @real_name = session[:email_address], session[:user_name], session[:real_name]
+    @user = User.new
     erb :sign_up
   end
 
   post '/new-user' do
-    user = User.create(email_address: 		params[:email_address],
+    @user = User.new(email_address: 		params[:email_address],
                        password:	 	params[:password],
                        password_confirmation: 	params[:password_confirmation],
                        user_name:	 	params[:user_name],
                        real_name:	 	params[:real_name])
-    if user.valid?
-      session[:user_id] = user.id
+    if @user.save
+      session[:user_id] = @user.id
       redirect '/chitter-newsfeed'
     else
-      flash.next[:error] = 'Password and confirmation password do not match'
-      session.merge!(email_address: params[:email_address], user_name: params[:user_name], real_name: params[:real_name])
-      redirect '/sign-up'
+      flash.now[:notice] = 'Password and confirmation password do not match'
+      erb :sign_up
     end
   end
 
