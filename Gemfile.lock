@@ -42,6 +42,8 @@ GEM
     powerpack (0.1.1)
     public_suffix (2.0.5)
     rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rainbow (2.2.2)
@@ -76,6 +78,11 @@ GEM
       hirb
       simplecov
     simplecov-html (0.10.0)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.7)
     unicode-display_width (1.2.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -91,6 +98,7 @@ DEPENDENCIES
   rubocop
   simplecov
   simplecov-console
+  sinatra
 
 RUBY VERSION
    ruby 2.4.0p0
