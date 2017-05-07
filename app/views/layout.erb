@@ -12,19 +12,19 @@
     <input type='submit' value='Sign out'>
   </form>
   <% end %>
+  <% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+    <% end %>
+  </div>
   <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id='errors'>
     <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+    <li><%= error %></li>
     <% end %>
-    <% if flash[:notice] %>
-  <div id='notice'>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
   </ul>
-<% end %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
