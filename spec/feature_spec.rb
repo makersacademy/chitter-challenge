@@ -86,7 +86,6 @@ feature 'User accounts' do
 
   scenario 'add a reply' do
     sign_in
-    visit '/'
     click_link('peep back', :match => :first)
     fill_in 'reply', with: 'a reply of some sort'
     click_button 'submit'

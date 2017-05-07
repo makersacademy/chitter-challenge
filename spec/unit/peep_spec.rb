@@ -12,6 +12,7 @@ describe Peep do
 
   it { expect(Peep.first.text).to eq "text of peep" }
   it { expect(Peep.first.user_id).to eq 1 }
+  p DateTime.now
   it { expect(Peep.first.date_time.to_s).to include DateTime.now.strftime("%Y-%m-%dT%H:%M") }
 
   scenario 'add a bunch of peeps' do

@@ -17,6 +17,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/home' do
+    @peeps = Peep.all.reverse
+    @users = User.all
+    @replies = Reply.all
+    erb :home
+  end
+
   get '/sign_in' do
     erb :sign_in
   end
@@ -26,7 +33,7 @@ class Chitter < Sinatra::Base
     bad_sign_in if @user == nil
     session[:user] = @user.name
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/home'
   end
 
   get '/sign_up' do
@@ -41,7 +48,7 @@ class Chitter < Sinatra::Base
 
   post '/peep' do
     Peep.create(text: params[:peep], date_time: DateTime.now, user_id: session[:user_id])
-    redirect '/'
+    redirect '/home'
   end
 
   post '/sign_up' do
@@ -68,7 +75,7 @@ class Chitter < Sinatra::Base
       params[:email], params[:password])
     session[:user] = @user.name
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/home'
   end
 
   def bad_password
