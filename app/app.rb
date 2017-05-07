@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/welcome' do
+    # session[:user_id] = user.id
     erb :welcome
   end
 

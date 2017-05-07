@@ -1,8 +1,6 @@
 feature 'User sign up' do
   scenario 'requires a matching password confirmation' do
     expect { sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
-    expect(page).to have_content('Welcome to Chitter, Spock.')
-    expect(User.first.email).to eq('spock@starfleet.com')
   end
 
   def sign_up(username:'spock45', email: 'spock@starfleet.com', name: 'Spock',

@@ -1,1 +1,6 @@
-Welcome to Chitter, Spock.
+
+<body>
+  <% if current_user %>
+    Welcome to Chitter, <%= current_user.name %>.
+  <% end %>
+</body>
