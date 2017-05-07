@@ -8,6 +8,9 @@ a { text-decoration: none; margin: 0 5px; }
 
 }
 
+body {
+	margin: 0 40px 0 40px;
+}
 
 
 .btn {
