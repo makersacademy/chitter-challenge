@@ -5,31 +5,9 @@
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome to Chitter, <%= current_user.name %>.
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
-    <% end %>
 
-    <form action='/peeps/new' method='get'>
-      <input type='submit' value='Write peep'>
-    </form>
-
-    <% if flash[:notice] %>
-    <div id='notice'>
-      <%= flash[:notice] %>
-    </div>
-    <% end %>
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
-    <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-      <% end %>
+    <%= erb :welcome_message %>
+    <%= erb :flash %>
     <%= yield %>
   </body>
 </html>

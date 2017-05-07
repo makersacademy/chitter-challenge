@@ -1,9 +1,12 @@
 class Chitter < Sinatra::Base
-  use Rack::MethodOverride
-  register Sinatra::Flash
-
   enable :sessions
+  register Sinatra::Flash
+  register  Sinatra::Partial
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
+  set :partial_emplate_engine, :erb
+
+  enable :partial_underscores
 
   helpers do
     def current_user
