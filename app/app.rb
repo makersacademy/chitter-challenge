@@ -5,6 +5,7 @@ require_relative 'models/user'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
 
   helpers do
     def current_user
