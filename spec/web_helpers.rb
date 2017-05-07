@@ -1,5 +1,5 @@
 def sign_up(arg=:correct)
-  visit '/sign-up'
+  visit '/users/new'
   if arg == :email_incorrect
     fill_in 'email_address', with: 'test@example'
   elsif arg == :email_empty
@@ -19,7 +19,7 @@ def sign_up(arg=:correct)
 end
 
 def sign_up_same_user_name
-  visit '/sign-up'
+  visit '/users/new'
   fill_in 'email_address', with: 'second_test@example.com'
   fill_in 'user_name', with: 'chocolate_rain'
   fill_in 'real_name', with: 'Alexander Dominic Chalk'
@@ -29,7 +29,7 @@ def sign_up_same_user_name
 end
 
 def sign_up_same_email_address
-  visit '/sign-up'
+  visit '/users/new'
   fill_in 'email_address', with: 'test@example.com'
   fill_in 'user_name', with: 'second_chocolate_rain'
   fill_in 'real_name', with: 'Alexander Dominic Chalk'

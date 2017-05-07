@@ -10,15 +10,15 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    redirect '/sign-up'
+    redirect '/users/new'
   end
 
-  get '/sign-up' do
+  get '/users/new' do
     @user = User.new
-    erb :sign_up
+    erb :'users/new'
   end
 
-  post '/new-user' do
+  post '/users/new' do
     @user = User.new(email_address: 		params[:email_address],
                        password:	 	params[:password],
                        password_confirmation: 	params[:password_confirmation],
@@ -29,7 +29,7 @@ class Chitter < Sinatra::Base
       redirect '/chitter-newsfeed'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :sign_up
+      erb :'users/new'
     end
   end
 
@@ -37,16 +37,16 @@ class Chitter < Sinatra::Base
     erb :newsfeed
   end
 
-  get '/log-in' do
-    erb :log_in
+  get '/sessions/new' do
+    erb :'sessions/new'
   end
 
-  post '/log-in' do
+  post '/sessions' do
     if User.authenticate(email_address: params[:email_address], password: params[:password])
       session[:user_id] = User.first(email_address: params[:email_address]).id
       redirect '/chitter-newsfeed'
     else
-      redirect '/log-in'
+      erb :'sessions/new'
     end
   end
 
