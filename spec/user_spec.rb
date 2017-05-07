@@ -14,7 +14,6 @@ describe User do
   describe '#create' do
     it 'saves user to database' do
       user_id = user.id
-      p User.all
       expect(User.first(id: user_id)).to eq user
     end
 
