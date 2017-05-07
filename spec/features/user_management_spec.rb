@@ -1,7 +1,7 @@
 feature 'User sign up' do
   scenario 'requires a matching password confirmation' do
     expect { sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
-    expect(current_path).to eq('/users/new')
+    expect(current_path).to eq('/users/create')
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
@@ -15,7 +15,7 @@ feature 'User sign up' do
 
   scenario 'cannot sign up with an invalid email address' do
     expect {sign_up(email: "spockstarfleet")}.not_to change(User, :count)
-     expect(current_path).to eq('/users/new')
+     expect(current_path).to eq('/users/create')
     expect(page).to have_content("Email has an invalid format")
   end
 
@@ -33,7 +33,7 @@ feature 'User sign up' do
 
   def sign_up(username:'spock45', email: 'spock@starfleet.com', name: 'Spock',
     password: 'l0gicaL', password_confirmation: 'l0gicaL')
-    visit '/signup'
+    visit '/users/new'
     fill_in :username, with: username
     fill_in :email, with: email
     fill_in :name, with: name
