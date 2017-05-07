@@ -7,3 +7,10 @@ def signup
   fill_in('password', with: 'password1')
   click_button('Sign up')
 end
+
+def login
+  visit '/'
+  fill_in('username', with: 'foo')
+  fill_in('password', with: '123')
+  click_button('Login')
+end
