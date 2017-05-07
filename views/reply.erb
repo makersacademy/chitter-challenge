@@ -12,13 +12,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body>
   <h1>chitter</h1>
   <%= @peep_id %>
-  <div class="hot-container">
+  <div class="peepbox">
     <h4>
     <img src=../<%= @users.get(@peep.user_id).avatar %> height="60"><br>
     <%= @users.get(@peep.user_id).handle %> (<%= @peep.date_time.strftime("%d-%m-%Y %H:%M") %>)<br> </h4>
     <h3><%= @peep.text %></h3>
 
-    <ul id="replies" style="list-style: none;">
+    <ul id="replies" class="replies">
       <% @replies.each do |reply| %>
       <li>
         <img src=../<%= @users.get(reply.user_id).avatar %> height="40"><br>
@@ -32,6 +32,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <textarea name="reply" placeholder="peep back" rows="3" cols="70" wrap="soft" maxlength="140" style="overflow:hidden; resize:none;"></textarea><br>
         <input class="btn" type="submit" value="submit">
       </form>
-    </div>
+      <br>
     <a href="/home">back to peeps</a>
+    </div>
   </body>

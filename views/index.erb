@@ -15,20 +15,19 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <a href="/sign_in">sign in</a><p>
     <a href="/sign_up">sign up</a>
 
-    <ul id="peeps" style="list-style: none;">
+    <ul id="peeps" class="peeps">
       <% @peeps.each do |peep| %>
       <li>
         <h4> <img src=<%= @users.get(peep.user_id).avatar %> height="60">
         <%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%H:%M %d-%m-%Y") %>)<br> </h4>
         <h3><%= peep.text %></h3>
-        <ul id="replies" style="list-style: none;">
+        <ul id="replies" class="replies">
           <% @replies.each do |reply| %>
           <% if reply.peep_id == peep.id %>
           <li>
             <img src=<%= @users.get(reply.user_id).avatar %> height="30">
             <%= @users.get(reply.user_id).handle %> (<%= reply.date_time.strftime("%H:%M %d-%m-%Y") %>):
             <br><%= reply.text %><br>
-
           </li>
           <% end %>
           <% end %>

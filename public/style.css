@@ -8,6 +8,47 @@ a { text-decoration: none; margin: 0 5px; }
 
 }
 
+.peepbox {
+	list-style: none;
+	border-collapse:collapse;
+	border-color:#cccccc;
+	border-style:solid;
+	border-width:1px;
+	background: #cedadd;
+	margin: 3px 40px 3px 80px;
+	padding: 0px 20px 10px
+}
+
+.peep {
+	list-style: none;
+	border-collapse:collapse;
+	border-color:#cccccc;
+	border-style:solid;
+	border-width:1px;
+	background: #cedadd;
+	margin: 3px 40px 3px 40px;
+}
+.peeps li
+{
+	list-style: none;
+	border-collapse:collapse;
+	border-color:#cccccc;
+	border-style:solid;
+	border-width:1px;
+	background: #cedadd;
+	margin: 3px 40px 3px 40px;
+	padding: 5px 20px
+}
+.replies li
+{
+	list-style: none;
+	border-collapse:collapse;
+	border-color:#cccccc;
+	border-style:solid;
+	border-width:1px;
+	background: #edf1f2;
+	margin: 0px 40px 3px 00px;
+}
 body {
 	margin: 0 40px 0 40px;
 }

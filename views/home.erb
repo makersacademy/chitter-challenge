@@ -11,24 +11,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <body>
   <h1>chitter</h1>
-
-    <h2> welcome <%= session[:user] %> </h2>
+  <div class="peepbox">
+    <h2>  welcome <%= session[:user] %>
       <form action="/log_out">
         <input class="btn" type="submit" value="log out" name="log_out">
-      </form>
+      </form> </h2>
       <form action="/peep" method="post">
         <textarea name="peep" placeholder="new peep" rows="3" cols="60" wrap="soft" maxlength="140" style="overflow:hidden; resize:none;"></textarea><br>
         <input class="btn" type="submit" value="submit">
       </form>
+    </div>
 
-
-    <ul id="peeps" style="list-style: none;">
+    <ul id="peeps" class="peeps">
       <% @peeps.each do |peep| %>
       <li>
         <h4> <img src=<%= @users.get(peep.user_id).avatar %> height="60"><br>
         <%= @users.get(peep.user_id).handle %> (<%= peep.date_time.strftime("%H:%M %d-%m-%Y") %>)<br> </h4>
         <h3><%= peep.text %></h3>
-        <ul id="replies" style="list-style: none;">
+        <ul id="replies" class="replies">
           <% @replies.each do |reply| %>
           <% if reply.peep_id == peep.id %>
           <li>
