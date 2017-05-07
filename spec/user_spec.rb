@@ -19,7 +19,7 @@ describe User do
     end
 
     it 'encrypts password' do
-      expect('password').to_not eq user.password_digest
+      expect(user.password).to_not eq user.password_digest
     end
 
     it 'does not add user if confirm password fails' do
@@ -36,12 +36,12 @@ describe User do
   describe '#authenticate' do
     context 'email and password are correct' do
       it 'returns true' do
-        expect(User.authenticate(email_address: 'james@aol.com', password: 'password')).to eq user
+        expect(User.authenticate(email_address: user.email_address, password: user.password)).to eq user
       end
     end
     context 'password is incorrect' do
       it 'returns false' do
-        expect(User.authenticate(email_address: 'james@aol.com', password: 'wrong_password')).to eq nil
+        expect(User.authenticate(email_address: user.email_address, password: 'wrong_password')).to eq nil
       end
     end
     context 'no user with specified email address' do
