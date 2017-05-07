@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||='development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'pry'
@@ -21,8 +21,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/post-peep' do
-    Peep.create(post: params[:peep_text])
-    binding.pry
+    user = User.last
+    peep = Peep.create(post: params[:peep_text], user: user)
+    user.peeps << peep
+    user.save
+    # binding.pry
     redirect '/'
   end
 

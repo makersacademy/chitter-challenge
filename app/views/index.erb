@@ -14,6 +14,7 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
+    <%= peep.user.user_name %>
     <%= peep.post %>
   </li>
   <% end %>
