@@ -1,3 +1,4 @@
+<h1> Peeps </h1>
 <%if current_user%>
 Welcome <%=current_user.user_name%>
 <%end%>
@@ -5,4 +6,9 @@ Welcome <%=current_user.user_name%>
 <form action='/logout' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='logout'>
+</form>
+
+<form action='/peep' method='post'>
+  <input type='text' name='peep_content'>
+  <input type='submit' value='peep'>
 </form>

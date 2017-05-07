@@ -1,7 +1,6 @@
 class User
   include DataMapper::Resource
   include BCrypt
-
   property :id, Serial
   property :name, String, required: true
   property :user_name, String, required: true
@@ -15,9 +14,8 @@ class User
   property :password_digest, Text, required: true
   attr_reader :password
   attr_accessor :password_confirmation
-
-
   validates_confirmation_of :password
+  has n, :peeps, through: Resource
 
   def password=(new_password)
     @password = new_password
