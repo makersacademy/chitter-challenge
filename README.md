@@ -1,11 +1,11 @@
 # Chitter Challenge
-<br>
+
 * Clone this repository
-* Run bundle install,
+* Run bundle install
 * Run rackup
 * In your terminal and go to localhost with the correct port in your browser.
 * You can also see this app in action on https://chitter-challenge-1.herokuapp.com
--------
+
 
 ```
 As a Maker
