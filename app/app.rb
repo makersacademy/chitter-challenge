@@ -28,15 +28,13 @@ class Chitter < Sinatra::Base
                       user_name: params[:user_name],
                       email: params[:email],
                       password: params[:password])
-    # session[:user_id] = user.id
     if @user.save
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash.now[:notice] = "Email is already taken"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
-    # redirect to('/')
   end
 
 end
