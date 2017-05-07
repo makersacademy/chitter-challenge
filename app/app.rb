@@ -48,8 +48,17 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     current_user
+    @peeps = Peep.all
     flash.now[:notice] = "Welcome to Chitter, #{@user.name}" if @user
     erb(:index)
+  end
+
+  post '/peep' do
+    current_user
+    peep = Peep.create(body: params[:peep])
+    @user.peeps << peep
+    @user.save
+    redirect '/home'
   end
 
   delete '/logout' do

@@ -1,15 +1,23 @@
 <h1>Chitter</h1>
 <%= flash[:notice] %>
-<% if @user %>
-  <form method='post' action='/logout'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Sign out'>
-  </form>
-<% else %>
+<% unless @user %>
+  <p>Sign in to make a peep!</p>
   <form method='get' action='/login'>
     <input type='submit' value='Log in'>
   </form>
   <form method='get' action='/signup'>
     <input type='submit' value='Sign up to Chitter!'>
   </form>
+<% else %>
+  <form method='post' action='/logout'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+  <form id='new-peep' method='post' action='/peep'>
+    <textarea name="peep" form="new-peep">Enter text here...</textarea>
+    <input type='submit' value='Peep!'>
+  </form>
+  <% @peeps.reverse.each do |peep| %>
+    <h3><%= peep.body %></h3>
+  <% end %>
 <% end %>

@@ -13,6 +13,8 @@ class User
   property :name, String, required: true
   property :password_encrypt, Text, required: true
 
+  has n, :peeps
+
   validates_confirmation_of :password
   validates_presence_of :email
 
