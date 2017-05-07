@@ -1,6 +1,10 @@
 def sign_up(arg=:correct)
   visit '/sign-up'
-  if arg == :correct
+  if arg == :email_incorrect
+    fill_in 'email_address', with: 'test@example'
+  elsif arg == :email_empty
+    nil
+  else
     fill_in 'email_address', with: 'test@example.com'
   end
   fill_in 'user_name', with: 'chocolate_rain'
