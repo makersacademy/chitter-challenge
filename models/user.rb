@@ -10,10 +10,10 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
-  
+
   property :id, Serial
   property :username, String
-  property :email, String, required: true
+  property :email, String, format: :email_address, required: true
   property :name, String
   property :password_digest, Text
 
