@@ -64,4 +64,4 @@ Running locally
 
 On Heroku
 -----------
-* Coming soon!
+* The "Chitter Sphere" can be accessed here: https://chitter-sphere.herokuapp.com/home
