@@ -4,5 +4,5 @@ class Peep
   property :post, String
   property :time, String
 
-  belongs_to :user, :required => false
+  belongs_to :user, :required => true
 end

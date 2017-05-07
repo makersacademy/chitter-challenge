@@ -3,6 +3,14 @@
 Welcome <%=current_user.user_name%>
 <%end%>
 
+<%User.all.each do |user|%>
+<li><%=user.name%><li>
+<%user.peeps.each do |peep|%>
+<li><%=user.name%>: <%=peep.time%> <li>
+<li><%=peep.post%><li>
+<%end%>
+<%end%>
+
 <form action='/logout' method='post'>
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' value='logout'>

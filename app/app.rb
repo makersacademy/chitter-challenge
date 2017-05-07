@@ -53,8 +53,10 @@ delete '/logout' do
 end
 
 post '/peep' do
-  peep = current_user.peeps.create(post: params[:peep_content], time: Time.now)
-  binding.pry
+  peep = Peep.create(post: params[:peep_content], time: Time.now, user_id: current_user)
+  current_user.peeps << peep
+  peep.save
+  redirect '/chitter'
 end
 
 get '/chitter' do

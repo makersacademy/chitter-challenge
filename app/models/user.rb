@@ -15,7 +15,7 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
   validates_confirmation_of :password
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   def password=(new_password)
     @password = new_password
