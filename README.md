@@ -10,6 +10,8 @@ $ rspec
 $ rackup
 ```
 
+https://chitter-challenge-sophieklm.herokuapp.com/posts
+
 Challenge:
 -------
 
