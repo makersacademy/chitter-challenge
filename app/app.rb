@@ -9,4 +9,13 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/users/list' do
+    @users = User.all
+    erb :'users/list'
+  end
+
+  get '/signup' do
+    erb :'signup/new'
+  end
+
 end
