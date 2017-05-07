@@ -1,62 +1,27 @@
 ENV['RACK_ENV'] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require File.join(File.dirname(__FILE__), 'lib', 'data_mapper_setup.rb')
 require File.join(File.dirname(__FILE__), 'lib', 'user.rb')
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+
   enable :sessions
   set :session_secret, 'super-secret'
+
   register Sinatra::Flash
-  use Rack::MethodOverride
+
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
 
   get '/' do
     redirect '/users/new'
   end
 
-  get '/users/new' do
-    @user = User.new
-    erb :'users/new'
-  end
-
-  post '/users' do
-    @user = User.new(email_address: 		params[:email_address],
-                       password:	 	params[:password],
-                       password_confirmation: 	params[:password_confirmation],
-                       user_name:	 	params[:user_name],
-                       real_name:	 	params[:real_name])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect '/chitter-newsfeed'
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      erb :'users/new'
-    end
-  end
-
   get '/chitter-newsfeed' do
     erb :newsfeed
-  end
-
-  get '/sessions/new' do
-    erb :'sessions/new'
-  end
-
-  post '/sessions' do
-    user = User.authenticate(email_address: params[:email_address], password: params[:password])
-    if user
-      session[:user_id] = user.id
-      redirect '/chitter-newsfeed'
-    else
-      flash.now[:errors] = ['The email or password is incorrect']
-      erb :'sessions/new'
-    end
-  end
-
-  delete '/sessions' do
-    session[:user_id] = nil
-    flash.next[:notice] = 'Goodbye until next time'
-    redirect to '/chitter-newsfeed'
   end
 
   helpers do
@@ -66,3 +31,5 @@ class Chitter < Sinatra::Base
   end
 
 end
+require_relative 'controllers/users.rb'
+require_relative 'controllers/sessions.rb'
