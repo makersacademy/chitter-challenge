@@ -18,6 +18,7 @@
     <input type='submit' value='Peep!'>
   </form>
   <% @peeps.reverse.each do |peep| %>
-    <h3><%= peep.body %></h3>
+    <h3><%= "@#{User.get(peep.user_id).username}" %></h3>
+    <h4><%= peep.body %></h4>
   <% end %>
 <% end %>

@@ -5,4 +5,11 @@ feature 'Adding peeps to the main page' do
     click_button 'Peep!'
     expect(page).to have_content 'Hello world!'
   end
+
+  scenario 'User names appear after peeping' do
+    signs_in_successfully
+    fill_in :peep, with: 'Hello world!'
+    click_button 'Peep!'
+    expect(page).to have_content '@jack'
+  end
 end
