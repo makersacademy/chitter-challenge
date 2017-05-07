@@ -1,5 +1,8 @@
 require 'sinatra/base'
 
+require_relative 'controllers/users'
+require_relative 'models/user'
+
 class Chitter < Sinatra::Base
   set :sessions, true
 
@@ -7,15 +10,19 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/signup' do
-    erb(:signup)
+  post '/users' do
+    @user = User.new(name: params[:name],
+                username: params[:username],
+                email: params[:email],
+                password: params[:password])
+    erb(:'users/welcome')
+  end
+
+  get '/users/new' do
+    erb(:'users/new')
   end
 
   get '/login' do
     erb(:login)
-  end
-
-  post '/welcome' do
-    erb(:welcome)
   end
 end
