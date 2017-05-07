@@ -8,11 +8,11 @@ gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rake'
 
 group :test do
   gem 'capybara'
   gem 'cucumber'
-  gem 'rake'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
