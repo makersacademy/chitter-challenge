@@ -1,5 +1,14 @@
 <h1> Sign up to Chitter </h1>
 
+<% if flash[:errors] && !flash[:errors].empty? %>
+  The following errors have occured:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action='/users' method='post'>
   <label for='name'>
     Name:

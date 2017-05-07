@@ -17,4 +17,10 @@ feature "Signs up a user" do
     expect(User.first.email).to eq ('allcourter@allsurfaces.com')
   end
 
+  scenario 'cannot sign up with an existing email' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+  end
+
 end

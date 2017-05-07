@@ -29,16 +29,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name],
+    @user = User.create(name: params[:name],
                 username: params[:username],
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    if user.save
-      session[:user_id] = user.id
+
+    if @user.save
+      session[:user_id] = @user.id
       redirect '/users'
     else
-      flash.now[:notice] = "Password and password confirmation do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
@@ -65,7 +66,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'You have signed out of Chitter!'
-    redirect to('/users')
+    redirect to('/')
   end
 
 end
