@@ -26,11 +26,9 @@ class Chitter < Sinatra::Base
                        password: params[:password],
                        username: params[:username])
     session[:user_id] = user.id
-    redirect ('/home')
+    redirect ('/index')
   end
 
-  get '/home' do
-    erb :home
-  end
+
 
 end
