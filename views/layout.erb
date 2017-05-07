@@ -6,8 +6,8 @@
 
   <body>
     <h1>Chitter</h1>
-    <% if user %>
-      Welcome, <%= user.real_name %>
+    <% if current_user %>
+      Welcome, <%= current_user.real_name %>
     <% end %>
     <%= yield %>
   </body>
