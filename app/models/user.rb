@@ -16,6 +16,8 @@ class User
   validates_presence_of :password
   validates_presence_of :username
 
+  has n, :peeps
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

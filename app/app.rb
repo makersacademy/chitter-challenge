@@ -38,6 +38,17 @@ class ChitterApp < Sinatra::Base
     erb :peeps
   end
 
+  post '/peeps' do
+    if current_user.nil?
+      flash[:errors] = "Please log in to post peeps."
+      redirect '/sessions/new'
+    else
+      @peep = Peep.new(peep: params[:user_peep], time:Time.now, user_id: current_user.id)
+      @peep.save
+      redirect '/peeps'
+    end
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:id])
