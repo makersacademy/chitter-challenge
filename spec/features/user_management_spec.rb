@@ -3,4 +3,8 @@ feature 'User Management' do
     sign_up
     expect(page).to have_content('Welcome, Joe')
   end
+
+  scenario "I can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
 end
