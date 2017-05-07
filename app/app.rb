@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   set :encrypted_sessions, 'valid'
 
   get '/' do
-    redirect('/signup')
+    redirect('/home')
   end
 
   post '/signup' do
