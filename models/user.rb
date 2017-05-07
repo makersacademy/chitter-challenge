@@ -1,11 +1,14 @@
 require 'bcrypt'
+
 class User
+
   include DataMapper::Resource
+  include BCrypt
 
   property :id, Serial
-  property :name, String
-  property :email, String
-  property :user_name, String
+  property :name, String, required: true
+  property :email, String, format: :email_address, required: true
+  property :user_name, String, required: true
   property :hash_password, Text
 
   attr_reader :password
