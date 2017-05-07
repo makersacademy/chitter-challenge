@@ -7,7 +7,7 @@ class User
 
   property :id, Serial
   property :name, String
-  property :handle, String
+  property :handle, String, :unique => true
   property :email, String, :unique => true
   property :avatar, String
   property :password_digest, Text
