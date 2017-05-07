@@ -23,7 +23,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    p params
     @user = User.create(name: params[:name],
                         username: params[:username],
                         email: params[:email],
@@ -39,12 +38,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    p params
     erb :'/peeps/new'
   end
 
   get '/peeps' do
-    p params
     @peeps = Peep.all
     erb :'/peeps/index'
   end

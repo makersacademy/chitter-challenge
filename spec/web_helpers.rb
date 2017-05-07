@@ -20,3 +20,12 @@ def incorrect_sign_up
   fill_in :password_confirmation, with: 'typo'
   click_button 'Sign up'
 end
+
+def email_field_nil
+  visit '/users/new'
+  fill_in :name, with: 'example'
+  fill_in :username, with: 'example123'
+  fill_in :email, with: nil
+  fill_in :password, with: 'example'
+  fill_in :password_confirmation, with: 'example'
+end

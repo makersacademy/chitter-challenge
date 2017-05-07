@@ -11,7 +11,7 @@ class User
   property :id,            Serial
   property :name,          String
   property :username,      String, required: true, unique: true
-  property :email,         String, required: true, unique: true
+  property :email,         String, format: :email_address, unique: true, required: true
   property :password_digest, Text
 
   validates_confirmation_of :password
