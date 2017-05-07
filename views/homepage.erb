@@ -35,7 +35,7 @@
     position:relative;
 }
 @media (min-width:800px){
-  
+
 }
 @media (max-width:800px) {
     #myCarousel {
@@ -88,6 +88,9 @@
         </div>
         <div class="sign_up col-sm-6 col-md-4">
           <h2 id='sign_up'> Sign up and join the peeps!</h2>
+          <h3><% if flash[:notice] %>
+            <div id='notice'><%= flash[:notice] %></div>
+          <% end %></h3>
           <form action="/users" method="Post" id='sign_up'>
             <div class="form-group">
               <label for="name">Name:</label>
@@ -103,11 +106,11 @@
             </div>
             <div class="form-group">
               <label for="password">Password:</label>
-              <input type="password" name="password" class="form-control">
+              <input type="password" name="password" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="password_confirmation">Confirm Password:</label>
-              <input type="password" name="password_confirmation" class="form-control">
+              <input type="password" name="password_confirmation" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Join</button>
           </form>

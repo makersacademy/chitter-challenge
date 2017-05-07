@@ -1,11 +1,16 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
+
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'secret'
+
+  register Sinatra::Flash
 
   get '/' do
     erb :homepage
@@ -20,6 +25,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/main'
     else
+      flash.now[:notice] = "Password and confirmation password do not match"
       redirect '/'
     end
   end
@@ -29,13 +35,26 @@ class Chitter < Sinatra::Base
   end
 
   post '/user' do
+  user = User.authenticate(params[:user_name], params[:password])
+  if user
+    session[:user_id] = user.id
     redirect '/main'
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :login
   end
+end
+
 
   get '/main' do
     erb :main
-
   end
+
+  delete '/sessions' do
+  session[:user_id] = nil
+  flash.keep[:notice] = 'goodbye!'
+  redirect to '/'
+end
 
   helpers do
     def current_user
