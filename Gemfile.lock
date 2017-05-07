@@ -158,6 +158,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   pg
+  rack
   rake
   rspec
   rubocop
