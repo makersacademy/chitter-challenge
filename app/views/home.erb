@@ -15,3 +15,11 @@
 
 
 <h1> Peeps </h1>
+
+<% @peeps.reverse.each do |peep| %>
+<%= peep.name %> </li> @<%= peep.username %> Said
+ <h3> <%= peep.peep %> </h3>
+ On <%= peep.time.strftime("%A, %b %d %r")%>
+ <br></br>
+ <br></br>
+<% end %>

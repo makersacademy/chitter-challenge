@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'models/user'
+require_relative 'models/peeps'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
@@ -10,6 +11,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    @peeps = Peep.all
     erb(:index)
   end
 
@@ -29,6 +31,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
+    @peeps = Peep.all
     erb(:home)
   end
 
@@ -51,6 +54,19 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = "Thank you for visiting Chitter"
     redirect('/')
+  end
+
+  get '/peep' do
+    erb(:peep)
+  end
+
+  post '/create_peep' do
+    user = current_user
+    time = DateTime.now
+    peep = Peep.create(name: user.name, username: user.username, peep: params[:peep], time: time)
+    user.peeps << peep
+    user.save
+    redirect('/home')
   end
 
   helpers do

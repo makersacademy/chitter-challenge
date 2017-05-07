@@ -14,7 +14,7 @@ class User
   property :email, String, required: true, unique: true
   property :username, String, required: true, unique: true
   property :password_encrypt, Text
-
+  has n, :peeps, through: Resource
   validates_format_of :email, as: :email_address
 
   def password=(password)
@@ -31,7 +31,3 @@ class User
     end
   end
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!

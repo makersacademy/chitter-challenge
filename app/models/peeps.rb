@@ -1,11 +1,10 @@
 class Peep
- include DataMapper::Resource
-  has n, :users, through: Resource
+  include DataMapper::Resource
   property :id, Serial
   property :name, String
-  property :user_name, String
+  property :username, String
   property :peep, Text
-  property :time, Time
+  property :time, DateTime
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")

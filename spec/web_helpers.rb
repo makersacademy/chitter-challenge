@@ -37,3 +37,9 @@ def sign_in(username:, password:)
   fill_in :password, with: "Password1234"
   click_button 'Login'
 end
+
+def create_peep
+  click_button 'Send a Peep'
+  fill_in :peep, with: "Hello Chitter"
+  click_button "Send Peep"
+end
