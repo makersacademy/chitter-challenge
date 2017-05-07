@@ -14,6 +14,7 @@ ruby '2.4.0'
 group :test do
   gem 'cucumber'
   gem 'capybara'
+  gem 'rack_session_access'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false

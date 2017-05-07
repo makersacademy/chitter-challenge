@@ -99,6 +99,9 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rainbow (2.2.2)
       rake
     rake (12.0.0)
@@ -136,6 +139,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0.beta2)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.1.0)
     tilt (2.0.7)
     unicode-display_width (1.2.1)
@@ -155,12 +160,14 @@ DEPENDENCIES
   dm-postgres-adapter
   pg
   rack
+  rack_session_access
   rake
   rspec
   rubocop
   simplecov
   simplecov-console
   sinatra (= 2.0.0.beta2)
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.4.0p0

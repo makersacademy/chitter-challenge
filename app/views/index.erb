@@ -1,1 +1,8 @@
-<a href="/users/new">Sign up</a>
+<%= flash[:signed_out] %>
+<h1>Welcome to Chitter</h1>
+<a href="/users/new">Sign up</a><br>
+<a href="/session/new">Sign in</a>
+<p></p>
+<%= erb :message_new if current_user %>
+<p></p>
+<%= erb :messages %>
