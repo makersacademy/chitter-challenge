@@ -6,6 +6,10 @@
 
   <% if current_user %>
     Welcome, <%= current_user.username %>
+    <form action='/post' method='post'>
+      <input type='text' name='post'>
+      <input type='submit' value='Submit'>
+    </form>
   <% end %>
   <%= yield %>
 

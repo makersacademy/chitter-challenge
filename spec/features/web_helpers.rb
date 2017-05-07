@@ -11,6 +11,12 @@ end
 def login
   visit '/'
   fill_in('username', with: 'foo')
-  fill_in('password', with: '123')
+  fill_in('password', with: 'password1')
   click_button('Login')
+end
+
+def add_post
+  visit '/'
+  fill_in('post', with: 'Test post')
+  click_button('Submit')
 end

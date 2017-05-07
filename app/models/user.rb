@@ -12,6 +12,8 @@ class User
   property :email,           String,  required: true, unique: true
   property :password_digest, Text,    required: true
 
+  has n, :posts, through: Resource
+
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end
@@ -25,12 +27,3 @@ class User
     end
   end
 end
-
-DataMapper::Logger.new(STDOUT, :debug) if ENV['RACK_ENV'] == 'development'
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] ||
-"postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!

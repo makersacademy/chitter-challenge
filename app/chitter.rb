@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'models/user'
 require_relative 'helpers'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
@@ -14,7 +15,8 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   get '/' do
-    erb :home
+    @posts = Post.all
+    erb :index
   end
 
   post '/login' do
@@ -24,7 +26,7 @@ class Chitter < Sinatra::Base
       redirect to('/')
     else
       flash.now[:notice] = "Sorry, we can't find you. Try again?"
-      erb :home
+      erb :index
     end
   end
 
@@ -47,5 +49,15 @@ class Chitter < Sinatra::Base
   post '/logout' do
     session.clear
     redirect to('/')
+  end
+
+  post '/post' do
+    post = Post.create(post: params[:post], user_id: session[:user_id])
+    if post.errors.count >= 1
+      flash.now[:notice] = "Whoops, something went wrong with your post"
+      erb :index
+    else
+      redirect to('/')
+    end
   end
 end

@@ -7,7 +7,9 @@ feature '#new_post', %q{
   } do
 
   scenario 'I want to post a message (peep) to chitter' do
+    signup
     login
+    visit ('/')
     expect { add_post }.to change { Post.count }.by(1)
   end
 end

@@ -8,7 +8,7 @@ feature '#login', %q{
 
   scenario 'I want to log in to Chitter' do
     User.create(name:  'foobar',      username: 'foo',
-                email: 'foo@bar.com', password: '123')
+                email: 'foo@bar.com', password: 'password1')
     login
     expect(page).to have_content('foo')
   end
