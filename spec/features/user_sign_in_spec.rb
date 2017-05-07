@@ -7,7 +7,7 @@ feature 'User sign in' do
                 password: 'secret')
   end
 
-  scenario 'with correct credentials' do
+  scenario 'I can sign in after signing up' do
     sign_in(email: user.email,   password: user.password)
     expect(page).to have_content "Welcome, #{user.name}"
   end
