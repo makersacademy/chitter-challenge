@@ -42,10 +42,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    if User.authenticate(email_address: params[:email_address], password: params[:password])
-      session[:user_id] = User.first(email_address: params[:email_address]).id
+    user = User.authenticate(email_address: params[:email_address], password: params[:password])
+    if user
+      session[:user_id] = user.id
       redirect '/chitter-newsfeed'
     else
+      flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
   end

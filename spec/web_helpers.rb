@@ -37,3 +37,10 @@ def sign_up_same_email_address
   fill_in 'password_confirmation', with: 's3cr3t'
   click_on 'Sign Up'
 end
+
+def sign_in(params)
+  visit '/sessions/new'
+  fill_in 'email_address', with: params[:email]
+  fill_in 'password', with: params[:password]
+  click_on 'Sign In'
+end

@@ -36,17 +36,17 @@ describe User do
   describe '#authenticate' do
     context 'email and password are correct' do
       it 'returns true' do
-        expect(User.authenticate(email_address: 'james@aol.com', password: 'password')).to eq true
+        expect(User.authenticate(email_address: 'james@aol.com', password: 'password')).to eq user
       end
     end
     context 'password is incorrect' do
       it 'returns false' do
-        expect(User.authenticate(email_address: 'james@aol.com', password: 'wrong_password')).to eq false
+        expect(User.authenticate(email_address: 'james@aol.com', password: 'wrong_password')).to eq nil
       end
     end
     context 'no user with specified email address' do
       it 'returns false' do
-        expect(User.authenticate(email_address: 'chocolate@rain.com', password: 'password')).to eq false
+        expect(User.authenticate(email_address: 'chocolate@rain.com', password: 'password')).to eq nil
       end
     end
   end

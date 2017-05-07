@@ -22,7 +22,7 @@ class User
 
   def self.authenticate(params)
     user ||= User.first(email_address: params[:email_address])
-    user && BCrypt::Password.new(user.password_digest) == params[:password] ? true : false
+    user && BCrypt::Password.new(user.password_digest) == params[:password] ? user : nil
   end
 
 end
