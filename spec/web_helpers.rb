@@ -20,7 +20,7 @@ end
 
 def login
   visit '/login'
-  fill_in :email, with: 'unaimotriko@electromail.org'
+  fill_in :user_name, with: 'euskaldun'
   fill_in :password, with: 'gakoa'
   click_on 'Login'
 end
