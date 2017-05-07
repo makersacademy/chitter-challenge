@@ -8,14 +8,25 @@ class Chitter < Sinatra::Base
 
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
 
-  before do
-
+  get '/' do
+    redirect to('/sessions/new')
   end
 
   get '/feed' do
     erb(:feed)
+  end
+
+  get '/peeps/new' do
+    erb(:'peeps/new')
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You have signed out'
+    redirect to '/feed'
   end
 
   post '/sessions' do
@@ -24,7 +35,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/feed')
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.keep[:notice] = 'The email or password is incorrect'
       erb :'sessions/new'
     end
   end

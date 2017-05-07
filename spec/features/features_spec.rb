@@ -35,3 +35,17 @@ feature 'User sign out' do
   end
 
 end
+
+feature 'User posts peeps' do
+  scenario 'all views show a link which goes to the post peep view' do
+    DatabaseCleaner.start
+    sign_up
+    click_button 'Post new peep'
+    expect(page).to have_content "Post a new peep"
+    DatabaseCleaner.clean
+  end
+
+  scenario ' ' do
+    
+  end
+end
