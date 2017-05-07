@@ -4,10 +4,16 @@ require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  before do
+    current_user
+  end
+
+  set :encrypted_sessions, 'valid'
   register Sinatra::Flash
   use Rack::MethodOverride
-  enable :sessions
-  set :encrypted_sessions, 'valid'
+  use Rack::Session::Cookie, :key => 'rack.session',
+                           :path => '/',
+                           :secret => 'your_secret'
 
   get '/' do
     redirect('/home')
@@ -47,19 +53,33 @@ class Chitter < Sinatra::Base
   end
 
   get '/home' do
-    current_user
     @peeps = Peep.all
     flash.now[:notice] = "Welcome to Chitter, #{@user.name}" if @user
     erb(:index)
   end
 
   post '/peep' do
-    current_user
     time = Time.now.to_s[0, 16]
     peep = Peep.create(body: params[:peep], timestamp: time)
     @user.peeps << peep
     @user.save
     redirect '/home'
+  end
+
+  get '/peeps/:id' do
+    redirect '/home' unless Peep.get(params[:id])
+    Peep.save_instance(@peep = Peep.get(params[:id]))
+    @author = User.get(@peep.user_id)
+    erb(:peep_focus)
+  end
+
+  post '/comment' do
+    @peep = Peep.current
+    comment = Comment.create(body: params[:comment],
+                             timestamp: Time.now.to_s[0, 16], user_id: @user.id)
+    @peep.comments << comment
+    @peep.save
+    redirect "/peeps/#{@peep.id}"
   end
 
   delete '/logout' do

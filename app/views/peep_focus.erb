@@ -1,0 +1,31 @@
+<h1>Chitter</h1>
+<%= flash[:notice] %>
+  <form method='get' action='/home'>
+    <input type='submit' value='Return to homepage'>
+  </form>
+  <h3><strong><%= "#{@author.name} " %></strong><em><small><%= "@#{@author.username}" %></small></em> <%= " -- #{@peep.timestamp}" %></h3>
+  <h4><%= @peep.body %></h4>
+<% unless @user %>
+  <p>Sign in to comment!</p>
+  <form method='get' action='/login'>
+    <input type='submit' value='Log in'>
+  </form>
+  <form method='get' action='/signup'>
+    <input type='submit' value='Sign up to Chitter!'>
+  </form>
+<% else %>
+  <form id='new-comment' method='post' action='/comment'>
+    <input type='hidden' name='peep' value='<%= @peep %>'>
+    <textarea name="comment" form="new-comment"></textarea>
+    <input type='submit' value='Comment'>
+  </form>
+  <form method='post' action='/logout'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Sign out'>
+  </form>
+<% end %>
+  <% @peep.comments.each do |comment| %>
+    <% commenter = User.get(comment.user_id) %>
+    <h3><strong><%= "#{commenter.name} " %></strong><em><small><%= "@#{commenter.username}" %></small></em> <%= " -- #{comment.timestamp}" %></h3>
+    <%= comment.body %>
+  <% end %>

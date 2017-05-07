@@ -7,6 +7,7 @@ require 'database_cleaner'
 require_relative '../app/data_mapper_setup'
 require_relative '../app/app'
 require 'signing_in_helper'
+require 'peeps_helper'
 
 Capybara.app = Chitter
 
