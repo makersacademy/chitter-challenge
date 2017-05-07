@@ -7,3 +7,10 @@ def sign_up
   fill_in :password_confirmation, with: 'gakoa'
   click_on 'Join'
 end
+
+def login
+  visit '/'
+  fill_in :email, with: 'unaimotriko@electromail.org'
+  fill_in :password, with: 'gakoa'
+  click_on 'Log in'
+end

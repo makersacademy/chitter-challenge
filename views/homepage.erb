@@ -2,7 +2,7 @@
 <style>
   .navbar-brand {
       font-family: Lobster, monospace;
-      color: #1b314f !important;
+      color: #9900cc !important;
       font-size: 34 !important;
     }
 
@@ -10,12 +10,12 @@
       color: #A643A0 !important;
   }
 
-  .navbar-nav {
-
-  }
   .sign_up {
-    background-color: #caccce;
+    background-color: #BAC732;
+    -moz-box-shadow: 0px 10px 32px -6px rgba(0,0,0,0.59);
+    box-shadow: 0px 10px 32px -6px rgba(0,0,0,0.59);
     opacity: 0.95;
+
   }
     #sign_up {
       font-family: Raleway, monospace;
@@ -52,7 +52,7 @@
             <li><a href="#">Trending</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </nav>
@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="sign_up col-sm-4">
+        <div class="sign_up col-sm-6 col-md-4">
           <h2 id='sign_up'> Sign up and join the peeps!</h2>
           <form action="/users" method="Post" id='sign_up'>
             <div class="form-group">

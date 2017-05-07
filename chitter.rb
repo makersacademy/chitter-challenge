@@ -18,8 +18,12 @@ class Chitter < Sinatra::Base
     redirect '/main'
   end
 
+  get '/login' do
+    erb :login
+  end
+
   get '/main' do
-    
+
   end
 
 end
