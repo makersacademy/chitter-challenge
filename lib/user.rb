@@ -6,9 +6,9 @@ class User
   include BCrypt
 
   property :id, 		Serial
-  property :email_address, 	String, format: :email_address, required: true
-  property :user_name, 		String
-  property :real_name, 		String
+  property :email_address, 	String, format: :email_address, required: true, unique: true
+  property :user_name, 		String, required: true, unique: true
+  property :real_name, 		String, required: true
   property :password_digest, 	Text
   attr_reader :password
   attr_accessor :password_confirmation
