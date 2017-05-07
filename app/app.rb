@@ -2,7 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'data_mapper'
 require_relative './models/user'
-require_relative './models/data_mapper_setup'
+require_relative 'data_mapper_setup'
 require 'pry'
 
 class Chitter < Sinatra::Base
