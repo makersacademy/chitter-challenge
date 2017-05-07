@@ -5,5 +5,6 @@ class Peep
 
   property :id, Serial
   property :body, Text, required: true
+  property :timestamp, String
 
 end
