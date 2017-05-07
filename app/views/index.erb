@@ -19,16 +19,21 @@
   <% end %>
 
   <% unless @posts.nil? %>
-    <div class='container' align='left' style='width: 600px' id='posts'>
+    <div class='container' align='left' style='max-width: 600px' id='posts'>
       <% sorted_posts = @posts.sort_by(&:created_at).reverse!
       sorted_posts.each do |post| %>
       <div class='panel-default'>
           <div class='panel-body'><%= post.post %></div>
           <div class='panel-footer'>
-            <div style='float: left'><%=post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s%></div>
+            <div style='float: left'><%=post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s%>
+            <%=User.get(post.user_id).name%></div>
             <div style='float: right'>
-              <%=User.get(post.user_id).name + " " + "@" +
-              User.get(post.user_id).username%></div>
+              <form action="/<%=User.get(post.user_id).username%>" method='get'>
+              <button type='submit' class="btn btn-link">
+                @<%=User.get(post.user_id).username%>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
       <% end %>

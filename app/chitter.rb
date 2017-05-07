@@ -60,4 +60,10 @@ class Chitter < Sinatra::Base
       redirect to('/')
     end
   end
+
+  get '/:username' do
+    user = User.first(username: params[:username])
+    @posts = Post.all(user_id: user.id)
+    erb :index
+  end
 end

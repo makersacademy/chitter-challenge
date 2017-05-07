@@ -16,7 +16,7 @@
 
     <% if current_user %>
     <div align='center' class='container'>
-      <h3>Welcome, @<%= current_user.username %></h3>
+      <h3>Welcome to <a href='/'>Chitter</a>, @<%= current_user.username %></h3>
       <form action='/post' method='post'>
         <textarea name='post' placeholder="What's happening?" maxlength='140' cols='50' rows='3'
         required='required'></textarea></br>
