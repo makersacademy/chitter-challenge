@@ -6,6 +6,7 @@ require './data_mapper_setup.rb'
 require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -48,6 +49,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The username or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/'
   end
 
   helpers do
