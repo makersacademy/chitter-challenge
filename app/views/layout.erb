@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<head>
+  <style type="text/css">
+  body {
+    background-color: #a2c8e8
+  }
+  </style>
+</head>
 <html>
   <head>
     <title>Chitter</title>
@@ -10,6 +17,7 @@
     <%= erb :flash %>
     <%= erb :signed_in %>
     <%= erb :create_new_account %>
+    <%= erb :view_peeps %>
     <%= yield %>
   </body>
 </html>
