@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Chitter do
 
   feature 'Sign up user' do
@@ -46,14 +48,21 @@ describe Chitter do
       expect(User.last.user_name).to eq "test_username"
     end
 
+    scenario "When I click 'Create Account' I get redirected to my personal feed, with a welcome message" do
+      visit_sign_up_page
+      enter_newusername_and_newpassword
+      click_button("Create Account")
+      expect(page).to have_current_path("/feed/:current_user")
+      expect(page).to have_content("You are logged in as test_first_name test_last_name")
+    end
+
+
     # scenario "When I click 'Create Account' a new user is created and the password encrypted" do
     #   visit_sign_up_page
     #   enter_newusername_and_newpassword
     #   click_button("Create Account")
     #   expect(User.last.password_digest).to_not eq "test_password"
     # end
-
-
 
   end
 end

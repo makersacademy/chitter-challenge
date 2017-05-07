@@ -1,6 +1,8 @@
 ENV['RACK_ENV']='test'
 
 require './app/app.rb'
+require './app/models/user.rb'
+
 require 'web_helper.rb'
 require 'simplecov'
 require 'simplecov-console'
