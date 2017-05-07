@@ -1,7 +1,20 @@
-<p>Hello world</p>
-
-<form action='/sign_up' method='post'>
-  <button type="submit">
+<form action='/sign-up' method='post'>
+  <button type='submit'>
     Sign up
   </button>
 </form>
+
+<form action='/post-peep' method='post'>
+  <input type='text' name='peep_text'>
+  <button type='submit'>
+    Peep
+  </button>
+</form>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.post %>
+  </li>
+  <% end %>
+</ul>
