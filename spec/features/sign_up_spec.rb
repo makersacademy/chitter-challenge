@@ -15,7 +15,7 @@ describe Chitter do
 
     scenario 'When I get redirected to the /sign_up view, I see an input prompt for my account details' do
       visit_sign_up_page
-      expect(page).to have_content('Signing up for Chitter is an excellent decision Please enter your account details below')
+      expect(page).to have_content('Signing up for Chitter is an excellent decision Tell us about yourself!Please enter your account details below First Name: Last Name: Email: Create Username: Create Password: Confirm Password:')
     end
 
     scenario "In the /sign_up view I get prompted to enter a new username" do
@@ -36,12 +36,22 @@ describe Chitter do
       expect(page).to have_field("new_password_confirm")
     end
 
-    scenario "When I click 'Create Account' a new user is created" do
+    scenario "When I click 'Create Account' a new user with the given parameters is created" do
       visit_sign_up_page
       enter_newusername_and_newpassword
-      click_button("Create  Account")
-      expect{User.create}.to change(User.count).by(+1)
+      click_button("Create Account")
+      expect(User.last.first_name).to eq "test_first_name"
+      expect(User.last.last_name).to eq "test_last_name"
+      expect(User.last.email).to eq "test_email"
+      expect(User.last.user_name).to eq "test_username"
     end
+
+    # scenario "When I click 'Create Account' a new user is created and the password encrypted" do
+    #   visit_sign_up_page
+    #   enter_newusername_and_newpassword
+    #   click_button("Create Account")
+    #   expect(User.last.password_digest).to_not eq "test_password"
+    # end
 
 
 

@@ -7,13 +7,16 @@
 
 <body>
   <h2 style="text-align: center">Signing up for Chitter is an excellent decision</h2><br>
-  <p style="text-align: center">Please enter your account details below</p>
+  <p style="text-align: center">Tell us about yourself!<br>Please enter your account details below</p>
 </body>
 
-<form style="text-align: center" action="/new_user" method="post">
+<form style="text-align: center" action="/create_user" method="post">
+  First Name: <input type="text" name="new_first_name"><br>
+  Last Name: <input type="text" name="new_last_name"><br>
+  Email: <input type="email" name="new_email"><br>
   Create Username: <input type="text" name="new_username"><br>
   Create Password: <input type="password" name="new_password"><br>
   Confirm Password: <input type="password" name="new_password_confirm"><br>
-  <input type="submit" value="Create Account"
+  <input type="submit" value="Create Account">
 </form>
 </html>
