@@ -9,7 +9,13 @@ feature '#new_post', %q{
   scenario 'I want to post a message (peep) to chitter' do
     signup
     login
-    visit ('/')
     expect { add_post }.to change { Post.count }.by(1)
+  end
+
+  scenario '&& the new message should be displayed on the homepage' do
+    signup
+    login
+    add_post
+    expect(page).to have_content('Test post')
   end
 end

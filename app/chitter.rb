@@ -54,7 +54,7 @@ class Chitter < Sinatra::Base
   post '/post' do
     post = Post.create(post: params[:post], user_id: session[:user_id])
     if post.errors.count >= 1
-      flash.now[:notice] = "Whoops, something went wrong with your post"
+      flash.now[:notice] = "Whoops, something went wrong with your post. <a href='/'>Go back</a>"
       erb :index
     else
       redirect to('/')

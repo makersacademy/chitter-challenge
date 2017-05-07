@@ -20,9 +20,9 @@
 
   <% unless @posts.nil? %>
     <ul id='posts'>
-      <% @posts.each do |item| %>
+      <% @posts.each do |post| %>
       <li>
-          item.post
+          <%= post.post + ", said @" + User.get(post.user_id).username %>
       </li>
       <% end %>
     </ul>
