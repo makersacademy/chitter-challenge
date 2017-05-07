@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <!-- Styles -->
+    <link href='/css/main.css' rel='stylesheet'>
     <link href='/css/bootstrap.css' rel='stylesheet'>
     <link href='/css/bootstrap-responsive.css' rel='stylesheet'>
 
@@ -19,20 +20,22 @@
       <form action='/post' method='post'>
         <textarea name='post' placeholder="What's happening?" maxlength='140' cols='50' rows='3'
         required='required'></textarea></br>
-        <input type='submit' value='Submit'>
+        <button type='submit' class="btn btn-default">Submit</button>
       </form>
     </div>
     <% end %>
 
+    <%= yield %>
+
     <% if current_user %>
     <footer>
+      <div align='center' style='padding-top: 50px;' class='container'>
         <form action='/logout' method='post'>
-        <input type='submit' value='Logout'>
+        <button type='submit' class="btn btn-link">Logout</button>
+      </div>
       </form>
     </footer>
     <% end %>
-
-    <%= yield %>
 
   </body>
 </html>

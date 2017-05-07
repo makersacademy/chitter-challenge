@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @logged_in_user.id
       redirect to('/')
     else
-      flash.now[:notice] = "Sorry, we can't find you. Try again?"
+      flash.now[:notice] = "Sorry, we can't find you. Try again or <a href='/signup'>sign up</a>."
       erb :index
     end
   end

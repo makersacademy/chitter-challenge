@@ -1,0 +1,23 @@
+
+.panel-body {
+  padding: 15px 15px;
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel-footer {
+  padding: 20px 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel-default {
+  padding: 20px 0px;
+  background-color: #ffffff;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}

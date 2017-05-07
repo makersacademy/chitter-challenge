@@ -1,9 +1,9 @@
   <% if flash[:notice] %>
-    <div class='container' id='notice'><%= flash[:notice] %></div>
+    <div class='container' align='center' id='notice'><%= flash[:notice] %></div>
   <% end %>
 
   <% if current_user.nil? %>
-    <div class='container'>
+    <div align='center' class='container'>
       <h1>Log into Chitter</h1>
       <form action='/login' method='post'>
       <label for='username'>
@@ -12,21 +12,25 @@
       <label for='password'>
         Password: <input type='password' name='password' required></br>
       </label>
-        <input type='submit' value='Login'>
-        Or <a href='/signup'>Signup</a>
+        <button type='submit' class='btn btn-default'>Login</button>
+        or <a href='/signup'>Signup</a>
       </form>
     </div>
   <% end %>
 
   <% unless @posts.nil? %>
-    <div class='container' id='posts'>
+    <div class='container' align='left' style='width: 600px' id='posts'>
       <% sorted_posts = @posts.sort_by(&:created_at).reverse!
       sorted_posts.each do |post| %>
-          <%= post.post + ' ' +
-          post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s + ' @' +
-          User.get(post.user_id).username + ' ' +
-          User.get(post.user_id).name%>
-        </br>
+      <div class='panel-default'>
+          <div class='panel-body'><%= post.post %></div>
+          <div class='panel-footer'>
+            <div style='float: left'><%=post.created_at.strftime('%d/%m/%Y %I:%M%p').to_s%></div>
+            <div style='float: right'>
+              <%=User.get(post.user_id).name + " " + "@" +
+              User.get(post.user_id).username%></div>
+        </div>
+      </div>
       <% end %>
     </div>
   <% end %>
