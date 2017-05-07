@@ -1,0 +1,2 @@
+describe Message do
+end

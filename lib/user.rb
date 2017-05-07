@@ -1,5 +1,3 @@
-require 'bcrypt'
-
 class User
 
   include DataMapper::Resource
@@ -10,6 +8,9 @@ class User
   property :user_name, 		String, required: true, unique: true
   property :real_name, 		String, required: true
   property :password_digest, 	Text
+
+  has n, :messages
+
   attr_reader :password
   attr_accessor :password_confirmation
 

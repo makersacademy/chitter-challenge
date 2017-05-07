@@ -1,0 +1,14 @@
+<h1>Chitter Newsfeed</h1>
+<% if current_user %>
+  <form action="/messages" method="post" >
+    <textarea name="message_content" cols="70" rows="2" ></textarea>
+    <input type="submit" value="Submit" >
+  </form>
+<% end %>
+<% if @messages %>
+  <ul id='posts'><% @messages.each do |message| %>
+    <li><%= "#{message.content}, @#{message.user.user_name}, #{message.timestamp}" %></li>
+  <% end %></ul>
+<% end %> 
+  
+    
