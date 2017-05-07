@@ -10,6 +10,7 @@ require 'sinatra'
 require './app/app'
 require 'database_cleaner'
 require 'dm-transactions'
+require 'timecop'
 require_relative '../data_mapper_setup'
 
 Capybara.app = Chitter

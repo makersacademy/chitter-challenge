@@ -37,20 +37,22 @@ feature 'Signing in' do
 end
 
   feature 'Signing out' do
-    let!(:user) do
-      User.new(email: 'izzy@example.com',
-      password: 'password1')
-    end
 
     scenario 'I can log out if signed in' do
-      sign_in(email: user.email, password: user.password)
-      click_button 'Sign out'
+      sign_in(email: 'izzy@example.com', password: 'password1')
+      click_on 'Sign out'
       expect(page).to have_content('See you soon!')
       expect(page).not_to have_content('Welcome, izzy@example.com')
     end
   end
 
 feature 'Resetting password' do
+  before do
+  sign_up
+  Capybara.reset!
+end
+let(:user) { User.first }
+
     scenario 'I can reset a forgotten password' do
       visit '/sign-in'
       click_link 'Forgotten password?'
@@ -63,7 +65,20 @@ feature 'Resetting password' do
     end
 
     scenario 'assigned a reset token to the user when they recover' do
-    sign_up
     expect{ recover_password }.to change{ User.first.password_token }
   end
+
+  scenario "token expires after 1 hour" do
+  recover_password
+  Timecop.travel(60 * 60 * 60) do
+    visit("/reset_password?token=#{user.password_token}")
+    expect(page).to have_content "Your token is invalid"
+  end
+end
+
+scenario 'it asks for your new password when your token is valid' do
+   recover_password
+   visit("/reset_password?token=#{user.password_token}")
+   expect(page).to have_content("Please enter your new password")
+ end
   end
