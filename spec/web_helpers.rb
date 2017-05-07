@@ -5,5 +5,6 @@ def sign_up
   fill_in :username,  with: "frenchopen_booo"
   fill_in :email,     with: "allcourter@allsurfaces.com"
   fill_in :password,  with: "greatvolleys"
+  fill_in :password_confirmation,  with: "greatvolleys"
   click_button 'Sign up'
 end
