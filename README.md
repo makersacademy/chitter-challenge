@@ -15,21 +15,26 @@ As usual please start by forking this repo.
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 
-Instructions for use:
+## Instructions:
 
 ![Chitter Image](/images/peeps-animals.jpg)
 
 -------
 $ git clone https://github.com/chrisjmit/chitter_challenge
+
 $ bundle
+
 $ createdb chitter_development
+
 $ rake auto_migrate
+
 $ rspec
+
 $ rackup
 
 Use the proposed localhost server port and automated browser to post messages to the Chitter public feed!
 
-Currently incomplete: sorting users in reverse alphabetical order, timestamped posts, authentication of messages by user.
+*Currently incomplete*: sorting users in reverse alphabetical order, timestamped posts, authentication of messages by user.
 
 
 Features:
