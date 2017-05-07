@@ -29,9 +29,9 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
-  get '/feed' do
+  get '/profile' do
     @user = User.all(id: session[:id]).first
-    erb(:feed)
+    erb(:profile)
   end
 
   get '/logout' do
