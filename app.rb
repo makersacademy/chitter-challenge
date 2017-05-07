@@ -50,7 +50,7 @@ class Chitter < Sinatra::Application
       session[:user_id] = user.id
       redirect '/peeps'
     else
-      flash.now[:errors] = 'The email or password is incorrect'
+      flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
   end
@@ -62,5 +62,18 @@ class Chitter < Sinatra::Application
     redirect '/peeps'
     erb :'peeps/index'
   end
+
+  get '/comments/new' do
+    @peep = Peep.get(params[:peep_id])
+    erb :'comments/new'
+  end
+
+  post '/comments' do
+    peep = Peep.get(params[:peep_id])
+    #p peep
+    peep.responses.create(content: params[:comment_content])
+    redirect '/peeps'
+  end
+
 
 end

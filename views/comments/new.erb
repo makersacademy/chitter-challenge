@@ -1,0 +1,8 @@
+<%= @peep.content %>
+
+<h2>Reply to this peep</h2>
+<form method='post' action='/comments'>
+<input type='text' name='comment_content'>
+<input type='hidden' name='peep_id' value="<%=@peep.id%>">
+<input type='submit' value='Reply'>
+</form>

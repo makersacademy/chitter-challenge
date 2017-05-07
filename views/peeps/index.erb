@@ -1,5 +1,14 @@
 <% @peeps.each do |p| %>
-<p>Peep content <%=p.content%></p>
+<p>Peep: <%=p.content%></p>
 <p>By <%=p.user.email%></p>
-<p>At <%=p.created_at%></p>
+<p>At <%=p.created_at.strftime("%c")%></p>
+<p>Number of replies = <%=p.responses.count%></p>
+
+  <% p.responses.each do |reply| %>
+  <p>Reply: <%= reply.content %></p>
+  <p>At: <%=reply.created_at.strftime("%c")%></p>
+  <p>By: <%= reply.peep.user.email %></p>
+  <% end %>
+
+<a href="/comments/new?peep_id=<%= p.id %>">Respond to this peep</a>
 <% end %>

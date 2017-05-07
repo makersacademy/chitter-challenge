@@ -5,6 +5,7 @@ class Response
 
   property :id, Serial
   property :content, String, required: true
-
+  property :created_at, DateTime
+  
   validates_presence_of :content
 end

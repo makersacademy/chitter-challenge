@@ -8,11 +8,7 @@ feature 'Peeps' do
 
   scenario 'when logged in can post peeps' do
       log_in
-      expect(page).to have_content "Post A New Peep"
-      peep = 'This is my first peep'
-      fill_in 'content', with: peep
-      click_button 'Post Peep'
-      expect(page).to have_content peep
+      post_peep
     end
 
 end

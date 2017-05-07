@@ -6,3 +6,11 @@ def log_in
   fill_in 'password', with: user.password
   click_button 'Log In'
 end
+
+def post_peep
+  expect(page).to have_content "Post A New Peep"
+  peep = 'This is my first peep'
+  fill_in 'content', with: peep
+  click_button 'Post Peep'
+  expect(page).to have_content peep
+end
