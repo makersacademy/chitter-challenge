@@ -72,7 +72,7 @@ class Chitter < Sinatra::Base
                         password_confirmation: params[:password_confirmation])
     Peep.create(username: params[:username],
                 peep: params[:peep])
-    redirect '/peeps'
+    redirect to('/peeps')
   end
 
   run! if app_file == $0
