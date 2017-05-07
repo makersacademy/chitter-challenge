@@ -8,7 +8,7 @@ class Peep
   include DataMapper::Resource
 
   property :id, Serial
-  property :peep, Text
+  property :peep, Text, :lazy => false
 
   belongs_to :user
 end
