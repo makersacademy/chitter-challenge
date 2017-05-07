@@ -5,6 +5,7 @@ require_relative './models/user'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
   set :session_secret, ''
@@ -45,8 +46,17 @@ post '/signin_user' do
     redirect '/home'
   else
     flash.now[:errors] = ['The username or password is incorrect']
-    erb (:signin)
+    erb(:signin)
   end
+end
+
+delete '/signin_user' do
+  session[:user_id] = nil
+  redirect to '/bye'
+end
+
+get '/bye' do
+erb(:bye)
 end
 
 helpers do
@@ -54,5 +64,4 @@ helpers do
    @current_user ||= User.get(session[:user_id])
  end
 end
-
 end

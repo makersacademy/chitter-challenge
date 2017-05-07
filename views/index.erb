@@ -38,3 +38,11 @@ input[type=submit]:hover {
 <form action="/signin" method="get">
 <input type="submit" value="Sign In Here" id="">
 </form>
+
+<% if current_user %>
+   Welcome, <%= current_user.username %>
+   <form method='post' action='/signin_user'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign out'>
+   </form>
+ <% end %>
