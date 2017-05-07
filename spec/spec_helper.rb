@@ -1,7 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../app/app.rb'
-require_relative './web_helper.rb'
+require_relative './helpers/web_helper.rb'
+require_relative './helpers/session.rb'
 
 require 'capybara'
 require 'capybara/rspec'
@@ -31,12 +32,5 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
-end
-
-# As of ruby v2.1 no default arguments required (e.g. "email: "blah@blah.com"")
-def sign_in(email:, password:)
-  visit '/sessions/new'
-  fill_in :email, with: email
-  fill_in :password, with: password
-  click_button 'Sign in'
+  config.include SessionHelpers
 end

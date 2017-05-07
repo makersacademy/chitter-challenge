@@ -2,10 +2,12 @@ ENV['RACK_ENV'] ||= 'development'
 
 require_relative './data_mapper_setup.rb'
 require 'sinatra/base'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
   set :session_secret, 'super secret'
 
   before do
