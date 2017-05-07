@@ -12,7 +12,6 @@ feature 'Peeps' do
     click_button 'Write peep'
     fill_in :peep, with: 'Enterprise crew safe.  #crashlanding'
     click_button 'Post peep'
-    p Peep.all
     expect(page).to have_content 'Enterprise crew safe.  #crashlanding'
   end
 
@@ -20,7 +19,6 @@ feature 'Peeps' do
     click_button 'Write peep'
     fill_in :peep, with: 'risa holiday'
     click_button 'Post peep'
-    p Peep.all
     expect(page).to have_content 'risa holiday'
   end
 
