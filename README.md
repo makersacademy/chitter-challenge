@@ -1,102 +1,55 @@
-Chitter Challenge
-=================
+# Chitter Challenge
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+A (very) basic Twitter clone.
 
-Challenge:
--------
+## Usage:
 
-As usual please start by forking this repo.
+### Option 1: Use the app on Heroku
+Just visit the app [here](http://chitter-17.herokuapp.com/chitter-newsfeed).
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+### Option 2: Deploy locally
+Ruby Code:
+1. `git clone git@github.com:adc17/chitter-challenge.git`.
+2. `cd path/to/dir` then `bundle install`.
 
-Features:
--------
+PostgreSQL:
+1. Install PostgreSQL (instructions [here](https://www.postgresql.org/download/)).
+2. Initialize database: `cd path/to/chitter-challenge/dir` then `rake db:migrate`.
 
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
+Run on a local server:
+1. `cd path/to/dir` then `rackup -p 4567`.
+2. Visit `localhost:4567` in your browser.
 
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
+## Challenges:
 
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
+1. DataMapper Setup: I spent a long time troubleshooting a confusing `include?` error related to DataMapper. I eventually realized that when I extract my DataMapper configuration to a separate file, every file containing a class with `include DataMapper::Resource` must be referenced in the DataMapper config. I also got an error about an undefined method `/`, which may have been because I didn't add a `config.ru` file right away. I'll do better on setting up my ORM next time.
+2. Knowing when to test DataMapper methods. I may have gone overboard this week; I need to get clearer on when unit tests are necessary with an ORM.
+3. Knowing when database upgrades and migrations are necessary. My basic understanding is if database classes change, action is necessary. But when is a `migrate` necessary over an `upgrade`? And are there occasions when manual adjustments are necessary using `psql`, e.g. `NOT NULL` requirements at db level? Are `NOT NULL` requirements at db level preserved if `migrate` or `upgrade` are run at a later date? I plan to learn more about this.
+4. Bundle: It still feels a bit mysterious, and I need to understand the ins and outs of its various commands better, especially `bundle exec …` and `bundle update`.
+5. 'Putsing' to an `.erb` file. I've used scare-quotes as I don't think `puts` does this. I tried in vain to create a method that prints strings as a side-effect, and to then print those strings to a view. I'd like to find a way of doing this for future challenges.
 
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
 
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
+## Strengths:
 
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
+1. I kept it simple this weekend. It may just have been a simple challenge, especially considering its similarity to the week's Bookmark Manager Challenge re: user account functionality, but still, a plus for sure. I did all my modelling with two small classes and a one-method mixin, and I'm happy with that. I also didn't start coding until I had constructed a 'keep-it-simple' plan for writing the project—it took time but it made a difference.
+2. Not losing focus due to debugging nightmares. When it takes several hours to resolve infuriating and cryptic-looking error messages, my concentration can definitely go. I managed to stay focussed in spite of that during this challenge. That's definitely something to build on moving forwards.
 
-Notes on functionality:
-------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
+## Technologies:
 
-Bonus:
------
+* Web framework: [Sinatra](http://www.sinatrarb.com/)
+* Password encryption: [BCrypt](https://github.com/codahale/bcrypt-ruby)
+* ORM: [DataMapper](http://datamapper.org/)
+* Database: [PostgreSQL](https://www.postgresql.org/)
+* Feature testing: [Capybara](https://github.com/teamcapybara/capybara)
+* Unit testing: [RSpec](http://rspec.info/)
+* Other technologies of note: [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner), [Sinatra::Flash](https://github.com/SFEley/sinatra-flash), [Sinatra Partial](https://github.com/yb66/Sinatra-Partial).
 
-If you have time you can implement the following:
+## Tests
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+1. Initialize testing database: `cd path/to/chitter-challenge/dir` then `rake db:migrate RACK_ENV="test"`.
+2. Run `rspec`.
 
-And/Or:
+## Other notes
 
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+Created as my fourth weekend challenge during the [Makers Academy](http://www.makersacademy.com) Bootcamp.

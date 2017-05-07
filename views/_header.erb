@@ -1,0 +1,11 @@
+<h1>Chitter</h1>
+<% if current_user %>
+  Welcome, <%= current_user.real_name %>
+  <form action="/sessions" method="post" >
+    <input type="hidden" name="_method" value="delete" >
+    <input type="submit" value="Sign Out" >
+  </form>
+<% else %>
+  <a href="/sessions/new">Log In</a>
+  <a href="/users/new">Create Account</a>
+<% end %>
