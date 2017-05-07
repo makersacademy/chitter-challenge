@@ -17,14 +17,15 @@ class Chitter < Sinatra::Base
     @user = User.create(name: params[:name],
                 username: params[:username],
                 email: params[:email],
-                password: params[:password])
+                password: params[:password],
+                confirm_password: params[:confirm_password])
     session[:user_id] = user.id
     erb(:'users/welcome')
   end
 
   helpers do
     def current_user
-      @current_user ||= User.get(session[:user_id]) 
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
