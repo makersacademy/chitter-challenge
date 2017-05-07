@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
   post '/peep' do
     peep = Peep.create(peep: params[:peep], time: Time.new.strftime("%H:%M"), date: Time.new.strftime("%Y-%m-%d"))
     current_user.peeps << peep
+    current_user.save
     redirect to '/feed'
   end
 
