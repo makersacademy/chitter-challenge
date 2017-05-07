@@ -18,10 +18,15 @@ class Chitter < Sinatra::Base
   post '/new-user' do
     user = User.create(email_address: 	params[:email_address],
                        password: 	params[:password],
+                       password_confirmation: params[:password_confirmation],
                        user_name: 	params[:user_name],
                        real_name: 	params[:real_name])
-    session[:user_id] = user.id
-    redirect '/chitter-newsfeed'
+    if user.valid?
+      session[:user_id] = user.id
+      redirect '/chitter-newsfeed'
+    else
+      redirect '/sign-up'
+    end
   end
 
   get '/chitter-newsfeed' do

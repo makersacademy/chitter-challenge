@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-migrations'
 require 'dm-postgres-adapter'
+require 'dm-validations'
 
 require_relative 'user'
 

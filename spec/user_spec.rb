@@ -3,6 +3,7 @@ describe User do
   def create_user
       User.create(email_address: 'james@aol.com',
                   password: 'password',
+                  password_confirmation: 'password',
                   user_name: 'james',
                   real_name: 'James Giant')
   end
@@ -19,6 +20,16 @@ describe User do
     it 'encrypts password' do
       expect('password').to_not eq user.password_digest
     end
+
+    it 'does not add user if confirm password fails' do
+      User.create(email_address: 'john@gmail.com',
+                  password: 'password',
+                  password_confirmation: 'not_password',
+                  user_name: 'john',
+                  real_name: 'John Giant')
+      expect(User.first(email_address: 'john@gmail.com')).to be_nil
+    end
+
   end
 
   describe '#authenticate' do
