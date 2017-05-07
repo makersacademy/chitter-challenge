@@ -1,25 +1,25 @@
-<body>
-<h1> Chitter </h1>
-
   <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
+    <div class='container' id='notice'><%= flash[:notice] %></div>
   <% end %>
 
   <% if current_user.nil? %>
-    <form action='/login' method='post'>
-    <label for='username'>
-      Username: <input type='text' name='username' required></br>
-    </label>
-    <label for='password'>
-      Password: <input type='text' name='password' required></br>
-    </label>
-      <input type='submit' value='Login'>
-    </form>
-    Or <a href='/signup'>Signup</a>
+    <div class='container'>
+      <h1>Log into Chitter</h1>
+      <form action='/login' method='post'>
+      <label for='username'>
+        Username: <input type='text' name='username' required></br>
+      </label>
+      <label for='password'>
+        Password: <input type='password' name='password' required></br>
+      </label>
+        <input type='submit' value='Login'>
+        Or <a href='/signup'>Signup</a>
+      </form>
+    </div>
   <% end %>
 
   <% unless @posts.nil? %>
-    <div id='posts'>
+    <div class='container' id='posts'>
       <% sorted_posts = @posts.sort_by(&:created_at).reverse!
       sorted_posts.each do |post| %>
           <%= post.post + ' ' +
@@ -30,5 +30,3 @@
       <% end %>
     </div>
   <% end %>
-
-</body>

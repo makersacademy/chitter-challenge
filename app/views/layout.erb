@@ -2,22 +2,37 @@
 <html>
   <head>
     <title>Chitter</title>
+
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Styles -->
+    <link href='/css/bootstrap.css' rel='stylesheet'>
+    <link href='/css/bootstrap-responsive.css' rel='stylesheet'>
+
   </head>
+  <body>
 
-  <% if current_user %>
-    Welcome, @<%= current_user.username %>
-    <form action='/post' method='post'>
-      <input type='text' name='post'>
-      <input type='submit' value='Submit'>
-    </form>
-  <% end %>
-  <%= yield %>
+    <% if current_user %>
+    <div align='center' class='container'>
+      <h3>Welcome, @<%= current_user.username %></h3>
+      <form action='/post' method='post'>
+        <textarea name='post' placeholder="What's happening?" maxlength='140' cols='50' rows='3'
+        required='required'></textarea></br>
+        <input type='submit' value='Submit'>
+      </form>
+    </div>
+    <% end %>
 
-  <% if current_user %>
-  <footer>
-      <form action='/logout' method='post'>
-      <input type='submit' value='Logout'>
-    </form>
-  </footer>
-  <% end %>
+    <% if current_user %>
+    <footer>
+        <form action='/logout' method='post'>
+        <input type='submit' value='Logout'>
+      </form>
+    </footer>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>

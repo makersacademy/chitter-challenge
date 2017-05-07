@@ -1069,8 +1069,13 @@ textarea {
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 250px;
+  text-align: right;
+  /*display: block;
+  margin-bottom: 5px;*/
 }
 
 select,
@@ -1106,7 +1111,7 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 206px;
+  width: 400px;
 }
 
 textarea {

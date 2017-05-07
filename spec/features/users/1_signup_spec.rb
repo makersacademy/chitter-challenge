@@ -16,7 +16,7 @@ feature '#signup', %q{
   end
 
   scenario '&& users cannot choose a username or email that is already taken' do
-    user = User.create(name: 'foobar',       username: 'foo',
+    User.create(name: 'foobar', username: 'foo',
                        email: 'foo@bar.com', password: '123')
     signup
     expect(page).to have_content('Sorry')

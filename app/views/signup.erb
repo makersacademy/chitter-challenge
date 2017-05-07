@@ -1,24 +1,28 @@
-<body>
-<h1> Create a Chitter Profile </h1>
+<div class='container'>
+  <h1> Create a Chitter Profile </h1>
+</div>
 
   <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
+    <div class='container' id='notice'><%= flash[:notice] %></div>
   <% end %>
 
-  <form action='/signup' method='post'>
-  <label for='name'>
-    Name: <input type='text' name='name' required></br>
-  </label>
-  <label for='username'>
-    Username: <input type='text' name='username' required></br>
-  </label>
-  <label for='email'>
-    Email: <input type='text' name='email' required></br>
-  </label>
-  <label for='password'>
-    Password: <input type='text' name='password' required></br>
-  </label>
-    <input type='submit' value='Sign up'>
-  </form>
-
-</body>
+  <div class='container'>
+    <form action='/signup' method='post' class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for='name'>
+          Name: <input type='text' class="form-control" name='name' required></br>
+        </label>
+        <label for='username'>
+          Username: <input type='text' class="form-control" name='username' required></br>
+        </label>
+        <label for='email'>
+          Email: <input type='text' class="form-control" name='email' required></br>
+        </label>
+        <label for='password'>
+          Password: <input type='password' class="form-control" name='password' required></br>
+        </label>
+          <input type='submit' value='Sign up'>
+          Or <a href='/'>Login</a>
+      </div>
+    </form>
+  </div>
