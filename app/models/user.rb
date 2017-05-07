@@ -20,7 +20,7 @@ class User
     # Datamapper method 'first' finds the first matching record, with keyword argument
     user = first(email: email)
     # Returns the user if e-mail found, and if 'Password' object with hash of real password 'equals'
-    # (the special '==' for this class) the password passed in as a parameter 
+    # (the special '==' for this class) the password passed in as a parameter
     if user && BCrypt::Password.new(user.password_digest) == password
       user
     else

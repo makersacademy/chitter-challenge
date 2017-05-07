@@ -2,7 +2,7 @@
 <html>
   <body>
     <% if current_user %>
-      <p>Logged in as <%= current_user.username %> </p>
+      <p>Logged in as <%= current_user.email %> </p>
     <% end %>
     <%= yield %>
   </body>
