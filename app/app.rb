@@ -5,6 +5,7 @@ require_relative './data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
   enable :sessions
   set :encrypted_sessions, 'valid'
 
@@ -47,7 +48,14 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     current_user
-    "Welcome to Chitter, #{@user.name}"
+    flash.now[:notice] = "Welcome to Chitter, #{@user.name}" if @user
+    erb(:index)
+  end
+
+  delete '/logout' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You logged out!'
+    redirect '/home'
   end
 
   helpers do

@@ -17,4 +17,14 @@ feature 'Logging in to an account' do
     expect(page).to have_current_path('/login')
     expect(page).to have_content 'Invalid login details'
   end
+
+  scenario 'Login fails if password is incorrect' do
+    signs_in_successfully
+    visit '/login'
+    fill_in :email, with: 'example@email.com'
+    fill_in :password, with: 'P455W0RD'
+    click_button 'Submit'
+    expect(page).to have_current_path('/login')
+    expect(page).to have_content 'Invalid login details'
+  end
 end
