@@ -1,5 +1,4 @@
 ENV['RACK_ENV'] ||='development'
-require 'capybara/rspec'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'pry'
