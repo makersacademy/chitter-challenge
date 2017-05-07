@@ -39,5 +39,21 @@ feature 'User sign up' do
     expect(page).to have_content('Email is already taken')
     expect(page).to have_content('Username is already taken')
   end
+end
+
+feature 'User log in' do
+
+  let!(:user) do
+    User.create(email: 'propeeper@email.com',
+                username: 'manicstreetpeeper',
+                name: 'Yono',
+                password: 'shh999',
+                password_confirmation: 'shh999')
+  end
+
+  scenario 'with correct credentials' do
+    log_in(email: user.email,   password: user.password)
+    expect(page).to have_content "Welcome, #{user.username}"
+  end
 
 end
