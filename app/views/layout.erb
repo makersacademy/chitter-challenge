@@ -16,10 +16,20 @@
   </ul>
   <% end %>
 
+  <% if flash[:notice] %>
+    <div id='notice'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <body>
 
     <% if current_user %>
       Welcome, <%= current_user.username %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
     <% end %>
     <%= yield %>
 
