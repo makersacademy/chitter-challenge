@@ -27,6 +27,24 @@ body {
 
 }
 
+#profile-container {
+
+  display: block;
+  height: 250px;
+
+}
+
+.profile-header {
+
+  font-size: 40px;
+  display:block;
+  padding:5px;
+  position:relative;
+  margin-left:30px;
+  left:20px;
+
+}
+
 .center-notice {
 
   display: block;
