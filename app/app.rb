@@ -6,11 +6,11 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'my secret'
 
-helpers do
-  def current_user
-    @current_user ||= User.get(session[:user_id])
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
-end
 
   get '/' do
     erb(:homepage)
@@ -22,14 +22,25 @@ end
 
   post '/sign-up' do
     user = User.create(email: params[:email],
-                password: params[:password],
-                name: params[:name], username: params[:username])
+    password: params[:password],
+    name: params[:name], username: params[:username])
     session[:user_id] = user.id
-    redirect to('/thank-you')
+    redirect to '/'
   end
 
-  get '/thank-you' do
-    erb(:completed_sign_up)
+  get '/sign-in' do
+    erb(:sign_in)
+  end
+
+  post '/sign-in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb(:sign_in)
+    end
   end
 
 end
