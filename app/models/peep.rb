@@ -4,7 +4,8 @@ class Peep
 
   property :id, Serial
   property :post, String
+  property :time, String
 
-  belongs_to :user
+  has n, :users, through: Resource
 
 end

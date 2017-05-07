@@ -4,18 +4,36 @@
   </button>
 </form>
 
+<form action='/login' method='post'>
+  <button type='submit'>
+    Login
+  </button>
+</form>
+
+<form action='/logout' method='post'>
+  <button type='submit'>
+    Logout
+  </button>
+</form>
+
+<% if @user != nil %>
+<%= @user %>
 <form action='/post-peep' method='post'>
   <input type='text' name='peep_text'>
   <button type='submit'>
     Peep
   </button>
 </form>
+<% end %>
 
+<% if @peeps.count != 0 %>
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
   <li>
-    <%= peep.user.user_name %>
+    <%= peep.users.first.username %>
     <%= peep.post %>
+    <%= peep.time %>
   </li>
   <% end %>
 </ul>
+<% end %>
