@@ -32,7 +32,6 @@ class Chitter < Sinatra::Application
   end
 
   get '/peeps' do
-    redirect_if_not_logged_in
     @peeps = Peep.all(:order => [:created_at.desc])
     erb :'peeps/index'
   end
