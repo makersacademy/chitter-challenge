@@ -50,7 +50,7 @@ Gems used:
 * rspec
 * rubocop
 * simplecov
-* sinatra
+* [sinatra](https://github.com/sinatra/sinatra)
 * sinatra-flash
 
 
