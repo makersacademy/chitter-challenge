@@ -12,10 +12,10 @@ feature 'Users' do
   end
 
   scenario 'can log out after logging in' do
-      log_in
-      click_button 'Log Out'
-      expect(page).to have_content "Goodbye #{user.email}"
-      expect(page).not_to have_content "Welcome #{user.email}"
+    log_in
+    click_button 'Log Out'
+    expect(page).to have_content "Goodbye #{user.email}"
+    expect(page).not_to have_content "Welcome #{user.email}"
   end
 
 end

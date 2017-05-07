@@ -20,7 +20,8 @@ class Chitter < Sinatra::Application
   end
 
   post "/users" do
-  @user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:checkpassword])
+    @user = User.create(email: params[:email], password: params[:password],
+    password_confirmation: params[:checkpassword])
     if @user.save
       session[:user_id] = @user.id
       redirect "/peeps"
@@ -32,7 +33,7 @@ class Chitter < Sinatra::Application
 
   get '/peeps' do
     redirect_if_not_logged_in
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :'peeps/index'
   end
 
@@ -42,10 +43,9 @@ class Chitter < Sinatra::Application
       redirect '/peeps'
     else
       flash.now[:errors] = peep.errors
-      @peeps = Peep.all(:order => [ :created_at.desc ])
+      @peeps = Peep.all(:order => [:created_at.desc])
       erb :'peeps/index'
     end
-
   end
 
   get '/sessions/new' do
@@ -78,9 +78,14 @@ class Chitter < Sinatra::Application
 
   post '/comments' do
     peep = Peep.get(params[:peep_id])
-    peep.responses.create(content: params[:comment_content])
-    redirect '/peeps'
+    response = peep.responses.new(content: params[:comment_content])
+    if peep.responses.save
+      redirect '/peeps'
+    else
+      flash.now[:errors] = response.errors
+      @peep = Peep.get(params[:peep_id])
+      erb :'comments/new'
+    end
   end
-
 
 end

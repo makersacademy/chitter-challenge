@@ -1,9 +1,6 @@
 def login?
-  if session[:user_id].nil?
-    return false
-  else
-    return true
-  end
+  return false if session[:user_id].nil?
+  return true
 end
 
 def username
@@ -11,7 +8,7 @@ def username
 end
 
 def current_user
- @current_user ||= User.get(session[:user_id])
+  @current_user ||= User.get(session[:user_id])
 end
 
 def redirect_if_not_logged_in
