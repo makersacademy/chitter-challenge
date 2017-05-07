@@ -9,7 +9,7 @@ feature 'User sign up' do
     expect(User.first.name).to eq('John')
   end
 
-  scenario 'requires  a matching confirmation password' do
+  scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'worng') }.not_to change(User, :count)
   end
 
