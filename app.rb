@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/user'
+require_relative './models/cheet'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
@@ -11,6 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, ''
 
 get '/' do
+  @cheet = Cheet.all
     erb(:index)
   end
 
@@ -53,6 +55,11 @@ end
 delete '/signin_user' do
   session[:user_id] = nil
   redirect to '/bye'
+end
+
+post '/' do
+    Cheet.create(write: params[:write], time: params[:time])
+    redirect '/'
 end
 
 get '/bye' do

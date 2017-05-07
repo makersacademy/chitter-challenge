@@ -11,6 +11,30 @@ line-height: 90px;
 color: white;
 }
 
+h2 {
+    font-size: 2em;
+    text-align: left;
+vertical-align: top;
+line-height: 45px;
+color: white;
+}
+
+li {
+  font-size: 1em;
+  text-align: left;
+vertical-align: top;
+line-height: 45px;
+color: white;
+
+}
+
+ul {
+    transform: rotate(180deg);
+}
+ul > li {
+    transform: rotate(-180deg);
+}
+
 input[type=submit] {
     width: 25%;
     background-color: #4CAF50;
@@ -39,10 +63,26 @@ input[type=submit]:hover {
 <input type="submit" value="Sign In Here" id="">
 </form>
 
+<h2> Cheets </h2>
+
+<ul id='cheets'>
+  <% @cheet.each do |link| %>
+    <li>
+      Cheets: <%= link.write %>
+      Time: <%= link.time %>
+    </li>
+  <% end %>
+</ul>
+
 <% if current_user %>
    Welcome, <%= current_user.username %>
    <form method='post' action='/signin_user'>
      <input type='hidden' name='_method' value='delete'>
      <input type='submit' value='Sign out'>
    </form>
+
+   <form action="/home" method="get">
+   <input type="submit" value="Post a Cheet" id="">
+   </form>
+
  <% end %>

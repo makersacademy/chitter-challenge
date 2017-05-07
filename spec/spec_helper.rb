@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require_relative '../app'
 require_relative '../models/user'
+require_relative '../models/cheet'
 require 'database_cleaner'
 require 'web_helper'
 
