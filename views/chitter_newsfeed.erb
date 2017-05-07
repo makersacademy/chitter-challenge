@@ -7,6 +7,6 @@
 <% end %>
 <% if @messages %>
   <ul id='posts'><% @messages.reverse.each do |message| %>
-    <li><%= "#{message.content}, @#{message.user.user_name}, #{message.formatted_time}" %></li>
+    <li><%= "#{message.content} @#{message.user.user_name}, #{message.formatted_time}" %></li>
   <% end %></ul>
 <% end %> 
