@@ -9,7 +9,7 @@ class User
   property :username, String
   property :password_digest, Text
 
-  def password=(new_password)
-    self.password_digest = BCrypt::Password.create(new_password)
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 end

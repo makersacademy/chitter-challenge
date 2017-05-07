@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
 
   get '/home' do
     @users = User.all
-    erb :feed
+    erb :news_feed
   end
 
   get '/sign-up' do
