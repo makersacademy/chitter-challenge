@@ -32,6 +32,7 @@ feature Chitter do
     expect(page).to have_content "foo_bar88"
   end
   scenario 'authenticates the user' do
+    click_button 'Logout'
     click_button 'Login'
     fill_in 'username', with: 'foo_bar88'
     fill_in 'password', with: 'psswrd'

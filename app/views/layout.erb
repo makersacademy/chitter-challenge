@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet' type='text/css' href="<%= url("/style.css")%>" />
+  <style>
+  body {
+    background-color: #51A39D;
+  }
+  </style>
+  <% if @user != nil %>
+  <h1><%= @user %></h1>
+  <% end %>
+  <body>
+    <%= yield %>
+  </body>
+</head>
