@@ -31,11 +31,27 @@ I want to see the time at which it was made
 ```
 
 Bonus:
------
+---------
 
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
 
 * Work on the css to make it look good (we all like beautiful things).
+
+Gems used:
+----------
+* bcrypt
+* data_mapper
+* capybara
+* cucumber
+* database_cleaner
+* dm-postgres-adapter
+* rack
+* rake
+* rspec
+* rubocop
+* simplecov
+* sinatra
+* sinatra-flash
 
 
 Running locally
