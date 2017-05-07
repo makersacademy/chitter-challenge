@@ -20,4 +20,13 @@ class User
     @password = password
     self.password_encrypt = BCrypt::Password.create(password)
   end
+
+  def self.authenticate(email, password)
+    user = first(email: email)
+    if user && BCrypt::Password.new(user.password_encrypt) == password
+      user
+    else
+      nil
+    end
+  end
 end

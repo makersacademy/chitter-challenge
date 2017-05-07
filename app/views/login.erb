@@ -1,0 +1,8 @@
+<form action='/login' method='post'>
+  <% if flash[:login_error] %>
+      <p><%= flash[:login_error] %></p>
+  <% end %>
+  Email: <input type='text' name='email' required /> <br />
+  Password: <input type='text' name='password' required /> <br />
+  <input type='submit' value='Submit' />
+</form>

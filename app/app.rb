@@ -6,6 +6,7 @@ require_relative './data_mapper_setup'
 class Chitter < Sinatra::Base
   register Sinatra::Flash
   enable :sessions
+  set :encrypted_sessions, 'valid'
 
   get '/' do
     redirect('/signup')
@@ -27,6 +28,21 @@ class Chitter < Sinatra::Base
   get '/signup' do
     @user = User.new
     erb(:signup)
+  end
+
+  get '/login' do
+    erb(:login)
+  end
+
+  post '/login' do
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect '/home'
+    else
+      flash.now[:login_error] = 'Invalid login details'
+      erb(:login)
+    end
   end
 
   get '/home' do
