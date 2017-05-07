@@ -1,8 +1,63 @@
-<form action='/login' method='post'>
-  <% if flash[:login_error] %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
+    <title>Chitter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/home">
+        <img src="../images/chitter.png" width="50" height="50" alt="">
+      </a>
+      <a class="navbar-brand text-danger" href="/home">Chitter</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-danger" href="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <% unless @user %>
+        </ul>
+        <form class="form-inline my-2 my-sm-0 margin-left" method='get' action='/signup'>
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign up to Chitter!</button>
+        </form>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href='/user/<%= @user.username %>'>My Profile</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-sm-0" method='post' action='/logout'>
+          <input type='hidden' name='_method' value='delete'>
+          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log out</button>
+        </form>
+        <% end %>
+      </div>
+    </nav>
+    <form action='/login' method='post'>
+      <% if flash[:login_error] %>
       <p><%= flash[:login_error] %></p>
-  <% end %>
-  Email: <input type='text' name='email' required /> <br />
-  Password: <input type='text' name='password' required /> <br />
-  <input type='submit' value='Submit' />
-</form>
+      <% end %>
+      <br />
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class='back'>
+            <div class='center-form'>
+              Email: <input class='sign-in' type='text' name='email' required /> <br /> <br />
+              Password: <input class='sign-in' type='text' name='password' required /> <br /> <br />
+              <input class='btn btn-outline-danger my-2 my-sm-0 btn-move' type='submit' value='Submit' />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </form>
+  </body>
+</html>
