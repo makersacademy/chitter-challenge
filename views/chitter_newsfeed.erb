@@ -5,5 +5,8 @@
     <input type="submit" value="Submit" >
   </form>
 <% end %>
-<div id='posts'><%= @message.print_messages %></div>
-    
+<% if @messages %>
+  <ul id='posts'><% @messages.reverse.each do |message| %>
+    <li><%= "#{message.content}, @#{message.user.user_name}, #{message.formatted_time}" %></li>
+  <% end %></ul>
+<% end %> 

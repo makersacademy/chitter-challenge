@@ -3,7 +3,7 @@ require_relative 'printer'
 
 class Message
   include DataMapper::Resource
-  extend Printer
+  include Printer
 
   property :id, 	Serial
   property :content, 	String, length: 140, required: true
