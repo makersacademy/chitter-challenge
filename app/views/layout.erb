@@ -13,6 +13,10 @@
       </form>
     <% end %>
 
+    <form action='/peeps/new' method='get'>
+      <input type='submit' value='Write peep'>
+    </form>
+
     <% if flash[:notice] %>
     <div id='notice'>
       <%= flash[:notice] %>
