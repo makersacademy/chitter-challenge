@@ -13,5 +13,4 @@ class Chitter < Sinatra::Base
     redirect to('/peeps/all')
   end
 
-
 end
