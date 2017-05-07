@@ -1,11 +1,14 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
-require_relative '../app/app'
 require './app/models/user'
 require 'web_helper'
 
+require_relative '../app/app'
+
 Capybara.app = Chitter
+
+ENV["RACK_ENV"] = "test"
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

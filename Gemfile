@@ -13,4 +13,5 @@ group :test do
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'rack', '1.5'
+  gem 'bcrypt'
 end

@@ -3,15 +3,18 @@ require 'sinatra/base'
 require_relative 'controllers/users'
 require_relative 'models/user'
 
+ENV["RACK_ENV"] ||= "development"
+
 class Chitter < Sinatra::Base
-  set :sessions, true
+  enable :sessions
+  set :sessions_secret, 'super secret'
 
   get '/' do
     erb(:index)
   end
 
   post '/users' do
-    @user = User.new(name: params[:name],
+    @user = User.create(name: params[:name],
                 username: params[:username],
                 email: params[:email],
                 password: params[:password])
