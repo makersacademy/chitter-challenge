@@ -1,6 +1,6 @@
-feature 'Creating peeps' do
+feature 'Create peep' do
 
-  scenario 'I can create a new peep' do
+  scenario 'I can write and post a new peep' do
     visit '/peeps/new'
     fill_in :username,   with: 'jessica123'
     fill_in :peep, with: 'My first peep'

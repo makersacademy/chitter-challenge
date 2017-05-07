@@ -2,8 +2,7 @@ feature 'User log in' do
 
   let!(:user) do
     User.create(name: 'example', username: 'UsernameExample',
-                email: 'user@email.com',
-                password: 'password',
+                email: 'user@email.com', password: 'password',
                 password_confirmation: 'password')
   end
 

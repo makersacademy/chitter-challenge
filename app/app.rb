@@ -7,9 +7,10 @@ require_relative 'models/user'
 require_relative 'models/peep'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
-  register Sinatra::Flash
 
   helpers do
     def current_user
@@ -50,6 +51,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
   end
 
   get '/peeps/new' do
