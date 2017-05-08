@@ -1,0 +1,10 @@
+
+div.peeps {
+	padding: 1em;
+	border: 3px, solid, grey;
+}
+
+article.peep {
+	border: 3px, solid, grey;
+	padding: 1em 0 1em 0;
+}

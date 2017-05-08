@@ -1,0 +1,12 @@
+<div class="peeps">
+	<h3>Latest Peeps</h3>
+	<% Message.all(order: [:date_time.desc]).each do |message|%>
+	<article class="peep">
+		<p>---------</p>
+		<p><%= message.text %></p>
+		<p><%= message.date_time.strftime("%v - %H:%M") %></p>
+		<p>Posted by: <%= User.first(id: message.user_id).username %></p>
+		<p></p>
+	</article>
+	<% end %>
+</div>
