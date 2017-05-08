@@ -8,3 +8,12 @@
 <% end %>
 
 <h1>Home Page</h1>
+
+ul id='tweets'>
+   <% @peeps.each do |peep| %>
+     <li>
+
+       Peep:   <%= peep.peep   %>
+     </li>
+   <% end %>
+ </ul>

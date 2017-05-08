@@ -3,6 +3,7 @@ require 'simplecov'
 require 'web_helpers'
 require 'database_cleaner'
 require 'helpers/session'
+require './app/models/peeps'
 
 # SimpleCov.formatters = [
 #   SimpleCov::Formatter::HTMLFormatter,
@@ -15,7 +16,7 @@ require 'helpers/session'
 RSpec.configure do |config|
 
    config.include SessionHelpers
-   
+
   end
 
 ENV['RACK_ENV'] = 'test'
