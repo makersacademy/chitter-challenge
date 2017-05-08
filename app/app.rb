@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require_relative "./datamapper_setup"
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  register Sinatra::Flash
 
   get '/' do 
     erb(:index)
@@ -24,8 +26,13 @@ class Chitter < Sinatra::Base
                         password:                 params[:password],
                         password_confirmation:    params[:password_confirmation]
                       )
-    session[:user_id] = user.id
-    redirect '/feed'
+    if user.save
+      session[:user_id] = user.id
+      redirect '/feed'
+    else
+      flash.now[:notice] = "Password and confirmation do not match"
+      erb(:new_user)
+    end
   end
 
   get '/feed' do
