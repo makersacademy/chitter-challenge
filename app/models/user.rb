@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
 
   include DataMapper::Resource
@@ -20,9 +22,8 @@ class User
   end
 
   def self.authenticate(email, password)
-    first(email: email)
+    user = first(email: email)
+    user && BCrypt::Password.new(user.password_digest) == password ? user : nil
   end
-
-
 
 end
