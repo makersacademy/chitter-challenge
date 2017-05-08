@@ -12,7 +12,7 @@ feature 'Users' do
   end
 
   scenario 'cannot log in with incorrect credentials' do
-    log_in(password = 'wrong_password')
+    log_in(user.email, 'wrong_password')
     expect(page).not_to have_content "Hi #{user.email}"
     expect(page).to have_content 'The email or password is incorrect'
     expect(page).to have_current_path('/sessions')
