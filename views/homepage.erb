@@ -1,5 +1,10 @@
 
 <style>
+
+  html,body{
+     height:100%;
+  }
+
   .navbar-brand {
       font-family: Lobster, monospace;
       color: #9900cc !important;
@@ -17,39 +22,47 @@
     opacity: 0.95;
 
   }
-    #sign_up {
-      font-family: Raleway, monospace;
-    }
 
+  #sign_up {
+    font-family: Raleway, monospace;
+  }
 
-
-    div.sign_up {
+  div.sign_up {
     position:absolute;
     z-index:9999000;
     top:20%;
     left:4%;
     right:auto;
     bottom:auto;
-    }
-    div#myCarousel {
+  }
+  div#myCarousel {
     position:relative;
-}
-@media (min-width:800px){
+  }
 
-}
-@media (max-width:800px) {
+  div.sign_up_small {
+    top:200px;
+  }
+
+  @media (min-width:760px){
+    div.sign_up_small{
+      display:none !important;
+    }
+  }
+
+  @media (max-width:760px) {
     #myCarousel {
         display:none !important;
     }
-    div.sign_up {
-    display:none !important;
-}
 
-}
+    div.sign_up {
+      display:none !important;
+    }
+  }
+  
 </style>
 <html>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway|Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -88,9 +101,11 @@
         </div>
         <div class="sign_up col-sm-6 col-md-4">
           <h2 id='sign_up'> Sign up and join the peeps!</h2>
-          <h3><% if flash[:notice] %>
-            <div id='notice'><%= flash[:notice] %></div>
-          <% end %></h3>
+          <h3>
+            <% if flash[:notice] %>
+              <div id='notice'><%= flash[:notice] %></div>
+            <% end %>
+          </h3>
           <form action="/users" method="Post" id='sign_up'>
             <div class="form-group">
               <label for="name">Name:</label>
@@ -115,6 +130,35 @@
             <button type="submit" class="btn btn-primary">Join</button>
           </form>
         </div>
+        <!-- <div class="sign_up_small col-sm-4 col-md-4">
+          <h2 id='sign_up'> Sign up and join the peeps!</h2>
+          <h3><% if flash[:notice] %>
+            <div id='notice'><%= flash[:notice] %></div>
+          <% end %></h3>
+          <form action="/users" method="Post" id='sign_up'>
+            <div class="form-group">
+              <label for="name1">Name:</label>
+              <input type="name" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="user_name">User name:</label>
+              <input type="name" name="user_name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="password_confirmation">Confirm Password:</label>
+              <input type="password" name="password_confirmation" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Join</button>
+          </form>
+        </div> -->
 
       </div>
     </div>
