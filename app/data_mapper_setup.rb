@@ -3,7 +3,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 env = ENV['RACK_ENV'] || 'development'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter-1#{env}")
 
 DataMapper.finalize
 
