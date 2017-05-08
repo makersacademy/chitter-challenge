@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   helpers Helpers
 
   get '/' do
-    @posts = Post.all
+    @posts = Post.all_sorted_by_time
     erb :index
   end
 
@@ -25,7 +25,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = @logged_in_user.id
       redirect to('/')
     else
-      flash.now[:notice] = "Sorry, we can't find you. Try again or <a href='/signup'>sign up</a>."
+      flash.now[:notice] =
+      "Sorry, we can't find you. Try again or <a href='/signup'>sign up</a>."
       erb :index
     end
   end
@@ -36,10 +37,10 @@ class Chitter < Sinatra::Base
 
   post '/signup' do
     user = User.create(name: params[:name], username: params[:username],
-                email: params[:email], password: params[:password])
+                       email: params[:email], password: params[:password])
     if user.errors.count >= 1
       flash.now[:notice] = "Sorry! " + user.errors.full_messages.join(", ") +
-                             " Do you need to <a href='/'>Login?</a>"
+                           " Do you need to <a href='/'>Login?</a>"
       erb :signup
     else
       redirect to('/')
@@ -54,7 +55,8 @@ class Chitter < Sinatra::Base
   post '/post' do
     post = Post.create(post: params[:post], user_id: session[:user_id])
     if post.errors.count >= 1
-      flash.now[:notice] = "Whoops, something went wrong with your post. <a href='/'>Go back</a>"
+      flash.now[:notice] =
+      "Whoops, something went wrong with your post. <a href='/'>Go back</a>"
       erb :index
     else
       redirect to('/')
@@ -63,7 +65,7 @@ class Chitter < Sinatra::Base
 
   get '/:username' do
     user = User.first(username: params[:username])
-    @posts = Post.all(user_id: user.id)
+    @posts = Post.filtered_sorted_by_time(user_id: user.id)
     erb :index
   end
 end

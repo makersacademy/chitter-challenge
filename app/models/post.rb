@@ -12,4 +12,12 @@ class Post
   property :created_at, DateTime
 
   belongs_to :user
+
+  def self.all_sorted_by_time
+    all.sort_by(&:created_at).reverse!
+  end
+
+  def self.filtered_sorted_by_time(user_id)
+    all(user_id).sort_by(&:created_at).reverse!
+  end
 end
