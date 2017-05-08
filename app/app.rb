@@ -72,7 +72,7 @@ class Chitter < Sinatra::Base
   post '/post-peep' do
     user = current_user
     if user
-      post = Post.create(contents: params[:contents],
+      Post.create(contents: params[:contents],
                          user_id: user.id,
                          timestamp: DateTime.now)
       redirect '/'
