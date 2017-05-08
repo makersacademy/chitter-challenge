@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'Bcrypt'
+require 'bcrypt'
 require_relative 'models/peep'
 require_relative 'models/user'
 
