@@ -71,6 +71,7 @@ class Chitter < Sinatra::Application
   end
 
   get '/comments/new' do
+    redirect_if_not_logged_in
     @peep = Peep.get(params[:peep_id])
     erb :'comments/new'
   end
