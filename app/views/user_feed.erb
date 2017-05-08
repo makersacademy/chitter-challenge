@@ -6,8 +6,17 @@
 <title>G9A2HvK9 - Chitter Challenge at Maker's Academy, April 2017 Cohort - May 2017</title>
 </head>
 
-<body>
-  You are logged in as <%= @current_user.first_name %> <%= @current_user.last_name %>
+<body style="text-align: center">
+  <h2>You are logged in as <%= @current_user.first_name %> <%= @current_user.last_name %></h2>
+  <form action="/post/new" method="get"><input type="submit" value="Post some ChitChat"></form>
+</body>
+
+<body id="feed">
+  <% @posts.reverse.each do |post| %>
+    There should be something here...<br>
+    <%= User.get(post.user_id).user_name %> said at <%= post.timestamp %><br>
+    <%= post.content %>
+  <%end%>
 </body>
 
 </html>

@@ -57,12 +57,12 @@ describe Chitter do
     end
 
 
-    # scenario "When I click 'Create Account' a new user is created and the password encrypted" do
-    #   visit_sign_up_page
-    #   enter_newusername_and_newpassword
-    #   click_button("Create Account")
-    #   expect(User.last.password_digest).to_not eq "test_password"
-    # end
+    scenario "When I click 'Create Account' a new user is created and the password encrypted" do
+      visit_sign_up_page
+      enter_newusername_and_newpassword
+      click_button("Create Account")
+      expect(User.last.password_digest).to_not eq "test_password"
+    end
 
   end
 end

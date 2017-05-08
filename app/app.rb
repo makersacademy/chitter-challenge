@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/create_user" do
-    @new_user = User.first_or_create(first_name: params[:new_first_name],
+    @new_user = User.create(first_name: params[:new_first_name],
     last_name: params[:new_last_name],
     email: params[:new_email],
     user_name: params[:new_username],
@@ -39,7 +39,19 @@ class Chitter < Sinatra::Base
 
   get "/feed/:current_user" do
     @current_user = User.first(id: session[:current_user])
+    @posts = Post.all
+    p @posts
     erb(:user_feed)
+  end
+
+  post "/post" do
+    @current_user = User.first(id: session[:current_user])
+    @current_user.posts.create(content: params[:new_post], timestamp: Time.now)
+    redirect to ("/feed/:current_user")
+  end
+
+  get "/post/new" do
+    erb(:new_post)
   end
 
 end
