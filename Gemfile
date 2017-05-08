@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
   gem 'sinatra'
+  gem 'datamapper'
 
 group :test do
   gem 'cucumber'

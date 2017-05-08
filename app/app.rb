@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative "./datamapper_setup"
 
 class Chitter < Sinatra::Base
 
@@ -13,12 +14,6 @@ class Chitter < Sinatra::Base
 
   post '/user/registered' do 
     p params
-    @username = params[:username]
-    erb(:registered)
-    # redirect ('/user/registered')
-  end
-
-  get '/user/registered' do 
     @username = params[:username]
     erb(:registered)
   end
