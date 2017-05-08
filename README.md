@@ -72,6 +72,38 @@ Good luck and let the chitter begin!
 
 Code Review
 -----------
+#We first need a local database for both test and development.
+$ create database chitter_development
+$ create database chitter_test
+
+$ git clone https://github.com/danielemanuel/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ # once all gems are installed, launch the application:
+$ rackup #navigate to localhost9292
+$ coveralls report #to view all test coverage information
+```
+
+When using the site, there are no direct link buttons to take you to different
+pages, therefore if you wish to visit certain pages refer to the list below and
+add the snippet to your URL.
+
+- '/peeps' - Shows all peeps as well as the authors and corresponding timestamp
+- '/peeps/new' - Add new peeps
+- '/users/new' - Adding new users
+- 'sessions/new' - Logging in as an existing user
+
+Technologies used
+-----------------
+
+- Ruby
+- RSpec
+- Capybara
+- Sinatra
+- PostgreSQL
+- Coveralls
+
+
 
 In code review we'll be hoping to see:
 
