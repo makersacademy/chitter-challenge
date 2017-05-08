@@ -16,6 +16,7 @@ class User
   property :password_token, String, length: 60
   property :password_token_time, Time
 
+  has n, :posts
 
   def password=(password)
     @password = password
