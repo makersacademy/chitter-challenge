@@ -1,7 +1,7 @@
 class Peep
   include DataMapper::Resource
 
-  has 1, :user
+  belongs_to :user
   has n, :responses
 
   property :id, Serial

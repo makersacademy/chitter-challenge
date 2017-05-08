@@ -24,7 +24,7 @@
 <div class="text-right">
 <p>Reply: <%= reply.content %></p>
 <p>At: <%=reply.created_at.strftime("%c")%></p>
-<p>By: <%= reply.peep.user.email %></p>
+<p>By: <%= reply.user.email %></p>
 </div>
 <% end %>
 
