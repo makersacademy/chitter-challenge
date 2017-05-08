@@ -23,12 +23,6 @@ feature 'User sign up' do
      expect { sign_up(username: nil) }.not_to change(User, :count)
    end
 
-  #  scenario "I can't sign up with an invalid email address" do
-  #    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
-  #  end
-
-
-
   def sign_up(name: 'John',
               username:'j.smith',
               email: 'john@example.com',
@@ -43,3 +37,26 @@ feature 'User sign up' do
     click_button 'Sign up'
   end
 end
+
+feature 'User sign in' do
+   let(:user) do
+     User.create(name: 'John',
+                 username:'j.smith',
+                 email: 'john@example.com',
+                 password: '12345678',
+                 password_confirmation: '12345678')
+   end
+
+   scenario 'signs in with correct credentials' do
+     sign_in(email: user.email,   password: user.password)
+     expect(page).to have_content "Welcome, #{user.name}"
+   end
+
+   def sign_in(email:, password:)
+     visit '/sessions/new'
+     fill_in :email, with: email
+     fill_in :password, with: password
+     click_button 'Sign in'
+   end
+
+ end
