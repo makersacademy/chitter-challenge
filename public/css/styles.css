@@ -4,7 +4,7 @@ div.peeps {
 	border: 3px, solid, grey;
 }
 
-div.peep {
+article.peep {
 	border: 3px, solid, grey;
 	padding: 1em 0 1em 0;
 }

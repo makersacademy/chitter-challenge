@@ -5,7 +5,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'database_cleaner'
-require './app/app'
+require './app/controllers/app'
 require './spec/web_helpers'
 
 

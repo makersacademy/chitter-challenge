@@ -13,7 +13,7 @@ feature "View user's messages" do
 		post_message 'Older'
 		sleep(1)
 		post_message 'Latest'
-		page.should have_selector("div.peeps div:nth-of-type(1)", text: 'Latest')
-		page.should have_selector("div.peeps div:nth-of-type(2)", text: 'Older')
+		page.should have_selector("div.peeps article:nth-of-type(1)", text: 'Latest')
+		page.should have_selector("div.peeps article:nth-of-type(2)", text: 'Older')
 	end
 end
