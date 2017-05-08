@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||='development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require './app/database_setup'
@@ -19,13 +19,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create[name: [:name], email: params[:email], user_name: [:user_name],
-    password: params[:password]]
+    user = User.create(name: [:name], email: params[:email], user_name: [:user_name],
+    password: params[:password])
     session[:user_id] = user.id
     redirect '/welcome'
   end
 
   get '/welcome' do
+    user = User.first(id: session[:user_id])
     erb :'welcome'
   end
 
