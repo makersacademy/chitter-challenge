@@ -7,6 +7,7 @@ require 'simplecov-console'
 
 require './app/app'
 require './app/models/user'
+require './app/models/peep'
 require 'web_helpers.rb'
 
 

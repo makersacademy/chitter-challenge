@@ -1,17 +1,38 @@
 
 <% if current_user %>
   Welcome to Chitter, <%= current_user.email %>
-  Peep here:
-  <form method = 'post' action = '/peeps'>
-      <textarea name = 'peep' rows="2" cols="20"></textarea>
-      <input type = 'submit' value = 'Peep!'>
-<form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Log Out'>
-    </form>
+<br>
+<br>
+<br>
+<TD><form action='/peeps/new' method='get'>
+ <input type='submit' value='Peep!'>
+</form></TD>
+
+<TD><form action='/sessions/end' method='post'>
+ <input type='hidden' name='_method' value='delete'>
+ <input type='submit' value='Log Out'>
+</form></TD>
+
     <%else%>
-     Welcome to Chitter!
+
+<TD><form action='/users/new' method='get'>
+ <input type='submit' value='Create account'>
+</form></TD>
+
+<TD><form action='/sessions/new' method='get'>
+ <input type='submit' value='Log In'>
+</form></TD>
+
 <% end %>
+
+<ul>
+  <% @peeps.reverse.each do |peep| %>
+   <li>
+       <%= peep.peep %><br>
+    Peeped at: <%= peep.time %>
+  </li>
+    <% end %>
+</ul>
 
 <% if flash[:notice] %>
    <div id='notice'>

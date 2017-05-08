@@ -6,3 +6,6 @@
   <input type = 'password' id = 'loginpass' name = 'password'>
   <input type = 'submit' value = 'Log In'>
 </form>
+<% if flash[:errors] %>
+  <div id='errors'><%= flash[:errors] %></div>
+<% end %>
