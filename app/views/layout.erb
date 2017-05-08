@@ -2,11 +2,15 @@
 <html>
   <head>
     <title>Chitter</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
   <body>
     <% if current_user %>
     <%= "Welcome, #{current_user.name}" %>
+    <a href='/peeps/new'>New peep</a>
     <form method='post' action='/sessions'>
      <input type='hidden' name='_method' value='delete'>
      <input type='submit' value='Sign out'>
@@ -29,5 +33,7 @@
     <% end %>
   </ul>
 <% end %>
-
+<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
 </html>

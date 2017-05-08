@@ -16,6 +16,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @peeps = Peep.all
+    p @peeps.first
     erb :'home/index'
   end
 
@@ -57,6 +59,16 @@ class Chitter < Sinatra::Base
     session[:user_id] = nil
     flash.keep[:notice] = 'goodbye!'
     redirect to '/'
+  end
+
+  post '/peeps' do
+    user = current_user
+    peep = Peep.create(message: params[:message], user_id: user.id, made_at: DateTime.now)
+    redirect to '/'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
   end
 
 end
