@@ -5,7 +5,7 @@ class User
 
   attr_reader :password
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   property :id, Serial
   property :name, String

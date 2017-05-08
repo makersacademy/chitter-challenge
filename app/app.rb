@@ -21,9 +21,7 @@ class Chitter < Sinatra::Base
 
 # This doesn't save anything in the Peep table
   post '/peep' do
-    peep = Peep.create(peep: params[:peep], time: Time.new.strftime("%H:%M"), date: Time.new.strftime("%Y-%m-%d"))
-    current_user.peeps << peep
-    current_user.save
+    current_user.peeps.create(peep: params[:peep], time: Time.new.strftime("%H:%M"), date: Time.new.strftime("%Y-%m-%d"))
     redirect to '/feed'
   end
 
