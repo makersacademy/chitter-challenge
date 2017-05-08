@@ -10,23 +10,26 @@ class Chitter < Sinatra::Base
     erb(:index)
   end
 
-  get '/:value' do 
-    params['value'] = session['value']
-  end
-
   get '/users/new' do 
     erb(:new_user)
   end
 
   post '/users' do 
-    @username = params[:username]
-    user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-    erb(:registered)
-    session[:user_id] = user.id
     p params
     p session
-    redirect to('/')
+    user = User.create(
+                        name:       params[:name], 
+                        username:   params[:username], 
+                        email:      params[:email], 
+                        password:   params[:password]
+                      )
+    session[:user_id] = user.id
+    redirect '/feed'
+  end
 
+  get '/feed' do
+    @current_user ||= User.get(session[:user_id])
+    erb(:feed)
   end
 
   helpers do
@@ -34,6 +37,7 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
+
 
   run! if app_file == $0
 
