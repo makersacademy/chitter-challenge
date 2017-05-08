@@ -1,41 +1,50 @@
-
 <% if current_user %>
-  Welcome to Chitter, <%= current_user.email %>
+Welcome to Chitter,
+<%= current_user.email %>
 <br>
 <br>
 <br>
-<TD><form action='/peeps/new' method='get'>
- <input type='submit' value='Peep!'>
-</form></TD>
+<TD>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Peep!'>
+  </form>
+</TD>
 
-<TD><form action='/sessions/end' method='post'>
- <input type='hidden' name='_method' value='delete'>
- <input type='submit' value='Log Out'>
-</form></TD>
+<TD>
+  <form action='/sessions/end' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+  </form>
+</TD>
 
-    <%else%>
+<%else%>
 
-<TD><form action='/users/new' method='get'>
- <input type='submit' value='Create account'>
-</form></TD>
+<TD>
+  <form action='/users/new' method='get'>
+    <input type='submit' value='Create account'>
+  </form>
+</TD>
 
-<TD><form action='/sessions/new' method='get'>
- <input type='submit' value='Log In'>
-</form></TD>
+<TD>
+  <form action='/sessions/new' method='get'>
+    <input type='submit' value='Log In'>
+  </form>
+</TD>
 
 <% end %>
 
 <ul>
   <% @peeps.reverse.each do |peep| %>
-   <li>
-       <%= peep.peep %><br>
-    Peeped at: <%= peep.time %>
+  <li>
+    <%= peep.peep %><br>
+    Peeped at:
+    <%= peep.time %>
   </li>
-    <% end %>
+  <% end %>
 </ul>
 
 <% if flash[:notice] %>
-   <div id='notice'>
-     <%= flash[:notice] %>
-   </div>
- <% end %>
+<div id='notice'>
+  <%= flash[:notice] %>
+</div>
+<% end %>
