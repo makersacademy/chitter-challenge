@@ -25,8 +25,8 @@ And finally use rackup to start the server and navigate to your chosen localhost
 
 `bundle exec rackup`
 
-![Alt text](https://github.com/enonnai/chitter-challenge/blob/master/app/links/chitter-app.png)
-
 Check out the deployed version on Heroku!
 
 https://chitter-challenge-cristina.herokuapp.com/
+
+![Alt text](https://github.com/enonnai/chitter-challenge/blob/master/app/links/chitter_challenge_cristina.png "screenshot")
