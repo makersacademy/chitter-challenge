@@ -11,8 +11,8 @@ require_relative 'controllers/users'
 
 class Chitter < Sinatra::Base
 
-  get '/peeps' do
-    erb :'/peeps'
+  get '/' do
+    erb :index
   end
 
 end

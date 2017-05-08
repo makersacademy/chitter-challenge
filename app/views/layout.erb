@@ -7,9 +7,6 @@
 
     <% if current_user %>
       Hello! <%= current_user.username %>
-      <form action='/sessions/new'>
-        <input type='submit' value='Sign in'>
-      </form>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>
