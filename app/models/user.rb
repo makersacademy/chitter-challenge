@@ -6,9 +6,9 @@ class User
    validates_confirmation_of :password
 
   property :id,              Serial
-  property :name,            String
-  property :username,        String
-  property :email,           String
+  property :name,            String,  required: true
+  property :username,        String,  required: true
+  property :email,           String,  required: true
   property :password_digest, Text
 
   def password=(password)
