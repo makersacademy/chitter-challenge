@@ -1,0 +1,53 @@
+<style>
+  .navbar-brand {
+    font-family: Lobster, monospace;
+    color: #9900cc !important;
+    font-size: 34 !important;
+  }
+
+  .navbar-nav  li a:hover {
+    color: #A643A0 !important;
+  }
+
+</style>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway|Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- here ends the set up for the html/css environment -->
+<head>
+  <nav class="navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">ChitterApp</a>
+      </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/main">Home</a></li>
+          <li><a href="#">Stream</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' value='Sign out'>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</head>
+<!-- here ends the header section of the page -->
+
+<body>
+  <% if current_user %>
+    Welcome, <%= current_user.name %>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+</body>
+</html>
