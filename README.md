@@ -3,8 +3,9 @@ Chitter
 
 ### Ruby // Sinatra application
 
- A Twitter clone built using Sinatra, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
+ A Twitter clone built using Sinatra, Capybara, RSpec, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
 
+### Application built using Sinatra's modular style
 
 #### User stories this app considers
 
@@ -52,6 +53,8 @@ $ rackup
 ### Test coverage 100%
 
 ![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/testcoverage.png "testcoverage")
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/file-tree.png "file-tree")
 
 ### Functionality
 
