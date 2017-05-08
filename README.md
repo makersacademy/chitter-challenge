@@ -1,7 +1,34 @@
 Chitter Challenge
 =================
 
-The Chitter is some sort of Twitter. I used 
+Download and run:
+```
+$ git clone https://github.com/anaalta/chitter-challenge
+$ cd chitter-challenge
+$ bundle
+$ createdb chitter_development
+$ rackup
+```
+This is a very basic Twitter-like app. I used Data Mapper as ORM with PostgreSQL for databases. The app is in Ruby, on the Sinatra framework. Testing is done with Capybara/Rspec.
+
+Functionalities:
+
+1. Users can create an account:
+![Users can create an account]
+(https://github.com/anaalta/chitter-challenge/blob/master/screenshots/create_account.png)
+2. Users can log in into their accounts
+![Users can log in]
+(https://github.com/anaalta/chitter-challenge/blob/master/screenshots/log_in.png)
+3. Users can see peeps in reverse chronological order
+![see peeps]
+(https://github.com/anaalta/chitter-challenge/blob/master/screenshots/peeps_in_reverse_order.png)
+4. Users can peep
+![Users can peep]
+(https://github.com/anaalta/chitter-challenge/blob/master/screenshots/peep.png)
+5. The peeps are visible in between sessions (when no one is logged in)
+![peeps are listed anytime]
+(https://github.com/anaalta/chitter-challenge/blob/master/screenshots/see%20peeps%20even%20after%20logout.png)
+
 
 
 =================
