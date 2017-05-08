@@ -1,3 +1,4 @@
+![Travis](https://travis-ci.org/Robert-G-J/chitter-challenge.svg?branch=master)
 # Chitter Challenge, Week 3 @ Makers Academy
 
 Installation
@@ -48,4 +49,4 @@ https://docs.google.com/spreadsheets/d/1B0mCziQibWo42zmVOJ7IIAj0Fo123v6IKisI6llJ
 
 Then it was a matter of learning how to use BCrypt and Sinatra-Flash on the hop.
 
-I would really love to make this creation pretty. CSS is the next step I might imagine... 
+I would really love to make this creation pretty. CSS is the next step I might imagine...
