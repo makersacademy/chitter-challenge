@@ -1,102 +1,83 @@
-Chitter Challenge
-=================
+Chitter
+=======
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+### Ruby // Sinatra application
 
-Challenge:
--------
+ A Twitter clone fully deployed to Heroku built using Sinatra, Capybara, RSpec, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
 
-As usual please start by forking this repo.
+[Heroku application](https://chitter-time.herokuapp.com/)
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+### Application built using Sinatra's modular style
 
-Features:
--------
+#### User stories this app considers
 
 ```
-As a Maker
+As a User
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
-
-As a Maker
+```
+```
+As a User
 So that I can post messages on Chitter as me
 I want to log in to Chitter
-
-As a Maker
+```
+```
+As a User
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
-
-As a Maker
+```
+```
+As a User
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
+I want to post a message (peep) to Chitter
+```
+```
+As a User
 So that I can see what others are saying  
 I want to see all peeps in reverse chronological order
-
-As a maker
+```
+```
+As a User
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+### Installation
 
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
------
-
-If you have time you can implement the following:
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-And/Or:
-
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
+```
+$ git clone
+$ bundle
+$ createdb chitter_development
+$ createdb chitter_test
+$ rspec
+$ rackup
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+### Test coverage 100%
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/chitter-test-coverage.png "chitter-test-coverage")
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/file-tree.png "file-tree")
+
+### Functionality
+
+### Users can sign up to Chitter
+
+*Username and email must be unique*
+*Passwords must match for successful sign up*
+*BCrypt ensures safe storage of passwords*
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/signup.png "signup")
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/password-confirmation.png "password-confirmation")
+
+### Users can Peep to the /peeps feed
+
+*The option to Peep is only displayed when logged in*
+*Peeps are displayed in reverse chronological order, displaying the time and day they were created*
+
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/time-to-peep.png "time-to-peep")
+
+### Users can log in and out of Chitter
+
+*After signing up Users can log in and out of Chitter*
+*Using Sinatra sessions and Rack MethodOverride to successfully log out a User*

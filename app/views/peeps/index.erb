@@ -1,0 +1,13 @@
+<h1> Peeps </h1>
+<ul id='peeps' style="list-style-type:square">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.user.username %>
+      <br>
+      <%= peep.comment %>
+      <br>
+      <%= peep.created_at.strftime("%R on  %a %d %b %G") %>
+      <br>
+    </li>
+  <% end %>
+</ul>
