@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Message.all
+    @peeps = Message.all.reverse
     erb :index
   end
 
@@ -66,7 +66,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/message/new' do
-    @peep = Message.new(content: params[:message], user: current_user.username)
+    @peep = Message.new(content: params[:message], user: current_user.username, time: Time.now)
     if @peep.save
       redirect '/'
     else

@@ -2,21 +2,26 @@
   <a href='/users/new'>Sign up</a>
   <a href='/sessions/new'>Log in</a>
 </h2>
+
 <h3>
-  <form action='/message/new' method='POST'>
-    <label for='message'>
-      Peep on Chitter:
-      <input type='text' name='message' required/>
-    </label>
-    <input type='submit' value='Peep!'>
-  </form>
+  <% if current_user %>
+    <form action='/message/new' method='POST'>
+      <label for='message'>
+        Peep on Chitter:
+        <input type='text' name='message' required/>
+      </label>
+      <input type='submit' value='Peep!'>
+    </form>
+  <% else %>
+    Please sign up or log in to peep.
+  <% end %>
 </h3>
-<br>
+
 <% if @peeps %>
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.user %> peeped: <%= peep.content %>
+      <%= peep.user %> peeped: <%= peep.content %> at <%= peep.time %>
     </li>
   <% end %>
 </ul>

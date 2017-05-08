@@ -8,5 +8,6 @@ class Message
   property :id, Serial
   property :content, String, required: true
   property :user, String
+  property :time, Time
 
 end
