@@ -1,6 +1,10 @@
-<h1>Home Page</h1>
-
-
-<form action='/users/new' method='get'>
-   <input type='submit' value='Sign Up'>
+<% if !current_user %>
+<form method='get' action='/sessions/new'>
+  <input type='submit' value='Sign in'>
 </form>
+<form action='/users/new' method='get'>
+  <input type='submit' value='Sign Up'>
+</form>
+<% end %>
+
+<h1>Home Page</h1>

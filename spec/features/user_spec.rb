@@ -60,3 +60,16 @@ feature 'User sign in' do
    end
 
  end
+ feature 'Logins' do
+
+
+   feature 'User signs out' do
+     scenario 'can sign out if currently signed in' do
+       sign_up
+       sign_in(email: 'john@example.com', password: '123456')
+       click_button 'Sign out'
+       expect(page).to have_content('You have logged out.')
+       expect(page).not_to have_content('Welcome, John')
+     end
+   end
+ end

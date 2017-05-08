@@ -1,9 +1,15 @@
+<% if flash[:notice] %>
+  <div id='notice'>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <h1>Please sign in</h1>
- 
- <form action='/sessions' method='post'>
-   <label for='email'> Email: </label>
-      <input name='email' type='email'>
-   <label for='password'> Password: </label>
-      <input name='password' type='password'>
+
+<form action='/sessions' method='post'>
+  <label for='email'> Email: </label>
+     <input name='email' type='email'>
+  <label for='password'> Password: </label>
+     <input name='password' type='password'>
   <input type='submit' value='Sign in'>
- </form>
+</form>
