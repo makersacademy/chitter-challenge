@@ -3,7 +3,9 @@ Chitter
 
 ### Ruby // Sinatra application
 
- A Twitter clone built using Sinatra, Capybara, RSpec, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
+ A Twitter clone fully deployed to Heroku built using Sinatra, Capybara, RSpec, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
+
+[Heroku application](https://chitter-time.herokuapp.com/)
 
 ### Application built using Sinatra's modular style
 
