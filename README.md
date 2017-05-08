@@ -32,7 +32,8 @@ Functionalities:
 
 ![peeps are listed anytime](https://github.com/anaalta/chitter-challenge/blob/master/screenshots/see%20peeps%20even%20after%20logout.png)
 
-
+6. Users cannot log in with incorrect credentials
+![wrong pass]()
 
 =================
 * Challenge time: rest of the day and weekend, until Monday 9am
