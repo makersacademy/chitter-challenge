@@ -7,13 +7,13 @@
   <div class="container" >
     <div class="jumbotron">
       <p>
-        User: <%= User.get(peep.user_id).name %>
+        User: <%= User.get(peep.user_id).user_name %>
       </p>
     <p>
       Peep: <%= peep.message %>
     </p>
     <p>
-      peeped at: <%= peep.made_at.strftime("%A, %d %b %Y %l:%M %p") %>
+      peeped on: <%= peep.made_at.strftime("%A, %d %b %Y %l:%M %p") %>
     </p>
     </div>
     </div>
