@@ -24,6 +24,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @posts = Post.all
     erb(:homepage)
   end
 
@@ -61,6 +62,22 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb(:sign_in)
+    end
+  end
+
+  get '/post-peep' do
+    erb(:post_peep)
+  end
+
+  post '/post-peep' do
+    user = current_user
+    if user
+      post = Post.create(contents: params[:contents],
+                         user_id: user.id,
+                         timestamp: DateTime.now)
+      redirect '/'
+    else
+      "You must be signed in to peep."
     end
   end
 

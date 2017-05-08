@@ -1,3 +1,12 @@
 <h1>Welcome to Chitter!</h1>
 
-<h2>Make a peep</h2>
+
+<ul id='links'>
+<% @posts.reverse.each do |post| %>
+<li>
+  <%= post.user_id %>
+  <%= post.contents %>
+  <%= post.timestamp.strftime("%H:%M %d-%m-%Y") %>
+</li>
+<% end %>
+</ul>
