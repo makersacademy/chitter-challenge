@@ -65,7 +65,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    peep = Peep.create(comment: params[:comment],
+    peep = Peep.first_or_create(comment: params[:comment],
+                       created_at: Time.now,
                        user: current_user)
     current_user.peeps << peep
     current_user.save

@@ -140,6 +140,7 @@ DEPENDENCIES
   data_mapper (~> 1.2.0)
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   rack
   rake
   rspec
