@@ -13,3 +13,10 @@ def sign_up_nonmatching_pw
     fill_in 'password_confirmation', with: 'test' 
     click_on 'Sign Up!'
 end
+
+def log_in
+    visit '/sessions/new'
+    fill_in 'email', with: 'axcochrane@gmail.com' 
+    fill_in 'password', with: 'test123' 
+    click_on 'Sign In!'
+end

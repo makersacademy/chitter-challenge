@@ -1,6 +1,21 @@
 Chitter Challenge
 =================
 
+
+INSTRUCTIONS
+-------------
+- has not been hosted so users would need to clone it down the file
+- currently there is functionality to sign up 
+- there is not currently functionality to log in / sign out
+- or check the feed
+
+
+
+
+
+
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README

@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require_relative "./datamapper_setup"
-require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
@@ -38,6 +37,23 @@ class Chitter < Sinatra::Base
   get '/feed' do
     @current_user ||= User.get(session[:user_id])
     erb(:feed)
+  end
+
+  get '/sessions/new' do
+    erb(:new_session)
+  end
+
+  post '/sessions' do
+    puts params
+    puts session
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/feed'
+    else
+      flash.now[:notice] = 'The email or password is incorrect'
+      erb(:new_session)
+    end
   end
 
   helpers do
