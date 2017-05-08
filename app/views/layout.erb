@@ -6,7 +6,8 @@
 
   <body>
     <% if @current_user %>
-      Welcome, <%= @current_user.username %>
+      <h1> Welcome, <%= @current_user.username %></h1>
+      <hr>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
