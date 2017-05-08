@@ -26,6 +26,7 @@ feature 'Users' do
   scenario 'can respond to other users peeps' do
     Peep.create(content: 'this is a peep', user_id: user.id)
     log_in(user_2.email, user_2.password)
+    expect(page).to have_content "By #{user.email}"
     click_link 'Respond to this peep'
     expect(page).to have_content 'Reply to this peep'
     reply = 'This is my reply to your peep by user two'
