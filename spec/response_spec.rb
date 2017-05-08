@@ -7,8 +7,8 @@ feature 'Users' do
   end
 
   let!(:user_2) do
-    email = 'user@example.com'
-    password = 'secret*123'
+    email = 'user_2@example.com'
+    password = 'secret*125'
     User.create(email: email, password: password, password_confirmation: password)
   end
 
