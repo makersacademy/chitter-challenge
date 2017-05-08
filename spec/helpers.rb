@@ -15,7 +15,7 @@ def post_peep
   expect(page).to have_content peep
 end
 
-def sign_up(email = 'user@example.com', password = 'secret*123', confirm_password = 'secret*123')
+def sign_up(email: 'user@example.com', password: 'secret*123', confirm_password: 'secret*123')
   visit '/'
   expect(page).to have_link "Sign Up"
   click_link 'Sign Up'
