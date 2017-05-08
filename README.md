@@ -3,7 +3,7 @@ Chitter
 
 ### Ruby // Sinatra application
 
- A Twitter clone built using Sinatra, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
+ A Twitter clone built using Sinatra, RESTful concepts, DataMapper ORM, DatabaseCleaner, BCrypt and PostgreSQL.
 
 
 #### User stories this app considers
@@ -26,9 +26,18 @@ I want to log out of Chitter
 ```
 As a User
 So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
+I want to post a message (peep) to Chitter
 ```
-
+```
+As a User
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+```
+```
+As a User
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+```
 ### Installation
 
 ```
@@ -58,7 +67,8 @@ $ rackup
 
 ### Users can Peep to the /peeps feed
 
-*Peeps are displayed at /peeps*
+*The option to Peep is only displayed when logged in*
+*Peeps are displayed in reverse chronological order*
 
 ![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/time-to-peep.png "time-to-peep")
 
