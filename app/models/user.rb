@@ -9,7 +9,7 @@ class User
   property :username, String
   property :password_digest, Text
 
-  has n, :posts#, :through => Resource
+  has n, :posts
 
   attr_reader :password
   attr_accessor :password_confirmation
@@ -29,6 +29,4 @@ class User
       nil
     end
   end
-
-
 end

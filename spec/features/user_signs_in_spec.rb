@@ -10,7 +10,6 @@ feature 'User signs in' do
 
   scenario 'with correct credentials' do
     sign_in(email: user.email, password: user.password)
-    #expect(current_path).to eq '/sessions/new'
     expect(page).to have_content "Welcome, #{user.name}"
   end
 end

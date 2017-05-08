@@ -1,12 +1,13 @@
 <h1 align='center'>Feed</h1>
-
-<form align="float:right" action='/posts/new' method='get'>
+<%if current_user %>
+<form action='/posts/new' method='get'>
+  <input type='hidden' >
   <input type='submit' value='Write Peep'>
 </form>
-
+<% end %>
 
 <ul id='posts'>
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
     <li>
       From: <%= post.user.username %><br>
       Message: <%= post.message %><br>

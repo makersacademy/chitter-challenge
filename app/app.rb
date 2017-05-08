@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    erb :feed
+    redirect to '/posts'
   end
 
   get '/users/new' do
@@ -62,7 +62,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/posts' do
-    p @posts = Post.all
+    @posts = Post.all
     erb :'posts/index'
   end
 
@@ -74,8 +74,5 @@ class Chitter < Sinatra::Base
   get '/posts/new' do
     erb :'posts/new'
   end
-
-
-
   run! if app_file == $0
 end
