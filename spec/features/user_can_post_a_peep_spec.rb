@@ -12,10 +12,11 @@ feature 'User can post a peep' do
 
     scenario 'user creates a peep post' do
       expect(current_path).to eq '/peeps'
-      expect(page).to have_content 'Peep here:'
+      click_button 'Peep!'
       fill_in 'peep', with: 'Working on my weekend challenge'
       click_button 'Peep!'
-      expect(page).to have_content 'ana@great.com: Working on my weekend challenge'
+      expect(current_path).to eq '/peeps'
+      expect(page).to have_content 'Working on my weekend challenge'
     end
 
   end
