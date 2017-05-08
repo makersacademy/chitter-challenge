@@ -25,23 +25,18 @@ feature 'Signing up' do
 end
 
 feature 'Signing in' do
-  let!(:user) do
-    User.new(email: 'izzy@example.com',
-    password: 'password1')
-  end
   scenario 'login with right info' do
     sign_up
-    sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome, #{user.email}"
+    click_button 'Sign out'
+    sign_in(email: 'izzy@example.com', password: 'password1')
+    expect(page).to have_content "Welcome, izzy@example.com"
   end
 end
 
 feature 'Signing out' do
-
   scenario 'I can log out if signed in' do
-    sign_in(email: 'izzy@example.com', password: 'password1')
-    visit '/'
-    click_on 'Sign out'
+    sign_up
+    click_button 'Sign out'
     expect(page).to have_content('See you soon!')
     expect(page).not_to have_content('Welcome, izzy@example.com')
   end
