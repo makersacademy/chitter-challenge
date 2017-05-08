@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rspec'
 
 group :test do
   gem 'capybara'
