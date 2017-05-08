@@ -1,0 +1,17 @@
+<h1 align='center'>Feed</h1>
+<%if current_user %>
+<form action='/posts/new' method='get'>
+  <input type='hidden' >
+  <input type='submit' value='Write Peep'>
+</form>
+<% end %>
+
+<ul id='posts'>
+  <% @posts.reverse.each do |post| %>
+    <li>
+      From: <%= post.user.username %><br>
+      Message: <%= post.message %><br>
+      Left at <%= post.created_at.strftime("%R on  %a %d %b %G") %>
+    </li>
+  <% end %>
+</ul>
