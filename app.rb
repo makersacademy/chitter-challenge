@@ -79,7 +79,8 @@ class Chitter < Sinatra::Application
 
   post '/comments' do
     peep = Peep.get(params[:peep_id])
-    response = Response.new(content: params[:comment_content], peep_id: peep.id, user_id: current_user.id)
+    response = Response.new(content: params[:comment_content],
+      peep_id: peep.id, user_id: current_user.id)
     if response.save
       redirect '/peeps'
     else
