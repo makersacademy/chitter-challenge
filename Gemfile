@@ -9,8 +9,10 @@ gem 'dm-timestamps'
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 group :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'rake'
   gem 'rspec'

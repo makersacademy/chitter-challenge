@@ -8,6 +8,7 @@ GEM
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    byebug (9.0.6)
     capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
@@ -124,6 +125,8 @@ GEM
       tilt (>= 1.3, < 3)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-partial (1.0.0)
+      sinatra (~> 1.4)
     stringex (1.5.1)
     tilt (2.0.7)
     unicode-display_width (1.2.1)
@@ -136,6 +139,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  byebug
   capybara
   data_mapper (~> 1.2.0)
   database_cleaner
@@ -149,6 +153,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  sinatra-partial
 
 RUBY VERSION
    ruby 2.4.0p0
