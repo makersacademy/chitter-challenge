@@ -1,14 +1,8 @@
 feature 'User sign up' do
   scenario 'I can sign up as a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, John")
-    expect(User.first.email).to eq("john@example.com")
-  end
-
-  scenario 'requires a matching confirmation password' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
-    expect(current_path).to eq('/users')
-    expect(page).to have_content 'Passwords do not match'
+    expect(page).to have_content("Welcome, Daniel")
+    expect(User.first.email).to eq("daniel.costea@vkernel.ro")
   end
 
   scenario "I can't sign up without an email address" do
@@ -23,9 +17,9 @@ feature 'User sign up' do
      expect { sign_up(username: nil) }.not_to change(User, :count)
    end
 
-  def sign_up(name: 'John',
-              username:'j.smith',
-              email: 'john@example.com',
+  def sign_up(name: 'Daniel',
+              username:'d.costea',
+              email: 'daniel.costea@vkernel.ro',
               password: '12345678',
               password_confirmation: '12345678')
     visit '/users/new'
@@ -40,9 +34,9 @@ end
 
 feature 'User sign in' do
    let(:user) do
-     User.create(name: 'John',
-                 username:'j.smith',
-                 email: 'john@example.com',
+     User.create(name: 'Daniel',
+                 username:'d.costea',
+                 email: 'daniel.costea@vkernel.ro',
                  password: '12345678',
                  password_confirmation: '12345678')
    end
@@ -66,10 +60,10 @@ feature 'User sign in' do
    feature 'User signs out' do
      scenario 'can sign out if currently signed in' do
        sign_up
-       sign_in(email: 'john@example.com', password: '123456')
+       sign_in(email: 'daniel.costea@vkernel.ro', password: '123456')
        click_button 'Sign out'
        expect(page).to have_content('You have logged out.')
-       expect(page).not_to have_content('Welcome, John')
+       expect(page).not_to have_content('Welcome, Daniel')
      end
    end
  end
