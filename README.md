@@ -52,7 +52,7 @@ $ rackup
 
 ### Test coverage 100%
 
-![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/testcoverage.png "testcoverage")
+![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/chitter-test-coverage.png "chitter-test-coverage")
 
 ![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/file-tree.png "file-tree")
 
@@ -71,7 +71,7 @@ $ rackup
 ### Users can Peep to the /peeps feed
 
 *The option to Peep is only displayed when logged in*
-*Peeps are displayed in reverse chronological order*
+*Peeps are displayed in reverse chronological order, displaying the time and day they were created*
 
 ![Alt text](https://github.com/JessicaBarclay/chitter-challenge/blob/master/links/time-to-peep.png "time-to-peep")
 
