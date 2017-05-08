@@ -1,0 +1,34 @@
+<html>
+<body>
+<% if flash[:notice] %>
+   <div id='notice'>
+     <%= flash[:notice].to_s %>
+   </div>
+   <br>
+ <% end %>
+
+ <% if current_user %>
+   <h3>Welcome, <%= current_user.username %>.</h3>
+   <form action='/sessions' method='post'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Log Out'>
+   </form>
+ <% end %>
+ <form action="/peeps" method="post">
+   <label for="user_peep">What are you peeping about? </label>
+   <input type="text" name="user_peep">
+   <input type="submit" value="Peep">
+   </label>
+ </form>
+ <img src="https://github.com/enonnai/chitter-challenge/blob/master/app/links/chitter_peeps.jpg?raw=true" style="width:500px;height:200px;">
+
+ <h2>Most recent Peeps:</h2>
+<% Peep.all(order: [:time.desc]).each do |peep| %>
+<strong>Peep: </strong><%= peep.peep %><br>
+<strong>Sent by: </strong><%= peep.user.username %><br>
+<strong>Date/time: </strong><%= peep.time.strftime '%d-%m-%Y %I:%M %p' %>
+<br>
+<br>
+<% end %>
+</body>
+</html>
