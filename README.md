@@ -4,6 +4,15 @@ Chitter Challenge
 
 INSTRUCTIONS
 -------------
+
+- clone package down
+- run bundle
+- run rackup in main directory
+- open up localhost:9292 (or port number)
+- from there follow on screen instructions
+
+INCOMPLETE STILL
+--------------
 - has not been hosted so users would need to clone it down the file
 - currently there is functionality to sign up 
 - there is not currently functionality to log in / sign out
