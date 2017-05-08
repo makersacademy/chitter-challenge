@@ -6,7 +6,8 @@ class User
   attr_reader :password, :email
   attr_accessor :password_confirmation
 
-  has n, :peeps, through: Resource
+  has n, :peeps
+  has n, :responses
 
   property :id, Serial
   property :email, String, required: true, unique: true

@@ -1,8 +1,8 @@
 class Peep
   include DataMapper::Resource
 
-  has 1, :user, through: Resource
-  has n, :responses, through: Resource
+  has 1, :user
+  has n, :responses
 
   property :id, Serial
   property :content, String, required: true, :length => 5..150,

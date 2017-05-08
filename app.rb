@@ -37,8 +37,9 @@ class Chitter < Sinatra::Application
   end
 
   post '/peeps' do
-    peep = current_user.peeps.new(content: params[:content])
-    if current_user.peeps.save
+
+    peep = Peep.new(content: params[:content], user_id: current_user.id)
+    if peep.save
       redirect '/peeps'
     else
       flash.now[:errors] = peep.errors
@@ -78,8 +79,8 @@ class Chitter < Sinatra::Application
 
   post '/comments' do
     peep = Peep.get(params[:peep_id])
-    response = peep.responses.new(content: params[:comment_content])
-    if peep.responses.save
+    response = Response.new(content: params[:comment_content], peep_id: peep.id, user_id: current_user.id)
+    if response.save
       redirect '/peeps'
     else
       flash.now[:errors] = response.errors
