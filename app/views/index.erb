@@ -1,8 +1,13 @@
 <%= flash[:signed_out] %>
 <h1>Welcome to Chitter</h1>
+<% if current_user != nil%>
+	<%= erb :sign_out%>
+	<a href="/account">Account</a>
+	<p></p>
+	<%= erb :message_new %>
+<% else %>
 <a href="/users/new">Sign up</a><br>
 <a href="/session/new">Sign in</a>
-<p></p>
-<%= erb :message_new if current_user %>
+<% end %>
 <p></p>
 <%= erb :messages %>

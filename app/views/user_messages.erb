@@ -1,0 +1,10 @@
+<div class="peeps">
+	<h3>My Peeps</h3>
+	<% current_user.messages.each do |message|%>
+	<div class="peep">
+		<p><%= message.text %></p>
+		<p><%= message.date_time.strftime("%v - %H:%M") %></p>
+		<p></p>
+	</div>
+	<% end %>
+</div>

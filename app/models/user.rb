@@ -9,7 +9,7 @@ class User
 	property :username, String, required: true, unique: true
 	property :password_digest, Text, required: true
 
-	has n, :messages, through: Resource
+	has n, :messages
 
 	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)

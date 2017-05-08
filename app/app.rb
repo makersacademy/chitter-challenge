@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
 	use Rack::MethodOverride
 
 	def current_user
-		@current_user = User.get(session[:user_id])
+		@current_user = User.first(id: session[:user_id])
 	end
 
 	get '/' do
@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 	end
 
 	get '/users/new' do
-		erb :register
+		erb :sign_up
 	end
 
 	get '/session/new' do
@@ -69,8 +69,10 @@ class Chitter < Sinatra::Base
 
 	post '/messages' do
 		unless params[:message].empty?
-			message = Message.create(text: params[:message])
-			current_user.messages << message
+			message = Message.create(
+				text: params[:message], 
+				date_time: Time.now,
+				user_id: current_user.id)
 			redirect '/'
 		end
 	end
