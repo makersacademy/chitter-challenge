@@ -13,8 +13,8 @@ class Chitter < Sinatra::Base
     end
   end
 
-  get '/layout' do
-    erb :'layout'
+  get '/welcome' do
+    erb :'welcome'
   end
 
 
@@ -25,7 +25,7 @@ class Chitter < Sinatra::Base
   post '/users' do
     User.create(email: params[:email],
                 password: params[:password])
-    redirect to('/layout')
+    redirect to('/welcome')
   end
 
 end
