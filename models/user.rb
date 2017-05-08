@@ -7,7 +7,7 @@ class User
   attr_accessor :password_confirmation
 
   has n, :peeps
-  has n, :responses
+  has n, :peeps
 
   property :id, Serial
   property :email, String, required: true, unique: true
