@@ -1,24 +1,34 @@
 Chitter Challenge
 =================
 
-A basic twitter clone.
+A basic twitter clone project to practice using databases and sinatra.
+
+I used DataMapper as an ORM, Sinatra, Rack and Capybara for tests.
+
 
 Instructions
 -------
 
 In your terminal type:
 
-'''bash
-git clone https://github.com/sblausten/chitter-challenge.git
-cd chitter-challenge
-bundle
-createdb chitter_development
-rake auto_migrate
-rspec
-rackup -p 9292
+'''
+$ git clone https://github.com/sblausten/chitter-challenge.git
+
+$ cd chitter-challenge
+
+$ bundle
+
+$ createdb chitter_development
+
+$ rake auto_migrate
+
+$ rspec
+
+$ rackup -p 9292
 '''
 
 Then visit the address 'localhost:9292' in any web browser.
+
 
 
 Features:
