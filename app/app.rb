@@ -8,16 +8,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/user/new' do 
-    p params
     erb(:new_user)
   end
 
-  post '/user/registered' do 
-    p params
-    @username = params[:username]
+  post '/user' do 
+  @username = params[:username]
+  User.create(name: params[:name], username: params[:username], email: params[:email], password: params[])
     erb(:registered)
   end
 
   run! if app_file == $0
 
 end
+
