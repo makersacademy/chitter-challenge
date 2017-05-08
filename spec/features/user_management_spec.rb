@@ -36,13 +36,13 @@ feature 'Signing in' do
   end
 end
 
-  feature 'Signing out' do
+feature 'Signing out' do
 
-    scenario 'I can log out if signed in' do
-      sign_in(email: 'izzy@example.com', password: 'password1')
-      visit '/'
-      click_on 'Sign out'
-      expect(page).to have_content('See you soon!')
-      expect(page).not_to have_content('Welcome, izzy@example.com')
-    end
+  scenario 'I can log out if signed in' do
+    sign_in(email: 'izzy@example.com', password: 'password1')
+    visit '/'
+    click_on 'Sign out'
+    expect(page).to have_content('See you soon!')
+    expect(page).not_to have_content('Welcome, izzy@example.com')
   end
+end

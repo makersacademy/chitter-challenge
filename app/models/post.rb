@@ -1,7 +1,7 @@
 class Post
   include DataMapper::Resource
 
-  property :id,     Serial
+  property :id, Serial
   property :timestamp, Time
   property :contents, Text
 
