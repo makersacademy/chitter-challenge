@@ -4,9 +4,9 @@
     <li>
       <%= peep.user.username %>
       <br>
-      Peep:<%= peep.comment %>
+      <%= peep.comment %>
       <br>
-      Time:<%= peep.created_at %>
+      <%= peep.created_at.strftime("%R on  %a %d %b %G") %>
       <br>
     </li>
   <% end %>
