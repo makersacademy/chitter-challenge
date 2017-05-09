@@ -8,8 +8,7 @@ class Chitter < Sinatra::Base
   post '/signup' do
     @user = User.create(user_paramaters)
     if @user.save
-      session[:user_id] = @user.id
-      redirect '/home'
+      user_login_success
     else
       flash.now[:signup_errors] = @user.errors.full_messages
       erb(:signup)
@@ -23,8 +22,7 @@ class Chitter < Sinatra::Base
   post '/login' do
     @user = User.authenticate(params[:email], params[:password])
     if @user
-      session[:user_id] = @user.id
-      redirect '/home'
+      user_login_success
     else
       flash.now[:login_error] = 'Invalid login details'
       erb(:login)
