@@ -10,10 +10,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:id' do
-    redirect '/home' unless Peep.get(params[:id])
+    redirect '/home' unless peep_id_exists?
     Peep.save_instance(@peep = Peep.get(params[:id]))
     @author = User.get(@peep.user_id)
-    erb(:peep_focus)
+    erb(:specific_peep)
   end
 
   get '/user/:name' do

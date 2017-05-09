@@ -22,5 +22,9 @@ class Chitter < Sinatra::Base
         password_confirmation: params[:confirm_password]
       }
     end
+
+    def peep_id_exists?
+      Peep.get(params[:id])
+    end
   end
 end
