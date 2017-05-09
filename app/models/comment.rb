@@ -9,5 +9,4 @@ class Comment
 
   belongs_to :peep
   belongs_to :user
-
 end
