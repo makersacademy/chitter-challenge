@@ -4,7 +4,7 @@
 <ul id='posts'>
 <% @posts.reverse.each do |post| %>
 <li>
-  <%= post.user_id %>
+  <%= User.get(post.user_id).username %>
   <%= post.contents %>
   <%= post.timestamp.strftime("%H:%M %d-%m-%Y") %>
 </li>
