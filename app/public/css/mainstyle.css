@@ -108,10 +108,17 @@ body {
 
 }
 
-.peep-head-text {
+.peep-username {
 
   float:left;
   margin:20px 0 0 20px;
+  font-weight:bold;
+
+}
+
+.peep-info {
+
+  font-size:90%;
 
 }
 

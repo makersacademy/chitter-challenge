@@ -8,27 +8,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+    <style type='text/css'>
+      label > input { /* HIDE RADIO */
+          visibility: hidden; /* Makes input not-clickable */
+          position: absolute; /* Remove input from document flow */
+        }
+
+        label > input + img { /* IMAGE STYLES */
+          cursor:pointer;
+          border:2px solid transparent;
+        }
+
+        label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+          border:2px solid #f00;
+        }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-dark bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right outline-danger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="/home">
-        <img src="../images/chitter.png" width="50" height="50" alt="">
-      </a>
-      <a class="navbar-brand text-danger" href="/home">Chitter</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-danger" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-sm-0 margin-left" method='get' action='/signup'>
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign up to Chitter!</button>
-        </form>
-      </div>
-    </nav>
+    <%= erb(:navbar) %>
     <form action='/signup' method='post'>
       <% if flash[:signup_errors] %>
         <ul>

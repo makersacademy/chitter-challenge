@@ -3,7 +3,6 @@ class Chitter < Sinatra::Base
     current_user
   end
 
-  set :encrypted_sessions, 'valid'
   register Sinatra::Flash
   use Rack::MethodOverride
   use Rack::Session::Pool

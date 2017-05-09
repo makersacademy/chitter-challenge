@@ -10,36 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
   </head>
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-dark bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right outline-danger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="/home">
-        <img src="../images/chitter.png" width="50" height="50" alt="">
-      </a>
-      <a class="navbar-brand text-danger" href="/home">Chitter</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-danger" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <% unless @user %>
-        </ul>
-        <form class="form-inline my-2 my-sm-0 margin-left" method='get' action='/signup'>
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign up to Chitter!</button>
-        </form>
-          <% else %>
-          <li class="nav-item">
-            <a class="nav-link text-danger" href='/user/<%= @user.username %>'>My Profile</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-sm-0" method='post' action='/logout'>
-          <input type='hidden' name='_method' value='delete'>
-          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log out</button>
-        </form>
-        <% end %>
-      </div>
-    </nav>
+    <%= erb(:navbar) %>
     <form action='/login' method='post'>
       <% if flash[:login_error] %>
       <p><%= flash[:login_error] %></p>
