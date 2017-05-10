@@ -1,5 +1,10 @@
 Chitter Challenge
 =================
+Have you ever thought "Hey, this 'Twitter' thing is too white and blue, and I think
+it has too many gosh-darned features.  Who needs to upload pictures and change your
+profile picture?  Remember when Twitter was just about the Tweets?  Enter Chitter.
+
+White and blue?  No.  Black and red.
 
 Challenge:
 -------

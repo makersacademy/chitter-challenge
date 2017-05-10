@@ -8,21 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
-    <style type='text/css'>
-      label > input { /* HIDE RADIO */
-          visibility: hidden; /* Makes input not-clickable */
-          position: absolute; /* Remove input from document flow */
-        }
-
-        label > input + img { /* IMAGE STYLES */
-          cursor:pointer;
-          border:2px solid transparent;
-        }
-
-        label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
-          border:2px solid #f00;
-        }
-    </style>
   </head>
   <body>
     <%= erb(:navbar) %>
