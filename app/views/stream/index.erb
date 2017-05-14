@@ -1,0 +1,25 @@
+<h1> Welcome to the Stream </h1>
+
+<form action='/bottle/new'>
+  <input type='submit' value='Put a Message in a Bottle'>
+</form>
+
+<% @bottles.each do |bottle| %>
+  <article id="post<%= bottle.id %>" class='bottle' style='border: solid; padding: 5px; margin: 5px;'>
+    <div class='message'>
+      <%= bottle.message %>
+    </div>
+    <div class='time'>
+      <%= bottle.time.strftime("%H:%M on %a %b %e %Y")%>
+    </div>
+    <div class='username'>
+    Username: <%= bottle.user.username %>
+    </div>
+    <% unless bottle.user.name.empty? %>
+    <div class='name'>
+    Name: <%= bottle.user.name %>
+    </div>
+  <% end %>
+
+</article>
+<% end%>

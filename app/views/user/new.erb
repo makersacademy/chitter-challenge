@@ -1,0 +1,26 @@
+<h1> You need a bottle to send your message. Provide details to get one </h1>
+
+<form action='/user' method='post'>
+  <label for='name'>
+    Name: <input type='text' name='name' value='<%= @user.name %>'>
+  </label>
+  <label for='email'>
+    Email: <input type='email' name='email' value='<%= @user.email %>' 
+    required>
+  </label>
+  <label for='username'>
+    Choose username: <input type='text' name='username' required>
+  </label>
+  <label for='password'>
+    Password: <input type='password' name='password' required>
+  </label>
+  <label for='password_confirmation'>
+    Confirm Password: <input type='password' name='password_confirmation'>
+  </label>
+    <input type='submit' value='Get Bottle'>
+</form>
+
+<h2>Already part of the fold? Rejoin here:</h2>
+<form action='/sessions/new'>
+  <input type='submit' value='Rejoin the fold'>
+</form>
