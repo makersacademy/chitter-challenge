@@ -12,6 +12,7 @@ group :development do
 end
 
 group :test do
+
   gem 'rspec'
   gem 'pry'
   gem 'timecop'
@@ -20,4 +21,9 @@ group :test do
   gem 'database_cleaner'
   gem 'cucumber'
   gem 'coveralls', require: false
+  gem 'cucumber'
+  gem 'rake'
+  gem 'rubocop'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
