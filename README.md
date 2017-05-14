@@ -1,23 +1,18 @@
 # Twitter Challenge
-## Weekend Challenge, week 5
+## Weekend Challenge, week 4
 
-Project done 6. - 7. May 2017
+Project done 8. - 9. April 2017
 _____________________
 
 #### Instructions:
 
-* Clone the repository
-* Run `bundle install`
-* Run `rake db:migrate`
-* Type ```bin/rails s```
-* In your browser, navigate to `localhost:3000`
-* Feel free to sign up, upload photos, comment and like!
+* Online demo [here](https://magnus-chitter-app.herokuapp.com)
 
+#### Screenshots:
 
-#### The Task as described:
+![alt text](http://i.imgur.com/MHbh4Mr.png)
 
-Write an Instagram clone in Rails in one weekend.
-
+#### User stories:
 
 ```
 As a Maker
@@ -44,3 +39,7 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
+#### The Task as described:
+
+Write a Twitter clone using Sinatra in one weekend.
