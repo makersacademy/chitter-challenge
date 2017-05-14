@@ -1,49 +1,10 @@
 Chitter Challenge
 =================
 
-Weekend challenge for week 4 at Makers Academy  
+* Weekend challenge at Makers
 
-A web app built to meet the following user stories:  
+* Sinatra app enabling users to 'peep' their thoughts and leave comments on other users peeps.
 
-User stories:
--------
+<img width="936" alt="screen shot 2017-05-14 at 16 26 38" src="https://cloud.githubusercontent.com/assets/25392162/26035377/f5420066-38c2-11e7-810b-deaa33ec02b9.png">
 
-```
-As a Maker
-So that I can post messages on Chitter as me
-I want to sign up for Chitter
-
-As a Maker
-So that I can post messages on Chitter as me
-I want to log in to Chitter
-
-As a Maker
-So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-As a Maker
-So that I can let people know what I am doing  
-I want to post a message (peep) to chitter
-
-As a maker
-So that I can see what others are saying  
-I want to see all peeps in reverse chronological order
-
-As a maker
-So that I can better appreciate the context of a peep
-I want to see the time at which it was made
-```
-
-Notes on functionality:
-------
-
-* Uses DataMapper and postgres to store information on users and their message history.
-* Uses bcrypt to secure passwords.
-
-
-Bonus challenges implemented:
------
-
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
-
-* Work on the css to make it look good (we all like beautiful things).
+<img width="937" alt="screen shot 2017-05-14 at 16 27 15" src="https://cloud.githubusercontent.com/assets/25392162/26035378/01e85996-38c3-11e7-8d2e-1388da0978a2.png">

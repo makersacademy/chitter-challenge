@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(102, 153, 153);
+}
+.chitter {
+  background-color: rgb(102, 153, 153);
+  font-family: 'courier new';
+  font-style: normal;
+  color: rgb(0, 102, 204);
+}
+a {
+  color: yellow
+}
