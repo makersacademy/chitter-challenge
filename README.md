@@ -3,7 +3,7 @@ Chitter Challenge
 
 * Weekend challenge at Makers
 
-* Sinatra app enabling users to 'peep' their thoughts and leave comments on other users peeps.
+* Sinatra app enabling users to 'peep' their thoughts and leave comments on other users' peeps.
 
 <img width="936" alt="screen shot 2017-05-14 at 16 26 38" src="https://cloud.githubusercontent.com/assets/25392162/26035377/f5420066-38c2-11e7-810b-deaa33ec02b9.png">
 
