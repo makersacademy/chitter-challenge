@@ -1,0 +1,208 @@
+body {
+
+  background-image: url("/images/background.jpg");
+  background-attachment: fixed;
+  color: #C9302C;
+
+}
+.margin-left {
+
+  margin-left: 15px;
+
+}
+
+.strong {
+
+  font-weight: bold;
+
+}
+
+.centered-heading {
+
+  display: block;
+  width:250px;
+  margin:0 auto;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+#profile-container {
+
+  display: block;
+  height: 250px;
+
+}
+
+.profile-header {
+
+  font-size: 40px;
+  display:block;
+  padding:5px;
+  position:relative;
+  margin-left:30px;
+  left:20px;
+  top:5px;
+
+}
+
+.peep-body-text {
+
+  color: #cccccc;
+
+}
+
+.outline-danger {
+
+  border:1px solid red !important;
+
+}
+
+.notice {
+
+  position:relative;
+  top:-50px;
+  display:block;
+  width:200px;
+  margin:0 auto;
+
+}
+
+.center-notice {
+
+  display: block;
+  width:100px;
+  margin: 0 auto;
+
+}
+
+.back {
+
+  background-color:transparent;
+  width:100%;
+  color: #C9302C;
+
+}
+
+.peep-container {
+
+  background-color: black;
+  margin:0 auto;
+  margin-bottom: 20px;
+  width:98%;
+
+}
+
+.peep-img {
+
+  border-radius:15%;
+  margin:10px 0 0 10px;
+  float:left;
+
+}
+
+.peep-header {
+
+  background-color: black;
+  height:70px;
+
+}
+
+.peep-username {
+
+  float:left;
+  margin:20px 0 0 20px;
+  font-weight:bold;
+
+}
+
+.peep-info {
+
+  font-size:90%;
+
+}
+
+.peep-body {
+
+  width:90%;
+  margin:0 auto;
+  border-radius:5%;
+  padding:10px;
+  text-align: center;
+
+}
+
+a {
+
+  color: darkgreen;
+
+}
+
+a:hover {
+
+  text-decoration: none;
+  color: white;
+
+}
+
+.btn-comment {
+
+  margin:10px;
+  position: relative;
+  top:-10px;
+
+}
+
+.navbar-dark {
+
+  background-color:black !important;
+
+}
+
+#peep-input {
+
+  background-color:black;
+  width:80%;
+  margin:0 auto;
+  border:1px solid red;
+  color:white
+
+}
+
+.center-form {
+
+  width:170px;
+  margin:0 auto;
+
+}
+
+.btn-peep {
+
+  width:100px;
+  margin:0 auto;
+  position:relative;
+  left:45%;
+
+}
+
+.sign-in {
+
+  background-color:black;
+  border:1px solid red;
+  outline:none;
+  color:white;
+
+}
+
+.btn-move {
+
+  display:block;
+  margin:0 auto;
+
+}
+
+.peep-button-container {
+
+  background-color: red;
+
+}

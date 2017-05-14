@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
+    <title>Chitter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/mainstyle.css">
+  </head>
+  <body>
+    <%= erb(:navbar) %>
+    <br />
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class='back'>
+          <div id='profile-container'>
+            <img src="../images/user.jpg" class='peep-img' width="200" height="200" alt="">
+            <h1 class='profile-header'>Name: <%= @page_owner.name %></h1>
+            <h2 class='profile-header'>Username: <%= "@#{@page_owner.username}" %></h2>
+            <h4 class='profile-header'>Peeps: <%= @page_owner.peeps.count %></h4>
+          </div>
+          <% @page_owner.peeps.reverse.each do |peep| %>
+          <div class='peep-container'>
+            <div class='peep-header'>
+              <img src="../images/user.jpg" class='peep-img' width="50" height="50" alt="">
+              <h4 class='peep-head-text'><strong><%= "#{@page_owner.name} " %></strong><em><small><a href='/user/<%= @page_owner.username %>'><%= "@#{@page_owner.username}" %></a></em> <%= " -- #{peep.timestamp}" %></small></h4>
+            </div>
+            <div class='peep-body'>
+              <h4 class='peep-body-text'><%= peep.body %></h4>
+            </div>
+            <form method='get' action='/peeps/<%= peep.id %>'>
+              <input class='btn btn-outline-danger my-2 my-sm-0 btn-comment' type='submit' value='Comment'>
+            </form>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </body>
+</html>
