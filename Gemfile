@@ -8,7 +8,6 @@ gem 'sinatra-partial'
 gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
-gem 'rake'
 gem 'dm-timestamps'
 
 group :test do
