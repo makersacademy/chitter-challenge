@@ -1,8 +1,8 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-require_relative 'models/bottle'
-require_relative 'models/user'
+# require_relative 'models/bottle'
+# require_relative 'models/user'
 require 'sinatra/flash'
 
 class MessageInABottle < Sinatra::Base
@@ -54,7 +54,7 @@ class MessageInABottle < Sinatra::Base
 
   delete '/sessions' do
     session[:id] = nil
-    flash.keep[:notice] = 'Come back whenever you like'
+    flash.next[:notice] = 'Come back whenever you like'
     redirect '/stream'
   end
 

@@ -1,5 +1,3 @@
-require 'pry'
-
 feature 'bottle' do
 
   scenario 'user must be signed in to put a message in a bottle' do

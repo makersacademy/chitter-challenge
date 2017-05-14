@@ -5,7 +5,7 @@
 </form>
 
 <% @bottles.each do |bottle| %>
-  <div id="post<%= bottle.id %>" class='bottle' style='border: solid; padding: 5px; margin: 5px;'>
+  <article id="post<%= bottle.id %>" class='bottle' style='border: solid; padding: 5px; margin: 5px;'>
     <div class='message'>
       <%= bottle.message %>
     </div>
@@ -13,15 +13,13 @@
       <%= bottle.time.strftime("%H:%M on %a %b %e %Y")%>
     </div>
     <div class='username'>
-    Username: <%= User.get(bottle.user_id).username %>
+    Username: <%= bottle.user.username %>
     </div>
-    <%#REFACTOR ------------%>
-    <% unless User.get(bottle.user_id).name == "" %>
+    <% unless bottle.user.name.empty? %>
     <div class='name'>
-    Name: <%= User.get(bottle.user_id).name %>
+    Name: <%= bottle.user.name %>
     </div>
   <% end %>
 
-  </div>
+</article>
 <% end%>
-
