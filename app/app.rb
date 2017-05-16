@@ -11,3 +11,5 @@ require_relative 'helpers'
 require_relative 'controllers/navigation'
 require_relative 'controllers/peeping'
 require_relative 'controllers/users'
+# Great to have these broken out! I'd love to see some way of preserving
+# encapsulation too.

@@ -11,6 +11,7 @@
       <li class="nav-item active">
         <a class="nav-link text-danger" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
+    <!-- These `unless`s seem not to be intented appropriately. It does line up with the `else` and `end` though — which is good. -->
     <% unless @user %>
         </ul>
         <form class="form-inline my-2 my-sm-0 margin-left" method='get' action='/login'>

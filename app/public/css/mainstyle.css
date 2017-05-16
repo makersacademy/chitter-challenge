@@ -206,3 +206,5 @@ a:hover {
   background-color: red;
 
 }
+
+/* Style is largely consistent here, which is great. I'd take it further and try to conform to some styleguide with a linter. Doesn't need to be super strict. */

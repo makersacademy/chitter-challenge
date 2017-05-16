@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
 
     def user_login_success
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect '/home' # It feels weird for me having this stuff outside of the controller — feels very 'controller-y'
     end
   end
 end

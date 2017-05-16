@@ -5,7 +5,7 @@ class Comment
 
   property :id, Serial
   property :body, String, required: true
-  property :timestamp, String
+  property :timestamp, String # Is timestamp also required?
 
   belongs_to :peep
   belongs_to :user

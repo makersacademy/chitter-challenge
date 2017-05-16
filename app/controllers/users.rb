@@ -6,9 +6,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.create(user_paramaters)
+    @user = User.create(user_paramaters) # Good use of private method
     if @user.save
-      user_login_success
+      user_login_success # Sadly I have to wander around the files looking for the definition. Would be great if it was in this file somehow
     else
       flash.now[:signup_errors] = @user.errors.full_messages
       erb(:signup)

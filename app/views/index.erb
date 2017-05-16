@@ -42,6 +42,7 @@
               <div class='peep-body'>
                 <h4 class='peep-body-text'><%= peep.body %></h4>
               </div>
+              <!-- Ideally all CSS should live in the stylesheets, with no styling information in the HTML -->
               <p style='margin-left:10px;'><%= "#{peep.comments.count} comments" %></p>
               <form method='get' action='/peeps/<%= peep.id %>'>
                 <input class='btn btn-outline-danger my-2 my-sm-0 btn-comment' type='submit' value='Comment'>

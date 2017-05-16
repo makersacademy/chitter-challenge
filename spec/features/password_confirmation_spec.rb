@@ -1,6 +1,6 @@
 feature 'Passwords are checked thoroughly' do
   scenario 'Incorrect passwords do not produce new accounts' do
-    expect { signs_up_with_mismatched_passwords }.to change { User.count }.by(0)
+    expect { signs_up_with_mismatched_passwords }.not_to change { User.count }
   end
 
   scenario 'Page should display error when passwords do not match' do
