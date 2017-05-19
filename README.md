@@ -40,7 +40,7 @@ In order to solve this, I used the following:
 
 1. **Test-driven development:** I used Capybara for the first time on this project to test web functionality, along with my regular RSpec tests. All code has been tested.
 
-2. **Domain-modelling:** I modeled the class objects and interactions between them needed in order to solve the user stories. These were then turned into tables through DataMapper.
+2. **Domain-modelling:** I modelled the class objects and interactions between them needed in order to solve the user stories. These were then turned into tables through DataMapper.
 
 3. **Refactoring:** I refactored my code to include further functionality, such as password encryption through BCrypt.
 
