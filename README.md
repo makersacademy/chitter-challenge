@@ -46,5 +46,4 @@ In order to solve this, I used the following:
 
 
 ## How to run
------
 [Visit it here on Heroku](https://chitter-challenge-ff.herokuapp.com/users/new)
