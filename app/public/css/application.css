@@ -113,10 +113,6 @@
     text-align: center;
   }
 
-  .posted_by {
-    color:  #708090;
-  }
-
-  .created_at {
+  .posted_by, .created_at {
     color:  #708090;
   }

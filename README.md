@@ -10,14 +10,12 @@ $ rspec
 $ rackup
 ```
 
-https://chitter-challenge-sophieklm.herokuapp.com/posts
+![Screenshot](https://raw.github.com/sophieklm/chitter-challenge/master/img/chitter_screenshot.png)
 
 Challenge:
 -------
 
 A Twitter clone that allows users to post messages to a public stream.
-
-![Screenshot](https://raw.github.com/sophieklm/chitter-challenge/master/img/chitter_screenshot.png)
 
 Features:
 -------
@@ -58,9 +56,4 @@ Notes on functionality:
 * Use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
-
-Bonus:
------
-
 * In order to start a conversation as a maker I want to reply to a peep from another maker.
-* Work on the css to make it look good (we all like beautiful things).
