@@ -17,6 +17,8 @@ Challenge:
 
 A Twitter clone that allows users to post messages to a public stream.
 
+![Screenshot](https://raw.github.com/sophieklm/chitter-challenge/master/img/chitter_screenshot.png)
+
 Features:
 -------
 
