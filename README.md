@@ -4,6 +4,10 @@
 Project done 8. - 9. April 2017
 _____________________
 
+#### The Task as described:
+
+Write a Twitter clone using Sinatra in one weekend.
+
 #### Instructions:
 
 * Online demo [here](https://magnus-chitter-app.herokuapp.com)
@@ -39,7 +43,3 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-
-#### The Task as described:
-
-Write a Twitter clone using Sinatra in one weekend.
