@@ -1,0 +1,27 @@
+<h2> Peeps </h2>
+<div class="posts" id="posts">
+  <% @posts.reverse.each do |post| %>
+  <ul>
+    <li id="peep"><%= post.message %></li>
+    <li class="posted_by">Posted by: <%= post.user.username %></li>
+    <li class="created_at">Date: <%= (post.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
+    <% if current_user %>
+    <form action="/comments" method="post">
+      <input type="hidden" name="post_id" value="<%= post.id %>">
+      <input type="text" name="comment">
+      <input id="comment_button" type="submit" value="Add Comment">
+    </form>
+    <%end%>
+  <% if post.comments != [] %>
+    <ul id="comments">
+      <p>Comments:</p>
+      <% post.comments.reverse.each do |comment| %>
+      <li><%= comment.comment %></li>
+      <li class="posted_by">Posted by: <%= comment.user.username %></li>
+      <li class="created_at">Date: <%= (comment.created_at).strftime("%d/%m/%y: %H:%M:%S") %></li>
+      <%end%>
+    </ul>
+  <%end%>
+  </ul>
+  <% end %>
+</div>

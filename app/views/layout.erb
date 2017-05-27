@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/application.css">
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <%= partial :nav %>
+    <a href='/'><h1 id='logo'>Chitter</h1></a>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
+  </body>
+</html>
