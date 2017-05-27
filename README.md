@@ -1,6 +1,13 @@
 Chitter Challenge
 =================
 
+A Twitter clone that allows users to post messages to a public stream. Built in Ruby, with Sinatra, PSQL, DataMapper.
+
+![Screenshot](https://raw.github.com/sophieklm/chitter-challenge/master/img/chitter_screenshot.png)
+
+Usage:
+-------
+
 ```
 $ git clone https://github.com/sophieklm/chitter_challenge
 $ bundle
@@ -9,13 +16,6 @@ $ rake auto_migrate
 $ rspec
 $ rackup
 ```
-
-![Screenshot](https://raw.github.com/sophieklm/chitter-challenge/master/img/chitter_screenshot.png)
-
-Challenge:
--------
-
-A Twitter clone that allows users to post messages to a public stream.
 
 Features:
 -------
