@@ -1,0 +1,28 @@
+<!-- Show the header so users know what to do -->
+<div class='container'>
+  <h1> Create a Chitter Profile </h1>
+</div>
+
+<!-- If there's an error with the form, show it above the form -->
+  <% if flash[:notice] %>
+    <div class='container' id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+<!-- Show the signup form, with fields for name, username, email and password -->
+  <div class='container'>
+    <form action='/signup' method='post'>
+      <div class="form-group">
+        <label for='name'>Name:</label>
+          <input type='text' class="form-control" name='name' required>
+        <label for='username'>Username:</label>
+          <input type='text' class="form-control" name='username' required>
+        <label for='email'>Email:</label>
+          <input type='text' class="form-control" name='email' required>
+        <label for='password'>Password:</label>
+          <input type='password' class="form-control" name='password' required>
+        </br>
+          <button type='submit' class="btn btn-default">Sign up</button>
+        or <a href='/'>Login</a>
+      </div>
+    </form>
+  </div>
