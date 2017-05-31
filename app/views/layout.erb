@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CHITTER</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.email %>
+    <% end %>
+
+    <table>
+      <tr>
+        <td>
+          <form method='get' action='/'>
+            <input type='submit' value='Home'>
+          </form>
+        </td>
+        <td>
+          <form method='get' action='/sessions/new'>
+            <input type='submit' value='Log in'>
+          </form>
+        </td>
+        <td>
+          <form method='get' action='/peeps'>
+            <input type='submit' value='Peeps'>
+          </form>
+        </td>
+        <td>
+          <form method='get' action='/users'>
+            <input type='submit' value='Users'>
+          </form>
+        </td>
+        <td>
+          <form method='get' action='/users/new'>
+            <input type='submit' value='Sign up'>
+          </form>
+        </td>
+        <td>
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' value='Sign out'>
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
