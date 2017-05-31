@@ -1,0 +1,15 @@
+<% if current_user %>
+    <h1>  Welcome to Chitter, <%= current_user.username %> <h1>
+       <form method='post' action='/signin_user'>
+         <input type='hidden' name='_method' value='delete'>
+         <input type='submit' value='Sign out'>
+       </form>
+
+       <h2> LET'S CHEET! </h2>
+
+<form action='/' method='POST'>
+Cheet: <input type='text' name='write' />
+Time: <input type='datetime-local' name='time'/>
+  <input type='submit' value='Submit Cheet'>
+</form>
+     <% end %>
