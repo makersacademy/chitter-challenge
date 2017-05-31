@@ -1,0 +1,21 @@
+<a href='/users/new'>sign up</a>
+<% unless current_user %>
+<a href='/sessions/new'>sign in</a>
+<% end %>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <div class="container" >
+    <div class="jumbotron">
+      <p>
+        User: <%= User.get(peep.user_id).user_name %>
+      </p>
+    <p>
+      Peep: <%= peep.message %>
+    </p>
+    <p>
+      peeped on: <%= peep.made_at.strftime("%A, %d %b %Y %l:%M %p") %>
+    </p>
+    </div>
+    </div>
+  <% end %>
+</ul>
