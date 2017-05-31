@@ -1,0 +1,68 @@
+button {
+  height: 50px;
+  width: 100px;
+  color:#F2F2F2;
+  font-family: "Monaco";
+  font-size: 15px;
+  background-color: #814374;
+  border: none;
+  display:inline-block;
+  outline:0;
+  padding:8px 16px;
+  vertical-align:middle;
+  overflow:hidden;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+  white-space:nowrap
+  }
+
+h1 {
+  color: #CDBB79;
+  position: absolute;
+    top: 1%;
+    left: 1%;
+}
+
+div {
+    height: 80px;
+    width: 600px;
+    border: 1px solid #51A39D;
+    padding: 25px;
+    margin: 25px;
+    background-color: #F2F2F2;
+    color: #06425C;
+    position: sticky;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+
+.signup-logout {
+  position: absolute;
+    top: 1%;
+    right: 1%;
+}
+
+.login {
+  position: absolute;
+    top: 1%;
+    right: 8.5%;
+}
+
+.peep {
+  position: absolute;
+    top: 12%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+}
+
+.peep-text {
+  height: 50px;
+  width: 600px;
+}
+
+.username {
+  height: 50px;
+  width: 600px;
+}

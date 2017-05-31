@@ -1,0 +1,37 @@
+<% if @user == nil %>
+<form action='/sign-up' method='post'>
+  <button type='submit' class='signup-logout'>
+    Sign up
+  </button>
+</form>
+
+<form action='/login' method='post'>
+  <button type='submit' class='login'>
+    Login
+  </button>
+</form>
+
+<% else %>
+<form action='/logout' method='post'>
+  <button type='submit' class='signup-logout'>
+    Logout
+  </button>
+</form>
+
+<form action='/post-peep' method='post' class='peep'>
+  <input type='text' name='peep_text' class='peep-text'>
+  <button type='submit'>
+    Peep
+  </button>
+</form>
+<% end %>
+
+<% if @peeps.count != 0 %>
+  <% @peeps.reverse.each do |peep| %>
+  <div>
+    <%= peep.users.first.username %>
+    <%= peep.post %>
+    <%= peep.time %>
+  </div>
+  <% end %>
+<% end %>
