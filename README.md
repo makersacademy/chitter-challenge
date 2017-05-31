@@ -1,5 +1,23 @@
 Chitter Challenge
 =================
+A partially finished twitter clone.
+
+--------
+
+Instructions:
+
+```
+$ git clone
+$ cd to directory
+$ bundle
+$ createdb chitter_test
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+$ localhost:xxxx user/new
+```
+--------
 
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
