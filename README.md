@@ -9,7 +9,8 @@ Usage:
 -------
 
 ```
-$ git clone https://github.com/sophieklm/chitter_challenge
+$ git clone https://github.com/sophieklm/chitter
+$ cd chitter
 $ bundle
 $ createdb chitter_development
 $ rake auto_migrate
