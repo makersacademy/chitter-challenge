@@ -1,0 +1,13 @@
+<head>
+  <style type="text/css">
+  body {
+    background-color: #a2c8e8
+  }
+  </style>
+</head>
+<ul>
+<% @peeps.reverse.each do | peep| %>
+<li><%=peep.peep %></li>
+<lk><%=peep.created_at %></li>
+<% end %>
+</ul>

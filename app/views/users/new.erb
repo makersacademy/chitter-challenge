@@ -1,0 +1,20 @@
+<h1> Welcome to Chitter signup! </h1>
+
+<form action='/users/create' method= 'post'>
+  <label for='username'>
+    Username: <input name='username' type= 'text' value = '<%= @user.username %>'>
+  </label>
+  <label for='email'>
+    Email: <input name='email' type='email' value='<%= @user.email %>' required>
+  </label>
+  <label for='name'>
+    Name: <input name='name' type= 'text' value='<%=@user.name%>'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password'>
+  </label>
+  <label for= 'password_confirmation'>
+    Password confirmation: <input name=password_confirmation type='password'>
+  </label>
+  <input type='submit' value = 'Sign up'>
+</form>
