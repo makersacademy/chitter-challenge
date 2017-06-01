@@ -2,9 +2,13 @@ Road Tripper
 =================
 Welcome to Road Tripper, a place for fellow travellers to share their special moments.
 
+### Main Learning Outcomes
+* Designing data relationships using an object-relational mapper
+* Structuring MVC applications
+
 ### Tech
 
-Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
+* Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
 
 ### Setup
 
