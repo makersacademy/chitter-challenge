@@ -18,7 +18,18 @@ Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
 * Visit [localhost:9292](localhost:9292) in a browser
 
 #### Screenshots
-![Home Page](https://postimg.org/image/5i80jm13f/)
+
+**Home Page (Guest)**
+
+![Home Page (Guest)](https://s25.postimg.org/w3ajf63gv/Screenshot_2017-06-01_09.39.27.png)
+
+**Sign Up Page**
+
+![Sign Up Page](https://s25.postimg.org/or539ml8v/Screenshot_2017-06-01_09.44.07.png)
+
+**Home Page (Registered User)**
+
+![Home Page (User)](https://s25.postimg.org/kw1p72233/Screenshot_2017-06-01_09.44.54.png)
 
 #### User Stories:
 
