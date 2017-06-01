@@ -2,11 +2,11 @@ Road Tripper
 =================
 Welcome to Road Tripper, a place for fellow travellers to share their special moments.
 
-#### Tech:
+### Tech
 
 Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
 
-#### Setup:
+### Setup
 
 * Clone repository
 * `cd` to the project's root directory
@@ -17,7 +17,7 @@ Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
 * Run `rackup`
 * Visit [localhost:9292](localhost:9292) in a browser
 
-#### Screenshots
+### Screenshots
 
 **Home Page (Guest)**
 
@@ -31,7 +31,7 @@ Ruby, Sinatra, PostgrSQL, DataMapper, BCrypt, HTML, CSS, RSpec, Capybara
 
 ![Home Page (User)](https://s25.postimg.org/kw1p72233/Screenshot_2017-06-01_09.44.54.png)
 
-#### User Stories:
+### User Stories
 
 ```
 As a Maker
