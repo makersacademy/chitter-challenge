@@ -1,3 +1,6 @@
+require 'capybara/rspec'
+require 'capybara'
+require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -7,6 +10,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+ENV['RACK_ENV'] = 'test'
+
+require './app/app.rb'
+
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do
