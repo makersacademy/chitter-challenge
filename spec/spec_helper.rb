@@ -13,7 +13,7 @@ require 'capybara/rspec'
 require 'sinatra'
 require './app/app'
 require 'database_cleaner'
-# require 'feature/web_helpers.rb'
+require 'features/web_helpers.rb'
 
 Capybara.app = Chitter
 

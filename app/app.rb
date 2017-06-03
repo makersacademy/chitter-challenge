@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
 
   post '/update_peeps' do
     Message.create(body: params[:message_body], posted_at: Time.now)
-    p "*******", Message.first(posted_at: Time.now)
     redirect '/peeps'
   end
 
