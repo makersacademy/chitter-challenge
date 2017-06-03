@@ -9,6 +9,8 @@ class User
 	property :username, String
 	property :email, String
 	property :password_hash, Text
+	
+	has n, :messages, through: Resource
 
 	def password=(password)
 		@password = password

@@ -5,7 +5,8 @@
 <div>
 	Creets: </br>
 	<% @messages.reverse.each do |message| %>
-		Creet: <%= message.text %> (posted at <%= message.time %>)</br>
+		<%= message.user.username %> posted at <%= message.time %>:</br>
+		<%= message.text %> </br> 
 	<% end %>
 </div>
 
