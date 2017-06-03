@@ -6,4 +6,8 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get "/new_peep" do
+    erb :make_peep
+  end
+
 end
