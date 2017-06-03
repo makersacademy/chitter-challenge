@@ -1,8 +1,8 @@
 def post_peep
-  posting_peep('Charlottay', '@codey_mc_code_face', 'OMG! Makers weekend challenges r so cool?!!' )
+  posting_peep('Charlottay', '@codey_mc_code_face', 'OMG! Makers weekend challenges r so cool?!!')
 end
 
-def post_peeps(names)
+def post_peeps_names(names)
   names.each do |name|
     posting_peep(name, '@codey_mc_code_face', 'OMG! Makers weekend challenges r so cool?!!')
   end
@@ -15,4 +15,16 @@ def posting_peep(name, username, peep)
   fill_in('Peep Message', with: peep)
   click_button('Add')
   expect(current_path).to eq '/peeps'
+end
+
+def names(page)
+  text_of_elements(page, ".peep_name")
+end
+
+def times(page)
+  text_of_elements(page, ".peep_time")
+end
+
+def text_of_elements(page, css_class)
+  page.all(:css, css_class).map { |node| node.text }
 end

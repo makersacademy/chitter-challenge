@@ -3,7 +3,8 @@
   <% @peeps.each do |peep| %>
   <li> Name: <div class="peep_name"><%= peep.name %> </div>,
        Chitter Username: <%= peep.username %>,
-       Peep: <%= peep.message %>
+       Peep: <%= peep.message %>,
+       Peep Time: <div class="peep_time"><%= peep.created_at.strftime('%T') %> </div>
   </li>
   <% end %>
 </ul>
