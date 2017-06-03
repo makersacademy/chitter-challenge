@@ -5,14 +5,14 @@ gem 'data_mapper'
 gem 'database_cleaner'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
-gem 'sinatra'
+gem 'sinatra', '1.4.8'
 
 group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'rake'
   gem 'rspec'
-  gem 'rubocop'
+  gem 'rubocop', '0.48.1'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

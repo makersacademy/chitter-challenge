@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative 'models/message.rb'
 
 class Chitter < Sinatra::Base
 
@@ -19,8 +20,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/new' do
+    message = Message.create(message: params[:message])
+    session[:message] = message.message
     session[:user] = params[:user_name]
-    session[:message] = params[:message]
     redirect '/messages'
   end
 

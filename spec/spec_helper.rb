@@ -6,7 +6,8 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-require File.join(File.dirname(__FILE__), '..', 'app/app')
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+require File.join(File.dirname(__FILE__), '..', 'spec/web_helper.rb')
 
 Capybara.app = Chitter
 
