@@ -4,6 +4,8 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+
+require_relative 'web_helpers.rb'
 require './app/datamapper_setup.rb'
 require './app/app.rb'
 

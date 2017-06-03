@@ -1,16 +1,10 @@
-<h1> Welcome to Critter! </h1>
-
-<div>
-Creets:
-<% @messages.reverse.each do |message| %>
-	Creet: <%= message.text %> (posted at <%= message.time %>)</br>
-<% end %>
-</div>
-
-<div>
-Want to critter your own message?
-<form action='/messages', method='post'>
-	Message: <input type='text', name='message'>
-	<input type='submit', value='Submit'>
-</form>
-</div>
+<center> <h1> Welcome to Critter! </h1>
+	<h3> - because everyone needs to creep around sometimes - </h3>
+	
+	<form action='/signup', method='post'>
+		Name: <input type='text', name='name'>
+		User Name: <input type='text', name='username'>
+		Email: <input type='text', name='email'>
+		Password: <input type='password', name='password'>
+		<input type='submit', value='Sign up'>
+</center>
