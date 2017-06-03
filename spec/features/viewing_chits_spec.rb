@@ -13,9 +13,9 @@ feature 'Viewing chits' do
   end
 
   scenario 'I can see peeps in descending order of time' do
-    Peep.create(content: "Hello World", time: Time.new )
-    Peep.create(content: "Hello World2", time: Time.new )
+    Peep.create(content: "Hello World", time: 3 )
+    Peep.create(content: "Hello World2", time: 4)
     visit '/'
-    expect(page).to have_content("Content: Hello World Time: #{Time.new} ")
+    expect(page).to have_content("Hello World2 Time: 4 Content: Hello World Time: 3")
   end
 end
