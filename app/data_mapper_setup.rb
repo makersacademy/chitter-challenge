@@ -1,7 +1,9 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+# set all String properties to have a default length of 255
+DataMapper::Property::String.length(255)
 
-#require_relative 'each model'
+require_relative 'models/peep'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 
