@@ -24,5 +24,5 @@ class Chitter < Sinatra::Base
     redirect '/chits'
   end
 
-  run! if __FILE__ == $PROGRAM_NAME
+  run! if $PROGRAM_NAME == __FILE__
 end
