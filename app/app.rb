@@ -20,7 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    "First!"
+    @peeps = Peep.all
+    erb(:peeps)
   end
 
 end
