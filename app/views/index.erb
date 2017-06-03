@@ -1,12 +1,16 @@
-Welcome to Critter!
+<h1> Welcome to Critter! </h1>
 
+<div>
 Messages:
-<% @messages.each do |message| %>
-	<%= message.text %>
+<% @messages.reverse.each do |message| %>
+	<%= message.text %></br>
 <% end %>
+</div>
 
+<div>
 Want to critter your own message?
 <form action='/messages', method='post'>
 	Message: <input type='text', name='message'>
 	<input type='submit', value='Submit'>
 </form>
+</div>
