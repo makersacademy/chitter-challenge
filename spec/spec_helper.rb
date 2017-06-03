@@ -1,4 +1,6 @@
 require 'capybara/rspec'
+require './app/app'
+require './app/models/homepage'
 require 'simplecov'
 require 'simplecov-console'
 

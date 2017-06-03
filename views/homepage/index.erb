@@ -1,0 +1,15 @@
+<h1> Homepage </h1>
+
+<ul id='homepage'>
+  <% @homepage.each do |homepage| %>
+    <li>
+      Message: <%=  homepage.message %>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/new_message" method="get">
+
+  <input type="submit" value="Add new message">
+
+</form>
