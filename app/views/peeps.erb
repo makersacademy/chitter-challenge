@@ -1,9 +1,9 @@
-<ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
+<ul id='messages'>
+  <% @messages.reverse.each do |message| %>
     <li>
       <p>
         <span style='border:1px black solid'>
-          <%= peep.body %>
+          <%= message.body %>
         </span>
       </p>
     </li>

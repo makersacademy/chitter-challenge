@@ -15,12 +15,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/update_peeps' do
-    Peep.create(body: params[:peep_body])
+    Message.create(body: params[:message_body])
     redirect '/peeps'
   end
 
   get '/peeps' do
-    @peeps = Peep.all
+    @messages = Message.all
     erb(:peeps)
   end
 

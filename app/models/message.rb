@@ -1,7 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Peep
+class Message
 
   include DataMapper::Resource
 
