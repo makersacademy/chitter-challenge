@@ -3,10 +3,7 @@
 <ul id='messages'>
     <% @messages.each do |message| %>
     <li>
-      Content: <%= message.content %>
-    </li>
-    <li>
-
+      <%= message.content %> <%= message.time.strftime("Sent on %m/%d/%Y at %I:%M %p")%> 
     </li>
     <% end %>
   </ul>

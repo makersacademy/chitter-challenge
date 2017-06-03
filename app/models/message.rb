@@ -3,5 +3,6 @@ class Message
 
   property :id,    Serial
   property :content, Text
+  property :time, DateTime
 
 end

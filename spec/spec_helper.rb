@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require 'sinatra'
 require './app/app'
 require 'database_cleaner'
+require 'timecop'
 
 Capybara.app = Chitter
 
