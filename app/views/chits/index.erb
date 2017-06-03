@@ -1,0 +1,15 @@
+<div id="chits">
+<% @chits.each do |chit| %>
+  <div class="panel panel-default">
+    
+    <div class="panel-body">
+      <%= chit.message %>
+    </div>
+
+    <div class="panel-footer">
+      User: 'test'  10.10 10.10.2010
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
