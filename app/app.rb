@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
-    @messages = Message.all
+    @messages = Message.all(:order => [:created_at.desc])
     @user = session[:user]
     erb :messages
   end
