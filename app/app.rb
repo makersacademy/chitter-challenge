@@ -3,9 +3,9 @@ require './app/datamapper_setup'
 
 class Chitter < Sinatra::Base
 
-  get '/messages' do
-    @message = Message.new('peep')
-    erb :index.rb
+  get '/messages/new' do
+    message = Message.all
+    erb :post_message
   end
 
 end

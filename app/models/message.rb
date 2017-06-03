@@ -2,6 +2,6 @@ class Message
   include DataMapper::Resource
 
   property :id,    Serial
-  property :context, Text
+  property :content, Text
 
 end
