@@ -1,5 +1,5 @@
 <h1>Welcome to Chitter</h1>
 <% @peeps.each do |peep| %>
-  <p><%= peep.text %></p>
+  <p><%= peep.text %><span> - <%= peep_distance_of_time(peep.created_at) %></span</p>
 <% end %>
 
