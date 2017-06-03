@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages/new' do
-    message = Message.create(message: params[:message])
+    Message.create(message: params[:message])
     session[:user] = params[:user_name]
     redirect '/messages'
   end
