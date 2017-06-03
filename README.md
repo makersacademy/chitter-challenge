@@ -1,5 +1,5 @@
-# Chitter #
-[![Build Status](https://travis-ci.org/bannastre/chitter-challenge.svg?branch=master)](https://travis-ci.org/bannastre/chitter-challenge)
+# Chitter [![Build Status](https://travis-ci.org/bannastre/chitter-challenge.svg?branch=master)](https://travis-ci.org/bannastre/chitter-challenge)
+
 ## A messaging application that allows users to post messages to a public stream ##
 
 ### User Stories ###
