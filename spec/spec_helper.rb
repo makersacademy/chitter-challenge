@@ -3,6 +3,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require './app/datamapper_setup.rb'
 require './app/app.rb'
 
@@ -20,5 +21,10 @@ RSpec.configure do |config|
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
+  end
+
+  config.before(:suite) do
+	      DatabaseCleaner.strategy = :transaction
+	      DatabaseCleaner.clean_with(:truncation)
   end
 end
