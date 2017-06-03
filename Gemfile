@@ -5,7 +5,7 @@ gem 'data_mapper'
 gem 'database_cleaner'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
-gem 'sinatra', '1.4.8'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'

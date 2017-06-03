@@ -158,10 +158,10 @@ DEPENDENCIES
   rubocop (= 0.48.1)
   simplecov
   simplecov-console
-  sinatra (= 1.4.8)
+  sinatra
 
 RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.15.0
+   1.15.1
