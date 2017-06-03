@@ -1,0 +1,11 @@
+HOME PAGE
+<br>
+What have people been saying?
+<ul id='peeps'>
+    <% @chits.each do |peep| %>
+    <li>
+      Content: <%= peep.content %>
+      Time: <%= peep.time %>
+    </li>
+    <% end %>
+  </ul>
