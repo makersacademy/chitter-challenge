@@ -3,6 +3,6 @@ feature "Timestamps on messages" do
     visit('/new_peep')
     fill_in('message_body', with: 'Hello world!')
     click_button('Submit')
-    expect(page).to have_content "#{Time.now.strftime("%d/%b/%Y %H:%M")} - Hello world!"
+    expect(page.find('li:nth-child(1)')).to have_content "#{Time.now.strftime("%d/%b/%Y %H:%M")} - Hello world!"
   end
 end

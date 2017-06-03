@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/update_peeps' do
-    Message.create(body: params[:message_body])
+    Message.create(body: params[:message_body], posted_at: Time.now)
     redirect '/peeps'
   end
 

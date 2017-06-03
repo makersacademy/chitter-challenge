@@ -7,5 +7,6 @@ class Message
 
   property :id,   Serial
   property :body, Text
+  property :posted_at, DateTime
 
 end
