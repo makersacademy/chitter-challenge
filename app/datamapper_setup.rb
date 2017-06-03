@@ -1,0 +1,8 @@
+require 'data_mapper'
+require 'dm-postgres-adapter'
+
+require_relative 'models/message'
+
+DataMapper.setup(:default, "postgres://localhost/critter_test")
+DataMapper.finalize
+DataMapper.auto_upgrade!

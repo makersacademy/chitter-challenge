@@ -1,7 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 
-require_relative 'models/message'
+require_relative 'datamapper_setup'
 
 class Critter < Sinatra::Base
 

@@ -3,7 +3,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
-require './app/models/message.rb'
+require './app/datamapper_setup.rb'
 require './app/app.rb'
 
 Capybara.app = Critter
