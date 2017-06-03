@@ -23,4 +23,6 @@ class Chitter < Sinatra::Base
     Chit.create(message: params[:message])
     redirect '/chits'
   end
+
+  run! if __FILE__ == $PROGRAM_NAME
 end
