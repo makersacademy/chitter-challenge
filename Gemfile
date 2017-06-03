@@ -4,7 +4,7 @@ ruby '2.4.0'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'sinatra'
+gem 'sinatra', '1.4.8'
 
 
 group :test do
