@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require_relative 'models/message.rb'
+require_relative 'datamapper_config'
 
 class Chitter < Sinatra::Base
 
