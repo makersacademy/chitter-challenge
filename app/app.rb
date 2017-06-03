@@ -11,7 +11,7 @@ class Critter < Sinatra::Base
 	end
 
 	post '/messages' do
-		message = Message.create(text: params[:text])
+		message = Message.create(text: params[:message])
 		redirect '/'
 	end
 end
