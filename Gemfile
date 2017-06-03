@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
 
 group :test do
+  gem 'capybara'
   gem 'cucumber'
   gem 'rspec'
   gem 'rake'
@@ -11,5 +11,7 @@ group :test do
 end
 
 gem 'data_mapper'
+
 gem 'dm-postgres-adapter'
-gem 'sinatra'
+gem 'rack'
+gem "sinatra", "~> 1.4.8"
