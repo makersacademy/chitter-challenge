@@ -3,24 +3,17 @@ ENV['RACK_ENV'] ||= "development"
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
-
-
 class Chitter < Sinatra::Base
-  enable :session
+  enable :sessions
 
-helpers do
- def current_user
-   @current_user ||= User.get(session[:user_id])
- end
-end
-
-get('/') do
-  if User.count == 0
-    @email = "New user"
-  else
-    @email = User.last.email
+  helpers do
+   def current_user
+     @current_user ||= User.get(session[:user_id])
+   end
   end
 
+get('/') do
+  p @chits
   @chits = Peep.all(:order => [ :time.desc ])
   erb :index
 end
@@ -31,7 +24,7 @@ end
 
 post ('/') do
   erb :add
-  peep = Peep.create(content: params[:content], time: Time.new )
+  peep = Peep.create(content: params[:content], time: Time.new, user_id: session[:user_id] )
   redirect '/'
 end
 
@@ -41,10 +34,7 @@ end
 
 post '/newuser' do
   user = User.create(email: params[:email], password: params[:password])
-  p user
-  p user.id
   session[:user_id] = user.id
-  p session[:user_id]
   redirect '/'
 end
 

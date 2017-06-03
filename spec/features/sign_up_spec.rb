@@ -4,7 +4,7 @@ feature 'Signing up' do
   end
   scenario "After signing up they are welcomed by their email address " do
     signup
-    expect(page).to have_content "Welcome fake@fake.com"
+    expect(page).to have_content "Welcome, fake@fake.com"
   end
 end
 

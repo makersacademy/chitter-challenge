@@ -8,4 +8,6 @@ class Peep
   property :content, String
   property :time, String
 
+  belongs_to :user
+
 end
