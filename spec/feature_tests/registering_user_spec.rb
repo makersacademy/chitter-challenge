@@ -9,4 +9,8 @@ feature "Registering a new user" do
   scenario "After filling out a completing signup form a user account is created" do
     expect{register_user}.to change(User, :count )
   end
+  scenario "Users are greeted when they have signed in" do
+    register_user
+    expect(page).to have_content "Welcome Test!"
+  end
 end

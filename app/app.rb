@@ -5,6 +5,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get "/" do
     erb :index
   end
@@ -28,6 +30,12 @@ class Chitter < Sinatra::Base
 
   post "/register_user" do
     User.create(name: params[:name], email: params[:email])
+    redirect "/homepage"
+  end
+
+  get "/homepage" do
+    @user = User.first
+    erb :homepage
   end
 
 end
