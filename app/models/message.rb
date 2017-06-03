@@ -5,6 +5,6 @@ class Message
 	property :text, Text
 	property :time, String
 
-	belongs_to :user
+	belongs_to :user 
 end
 

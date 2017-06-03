@@ -34,6 +34,8 @@ class Critter < Sinatra::Base
 		message.user = current_user 
 		message.save!
 		p message
+		p message.user
+		p message.user.username
 		redirect '/creets'
 	end
 end
