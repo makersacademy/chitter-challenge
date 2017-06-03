@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_user' do
-    User.create(name: params[:username], password: params[:password])
+    User.create(username: params[:username], password: params[:password])
   end
 
   get '/new_peep' do
