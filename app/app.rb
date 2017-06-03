@@ -11,7 +11,8 @@ class Critter < Sinatra::Base
 	end
 
 	post '/messages' do
-		message = Message.create(text: params[:message])
+		time = Time.now.strftime("%H:%M:%S").to_s
+		message = Message.create(text: params[:message], time: time)
 		redirect '/'
 	end
 end

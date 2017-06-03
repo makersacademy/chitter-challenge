@@ -1,9 +1,9 @@
 <h1> Welcome to Critter! </h1>
 
 <div>
-Messages:
+Creets:
 <% @messages.reverse.each do |message| %>
-	<%= message.text %></br>
+	Creet: <%= message.text %> (posted at <%= message.time %>)</br>
 <% end %>
 </div>
 
