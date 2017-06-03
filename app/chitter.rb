@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chits' do
-    @chits = Chit.all
+    @chits = Chit.all(:order => [ :time.desc ])
     erb :'chits/index'
   end
 
@@ -20,7 +20,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/chits' do
-    Chit.create(message: params[:message])
+    Chit.create(message: params[:message],
+               time: Time.now)
     redirect '/chits'
   end
 

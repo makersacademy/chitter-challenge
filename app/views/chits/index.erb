@@ -1,4 +1,4 @@
-<div id="chits">
+<div class="row" id="chits">
 <% @chits.each do |chit| %>
   <div class="panel panel-default">
     
@@ -7,9 +7,9 @@
     </div>
 
     <div class="panel-footer">
-      User: 'test'  10.10 10.10.2010
+      <%= chit.time.strftime('Chitted at %H:%M on %a %-d %b %y') %>
     </div>
+
   </div>
-</div>
 <% end %>
 </div>
