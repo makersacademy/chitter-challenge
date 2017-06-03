@@ -1,10 +1,12 @@
-<h1> Welcome to Critter! </h1>
+<% if current_user %>
+	<h2> Hi <%=current_user.username %>! </h2>
+<% end %>
 
 <div>
-Creets:
-<% @messages.reverse.each do |message| %>
-	Creet: <%= message.text %> (posted at <%= message.time %>)</br>
-<% end %>
+	Creets: </br>
+	<% @messages.reverse.each do |message| %>
+		Creet: <%= message.text %> (posted at <%= message.time %>)</br>
+	<% end %>
 </div>
 
 <div>
