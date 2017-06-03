@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
+  set :public_folder, Proc.new { File.join(root, 'static') }
 
   get '/' do
     redirect '/peeps'
