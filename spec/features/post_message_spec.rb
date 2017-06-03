@@ -1,10 +1,13 @@
 feature 'post message' do
-	scenario 'submit a message on page' do
-		# fill_in('message', with: 'Long time viewer, first time poster.')
+	scenario 'new message appears on page' do
 		Message.create(text: 'Long time viewer, first time poster.')
 		visit '/'
-		within 'ul#messages' do
-			expect(page).to have_content 'Long time viewer, first time poster.'
-		end
+		expect(page).to have_content 'Long time viewer, first time poster.'
+	end
+	scenario 'user can fill in message on page' do
+		visit '/'
+		fill_in('message', with: 'So many bugs!')
+		click_button('Submit')
+		expect(page).to have_content 'So many bugs!'
 	end
 end
