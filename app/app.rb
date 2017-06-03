@@ -10,8 +10,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/messages' do
+    @messages = Message.all
     @user = session[:user]
-    @message = session[:message]
     erb :messages
   end
 
@@ -21,7 +21,6 @@ class Chitter < Sinatra::Base
 
   post '/messages/new' do
     message = Message.create(message: params[:message])
-    session[:message] = message.message
     session[:user] = params[:user_name]
     redirect '/messages'
   end

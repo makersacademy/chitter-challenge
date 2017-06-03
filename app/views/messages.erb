@@ -1,4 +1,9 @@
 <h2>Peeps:</h2>
 
-<h4> <%= @user %> Peeped </h4>
-<p> <%= @message %> </p>
+<ul id='messages'>
+  <% @messages.each do |message| %>
+    <li>
+      <%= message.message %>
+    </li>
+  <% end %>
+</ul>
