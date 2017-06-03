@@ -5,6 +5,7 @@ require_relative 'data_mapper_setup'
 class Chitter < Sinatra::Base
   enable :session
 
+
 get('/') do
   if User.count == 0
     @email = "New user"
