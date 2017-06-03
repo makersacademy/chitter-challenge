@@ -8,5 +8,5 @@ class Chitter < Sinatra::Base
   set :partial_template_engine, :erb
 
   enable :partial_underscores
-
+  
 end
