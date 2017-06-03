@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.new(name:       params[:name],
-                    user_name:  params[:user_name],
+                    username:  params[:username],
                     message:    params[:message])
     peep.save
     redirect to '/peeps'
