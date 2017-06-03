@@ -11,7 +11,7 @@ gem 'sinatra', '1.4.8'
 
 
 group :test do
-  gem 'cucumber'
+  gem 'capybara'
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'
