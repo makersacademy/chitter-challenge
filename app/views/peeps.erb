@@ -1,7 +1,11 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
     <li>
-      <%= peep.body %>
+      <p>
+        <span style='border:1px black solid'>
+          <%= peep.body %>
+        </span>
+      </p>
     </li>
   <% end %>
 </ul>
