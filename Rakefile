@@ -1,5 +1,5 @@
 require 'data_mapper'
-require './app/bookmark_manager.rb'
+require './app/chitter.rb'
 
 namespace :db do
   desc "Non destructive upgrade"
