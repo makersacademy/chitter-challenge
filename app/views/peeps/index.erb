@@ -42,13 +42,13 @@
 </form>
 
 <br/>
-<h2> Peeps </h2>
+<h2>     Latest Peeps </h2>
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
   <div>
   <li>
     <strong>Peep_ID: <%= peep.id %>
-    on <%= peep.time %></strong>
+    on <%= peep.time.strftime(TIME_FORMAT) %></strong>
     <br/>
     <%= peep.message %>
     <br/>
