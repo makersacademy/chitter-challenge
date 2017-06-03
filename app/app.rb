@@ -18,6 +18,10 @@ class Chitter < Sinatra::Base
     User.create(username: params[:username], password: params[:password])
   end
 
+  get '/log_in' do
+    erb(:log_in)
+  end
+
   get '/new_peep' do
     erb(:new_peep)
   end
