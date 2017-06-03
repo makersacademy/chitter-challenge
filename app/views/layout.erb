@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <style>
+  
+    title {
+      width:100%;
+      text-align: center;
+      color: darkblue;
+    }
+    h2 {
+      color: darkorange;
+    }
+    body {
+      background: lightcyan;
+    }
+    div {
+      display: flex;
+    }
+    input[type=submit] {
+      background: lightgreen;
+    }
+    input[type=submit], input[type=text] {
+      padding: 5px;
+      font-size: 12px;
+      border: 0;
+      margin: 0;
+    }
+    ul {
+      list-style-type: none;
+    }
+    textarea {
+      width:400px;
+      height:70px;
+      font-size: 15px;
+    }
+  </style>
+
+    <title>Welcome to Chitter!!</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      Hello, <%= current_user.username %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

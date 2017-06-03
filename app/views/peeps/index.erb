@@ -1,39 +1,13 @@
-<style>
-  h1{
-    width:100%;
-    text-align: center;
-    color: darkblue;
-  }
-  h2{
-    color: darkorange;
-  }
-  body {
-    background: lightcyan;
-  }
-  div{
-    display: flex;
-  }
-  input[type=submit] {
-    background: lightgreen;
-  }
-  input[type=submit], input[type=text] {
-    padding: 5px;
-    font-size: 12px;
-    border: 0;
-    margin: 0;
-  }
-  ul {
-    list-style-type: none;
-  }
-  textarea {
-    width:400px;
-    height:70px;
-    font-size: 15px;
-  }
-</style>
+
 
 <h1>Welcome to Chitter!!</h1>
 <br/><br/>
+
+<form action='/users/new'>
+ <input type='submit' value='Register'>
+</form>
+
+<br/><br/><br/><br/>
 <form action='/peeps' method='post'>
   <h5>What is going around?</h5>
   <textarea name="message" placeholder="Type herein your peep message"></textarea>
