@@ -16,3 +16,5 @@ RSpec.configure do |config|
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
 end
+
+Capybara.app = Chitter #tells capybara what app you want to test, otherwise says ArgumentError, rack test requires a rack app
