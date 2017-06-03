@@ -22,4 +22,12 @@ class Chitter < Sinatra::Base
     erb :view_peeps
   end
 
+  get "/register_user" do
+    erb :registration
+  end
+
+  post "/register_user" do
+    User.create(name: params[:name], email: params[:email])
+  end
+
 end
