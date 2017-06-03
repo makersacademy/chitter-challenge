@@ -4,7 +4,7 @@ require './app/datamapper_setup'
 class Chitter < Sinatra::Base
 
   get '/messages' do
-    @messages = Message.all
+    @messages = Message.all.reverse
 
     erb :index
   end
