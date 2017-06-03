@@ -9,5 +9,6 @@ feature 'Posting peeps' do
     within 'ul#peeps' do
       expect(page).to have_content('OMG! Makers weekend challenges r so cool?!!')
     end
+    DatabaseCleaner.clean
   end
 end
