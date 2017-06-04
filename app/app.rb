@@ -7,6 +7,7 @@ class Critter < Sinatra::Base
 	enable :sessions
 	register Sinatra::Flash
 	set :session_secret, 'super secret'
+	use Rack::MethodOverride
 
 	helpers do
 		def current_user
@@ -46,18 +47,6 @@ class Critter < Sinatra::Base
 			flash.now[:authenticate] = "Username and password do not match!"
 			erb :signin
 		end
-
-	#	unless User.authentic_name?(params[:email])
-	#		flash.now[:user] = "Username does not exist!"	
-	#		erb :signin
-	#	end
-	#	
-	#	if User.authentic_pass?(params[:email], params[:password]) 
-	#		erb :creets
-	#	else
-	#		flash.now[:authenticate] = "Username and password do not match!"
-	#		erb :signin
-	#	end
 	end
 
 	get '/creets' do
@@ -70,5 +59,15 @@ class Critter < Sinatra::Base
 		message.user = current_user 
 		message.save!
 		redirect '/creets'
+	end
+
+	delete '/signout' do
+		session[:user_id] = nil
+		flash.keep[:signout] = 'Do creep again!'
+		redirect '/end'		
+	end
+
+	get '/end' do	
+		'Do creep again!'
 	end
 end

@@ -17,3 +17,14 @@ Want to critter your own message?
 	<input type='submit', value='Add Creet'>
 </form>
 </div>
+
+<div>
+	<form action="/signout", method="post">
+		<input type='hidden', name='_method', value='DELETE'>
+		<input type='submit', value='Sign out'>
+	</form>
+</div>
+
+<% if flash[:signout] %>
+	<%= flash[:signout] %>
+<% end %>
