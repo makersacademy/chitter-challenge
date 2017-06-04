@@ -7,6 +7,7 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
+  property :picture_url, Text
   property :first_name, String
   property :last_name, String
   property :username, String, :required => true, :unique => true

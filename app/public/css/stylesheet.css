@@ -1,5 +1,5 @@
 html {
-    background-color: #F5F8FA;
+    background-color: ghostwhite;
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     color: black;
@@ -10,10 +10,11 @@ a {
 }
 
 #top_bar {
-    padding: 15px;
+    padding: 5px;
     border-bottom: black solid 1px;
     display: inline-block;
     width: 100vw;
+    height: 80px;
 }
 
 .list_item {
@@ -25,7 +26,7 @@ a {
 }
 
 .name {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -34,6 +35,128 @@ a {
 }
 
 .hashtag {
-    color: mediumvioletred;
+    color: dimgray;
     text-decoration: none;
+}
+
+.hashtag:hover {
+    text-decoration: underline;
+}
+
+.user_picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.submit_button {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: ghostwhite;
+    color: black;
+    border: solid 1px black;
+    -webkit-appearance: none;
+}
+
+.submit_button:hover {
+    background-color: black;
+    color: ghostwhite;
+}
+
+#right_side, #logged_in_right_side {
+    text-align: right;
+}
+
+#top_bar_table, #logged_in_top_bar {
+    padding-right: 40px;
+    width: 100%;
+}
+
+body {
+    width: 90vw;
+    position: fixed;
+}
+
+button {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: ghostwhite;
+    color: black;
+    border: solid 1px black;
+    -webkit-appearance: none;
+}
+
+button:hover {
+    background-color: black;
+    color: ghostwhite;
+}
+
+.text_input {
+    background-color: ghostwhite;
+    border: solid 0.5px black;
+    -webkit-appearance: none;
+    font-size: 16px;
+    padding: 5px;
+    font-family: "Source Code Pro", monospace;
+}
+
+#top_right_profile_pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0;
+}
+
+.greeting {
+    font-size: 40px;
+    margin: 0;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: ghostwhite;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: ghostwhite;
+    min-width: 140px;
+    border: solid 1px dimgray;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #E9E9F1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: transparent;
 }

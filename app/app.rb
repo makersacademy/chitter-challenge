@@ -11,6 +11,17 @@ class Chitter < Sinatra::Base
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 
   helpers do
+    def greeting(user)
+      current_hour = Time.now.strftime('%H').to_i
+      if current_hour >= 18 && current_hour <= 23
+        return "Good evening, #{user.first_name}"
+      elsif current_hour >= 12 && current_hour < 18
+        return "Good afternoon, #{user.first_name}"
+      else
+        return "Good morning, #{user.first_name}"
+      end
+    end
+
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
@@ -86,6 +97,7 @@ class Chitter < Sinatra::Base
      last_name: params[:last_name],
      email: params[:email],
      username: params[:username],
+     picture_url: params[:picture_url],
      password: params[:password],
      password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id

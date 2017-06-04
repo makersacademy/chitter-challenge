@@ -11,29 +11,42 @@
 
   <body>
   <div id="top_bar">
+    <table id="top_bar_table">
+      <tr>
+        <td>
   <% if current_user %>
-    <ul>
-      <li class="list_item">Hi, <%= current_user.first_name %></li>
-      <li class="list_item"><a href="/logout">Logout</a></li>
-      <li class="list_item"><a href="/peep">Peep!</a></li>
-    </ul>
+              <p class="greeting"><%= greeting(current_user) %></p>
+              <td id="right_side">
+                <div class="dropdown">
+                  <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
+                  <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="/logout">Logout</a>
+                  </div>
+                </div>
+              </td>
   <% else %>
       <form action='/login' method='post'>
             <label for='username'>
-              Username: <input type='text' name='username' placeholder='Username'>
+              <input class="text_input" type='text' name='username' placeholder='Username'>
             </label>
             <label for='password'>
-              Password: <input type='password' name='password' placeholder='Password'>
+              <input class="text_input" type='password' name='password' placeholder='Password'>
             </label>
-          <input type="submit" value="Login">
+          <input type="submit" value="Login" class="submit_button">
       </form>
-        <br><a href="/sign_up">Sign up for Chitter</a>
+              </td>
+              <td id="right_side">
+        <button type="submit" formaction="/sign_up" formmethod="get">Sign Up</button>
+              </td>
   <% end %>
+      </tr>
+    </table>
   </div>
 
 
   <div id="chitter_feed">
-    <h3>Chitter Feed...</h3>
     <ul id='links'>
       <% @peeps.reverse.each do |peep| %>
         <% hashtags = [] %>
@@ -42,8 +55,15 @@
         <% hashtags.each { |word| peep.body.gsub!(word, "<a href='/search/#{word}' class='hashtag'>#{word}</a>") } %>
         <% user = User.get(peep.user_id) %>
         <li class="peep">
-          <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><span class="username"><%= "@#{user.username} " %></span><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
-          "<%= peep.body %>"
+          <table>
+            <tr>
+              <td><img src="<%= user.picture_url %>" class="user_picture"></td>
+              <td>
+                <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><span class="username"><%= "@#{user.username} " %></span><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
+                "<%= peep.body %>"
+              </td>
+            </tr>
+          </table>
         </li><br>
       <% end %>
     </ul>

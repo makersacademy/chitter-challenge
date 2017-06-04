@@ -1,16 +1,64 @@
-    <!--<div id="chitter_feed">-->
-      <!--<h3>Chitter Feed...</h3>-->
-      <!--<ul id='links'>-->
-        <!--<% @peeps.each do |peep| %>-->
-            <!--<li>-->
-              <!--<%= peep.user_id %>-->
-              <!--<%= peep.body %>-->
-            <!--</li>-->
-        <!--<% end %>-->
-      <!--</ul>-->
-    <!--</div>-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
 
-      # gem 'simplecov', require: false
-      # gem 'simplecov-console', require: false
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-    <!--<%= peep.time.strftime('%I:%M%p - %d/%m/%y') %>-->
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<h2>Dropdown Menu</h2>
+<p>Move the mouse over the button to open the dropdown menu.</p>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+<p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
+
+</body>
+</html>
+
