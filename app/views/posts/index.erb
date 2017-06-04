@@ -6,9 +6,10 @@
 
 <br/><br/>
 <ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
+  <% @peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
   <li>
     Message: <%= peep.message %>
+    <%= peep.timestamp.strftime("posted at %I:%M%p on %m/%d/%Y") %>
   </li>
   <% end %>
 </ul>

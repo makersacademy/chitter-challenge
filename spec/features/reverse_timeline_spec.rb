@@ -6,6 +6,6 @@ feature 'Reverse Timeline' do
     visit '/posts/new'
     fill_in 'message', with: 'A second peep!'
     click_button 'Add Peep'
-    expect(page).to have_content 'A second peep! A first peep!'
+    expect(page).to have_content "Message: A second peep! #{Time.now.strftime("posted at %I:%M%p on %m/%d/%Y")} Message: A first peep! #{Time.now.strftime("posted at %I:%M%p on %m/%d/%Y")}"
   end
 end
