@@ -3,6 +3,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   register Sinatra::Flash
   use Rack::MethodOverride
+  set :public_folder, Proc.new { File.join(root, 'static') }
 
   helpers do
     def current_user

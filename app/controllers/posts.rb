@@ -1,5 +1,9 @@
 class Chitter < Sinatra::Base
 
+  get '/' do
+    redirect('posts/all')
+  end
+
   get '/posts/all' do
     @peeps = Peep.all
     erb(:'posts/all')
