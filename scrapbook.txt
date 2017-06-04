@@ -13,4 +13,4 @@
       # gem 'simplecov', require: false
       # gem 'simplecov-console', require: false
 
-                <!--<%= peep.time.strftime('%I:%M%p - %d/%m/%y') %>-->
+    <!--<%= peep.time.strftime('%I:%M%p - %d/%m/%y') %>-->
