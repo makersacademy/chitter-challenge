@@ -38,16 +38,26 @@ class Critter < Sinatra::Base
 	end
 		
 	post '/signin' do
-		user = User.all(email: params[:email]).last
-		if !user
-			flash.now[:user] = "Username does not exist!"	
-			erb :signin
-		elsif user.authentic?(params[:password]) 
-			erb :creets
+		user = User.authenticate(params[:email], params[:password])
+		if user
+			session[:user_id] = user.id
+			redirect '/creets'
 		else
 			flash.now[:authenticate] = "Username and password do not match!"
 			erb :signin
 		end
+
+	#	unless User.authentic_name?(params[:email])
+	#		flash.now[:user] = "Username does not exist!"	
+	#		erb :signin
+	#	end
+	#	
+	#	if User.authentic_pass?(params[:email], params[:password]) 
+	#		erb :creets
+	#	else
+	#		flash.now[:authenticate] = "Username and password do not match!"
+	#		erb :signin
+	#	end
 	end
 
 	get '/creets' do

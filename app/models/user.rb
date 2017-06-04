@@ -22,9 +22,23 @@ class User
 		self.password_hash = BCrypt::Password.create(password)
 	end
 
-	def authentic?(password_attempt)
-			self.password == password_attempt
+	def self.authentic_name?(email)
+		user = first(email: email)
+		return user if user
 	end
 
+	def self.authentic_pass?(email, password_attempt)
+		user = first(email: email)	
+		return user if BCrypt::Password.new(user.password_hash) == password_attempt
+	end
+
+	def self.authenticate(email, password)
+	   user = first(email: email)
+	   if user && BCrypt::Password.new(user.password_hash) == password
+		user
+	    else     
+  	         nil
+	    end
+	end
 end
 

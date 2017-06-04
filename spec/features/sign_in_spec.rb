@@ -14,6 +14,11 @@ feature 'Signing in' do
 		fill_in('email', with: 'cthulhu@wrath.com')
 		fill_in('password', with: 'humanisevil')
 		click_button 'Sign in'
-		expect(page).to have_content('Username does not exist!')
+		expect(page).to have_content('Username and password do not match!')
+	end
+
+	scenario 'User is logged in if right details given' do
+		sign_in
+		expect(page).to have_content 'Hi SuperSteve4Prez!'
 	end
 end
