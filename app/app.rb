@@ -29,17 +29,18 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @peep = Peep.new(message: params[:message],
                     created_at: Time.now)
-    p session[:user_id]
-    if session[:user_id]
+p current_user
+    if current_user
       @peep.user_id = session[:user_id]
       @peep.save
     else
-      flash.now[:notice] = 'You need to be signed up/in in order to add a peep'
+      flash.now[:errors] = @peep.errors.full_messages
     end
       redirect to'/peeps'
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
@@ -55,10 +56,25 @@ class Chitter < Sinatra::Base
       # if it's not valid,
       # we'll render the sign up form again
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+  @user = User.authenticate(params[:email], params[:password])
+  if @user
+    session[:user_id] = @user.id
+    redirect to('/peeps')
+  else
+    flash.now[:errors] = ['The email or password is incorrect']
+    erb :'sessions/new'
+  end
+end
 
 
   run! if app_file == $0

@@ -57,6 +57,17 @@
     <% if current_user %>
       <strong>Hello, <%= current_user.username %></strong>
     <% end %>
+    <% if flash[:errors] %>
+      <div id='errors'>
+        <%= flash[:errors] %>
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
