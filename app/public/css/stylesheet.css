@@ -32,3 +32,8 @@ a {
 .username {
     color: dimgrey;
 }
+
+.hashtag {
+    color: mediumvioletred;
+    text-decoration: none;
+}
