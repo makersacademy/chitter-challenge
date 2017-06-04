@@ -7,13 +7,17 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      erb :'/peeps/index'
+    end
   end
 
   delete '/sessions' do
     session[:user_id] = nil
-    redirect to '/peeps'
+    redirect to '/'
   end
   
 end

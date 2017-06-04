@@ -34,6 +34,8 @@
           <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <%= partial :'sessions/account'%>
+          <% else %>
+            <%= partial :'sessions/signin'%>
           <% end%>
           </ul>
         </div>

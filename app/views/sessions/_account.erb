@@ -4,6 +4,11 @@
     <li><a href="#">Profile</a></li>
     <li><a href="/users/account">Settings</a></li>
     <li role="separator" class="divider"></li>
-    <li><a href="#">Logout</a></li>
+    <li>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <button type="submit" class="btn btn-danger btn-logout">Logout</button>
+      </form>
+    </li>
   </ul>
 </li>

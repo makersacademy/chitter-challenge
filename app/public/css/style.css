@@ -3,6 +3,15 @@ body {
   padding-top: 70px;
 }
 
+.btn-logout {
+  width: 140px;
+  margin: 0 0 5px 10px;
+}
+
+.signin-form {
+  margin-top: 8px;
+}
+
 .navbar {
   height: 40px;
 }
