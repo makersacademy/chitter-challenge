@@ -33,8 +33,8 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.new(name:             current_user.name,
-                    username:         current_user.username,
-                    message:          params[:message])
+    username:         current_user.username,
+    message:          params[:message])
     peep.save
     redirect to '/peeps'
   end
@@ -45,10 +45,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(username:              params[:username],
-                      email:                  params[:email],
-                      password:               params[:password],
-                      password_confirmation:  params[:password_confirmation])
+    user = User.create(name:                   params[:name],
+    username:               params[:username],
+    email:                  params[:email],
+    password:               params[:password],
+    password_confirmation:  params[:password_confirmation])
     if user.save
       session[:user_id] = user.id
       redirect to '/peeps'
@@ -57,7 +58,6 @@ class Chitter < Sinatra::Base
       erb ':users/new'
     end
   end
-
 
   get '/users/login' do
     erb :'users/login'
@@ -73,6 +73,16 @@ class Chitter < Sinatra::Base
       flash.now[:notice2] = "We do not have that username. Please signup first so we can log you in."
       redirect to '/users/new'
     end
+  end
+
+  get '/users/logout' do
+    erb :'users/logout'
+  end
+
+  post '/users/logout' do
+    params[:logout]
+    redirect to '/users/login'
+    erb :'users/logout'
   end
 
 end

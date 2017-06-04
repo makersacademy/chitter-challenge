@@ -1,13 +1,14 @@
 feature 'Viewing peeps' do
+  scenario 'users can see peep details' do
+    signup_and_peep('Chazn', 'Charlotte Fereday', 'foo@bar.com', 'Hey- am peeping')
+    expect(page).to have_content('Chazn')
+    expect(page).to have_content('Charlotte Fereday')
+  end
   scenario 'users can see peeps in reverse chronological order on Chitter' do
-    sign_up('@codey_mc_code_face')
-    login('@codey_mc_code_face')
-    sign_up('@heya')
-    login('@heya')
-    sign_up('@boaty_mc_boat_face')
-    login('@boaty_mc_boat_face')
-    usernames(['@codey_mc_code_face', '@heya', '@boaty_mc_boat_face'])
-    expect(usernames(page)).to eq ['@boaty_mc_boat_face', '@heya', '@codey_mc_code_face']
+    signup_and_peep('Chazn', 'Charlotte Fereday', 'foo@bar.com', 'Hey- am peeping')
+    signup_and_peep('Felipe', 'Felipe Sere', 'cool@bar.com', 'Peeping away!')
+    signup_and_peep('Christoph', 'Christoph Gockel', 'yeh@bar.com', 'Still peeping!')
+    expect(usernames(page)).to eq ['Chazn', 'Felipe', 'Christoph']
   end
   scenario 'users can see the time the peep was made' do
     peep = Peep.new( message:      'OMG! Makers weekend challenges r so cool?!!',

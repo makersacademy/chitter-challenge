@@ -1,7 +1,7 @@
 feature 'Sign up for Chitter' do
   scenario 'users can sign up with a name, email and password' do
     expect { sign_up('@codey_mc_code_face') }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, @codey_mc_code_face')
+    expect(page).to have_content('Welcome @codey_mc_code_face')
     expect(User.first.email).to eq('chazzas@hotmail.com')
   end
   scenario 'requires a matching password' do
