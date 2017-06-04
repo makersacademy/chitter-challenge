@@ -28,3 +28,12 @@ end
 def text_of_elements(page, css_class)
   page.all(:css, css_class).map { |node| node.text }
 end
+
+def sign_up
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in(:name, with: 'Charlottay')
+  fill_in(:email, with: 'chazzas@hotmail.com')
+  fill_in(:password, with: '12345')
+  click_button('Sign up')
+end
