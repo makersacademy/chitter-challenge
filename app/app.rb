@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require './app/datamapper_setup'
+require 'dotenv/load'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, ENV['SESSION_SECRET']
 
   get '/' do
     redirect to '/messages'
