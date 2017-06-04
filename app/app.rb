@@ -2,7 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'bcrypt'
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
-require 'securerandom'
+# require 'securerandom'
 
 class Chitter < Sinatra::Base
   include BCrypt
@@ -37,9 +37,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name:      params[:name],
-                      email:      params[:email],
-                      password:   params[:password])
+    user = User.create(name:                  params[:name],
+                      email:                  params[:email],
+                      password:               params[:password],
+                      password_confirmation:  params[:password_confirmation])
     session[:user_id] = user.id
     redirect to '/peeps'
   end

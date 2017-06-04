@@ -29,11 +29,15 @@ def text_of_elements(page, css_class)
   page.all(:css, css_class).map { |node| node.text }
 end
 
-def sign_up
+def sign_up(name:'Charlottay',
+            email: 'chazzas@hotmail.com',
+            password: '12345',
+            password_confirmation: '12345')
   visit '/users/new'
   expect(page.status_code).to eq(200)
-  fill_in(:name, with: 'Charlottay')
-  fill_in(:email, with: 'chazzas@hotmail.com')
-  fill_in(:password, with: '12345')
+  fill_in(:name, with: name)
+  fill_in(:email, with: email)
+  fill_in(:password, with: password)
+  fill_in(:password_confirmation, with: password_confirmation)
   click_button('Sign up')
 end
