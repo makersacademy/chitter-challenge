@@ -153,7 +153,7 @@ DEPENDENCIES
   rubocop-rspec
   simplecov
   simplecov-console
-  sinatra
+  sinatra (= 2.0.0)
   sinatra-flash
 
 RUBY VERSION
