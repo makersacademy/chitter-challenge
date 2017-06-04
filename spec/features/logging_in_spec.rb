@@ -23,4 +23,13 @@ feature "Logging in to Chitter" do
     click_button("Log in")
     expect(page).to have_content("Username or password is incorrect")
   end
+
+  scenario "User enters wrong username and sees an error message" do
+    sign_up
+    log_out_and_begin_log_in
+    fill_in("username", with: "Kynosnore")
+    fill_in("password", with: "amazing_password")
+    click_button("Log in")
+    expect(page).to have_content("Username or password is incorrect")
+  end
 end
