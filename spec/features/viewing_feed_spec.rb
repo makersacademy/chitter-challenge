@@ -1,6 +1,7 @@
 feature 'personal feed of user' do
-  # scenario 'user sees all posts in reverse chronological order' do
-  #   Peep.create(content: 'Hello')
-  #   Peep.create(content: 'What up')
-  # end
+  scenario 'user can see button to make new post' do
+    visit('/posts/all')
+    click_button('New Peep')
+     expect(current_path).to eq('/posts/new')
+  end
 end
