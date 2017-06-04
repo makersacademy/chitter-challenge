@@ -17,4 +17,10 @@ feature 'User can sign up' do
     expect(page).to have_content('Password must be at least 8 characters long')
   end
 
+  scenario 'Registered emails are unique' do
+    sign_up
+    sign_up
+    expect(page). to have_content('Email is already taken')
+  end
+
 end
