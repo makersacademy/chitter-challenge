@@ -6,6 +6,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  get '/' do
+    redirect to '/messages'
+  end
+
   get '/messages' do
     @messages = Message.all.reverse
     erb :index
@@ -17,7 +21,6 @@ class Chitter < Sinatra::Base
 
   post '/messages' do
     message = Message.create(content: params[:content], time: Time.now)
-    message.save
     redirect '/messages'
   end
 
@@ -26,9 +29,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect to '/messages/new'
+    user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if user.valid?
+      user.save
+      session[:user_id] = user.id
+      redirect to '/messages/new'
+    else
+      user.errors.full_messages.join('<br>')
+    end
   end
 
   helpers do

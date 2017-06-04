@@ -17,5 +17,14 @@ def sign_up
   visit('/users/new')
   fill_in :email, with: 'cat@example.com'
   fill_in :password, with: 'h123'
+  fill_in :password_confirmation, with: 'h123'
+  click_button 'Sign up'
+end
+
+def sign_up_password_mismatch
+  visit('/users/new')
+  fill_in :email, with: 'cat@example.com'
+  fill_in :password, with: 'h123'
+  fill_in :password_confirmation, with: '345t'
   click_button 'Sign up'
 end
