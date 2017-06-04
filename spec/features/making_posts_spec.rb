@@ -1,7 +1,7 @@
 feature 'make peeps on Chitter' do
   scenario 'user can make a new peep' do
-     sign_up
-     expect { post_new_peep }.to change(Peep, :count).by 1
+    sign_up
+    expect { post_new_peep }.to change(Peep, :count).by 1
   end
 
   scenario 'new peep is loaded onto Chitter feed' do

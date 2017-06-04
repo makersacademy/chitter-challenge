@@ -1,4 +1,11 @@
 feature 'personal feed of user' do
+
+  scenario 'user can see all peeps when visiting home page' do
+    visit('/')
+    expect(current_path).to eq('/posts/all')
+    expect(page.status_code).to eq 200
+  end
+
   scenario 'user can see button to make new peep' do
     sign_up
     click_button('New Peep')
