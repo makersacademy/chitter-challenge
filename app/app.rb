@@ -57,4 +57,23 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
   end
+
+  get '/users/login' do
+    erb :'users/login'
+  end
+
+  post '/users/login' do
+    puts "The params are #{params}"
+    user = User.first(username: params[:username])
+    puts "The user was #{user}"
+
+    if user
+      session[:user_id] = user.id
+      redirect to '/peeps'
+    else
+      flash.now[:notice2] = "We do not have that username. Please signup first so we can log you in."
+      redirect to '/users/new'
+    end
+  end
+
 end
