@@ -19,6 +19,10 @@ feature 'User sign up' do
       expect { sign_up(email: nil) }.not_to change(User, :count)
   end
 
+  scenario "I can't sign up with an invalid email address" do
+    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+  end
+
   def sign_up(email: 'godzilla@tokyo.com',
               password: '12345678',
               password_confirmation: '12345678')

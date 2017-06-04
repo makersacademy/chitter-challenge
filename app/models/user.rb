@@ -16,7 +16,7 @@ class User
   # http://datamapper.org/docs/validations.html
   validates_confirmation_of :password
   validates_presence_of :email
-
+  validates_format_of :email, as: :email_address
   # this will store both the password and the salt
   # It's Text and not String because String holds
   # only 50 characters by default
