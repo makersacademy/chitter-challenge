@@ -1,4 +1,5 @@
 <ul>
+  <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
     <li><%= peep.content %></li>
   <% end %>
