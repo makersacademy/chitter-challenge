@@ -5,7 +5,6 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
-require './app/models/peep'
 require 'features/web_helper'
 
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
