@@ -10,4 +10,6 @@ class Peep
   property :body, Text
   property :user_id, Integer
   property :likes, Integer
+
+  validates_length_of :body, :max => 140
 end

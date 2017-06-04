@@ -13,7 +13,6 @@ class User
   property :email, String, :required => true, :unique => true, :format => :email_address
   property :password_digest, Text
 
-  validates_length_of       :body, :max => 140
   validates_presence_of     :password_confirmation
   validates_presence_of     :password
   validates_length_of       :password, :min => 6

@@ -23,22 +23,35 @@ class Chitter < Sinatra::Base
       end
     end
 
-    def peep_time(timestamp)
-      today = Time.now
-      peep_date = "#{timestamp.day}#{timestamp.month}#{timestamp.year}".to_i
-      todays_date = "#{today.day}#{today.month}#{today.year}".to_i
-      if peep_date == todays_date && today.strftime('%H').to_i != timestamp.strftime('%H').to_i
-        hours_elapsed = today.strftime('%H').to_i - timestamp.strftime('%H').to_i
-        "#{hours_elapsed}h"
-      elsif peep_date == todays_date && today.strftime('%H').to_i == timestamp.strftime('%H').to_i
-        minutes_elapsed = today.strftime('%M').to_i - timestamp.strftime('%M').to_i
-        "#{minutes_elapsed}m"
-      elsif peep_date == todays_date && today.strftime('%H').to_i == timestamp.strftime('%H').to_i && today.strftime('%M').to_i != timestamp.strftime('%M').to_i
-        seconds_elapsed = today.strftime('%S').to_i - timestamp.strftime('%S').to_i
-        "#{seconds_elapsed}s"
-      else
-        timestamp.strftime('%b %-d')
+    def same_day?(peep_datetime, current_datetime)
+      peep_date = peep_datetime.strftime('%-d%-m%Y').to_i
+      current_date = current_datetime.strftime('%-d%-m%Y').to_i
+      peep_date == current_date
+    end
+
+    def same_hour?(peep_datetime, current_datetime)
+      peep_hour = peep_datetime.strftime('%H').to_i
+      current_hour = current_datetime.strftime('%H').to_i
+      peep_hour == current_hour
+    end
+
+    def same_minute?(peep_datetime, current_datetime)
+      peep_minute = peep_datetime.strftime('%M').to_i
+      current_minute = current_datetime.strftime('%M').to_i
+      peep_minute == current_minute
+    end
+
+    def peep_datetime(peep_datetime, current_datetime = Time.now)
+      if same_day?(peep_datetime, current_datetime)
+        if same_hour?(peep_datetime, current_datetime)
+          if same_minute?(peep_datetime, current_datetime)
+            return "#{current_datetime.strftime('%S').to_i - peep_datetime.strftime('%S').to_i}s"
+          end
+          return "#{current_datetime.strftime('%M').to_i - peep_datetime.strftime('%M').to_i}m"
+        end
+        return "#{current_datetime.strftime('%H').to_i - peep_datetime.strftime('%H').to_i}h"
       end
+      return peep_datetime.strftime('%b %-d')
     end
 
   end
