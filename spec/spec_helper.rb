@@ -6,6 +6,7 @@ require 'database_cleaner'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'web_helpers'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

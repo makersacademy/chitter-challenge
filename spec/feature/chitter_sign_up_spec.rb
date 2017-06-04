@@ -5,7 +5,7 @@ feature 'User Sign Up' do
     fill_in 'name', with: 'Jenny'
     fill_in 'email', with: 'jenny@wem.com'
     fill_in 'password', with: '1234'
-    click_button('submit')
+    click_button('Submit')
     expect(page).to have_content "Hi Jenny! Welcome to Chitter!"
     expect(User.count).to eq 1
   end

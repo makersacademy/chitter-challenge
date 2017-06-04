@@ -1,3 +1,5 @@
+<h1><%="Hi #{User.current_user(session[:current_user_id]).name}! Welcome to Chitter!" %></h1>
+
 <ul>
   <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
