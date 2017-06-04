@@ -12,5 +12,6 @@ feature "Signing up for Chitter" do
     sign_up
     click_button("Log out")
     expect{ sign_up }.to change{ User.count }.by(0)
+    expect(page).to have_content("Sorry, we could not create an account for you")
   end
 end
