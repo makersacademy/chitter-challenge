@@ -1,5 +1,13 @@
-<form action='/authenticate_user' method='POST'>
-  <input type='text' name='username'>
-  <input type='password' name='password'>
-  <input type='submit' value='Log in'>
-</form>
+
+<% if current_user %>
+  <h2> Logged in as <%= current_user.username %>. </h2>
+  <form action='/peeps' method='GET'>
+    <input type='submit' value='View peeps'>
+  </form>
+<% else %>
+  <form action='/authentication' method='POST'>
+    <input type='text' name='username'>
+    <input type='password' name='password'>
+    <input type='submit' value='Log in'>
+  </form>
+<% end %>

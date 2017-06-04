@@ -1,0 +1,14 @@
+<% if current_user %>
+  <h2> Log in successful!  Click below to continue: </h2>
+  <form action='/peeps' method='GET'>
+    <input type='submit' value='Get Chittering!'>
+  </form>
+<% else %>
+  <h2> Username or password is incorrect.  Try again? </h2>
+  <form action='/log_in' method='GET'>
+    <input type='submit' value='Retry'>
+  </form>
+  <form action='/peeps' method='GET'>
+    <input type='submit' value='View peeps without logging in'>
+  </form>
+<% end %>

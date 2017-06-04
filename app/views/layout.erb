@@ -5,7 +5,14 @@
     </head>
 
     <body>
-      <h1> Welcome to Chitter! </h1>
+      <% if current_user %>
+        <h1> Welcome to Chitter, <%= current_user.username %>! </h1>
+        <form action='/log_out' method='POST'>
+          <input type='submit' value='Log out'>
+        </form>
+      <% else %>
+        <h1> Welcome to Chitter! </h1>
+      <% end %>
       <%= yield %>
     </body>
   </html>

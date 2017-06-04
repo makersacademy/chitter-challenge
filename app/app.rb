@@ -6,6 +6,16 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
   enable :sessions
 
+  helpers do
+    def current_user
+      @current_user ||= User.first(id: session[:user_id])
+    end
+  end
+
+  before(:each) do
+    current_user
+  end
+
   get '/' do
     erb(:index)
   end
@@ -15,11 +25,25 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_user' do
-    User.create(username: params[:username], password: params[:password])
+    user = User.create(username: params[:username], password: params[:password])
+    session[:user_id] = user.id
+    current_user
+    redirect('/peeps')
   end
 
   get '/log_in' do
     erb(:log_in)
+  end
+
+  post '/authentication' do
+    user = User.first(username: params[:username])
+    session[:user_id] = user.id if user.authenticate(params[:password])
+    current_user
+    redirect('/login_status')
+  end
+
+  get '/login_status' do
+    erb(:login_status)
   end
 
   get '/new_peep' do
@@ -34,6 +58,11 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @messages = Message.all
     erb(:peeps)
+  end
+
+  post '/log_out' do
+    session[:user_id] = nil
+    redirect '/'
   end
 
 end
