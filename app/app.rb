@@ -25,10 +25,16 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   post '/peeps' do
-    peep = Peep.new(name:       params[:name],
-                    username:   params[:username],
-                    message:    params[:message])
+    peep = Peep.new(name:             current_user.name,
+                    username:         current_user.username,
+                    message:          params[:message])
     peep.save
     redirect to '/peeps'
   end
@@ -52,20 +58,13 @@ class Chitter < Sinatra::Base
     end
   end
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
-  end
 
   get '/users/login' do
     erb :'users/login'
   end
 
   post '/users/login' do
-    puts "The params are #{params}"
     user = User.first(username: params[:username])
-    puts "The user was #{user}"
 
     if user
       session[:user_id] = user.id
