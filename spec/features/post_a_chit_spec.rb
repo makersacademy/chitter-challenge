@@ -1,4 +1,4 @@
-feature 'post a chit' do
+feature 'Post a chit' do
   scenario 'I want to make a new chit and post it' do
     text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     
