@@ -7,11 +7,3 @@ feature 'Adding chits' do
     expect(page).to have_content "Content: Today is great Time: #{Time.new}"
   end
 end
-
-
-def signup
-  visit '/signup'
-  fill_in 'email', with: 'fake@fake.com'
-  fill_in 'password', with: 'password'
-  click_button 'submit'
-end
