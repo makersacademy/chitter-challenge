@@ -1,19 +1,19 @@
 <form action='/create_user' method='POST'>
   <label for='username'>
     Choose a username:
-    <input type='text' name='username'>
+    <input type='text' name='username' required>
   </label>
   <label for='password'>
     Choose a password:
-    <input type='password' name='password'>
+    <input type='password' name='password' required>
   </label>
   <label for='name'>
     Enter your name (irl):
-    <input type='text' name='name'>
+    <input type='text' name='name' required>
   </label>
   <label for='email'>
     Enter your email address:
-    <input type='text' name='email'>
+    <input type='text' name='email' required>
   </label>
   <input type='submit' value='Submit'>
 </form>
