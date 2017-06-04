@@ -1,7 +1,7 @@
 <h1> Welcome to Chitter </h1>
 
 <ul id='homepage'>
-  <% @homepage.each do |homepage| %>
+  <% @homepage.reverse.each do |homepage| %>
     <li>
       Message: <%= homepage.message %>
     </li>

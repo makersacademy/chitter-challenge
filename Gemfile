@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'rake'
   gem 'rubocop'
+  gem 'orderly'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

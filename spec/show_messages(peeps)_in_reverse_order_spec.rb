@@ -1,6 +1,6 @@
 feature 'show peeps in reverse order' do
   scenario 'I want to see all peeps posted in reverse choronological order' do
-    Homepage.create(message: "message")
+    # Homepage.create(message: "message")
     visit('/homepage')
     click_button 'Add new message'
     fill_in('message', with: 'hello')
@@ -9,9 +9,9 @@ feature 'show peeps in reverse order' do
     fill_in('message', with: 'hello2')
     click_button 'Submit Message'
 
-    # within 'ul#homepage' do
-    expect(Homepage.first).to include('hello2')
-    # end
+    expect("hello2").to appear_before("hello")
+    # expect(Homepage.first).to include('hello2')
+
   end
 end
 
