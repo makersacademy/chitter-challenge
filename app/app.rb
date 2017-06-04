@@ -14,6 +14,14 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def parse_hashtags(peep_body)
+      body = peep_body.delete(',.?!;:')
+      array = body.split(' ')
+      array.each do |word|
+        Hashtag.create(tag: word) if word[0] == '#'
+      end
+    end
   end
 
   get '/' do
@@ -27,6 +35,7 @@ class Chitter < Sinatra::Base
      likes: 0,
      time: Time.now,
      user_id: session[:user_id])
+    parse_hashtags(params[:body])
     redirect '/'
   end
 

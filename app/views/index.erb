@@ -42,12 +42,12 @@
   <div id="chitter_feed">
     <h3>Chitter Feed...</h3>
     <ul id='links'>
-      <% @peeps.each do |peep| %>
+      <% @peeps.reverse.each do |peep| %>
         <% user = User.get(peep.user_id) %>
         <li>
           <%= "#{user.first_name} #{user.last_name} (@#{user.username}) - " %>
           "<%= peep.body %>"
-          <%= peep.time.strftime('%I:%M%p - %m/%d/%y') %>
+          <%= peep.time.strftime('%I:%M%p - %d/%m/%y') %>
         </li><br>
       <% end %>
     </ul>
