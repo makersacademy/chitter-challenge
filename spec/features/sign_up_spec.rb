@@ -8,4 +8,10 @@ feature 'I can post messages on Chitter as me' do
     expect { sign_up(user_email: nil) }.not_to change(User, :count)
     expect(page).to have_content 'Please provide a valid email address'
   end
+
+  scenario 'My messages show up as having my name' do
+    sign_up
+    post_new_message
+    expect(page).to have_content 'Posted by Rupert'
+  end
 end
