@@ -1,6 +1,29 @@
 body {
   min-height: 2000px;
-  padding-top: 70px;
+  padding-top: 100px;
+}
+
+.navbar-default {
+  background-color: #fff;
+  color: #fff;
+}
+
+.navbar-header {
+  height: 60px;
+}
+
+.navbar-logo {
+  width: 140px;
+}
+
+.navbar-default .navbar-nav > li > a {
+
+  color: #566270;
+}
+
+.navbar-nav {
+  margin: 20px 0 0 300px;
+  font-size: 20px;
 }
 
 .btn-logout {
@@ -13,7 +36,7 @@ body {
 }
 
 .navbar {
-  height: 40px;
+  height: 85px;
 }
 
 .user-avatar {
