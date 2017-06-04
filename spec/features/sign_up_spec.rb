@@ -1,4 +1,4 @@
-feature 'I can post messages on Chitter as me' do
+feature 'User can post messages on Chitter as themselves' do
   scenario 'I can sign in with a username' do
     sign_up
     expect(page).to have_content 'Welcome to Chitter, Rupert'

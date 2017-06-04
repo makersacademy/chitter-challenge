@@ -1,4 +1,4 @@
-feature 'user can post a messages (peep) to chitter' do
+feature 'User can post a messages (peep) to chitter' do
   scenario 'user visits a message board' do
     visit '/'
     expect(page).to have_content 'Welcome to Chitter'
