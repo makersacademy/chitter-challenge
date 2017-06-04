@@ -4,6 +4,8 @@ require 'sinatra/base'
 require_relative 'models/homepage' #need our link model
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super sectret'
 
   get '/homepage' do
     @homepage = Homepage.all
@@ -18,4 +20,29 @@ class Chitter < Sinatra::Base
      Homepage.create(message: params[:message])
     redirect '/homepage'
   end
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    redirect '/users/users'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    User.create(email: params[:email], password: params[:password])
+    session[:user_id] = User.id
+    redirect to('/homepage')
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
 end

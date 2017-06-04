@@ -8,9 +8,8 @@ feature 'post peep on chitter' do
 
     within 'ul#homepage' do
     expect(page).to have_content('hello')
-    # end
+    end
   end
-end
 end
 
 # As a Maker
