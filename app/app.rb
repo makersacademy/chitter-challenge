@@ -6,10 +6,10 @@ require_relative 'datamapper_config'
 
 class Chitter < Sinatra::Base
 
+  use Rack::MethodOverride
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
-
-  register Sinatra::Flash
 
   get '/' do
     erb :index
@@ -64,6 +64,12 @@ class Chitter < Sinatra::Base
       flash.now[:log_in_notice] = 'Your email or password is incorrect'
       erb :'sessions/new_session'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:log_out_notice] = 'Goodbye!'
+    redirect to '/messages'
   end
 
   helpers do
