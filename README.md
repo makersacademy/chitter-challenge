@@ -27,4 +27,4 @@ My approach was to draw out some ideas on database structure and then spend a lo
 ### Additional Things
 I haven't had a chance to properly integrate encryption yet and that's something I'm hoping to get sorted out during refactoring. It's also ugly as hell due to a total absence of CSS- time was quite a limiting factor here so I tried to go for functionality over looks but I would really like to work on that too.
 
-There is currently a failing feature test for displaying user names on peeps which I'm having a lot of trouble with.
+~~There is currently a failing feature test for displaying user names on peeps which I'm having a lot of trouble with.~~ Got it working yeaaahhhhhhh

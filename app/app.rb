@@ -8,6 +8,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :sessions_secret, 'shhh'
 
+  get '/' do
+    redirect '/sign_up'
+  end
+
   get '/add_peep' do
     erb :add_peep
   end
