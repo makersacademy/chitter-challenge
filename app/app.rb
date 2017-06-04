@@ -6,6 +6,7 @@ require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   enable :sessions
 
@@ -48,5 +49,10 @@ class Chitter < Sinatra::Base
   get "/403_error" do
     status 403
     erb :error_403
+  end
+
+  delete "/session" do
+    session[:current_user_id] = nil
+    redirect to '/'
   end
 end

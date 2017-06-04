@@ -1,5 +1,9 @@
 <% unless @current_user.nil? %>
   Welcome <%= @current_user.name %>!<br>
+  <form action = "/session" method = "POST">
+    <input type='hidden' name='_method' value='delete'>
+    <input type = "submit" value = "sign out"><br>
+  </form>
   <form action = "/new_peep" method = "GET">
     <input type = "submit" value = "Make a Peep"><br>
   </form>
