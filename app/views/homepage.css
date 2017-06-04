@@ -1,0 +1,31 @@
+* {
+    font-family: Georgia;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Covered By Your Grace', sans-serif;
+    color: FireBrick;
+    font-size: 100px;
+    line-height: 76px;
+    position: relative;
+    top: 50
+}
+
+h3, h4 {
+    color: #f1e8e8;
+}
+
+.background {
+  background-image: url(https://img0.etsystatic.com/000/0/5115869/il_570xN.345612562.jpg);
+  height: 800px;
+  background-position: center center;
+  opacity: 0.8;
+  margin: ;
+
+.background.headonebox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+}

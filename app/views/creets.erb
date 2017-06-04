@@ -1,12 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <link href='/creets.css', type='text/css', rel='stylesheet'>
+</head>
+
 <% if current_user %>
 	<h2> Hi <%=current_user.username %>! </h2>
 <% end %>
 
 <div>
-	Creets: </br>
+	<h3> Creets: </h3> </br>
 	<% @messages.reverse.each do |message| %>
-		<%= message.user.username %> posted at <%= message.time %>:</br>
-		<%= message.text %> </br> 
+		<p> <%= message.user.username %> posted at <%= message.time %>:</br>
+		<%= message.text %> </br> </p> 
 	<% end %>
 </div>
 
