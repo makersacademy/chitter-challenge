@@ -3,6 +3,6 @@ feature 'Logout of Chitter' do
     sign_up('@codey_mc_code_face')
     login('@codey_mc_code_face')
     logout('@codey_mc_code_face')
-    expect(page).to have_content('Welcome')
+    expect(page).to have_content('Please login to Chitter to start Peeping!')
   end
 end

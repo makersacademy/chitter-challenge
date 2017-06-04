@@ -81,6 +81,7 @@ class Chitter < Sinatra::Base
 
   post '/users/logout' do
     params[:logout]
+    session.clear
     redirect to '/users/login'
     erb :'users/logout'
   end
