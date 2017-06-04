@@ -8,9 +8,8 @@
   <% @peeps.reverse! %>
   <% @peeps.each do |peep| %>
     <li><%= peep.content %><br>
-    <%="Peeped at: #{peep.created_at}"%></li>
+    <%="#{peep.creator} peeped this at: #{peep.created_at}"%></li>
     <br>
   <% end %>
 
-  <%= p User.all %>
 </ul>
