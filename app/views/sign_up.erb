@@ -1,0 +1,27 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Oh Dear, Looks like that didn't go as planned
+  <ul id='errors'>
+    <%flash[:errors].each do |error|%>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<form action="/create_user" method="post" id="sign_up_form">
+      Name
+    <input name='name' type='text'>
+      Email
+     <input name='email' type='email'>
+      User Name
+    <input name='username' type='text'>
+      Password
+    <input name='password' type='password'>
+    Password Confirmation
+    <input name='password_confirmation' type='password'>
+</form>
+
+<button type="submit" form="sign_up_form" value="Create Account"> Create Account </button>
+
+<h2> Already have an account? Click here to login. </h2>
+<form class="form-inline my-2 my-sm-0" method='get' action='/login_form'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="login">Login</button>
+</form>

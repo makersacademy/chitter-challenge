@@ -1,0 +1,25 @@
+<% if current_user %>
+  <h1> Welcome to Chitter <%= current_user.username %> </h1>
+<% end %>
+<% if flash[:notice] %>
+  <div id = 'notice'><%= flash[:notice] %></div>
+<% end %>
+<form class="form-inline my-2 my-sm-0" method='get' action='/peep'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Send a Peep</button>
+</form>
+
+<form class="form-inline my-2 my-sm-0" method='post' action='/signout'>
+  <input type='hidden' name='_method' value='delete'>
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Out</button>
+</form>
+
+
+<h1> Peeps </h1>
+
+<% @peeps.reverse.each do |peep| %>
+<%= peep.name %> </li> @<%= peep.username %> Said
+ <h3> <%= peep.peep %> </h3>
+ On <%= peep.time.strftime("%A, %b %d %r")%>
+ <br></br>
+ <br></br>
+<% end %>
