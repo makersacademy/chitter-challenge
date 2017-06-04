@@ -8,7 +8,7 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.posted_at.strftime("%d %b %Y %H:%M") %> - <%= peep.content %>
+      <%= peep.posted_at.strftime("%d %b %Y %H:%M") %> - <%= peep.content %> - <%= User.get(peep.user_id).name %>
     </li>
   <% end %>
 </ul>

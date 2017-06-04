@@ -6,9 +6,20 @@ feature 'personal feed of user' do
   end
 
   scenario 'posted peeps are time-stamped' do
+    sign_up
     post_new_peep
     within 'ul#peeps' do
       expect(page).to have_content "#{Time.now.strftime("%d %b %Y %H:%M")} - Hello world!"
     end
   end
+
+  scenario 'posted peeps are user-stamped' do
+    sign_up
+    post_new_peep
+    within 'ul#peeps' do
+      expect(page).to have_content "Hello world! - Kavita"
+    end
+  end
+
+
 end
