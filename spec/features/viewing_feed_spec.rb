@@ -21,14 +21,18 @@ feature 'personal feed of user' do
     end
   end
 
-  # scenario 'user can log in from page' do
-  #   visit('/posts/all')
-  #   click_button('Login')
-  #   expect(current_path).to eq('/sessions/new')
-  # end
+  scenario 'user can log in from page' do
+    visit('/posts/all')
+    click_button('Login')
+    expect(current_path).to eq('/sessions/new')
+    expect(page.status_code).to eq 200
+  end
 
   scenario 'user can sign up from page' do
     visit('/posts/all')
+    click_button('Sign up')
+    expect(current_path).to eq('/users/new')
+    expect(page.status_code).to eq 200
   end
 
 end
