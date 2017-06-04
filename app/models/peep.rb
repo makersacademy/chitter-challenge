@@ -2,7 +2,7 @@
 class Peep
 
   include DataMapper::Resource
-  belongs_to :user, required: false
+  belongs_to :user
 
   property :id, Serial
   property :message, Text, required: true

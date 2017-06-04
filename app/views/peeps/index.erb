@@ -6,7 +6,7 @@
 <form action='/users/new'>
   <button type='submit' value='Register'>Sign up</button>
 </form>
-<form action='/session'>
+<form action='/session/new'>
   <button type='submit' value='Sign in'>Sign in</button>
 </form>
 </div>
@@ -14,7 +14,7 @@
 <br/><br/><br/><br/>
 <form action='/peeps' method='post'>
   <h5>What is going around?</h5>
-  <textarea name="message" placeholder="Type herein your peep message"></textarea>
+  <textarea name='message' placeholder="Type herein your peep message"></textarea>
   <br/><br/>
   <button type='submit' id='Add peep'>Add your peep</button>
 </form>
@@ -22,11 +22,12 @@
 <br/>
 <section>
 <h2> Latest Peeps </h2>
+<% if @peeps %>
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
   <article>
     <li>
-      <strong>User Annonymus
+      <strong>User <%= User.get(peep.user_id).username %>
         on <%= peep.created_at.strftime(TIME_FORMAT) %></strong>
         <br/>
       <span class='rwd-line'>  <%= peep.message %> </span>
@@ -35,4 +36,5 @@
   </article><br/>
   <% end %>
 </ul>
+<% end %>
 </section>
