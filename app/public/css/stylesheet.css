@@ -49,7 +49,7 @@ a {
     border-radius: 100%;
     margin-right: 10px;
     background-color: dimgray;
-    border: transparent 1px solid;
+    border: ghostwhite 2px solid;
 }
 
 ul {
@@ -115,7 +115,7 @@ body {
     border-radius: 100%;
     margin: 0;
     background-color: dimgray;
-    border: transparent 1px solid;
+    border: ghostwhite 2px solid;
 }
 
 .greeting {

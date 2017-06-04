@@ -7,5 +7,4 @@ class Hashtag
 
   has n, :peeps, :through => Resource
 
-  validates_uniqueness_of :tag
 end
