@@ -68,7 +68,6 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:log_out_notice] = 'Goodbye!'
     redirect to '/messages'
   end
 
