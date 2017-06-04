@@ -11,7 +11,8 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to('/')
     else
-      erb :'/peeps/index'
+      p "AUTH ERROR"
+      redirect to('/')
     end
   end
 
