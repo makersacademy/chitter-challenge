@@ -1,9 +1,25 @@
 html {
-    background-color: #303E4E;
-    font-family: "Source Code Pro", monospace;
-    color: white;
+    background-color: #F5F8FA;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    color: black;
 }
 
 a {
-    color: white;
+    color: black;
+}
+
+#top_bar {
+    padding: 15px;
+    border-bottom: black solid 1px;
+    display: inline-block;
+    width: 100vw;
+}
+
+.list_item {
+    display: inline;
+}
+
+#chitter_feed {
+    padding: 15px;
 }

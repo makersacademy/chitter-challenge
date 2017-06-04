@@ -10,41 +10,33 @@
   </head>
 
   <body>
+  <div id="top_bar">
   <% if current_user %>
-      <p>Hi, <%= current_user.first_name %></p>
-      <a href="/logout">Logout</a>
-      <br>
-      <a href="/peep">Peep!</a>
+    <ul>
+      <li class="list_item">Hi, <%= current_user.first_name %></li>
+      <li class="list_item"><a href="/logout">Logout</a></li>
+      <li class="list_item"><a href="/peep">Peep!</a></li>
+    </ul>
   <% else %>
-    <div id="login">
-
       <form action='/login' method='post'>
-        <fieldset>
-          <legend>Login</legend>
-          <p>
             <label for='username'>
               Username: <input type='text' name='username' placeholder='Username'>
             </label>
-          </p>
-          <p>
             <label for='password'>
               Password: <input type='password' name='password' placeholder='Password'>
             </label>
-          </p>
           <input type="submit" value="Login">
-        </fieldset>
       </form>
-
-      <a href="/sign_up">Sign up for Chitter</a>
-    </div>
   <% end %>
+  </div>
+
 
   <div id="chitter_feed">
     <h3>Chitter Feed...</h3>
     <ul id='links'>
       <% @peeps.reverse.each do |peep| %>
         <% user = User.get(peep.user_id) %>
-        <li>
+        <li class="peep">
           <%= "#{user.first_name} #{user.last_name} (@#{user.username}) - " %>
           "<%= peep.body %>"
           <%= peep_time(peep.time) %>
