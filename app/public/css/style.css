@@ -8,6 +8,10 @@ body {
   width: 40px;
 }
 
+img.avatar-form  {
+  width: 60px;
+}
+
 .username {
   float: left;
   padding: 10px;
