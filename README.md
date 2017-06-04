@@ -118,8 +118,8 @@ Test coverage
 Images from Chitter
 ----
 ![Imgur](http://i.imgur.com/wGdCZNT.png)
-![Imgur](http://i.imgur.com/NBGEytc.png)
 ![Imgur](http://i.imgur.com/bPlI0Bs.png)
+![Imgur](http://i.imgur.com/NBGEytc.png)
 ![Imgur](http://i.imgur.com/bFEy1c0.png)
 
 My Approach
@@ -152,4 +152,4 @@ Future Improvements
 - **Improve Sessions 'Secret session'** - I did some research into using a SECRET_SESSION ENV instead of the string currently used in the app, see the TODO comments in the app. I would like to improve the security of the password storage.
 - **Advanced stories** - In the future I would like to complete the final Advanced user story.
 - **Improve CSS** - Given more time I would like to make Chitter a little more visually appealing.
-- **Deploy to Heroku** - As a longer term goal I would like to deploy this to Heroku, so it can be run publicly. 
+- **Deploy to Heroku** - As a longer term goal I would like to deploy this to Heroku, so it can be run publicly.
