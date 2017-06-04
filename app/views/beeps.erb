@@ -5,7 +5,7 @@
 <% if @beeps %>
   <ul>
     <% @beeps.each do |beep| %>
-      <li> <%= beep.body %> </li>
+      <li> <%= beep.body %> Posted: <%= Time.at(beep.created_at.to_i) %></li>
     <% end %>
   </ul>
 <% end %>

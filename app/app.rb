@@ -11,7 +11,7 @@ class Chitter < Sinatra::Base
   get '/beeps' do
     if Beep.count > 0
       @beeps = Beep.all
-      @beeps.sort_by{|beep| beep.created_at}
+      @beeps.sort_by { |beep| beep.created_at }
       @beeps.reverse!
     end
     erb :beeps
