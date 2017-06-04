@@ -4,7 +4,6 @@ feature 'peeps creation' do
     sign_up(email: 'mail@marioribeiro.com',
             password: 'mypassword',
             username: 'marioribeiro')
-    visit '/peeps/new'
     fill_in 'text', with: 'just setting up my chttr'
     click_button 'Peep'
     expect(page).to have_content 'just setting up my chttr'
