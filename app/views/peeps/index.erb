@@ -1,32 +1,38 @@
 
-
 <h1>Welcome to Chitter!!</h1>
 <br/><br/>
 
+<div id='user-logging'>
 <form action='/users/new'>
- <input type='submit' value='Register'>
+  <button type='submit' value='Register'>Sign up</button>
 </form>
+<form action='/session'>
+  <button type='submit' value='Sign in'>Sign in</button>
+</form>
+</div>
 
 <br/><br/><br/><br/>
 <form action='/peeps' method='post'>
   <h5>What is going around?</h5>
   <textarea name="message" placeholder="Type herein your peep message"></textarea>
   <br/><br/>
-  <input type='submit' value='Add peep'>
+  <button type='submit' id='Add peep'>Add your peep</button>
 </form>
 
 <br/>
-<h2>     Latest Peeps </h2>
+<section>
+<h2> Latest Peeps </h2>
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
-  <div>
-  <li>
-    <strong>Peep_ID: <%= peep.id %>
-    on <%= peep.time.strftime(TIME_FORMAT) %></strong>
-    <br/>
-    <%= peep.message %>
-    <br/>
-  </li>
-</div><br/>
+  <article>
+    <li>
+      <strong>User Annonymus
+        on <%= peep.created_at.strftime(TIME_FORMAT) %></strong>
+        <br/>
+      <span class='rwd-line'>  <%= peep.message %> </span>
+        <br/>
+    </li>
+  </article><br/>
   <% end %>
 </ul>
+</section>

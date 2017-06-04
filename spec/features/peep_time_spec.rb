@@ -6,7 +6,7 @@ feature 'Add time to peeps: ' do
   scenario 'allows to show the time a peep was created' do
     visit('/peeps')
     fill_in('message', with: 'I am having great fun with Ruby today!')
-    click_button('Add peep')
+    click_button("Add peep")
     fill_in('message', with: 'This is a second message!')
     click_button('Add peep')
     fill_in('message', with: 'This is the third message!')

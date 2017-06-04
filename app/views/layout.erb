@@ -3,46 +3,56 @@
   <head>
 
   <style>
-  
-    title {
+
+    h1 {
       width:100%;
       text-align: center;
       color: darkblue;
     }
     h2 {
-      color: darkorange;
+      color: purple;
     }
     body {
-      background: lightcyan;
+      background: lightblue;
     }
     div {
       display: flex;
     }
-    input[type=submit] {
-      background: lightgreen;
+    .rwd-line {
+      display: block;;
     }
-    input[type=submit], input[type=text] {
-      padding: 5px;
+    article {
+      background-color: cornsilk;
+      width: 600px;
+    }
+    button {
+      background: lightcyan;
+      border-color: darkgreen;
+      border-radius: 10px;
+      border-style: double;
+      padding: 10px;
       font-size: 12px;
-      border: 0;
-      margin: 0;
+      color: darkblue;
+      margin-left: 10px;
     }
     ul {
       list-style-type: none;
     }
     textarea {
-      width:400px;
-      height:70px;
+      width:500px;
+      height:60px;
       font-size: 15px;
+      border-color: darkgreen;
+      margin-left: 30px;
     }
   </style>
 
-    <title>Welcome to Chitter!!</title>
+    <title>Chitter</title>
   </head>
 
   <body>
     <% if current_user %>
-      Hello, <%= current_user.username %>
+      <strong>Hello, <%= current_user.username %></strong>
     <% end %>
     <%= yield %>
   </body>

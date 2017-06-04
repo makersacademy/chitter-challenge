@@ -1,7 +1,7 @@
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
-PEEPS_SELECTOR = "Peep_ID"
+PEEPS_SELECTOR = "User"
 
 feature 'List peeps in reverse order: ' do
   scenario 'latest added peep is listed first' do
@@ -13,7 +13,7 @@ feature 'List peeps in reverse order: ' do
     fill_in('message', with: 'This is the third message!')
     click_button('Add peep')
     expect(current_path).to eq '/peeps'
-    
+
     peep = find('ul').text.split(PEEPS_SELECTOR)
     within 'ul#peeps' do
       expect(peep[1]).to include 'This is the third message!'
