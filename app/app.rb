@@ -22,6 +22,22 @@ class Chitter < Sinatra::Base
         Hashtag.create(tag: word) if word[0] == '#'
       end
     end
+
+    def peep_time(timestamp)
+      today = Time.now
+      peep_date = "#{timestamp.day}#{timestamp.month}#{timestamp.year}".to_i
+      todays_date = "#{today.day}#{today.month}#{today.year}".to_i
+      if peep_date == todays_date && today.strftime('%H').to_i != timestamp.strftime('%H').to_i
+        hours_elapsed = today.strftime('%H').to_i - timestamp.strftime('%H').to_i
+        "#{hours_elapsed}h"
+      elsif peep_date == todays_date && today.strftime('%H').to_i == timestamp.strftime('%H').to_i
+        minutes_elapsed = today.strftime('%M').to_i - timestamp.strftime('%M').to_i
+        "#{minutes_elapsed}m"
+      else
+        timestamp.strftime('%b %-d')
+      end
+    end
+
   end
 
   get '/' do
