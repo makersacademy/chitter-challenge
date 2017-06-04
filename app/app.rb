@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
       # if it's not valid,
       # we'll render the sign up form again
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
   end
