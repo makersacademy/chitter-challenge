@@ -11,7 +11,7 @@ class User
   property :email, String, :unique => true
   property :password_digest, Text
 
-  validates_presence_of :email
+  validates_format_of :email, as: :email_address
   validates_presence_of :password_confirmation
   validates_presence_of :password
   validates_confirmation_of :password

@@ -13,9 +13,10 @@ def post_multiple_message
   click_button 'Send message'
 end
 
-def sign_up(password = 'h1232323', password_confirmation = 'h1232323')
+def sign_up(email: 'cat@example.com', password: 'h1232323', password_confirmation: 'h1232323')
+puts "email is #{email}"
   visit('/users/new')
-  fill_in :email, with: 'cat@example.com'
+  fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
