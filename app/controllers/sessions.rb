@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    redirect to '/links'
+    redirect to '/peeps'
   end
   
 end

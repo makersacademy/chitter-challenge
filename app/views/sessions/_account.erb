@@ -1,0 +1,9 @@
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle dropdown-avatar" src="/uploads/<%= User.get(session[:user_id]).avatar %>" alt="">Account <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Profile</a></li>
+    <li><a href="/users/account">Settings</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Logout</a></li>
+  </ul>
+</li>

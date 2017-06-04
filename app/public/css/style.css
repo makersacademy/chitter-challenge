@@ -3,9 +3,18 @@ body {
   padding-top: 70px;
 }
 
+.navbar {
+  height: 40px;
+}
+
 .user-avatar {
   float: left;
   width: 40px;
+}
+
+.dropdown-avatar {
+  width: 25px;
+  margin-right: 5px;
 }
 
 img.avatar-form  {
