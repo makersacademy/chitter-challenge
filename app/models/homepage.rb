@@ -9,6 +9,6 @@ class Homepage #class corresponds to a table in the database
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_development") #setup connection with database
+DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}") #setup connection with database
 DataMapper.finalize #checks everything is ok
 DataMapper.auto_upgrade! #builds new columns and table we added
