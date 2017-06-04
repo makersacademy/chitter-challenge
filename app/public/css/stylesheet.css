@@ -7,6 +7,7 @@ html {
 
 a {
     color: black;
+    text-decoration: none;
 }
 
 #top_bar {
@@ -163,4 +164,17 @@ body {
 
 .dropdown:hover .dropbtn {
     background-color: transparent;
+}
+
+.heart_image {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
+
+.likes_div {
+    font-size: 17px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: #C82606;
 }
