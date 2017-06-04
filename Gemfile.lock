@@ -168,6 +168,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   rack
   rake
   rspec
@@ -179,7 +180,7 @@ DEPENDENCIES
   sinatra-flash
 
 RUBY VERSION
-   ruby 2.4.0p0
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.0
+   1.15.1

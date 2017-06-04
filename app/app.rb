@@ -15,13 +15,11 @@ class Chitter < Sinatra::Base
 
   get ('/peeps/index') do
     @peeps = Peep.all
-    p @peeps
     erb :'peeps/index'
   end
 
   post ('/peeps') do
-    peep = Peep.new(peep: params[:peep])
-    p peep
+    peep = Peep.new(peep: params[:peep], created_at: DateTime.now.to_s)
     peep.save
     redirect ('/peeps/index')
     erb :'peeps/index'
