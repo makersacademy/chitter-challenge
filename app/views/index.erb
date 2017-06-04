@@ -28,18 +28,20 @@
               </td>
   <% else %>
       <form action='/login' method='post'>
-            <label for='username'>
-              <input class="text_input" type='text' name='username' placeholder='Username'>
-            </label>
-            <label for='password'>
-              <input class="text_input" type='password' name='password' placeholder='Password'>
-            </label>
-          <input type="submit" value="Login" class="submit_button">
+          <label for='username'>
+            <input class="text_input" type='text' name='username' placeholder='Username'>
+          </label>
+          <label for='password'>
+            <input class="text_input" type='password' name='password' placeholder='Password'>
+          </label>
+        <input type="submit" value="Login" class="submit_button">
       </form>
-              </td>
-              <td id="right_side">
-        <button type="submit" formaction="/sign_up" formmethod="get">Sign Up</button>
-              </td>
+        </td>
+        <td id="right_side">
+          <form action="/sign_up" method="get">
+            <input type="submit" value="Sign Up" id="sign_up_button">
+          </form>
+        </td>
   <% end %>
       </tr>
     </table>
