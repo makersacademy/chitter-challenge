@@ -12,3 +12,10 @@ def post_multiple_message
   fill_in 'content', with: 'second message'
   click_button 'Send message'
 end
+
+def sign_up
+  visit('/users/new')
+  fill_in :email, with: 'cat@example.com'
+  fill_in :password, with: 'h123'
+  click_button 'Sign up'
+end
