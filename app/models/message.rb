@@ -6,5 +6,10 @@ class Message
 	property :time, String
 
 	belongs_to :user
+
+	def self.set_time
+		@time = Time.now.strftime("%H:%M:%S").to_s
+	end	
+
 end
 

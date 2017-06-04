@@ -16,4 +16,6 @@ class User
 		@password = password
 		self.password_hash = BCrypt::Password.create(password)
 	end
+
 end
+
