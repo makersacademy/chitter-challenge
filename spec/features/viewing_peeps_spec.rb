@@ -5,7 +5,7 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Charlotte Fereday')
   end
   # TODO not 100% convinced this is correct
-  scenario 'users can see peeps in reverse chronological order on Chitter' do
+  xscenario 'users can see peeps in reverse chronological order on Chitter' do
     signup_and_peep('Chazn', 'Charlotte Fereday', 'foo@bar.com', 'Hey- am peeping')
     signup_and_peep('Felipe', 'Felipe Sere', 'cool@bar.com', 'Peeping away!')
     signup_and_peep('Christoph', 'Christoph Gockel', 'yeh@bar.com', 'Still peeping!')
