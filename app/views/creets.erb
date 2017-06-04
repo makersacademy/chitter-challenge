@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <link href='/creets.css', type='text/css', rel='stylesheet'>
+</head>
+
+<% if current_user %>
+	<h2> Hi <%=current_user.username %>! </h2>
+<% end %>
+
+<div>
+	<h3> Creets: </h3> </br>
+	<% @messages.reverse.each do |message| %>
+		<p> <%= message.user.username %> posted at <%= message.time %>:</br>
+		<%= message.text %> </br> </p> 
+	<% end %>
+</div>
+
+<div>
+Want to critter your own message?
+<form action='/messages', method='post'>
+	Message: <input type='text', name='message'>
+	<input type='submit', value='Add Creet'>
+</form>
+</div>
+
+<div>
+	<form action="/signout", method="post">
+		<input type='hidden', name='_method', value='DELETE'>
+		<input type='submit', value='Sign out'>
+	</form>
+</div>
+
+<% if flash[:signout] %>
+	<%= flash[:signout] %>
+<% end %>
