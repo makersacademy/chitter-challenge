@@ -4,12 +4,10 @@ feature 'make peeps on Chitter' do
   end
 
   scenario 'new peep is loaded onto Chitter feed' do
-    visit('/posts/new')
-     fill_in('new_peep', :with => 'Hello world!')
-     click_button('PEEP')
-     expect(current_path).to eq('/posts/all')
-     within 'ul#peeps' do
-       expect(page).to have_content 'Hello world!'
+    post_new_peep
+    expect(current_path).to eq('/posts/all')
+    within 'ul#peeps' do
+      expect(page).to have_content 'Hello world!'
     end
   end
 end

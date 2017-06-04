@@ -1,7 +1,7 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.content %>
+      <%= peep.posted_at.strftime("%d %b %Y %H:%M") %> - <%= peep.content %>
     </li>
   <% end %>
 </ul>
