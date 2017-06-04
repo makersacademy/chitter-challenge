@@ -23,7 +23,7 @@ feature 'User can sign up' do
     expect(page).to have_content('Email is already taken')
   end
 
-  scenario 'The email address should not be blank' do
+  scenario 'The email format should be valid' do
     sign_up(email:'wnfwlk')
     expect(page).to have_content('Email has an invalid format')
   end

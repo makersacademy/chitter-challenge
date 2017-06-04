@@ -1,4 +1,10 @@
 <h1> Welcome to Chitter </h1>
+
+<% if current_user %>
+<h2>Welcome, <%= current_user.email %></h2>
+<% end %>
+
+current user is: <%= current_user %>
 <h2> New to Chitter? </h2>
 <h3> Sign up <a href="/users/new">here</a> to send messages </h3>
 <h2> Messages </h2>

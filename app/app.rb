@@ -28,7 +28,7 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users' do
+  post '/users/new' do
     user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if user.valid?
       user.save
@@ -36,6 +36,20 @@ class Chitter < Sinatra::Base
       redirect to '/messages/new'
     else
       user.errors.full_messages.join('<br>')
+    end
+  end
+
+  get '/users/signin' do
+    erb :'users/signin'
+  end
+
+  post '/users/signin' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/messages'
+    else
+      'Invalid username/password'
     end
   end
 

@@ -22,4 +22,22 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(email, password)
+    result = User.first(:email => email)
+    if result
+      password_obj = BCrypt::Password.new(result.password_digest)
+      return result if password_obj == password
+    end
+  end
+
+# password = '123hui'
+# encrypted_password = 'lskdnflksdnflaksndflksandflksn:dsjflsknklfd'
+#
+# password == encrypted_password? false
+#
+# password_object = Password.new(encrypted_password)
+# password_object == password
+#     > password_object == Password.new(password, password_object.salt)
+
+
 end

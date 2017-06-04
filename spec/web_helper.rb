@@ -14,10 +14,16 @@ def post_multiple_message
 end
 
 def sign_up(email: 'cat@example.com', password: 'h1232323', password_confirmation: 'h1232323')
-puts "email is #{email}"
   visit('/users/new')
   fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
+end
+
+def sign_in(email: 'cat@example.com', password: 'h1232323')
+  visit('/users/signin')
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
 end
