@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    erb :messages
+    redirect '/messages'
   end
 
   get '/messages' do

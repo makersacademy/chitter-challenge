@@ -28,7 +28,7 @@ The database chitter_test is required for running the tests.
 
 Start by singing up to Chitter
 - You'll land on the message board (which will be blank when first opened)
-- Click Sign up!
+- Click 'Sign up!'
 - Enter a user-name, email and password
 - Click 'Peep Something!' and get your first message out there!
 
