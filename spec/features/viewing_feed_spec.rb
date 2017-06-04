@@ -1,6 +1,6 @@
 feature 'personal feed of user' do
   scenario 'user can see button to make new peep' do
-    visit('/posts/all')
+    sign_up
     click_button('New Peep')
     expect(current_path).to eq('/posts/new')
   end

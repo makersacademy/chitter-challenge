@@ -1,3 +1,10 @@
+<% if current_user %>
+  Welcome, <%= current_user.name %>!<br>
+  <form action='/posts/new'>
+  <input type="submit" value="New Peep">
+  </form>
+<% end %>
+
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
@@ -5,7 +12,3 @@
     </li>
   <% end %>
 </ul>
-
-<form action='/posts/new'>
-<input type="submit" value="New Peep">
-</form>
