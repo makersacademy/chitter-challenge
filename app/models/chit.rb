@@ -1,5 +1,3 @@
-require 'dm-types'
-
 class Chit
 
   include DataMapper::Resource
@@ -7,6 +5,4 @@ class Chit
   property :id, Serial
   property :message, Text
   property :time, EpochTime
-  
-
 end

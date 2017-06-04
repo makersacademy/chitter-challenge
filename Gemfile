@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4.0'
 
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'dm-types'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'time_ago_in_words'
 gem 'rake'
 
 group :test do

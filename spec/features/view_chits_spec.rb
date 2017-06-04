@@ -7,11 +7,12 @@ feature 'View chits' do
   end
 
   scenario 'I can see the chits in reversed chronological order' do
-    post_a_chit('random text first')
-    post_a_chit('random text second')
-    post_a_chit('random text third')
+    Chit.create(message: 'first',  time: Time.now + 0)
+    Chit.create(message: 'second', time: Time.now + 5)
+    Chit.create(message: 'third',  time: Time.now + 10)
 
-    # expect(page).to have_css('#chits div.panel:first-child .panel-body', text: 'random text third')
-    expect(page.find('#chits div.panel:first-child .panel-body')).to have_content 'random text third' 
+    visit '/chits'
+
+    expect(page.find('#chits .panel:first-child .panel-body')).to have_content 'third' 
   end
 end

@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra'
+require 'time_ago_in_words'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
