@@ -1,0 +1,14 @@
+    <!--<div id="chitter_feed">-->
+      <!--<h3>Chitter Feed...</h3>-->
+      <!--<ul id='links'>-->
+        <!--<% @peeps.each do |peep| %>-->
+            <!--<li>-->
+              <!--<%= peep.user_id %>-->
+              <!--<%= peep.body %>-->
+            <!--</li>-->
+        <!--<% end %>-->
+      <!--</ul>-->
+    <!--</div>-->
+
+      # gem 'simplecov', require: false
+      # gem 'simplecov-console', require: false
