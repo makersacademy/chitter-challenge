@@ -2,13 +2,27 @@
 ## Makers Academy Week 4 Weekend Challenge
 
 ### What it Does
-Emulates some of the functions of Twitter.
+Emulates some of the functions of Twitter using Sinatra, DataMapper, Ruby and a lot of debugging, swearing and crying. The testing infrastructure uses RSpec and Capybara.
 
 ### How to Use
-Watch this space! (I'm guessing it'll be deployed on Heroku though)
+Clone this repository and then navigate to the app folder via the command line.
+```
+ruby app.rb
+```
+Then use a browser of your choosing to navigate to localhost:4567!
+
+Capybara and RSpec tests can also be run from the root folder by typing 'rspec'.
+
+
+Currently, a user can sign up with an email address, name, user name and password but I wouldn't recommend using any real data here. Novelty use only!
+
+
+Peeps (similar to yet legally distinct from tweets) are shown in reverse chronological order with a timestamp.
 
 ### My Approach
 Unnecessary illustration pending.
 
 ### Additional Things
-Nothing yet.
+I haven't had a chance to properly integrate encryption yet and that's something I'm hoping to get sorted out during refactoring. It's also ugly as hell due to a total absence of CSS- time was quite a limiting factor here so I tried to go for functionality over looks but I would really like to work on that too.
+
+There is currently a failing feature test for displaying user names on peeps which I'm having a lot of trouble with.

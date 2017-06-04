@@ -26,4 +26,12 @@ feature 'Peep Visibility' do
     click_button('Submit')
     expect(page).to have_content('2017')
   end
+
+  scenario 'user can see username of peep authors' do
+    sign_up_test
+    visit('/add_peep')
+    fill_in "content", with: "timestamped peep"
+    click_button('Submit')
+    expect(page).to have_content('wemmm')
+  end
 end
