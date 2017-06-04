@@ -31,6 +31,10 @@ body {
   margin: 0 0 5px 10px;
 }
 
+.btn.btn-primary {
+  background-color: #683EBD;
+}
+
 .signin-form {
   margin-top: 8px;
 }
