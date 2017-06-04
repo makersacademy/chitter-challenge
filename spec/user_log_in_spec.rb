@@ -1,21 +1,26 @@
-# feature 'User sign in' do
+# User Story 5.
+# As a Maker
+# So that only I can post messages on Chitter as me
+# I want to log in to Chitter
 
-#   let!(:user) do
-#     User.create(email: 'user@example.com',
-#                 password: 'secret1234',
-#                 password_confirmation: 'secret1234')
-#   end
+feature 'User sign in' do
 
-#   scenario 'with correct credentials' do
-#     sign_in(email: user.email,   password: user.password)
-#     expect(page).to have_content "Welcome, #{user.email}"
-#   end
+  let!(:user) do
+    User.create(email: 'user@example.com',
+                password: 'secret1234',
+                password_confirmation: 'secret1234')
+  end
 
-#   def sign_in(email:, password:)
-#     visit '/sessions/new'
-#     fill_in :email, with: email
-#     fill_in :password, with: password
-#     click_button 'Sign in'
-#   end
+  scenario 'with correct credentials' do
+    sign_in(email: user.email,   password: user.password)
+    p user.email
+    expect(page).to have_content "Welcome, #{user.email}"
+  end
 
-# end
+  def sign_in(email:, password:)
+    visit '/sessions/new'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    click_button 'Sign in'
+  end
+end
