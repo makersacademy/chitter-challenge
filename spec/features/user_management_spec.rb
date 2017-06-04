@@ -4,4 +4,9 @@ feature 'user sign up' do
     expect(User.first.email).to eq('kavita@example.com')
     #Be able to see new peep button
   end
+
+  scenario 'sign up requires matching confirmation password' do
+    expect { wrong_sign_up }.not_to change(User, :count)
+  end
+
 end

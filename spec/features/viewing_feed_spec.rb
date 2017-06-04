@@ -17,7 +17,7 @@ feature 'personal feed of user' do
     sign_up
     post_new_peep
     within 'ul#peeps' do
-      expect(page).to have_content "Hello world! - Kavita"
+      expect(page).to have_content "Hello world! - kkavita92"
     end
   end
 
