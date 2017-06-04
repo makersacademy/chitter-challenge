@@ -1,0 +1,16 @@
+<h1>Add a Message!</h1>
+
+<form action = "/peeps" method = "POST">
+  <label for= "peep"> Message:</label>
+  <input type = "text" name = "peep">
+  <input type = "submit" value = "Submit">
+</form>
+
+<h2>Messages:</h2>
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.peep %>
+    <% end %>
+  </li>
+</ul>
