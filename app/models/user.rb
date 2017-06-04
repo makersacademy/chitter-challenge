@@ -11,7 +11,7 @@ class User
   property :first_name,      String
   property :last_name,       String
   property :password_digest, Text
-  property :avatar,          String
+  property :avatar,          String, :default  => "avatar-default-164.png"
 
   has n, :peeps
 
