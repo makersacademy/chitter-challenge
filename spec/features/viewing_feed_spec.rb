@@ -9,7 +9,8 @@ feature 'personal feed of user' do
     sign_up
     post_new_peep
     within 'ul#peeps' do
-      expect(page).to have_content "#{Time.now.strftime("%d %b %Y %H:%M")} - Hello world!"
+      expect(page).to have_content "#{Time.now.strftime("%d %b %Y %H:%M")}"
+      expect(page).to have_content "Hello world!"
     end
   end
 
@@ -17,7 +18,8 @@ feature 'personal feed of user' do
     sign_up
     post_new_peep
     within 'ul#peeps' do
-      expect(page).to have_content "Hello world! - kkavita92"
+      expect(page).to have_content "kkavita92"
+      expect(page).to have_content "Hello world!"
     end
   end
 
