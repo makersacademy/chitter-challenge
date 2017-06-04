@@ -26,13 +26,15 @@ class Chitter < Sinatra::Base
     erb :'users/new'
   end
 
-  post '/users' do
-  user = User.create(email: params[:email],
-                     password: params[:password],
-                     password_confirmation: params[:password_confirmation])
-  session[:user_id] = user.id
-  redirect to('/peeps')
-end
+   post '/users' do
+    user = User.create(email: params[:email],
+                       password: params[:password],
+                       password_confirmation: params[:password_confirmation])
+    # the user.id will be nil if the user wasn't saved
+    # because of password mismatch
+    session[:user_id] = user.id
+    redirect to('/peeps')
+  end
 
   helpers do
  def current_user
