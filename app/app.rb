@@ -25,6 +25,9 @@ class Critter < Sinatra::Base
 
 	get '/creets' do
 		@messages = Message.all
+		@messages.each { |message| 
+			p "Message: #{message}"
+			p "User: #{message.user.username}" }
 		erb :creets
 	end
 

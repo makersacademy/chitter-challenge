@@ -10,8 +10,7 @@ class User
 	property :email, String
 	property :password_hash, Text
 
-#	has n, :messageusers	
-	has n, :messages, through: Resource 
+	has n, :messages
 
 	def password=(password)
 		@password = password
