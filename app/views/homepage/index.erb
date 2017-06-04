@@ -4,6 +4,8 @@
   <% @homepage.reverse.each do |homepage| %>
     <li>
       Message: <%= homepage.message %>
+      Posted at: <%= homepage.posted_at %>
+      <%= Time.now.strftime("%d/%b/%Y %H:%M") %>
     </li>
   <% end %>
 </ul>

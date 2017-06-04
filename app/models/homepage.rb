@@ -4,8 +4,9 @@ require 'dm-postgres-adapter'
 class Homepage #class corresponds to a table in the database
   include DataMapper::Resource #add datamapper functionality so it can communicate with database
 
-  property :id,       Serial #automatically incremented with seriel
-  property :message,  Text
+  property :id,        Serial #automatically incremented with seriel
+  property :message,   Text
+  property :posted_at, DateTime
 
 end
 
