@@ -2,7 +2,8 @@
   <% @messages.reverse.each do |message| %>
     <li>
       <p>
-        <%= User.first(id: message.user_id).username %>
+        <% user = User.first(id: message.user_id) %>
+        <%= user.name %> (<%= user.username %>)
         <br>
         <%= message.posted_at.strftime("%d/%b/%Y %H:%M") %>
         <br>
