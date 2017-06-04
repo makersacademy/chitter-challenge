@@ -10,7 +10,7 @@
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
   <li>
-    <%= peep.peep %>
+    Message: <%= peep.peep %> Time created: <%= peep.created_at %>
     <% end %>
   </li>
 </ul>
