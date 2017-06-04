@@ -7,7 +7,7 @@
 feature 'To post a peep' do
   scenario 'I want to be able to submit a new peep' do
     Peep.create(wording: "Hello peeps")
-    visit ('/peep')
+    visit ('/peeps')
     expect(page).to have_content 'Hello peeps'
   end
 end
