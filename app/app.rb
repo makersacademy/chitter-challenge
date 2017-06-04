@@ -51,7 +51,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/new_peep' do
-    p "*****", current_user
     erb(:new_peep)
   end
 
