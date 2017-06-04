@@ -12,4 +12,5 @@ group :test do
   gem 'simplecov-console', require: false
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
+  gem 'dm-timestamps'
 end

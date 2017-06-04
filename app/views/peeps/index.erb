@@ -3,8 +3,8 @@
 <ul id='peeps'>
 <% @peeps.reverse_each do |peep| %>
   <li>
-  <%= Time.now%>
      <%= peep.peep %>
+       <%= peep.created_at%>
     <br>
 
   </li>
