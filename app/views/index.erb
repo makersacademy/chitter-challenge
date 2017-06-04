@@ -2,9 +2,11 @@
   <% @messages.reverse.each do |message| %>
     <li>
       <p>
-        <span style='border:1px black solid'>
-          <%= message.posted_at.strftime("%d/%b/%Y %H:%M") %> - <%= message.body %>
-        </span>
+        <%= User.first(id: message.user_id).username %>
+        <br>
+        <%= message.posted_at.strftime("%d/%b/%Y %H:%M") %>
+        <br>
+        <%= message.body %>
       </p>
     </li>
   <% end %>
