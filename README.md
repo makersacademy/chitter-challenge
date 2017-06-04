@@ -126,6 +126,7 @@ My Approach
 ----
 - **Progress** - I completed 6 User Stories: Straight Up & Harder, but ran out of time to move on to Advanced.
 - **OOD & TDD**- To ensure I took a well designed approach I created Domain Models of the User stories:
+
 ![Imgur](http://i.imgur.com/ceyoqID.png)
 
 Along with CRC cards to ensure I had the right responsibilities and collaborators for the domain:
@@ -133,7 +134,6 @@ Along with CRC cards to ensure I had the right responsibilities and collaborator
 
 From these cards I was able to sketch out the Database structure:
 ![Imgur](http://i.imgur.com/2yOUL0N.png)
-
 I also used Mindmaps to design the login & logout functions, to ensure clarity regarding how the different aspects of the program connected together:
 ![Imgur](http://i.imgur.com/C2tVLYY.png)
 
