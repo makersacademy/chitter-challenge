@@ -1,0 +1,13 @@
+<form action='/peeps/new'>
+ <input type='submit' value='Add peep'>
+</form>
+<h1>Peeps</h1>
+</br>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <%= peep.message %>
+    <%= peep.created_at.strftime('%c') %>
+  </li>
+  <% end %>
+</ul>
