@@ -11,6 +11,7 @@ gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'thin'
 
 group :test do
   gem 'capybara'
