@@ -9,7 +9,12 @@
   </form>
 <% end %>
 
-<% @all_peeps.each do |peep| %>
-  Message: <%= peep.message %><br>
-  Peeped at: <%= peep.created_at.strftime('%d %b, %Y at %H:%M') %><br>
-<% end %>
+<ul id='peeps'>
+  <li>
+    <% @all_peeps.each do |peep| %>
+      Peep by: <%= User.first(id: peep.user_id).name %><br>
+      Message: <%= peep.message %><br>
+      Peeped at: <%= peep.created_at.strftime('%d %b, %Y at %H:%M') %><br>
+    <% end %>
+  </li>
+</ul>

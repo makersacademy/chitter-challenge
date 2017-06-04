@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post "/post_peep" do
-    Peep.create(message: params[:peep])
+    Peep.create(message: params[:peep], user_id: session[:current_user].id)
     redirect "/"
   end
 
@@ -36,6 +36,6 @@ class Chitter < Sinatra::Base
 
   get "/403_error" do
     status 403
-    body "I'm sorry Dave, I'm afraid I can't do that"
+    erb :error_403
   end
 end

@@ -24,4 +24,9 @@ feature "Writing Peeps" do
     visit "/new_peep"
     expect(page.status_code).to eq(403)
   end
+  scenario "Peeps show who created them" do
+    register_user
+    make_peep
+    expect(page).to have_content "Peep by: Test"
+  end
 end
