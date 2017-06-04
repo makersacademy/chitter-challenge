@@ -34,14 +34,14 @@ class Chitter < Sinatra::Base
       end
       
       @user = User.get(session[:user_id]).update(first_name: params[:first_name],
-                                   last_name: params[:last_name],
-                                   avatar: @filename)
-      redirect '/users/account'
+                                                 last_name: params[:last_name],
+                                                 avatar: @filename)
     else
       @user = User.get(session[:user_id]).update(first_name: params[:first_name],
-                                   last_name: params[:last_name])
-      redirect '/users/account'
+                                                 last_name: params[:last_name])
+    
     end
+    redirect '/users/account'
   end
 
 end
