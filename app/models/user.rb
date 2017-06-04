@@ -11,6 +11,7 @@ class User
   property :first_name,      String
   property :last_name,       String
   property :password_digest, Text
+  property :avatar,          String
 
   has n, :peeps
 
