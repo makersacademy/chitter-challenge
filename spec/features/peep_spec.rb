@@ -10,11 +10,21 @@ feature 'Peeps' do
    scenario 'Peeps are displayed in reverse chronological order' do
      visit('/')
      click_button('New Peep')
-     fill_in('message', with: 'beer for a buzz')
+     fill_in('message', with: 'beer')
      click_button('Send')
      click_button('New Peep')
-     fill_in('message', with: 'vodka for a smash')
+     fill_in('message', with: 'vodka')
      click_button('Send')
-     expect(page).to have_content('vodka for a smash beer for a buzz')
+     time = Time.now.strftime("%c")
+     expect(page).to have_content("#{time} vodka #{time} beer")
+   end
+
+   scenario 'Peeps are displayed with timestamp' do
+     visit('/')
+     click_button('New Peep')
+     fill_in('message', with: 'beer')
+     click_button('Send')
+     time = Time.now.strftime("%c").to_s
+     expect(page).to have_content(time)
    end
  end

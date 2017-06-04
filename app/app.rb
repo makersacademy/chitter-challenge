@@ -19,7 +19,8 @@ ENV['RACK_ENV'] ||= 'development'
    end
 
    post '/peeps' do
-     peep = Peep.create(message: params[:message])
+     time = Time.now.strftime("%c").to_s
+     peep = Peep.create(message: params[:message], time: time)
      peep.save
      redirect '/peeps'
    end
