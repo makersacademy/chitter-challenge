@@ -44,3 +44,12 @@ body {
 .signup .panel-heading {
   background: tomato;
 }
+
+#notice ul {
+  padding-left: 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: red;
+  list-style-type: none;
+}
+

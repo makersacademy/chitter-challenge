@@ -1,4 +1,13 @@
-<div class="panel panel-default signup">
+<% if flash[:notice] %>
+  <div id='notice'>
+    <ul>
+      <% flash[:notice].each do |error| %>
+        <li><%= error.join %></li>
+      <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="panel panel-success signup">
   <div class="panel-heading">
     <h3 class="panel-title">Sign Up to Chitter</h3>
   </div>

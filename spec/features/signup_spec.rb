@@ -8,4 +8,16 @@ feature 'User sign up' do
     expect(page).to have_content 'Signed up as: Tester'
     expect(page).to have_content 'test@mail.com'
   end
+
+  scenario "I can't sign up with an already registered email" do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content 'Email is already taken'
+  end
+  
+  scenario "I can't sign up with an already registered username" do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content 'Username is already taken'
+  end
 end
