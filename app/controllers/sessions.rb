@@ -9,5 +9,10 @@ class Chitter < Sinatra::Base
     session[:user_id] = user.id
     redirect to('/peeps')
   end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/links'
+  end
   
 end
