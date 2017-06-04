@@ -21,9 +21,20 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
+  border: 1px solid tomato;
+}
+
+#chits div.panel .panel-heading {
+  background-color: tomato;
+  background-image: none;
+  border-bottom: 1px solid tomato;
+  color: #fff;
 }
 
 #chits div.panel .panel-footer {
+  background-color: #fff;
+  border-top: 0px;
+  color: rgba(255,99,71, 0.5);
   text-align: right;
 }
 
@@ -31,17 +42,20 @@ body {
   word-break: break-all;
 }
 
-.signup {
+.signup,
+.new_chit {
   border: 1px solid tomato;
   margin: 0 auto;
   max-width: 600px;
 }
 
-.signup .panel-title {
+.signup .panel-title,
+.new_chit .panel-title {
   color: white;
 }
 
-.signup .panel-heading {
+.signup .panel-heading,
+.new_chit .panel-heading {
   background: tomato;
 }
 
