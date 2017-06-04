@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Chitter</title>
   </head>
 
   <body>
     <h1>Chitter</h1>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
