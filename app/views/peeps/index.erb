@@ -4,9 +4,9 @@
 <% @peeps.reverse_each do |peep| %>
   <li>
   <%= Time.now%>
-    Post: Makers Academy Rocks Jamonn! <% %>
+     <%= peep.peep %>
     <br>
-    User: Michael Jackson <% peep.user%>
+
   </li>
 <%end%>
 </ul>
