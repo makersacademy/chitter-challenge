@@ -29,13 +29,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.new(user_name: params[:user_name], full_name: params[:full_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(user_name: params[:user_name], full_name: params[:full_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
       redirect to('/beeps')
     else
       flash.now[:notice] = "Password and confirmation do not match"
