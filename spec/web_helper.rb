@@ -13,18 +13,10 @@ def post_multiple_message
   click_button 'Send message'
 end
 
-def sign_up
+def sign_up(password = 'h1232323', password_confirmation = 'h1232323')
   visit('/users/new')
   fill_in :email, with: 'cat@example.com'
-  fill_in :password, with: 'h123'
-  fill_in :password_confirmation, with: 'h123'
-  click_button 'Sign up'
-end
-
-def sign_up_password_mismatch
-  visit('/users/new')
-  fill_in :email, with: 'cat@example.com'
-  fill_in :password, with: 'h123'
-  fill_in :password_confirmation, with: '345t'
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end

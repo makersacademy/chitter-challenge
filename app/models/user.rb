@@ -19,7 +19,7 @@ class User
 
   def password=(password)
     @password = password
-    password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
 end
