@@ -1,3 +1,34 @@
+# Chitter Challenge
+
+#### Welcome to Chitter!
+
+This application allows you to create an account, sign in / sign out and peep to Chitter and see peeps from different users in chronological order. A great application to share thoughts with your friends!
+
+### Technologies:
+- Ruby on Rails (version 5.1)
+- HTML/CSS
+- Databases (postgresql)
+
+### Key features:
+- Sign in / out
+- Post images with a status from your account
+- Image will be displayed in a grid on the homepage
+- Other users can comment and like your image
+
+### Deployment instructions:
+1. Navigate to your projects directory
+2. Run ```git clone https://github.com/connie-reinholdsson/takeaway-challenge.git```
+3. Run ```cd instagram-challenge```
+4. Run ```rake db:migrate``` to create the databases
+5. Run `bin/rails s`
+6. Navigate to the webpage 'localhost:3000/pictures'
+7. Follow the instructions to use the application.
+
+Enjoy!
+
+
+
+
 Chitter Challenge
 =================
 
@@ -77,7 +108,7 @@ In code review we'll be hoping to see:
 
 * All tests passing
 * High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
+* The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
@@ -95,7 +126,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 ```
 
 You can see your [test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) when you submit a pull request, and you can also get a summary locally by running:
@@ -105,4 +136,3 @@ $ coveralls report
 ```
 
 This repo works with [Coveralls](https://coveralls.io/) to calculate test coverage statistics on each pull request.
-
