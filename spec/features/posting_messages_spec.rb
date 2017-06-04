@@ -23,8 +23,8 @@ feature "Posting messages (peeps)" do
 
   scenario "User cannot post a message without being logged in" do
     visit "/"
-    click_button "Post new Peep"
-    expect(page).not_to have_field("message_body")
-    expect(page).to have_content("Sorry, you must be logged in to post a Peep")
+    expect(page).not_to have_button("Post new Peep")
+    sign_up
+    expect(page).to have_button("Post new Peep")
   end
 end
