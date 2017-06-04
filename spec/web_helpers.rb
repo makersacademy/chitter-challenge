@@ -1,4 +1,5 @@
 def sign_up(email: 'john@doe.com',
+            username: 'johndoe',
             password: 'password',
             password_confirmation: 'password')
   visit 'signup'
