@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
+    @user = User.get(session[:user_id])
     erb :'sessions/new'
   end
 
