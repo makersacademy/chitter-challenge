@@ -18,16 +18,17 @@ class Critter < Sinatra::Base
 	end
 	
 	post '/signup' do
-		user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-		session[:user_id] = user.id
-		redirect '/creets'
+		user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:confirmation])
+		if user.valid?
+			session[:user_id] = user.id
+			redirect '/creets'
+		else
+			erb :index
+		end
 	end
 
 	get '/creets' do
 		@messages = Message.all
-		@messages.each { |message| 
-			p "Message: #{message}"
-			p "User: #{message.user.username}" }
 		erb :creets
 	end
 
