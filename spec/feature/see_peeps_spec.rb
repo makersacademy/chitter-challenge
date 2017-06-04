@@ -19,7 +19,7 @@ feature 'Peep Visibility' do
 
   scenario 'user can see timestamp' do
     visit('/add_peep')
-    fill_in "content", with: "older peep"
+    fill_in "content", with: "timestamped peep"
     click_button('Submit')
     expect(page).to have_content('2017')
   end
