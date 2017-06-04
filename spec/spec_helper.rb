@@ -5,7 +5,6 @@ require 'simplecov-console'
 require 'features/web_helper'
 require 'capybara/rspec'
 require 'database_cleaner'
-require './app/models/peep'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
