@@ -24,6 +24,11 @@ a {
     padding: 15px;
 }
 
-.peep_header {
+.name {
+    font-size: 18px;
     font-weight: bold;
+}
+
+.username {
+    color: dimgrey;
 }
