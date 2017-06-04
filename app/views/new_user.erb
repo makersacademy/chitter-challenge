@@ -1,0 +1,9 @@
+<h2>New User</h2>
+
+<form action='/users/new' method='post'>
+  User Name:</br>
+  <input type='text' name='user_name' value='<%= @user.user_name %>'></br>
+  Email: <% if flash[:notice] %> <%= flash[:notice] %> <% end %></br>
+  <input type='text' name='user_email' value='<%= @user.user_email %>'></br>
+  <input type ='submit' value='Sign Up'>
+</form>
