@@ -10,5 +10,4 @@ feature 'user sign up' do
     expect(current_path).to eq('/users')
     expect(page).to have_content 'Password and confirmation password do not match'
   end
-
 end
