@@ -16,5 +16,5 @@ gem 'data_mapper'
 
 gem 'dm-postgres-adapter'
 gem 'rack'
-gem "sinatra", "~> 1.4.8"
+gem "sinatra" 
 gem 'sinatra-flash'
