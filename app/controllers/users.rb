@@ -24,17 +24,24 @@ class Chitter < Sinatra::Base
   end
 
   put '/users' do
-    @filename = params[:file][:filename]
-    file = params[:file][:tempfile]
 
-    File.open(settings.public_folder + "/uploads/" + "#{@filename}", 'wb') do |f|
-      f.write(file.read)
-    end
+    if params[:file] != nil
+      @filename = params[:file][:filename]
+      file = params[:file][:tempfile]
 
-    @user = User.get(session[:user_id]).update(first_name: params[:first_name],
+      File.open(settings.public_folder + "/uploads/" + "#{@filename}", 'wb') do |f|
+        f.write(file.read)
+      end
+      
+      @user = User.get(session[:user_id]).update(first_name: params[:first_name],
                                    last_name: params[:last_name],
                                    avatar: @filename)
-
+      redirect '/users/account'
+    else
+      @user = User.get(session[:user_id]).update(first_name: params[:first_name],
+                                   last_name: params[:last_name])
+      redirect '/users/account'
+    end
   end
 
 end
