@@ -14,6 +14,6 @@ class User
   # only 50 characters by default
   # and it's not enough for the hash and salt
   def password=(password)
-    self.password_digest = Bcrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 end
