@@ -1,0 +1,8 @@
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.content %><br>
+      <%= peep.created_at.strftime("%d %b %Y %H:%M") %>
+    </li>
+  <% end %>
+</ul>
