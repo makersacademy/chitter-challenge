@@ -82,7 +82,7 @@ ul {
 
 body {
     width: 90vw;
-    position: fixed;
+    position: absolute;
 }
 
 #sign_up_button {
