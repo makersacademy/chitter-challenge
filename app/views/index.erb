@@ -18,7 +18,7 @@
               <p class="greeting"><%= greeting(current_user) %></p>
               <td id="right_side">
                 <div class="dropdown">
-                  <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
+                  <button class="dropbtn"><img src="<%= profile_picture(current_user) %>" id="top_right_profile_pic"></button>
                   <div class="dropdown-content">
                     <a href="#">Profile</a>
                     <a href="#">Settings</a>
@@ -59,7 +59,7 @@
         <li class="peep">
           <table>
             <tr>
-              <td><img src="<%= user.picture_url %>" class="user_picture"></td>
+              <td><img src="<%= profile_picture(user) %>" class="user_picture"></td>
               <td>
                 <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><span class="username"><%= "@#{user.username} " %></span><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
                 "<%= peep.body %>"
