@@ -1,10 +1,11 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
-
+require 'sinatra/flash'
 require_relative 'datamapper_setup'
 
 class Critter < Sinatra::Base
 	enable :sessions
+	register Sinatra::Flash
 	set :session_secret, 'super secret'
 
 	helpers do
@@ -23,6 +24,7 @@ class Critter < Sinatra::Base
 			session[:user_id] = user.id
 			redirect '/creets'
 		else
+			flash.now[:confirm] = 'Passwords do not match! Please try again.'
 			erb :index
 		end
 	end

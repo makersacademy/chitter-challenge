@@ -8,4 +8,8 @@
 		Password: <input type='password', name='password'>
 		Confirm Password: <input type='password', name='confirmation'>
 		<input type='submit', value='Sign up'>
+
+		<% if flash[:confirm] %>
+			<%= flash[:confirm] %>
+		<% end %>
 </center>
