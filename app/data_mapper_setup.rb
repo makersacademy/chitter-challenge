@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-timestamps'
 
 require_relative 'models/peep'
 

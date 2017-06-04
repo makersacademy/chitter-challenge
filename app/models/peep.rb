@@ -6,5 +6,6 @@ class Peep
 
   property :id, Serial
   property :message, Text
+  property :created_at, DateTime
 
 end

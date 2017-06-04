@@ -4,9 +4,7 @@
 
 feature 'post a peep' do
   scenario 'post a message to chitter' do
-    visit('/peeps/new')
-    fill_in('message', with: 'test message')
-    click_button('Peep now')
+    enter_peep
     expect(current_path).to eq '/peeps'
     expect(page).to have_content('test message')
   end
