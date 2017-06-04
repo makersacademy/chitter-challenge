@@ -20,7 +20,7 @@ Currently, a user can sign up with an email address, name, user name and passwor
 Peeps (similar to yet legally distinct from tweets) are shown in reverse chronological order with a timestamp.
 
 ### My Approach
-Unnecessary illustration pending.
+![some initial thoughts](https://github.com/wemmm/chitter-challenge/blob/master/somethoughtsondatabases.PNG)
 
 ### Additional Things
 I haven't had a chance to properly integrate encryption yet and that's something I'm hoping to get sorted out during refactoring. It's also ugly as hell due to a total absence of CSS- time was quite a limiting factor here so I tried to go for functionality over looks but I would really like to work on that too.
