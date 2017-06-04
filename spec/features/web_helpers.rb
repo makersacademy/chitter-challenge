@@ -3,6 +3,8 @@ def sign_up
   click_button("Sign up")
   fill_in("username", with: "Kynosaur")
   fill_in("password", with: "amazing_password")
+  fill_in("email", with: "kynosnore@gmail.com")
+  fill_in("name", with: "Kye Bracey")
   click_button("Submit")
 end
 
