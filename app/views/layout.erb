@@ -28,14 +28,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Peeps</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/peeps">Peeps</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="container">
-      <%= partial :welcome %>
+      <% if current_user %>
       <div class="row">
         <div class="col-md-5">
           <%= partial :peep %>
@@ -44,6 +44,14 @@
           <%= yield %>
         </div>
       </div>
+      <% else %>
+      <div class="row">
+      <%= partial :welcome %>
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+      <% end%>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
