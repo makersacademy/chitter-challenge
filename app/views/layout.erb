@@ -7,11 +7,20 @@
     <body>
       <% if current_user %>
         <h1> Welcome to Chitter, <%= current_user.username %>! </h1>
+        <form action='/new_peep' method='GET'>
+          <input type='submit' value='Post new Peep'>
+        </form>
         <form action='/log_out' method='POST'>
           <input type='submit' value='Log out'>
         </form>
       <% else %>
         <h1> Welcome to Chitter! </h1>
+        <form action='/log_in' method='GET'>
+          <input type='submit' value='Log in'>
+        </form>
+        <form action='/sign_up' method='GET'>
+          <input type='submit' value='Sign up'>
+        </form>
       <% end %>
       <%= yield %>
     </body>

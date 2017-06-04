@@ -17,6 +17,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @messages = Message.all
     erb(:index)
   end
 
@@ -28,7 +29,7 @@ class Chitter < Sinatra::Base
     user = User.create(username: params[:username], password: params[:password])
     session[:user_id] = user.id
     current_user
-    redirect('/peeps')
+    redirect('/')
   end
 
   get '/log_in' do
@@ -52,12 +53,7 @@ class Chitter < Sinatra::Base
 
   post '/update_peeps' do
     Message.create(body: params[:message_body], posted_at: Time.now)
-    redirect '/peeps'
-  end
-
-  get '/peeps' do
-    @messages = Message.all
-    erb(:peeps)
+    redirect '/'
   end
 
   post '/log_out' do
