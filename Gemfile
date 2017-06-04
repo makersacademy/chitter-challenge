@@ -5,7 +5,7 @@ ruby '2.4.0'
   gem 'dm-postgres-adapter'
   gem 'dm-timestamps'
   gem 'rake'
-  gem 'sinatra'
+  gem 'sinatra', '2.0.0'
   gem 'bcrypt'
   gem 'sinatra-flash'
 
