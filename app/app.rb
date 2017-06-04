@@ -1,3 +1,4 @@
+ENV["RACK_ENV"] ||= "dev"
 require 'sinatra/base'
 require_relative 'models/peep'
 
