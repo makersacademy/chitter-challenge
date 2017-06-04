@@ -1,0 +1,10 @@
+<h1>See what's going on at Makers!</h1>
+<form action="/beeps/new" method="get">
+  <input type="submit" name="New Beep" value="New Beep">
+</form>
+<% p Beep.all.first.body if Beep.all.first %>
+<ul>
+  <% Beep.all.each do |beep| %>
+  <li> <%= beep.body %> </li>
+  <% end %>
+</ul>
