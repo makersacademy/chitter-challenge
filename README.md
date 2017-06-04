@@ -14,11 +14,23 @@ run ```$ rackup``` and navigate to ```localhost:9292``` in your browser
 
 All prerequisites are available by running the command ```$ bundle```.
 
-You will need to run the command ```$ gem install bundle``` if you don't have bundle already installed.
+You will need to run the command ```$ gem install bundle``` if you don't have bundle already installed.  
+
+
+You will also need to create a psql database called chitter_development to run the app.  
+```$ psql postgres```  
+```postgres#  CREATE DATABASE chitter_development;```
+
+The database chitter_test is required for running the tests.
+
 
 ## Creating your first message ##
 
--- Add some info here about how to get up and running with Chitter  
+Start by singing up to Chitter
+- You'll land on the message board (which will be blank when first opened)
+- Click Sign up!
+- Enter a user-name, email and password
+- Click 'Peep Something!' and get your first message out there!
 
 ### Structure ###
     .
@@ -26,13 +38,40 @@ You will need to run the command ```$ gem install bundle``` if you don't have bu
     ├── Gemfile
     ├── Gemfile.lock
     ├── Instructions.md
+    ├── Procfile
     ├── README.md
     ├── Rakefile
+    ├── app
+    │   ├── app.rb
+    │   ├── datamapper_config.rb
+    │   ├── models
+    │   │   ├── message.rb
+    │   │   └── user.rb
+    │   └── views
+    │       ├── index.erb
+    │       ├── layout.erb
+    │       ├── messages.erb
+    │       ├── new_message.erb
+    │       ├── new_user.erb
+    │       └── sessions
+    │           └── new_session.erb
+    ├── config.ru
     ├── coverage
     ├── docs
     │   └── review.md
-    └── spec
-    └── spec_helper.rb
+    ├── layout.erb
+    ├── mkdir
+    ├── spec
+    │   ├── features
+    │   │   ├── post_message_spec.rb
+    │   │   ├── sign_in_spec.rb
+    │   │   ├── sign_out_spec.rb
+    │   │   ├── sign_up_spec.rb
+    │   │   └── view_messages_spec.rb
+    │   ├── spec_helper.rb
+    │   ├── user_spec.rb
+    │   └── web_helper.rb
+    └── user_stories.md
 
 ### Development Methodology
 
@@ -43,6 +82,4 @@ This program was built and tested using Test Driven Development
 * [Capybara](http://teamcapybara.github.io/capybara/) - The library used to test & simulate interactions with the web-app.
 * [Sinatra](http://www.sinatrarb.com/) - The DSL used to create this web-app.
 * [BCrypt](https://github.com/codahale/bcrypt-ruby) - The password-hashing encryption manager
-* [DataMapper](http://datamapper.org/) - The ORM
-* [Mail](https://github.com/mikel/mail) - The libarary that handle emails generation, parsing and sending in a simple, rubyesque manner.
-* [Sendgrid](https://github.com/sendgrid/sendgrid-ruby#usage) - The API for sending mail over SMTP
+* [DataMapper](http://datamapper.org/) - The ORM  

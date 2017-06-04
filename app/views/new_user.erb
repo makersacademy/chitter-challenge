@@ -8,6 +8,9 @@
   Password: </br>
   <input type='password' name='password'></br>
   Confimation Password: <% if flash[:password_notice] %> <%= flash[:password_notice] %> <% end %></br>
-  <input type='password' name='password_confirmation'>
+  <input type='password' name='password_confirmation'></br>
   <input type ='submit' value='Sign Up'>
+</form></br>
+<form method='get' action='/messages'>
+  <input type='submit' value='cancel'>
 </form>

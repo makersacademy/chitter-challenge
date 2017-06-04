@@ -1,7 +1,9 @@
-<h3>New Peep</h3>
-
-<form action='/messages/new' method='post'>
-  Message: </br>
-  <textarea name='message' rows='4' cols='36'></textarea> </br>
-  <input type ='submit' value='Peep'>
-</form>
+<% if current_user %>
+  <form action='/messages/new' method='post'>
+    Message: </br>
+    <textarea name='message' rows='4' cols='36'></textarea> </br>
+    <input type ='submit' value='Peep'>
+  </form>
+<% else %>
+    <p> Please sign in </p>
+<% end %>

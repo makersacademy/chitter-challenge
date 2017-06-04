@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    erb :index
+    erb :messages
   end
 
   get '/messages' do
@@ -68,7 +68,6 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:log_out_notice] = 'Goodbye!'
     redirect to '/messages'
   end
 
