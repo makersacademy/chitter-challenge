@@ -1,3 +1,7 @@
+ENV["RACK_ENV"] = "test"
+
+require File.join(File.dirname(__FILE__), "..", "app/","app.rb")
+
 require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
@@ -11,9 +15,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-ENV['RACK_ENV'] = 'test'
-
 require './app/app.rb'
+require './app/models/peep'
 
 Capybara.app = Chitter
 
