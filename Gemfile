@@ -10,6 +10,7 @@ gem 'sinatra-flash'
 gem 'selenium-webdriver'
 gem 'rack'
 gem 'dm-timestamps'
+gem 'orderly'
 
 group :test do
   gem 'capybara'

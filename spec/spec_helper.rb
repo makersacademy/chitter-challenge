@@ -39,5 +39,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
+
+require File.join(File.dirname(__FILE__), '..', '/app/app.rb')

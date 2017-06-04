@@ -6,8 +6,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
-  # enable :sessions
-  # set :session_secret, 'super_secret'
+  enable :sessions
+  set :session_secret, 'super_secret'
 
   get ('/') do
     redirect ('/peeps/index')
@@ -23,6 +23,11 @@ class Chitter < Sinatra::Base
     peep.save
     redirect ('/peeps/index')
     erb :'peeps/index'
+  end
+
+  get ('/user/new') do
+    @user = User.new
+    erb :'user/new'
   end
 
 end
