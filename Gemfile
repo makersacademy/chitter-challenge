@@ -5,6 +5,7 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
+gem 'sinatra-flash'
 gem 'rake'
 gem 'sinatra', '1.4.8'
 

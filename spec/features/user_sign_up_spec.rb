@@ -6,5 +6,7 @@ feature 'a user can sign up for Chitter' do
   end
   scenario 'requires a matching password' do
     expect { sign_up(password_confirmation: 'mistake') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Passwords must match. Please try again.'
   end
 end
