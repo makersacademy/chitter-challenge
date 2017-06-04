@@ -1,13 +1,13 @@
 <h1>Sign up to Chitter</h1>
 <form action="/users" method="post">
   <label for="full_name">
-    Your full name <input type="text" name="full_name" value= "<%= @user.full_name%>">
+    Your full name <input type="text" name="full_name" value= "<%= @user.full_name%>" required>
   </label>
   <label for="email">
-    Your email address <input type="text" name="email" value= "<%= @user.email%>" >
+    Your email address <input type="email" name="email" value= "<%= @user.email%>" required>
   </label>
   <label for="user_name">
-    Your username <input type="text" name="user_name" value= "<%= @user.user_name%>">
+    Your username <input type="text" name="user_name" value= "<%= @user.user_name%>" required>
   </label>
   <label for="password">
      Password <input type="password" name="password">
