@@ -11,15 +11,6 @@ class Chitter < Sinatra::Base
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 
   helpers do
-
-    def profile_picture(user)
-      if user.picture_url.empty?
-        return 'images/default_profile_picture.png'
-      else
-        return user.picture_url
-      end
-    end
-
     def greeting(user)
       current_hour = Time.now.strftime('%H').to_i
       if current_hour >= 18 && current_hour <= 23
