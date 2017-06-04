@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
-  ruby '2.4.0'
+ruby '2.4.0'
 
-  gem 'rspec'
-  gem 'sinatra'
-  gem 'capybara'
-  gem 'rake'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
-  gem 'dm-migrations'
-  gem 'bcrypt'
+gem 'bcrypt'
+gem 'capybara'
+gem 'data_mapper'
+gem 'database_cleaner'
+gem 'dm-migrations'
+gem 'dm-postgres-adapter'
+gem 'rake'
+gem 'rspec'
+gem 'sinatra'
 
 group :test do
   gem 'rubocop'
