@@ -27,11 +27,11 @@ class Chitter < Sinatra::Base
     @filename = params[:file][:filename]
     file = params[:file][:tempfile]
 
-    File.open("public/img/uploads/#{@filename}", 'wb') do |f|
+    File.open(settings.public_folder + "/uploads/" + "#{@filename}", 'wb') do |f|
       f.write(file.read)
     end
 
-    @user = User.update_attributes(first_name: params[:first_name],
+    @user = User.get(session[:user_id]).update(first_name: params[:first_name],
                                    last_name: params[:last_name],
                                    avatar: @filename)
 
