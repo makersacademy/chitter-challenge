@@ -1,3 +1,15 @@
+Chitter is a messaging system.
+Message posting is available to users who have signed up with a valid email address and matching passwords.
+Users can post messages known as peeps and they can also post responses to these peeps.
+Peeps and responses both show time and date of posting and show the posters email address.
+
+clone this repository
+$ cd chitter_challenge
+$ bundle
+$ rackup
+
+Sign up, get your friends too as well and get the discussion going!
+
 Chitter Challenge
 =================
 
