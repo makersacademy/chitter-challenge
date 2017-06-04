@@ -5,7 +5,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,     Serial
-  property :post,   String
+  property :peep,   String
   property :user,   String
 
 end
