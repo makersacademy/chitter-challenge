@@ -30,13 +30,4 @@ class User
     end
   end
 
-# password = '123hui'
-# encrypted_password = 'lskdnflksdnflaksndflksandflksn:dsjflsknklfd'
-#
-# password == encrypted_password? false
-#
-# password_object = Password.new(encrypted_password)
-# password_object == password
-#     > password_object == Password.new(password, password_object.salt)
-
 end

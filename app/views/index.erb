@@ -2,10 +2,13 @@
 
 <% if current_user %>
 <h2>Welcome, <%= current_user.email %></h2>
+<a href="/users/signout">Sign out</a>
+<a href="/messages/new">Send message</a> 
 <% end %>
 
 <h2> New to Chitter? </h2>
 <h3> Sign up <a href="/users/new">here</a> to send messages </h3>
+<h3> Already have a account? Sign in <a href="/users/signin">here</a> to send messages </h3>
 <h2> Messages </h2>
 
 <ul id='messages'>
