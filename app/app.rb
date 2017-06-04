@@ -32,7 +32,11 @@ class Chitter < Sinatra::Base
                        email: params[:email])
     session[:user_id] = user.id
     current_user
-    redirect('/')
+    redirect('/account_creation')
+  end
+
+  get '/account_creation' do
+    erb(:account_creation)
   end
 
   get '/log_in' do
