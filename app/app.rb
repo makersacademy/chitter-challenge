@@ -15,12 +15,14 @@ class Chitter < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
 
-    def parse_hashtags(peep_body)
-      body = peep_body.delete(',.?!;:')
+    def parse_hashtags(peep)
+      hashtags = []
+      body = peep.body.delete(',.?!;:/')
       array = body.split(' ')
       array.each do |word|
-        Hashtag.create(tag: word) if word[0] == '#'
+        hashtags << Hashtag.create(tag: word) if word[0] == '#'
       end
+      return hashtags
     end
 
     def same_day?(peep_datetime, current_datetime)
@@ -62,12 +64,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    Peep.create(body: params[:body],
-     charcount: params[:body].length,
-     likes: 0,
-     time: Time.now,
-     user_id: session[:user_id])
-    parse_hashtags(params[:body])
+    peep = Peep.create(body: params[:body],
+    charcount: params[:body].length,
+    likes: 0,
+    time: Time.now,
+    user_id: session[:user_id])
+    hashtags = parse_hashtags(peep)
+    hashtags.each do |hashtag|
+      peep.hashtags << hashtag
+      peep.save
+    end
     redirect '/'
   end
 
