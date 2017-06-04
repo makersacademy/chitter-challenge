@@ -6,7 +6,7 @@
 
 <br/><br/>
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
   <li>
     Message: <%= peep.message %>
   </li>
