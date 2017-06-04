@@ -1,5 +1,9 @@
-<h1>Welcome to Chitter</h1>
 <% @peeps.each do |peep| %>
-  <p><%= peep.text %><span> @<%= User.get(peep.user_id).username %>- <%= peep_distance_of_time(peep.created_at) %></span</p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <img class="user-avatar img-rounded" src="/img/avatar-default-164.png" alt="avatar">
+        <span class="username">@<%= User.get(peep.user_id).username %></span><span class="time"><%= peep_distance_of_time(peep.created_at) %></span>
+        <p class="peep-text"><%= peep.text %></p>
+    </div>
+  </div>
 <% end %>
-

@@ -1,0 +1,25 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.user-avatar {
+  float: left;
+  width: 40px;
+}
+
+.username {
+  float: left;
+  padding: 10px;
+}
+
+.time {
+  padding: 10px;
+  float: right;
+}
+
+.peep-text {
+  padding-top: 10px;
+  display: inline-block;
+  width: 100%;
+}

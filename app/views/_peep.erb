@@ -1,0 +1,8 @@
+<% if current_user %>
+<form class="form-inline" action="/peeps" method="POST">
+  <div class="form-group">
+    <input class="form-control" type="text" name="text" placeholder="What's happening ?">
+  </div>
+  <button type="submit" class="btn btn-default">Peep</button>
+</form>
+<% end %>
