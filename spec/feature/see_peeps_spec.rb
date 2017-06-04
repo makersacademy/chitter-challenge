@@ -6,4 +6,14 @@ feature 'Peep Visibility' do
     click_button('Submit')
     expect(page).to have_content("an experimental test peep")
   end
+
+  scenario 'user sees peeps in reverse chronological order' do
+    visit('/add_peep')
+    fill_in "content", with: "older peep"
+    click_button('Submit')
+    visit('/add_peep')
+    fill_in "content", with: "newer peep"
+    click_button('Submit')
+    expect(page).to have_content("newer peep", "older peep")
+  end
 end
