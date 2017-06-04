@@ -1,0 +1,15 @@
+
+What have people been saying? <br>
+<ul id='peeps'>
+    <% @chits.each do |peep| %>
+    <li>
+      Content: <%= peep.content %>
+      Time: <%= peep.time %>
+      By:  <%= User.get(peep.user_id).email %>
+    </li>
+    <% end %>
+  </ul>
+
+  <form action = "/add" >
+    <input type = "submit" value = "peep">
+    </form>
