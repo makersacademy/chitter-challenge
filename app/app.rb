@@ -17,11 +17,7 @@ class Chitter < Sinatra::Base
 
   post "/post_peep" do
     Peep.create(message: params[:peep])
-    redirect "/peeps"
-  end
-
-  get "/peeps" do
-    erb :view_peeps
+    redirect "/homepage"
   end
 
   get "/register_user" do
@@ -30,11 +26,13 @@ class Chitter < Sinatra::Base
 
   post "/register_user" do
     User.create(name: params[:name], email: params[:email])
+    session[:current_user] = User.first(name: params[:name])
     redirect "/homepage"
   end
 
   get "/homepage" do
-    @user = User.first
+    @all_peeps = Peep.all
+    @current_user = session[:current_user]
     erb :homepage
   end
 

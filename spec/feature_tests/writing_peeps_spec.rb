@@ -10,4 +10,8 @@ feature "Writing Peeps" do
     make_peep
     expect(page).to have_content "Lorem ipsum dolor sit amet."
   end
+  scenario "Peeps show the time they were created" do
+    make_peep
+    expect(page).to have_content "#{Time.now.strftime('%d %b, %Y at %H:%M')}"
+  end
 end
