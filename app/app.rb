@@ -9,11 +9,16 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/beeps' do
+    if Beep.count > 0
+      @beeps = Beep.all
+      @beeps.sort_by{|beep| beep.created_at}
+      @beeps.reverse!
+    end
     erb :beeps
   end
 
   post '/beeps' do
-    beep = Beep.create(body: params[:body], created_at: Time.now)
+    Beep.create(body: params[:body], created_at: Time.now.to_i)
     redirect '/beeps'
   end
 
