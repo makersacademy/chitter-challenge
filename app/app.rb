@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/messages' do
-    message = Message.create(content: params[:content], time: Time.now)
+    Message.create(content: params[:content], time: Time.now)
     redirect '/messages'
   end
 
@@ -52,6 +52,12 @@ class Chitter < Sinatra::Base
       'Invalid username/password'
     end
   end
+
+  get '/users/signout' do
+    session[:user_id] = nil
+    redirect to '/messages'
+  end
+
 
   helpers do
    def current_user
