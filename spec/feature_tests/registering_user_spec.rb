@@ -23,6 +23,18 @@ feature "Registering a new user" do
     click_button "sign out"
     expect(page).not_to have_content "Welcome Test!"
   end
+  scenario "User can sign in" do
+    register_user
+    click_button "sign out"
+    sign_in
+    expect(page).to have_content "Welcome Test!"
+  end
+  scenario "User gets an error if they try to use the wrong password" do
+    register_user
+    click_button "sign out"
+    sign_in("wrong_password")
+    expect(page).to have_content "The email or password is incorrect"
+  end
   # scenario "User can't register duplicated information" do
   #   register_user
   #   expect { register_user }.to_not change(User, :count)

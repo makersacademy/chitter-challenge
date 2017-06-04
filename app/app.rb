@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
 
   get "/new_peep" do
     @current_user = User.get(session[:current_user_id])
-    redirect "/403_error" if @current_user.nil?
+    redirect "/403_error" unless @current_user
     erb :make_peep
   end
 
@@ -54,5 +54,20 @@ class Chitter < Sinatra::Base
   delete "/session" do
     session[:current_user_id] = nil
     redirect to '/'
+  end
+
+  get "/sign_in" do
+    erb :sign_in
+  end
+
+  post '/sign_in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:current_user_id] = user.id
+      redirect to('/')
+    else
+      flash.now[:error] = ['The email or password is incorrect']
+      erb :sign_in
+    end
   end
 end

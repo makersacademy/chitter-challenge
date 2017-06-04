@@ -14,3 +14,10 @@ def register_user(password = "password")
   fill_in "password_confirmation", with: password
   click_button "register"
 end
+
+def sign_in(password = "password")
+  click_button "sign in"
+  fill_in "email", with: "test@fake.com"
+  fill_in "password", with: password
+  click_button "sign in"
+end
