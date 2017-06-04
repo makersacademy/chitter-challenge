@@ -10,7 +10,7 @@ class Chitter < Sinatra::Base
   # enable :sessions
 
 
-  get '/peep/new' do
+  get '/peeps/new' do
     erb :'/add_peeps'
   end
 
@@ -20,9 +20,8 @@ class Chitter < Sinatra::Base
   end
 
 
-  post '/peep' do
-    @peepy =Peep.create(wording: params[:wording])
-    p @peepy
+  post '/peeps' do
+    @peepy =Peep.create(wording: params[:wording], timing: Time.now)
     redirect '/peeps'
   end
 
