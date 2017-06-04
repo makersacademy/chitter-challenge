@@ -1,11 +1,12 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
-require_relative 'models/homepage' #need our link model
+require_relative 'data_mapper_setup'
+
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super sectret'
+  set :session_secret, 'super secret'
 
   get '/homepage' do
     @homepage = Homepage.all
