@@ -1,7 +1,0 @@
-<% unless @current_user.nil? %>
-  Welcome <%= @current_user.name %>!<br>
-<% end %>
-<% @all_peeps.each do |peep| %>
-  Message: <%= peep.message %><br>
-  Peeped at: <%= peep.created_at.strftime('%d %b, %Y at %H:%M') %><br>
-<% end %>
