@@ -13,4 +13,7 @@ feature "Registering a new user" do
     register_user
     expect(page).to have_content "Welcome Test!"
   end
+  scenario "User can't register is confirmation password is incorrect" do
+    expect{register_user("wrong_password")}.not_to change(User, :count )
+  end
 end

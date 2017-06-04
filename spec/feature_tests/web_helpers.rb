@@ -5,10 +5,12 @@ def make_peep
   click_button "Release the Peep"
 end
 
-def register_user
+def register_user(password = "password")
   visit "/"
   click_button "Register New User"
   fill_in "name", with: "Test"
   fill_in "email", with: "test@fake.com"
+  fill_in "password", with: "password"
+  fill_in "password_confirmation", with: password
   click_button "register"
 end
