@@ -16,7 +16,6 @@ class Chitter < Sinatra::Base
   post '/messages' do
     message = Message.create(content: params[:content], time: Time.now)
     message.save
-    puts "****#{message}****"
     redirect '/messages'
   end
 
