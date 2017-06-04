@@ -1,6 +1,9 @@
 feature 'peeps creation' do
 
   scenario 'Users are able to create new messages / peeps' do
+    sign_up(email: 'mail@marioribeiro.com',
+            password: 'mypassword',
+            username: 'marioribeiro')
     visit '/peeps/new'
     fill_in 'text', with: 'just setting up my chttr'
     click_button 'Peep'

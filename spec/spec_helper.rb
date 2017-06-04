@@ -5,6 +5,7 @@ require 'database_cleaner'
 require './app/app'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'helpers/session'
 require 'web_helper'
 
 Capybara.app = Chitter
