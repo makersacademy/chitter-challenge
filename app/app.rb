@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/homepage' do
-    Homepage.create(message: params[:message])
+     Homepage.create(message: params[:message])
     redirect '/homepage'
   end
 end

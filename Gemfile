@@ -5,6 +5,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 # gem 'sinatra', '~> 1.4.7'
 gem 'sinatra', '1.4.8'
+gem 'database_cleaner'
 
 group :test do
   gem 'cucumber'

@@ -2,15 +2,16 @@ feature 'post peep on chitter' do
   scenario 'I want to post a message (peep) online' do
     Homepage.create(message: "message")
     visit('/homepage')
-    # fill_in('message box', with: 'message')
-    # click_button 'Send message'
+    click_button 'Add new message'
+    fill_in('message', with: 'hello')
+    click_button 'Submit Message'
 
-    # within 'ul#homepage' do
-    expect(page).to have_content('message')
+    within 'ul#homepage' do
+    expect(page).to have_content('hello')
     # end
   end
 end
-
+end
 
 # As a Maker
 # So that I can let people know what I am doing
