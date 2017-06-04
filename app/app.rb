@@ -3,10 +3,9 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'thin'
 require_relative './datamapper_setup'
 
-class BookmarkManager < Sinatra::Base
+class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 
