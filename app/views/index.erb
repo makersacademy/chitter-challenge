@@ -37,9 +37,8 @@
       <% @peeps.reverse.each do |peep| %>
         <% user = User.get(peep.user_id) %>
         <li class="peep">
-          <%= "#{user.first_name} #{user.last_name} (@#{user.username}) - " %>
+          <p class="peep_header"><%= "#{user.first_name} #{user.last_name} (@#{user.username}) - #{peep_time(peep.time)}" %></p>
           "<%= peep.body %>"
-          <%= peep_time(peep.time) %>
         </li><br>
       <% end %>
     </ul>

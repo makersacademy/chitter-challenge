@@ -33,6 +33,9 @@ class Chitter < Sinatra::Base
       elsif peep_date == todays_date && today.strftime('%H').to_i == timestamp.strftime('%H').to_i
         minutes_elapsed = today.strftime('%M').to_i - timestamp.strftime('%M').to_i
         "#{minutes_elapsed}m"
+      elsif peep_date == todays_date && today.strftime('%H').to_i == timestamp.strftime('%H').to_i && today.strftime('%M').to_i - timestamp.strftime('%M').to_i
+        seconds_elapsed = today.strftime('%S').to_i - timestamp.strftime('%S').to_i
+        "#{seconds_elapsed}s"
       else
         timestamp.strftime('%b %-d')
       end

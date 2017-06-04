@@ -23,3 +23,7 @@ a {
 #chitter_feed {
     padding: 15px;
 }
+
+.peep_header {
+    font-weight: bold;
+}
