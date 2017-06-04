@@ -7,7 +7,10 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peep
+
   property :id,               Serial
+  property :name,             String
   property :email,            String, required: true, unique: true
   property :username,         String, required: true, unique: true
   property :password_digest,  Text,   required: true

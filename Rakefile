@@ -1,4 +1,6 @@
 require 'data_mapper'
+# require 'sinatra'
+# require 'sinatra/partial'
 require './app/app'
 
 namespace :db do
