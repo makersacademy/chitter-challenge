@@ -27,8 +27,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/chits' do
-    Chit.create(message: params[:message],
-               time: Time.now)
+    Chit.create(user_id: current_user.id,
+                message: params[:message],
+                time: Time.now)
     redirect '/chits'
   end
 

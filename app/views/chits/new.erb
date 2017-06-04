@@ -1,9 +1,15 @@
-<h2> New Chit</h2>
-<form action="/chits" method="post">
-  <p>
-    <textarea rows="4" cols="50" name="message" placeholder="What's on your mind?" maxlength="140"></textarea>
-  </p>
-  <p>
-    <input type="submit" value="Chit">
-  </p>
-</form>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">New Chit!</h3> 
+    </div>
+    <div class="panel-body">
+      <form action="/chits" method="post">
+        <div class="form-group">
+          <textarea name="message" class="form-control" rows="5" placeholder="What's on your mind?" maxlength="140"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Chit</button>
+      </form> 
+    </div>
+  </div>
+</div>

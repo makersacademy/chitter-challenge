@@ -53,3 +53,22 @@ body {
   list-style-type: none;
 }
 
+.navbar {
+  background-color: tomato;
+  background-image: none;
+}
+
+.navbar-inverse {
+  border-color: tomato;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+
