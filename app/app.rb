@@ -17,7 +17,11 @@ class Critter < Sinatra::Base
 	get '/' do
 	 	erb :index	
 	end
-	
+
+	get '/signup' do
+		erb :signup
+	end
+
 	post '/signup' do
 		user = User.create(name: params[:name], username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:confirmation])
 		if user.valid?
@@ -25,7 +29,24 @@ class Critter < Sinatra::Base
 			redirect '/creets'
 		else
 			flash.now[:confirm] = 'Passwords do not match! Please try again.'
-			erb :index
+			erb :signup
+		end
+	end
+	
+	get '/signin' do
+		erb :signin
+	end
+		
+	post '/signin' do
+		user = User.all(email: params[:email]).last
+		if !user
+			flash.now[:user] = "Username does not exist!"	
+			erb :signin
+		elsif user.authentic?(params[:password]) 
+			erb :creets
+		else
+			flash.now[:authenticate] = "Username and password do not match!"
+			erb :signin
 		end
 	end
 

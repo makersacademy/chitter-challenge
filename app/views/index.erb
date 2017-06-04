@@ -1,15 +1,11 @@
 <center> <h1> Welcome to Critter! </h1>
 	<h3> - because everyone needs to creep around sometimes - </h3>
 	
-	<form action='/signup', method='post'>
-		Name: <input type='text', name='name'>
-		User Name: <input type='text', name='username'>
-		Email: <input type='text', name='email'>
-		Password: <input type='password', name='password'>
-		Confirm Password: <input type='password', name='confirmation'>
-		<input type='submit', value='Sign up'>
-
-		<% if flash[:confirm] %>
-			<%= flash[:confirm] %>
-		<% end %>
-</center>
+	Do you want to sign in, or is it your first time?
+	
+	<form action='/signup'>
+		<input type='submit', value='Sign me up!'>
+	</form>
+	<form action='/signin'>
+		<input type='submit', value='Sign me in!'>
+	</form>

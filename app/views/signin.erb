@@ -1,0 +1,13 @@
+<form action='/signin', method='post'>
+	Email: <input type='text', name='email'>
+	Password: <input type='password', name='password'>
+	<input type='submit', value='Sign in'>
+</form>
+
+<% if flash[:user] %>
+	<%= flash[:user] %>
+<% end %>
+
+<% if flash[:authenticate] %>
+	<%= flash[:authenticate] %>
+<% end %>

@@ -1,5 +1,6 @@
 def sign_up
 	visit '/'
+	click_button 'Sign me up!'
 	fill_in('name', with: 'Steve')
 	fill_in('username', with: 'SuperSteve4Prez')        
 	fill_in('email', with: 'steveisawesome@gmail.com')

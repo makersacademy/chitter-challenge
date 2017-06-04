@@ -22,5 +22,9 @@ class User
 		self.password_hash = BCrypt::Password.create(password)
 	end
 
+	def authentic?(password_attempt)
+			self.password == password_attempt
+	end
+
 end
 
