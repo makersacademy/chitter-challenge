@@ -6,7 +6,7 @@ def sign_up
   fill_in :password_confirmation, with: 'makers'
   fill_in :name, with: 'Kavita'
   fill_in :username, with: 'kkavita92'
-  click_button 'Sign Up'
+  click_button 'Enter'
 end
 
 def wrong_sign_up
@@ -17,7 +17,7 @@ def wrong_sign_up
   fill_in :password_confirmation, with: 'wrong'
   fill_in :name, with: 'Kavita'
   fill_in :username, with: 'kkavita92'
-  click_button 'Sign Up'
+  click_button 'Enter'
 end
 
 def post_new_peep
@@ -30,5 +30,5 @@ def log_in(email:, password:)
   visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password
-  click_button 'Login'
+  click_button 'Enter'
 end

@@ -7,6 +7,23 @@
 
   <body>
     <h1>Chitter</h1>
+    <% if current_user %>
+      Welcome, <%= current_user.name %>!<br>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+      <form action='/posts/new'>
+      <input type="submit" value="New Peep">
+      </form>
+  <% else %>
+    <form method='get' action='/sessions/new'>
+      <input type='submit' value='Login'>
+    </form>
+    <form method='get' action='/users/new'>
+      <input type='submit' value='Sign up'>
+    </form>
+  <% end %>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>

@@ -17,4 +17,8 @@ feature 'user log in and out' do
     expect(page).to have_content 'The email or password is incorrect'
   end
 
+  scenario 'user cannot log in with wrong username' do
+    log_in(email: :wrong, password: user.password)
+    expect(page).to have_content 'The email or password is incorrect'
+  end
 end
