@@ -14,7 +14,10 @@ class Chitter < Sinatra::Base
 
   post '/posts' do
     peep = Peep.create(message: params[:message], timestamp: Time.now, user_id: session[:user_id])
-    peep.save
-    redirect to '/posts'
+    if peep.save
+      redirect to '/posts'
+    else
+      flash.now[:errors] = peep.errors.full_messages
+    end
   end
 end
