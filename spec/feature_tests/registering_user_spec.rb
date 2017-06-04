@@ -15,5 +15,7 @@ feature "Registering a new user" do
   end
   scenario "User can't register is confirmation password is incorrect" do
     expect{register_user("wrong_password")}.not_to change(User, :count )
+    expect(current_path).to eq('/register_user')
+    expect(page).to have_content 'Your passwords do not match, please try again'
   end
 end
