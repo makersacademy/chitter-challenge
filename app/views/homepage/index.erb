@@ -1,4 +1,4 @@
-<h1> Homepage </h1>
+<h1> Welcome to Chitter </h1>
 
 <ul id='homepage'>
   <% @homepage.each do |homepage| %>
@@ -8,8 +8,10 @@
   <% end %>
 </ul>
 
-<form action="/new_message" method="get">
+<!-- <form action="/new_message" method="get">
 
   <input type="submit" value="Add new message">
 
-</form>
+</form> -->
+
+<a href="/homepage/new_message">Add new message</a>

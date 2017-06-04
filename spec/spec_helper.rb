@@ -19,6 +19,8 @@ RSpec.configure do |config|
   end
 end
 
+ENV['RACK_ENV'] = 'test'
+
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 Capybara.app = Chitter #tells capybara what app you want to test, otherwise says ArgumentError, rack test requires a rack app

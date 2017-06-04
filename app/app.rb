@@ -5,23 +5,15 @@ require_relative 'models/homepage' #need our link model
 
 class Chitter < Sinatra::Base
 
-# get '/' do
-#   erb :index
-# end
-
-# get '/' do
-#   erb(:index)
-# end
-
   get '/homepage' do
     @homepage = Homepage.all
     erb :'homepage/index'
   end
 
-  get 'homepage/new_message' do
-    erb :'homepage/new_message'
+  get '/homepage/new_message' do
+    erb :'/homepage/new_message'
   end
-  
+
   post '/homepage' do
     Homepage.create(message: params[:message])
     redirect '/homepage'
