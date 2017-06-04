@@ -58,12 +58,12 @@ class Chitter < Sinatra::Base
     redirect to '/messages'
   end
 
-
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  end
 
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
+  end
 
 end

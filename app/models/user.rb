@@ -39,5 +39,4 @@ class User
 # password_object == password
 #     > password_object == Password.new(password, password_object.salt)
 
-
 end

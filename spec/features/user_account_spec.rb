@@ -13,7 +13,7 @@ feature 'User can sign up' do
   end
 
   scenario 'Password must be at leat 8 characters long' do
-    sign_up(password: '123', password_confirmation: '123' )
+    sign_up(password: '123', password_confirmation: '123')
     expect(page).to have_content('Password must be at least 8 characters long')
   end
 
@@ -24,7 +24,7 @@ feature 'User can sign up' do
   end
 
   scenario 'The email format should be valid' do
-    sign_up(email:'wnfwlk')
+    sign_up(email: 'wnfwlk')
     expect(page).to have_content('Email has an invalid format')
   end
 

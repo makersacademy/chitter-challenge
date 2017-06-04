@@ -24,6 +24,4 @@ feature 'Post message' do
     expect(page).to have_content time.strftime("Sent on %m/%d/%Y at %I:%M %p")
   end
 
-
-
 end
