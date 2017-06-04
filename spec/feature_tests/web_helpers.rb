@@ -16,6 +16,7 @@ def register_user(password = "password")
 end
 
 def sign_in(password = "password")
+  visit "/"
   click_button "sign in"
   fill_in "email", with: "test@fake.com"
   fill_in "password", with: password

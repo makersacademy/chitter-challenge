@@ -8,8 +8,8 @@ class User
   has n, :peeps, through: Resource
 
   property :id, Serial
-  property :name, String
-  property :email, String
+  property :name, String , required: true, unique: true
+  property :email, String, required: true, unique: true
 
   property :password_digest, Text
 
