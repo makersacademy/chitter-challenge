@@ -48,6 +48,8 @@ a {
     width: 100px;
     border-radius: 100%;
     margin-right: 10px;
+    background-color: dimgray;
+    border: transparent 1px solid;
 }
 
 ul {
@@ -112,6 +114,8 @@ body {
     height: 50px;
     border-radius: 100%;
     margin: 0;
+    background-color: dimgray;
+    border: transparent 1px solid;
 }
 
 .greeting {
