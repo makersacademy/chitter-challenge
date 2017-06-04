@@ -7,6 +7,7 @@ gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
+gem 'database_cleaner'
 
 group :test do
   gem 'cucumber'
