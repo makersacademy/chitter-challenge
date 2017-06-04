@@ -4,6 +4,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -15,6 +16,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.include SessionHelpers
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
