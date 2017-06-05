@@ -38,7 +38,12 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <li><a id="username" href="#">Logged as: <%= current_user.username.capitalize %> (<%= current_user.email %>)</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+              <li>
+                <form action="/logout" method="post">
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" class="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</button>
+                </form>
+              </li>
             <% else %>
               <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
               <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -49,7 +54,12 @@
     </nav>
 
     <div class="container" role="main">
-
+      <% if flash[:goodbye] %>
+        <div id="goodbye">
+          <%= flash[:goodbye] %>
+        </div>
+      <% end %>
+      
       <%= yield %>
 
     </div> <!-- /container -->

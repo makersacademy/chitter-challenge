@@ -10,6 +10,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, "you'll never guess it!"
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers Helpers
 
@@ -63,6 +64,12 @@ class Chitter < Sinatra::Base
       flash.now[:error] = 'The username or the password is incorrect'
       erb :login
     end
+  end
+
+  delete '/logout' do
+    session[:user_id] = nil
+    flash.keep[:goodbye] = 'goodbye!'
+    redirect to '/chits'
   end
 
   run! if $PROGRAM_NAME == __FILE__

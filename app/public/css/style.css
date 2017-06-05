@@ -116,3 +116,23 @@ body {
 #username {
   font-size: 12px;
 }
+
+.logout {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #3e474f;
+  border: 0;
+  color: #b2bbbd;
+}
+
+.logout:hover {
+  color: #fff;
+}
+
+#goodbye {
+  font-family: 'Autour One';
+  font-size: 2em;
+  color: tomato;
+  text-align: center;
+  padding-bottom: 20px;
+}
