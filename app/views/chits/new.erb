@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="row">
   <div class="panel panel-default new_chit">
     <div class="panel-heading">
@@ -13,3 +14,6 @@
     </div>
   </div>
 </div>
+<% else %>
+<h2 style='color: tomato; text-align: center; font-family: Autour One;'>Please Login or Sign up to start chitting with your friends</h2>
+<% end %>
