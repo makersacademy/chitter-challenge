@@ -21,6 +21,21 @@ class Chitter < Sinatra::Base
     end
   end
 
+  def full_name(user_id)
+    first_name = User.get(user_id).first_name
+    last_name  = User.get(user_id).last_name
+    full_name = first_name + " " + last_name
+  end
+
+  def username(user_id)
+    User.get(user_id).username
+  end
+
+  def avatar(user_id)
+    avatar = User.get(user_id).avatar
+    "/uploads/" + avatar
+  end
+
   get '/peeps' do
     @peeps = Peep.all(:order => [:id.desc])
     erb :'peeps/index'

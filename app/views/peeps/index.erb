@@ -1,8 +1,8 @@
 <% @peeps.each do |peep| %>
   <div class="panel panel-default">
     <div class="panel-body">
-        <img class="user-avatar img-rounded" src="/uploads/<%= User.get(peep.user_id).avatar %>" alt="avatar">
-        <span class="username"><strong><%= User.get(peep.user_id).first_name %> <%= User.get(peep.user_id).last_name %></strong> @<%= User.get(peep.user_id).username %></span>
+        <img class="user-avatar img-rounded" src="<%= avatar(peep.user_id) %>" alt="avatar">
+        <span class="username"><strong><%= full_name(peep.user_id) %></strong> @<%= username(peep.user_id) %></span>
         <span class="time"><%= peep_distance_of_time(peep.created_at) %></span>
         <p class="peep-text"><%= peep.text %></p>
         <div class="panel-footer actions">
