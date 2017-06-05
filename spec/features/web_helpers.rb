@@ -8,10 +8,11 @@ def sign_up
   click_button("Submit")
 end
 
-def log_out_and_begin_log_in
-  click_button("Log out")
+def log_in(username, password)
   click_button("Log in")
-  fill_in("username", with: "Kynosaur")
+  fill_in("username", with: username)
+  fill_in("password", with: password)
+  click_button("Submit")
 end
 
 def post_new_peep(message)
