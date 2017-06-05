@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welome to Chitter!</title>
+  </head>
+  <body>
+    <% if current_user %>
+    Welcome, <%= current_user.email %>
+    <% end %>
+    <%= yield %>
+
+  </body>
+</html>
