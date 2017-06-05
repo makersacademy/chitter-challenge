@@ -8,8 +8,8 @@
 
 
 <form action = "/peeps" method = "POST">
-  <label for= "peep"> Message:</label>
-  <input type = "text" name = "peep">
+  <label for= "message"> Message:</label>
+  <input type = "text" name = "message">
   <input type = "submit" value = "Submit">
 </form>
 
@@ -17,7 +17,7 @@
 <ul id="peeps">
   <% @peeps.reverse.each do |peep| %>
   <li>
-    Message: <%= peep.peep %> Time created: <%= peep.created_at %>
+    Message: <%= peep.message %> Time created: <%= peep.created_at %>
     <% end %>
   </li>
 </ul>
