@@ -1,5 +1,3 @@
-# Require all model files up here, then require this file in app.rb
-
 require_relative './models/user.rb'
 require_relative './models/message.rb'
 
