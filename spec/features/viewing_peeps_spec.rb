@@ -4,12 +4,13 @@ feature 'Viewing peeps' do
     expect(page).to have_content('Chazn')
     expect(page).to have_content('Charlotte Fereday')
   end
-  # TODO not 100% convinced this is correct
-  xscenario 'users can see peeps in reverse chronological order on Chitter' do
-    signup_and_peep('Chazn', 'Charlotte Fereday', 'foo@bar.com', 'Hey- am peeping')
+  scenario 'users can see peeps in reverse chronological order on Chitter' do
+    visit('/peeps')
     signup_and_peep('Felipe', 'Felipe Sere', 'cool@bar.com', 'Peeping away!')
     signup_and_peep('Christoph', 'Christoph Gockel', 'yeh@bar.com', 'Still peeping!')
-    expect(usernames(page)).to eq ['Chazn', 'Felipe', 'Christoph']
+    first_msg = page.body.index('Still peeping!')
+    second_msg = page.body.index('Peeping away!')
+    expect(first_msg).to be > second_msg
   end
   scenario 'users can see the time the peep was made' do
     peep = Peep.new( message:      'OMG! Makers weekend challenges r so cool?!!',

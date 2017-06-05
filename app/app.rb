@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   include BCrypt
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, ENV['SESSION_SECRET']
   # TODO explore setting an environment later: ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
 
   get '/' do

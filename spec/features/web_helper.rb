@@ -2,12 +2,6 @@ def post_peep
   posting_peep('OMG! Makers weekend challenges r so cool?!!')
 end
 
-# def post_peeps_usernames(usernames)
-#   usernames.each do |usernames|
-#     posting_peep('OMG! Makers weekend challenges r so cool?!!')
-#   end
-# end
-
 def posting_peep(peep)
   visit '/peeps/new'
   fill_in('Peep Message', with: peep)
