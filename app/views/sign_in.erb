@@ -1,0 +1,10 @@
+<% if flash[:error] %>
+  <div id='notice'><%= flash[:error] %></div>
+<% end %>
+<form action = "/sign_in" method = "POST">
+  Email: <br>
+  <input type = "text" name = "email"><br>
+  Password: <br>
+  <input type = "password" name = "password"><br>
+  <input type = "submit" value = "sign in">
+</form>

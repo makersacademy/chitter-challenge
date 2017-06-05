@@ -1,0 +1,28 @@
+<% unless @current_user.nil? %>
+  Welcome <%= @current_user.name %>!<br>
+  <form action = "/session" method = "POST">
+    <input type='hidden' name='_method' value='delete'>
+    <input type = "submit" value = "sign out"><br>
+  </form>
+  <form action = "/new_peep" method = "GET">
+    <input type = "submit" value = "Make a Peep"><br>
+  </form>
+<% else %>
+  <form action = "/register_user" method = "GET">
+    <input type = "submit" value = "Register New User"><br>
+  </form>
+  <form action = "/sign_in" method = "GET">
+    <input type = "submit" value = "sign in"><br>
+  </form>
+<% end %>
+
+<ul id='peeps'>
+  <% @all_peeps.reverse.each do |peep| %>
+    <li>
+      Peep by: <%= User.first(id: peep.user_id).name %><br>
+      Message: <%= peep.message %><br>
+      Peeped on: <%= peep.created_at.strftime('%d %b, %Y at %H:%M') %><br>
+      <p>
+    </li>
+  <% end %>
+</ul>
