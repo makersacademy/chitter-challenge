@@ -36,15 +36,11 @@ post '/users/login' do
   end
 end
 
-get '/users/logout' do
-  erb :'users/logout'
-end
-
 post '/users/logout' do
-  params[:logout]
+  session[:user_id] = nil
   session.clear
   redirect to '/users/login'
   erb :'users/logout'
 end
 
-end 
+end

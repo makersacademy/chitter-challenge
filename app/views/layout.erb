@@ -7,6 +7,11 @@
 <body>
   <% if current_user %>
   Welcome <%= current_user.username %>
+  <form action="/users/logout" method="POST">
+    <input type="submit" value= "Logout"
+    name="logout" id="logout" />
+    </label>
+  </form>
   <% end %>
   <% if flash[:notice] %>
   <div id='notice'><%= flash[:notice] %></div>
