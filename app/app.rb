@@ -70,7 +70,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/peeps'
     else
-      flash.now[:notice2] = "We do not have that username. Please signup first so we can log you in."
+      flash.next[:notice2] = 'We do not have that username. Please signup first so we can log you in.'
       redirect to '/users/new'
     end
   end
