@@ -12,12 +12,11 @@ class Chitter < Sinatra::Base
     erb :'peeps/new'
   end
 
-
   post '/peeps' do
-    peep = Peep.new(name:             current_user.name,
-    username:         current_user.username,
-    message:          params[:message])
+    peep = Peep.create(name:             current_user.name,
+                        user_id:          current_user.id,
+                        message:          params[:message])
     peep.save
     redirect to '/peeps'
   end
-end 
+end
