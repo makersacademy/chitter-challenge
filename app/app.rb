@@ -31,8 +31,9 @@ class Chitter < Sinatra::Base
       body = peep.body.delete(',.?!;:/')
       array = body.split(' ')
       array.each do |word|
-        hashtags << Hashtag.create(tag: word) if word[0] == '#'
+        hashtags << Hashtag.create(tag: word[1..-1]) if word[0] == '#'
       end
+      # hashtags.each { |hashtag| hashtag.tag.delete('#') }
       return hashtags
     end
 
@@ -93,10 +94,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_user' do
-    user = User.create(first_name: params[:first_name],
-     last_name: params[:last_name],
-     email: params[:email],
-     username: params[:username],
+    user = User.create(first_name: params[:first_name].capitalize,
+     last_name: params[:last_name].capitalize,
+     email: params[:email].downcase,
+     username: params[:username].downcase,
      picture_url: params[:picture_url],
      password: params[:password],
      password_confirmation: params[:password_confirmation])
@@ -121,6 +122,12 @@ class Chitter < Sinatra::Base
 
   get '/peep' do
     erb :peep
+  end
+
+  get '/peeps/:hashtag' do
+    hashtag = Hashtag.all(conditions: ['lower(tag) = ?', params[:hashtag].downcase])
+    @peeps = hashtag ? hashtag.peeps : []
+    erb :index
   end
 
   run! if __FILE__ == $PROGRAM_NAME

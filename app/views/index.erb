@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Chitter</title>
-    <link href="css/stylesheet.css" type="text/css" rel="stylesheet">
+    <link href="/css/stylesheet.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
   </head>
 
@@ -55,14 +55,14 @@
         <% hashtags = [] %>
         <% body = peep.body.delete(',.?!;:') %>
         <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
-        <% hashtags.each { |word| peep.body.gsub!(word, "<a href='/search/#{word}' class='hashtag'>#{word}</a>") } %>
+        <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
         <% user = User.get(peep.user_id) %>
         <li class="peep">
           <table>
             <tr>
               <td><img src="<%= user.picture_url %>" class="user_picture"></td>
               <td>
-                <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><span class="username"><%= "@#{user.username} " %></span><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
+                <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><a href="users/<%= user.username %>" class="username"><%= "@#{user.username} " %></a><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
                 "<%= peep.body %>"
                 <a href="/like/<%= peep.id %>"><div class="likes_div"><img src="http://michael-jacobson.co.uk/heart.png" class="heart_image"><%= peep.likes %></div></a>
               </td>
