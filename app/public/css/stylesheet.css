@@ -196,9 +196,16 @@ body {
     margin-right: 5px;
 }
 
-.likes_div {
-    font-size: 17px;
+.likes_red {
+    font-size: 16px;
     margin-top: 5px;
     background-color: transparent;
     color: #C82606;
+}
+
+.likes_grey {
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: dimgray;
 }
