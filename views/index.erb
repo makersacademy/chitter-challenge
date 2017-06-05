@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color:
+lightblue;
+}
+p {
+    border: 2px solid black;
+    outline: 5px solid white;
+  }
+
+
+h1 {color: white;
+   text-align: center;
+ }
+ </style>
+ </head>
+ <body>
+<h1> <%@user%>'s Peeps </h1>
+
+<form action='peeps/new' method='GET'>
+  <input type='submit' value='New Peep'>
+</form>
+
+
+<ul>
+  <% @new_peep.reverse.each do |peep| %>
+    <li><p>
+    <b>Peep:</b> <%= peep.wording %><br/>
+    <small>Posted: <%= peep.timing.strftime('%H:%M on %d/%b/%y') unless peep.timing.nil?%></small></p>
+  </li>
+  <% end %>
+</ul>
+</body>
+</html>
