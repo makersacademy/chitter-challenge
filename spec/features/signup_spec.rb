@@ -5,7 +5,7 @@ feature 'User sign up' do
 
     expect(current_path).to eq '/chits'
 
-    expect(page).to have_content 'Signed up as: Tester'
+    expect(page).to have_content 'Logged as: Tester'
     expect(page).to have_content 'test@mail.com'
   end
 

@@ -10,6 +10,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <!-- Bootstrap theme -->
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Autour+One" rel="stylesheet"> 
     <!--  Custom Styles -->
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
 
@@ -26,27 +27,21 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="/">Chitter</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/chits">Chits</a></li>
             <li><a href="/chits/new">New</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-              <li><a href="#">Signed up as: <%= current_user.username.capitalize %> (<%= current_user.email %>)</a></li>
+              <li><a id="username" href="#">Logged as: <%= current_user.username.capitalize %> (<%= current_user.email %>)</a></li>
               <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
             <% else %>
               <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->

@@ -1,6 +1,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
+  background: #edeff0;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -17,11 +18,25 @@ body {
   width: auto;
 }
 
+.landing {
+  font-family: "Autour One";
+  color: tomato;
+  text-align: center;
+}
+
+.landing h1 {
+  font-size: 8em;
+}
+
+.landing h3 {
+  font-size: 2em;
+}
+
 #chits div.panel {
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
-  border: 1px solid tomato;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
 }
 
 #chits div.panel .panel-heading {
@@ -42,21 +57,28 @@ body {
   word-break: break-all;
 }
 
+.panel-heading {
+  font-family: 'Autour One';
+}
+
+.login,
 .signup,
 .new_chit {
-  border: 1px solid tomato;
   margin: 0 auto;
   max-width: 600px;
 }
 
+.login .panel-title,
 .signup .panel-title,
 .new_chit .panel-title {
   color: white;
 }
 
+.login .panel-heading,
 .signup .panel-heading,
 .new_chit .panel-heading {
   background: tomato;
+  border: 1px solid tomato;
 }
 
 #notice ul {
@@ -68,21 +90,29 @@ body {
 }
 
 .navbar {
-  background-color: tomato;
+  font-family: 'Autour One';
+  background-color: #3e474f;
   background-image: none;
 }
 
 .navbar-inverse {
-  border-color: tomato;
+  border-color: #3e474f;
 }
 
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a {
-    color: #fff;
+    color: #b2bbbd;
+    font-size: 16px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
-  color: rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
+.navbar-brand {
+  font-size: 24px !important;
+}
 
+#username {
+  font-size: 12px;
+}
