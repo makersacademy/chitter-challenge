@@ -1,9 +1,10 @@
-require 'simplecov'
-require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'simplecov'
+require 'simplecov-console'
 require 'rspec'
+require_relative 'helpers/session'
 require  './app/app'
 
 ENV['RACK_ENV'] = 'test'
@@ -37,6 +38,7 @@ RSpec.configure do |config|
   end
 
   config.include Capybara::DSL # good
+  config.include SessionHelpers
 ##  config.include FactoryGirl::Syntax::Methods # sure
 
   config.expect_with :rspec do |expectations|

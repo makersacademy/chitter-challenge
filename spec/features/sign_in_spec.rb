@@ -1,29 +1,25 @@
-xfeature "Signing in" do
+# As a Maker
+# So that only I can post messages on Chitter as me
+# I want to log in to Chitter
+
+feature "Signing in" do
   background do
-    User.make(email: 'user@example.com',
-              password: 'caplin')
+    let(:user) { User.make(email: 'user@example.com',
+              password: 'caplin') }
   end
 
   scenario "Signing in with correct credentials" do
-    visit '/sessions/new'
-    within("#session") do
-      fill_in(:email,    with: email)
-      fill_in(:password, with: password)
-    end
-    click_button('Sign in')
-    expect(page).to have_content('Success')
+    sign_in(email: user.email,   password: user.password)
+    expect(page).to have_content('Welcome, #{user.email}')
   end
 
-  given(:other_user) { User.make(email: 'other@example.com',
+  let(:other_user) { User.create(email: 'other@example.com',
                                 password: 'rous') }
 
   scenario "Signing in as another user" do
-    visit '/sessions/new'
-    within("#session") do
-      fill_in(:email,    with: email)
-      fill_in(:password, with: password)
-    end
-    click_button('Sign in')
+    sign_in(email: other_user.email,   password: other_user.password)
     expect(page).to have_content('Invalid email or password')
   end
+
+
 end

@@ -8,6 +8,7 @@ TIME_FORMAT = '%e-%b-%Y %I:%M:%S %p'
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  use Rack::MethodOverride
   set :session_secret, 'super secret'
   set :public_folder, Proc.new { File.join(root, 'static') }
 
@@ -29,7 +30,6 @@ class Chitter < Sinatra::Base
   post '/peeps' do
     @peep = Peep.new(message: params[:message],
                     created_at: Time.now)
-p current_user
     if current_user
       @peep.user_id = session[:user_id]
       @peep.save
@@ -49,7 +49,7 @@ p current_user
               password: params[:password],
               name: params[:name],
               username: params[:username])
-    p @user, @user.id
+
     if @user.save  #save returns true/false depending on whether the model is successfully saved to the database.
       session[:user_id] = @user.id
       redirect to('/peeps')
@@ -66,16 +66,19 @@ p current_user
   end
 
   post '/sessions' do
-  @user = User.authenticate(params[:email], params[:password])
-  if @user
-    session[:user_id] = @user.id
-    redirect to('/peeps')
-  else
-    flash.now[:errors] = ['The email or password is incorrect']
-    erb :'sessions/new'
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
   end
-end
 
+  delete '/sessions' do
+    flash.now[:notice] = ['Goodbye!']
+  end
 
   run! if app_file == $0
 end
