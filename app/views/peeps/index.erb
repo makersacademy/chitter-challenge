@@ -1,0 +1,27 @@
+<h1>Welcome to Chitter!!</h1>
+
+<h2>Sign Up Below:</h2>
+
+<form action='/user/new' method = "GET">
+  <input type ='submit' value = 'Sign up'>
+</form></br>
+
+<form action='/logout' method = "GET">
+  <input type ='submit' value = 'Log out'>
+</form></br>
+
+
+<form action = "/peeps" method = "POST">
+  <label for= "message"> Message:</label>
+  <input type = "text" name = "message">
+  <input type = "submit" value = "Submit">
+</form>
+
+<h2>Messages:</h2>
+<ul id="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    Message: <%= peep.message %> Time created: <%= peep.created_at %>
+    <% end %>
+  </li>
+</ul>
