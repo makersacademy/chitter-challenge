@@ -3,7 +3,7 @@ feature 'allow user to signup' do
     visit('/signup')
     fill_in('email', with: 'mail@mail.com')
     fill_in('password', with: 'password')
-    click_button('Sign Up')
+    click_button('Sign up')
 
     expect(page).to have_content('mail@mail.com')
 

@@ -1,11 +1,17 @@
 <h1> Welcome to Chitter </h1>
 
+<form action="/users/signup" method="get">
+
+  <input type="submit" value="Sign up">
+
+</form>
+
 <ul id='homepage'>
   <% @homepage.reverse.each do |homepage| %>
     <li>
       Message: <%= homepage.message %>
-      Posted at: <%= homepage.posted_at %>
-      <%= Time.now.strftime("%d/%b/%Y %H:%M") %>
+      Posted at: <%= homepage.created_at.strftime("%d/%b/%Y %H:%M") %>
+      <!-- <%= Time.now.strftime("%d/%b/%Y %H:%M") %> -->
     </li>
   <% end %>
 </ul>

@@ -6,10 +6,11 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
+  set :session_secret, 'really not so secret'
 
   get '/homepage' do
     @homepage = Homepage.all
+
     erb :'homepage/index'
   end
 
@@ -22,21 +23,21 @@ class Chitter < Sinatra::Base
     redirect '/homepage'
   end
 
-  get '/signup' do
-    erb :signup
+  get '/users/signup' do
+    erb :'/users/new'
   end
 
-  post '/signup' do
-    redirect '/users/users'
-  end
-
+  # post '/signup' do
+  #   redirect '/users'
+  # end
+  # #
   get '/users/new' do
     erb :'users/new'
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password])
-    session[:user_id] = User.id
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect to('/homepage')
   end
 
