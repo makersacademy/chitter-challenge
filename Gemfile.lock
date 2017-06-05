@@ -278,6 +278,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    ruby-sun-times (0.1.5)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -317,6 +318,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  ruby-sun-times
   sinatra
   sinatra-flash
   thin

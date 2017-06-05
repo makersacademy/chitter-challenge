@@ -1,6 +1,8 @@
 
 ENV['RACK_ENV'] ||= 'development'
 
+require 'date'
+require 'sun_times'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'thin'
@@ -11,6 +13,15 @@ class Chitter < Sinatra::Base
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 
   helpers do
+    def daytime?
+      date = Date.today
+      latitude = 51.5074
+      longitude = 0.1278
+      sunrise_today = SunTimes.new.rise(date, latitude, longitude)
+      sunset_today = SunTimes.new.set(date, latitude, longitude)
+      Time.now > sunrise_today && Time.now < sunset_today
+    end
+
     def greeting(user)
       current_hour = Time.now.strftime('%H').to_i
       if current_hour >= 18 && current_hour <= 23

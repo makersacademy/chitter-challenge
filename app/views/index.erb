@@ -5,7 +5,11 @@
   <head>
     <meta charset="UTF-8">
     <title>Thought Stream | Home</title>
-    <link href="/css/stylesheet.css" type="text/css" rel="stylesheet">
+    <% if daytime? %>
+      <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
+    <% elsif !daytime? %>
+      <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
+    <% end %>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
   </head>
 
