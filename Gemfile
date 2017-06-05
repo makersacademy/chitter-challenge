@@ -5,10 +5,10 @@ ruby '2.4.0'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'time_ago_in_words'
-gem 'rake'
 
 group :test do
   gem 'capybara'

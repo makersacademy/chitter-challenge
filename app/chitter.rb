@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/chits' do
-    @chits = Chit.all(:order => [ :time.desc ])
+    @chits = Chit.all(:order => [:time.desc])
     erb :'chits/index'
   end
 

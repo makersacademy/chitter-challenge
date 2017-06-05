@@ -7,7 +7,7 @@ class User
   has n, :chits
 
   property :id, Serial
-  property :username,  String, unique: true, required: true
+  property :username, String, unique: true, required: true
   property :email, String, format: :email_address, unique: true, required: true
   property :password_digest, Text, required: true
 
