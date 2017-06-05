@@ -33,7 +33,6 @@ class Chitter < Sinatra::Base
       array.each do |word|
         hashtags << Hashtag.create(tag: word[1..-1]) if word[0] == '#'
       end
-      # hashtags.each { |hashtag| hashtag.tag.delete('#') }
       return hashtags
     end
 
@@ -128,6 +127,14 @@ class Chitter < Sinatra::Base
     hashtag = Hashtag.all(conditions: ['lower(tag) = ?', params[:hashtag].downcase])
     @peeps = hashtag ? hashtag.peeps : []
     erb :index
+  end
+
+  get '/like/:peep_id' do
+    peep = Peep.get(params[:peep_id])
+    peep.likes += 1
+    peep.save
+    Like.create(peep_id: params[:peep_id], user_id: current_user.id)
+    redirect '/'
   end
 
   run! if __FILE__ == $PROGRAM_NAME
