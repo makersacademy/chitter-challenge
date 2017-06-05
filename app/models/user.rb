@@ -7,7 +7,7 @@ class User
   has n, :messages
 
   property :id,               Serial
-  property :user_name,        String
+  property :user_name,        String, :required => true
   property :user_email,       String, :required => true, :unique => true
   property :password_digest,  Text
 
