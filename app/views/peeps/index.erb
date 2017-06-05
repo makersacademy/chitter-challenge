@@ -1,0 +1,15 @@
+<h1> Lets get ready to Chitter!! </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Message: <%= peep.message %>
+      Created at: <%= peep.created_at %>
+      User: <%= User.get(peep.user_id).email %>
+    </li>
+  <% end %>
+</ul>
+
+<form action='/users/new' method='GET'>
+  <input type='submit' value='signup'>
+</form>
