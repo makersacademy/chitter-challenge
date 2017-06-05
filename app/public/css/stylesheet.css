@@ -209,3 +209,7 @@ body {
     background-color: transparent;
     color: dimgray;
 }
+
+input {
+    outline: none;
+}
