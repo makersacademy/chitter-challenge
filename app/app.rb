@@ -35,6 +35,11 @@ post ('/user') do
    redirect ('/peeps/index')
 end
 
+get ('/logout') do
+  session.clear
+  redirect ('/peeps/index')
+end
+
 helpers do
   def current_user
     @current_user ||= User.get(session[:user_id])
