@@ -1,0 +1,14 @@
+<% if current_user %>
+  <div class="container-fluid">
+    <div class="row">
+      <form class="form-group form-left" action='/messages/new' method='post'>
+        <h3> <%= ['Spread the word', 'Steady the banter-cannons', "Don't peep like Donald", "Peep like no-one's watching"].sample %>: </h3>
+        <textarea class="form-control" rows="3" name='message'></textarea> </br>
+        <button type="submit" class="btn btn-primary btn-left">Peep!</button>
+        <a role="button" href="/messages" class="btn btn-default">Cancel</a>
+      </form>
+    </div>
+  </div>
+<% else %>
+    <p> Please sign in </p>
+<% end %>

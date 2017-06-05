@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CH-Chitter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <% if current_user %>
+        <% else %>
+          <form class="navbar-form navbar-right" method='get' action='/users/new'>
+            <button type="submit" class="btn btn-default navbar-btn">Sign up!</button>
+          </form>
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <% if current_user %>
+          <form class="navbar-form navbar-left" method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <button type="submit" class="btn btn-default navbar-btn">Sign out</button>
+          </form>
+          <form class="navbar-form navbar-left" method='get' action='/messages/new'>
+            <button type='submit' class="btn btn-primary navbar-btn">Peep something!</button>
+          </form>
+        <% else %>
+          <form class="navbar-form navbar-left" method='get' action='/sessions/new'>
+            <button type="submit" class="btn btn-primary navbar-btn">Sign in</button>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Welcome to Chitter<%= !current_user.nil? ? ", #{current_user.user_name}" : "" %> </h1>
+    <% if flash[:log_out_notice] %>
+      <div id='log_out_notice'>
+        <%= flash[:log_out_notice] %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div
+</body>
+
+</html>
