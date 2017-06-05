@@ -140,7 +140,7 @@ body {
     position: absolute;
     background-color: ghostwhite;
     min-width: 140px;
-    border: solid 1px dimgray;
+    border: solid 1px black;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 99;
 }
@@ -149,7 +149,7 @@ body {
     content:"";
     position: absolute;
     right: 27px;
-    top: -16px;
+    top: -15.5px;
     width: 0;
     height: 0;
     z-index: 99;
