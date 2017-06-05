@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <style>
+
+    h1 {
+      width:100%;
+      text-align: center;
+      color: darkblue;
+    }
+    h2 {
+      color: purple;
+    }
+    body {
+      background: lightblue;
+    }
+    div {
+      display: flex;
+    }
+    .rwd-line {
+      display: block;;
+    }
+    #user-logging {
+      background-color: black;
+    }
+    article {
+      background-color: cornsilk;
+      width: 600px;
+    }
+    button {
+      background: lightcyan;
+      border-color: darkgreen;
+      border-radius: 10px;
+      border-style: double;
+      padding: 10px;
+      font-size: 12px;
+      color: darkblue;
+      margin-left: 10px;
+    }
+    ul {
+      list-style-type: none;
+    }
+    textarea {
+      width:500px;
+      height:60px;
+      font-size: 15px;
+      border-color: darkgreen;
+      margin-left: 30px;
+    }
+  </style>
+
+    <title>Chitter</title>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <strong>Hello, <%= current_user.username %></strong>
+      <form action='/sessions' method='post'>
+        <input type='hidden' name='_method' value='delete'>
+        <button type='submit' value='Sign out'>Sign out</button>
+      </form>
+    <% end %>
+
+    <% if flash[:errors] %>
+      <div id='errors'>
+        <%= flash[:errors] %>
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
