@@ -9,11 +9,10 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/')
     else
       p "AUTH ERROR"
-      redirect to('/')
     end
+    redirect to('/')
   end
 
   delete '/sessions' do

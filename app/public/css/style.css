@@ -72,3 +72,14 @@ img.avatar-form  {
   display: inline-block;
   width: 100%;
 }
+
+.panel-footer {
+  float: right;
+  border: 0px;
+  background-color: #fff;
+  font-size: 12px;
+}
+
+.panel-footer span {
+  margin: 0 5px 0 30px;
+}

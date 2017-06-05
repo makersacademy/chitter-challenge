@@ -5,6 +5,10 @@
         <span class="username"><strong><%= User.get(peep.user_id).first_name %> <%= User.get(peep.user_id).last_name %></strong> @<%= User.get(peep.user_id).username %></span>
         <span class="time"><%= peep_distance_of_time(peep.created_at) %></span>
         <p class="peep-text"><%= peep.text %></p>
+        <div class="panel-footer actions">
+          <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>LIKE
+          <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>REPLY
+        </div>     
     </div>
   </div>
 <% end %>
