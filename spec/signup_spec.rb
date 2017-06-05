@@ -1,6 +1,6 @@
 feature 'allow user to signup' do
   scenario 'user can signup with an email and a password' do
-    visit('/signup')
+    visit('/users/signup')
     fill_in('email', with: 'mail@mail.com')
     fill_in('password', with: 'password')
     click_button('Sign up')
