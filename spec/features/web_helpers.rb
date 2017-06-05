@@ -13,3 +13,9 @@ def log_out_and_begin_log_in
   click_button("Log in")
   fill_in("username", with: "Kynosaur")
 end
+
+def post_new_peep(message)
+  visit("/new_peep")
+  fill_in("message_body", with: message)
+  click_button("Submit")
+end
