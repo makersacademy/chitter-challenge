@@ -44,7 +44,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/authentication' do
-    user = User.first(username: params[:username])
     session[:user_id] = User.authenticate(params[:username], params[:password])
     current_user
     redirect('/login_status')
