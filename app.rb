@@ -9,6 +9,16 @@ require 'sinatra/base'
 class Chitter < Sinatra::Base
   # enable :sessions
 
+  get '/' do
+    erb :'welcome'
+  end
+
+  post '/create_user' do
+    @user = User.create(name: params[:name],
+                      email: params[:email])
+    p @user
+  redirect '/peeps'
+  end
 
   get '/peeps/new' do
     erb :'/add_peeps'
@@ -24,8 +34,5 @@ class Chitter < Sinatra::Base
     @peepy =Peep.create(wording: params[:wording], timing: Time.now)
     redirect '/peeps'
   end
-
-
-
 
 end

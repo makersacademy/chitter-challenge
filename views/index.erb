@@ -17,7 +17,12 @@ h1 {color: white;
  </style>
  </head>
  <body>
-<h1> Peeps </h1>
+<h1> <%@user%>'s Peeps </h1>
+
+<form action='peeps/new' method='GET'>
+  <input type='submit' value='New Peep'>
+</form>
+
 
 <ul>
   <% @new_peep.reverse.each do |peep| %>

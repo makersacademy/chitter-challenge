@@ -8,6 +8,4 @@ class Peep
   property :wording,  Text
   property :timing, DateTime
 
-
-
 end

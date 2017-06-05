@@ -4,6 +4,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require 'sinatra'
 require './app.rb'
+require 'feature/web_helpers.rb'
 # require 'database_cleaner'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
