@@ -3,8 +3,14 @@
   <h2> Already logged in as <%= current_user.username %>. </h2>
 <% else %>
   <form action='/authentication' method='POST'>
-    <input type='text' name='username'>
-    <input type='password' name='password'>
+    <label for='username'>
+      Username:
+      <input type='text' name='username'>
+    </label>
+    <label for='password'>
+      Password:
+      <input type='password' name='password'>
+    </label>
     <input type='submit' value='Submit'>
   </form>
 <% end %>
