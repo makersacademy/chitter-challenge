@@ -8,6 +8,7 @@ gem 'dotenv'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'timecop'
 
 group :test do

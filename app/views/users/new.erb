@@ -1,3 +1,12 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <h1>Errors:</h1>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h1> Please choose an email address and a password to sign up </h1>
 
 <form action = "/users/new" method = "POST">

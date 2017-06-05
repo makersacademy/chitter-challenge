@@ -1,11 +1,13 @@
 require 'sinatra/base'
 require './app/datamapper_setup'
 require 'dotenv/load'
+require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
 
   enable :sessions
   set :session_secret, ENV['SESSION_SECRET']
+  register Sinatra::Flash
 
   get '/' do
     redirect to '/messages'
@@ -30,13 +32,15 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    user = User.new(email: params[:email], password: params[:password],
+    password_confirmation: params[:password_confirmation])
     if user.valid?
       user.save
       session[:user_id] = user.id
       redirect to '/messages/new'
     else
-      user.errors.full_messages.join('<br>')
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/new'
     end
   end
 
