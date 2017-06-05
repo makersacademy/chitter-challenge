@@ -10,7 +10,7 @@ feature 'Users can see multiple messages in reverse chronological order' do
   scenario 'messages appear with a time-stamp' do
     sign_up
     post_new_message
-    expect(page).to have_content Time.now.strftime("%Y-%m-%dT%H:%M:%S")
+    expect(page).to have_content Time.now.strftime("%H:%M, %d-%b-%y")
   end
 
   let!(:user) do
