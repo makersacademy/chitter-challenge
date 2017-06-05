@@ -10,7 +10,6 @@ feature "Logging in to Chitter" do
     sign_up
     click_button("Log out")
     log_in("Kynosaur", "amazing_password")
-    click_button("Get Chittering!")
     expect(page).to have_content("Welcome to Chitter, Kynosaur!")
   end
 
