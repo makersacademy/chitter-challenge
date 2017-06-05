@@ -41,10 +41,13 @@
 
   <div class="container">
     <h1>Welcome to Chitter<%= !current_user.nil? ? ", #{current_user.user_name}" : "" %> </h1>
-    <% if flash[:log_out_notice] %>
-      <div id='log_out_notice'>
-        <%= flash[:log_out_notice] %>
-      </div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please repair the errors listed below:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
     <%= yield %>
   </div

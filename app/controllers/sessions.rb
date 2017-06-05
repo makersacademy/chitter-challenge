@@ -1,4 +1,4 @@
-class Chitter  < Sinatra::Base
+class Chitter < Sinatra::Base
 
   get '/sessions/new' do
     erb :'sessions/new_session'
@@ -10,9 +10,11 @@ class Chitter  < Sinatra::Base
       session[:user_id] = user.id
       redirect to '/messages'
     else
-      flash.now[:log_in_notice] = 'Your email or password is incorrect'
+      flash.now[:errors] = ["Password or email does not match"]
+      p '-->'
       erb :'sessions/new_session'
     end
+
   end
 
   delete '/sessions' do
