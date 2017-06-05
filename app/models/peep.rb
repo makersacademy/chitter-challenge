@@ -4,7 +4,6 @@ class Peep
   belongs_to :user, required: true
   property :id,         Serial
   property :name,       String
-  # property :username,   String
   property :message,    String
   property :created_at, DateTime
 
