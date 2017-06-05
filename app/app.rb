@@ -1,0 +1,8 @@
+ENV['RACK_ENV'] ||= 'development'
+require 'bcrypt'
+require_relative 'data_mapper_setup'
+require 'sinatra/base'
+require 'sinatra/flash'
+require_relative 'server'
+require_relative 'controllers/users'
+require_relative 'controllers/peeps'

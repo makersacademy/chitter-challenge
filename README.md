@@ -1,18 +1,12 @@
 Chitter Challenge
 =================
+[![Build Status](https://travis-ci.org/charlottebrf/chitter-challenge.svg?branch=master)](https://travis-ci.org/charlottebrf/chitter-challenge)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
 
 Challenge:
 -------
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Write a little Twitter clone that will allow the users to post messages to a public stream.
 
 Features:
 -------
@@ -53,60 +47,109 @@ So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
-
-Bonus:
+Technologies
 -----
 
-If you have time you can implement the following:
+## Install
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+* Bundle install Gemfile dependencies. These include the ORM [DataMapper](http://datamapper.org/getting-started.html),[Sinatra Flash](http://www.rubydoc.info/github/SFEley/sinatra-flash/Sinatra/Flash/Storage), [Bcrypt](https://github.com/codahale/bcrypt-ruby).
 
-And/Or:
+```bash
+ $ bundle
+ $ gem install bundle
 
-* Work on the css to make it look good (we all like beautiful things).
-
-Good luck and let the chitter begin!
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 ```
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+* Ruby v '2.4.0'
+
+```bash
+$ rvm install 2.4.0
+$ rvm use 2.4.0
+```
+
+* Sinatra v '1.4.8'
+
+```bash
+$ gem install 1.4.8
+
+```
+
+## Run
+
+* Using Rackup on local host
+```bash
+$ rackup
+
+```
+
+
+* Uses PSQL database. You will need to have this [installed](https://www.postgresql.org/download/) to connect to the chitter_test & chitter_development databases.
+```bash
+$ psql
+
+```
+
+## Test Suite
+* Capybara, Rspec & Database Cleaner
+```bash
+$ gem install capybara
+$ rspec --init
+$ gem install database_cleaner
+
+```
+* Add Database Cleaner to Rspec config method in the spec_helper
+```bash
+$ gem install capybara
+$ rspec --init
+$ gem install [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner)
+
+```
+
+
+Test coverage
+-----
+```
+* Test coverage: 100%
+* Capybara feature tests
+* Rspec
+* Database Cleaner
+```
+
+Images from Chitter
+----
+![Imgur](http://i.imgur.com/wGdCZNT.png)
+![Imgur](http://i.imgur.com/bPlI0Bs.png)
+![Imgur](http://i.imgur.com/NBGEytc.png)
+![Imgur](http://i.imgur.com/bFEy1c0.png)
+
+My Approach
+----
+- **Progress** - I completed 6 User Stories: Straight Up & Harder, but ran out of time to move on to Advanced.
+- **OOD & TDD**- To ensure I took a well designed approach I created Domain Models of the User stories:
+
+![Imgur](http://i.imgur.com/ceyoqID.png)
+
+Along with CRC cards to ensure I had the right responsibilities and collaborators for the domain:
+![Imgur](http://i.imgur.com/XfqNbGb.png)
+
+From these cards I was able to sketch out the Database structure:
+![Imgur](http://i.imgur.com/2yOUL0N.png)
+I also used Mindmaps to design the login & logout functions, to ensure clarity regarding how the different aspects of the program connected together:
+![Imgur](http://i.imgur.com/C2tVLYY.png)
+
+- **Peep & User class** - I have two key classes: Peep & User. Peep has all properties related to peeps (or messages) posted on Chitter. User has all properties connected to the user.
+- **DataMapper Setup** - Was used so that the app could access all models through this file.
+- **Views** - Were divided between the Peeps & Users erb files.
+- **Environments** - Test & Development environments were set up.
+- **Web helper** - The features web_helper file was used to ensure the Feature specs didn't become cluttered.
+- **Features** - This program has 100% test coverage. CSS elements were integrated in the web_helper to be able to test specific aspects of the Views files.
+- **Extra password & email verification** - Included additional data validation steps so that a valid password & email were entered upon user signup.
+
+
+Future Improvements
+----
+- **Improve 1 viewing_peeps spec** - I had noted a TODO on the: 'users can see peeps in reverse chronological order on Chitter' feature test. Once I had changed the app so the user has to login & logout to send a peep, I also refactored my tests. This test needs to be refactored further to ensure it is 100% correct.
+- **Improve Sessions 'Secret session'** - I did some research into using a SECRET_SESSION ENV instead of the string currently used in the app, see the TODO comments in the app. I would like to improve the security of the password storage.
+- **Advanced stories** - In the future I would like to complete the final Advanced user story.
+- **Improve CSS** - Given more time I would like to make Chitter a little more visually appealing.
+- **Deploy to Heroku** - As a longer term goal I would like to deploy this to Heroku, so it can be run publicly.

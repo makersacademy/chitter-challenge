@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keep on posting those Peeps at Chitter!</title>
+</head>
+
+<body>
+  <% if current_user %>
+  Welcome <%= current_user.username %>
+  <form action="/users/logout" method="POST">
+    <input type="submit" value= "Logout"
+    name="logout" id="logout" />
+    </label>
+  </form>
+  <% end %>
+  <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:notice2] %>
+  <div id='notice'><%= flash[:notice2] %></div>
+  <% end %>
+  <%= yield %>
+</body>
+</html>
