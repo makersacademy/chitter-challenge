@@ -55,7 +55,7 @@
 
   <body>
     <% if current_user %>
-      <strong>Hello, <%= current_user.email %></strong>
+      <strong>Hello, <%= current_user.username %></strong>
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <button type='submit' value='Sign out'>Sign out</button>

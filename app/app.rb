@@ -6,6 +6,7 @@ require_relative 'data_mapper_setup'
 TIME_FORMAT = '%e-%b-%Y %I:%M:%S %p'
 
 class Chitter < Sinatra::Base
+  
   enable :sessions
   register Sinatra::Flash
   use Rack::MethodOverride
@@ -78,6 +79,8 @@ class Chitter < Sinatra::Base
 
   delete '/sessions' do
     flash.now[:notice] = ['Goodbye!']
+    @current_user = nil
+    redirect to('/peeps')
   end
 
   run! if app_file == $0
