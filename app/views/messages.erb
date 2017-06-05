@@ -5,7 +5,7 @@
     <% @messages.each do |message| %>
       <div class="panel panel-primary">
         <% peeper = User.first(id: message.user_id).user_name %>
-        <div class="panel-heading"> <%= "Posted by #{peeper} at #{message.created_at}" %> </div>
+        <div class="panel-heading"> <%= "Posted by #{peeper} at #{message.created_at.strftime('%H:%M, %d-%b-%y')}" %> </div>
         <div class="panel-body" style="padding:20px"> <%= "#{message.message}" %> </div>
       </div>
     <% end %>
