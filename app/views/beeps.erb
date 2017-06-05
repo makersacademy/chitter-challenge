@@ -1,0 +1,11 @@
+<h1>See what's going on at Makers!</h1>
+<form action="/beeps/new" method="get">
+  <input type="submit" name="New Beep" value="New Beep">
+</form>
+<% if @beeps %>
+  <ul>
+    <% @beeps.each do |beep| %>
+      <li> <%= beep.body %> Posted: <%= Time.at(beep.created_at.to_i) %></li>
+    <% end %>
+  </ul>
+<% end %>
