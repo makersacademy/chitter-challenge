@@ -1,0 +1,11 @@
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+  <li>
+    <h4><%= peep.peep %></h4>
+    peep'd at <%= peep.created_at %>
+    <br> peep'd by <%= peep.created_by %>
+  </li>
+  <% end %>
+</ul>

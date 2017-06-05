@@ -1,0 +1,9 @@
+<form action='/login' method='post'>
+  User Handle: <input type="text" name="username" value="username">
+  Password: <input type="password" name="password" value="password">
+  <input type="submit" name="Login" value="Login">
+</form>
+
+<% if flash[:fail] %>
+  <%= flash[:fail] %>
+<% end %>
