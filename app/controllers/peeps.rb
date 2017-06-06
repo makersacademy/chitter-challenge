@@ -24,7 +24,7 @@ class Chitter < Sinatra::Base
   def full_name(user_id)
     first_name = User.get(user_id).first_name
     last_name  = User.get(user_id).last_name
-    full_name = first_name + " " + last_name
+    first_name + " " + last_name
   end
 
   def username(user_id)
