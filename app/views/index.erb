@@ -69,16 +69,24 @@
               <td>
                 <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><a href="users/<%= user.username %>" class="username"><%= "@#{user.username} " %></a><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
                 <p class="peep_body">"<%= peep.body %>"</p>
+                <div class="peep_buttons">
                 <% liked = Like.first(user_id: current_user.id, peep_id: peep.id) if current_user %>
                 <% if liked %>
                   <a href="/unlike/<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
+                    <% if current_user.id == peep.user_id %>
+                      <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+                    <% end %>
                 <% else %>
                   <% if current_user %>
                     <a href="/like/<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
+                      <% if current_user.id == peep.user_id %>
+                          <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+                      <% end %>
                   <% else %>
                     <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
                   <% end %>
                 <% end %>
+                </div>
               </td>
             </tr>
           </table>

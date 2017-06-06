@@ -201,11 +201,18 @@ body {
     margin-right: 5px;
 }
 
+.delete_image {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
 .likes_red {
     font-size: 16px;
     margin-top: 5px;
     background-color: transparent;
     color: #C82606;
+    display: inline-block;
 }
 
 .likes_grey {
@@ -213,6 +220,7 @@ body {
     margin-top: 5px;
     background-color: transparent;
     color: dimgray;
+    display: inline-block;
 }
 
 input {
@@ -224,4 +232,15 @@ input {
     margin: auto;
     padding: 0;
     word-wrap: break-word;
+}
+
+.delete_button {
+    display: inline-block;
+    background-color: transparent;
+    top: 7px;
+    position: relative;
+}
+
+.peep_buttons {
+    display: inline-block;
 }

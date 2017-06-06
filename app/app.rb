@@ -157,5 +157,11 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/delete/:peep_id' do
+    peep = Peep.get(params[:peep_id])
+    peep.destroy
+    redirect '/'
+  end
+
   run! if __FILE__ == $PROGRAM_NAME
 end
