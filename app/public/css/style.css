@@ -1,0 +1,85 @@
+body {
+  min-height: 2000px;
+  padding-top: 100px;
+}
+
+.navbar-default {
+  background-color: #fff;
+  color: #fff;
+}
+
+.navbar-header {
+  height: 60px;
+}
+
+.navbar-logo {
+  width: 140px;
+}
+
+.navbar-default .navbar-nav > li > a {
+
+  color: #566270;
+}
+
+.navbar-nav {
+  margin: 20px 0 0 300px;
+  font-size: 20px;
+}
+
+.btn-logout {
+  width: 140px;
+  margin: 0 0 5px 10px;
+}
+
+.btn.btn-primary {
+  background-color: #683EBD;
+}
+
+.signin-form {
+  margin-top: 8px;
+}
+
+.navbar {
+  height: 85px;
+}
+
+.user-avatar {
+  float: left;
+  width: 40px;
+}
+
+.dropdown-avatar {
+  width: 25px;
+  margin-right: 5px;
+}
+
+img.avatar-form  {
+  width: 60px;
+}
+
+.username {
+  float: left;
+  padding: 10px;
+}
+
+.time {
+  padding: 10px;
+  float: right;
+}
+
+.peep-text {
+  padding-top: 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+.panel-footer {
+  float: right;
+  border: 0px;
+  background-color: #fff;
+  font-size: 12px;
+}
+
+.panel-footer span {
+  margin: 0 5px 0 30px;
+}

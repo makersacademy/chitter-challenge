@@ -1,0 +1,26 @@
+<h1>Account</h1>
+<form action="/users" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="_method" value="put">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input class="form-control" type="email" name="email" value="<%= @user.email %>" readonly />
+  </div>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input class="form-control" type="text" name="username" value="<%= @user.username %>"readonly />
+  </div>
+  <div class="form-group">
+    <label for="first_name">First Name:</label>
+    <input class="form-control" type="text" name="first_name" value="<%= @user.first_name %>"/>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last Name:</label>
+    <input class="form-control" type="text" name="last_name" value="<%= @user.last_name %>"/>
+  </div>
+  <div class="form-group">
+    <img class="avatar-form" src="/uploads/<%= @user.avatar %>" alt="">
+    <label for="last_name">Avatar:</label>
+    <input type="file" name="file">
+  </div>
+  <button class="btn btn-primary" type="submit">Update</button>
+</form>

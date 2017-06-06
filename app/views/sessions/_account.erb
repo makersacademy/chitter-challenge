@@ -1,0 +1,14 @@
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle dropdown-avatar" src="/uploads/<%= User.get(session[:user_id]).avatar %>" alt=""><%= User.get(session[:user_id]).first_name %> <%= User.get(session[:user_id]).last_name %> <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#">Profile</a></li>
+    <li><a href="/users/account">Account</a></li>
+    <li role="separator" class="divider"></li>
+    <li>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <button type="submit" class="btn btn-danger btn-logout">Logout</button>
+      </form>
+    </li>
+  </ul>
+</li>
