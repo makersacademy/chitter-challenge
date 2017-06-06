@@ -3,6 +3,7 @@ html {
     font-family: 'Source Code Pro', monospace;
     font-weight: 300;
     color: black;
+    position: absolute;
 }
 
 a {
@@ -29,6 +30,8 @@ a {
 .name {
     font-size: 20px;
     font-weight: bold;
+    padding-bottom: 0;
+    margin: auto;
 }
 
 .hashtag, .username {
@@ -47,6 +50,8 @@ a {
     margin-right: 10px;
     background-color: dimgray;
     border: ghostwhite 2px solid;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 ul {
@@ -212,4 +217,11 @@ body {
 
 input {
     outline: none;
+}
+
+.peep_body {
+    width: 55vw;
+    margin: auto;
+    padding: 0;
+    word-wrap: break-word;
 }

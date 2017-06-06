@@ -69,3 +69,94 @@ http://www.jamesdean.com/images/photo-gallery/tornsweater/img17.jpg
 https://fanart.tv/fanart/music/1ecff755-607d-4130-9a8a-8873f27e5de5/artistthumb/garcia-jerry-548bddddc42e8.jpg
 https://mgtvwsls.files.wordpress.com/2015/12/john-lennon.jpg
 http://ocdn.eu/images/zapytaj/OTE7MDA_/582ec971514b6b05a9adcba41a05958b.jpg
+
+-------------------------------------------------------------------------------------------------------------------
+
+(function ($) {
+    $.fn.extend({
+        limiter: function (minLimit, maxLimit, elem) {
+            $(this).on("keydown keyup focus keypress", function (e) {
+                setCount(this, elem, e);
+            });
+
+            function setCount(src, elem, e) {
+                var chars = src.value.length;
+                if (chars == maxLimit) {
+                    //e.preventDefault();
+                     elem.html(maxLimit - chars);
+                    elem.addClass('maxLimit');
+                    return false;
+
+                } else if (chars > maxLimit) {
+                    src.value = src.value.substr(0, maxLimit);
+                    chars = maxLimit;
+                    elem.addClass('maxLimit');
+                } else {
+                    elem.removeClass('maxLimit');
+                }
+                if (chars < minLimit) {
+                    elem.addClass('minLimit');
+                } else {
+                    elem.removeClass('minLimit');
+                }
+                elem.html(maxLimit - chars);
+            }
+            setCount($(this)[0], elem);
+        }
+    });
+})(jQuery);
+
+var elem = $("#chars");
+$("#text").limiter(35, 100, elem);
+
+----------------------------------------------------------------------------------------------------------------
+
+<div id="wrapper"> <span class="info">Min: 35 And Max: 100</span>
+
+    <textarea id="text" cols="50" rows="5" placeholder="Enter Text"></textarea>
+    <div id="chars" class="chars">100</div>
+</div>
+
+-----------------------------------------------------------------------------------------------------------------
+
+* {
+}
+h1 {
+    text-align:center;
+}
+body {
+    font:12px Verdana, Arial;
+    color:#555;
+    background:#222
+}
+p {
+    line-height:1.4;
+    margin-bottom:12px
+}
+#wrapper {
+    width:578px;
+    margin:75px auto
+}
+/* TinyLimiter */
+ #text {
+    width:558px;
+    border:0;
+    padding:10px;
+    line-height:1.4;
+    resize:vertical;
+    font:12px Verdana, Arial
+}
+.info {
+    margin-bottom:10px;
+    color:#fff;
+}
+.chars {
+    margin-top:10px;
+    color:#ccc
+}
+.maxLimit {
+    color: #C00;
+}
+.minLimit {
+    color: #F90;
+}
