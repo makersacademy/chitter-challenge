@@ -81,7 +81,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all
+    @peeps = Peep.all(is_archived: nil)
     erb :index
   end
 
@@ -135,8 +135,11 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/:hashtag' do
+    unarchived_peeps = []
     hashtag = Hashtag.all(conditions: ['lower(tag) = ?', params[:hashtag].downcase])
-    @peeps = hashtag ? hashtag.peeps : []
+    peeps = hashtag ? hashtag.peeps : []
+    peeps.each { |peep| unarchived_peeps.push(peep) if peep.is_archived.nil? }
+    @peeps = unarchived_peeps
     erb :index
   end
 
@@ -159,9 +162,10 @@ class Chitter < Sinatra::Base
 
   get '/delete/:peep_id' do
     peep = Peep.get(params[:peep_id])
-    peep.destroy
+    peep.is_archived = 'true'
+    peep.save
     redirect '/'
   end
 
-  run! if __FILE__ == $PROGRAM_NAME
+  run! if $PROGRAM_NAME == __FILE__
 end

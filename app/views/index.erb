@@ -80,7 +80,7 @@
                   <% if current_user %>
                     <a href="/like/<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
                       <% if current_user.id == peep.user_id %>
-                          <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+                        <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
                       <% end %>
                   <% else %>
                     <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
