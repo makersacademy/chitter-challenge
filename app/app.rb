@@ -152,7 +152,7 @@ class Chitter < Sinatra::Base
     peep = Peep.get(params[:peep_id])
     peep.likes -= 1
     peep.save
-    like = Like.first(conditions: ['user_id = ?', current_user.id] && ['peep_id = ?', peep.id])
+    like = Like.first(user_id: current_user.id, peep_id: peep.id)
     like.destroy
     redirect '/'
   end
