@@ -148,7 +148,6 @@ class Chitter < Sinatra::Base
     peep.likes += 1
     peep.save
     Like.create(peep_id: params[:peep_id], user_id: current_user.id)
-    redirect '/'
   end
 
   get '/unlike/:peep_id' do
@@ -157,7 +156,6 @@ class Chitter < Sinatra::Base
     peep.save
     like = Like.first(user_id: current_user.id, peep_id: peep.id)
     like.destroy
-    redirect '/'
   end
 
   get '/delete/:peep_id' do

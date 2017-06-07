@@ -11,6 +11,30 @@
       <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
     <% end %>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <script src="js/jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="js/tweet_char_counter.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("body").on("click", ".like", function(event){
+                event.preventDefault();
+                var value = $(this).attr("id");
+                var to_get = "/like/" + value;
+                $.get(to_get, function(){
+                    div = " .peep#" + value;
+                    $(div).load(location.href + div + ">*","");
+                });
+            });
+            $("body").on("click", ".unlike", function(event){
+                event.preventDefault();
+                var value = $(this).attr("id");
+                var to_get = '/unlike/' + value;
+                $.get(to_get, function(){
+                    div = " .peep#" + value;
+                    $(div).load(location.href + div + ">*","");
+                });
+            });
+        });
+    </script>
   </head>
 
   <body>
@@ -24,8 +48,8 @@
                 <div class="dropdown">
                   <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
                   <div class="dropdown-content">
+                    <a href="/peep" id="peep_link"><img src="http://michael-jacobson.co.uk/pen.png" id="pen">Post</a>
                     <a href="/">Home</a>
-                    <a href="/peep">Peep</a>
                     <a href="#">Profile</a>
                     <a href="#">Settings</a>
                     <a href="#">My Archive</a>
@@ -63,7 +87,7 @@
         <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
         <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
         <% user = User.get(peep.user_id) %>
-        <li class="peep">
+        <li class="peep" id="<%= peep.id %>">
           <table>
             <tr>
               <td><img src="<%= user.picture_url %>" class="user_picture"></td>
@@ -73,13 +97,13 @@
                 <div class="peep_buttons">
                 <% liked = Like.first(user_id: current_user.id, peep_id: peep.id) if current_user %>
                 <% if liked %>
-                  <a href="/unlike/<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
+                  <a href="#" class="unlike" id="<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
                     <% if current_user.id == peep.user_id %>
                       <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
                     <% end %>
                 <% else %>
                   <% if current_user %>
-                    <a href="/like/<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
+                    <a href="#" class="like" id="<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
                       <% if current_user.id == peep.user_id %>
                         <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
                       <% end %>
@@ -94,6 +118,18 @@
         </li><br>
       <% end %>
     </ul>
+  </div>
+
+  <div class="lightbox">
+    <div id="new_post">
+      <form id="new_post_form">
+        <label for="body">
+          <textarea name="body" id="text"></textarea>
+        </label>
+        <p id="chars"></p>
+        <input type="submit" value="Post">
+      </form>
+    </div>
   </div>
 
   </body>

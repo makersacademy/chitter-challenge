@@ -202,8 +202,8 @@ body {
 }
 
 .delete_image {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     margin-right: 5px;
 }
 
@@ -237,10 +237,37 @@ input {
 .delete_button {
     display: inline-block;
     background-color: transparent;
-    top: 7px;
+    top: 5px;
     position: relative;
 }
 
 .peep_buttons {
     display: inline-block;
+}
+
+#pen {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    top: 5px;
+    position: relative;
+}
+
+#peep_link {
+    border-bottom: solid 1px black;
+}
+
+/*#new_post {*/
+    /*visibility: hidden;*/
+    /*z-index: 102;*/
+/*}*/
+
+.lightbox {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 100;
+    margin: auto;
+    text-align: center;
 }

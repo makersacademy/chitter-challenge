@@ -224,6 +224,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
+    geocoder (1.4.4)
     i18n (0.8.4)
     inflecto (0.0.2)
     ipaddress (0.8.3)
@@ -314,6 +315,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   fog
+  geocoder
   mini_magick
   rake
   rspec
