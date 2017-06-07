@@ -119,8 +119,9 @@ body {
 }
 
 .greeting {
-    font-size: 40px;
+    font-size: 45px;
     margin: 0;
+    padding-left: 17px;
 }
 
 .dropbtn {

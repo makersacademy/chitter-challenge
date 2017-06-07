@@ -165,5 +165,10 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
+  get '/view_archive' do
+    @peeps = Peep.all(user_id: current_user.id, is_archived: true)
+    erb :index
+  end
+
   run! if $PROGRAM_NAME == __FILE__
 end
