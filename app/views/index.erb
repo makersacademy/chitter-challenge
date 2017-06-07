@@ -11,30 +11,9 @@
       <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
     <% end %>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <script src="js/jquery-3.2.0.js"></script>
-    <script type="text/javascript" src="js/tweet_char_counter.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("body").on("click", ".like", function(event){
-                event.preventDefault();
-                var value = $(this).attr("id");
-                var to_get = "/like/" + value;
-                $.get(to_get, function(){
-                    div = " .peep#" + value;
-                    $(div).load(location.href + div + ">*","");
-                });
-            });
-            $("body").on("click", ".unlike", function(event){
-                event.preventDefault();
-                var value = $(this).attr("id");
-                var to_get = '/unlike/' + value;
-                $.get(to_get, function(){
-                    div = " .peep#" + value;
-                    $(div).load(location.href + div + ">*","");
-                });
-            });
-        });
-    </script>
+    <script src="/js/jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="/js/tweet_char_counter.js"></script>
+    <script type="text/javascript" src="/js/peep_buttons.js"></script>
   </head>
 
   <body>
@@ -99,13 +78,13 @@
                 <% if liked %>
                   <a href="#" class="unlike" id="<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
                     <% if current_user.id == peep.user_id %>
-                      <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+                      <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
                     <% end %>
                 <% else %>
                   <% if current_user %>
                     <a href="#" class="like" id="<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
                       <% if current_user.id == peep.user_id %>
-                        <a href="/delete/<%= peep.id %>" class="delete_button"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+                        <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
                       <% end %>
                   <% else %>
                     <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
@@ -120,18 +99,18 @@
     </ul>
   </div>
 
-  <!--<div class="lightbox">-->
-    <!--<div id="new_post">-->
-      <!--<form id="new_post_form">-->
-        <!--<label for="body">-->
-          <!--<textarea name="body" id="text"></textarea>-->
-        <!--</label>-->
-        <!--<p id="chars"></p>-->
-        <!--<input type="submit" value="Post">-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-
   </body>
+
+  <div class="lightbox">
+    <div id="new_post">
+      <form id="new_post_form">
+        <label for="body">
+          <textarea name="body" id="text"></textarea>
+        </label>
+        <p id="chars"></p>
+        <input type="submit" value="Post" id="submit_post">
+      </form>
+    </div>
+  </div>
 
 </html>
