@@ -60,7 +60,7 @@
 
 
   <div id="chitter_feed">
-    <ul id='links'>
+    <ul id='posts'>
       <% @peeps.reverse.each do |peep| %>
         <% hashtags = [] %>
         <% body = peep.body.delete(',.?!;:') %>

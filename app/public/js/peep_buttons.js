@@ -4,7 +4,7 @@ $(document).ready(function(){
         var value = $(this).attr("id");
         var to_get = "/like/" + value;
         $.get(to_get, function(){
-            div = " .peep#" + value;
+            var div = " .peep#" + value;
             $(div).load(location.href + div + ">*","");
         });
     });
@@ -13,7 +13,7 @@ $(document).ready(function(){
         var value = $(this).attr("id");
         var to_get = '/unlike/' + value;
         $.get(to_get, function(){
-            div = " .peep#" + value;
+            var div = " .peep#" + value;
             $(div).load(location.href + div + ">*","");
         });
     });
@@ -22,8 +22,8 @@ $(document).ready(function(){
         var value = $(this).attr("id");
         var to_get = '/delete/' + value;
         $.get(to_get, function(){
-            div = " .peep#" + value;
-            $(div).load(location.href + div + ">*","");
+            var list = ' ul#posts';
+            $(list).load(location.href + list + ">*","");
         });
     });
 });
