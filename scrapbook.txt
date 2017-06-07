@@ -160,3 +160,24 @@ p {
 .minLimit {
     color: #F90;
 }
+
+--------------------------------------------------------------------------------------------------------
+
+<div class="peep_buttons">
+    <% liked = Like.first(user_id: current_user.id, peep_id: peep.id) if current_user %>
+    <% if liked %>
+      <a href="#" class="unlike" id="<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
+        <% if current_user.id == peep.user_id %>
+          <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+        <% end %>
+    <% else %>
+      <% if current_user %>
+        <a href="#" class="like" id="<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
+          <% if current_user.id == peep.user_id %>
+            <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+          <% end %>
+      <% else %>
+        <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
+      <% end %>
+    <% end %>
+</div>

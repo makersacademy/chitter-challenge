@@ -10,96 +10,84 @@
     <% elsif !daytime? %>
       <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
     <% end %>
+    <link href="/css/jquery.highlight-within-textarea.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <script src="/js/jquery-3.2.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="/js/tweet_char_counter.js"></script>
     <script type="text/javascript" src="/js/peep_buttons.js"></script>
     <script type="text/javascript" src="/js/compose_post.js"></script>
+    <script type="text/javascript" src="/js/jquery.highlight-within-textarea.js"></script>
   </head>
 
   <body>
-  <div id="top_bar">
-    <table id="top_bar_table">
-      <tr>
-        <td>
-  <% if current_user %>
-              <p class="greeting"><%= greeting(current_user) %></p>
-              <td id="right_side">
-                <div class="dropdown">
-                  <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
-                  <div class="dropdown-content">
-                    <a href="#" id="peep_link"><img src="http://michael-jacobson.co.uk/pen.png" id="pen">Post</a>
-                    <a href="/">Home</a>
-                    <a href="#">Profile</a>
-                    <a href="#">Settings</a>
-                    <a href="/view_archive">My Archive</a>
-                    <a href="/logout">Logout</a>
-                  </div>
-                </div>
-              </td>
-  <% else %>
-      <form action='/login' method='post'>
-          <label for='username'>
-            <input class="text_input" type='text' name='username' placeholder='Username'>
-          </label>
-          <label for='password'>
-            <input class="text_input" type='password' name='password' placeholder='Password'>
-          </label>
-        <input type="submit" value="Login" class="submit_button">
-      </form>
-        </td>
-        <td id="right_side">
-          <form action="/sign_up" method="get">
-            <input type="submit" value="Sign Up" id="sign_up_button">
+    <div id="main">
+      <div id="top_bar">
+        <table id="top_bar_table">
+          <tr>
+            <td>
+      <% if current_user %>
+                  <p class="greeting"><%= greeting(current_user) %></p>
+                  <td id="right_side">
+                    <div class="dropdown">
+                      <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
+                      <div class="dropdown-content">
+                        <a href="#" id="peep_link"><img src="http://michael-jacobson.co.uk/pen.png" id="pen">Post</a>
+                        <a href="/">Home</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="/view_archive">My Archive</a>
+                        <a href="/logout">Logout</a>
+                      </div>
+                    </div>
+                  </td>
+      <% else %>
+          <form action='/login' method='post'>
+              <label for='username'>
+                <input class="text_input" type='text' name='username' placeholder='Username'>
+              </label>
+              <label for='password'>
+                <input class="text_input" type='password' name='password' placeholder='Password'>
+              </label>
+            <input type="submit" value="Login" class="submit_button">
           </form>
-        </td>
-  <% end %>
-      </tr>
-    </table>
-  </div>
-
-
-  <div id="chitter_feed">
-    <ul id='posts'>
-      <% @peeps.reverse.each do |peep| %>
-        <% hashtags = [] %>
-        <% body = peep.body.delete(',.?!;:') %>
-        <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
-        <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
-        <% user = User.get(peep.user_id) %>
-        <li class="peep" id="<%= peep.id %>">
-          <table>
-            <tr>
-              <td><img src="<%= user.picture_url %>" class="user_picture"></td>
-              <td>
-                <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><a href="users/<%= user.username %>" class="username"><%= "@#{user.username} " %></a><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
-                <p class="peep_body">"<%= peep.body %>"</p>
-                <div class="peep_buttons">
-                <% liked = Like.first(user_id: current_user.id, peep_id: peep.id) if current_user %>
-                <% if liked %>
-                  <a href="#" class="unlike" id="<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
-                    <% if current_user.id == peep.user_id %>
-                      <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
-                    <% end %>
-                <% else %>
-                  <% if current_user %>
-                    <a href="#" class="like" id="<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
-                      <% if current_user.id == peep.user_id %>
-                        <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
-                      <% end %>
-                  <% else %>
-                    <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
-                  <% end %>
-                <% end %>
-                </div>
-              </td>
-            </tr>
-          </table>
-        </li><br>
+            </td>
+            <td id="right_side">
+              <form action="/sign_up" method="get">
+                <input type="submit" value="Sign Up" id="sign_up_button">
+              </form>
+            </td>
       <% end %>
-    </ul>
-  </div>
+          </tr>
+        </table>
+      </div>
 
+
+      <div id="chitter_feed">
+        <ul id='posts'>
+          <% @peeps.reverse.each do |peep| %>
+            <% hashtags = [] %>
+            <% body = peep.body.delete(',.?!;:') %>
+            <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
+            <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
+            <% user = User.get(peep.user_id) %>
+            <li class="peep" id="<%= peep.id %>">
+              <table>
+                <tr>
+                  <td><img src="<%= user.picture_url %>" class="user_picture"></td>
+                  <td>
+                    <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><a href="users/<%= user.username %>" class="username"><%= "@#{user.username} " %></a><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
+                    <p class="peep_body">"<%= peep.body %>"</p>
+                    <div class="peep_buttons">
+                      <%= post_buttons(peep) %>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </li><br>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </body>
 
   <div class="lightbox">

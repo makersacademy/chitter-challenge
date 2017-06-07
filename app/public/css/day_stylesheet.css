@@ -11,7 +11,7 @@ a {
 }
 
 #top_bar {
-    padding: 5px;
+    /*padding: 5px;*/
     border-bottom: black solid 1px;
     display: inline-block;
     width: 100vw;
@@ -82,7 +82,9 @@ ul {
 }
 
 body {
-    width: 90vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
 }
 
 #sign_up_button {
@@ -329,4 +331,10 @@ input#submit_post {
 
 #chars {
     display: inline;
+}
+
+#posts {
+    overflow-y: scroll;
+    max-height: 100vh;
+    position: absolute;
 }
