@@ -6,6 +6,13 @@ describe User do
                 password_confirmation: 'secret123')
   end
 
+  describe "has attributes of" do
+    it "email and password" do
+      expect(user).to have_attributes(email: 'test@test.com')
+      expect(user).to have_attributes(password: 'secret123')
+    end
+  end
+
   it 'authenticates when given a valid email address and password' do
     authenticated_user = User.authenticate(user.email, user.password)
     expect(authenticated_user).to eq user
