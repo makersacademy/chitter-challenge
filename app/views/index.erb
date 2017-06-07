@@ -14,6 +14,7 @@
     <script src="/js/jquery-3.2.0.js"></script>
     <script type="text/javascript" src="/js/tweet_char_counter.js"></script>
     <script type="text/javascript" src="/js/peep_buttons.js"></script>
+    <script type="text/javascript" src="/js/compose_post.js"></script>
   </head>
 
   <body>
@@ -27,7 +28,7 @@
                 <div class="dropdown">
                   <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
                   <div class="dropdown-content">
-                    <a href="/peep" id="peep_link"><img src="http://michael-jacobson.co.uk/pen.png" id="pen">Post</a>
+                    <a href="#" id="peep_link"><img src="http://michael-jacobson.co.uk/pen.png" id="pen">Post</a>
                     <a href="/">Home</a>
                     <a href="#">Profile</a>
                     <a href="#">Settings</a>
@@ -103,12 +104,14 @@
 
   <div class="lightbox">
     <div id="new_post">
-      <form id="new_post_form">
+      <form id="new_post_form" action='/' method='post'>
         <label for="body">
           <textarea name="body" id="text"></textarea>
         </label>
-        <p id="chars"></p>
-        <input type="submit" value="Post" id="submit_post">
+        <div id="text_and_submit">
+          <input type="submit" value="Post" id="submit_post">
+          <p id="chars"></p>
+        </div>
       </form>
     </div>
   </div>

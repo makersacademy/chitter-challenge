@@ -258,7 +258,7 @@ input {
 #new_post {
     margin: auto;
     width: 700px;
-    height: 420px;
+    height: 320px;
     top: 20vh;
     position: relative;
     background-color: ghostwhite;
@@ -274,16 +274,20 @@ input {
 
 textarea#text {
     width: 96%;
-    height: 60%;
+    height: 80%;
     margin: auto;
     position: relative;
     resize: none;
     border: 1px solid transparent;
     background-color: ghostwhite;
     -webkit-appearance: none;
-    font-size: 16px;
+    font-size: 24px;
     padding: 10px;
     font-family: "Source Code Pro", monospace;
+}
+
+textarea#text:focus {
+    outline: 0;
 }
 
 .lightbox {
@@ -296,10 +300,22 @@ textarea#text {
     z-index: 100;
     margin: auto;
     text-align: center;
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
 input#submit_post {
     margin-bottom: 20px;
     position: relative;
+    display: inline;
+}
+
+#text_and_submit {
+    width: 100%;
+    padding-left: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+#chars {
+    display: inline;
 }
