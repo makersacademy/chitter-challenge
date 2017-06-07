@@ -333,8 +333,8 @@ input#submit_post {
     display: inline;
 }
 
-#posts {
-    overflow-y: scroll;
-    max-height: 100vh;
-    position: absolute;
-}
+/*#posts {*/
+    /*overflow-y: scroll;*/
+    /*max-height: 100vh;*/
+    /*position: absolute;*/
+/*}*/
