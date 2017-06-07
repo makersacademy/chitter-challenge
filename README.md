@@ -5,7 +5,7 @@ Chitter Challenge
 
 * Sinatra app enabling users to 'peep' their thoughts and leave comments on other users' peeps.
 
-* Uses a postgres database to store user details, 'peeps' and comments.
+* Uses a Postgres database to store user details, 'peeps' and comments.
 
 * Check it out for yourself <a href="https://chitter-by-kate.herokuapp.com">here</a>.
 
