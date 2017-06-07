@@ -303,6 +303,16 @@ textarea#text:focus {
     visibility: hidden;
 }
 
+#close_lightbox {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 25px;
+    z-index: 101;
+}
+
 input#submit_post {
     margin-bottom: 20px;
     position: relative;
