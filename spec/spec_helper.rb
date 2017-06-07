@@ -11,7 +11,7 @@ SimpleCov.start
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara/rspec'
 require 'database_cleaner'
-require_relative 'helpers/session'
+require_relative 'helpers/web_helpers'
 
 Capybara.app = Chitter
 

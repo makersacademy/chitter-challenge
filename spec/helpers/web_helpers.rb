@@ -32,4 +32,11 @@ module SessionHelpers
     fill_in :message, with: message
     click_button 'Post'
   end
+
+  def write_comment(comment: "I'm a comment")
+    visit '/posts'
+    fill_in :comment_text, with: comment
+    click_button 'Comment'
+  end
+
 end
