@@ -12,6 +12,10 @@
       From: <%= post.user.username %><br>
       Message: <%= post.message %><br>
       Left at <%= post.created_at.strftime("%R on  %a %d %b %G") %>
+      <form action='/comments/new' method='post'>
+        <input type="text" name="comment_text">
+        <input type="submit" value="Comment">
+      </form>
     </li>
   <% end %>
 </ul>
