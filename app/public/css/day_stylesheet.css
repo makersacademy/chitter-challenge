@@ -202,9 +202,9 @@ body {
     margin-right: 5px;
 }
 
-.delete_image {
-    width: 22px;
-    height: 22px;
+.archive_image {
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
 }
 
@@ -235,7 +235,7 @@ input {
     word-wrap: break-word;
 }
 
-.delete_button {
+.archive_button {
     display: inline-block;
     background-color: transparent;
     top: 5px;

@@ -92,7 +92,7 @@ class Chitter < Sinatra::Base
     like.destroy
   end
 
-  get '/delete/:peep_id' do
+  get '/archive/:peep_id' do
     redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
     peep.is_archived = 'true'
@@ -104,6 +104,15 @@ class Chitter < Sinatra::Base
     redirect '/' unless current_user
     @peeps = Peep.all(user_id: current_user.id, is_archived: true)
     erb :index
+  end
+
+  get '/refactor' do
+    peeps = Peep.all
+    peeps.each do |peep|
+      peep.is_archived = 'false'
+      peep.save
+    end
+    redirect '/'
   end
 
   run! if $PROGRAM_NAME == __FILE__
