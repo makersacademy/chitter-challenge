@@ -1,12 +1,16 @@
 
 module Helpers
 
-  def post_buttons(post)
+  def html(post)
     @liked = Like.first(user_id: current_user.id, peep_id: post.id) if current_user
     @unlike = "<a href='#' class='unlike' id='#{post.id}'><div class='likes_red'><img src='http://michael-jacobson.co.uk/red_heart.png' class='heart_image'>#{post.likes}</div></a>"
-    @delete = "<a href='/delete/#{post.id}' class='delete_button' id='#{post.id}'><img src='http://michael-jacobson.co.uk/trash.png' class='delete_image'></a>"
+    @delete = "<a href='/delete/#{post.id}' class='delete_button' id='#{post.id}'><img src='http://michael-jacobson.co.uk/archive.png' class='delete_image'></a>"
     @like = "<a href='#' class='like' id='#{post.id}'><div class='likes_grey'><img src='http://michael-jacobson.co.uk/grey_heart.png' class='heart_image'>#{post.likes}</div></a>"
     @logged_out_likes = "<div class='likes_grey_logged_out'><img src='http://michael-jacobson.co.uk/grey_heart.png' class='heart_image'>#{post.likes}</div>"
+  end
+
+  def post_buttons(post)
+    html(post)
     if current_user
       return "#{@unlike}\r\n#{@delete}" if @liked && current_user.id == post.user_id
       return @unlike if @liked && current_user != post.user_id
@@ -29,11 +33,11 @@ module Helpers
   def greeting(user)
     current_hour = Time.now.strftime('%H').to_i
     if current_hour >= 18 && current_hour <= 23
-      return "Good evening, #{user.first_name}"
+      "Good evening, #{user.first_name}"
     elsif current_hour >= 12 && current_hour < 18
       return "Good afternoon, #{user.first_name}"
     else
-      return "Good morning, #{user.first_name}"
+      "Good morning, #{user.first_name}"
     end
   end
 
@@ -48,7 +52,7 @@ module Helpers
     array.each do |word|
       hashtags << Hashtag.create(tag: word[1..-1]) if word[0] == '#'
     end
-    return hashtags
+    hashtags
   end
 
   def same_day?(peep_datetime, current_datetime)
@@ -79,7 +83,7 @@ module Helpers
       end
       return "#{current_datetime.strftime('%H').to_i - peep_datetime.strftime('%H').to_i}h"
     end
-    return peep_datetime.strftime('%b %-d')
+    peep_datetime.strftime('%b %-d')
   end
 
 end

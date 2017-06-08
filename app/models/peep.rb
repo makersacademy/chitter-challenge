@@ -8,7 +8,7 @@ class Peep
   property :body, Text
   property :user_id, Integer
   property :likes, Integer
-  property :is_archived, Text
+  property :is_archived, Text, default: false
 
   has n, :hashtags, :through => Resource
 

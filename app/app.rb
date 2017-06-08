@@ -15,7 +15,7 @@ class Chitter < Sinatra::Base
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
 
   get '/' do
-    @peeps = Peep.all(is_archived: nil)
+    @peeps = Peep.all(is_archived: false)
     erb :index
   end
 
