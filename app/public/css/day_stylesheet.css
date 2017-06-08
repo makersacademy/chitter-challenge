@@ -294,7 +294,7 @@ textarea#text:focus {
 }
 
 .lightbox {
-    width: 90vw;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     background-color: rgba(0,0,0,0.65);
