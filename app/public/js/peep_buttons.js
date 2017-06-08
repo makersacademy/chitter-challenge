@@ -17,13 +17,13 @@ $(document).ready(function(){
             $(div).load(location.href + div + ">*","");
         });
     });
-    $("body").on("click", ".delete_button", function(event){
+    $("body").on("click", ".archive_button", function(event){
         event.preventDefault();
         var value = $(this).attr("id");
-        var to_get = '/delete/' + value;
-        $.get(to_get, function(){
-            var div = ".peep#" + value;
-            $(div).css('visibility', 'hidden');
+        var to_post = '/archive/' + value;
+        $.post(to_post, function(){
+            var list = ' ul#posts';
+            $(list).load(location.href + list + ">*","");
         });
     });
 });

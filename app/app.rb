@@ -92,7 +92,7 @@ class Chitter < Sinatra::Base
     like.destroy
   end
 
-  get '/archive/:peep_id' do
+  post '/archive/:peep_id' do
     redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
     peep.is_archived = 'true'
