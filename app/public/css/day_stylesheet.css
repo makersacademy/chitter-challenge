@@ -14,7 +14,7 @@ a {
     padding-bottom: 5px;
     border-bottom: black solid 1px;
     display: inline-block;
-    width: 100vw;
+    width: 100%;
     height: 80px;
 }
 
@@ -82,7 +82,7 @@ ul {
 }
 
 body {
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
     position: absolute;
 }
@@ -294,7 +294,7 @@ textarea#text:focus {
 }
 
 .lightbox {
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
     position: fixed;
     background-color: rgba(0,0,0,0.65);
