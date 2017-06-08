@@ -106,14 +106,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  get '/refactor' do
-    peeps = Peep.all
-    peeps.each do |peep|
-      peep.is_archived = 'false'
-      peep.save
-    end
-    redirect '/'
-  end
+  # get '/refactor' do
+  #   peeps = Peep.all(user_id: )
+  #   peeps.each do |peep|
+  #     peep.is_archived = 'false'
+  #     peep.save
+  #   end
+  #   redirect '/'
+  # end
 
   run! if $PROGRAM_NAME == __FILE__
 end
