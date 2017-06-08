@@ -102,6 +102,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
+    redirect '/' unless current_user
     peep = Peep.create(body: params[:body],
     charcount: params[:body].length,
     likes: 0,
@@ -142,12 +143,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/logout' do
+    redirect '/' unless current_user
     session[:user_id] = nil
     redirect '/'
-  end
-
-  get '/peep' do
-    erb :peep
   end
 
   get '/peeps/:hashtag' do
@@ -160,6 +158,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/like/:peep_id' do
+    redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
     peep.likes += 1
     peep.save
@@ -167,6 +166,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/unlike/:peep_id' do
+    redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
     peep.likes -= 1
     peep.save
@@ -175,6 +175,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/delete/:peep_id' do
+    redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
     peep.is_archived = 'true'
     peep.save
@@ -182,6 +183,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/view_archive' do
+    redirect '/' unless current_user
     @peeps = Peep.all(user_id: current_user.id, is_archived: true)
     erb :index
   end

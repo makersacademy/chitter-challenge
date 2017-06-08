@@ -11,7 +11,7 @@ a {
 }
 
 #top_bar {
-    /*padding: 5px;*/
+    padding-bottom: 5px;
     border-bottom: black solid 1px;
     display: inline-block;
     width: 100vw;
