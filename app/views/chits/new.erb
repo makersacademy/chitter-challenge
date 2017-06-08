@@ -1,0 +1,19 @@
+<% if current_user %>
+<div class="row">
+  <div class="panel panel-default new_chit">
+    <div class="panel-heading">
+      <h3 class="panel-title">New Chit!</h3> 
+    </div>
+    <div class="panel-body">
+      <form action="/chits" method="post">
+        <div class="form-group">
+          <textarea name="message" class="form-control" rows="5" placeholder="What's on your mind?" maxlength="140"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Chit</button>
+      </form> 
+    </div>
+  </div>
+</div>
+<% else %>
+<h2 style='color: tomato; text-align: center; font-family: Autour One;'>Please Login or Sign up to start chitting with your friends</h2>
+<% end %>

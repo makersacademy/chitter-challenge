@@ -1,0 +1,138 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background: #edeff0;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.jumbotron {
+  font-family: "Autour One";
+  color: #e15258;
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-size: 8em;
+}
+
+.jumbotron h3 {
+  font-size: 2em;
+}
+
+#chits div.panel {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+}
+
+#chits div.panel .panel-heading {
+  background-color: #e15258;
+  background-image: none;
+  border-bottom: 1px solid #e15258;
+  color: #fff;
+}
+
+#chits div.panel .panel-footer {
+  background-color: #fff;
+  border-top: 0px;
+  color: rgba(255,99,71, 0.5);
+  text-align: right;
+}
+
+.panel-body {
+  word-break: break-all;
+}
+
+.panel-heading {
+  font-family: 'Autour One';
+}
+
+.login,
+.signup,
+.new_chit {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.login .panel-title,
+.signup .panel-title,
+.new_chit .panel-title {
+  color: white;
+}
+
+.login .panel-heading,
+.signup .panel-heading,
+.new_chit .panel-heading {
+  background: #e15258;
+  border: 1px solid #e15258;
+}
+
+#notice ul {
+  padding-left: 0;
+  font-size: 1.2em;
+  text-align: center;
+  color: red;
+  list-style-type: none;
+}
+
+.navbar {
+  font-family: 'Autour One';
+  background-color: #3e474f;
+  background-image: none;
+}
+
+.navbar-inverse {
+  border-color: #3e474f;
+}
+
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a {
+    color: #b2bbbd;
+    font-size: 16px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.navbar-brand {
+  font-size: 24px !important;
+}
+
+#username {
+  font-size: 12px;
+}
+
+.logout {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #3e474f;
+  border: 0;
+  color: #b2bbbd;
+}
+
+.logout:hover {
+  color: #fff;
+}
+
+#goodbye {
+  font-family: 'Autour One';
+  font-size: 2em;
+  color: #e15258;
+  text-align: center;
+  padding-bottom: 20px;
+}

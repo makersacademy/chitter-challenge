@@ -1,0 +1,23 @@
+<div id="chits"class="row">
+<% @chits.each do |chit| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= User.get(chit.user_id).username.capitalize %>  
+    </div>
+
+    <div class="panel-body">
+      <%= chit.message %>
+    </div>
+
+    <div class="panel-footer">
+      <div class="likes">
+        <span class="glyphicon glyphicon-heart-empty"></span>
+      </div>
+      <div class="time">
+        <%= chit.time.ago_in_words %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
+</div>
