@@ -22,8 +22,8 @@ $(document).ready(function(){
         var value = $(this).attr("id");
         var to_get = '/delete/' + value;
         $.get(to_get, function(){
-            var list = ' ul#posts';
-            $(list).load(location.href + list + ">*","");
+            var div = ".peep#" + value;
+            $(div).css('visibility', 'hidden');
         });
     });
 });

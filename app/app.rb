@@ -70,7 +70,7 @@ class Chitter < Sinatra::Base
     unarchived_peeps = []
     hashtag = Hashtag.all(conditions: ['lower(tag) = ?', params[:hashtag].downcase])
     peeps = hashtag ? hashtag.peeps : []
-    peeps.each { |peep| unarchived_peeps.push(peep) if peep.is_archived.nil? }
+    peeps.each { |peep| unarchived_peeps << peep unless peep.is_archived == 'true' }
     @peeps = unarchived_peeps
     erb :index
   end
@@ -100,7 +100,7 @@ class Chitter < Sinatra::Base
     redirect '/'
   end
 
-  get '/view_archive' do
+  get '/archive' do
     redirect '/' unless current_user
     @peeps = Peep.all(user_id: current_user.id, is_archived: true)
     erb :index
