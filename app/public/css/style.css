@@ -18,17 +18,17 @@ body {
   width: auto;
 }
 
-.landing {
+.jumbotron {
   font-family: "Autour One";
-  color: tomato;
+  color: #e15258;
   text-align: center;
 }
 
-.landing h1 {
+.jumbotron h1 {
   font-size: 8em;
 }
 
-.landing h3 {
+.jumbotron h3 {
   font-size: 2em;
 }
 
@@ -40,9 +40,9 @@ body {
 }
 
 #chits div.panel .panel-heading {
-  background-color: tomato;
+  background-color: #e15258;
   background-image: none;
-  border-bottom: 1px solid tomato;
+  border-bottom: 1px solid #e15258;
   color: #fff;
 }
 
@@ -77,8 +77,8 @@ body {
 .login .panel-heading,
 .signup .panel-heading,
 .new_chit .panel-heading {
-  background: tomato;
-  border: 1px solid tomato;
+  background: #e15258;
+  border: 1px solid #e15258;
 }
 
 #notice ul {
@@ -132,7 +132,7 @@ body {
 #goodbye {
   font-family: 'Autour One';
   font-size: 2em;
-  color: tomato;
+  color: #e15258;
   text-align: center;
   padding-bottom: 20px;
 }
