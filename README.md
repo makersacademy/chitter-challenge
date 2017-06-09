@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-* Weekend challenge at Makers
+* Weekend 4 challenge at Makers
 
 * Sinatra app enabling users to 'peep' their thoughts and leave comments on other users' peeps.
 
