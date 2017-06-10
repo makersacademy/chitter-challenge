@@ -3,10 +3,10 @@ module Helpers
 
   def html(post)
     @liked = Like.first(user_id: current_user.id, peep_id: post.id) if current_user
-    @unlike = "<a href='#' class='unlike' id='#{post.id}'><div class='likes_red'><img src='http://michael-jacobson.co.uk/red_heart.png' class='heart_image'>#{post.likes}</div></a>"
-    @archive = "<a href='/archive/#{post.id}' class='archive_button' id='#{post.id}'><img src='http://michael-jacobson.co.uk/archive.png' class='archive_image'></a>"
-    @like = "<a href='#' class='like' id='#{post.id}'><div class='likes_grey'><img src='http://michael-jacobson.co.uk/grey_heart.png' class='heart_image'>#{post.likes}</div></a>"
-    @logged_out_likes = "<div class='likes_grey_logged_out'><img src='http://michael-jacobson.co.uk/grey_heart.png' class='heart_image'>#{post.likes}</div>"
+    @unlike = "<a href='#' class='unlike' id='#{post.id}'><div class='likes_red'><img src='https://s3.eu-west-2.amazonaws.com/michaeljacobsonred_heart.png' class='heart_image'>#{post.likes}</div></a>"
+    @archive = "<a href='/archive/#{post.id}' class='archive_button' id='#{post.id}'><img src='https://s3.eu-west-2.amazonaws.com/michaeljacobson/archive.png' class='archive_image'></a>"
+    @like = "<a href='#' class='like' id='#{post.id}'><div class='likes_grey'><img src='https://s3.eu-west-2.amazonaws.com/michaeljacobson/grey_heart.png' class='heart_image'>#{post.likes}</div></a>"
+    @logged_out_likes = "<div class='likes_grey_logged_out'><img src='https://s3.eu-west-2.amazonaws.com/michaeljacobson/grey_heart.png' class='heart_image'>#{post.likes}</div>"
   end
 
   def post_buttons(post)
