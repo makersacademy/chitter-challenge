@@ -8,6 +8,7 @@ Installation & Testing
 --------
 
 * Simply fork or clone this repo, and run `bundle install`
+* Run `rackup` and navigate to localhost:9292
 * App is configured to run with a Postgres database
 * Tests can be run by running `rspec` on the command line in the main project directory
 
