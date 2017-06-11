@@ -10,6 +10,10 @@
       <form method='get' action='/peeps/new'>
         <input type='submit' value='Post new peep'>
       </form>
+    <% else %>
+    <form method='get' action='/users/new'>
+        <input type='submit' value='Sign up'>
+    </form>
     <% end %>
     <% if flash[:notice] %>
     <div id='notice'>
