@@ -16,10 +16,10 @@ class Chitter < Sinatra::Base
   end
 
   get '/feed' do
+    @peeps = Peep.all.reverse
     erb(:feed)
   end
 
-# This doesn't save anything in the Peep table
   post '/peep' do
     current_user.peeps.create(peep: params[:peep], time: Time.new.strftime("%H:%M"), date: Time.new.strftime("%Y-%m-%d"))
     redirect to '/feed'

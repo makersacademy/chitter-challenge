@@ -1,0 +1,5 @@
+<% @peeps.each do |peep| %>
+<p><%= User.get(peep.user_id).name %> said at <%= peep.time %> on <%= peep.date %>:</p>
+<p><%= peep.peep %></p>
+
+<% end %>
