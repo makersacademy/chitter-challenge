@@ -16,9 +16,9 @@ Features
 --------
 
 * User registration with BCrypt password encryption
-* User login
+* User login and log out
 * User can create new posts via an online form
-* Posts belong to the users that create them
+* Posts appear in reverse chronological order on a feed, each with its author's name, and the date and time of publication
 
 Technologies & Principles
 -------------------------
@@ -34,4 +34,5 @@ Technologies & Principles
 Further Development
 -------------------
 
-* Add a timeline view which retrieves all posts from the database, and then iterates through them to display the newest messages at the top of the page
+* Add a facility to edit and delete posts.
+* Allow users to change their password, and to delete accounts.
