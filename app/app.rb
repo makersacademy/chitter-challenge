@@ -82,9 +82,12 @@ class Chitter < Sinatra::Base
      last_name: params[:last_name].capitalize,
      email: params[:email].downcase,
      username: params[:username].downcase,
-     picture_url: "https://s3.eu-west-2.amazonaws.com/tinyblogger/uploads/user_pics/#{params[:image][:filename]}",
      password: params[:password],
      password_confirmation: params[:password_confirmation])
+    if params[:image]
+      user.picture_url = "https://s3.eu-west-2.amazonaws.com/tinyblogger/uploads/user_pics/#{params[:image][:filename]}"
+      user.save
+    end
     session[:user_id] = user.id
     redirect '/'
   end
