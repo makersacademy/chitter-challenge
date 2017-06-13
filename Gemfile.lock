@@ -16,20 +16,19 @@ GEM
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     builder (3.2.3)
-    capybara (2.14.0)
+    capybara (2.14.2)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (1.1.0)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
-    carrierwave-datamapper (0.1.1)
-      carrierwave
-      dm-core (~> 1.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    carrierwave-datamapper (0.2.2)
+      carrierwave (~> 0.8.0)
+      dm-core (~> 1.1)
     concurrent-ruby (1.0.5)
     daemons (1.2.4)
     data_mapper (1.2.0)
@@ -234,12 +233,12 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_magick (4.7.0)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
     mustermann (1.0.0)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -315,6 +314,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   fog
+  fog-aws
   geocoder
   mini_magick
   rake
@@ -326,7 +326,7 @@ DEPENDENCIES
   thin
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.3.1p112
 
 BUNDLED WITH
-   1.15.1
+   1.15.0

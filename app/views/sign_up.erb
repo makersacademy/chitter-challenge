@@ -9,7 +9,7 @@
 </head>
 
   <body>
-  <form action='/create_user' method='post'>
+  <form action='/create_user' method='post' enctype="multipart/form-data">
   <fieldset>
     <legend>Create your free Chitter account</legend>
     <p>
@@ -33,8 +33,8 @@
       </label>
     </p>
     <p>
-      <label for='picture_url'>
-        Profile Picture URL: <input type='text' name='picture_url' placeholder="Profile Picture Web URL">
+      <label for='image'>
+        Profile Picture: <input type='file' name='image'>
       </label>
     </p>
     <p>

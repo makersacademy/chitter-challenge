@@ -39,11 +39,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/create_user' do
+    image = Image.new
+    image.file = params[:image]
+    image.save
     user = User.create(first_name: params[:first_name].capitalize,
      last_name: params[:last_name].capitalize,
      email: params[:email].downcase,
      username: params[:username].downcase,
-     picture_url: params[:picture_url],
+     picture_url: "https://s3.eu-west-2.amazonaws.com/tinyblogger/uploads/user_pics/#{params[:image][:filename]}",
      password: params[:password],
      password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
