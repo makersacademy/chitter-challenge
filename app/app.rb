@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
       recipient = User.first(username: tagged_in_username[:tag])
 
       Pony.mail to: recipient['email'],
-                from: 'donotreply@tinyblogger.co.uk',
+                from: 'tinyBlogger <noreply@tinyblogger.co.uk>',
                 subject: "You've been tagged in a new post",
                 body: "Hi #{recipient['first_name']}, we thought you might like to know " \
                 "that #{poster['first_name']} #{poster['last_name']} just tagged you in a post!"
