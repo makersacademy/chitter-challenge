@@ -61,14 +61,16 @@
         </table>
       </div>
 
-
       <div id="chitter_feed">
         <ul id='posts'>
           <% @peeps.reverse.each do |peep| %>
             <% hashtags = [] %>
+            <% usertags = [] %>
             <% body = peep.body.delete(',.?!;:') %>
             <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
             <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
+            <% body.split.each { |word| usertags << word if word[0] == '@' } %>
+            <% usertags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('@')}' class='hashtag'>#{word}</a>") } %>
             <% user = User.get(peep.user_id) %>
             <li class="peep" id="<%= peep.id %>">
               <table>

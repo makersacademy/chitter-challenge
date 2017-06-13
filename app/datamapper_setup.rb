@@ -4,6 +4,7 @@ require 'mime-types'
 
 require_relative 'models/user.rb'
 require_relative 'models/hashtag.rb'
+require_relative 'models/usertag.rb'
 require_relative 'models/peep.rb'
 require_relative 'models/like.rb'
 require_relative 'models/comment.rb'

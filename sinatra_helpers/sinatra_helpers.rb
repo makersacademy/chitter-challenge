@@ -55,6 +55,16 @@ module Helpers
     hashtags
   end
 
+  def parse_usertags(peep)
+    usertags = []
+    body = peep.body.delete(',.?!;:/')
+    array = body.split(' ')
+    array.each do |word|
+      usertags << Usertag.create(tag: word[1..-1]) if word[0] == '@'
+    end
+    usertags
+  end
+
   def same_day?(peep_datetime, current_datetime)
     peep_date = peep_datetime.strftime('%-d%-m%Y').to_i
     current_date = current_datetime.strftime('%-d%-m%Y').to_i

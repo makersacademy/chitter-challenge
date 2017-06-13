@@ -11,6 +11,7 @@ class Peep
   property :is_archived, Text, default: false
 
   has n, :hashtags, :through => Resource
+  has n, :usertags, :through => Resource
 
   validates_length_of :body, :max => 140
 end

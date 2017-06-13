@@ -229,6 +229,8 @@ GEM
     ipaddress (0.8.3)
     json (1.8.6)
     json_pure (1.8.6)
+    mail (2.6.6)
+      mime-types (>= 1.16, < 4)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -242,6 +244,8 @@ GEM
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
+    pony (1.11)
+      mail (>= 2.0)
     powerpack (0.1.1)
     public_suffix (2.0.5)
     rack (2.0.3)
@@ -279,6 +283,10 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby-sun-times (0.1.5)
+    ruby_http_client (3.1.0)
+    sendgrid-ruby (5.0.0)
+      ruby_http_client (~> 3.0)
+      sinatra (>= 1.4.7, < 3)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -318,10 +326,12 @@ DEPENDENCIES
   geocoder
   mime-types
   mini_magick
+  pony
   rake
   rspec
   rubocop
   ruby-sun-times
+  sendgrid-ruby
   sinatra
   sinatra-flash
   thin

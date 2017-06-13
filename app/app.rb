@@ -7,6 +7,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'thin'
 require 'mime-types'
+require 'pony'
+require_relative './environment'
 require_relative './datamapper_setup'
 require_relative './../sinatra_helpers/sinatra_helpers.rb'
 
@@ -14,6 +16,32 @@ class Chitter < Sinatra::Base
   include Helpers
   enable :sessions
   set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(20) }
+
+  configure do
+    Pony.options = {
+        via: :smtp,
+        via_options: {
+            address: 'smtp.sendgrid.net',
+            port: '587',
+            user_name: ENV['SENDGRID_USERNAME'],
+            password: ENV['SENDGRID_PASSWORD'],
+            authentication: :plain,
+            enable_starttls_auto: true
+        }
+    }
+  end
+
+  helpers do
+    def send_email(posted_by_username, tagged_in_username)
+      poster = User.select(username: posted_by_username)
+      recipient = User.select(username: tagged_in_username)
+      Pony.mail to: recipient.email,
+                from: 'donotreply@tinyblogger.co.uk',
+                subject: "You've been tagged in a new post",
+                body: "Hi #{recipient.first_name},\r\nwe thought you might like to know" \
+                "that #{poster.first_name} #{poster.last_name} just tagged you in a post!"
+    end
+  end
 
   get '/' do
     @peeps = Peep.all(is_archived: false)
@@ -28,10 +56,16 @@ class Chitter < Sinatra::Base
     time: Time.now,
     user_id: session[:user_id])
     hashtags = parse_hashtags(peep)
+    usertags = parse_usertags(peep)
     hashtags.each do |hashtag|
       peep.hashtags << hashtag
       peep.save
     end
+    usertags.each do |usertag|
+      peep.usertags << usertag
+      peep.save
+    end
+    usertags.each { |usertag| send_email(session[:user_id], usertag) }
     redirect '/'
   end
 

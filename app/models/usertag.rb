@@ -1,5 +1,5 @@
 
-class Hashtag
+class Usertag
   include DataMapper::Resource
 
   property :id, Serial
