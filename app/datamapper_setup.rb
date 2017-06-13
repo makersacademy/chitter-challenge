@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'mime-types'
 
 require_relative 'models/user.rb'
 require_relative 'models/hashtag.rb'

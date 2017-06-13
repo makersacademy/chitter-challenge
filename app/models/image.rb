@@ -1,5 +1,6 @@
 require_relative './image_uploader'
 require 'carrierwave/datamapper'
+require 'mime-types'
 
 class Image
   include DataMapper::Resource

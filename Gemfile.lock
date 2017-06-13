@@ -316,6 +316,7 @@ DEPENDENCIES
   fog
   fog-aws
   geocoder
+  mime-types
   mini_magick
   rake
   rspec

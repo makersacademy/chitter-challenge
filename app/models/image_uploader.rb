@@ -1,5 +1,6 @@
 require 'carrierwave'
 require 'carrierwave/datamapper'
+require 'mime-types'
 
 CarrierWave.configure do |config|
   config.fog_credentials = {

@@ -6,6 +6,7 @@ require 'sun_times'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'thin'
+require 'mime-types'
 require_relative './datamapper_setup'
 require_relative './../sinatra_helpers/sinatra_helpers.rb'
 
