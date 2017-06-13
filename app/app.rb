@@ -33,13 +33,14 @@ class Chitter < Sinatra::Base
 
   helpers do
     def send_email(posted_by_username, tagged_in_username)
-      poster = User.select(username: posted_by_username)
-      recipient = User.select(username: tagged_in_username)
-      Pony.mail to: recipient.email,
+      poster = User.first(id: posted_by_username)
+      recipient = User.first(username: tagged_in_username[:tag])
+
+      Pony.mail to: recipient['email'],
                 from: 'donotreply@tinyblogger.co.uk',
                 subject: "You've been tagged in a new post",
-                body: "Hi #{recipient.first_name},\r\nwe thought you might like to know" \
-                "that #{poster.first_name} #{poster.last_name} just tagged you in a post!"
+                body: "Hi #{recipient['first_name']}, we thought you might like to know " \
+                "that #{poster['first_name']} #{poster['last_name']} just tagged you in a post!"
     end
   end
 
