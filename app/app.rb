@@ -87,6 +87,9 @@ class Chitter < Sinatra::Base
     if params[:image]
       user.picture_url = "https://s3.eu-west-2.amazonaws.com/tinyblogger/uploads/user_pics/#{params[:image][:filename]}"
       user.save
+    else
+      user.picture_url = "https://s3.eu-west-2.amazonaws.com/michaeljacobson/default_profile_picture.png"
+      user.save
     end
     session[:user_id] = user.id
     redirect '/'
