@@ -47,7 +47,7 @@ a {
     width: 100px;
     border-radius: 100%;
     margin-right: 10px;
-    background-color: dimgray;
+    background-color: #E9E9F1;
     border: ghostwhite 2px solid;
     margin-top: auto;
     margin-bottom: auto;
@@ -116,7 +116,7 @@ body {
     height: 50px;
     border-radius: 100%;
     margin: 0;
-    background-color: dimgray;
+    background-color: #E9E9F1;
     border: ghostwhite 2px solid;
 }
 
