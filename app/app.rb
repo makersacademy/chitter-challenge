@@ -8,7 +8,7 @@ require 'sinatra/flash'
 require 'thin'
 require 'mime-types'
 require 'pony'
-require_relative './environment'
+# require_relative './environment'
 require_relative './datamapper_setup'
 require_relative './../sinatra_helpers/sinatra_helpers.rb'
 
