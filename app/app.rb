@@ -8,7 +8,7 @@ require 'sinatra/flash'
 require 'thin'
 require 'mime-types'
 require 'pony'
-# require_relative './environment'
+require_relative './environment'
 require_relative './datamapper_setup'
 require_relative './../sinatra_helpers/sinatra_helpers.rb'
 
@@ -124,7 +124,7 @@ class Chitter < Sinatra::Base
     unarchived_peeps = []
     hashtag = Hashtag.all(conditions: ['lower(tag) = ?', params[:hashtag].downcase])
     peeps = hashtag ? hashtag.peeps : []
-    peeps.each { |peep| unarchived_peeps << peep unless peep.is_archived == 'true' }
+    peeps.each { |peep| unarchived_peeps << peep unless peep.is_archived }
     @peeps = unarchived_peeps
     erb :index
   end
@@ -149,7 +149,7 @@ class Chitter < Sinatra::Base
   post '/archive/:peep_id' do
     redirect '/' unless current_user
     peep = Peep.get(params[:peep_id])
-    peep.is_archived = 'true'
+    peep.is_archived = true
     peep.save
     redirect '/'
   end
@@ -172,10 +172,8 @@ class Chitter < Sinatra::Base
       user.confirmation_token = 'used'
       user.save!
       session[:user_id] = user.id
-      redirect to('/')
-    else
-      redirect '/nope'
     end
+    redirect '/'
   end
 
   run! if $PROGRAM_NAME == __FILE__

@@ -10,8 +10,8 @@ class User
   property :picture_url, Text
   property :first_name, String
   property :last_name, String
-  property :username, String, :required => true, :unique => true
-  property :email, String, :required => true, :unique => true, :format => :email_address
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true, format: :email_address
   property :password_digest, Text
   property :email_confirmed, Boolean, default: false
   property :confirmation_token, Text
