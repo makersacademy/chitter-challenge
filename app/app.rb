@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   helpers do
-    def send_email(posted_by_username, tagged_in_username)
+    def send_notification_email(posted_by_username, tagged_in_username)
       poster = User.first(id: posted_by_username)
       recipient = User.first(username: tagged_in_username[:tag])
 
@@ -41,6 +41,14 @@ class Chitter < Sinatra::Base
                 subject: "You've been tagged in a new post",
                 body: "Hi #{recipient['first_name']}, we thought you might like to know " \
                 "that #{poster['first_name']} #{poster['last_name']} just tagged you in a post!"
+    end
+
+    def send_confirmation_email(new_user)
+      Pony.mail to: new_user['email'],
+                from: 'tinyBlogger <noreply@tinyblogger.co.uk>',
+                subject: 'Please confirm your email address',
+                html_body: "<p>Hi #{new_user['first_name']}, thanks for signing up!</p><br>" \
+                           "<p>Please click <a href='https://tinyblogger.herokuapp.com/confirm/#{new_user['confirmation_token']}'>here</a> to confirm your email address</p>"
     end
   end
 
@@ -86,11 +94,12 @@ class Chitter < Sinatra::Base
      password_confirmation: params[:password_confirmation])
     if params[:image]
       user.picture_url = "https://s3.eu-west-2.amazonaws.com/tinyblogger/uploads/user_pics/#{params[:image][:filename]}"
-      user.save
     else
       user.picture_url = "https://s3.eu-west-2.amazonaws.com/michaeljacobson/default_profile_picture.png"
-      user.save
     end
+    user.confirmation_token = generate_confirmation_token
+    user.save
+    send_confirmation_email(user)
     session[:user_id] = user.id
     redirect '/'
   end
@@ -151,14 +160,23 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  # get '/refactor' do
-  #   peeps = Peep.all(user_id: )
-  #   peeps.each do |peep|
-  #     peep.is_archived = 'false'
-  #     peep.save
-  #   end
-  #   redirect '/'
-  # end
+  get '/confirm/:confirmation_token' do
+    @user_to_confirm = User.first(confirmation_token: params[:confirmation_token])
+    erb :confirmation
+  end
+
+  post '/confirm' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      user.email_confirmed = true
+      user.confirmation_token = 'used'
+      user.save!
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      redirect '/nope'
+    end
+  end
 
   run! if $PROGRAM_NAME == __FILE__
 end

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TinyBlogger | Confirm Email</title>
+  <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+</head>
+
+<body>
+<form action='/confirm' method='post'>
+  <label for='username'>
+    <input id="hidden_username" class="text_input" type='text' name='username' value="<%= @user_to_confirm.username %>">
+  </label>
+  <label for='password'>
+    <input class="text_input" type='password' name='password' placeholder='password'>
+  </label>
+  <input type="submit" value="Confirm" class="submit_button">
+</form>
+</body>
+
+</html>

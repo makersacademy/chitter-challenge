@@ -333,8 +333,6 @@ input#submit_post {
     display: inline;
 }
 
-/*#posts {*/
-    /*overflow-y: scroll;*/
-    /*max-height: 100vh;*/
-    /*position: absolute;*/
-/*}*/
+#hidden_username {
+    visibility: hidden;
+}

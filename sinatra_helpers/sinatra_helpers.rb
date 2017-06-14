@@ -96,4 +96,7 @@ module Helpers
     usertags
   end
 
+  def generate_confirmation_token
+    SecureRandom.hex
+  end
 end
