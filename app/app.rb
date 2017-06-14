@@ -35,12 +35,13 @@ class Chitter < Sinatra::Base
     def send_notification_email(posted_by_username, tagged_in_username)
       poster = User.first(id: posted_by_username)
       recipient = User.first(username: tagged_in_username[:tag])
-
-      Pony.mail to: recipient['email'],
-                from: 'tinyBlogger <noreply@tinyblogger.co.uk>',
-                subject: "You've been tagged in a new post",
-                body: "Hi #{recipient['first_name']}, we thought you might like to know " \
-                "that #{poster['first_name']} #{poster['last_name']} just tagged you in a post!"
+      if recipient.email_confirmed
+        Pony.mail to: recipient['email'],
+                  from: 'tinyBlogger <noreply@tinyblogger.co.uk>',
+                  subject: "You've been tagged in a new post",
+                  body: "Hi #{recipient['first_name']}, we thought you might like to know " \
+                  "that #{poster['first_name']} #{poster['last_name']} just tagged you in a post!"
+      end
     end
 
     def send_confirmation_email(new_user)
@@ -48,7 +49,7 @@ class Chitter < Sinatra::Base
                 from: 'tinyBlogger <noreply@tinyblogger.co.uk>',
                 subject: 'Please confirm your email address',
                 html_body: "<p>Hi #{new_user['first_name']}, thanks for signing up!</p><br>" \
-                           "<p>Please click <a href='https://tinyblogger.herokuapp.com/confirm/#{new_user['confirmation_token']}'>here</a> to confirm your email address</p>"
+                "<p>Please click <a href='https://tinyblogger.herokuapp.com/confirm/#{new_user['confirmation_token']}'>here</a> to confirm your email address</p>"
     end
   end
 
@@ -74,7 +75,7 @@ class Chitter < Sinatra::Base
       peep.usertags << usertag
       peep.save
     end
-    usertags.each { |usertag| send_email(session[:user_id], usertag) }
+    usertags.each { |usertag| send_notification_email(session[:user_id], usertag) }
     redirect '/'
   end
 
