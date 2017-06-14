@@ -10,10 +10,13 @@
 </head>
 
 <body>
-<form action='/confirm' method='post'>
+
+<form action='/confirm' method='post' id="confirmation_form">
   <label for='username'>
-    <input id="hidden_username" class="text_input" type='text' name='username' value="<%= @user_to_confirm.username %>">
+    <input type='hidden' name='username' value="<%= @user_to_confirm.username %>">
   </label>
+  <p id="confirmation_greeting">Hi <%= @user_to_confirm.first_name %>,<br>please enter your password to confirm your email address.</p>
+  <br>
   <label for='password'>
     <input class="text_input" type='password' name='password' placeholder='password'>
   </label>

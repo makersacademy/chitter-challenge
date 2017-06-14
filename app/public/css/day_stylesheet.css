@@ -111,7 +111,7 @@ body {
     font-family: "Source Code Pro", monospace;
 }
 
-#top_right_profile_pic {
+#top_right_profile_pic, #confirmation_image {
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -333,6 +333,13 @@ input#submit_post {
     display: inline;
 }
 
-#hidden_username {
-    visibility: hidden;
+#confirmation_form {
+    text-align: center;
+    margin: auto;
+    padding-top: 25vh;
+}
+
+#confirmation_greeting {
+    font-size: 30px;
+    font-weight: 200;
 }
