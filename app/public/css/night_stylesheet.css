@@ -1,0 +1,215 @@
+html {
+    background-color: #292C3F;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    color: ghostwhite;
+}
+
+a {
+    color: #E9E9F1;
+    text-decoration: none;
+}
+
+#top_bar {
+    padding: 5px;
+    border-bottom: ghostwhite solid 1px;
+    display: inline-block;
+    width: 100vw;
+    height: 80px;
+}
+
+.list_item {
+    display: inline;
+}
+
+#chitter_feed {
+    padding: 15px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hashtag, .username {
+    color: #E9E9F1;
+    text-decoration: none;
+}
+
+.hashtag:hover, .username:hover {
+    text-decoration: underline;
+}
+
+.user_picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-right: 10px;
+    background-color: dimgray;
+    border: ghostwhite 2px solid;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.submit_button {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: ghostwhite;
+    color: #232236;
+    border: solid 1px ghostwhite;
+    -webkit-appearance: none;
+}
+
+.submit_button:hover {
+    background-color: ghostwhite;
+    color: #232236;
+}
+
+#right_side, #logged_in_right_side {
+    text-align: right;
+}
+
+#top_bar_table, #logged_in_top_bar {
+    padding-right: 40px;
+    width: 100%;
+}
+
+body {
+    width: 90vw;
+    position: absolute;
+}
+
+#sign_up_button {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: #232236;
+    color: ghostwhite;
+    border: solid 1px ghostwhite;
+    -webkit-appearance: none;
+}
+
+#sign_up_button:hover {
+    background-color: ghostwhite;
+    color: #232236;
+}
+
+.text_input {
+    background-color: #232236;
+    border: solid 0.5px ghostwhite;
+    -webkit-appearance: none;
+    font-size: 16px;
+    padding: 5px;
+    font-family: "Source Code Pro", monospace;
+}
+
+#top_right_profile_pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0;
+    background-color: dimgray;
+    border: ghostwhite 2px solid;
+}
+
+.greeting {
+    font-size: 40px;
+    margin: 0;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #232236;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: #232236;
+    min-width: 140px;
+    border: solid 1px ghostwhite;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 99;
+}
+
+.dropdown-content:before {
+    content:"";
+    position: absolute;
+    right: 27px;
+    top: -15.5px;
+    width: 0;
+    height: 0;
+    z-index: 99;
+    border-style: solid;
+    border-width: 0 16px 16px 16px;
+    border-color: transparent transparent #232236 transparent;
+}
+
+.dropdown-content:after {
+    content:"";
+    position: absolute;
+    right: 26px;
+    top: -17px;
+    width: 0;
+    height: 0;
+    z-index: 98;
+    border-style: solid;
+    border-width: 0 17px 17px 17px;
+    border-color: transparent transparent #F8F8FF transparent;
+}
+
+.dropdown-content a {
+    color: ghostwhite;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #292C3F
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+
+.heart_image {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
+
+.likes_red {
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: #C82606;
+}
+
+.likes_grey {
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: dimgray;
+}
+
+input {
+    outline: none;
+}

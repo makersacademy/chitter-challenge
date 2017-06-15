@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<h2>Dropdown Menu</h2>
+<p>Move the mouse over the button to open the dropdown menu.</p>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+<p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
+
+</body>
+</html>
+
+
+https://content.artofmanliness.com/uploads/2016/04/mcqueen-great-escape.jpeg
+https://songbook1.files.wordpress.com/2010/11/miles-davis-c-1955-56-2-f14.jpg
+http://www.jamesdean.com/images/photo-gallery/tornsweater/img17.jpg
+https://fanart.tv/fanart/music/1ecff755-607d-4130-9a8a-8873f27e5de5/artistthumb/garcia-jerry-548bddddc42e8.jpg
+https://mgtvwsls.files.wordpress.com/2015/12/john-lennon.jpg
+http://ocdn.eu/images/zapytaj/OTE7MDA_/582ec971514b6b05a9adcba41a05958b.jpg
+
+-------------------------------------------------------------------------------------------------------------------
+
+(function ($) {
+    $.fn.extend({
+        limiter: function (minLimit, maxLimit, elem) {
+            $(this).on("keydown keyup focus keypress", function (e) {
+                setCount(this, elem, e);
+            });
+
+            function setCount(src, elem, e) {
+                var chars = src.value.length;
+                if (chars == maxLimit) {
+                    //e.preventDefault();
+                     elem.html(maxLimit - chars);
+                    elem.addClass('maxLimit');
+                    return false;
+
+                } else if (chars > maxLimit) {
+                    src.value = src.value.substr(0, maxLimit);
+                    chars = maxLimit;
+                    elem.addClass('maxLimit');
+                } else {
+                    elem.removeClass('maxLimit');
+                }
+                if (chars < minLimit) {
+                    elem.addClass('minLimit');
+                } else {
+                    elem.removeClass('minLimit');
+                }
+                elem.html(maxLimit - chars);
+            }
+            setCount($(this)[0], elem);
+        }
+    });
+})(jQuery);
+
+var elem = $("#chars");
+$("#text").limiter(35, 100, elem);
+
+----------------------------------------------------------------------------------------------------------------
+
+<div id="wrapper"> <span class="info">Min: 35 And Max: 100</span>
+
+    <textarea id="text" cols="50" rows="5" placeholder="Enter Text"></textarea>
+    <div id="chars" class="chars">100</div>
+</div>
+
+-----------------------------------------------------------------------------------------------------------------
+
+* {
+}
+h1 {
+    text-align:center;
+}
+body {
+    font:12px Verdana, Arial;
+    color:#555;
+    background:#222
+}
+p {
+    line-height:1.4;
+    margin-bottom:12px
+}
+#wrapper {
+    width:578px;
+    margin:75px auto
+}
+/* TinyLimiter */
+ #text {
+    width:558px;
+    border:0;
+    padding:10px;
+    line-height:1.4;
+    resize:vertical;
+    font:12px Verdana, Arial
+}
+.info {
+    margin-bottom:10px;
+    color:#fff;
+}
+.chars {
+    margin-top:10px;
+    color:#ccc
+}
+.maxLimit {
+    color: #C00;
+}
+.minLimit {
+    color: #F90;
+}
+
+--------------------------------------------------------------------------------------------------------
+
+<div class="peep_buttons">
+    <% liked = Like.first(user_id: current_user.id, peep_id: peep.id) if current_user %>
+    <% if liked %>
+      <a href="#" class="unlike" id="<%= peep.id %>"><div class="likes_red"><img src="http://michael-jacobson.co.uk/red_heart.png" class="heart_image"><%= peep.likes %></div></a>
+        <% if current_user.id == peep.user_id %>
+          <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+        <% end %>
+    <% else %>
+      <% if current_user %>
+        <a href="#" class="like" id="<%= peep.id %>"><div class="likes_grey"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div></a>
+          <% if current_user.id == peep.user_id %>
+            <a href="/delete/<%= peep.id %>" class="delete_button" id="<%= peep.id %>"><img src="http://michael-jacobson.co.uk/trash.png" class="delete_image"></a>
+          <% end %>
+      <% else %>
+        <div class="likes_grey_logged_out"><img src="http://michael-jacobson.co.uk/grey_heart.png" class="heart_image"><%= peep.likes %></div>
+      <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TinyBlogger | Home</title>
+    <% if daytime? %>
+      <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
+    <% elsif !daytime? %>
+      <link href="/css/day_stylesheet.css" type="text/css" rel="stylesheet">
+    <% end %>
+    <link href="/css/jquery.highlight-within-textarea.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/tweet_char_counter.js"></script>
+    <script type="text/javascript" src="/js/peep_buttons.js"></script>
+    <script type="text/javascript" src="/js/compose_post.js"></script>
+    <script type="text/javascript" src="/js/email_confirmation.js"></script>
+    <script type="text/javascript" src="/js/new_user.js"></script>
+    <script type="text/javascript" src="/js/jquery.highlight-within-textarea.js"></script>
+  </head>
+
+  <body>
+      <div id="top_bar">
+        <table id="top_bar_table">
+          <tr>
+            <td>
+      <% if current_user %>
+                  <p class="greeting"><%= greeting(current_user) %></p>
+                  <td id="right_side">
+                    <div class="dropdown">
+                      <button class="dropbtn"><img src="<%= current_user.picture_url %>" id="top_right_profile_pic"></button>
+                      <div class="dropdown-content">
+                        <a href="#" id="peep_link"><img src="https://s3.eu-west-2.amazonaws.com/michaeljacobson/pen.png" id="pen">Post</a>
+                        <a href="/">Home</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="/archive">My Archive</a>
+                        <a href="/logout">Logout</a>
+                      </div>
+                    </div>
+                  </td>
+      <% else %>
+          <form action='/login' method='post'>
+              <label for='username'>
+                <input class="text_input" type='text' name='username' placeholder='Username'>
+              </label>
+              <label for='password'>
+                <input class="text_input" type='password' name='password' placeholder='Password'>
+              </label>
+            <input type="submit" value="Login" class="submit_button">
+          </form>
+            </td>
+            <td id="right_side">
+              <button id="sign_up_button">Sign Up</button>
+            </td>
+      <% end %>
+          </tr>
+        </table>
+      </div>
+
+      <div id="chitter_feed">
+        <ul id='posts'>
+          <% @peeps.reverse.each do |peep| %>
+            <% hashtags = [] %>
+            <% usertags = [] %>
+            <% body = peep.body.delete(',.?!;:') %>
+            <% body.split.each { |word| hashtags << word if word[0] == '#' } %>
+            <% hashtags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('#')}' class='hashtag'>#{word}</a>") } %>
+            <% body.split.each { |word| usertags << word if word[0] == '@' } %>
+            <% usertags.each { |word| peep.body.gsub!(word, "<a href='peeps/#{word.delete('@')}' class='hashtag'>#{word}</a>") } %>
+            <% user = User.get(peep.user_id) %>
+            <li class="peep" id="<%= peep.id %>">
+              <table>
+                <tr>
+                  <td><img src="<%= user.picture_url %>" class="user_picture"></td>
+                  <td>
+                    <p><span class="name"><%= "#{user.first_name} #{user.last_name} " %></span><a href="users/<%= user.username %>" class="username"><%= "@#{user.username} " %></a><span><%= "- #{peep_datetime(peep.time)}" %></span></p>
+                    <p class="peep_body">"<%= peep.body %>"</p>
+                    <div class="peep_buttons">
+                      <%= post_buttons(peep) %>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </li><br>
+          <% end %>
+        </ul>
+      </div>
+  </body>
+
+  <div class="lightbox" id="new_post_lightbox">
+    <img id="close_lightbox" src="https://s3.eu-west-2.amazonaws.com/michaeljacobson/exit.png">
+    <div id="new_post">
+      <form id="new_post_form" action='/' method='post'>
+        <label for="body">
+          <textarea name="body" id="text" placeholder="Compose a lovely new #tinypost here..."></textarea>
+        </label>
+        <div id="text_and_submit">
+          <input type="submit" value="Post" id="submit_post">
+          <p id="chars"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="lightbox" id="signup_lightbox">
+    <img id="close_lightbox" src="https://s3.eu-west-2.amazonaws.com/michaeljacobson/exit.png">
+    <div id="new_user">
+      <form id="new_user_form" action='/users/new' method='post'>
+        <p>
+        <label for='first_name'>
+          First name: <input class="no_border" type='text' name='first_name' placeholder='Zaphod'>
+        </label>
+        </p>
+        <p>
+        <label for='last_name'>
+          Last name: <input class="no_border" type='text' name='last_name' placeholder='Beeblebrox'>
+        </label>
+        </p>
+        <p>
+        <label for='email'>
+          Email: <input class="no_border" type='email' name='email' placeholder="sass.me@zaphodbeeblebrox.gal">
+        </label>
+        </p>
+        <p>
+        <label for='username'>
+          Username: <input class="no_border" type='text' name='username' placeholder="hoopyfrood">
+        </label>
+        </p>
+        <p>
+        <label for='image'>
+          Profile Picture: <input class="no_border" type='file' name='image'>
+        </label>
+        </p>
+        <p>
+        <label for='password'>
+          Password: <input class="no_border" type='password' name='password' placeholder="P4nG414cticG4rg1eB14ster">
+        </label>
+        </p>
+        <p>
+        <label for='password_confirmation'>
+          Confirm password: <input class="no_border" type='password' name='password_confirmation' placeholder="P4nG414cticG4rg1eB14ster">
+        </label>
+        </p>
+        <input type='submit' value='Sign Up' id="signup">
+      </form>
+    </div>
+  </div>
+
+  <% unless @newly_confirmed.nil? %>
+
+    <div class="lightbox" id="confirmation_lightbox">
+      <div id="confirmation_message">
+        <div id="confirmation_inner">
+          <p>Hi <%= @newly_confirmed %>, thanks for validating your email address.</p>
+          <p>You will now receive email notifications whenever you're tagged in a post!</p>
+          <br>
+          <button id="okay">Cool</button>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+</html>

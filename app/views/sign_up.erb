@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TinyBlogger | Sign Up</title>
+  <link href="/css/stylesheet.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+</head>
+
+  <body>
+  <form action='/create_user' method='post' enctype="multipart/form-data">
+  <fieldset>
+    <legend>Create your free Chitter account</legend>
+    <p>
+      <label for='first_name'>
+        First name: <input type='text' name='first_name' placeholder='Zaphod'>
+      </label>
+    </p>
+    <p>
+      <label for='last_name'>
+        Last name: <input type='text' name='last_name' placeholder='Beeblebrox'>
+      </label>
+    </p>
+    <p>
+      <label for='email'>
+        Email: <input type='email' name='email' placeholder="sass.me@zaphodbeeblebrox.gal">
+      </label>
+    </p>
+    <p>
+      <label for='username'>
+        Username: <input type='text' name='username' placeholder="hoopyfrood">
+      </label>
+    </p>
+    <p>
+      <label for='image'>
+        Profile Picture: <input type='file' name='image'>
+      </label>
+    </p>
+    <p>
+      <label for='password'>
+        Password: <input type='password' name='password' placeholder="P4nG414cticG4rg1eB14ster">
+      </label>
+    </p>
+    <p>
+      <label for='password_confirmation'>
+        Confirm password: <input type='password' name='password_confirmation' placeholder="P4nG414cticG4rg1eB14ster">
+      </label>
+    </p>
+    <input type='submit' value='Sign Up'>
+  </fieldset>
+  </form>
+  </body>
+
+</html>

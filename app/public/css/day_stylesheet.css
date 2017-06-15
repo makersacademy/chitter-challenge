@@ -1,0 +1,412 @@
+html {
+    background-color: ghostwhite;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#top_bar {
+    padding-bottom: 5px;
+    border-bottom: black solid 1px;
+    display: inline-block;
+    width: 100%;
+    height: 80px;
+}
+
+.list_item {
+    display: inline;
+}
+
+#chitter_feed {
+    padding: 15px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 0;
+    margin: auto;
+}
+
+.hashtag, .username {
+    color: dimgray;
+    text-decoration: none;
+}
+
+.hashtag:hover, .username:hover {
+    text-decoration: underline;
+}
+
+.user_picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-right: 10px;
+    background-color: #E9E9F1;
+    border: ghostwhite 2px solid;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.submit_button, #submit_post {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: ghostwhite;
+    color: black;
+    border: solid 1px black;
+    -webkit-appearance: none;
+}
+
+.submit_button:hover, #submit_post:hover {
+    background-color: black;
+    color: ghostwhite;
+}
+
+#right_side, #logged_in_right_side {
+    text-align: right;
+}
+
+#top_bar_table, #logged_in_top_bar {
+    padding-right: 40px;
+    width: 100%;
+}
+
+body {
+    width: 99vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#sign_up_button, #signup {
+    border-radius: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: ghostwhite;
+    color: black;
+    border: solid 1px black;
+    -webkit-appearance: none;
+}
+
+#sign_up_button:hover, #signup:hover {
+    background-color: black;
+    color: ghostwhite;
+}
+
+.text_input {
+    background-color: ghostwhite;
+    border: solid 0.5px black;
+    -webkit-appearance: none;
+    font-size: 16px;
+    padding: 5px;
+    font-family: "Source Code Pro", monospace;
+}
+
+#top_right_profile_pic, #confirmation_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0;
+    background-color: #E9E9F1;
+    border: ghostwhite 2px solid;
+}
+
+.greeting {
+    font-size: 45px;
+    margin: 0;
+    padding-left: 17px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: ghostwhite;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0;
+    display: none;
+    position: absolute;
+    background-color: ghostwhite;
+    min-width: 140px;
+    border: solid 1px black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 99;
+}
+
+.dropdown-content:before {
+    content:"";
+    position: absolute;
+    right: 27px;
+    top: -15.5px;
+    width: 0;
+    height: 0;
+    z-index: 99;
+    border-style: solid;
+    border-width: 0 16px 16px 16px;
+    border-color: transparent transparent #F8F8FF transparent;
+}
+
+.dropdown-content:after {
+    content:"";
+    position: absolute;
+    right: 26px;
+    top: -17px;
+    width: 0;
+    height: 0;
+    z-index: 98;
+    border-style: solid;
+    border-width: 0 17px 17px 17px;
+    border-color: transparent transparent #000000 transparent;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #E9E9F1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: transparent;
+}
+
+.heart_image {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
+
+.archive_image {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.likes_red {
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: #C82606;
+    display: inline-block;
+}
+
+.likes_grey {
+    font-size: 16px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: dimgray;
+    display: inline-block;
+}
+
+input {
+    outline: none;
+}
+
+.peep_body {
+    width: 55vw;
+    margin: auto;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.archive_button {
+    display: inline-block;
+    background-color: transparent;
+    top: 5px;
+    position: relative;
+}
+
+.peep_buttons {
+    display: inline-block;
+}
+
+#pen {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    top: 5px;
+    position: relative;
+}
+
+#peep_link {
+    border-bottom: solid 1px black;
+}
+
+#new_post {
+    margin: auto;
+    width: 700px;
+    height: 320px;
+    top: 20vh;
+    position: relative;
+    background-color: ghostwhite;
+}
+
+#new_post_form {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    -webkit-appearance: none;
+}
+
+textarea#text {
+    width: 96%;
+    height: 80%;
+    margin: auto;
+    position: relative;
+    resize: none;
+    border: 1px solid transparent;
+    background-color: ghostwhite;
+    -webkit-appearance: none;
+    font-size: 24px;
+    padding: 10px;
+    font-family: "Source Code Pro", monospace;
+}
+
+textarea#text:focus {
+    outline: 0;
+}
+
+.lightbox {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0,0,0,0.65);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: auto;
+    text-align: center;
+    visibility: hidden;
+}
+
+#confirmation_lightbox {
+    visibility: visible;
+}
+
+#close_lightbox {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 25px;
+    z-index: 101;
+}
+
+input#submit_post {
+    margin-bottom: 20px;
+    position: relative;
+    display: inline;
+}
+
+#text_and_submit {
+    width: 100%;
+    padding-left: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+#chars {
+    display: inline;
+}
+
+#confirmation_form {
+    text-align: center;
+    margin: auto;
+    padding-top: 25vh;
+}
+
+#confirmation_greeting {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+#confirmation_message {
+    margin: auto;
+    position: relative;
+    top: 20vh;
+    width: 60vw;
+    height: 30vw;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+#new_user{
+    margin: auto;
+    position: relative;
+    top: 15vh;
+    width: 55vw;
+    height: 65vh;
+    background-color: white;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+#confirmation_inner {
+    top: 80px;
+    position: relative;
+    margin: auto;
+}
+
+#okay {
+    color: black;
+    font-family: 'source code pro', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: ghostwhite;
+    border-radius: 0;
+    margin-bottom: 5px;
+    border: solid 0.25px transparent;
+    -webkit-appearance: none;
+}
+
+#okay:hover {
+    background-color: black;
+    color: ghostwhite;
+    border: solid 0.5px black;
+}
+
+#signup_lightbox {
+    visibility: hidden;
+}
+
+.no_border {
+    border: 1px solid transparent;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 200;
+    font-size: 20px;
+}
