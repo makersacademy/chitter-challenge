@@ -306,6 +306,10 @@ textarea#text:focus {
     visibility: hidden;
 }
 
+#confirmation_lightbox {
+    visibility: visible;
+}
+
 #close_lightbox {
     background-color: transparent;
     position: fixed;
@@ -342,4 +346,41 @@ input#submit_post {
 #confirmation_greeting {
     font-size: 30px;
     font-weight: 200;
+}
+
+#confirmation_message {
+    margin: auto;
+    position: relative;
+    top: 20vh;
+    width: 60vw;
+    height: 30vw;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+#confirmation_inner {
+    top: 80px;
+    position: relative;
+    margin: auto;
+}
+
+#okay {
+    color: black;
+    font-family: 'source code pro', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: ghostwhite;
+    border-radius: 0;
+    margin-bottom: 5px;
+    border: solid 0.25px transparent;
+    -webkit-appearance: none;
+}
+
+#okay:hover {
+    background-color: black;
+    color: ghostwhite;
+    border: solid 0.5px black;
 }

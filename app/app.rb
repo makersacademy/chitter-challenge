@@ -53,6 +53,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
+    @newly_confirmed = session[:newly_confirmed]
+    session[:newly_confirmed] = nil
     @peeps = Peep.all(is_archived: false)
     erb :index
   end
@@ -172,6 +174,7 @@ class Chitter < Sinatra::Base
       user.confirmation_token = 'used'
       user.save!
       session[:user_id] = user.id
+      session[:newly_confirmed] = user.first_name
     end
     redirect '/'
   end

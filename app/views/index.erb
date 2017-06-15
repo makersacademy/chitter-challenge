@@ -17,6 +17,7 @@
     <script type="text/javascript" src="/js/tweet_char_counter.js"></script>
     <script type="text/javascript" src="/js/peep_buttons.js"></script>
     <script type="text/javascript" src="/js/compose_post.js"></script>
+    <script type="text/javascript" src="/js/email_confirmation.js"></script>
     <script type="text/javascript" src="/js/jquery.highlight-within-textarea.js"></script>
   </head>
 
@@ -91,7 +92,7 @@
       </div>
   </body>
 
-  <div class="lightbox">
+  <div class="lightbox" id="new_post_lightbox">
     <img id="close_lightbox" src="https://s3.eu-west-2.amazonaws.com/michaeljacobson/exit.png">
     <div id="new_post">
       <form id="new_post_form" action='/' method='post'>
@@ -105,5 +106,20 @@
       </form>
     </div>
   </div>
+
+  <% unless @newly_confirmed.nil? %>
+
+    <div class="lightbox" id="confirmation_lightbox">
+      <div id="confirmation_message">
+        <div id="confirmation_inner">
+          <p>Hi <%= @newly_confirmed %>, thanks for validating your email address.</p>
+          <p>You will now receive email notifications whenever you're tagged in a post!</p>
+          <br>
+          <button id="okay">Cool</button>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 
 </html>
