@@ -18,6 +18,7 @@
     <script type="text/javascript" src="/js/peep_buttons.js"></script>
     <script type="text/javascript" src="/js/compose_post.js"></script>
     <script type="text/javascript" src="/js/email_confirmation.js"></script>
+    <script type="text/javascript" src="/js/new_user.js"></script>
     <script type="text/javascript" src="/js/jquery.highlight-within-textarea.js"></script>
   </head>
 
@@ -53,9 +54,7 @@
           </form>
             </td>
             <td id="right_side">
-              <form action="/sign_up" method="get">
-                <input type="submit" value="Sign Up" id="sign_up_button">
-              </form>
+              <button id="sign_up_button">Sign Up</button>
             </td>
       <% end %>
           </tr>
@@ -103,6 +102,50 @@
           <input type="submit" value="Post" id="submit_post">
           <p id="chars"></p>
         </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="lightbox" id="signup_lightbox">
+    <img id="close_lightbox" src="https://s3.eu-west-2.amazonaws.com/michaeljacobson/exit.png">
+    <div id="new_user">
+      <form id="new_user_form" action='/users/new' method='post'>
+        <p>
+        <label for='first_name'>
+          First name: <input class="no_border" type='text' name='first_name' placeholder='Zaphod'>
+        </label>
+        </p>
+        <p>
+        <label for='last_name'>
+          Last name: <input class="no_border" type='text' name='last_name' placeholder='Beeblebrox'>
+        </label>
+        </p>
+        <p>
+        <label for='email'>
+          Email: <input class="no_border" type='email' name='email' placeholder="sass.me@zaphodbeeblebrox.gal">
+        </label>
+        </p>
+        <p>
+        <label for='username'>
+          Username: <input class="no_border" type='text' name='username' placeholder="hoopyfrood">
+        </label>
+        </p>
+        <p>
+        <label for='image'>
+          Profile Picture: <input class="no_border" type='file' name='image'>
+        </label>
+        </p>
+        <p>
+        <label for='password'>
+          Password: <input class="no_border" type='password' name='password' placeholder="P4nG414cticG4rg1eB14ster">
+        </label>
+        </p>
+        <p>
+        <label for='password_confirmation'>
+          Confirm password: <input class="no_border" type='password' name='password_confirmation' placeholder="P4nG414cticG4rg1eB14ster">
+        </label>
+        </p>
+        <input type='submit' value='Sign Up' id="signup">
       </form>
     </div>
   </div>

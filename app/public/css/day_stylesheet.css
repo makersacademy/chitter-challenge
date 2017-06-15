@@ -87,7 +87,7 @@ body {
     position: absolute;
 }
 
-#sign_up_button {
+#sign_up_button, #signup {
     border-radius: 0;
     font-family: "Source Code Pro", monospace;
     font-size: 16px;
@@ -97,7 +97,7 @@ body {
     -webkit-appearance: none;
 }
 
-#sign_up_button:hover {
+#sign_up_button:hover, #signup:hover {
     background-color: black;
     color: ghostwhite;
 }
@@ -361,6 +361,21 @@ input#submit_post {
     font-weight: 200;
 }
 
+#new_user{
+    margin: auto;
+    position: relative;
+    top: 15vh;
+    width: 55vw;
+    height: 65vh;
+    background-color: white;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: 200;
+}
+
 #confirmation_inner {
     top: 80px;
     position: relative;
@@ -383,4 +398,15 @@ input#submit_post {
     background-color: black;
     color: ghostwhite;
     border: solid 0.5px black;
+}
+
+#signup_lightbox {
+    visibility: hidden;
+}
+
+.no_border {
+    border: 1px solid transparent;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 200;
+    font-size: 20px;
 }
