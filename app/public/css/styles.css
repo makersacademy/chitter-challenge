@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-size: 25px;
+  background-color: #F5F5F5;
+}
+
+li {
+  background-color: #F8F8FF;
+  border-radius: 20px;
+  padding-bottom: 1px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+ul#peeps {
+  list-style-type: none;
+  width: 750px;
+}
+
+.feed {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.peep_body {
+  padding: 10px;
+}
+
+.peep_footer {
+  position: relative;
+  background-color: #DCDCDC;
+  text-align: right;
+  padding: 5px 20px 5px 0px;
+}

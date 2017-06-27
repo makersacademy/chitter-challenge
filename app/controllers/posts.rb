@@ -10,7 +10,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/posts/new' do
-    Peep.create(content: params[:new_peep], posted_at: Time.now, user_id: session[:user_id])
+    peep = Peep.create(content: params[:new_peep], posted_at: Time.now, user_id: session[:user_id])
+    p peep.user.username
     redirect('/posts/all')
   end
 
