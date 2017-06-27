@@ -1,0 +1,15 @@
+<h1><%="Hi #{User.current_user(session[:current_user_id]).name}! Welcome to Chitter!" %></h1>
+<br>
+<form action="/add_peep" method="get">
+  <input type="submit" value="Let's do a peep">
+
+</form>
+<ul>
+  <% @peeps.reverse! %>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.content %><br>
+    <%="#{peep.creator} peeped this at: #{peep.created_at.strftime('%c')}"%></li>
+    <br>
+  <% end %>
+
+</ul>
