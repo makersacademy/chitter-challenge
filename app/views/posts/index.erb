@@ -1,0 +1,16 @@
+<% if current_user %>
+<form action="posts/new" method="get">
+  <input type="submit"  value="Create a peep">
+</form>
+<% end %>
+<h1> Peeps </h1>
+
+<br/><br/>
+<ul id='peeps'>
+  <% @peeps.sort_by { |peep| peep.timestamp }.reverse.each do |peep| %>
+  <li>
+    Message: <%= peep.message %> posted by <%= peep.user.username %>
+    <%= peep.timestamp.strftime(" at %I:%M%p on %m/%d/%Y") %>
+  </li>
+  <% end %>
+</ul>
