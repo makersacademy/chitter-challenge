@@ -4,6 +4,8 @@ Chitter Challenge
 
 Makers Academy week four weekend project to build 'chitter' - a web app to enable users to post short messages on a public feed. 
 
+<img width="616" alt="screen shot 2017-06-28 at 21 59 32" src="https://user-images.githubusercontent.com/20523607/27659958-345b7b76-5c4d-11e7-80ba-79cb84efb4df.png">
+
 Installation & Testing
 --------
 
