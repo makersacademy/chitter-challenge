@@ -1,11 +1,47 @@
 Chitter Challenge
 =================
 
+#We first need a local database for both test and development.
+$ create database chitter_development
+$ create database chitter_test
+
+$ git clone https://github.com/danielemanuel/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ # once all gems are installed, launch the application:
+$ rackup #navigate to localhost9292
+$ coveralls report #to view all test coverage information
+```
+
+When using the site, there are no direct link buttons to take you to different
+pages, therefore if you wish to visit certain pages refer to the list below and
+add the snippet to your URL.
+
+* user can sign up
+* user can sign in
+* user can sign out  
+* user can post peeps in his new account
+* all peeps are displayed on the home page  
+
+Technologies used
+-----------------
+
+- Ruby
+- RSpec
+- Capybara
+- Sinatra
+- PostgreSQL
+- Coveralls
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
+
+* All feature tests are passing
+
+![Tests coverage](images/Testcoverage.png)
 
 Challenge:
 -------

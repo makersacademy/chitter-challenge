@@ -1,0 +1,24 @@
+<% if !current_user %>
+<form method='get' action='/sessions/new'>
+  <input type='submit' value='Sign in'>
+</form><br><br>
+<form action='/users/new' method='get'>
+  <input type='submit' value='Sign Up'>
+</form><br><br><br
+</else>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Peep!'>
+  </form>
+<% end %>
+
+<h1>Home Page</h1>
+
+
+<ul id='tweets'>
+  <% @peeps.each do |peep| %>
+    <li>
+     <%= peep.username%>: <%= peep.peep   %><br>
+     <%= peep.time %>
+    </li>
+  <% end %>
+</ul>
