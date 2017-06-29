@@ -11,7 +11,10 @@ $ bundle
 $ # once all gems are installed, launch the application:
 $ rackup #navigate to localhost9292
 $ coveralls report #to view all test coverage information
-```
+
+* Feature tests coverage
+
+![Tests coverage](images/Testcoverage.png)
 
 When using the site, there are no direct link buttons to take you to different
 pages, therefore if you wish to visit certain pages refer to the list below and
@@ -39,9 +42,6 @@ Technologies used
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-* All feature tests are passing
-
-![Tests coverage](images/Testcoverage.png)
 
 Challenge:
 -------
@@ -53,7 +53,6 @@ We are going to write a little Twitter clone that will allow the users to post m
 Features:
 -------
 
-```
 As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
