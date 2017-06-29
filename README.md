@@ -26,7 +26,7 @@ add the snippet to your URL.
 Technologies used
 -----------------
 
-- Ruby 
+- Ruby
 - RSpec
 - Capybara
 - Sinatra
@@ -38,6 +38,10 @@ Technologies used
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
+
+* All feature tests are passing
+
+![Tests coverage](images/Testcoverage.png)
 
 Challenge:
 -------
@@ -132,4 +136,3 @@ SimpleCov.start
 ```
 
 You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
-
