@@ -12,10 +12,6 @@ $ # once all gems are installed, launch the application:
 $ rackup #navigate to localhost9292
 $ coveralls report #to view all test coverage information
 
-* Feature tests coverage
-
-![Tests coverage](images/Testcoverage.png)
-
 When using the site, there are no direct link buttons to take you to different
 pages, therefore if you wish to visit certain pages refer to the list below and
 add the snippet to your URL.
@@ -42,6 +38,11 @@ Technologies used
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
+--------------
+
+* Feature tests 
+
+![Tests coverage](images/Testcoverage.png)
 
 Challenge:
 -------
