@@ -4,6 +4,7 @@
   <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
+      <%= peep.created_at %>
     </li>
   <% end %>
 </ul>
