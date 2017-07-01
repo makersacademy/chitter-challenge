@@ -11,6 +11,7 @@ require 'simplecov'
 require 'simplecov-console'
 require './app/app'
 require './app/models/peep'
+require './app/models/tag'
 
 Capybara.app = Chitter
 
