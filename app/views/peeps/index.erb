@@ -1,5 +1,11 @@
 <h1> Chitter </h1>
 
+<h2>
+  <% if current_user %>
+    Hello, <%= current_user.username %>
+  <% end %>
+</h2>
+
 <ol reversed id='peeps'>
   <% @peeps.each do |peep| %>
     <%= peep.message %>
