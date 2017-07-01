@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'dm-timestamps'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'

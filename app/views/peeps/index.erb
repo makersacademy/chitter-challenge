@@ -4,7 +4,7 @@
   <% @peeps.each do |peep| %>
     <%= peep.message %>
     <br></br>
-    <%= DateTime.strptime("Sat Mar 31 17:06", "%a %b %d %H:%M") %>
+    <%= peep.created_at %>
     <br></br>
     <br></br>
   <% end %>
