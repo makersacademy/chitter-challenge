@@ -7,6 +7,6 @@
 
 <ul>
   <% Peep.all.reverse.each do |peep| %>
-  <li> <%= peep.content %> </li>
+  <li> <%= peep.content %> <%= peep.inception.strftime("%H:%M %a %d %b %y") %> </li>
   <% end %>
 </ul>

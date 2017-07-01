@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'capybara'
+require 'database_cleaner'
 require 'orderly'
 require 'rspec'
 require 'simplecov'
@@ -27,18 +28,18 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     end
     
     
-    # config.before(:suite) do
-    #   DatabaseCleaner.strategy = :transaction
-    #   DatabaseCleaner.clean_with(:truncation)
-    # end
-    #
-    # config.before(:each) do
-    #   DatabaseCleaner.start
-    # end
-    #
-    # config.after(:each) do
-    #   DatabaseCleaner.clean
-    # end
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+    
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+    
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
     
     
     config.expect_with :rspec do |expectations|
