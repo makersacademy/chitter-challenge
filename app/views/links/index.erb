@@ -1,7 +1,7 @@
-<h1> All peeps </h1>
+<h1> Chitter </h1>
 
 <ul id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
       <%= peep.content %>
     </li>
