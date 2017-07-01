@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, 'static') }
 
   get '/peeps' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
@@ -15,7 +16,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    
+    Peep.create(content: params[:peep_content])
     redirect '/peeps'
   end
 

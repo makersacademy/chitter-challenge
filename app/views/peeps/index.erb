@@ -7,5 +7,12 @@
 
     <h2>My peeps</h2>
 
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+      <li>
+         <%= peep.content %>
+      </li>
+      <% end %>
+    </ul>
   </body>
 </html>

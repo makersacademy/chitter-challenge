@@ -8,6 +8,8 @@ require 'database_cleaner'
 require 'factory_girl'
 require 'test-helpers/wait'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
+require './app/models/peep'
+
 
 Capybara.app = Chitter
 
@@ -25,18 +27,18 @@ RSpec.configure do |config|
 
   end
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #    DatabaseCleaner.clean_with(:truncation)
-  # end
-  #
-  # config.before(:each) do
-  #   DatabaseCleaner.start
-  # end
-  #
-  # config.after(:each) do
-  #   DatabaseCleaner.clean
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
