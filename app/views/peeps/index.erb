@@ -4,7 +4,7 @@
   <% @peeps.each do |peep| %>
     <%= peep.message %>
     <br></br>
-    <%= (Time.parse + 1.0 / 24).strftime("%H:%M") %>
+    <%= DateTime.strptime("Sat Mar 31 17:06", "%a %b %d %H:%M") %>
     <br></br>
     <br></br>
   <% end %>
