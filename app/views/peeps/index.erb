@@ -1,4 +1,9 @@
 <form action="/peeps/new" method="post">
-  <input type="text" name="peep" placeholder="Enter your peep here">
+  <input type="text" name="content" placeholder="Enter your peep here">
   <input type="submit" value="Peep">
 </form>
+
+<% if last_peep %>
+<h1> <%= last_peep.content %>
+</h1>
+<% end %>

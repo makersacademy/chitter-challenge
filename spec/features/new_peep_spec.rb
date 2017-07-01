@@ -1,7 +1,7 @@
 feature 'new peep' do
   scenario 'I can add a new peep' do
-    visit '/peeps'
-    fill_in('peep', with: 'Happy it\'s saturday')
-    click_button('Peep')
+    visit '/peeps/index'
+    fill_in('content', with: 'Happy it\'s saturday')
+    expect { click_button('Peep') }.to change { Peep.count }.by(1)
   end
 end
