@@ -3,7 +3,10 @@
   <input type="submit" value="Peep">
 </form>
 
-<% if last_peep %>
-<h1> <%= last_peep.content %>
-</h1>
-<% end %>
+
+
+<ul>
+  <% Peep.all.reverse.each do |peep| %>
+  <li> <%= peep.content %> </li>
+  <% end %>
+</ul>
