@@ -4,7 +4,7 @@
   <% @peeps.each do |peep| %>
     <%= peep.message %>
     <br></br>
-    <%= (Time.now + 1.0 / 24).strftime("%H:%M") %>
+    <%= (Time.parse + 1.0 / 24).strftime("%H:%M") %>
     <br></br>
     <br></br>
   <% end %>
