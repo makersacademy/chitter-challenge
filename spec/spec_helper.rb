@@ -2,11 +2,12 @@ ENV['RACK_ENV'] = 'test'
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
+require "database_cleaner"
+require "dm-transactions"
 require 'rspec'
 require 'capybara/rspec'
 require './app/app'
-require "database_cleaner"
-require "dm-transactions"
+require './app/models/peep.rb'
 
 Capybara.app = Chitter
 
@@ -16,6 +17,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 RSpec.configure do |config|
   config.after(:suite) do
@@ -25,19 +27,15 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-   DatabaseCleaner.clean_with(:truncation)
- end
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
- config.before(:each) do
-   DatabaseCleaner.strategy = :transaction
- end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
 
- config.before(:each) do
-   DatabaseCleaner.start
- end
-
- config.after(:each) do
-   DatabaseCleaner.clean
- end
- 
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
