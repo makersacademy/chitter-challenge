@@ -5,11 +5,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 
-require_relative './models/post'
+require_relative './models/peep'
+
 require_relative './data_mapper_config'
 
-class Chitter < Sinatra::Base
-  get '/' do
-    Post.create
-  end
-end
+require_relative './controllers/peeps'
