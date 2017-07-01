@@ -1,0 +1,8 @@
+<h1>All Peeps</h1>
+
+<% @peeps.reverse_each do |peep| %>
+<div class="peep">
+  <span class="timestamp"><%= peep.time %></span>
+  <p><%= peep.message %></p>
+</div>
+<% end %>
