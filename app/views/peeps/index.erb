@@ -2,9 +2,10 @@
 
 <ol reversed id='peeps'>
   <% @peeps.each do |peep| %>
-  <li>
-    Peep: <%= peep.message %>
-    <%= Time.now.strftime("%H:%M") %>
-  </li>
+    <%= peep.message %>
+    <br></br>
+    <%= (Time.now + 1.0 / 24).strftime("%H:%M") %>
+    <br></br>
+    <br></br>
   <% end %>
 </ol>
