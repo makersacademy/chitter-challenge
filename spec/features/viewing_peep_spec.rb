@@ -1,11 +1,19 @@
 feature 'Posting a Peep' do
+  before do
+    sign_up
+  end
+
   scenario 'Posts a peep successfully' do
     post_peep("Test message")
     expect(page.status_code).to be 200
   end
 end
 
-xfeature 'Viewing Peeps' do
+feature 'Viewing Peeps' do
+  before do
+    sign_up
+  end
+
   scenario 'Peep shows on the page' do
     post_peep("A test peep ha ha #sick")
     expect(page).to have_content 'A test peep ha ha #sick'

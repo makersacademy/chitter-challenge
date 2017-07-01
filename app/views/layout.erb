@@ -5,6 +5,9 @@
     <title>Chitter</title>
   </head>
   <body>
+    <% if current_user %>
+      <h2>Signed in as <%= current_user.username %></h2>
+    <% end %>
     <%= yield %>
   </body>
 </html>
