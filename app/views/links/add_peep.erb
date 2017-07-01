@@ -1,4 +1,8 @@
-<h1>Add your peep</h1>
+   <% if current_user %>
+     Welcome, <%= @current_user.username %>
+   <% end %>
+
+<h2>Add your peep</h2>
 
 <form action='/peeps/new' method='post'>
   What would you like to peep? <input type='text' name='new_peep'><br>
