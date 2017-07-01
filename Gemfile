@@ -9,3 +9,10 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
+
+gem "dm-postgres-adapter"
+gem "data_mapper"
+gem "sinatra"
+gem "capybara"
+gem "database_cleaner"
+gem "dm-transactions"
