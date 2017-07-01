@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'models/model.rb'
+
 
 env = ENV['RACK_ENV'] || 'development'
 

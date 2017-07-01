@@ -7,9 +7,9 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require 'test-helpers/wait'
+require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
-
-# Capybara.app = Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
