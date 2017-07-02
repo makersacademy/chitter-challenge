@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div align="right">
+      <% if current_user %>
+        <h4>Hello <%= current_user.username %>!</h4>
+      <% end %>
+
+      <% if current_user %>
+          <form action='/new'>
+      <% else %>
+          <form action='/signup'>
+      <% end %>
+          <input type='submit' value='peep!'>
+        </form>
+    </div>
+    <div align="center">
+      <h1> Welcome to Chitter... </h1>
+      <h4> A much shittier version of Twitter </h4>
+    </div>
+    <h2> Peeps </h2>
+      <ul id='peeps'>
+        <% @peeps.reverse.each do |peep| %>
+          <li>
+            <%= peep.body %>
+            <br></br>
+            <%= @username %>
+            <%= peep.time_stamp %>
+            <br></br>
+          </li>
+        <% end %>
+      </ul>
+
+  </body>
+</html>
