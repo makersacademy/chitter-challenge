@@ -12,6 +12,8 @@ require 'timecop'
 require 'simplecov'
 require 'simplecov-console'
 
+require_relative 'helpers/sessions'
+
 Capybara.app = Chitter
 
 

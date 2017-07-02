@@ -1,5 +1,5 @@
 feature 'peeping' do
-  scenario 'I would like to ad a peep to chitter' do
+  scenario 'I would like to add a peep to chitter' do
     visit '/peeps/new'
     fill_in "peep", with: "profound observations"
     click_button "peep"
