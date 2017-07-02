@@ -9,7 +9,11 @@ Chitter is a web app where users can post short messages and view messages poste
 
 In order to create an account you have to specify email, password, user name and name, with email and user name restricted to unique values.
 
-Style elements were added using Bootstrap framework.
+Style elements were added using Bootstrap framework. Heroku was used for production deployment.
+
+
+#### Where to access it:
+https://chitter-c.herokuapp.com/
 
 Features:
 -------
