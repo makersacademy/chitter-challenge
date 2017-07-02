@@ -13,3 +13,12 @@ def click_buttons
   sleep 0.5
   click_button('New Peep')
 end
+
+def sign_up
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in 'username', with: 'Mary'
+  fill_in 'email', with: 'example@example.com'
+  fill_in 'password', with: '123456'
+  click_button 'Sign up'
+end

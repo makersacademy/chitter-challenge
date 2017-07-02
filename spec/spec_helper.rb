@@ -12,6 +12,7 @@ require 'web_helper'
 require 'timecop'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 require './app/models/peep'
+require './app/models/user'
 
 Capybara.app = Chitter
 

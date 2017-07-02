@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 require 'dm-timestamps'
 
 require_relative 'models/peep'
+require_relative 'models/user'
 
 env = ENV['RACK_ENV'] || 'development'
 
