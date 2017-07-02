@@ -9,3 +9,16 @@ feature 'viewing peeps' do
     end
   end
 end
+
+
+feature 'sorted peeps' do
+  scenario 'I can view the date I peeped' do
+    Peep.create(body: 'My first peep!')
+    visit('/chitter-home')
+    expect(page.status_code).to eq 200
+
+    within 'ul#peeps' do
+      expect(page).to have_content('Jul 02, 2017 ')
+    end
+  end
+end
