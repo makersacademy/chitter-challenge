@@ -12,7 +12,7 @@ end
 namespace :db do
   desc "Non-destructive upgrade"
   task :auto_upgrade do
-    DataMapper.auto_update!
+    DataMapper.auto_upgrade!
     puts "Auto-update complete, schema up to date, data was not lost"
   end
   

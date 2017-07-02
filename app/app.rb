@@ -7,11 +7,12 @@ class Chitter < Sinatra::Base
   enable :sessions
   
   get '/peeps/index' do
+    @peeps = Peep.all(order: [ :created_at.desc ])
     erb :'peeps/index'
   end
   
   post '/peeps/new' do
-    Peep.create(content: params[:content], inception: Time.now)
+    Peep.create(content: params[:content])
     session[:last_peep] = params[:content]
     redirect '/peeps/index'
   end

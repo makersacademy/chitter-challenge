@@ -1,11 +1,5 @@
-def add_new_peep
+def add_new_peep(content)
   visit '/peeps/index'
-  fill_in('content', with: 'Happy it\'s saturday')
-  click_button('Peep')
-end
-
-def add_another_peep
-  visit '/peeps/index'
-  fill_in('content', with: 'it\'s already sunday :( ...')
+  fill_in('content', with: content)
   click_button('Peep')
 end
