@@ -98,6 +98,8 @@ GEM
     pg (0.21.0)
     public_suffix (2.0.5)
     rack (2.0.3)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (2.0.0)
       rack
     rack-test (0.6.3)
@@ -126,8 +128,6 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
-    sinatra-flash (0.3.0)
-      sinatra (>= 1.0.0)
     sinatra-partial (0.4.0)
       sinatra
     stringex (1.5.1)
@@ -154,10 +154,10 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   pg
+  rack-flash3
   rake
   rspec
   sinatra
-  sinatra-flash
   sinatra-partial
   timecop
 

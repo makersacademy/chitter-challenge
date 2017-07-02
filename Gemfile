@@ -8,7 +8,7 @@ ruby '2.2.3'
   gem 'dm-migrations'
   gem 'pg'
   gem 'bcrypt'
-  gem 'sinatra-flash'
+  gem 'rack-flash3'
   gem 'sinatra-partial'
   gem 'timecop'
 
