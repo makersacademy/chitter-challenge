@@ -1,3 +1,4 @@
+
 feature 'Posting a Peep' do
   before do
     sign_up
@@ -10,6 +11,8 @@ feature 'Posting a Peep' do
 end
 
 feature 'Viewing Peeps' do
+  let(:time_matcher) { /(\d{1,2}):(\d{1,2}) (\d{1,2})-(\d{1,2})-(\d{4})/ }
+
   before do
     sign_up
   end
@@ -28,6 +31,6 @@ feature 'Viewing Peeps' do
 
   scenario 'Peeps have a timestamp' do
     post_peep("Test message")
-    expect(find("span.timestamp").text).to match(/(\d{1,2}):(\d{1,2}) (\d{1,2})-(\d{1,2})-(\d{4})/)
+    expect(find("span.timestamp").text).to match time_matcher
   end
 end

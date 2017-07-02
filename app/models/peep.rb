@@ -10,6 +10,7 @@ class Peep
   property :created_at, DateTime
 
   def time
-    "#{created_at.hour}:#{created_at.minute} #{created_at.day}-#{created_at.month}-#{created_at.year}"
+    c = created_at
+    "#{c.hour}:#{c.minute} #{c.day}-#{c.month}-#{c.year}"
   end
 end

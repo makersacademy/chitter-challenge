@@ -3,9 +3,9 @@ ruby '2.4.0'
 
 gem 'bcrypt'
 gem 'data_mapper'
-gem 'dm-timestamps'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
+gem 'dm-timestamps'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'thin'
@@ -16,8 +16,8 @@ group :test do
   gem 'database_cleaner'
   gem 'dm-rspec'
   gem 'orderly'
-  gem 'rspec'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
