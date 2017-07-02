@@ -1,16 +1,16 @@
 <h1> Welcome to chitter, for god's sake don't sue us </h1>
-<h2> Make a tweep </h2>
+<h2> Make a tweet </h2>
 
 <form action= '/' method=post>
-    <label for="Tweet"> Share your tweet with the world </label>
-    <input type='text' name='message'>
-    <button type ='submit'> Tweet </button>
-  </form>
+  <label for="Tweet"> Share your tweet with the world </label>
+  <input type='text' name='message'>
+  <button type ='submit'> Tweet </button>
+</form>
 
-  <% @tweets.each do |tweet| %>
+<% @tweets.each do |tweet| %>
   <br>
-  <br>
- <%= tweet.message %>
  <br>
- <%= tweet.created_at %>
- <% end %>
+<%= tweet.message %>
+ <br>
+<%= tweet.created_at %>
+<% end %>
