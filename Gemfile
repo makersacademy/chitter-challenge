@@ -7,10 +7,10 @@ gem 'dm-transactions'
 gem 'sinatra'
 
 group :test do
-  gem 'cucumber'
   gem 'capybara'
-  gem 'rspec'
+  gem 'cucumber'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
