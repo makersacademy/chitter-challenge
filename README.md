@@ -1,3 +1,13 @@
+I have worked using ruby for the app, datamapper for connecting to rspec for the testing and html erb for the views.
+
+Users should be able to run the front page, and enter a tweet, this will be committed to the database and placed below with a timestamp.
+
+Users will also be able to sign_up on the appropriate page though at present this will not be committed to a table.
+
+Future work should be dedicated to creating sessions, a table based of the user_details class and encrypting these details.
+
+
+
 Chitter Challenge
 =================
 
