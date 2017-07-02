@@ -30,4 +30,16 @@ feature 'incorrect signup' do
     expect(page).to have_content('Password does not match the confirmation')
   end
   
+  scenario 'password is less than 6 characters long' do
+    signup_incorrect
+    expect(page).to have_content('Password must be between 6 and 8 characters long')
+  end
+  
+  scenario 'duplicate email' do
+    signup_correct
+    signup_repeat
+    expect(page).to have_content('Email is already taken')
+    expect(page).to have_content('User name is already taken')
+  end
+  
 end
