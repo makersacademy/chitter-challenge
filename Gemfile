@@ -15,8 +15,8 @@ gem 'thin'
 group :test do
   gem 'capybara'
   gem 'cucumber'
-  gem 'rspec'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
