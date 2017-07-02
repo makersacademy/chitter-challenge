@@ -19,7 +19,12 @@ feature "Sign in ability" do
 
   scenario 'with correct credentials' do
     sign_in(password: user.password, email: user.email)
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content("Welcome, #{user.email}")
+  end
+
+  scenario "with incorrect credentials" do
+    sign_in(password: "wrong", email: user.email)
+    expect(page).to have_content('Email or password is wrong')
   end
 
 end

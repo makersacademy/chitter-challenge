@@ -18,7 +18,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/user/index')
     else
-    flash[:error] = @user.errors.full_messages
+    flash[:errors] = @user.errors.full_messages
     redirect('/user/new')
     end
   end
