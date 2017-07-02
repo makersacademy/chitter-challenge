@@ -20,6 +20,7 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     peep = Peep.create(message: params[:message])
+  p  Time.now.strftime("%b %d %Y %I:%M %p")
     params[:tags].split(', ').each do |tag|
       peep.tags << Tag.first_or_create(name: tag)
     end

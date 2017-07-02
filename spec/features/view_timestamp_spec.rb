@@ -5,7 +5,7 @@ feature 'Viewing peep timestamps' do
     click_button('Post new Peep')
 
     within 'ol#peeps' do
-      expect(page).to have_content(DateTime.now)
+      expect(page).to have_content(Time.now)
     end
   end
 end
