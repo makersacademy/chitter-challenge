@@ -1,0 +1,26 @@
+<!Doctype html>
+  <style>
+  h1{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .button {
+  display: inline;
+  }
+
+  </style>
+  <html>
+    <h1> Latest peeps... </h1>
+    <form action='/peeps/new'>
+      <input class='button' type='submit' value='New Peep'/>
+    </form>
+
+      <ol reversed id='peeps'>
+        <% @peeps.reverse.each do |peep| %>
+          <div><%= peep.message %></div>
+          <div style="font-size: large"><%= peep.time_stamp %></div>
+          <br></br>
+        <% end %>
+      </ol>
+    </body>
+  </html>
