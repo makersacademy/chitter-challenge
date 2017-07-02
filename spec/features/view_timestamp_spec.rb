@@ -5,7 +5,9 @@ feature 'Viewing peep timestamps' do
     click_button('Post new Peep')
 
     within 'ol#peeps' do
-      expect(page).to have_content(Time.now)
+      t = Time.now
+      formatted = t.strftime("%b %d %Y %I:%M %p")
+      expect(page).to have_content(formatted)
     end
   end
 end
