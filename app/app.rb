@@ -17,10 +17,21 @@ class Chitter < Sinatra::Base
     redirect '/peeps/index'
   end
   
+  get '/users/new' do
+    erb :'users/new'
+  end
+  
+  post '/users/new' do
+    User.create(email: params[:email], password: params[:pasword], name: params[:name], user_name: params[:user_name])
+    session[:user_name] = params[:user_name]
+    redirect '/peeps/index'
+  end
+  
   helpers do
-    def last_peep
-      @last_peep ||= Peep.first(content: session[:last_peep])
+    def new_user
+      @new_user ||= User.first(user_name: session[:user_name])
     end
+    
   end
   
 end
