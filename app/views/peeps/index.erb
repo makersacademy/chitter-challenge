@@ -5,9 +5,9 @@
   <body>
     <h1>Chitter</h1>
     <% if current_user %>
-      <h2>Welcome back, <%= current_user.username %>!</h2>
+      <h2>Welcome, <%= current_user.username %>!</h2>
     <% end %>
-    
+
     <form action='/peeps/new' method='GET'>
       <input type='submit' value='New Peep'>
     </form>
