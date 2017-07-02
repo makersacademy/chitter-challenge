@@ -1,7 +1,6 @@
-ENV['RACK_ENV'] ||= "development"
-
-
 require './app/init.rb'
+require './app/models/peep.rb'
+require './app/models/user.rb'
 require 'sinatra/base'
 
 
@@ -12,6 +11,7 @@ class Chitter < Sinatra::Base
 
   get '/chitter-home' do
     @peeps = Peep.all
+    @users = User.all
     erb :index
   end
 
@@ -20,7 +20,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
+    user = User.create(email: params[:email], password: params[:password], username: params[:username])
     session[:username] = user.username
     redirect '/chitter-home'
   end
@@ -30,14 +30,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/new' do
-    peep = Peep.create(body: params[:peep])
-    p peep
+    Peep.create(body: params[:peep])
     redirect '/chitter-home'
   end
 
   helpers do
     def current_user
-      @current_user ||= User.first(username: session[:username])
+      @current_user = User.first(username: session[:username])
     end
   end
 
