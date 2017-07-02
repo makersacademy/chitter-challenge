@@ -4,14 +4,12 @@ Chitter Challenge
 Challenge:
 -------
 
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
+Write a little Twitter clone that will allow the users to post messages to a public stream.
 
-Features:
+Implemented features:
 -------
 
 ```
-STRAIGHT UP
-
 As a Maker
 So that I can let people know what I am doing  
 I want to post a message (peep) to chitter
@@ -28,39 +26,61 @@ As a Maker
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 
-HARDER
-
 As a Maker
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
+```
 
+
+Instructions
+-----------
+```
+$ git clone https://github.com/MarySalemme/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ rspec
+$ rackup
+```
+
+Usage
+-----------
+https://chitter-ms.herokuapp.com/users/new
+* Sign up
+<img src="http://i.imgur.com/OTEwjHm.png" alt="New user">
+
+* Sign in
+<img src="http://i.imgur.com/LYEvwoG.png" alt="Existing user">
+
+* Post a new peep
+<img src="http://i.imgur.com/CeMl08R.png" alt="New peep">
+
+* See new peeps first and at what time they've been created
+<img src="http://i.imgur.com/Tvx1W5Z.png" alt="See peeps">
+
+
+Running tests
+----
+Type `rspec` in the command line
+
+**Overall test coverage: 100%**
+
+Technologies used
+----
+
+Ruby, Sinatra, Rspec, Capybara, HTML
+
+Next steps
+----
+- Implementing the remaining user stories:  
+
+```
 As a Maker
 So that I can avoid others posting messages on Chitter as me
-I want to log out of Chitter
-
-ADVANCED
+I want to log out of Chitter  
 
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
 ```
 
-Notes on functionality:
-------
-
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
-* You don't have to be logged in to see the peeps.
-* Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
-* The username and email are unique.
-* Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-
-
-Instructions
------------
-
-Usage
------------
+- Work on the CSS
