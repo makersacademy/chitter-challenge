@@ -7,6 +7,7 @@ require_relative './models/user.rb'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -66,5 +67,11 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password entered is incorrect']
       erb :'sessions/new'
     end
-end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
+  end
 end

@@ -11,3 +11,10 @@ def new_user(email: 'example@example.com',
   fill_in 'password confirmation', with: password_confirmation
   click_button 'Create account'
 end
+
+def sign_in(email:, password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
