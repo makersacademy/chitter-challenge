@@ -1,12 +1,13 @@
-
 feature 'Posting a Peep' do
-  before do
-    sign_up
-  end
-
   scenario 'Posts a peep successfully' do
+    sign_up
     post_peep("Test message")
     expect(page.status_code).to be 200
+  end
+
+  scenario "Can't post a peep if not logged in" do
+    post_peep("Worth a try")
+    expect(page).to have_content "You must sign in or register to post a peep"
   end
 end
 

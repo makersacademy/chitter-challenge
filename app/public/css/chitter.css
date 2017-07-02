@@ -1,0 +1,29 @@
+.navbar-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.jumbotron{
+  height: 80vh;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.peep {
+  background-color: #cccccc;
+  border-radius: 3pt;
+  margin: 3pt;
+}
+
+.author {
+  background-color: #aaaaaa;
+  padding: 3pt;
+  border-radius: 3pt;
+}
+
+.timestamp {
+  font-size: 8pt;
+}
