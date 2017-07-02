@@ -7,9 +7,10 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'factory_girl'
 require 'test-helpers/wait'
+require 'orderly'
+require 'web_helper'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 require './app/models/peep'
-
 
 Capybara.app = Chitter
 
@@ -29,7 +30,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-     DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do

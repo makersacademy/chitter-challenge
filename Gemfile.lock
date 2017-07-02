@@ -110,6 +110,9 @@ GEM
     mustermann (1.0.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -190,7 +193,9 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   factory_girl
+  orderly
   rake
   rspec
   rspec-sinatra
