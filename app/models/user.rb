@@ -7,7 +7,7 @@ class User
   property :email, String, required: true, unique: true
   property :firstname, String, required: true
   property :lastname, String, required: true
-  property :username, String
+  property :username, String, required: true, unique: true
   property :password_digest, Text
   attr_reader :password
   attr_accessor :password_confirmation

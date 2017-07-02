@@ -29,6 +29,12 @@ feature 'adding a user' do
     expect(page).to have_content('Lastname must not be blank')
   end
 
+  scenario "I can't sign up without a username" do
+    expect { sign_up(username: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Username must not be blank')
+  end
+
   scenario "I can't sign up with an invalid email format" do
     expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
     expect(current_path).to eq('/users')
@@ -39,6 +45,14 @@ feature 'adding a user' do
     sign_up
     expect { sign_up }.to_not change(User, :count)
     expect(page).to have_content('Email is already taken')
+
   end
+
+  scenario "I cannot sign up if username is taken" do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Username is already taken')
+  end
+
 
 end
