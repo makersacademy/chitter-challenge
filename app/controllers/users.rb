@@ -23,6 +23,11 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/user/show' do
+    @user = User.get(session[:user_id])
+    erb :'user/show'
+  end
+
   get '/user/index' do
     @users = User.all
     erb :'user/index'
