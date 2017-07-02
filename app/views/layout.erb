@@ -11,7 +11,7 @@
     text-align: center;
     color: #072B63;
     font-family: 'Amatic SC', cursive;
-    font-size: 40px;
+    font-size: 30px;
     }
     h1 {
       color: #072B63;
@@ -47,7 +47,27 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     }
+    .button2 {
+    display: inline;
+    background-color: #072B63;
+    border: none;
+    border-radius: 8px;
+    color: #87ABE3;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Amatic SC', cursive;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    }
     .button:hover {
+    background-color: #0AAE89;
+    color: #84DAF5;
+    }
+    .button2:hover {
     background-color: #0AAE89;
     color: #84DAF5;
     }
@@ -61,6 +81,13 @@
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <input class='button' type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <form action='/sessions/new'>
+        <input class='button' type='submit' value='Sign in'>
+      </form>
+      <form action='/users/new'>
+        <input class='button' type='submit' value='Sign up'>
       </form>
     <% end %>
     </h2>
