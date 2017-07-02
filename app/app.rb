@@ -6,13 +6,17 @@ require_relative 'dm_init'
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret,  'super secret'
+  set :session_secret, 'super secret'
+  set :public_folder, 'public'
   register Sinatra::Flash
   
+  
+  get '/' do
+    redirect '/peeps/index'
+  end
+  
   get '/peeps/index' do
-    @peeps = Peep.all(order: [ :created_at.desc ])
-    @creators = @peeps[0]
-    p @creators
+    @peeps = Peep.all(order: [:created_at.desc])
     erb :'peeps/index'
   end
   
@@ -52,7 +56,7 @@ class Chitter < Sinatra::Base
       user = User.get(id)
       user.user_name
     end
-    
   end
   
+  run! if app_file == $0
 end

@@ -10,7 +10,7 @@ feature 'correct signup' do
   
   scenario 'new users sees welcome message' do
     signup_correct
-    expect(page).to have_content( 'Welcome, john the great. ')
+    expect(page).to have_content('Welcome, john the great. ')
   end
 end
 

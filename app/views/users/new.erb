@@ -1,18 +1,35 @@
+<h1>Enter your details below:</h1>
 
 <% if @errors %>
-<% @errors.each do |field_errors| %>
-<% field_errors.each do |error| %>
-<div id='notice'><%= error %> </div>
-<% end %>
-<% end %>
-<% end %>
-
-
-<form action="/users/new" method="post">
-  <input type="text" name="email" placeholder="Email" value='<%= @user.email %>'>
-  <input type="password" name="password" placeholder="Password">
-  <input type="password" name="password_confirmation" placeholder="Confirm Password">
-  <input type="text" name="name" placeholder="Name"  value='<%= @user.name %>'>
-  <input type="text" name="user_name" placeholder="User Name"  value='<%= @user.user_name %>'>
-  <input type="submit" value="Sign up">
-</form>
+  <% @errors.each do |field_errors| %>
+    <% field_errors.each do |error| %>
+    <div class="alert alert-warning" role="alert"><%= error %> </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    
+    
+    <form action="/users/new" method="post">
+      <div class="form-group">
+        <input type="text" name="email" placeholder="Email" value='<%= @user.email %>' class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Password" class="form-control">
+      </div>
+      
+      
+      <div class="form-group">
+        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Name"  value='<%= @user.name %>' class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" name="user_name" placeholder="User Name"  value='<%= @user.user_name %>' class="form-control">
+      </div>
+      <div class="form-group" class="button_margin">
+        <input type="submit" value="Sign up" class="btn btn-default">
+      </div>
+    </form>
+    

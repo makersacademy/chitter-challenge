@@ -1,0 +1,16 @@
+body {
+  
+  background: #E6E2D7; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, #E6E2D7, #9B9696); /* Safari */
+  background: -o-radial-gradient(circle, #E6E2D7, #9B9696); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, #E6E2D7, #9B9696); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, #E6E2D7, #9B9696); /* Standard syntax */
+  
+}
+
+
+#button_margin {
+  margin: 20px;
+  border:0 none;
+  cursor:pointer;
+}

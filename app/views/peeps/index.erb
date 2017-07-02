@@ -1,19 +1,40 @@
 <% if new_user %>
-<h1> Welcome, <%= new_user.user_name %>. </h1>
-
+<h1 class="text-muted"> Welcome, <%= new_user.user_name %>. </h1>
 <% end %>
 
 
 <% if new_user %>
-<form action="/peeps/new" method="post">
-  <input type="text" name="content" placeholder="Enter your peep here">
-  <input type="submit" value="Peep">
-</form>
+<div class="container">
+  <h3>Enter your peep:</h3>
+  <form action="/peeps/new" method="post">
+    <div class="form-group">
+      <textarea name="content" class="form-control" rows="5" id="comment"></textarea>
+      <div class="form-group" >
+        <input type="submit" value="Peep" class="btn btn-success" class="button_margin" id="button_margin" >
+      </div>
+    </div>
+  </form>
+</div>
 <% end %>
 
 
-<ul>
-<% @peeps.each do |peep| %>
-<li> <%= peep.content %> <%= peep.created_at.strftime("%H:%M %a %d %b %y") %> <%= get_user_name(peep.user_id) %></li>
-<% end %>
+
+<ul style="list-style-type: none;">
+  <div class="panel panel-success" >
+    <div class="panel-heading">
+      <h5 class="panel-title" > See <%= @peeps.count%> peeps </h5>
+    </div>
+  </div>
+  <% @peeps.each do |peep| %>
+  <li>
+    <div class="panel panel-success" >
+      <div class="panel-heading">
+        <h5 class="panel-title" > Peep from: <%= get_user_name(peep.user_id) %>, added on: <%= peep.created_at.strftime("%H:%M %a %d %b %y") %> </h5>
+      </div>
+      <div class="panel-body">
+        <%= peep.content %>
+      </div>
+    </div>
+  </li>
+  <% end %>
 </ul>
