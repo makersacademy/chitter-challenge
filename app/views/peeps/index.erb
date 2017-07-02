@@ -1,6 +1,5 @@
-<h1> Chitter </h1>
+<h1> Latest peeps... </h1>
 
-<body>
   <ol reversed id='peeps'>
     <% @peeps.reverse.each do |peep| %>
       <%= peep.message %>
@@ -10,4 +9,3 @@
       <br></br>
     <% end %>
   </ol>
-</body>
