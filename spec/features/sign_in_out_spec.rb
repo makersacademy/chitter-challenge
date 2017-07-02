@@ -15,3 +15,16 @@ feature 'signing in to Chitter' do
     click_button('Sign in')
   end
 end
+
+feature 'signing out of Chitter' do
+  before(:each) do
+    User.create(username: 'DizzyUnicorn', email: 'dizzy@unicorn.com', password: 'rainbow123', password_confirmation: 'rainbow123')
+  end
+
+  scenario 'while signed in' do
+    sign_in(email: 'dizzy@unicorn.com', password: 'rainbow123')
+    click_button('Sign out')
+    expect(page).to have_content('See you again!')
+    expect(page).not_to have_content('Welcome, DizzyUnicorn')
+  end
+end
