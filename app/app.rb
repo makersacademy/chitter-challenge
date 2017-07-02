@@ -14,6 +14,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     @peeps = Peep.all.reverse
@@ -43,12 +44,12 @@ class Chitter < Sinatra::Base
     password_confirmation: params[:password_confirmation])
     session[:name] = user.name
     if user.save
-    session[:user_id] = user.id
-    redirect '/'
+      session[:user_id] = user.id
+      redirect '/'
     else
-    flash[:errors] = user.errors.full_messages
-    redirect '/users/new'
-  end
+      flash[:errors] = user.errors.full_messages
+      redirect '/users/new'
+    end
   end
 
   get '/sessions/new' do
@@ -65,6 +66,12 @@ class Chitter < Sinatra::Base
       flash[:errors] = ['The email or password is incorrect']
       redirect '/sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect '/'
   end
 
   helpers do

@@ -5,7 +5,7 @@ def create_peep
   click_button 'Send peep!'
 end
 
-def sign_up(name:'Christopher Robin', user_name: 'Chris', email: 'chris@mail.com', password: 'poohbear123', password_confirmation: 'poohbear123'  )
+def sign_up(name:'Christopher Robin', user_name: 'Chris', email: 'chris@mail.com', password: 'poohbear123', password_confirmation: 'poohbear123')
   visit '/users/new'
   fill_in 'name', with: name
   fill_in 'user_name', with: user_name
@@ -16,8 +16,8 @@ def sign_up(name:'Christopher Robin', user_name: 'Chris', email: 'chris@mail.com
 end
 
 def log_in(email: 'mail@mail.com', password: 'password')
-visit '/sessions/new'
-fill_in 'email', with: email
-fill_in 'password', with: password
-click_button 'Log in'
+  visit '/sessions/new'
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button 'Log in'
 end
