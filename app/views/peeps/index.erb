@@ -7,7 +7,7 @@
 </h2>
 
 <ol reversed id='peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <%= peep.message %>
     <br></br>
     <%= peep.created_at %>

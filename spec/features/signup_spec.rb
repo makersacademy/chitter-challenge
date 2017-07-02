@@ -12,4 +12,12 @@ feature 'Sign up for Chitter' do
     expect(current_path).to eq('/users')
     expect(page).to have_content('Passwords do not match')
   end
+
+  scenario 'cannot sign up with a blank email address' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'cannot sign up with an invalid email address' do
+    expect { sign_up(email: "random@email") }.not_to change(User, :count)
+  end
 end
