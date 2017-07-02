@@ -25,6 +25,7 @@ feature 'Incorrect Sign ups' do
       expect(page).to have_content 'Password does not match the confirmation'
     end
   end
+
   feature 'Bad Emails' do
     scenario "can't sign up without entering an email address" do
       expect { sign_up(email: nil) }.to_not change(User, :count)
