@@ -16,9 +16,8 @@ feature 'sorted peeps' do
     Peep.create(body: 'My first peep!')
     visit('/chitter-home')
     expect(page.status_code).to eq 200
-
     within 'ul#peeps' do
-      expect(page).to have_content('Jul 02, 2017 ')
+      expect(page).to have_content('2017')
     end
   end
 end
