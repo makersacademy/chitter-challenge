@@ -1,7 +1,7 @@
 feature 'adding a user' do
   scenario 'I can sign up a new user' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome John')
+    expect(page).to have_content('Welcome jsmith')
     expect(User.first.email).to eq('johnsmith@aol.com')
   end
 
@@ -15,6 +15,18 @@ feature 'adding a user' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content('Email must not be blank')
+  end
+
+  scenario "I can't sign up without a first name" do
+    expect { sign_up(firstname: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Firstname must not be blank')
+  end
+
+  scenario "I can't sign up without a last name" do
+    expect { sign_up(lastname: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Lastname must not be blank')
   end
 
   scenario "I can't sign up with an invalid email format" do

@@ -8,8 +8,8 @@ class Chitter < Sinatra::Base
 
   post '/users' do
     @user = User.create(email: params[:email],
-                        first_name: params[:first_name],
-                        last_name: params[:last_name],
+                        firstname: params[:firstname],
+                        lastname: params[:lastname],
                         username: params[:username],
                         password: params[:password],
                         password_confirmation: params[:password_confirmation])
