@@ -4,7 +4,7 @@ require 'dm-validations'
 class User
   
   include DataMapper::Resource
-  
+  has n, :peeps
   
   property :id, Serial
   property :email, String

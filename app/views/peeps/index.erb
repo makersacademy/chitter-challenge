@@ -4,15 +4,16 @@
 <% end %>
 
 
+<% if new_user %>
 <form action="/peeps/new" method="post">
   <input type="text" name="content" placeholder="Enter your peep here">
   <input type="submit" value="Peep">
 </form>
-
+<% end %>
 
 
 <ul>
 <% @peeps.each do |peep| %>
-<li> <%= peep.content %> <%= peep.created_at.strftime("%H:%M %a %d %b %y") %> </li>
+<li> <%= peep.content %> <%= peep.created_at.strftime("%H:%M %a %d %b %y") %> <%= get_user_name(peep.user_id) %></li>
 <% end %>
 </ul>

@@ -1,7 +1,15 @@
 def add_new_peep(content)
+  user = User.create(email: 'mimi@gmail.com', password: 'pass123', password_confirmation: 'pass123', name: 'mimi', user_name: 'mimi the great')
+  Peep.create(content: content, user_id: user.id)
   visit '/peeps/index'
-  fill_in('content', with: content)
-  click_button('Peep')
+end
+
+
+def add_two_peeps(content1, content2)
+  user = User.create(email: 'mimi@gmail.com', password: 'pass123', password_confirmation: 'pass123', name: 'mimi', user_name: 'mimi the great')
+  Peep.create(content: content1, user_id: user.id)
+  Peep.create(content: content2, user_id: user.id)
+  visit '/peeps/index'
 end
 
 
