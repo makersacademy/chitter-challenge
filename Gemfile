@@ -8,6 +8,7 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'dm-validations'
 gem 'sinatra'
+gem 'sinatra-flash'
 gem 'thin'
 
 group :test do
