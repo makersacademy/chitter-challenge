@@ -1,6 +1,7 @@
 feature 'Post message' do
   scenario 'Post a peep on Chitter' do
-    visit('/peeps/new')
+    visit('/peeps')
+    click_button('New Peep')
     fill_in 'peep_content', with: 'This is my first peep'
     click_button('Peep')
     expect(current_path).to eq('/peeps')

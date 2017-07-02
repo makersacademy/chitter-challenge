@@ -4,13 +4,18 @@
 
   <body>
     <h1>Chitter</h1>
+    
+    <form action='/peeps/new' method='GET'>
+      <input type='submit' value='New Peep'>
+    </form>
 
     <h2> Latest peeps</h2>
 
     <ul id='peeps'>
       <% @peeps.each do |peep| %>
       <li>
-         <%= peep.content %>
+         <%= peep.content %><br>
+         <%= peep.created_at.strftime("Peeped on %d/%m/%Y, at %I:%M%p") %>
       </li>
       <% end %>
     </ul>

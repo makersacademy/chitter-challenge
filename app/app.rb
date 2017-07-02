@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, 'static') }
 
   get '/peeps' do
-    @peeps = Peep.get_ordered_peeps
+    @peeps = Peep.show_ordered_peeps
     erb :'peeps/index'
   end
 

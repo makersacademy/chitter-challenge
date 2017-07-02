@@ -9,6 +9,7 @@ require 'factory_girl'
 require 'test-helpers/wait'
 require 'orderly'
 require 'web_helper'
+require 'timecop'
 require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 require './app/models/peep'
 
