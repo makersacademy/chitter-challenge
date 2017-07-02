@@ -10,10 +10,14 @@
       Hello, <%= current_user.username %>
     <% end %>
 
-    <% if flash[:notice] %>
-    <div id='notice'><%=flash[:notice] %></div>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Following errors found:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
     <% end %>
-
     <%= yield %>
   </h2>
   </body>
