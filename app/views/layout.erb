@@ -5,6 +5,7 @@
   </head>
 
   <body>
+    <h2>
     <% if current_user %>
       Hello, <%= current_user.username %>
     <% end %>
@@ -12,7 +13,8 @@
     <% if flash[:notice] %>
     <div id='notice'><%=flash[:notice] %></div>
     <% end %>
-    
+
     <%= yield %>
+  </h2>
   </body>
 </html>
