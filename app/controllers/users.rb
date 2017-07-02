@@ -13,10 +13,14 @@ class Chitter < Sinatra::Base
   end
 
   post "/user" do
-    new_user = create_user(params)
-    redirect('/user/index') unless new_user.id.nil?
-    flash[:error] = "You have a password mismatch, try again."
+    @user = init_user(params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/user/index')
+    else
+    flash[:error] = @user.errors.full_messages
     redirect('/user/new')
+    end
   end
 
   get '/user/index' do

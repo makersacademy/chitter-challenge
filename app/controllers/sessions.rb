@@ -1,19 +1,24 @@
 
 
-
 class Chitter < Sinatra::Base
 
-  get "/session/new" do
-    erb :'session/new'
+  use Rack::Flash
+  enable :sessions
+
+  get "/sessions/new" do
+    erb :'sessions/new'
   end
 
-  post "/session" do
-    # logic:
-    # params[email].pass authenticate
-    # look at how to authenticate a user. Then extract
-    # into a helper.
-    redirect('/peep/index') # can I redirect to a diff
-    # controller
+  post "/sessions" do
+    @user = User.authenticate(params[:email], params[:password])
+  if @user
+    session[:user_id] = user.id
+    redirect to('/links')
+  else
+    flash.now[:errors] = ['Email or password is wrong']
+    erb :'sessions/new'
   end
+  end
+
 
 end
