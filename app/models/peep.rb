@@ -9,7 +9,6 @@ class Peep
   property :content, Text
   property :created_at, DateTime
   property :created_on, Date
-
-  belongs_to :user
+  property :creator, Text
 
 end

@@ -5,8 +5,8 @@
 <ul id='peeps' style="list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.content %><br>
-      <%= peep.created_at %><p>
+      <%= peep.creator %> at <%= peep.created_at %>:<br>
+      <%= peep.content %><p>
     </li>
   <% end %>
 </ul>
