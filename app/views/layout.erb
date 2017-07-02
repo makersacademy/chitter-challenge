@@ -7,6 +7,10 @@
   <body>
     <% if current_user %>
       <h2>Signed in as <%= current_user.username %></h2>
+      <form class="" action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign Out">
+      </form>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
@@ -14,7 +18,7 @@
       <%= flash[:errors] %>
     </div>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
