@@ -1,0 +1,25 @@
+<h1>New user? Register below</h1>
+
+<form action='/users' method='POST'>
+  <label for='username'>
+    Username:<input type='text' name='username' value='<%= @user.username %>'/>
+  </label>
+  <label for='email'>
+    Email: <input  type='email' name='email' value='<%= @user.email %>' required>
+  </label><br>
+  <label for='password'>
+    Password:<input type='password' name='password'/>
+  </label>
+<label for='password_confirmation'>
+  Confirm your password:<input type='password' name='password_confirmation'/>
+</label>
+  <input type='submit' value='Sign up'/>
+</form>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
