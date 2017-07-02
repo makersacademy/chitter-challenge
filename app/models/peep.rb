@@ -8,7 +8,8 @@ class Peep
   property :created_at, Time
 
   def time_stamp
-    t = Time.now
-    t.strftime("%b %d %Y %I:%M %p")
+    # t = Time.now
+    # t.strftime("%b %d %Y %I:%M %p")
+    "#{created_at.strftime("%b %d %Y %I:%M %p")}"
   end
 end
