@@ -6,7 +6,7 @@ feature 'Viewing peeps' do
     visit('/peeps')
     within 'ul#peeps' do
       time = Time.now
-      time = time.strftime("%H:%M:%S")
+      time = time.strftime("%H:%M")
       expect(page).to have_content 'This is my first peep!'
       expect(page).to have_content time
     end

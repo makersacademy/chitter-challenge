@@ -1,10 +1,14 @@
+<html>
+<body style="background-color:#F5DBF7">
 <h1> Chitter </h1>
 
-<ul id='peeps'>
+<ul id='peeps' style="list-style-type:none">
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.content %>
-      <%= peep.created_at %>
+      <%= peep.content %><br>
+      <%= peep.created_at %><p>
     </li>
   <% end %>
 </ul>
+</body>
+</html>
