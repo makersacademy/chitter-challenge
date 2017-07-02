@@ -1,11 +1,15 @@
-<h1> Latest peeps... </h1>
+<!Doctype html>
+<html>
+  <h1> Latest peeps... </h1>
 
-  <ol reversed id='peeps'>
-    <% @peeps.reverse.each do |peep| %>
-      <%= peep.message %>
-      <br></br>
-      <%= peep.time_stamp %>
-      <br></br>
-      <br></br>
-    <% end %>
-  </ol>
+    <ol reversed id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <%= peep.message %>
+        <br></br>
+        <%= peep.time_stamp %>
+        <br></br>
+        <br></br>
+      <% end %>
+    </ol>
+</body>
+</html>

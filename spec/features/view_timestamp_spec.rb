@@ -6,8 +6,8 @@ feature 'Viewing peep timestamps' do
 
     within 'ol#peeps' do
       t = Time.now
-      formatted = t.strftime("%b %d %Y %I:%M %p")
-      expect(page).to have_content(formatted)
+      formatted_timestamp = t.strftime("%b %d %Y %I:%M %p")
+      expect(page).to have_content(formatted_timestamp)
     end
   end
 end

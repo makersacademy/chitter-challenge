@@ -2,6 +2,56 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <style>
+    body {
+    background-image: url("http://i.imgur.com/QXASXRs.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: #072B63;
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+    }
+    h1 {
+      color: #072B63;
+      font-size: 80px;
+      font-family: 'Amatic SC', cursive;
+    }
+    h2 {
+      text-align: right;
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 28px;
+    }
+    form {
+      display: block;
+    }
+    ul#errors {
+      list-style-type: none;
+      display: inline;
+    }
+    .button {
+    background-color: #072B63;
+    border: none;
+    border-radius: 8px;
+    color: #87ABE3;
+    padding: 2px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Amatic SC', cursive;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    }
+    .button:hover {
+    background-color: #0AAE89;
+    color: #84DAF5;
+    }
+  </style>
   </head>
 
   <body>
@@ -10,10 +60,12 @@
       Hello, <%= current_user.username %>
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
+        <input class='button' type='submit' value='Sign out'>
       </form>
     <% end %>
+    </h2>
 
+    <h3>
     <% if flash[:notice] %>
       <div id='notice'>
         <%= flash[:notice] %>
@@ -22,13 +74,13 @@
 
     <% if flash[:errors] && !flash[:errors].empty? %>
       Following errors found:
-      <ul id='errors'>
+      <ul style="color: #AD2947" id='errors'>
         <% flash[:errors].each do |error| %>
         <li><%= error %></li>
         <% end %>
       </ul>
     <% end %>
     <%= yield %>
-  </h2>
+    </h3>
   </body>
 </html>
