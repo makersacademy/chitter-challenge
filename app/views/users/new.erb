@@ -1,7 +1,18 @@
+
+<% if @errors %>
+<% @errors.each do |field_errors| %>
+<% field_errors.each do |error| %>
+<div id='notice'><%= error %> </div>
+<% end %>
+<% end %>
+<% end %>
+
+
 <form action="/users/new" method="post">
-  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="email" placeholder="Email" value='<%= @user.email %>'>
   <input type="password" name="password" placeholder="Password">
-  <input type="text" name="name" placeholder="Name">
-  <input type="text" name="user_name" placeholder="User Name">
+  <input type="password" name="password_confirmation" placeholder="Confirm Password">
+  <input type="text" name="name" placeholder="Name"  value='<%= @user.name %>'>
+  <input type="text" name="user_name" placeholder="User Name"  value='<%= @user.user_name %>'>
   <input type="submit" value="Sign up">
 </form>
