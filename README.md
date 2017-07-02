@@ -37,11 +37,11 @@ I want to receive an email if I am tagged in a Peep
 
 # Installation and use
 
-run `bundle` from the command line
-run `psql` from the command line (install via homebrew if you don't have it)
-run `create DATABASE chitter_test;`
-run `create DATABASE chitter_development;`
-run `rspec`
+- run `bundle` from the command line
+- run `psql` from the command line (install via homebrew if you don't have it)
+- type `create DATABASE chitter_test;`
+- type `create DATABASE chitter_development;`
+- run `rspec`
 
 ```
 Finished in 0.18295 seconds (files took 0.67378 seconds to load)
@@ -49,5 +49,5 @@ Finished in 0.18295 seconds (files took 0.67378 seconds to load)
 
 COVERAGE: 100.00% -- 83/83 lines in 8 files
 ```
-run `rackup` from the command line
-go to http://localhost:9292/chitter-home to use app
+- run `rackup` from the command line
+- go to http://localhost:9292/chitter-home to use app
