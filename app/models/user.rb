@@ -10,6 +10,7 @@ class User
   property :password_digest, Text
   property :username, String
 
+  # has n, :peeps
 
   attr_reader :password
 

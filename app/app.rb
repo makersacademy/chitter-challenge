@@ -1,6 +1,4 @@
-require './app/init.rb'
-require './app/models/peep.rb'
-require './app/models/user.rb'
+require './app/models/init.rb'
 require 'sinatra/base'
 
 

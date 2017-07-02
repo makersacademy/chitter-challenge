@@ -9,7 +9,7 @@ class Peep
   property :body, Text
   property :created_at, DateTime
 
-  # belongs_to :user, through: Resource
+  # belongs_to :post
 
   def time_stamp
     "#{created_at.strftime("%I:%M %p %b %d, 20%y")}"
