@@ -1,10 +1,11 @@
 <h1>New user? Register below</h1>
+
 <form action='/users' method='POST'>
   <label for='username'>
-    Username:<input type='text' name='username'/>
+    Username:<input type='text' name='username' value='<%= @user.username %>'/>
   </label>
   <label for='email'>
-    Email:<input type='email' name='email'/>
+    Email: <input  type='email' name='email' value='<%= @user.email %>'>
   </label><br>
   <label for='password'>
     Password:<input type='password' name='password'/>
@@ -14,3 +15,7 @@
 </label>
   <input type='submit' value='Sign up'/>
 </form>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
