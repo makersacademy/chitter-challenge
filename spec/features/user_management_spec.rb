@@ -5,7 +5,7 @@ feature 'adding a user' do
     expect(User.first.email).to eq('johnsmith@aol.com')
   end
 
-  scenario 'requires a matching confirmation password' do
+  scenario "I can't sign up without a matching password confirmation" do
     expect {sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
     expect(current_path).to eq('/users')
     expect(page).to have_content "Password does not match the confirmation"
