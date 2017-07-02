@@ -1,0 +1,13 @@
+<h1> Welcome <%= current_user.name %>
+
+<h2> Peeps </h2>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.name %><br>
+    <%= peep.message %><br><br>
+    <%= peep.created_at %><br>
+    <div></div>
+  </li>
+  <% end %>
+</ul>

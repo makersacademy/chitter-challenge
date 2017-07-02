@@ -4,12 +4,15 @@ ruby '2.4.0'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
-gem 'capybara'
+gem 'bcrypt'
+gem 'sinatra-flash'
+gem 'rake'
+gem 'database_cleaner'
 
 group :test do
   gem 'cucumber'
   gem 'rspec'
-  gem 'rake'
+  gem 'capybara'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
