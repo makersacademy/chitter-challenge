@@ -1,14 +1,13 @@
 ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
-require 'sinatra/flash'
 require_relative 'dm_init'
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   set :public_folder, 'public'
-  register Sinatra::Flash
+  
   
   
   get '/' do
