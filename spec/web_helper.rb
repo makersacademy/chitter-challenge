@@ -14,11 +14,28 @@ def click_buttons
   click_button('New Peep')
 end
 
-def sign_up
+def sign_up(username: 'Example McExampler',
+            email: 'example@example.com',
+            password: '123456',
+            password_confirmation: '123456')
   visit '/users/new'
   expect(page.status_code).to eq(200)
-  fill_in 'username', with: 'Mary'
-  fill_in 'email', with: 'example@example.com'
-  fill_in 'password', with: '123456'
+  fill_in 'username', with: username
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  fill_in 'password_confirmation', with: password_confirmation
+  click_button 'Sign up'
+end
+
+def sign_up_wrong_password(username: 'Example McExampler',
+            email: 'example@example.com',
+            password: '123456',
+            password_confirmation: '12345')
+  visit '/users/new'
+  expect(page.status_code).to eq(200)
+  fill_in 'username', with: username
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  fill_in 'password_confirmation', with: password_confirmation
   click_button 'Sign up'
 end

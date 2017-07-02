@@ -3,7 +3,13 @@
   </style>
 
   <body>
-    <h1>New peep</h1>
+    <h1>Chitter</h1>
+    <h2>
+      <% if current_user %>
+        <h2>You are logged in as <%= current_user.username %>.</h2>
+      <% end %>
+    </h2>
+    <h3>New peep</h3>
     <form action="/peeps" method="POST">
       <textarea name="peep_content"></textarea><br>
       <input type="submit" value="Peep">
