@@ -13,4 +13,8 @@ class Peep
     c = created_at
     "#{c.hour}:#{c.minute} #{c.day}-#{c.month}-#{c.year}"
   end
+
+  def author
+    User.get(user_id).username
+  end
 end

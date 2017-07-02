@@ -1,3 +1,5 @@
+require './app/models/user'
+
 describe Peep do
   subject(:peep) { described_class.new(message: "test", created_at: Time.now) }
 

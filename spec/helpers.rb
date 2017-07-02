@@ -5,12 +5,15 @@ module Helpers
     click_button 'Submit'
   end
 
-  def sign_up
-    visit '/users/new'
-    fill_in :username, with: "tom"
-    fill_in :email, with: "tom@test.com"
-    fill_in :password, with: "Secret01"
-    fill_in :password_confirmation, with: "Secret01"
-    click_button "Sign Up"
+  def sign_up(username: 'tom',
+              email: 'tom@test.com',
+              password: 'Secret01',
+              password_confirmation: 'Secret01')
+  visit '/users/new'
+  fill_in :username, with: username
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
+  click_button 'Sign Up'
   end
 end

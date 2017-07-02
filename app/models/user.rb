@@ -9,12 +9,14 @@ class User
   has n, :peeps
 
   property :id, Serial
-  property :username, String
-  property :email, String
+  property :username, String, required: true, unique: true
+  property :email, String, required: true, unique: true, format: :email_address
   property :password_digest, Text
+
+  validates_confirmation_of :password
 
   def password=(password)
     @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    password_digest = BCrypt::Password.create(password)
   end
 end

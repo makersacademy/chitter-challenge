@@ -8,6 +8,13 @@
     <% if current_user %>
       <h2>Signed in as <%= current_user.username %></h2>
     <% end %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    <div class="" id="error">
+      <%= flash[:errors] %>
+    </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

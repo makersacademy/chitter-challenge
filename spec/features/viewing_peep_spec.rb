@@ -33,4 +33,9 @@ feature 'Viewing Peeps' do
     post_peep("Test message")
     expect(find("span.timestamp").text).to match time_matcher
   end
+
+  scenario 'Peeps have an author' do
+    post_peep("Test message")
+    page.find("div.peep", text: "tom")
+  end
 end
