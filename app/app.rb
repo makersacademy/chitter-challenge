@@ -15,13 +15,12 @@ class Chitter < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all
-    @current_user
     erb :'links/index'
   end
 
   post '/peeps/new' do
-    peep = Peep.create(content: params[:new_peep], creator: params[:username])
-    redirect('/peeps')
+    Peep.create(content: params[:new_peep], creator: params[:username])
+    redirect to '/peeps'
   end
 
   get '/peeps/new' do
@@ -41,7 +40,7 @@ class Chitter < Sinatra::Base
                        password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect to('/peeps/new')
+      redirect to '/peeps/new'
     else
       flash.now[:notice] = "Password and confirmation password do not match"
       erb :'users/new'
@@ -50,7 +49,7 @@ class Chitter < Sinatra::Base
 
   helpers do
     def current_user
-     @current_user ||= User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
@@ -62,7 +61,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:user_id] = user.id
-      redirect to('/peeps')
+      redirect to '/peeps'
     else
       flash.now[:errors] = ['The email or password entered is incorrect']
       erb :'sessions/new'

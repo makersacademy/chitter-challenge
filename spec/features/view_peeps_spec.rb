@@ -1,7 +1,5 @@
 feature 'Viewing peeps' do
   scenario 'Page displays time peep was peeped' do
-    time1 = "2017-07-01T13:25:59+01:00"
-    time2 = "2017-07-01T14:25:59+01:00"
     Peep.create(content: 'This is my second peep!')
     visit('/peeps')
     within 'ul#peeps' do

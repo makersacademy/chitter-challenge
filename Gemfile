@@ -2,17 +2,20 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem "dm-postgres-adapter"
-gem "data_mapper"
-gem "sinatra"
-gem "rspec"
-gem "capybara"
-gem "database_cleaner"
-gem "dm-transactions"
 gem 'bcrypt'
-gem 'sinatra-flash'
+gem "data_mapper"
+gem "database_cleaner"
+gem "dm-postgres-adapter"
+gem "dm-transactions"
 gem 'rake'
-gem 'cucumber'
-gem 'rubocop'
 gem 'simplecov', require: false
 gem 'simplecov-console', require: false
+gem "sinatra"
+gem 'sinatra-flash'
+
+group :test do
+  gem "capybara"
+  gem 'cucumber'
+  gem "rspec"
+  gem 'rubocop'
+end

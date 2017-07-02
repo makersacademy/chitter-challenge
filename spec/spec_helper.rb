@@ -12,8 +12,6 @@ require './app/models/user.rb'
 require 'web_helper.rb'
 require_relative 'helpers/session'
 
-
-
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -27,9 +25,7 @@ require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 require_relative 'helpers/session'
 
 RSpec.configure do |config|
-
   config.include SessionHelpers
-
 end
 
 RSpec.configure do |config|

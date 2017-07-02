@@ -12,7 +12,7 @@ module SessionHelpers
                username: 'Example1',
                password: 'example_password',
                password_confirmation: 'example_password')
-    visit ('/users/new')
+    visit '/users/new'
     fill_in 'email', with: email
     fill_in 'name', with: name
     fill_in 'username', with: username
