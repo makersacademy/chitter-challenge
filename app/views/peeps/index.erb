@@ -1,0 +1,10 @@
+<h1> Welcome </h1>
+
+<ul id='peeps'>
+  <% @peeps.sort_by{ |peep| peep.created_at }.reverse.each do |peep| %>
+    <li>
+      Text:  <%= peep.text %>
+      Time:  <%= peep.created_at %>
+    </li>
+  <% end %>
+</ul>
