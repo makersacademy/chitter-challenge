@@ -14,6 +14,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 require_relative 'helpers/sessions'
+require_relative 'helpers/users'
 
 Capybara.app = Chitter
 
@@ -52,5 +53,6 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.include SessionHelpers
-  
+  config.include UsersHelpers
+
 end
