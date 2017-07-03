@@ -1,0 +1,23 @@
+
+<h1>Please sign up</h1>
+
+<%= erb :'/partials/_error' %>
+
+<form action="/user" method="post">
+  <label for="name"/>
+   Name: <input type="text" name="name" required>
+  </label>
+ <label for="username"/>
+  Username: <input type="text" name="username" required>
+</label>
+<label for="email"/>
+  Email: <input type="email" name="email" required>
+</label>
+<label for="password"/>
+  Password: <input type="password" name="password" required>
+</label>
+<label for="password_confirmation">
+  <input type="password" name="password_confirmation" required>
+</label>
+  <input type="submit" value="Create Account">
+</form>

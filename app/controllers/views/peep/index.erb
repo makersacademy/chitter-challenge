@@ -1,0 +1,7 @@
+
+
+<ul class="peeps">
+  <% @peeps.reverse.each do |peep| %>
+  <li> <span id="content"> <%= peep.content %> </span> <span id="time"> <%= peep.created_at %> </span> </li>
+  <% end %>
+</ul>
