@@ -55,5 +55,5 @@ Overall I feel that I have managed to improve on many of the concepts that were 
 
 Areas to improve:
 
-* Due to time constraints I was not able to implement having the peeper's username displayed along side each peep. I believe I would be defining the associations between users and peeps to achieve this. Join tables and associations is an area that I need more practice on, so I would like to attempt this once more if I find time in the coming weeks.
 * Refactor my views using partials
+* Refactor viewing peeps spec- use another helper perhaps.

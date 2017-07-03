@@ -27,4 +27,13 @@ feature 'Viewing Peeps' do
       expect(page).to have_content("2017-07-02T19:53:35+01:00")
     end
   end
+
+  scenario 'I want to see who posted each peep' do
+    sign_in(email: user.email,   password: user.password)
+    post_peep
+    visit '/peeps'
+    within 'ul#peeps' do
+      expect(page).to have_content("cr8")
+    end
+  end
 end
