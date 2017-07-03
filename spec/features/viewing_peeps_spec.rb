@@ -24,7 +24,7 @@ feature 'Viewing Peeps' do
     post_peep
     visit '/peeps'
     within 'ul#peeps' do
-      expect(page).to have_content("2017-07-02T19:53:35+01:00")
+      expect(page).to have_content("2017-07-02T19:53:35")
     end
   end
 
