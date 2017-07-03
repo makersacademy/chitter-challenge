@@ -52,8 +52,10 @@ Overall I feel that I have managed to improve on many of the concepts that were 
 * My controllers have been split for each route.
 * I have made some progress with the concept of mocking once more. I had an attempt at mocking DateTime using Timecop in my specs.
 * I used more helpers to keep code and tests DRY.
+* Debugging across MVC and databases- diagnosed issue of outdated gems, also regarding databases, I diagnosed that my development database needed to be reset after I set the belongs_to relationship between Users and Peeps as it was preventing me from racking up whilst tests were passing on rspec.
 
 Areas to improve:
-
-* Refactor my views using partials
+* My form information stopped persisting after I added fields for firstname, lastname and username. This needs to be fixed.
+* Refactor my views using partials!
 * Refactor viewing peeps spec- use another helper perhaps.
+* Take time to learn CSS stylising.
