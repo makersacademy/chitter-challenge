@@ -37,7 +37,6 @@ class Chitter < Sinatra::Application
   end
 
   post '/peeps' do
-
     peep = Peep.new(content: params[:content], user_id: current_user.id)
     if peep.save
       redirect '/peeps'
@@ -88,6 +87,10 @@ class Chitter < Sinatra::Application
       @peep = Peep.get(params[:peep_id])
       erb :'comments/new'
     end
+  end
+
+  post '/spaces' do
+    p params
   end
 
 end
