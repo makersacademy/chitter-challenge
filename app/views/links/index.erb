@@ -1,0 +1,14 @@
+<html>
+<body style="background-color:#F5DBF7">
+<h1> Chitter </h1>
+
+<ul id='peeps' style="list-style-type:none">
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.creator %> at <%= peep.created_at.strftime("%m-%e-%y %H:%M") %>:<br>
+      <%= peep.content %><p>
+    </li>
+  <% end %>
+</ul>
+</body>
+</html>

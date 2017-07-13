@@ -1,0 +1,12 @@
+<html>
+<body style="background-color:#F5DBF7">
+
+<h2>Add your peep</h2>
+
+<form action="/peeps/new" method="post">
+  What would you like to peep? <input type="text" name="new_peep"><br>
+  <input type="hidden" name="username" value="<%= current_user.username %>"><p>
+  <input type="submit" value="Post peep">
+</form>
+</body>
+</html>
