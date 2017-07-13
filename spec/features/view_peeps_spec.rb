@@ -9,6 +9,7 @@ feature 'Viewing peeps' do
       expect(page).to have_content time
     end
   end
+
   scenario 'Username is dislayed with peep' do
     Peep.create(content: 'This is my third peep!', creator: 'vhonebon1')
     visit('/peeps')
