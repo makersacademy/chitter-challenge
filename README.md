@@ -115,3 +115,5 @@ This repo works with [Coveralls](https://coveralls.io/) to calculate test covera
 ### User Story 2 - complete
     Bookmark manager as guide from walkthrough and chat with classmates
 ### User Story 3 - complete
+
+## Re-doing the chitter challenge from start to understand 
