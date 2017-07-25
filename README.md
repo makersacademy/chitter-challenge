@@ -22,6 +22,7 @@ Tech used in this challenge:
 - DataMapper
 - PostgreSQL
 - BCrypt
+- TravisCI
 
 ## Installation
 1. Set up the following two databases in PostgreSQL: `chitter_development` and `chitter_test`.
