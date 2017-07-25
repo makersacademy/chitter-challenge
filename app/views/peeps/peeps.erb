@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>All Peeps</h1>
+
+    <% @peeps.reverse_each do |peep| %>
+    <div class="row">
+      <div class="col-md-6 col-centered">
+        <div class="peep">
+          <h4 class="author"><%= peep.author %></h4>
+          <p><%= peep.message %></p>
+          <span class="timestamp"><em>Peeped at: <%= peep.time %></em></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>

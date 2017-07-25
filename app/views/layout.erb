@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chitter</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/chitter.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Chitter</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li><a href="/peeps">Peeps</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <p class="navbar-text">Signed in as <%= current_user.username %></p>
+          <li><a href="/peeps/new">New Peep</a></li>
+          <li>
+            <form class="navbar-form" action="/sessions" method="post">
+              <div class="form-group">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger navbar-btn" type="submit" name="sign_out">Sign Out</button>
+              </div>
+            </form>
+          </li>
+          <% else %>
+            <li><a href="/sessions/new">Sign In</a></li>
+            <li><a href="/users/new">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <div class="alert alert-danger" id="error">
+        <%= flash[:errors] %>
+      </div>
+      <% end %>
+
+      <%= yield %>
+
+      <footer id="index-footer" class="navbar navbar-default navbar-fixed-bottom">
+        <p class="text-center">Makers Academy Weekend Challenge 4 | Made by Tom</p>
+      </footer>
+    </div>
+  </body>
+</html>
