@@ -1,4 +1,5 @@
 # Chitter Challenge
+[![Build Status](https://travis-ci.org/tbscanlon/chitter-challenge.svg?branch=master)](https://travis-ci.org/tbscanlon/chitter-challenge)
 
 Share your thoughts with the world using the world's second best microblogging service.
 
