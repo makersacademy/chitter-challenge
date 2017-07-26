@@ -10,7 +10,7 @@ Completed
 
 Doing
 -------
-- [ ] I want to post a message (peep) to chitter
+- [ ] I want to post a message to chitter
 
 Incomplete
 -------
