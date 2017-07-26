@@ -4,13 +4,16 @@ Chitter Challenge
 A Twitter knockoff called Chitter.
 Weekend four Makers Academy Challenge.
 
-Complete
+Completed
 -------
 - [x] Dev environment setup (getting a Capybara 200)
 
-Incomplete
+Doing
 -------
 - [ ] I want to post a message (peep) to chitter
+
+Incomplete
+-------
 - [ ] I want to see all peeps in reverse chronological order
 - [ ] I want to see the time at which it was made
 - [ ] I want to sign up for Chitter
