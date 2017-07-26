@@ -1,0 +1,19 @@
+/* Variables */
+/* 1. Main */
+body {
+  background: pink;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #FFFFFF; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */ }
+  .container .box {
+    padding: 1em;
+    align-self: center;
+    margin: auto;
+    align-content: center;
+    text-align: center; }

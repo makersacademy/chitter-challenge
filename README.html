@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1 id="chitterchallenge">Chitter Challenge</h1>
+
+<p>A Twitter knockoff called Chitter.
+Weekend four Makers Academy Challenge.</p>
+
+<h2 id="complete">Complete</h2>
+
+<ul>
+<li>[x] Dev environment setup (getting a Capybara 200)</li>
+</ul>
+
+<h2 id="incomplete">Incomplete</h2>
+
+<ul>
+<li>[ ] I want to post a message (peep) to chitter</li>
+<li>[ ] I want to see all peeps in reverse chronological order</li>
+<li>[ ] I want to see the time at which it was made</li>
+<li>[ ] I want to sign up for Chitter</li>
+<li>[ ] I want to log in to Chitter</li>
+<li>[ ] I want to log out of Chitter</li>
+<li>[ ] I want to receive an email if I am tagged in a Peep</li>
+<li>[ ] In order to start a conversation as a maker I want to reply to a peep from another maker.</li>
+<li>[ ] Herkoku hosted</li>
+<li>[ ] Styling / CSS</li>
+<li>[ ] Testing: 95%</li>
+</ul>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<h2 id="challenge:">Challenge:</h2>
+
+<ul>
+<li>Challenge time: rest of the day and weekend, until Monday 9am</li>
+<li>Feel free to use google, your notes, books, etc. but work on your own</li>
+<li>If you refer to the solution of another coach or student, please put a link to that in your README</li>
+<li>If you have a partial solution, <strong>still check in a partial solution</strong></li>
+<li>You must submit a pull request to this repo with your code by 9am Monday morning</li>
+</ul>
+
+<p>As usual please start by forking this repo.</p>
+
+<p>We are going to write a little Twitter clone that will allow the users to post messages to a public stream.</p>
+
+<h2 id="features:">Features:</h2>
+
+<pre><code>STRAIGHT UP
+
+As a Maker
+So that I can let people know what I am doing  
+I want to post a message (peep) to chitter
+
+As a maker
+So that I can see what others are saying  
+I want to see all peeps in reverse chronological order
+
+As a Maker
+So that I can better appreciate the context of a peep
+I want to see the time at which it was made
+
+As a Maker
+So that I can post messages on Chitter as me
+I want to sign up for Chitter
+
+HARDER
+
+As a Maker
+So that only I can post messages on Chitter as me
+I want to log in to Chitter
+
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+
+ADVANCED
+
+As a Maker
+So that I can stay constantly tapped in to the shouty box of Chitter
+I want to receive an email if I am tagged in a Peep
+</code></pre>
+
+<h2 id="notesonfunctionality:">Notes on functionality:</h2>
+
+<ul>
+<li>Drive the creation of your app using tests - either cucumber or rspec as you prefer</li>
+<li>Use data mapper and postgres to save the data.</li>
+<li>You don&#8217;t have to be logged in to see the peeps.</li>
+<li>Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).</li>
+<li>The username and email are unique.</li>
+<li>Peeps (posts to chitter) have the name of the maker and their user handle.</li>
+<li>Use bcrypt to secure the passwords.</li>
+<li>You only can peep if you are logged in.</li>
+<li>Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests</li>
+<li>Finally submit a pull request before Monday at 9am with your solution or partial solution. However much or little amount of code you wrote please please please submit a pull request before Monday at 9am</li>
+</ul>
+
+<h2 id="bonus:">Bonus:</h2>
+
+<p>If you have time you can implement the following:</p>
+
+<ul>
+<li>In order to start a conversation as a maker I want to reply to a peep from another maker.</li>
+</ul>
+
+<p>And/Or:</p>
+
+<ul>
+<li>Work on the css to make it look good (we all like beautiful things).</li>
+</ul>
+
+<p>Good luck and let the chitter begin!</p>
+
+<h2 id="codereview">Code Review</h2>
+
+<p>In code review we&#8217;ll be hoping to see:</p>
+
+<ul>
+<li>All tests passing</li>
+<li>High <a href="https://github.com/makersacademy/course/blob/master/pills/test_coverage.md">Test coverage</a> (&gt;95% is good)</li>
+<li>The code is elegant: every class has a clear responsibility, methods are short etc.</li>
+</ul>
+
+<p>Reviewers will potentially be using this <a href="docs/review.md">code review rubric</a>. Referring to this rubric in advance may make the challenge somewhat easier. You should be the judge of how much challenge you want this weekend.</p>
+
+<h2 id="notesontestcoverage">Notes on test coverage</h2>
+
+<p>Please ensure you have the following <strong>AT THE TOP</strong> of your spec_helper.rb in order to have test coverage stats generated
+on your pull request:</p>
+
+<pre><code class="ruby">require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  # Want a nice code coverage website? Uncomment this next line!
+  # SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+</code></pre>
+
+<p>You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the <code>HTMLFormatter</code> line and see what happens!</p>
+
+</body>
+</html>

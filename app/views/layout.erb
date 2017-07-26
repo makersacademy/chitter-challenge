@@ -1,0 +1,16 @@
+<!-- layout.erb -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chitter</title>
+        <link href="<%= url('/css/style.css') %>" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      <div class="container">
+        <div class="box">
+          <%= yield %>
+        </div>
+      </div>
+    </body>
+</html>

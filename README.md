@@ -1,14 +1,40 @@
 Chitter Challenge
 =================
 
+A Twitter knockoff called Chitter.
+Weekend four Makers Academy Challenge.
+
+Complete
+-------
+- [x] Dev environment setup (getting a Capybara 200)
+
+Incomplete
+-------
+- [ ] I want to post a message (peep) to chitter
+- [ ] I want to see all peeps in reverse chronological order
+- [ ] I want to see the time at which it was made
+- [ ] I want to sign up for Chitter
+- [ ] I want to log in to Chitter
+- [ ] I want to log out of Chitter
+- [ ] I want to receive an email if I am tagged in a Peep
+- [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
+- [ ] Herkoku hosted
+- [ ] Styling / CSS
+- [ ] Testing: 95%
+
+Screenshots
+-------
+
+
+Challenge:
+-------
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
 
 As usual please start by forking this repo.
 

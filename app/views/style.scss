@@ -1,0 +1,30 @@
+/* Variables */
+$grey: #E1E1E1;
+$white: #FFFFFF;
+$black: #000000;
+$blue: #00b7fe;
+$pink: #FF69B4;
+
+
+/* 1. Main */
+body {
+    background: pink;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: $white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+
+    .box {
+        padding: 1em;
+        align-self: center;
+        margin: auto;
+        align-content:center;
+        text-align:center;
+    }
+}

@@ -1,2 +1,6 @@
 /**/.DS_Store
 /coverage
+/.sass-cache
+.sass-cache
+.sass-cache/*
+config.codekit3
