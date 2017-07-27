@@ -1,13 +1,20 @@
+<div class="container peep-list">
+
 <h1> Peeps </h1>
 
-<ul id='links'>
-  <% Peep.all.each do |peep| %>
+<ul id='Peeps'>
+  <% Peep.all_in_chronological_order.each do |peep| %>
   <li>
-    Message: <%= peep.message %>
-    Created at: <%= peep.time_created %>
-    Tags: <%= link.tags.map(&:name).join(", ") %>
+    <div class="well peep">
+    <p>Posted by <%= User.get(peep.user_id) %></p>
+    <div class="well peep-content"><p><%= peep.content %></p></div>
+    <p>Created at: <%= peep.created_at %><p>
+    <p>Tags: <%= peep.tags.map(&:name).join(", ") %></p>
+    </div>
   </li>
   <% end %>
 </ul>
 
-<a href="links/new">Add new link</a>
+<a href="peeps/new">New Peep</a>
+
+</div>

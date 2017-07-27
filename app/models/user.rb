@@ -18,6 +18,8 @@ class User
   # http://datamapper.org/docs/validations.html
   validates_confirmation_of :password
 
+  validates_uniqueness_of :email, :username
+
   property :id, Serial
   property :email, String
   property :username, String

@@ -14,17 +14,17 @@
     <!-- My css -->
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
-  <head>
-    <title>Chitter</title>
-  </head>
 
   <body>
+    <div class="container">
+    <h2>Chitter</h2>
     <% if current_user %>
-      Welcome, <%= current_user.email %>
+      Welcome, <%= current_user.username %>
     <% end %>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+    </div>
   </body>
 </html>

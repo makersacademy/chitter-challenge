@@ -1,0 +1,20 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 500px;
+    }
+}
+
+.peep-list {
+  max-width: 700;
+}
+
+.peep {
+  background-color: lightblue;
+  border-color: blue;
+  color: white;
+}
+
+.peep-content {
+  background-color: white;
+  color: black;
+}

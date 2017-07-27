@@ -1,4 +1,4 @@
-def sign_up(email: 'test@aol.com', username: 'username', password: 'password', password_confirmation: 'password')
+def sign_up(email: 'ryan@aol.com', username: 'username', password: 'password', password_confirmation: 'password')
   visit('/users/new')
   expect(page.status_code).to eq 200
   fill_in 'email', with: email
@@ -8,9 +8,9 @@ def sign_up(email: 'test@aol.com', username: 'username', password: 'password', p
   click_button 'Log in'
 end
 
-def post_peep(message: 'message')
+def post_peep(peep_content: )
   visit('/peeps/new')
   expect(page.status_code).to eq 200
-  fill_in 'message', with: message
-  click_button 'post peep'
+  fill_in 'peep_content', with: peep_content
+  click_button 'Post'
 end

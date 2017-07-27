@@ -6,7 +6,15 @@ require 'dm-timestamps'
 class Peep
   include DataMapper::Resource
 
+  belongs_to :user
+
+  has n, :tags, through: Resource
+
   property :id, Serial
-  property :message, Text
+  property :content, Text
   property :created_at, DateTime
+
+  def self.all_in_chronological_order
+    self.all(order: :created_at.desc)
+  end
 end
