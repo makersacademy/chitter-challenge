@@ -4,13 +4,19 @@
     }
 }
 
-.peep-list {
-  max-width: 700;
+.btn-primary {
+  -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
 }
 
+/*.peep-list {
+  max-width: 700;
+}*/
+
 .peep {
-  background-color: lightblue;
-  border-color: blue;
+  background-color: #006dcc;
+  border-color: lightblue;
   color: white;
 }
 

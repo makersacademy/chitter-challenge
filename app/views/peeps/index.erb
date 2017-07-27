@@ -1,20 +1,23 @@
 <div class="container peep-list">
 
+<div align="center">
 <h1> Peeps </h1>
+<form action='/peeps/new' method="get">
+  <input type='submit' value='New peep' class="btn-primary">
+</form>
+<br>
+</div>
 
-<ul id='Peeps'>
+<ul id='Peeps' style="list-style: none;">
   <% Peep.all_in_chronological_order.each do |peep| %>
   <li>
     <div class="well peep">
-    <p>Posted by <%= User.get(peep.user_id) %></p>
-    <div class="well peep-content"><p><%= peep.content %></p></div>
-    <p>Created at: <%= peep.created_at %><p>
-    <p>Tags: <%= peep.tags.map(&:name).join(", ") %></p>
+    <p>@<%= User.get(peep.user_id).username %> - <%= peep.created_at.strftime("%c") %></p>
+    <div class="well peep-content"><p><%= peep.content %></div>
+    Tags: <%= peep.tags.map(&:name).join(", ") %>
     </div>
   </li>
   <% end %>
 </ul>
-
-<a href="peeps/new">New Peep</a>
 
 </div>
