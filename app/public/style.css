@@ -4,15 +4,25 @@
     }
 }
 
+body {
+  background: url("http://www.pptback.com/uploads/blue-sky-clouds-vector-backgrounds-powerpoint.jpg")  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Play', sans-serif;
+}
+
+.welcome {
+  background-color: white;
+  max-width: 400px;
+}
+
 .btn-primary {
   -webkit-border-radius: 10px;
    -moz-border-radius: 10px;
    border-radius: 10px;
 }
-
-/*.peep-list {
-  max-width: 700;
-}*/
 
 .peep {
   background-color: #006dcc;

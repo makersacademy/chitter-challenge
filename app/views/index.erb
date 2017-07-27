@@ -1,12 +1,16 @@
-<h2>Peeps</h2>
-<ul id='peeps'>
-  <% Peep.all.each do |peep| %>
-  <li>
-    <%= peep.message %>
-    Created at: <%= peep.created_at %>
-    Tags: <%= link.tags.map(&:name).join(", ") %>
-  </li>
-  <% end %>
-</ul>
-
-<a href="peeps/new">Create peep</a>
+<div class="container well welcome" align="center">
+  <h1>Welcome to Chitter</h1>
+  <h2>Post peeps to share with others!</h2>
+  <div class="row" align="center">
+    <div class="col-xs-6">
+      <form action='/peeps' method="get">
+        <input stlye="float: left;" type='submit' value='View Peeps' class="btn-primary btn-lg">
+      </form>
+    </div>
+    <div class="col-xs-6">
+      <form action='/users/new' method="get">
+        <input stlye="float: right;" type='submit' value='Sign up' class="btn-primary btn-lg">
+      </form>
+    </div>
+  </div>
+</div>

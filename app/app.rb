@@ -67,4 +67,8 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/users/profile' do
+    erb :'users/profile'
+  end
+
 end
