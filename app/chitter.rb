@@ -6,7 +6,7 @@ class CHITTER < Sinatra::Base
     erb :'/index'
   end
 
-  get '/css/style.css' do
+  get '/stylesheets/style.css' do
     scss :style
   end
 
