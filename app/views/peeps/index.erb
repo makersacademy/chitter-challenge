@@ -1,0 +1,13 @@
+<h1> Peeps </h1>
+
+<ul id='links'>
+  <% Peep.all.each do |peep| %>
+  <li>
+    Message: <%= peep.message %>
+    Created at: <%= peep.time_created %>
+    Tags: <%= link.tags.map(&:name).join(", ") %>
+  </li>
+  <% end %>
+</ul>
+
+<a href="links/new">Add new link</a>
