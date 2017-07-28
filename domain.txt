@@ -1,0 +1,12 @@
+Peep        :initialize(params)         # => link
+            :add_tag(tag)               # => tag
+
+Peeps       :initialize                 # => list
+            :add_link(link)             # => link
+            :links                      # => array of link
+            :filter(tag)                # => array of links filtered by tag
+
+Time        
+
+
+users
