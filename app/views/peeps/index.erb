@@ -2,9 +2,11 @@
 
 <div align="center">
 <h1> Peeps </h1>
+<% if !session[:user_id].nil? %>
 <form action='/peeps/new' method="get">
   <input type='submit' value='New peep' class="btn-primary">
 </form>
+<% end %>
 <br>
 </div>
 

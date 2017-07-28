@@ -30,6 +30,9 @@ class Chitter < Sinatra::Base
   end
 
   get '/debug' do
+    p User.all
+    p Peep.all
+    p Tag.all
     erb :debug
   end
 

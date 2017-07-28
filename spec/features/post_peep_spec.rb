@@ -1,7 +1,7 @@
 require_relative '../web_helpers'
 require "timecop"
 
-feature 'peeps' do
+feature 'post peeps' do
 
   before do
     sign_up(email: "dave@dave.com", username: "Dave")
@@ -13,6 +13,16 @@ feature 'peeps' do
     expect(page).to have_content "My first peep"
   end
 
+  scenario 'Displays peeps in revere chronological order' do
+    Timecop.freeze do
+      post_peep(peep_content: "My first peep")
+      Timecop.travel(DateTime.now + 1) do
+        post_peep(peep_content: "My second peep")
+      end
+      expect(page.all(".peep-content").map(&:text)).to eq ["My second peep", "My first peep"]
+    end
+  end
+
   scenario 'User can see the time a peep was created' do
     Timecop.freeze do
       post_peep(peep_content: "My second peep")
@@ -22,14 +32,12 @@ feature 'peeps' do
     end
   end
 
-  scenario 'Displays peeps in revere chronological order' do
-    Timecop.freeze do
-      post_peep(peep_content: "My first peep")
-      Timecop.travel(DateTime.now + 1) do
-        post_peep(peep_content: "My second peep")
-      end
-      expect(page).to have_content (DateTime.now + 1).strftime("%c") + " My second peep Tags: @Dave - " + (DateTime.now).strftime("%c") +" My first peep"
-    end
+  scenario 'Sends email when tagged in a peep' do
+    include Mail::Matchers
+    Mail::TestMailer.deliveries.clear
+    post_peep(peep_content: "Peep that has a tag", tags: 'Dave')
+    expect(Mail::TestMailer.deliveries.length).to eq 1
+    expect(Mail::TestMailer.deliveries.last.to).to eq ["dave@dave.com"]
   end
 
 end

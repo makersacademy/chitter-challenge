@@ -8,9 +8,14 @@ def sign_up(email: 'ryan@aol.com', username: 'username', password: 'password', p
   click_button 'Log in'
 end
 
-def post_peep(peep_content: )
+def log_in
+
+end
+
+def post_peep(peep_content: 'content', tags: 'tags')
   visit('/peeps/new')
   expect(page.status_code).to eq 200
   fill_in 'peep_content', with: peep_content
+  fill_in 'tags', with: tags
   click_button 'Post'
 end
