@@ -10,6 +10,9 @@ gem 'sinatra-flash'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'rake'
+gem 'pony'
+gem 'sendmail'
+gem 'dotenv'
 
 group :test do
   gem 'capybara'
