@@ -7,10 +7,12 @@ Weekend four Makers Academy Challenge.
 Completed
 -------
 - [x] Dev environment setup (getting a Capybara 200)
+- [x] postsql / database setup
+- [x] I want to post a message to chitter
 
 Doing
 -------
-- [ ] I want to post a message to chitter
+
 
 Incomplete
 -------
