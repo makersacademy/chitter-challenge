@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
+require_relative './features/web_helpers'
 require File.join(File.dirname(__FILE__), '..', './app/chitter.rb')
 
 Capybara.app = CHITTER
