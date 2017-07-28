@@ -1,0 +1,14 @@
+<ul id='messages'>
+  <% @messages.reverse.each do |message| %>
+    <li>
+      <p>
+        <% user = User.first(id: message.user_id) %>
+        <%= user.name %> (<%= user.username %>)
+        <br>
+        <%= message.posted_at.strftime("%d/%b/%Y %H:%M") %>
+        <br>
+        <%= message.body %>
+      </p>
+    </li>
+  <% end %>
+</ul>

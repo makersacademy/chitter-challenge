@@ -1,0 +1,12 @@
+<% if current_user %>
+  <h2> Account successfully created! Click below to continue: </h2>
+  <form action='/' method='GET'>
+    <input type='submit' value='Get Chittering!'>
+  </form>
+<% else %>
+  <h2> Sorry, we could not create an account for you. </h2>
+  <h3> The username or email address you entered was already taken. Please try again. </h3>
+  <form action='/sign_up' method='GET'>
+    <input type='submit' value='Retry'>
+  </form>
+<% end %>
