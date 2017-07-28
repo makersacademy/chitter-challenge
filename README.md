@@ -28,6 +28,16 @@ Incomplete
 Screenshots
 -------
 
+$ git clone git@github.com:langphil/chitter-challenge.git
+$ bundle install
+
+* Create two psql databases
+ - chitter_test
+ - chitter_development
+
+Screenshots
+-------
+
 
 Challenge:
 -------

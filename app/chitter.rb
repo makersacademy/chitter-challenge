@@ -1,4 +1,7 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
+require_relative 'data_mapper_setup'
 
 class CHITTER < Sinatra::Base
 
@@ -7,10 +10,13 @@ class CHITTER < Sinatra::Base
   end
 
   get '/posts' do
+    @posts = Post.all
     erb :'/posts/index'
   end
 
   post '/posts' do
+    post = Post.new(text: params[:text])
+    post.save
     redirect '/posts'
   end
 
