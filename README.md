@@ -96,7 +96,6 @@ Make sure you run these commands after installing:
 ```terminal
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-To see why that was necessary there is information here
 ```
 
 You can check your installation by running `psql`
