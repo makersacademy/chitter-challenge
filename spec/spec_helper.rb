@@ -26,25 +26,15 @@ RSpec.configure do |config|
   DataMapper.auto_upgrade!
 
   config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.Start
   end
 
-  config.before(:each, type: :feature) do
-    driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
-    if !driver_shares_db_connection_with_specs
-      DatabaseCleaner.strategy = :truncation
-    end
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.append_after(:each) do
+  config.after(:each) do
     DatabaseCleaner.clean
   end
 
@@ -53,7 +43,4 @@ RSpec.configure do |config|
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"
     puts "\e[33mTry it now! Just run: rubocop\e[0m"
   end
-
-
-
 end
