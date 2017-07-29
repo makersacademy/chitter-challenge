@@ -23,18 +23,30 @@ feature 'Create user' do
     click_button 'Sign up'
   end
 
-  scenario 'does not have a matching password' do
+  scenario 'cannot sign up without a matching password' do
     expect { sign_up(password_confirmation: 'no') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   # Form fields
   scenario 'cannot sign up without and email' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email must not be blank')
   end
 
   scenario 'cannot sign up with an invalid email address' do
     expect { sign_up(email: "user@user") }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  # Duplicate registrations
+  scenario 'cannot sign up with the same email twice' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email is already taken')
   end
 end
