@@ -9,16 +9,15 @@ Completed
 - [x] Dev environment setup (getting a Capybara 200)
 - [x] postsql / database setup
 - [x] I want to post a message to chitter
+- [x] I want to see the time at which it was made
 
 Doing
 -------
-
+- [ ] I want to see all peeps in reverse chronological order
+- [ ] I want to sign up for Chitter
 
 Incomplete
 -------
-- [ ] I want to see all peeps in reverse chronological order
-- [ ] I want to see the time at which it was made
-- [ ] I want to sign up for Chitter
 - [ ] I want to log in to Chitter
 - [ ] I want to log out of Chitter
 - [ ] I want to receive an email if I am tagged in a Peep

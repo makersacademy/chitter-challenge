@@ -15,7 +15,9 @@ class CHITTER < Sinatra::Base
   end
 
   post '/posts' do
-    post = Post.new(text: params[:text])
+    time = Time.now
+    post = Post.new(text: params[:text],
+                    time: time.strftime("Posted on %d/%m/%Y at %I:%M%p"))
     post.save
     redirect '/posts'
   end
