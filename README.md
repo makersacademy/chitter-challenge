@@ -10,11 +10,12 @@ Completed
 - [x] postsql / database setup
 - [x] I want to post a message to chitter
 - [x] I want to see the time at which it was made
+- [x] I want to sign up for Chitter
 
 Doing
 -------
 - [ ] I want to see all peeps in reverse chronological order
-- [ ] I want to sign up for Chitter
+
 
 Incomplete
 -------

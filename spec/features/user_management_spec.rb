@@ -5,7 +5,7 @@ feature 'Create user' do
   end
 
   # I want to sign up for Chitter
-  scenario 'Can sign up a new user' do
+  scenario 'can sign up a new user' do
     visit '/users/new'
     expect { sign_up }.to change(User, :count).by(1)
     expect(page).to have_content 'Welcome, user@user.com'
