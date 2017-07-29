@@ -28,4 +28,13 @@ feature 'Create user' do
     expect(current_path).to eq('/users')
     expect(page).to have_content 'Password and confirmation password do not match'
   end
+
+  # Form fields
+  scenario 'cannot sign up without and email' do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario 'cannot sign up with an invalid email address' do
+    expect { sign_up(email: "user@user") }.not_to change(User, :count)
+  end
 end
