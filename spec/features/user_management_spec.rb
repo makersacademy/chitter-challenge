@@ -35,7 +35,9 @@ feature 'User management' do
 
   scenario 'I can log in once signed up' do
     click_on 'Log out'
-    click_on 'Log in'
+    within ".welcome" do
+      click_on 'Log in'
+    end
     fill_in 'email', with: 'ryan@ryan.com'
     fill_in 'password', with: 'password'
     within '.log-in-form' do

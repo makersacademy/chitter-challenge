@@ -8,7 +8,7 @@ module Helpers
     fill_in 'full_name', with: full_name
     fill_in 'password', with: password
     fill_in 'password_confirmation', with: password_confirmation
-    click_button 'Log in'
+    click_button 'Sign up'
   end
 
   def post_peep(peep_content: 'content', tags: 'tags')

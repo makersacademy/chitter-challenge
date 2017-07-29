@@ -75,17 +75,45 @@ Instructions
 ---
 View app online at: XXXXXXXXX
 
-To Install:
-install postgres?
+In your terminal:
+
+Set up the database (if you haven't installed PostgreSQL already)
+
+In your terminal run `brew install postgresq`
+
+After homebrew has downloaded the software it will show you some installation instructions, follow them!
+
+Make sure you run these commands after installing:
+```terminal
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+To see why that was necessary there is information here
+```
+
+You can check your installation by running `psql`
+Set up a database with your username if it doesn't already exist. (see [here](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/03_mac.md) for more instructions)
+
 
 ```
 $ git clone https://github.com/ryandav/chitter_challenge
-$ bundle
+$ cd chitter_challenge
+$ bundle install
 $ createdb chitter_development
-$ rake auto_migrate
-$ rspec
+$ createdb chitter_test
 $ rackup
 ```
+In your browser visit: [http://localhost:9292/](http://localhost:9292/)
+
+cd to the project folder
+Run bundle install
+Create two local postrgresql databases called chitter_development and chitter_test
+To test:
+
+Run rspec
+To run the application on localhost:
+
+Run rackup
+Visit http://localhost:9292/
 
 To run the tests:
 ```tests
@@ -144,4 +172,5 @@ In code review we'll be hoping to see:
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
 References:
-To see how to sructure the folders in my project
+To see how to structure the folders in my project
+- [github.com/joemaidman](https://github.com/joemaidman/chitter-challenge)
