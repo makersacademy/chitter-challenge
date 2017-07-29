@@ -9,6 +9,7 @@ gem 'database_cleaner'
 group :test do
   gem 'capybara'
   gem 'rspec'
+  gem 'orderly'
   gem 'rake'
   gem 'rubocop'
   gem 'simplecov', require: false

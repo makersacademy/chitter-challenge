@@ -3,8 +3,10 @@ require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 require 'rspec'
+require 'orderly'
 require 'capybara/rspec'
 require_relative '../app/app.rb'
+require_relative 'features/web_helpers'
 
 Capybara.app = Chitter
 
@@ -14,6 +16,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/chitter_test' )
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 RSpec.configure do |config|
 
