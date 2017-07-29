@@ -7,6 +7,9 @@
     <% if current_user %>
       Welcome to Chitter <%= current_user.username %>
     <% end %>
+    <% if flash[:errors] %>
+      <div id='notice'><%= flash[:errors] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

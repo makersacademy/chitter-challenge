@@ -1,11 +1,13 @@
 ENV["RACK_ENV"] ||= "development"
 
-require 'sinatra/base'
-require_relative 'data_mapper_setup'
+require "sinatra/base"
+require "sinatra/flash"
+require_relative "data_mapper_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret { SecureRandom.hex(20) }
+  register Sinatra::Flash
 
   get "/peeps/new" do
     erb :'/peeps/new'
@@ -27,12 +29,17 @@ class Chitter < Sinatra::Base
   end
 
   post "/users" do
-    user = User.create(username: params[:username],
+    user = User.new(username: params[:username],
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to("/peeps")
+    if user.save
+      session[:user_id] = user.id
+      redirect to("/peeps")
+    else
+      flash.now[:errors] = user.errors.full_messages
+      erb :'users/new'
+    end
   end
 
   helpers do

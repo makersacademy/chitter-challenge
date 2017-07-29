@@ -17,4 +17,5 @@ group :deployment do
   gem 'datamapper'
   gem 'dm-postgres-adapter'
   gem 'sinatra'
+  gem 'sinatra-flash'
 end
