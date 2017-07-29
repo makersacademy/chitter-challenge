@@ -1,12 +1,33 @@
+ENV["RACK_ENV"] = "test"
+
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'database_cleaner'
 
-require_relative '../models/peep'
+require './app/models/peep'
+
+RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
 
 Capybara.app = Chitter
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
