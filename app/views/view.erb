@@ -1,0 +1,18 @@
+<body style= 'text-align: center'>
+  <h1> Welcome to peeper <h1>
+    <tr>
+      <th>All the Peeps</th>
+    </tr>
+    <% @peeps.reverse.each do |peep| %>
+    <tr>
+      <td style="border: 2px solid #dddddd"><%= peep.message %></td>
+    </tr>
+    <% end %>
+  </table>
+  <form action ="/add_peep" method="post">
+    Add Peep
+    <input type="text" name="message">
+    <input type="submit" value="Submit">
+    <input type="Time" value"current_time">
+  </form>
+</body>

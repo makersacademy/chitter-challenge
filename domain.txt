@@ -6,7 +6,7 @@ Peeps       :initialize                 # => list
             :links                      # => array of link
             :filter(tag)                # => array of links filtered by tag
 
-Time        
+Time                
 
 
 users
