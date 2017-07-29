@@ -8,7 +8,6 @@ GEM
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    builder (3.2.3)
     capybara (2.14.4)
       addressable
       mime-types (>= 1.16)
@@ -17,17 +16,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.1)
-    cucumber (2.4.0)
-      builder (>= 2.1.2)
-      cucumber-core (~> 1.5.0)
-      cucumber-wire (~> 0.0.1)
-      diff-lcs (>= 1.1.3)
-      gherkin (~> 4.0)
-      multi_json (>= 1.7.5, < 2.0)
-      multi_test (>= 0.1.2)
-    cucumber-core (1.5.0)
-      gherkin (~> 4.0)
-    cucumber-wire (0.0.1)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -80,7 +68,6 @@ GEM
       data_objects (= 0.10.17)
     docile (1.1.5)
     fastercsv (1.5.5)
-    gherkin (4.1.3)
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
@@ -90,13 +77,13 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     multi_json (1.12.1)
-    multi_test (0.1.2)
     mustermann (1.0.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
+    pg (0.21.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -149,6 +136,7 @@ GEM
     slop (3.6.0)
     stringex (1.5.1)
     tilt (2.0.8)
+    timecop (0.9.1)
     unicode-display_width (1.3.0)
     uuidtools (2.1.5)
     xpath (2.1.0)
@@ -159,10 +147,12 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  cucumber
   data_mapper
   database_cleaner
+  dm-core
   dm-postgres-adapter
+  dm-timestamps
+  pg
   pry
   rake
   rspec
@@ -170,6 +160,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  timecop
 
 RUBY VERSION
    ruby 2.4.0p0
