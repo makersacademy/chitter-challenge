@@ -1,0 +1,9 @@
+<h1> Welcome! Here are all of the peeps </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.message %>
+  </li>
+  <% end %>
+</ul>

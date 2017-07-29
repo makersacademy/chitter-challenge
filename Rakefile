@@ -9,7 +9,7 @@ if ENV['RACK_ENV'] != 'production'
   task default: [:spec]
 end
 
-namespace :db do
+  namespace :db do
   desc "Non destructive upgrade"
   task :auto_upgrade do
     DataMapper.auto_upgrade!
