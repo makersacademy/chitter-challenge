@@ -2,7 +2,7 @@ require 'orderly'
 
 feature 'Feature: viewing peeps' do
 
-  scenario 'peeps appear reverse chornological order' do
+  scenario 'peeps appear reverse chronological order' do
     create_peep(content: 'Hi')
     create_peep(content: 'Bye')
     expect('Bye').to appear_before('Hi')
