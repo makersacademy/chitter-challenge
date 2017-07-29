@@ -9,6 +9,7 @@ require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
 require_relative 'helpers/session'
+require_relative 'helpers/peeping'
 
 Capybara.app = Chitter
 
@@ -34,6 +35,8 @@ RSpec.configure do |config|
   end
 
   config.include SessionHelpers
+
+  config.include PeepingHelpers
 
   config.after(:suite) do
     puts

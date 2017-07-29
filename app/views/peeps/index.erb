@@ -5,6 +5,7 @@
   <ul>
   <% @peeps.each do |peep| %>
   <li>
+    @<%= User.get(peep.user_id).username %><br>
     <%= peep.content %><br>
     <%= peep.time.strftime("%R %v") %>
   </li>

@@ -1,5 +1,5 @@
 module SessionHelpers
-  def sign_up(username: "DangerMouse", email: "mouse@dmhideout.com",
+  def sign_up(username: "dangermouse", email: "mouse@dmhideout.com",
               password: "penfoldshush", password_confirmation: "penfoldshush")
     visit("/users/new")
     fill_in :username, with: username

@@ -8,7 +8,11 @@
       Welcome to Chitter <%= current_user.username %>
     <% end %>
     <% if flash[:errors] %>
-      <div id='notice'><%= flash[:errors] %></div>
+    <div id='notice'>
+    <% flash[:errors].each do |error| %>
+    <%=error %><br>
+    <% end %>
+    </div>
     <% end %>
     <%= yield %>
   </body>

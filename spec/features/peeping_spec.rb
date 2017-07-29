@@ -4,6 +4,7 @@
 
 feature "Peeping" do
   scenario "I can post a peep to Chitter" do
+    sign_up
     visit('/peeps/new')
     fill_in :peep, with: "My first peep!"
     click_button "Peep!"

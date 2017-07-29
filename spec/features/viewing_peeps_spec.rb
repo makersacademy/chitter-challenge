@@ -8,8 +8,8 @@
 
 feature "Viewing peeps" do
   before :each do
-    Peep.create(content: "Peep 1", time: Time.now)
-    Peep.create(content: "Peep 2", time: Time.now + 1)
+    sign_up
+    peep_1
   end
 
   scenario "I want to see the time a peep was made" do
@@ -18,7 +18,13 @@ feature "Viewing peeps" do
   end
 
   scenario "I want to see peeps in reverse chronological order" do
+    peep_2
     visit("/peeps")
     expect(Peep.last.content).to appear_before(Peep.first.content)
+  end
+
+  scenario "I want to see who posted a peep" do
+    visit("/peeps")
+    expect(page).to have_content "@#{Peep.first.user.username}"
   end
 end
