@@ -8,6 +8,7 @@ require 'simplecov-console'
 require 'database_cleaner'
 
 require './app/models/peep'
+require './app/models/user'
 
 RSpec.configure do |config|
 

@@ -2,14 +2,6 @@ feature 'Peep' do
 
   let(:time) { Time.new.strftime("...on %d/%m/%Y at %k:%M") }
 
-  scenario 'view a peep' do
-    Peep.create(message: 'Hello World')
-    visit '/peeps'
-    within 'ul#peeps' do
-      expect(page).to have_content 'Hello World'
-    end
-  end
-
   scenario 'post a peep' do
     visit '/peeps/new'
     fill_in 'message', with: 'My first peep'
