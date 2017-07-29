@@ -6,6 +6,7 @@
   <% @peeps.each do |peep| %>
   <li>
     <%= peep.content %><br>
+    <%= peep.time.strftime("%R %v") %>
   </li>
   <br>
   <% end %>
