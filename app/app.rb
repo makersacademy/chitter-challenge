@@ -1,15 +1,26 @@
 ENV["RACK_ENV"] ||= "development"
 
+require 'bcrypt'
 require_relative 'data_mapper_setup.rb'
 
 class Chitter < Sinatra::Base
+  enable :sessions
+  set :session_secret, 'super-secret'
+  register Sinatra::Flash
+
+  def current_user
+    @current_user ||= User.get(session[:id])
+  end
+
   get '/' do
-  erb :sign_up
+    flash[:password] = "Passwords didn't match"
+    erb :sign_up
   end
 
   get '/main' do
-  @peeps = Peep.all
-   erb :main
+    @user = current_user
+    @peeps = Peep.all
+     erb :main
   end
 
   post '/add_peep' do
@@ -18,8 +29,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    User.create(name: params[:name], email: params[:email])
-    redirect '/main'
+    user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    session[:id] = user.id
+    if params[:password] == params[:password_confirmation]
+      redirect '/main'
+    else
+      redirect '/'
+    end
   end
 end
 

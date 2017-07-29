@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
+require 'sinatra/flash'
 require 'dm-core'
 require 'dm-timestamps'
 require_relative 'models/peep.rb'
