@@ -1,19 +1,19 @@
 # app/data_mapper_setup.rb
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'mail'
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'dotenv'
-Dotenv.load
-
 require_relative 'models/peep'
 require_relative 'models/user'
 require_relative 'models/tag'
+require 'dotenv'
+Dotenv.load
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.auto_upgrade!
 DataMapper.finalize
+
+require 'mail'
 
 Mail.defaults do
   delivery_method :smtp, {
@@ -25,3 +25,5 @@ Mail.defaults do
     enable_starttls_auto: true
   }
 end
+
+# set :public_folder, Proc.new { File.join(root, 'static') }

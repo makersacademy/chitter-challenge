@@ -8,13 +8,10 @@ class Peep
 
   belongs_to :user
 
-  has n, :tags, through: Resource
+  has n, :tags, through: Resource, constraint: :destroy
+  # has n, :replies, through: Resource, constraint: :destroy
 
   property :id, Serial
   property :content, Text
   property :created_at, DateTime
-
-  def self.all_in_chronological_order
-    self.all(order: :created_at.desc)
-  end
 end

@@ -4,7 +4,6 @@ require 'bcrypt'
 
 class User
   include DataMapper::Resource
-  # users.password_hash in the database is a :string
   include BCrypt
 
   attr_reader :password
@@ -23,10 +22,7 @@ class User
   property :id, Serial
   property :email, String
   property :username, String
-  # this will store both the password and the salt
-  # It's Text and not String because String holds
-  # only 50 characters by default
-  # and it's not enough for the hash and salt
+  property :full_name, String
   property :password_digest, Text
 
   has n, :peeps, through: Resource

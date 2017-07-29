@@ -1,6 +1,7 @@
 class Chitter < Sinatra::Base
 
   get '/peeps' do
+    @peeps = (params[:search] ? search(params[:search]) : Peep.all)
     erb :'peeps/index'
   end
 
@@ -14,22 +15,18 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     if params[:peep_content] != ""
-      peep = Peep.new(content: params[:peep_content], user_id: current_user.id)
-      tags = params[:tags]
-      tags.split(" ").each do |tag|
-        search = User.first(:username => tag)
-        if search
-          email(search.email, "Chitter: #{search.username} tagged you in a peep!", "Go to Chitter to see it.")
-        end
-        tag  = Tag.first_or_create(name: tag)
-        peep.tags << tag
-      end
-      peep.save
+      create_peep(params)
       redirect to('/peeps')
     else
       flash.now[:notice] = "Please enter a message for your peep"
       erb :'/peeps/new'
     end
+  end
+
+  post '/peeps/delete' do
+    Peep.get(params[:id]).destroy
+    flash.now[:notice] = "Peep deleted."
+    redirect '/peeps'
   end
 
 end

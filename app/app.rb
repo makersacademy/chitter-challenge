@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 require_relative 'chitter_setup'
+require_relative './helpers/chitter_helpers'
 
 class Chitter < Sinatra::Base
 
@@ -8,36 +9,10 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
-  #  def date_and_time(time)
-  #     time.strftime("%c")
-  #  end
-   def email(email, subject, message)
-     Mail.deliver do
-       from    'no-reply@chitter.com'
-       to      email
-       subject subject
-       body    message
-     end
-   end
-  end
+  include ChitterHelpers
 
   get '/' do
     erb :index
-  end
-
-  get '/debug' do
-    p User.all
-    p Peep.all
-    p Tag.all
-    erb :debug
-  end
-
-  get '/search' do
-    erb :'/peeps'
   end
 
   run! if $PROGRAM_NAME == "lib/app.rb"

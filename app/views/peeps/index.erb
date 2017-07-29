@@ -11,12 +11,18 @@
 </div>
 
 <ul id='Peeps' style="list-style: none;">
-  <% Peep.all_in_chronological_order.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
   <li>
     <div class="well peep">
-    <p>@<%= User.get(peep.user_id).username %> - <%= peep.created_at.strftime("%c") %></p>
+    <p><%= User.get(peep.user_id).full_name %> @<%= User.get(peep.user_id).username %> - <%= peep.created_at.strftime("%c") %></p>
     <div class="well peep-content"><p><%= peep.content %></div>
     Tags: <%= peep.tags.map(&:name).join(", ") %>
+    <% if current_user and peep.user_id == current_user.id %>
+      <form method='post' action='/peeps/delete'>
+         <input type='hidden' name='id' value='<%= peep.id %>'>
+         <input type="submit" value="Delete" class="btn-danger">
+      </form>
+   <% end %>
     </div>
   </li>
   <% end %>
