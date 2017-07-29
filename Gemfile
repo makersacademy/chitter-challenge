@@ -10,7 +10,6 @@ gem 'sinatra-flash'
 gem 'database_cleaner'
 gem 'bcrypt'
 gem 'rake'
-gem 'rack'
 gem 'mail'
 gem 'dotenv'
 

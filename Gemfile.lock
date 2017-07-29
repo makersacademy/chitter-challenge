@@ -152,7 +152,6 @@ DEPENDENCIES
   dm-timestamps
   dotenv
   mail
-  rack
   rake
   rspec
   rubocop
