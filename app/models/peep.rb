@@ -1,5 +1,5 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+# require 'data_mapper'
+# require 'dm-postgres-adapter'
 
 # this class corresponds to a table in the database
 class Peep
@@ -16,9 +16,9 @@ class Peep
 
 end
 
-# connect to database:
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-# check everything in model is ok:
-DataMapper.finalize
-# build any new columns or tables we added
-DataMapper.auto_upgrade!
+# # connect to database:
+# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+# # check everything in model is ok:
+# DataMapper.finalize
+# # build any new columns or tables we added
+# DataMapper.auto_upgrade!
