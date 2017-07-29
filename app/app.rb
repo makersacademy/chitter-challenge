@@ -15,9 +15,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
-    Peep.create(content: params[:peep],
+    peep = Peep.new(content: params[:peep],
                 time: Time.now,
                 user_id: session[:user_id])
+    params[:tags].split.each do |tag|
+      peep.tags << Tag.first_or_create(user_id: User.first(username: tag).id)
+    end
+    peep.save
     redirect to("/peeps")
   end
 
@@ -54,7 +58,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect to("/peeps")
     else
-      flash.now[:errors] = ["The email or password is incorrect"]
+      flash.now[:errors] = ["The username or password is incorrect"]
       erb :'sessions/new'
     end
   end

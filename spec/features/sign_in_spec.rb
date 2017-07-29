@@ -16,6 +16,6 @@ feature "Signing in" do
   scenario "I can't sign in with the wrong password" do
     sign_in(username: user.username, password: "ohheck")
     expect(current_path).to eq("/sessions")
-    expect(page).to have_content "The email or password is incorrect"
+    expect(page).to have_content "The username or password is incorrect"
   end
 end

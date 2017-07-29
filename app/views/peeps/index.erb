@@ -6,7 +6,10 @@
   <% @peeps.each do |peep| %>
   <li>
     @<%= User.get(peep.user_id).username %><br>
-    <%= peep.content %><br>
+    <%= peep.content %>
+    <% peep.tags.each do |tag| %>
+      #<%= User.get(tag.user_id).username %>
+    <% end %><br>
     <%= peep.time.strftime("%R %v") %>
   </li>
   <br>
