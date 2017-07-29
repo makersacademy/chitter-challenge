@@ -18,7 +18,7 @@ body {
   max-width: 400px;
 }
 
-.btn-primary, .btn-danger, .btn-success {
+.btn-primary, .btn-default, .btn-danger, .btn-success {
   -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;

@@ -9,7 +9,7 @@ class Peep
   belongs_to :user
 
   has n, :tags, through: Resource, constraint: :destroy
-  # has n, :replies, through: Resource, constraint: :destroy
+  has n, :replys, through: Resource, constraint: :destroy
 
   property :id, Serial
   property :content, Text

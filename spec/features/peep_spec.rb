@@ -28,6 +28,14 @@ feature 'post peeps' do
     end
   end
 
+  scenario 'I can filter peeps by tag' do
+    post_peep(peep_content: "My first peep", tags: "first")
+    within ".peep" do
+      click_on "first"
+    end
+    expect(page).to have_content "My first peep"
+  end
+
   scenario 'User can see the time a peep was created' do
     Timecop.freeze do
       post_peep(peep_content: "My second peep")
@@ -68,6 +76,16 @@ feature 'post peeps' do
       click_on 'Delete'
     end
     expect(page).not_to have_content "My first peep"
+  end
+
+  scenario 'Signed in users can reply to a peep' do
+    post_peep(peep_content: "My first peep")
+    within ".peep" do
+      click_on 'Reply'
+    end
+    fill_in 'content', with: "Really interesting!"
+    click_on "Reply"
+    expect(page).to have_content "Really interesting!"
   end
 
 end

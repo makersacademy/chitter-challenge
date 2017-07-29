@@ -4,8 +4,10 @@ Chitter Challenge
 TODO:
 View app online at: heroku
 Unit tests
-Replies
-Refactor controllers
+Replies - clean up, page for a peep + replies
+Toggle view hide replies
+domain model crc cards - see code review
+presentation
 
 ![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
 

@@ -25,7 +25,8 @@ class User
   property :full_name, String
   property :password_digest, Text
 
-  has n, :peeps, through: Resource
+  has n, :peeps, through: Resource, constraint: :destroy
+  has n, :replys, through: Resource, constraint: :destroy
 
   # when assigned the password, we don't store it directly
   # instead, we generate a password digest, that looks like this:

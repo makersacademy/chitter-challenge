@@ -1,0 +1,12 @@
+<div class="container" align="center">
+
+  <form action = '/peeps/reply' method='post'>
+    <div class="form-group">
+      <label for="peep_content">Reply to peep</label>
+      <input type='hidden' name='peep_id' value='<%= @peep.id %>'>
+      <textarea class="form-control" rows="5" name="content" placeholder="Your reply"></textarea>
+    </div>
+    <input type = 'submit' value='Reply' class="btn-default">
+  </form>
+
+</div>

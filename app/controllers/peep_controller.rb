@@ -24,9 +24,41 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps/delete' do
-    Peep.get(params[:id]).destroy
+    Peep.get(params[:peep_id]).destroy
     flash.now[:notice] = "Peep deleted."
     redirect '/peeps'
+  end
+
+  get '/tags/:tag' do
+    tag = Tag.first(name: params[:tag])
+    @peeps = tag ? tag.peeps : []
+    erb :'/peeps/index'
+  end
+
+  get '/peeps/reply' do
+    @peep = Peep.get(params[:peep_id])
+    erb :'/peeps/reply'
+  end
+
+  post '/peeps/reply' do
+    @peep = Peep.get(params[:peep_id])
+    p params
+    reply = Reply.create(content: params[:content],
+            created_at: Time.now,
+            user: current_user,
+            peep: @peep)
+            p reply
+    @peep.replys << reply
+    @replys = Reply.all(peep_id: @peep.id).reverse
+    @replys = [] if @replys.nil?
+    erb :'/peeps/peep'
+  end
+
+  get '/peeps/peep/:peep_id' do
+    @peep = Peep.get(params[:peep_id])
+    @replys = Reply.all(peep_id: @peep.id).reverse
+    @replys = [] if @replys.nil?
+    erb :'/peeps/peep'
   end
 
 end

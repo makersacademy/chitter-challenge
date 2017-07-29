@@ -28,17 +28,19 @@ module ChitterHelpers
    end
 
    def create_peep(params)
-     peep = Peep.new(content: params[:peep_content], user_id: current_user.id)
+     peep = Peep.new(content: params[:peep_content],
+            user: current_user)
      tags = params[:tags]
      tags.split(" ").each do |tag|
        search = User.first(:username => tag)
        if search
          email(search.email, "Chitter: #{search.username} tagged you in a peep!", "Go to Chitter to see it.")
        end
-       tag  = Tag.first_or_create(name: tag)
+       tag = Tag.first_or_create(name: tag)
        peep.tags << tag
      end
      peep.save
+     peep.tags.each { |tag| tag.peeps << peep }
    end
 
    def email(email, subject, message)

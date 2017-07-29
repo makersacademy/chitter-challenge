@@ -18,19 +18,19 @@
     <div class="well peep-content"><p><%= peep.content %></div>
       <div class="row">
         <div class="col-xs-8">
-          Tags: <%= peep.tags.map(&:name).join(", ") %>
+          Tags: <%= peep.tags.map(&:name).map{ |tag| "<a href=\'/tags/#{tag}\'>#{tag}</a>" }.join(", ") %>
         </div>
         <div class="col-xs-2">
         <% if current_user and peep.user_id == current_user.id %>
           <form stlye="float: right;" method='post' action='/peeps/delete'>
-             <input type='hidden' name='id' value='<%= peep.id %>'>
+             <input type='hidden' name='peep_id' value='<%= peep.id %>'>
              <input type="submit" value="Delete" class="btn-danger">
           </form>
         <% end %>
         </div>
           <div class="col-xs-2">
-          <form stlye="float: right;" method='post' action='/peeps/reply'>
-             <input type='hidden' name='id' value='<%= peep.id %>'>
+          <form stlye="float: right;" method='get' action='/peeps/reply'>
+             <input type='hidden' name='peep_id' value='<%= peep.id %>'>
              <input type="submit" value="Reply" class="btn-success">
           </form>
         </div>
