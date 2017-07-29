@@ -5,6 +5,8 @@ class User
   attr_reader :password
   attr_accessor :password_confirmation
 
+  has n, :peeps, through: Resource
+
   validates_confirmation_of :password
   property :id, Serial
   property :username, String, required: true, unique: true
