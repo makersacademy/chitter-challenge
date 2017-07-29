@@ -5,14 +5,6 @@ class Chitter < Sinatra::Base
     erb :'peeps/index'
   end
 
-  get '/peeps/new' do
-    if session[:user_id].nil?
-      flash.now[:notice] = "You must be logged in to post a peep"
-      redirect '/peeps'
-    end
-    erb :'peeps/new'
-  end
-
   post '/peeps' do
     if params[:peep_content] != ""
       create_peep(params)
@@ -21,6 +13,14 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = "Please enter a message for your peep"
       erb :'/peeps/new'
     end
+  end
+
+  get '/peeps/new' do
+    if session[:user_id].nil?
+      flash.now[:notice] = "You must be logged in to post a peep"
+      redirect '/peeps'
+    end
+    erb :'peeps/new'
   end
 
   post '/peeps/delete' do

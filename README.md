@@ -1,6 +1,8 @@
 Chitter Challenge
 =================
 
+![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
+
 Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
 A Twitter clone that will allow the users to post messages to a public stream.
@@ -57,12 +59,13 @@ I want Chitter to have nice CSS and style
 Technologies
 ----
 
-* Test frameworks: Rspec, Capybara
 * Programming language: Ruby
 * Sinatra web app
-* HTML, CSS, Bootstrap, Javascript
+* Front end: HTML, CSS, Bootstrap
+* Bcrypt for password security
+* Used postgreSQL and Data Mapper (ORM) to save the data in databases.
+* Test frameworks: Rspec, Capybara
 * Hosted on Heroku at: ADD IN HERE LINK
-* Used Data Mapper and postgreSQL to save the data in databases.
 
 -----
 
@@ -122,41 +125,59 @@ CHITTER_GMAIL_USERNAME="<your gmail email address>"
 CHITTER_GMAIL_PASSWORD="<your gmail password>"
 ```
 
-How to use chitter:
-screenshots
+---
 
-![Screenshot](https://path_to_your_image)
+How to use Chitter
 
-Homepage
-You can view the peeps, login or signup
+---
 
-View peeps:
-You can see all peeps in reverse chronological order
-you can search the peeps via tag or username
-You cannot post a peep unless you are logged in
+![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
 
-Sign up
-Enter email, username, full name, password, and password confirmation
+*Homepage*
+- You can view the peeps, login or signup.
 
-Log in / Log out
-Click on the log out button in the nav bar at the top right of the screen
+*Peeps (messages)*
+- You can see all peeps in reverse chronological order
+- you can search the peeps for key words
+- You cannot post a peep unless you are logged in
 
-Once logged in
-You can then post peeps
-You can delete peeps you posted if logged in
-COMMENT ON OTHERS PEEPS!!!
-View your profile by clicking on "Welcome, <Username>"
-PUT IN DROPDOWN??
+*Sign up*
+- Enter email, username, full name, password, and password confirmation
+
+*Log in / Log out*
+- Click on the log out button in the nav bar at the top right of the screen
+
+*Once logged in*
+- You can then post peeps
+- You can delete peeps you posted if logged in
+- View your profile by clicking on "Welcome, <Username>"
+
+---
 
 Design of Program
 ----
-Models
 
-Views
+- app
+- helpers -> chitter_helpers
+- chitter_setup
 
-Controllers
+*Models*
+- User
+- Peep
+- Tag
 
-UNIT TESTS???
+*Views*
+- layout
+- index
+- peeps -> index, new
+- users -> index, new
+
+*Controllers*
+- users
+- peeps
+
+*public*
+- style.css
 
 ----
 
