@@ -4,6 +4,8 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'orderly'
+require_relative './features/feature_helpers'
 
 require './app/app'
 Capybara.app = Chitter

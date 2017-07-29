@@ -9,6 +9,7 @@ gem 'sinatra-flash'
 gem 'bcrypt'
 
 group :test do
+  gem 'orderly'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pry'
