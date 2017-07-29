@@ -11,4 +11,11 @@ feature 'Viewing peeps' do
       expect(page).to have_content('Hello world!')
     end
   end
+
+  scenario 'I want to see peeps in reverse chronological order' do
+    Peep.create(name: 'Dave', username: '@dodgydave', peep: 'I should be next')
+    Peep.create(name: 'Fred', username: '@fruityfred', peep: 'I should be first')
+    visit '/peeps'
+    expect(page.find('li:nth-of-type(1)')).to have_content 'I should be first'
+  end
 end
