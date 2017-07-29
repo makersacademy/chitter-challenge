@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative 'modles/peep'
 require_relative 'datamapper_setup'
+require_relative 'lib/time'
 
 class Chitter < Sinatra::Base
 enable :sessions
@@ -11,7 +12,7 @@ get '/messages' do
 end
 
 post '/messages' do
-Peep.create(peep: params[:peep])
+Peep.create(peep: params[:peep], time: TodaysDate.new.todays_date_toady)
 redirect '/messages'
 end
 
