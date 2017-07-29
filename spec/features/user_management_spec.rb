@@ -1,4 +1,4 @@
-feature 'Create user' do
+feature 'User: Sign up' do
 
   let!(:user) do
     User.create(email: 'user@user.com', password: 'password')

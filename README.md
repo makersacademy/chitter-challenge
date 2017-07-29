@@ -11,17 +11,17 @@ Completed
 - [x] I want to post a message to chitter
 - [x] I want to see the time at which it was made
 - [x] I want to sign up for Chitter
+- [x] I want to log in to Chitter
 - [x] Heroku hosted
 - [x] Testing: 95%
 
 Doing
 -------
-- [ ] I want to see all peeps in reverse chronological order
+- [ ] I want to log out of Chitter
 
 Incomplete
 -------
-- [ ] I want to log in to Chitter
-- [ ] I want to log out of Chitter
+- [ ] I want to see all peeps in reverse chronological order
 - [ ] I want to receive an email if I am tagged in a Peep
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
 - [ ] Styling / CSS
