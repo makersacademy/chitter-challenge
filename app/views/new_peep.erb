@@ -1,7 +1,11 @@
-<form action="/peeps" method="post">
-Message
-  <label for='message'>
-    <input type='text' name='message' maxlength="160" required>
-  </label>
-  <button type='submit'>Post</button>
-</form>
+ <div class="container">
+  <form action="/peeps" method="post">
+    <p>Post a peep <span class="glyphicon glyphicon-pencil"></span></p>
+    <div class="input-group">
+        <textarea class="form-control" rows="3" name='message' maxlength="160" placeholder="Enter message here" required></textarea>
+        <span class="input-group-addon">
+          <button type='submit' class="btn btn-primary">Post</button>
+          </span>
+    </div>
+  </form>
+</div>
