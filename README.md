@@ -6,7 +6,7 @@ Chitter Challenge
 What is Chitter?
 -------
 
-For the fifth weekend challenge at Maker's Academy, we have been asked to build a full-stack application that simulates the core functionality of Twitter. A publicly visibly feed will display all 'peeps' from users, who in turn can sign up, post 'peeps', log in and log out of the app. 
+For the fifth weekend challenge at Maker's Academy, we have been asked to build a full-stack application that simulates the core functionality of Twitter. A publicly visibly feed will display all 'peeps' from users, who in turn can sign up, post 'peeps', log in and log out of the app.
 
 How to use Chitter:
 -------
@@ -23,5 +23,6 @@ $ gem install bundler
 $ bundle
 $ bundle update
 
-
 ```
+
+Alternatively, visit the app on Heroku here: https://annalaise-chitter.herokuapp.com/
