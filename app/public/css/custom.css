@@ -6,29 +6,17 @@ body {
 
 h1 {
   font-family: 'Cabin Sketch', cursive;
-  text-align: center;
 }
 
 h2 {
   font-family: 'Cabin Sketch', cursive;
-  text-align: center;
-  margin-bottom: 30px;
 }
 
 h3 {
   font-family: 'Muli', sans-serif;
-  text-align: center;
-  margin-bottom: 30px;
 }
 
 .jumbotron {
   background: white;
   text-align: center;
-}
-
-.btn-default {
-  color: #black;
-  font-family: 'Muli', sans-serif;
-  border-color: black;
-	margin-bottom: 5px;
 }
