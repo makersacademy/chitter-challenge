@@ -2,10 +2,10 @@
 <body>
   <h1>Peep Feed</h1>
 
-  <ul id = "peeps">
+  <ul>
   <% @peeps.each do |peep| %>
   <li>
-    <%=peep.content %><br>
+    <%= peep.content %><br>
   </li>
   <br>
   <% end %>
