@@ -84,15 +84,7 @@ Instructions
 ---
 View app online at: XXXXXXXXX
 
-In your terminal:
-
-Set up the database (if you haven't installed PostgreSQL already)
-
-In your terminal run `brew install postgresq`
-
-After homebrew has downloaded the software it will show you some installation instructions, follow them!
-
-Make sure you run these commands after installing:
+Set up the database (if you haven't installed PostgreSQL already). In your terminal run `brew install postgresq`. After homebrew has downloaded the software it will show you some installation instructions, follow them! Make sure you run these commands after installing:
 ```terminal
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
@@ -120,8 +112,8 @@ rspec
 
 If you want to use the send email when tagged in a peep functionality you need to create a `.env` file in the project folder that contains:
 ```
-CHITTER_GMAIL_USERNAME="<your gmail email address>"
-CHITTER_GMAIL_PASSWORD="<your gmail password>"
+CHITTER_GMAIL_USERNAME="your gmail email address"
+CHITTER_GMAIL_PASSWORD="your gmail password"
 ```
 
 ---
@@ -149,7 +141,7 @@ How to use Chitter
 *Once logged in*
 - You can then post peeps
 - You can delete peeps you posted if logged in
-- View your profile by clicking on "Welcome, <Username>"
+- View your profile by clicking on "Welcome, Your Username"
 
 ---
 
