@@ -10,14 +10,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/peeps" do
-    peep = Peep.create(content: params[:peep],
-                      time: Time.new)
-    p peep
+    Peep.create(content: params[:peep],
+                      time: Time.now)
     redirect to("/peeps")
   end
 
   get "/peeps" do
-    @peeps = Peep.all
+    @peeps = Peep.all(:order => [ :time.desc ])
     erb :'/peeps/index'
   end
 
