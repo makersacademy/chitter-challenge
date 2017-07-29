@@ -2,9 +2,6 @@ body {
   background-image:url('/img/foggy_birds.png');
   background-color: #ffb3b3;
   font-family: 'Muli', sans-serif;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 h1 {
