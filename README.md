@@ -51,7 +51,10 @@ As a Maker
 So that I can appreciate the look of Chitter
 I want Chitter to have nice CSS and style
 ```
-Technologies used:
+
+---
+
+Technologies
 ----
 
 * Test frameworks: Rspec, Capybara
@@ -59,8 +62,10 @@ Technologies used:
 * Sinatra web app
 * HTML, CSS, Bootstrap, Javascript
 * Hosted on Heroku at: ADD IN HERE LINK
-* Used data mapper and postgres to save the data in databases.
+* Used Data Mapper and postgreSQL to save the data in databases.
+
 -----
+
 Functionality
 ------
 * You don't have to be logged in to see the peeps.
@@ -70,6 +75,7 @@ Functionality
 * Use bcrypt to secure the passwords. - TEST FOR THIS???
 * You only can peep if you are logged in.
 
+---
 
 Instructions
 ---
@@ -91,8 +97,9 @@ To see why that was necessary there is information here
 ```
 
 You can check your installation by running `psql`
-Set up a database with your username if it doesn't already exist. (see [here](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/03_mac.md) for more instructions)
+Set up a database with your username if it doesn't already exist. (see [here](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/03_mac.md) for more instructions) if you need them.
 
+In your terminal enter:
 
 ```
 $ git clone https://github.com/ryandav/chitter_challenge
@@ -104,27 +111,16 @@ $ rackup
 ```
 In your browser visit: [http://localhost:9292/](http://localhost:9292/)
 
-cd to the project folder
-Run bundle install
-Create two local postrgresql databases called chitter_development and chitter_test
-To test:
-
-Run rspec
-To run the application on localhost:
-
-Run rackup
-Visit http://localhost:9292/
-
 To run the tests:
 ```tests
 rspec
 ```
 
- and give instructions on how to install
- and run the tests
-
-ENV for email
-Profile to switch off email notifications
+If you want to use the send email when tagged in a peep functionality you need to create a `.env` file in the project folder that contains:
+```
+CHITTER_GMAIL_USERNAME="<your gmail email address>"
+CHITTER_GMAIL_PASSWORD="<your gmail password>"
+```
 
 How to use chitter:
 screenshots
@@ -162,14 +158,14 @@ Controllers
 
 UNIT TESTS???
 
+----
+
 Code Review
 -----------
 
-In code review we'll be hoping to see:
+[code review rubric](docs/review.md).  
 
-* The code is elegant: every class has a clear responsibility, methods are short etc.
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+----
 
 References:
 To see how to structure the folders in my project

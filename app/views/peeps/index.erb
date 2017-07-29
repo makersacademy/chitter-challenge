@@ -16,13 +16,25 @@
     <div class="well peep">
     <p><%= User.get(peep.user_id).full_name %> @<%= User.get(peep.user_id).username %> - <%= peep.created_at.strftime("%c") %></p>
     <div class="well peep-content"><p><%= peep.content %></div>
-    Tags: <%= peep.tags.map(&:name).join(", ") %>
-    <% if current_user and peep.user_id == current_user.id %>
-      <form method='post' action='/peeps/delete'>
-         <input type='hidden' name='id' value='<%= peep.id %>'>
-         <input type="submit" value="Delete" class="btn-danger">
-      </form>
-   <% end %>
+      <div class="row">
+        <div class="col-xs-8">
+          Tags: <%= peep.tags.map(&:name).join(", ") %>
+        </div>
+        <div class="col-xs-2">
+        <% if current_user and peep.user_id == current_user.id %>
+          <form stlye="float: right;" method='post' action='/peeps/delete'>
+             <input type='hidden' name='id' value='<%= peep.id %>'>
+             <input type="submit" value="Delete" class="btn-danger">
+          </form>
+        <% end %>
+        </div>
+          <div class="col-xs-2">
+          <form stlye="float: right;" method='post' action='/peeps/reply'>
+             <input type='hidden' name='id' value='<%= peep.id %>'>
+             <input type="submit" value="Reply" class="btn-success">
+          </form>
+        </div>
+      </div>
     </div>
   </li>
   <% end %>
