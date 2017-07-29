@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-timestamps'
 require './models/peep'
 require_relative 'data_mapper_setup'
 
