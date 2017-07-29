@@ -6,12 +6,9 @@ require_relative 'data_mapper_setup'
 # require 'sinatra/flash'
 
 class Chitter < Sinatra::Base
-  enable :sessions
-  set :session_secret, 'super secret'
 
   get '/peeps' do
     @peeps = Peep.all
-    p @peeps
     erb :'index'
   end
 
@@ -20,9 +17,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
+    # Peep.create(message: params[:message])
     peep = Peep.new(message: params[:message])
     peep.save
-    p peep
     redirect '/peeps'
   end
 
