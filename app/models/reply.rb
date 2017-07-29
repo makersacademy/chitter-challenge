@@ -1,8 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
-require 'dm-core'
-require 'dm-timestamps'
-
 class Reply
   include DataMapper::Resource
 

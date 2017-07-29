@@ -3,8 +3,6 @@ ruby '2.4.0'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'dm-core'
-gem 'dm-timestamps'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'database_cleaner'

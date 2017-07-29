@@ -147,9 +147,7 @@ DEPENDENCIES
   capybara
   data_mapper
   database_cleaner
-  dm-core
   dm-postgres-adapter
-  dm-timestamps
   dotenv
   mail
   rake

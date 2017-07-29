@@ -42,12 +42,10 @@ class Chitter < Sinatra::Base
 
   post '/peeps/reply' do
     @peep = Peep.get(params[:peep_id])
-    p params
     reply = Reply.create(content: params[:content],
             created_at: Time.now,
             user: current_user,
             peep: @peep)
-            p reply
     @peep.replys << reply
     @replys = Reply.all(peep_id: @peep.id).reverse
     @replys = [] if @replys.nil?
