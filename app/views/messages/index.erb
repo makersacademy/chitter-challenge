@@ -1,11 +1,4 @@
-<h1> Peeps </h1>
-<ul id='peeps'>
-  <% @peeps.each do |pe| %>
-  <li>
-    Peep: <%= pe.peep %>
-  </li>
-  <% end %>
-</ul>
+
 
 
 <form action='/messages' method='post'>
@@ -14,3 +7,12 @@
     <input type='submit' value='Peep'>
   </lable>
 </form>
+
+<h1> Peeps </h1>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |pe| %>
+  <li>
+    Peep: <%= pe.peep %>
+  </li>
+  <% end %>
+</ul>
