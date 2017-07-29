@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'orderly'
 require 'simplecov'
 require 'simplecov-console'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -31,6 +32,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include SessionHelpers
 
   config.after(:suite) do
     puts
