@@ -1,0 +1,14 @@
+<html>
+<body>
+  <h1>Peep Feed</h1>
+
+  <ul id = "peeps">
+  <% @peeps.each do |peep| %>
+  <li>
+    <%=peep.content %><br>
+  </li>
+  <br>
+  <% end %>
+  </ul>
+</body>
+</html>
