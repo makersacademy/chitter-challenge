@@ -1,0 +1,23 @@
+<DOCTYPE html>
+  <head>
+    <title> Chitter </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #1ac59a
+      }
+    p {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+        <p>Peep: <%= peep.message %></p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
