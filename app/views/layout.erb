@@ -9,6 +9,9 @@
     <body>
       <div class="container">
         <div class="box">
+          <% if current_user %>
+            Welcome, <%= current_user.email %>
+          <% end %>
           <%= yield %>
         </div>
       </div>
