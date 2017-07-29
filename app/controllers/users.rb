@@ -6,11 +6,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    User.create(name: params[:name], email: params[:email],
-                username: params[:username], password: params[:password],
-                password_confirmation: params[:password_confirmation])
-    session[:name] = params[:name]
-    redirect '/peeps'
+    @user = User.create(name: params[:name],
+                        email: params[:email],
+                        username: params[:username],
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
+    if @user.valid?
+      session[:user_id] = @user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb(:'/users/new')
+    end
   end
 
 end

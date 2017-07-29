@@ -46,10 +46,18 @@
 
   <body>
     <% if current_user %>
-      Welcome to Chitter, <%= current_user %>
+      Welcome to Chitter, <%= current_user.name %>
     <% else %>
       <br>
     <% end %>
     <%= yield %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please correct the following errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </body>
 </html>
