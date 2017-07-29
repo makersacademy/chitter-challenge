@@ -6,7 +6,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    p "Reached post users"
+    User.create(name: params[:name], email: params[:email],
+                username: params[:username])
     session[:name] = params[:name]
     redirect '/peeps'
   end

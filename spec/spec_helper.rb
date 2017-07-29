@@ -1,4 +1,7 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'capybara/rspec'
+require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 
@@ -16,6 +19,19 @@ SimpleCov.start
 
 RSpec.configure do |config|
   config.include SessionHelpers
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   config.after(:suite) do
     puts
