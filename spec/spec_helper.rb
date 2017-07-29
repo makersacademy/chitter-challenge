@@ -1,6 +1,8 @@
-ENV['RACK_ENV'] = 'test'
+# ENV['RACK_ENV'] = 'test'
 require 'capybara/rspec'
-require './chitter'
+require './app/chitter'
+require './app/models/peep'
+require 'pry'
 require 'simplecov'
 require 'simplecov-console'
 

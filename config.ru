@@ -1,2 +1,2 @@
-require './chitter.rb'
+require './app/chitter.rb'
 run Chitter
