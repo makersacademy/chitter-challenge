@@ -12,11 +12,7 @@ feature 'Create user' do
     expect(User.first.email).to eq 'user@user.com'
   end
 
-  # Has a matching password
-  scenario 'has a matching password' do
-    expect { sign_up(password_confirmation: 'no') }.not_to change(User, :count)
-  end
-
+  # When a password does not match
   def sign_up(email: 'user@user.com',
               password: '12345678',
               password_confirmation: '12345678')
@@ -25,5 +21,11 @@ feature 'Create user' do
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
+  end
+
+  scenario 'does not have a matching password' do
+    expect { sign_up(password_confirmation: 'no') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Password and confirmation password do not match'
   end
 end
