@@ -1,16 +1,17 @@
 require 'sinatra/base'
+require_relative 'modles/peep'
+require_relative 'datamapper_setup'
 
 class Chitter < Sinatra::Base
 enable :sessions
 
-
 get '/messages' do
-  @peep = session[:peep]
-  erb :messages
+  @peeps = Peep.all
+  erb :'messages/index'
 end
 
 post '/messages' do
-session[:peep] = params[:peep]
+Peep.create(peep: params[:peep])
 redirect '/messages'
 end
 
