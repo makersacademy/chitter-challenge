@@ -16,6 +16,7 @@
       <% @peeps.reverse.each do |peep| %>
         <li>
         <p>Peep: <%= peep.message %></p>
+        <p>Posted at: <%= peep.created_at %></p>
         </li>
       <% end %>
     </ul>
