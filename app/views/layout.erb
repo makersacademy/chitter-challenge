@@ -2,8 +2,23 @@
 <html>
   <head>
     <title>Chitter</title>
+
+    <h1> Chitter </h1>
+
     <% if current_user %>
       Welcome <%= current_user.username %>!
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Uh oh!
+      <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
     <% end %>
   </head>
   <body>
