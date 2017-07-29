@@ -35,4 +35,14 @@ feature 'Signing up' do
     .not_to change(User, :count)
   end
 
+  scenario 'A user cannot sign up with existing email' do
+    sign_up
+    expect { sign_up(username: 'curious') }.not_to change(User, :count)
+  end
+
+  scenario 'A user cannot sign up with existing username' do
+    sign_up
+    expect { sign_up(email: 'curious@george.com') }.not_to change(User, :count)
+  end
+
 end
