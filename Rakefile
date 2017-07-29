@@ -15,11 +15,10 @@ namespace :db do
   end
 end
 
+if ENV['RACK_ENV'] != 'production'
+  require 'rspec/core/rake_task'
 
-# if ENV['RACK_ENV'] != 'production'
-#   require 'rspec/core/rake_task'
-#
-#   RSpec::Core::RakeTask.new :spec
-#
-#   task default: [:spec]
-# end
+  RSpec::Core::RakeTask.new :spec
+
+  task default: [:spec]
+end
