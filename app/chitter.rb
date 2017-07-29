@@ -5,6 +5,8 @@ require_relative 'data_mapper_setup'
 
 class CHITTER < Sinatra::Base
 
+  set :public_folder, Proc.new { File.join(root, 'static') }
+
   get '/' do
     redirect '/posts'
   end

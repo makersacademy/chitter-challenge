@@ -22,7 +22,7 @@ Incomplete
 - [ ] I want to log out of Chitter
 - [ ] I want to receive an email if I am tagged in a Peep
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
-- [ ] Herkoku hosted
+- [ ] Heroku hosted
 - [ ] Styling / CSS
 - [ ] Testing: 95%
 
