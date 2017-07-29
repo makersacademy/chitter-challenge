@@ -1,6 +1,12 @@
 Chitter Challenge
 =================
 
+TODO:
+View app online at: heroku
+Unit tests
+Replies
+Refactor controllers
+
 ![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
 
 Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
@@ -82,7 +88,6 @@ Functionality
 
 Instructions
 ---
-View app online at: XXXXXXXXX
 
 Set up the database (if you haven't installed PostgreSQL already). In your terminal run `brew install postgresq`. After homebrew has downloaded the software it will show you some installation instructions, follow them! Make sure you run these commands after installing:
 ```terminal

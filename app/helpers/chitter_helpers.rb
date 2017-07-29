@@ -3,6 +3,17 @@ module ChitterHelpers
      @current_user ||= User.get(session[:user_id])
    end
 
+   def create_user(params)
+     user = User.create(email: params[:email], username: params[:username],
+       full_name: params[:full_name], password: params[:password],
+       password_confirmation: params[:password_confirmation])
+     if user.save
+       session[:user_id] = user.id
+       return true
+     end
+     false
+   end
+
    def search(words)
        search_words = words.split(" ").map { |word| word.downcase }
        result = []
