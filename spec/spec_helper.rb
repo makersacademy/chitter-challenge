@@ -1,10 +1,44 @@
+ENV['RACK_ENV'] = 'test'
+
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
+require 'capybara/rspec'
+require './app/app'
+# require './app/models/link'
+require_relative 'web_helper'
+
+Capybara.app = Chitter
+
+require 'database_cleaner'
+
+RSpec.configure do |config|
+  config.include Capybara::DSL # good
+  config.include FactoryGirl::Syntax::Methods # sure
+  config.include TestHelpers # good
+  
+  # Everything in this block runs once before all the tests run
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
+
 require 'simplecov'
 require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
