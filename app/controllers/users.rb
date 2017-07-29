@@ -2,6 +2,7 @@
 class Chitter < Sinatra::Base
 
   get '/users/new' do
+    session[:user_id] = nil
     erb :'users/new'
   end
 
@@ -19,5 +20,4 @@ class Chitter < Sinatra::Base
       erb(:'/users/new')
     end
   end
-
 end
