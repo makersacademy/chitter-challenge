@@ -16,7 +16,7 @@ class Peep
 end
 
 # connect to database:
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 # check everything in model is ok:
 DataMapper.finalize
 # build any new columns or tables we added
