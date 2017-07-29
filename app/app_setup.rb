@@ -1,7 +1,10 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'sinatra/base'
+require 'date'
+
+require_relative 'models/peep.rb'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-
-require_relative 'models/chit.rb'
+DataMapper.auto_upgrade!

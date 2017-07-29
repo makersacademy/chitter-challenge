@@ -1,26 +1,26 @@
 ENV['RACK_ENV'] ||= 'development'
 
-require 'sinatra/base'
 require_relative 'app_setup'
 
 class Chitter < Sinatra::Base
+
   get '/' do
     erb(:index)
   end
 
-  get '/chits' do
-    @chits = Chit.all
-    erb(:chits)
+  get '/peeps' do
+    @peeps = Peep.all.reverse
+    erb(:peeps)
   end
 
-  post '/chits' do
-    chitbody = params[:chitbody]
-    Chit.create(body: chitbody)
-    redirect '/chits'
+  post '/peeps' do
+    peepbody = params[:peepbody]
+    Peep.create(body: peepbody)
+    redirect '/peeps'
   end
 
-  get '/chits/new' do
-    erb(:newchit)
+  get '/peeps/new' do
+    erb(:peep_new)
   end
 
 end
