@@ -8,10 +8,11 @@ class Peep
   include DataMapper::Resource
 
   # these property declarations set the column headers in the peeps table
-  property :id,       Serial # auto incremented for every record/only used once
-  property :name,     String
-  property :username, String
-  property :peep,     String
+  property :id,         Serial # auto incremented for every record/only used once
+  property :name,       String
+  property :username,   String
+  property :peep,       String
+  property :created_at, DateTime
 
 end
 
