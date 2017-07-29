@@ -2,19 +2,19 @@
 
 <form action='/users' method='POST'>
   <label for='name'>
-    Name: <input type='text' name ='name' value='<%= @user.name %>'>
+    Name: <input type='text' name ='name' value='<%= @user.name %>' required>
   </label>
   <label for='username'>
-    Username: <input type='text' name ='username' value='<%= @user.username %>'>
+    Username: <input type='text' name ='username' value='<%= @user.username %>' required>
   </label>
   <label for='email'>
-    Email: <input type='text' name ='email' value='<%= @user.email %>'>
+    Email: <input type='text' name ='email' value='<%= @user.email %>' required>
   </label>
   <label for='password'>
-    Password: <input type='text' name ='password'>
+    Password: <input type='text' name ='password' required>
   </label>
-  <label for='confirm_password'>
-    Confirm Password: <input type='text' name ='confirm_password'>
+  <label for='password_confirmation'>
+    Confirm Password: <input type='text' name ='password_confirmation' required>
   </label>
   <input type='submit' value='Sign Up!'>
 </form>
