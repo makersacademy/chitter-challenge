@@ -1,7 +1,9 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  
-  RSpec::Core::RakeTask.new :spec
-  
-  task default: [:spec]
-end
+
+#begin
+  #require './app/link.rb' do
+  #  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
+  #  DataMapper.finalize
+  #  DataMapper.auto_migrate!
+#  end
+#rescue LoadError
+#end
