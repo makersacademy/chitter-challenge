@@ -3,6 +3,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'erb'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
