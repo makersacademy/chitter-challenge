@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require './app/models/peep'
 
-
 class Chitter < Sinatra::Base
   get '/' do
     'Testing infrastructure working!'
@@ -17,7 +16,6 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
     Peep.create(name: params[:name], username: params[:username], peep: params[:peep])
     redirect '/peeps'
   end
