@@ -3,6 +3,7 @@ require 'bcrypt'
 
 class User
   include DataMapper::Resource
+  include BCrypt
 
   attr_reader :password
   attr_accessor :password_confirmation
@@ -20,5 +21,14 @@ class User
   def password=(password)
     @password = password
     self.password_salt = BCrypt::Password.create(password)
+  end
+
+  def self.authenticate(nickname, password)
+    user = first(nickname: nickname)
+    if user && BCrypt::Password.new(user.password_salt) == password
+      user
+    else
+      nil
+    end
   end
 end

@@ -1,12 +1,17 @@
+<body>
 <h1>Chitter</h1>
 <% if current_user %>
-     Welcome, <%= current_user.nickname %>
-   <% end %>
+  Welcome, <%= current_user.nickname %>
+<% end %>
+  <form action='/peeps/new' method='GET'>
+    <input type='submit' value='New Peep'>
+  </form>
 <h2> Here are all of the peeps </h2>
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-  <li>
-    Peep: <%= peep.message %> on <%= peep.time %>
-  </li>
-  <% end %>
-</ul>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %>
+    </li>
+    <% end %>
+  </ul>
+<body>
