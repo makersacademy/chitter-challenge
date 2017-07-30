@@ -7,6 +7,24 @@
 
     <% if current_user %>
       Welcome <%= current_user.username %>!
+      <br><br>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+      <form method='get' action='/peeps/new'>
+        <input type='submit' value='Peep!'>
+      </form>
+      <br><br>
+      <% if flash[:notice] %>
+        <div id='notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    <% else %>
+      <form method='get' action='/sessions/new'>
+        <input type='submit' value='Peep!'>
+      </form>
     <% end %>
 
     <% if flash[:notice] %>

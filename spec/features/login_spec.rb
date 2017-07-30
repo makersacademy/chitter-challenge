@@ -4,10 +4,7 @@ feature 'Log in to Chitter' do
 
   scenario 'existing user can log in' do
     sign_up
-    visit '/sessions/new'
-    fill_in 'email', with: 'dave@gmail.com'
-    fill_in 'password', with: '12345'
-    click_button 'Log in'
+    log_in
     expect(page).to have_content 'Welcome Cat_Peeps93!'
     expect(current_path).to eq '/peeps'
     visit '/peeps/new'

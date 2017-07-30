@@ -8,7 +8,7 @@ feature 'Peep' do
     sign_up
     visit '/peeps/new'
     fill_in 'message', with: 'My first peep'
-    click_button 'Peep!'
+    click_button 'Done!'
     expect(current_path).to eq '/peeps'
     within 'ul#peeps' do
       expect(page).to have_content 'My first peep'
