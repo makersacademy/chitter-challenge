@@ -90,6 +90,8 @@ button {
       font-size: 1em;
       font-style: italic;
       text-align: left; }
+    .container .new_post .username {
+      color: #00b7fe; }
 
 /* 5. Peep Buttons */
 .peeping {

@@ -9,7 +9,7 @@ class CHITTER < Sinatra::Base
   post '/posts' do
     time = Time.now
     post = Post.new(text: params[:text],
-                    time: time.strftime("Posted on %d/%m/%Y at %I:%M%p"))
+                    time: time.strftime("Posted on %d/%m/%Y at %H:%M%p"))
     user = User.first(:username => current_user.username)
     post.user << user
     post.save
