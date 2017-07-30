@@ -1,10 +1,32 @@
-<% @peeps.reverse.each do |peep| %>
-  <article class = "comment">
-    <div class="panel panel-default">
-      <div class="panel-body">
-      <%= peep.message %></br><%= peep.created_at.strftime("%H:%M") %>
-      <%= peep.created_at.strftime("%g %h") %>
+<div class="body-elements">
+
+  <% if @user %>
+    <% if @user.id %>
+      Welcome, <%= @user.name %>
+    <% end %>
+  <% end %>
+
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-1 sidenav">
+      </div>
+
+      <div class="col-sm-10">
+        <% @peeps.reverse.each do |peep| %>
+          <article class = "comment">
+            <div class="panel panel-default">
+              <div class="panel-body">
+              <%= peep.message %></br>
+              <%= peep.created_at.strftime("%H:%M") %>
+              <%= peep.created_at.strftime("%g %h") %>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+
+      <div class="col-sm-1 sidenav">
       </div>
     </div>
-  </article>
-<% end %>
+  </div>
+</div>
