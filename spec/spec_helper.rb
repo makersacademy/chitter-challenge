@@ -17,7 +17,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/chitter_test' )
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/chitter_test')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
@@ -33,7 +33,7 @@ RSpec.configure do |config|
 
   config.before(:each, type: :feature) do
     driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
-    if !driver_shares_db_connection_with_specs
+    unless driver_shares_db_connection_with_specs
       DatabaseCleaner.strategy = :truncation
     end
   end
