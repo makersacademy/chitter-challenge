@@ -15,6 +15,6 @@ feature 'Signing up and logging in' do
     fill_in :email, with: 'email@email.com'
     fill_in :password, with: 'test123'
     click_button('submit')
-    expect(page).to have_content('Hello tester')
+    expect(page).to have_content('Hello Tester!')
   end
 end

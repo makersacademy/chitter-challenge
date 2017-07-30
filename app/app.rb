@@ -33,7 +33,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users/new' do
-    name = params[:name]
+    name = params[:name].capitalize
     email = params[:email]
     password = params[:password]
     User.create(name: name, email: email, password: password)

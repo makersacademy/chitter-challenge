@@ -21,11 +21,11 @@ th, td {
     padding: 15px;
 }
 
-tr:nth-child(even){background-color: #E8F2E8}
-tr:not(.nohover):hover {background-color: #C8CDC8}
+tr:nth-child(even){background-color: #E4ECEE}
+tr:not(.nohover):hover {background-color: #AFCDD3}
 
 th {
-    background-color: #4CAF50;
+    background-color: #31DAFD;
     color: white;
 }
 
@@ -52,9 +52,10 @@ textarea {
 }
 
 .full-width {
+  border-collapse: collapse;
   width: 100%;
-  background: #E8F2E8;
-  padding: 12px 12px;
+  background: #C8CDC8;
+  padding: 12px 0px;
   text-align: center;
 }
 
@@ -66,7 +67,7 @@ textarea {
 }
 
 .button {
-    background-color: #4CAF50;
+    background-color: #31DAFD;
     border: none;
     color: white;
     padding: 15px 32px;
