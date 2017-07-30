@@ -16,6 +16,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/feed'
+  end
+
   get '/feed' do
     user_email = User.get(session[:user_id]).email if session[:user_id]
     @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : "Latest peeps"

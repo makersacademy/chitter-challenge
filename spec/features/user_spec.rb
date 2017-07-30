@@ -27,7 +27,7 @@ feature 'User sign in / sign up:' do
 
   scenario 'I can login if was registered before' do
     sign_up
-    click_button 'Logout'
+    click_link 'Logout'
     visit('/user/login')
     fill_in 'email', with: email
     fill_in 'password', with: password
@@ -45,7 +45,7 @@ feature 'User sign in / sign up:' do
 
   scenario 'I can log out after logging in' do
     sign_up
-    click_button 'Logout'
+    click_link 'Logout'
     expect(page).to have_content('Please sign in')
     expect(page).not_to have_content('Howdy')
   end
