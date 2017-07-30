@@ -5,7 +5,6 @@ fill_in :message, with: peep
 click_button 'Post'
 end
 
-
 def test_peep_one
   "Joffrey...Cersei...Walder Frey...Meryn Trant...Tywin Lannister...The Red Woman...Beric Dondarrion...Thoros of Myr...Illyn Payne...The Mountain.."
 end
