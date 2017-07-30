@@ -3,11 +3,12 @@ feature 'User: Sign in ' do
   let!(:user) do
     User.create(email: 'user@user.com',
                 password: 'pass',
-                password_confirmation: 'pass')
+                password_confirmation: 'pass',
+                username: '@user')
   end
 
   scenario 'can sign into a user account' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content 'Welcome, user@user.com'
+    expect(page).to have_content 'Welcome, @user'
   end
 end

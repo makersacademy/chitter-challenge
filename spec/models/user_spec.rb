@@ -2,7 +2,8 @@ describe User do
   let!(:user) do
     User.create(email: 'user@user.com',
                 password: 'pass',
-                password_confirmation: 'pass')
+                password_confirmation: 'pass',
+                username: '@user')
   end
 
   it 'authenticates when valid login details are provided' do
