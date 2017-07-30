@@ -7,8 +7,16 @@
 
   <body>
     <h1>Welcome to Chitter<%= ", #{@user.username}!" if @user %> </h1>
-    <form action="/peeps/new" method="get">
-      <input type='submit' value='New Peep!'>
+    <% if @user %>
+      <form action="/peeps/new" method="get">
+        <input type='submit' value='New Peep!'>
+      </form>
+    <% end %>
+    <form action="/users/new" method="get">
+      <input type='submit' value='Sign up for Chitter!'>
+    </form>
+    <form action="/sessions/new" method="get">
+      <input type='submit' value='Sign in to Chitter!'>
     </form>
     <h2>Peeps</h2>
     <ul id='peeps'>

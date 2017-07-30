@@ -23,9 +23,24 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:current_user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['Incorrect email or password!']
+      erb :'sessions/new'
+    end
+  end
+
   get '/users/new' do
     @user = User.new
-    erb :new_user
+    erb :'users/new'
   end
 
   post '/users/new' do
@@ -38,12 +53,12 @@ class Chitter < Sinatra::Base
       redirect '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
-      erb :new_user
+      erb :'users/new'
     end
   end
 
   get '/peeps/new' do
-    erb :new_peep
+    erb :'peeps/new'
   end
 
   post '/peeps/new' do
@@ -54,7 +69,7 @@ class Chitter < Sinatra::Base
   get '/peeps' do
     @user = current_user
     @peeps = Peep.all
-    erb :peeps
+    erb :'peeps/index'
   end
 
 end
