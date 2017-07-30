@@ -4,7 +4,7 @@ class User
   property :id, Serial
   property :name, String, required: true
   property :user_name, String, required: true
-  property :email_address, String, required: true
+  property :email_address, String, format: :email_address, required: true
   property :password_digest, Text, required: true
   validates_confirmation_of :password, :message => 'Password do not match'
 
