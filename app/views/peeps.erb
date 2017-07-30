@@ -1,8 +1,24 @@
-<div id='chitfeed'>
-  <%= @user ? "Hello #{@user.name}" : "" %>
+<% if @user %>
+<div id='loggedin'>
+  <div class="full-width">
+    <%= "Hello #{@user.name}! Welcome to Chitter"%>
+  </div>
+  <br>
   <form action="/peeps/new" method="get">
-    <input type="submit" value="new"/>
-  </form><br>
+    <button type="submit" class="button" value="new">Make a new peep!</button>
+  </form>
+</div>
+<br>
+<% end %>
+
+<% unless @user %>
+<div id='loggedout'>
+  Please login or sign up to post a new peep.
+</div>
+<br>
+<% end %>
+
+<div>
   <table width="50%">
     <tr>
       <th width="70%">Peep</th>

@@ -6,8 +6,12 @@ class Chitter < Sinatra::Base
 
   enable :sessions
 
+  before do
+    @user = session[:current_user]
+  end
+
   get '/' do
-    erb(:index)
+    redirect '/peeps'
   end
 
   get '/users' do
@@ -36,8 +40,12 @@ class Chitter < Sinatra::Base
     redirect '/users'
   end
 
+  get '/logout' do
+    session[:current_user] = nil
+    redirect '/peeps'
+  end
+
   get '/peeps' do
-    @user = session[:current_user]
     @peeps = Peep.all.reverse
     erb(:peeps)
   end
