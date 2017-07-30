@@ -11,6 +11,7 @@ gem 'sinatra'
 gem 'sinatra-flash'
 
 group :test do
+  gem 'capybara'
   gem 'cucumber'
   gem 'rspec'
   gem 'rubocop'
