@@ -6,7 +6,9 @@ require 'simplecov'
 require 'simplecov-console'
 
 require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+require_relative 'helpers/peep'
 require_relative 'helpers/session'
+require_relative 'helpers/user'
 
 Capybara.app = Chitter
 
@@ -18,7 +20,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.include PeepHelpers
   config.include SessionHelpers
+  config.include UserHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

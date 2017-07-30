@@ -1,0 +1,13 @@
+<head>
+  <title>Chitter. It's what's happening</title>
+</head>
+<div class='outer_container'>
+  <div class='inner_container'>
+    <div class='centered_content'>
+      <h1>What's happening?</h1>
+      <% @peeps.each  do |peep| %>
+        <p><%= peep.text%></p>
+      <% end %>
+    </div>
+  </div>
+</div>
