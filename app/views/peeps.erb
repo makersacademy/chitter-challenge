@@ -18,7 +18,7 @@
   <ul id='peeps' style="list-style-type: none;">
     <% @peeps.reverse_each do |peep| %>
     <li style="list-style-type: none;">
-      <%= peep.peeps %>
+      <b><%= peep.peeps %></b> (Time: <%= peep.time %>)<br>
     </li>
     <% end %>
   </ul>

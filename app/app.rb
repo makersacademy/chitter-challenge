@@ -15,7 +15,8 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(:peeps => params[:peeps])
+    time = Time.new
+    Peep.create(:peeps => params[:peeps], time: "#{time.hour}:#{time.min}")
     redirect('/peeps')
   end
 

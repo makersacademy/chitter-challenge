@@ -3,5 +3,6 @@ class Peep
 
   property :id,     Serial
   property :peeps,  String
+  property :time,   String
 
 end
