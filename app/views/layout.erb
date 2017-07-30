@@ -18,8 +18,13 @@
     }
   </style>
 
-  <% if @user %>
-      <h2>Welcome <%= @user.email %></h2>
+  <% if current_user %>
+      <h2>Welcome <%= current_user.email %></h2>
+
+      <form method='post' action='users/logout'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
     <% end %>
 
     <% if flash[:errors] %>
@@ -30,7 +35,13 @@
           <% end %>
         </ul>
       <% end %>
-    <%= yield %>
 
+      <% if flash[:notice] %>
+       <div id='notice'>
+         <%= flash[:notice] %>
+       </div>
+      <% end %>
+      
+    <%= yield %>
   </body>
 </html>

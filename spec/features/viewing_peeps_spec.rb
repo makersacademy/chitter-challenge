@@ -1,6 +1,9 @@
 feature 'Viewing peeps' do
   before(:each) do
-    sign_up
+    sign_up(email: 'pug@gmail.com', name: 'Pug', username: '@puggy',
+     password: 'password', password_confirmation: 'password')
+     
+    log_in(email: 'pug@email.com', password: 'password')
     post_a_peep("Today is a great day!")
   end
 
