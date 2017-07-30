@@ -12,7 +12,7 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
-  property :email, String
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
   def password=(password)
@@ -20,7 +20,3 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_migrate!
