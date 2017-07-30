@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] ||= 'development'
+ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
 
   get '/feed' do
     user_email = User.get(session[:user_id]).email if session[:user_id]
-    @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : "Latest peeps"
+    @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : 'Latest peeps'
     @peeps = Peep.all.sort { |a, b| b.time_created <=> a.time_created }
     erb :feed
   end
@@ -57,13 +57,11 @@ class Chitter < Sinatra::Base
 
   post '/user/authenticate' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    puts "User:"
-    p user
     if user
       session[:user_id] = user.id
       redirect '/feed'
     else
-      flash.now[:notice] = "Wrong username or password. Please try again or sign up."
+      flash.now[:notice] = 'Wrong username or password. Please try again or sign up.'
       erb :'/user/login'
     end
   end

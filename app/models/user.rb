@@ -3,7 +3,6 @@ require 'dm-validations'
 
 class User
   include DataMapper::Resource
-  # include BCrypt
 
   property :id, Serial
   property :email, String, format: :email_address, required: true, unique: true
@@ -27,10 +26,7 @@ class User
     email = params[:email]
     password = params[:password]
     user = first(email: email)
-    if user && BCrypt::Password.new(user.password_hash) == password
-      user
-    else
-      nil
-    end
+    return user if user && BCrypt::Password.new(user.password_hash) == password
+    nil
   end
 end

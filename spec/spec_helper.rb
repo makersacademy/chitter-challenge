@@ -5,7 +5,6 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
-
 require './app/models/peep'
 require './app/models/user'
 
