@@ -1,6 +1,6 @@
 
 <% @peeps.reverse.each do |peep| %>
-  <article>
+  <article class = "comment">
     <div class="panel panel-default">
       <div class="panel-body">
       <%= peep.message %> <%= peep.created_at.strftime("%H:%M") %>
