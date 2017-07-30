@@ -15,6 +15,10 @@
         <% end %>
       </ul>
     <% end %>
+    <% if current_user %>
+      <ul id='welcome'>
+        <li>Welcome, <%= current_user.username %></li>
+    <% end %>
     <%= yield %>
   </body>
 </html>
