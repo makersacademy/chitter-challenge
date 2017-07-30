@@ -1,8 +1,7 @@
 body {
-  background-image:url('/img/tonal_rainbow.png');
-  background-color: #ffb3b3;
+  background-image: url('/img/tonal_rainbow.png');
+  background-color: #e6fff3;
   font-family: 'Quicksand:300', sans-serif;
-  padding-top: 70px;
 }
 
 h1 {
@@ -15,4 +14,29 @@ h2 {
 
 h3 {
   font-family: 'Quicksand:300', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.body-elements {
+  padding-top: 70px;
+}
+
+.jumbotron {
+  background-image: url('/img/earth.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.jumbotron > h1 {
+}
+
+.centerme {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
