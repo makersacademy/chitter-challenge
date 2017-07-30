@@ -2,7 +2,8 @@ Chitter Challenge
 =================
 
 TODO:
-View app online at: heroku
+
+session
 Unit tests
 Replies - clean up, page for a peep + replies
 Toggle view hide replies
@@ -10,6 +11,8 @@ domain model crc cards - see code review
 presentation
 
 ![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
+
+View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
 Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
@@ -91,6 +94,8 @@ Functionality
 Instructions
 ---
 
+View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
+
 Set up the database (if you haven't installed PostgreSQL already). In your terminal run `brew install postgresq`. After homebrew has downloaded the software it will show you some installation instructions, follow them! Make sure you run these commands after installing:
 ```terminal
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
@@ -129,6 +134,8 @@ How to use Chitter
 
 ---
 
+[chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
+
 ![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
 
 *Homepage*
@@ -161,7 +168,15 @@ Design of Program
 
 *Models*
 - User
+|User|Collaborators|
+|---|---|
+|||
+|||
+
 - Peep
+
+- Reply
+
 - Tag
 
 *Views*
@@ -172,6 +187,7 @@ Design of Program
 
 *Controllers*
 - users
+- session
 - peeps
 
 *public*

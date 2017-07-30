@@ -50,9 +50,9 @@
               Welcome, <%= current_user.username %></a></li>
             <% end %>
             <% if current_user %>
-            <li><a href="/users/logout">Log out</a></li>
+            <li><a href="/sessions/end">Log out</a></li>
             <% else %>
-            <li><a href="/users/login">Log in</a></li>
+            <li><a href="/sessions/new">Log in</a></li>
             <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->

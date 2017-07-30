@@ -4,8 +4,8 @@ require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
 require 'mail'
+require_relative 'features/helpers'
 
-# require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 Capybara.app = Chitter
 
 require 'simplecov'
@@ -20,17 +20,17 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
+  # conifig.include Helpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:transaction)
   end
 
-  # Everything in this block runs once before each individual test
   config.before(:each) do
     DatabaseCleaner.start
   end
 
-  # Everything in this block runs once after each individual test
   config.after(:each) do
     DatabaseCleaner.clean
   end
@@ -43,5 +43,5 @@ RSpec.configure do |config|
 end
 
 Mail.defaults do
-  delivery_method :test # in practice you'd do this in spec_helper.rb
+  delivery_method :test
 end

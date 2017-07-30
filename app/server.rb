@@ -1,8 +1,6 @@
-require_relative '../helpers/chitter_helpers'
+require_relative './helpers/chitter_helpers'
 
 class Chitter < Sinatra::Base
-
-  # set :public_folder, Proc.new { File.join(root, 'static') }
 
   register Sinatra::Flash
 

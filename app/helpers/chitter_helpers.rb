@@ -29,7 +29,7 @@ module ChitterHelpers
 
    def create_peep(params)
      peep = Peep.new(content: params[:peep_content],
-            user: current_user)
+            user: current_user, created_at: DateTime.now)
      tags = params[:tags]
      tags.split(" ").each do |tag|
        search = User.first(:username => tag)
