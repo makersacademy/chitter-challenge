@@ -27,7 +27,11 @@
     <div class='content'>
       <h1>What's happening?</h1>
       <% @peeps.each  do |peep| %>
-        <p><%= peep.user.name%> <%= peep.user.username%>: <%= peep.text%></p>
+        <p>
+          <%= peep.user.name%> <%= peep.user.username%>: <%= peep.text%>
+          <br>
+          <%= peep.timestamp%>
+        </p>
       <% end %>
     </div>
   </div>
