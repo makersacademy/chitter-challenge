@@ -8,7 +8,7 @@ class User
   property :email, String
   property :password_hash, Text
 
-  has n, :peeps
+  has n, :peeps, through: Resource
 
   attr_reader :password
   attr_accessor :password_confirmation

@@ -1,9 +1,15 @@
-<%= @welcome_message %>
-<form action="/feed" method="post">
-  <input type="text" name="message">
-  <br />
-  <input type="submit" value="Send">
-</form>
+<% if current_user %>
+  <%= @welcome_message %>
+  <form action="/feed" method="post">
+    <input type="text" name="message">
+    <br />
+    <input type="submit" value="Send">
+  </form>
+<% end %>
+<% if !current_user %>
+  <p>Please <a href="/user/new">sign in</a> or <a href="/user/new">sign up</a> to be able to post something.</p>
+<% end %>
+
 <br /><br />
 <ul id="peeps">
   <% @peeps.each_with_index do |peep, i| %>
