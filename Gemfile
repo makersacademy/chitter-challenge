@@ -1,10 +1,11 @@
 source "https://rubygems.org"
 
-ruby '2.4.0'
+ruby '2.3.1'
 
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'json', '~> 1.6'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
