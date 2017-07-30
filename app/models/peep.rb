@@ -3,4 +3,6 @@ class Peep
 
   property :id, Serial
   property :text, String
+
+  belongs_to :user, required: true
 end

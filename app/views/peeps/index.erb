@@ -6,7 +6,7 @@
     <div class='centered_content'>
       <h1>What's happening?</h1>
       <% @peeps.each  do |peep| %>
-        <p><%= peep.text%></p>
+        <p><%= peep.user.name%>: <%= peep.text%></p>
       <% end %>
     </div>
   </div>

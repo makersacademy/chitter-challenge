@@ -5,7 +5,7 @@ feature 'Signing up' do
     user = User.last
     expect(user.name).to eq 'George'
     expect(user.email).to eq 'george@curious.com'
-    expect(user.username).to eq 'george'
+    expect(user.username).to eq '@george'
 
     expect { user.password }.to raise_exception NoMethodError
 
