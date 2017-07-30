@@ -4,13 +4,13 @@
 ### Set up instructions
 
 git clone git@github.com:kitkat119/chitter-challenge.git
-$ bundle
-$ createdb chitter_development
-$ rake auto_migrate
-$ rspec
-$ rackup
+* bundle
+* createdb chitter_development
+* rake auto_migrate
+* rspec
+* rackup
 
-### Visit at https://chitter-krd.herokuapp.com/peeps
+### Visit the website at https://chitter-krd.herokuapp.com/peeps
 
 
 
