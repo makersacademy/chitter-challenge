@@ -8,13 +8,13 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
- end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   get '/users/new' do
-    @user  = User.new
+    @user = User.new
     erb(:sign_up)
   end
 

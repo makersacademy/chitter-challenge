@@ -8,8 +8,6 @@ def sign_up
   click_button 'Sign up'
 end
 
-
-
 def post_a_peep(message)
   visit '/peeps/new'
   Peep.create(name: User.first.name, username: User.first.username, user_id: User.first.id, message: message)

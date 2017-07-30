@@ -3,19 +3,16 @@ ruby '2.4.0'
 
 gem 'bcrypt'
 gem 'data_mapper'
-gem 'dm-postgres-adapter'
 gem 'database_cleaner'
-gem 'sinatra-flash'
-gem 'rake'
+gem 'dm-postgres-adapter'
 gem 'sinatra'
-
-
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
   gem 'pry'
-  gem 'rspec'
   gem 'rake'
+  gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false

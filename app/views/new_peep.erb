@@ -6,21 +6,41 @@
   <body>
   <style>
     body {
-      background: #1ac59a
+      background:  #e6ecf0;
+      text-align: center;
+      line-height: 20px;
+      width:
       }
     h3, p {
       font-family: "Raleway", sans-serif
     }
 
+    .peep-box {
+      background-color:#e8f4fc;
+      max-width: 700px;
+      margin: auto;
+      }
+
+    .peep-box textarea {
+      border: 1px solid #D6D9DC;
+      border-radius: 3px;
+      min-height: 200px;
+      margin: 10px;
+      width: 300px;
+      resize: none;
+    }
   </style>
 
-  <form action="/peeps" method="post">
-    <h3> Post a peep </h3>
-      <textarea type="text" name="message" rows="10" cols="50" >
-      </textarea>
-    </label>
-    <input type="submit" value="Post">
-  </form>
+  <div class="peep-box">
 
+    <form action="/peeps" method="post">
+      <h3> Compose a new peep </h3>
+        <textarea type="text" name="message">
+        </textarea>
+      </label>
+      <input type="submit" value="Post">
+    </form>
+
+  </div>
 </body>
 </html>

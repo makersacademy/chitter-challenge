@@ -6,37 +6,50 @@
   <body>
   <style>
     body {
-      background: #1ac59a
+      background: #e8f4fc;
+
       }
     p {
       font-family: "Raleway", sans-serif
     }
+    .sign_up form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .sign_up input{
+      margin: 8px;
+      width: 250px
+      }
   </style>
 
-  <form action='/users' method='post'>
+  <div class="sign_up">
 
-    <label for='email'>
-      Email: <input type='email' name='email' required>
-    </label>
+    <form action='/users' method='post'>
+      <h2>Please sign up to start peeping!</h2>
+      <label for='email'>
+        Email: <input type='email' name='email' required>
+      </label>
 
-    <label for='name'>
-      Name: <input type='text' name='name' required>
-    </label>
+      <label for='name'>
+        Name: <input type='text' name='name'>
+      </label>
 
-    <label for='username'>
-      Username: <input type='text' name='username' required>
-    </label>
+      <label for='username'>
+        Username: <input type='text' name='username'>
+      </label>
 
-    <label for='password'>
-      Password: <input name='password' type='password'>
-    </label>
+      <label for='password'>
+        Password: <input name='password' type='password'>
+      </label>
 
-    <label for='confirm password'>
-      Confirm Password: <input name='password_confirmation' type='password'>
-    </label>
+      <label for='confirm password'>
+        Confirm Password: <input name='password_confirmation' type='password'>
+      </label>
 
-    <input type='submit' value='Sign up'>
-  </form>
-
+      <input type='submit' value='Sign up'>
+    </form>
+  </div>
   </body>
 </html>
