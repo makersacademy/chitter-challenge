@@ -27,9 +27,9 @@
       </a>
       <nav class="w-nav-menu" role="navigation">
 
-        <!-- CODE -->
+        <!-- CODE MENU ITEMS-->
         <% if current_user %>
-          <a class="link w-nav-link" href="/feed"> <%= @welcome_message %> </a>
+          <div class="w-nav-link welcomemessage"> <%= @welcome_message %> </div>
           <a class="link w-nav-link" href="/user/logout">Logout</a></nav>
         <% end %>
         <!-- END OF CODE -->
@@ -50,36 +50,41 @@
   <div>
     <div class="content-container w-container">
 
-        <div class="inversediv">
 
-          <!-- CODE SERVICE MESSAGE -->
-          <% if !current_user %>
-            <p class="caption service">Please sign in or sign up to chit something</p>
-          <% end %>
-          <!-- END OF CODE -->
+      <!-- CODE SERVICE MESSAGE -->
+
+      <% if !current_user %>
+      <div class="inversediv">
+        <p class="caption service">Please sign in or sign up to post something</p>
+      </div>
+      <% end %>
+
+      <!-- END OF CODE -->
 
           <!-- CODE -->
           <% if current_user %>
-              <div class="w-form">
-                <form data-name="Message" id="email-form" name="create_message" action="/feed" method="post">
-                  <textarea class="area textfield w-input" id="field" maxlength="5000" name="message" placeholder="What&#39;s on your mind?">
-                  </textarea>
-                  <input class="blue button w-button" type="submit" value="Send">
-                </form>
-              </div>
+          <div class="inversediv">
+              <form id="email-form" name="create_message" action="/feed" method="post">
+                <label class="field-label">What&#39;s on your mind?
+                <textarea id="field" class="area textfield w-input" maxlength="5000" name="message">
+                </textarea>
+              </label>
+                <input class="blue button w-button" type="submit" value="Send">
+              </form>
+          </div>
           <% end %>
           <!-- END OF CODE -->
 
-        </div>
       <ul class="w-list-unstyled" id="peeps">
 
         <!-- CODE -->
         <% @peeps.each_with_index do |peep, i| %>
+        <% t = peep.time_created %>
         <li class="list-item">
           <div class="chitdiv">
             <div class="flexlayout">
               <p class="caption"><%= peep.user.email %></p>
-              <p class="caption timestamp"><%= peep.time_created %></p>
+              <p class="caption timestamp"><%= t.strftime("%Y") %> <%= t.strftime("%b") %> <%= t.strftime("%d")%> at <%= t.strftime("%H:%M") %></p>
             </div>
             <p class="bodycopy"><%= peep.message %></p>
           </div>

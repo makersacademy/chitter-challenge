@@ -15,7 +15,7 @@ feature 'User sign in / sign up:' do
     fill_in 'password', with: password
     fill_in 'password_confirmation', with: '124'
     click_button 'Sign Up'
-    expect(page).to have_content('Please sign up')
+    expect(page).to have_content('sign_up')
     expect(page).to have_content('Password does not match the confirmation')
   end
 

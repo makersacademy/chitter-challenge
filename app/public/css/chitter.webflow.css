@@ -10,7 +10,7 @@
   width: 100%;
   height: 80px;
   background-color: #ef3e4a;
-  box-shadow: 0 1px 8px 0 #ef3e4a;
+  box-shadow: none;
   color: #96cbd1;
 }
 
@@ -25,6 +25,15 @@
   background-image: -webkit-linear-gradient(270deg, #000, #000);
   background-image: linear-gradient(180deg, #000, #000);
   color: #fff;
+}
+
+.link.non-active {
+  color: #fff;
+}
+
+.link.non-active:hover {
+  background-image: -webkit-linear-gradient(270deg, transparent, transparent);
+  background-image: linear-gradient(180deg, transparent, transparent);
 }
 
 .h1 {
@@ -77,12 +86,15 @@
 
 .caption.service {
   display: block;
-  margin-bottom: 0px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
   clear: none;
-  color: #fff;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
+  background-color: #000;
+  color: #ef3e4a;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: left;
 }
 
 .caption.legal {
@@ -106,8 +118,10 @@
 }
 
 .inversediv {
+  display: block;
   margin-bottom: 8px;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   border-radius: 5px;
   background-color: transparent;
   text-align: center;
@@ -129,6 +143,7 @@
 
 .textfield.area {
   height: 160px;
+  color: #333;
 }
 
 .field-label {
@@ -161,6 +176,11 @@
   text-transform: uppercase;
 }
 
+.button.blue:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 .footersection {
   text-align: center;
 }
@@ -173,6 +193,12 @@
 
 .list-item {
   margin-bottom: 80px;
+}
+
+.welcomemessage {
+  font-family: 'Droid Sans', sans-serif;
+  color: #fff;
+  font-size: 18px;
 }
 
 @media (max-width: 991px) {
