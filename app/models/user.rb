@@ -1,9 +1,8 @@
 require 'BCrypt'
 class User
+  include DataMapper::Resource
   attr_reader :password
   attr_accessor :password_confirmation
-
-  include DataMapper::Resource
 
   has n, :peeps, through: Resource
 

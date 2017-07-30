@@ -1,7 +1,11 @@
 Chitter Challenge
 =================
+## Description
 
-# Instructions
+Peeper allows you to let people know about your are doing at a given time. Send a peep and it will appear on your Peep board.
+
+
+### Instructions
 
 ```
 

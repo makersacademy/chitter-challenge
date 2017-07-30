@@ -15,5 +15,5 @@ end
 
 def add_peep(message)
   fill_in :message, with: message
-  click_button 'Submit'
+  click_button 'Peep'
 end

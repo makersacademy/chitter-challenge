@@ -7,6 +7,6 @@ feature 'able to see peep time' do
     visit('/')
     sign_up('user', 'user@gmail.com', '1234', '1234')
     add_peep('this is my first peep')
-    expect(page).to have_content('peeped at 00:00')
+    expect(page).to have_content('at 00:00')
   end
 end

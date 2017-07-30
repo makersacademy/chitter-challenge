@@ -1,13 +1,25 @@
-<h1 align= 'center'>
-  Please sign in
-</h1>
+<html>
+  <head>
+    <link href="<%= url("signin.css")%>" rel="stylesheet">
+  </head>
 
-<form action='/log_in' method='post' align= 'center'>
-  <div>
-    Email: <input name='email' type='email'>
+  <h1>
+
+  </h1>
+  <div class= 'space'>
   </div>
-  <div>
-    Password: <input name='password' type='password'>
-  </div>
-  <input type='submit' value='Sign in'>
-</form>
+  <body>
+    <form action='/log_in' method='post'>
+      <div class='topform'>
+        Sign in.
+      </div>
+      <div>
+        <input name='email' type='email' placeholder="email">
+      </div>
+      <div>
+        <input name='password' type='password' placeholder="password">
+      </div>
+      <input class= 'submit' type='submit' value='Sign in'>
+    </form>
+  </body>
+</html>

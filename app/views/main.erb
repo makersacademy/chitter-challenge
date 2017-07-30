@@ -1,29 +1,31 @@
-<h1 align='center'>
-  Welcome to Peeper
-<h1>
-
-<body align='center'>
-  <% if current_user %>
-    Welcome, <%= current_user.name %>
-    <form action='/sessions' method= 'post'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value='Sign out'>
-    </form>
-  <% end %>
-  <table align= "center">
-    <tr>
-      All the Peeps
-    </tr>
-    <% @peeps.reverse.each do |peep| %>
-    <tr>
-      <td style="border: 2px solid #dddddd"><%= peep.message %></td>
-      <td style="border: 2px solid #dddddd"> peeped at <%= peep.time %> </td>
-    </tr>
+<html>
+  <head>
+    <link href="<%= url("main.css")%>" rel="stylesheet">
+  </head>
+  <body>
+    <h1>
+    <% if current_user %>
+      Welcome, <%= current_user.name %>
+      <form class='signout' action='/sessions' method= 'post'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
     <% end %>
-    <% @peeps.all %>
-  </table>
-  <form action ="/add_peep" method="post">
-    <input type="text" name="message" value="add a peep">
-    <input type="submit" value="Submit">
+  </h1>
+  <form class='newpeep' action ="/add_peep" method="post">
+    <input class='peep' type="text" name="message" Placeholder="Peep here">
+    <input type="submit" value="Peep">
   </form>
-</body>
+    <div class= 'peeps'>
+      <table>
+        <% @peeps.reverse.each do |peep| %>
+        <tr>
+          <td> <%= peep.message %></td>
+          <th> at <%= peep.time %> </th>
+        </tr>
+        <% end %>
+        <% @peeps.all %>
+      </table>
+    </div>
+  </body>
+</html>

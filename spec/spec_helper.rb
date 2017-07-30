@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require 'capybara'
 require 'rspec'
 require 'timecop'
+require_relative '../app/data_mapper_setup.rb'
 require_relative '../app/app.rb'
 require_relative 'features/web_helper'
 
