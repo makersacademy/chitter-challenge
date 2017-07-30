@@ -26,4 +26,8 @@ class User
       nil
     end
   end
+
+  def self.tagged(tag)
+    first(username: tag)
+  end
 end
