@@ -16,4 +16,10 @@ feature 'Peep' do
     end
   end
 
+  scenario 'peep cannot be blank' do
+    sign_up
+    visit '/peeps/new'
+    expect { click_button 'Done!' }.not_to change(User, :count)
+  end
+
 end

@@ -3,6 +3,7 @@ ruby '2.4.0'
 
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'bcrypt'
