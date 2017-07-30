@@ -14,7 +14,7 @@
     <ul id='peeps'>
       <% @peeps.sort_by(&:created_at).reverse.each do |peep| %>
       <li>
-        Somebody peeped on <%= peep.created_at.strftime("%m/%d/%Y at %l:%M%P") %>: <br>
+        Somebody peeped on <%= peep.created_at.strftime(Chitter::TIME_STAMP_FORMAT) %>: <br>
         <%= peep.message %>
       </li>
       <br>

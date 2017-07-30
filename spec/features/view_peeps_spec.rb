@@ -9,4 +9,10 @@ feature 'FEATURE: viewing peeps' do
     expect("old message").to appear_before "older message"
     expect("older message").to appear_before "oldest message"
   end
+
+  scenario 'peeps are shown with a time stamp' do
+    post_peep
+    time_stamp = DateTime.now.strftime(Chitter::TIME_STAMP_FORMAT)
+    expect(page).to have_content "#{time_stamp}:\nHello"
+  end
 end

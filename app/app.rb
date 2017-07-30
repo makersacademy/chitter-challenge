@@ -9,6 +9,8 @@ require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
+TIME_STAMP_FORMAT = "%d/%m/%Y at %l:%M%P"
+
   get '/peeps/new' do
     erb :new_peep
   end
