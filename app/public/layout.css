@@ -82,3 +82,12 @@ label {
 .bodyform {
   margin: 10% auto auto;
 }
+.button-container form,
+.button-container form div {
+    display: inline;
+}
+
+.button-container button {
+    display: inline;
+    vertical-align: middle;
+}
