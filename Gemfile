@@ -10,6 +10,7 @@ gem 'flog'
 gem 'rake'
 gem 'sinatra', '1.4.8'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 group :test do
   gem 'capybara'
