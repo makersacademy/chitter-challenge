@@ -8,10 +8,13 @@
   <body>
     <h1>Chitter Feed</h1>
     <ul>
-      <% @peeps.each do |peep| %>
-        <li><%= peep.content %></br>
-        Posted at <%= peep.created_at.strftime('%F %H:%M') %></li>
-      <% end %>
+        <% @peeps.each do |peep| %>
+          <li>
+          <%= User.get(peep.user_id).name %> (@<%= User.get(peep.user_id).username %>)</br>
+          <%= peep.content %></br>
+          Posted at <%= peep.created_at.strftime('%F %H:%M') %></li>
+          </br>
+        <% end %>
     </ul>
   </body>
 </html>

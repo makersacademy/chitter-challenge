@@ -6,9 +6,15 @@
     <!-- <link rel='stylesheet' href='styles.css'/> -->
   </head>
   <body>
+
     <h2>Chitter - compose your peep</h2>
+    <% if current_user %>
     <form method='post' action='/peeps'>
       Enter peep here: <input type='text' name='content'>
       <button type='submit'>Submit</button>
+    </form>
+    <% else %>
+     <h3>Please sign in to compose a peep</h3>
+    <% end %>
   </body>
 </html>
