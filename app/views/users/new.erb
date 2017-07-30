@@ -1,11 +1,11 @@
 <h1> Join Chitter today. </h1>
 
 <form action="/users" method="post">
-  <input type="text" name="name" placeholder="Enter your name" required>
+  <input type="text" name="name" value="<%= @user.name %>" placeholder="Enter your name" required>
   <br>
-  <input type="text" name="user_name" placeholder="Choose your user name" required>
+  <input type="text" name="user_name" value="<%= @user.user_name %>"placeholder="Choose your user name" required>
   <br>
-  <input type="text" name="email_address" placeholder="Email address" required>
+  <input type="text" name="email_address" value="<%= @user.email_address %>" placeholder="Email address" required>
   <br>
   <input type="text" name="password" placeholder="Password">
   <br>

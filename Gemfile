@@ -9,6 +9,7 @@ group :development do
   gem 'dm-timestamps'
   gem 'pg'
   gem 'sinatra'
+  gem 'sinatra-flash'
 end
 
 group :test do
