@@ -1,13 +1,15 @@
 <html>
 <body>
-<form action="/peeps" method="post">
-  <textarea name="peep" maxlength="140" required>
+<center>
+  <h1>Peep your feelings!</h1>
+  <form style="bodyform" action="/peeps" method="post">
+  <textarea name="peep" rows="10" cols="50" maxlength="140" required>
   </textarea><br>
   <label for="tags">
-    Users to tag:<br>
+    <p>Users to tag:</p>
   </label>
-  <input name="tags" type="text" placeholder="Usernames must be space separated">
-  <input type="submit" value="Peep!"/>
-</form>
+  <input name="tags" type="text"><br><br>
+  <button type="submit">Peep!</button>
+</form></center>
 </body>
 </html>

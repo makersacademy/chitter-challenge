@@ -1,19 +1,19 @@
 <html>
 <body>
-  <h1>Peep Feed</h1>
-
+  <center>
   <ul>
+  <li><font size="5"><b>Peep Feed</b></font></li><br>
   <% @peeps.each do |peep| %>
   <li>
-    @<%= User.get(peep.user_id).username %><br>
+    <b>@<%= User.get(peep.user_id).username %></b><br>
     <%= peep.content %>
     <% peep.tags.each do |tag| %>
       #<%= User.get(tag.user_id).username %>
     <% end %><br>
-    <%= peep.time.strftime("%R %v") %>
+    <small><%= peep.time.strftime("%R %v") %></small>
   </li>
   <br>
   <% end %>
-  </ul>
+</ul></center>
 </body>
 </html>

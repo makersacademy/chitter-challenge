@@ -1,34 +1,35 @@
 <html>
   <head>
     <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/layout.css">
   </head>
 
   <body>
-    <% if current_user %>
-      Welcome to Chitter <%= current_user.username %>
+    <center><% if current_user %>
+      <label><p>Welcome to Chitter <%= current_user.username %></p></label>
       <form action="/sessions" method="post" >
         <input type ="hidden" name="_method" value="delete">
-        <input type ="submit" value ="Sign out">
+        <button type="submit">Sign out</button>
       </form>
     <% else %>
     <form action="/sessions/new">
-      <input type ="submit" value ="Sign in to Chitter">
+      <button type="submit">Sign in to Chitter</button>
     </form>
     <% end %>
 
     <% if flash[:errors] %>
       <div id="notice">
         <% flash[:errors].each do |error| %>
-          <%=error %><br>
+          <label><p><%=error %></p></label>
         <% end %>
       </div>
     <% end %>
 
     <% if flash[:notice] %>
       <div id="notice">
-        <%= flash[:notice] %>
+        <label><p><%= flash[:notice] %></p></label>
       </div>
-    <% end %>
+    <% end %></center>
 
     <%= yield %>
   </body>
