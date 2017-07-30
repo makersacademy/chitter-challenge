@@ -7,6 +7,7 @@ gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'sinatra'
 gem 'bcrypt'
+gem 'rake'
 
 group :test do
   gem 'capybara'
