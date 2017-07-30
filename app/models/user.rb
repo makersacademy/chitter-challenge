@@ -14,9 +14,9 @@ class User
   property :email, String, format: :email_address, unique: true, required: true
   property :password_digest, Text
 
-  validates_uniqueness_of :email, :message => "This email address is already registered!"
-  validates_uniqueness_of :username, :message => "This username is already been used!"
-  validates_confirmation_of :password, :message => "Password and password confirmation fields don't match!"
+  validates_uniqueness_of :email, :message
+  validates_uniqueness_of :username, :message
+  validates_confirmation_of :password, :message
   validates_presence_of :email
   validates_format_of :email, as: :email_address
 
