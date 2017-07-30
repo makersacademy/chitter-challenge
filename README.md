@@ -1,6 +1,6 @@
 Chitter Challenge
 =================
-![Chitter homepage](app/public/chitter-home.png)
+![Chitter homepage](app/public/img/chitter-home.png)
 View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
 Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
@@ -123,7 +123,7 @@ CHITTER_GMAIL_PASSWORD="your gmail password"
 How to use Chitter
 ---
 [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
-![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
+![Chitter homepage](app/public/img/chitter-home.png)
 *Homepage*
 - You can view the peeps, login or signup.
 
@@ -131,7 +131,7 @@ How to use Chitter
 - You can see all peeps in reverse chronological order
 - you can search the peeps for key words
 - You cannot post a peep unless you are logged in
-![Chitter peeps](app/public/peeps.png)
+![Chitter peeps](app/public/img/peeps.png)
 
 *Sign up*
 - Enter email, username, full name, password, and password confirmation
@@ -144,7 +144,7 @@ How to use Chitter
 - You can delete peeps you posted if logged in
 - Reply to peeps
 - View your profile by clicking on "Welcome, Your Username"
-![Chitter peeps](app/public/new-peep.png)
+![Chitter peeps](app/public/img/new-peep.png)
 ---
 Design of Program
 ----

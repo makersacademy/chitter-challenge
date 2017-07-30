@@ -13,6 +13,10 @@ body {
   font-family: 'Play', sans-serif;
 }
 
+.peep > a {
+  color: white;
+}
+
 .welcome {
   background-color: white;
   max-width: 400px;
