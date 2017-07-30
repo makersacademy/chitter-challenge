@@ -11,7 +11,7 @@ module PeepHelpers
 
   def page_content(peeps)
     page_content = peeps.map do |peep|
-      peep.user.name + ": " + peep.text
+      peep.user.name + ' ' + peep.user.username + ': ' + peep.text
     end
     page_content.reverse.join(' ')
   end
