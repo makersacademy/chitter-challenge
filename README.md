@@ -9,6 +9,7 @@ Completed
 - [x] Dev environment setup (getting a Capybara 200)
 - [x] postsql / database setup
 - [x] I want to post a message to chitter
+- [x] I want to see all peeps in reverse chronological order
 - [x] I want to see the time at which it was made
 - [x] I want to sign up for Chitter
 - [x] I want to log in to Chitter
@@ -21,7 +22,6 @@ Doing
 
 Incomplete
 -------
-- [ ] I want to see all peeps in reverse chronological order
 - [ ] I want to receive an email if I am tagged in a Peep
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
 - [ ] Styling / CSS
