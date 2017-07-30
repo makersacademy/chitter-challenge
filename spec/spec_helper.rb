@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara/rspec'
+require './app/models/peep'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -7,6 +9,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do

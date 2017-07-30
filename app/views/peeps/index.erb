@@ -1,0 +1,9 @@
+<h1> Peep feed! </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.name %>: <%= peep.copy %>
+    </li>
+  <%end%>
+</ul>
