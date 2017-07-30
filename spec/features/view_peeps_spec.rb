@@ -1,5 +1,10 @@
 feature 'FEATURE: viewing peeps' do
   include Helpers
+
+  before do
+    sign_up
+  end
+
   scenario 'peeps are shown in reverse chronological order' do
     post_peep("oldest message")
     post_peep("older message")
@@ -14,5 +19,10 @@ feature 'FEATURE: viewing peeps' do
     post_peep
     time_stamp = DateTime.now.strftime(Chitter::TIME_STAMP_FORMAT)
     expect(page).to have_content "#{time_stamp}:\nHello"
+  end
+
+  scenario 'peeps are shown with an author' do
+    post_peep
+    expect(page).to have_content "user123 peeped"
   end
 end

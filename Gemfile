@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
 gem 'dm-validations'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'bcrypt'
+gem 'rake'
 
 group :test do
   gem 'orderly'

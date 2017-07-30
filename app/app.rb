@@ -28,10 +28,6 @@ class Chitter < Sinatra::Base
     erb :new_user
   end
 
-  get '/peeps/new' do
-    erb :new_peep
-  end
-
   post '/users/new' do
     @user = User.new(username:              params[:username],
                      email:                 params[:email],
@@ -46,8 +42,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peeps/new' do
+    erb :new_peep
+  end
+
   post '/peeps/new' do
-    Peep.create(message: params[:message])
+    Peep.create(message: params[:message], user: current_user)
     redirect '/peeps'
   end
 

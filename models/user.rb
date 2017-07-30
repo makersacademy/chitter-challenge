@@ -7,6 +7,8 @@ class User
   property :email, String, format: :email_address, required: true
   property :password_digest, Text
 
+  has n, :peeps
+
   validates_confirmation_of :password, :message => "Password and password confirmation don't match!"
   validates_uniqueness_of :username, :message => "Username already taken!"
   validates_uniqueness_of :email, :message => "Email address is already registered!"
