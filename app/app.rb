@@ -24,7 +24,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    link = Peep.create(content: params[:content])
+    peep = Peep.create(content: params[:content])
+    current_user.peeps << peep
+    current_user.save
     redirect '/peeps'
   end
 
