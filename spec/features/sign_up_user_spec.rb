@@ -1,7 +1,7 @@
 feature 'Signing up a new user' do
   scenario 'Signing up a user' do
     sign_up
-    expect(page).to have_content('newuser')
+    expect(page).to have_content('New User')
   end
 
   scenario 'fails when filling in a mismatching confirmation password' do

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
+
+    <% if current_user %>
+      Welcome, <%= current_user.name %>
+      <form method='post' action='/sessions'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       <ul id='errors'>
         <% flash[:errors].each do |error| %>
