@@ -8,7 +8,7 @@ class User
   has n, :peeps
 
   property :id,   Serial
-  property :name, String
-  property :email, String
-  property :password, Text
+  property :name, String, required: true
+  property :email, String, required: true, unique: true
+  property :password, Text, required: true
 end

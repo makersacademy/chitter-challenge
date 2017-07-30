@@ -1,6 +1,6 @@
-<div id='new_peep_form'>
-  <form action="/peeps" method="post">
-    <input type="text" name="peepbody" placeholder="Enter peep">
-    <input type="submit" value="submit">
+<div>
+  <form id='new_peep_form' action="/peeps" method="post">
+  <input type="submit" value="submit">
   </form>
+  <textarea name="peepbody" form="new_peep_form" maxlength="140" required rows="4" cols="50"></textarea>
 </div>
