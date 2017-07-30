@@ -12,9 +12,12 @@
       font-family: "Raleway", sans-serif
     }
   </style>
+
     <ul id='peeps'>
       <% @peeps.reverse.each do |peep| %>
         <li>
+          <p> <%= peep.name %> </p>
+          <p> <%= peep.username %> </p>
         <p>Peep: <%= peep.message %></p>
         <p>Posted at: <%= peep.created_at %></p>
         </li>

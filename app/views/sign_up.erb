@@ -1,0 +1,42 @@
+<DOCTYPE html>
+  <head>
+    <title> Chitter </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #1ac59a
+      }
+    p {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+
+  <form action='/users' method='post'>
+
+    <label for='email'>
+      Email: <input type='email' name='email' required>
+    </label>
+
+    <label for='name'>
+      Name: <input type='text' name='name' required>
+    </label>
+
+    <label for='username'>
+      Username: <input type='text' name='username' required>
+    </label>
+
+    <label for='password'>
+      Password: <input name='password' type='password'>
+    </label>
+
+    <label for='confirm password'>
+      Confirm Password: <input name='password_confirmation' type='password'>
+    </label>
+
+    <input type='submit' value='Sign up'>
+  </form>
+
+  </body>
+</html>

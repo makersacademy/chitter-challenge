@@ -1,5 +1,6 @@
-feature 'Posting a peep to on Chitter' do
+feature 'Posting a peep on Chitter' do
   scenario 'I can post a new peep on Chitter' do
+    sign_up
     visit('/peeps/new')
     fill_in('message', with: 'Morning everyone!')
     click_button 'Post'
