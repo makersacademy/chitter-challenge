@@ -6,13 +6,14 @@ class Peep
 
   # add datamapper functionality to this class so it can communicate with the database
   include DataMapper::Resource
-  # belongs_to :user
+  belongs_to :user
   # these property declarations set the column headers in the peeps table
   property :id,         Serial # auto incremented for every record/only used once
   property :name,       String
   property :username,   String
   property :peep,       String
   property :created_at, DateTime
+  property :user_id,    Integer
 
 end
 

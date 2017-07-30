@@ -3,10 +3,7 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.name %><br>
-      <%= peep.username %><br>
       <%= peep.created_at %> <br>
-       <!-- <%= peep.created_at.strftime(fmt='%F %T') %> <br> -->
       <%= peep.peep %><br>
       <br>
     </li>

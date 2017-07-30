@@ -1,10 +1,15 @@
 # As a maker
 # So that I can see what others are saying
 # I want to see all peeps in reverse chronological order
+require 'web_helper'
+
 feature 'Viewing peeps' do
 
   scenario 'I can see all peeps on the peeps page' do
-    Peep.create(name: 'Dave', username: '@dodgydave', peep: 'Hello world!')
+    sign_up
+    visit '/peeps/new'
+    fill_in 'peep', with: 'Hello world!'
+    click_button 'Create peep'
     visit '/peeps'
     expect(page.status_code).to eq 200
     within 'ul#peeps' do
@@ -13,8 +18,14 @@ feature 'Viewing peeps' do
   end
 
   scenario 'I want to see peeps in reverse chronological order' do
-    Peep.create(name: 'Dave', username: '@dodgydave', peep: 'I should be next')
-    Peep.create(name: 'Fred', username: '@fruityfred', peep: 'I should be first')
+    sign_up
+    visit '/peeps/new'
+    fill_in 'peep', with: 'I should be next'
+    click_button 'Create peep'
+    sign_up
+    visit '/peeps/new'
+    fill_in 'peep', with: 'I should be first'
+    click_button 'Create peep'
     visit '/peeps'
     expect(page.find('li:nth-of-type(1)')).to have_content 'I should be first'
   end
@@ -24,9 +35,10 @@ feature 'Viewing peeps' do
   # I want to see the time at which it was made
 
   scenario 'I want to see the time at which a peep was made' do
-      peep = Peep.create(name: 'Bob', username: '@bobthebuilder', peep: 'Currently building stuff')
-      time = peep.created_at # .strftime(fmt='%F %T')
-      visit '/peeps'
-      expect(page).to have_content time
+    sign_up
+    peep = Peep.create(peep: 'Peep', user_id: 1)
+    time = peep.created_at # .strftime(fmt='%F %T')
+    visit '/peeps'
+    expect(page).to have_content time
   end
 end
