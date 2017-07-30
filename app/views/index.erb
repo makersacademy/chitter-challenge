@@ -1,0 +1,12 @@
+<a href=/sign_up>Sign up</a>
+
+<a href=/login>Login</a>
+
+<h2>Peeps</h2>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.message %> (<%= peep.time %>)
+  </li>
+  <% end %>
+</ul>
