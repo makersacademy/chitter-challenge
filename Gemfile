@@ -7,13 +7,13 @@ gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rake'
 
 group :test do
   gem 'cucumber'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'
-  gem 'rake'
   gem 'rubocop'
   gem 'orderly'
   gem 'simplecov', require: false
