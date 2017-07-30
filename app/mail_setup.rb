@@ -8,7 +8,7 @@ unless ENV['MAILTRAP_HOST'].nil?
                              :user_name            => ENV['MAILTRAP_USER_NAME'],
                              :password             => ENV['MAILTRAP_PASSWORD'],
                              :authentication       => :plain,
-                             :enable_starttls_auto => true  }
+                             :enable_starttls_auto => true }
   end
 else
   Mail.defaults do
