@@ -1,12 +1,18 @@
-
 <div class="jumbotron jumbotron-fluid">
     <div class="centerme text-center">
-      <h1>Chitter</h1>
+      <h1>chitter</h1>
       <p><small>Where conversations happen</small></p>
       <form method="get" action='/users/new'>
       <input type='submit' class="btn btn-default" value="Register">
       </form>
       <div class="container">
+        <% if flash[:goodbye] %>
+          </br>
+          <div class="panel panel-success">
+            <div class="panel-heading">Thanks so much!</div>
+            <div class="panel-body"><%= flash[:goodbye] %></div>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
