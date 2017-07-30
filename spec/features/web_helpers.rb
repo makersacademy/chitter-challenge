@@ -13,37 +13,25 @@ def test_peep_two
   "No need to seize the last word, Lord Baelish. I'll assume it was something clever"
 end
 
-def sign_up
+def sign_up(name, username, email, password, password_confirmation)
   visit '/'
   click_button "Register"
-  fill_in "name", with: "Jon Snow"
-  fill_in "username", with: "kingofthenorth"
-  fill_in "email", with: "jon@winterfell.com"
-  fill_in "password", with: "winterishere"
-  fill_in "password_confirmation", with: "winterishere"
+  fill_in "name", with: name
+  fill_in "username", with: username
+  fill_in "email", with: email
+  fill_in "password", with: password
+  fill_in "password_confirmation", with: password_confirmation
   click_button "Register"
 end
 
-def sign_up_duplicate_username
-  sign_up
-  visit '/'
-  click_button "Register"
-  fill_in "name", with: "Ramsay Bolton"
-  fill_in "username", with: "kingofthenorth"
-  fill_in "email", with: "ramsay@mwhaha.com"
-  fill_in "password", with: "reek!reek!"
-  fill_in "password_confirmation", with: "reek!reek!"
-  click_button "Register"
+def sign_up_first
+    sign_up("Jon Snow", "kingofthenorth", "jon@winterfell.com", "winterishere", "winterishere")
 end
 
-def sign_up_duplicate_email
-  sign_up
+def log_in(email, password)
   visit '/'
-  click_button "Register"
-  fill_in "name", with: "Hodor"
-  fill_in "username", with: "hodorhodorhodor"
-  fill_in "email", with: "jon@winterfell.com"
-  fill_in "password", with: "hodorhodor!"
-  fill_in "password_confirmation", with: "hodorhodor!"
-  click_button "Register"
+  click_on "Log in"
+  fill_in "email", with: email
+  fill_in "password", with: password
+  click_button "Log in"
 end
