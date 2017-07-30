@@ -1,23 +1,13 @@
 Chitter Challenge
 =================
-
-TODO:
-
-session
-Unit tests
-Replies - clean up, page for a peep + replies
-Toggle view hide replies
-domain model crc cards - see code review
-presentation
-
-![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
-
+![Chitter homepage](app/public/chitter-home.png)
 View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
 Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
 A Twitter clone that will allow the users to post messages to a public stream.
 
+---
 Features:
 -------
 
@@ -76,7 +66,7 @@ Technologies
 * Bcrypt for password security
 * Used postgreSQL and Data Mapper (ORM) to save the data in databases.
 * Test frameworks: Rspec, Capybara
-* Hosted on Heroku at: ADD IN HERE LINK
+* Hosted on Heroku at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
 -----
 
@@ -86,7 +76,7 @@ Functionality
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords. - TEST FOR THIS???
+* Use bcrypt to secure the passwords.
 * You only can peep if you are logged in.
 
 ---
@@ -131,13 +121,9 @@ CHITTER_GMAIL_PASSWORD="your gmail password"
 ---
 
 How to use Chitter
-
 ---
-
 [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
-
 ![Chitter homepage](http://i.imgur.com/UXS0FVc.png)
-
 *Homepage*
 - You can view the peeps, login or signup.
 
@@ -145,6 +131,7 @@ How to use Chitter
 - You can see all peeps in reverse chronological order
 - you can search the peeps for key words
 - You cannot post a peep unless you are logged in
+![Chitter peeps](app/public/peeps.png)
 
 *Sign up*
 - Enter email, username, full name, password, and password confirmation
@@ -155,53 +142,91 @@ How to use Chitter
 *Once logged in*
 - You can then post peeps
 - You can delete peeps you posted if logged in
+- Reply to peeps
 - View your profile by clicking on "Welcome, Your Username"
-
+![Chitter peeps](app/public/new-peep.png)
 ---
-
 Design of Program
 ----
+```tree
+├── app
+│   ├── app.rb
+│   ├── controllers
+│   │   ├── peeps.rb
+│   │   ├── sessions.rb
+│   │   └── users.rb
+│   ├── data_mapper_setup.rb
+│   ├── helpers
+│   │   └── chitter_helpers.rb
+│   ├── mail_setup.rb
+│   ├── models
+│   │   ├── peep.rb
+│   │   ├── reply.rb
+│   │   ├── tag.rb
+│   │   └── user.rb
+│   ├── public
+│   │   └── style.css
+│   ├── server.rb
+│   └── views
+│       ├── index.erb
+│       ├── layout.erb
+│       ├── peeps
+│       │   ├── index.erb
+│       │   ├── new.erb
+│       │   ├── peep.erb
+│       │   └── reply.erb
+│       ├── sessions
+│       │   └── new.erb
+│       └── users
+│           ├── new.erb
+│           └── profile.erb
+spec
+    ├── features
+    │   ├── helpers.rb
+    │   ├── peep_spec.rb
+    │   ├── tags_spec.rb
+    │   └── user_management_spec.rb
+    ├── models
+    │   ├── peep_spec.rb
+    │   ├── reply_spec.rb
+    │   ├── tag_spec.rb
+    │   └── user_spec.rb
+    └── spec_helper.rb
+```
 
-- app
-- helpers -> chitter_helpers
-- chitter_setup
+### Models
+##### User
+- properties: id, email, username, full_name, password_digest
+- All fields required, checks unique email and username, validates password
+- has: peeps, replys
+- Method: `authenticate(email, password)` checks whether a valid user exists and if it does return this user
 
-*Models*
-- User
-|User|Collaborators|
-|---|---|
-|||
-|||
+##### Peep
+- properties: id, content, created_at (DateTime)
+- belongs to a user
+- has: tags, replys
 
-- Peep
 
-- Reply
+##### Reply
 
-- Tag
+- properties: id, content, created_at (DateTime)
+- belongs to a peep and a user
 
-*Views*
-- layout
-- index
-- peeps -> index, new
-- users -> index, new
+##### Tag
+- properties: id, name
+- has: peeps
 
-*Controllers*
-- users
-- session
-- peeps
-
-*public*
-- style.css
 
 ----
 
 Code Review
 -----------
 
-[code review rubric](docs/review.md).  
+[code review rubric](docs/review.md)
 
 ----
 
 References:
-To see how to structure the folders in my project
+- [Refactoring step of Makers Academy bookmark challenge](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/25.md)
+- [github.com/makersacademy/chitter_exemplar](https://github.com/makersacademy/chitter_exemplar)
 - [github.com/joemaidman](https://github.com/joemaidman/chitter-challenge)

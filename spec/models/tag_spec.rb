@@ -1,5 +1,3 @@
-require_relative '../../app/models/tag'
-
 describe Tag do
   subject(:tag) { described_class }
   name = "computing"

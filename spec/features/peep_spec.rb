@@ -1,8 +1,4 @@
-require_relative 'helpers'
-require "timecop"
-
 feature 'post peeps' do
-  include Helpers
 
   before do
     sign_up(email: "dave@dave.com", full_name: "Mr Dave", username: "Dave")

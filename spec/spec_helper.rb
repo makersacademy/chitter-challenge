@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'test'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+require 'timecop'
 require 'mail'
 require_relative 'features/helpers'
 
@@ -20,7 +21,7 @@ SimpleCov.start
 
 RSpec.configure do |config|
 
-  # conifig.include Helpers
+  config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

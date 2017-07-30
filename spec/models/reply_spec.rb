@@ -1,6 +1,3 @@
-require_relative '../../app/models/reply'
-require 'timecop'
-
 describe Reply do
   subject(:reply) { described_class }
   content = "message"

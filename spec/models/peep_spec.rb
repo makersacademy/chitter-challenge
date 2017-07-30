@@ -1,6 +1,3 @@
-require_relative '../../app/models/peep'
-require 'Timecop'
-
 describe Peep do
   subject(:peep) { described_class }
   content = "hi"
