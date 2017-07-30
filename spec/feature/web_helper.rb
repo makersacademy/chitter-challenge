@@ -12,10 +12,13 @@ def todays_date_toady
 
 end
 
-def sign_up
+def sign_up(email: 'sully@example.com',
+            password: 'oranges!',
+            password_confirmation: 'oranges!')
   visit '/users/new'
   expect(page.status_code).to eq(200)
-  fill_in :email,    with: 'sully@example.com'
-  fill_in :password, with: 'oranges!'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end
