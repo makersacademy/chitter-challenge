@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User
   include DataMapper::Resource
 
@@ -6,7 +8,12 @@ class User
   property :password_digest, Text
 
   def password=(password)
-    self.password_digest = Brcypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
 end
+
+
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_development")
+DataMapper.finalize
+DataMapper.auto_upgrade!

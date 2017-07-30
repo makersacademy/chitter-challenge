@@ -1,7 +1,8 @@
-<h1> Tweets! </h1>
+
 <% @peeps.each do |peep| %>
 <p>
   <%= peep.peep %>
   <%= peep.created_at.strftime('%b %e %T') %>
 </p>
 <% end %>
+<a href ='/peeps/new'> Post a new peep </a>
