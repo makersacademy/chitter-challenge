@@ -1,3 +1,12 @@
+require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+
 ENV["RACK_ENV"] = "test"
 require 'capybara'
 require 'capybara/rspec'
@@ -9,7 +18,7 @@ require './app/models/peep'
 require './app/app'
 
 Capybara.app = Chitter
-=begin
+
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -24,8 +33,3 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-=end
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-])
-SimpleCov.start

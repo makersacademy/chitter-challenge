@@ -1,8 +1,8 @@
 feature 'See peep' do
   scenario 'I can see my posted peep' do
     visit '/'
-    expect(page.status_code).to eq 200
-    Peep.create(content: 'My first peep')
+    fill_in :peep, with: 'My first peep'
+    click_button 'Peep!'
     within 'ul#peeps' do
       expect(page).to have_content 'My first peep'
     end
