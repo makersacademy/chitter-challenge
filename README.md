@@ -3,7 +3,7 @@
 
 ### Set up instructions
 
-git clone git@github.com:kitkat119/chitter-challenge.git
+*git clone git@github.com:kitkat119/chitter-challenge.git
 * bundle
 * createdb chitter_development
 * rake auto_migrate
