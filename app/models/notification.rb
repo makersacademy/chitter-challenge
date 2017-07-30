@@ -1,7 +1,7 @@
 class Notification
   CHITTER_EMAIL = "notify@chitter.com"
   DEFAULT_SUBJECT = "Someone tagged you in a peep!"
-  DEFAULT_BODY = "peeped about you"
+  DEFAULT_BODY = "peeped about you!"
 
   def initialize(tagged_user, tagging_user)
     @tagged_user = tagged_user
@@ -17,7 +17,7 @@ class Notification
       from    CHITTER_EMAIL
       to      recipient
       subject DEFAULT_SUBJECT
-      body    "#{tagger} #{DEFAULT_BODY}"
+      body    "@#{tagger} #{DEFAULT_BODY}"
     end
   end
 

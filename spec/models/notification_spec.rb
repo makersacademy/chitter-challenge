@@ -1,6 +1,6 @@
 require './app/models/notification'
 
-describe Notification do  
+describe Notification do
   subject(:notification) { described_class }
   let(:tagged_user) { double(:user) }
   let(:tagging_user) { double(:user) }
@@ -16,7 +16,7 @@ describe Notification do
     end
 
     it "tells the user who has tagged them" do
-      expect(notification.send(tagged_user, tagging_user)).to have_sent_email.with_body("penfold peeped about you")
+      expect(notification.send(tagged_user, tagging_user)).to have_sent_email.with_body("@penfold peeped about you!")
     end
   end
 end
