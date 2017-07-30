@@ -4,8 +4,12 @@
   <% @peeps.each do |peep| %>
   <li>
     Peep: <%= peep.message %>
+    <br>
+    Peeped at: <%= peep.created_at.strftime("%F %T") %>
   </li>
+  <br></br>
   <% end %>
+
 </ul>
 
 <form action="/peeps/new" method="get">

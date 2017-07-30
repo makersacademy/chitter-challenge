@@ -156,6 +156,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-timestamps
   rake
   rspec
   rubocop
