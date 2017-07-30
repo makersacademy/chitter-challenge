@@ -34,4 +34,11 @@ feature 'User sign in / sign up:' do
     click_button 'Sign In'
     expect(page).to have_content("Howdy user@user.com")
   end
+
+  scenario 'I can log out after logging in' do
+    sign_up
+    click_button 'Logout'
+    expect(page).to have_content('Please sign in')
+    expect(page).not_to have_content('Howdy')
+  end
 end
