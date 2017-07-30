@@ -5,13 +5,9 @@
 
 feature 'Posting Peeps' do
 
-  scenario 'I can post a single peep' do
-  @peep = "Joffrey...Cersei...Walder Frey...Meryn Trant...Tywin Lannister...The Red Woman...Beric Dondarrion...Thoros of Myr...Illyn Payne...The Mountain.."
 
-  visit '/peeps/new'
-  expect(page.status_code).to eq 200
-  fill_in :message, with: @peep
-  click_button 'Post'
-  expect(page).to have_content @peep
+  scenario 'I can post a single peep' do
+  post_a_peep(test_peep_one)
+  expect(page).to have_content test_peep_one
   end
 end
