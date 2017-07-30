@@ -13,7 +13,7 @@ class CHITTER < Sinatra::Base
     user = User.first(:username => current_user.username)
     post.user << user
     post.save
-    email
+    # Call 'email' method here
     redirect '/posts'
   end
 
