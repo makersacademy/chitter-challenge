@@ -8,6 +8,8 @@
 <ul id="peeps">
   <% @peeps.each_with_index do |peep, i| %>
     <li>
+      <%= peep.user.email %>
+      <br />
       <%= peep.time_created %>
       <br />
       <%= peep.message %>

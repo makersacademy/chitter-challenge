@@ -8,6 +8,12 @@ class Chitter < Sinatra::Base
   set :sessions_secret, 'secret'
   register Sinatra::Flash
 
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
+
   get '/feed' do
     user_email = User.get(session[:user_id]).email if session[:user_id]
     @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : "Latest peeps"
@@ -16,7 +22,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/feed' do
-    Peep.create(message: params[:message], time_created: Time.now)
+    peep = Peep.create(message: params[:message], time_created: Time.now)
+    peep.user = current_user
+    peep.save
     redirect '/feed'
   end
 
@@ -36,4 +44,6 @@ class Chitter < Sinatra::Base
       erb :'/user/new'
     end
   end
+
+  run! if app_file == $0
 end
