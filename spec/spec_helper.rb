@@ -4,7 +4,8 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara/rspec'
 require './app/app'
 require './app/models/peep'
-# require_relative 'web_helper'
+require './app/models/user'
+require_relative 'web_helper'
 
 Capybara.app = Chitter
 
