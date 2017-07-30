@@ -34,9 +34,11 @@
     <% time = peep.created_at.strftime("%r") %>
     <% date = "(#{peep.created_at.strftime('%x')})" %>
     <% datenow = "(#{Time.now.strftime('%x')})" %>
+    <% zone = peep.created_at.strftime('%Z') %>
     <tr>
       <td><%= peep.body %></td>
-      <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em></td>
+      <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em><br>
+        <em style="font-size: 12"><%= zone %></em></td>
       <td><a href="/peeps/filter/<%= peep.user.id %>"><%= peep.user.name %></a></td>
     </tr>
     <% end %>
