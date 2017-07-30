@@ -10,13 +10,12 @@ class Chitter < Sinatra::Base
 
   get '/feed' do
     user_email = User.get(session[:user_id]).email if session[:user_id]
-    @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : "Peeps"
+    @welcome_message = user_email ? "Howdy #{User.get(session[:user_id]).email}" : "Latest peeps"
     @peeps = Peep.all.sort { |a, b| b.time_created <=> a.time_created }
     erb :feed
   end
 
   post '/feed' do
-    puts "Time now: #{Time.now}"
     Peep.create(message: params[:message], time_created: Time.now)
     redirect '/feed'
   end
