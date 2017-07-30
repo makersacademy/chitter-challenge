@@ -2,18 +2,18 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require 'sinatra/flash'
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    erb :index
+    @peeps = Peep.all(:order => [ :created_at.desc ])
+    erb :peeps
   end
 
-  post '/' do
-    @peep = params[:peep]
+  post '/peep' do
+    peep = Peep.create(message: params[:peep], time: "#{Time.new.hour}:#{Time.new.min}")
+    redirect ('/')
   end
 
   run! if app_file == $0

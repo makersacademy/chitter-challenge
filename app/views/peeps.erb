@@ -1,0 +1,15 @@
+<form action="/peep" class="post_peep" method="post">
+  <label>Post your peep!
+    <input type="text" name="peep" placeholder="What's happening?">
+  </label>
+  <input type="submit" value="Peep">
+</form>
+
+<h2>Peeps</h2>
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+  <li>
+    <%= peep.message %> (<%= peep.time %>)
+  </li>
+  <% end %>
+</ul>
