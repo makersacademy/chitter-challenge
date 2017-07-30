@@ -37,8 +37,8 @@
 
         <!-- CODE -->
         <% if !current_user %>
-          <a class="link w-nav-link" href="#">Sign In</a>
-          <a class="link w-nav-link" href="#">Sign Up</a></nav>
+          <a class="link w-nav-link" href="/user/login">Sign In</a>
+          <a class="link w-nav-link" href="/user/new">Sign Up</a></nav>
         <% end %>
         <!-- END OF CODE -->
 
@@ -52,16 +52,16 @@
 
         <div class="inversediv">
 
-          <!-- CODE -->
+          <!-- CODE SERVICE MESSAGE -->
           <% if !current_user %>
-            <p class="caption service">Please <a class="a">sign in</a> or sign up to chit something</p>
+            <p class="caption service">Please <a class="a" href="/user/login">sign in</a> or <a class="a" href="/user/new">sign up</a> to chit something</p>
           <% end %>
           <!-- END OF CODE -->
 
           <!-- CODE -->
           <% if current_user %>
               <div class="w-form">
-                <form data-name="Email Form" id="email-form" name="email-form" action="/feed" method="post">
+                <form data-name="Message" id="email-form" name="create_message" action="/feed" method="post">
                   <textarea class="area textfield w-input" id="field" maxlength="5000" name="message" placeholder="What&#39;s on your mind?">
                   </textarea>
                   <input class="blue button w-button" type="submit" value="Send">
