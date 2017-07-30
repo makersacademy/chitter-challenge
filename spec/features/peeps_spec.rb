@@ -22,4 +22,13 @@ feature 'Displaying peeps' do
     click_button 'Sign In'
     expect(current_path).to eq '/sessions/new'
   end
+
+  scenario 'A signed in user can post a peep' do
+    sign_in
+    expect(current_path).to eq '/peeps'
+    fill_in 'peep_text', with: 'I just made a fun hat'
+    click_button 'Peep'
+    expect(page).to have_content 'George @george: I just made a fun hat'
+  end
+
 end

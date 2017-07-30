@@ -8,4 +8,4 @@ postgres_database = "postgres://localhost/chitter_#{ENV['RACK_ENV']}"
 
 DataMapper.setup(:default, postgres_database)
 DataMapper.finalize
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
