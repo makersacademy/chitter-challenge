@@ -5,8 +5,8 @@
 feature 'Posting peeps' do
   scenario 'I can post a peep to chitter' do
     visit '/peeps/new'
-    fill_in 'name', with: 'Suzy'
-    fill_in 'username', with: '@sultrysuzy'
+    # fill_in 'name', with: 'Suzy'
+    # fill_in 'username', with: '@sultrysuzy'
     fill_in 'peep', with: 'Creating a new peep'
     click_button 'Create peep'
     expect(current_path).to eq '/peeps'
