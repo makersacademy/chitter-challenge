@@ -1,6 +1,15 @@
 <head>
   <title>Chitter. It's what's happening</title>
 </head>
+<% unless current_user %>
+  <form action='/users/new' method='get'>
+    <input class='top_right_buttons' type='submit' value='Sign Up' />
+  </form>
+  <br><br>
+  <form action='/sessions/new' method='get'>
+    <input class='top_right_buttons' type='submit' value='Sign In' />
+  </form>
+<% end %>
 <div class='outer_container'>
   <div class='inner_container'>
     <div class='centered_content'>

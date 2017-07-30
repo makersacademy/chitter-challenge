@@ -52,7 +52,6 @@
       color: #FFF;
     }
     .top_right_buttons {
-      display: inline-block;
       border-radius: 5px;
       height: 30px;
       width: 100px;
@@ -60,8 +59,8 @@
       background: #00ACED;
       font-size: 100%;
       color: #FFF;
-      text-align: center;
-      float: right;
+      position: absolute;
+      right: 0;
     }
     .notice {
       position: absolute;
@@ -75,15 +74,15 @@
 
   <body>
     <% if current_user %>
-      <form id='signout' action='/sessions' method="post">
+      <form id='signout' action='/sessions' method='post'>
         Welcome to Chitter, <%= current_user.name %>
         <input type='hidden' name='_method' value='delete'>
         <input class='top_right_buttons' type='submit' value='Sign Out' />
       </form>
-    <% else %>
-      <br>
     <% end %>
+
     <%= yield %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       Please correct the following errors:
       <ul id='errors'>
@@ -92,6 +91,7 @@
         <% end %>
       </ul>
     <% end %>
+
     <% if flash[:notice] %>
       <div class='notice'>
         <%= flash[:notice] %>
