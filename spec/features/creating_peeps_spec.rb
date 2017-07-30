@@ -9,7 +9,6 @@ feature 'Creating peeps' do
 
     within 'ul#peeps' do
       peep = Peep.last
-      p peep
       expect(peep.name).to include 'Lucia'
       expect(peep.name).not_to include 'Barney'
     end

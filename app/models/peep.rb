@@ -9,6 +9,7 @@ class Peep
   property :name, String
   property :copy, String
 
+
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
