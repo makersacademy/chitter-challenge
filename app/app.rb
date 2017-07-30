@@ -6,6 +6,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'erb'
 require_relative 'models/peep'
+require_relative 'data_mapper_setup'
 
 class Chitter < Sinatra::Base
   register Sinatra::Flash
