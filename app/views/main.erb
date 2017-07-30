@@ -1,6 +1,13 @@
 <body style= 'text-align: center'>
   <h1> Welcome to Peeper <h1>
-    <table align= "center">
+  <% if current_user %>
+    Welcome, <%= current_user.name %>
+    <form action='/sessions' method= 'post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Sign out'>
+    </form>
+  <% end %>
+  <table align= "center">
     <tr>
       All the Peeps
     </tr>
@@ -10,6 +17,7 @@
       <td style="border: 2px solid #dddddd"> peeped at <%= peep.time %> </td>
     </tr>
     <% end %>
+    <% @peeps.all %>
   </table>
   <form action ="/add_peep" method="post">
     <input type="text" name="message" value="add a peep">

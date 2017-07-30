@@ -3,10 +3,15 @@ Please sign up to Peeper
   Add Peep
   <input type="text" name="name">
   <input type="text" name="email">
-  <input type="text" name="password">
-  <input type="text" name="password_confirmation">
+  <input type="password" name="password">
+  <input type="password" name="password_confirmation">
   <input type="submit" value="Submit">
 </form>
+
+<form action ="/session" method="post">
+  <input type="submit" value="Loggin">
+</form>
+
 <% if flash[:errors] && !flash[:errors].empty? %>
   Please refer to the following errors below:
   <ul id='errors'>

@@ -7,6 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
   set :session_secret, 'super-secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   def current_user
     @current_user ||= User.get(session[:id])
@@ -26,14 +27,24 @@ class Chitter < Sinatra::Base
     erb :session_new
   end
 
+  post '/session' do
+    redirect '/sessions/new'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/'
+  end
+
   get '/main' do
-    @user = current_user
-    @peeps = Peep.all
+    @peeps = current_user.peeps
      erb :main
   end
 
   post '/add_peep' do
-    Peep.create(message: params[:message], time: Time.now.strftime('%H:%M'))
+    current_user.peeps << Peep.first_or_create(message: params[:message], time: Time.now.strftime('%H:%M'))
+    current_user.save
     redirect '/main'
   end
 
@@ -46,6 +57,12 @@ class Chitter < Sinatra::Base
       flash[:errors] = @user.errors.full_messages
       redirect '/sign_up_missed'
     end
+  end
+
+  post '/log_in' do
+    @user = User.all(email: params[:email])
+    session[:id] = @user.id
+    redirect '/main'
   end
 end
 
