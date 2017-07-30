@@ -2,7 +2,7 @@
 <h2>Chitter  |  Home  |   Moments  |   Notification  |  Search  | Sign Out</h2>
 <% if current_user %>
   <h2>Welcome, <%= current_user.nickname %></h2>
-  <h2>You logged in as **<%= current_user.name %>**</h2>
+  <h2>You logged in as: <%= current_user.name %></h2>
 <% end %>
 <br>
 <form action='/peeps' method='POST'>
@@ -14,10 +14,15 @@
 <h2> People are peeping about </h2>
   <ul id='peeps'>
     <% @peeps.each do |peep| %>
+    <br>
     <li>
-      <%= peep.message %>
+      <%= current_user.nickname %> >>>
+      <%= peep.message %> on
       <%= peep.time %>
     </li>
     <% end %>
   </ul>
 <body>
+<footer>
+<p>© 2017 TwitterAboutHelp</p>
+</footer>
