@@ -1,22 +1,33 @@
-Please sign up to Peeper
-<form action ="/sign_up" method="post">
-  Add Peep
-  <input type="text" name="name">
-  <input type="text" name="email">
-  <input type="password" name="password">
-  <input type="password" name="password_confirmation">
+<h1 align= 'center'>
+  Please sign up to Peeper
+</h1>
+
+<%= flash[:no_user] %>
+
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+<% end %>
+
+<form action ="/sign_up" method="post" align='center'>
+  <div>
+    Name: <input type="text" name="name">
+  </div>
+  <div>
+    Email: <input type="email" name="email">
+  </div>
+  <div>
+    Password: <input type="password" name="password">
+  </div>
+  <div>
+    Confirm password: <input type="password" name="password_confirmation">
+  </div>
   <input type="submit" value="Submit">
 </form>
 
-<form action ="/session" method="post">
+
+
+<form action ="/session" method="post" align= 'center'>
   <input type="submit" value="Loggin">
 </form>
-
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>

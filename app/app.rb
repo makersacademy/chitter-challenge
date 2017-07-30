@@ -18,6 +18,11 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/main' do
+    @peeps = current_user.peeps
+     erb :main
+  end
+
   get '/sign_up_missed' do
     @user = User.first
     erb :sign_up
@@ -37,31 +42,31 @@ class Chitter < Sinatra::Base
     redirect to '/'
   end
 
-  get '/main' do
-    @peeps = current_user.peeps
-     erb :main
-  end
-
-  post '/add_peep' do
-    current_user.peeps << Peep.first_or_create(message: params[:message], time: Time.now.strftime('%H:%M'))
-    current_user.save
-    redirect '/main'
-  end
-
   post '/sign_up' do
     @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:id] = @user.id
       redirect '/main'
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.next[:errors] = @user.errors.full_messages
       redirect '/sign_up_missed'
     end
   end
 
   post '/log_in' do
-    @user = User.all(email: params[:email])
-    session[:id] = @user.id
+    @user = User.first(:email => params[:email])
+    if @user
+      session[:id] = @user.id
+      redirect '/main'
+    else
+      flash.next[:no_user] = 'Please sign up first'
+      redirect '/'
+    end
+  end
+
+  post '/add_peep' do
+    current_user.peeps << Peep.first_or_create(message: params[:message], time: Time.now.strftime('%H:%M'))
+    current_user.save
     redirect '/main'
   end
 end
