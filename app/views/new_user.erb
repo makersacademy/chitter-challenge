@@ -17,15 +17,15 @@
 
   <body>
     <h1>Sign up to Chitter!</h1>
-    <form action="/users/new" method="get">
+    <form action="/users/new" method="post">
       Username<br>
-      <input type="text" name="username"><br>
+      <input type="text" name="username" value='<%= @user.username %>'required><br>
       Email<br>
-      <input type="email" name="email"><br>
+      <input type="email" name="email" value='<%= @user.email %>'required><br>
       Password<br>
-      <input type="password" name="password"><br>
+      <input type="password" name="password" required><br>
       Confirm password<br>
-      <input type="password" name="password_confirm"><br>
+      <input type="password" name="password_confirm" required><br>
       <br>
       <input type='submit' value='Sign me up!'>
     </form>

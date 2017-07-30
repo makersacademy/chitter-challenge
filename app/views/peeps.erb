@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <h1>Welcome to Chitter</h1>
+    <h1>Welcome to Chitter<%= ", #{@user.username}!" if @user %> </h1>
     <form action="/peeps/new" method="get">
       <input type='submit' value='New Peep!'>
     </form>

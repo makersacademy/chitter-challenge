@@ -1,11 +1,25 @@
 feature 'FEATURE: registering new users' do
+  include Helpers
+
   scenario 'signing up as a new user' do
-    visit '/users/new'
-    fill_in 'username', with: "user123"
-    fill_in 'email', with: "123@test.com"
-    fill_in 'password', with: "123abc"
-    fill_in 'password_confirm', with: "123abc"
-    expect { click_button 'Sign up!' }.to change{ User.count }.by(1)
-    expect(page).to have_content "Welcome user123"
+    expect { sign_up }.to change{ User.count }.by(1)
+    expect(page).to have_content "Welcome to Chitter, user123!"
+  end
+
+  scenario 'providing mismatching password and password confirmation values' do
+    expect { sign_up(password_confirmation: "wrong") }.to_not change{ User.count }
+    expect(page).to have_content "Password and password confirmation don't match!"
+  end
+
+  scenario 'using a preregistered username' do
+    sign_up
+    expect { sign_up }.to_not change{ User.count }
+    expect(page).to have_content "Username already taken!"
+  end
+
+  scenario 'using a preregistered email' do
+    sign_up
+    expect { sign_up }.to_not change{ User.count }
+    expect(page).to have_content "Email address is already registered!"
   end
 end
