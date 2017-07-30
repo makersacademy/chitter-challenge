@@ -103,6 +103,10 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
+    sinatra-partial (0.4.0)
+      sinatra
     stringex (1.5.1)
     tilt (2.0.8)
     uuidtools (2.1.5)
@@ -122,6 +126,8 @@ DEPENDENCIES
   rake
   rspec
   sinatra
+  sinatra-flash
+  sinatra-partial
 
 BUNDLED WITH
    1.15.3

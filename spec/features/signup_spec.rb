@@ -1,12 +1,22 @@
 feature 'FEATURE: signing up' do
   scenario 'User can sign up for account' do
-    visit '/users/new'
-    fill_in :name, with: 'Bob'
-    fill_in :username, with: 'Bobby'
-    fill_in :email, with: 'Bob@bob.org'
-    fill_in :password, with: '12345'
-    fill_in :password_confirmation, with: '12345'
-    click_button 'Sign up'
+    expect{ sign_up }.to change(User, :count).by(1)
     expect(page).to have_content 'Welcome! A new user account has been created for Bobby'
   end
+
+  scenario 'I cannot sign up without entering an email' do
+  expect { sign_up(email: nil) }.not_to change(User, :count)
+  expect(page).to have_content 'Email must not be blank'
+end
+
+scenario 'I cannot sign up using an invalid email address' do
+  expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+  expect(page).to have_content 'Email has an invalid format'
+end
+
+scenario 'I cannot sign up using an already registered email address' do
+  sign_up
+  expect { sign_up }.not_to change(User, :count)
+  expect(page).to have_content 'Email is already taken'
+end
 end
