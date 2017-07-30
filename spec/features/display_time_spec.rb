@@ -5,7 +5,7 @@ feature 'time of peep is displayed' do
     fill_in :message, with: 'My first peep'
     click_button 'Post Peep'
     within 'ul#peeps' do
-    expect(page).to have_content '2017'
+    expect(page).to have_content '07/30/17'
     end
   end
 end
