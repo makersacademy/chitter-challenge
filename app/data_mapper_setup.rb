@@ -6,6 +6,6 @@ require_relative 'models/user'
 
 postgres_database = "postgres://localhost/chitter_#{ENV['RACK_ENV']}"
 
-DataMapper.setup(:default, postgres_database)
+DataMapper.setup(:default, ENV['DATABASE_URL'] || postgres_database)
 DataMapper.finalize
 DataMapper.auto_upgrade!
