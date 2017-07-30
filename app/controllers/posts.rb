@@ -16,6 +16,10 @@ class CHITTER < Sinatra::Base
   end
 
   get '/posts/new' do
-    erb :'/posts/new'
+    if current_user
+      erb :'/posts/new'
+    else
+      redirect '/users/new'
+    end
   end
 end

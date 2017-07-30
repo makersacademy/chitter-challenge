@@ -17,7 +17,6 @@ class CHITTER < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
-    flash.keep[:notice] = 'So long'
     redirect to '/posts'
   end
 end

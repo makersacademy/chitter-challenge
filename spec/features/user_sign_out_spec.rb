@@ -10,7 +10,6 @@ feature 'User: sign out' do
   scenario 'can sign out whilst signed in' do
     sign_in(email: 'test@test.com', password: 'test')
     click_button 'Sign out'
-    expect(page).to have_content 'So long'
     expect(page).not_to have_content 'Hello, user@user.com'
   end
 end
