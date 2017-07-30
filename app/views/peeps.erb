@@ -15,9 +15,11 @@
     </form>
 <div style="background-color: #ffffff">
   <h1> Chitter Feed </h1>
-  <ul id='peeps'>
-    <% @peeps.each do |peep| %>
-        <%= peep.peeps %><br>
+  <ul id='peeps' style="list-style-type: none;">
+    <% @peeps.reverse_each do |peep| %>
+    <li style="list-style-type: none;">
+      <%= peep.peeps %>
+    </li>
     <% end %>
   </ul>
 </center>
