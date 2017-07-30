@@ -1,10 +1,16 @@
 <h1>Chitter</h1>
 
+<form action='/post' method='post'>
+  Peep to Chitter:
+  <input type='text' name='peep'/>
+  <input type='submit' value='Peep!'>
+</form>
+
 <ul id = 'peeps'>
-  <% @peeps.each do |peep| %>
+  <% @peeps.reverse.each do |peep| %>
     <li>
-      <%= peep.content %><br>
-      <%= peep.created_at %>
+      <b><%= peep.content %></b><br>
+      Peeped at: <%= peep.created_at %>
     </li>
     <% end %>
 </ul>
