@@ -5,6 +5,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require './app/models/peep'
 require 'database_cleaner'
+require_relative 'helpers/peeps'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -29,4 +30,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include PeepsHelpers
 end
