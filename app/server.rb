@@ -14,5 +14,17 @@ class CHITTER < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def email
+      post = Post.first
+      user = User.all
+      post.text.split(' ').each do |word|
+        if word == user
+          # Email notification goes here
+        else
+          break
+        end
+      end
+    end
   end
 end

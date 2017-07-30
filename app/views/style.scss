@@ -14,6 +14,10 @@ body {
     margin: 0;
 }
 
+ul {
+  -webkit-padding-start: 0px
+}
+
 /* 2. Nav */
 
 .bar {
@@ -83,7 +87,7 @@ button {
 
     .box {
         padding: 1em;
-        width: 60%;
+        width: 55%;
         align-self: center;
         align-content: center;
         text-align: right;
