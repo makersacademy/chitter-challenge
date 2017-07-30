@@ -35,7 +35,7 @@ Installation
 
 Screenshots
 -------
-[Imgur](http://i.imgur.com/TulGyBj.png)
+![Alt text](http://i.imgur.com/TulGyBj.png "Screenshot")
 
 Challenge:
 -------
