@@ -5,7 +5,7 @@ feature 'Sign Up to Chitter' do
   scenario 'new user can sign up' do
     expect { sign_up }.to change(User, :count).by(1)
     expect(current_path).to eq '/peeps'
-    expect(page).to have_content 'Welcome Cat_Peeps93!'
+    expect(page).to have_content 'welcome Cat_Peeps93'
   end
 
   scenario 'username/email must be unique' do

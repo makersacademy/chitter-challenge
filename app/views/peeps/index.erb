@@ -1,14 +1,18 @@
-<h2> Latest Peeps </h2>
-
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-    <li>
-      <%= peep.message %>
-      <br><br>
-      <%= peep.user.username %> (<i><%= peep.user.name %></i>)
-      <br>
-      <%= peep.time_stamp %>
-    </li>
-    <br><br>
-  <% end %>
-</ul>
+<div class='container-fluid text-center'>
+  <div class='text-center'>
+    <h2> latest peeps </h2>
+      <ul class='blockquote-reverse' id='peeps'>
+        <% @peeps.each do |peep| %>
+          <li>
+            <p class="lead bg-info"><%= peep.message %></p>
+            <br><br>
+            <%= peep.user.username %> (<i><%= peep.user.name %></i>)
+            <br>
+            <%= peep.time_stamp %>
+          </li>
+          <br><br>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

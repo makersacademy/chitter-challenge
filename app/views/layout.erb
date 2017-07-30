@@ -1,45 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Chitter</title>
 
-    <h1> Chitter </h1>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>chitter</title>
 
-    <% if current_user %>
-      Welcome <%= current_user.username %>!
-      <br><br>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log out'>
-      </form>
-      <form method='get' action='/peeps/new'>
-        <input type='submit' value='Peep!'>
-      </form>
+    <div class="jumbotron text-center">
+      <a href='/peeps' class="disabled">
+        <h1> chitter </h1>
+      </a>
+
+      <% if current_user %>
+      <h3>welcome <%= current_user.username %></h3>
+      <div class="row">
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
+        </form>
+        <br>
+        <form method='get' action='/peeps/new'>
+          <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+        </form>
+      </div>
       <br><br>
       <% if flash[:notice] %>
         <div id='notice'>
           <%= flash[:notice] %>
         </div>
       <% end %>
-    <% else %>
-      <form method='get' action='/sessions/new'>
-        <input type='submit' value='Peep!'>
-      </form>
-    <% end %>
-
-    <% if flash[:notice] %>
-      <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Uh oh!
-      <ul id='errors'>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
+      <% else %>
+        <form method='get' action='/sessions/new'>
+          <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+        </form>
       <% end %>
-      </ul>
-    <% end %>
+      </div>
+
+      <div class="col-sm-10 text-left">
+        <% if flash[:notice] %>
+        <br>
+        <div id='notice'><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:errors] && !flash[:errors].empty? %>
+          Uh oh!
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+        <% end %>
+        </div>
   </head>
+
+  <br><br>
   <body>
-    <%= yield %>
+    <div class="text-center">
+      <%= yield %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+    </div>
   </body>
 </html>

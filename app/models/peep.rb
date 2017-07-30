@@ -3,7 +3,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,           Serial
-  property :message,      String
+  property :message,      String, required: true
   property :time_stamp,   String
 
   def self.time
