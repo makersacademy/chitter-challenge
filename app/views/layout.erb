@@ -20,7 +20,7 @@
             </div>
           <% else %>
              <div class="post">
-               <button type="button" name="button"><a href="/">Log in</a></button>
+               <button type="button" name="button"><a href="/sessions/new">Log in</a></button>
              </div>
              <div class="post">
                <button type="button" name="button"><a href="/users/new">Register</a></button>
@@ -29,7 +29,9 @@
         </div>
         <div class="container">
             <div class="box">
-                <%= partial :flash %>
+                <div class="flash">
+                    <%= partial :flash %>
+                </div>
                 <%= yield %>
             </div>
         </div>

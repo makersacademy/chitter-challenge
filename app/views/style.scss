@@ -85,8 +85,19 @@ button {
         padding: 1em;
         width: 60%;
         align-self: center;
-        align-content:center;
-        text-align:center;
+        align-content: center;
+        text-align: right;
+    }
+
+    .flash {
+      color: $red;
+      align-self: center;
+      align-content:center;
+      text-align:center;
+
+      p {
+        text-align: center;
+      }
     }
 
     h2 {
@@ -115,6 +126,7 @@ button {
 
         .meta {
           font-size: 1em;
+          font-style: italic;
           text-align: left;
         }
     }
@@ -123,6 +135,11 @@ button {
 /* 5. Peep Buttons */
 
 .peeping {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   .peep_form {
     width: 100%;
     height: 75px;
@@ -141,10 +158,9 @@ button {
     border-radius: 10px;
     color: $white;
     padding: 10px 28px;
-    margin-left: auto;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
+    margin-left: auto;
   }
 }
 

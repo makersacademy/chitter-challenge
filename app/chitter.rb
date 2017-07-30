@@ -14,7 +14,7 @@ require_relative 'controllers/users'
 class CHITTER < Sinatra::Base
 
   get '/' do
-    erb :'/sessions/new'
+    redirect '/posts'
   end
 
   get '/stylesheets/style.css' do

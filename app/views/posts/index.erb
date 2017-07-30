@@ -1,7 +1,16 @@
-<% if current_user %>
-  <h2>Hello, <%= current_user.username %></h2>
-<% end %>
 <ul id="post">
+  <% if current_user %>
+    <h2>Hello, <%= current_user.username %></h2>
+    <form class="peeping" action="/posts" method="post">
+      <p>
+        <input class="peep_form" id="content" type="text" id="text" name="text" placeholder="What are you up to?">
+      </p>
+      <p>
+        <input class="peep_button" type='submit' id="submit" value='Submit'>
+      </p>
+    </form>
+  <% end %>
+  <h2>Latest posts</h2>
   <% @posts.reverse_each do |post| %>
   <div class="new_post">
     <li>

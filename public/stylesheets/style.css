@@ -60,7 +60,14 @@ button {
     width: 60%;
     align-self: center;
     align-content: center;
+    text-align: right; }
+  .container .flash {
+    color: #D60539;
+    align-self: center;
+    align-content: center;
     text-align: center; }
+    .container .flash p {
+      text-align: center; }
   .container h2 {
     text-align: left; }
   .container .welcome {
@@ -78,30 +85,34 @@ button {
       text-align: left; }
     .container .new_post .meta {
       font-size: 1em;
+      font-style: italic;
       text-align: left; }
 
 /* 5. Peep Buttons */
-.peeping .peep_form {
-  width: 100%;
-  height: 75px;
-  font-size: 1.6em;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none; }
-
-.peeping .peep_button {
-  background-color: #00b7fe;
-  border: none;
-  border-radius: 10px;
-  color: #FFFFFF;
-  padding: 10px 28px;
-  margin-left: auto;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px; }
+.peeping {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .peeping .peep_form {
+    width: 100%;
+    height: 75px;
+    font-size: 1.6em;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none; }
+  .peeping .peep_button {
+    background-color: #00b7fe;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    padding: 10px 28px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: auto; }
 
 /* 6. Forms */
 .signin_form {
