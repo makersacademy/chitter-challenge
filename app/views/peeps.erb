@@ -12,7 +12,7 @@
     <tr>
       <td><%= peep.body %></td>
       <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em></td>
-      <td>(Username)</td>
+      <td><%= peep.user %></td>
     </tr>
     <% end %>
   </table>

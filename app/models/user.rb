@@ -2,12 +2,13 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-timestamps'
 
-class Peep
+class User
   include DataMapper::Resource
 
-  belongs_to :user
+  has n, :peeps
 
   property :id,   Serial
-  property :body, Text
-  property :created_at, DateTime
+  property :name, String
+  property :email, String
+  property :password, Text
 end
