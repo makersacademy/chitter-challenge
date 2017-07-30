@@ -8,4 +8,5 @@ class Peep
   property :created_at, DateTime
   property :time, String
 
+  belongs_to :user, required: true
 end
