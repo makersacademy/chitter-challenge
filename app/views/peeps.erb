@@ -37,7 +37,7 @@
     <tr>
       <td><%= peep.body %></td>
       <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em></td>
-      <td><a href="/peeps/filter/<%= peep.user.id %>"><%= peep.user.email %></a></td>
+      <td><a href="/peeps/filter/<%= peep.user.id %>"><%= peep.user.name %></a></td>
     </tr>
     <% end %>
   </table>
