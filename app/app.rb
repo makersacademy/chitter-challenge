@@ -22,6 +22,10 @@ class Chitter < Sinatra::Base
     erb :sign_up
   end
 
+  get '/sessions/new' do
+    erb :session_new
+  end
+
   get '/main' do
     @user = current_user
     @peeps = Peep.all
