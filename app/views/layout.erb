@@ -24,6 +24,11 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Log out'>
       </form>
+
+      <form action='/peeps/new' method='get'>
+        <button class='button' type='submit' value='Peep'>New Peep</button>
+      </form>
+
     <% end %>
 
     <% if flash[:errors] %>
