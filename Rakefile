@@ -16,4 +16,8 @@ RSpec::Core::RakeTask.new :spec
     DataMapper.auto_migrate!
     puts 'Auto-migrate complete (data could have been lost)'
   end
+
+  use Rack::Static,
+    :urls => ["/images", "/stylesheets"],
+    :root => "public"
 end
