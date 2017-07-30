@@ -1,6 +1,10 @@
 <h1> Peeps </h1>
 
-<% @peeps.each do |peep| %>
-  <%= peep.content %> <br>
-  <%= peep.created_at %>
-<% end %>
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.content %> <br>
+      <%= peep.created_at.strftime("%c") %>
+    </li>
+  <% end %>
+</ul>
