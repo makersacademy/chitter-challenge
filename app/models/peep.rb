@@ -8,4 +8,6 @@ class Peep
   property :content, String
   property :created_at, DateTime
 
+  belongs_to :user
+
 end

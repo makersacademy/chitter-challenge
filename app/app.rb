@@ -24,7 +24,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(content: params[:content])
+    @user = current_user
+    peep = Peep.create(content: params[:content], user_id: current_user.id)
+    peep.save
+    p peep
     redirect '/peeps'
   end
 
@@ -47,6 +50,12 @@ class Chitter < Sinatra::Base
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
+    end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
