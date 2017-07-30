@@ -9,6 +9,7 @@ gem 'dm-validations'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'bcrypt'
+gem 'timecop'
 
 
 group :test do

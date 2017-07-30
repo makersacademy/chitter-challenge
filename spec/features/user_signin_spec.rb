@@ -9,14 +9,14 @@ feature 'User sign in' do
 
   scenario 'with correct credentials' do
     sign_in(nickname: user.nickname,   password: user.password)
-    expect(page).to have_content "Welcome, #{user.nickname}"
+    expect(page).to have_content "CHITTER New user"
   end
 
   def sign_in(nickname:, password:)
     visit '/sessions/new'
     fill_in :nickname, with: nickname
     fill_in :password, with: password
-    click_button 'Sign in'
+    click_button 'Sign Up'
   end
 
 end
