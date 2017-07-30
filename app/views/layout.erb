@@ -6,12 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="<%= url("/css/bootstrap.min.css")%>" rel="stylesheet">
   <link href="<%= url("/css/custom.css")%>" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Muli" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
   <title>Chitter</title>
 </head>
 <body>
-  <h1>Chitter</h1>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="/">Chitter</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li role="presentation" class="active">
+            <a href="/"><span class="glyphicon glyphicon-home" aria-label="Home"></span><span class="sr-only">(current)</span></a></li>
+            <li role="presentation"><a href="/peeps"><span class="glyphicon glyphicon-th-list" aria-label="View"></span></a></li>
+            <li role="presentation"><a href="/peeps/new"><span class="glyphicon glyphicon-pencil" aria-label="Post"></span></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a href="/signup"><span class="glyphicon glyphicon-heart-empty" aria-label="Register"></span> Register</a></li>
+          <li role="presentation"><a href="/sessions/new"><span class="glyphicon glyphicon-user"aria-label="Login"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

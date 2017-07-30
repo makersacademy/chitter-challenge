@@ -1,11 +1,13 @@
- <div class="container">
-  <form action="/peeps" method="post">
-    <p>Post a peep <span class="glyphicon glyphicon-pencil"></span></p>
-    <div class="input-group">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Post a peep <span class="glyphicon glyphicon-pencil"></span></h3>
+  </div>
+  <div class="panel-body">
+    <form action="/peeps" method="post">
+      <div class="input-group">
         <textarea class="form-control" rows="3" name='message' maxlength="160" placeholder="Enter message here" required></textarea>
-        <span class="input-group-addon">
-          <button type='submit' class="btn btn-primary">Post</button>
-          </span>
-    </div>
-  </form>
+        <span class="input-group-addon"><button type='submit' class="btn btn-primary">Post</button></span>
+      </div>
+    </form>
+  </div>
 </div>
