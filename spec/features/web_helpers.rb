@@ -21,7 +21,7 @@ def sign_up(
 end
 
 def log_in(username_or_email, password)
-  visit 'sessions/new'
+#  visit 'sessions/new'
   fill_in 'username_or_email', with: username_or_email
   fill_in 'password', with: password
   click_button 'Submit'

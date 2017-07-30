@@ -9,6 +9,8 @@ feature 'email verification' do
     expect { sign_up(email: wrong_format_2) }.to change(User, :count).by(0)
   end
   scenario 'existing email used' do
-    expect { 2.times { sign_up } }.to change(User, :count).by(1)
+    sign_up
+    expect { sign_up(username: 'David') }.to change(User, :count).by(0)
+    expect(page).to have_content 'Email is already taken'
   end
 end
