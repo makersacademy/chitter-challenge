@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <center>
+  <ul>
+  <li><font size="5"><b>Peep Feed</b></font></li><br>
+  <% @peeps.each do |peep| %>
+  <li>
+    <b>@<%= User.get(peep.user_id).username %></b><br>
+    <%= peep.content %>
+    <% peep.tags.each do |tag| %>
+      #<%= User.get(tag.user_id).username %>
+    <% end %><br>
+    <small><%= peep.time.strftime("%R %v") %></small>
+  </li>
+  <br>
+  <% end %>
+</ul></center>
+</body>
+</html>

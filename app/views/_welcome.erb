@@ -1,0 +1,16 @@
+<center>
+  <% if current_user %>
+    <label><p>Welcome to Chitter <%= current_user.username %></p></label>
+    <div class="button-container"><form action="/sessions" method="post">
+      <input type ="hidden" name="_method" value="delete">
+      <button type="submit">Sign out</button>
+    </form>
+    <form action="/peeps/new">
+      <button type="submit">Post a peep</button>
+    </form></div>
+  <% else %>
+  <form action="/sessions/new">
+    <button type="submit">Sign in to Chitter</button>
+  </form>
+  <% end %>
+</center>
