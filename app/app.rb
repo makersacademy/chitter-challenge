@@ -6,7 +6,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/feed' do
-    @peeps = Peep.all
+    @peeps = Peep.all.sort { |a, b| b.time_created <=> a.time_created }
     erb :feed
   end
 
