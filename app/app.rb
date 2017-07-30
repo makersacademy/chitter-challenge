@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
     @user = current_user
     peep = Peep.create(content: params[:content], user_id: current_user.id)
     peep.save
-    p peep
+    p User.first(id: peep.user_id)
     redirect '/peeps'
   end
 
