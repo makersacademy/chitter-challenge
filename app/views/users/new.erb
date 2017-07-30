@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
+<h1>CHITTER</h1>
+<h2>New user? Please sign up</h2>
+  <form action='/users' method='POST'>
+      <label for='name'>
+        <input name='name' type='text' value='<%= @user.name %>' placeholder='name'>
+      </label>
+
+      <label for='nickname'>
+        <input name='nickname' type='text' value='<%= @user.nickname %>' placeholder='nickname'>
+      </label>
+
+      <label for='email'>
+        <input name='email' type='text' placeholder='email' value='<%= @user.email %>' required>
+      </label>
+
+      <label for='password'>
+        <input name='password' type='password' placeholder='password'>
+      </label>
+
+      <label for='password_confirmation'>
+        <input name='password_confirmation' type='password' placeholder='confirm password'>
+      </label>
+    <input type='submit' value='Sign up'>
+  </form>
+<h2>Login with your account</h2>
+<form action='/sessions/new' method='GET'>
+  <input type='submit' value='Login on Chitter'>
+</form>

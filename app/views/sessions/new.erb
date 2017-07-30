@@ -1,0 +1,15 @@
+<h1>Log in to Chitter</h1>
+
+<form action='/sessions' method='POST'>
+  <label for='nickname'>
+    <input type='text' name='nickname' placeholder='nickname'>
+  </label>
+  <label for='password'>
+    <input type='password' name='password' placeholder='password'>
+  </label>
+  <input type='submit' value='Log In'>
+</form>
+<h2>New to Chitter? Sign up now »</h2>
+<form action='/users/new' method='GET'>
+  <input type='submit' value='Sign Up'>
+</form>

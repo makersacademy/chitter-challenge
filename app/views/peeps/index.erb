@@ -1,0 +1,28 @@
+<body>
+<h2>Chitter  |  Home  |   Moments  |   Notification  |  Search  | Sign Out</h2>
+<% if current_user %>
+  <h2>Welcome, <%= current_user.nickname %></h2>
+  <h2>You logged in as: <%= current_user.name %></h2>
+<% end %>
+<br>
+<form action='/peeps' method='POST'>
+  <label for='message'>
+    <input type='text' name='message' placeholder="What's happening?"/>
+  </label>
+  <input type='submit' value='Peep'>
+
+<h2> People are peeping about </h2>
+  <ul id='peeps'>
+    <% @peeps.each do |peep| %>
+    <br>
+    <li>
+      <%= current_user.nickname %> >>>
+      <%= peep.message %> on
+      <%= peep.time %>
+    </li>
+    <% end %>
+  </ul>
+<body>
+<footer>
+<p>© 2017 TwitterAboutHelp</p>
+</footer>
