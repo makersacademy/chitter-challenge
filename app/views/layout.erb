@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/bootstrap/bootstrap.min.js"></script>
+  </head>
   <body>
 
-    <% if current_user %>
-      Welcome, <%= current_user.name %>
-      <form method='post' action='/sessions'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Log out'>
-      </form>
-    <% end %>
+    <nav class="navbar bg-primary">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" style="padding-top: 0px" href="/">
+            <img alt="Brand" src="/images/chitter_logo_no_bg.png" width="50" height="50"/>
+          </a>
+        </div>
+          <% if current_user %>
+            <ul class="nav navbar-nav navbar-left" style="padding-top: 15px">
+              Welcome, <%= current_user.name %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <form method='post' class="navbar-brand bg-primary" action='/sessions'>
+                <input type='hidden' name='_method' value='delete'>
+                <input type='submit' class="btn-sm bg-primary" value='Log out'
+                style="border-width: 0px; padding: 0px">
+              </form>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class = "bg-primary" href="/sign_up">Sign Up </a>
+              </li>
+              <li>
+                <a class = "bg-primary" href="/login">Login </a>
+              </li>
+            </ul>
+          <% end %>
+      </div>
+    </nav>
+
+
 
     <% if flash[:notice] %>
       <div id='notice'>

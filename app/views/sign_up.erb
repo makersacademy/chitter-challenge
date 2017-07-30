@@ -1,14 +1,32 @@
-<h1>Sign up</h1>
-  <form action='/sign_up' method='post'>
-    <input type='text' name='name' placeholder="Full name"required>
-    </br>
-    <input type='text' name='username' placeholder="Username" required>
-    </br>
-    <input type='email' name='email' placeholder="Email"required>
-    </br>
-    <input type='password' name='password'placeholder="Password" required>
-    </br>
-    <input type='password' name='password_confirmation'placeholder="Confirm password"required>
-    </br>
-    <input type='submit' value='Sign up'>
-  </form>
+<div class="row">
+  &nbsp
+</div>
+<div class="col-md-4 col-md-offset-4 panel panel-primary">
+  <div class="panel-body">
+    <h2 class="text-center">Sign up</h2>
+    <img src="/images/chitter_logo_no_bg.png" alt="logo" class="center-block"/>
+    <form action='/sign_up' method='post' class="form-horizontal">
+      <div class="form-group">
+        <input type='text' class="form-control" name='name' placeholder="Full name"required>
+      </div>
+      <div class="form-group">
+        <input type='text' class="form-control" name='username' placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type='email' class="form-control" name='email' placeholder="Email"required>
+      </div>
+      <div class="form-group">
+        <input type='password' class="form-control" name='password'placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <input type='password' class="form-control" name='password_confirmation'placeholder="Confirm password"required>
+      </div>
+      <div class="row">&nbsp</div>
+      <div class="form-group">
+        <div class="center-block">
+          <input type='submit' value='Sign up' class="btn btn-primary col-md-12" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

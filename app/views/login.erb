@@ -1,8 +1,23 @@
-<h1>Login</h1>
-  <form action='/login' method='post'>
-    <input type='email' name='email' placeholder="Email"required>
-    </br>
-    <input type='password' name='password'placeholder="Password" required>
-  </br>
-    <input type='submit' value='Login'>
-  </form>
+<div class="row">
+  &nbsp
+</div>
+<div class="col-md-4 col-md-offset-4 panel panel-primary">
+  <div class="panel-body">
+    <h2 class="text-center">Log in</h2>
+    <img src="/images/chitter_logo_no_bg.png" alt="logo" class="center-block"/>
+    <form action='/login' method='post' class="form-horizontal">
+      <div class="form-group">
+          <input type='email' class="form-control" id="email" name='email' placeholder="Email" required>
+      </div>
+      <div class="form-group">
+          <input type='password' class="form-control" id="pass" name='password'placeholder="Password" required>
+      </div>
+      <div class="row">&nbsp</div>
+      <div class="form-group">
+        <div class="center-block">
+          <input type='submit' value='Login' class="btn btn-primary col-md-12" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

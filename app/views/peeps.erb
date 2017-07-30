@@ -1,15 +1,26 @@
-<form action="/peep" method="post">
-  <label>Post your peep!
-    <input type="text" name="peep" placeholder="What's happening?">
-  </label>
-  <input type="submit" value="Peep">
-</form>
+<div class="col-md-8 col-md-offset-2 panel panel-primary" style= "height: 52px">
+  <div style="padding: 10x !important">
+    <form action="/peep" method="post" class="form-inline">
+      <div class="form-group col-md-10">
+        <input class= "col-md-12" type="text" name="peep" placeholder="What's happening?"
+        style="margin: 7px; height: 35px">
+      </div>
+      <div class="form-group col-md-2">
+        <input class= "col-md-12 bg-primary" type="submit" value="Peep"
+        style="border: 0px; margin-top: 10px">
+      </div>
+    </form>
+  </div>
+</div>
 
-<h3>Peeps</h3>
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-  <li>
-    <%= peep.user.name%> @<%=peep.user.username%> : <%= peep.message %> at <%= peep.time %>
-  </li>
-  <% end %>
-</ul>
+<div class="col-md-8 col-md-offset-2 panel panel-primary">
+  <ul class="list-group">
+    <% @peeps.each do |peep| %>
+    <li class="list-group-item">
+      <%= peep.user.name%> @<%=peep.user.username%> <%= peep.created_at.strftime("%d %b %H:%M") %>
+    </br>
+      <%= peep.message %>
+    </li>
+    <% end %>
+  </ul>
+</div>
