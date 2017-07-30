@@ -3,7 +3,6 @@ ENV["RACK_ENV"] = "test"
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
-require './app/models/peep'
 require 'database_cleaner'
 require_relative 'helpers/peeps'
 require_relative 'helpers/session'

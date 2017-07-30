@@ -1,22 +1,13 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Chitter</title>
   </head>
+
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id='errors'>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
     <%= yield %>
   </body>
 </html>

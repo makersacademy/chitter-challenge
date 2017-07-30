@@ -45,4 +45,25 @@ feature 'User sign in' do
     sign_in(email: user.email, password: user.password)
     expect(page).to have_content "Welcome, #{user.email}"
   end
+
+  scenario 'I cant sign in with incorrect password' do
+    sign_in(email: user.email, password: 'wrong_justwrong')
+    expect(page).to have_content 'The email or password is incorrect'
+  end
+end
+
+feature 'User sign out' do
+
+  before(:each) do
+    User.create(email: 'barney@barney.com',
+                password: 'pass1234',
+                password_confirmation: 'pass1234')
+  end
+
+  scenario 'successful sign-out' do
+    sign_in(email: 'barney@barney.com', password: 'pass1234')
+    click_button 'Sign out'
+    expect(page).to have_content('Goodbye, see you soon!')
+    expect(page).not_to have_content('Welcome, barney@barney.com')
+  end
 end
