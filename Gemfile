@@ -15,6 +15,7 @@ group :test do
   gem 'rspec'
   gem 'rake'
   gem 'rubocop'
+  gem 'orderly'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
