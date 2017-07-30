@@ -3,7 +3,9 @@ require_relative 'modles/peep'
 require_relative 'datamapper_setup'
 require_relative 'lib/time'
 
+
 class Chitter < Sinatra::Base
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -22,11 +24,18 @@ get '/users/new' do
 end
 
 post '/users' do
-  user = User.create(email: params[:email],
+  user = User.new(email: params[:email],
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
-  session[:user_id] = user.id
-  redirect to('/messages')
+                     if user.save
+                      session[:user_id] = user.id
+                      redirect to('/messages')
+                    else
+                      flash.now[:errors] = user.errors.full_messages
+                      erb :'users/new'
+                    end
+  # session[:user_id] = user.id
+  # redirect to('/messages')
 end
 
 helpers do
