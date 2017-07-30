@@ -1,0 +1,12 @@
+<form action="/feed" method="post">
+  <input type="text" name="message">
+  <input type="submit" value="Send">
+</form>
+<br /><br />
+<ul id="peeps">
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
