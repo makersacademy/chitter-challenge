@@ -19,4 +19,8 @@ scenario 'I cannot sign up using an already registered email address' do
   expect { sign_up }.not_to change(User, :count)
   expect(page).to have_content 'Email is already taken'
 end
+
+scenario 'I cannot sign up if I enter the wrong password confirmation' do
+  expect { sign_up(password_confirmation: 'xyz')}.not_to change(User, :count)
+end
 end
