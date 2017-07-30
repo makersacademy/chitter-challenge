@@ -1,4 +1,4 @@
-feature 'Signing up' do
+feature 'Signing up and logging in' do
   scenario 'user signs up and is added to the database' do
     visit('/')
     click_button('sign up')
@@ -9,6 +9,7 @@ feature 'Signing up' do
   end
 
   scenario 'user logs in and is greeted by their name' do
+    sign_up
     visit('/')
     click_button('login')
     fill_in :email, with: 'email@email.com'

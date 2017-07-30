@@ -6,6 +6,8 @@ require 'database_cleaner'
 require 'capybara/rspec'
 require './app/app'
 
+require './spec/features/web_helpers.rb'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console,])

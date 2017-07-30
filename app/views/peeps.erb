@@ -1,4 +1,8 @@
 <div id='chitfeed'>
+  <%= @user ? "Hello #{@user.name}" : "" %>
+  <form action="/peeps/new" method="get">
+    <input type="submit" value="new"/>
+  </form><br>
   <table width="50%">
     <tr>
       <th width="70%">Peep</th>
@@ -12,7 +16,7 @@
     <tr>
       <td><%= peep.body %></td>
       <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em></td>
-      <td><%= peep.user %></td>
+      <td><%= peep.user.name %></td>
     </tr>
     <% end %>
   </table>

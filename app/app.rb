@@ -4,6 +4,8 @@ require_relative 'app_setup'
 
 class Chitter < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
     erb(:index)
   end
@@ -17,9 +19,13 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    #session[:current_user] = User.get(email: params[:email])
-    #confirm login
-    redirect '/peeps'
+    if User.all.map{|user| user.email}.include? params[:email]
+      if User.first(:email => params[:email]).password == params[:password]
+        session[:current_user] = User.first(:email => params[:email])
+        redirect '/peeps'
+      end
+    end
+    redirect '/users'
   end
 
   post '/users/new' do
@@ -27,22 +33,23 @@ class Chitter < Sinatra::Base
     email = params[:email]
     password = params[:password]
     User.create(name: name, email: email, password: password)
-    redirect '/peeps'
+    redirect '/users'
   end
 
   get '/peeps' do
+    @user = session[:current_user]
     @peeps = Peep.all.reverse
     erb(:peeps)
   end
 
   get '/peeps/new' do
-    erb(:peep_new)
+    session[:current_user] ? erb(:peep_new) : redirect('/users')
   end
 
   post '/peeps' do
     peepbody = params[:peepbody]
-    Peep.create(body: peepbody, user: User.create) #user: session[:current_user])
+    user = session[:current_user]
+    Peep.create(body: peepbody, user_id: user.id)
     redirect '/peeps'
   end
-
 end

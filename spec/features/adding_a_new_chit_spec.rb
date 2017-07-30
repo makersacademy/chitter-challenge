@@ -1,6 +1,7 @@
 feature 'Adding a new chit' do
   scenario 'user posts a chit and can view it' do
-    visit('/')
+    sign_up
+    login
     click_button('new')
     fill_in 'peepbody', with: 'Chitter is awesome!'
     expect { click_button 'submit' }.to change(Peep, :count).by(1)
