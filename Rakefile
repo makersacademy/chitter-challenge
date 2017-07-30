@@ -1,10 +1,13 @@
-if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
+require_relative './app/app.rb'
+require 'data_mapper'
 
-  RSpec::Core::RakeTask.new :spec
-
-  task default: [:spec]
-end
+# if ENV['RACK_ENV'] != 'production'
+#   require 'rspec/core/rake_task'
+#
+#   RSpec::Core::RakeTask.new :spec
+#
+#   task default: [:spec]
+# end
 
 namespace :db do
   desc 'non-destructive upgrade'
