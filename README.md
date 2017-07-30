@@ -15,7 +15,8 @@ Completed
 - [x] I want to log in to Chitter
 - [x] I want to log out of Chitter
 - [x] Heroku hosted
-- [x] Testing: 95%
+- [x] Testing: 100%
+- [x] Styling / CSS
 
 Doing
 -------
@@ -24,7 +25,7 @@ Doing
 Incomplete
 -------
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
-- [ ] Styling / CSS
+
 
 Installation
 -------

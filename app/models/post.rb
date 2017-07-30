@@ -4,4 +4,6 @@ class Post
   property :id,      Serial
   property :text,    String
   property :time,    String
+
+  has n, :user, through: Resource
 end

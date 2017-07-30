@@ -1,11 +1,17 @@
-<h1>Please sign in</h1>
+<h2 class="welcome">Please sign in</h2>
 
-<form action='/sessions' method='post'>
-  <label for='email'>
-    Email: <input name='email' type='email'>
-  </label>
-  <label for='password'>
-    Password: <input name='password' type='password'>
-  </label>
-  <input type='submit' value='Sign in'>
+<form class="signin_form" action='/sessions' method='post'>
+  <p>
+    <label for='email'>
+      <input name='email' type='email' placeholder="Email">
+    </label>
+  </p>
+  <p>
+    <label for='password'>
+      <input name='password' type='password' placeholder="Password">
+    </label>
+  </p>
+  <p>
+    <input class="button" type='submit' value='Sign in'>
+  </p>
 </form>

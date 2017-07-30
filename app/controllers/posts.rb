@@ -9,6 +9,8 @@ class CHITTER < Sinatra::Base
     time = Time.now
     post = Post.new(text: params[:text],
                     time: time.strftime("Posted on %d/%m/%Y at %I:%M%p"))
+    user = User.first(current_user)
+    post.user << user
     post.save
     redirect '/posts'
   end

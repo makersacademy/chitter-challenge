@@ -9,6 +9,6 @@ feature 'User: Sign in ' do
 
   scenario 'can sign into a user account' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content 'Welcome, @user'
+    expect(page).to have_content 'Hello, @user'
   end
 end

@@ -10,6 +10,7 @@ class User
   property :email,           String, format: :email_address, required: true, unique: true
   property :password_digest, Text
   property :username,        String, unique: true, required: true
+  has n, :posts, through: Resource
 
   validates_confirmation_of :password, required: true
 

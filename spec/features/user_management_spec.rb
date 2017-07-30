@@ -8,7 +8,7 @@ feature 'User: Sign up' do
   scenario 'can sign up a new user' do
     visit '/users/new'
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content 'Welcome, @user'
+    expect(page).to have_content 'Hello, @user'
     expect(User.first.email).to eq 'user@user.com'
   end
 

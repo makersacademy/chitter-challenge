@@ -5,7 +5,15 @@ feature 'Create post' do
     Post.create(text: 'Hello World!', time: time)
   end
 
+  let!(:user) do
+    User.create(email: 'user@user.com',
+                password: 'pass',
+                password_confirmation: 'pass',
+                username: '@user')
+  end
+
   before do
+    sign_in(email: user.email, password: user.password)
     new_post(post.text)
   end
 
@@ -14,6 +22,10 @@ feature 'Create post' do
     within 'ul#post' do
       expect(page).to have_content(post.text)
     end
+  end
+
+  scenario 'post has an author' do
+    expect(page).to have_content(user.username)
   end
 
   # I want to see the time at which it was made

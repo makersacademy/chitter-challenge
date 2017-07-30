@@ -1,9 +1,13 @@
-<h1>Posts</h1>
+<% if current_user %>
+  <h2>Hello, <%= current_user.username %></h2>
+<% end %>
 <ul id="post">
   <% @posts.reverse_each do |post| %>
+  <div class="new_post">
     <li>
-      <%= post.text %>
-      <%= post.time %>
+      <p class="text"><%= post.text %></p>
+      <p class="meta"><%= post.time %></p>
     </li>
+  </div>
   <% end %>
 </ul>
