@@ -59,7 +59,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = user.id
       redirect '/feed'
     else
-      flash.now[:errors] = user.errors.full_messages
+      flash.now[:notice] = "Wrong username or password. Please try again or sign up."
       erb :'/user/login'
     end
   end

@@ -9,12 +9,12 @@ def sign_up
   click_button 'Sign Up'
 end
 
-def sign_in
-  email = 'user@user.com'
-  password = '123'
-
-  visit('/user/login')
-  fill_in 'email', with: email
-  fill_in 'password', with: password
-  click_button 'Sign In'
-end
+# def sign_in
+#   email = 'user@user.com'
+#   password = '123'
+#
+#   visit('/user/login')
+#   fill_in 'email', with: email
+#   fill_in 'password', with: password
+#   click_button 'Sign In'
+# end

@@ -15,8 +15,8 @@ feature 'User sign in / sign up:' do
     fill_in 'password', with: password
     fill_in 'password_confirmation', with: '124'
     click_button 'Sign Up'
-    expect(page).to have_content("Please sign up")
-    expect(page).to have_content("Password does not match the confirmation")
+    expect(page).to have_content('Please sign up')
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'I cannot sign up with an existing email' do
@@ -32,7 +32,15 @@ feature 'User sign in / sign up:' do
     fill_in 'email', with: email
     fill_in 'password', with: password
     click_button 'Sign In'
-    expect(page).to have_content("Howdy user@user.com")
+    expect(page).to have_content('Howdy user@user.com')
+  end
+
+  scenario 'I cannot login if not registered' do
+    visit('/user/login')
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    click_button 'Sign In'
+    expect(page).to have_content('Wrong username or password')
   end
 
   scenario 'I can log out after logging in' do
