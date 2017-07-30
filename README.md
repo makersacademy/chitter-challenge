@@ -1,3 +1,19 @@
+# Chitter Challenge
+## Makers Academy Week 4 Weekend challenge
+
+### Set up instructions
+
+git clone git@github.com:kitkat119/chitter-challenge.git
+$ bundle
+$ createdb chitter_development
+$ rake auto_migrate
+$ rspec
+$ rackup
+
+
+
+
+
 Chitter Challenge
 =================
 
