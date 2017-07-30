@@ -1,11 +1,11 @@
 class User
-  
+
   include DataMapper::Resource
   property :id, Serial
-  property :name, String
-  property :user_name, String
-  property :email_address, String
-  property :password_digest, Text
+  property :name, String, required: true
+  property :user_name, String, required: true
+  property :email_address, String, required: true
+  property :password_digest, Text, required: true
   validates_confirmation_of :password, :message => 'Password do not match'
 
   has n, :peeps
