@@ -8,6 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'rake'
+gem 'dotenv'
 
 group :test do
   gem 'cucumber'

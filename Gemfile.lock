@@ -78,6 +78,7 @@ GEM
     do_postgres (0.10.17)
       data_objects (= 0.10.17)
     docile (1.1.5)
+    dotenv (2.2.1)
     fastercsv (1.5.5)
     gherkin (4.1.3)
     hirb (0.7.3)
@@ -163,6 +164,7 @@ DEPENDENCIES
   database_cleaner
   dm-migrations
   dm-postgres-adapter
+  dotenv
   orderly
   rake
   rspec

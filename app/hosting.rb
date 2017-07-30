@@ -13,6 +13,5 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  # run! if $PROGRAM_NAME == "lib/app.rb"
   run! if app_file == $0
 end
