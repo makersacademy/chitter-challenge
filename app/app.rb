@@ -34,7 +34,11 @@ class Chitter < Sinatra::Base
     erb :'/user/new'
   end
 
-  post '/makeuser' do
+  get '/user/login' do
+    erb :'/user/login'
+  end
+
+  post '/user/create' do
     user = User.new(email: params[:email],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
@@ -45,6 +49,24 @@ class Chitter < Sinatra::Base
       flash.now[:notice] = "Password and confirmation password do not match"
       erb :'/user/new'
     end
+  end
+
+  post '/user/authenticate' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    puts "User:"
+    p user
+    if user
+      session[:user_id] = user.id
+      redirect '/feed'
+    else
+      flash.now[:notice] = "Wrong username or password. Please try again or sign up."
+      erb :'/user/login'
+    end
+  end
+
+  get '/user/logout' do
+    session[:user_id] = nil
+    redirect '/feed'
   end
 
   run! if app_file == $0
