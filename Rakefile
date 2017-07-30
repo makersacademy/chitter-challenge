@@ -1,9 +1,9 @@
 if ENV['RACK_ENV'] != 'production'
-  require 'rspec/core/rake_task'
-  require 'data_mapper'
-  require './app/data_mapper_setup'
+require 'rspec/core/rake_task'
+require 'data_mapper'
+require './app/chitter.rb'
 
-  RSpec::Core::RakeTask.new :spec
+RSpec::Core::RakeTask.new :spec
 
   task default: [:spec]
 
