@@ -8,10 +8,7 @@ class Chitter < Sinatra::Base
                     time: Time.now,
                     user_id: session[:user_id])
     params[:tags].split.each do |tag|
-      if User.tagged(tag)
-        peep.tags << Tag.first_or_create(user_id: User.tagged(tag).id)
-        Notification.send(User.tagged(tag), User.get(peep.user_id))
-      end
+      tagging_actions(peep, tag)
     end
     peep.save
     redirect to("/peeps")

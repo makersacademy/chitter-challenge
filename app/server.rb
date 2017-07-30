@@ -20,6 +20,12 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def tagging_actions(peep, tag)
+      return nil unless User.tagged(tag)
+      peep.tags << Tag.first_or_create(user_id: User.tagged(tag).id)
+      Notification.send(User.tagged(tag), User.get(peep.user_id))
+    end
   end
 
   run! if app_file == $PROGRAM_NAME

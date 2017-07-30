@@ -5,8 +5,9 @@
 feature "Peeping" do
   scenario "I can post a peep to Chitter" do
     sign_up
-    visit('/peeps/new')
+    click_button "Post a peep"
     fill_in :peep, with: "My first peep!"
+    fill_in :tags, with: "dangermouse"
     click_button "Peep!"
     expect(page).to have_content "My first peep!"
   end

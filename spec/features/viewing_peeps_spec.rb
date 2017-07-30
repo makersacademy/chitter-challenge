@@ -42,4 +42,12 @@ feature "Viewing peeps" do
     expect(page).to have_content "#penfold"
     expect(page).to have_content "#dangermouse"
   end
+
+  scenario "Users who don't exist do not show up when tagged" do
+    visit('/peeps/new')
+    fill_in :peep, with: "Oh, heck!"
+    fill_in :tags, with: "colonel_k"
+    click_button "Peep!"
+    expect(page).not_to have_content "#colonel_k"
+  end
 end
