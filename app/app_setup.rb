@@ -4,6 +4,7 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'sinatra/base'
 require 'date'
+require 'bcrypt'
 
 require_relative 'models/peep.rb'
 require_relative 'models/user.rb'

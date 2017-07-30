@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   before do
-    @user = session[:current_user]
+    @user = User.get(session[:current_user_id])
   end
 
   get '/' do
@@ -23,11 +23,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    if User.all.map{|user| user.email}.include? params[:email]
-      if User.first(:email => params[:email]).password == params[:password]
-        session[:current_user] = User.first(:email => params[:email])
-        redirect '/peeps'
-      end
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:current_user_id] = user.id
+      redirect '/peeps'
     end
     redirect '/users'
   end
@@ -35,14 +34,15 @@ class Chitter < Sinatra::Base
   post '/users/new' do
     name = params[:name].capitalize
     email = params[:email]
-    password = params[:password]
-    User.create(name: name, email: email, password: password)
-    redirect '/users'
+    password_hash = BCrypt::Password.create(params[:password])
+    user = User.create(name: name, email: email, password_hash: password_hash)
+    session[:current_user_id] = user.id
+    redirect '/peeps'
   end
 
   get '/logout' do
-    session[:current_user] = nil
-    redirect '/peeps'
+    session[:current_user_id] = nil
+    redirect to '/peeps'
   end
 
   get '/peeps' do
@@ -51,13 +51,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps/new' do
-    session[:current_user] ? erb(:peep_new) : redirect('/users')
+    session[:current_user_id] ? erb(:peep_new) : redirect('/users')
+  end
+
+  get '/peeps/filter/:id' do
+    @id = params[:id]
+    @peeps = User.get(params[:id]).peeps.reverse
+    erb(:peeps)
   end
 
   post '/peeps' do
     peepbody = params[:peepbody]
-    user = session[:current_user]
-    Peep.create(body: peepbody, user_id: user.id)
+    Peep.create(body: peepbody, user_id: session[:current_user_id])
     redirect '/peeps'
   end
 end

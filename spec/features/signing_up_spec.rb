@@ -17,4 +17,15 @@ feature 'Signing up and logging in' do
     click_button('submit')
     expect(page).to have_content('Hello Tester!')
   end
+
+  scenario 'user logs in with wrong password' do
+    sign_up
+    visit('/')
+    click_button('login')
+    fill_in :email, with: 'email@email.com'
+    fill_in :password, with: 'wrongpassword'
+    click_button('submit')
+    expect(page).to have_content('Please login')
+    expect(page).to_not have_content('Hello Tester!')
+  end
 end
