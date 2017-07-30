@@ -7,6 +7,7 @@
 <ul>
   <% @peeps.each do |peep| %>
     <li>
+      <%= peep.user.name %> (<%= peep.user.user_name %>)<br>
       <%= peep.content %> <br>
       <%= peep.created_at.strftime("%c") %>
     </li>
