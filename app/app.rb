@@ -17,6 +17,10 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/' do
+    erb(:index)
+  end
+
   get '/users/new' do
     @user = User.new
     erb(:sign_up)

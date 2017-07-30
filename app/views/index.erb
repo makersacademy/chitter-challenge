@@ -1,0 +1,45 @@
+<DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #e6ecf0;
+      color: #14171a;
+      font-size: 14px;
+      margin-top: 50px;
+      text-align: center;
+      }
+
+    p {
+      font-family: "Raleway", sans-serif
+    }
+
+    .button {
+     background-color: #006dbf;
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     font-size: 16px;
+     margin: 5px;
+     cursor: pointer;
+    }
+  </style>
+
+    <h2>Welcome to Chitter</h2>
+    <div>
+      <form action='/users/new' method='get'>
+        <button class='button' type='submit' value='Sign up'>Sign up</button>
+      </form>
+    </div>
+      <h4> or </h4>
+    <div>
+      <form action='/users/login' method='get'>
+        <button class='button' type='submit' value='Log in'>Log in</button>
+      </form>
+    </div>
+
+  </body>
+</html>
