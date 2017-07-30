@@ -1,0 +1,4 @@
+class User
+  include
+
+end
