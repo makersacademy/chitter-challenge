@@ -14,5 +14,36 @@ def test_peep_two
 end
 
 def sign_up
+  visit '/'
+  click_button "Register"
+  fill_in "name", with: "Jon Snow"
+  fill_in "username", with: "kingofthenorth"
+  fill_in "email", with: "jon@winterfell.com"
+  fill_in "password", with: "winterishere"
+  fill_in "password_confirmation", with: "winterishere"
+  click_button "Register"
+end
 
+def sign_up_duplicate_username
+  sign_up
+  visit '/'
+  click_button "Register"
+  fill_in "name", with: "Ramsay Bolton"
+  fill_in "username", with: "kingofthenorth"
+  fill_in "email", with: "ramsay@mwhaha.com"
+  fill_in "password", with: "reek!reek!"
+  fill_in "password_confirmation", with: "reek!reek!"
+  click_button "Register"
+end
+
+def sign_up_duplicate_email
+  sign_up
+  visit '/'
+  click_button "Register"
+  fill_in "name", with: "Hodor"
+  fill_in "username", with: "hodorhodorhodor"
+  fill_in "email", with: "jon@winterfell.com"
+  fill_in "password", with: "hodorhodor!"
+  fill_in "password_confirmation", with: "hodorhodor!"
+  click_button "Register"
 end

@@ -6,21 +6,18 @@
 feature 'Sign up' do
 
   scenario 'I can sign up as a new user to Chitter' do
-  visit '/'
-  click_button :sign_up
-  fill_in :name, with: "Jon Snow"
-  fill_in :username, with: "kingofthenorth"
-  fill_in :email, with: "jon@winterfell.com"
-  fill_in :password, with: "winterishere"
-  expect(page).to have_content "Welcome, Jon Snow"
+    sign_up
+    expect(page).to have_content "Welcome, Jon Snow"
   end
 
   scenario 'I cannot sign up if my username already exists' do
-
+    sign_up_duplicate_username
+    expect(page).to have_content "Username is already taken"
   end
 
   scenario 'I cannot sign up if my email already exists' do
-
+    sign_up_duplicate_email
+    expect(page).to have_content "Email is already taken"
   end
 
 end
