@@ -1,14 +1,12 @@
 require 'bcrypt'
 require 'dm-validations'
 
-
-
 class User
   include DataMapper::Resource
   # include BCrypt
 
   property :id, Serial
-  property :email, String, required: true
+  property :email, String, format: :email_address, required: true, unique: true
   property :password_hash, Text, required: true
 
   has n, :peeps, through: Resource
@@ -18,6 +16,7 @@ class User
 
   validates_confirmation_of :password
   validates_presence_of :email
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password
@@ -28,7 +27,6 @@ class User
     email = params[:email]
     password = params[:password]
     user = first(email: email)
-
     if user && BCrypt::Password.new(user.password_hash) == password
       user
     else
