@@ -16,6 +16,7 @@ group :deployment do
   gem 'bcrypt'
   gem 'datamapper'
   gem 'dm-postgres-adapter'
+  gem 'mail'
   gem 'sinatra'
   gem 'sinatra-flash'
 end

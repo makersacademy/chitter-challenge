@@ -3,6 +3,6 @@ class Tag
 
   has n, :peeps, through: Resource
 
-  property :id,      Serial
+  property :id, Serial
   belongs_to :user, :required => false
 end

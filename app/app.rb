@@ -3,10 +3,11 @@ ENV["RACK_ENV"] ||= "development"
 require "sinatra/base"
 require "sinatra/flash"
 require_relative "data_mapper_setup"
+require_relative "mail_setup"
 
 class Chitter < Sinatra::Base
   enable :sessions
-  set :session_secret { SecureRandom.hex(20) }
+  set :session_secret, SecureRandom.hex(20)
   register Sinatra::Flash
   use Rack::MethodOverride
 
@@ -19,7 +20,9 @@ class Chitter < Sinatra::Base
                 time: Time.now,
                 user_id: session[:user_id])
     params[:tags].split.each do |tag|
-      peep.tags << Tag.first_or_create(user_id: User.first(username: tag).id)
+      tagged_user = User.first(username: tag)
+      peep.tags << Tag.first_or_create(user_id: tagged_user.id) if tagged_user
+      Notification.send(tagged_user, User.get(peep.user_id))
     end
     peep.save
     redirect to("/peeps")
