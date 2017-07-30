@@ -5,7 +5,7 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  has n, :peeps, through: Resource
+  has n, :peeps
 
   attr_accessor :password_confirmation
   attr_reader :password

@@ -16,7 +16,7 @@ end
 
 def sign_in(email: 'user@user.com', password: '1234')
   sign_up
-  visit('/sessions/new')
+  visit('/login')
   fill_in 'email', with: email
   fill_in 'password', with: password
   click_button 'Login'

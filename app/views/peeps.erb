@@ -9,7 +9,7 @@
 <ul id='peeps'>
   <% @peeps.each do |peep| %>
   <li>
-    <%= current_user.name%> @<%=current_user.username%> : <%= peep.message %> at <%= peep.time %>
+    <%= peep.user.name%> @<%=peep.user.username%> : <%= peep.message %> at <%= peep.time %>
   </li>
   <% end %>
 </ul>
