@@ -7,4 +7,11 @@ Please sign up to Peeper
   <input type="text" name="password_confirmation">
   <input type="submit" value="Submit">
 </form>
-<%= flash[:password] %>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  Please refer to the following errors below:
+  <ul id='errors'>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

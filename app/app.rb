@@ -13,7 +13,12 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    flash[:password] = "Passwords didn't match"
+    @user = User.new
+    erb :sign_up
+  end
+
+  get '/sign_up_missed' do
+    @user = User.first
     erb :sign_up
   end
 
@@ -24,17 +29,18 @@ class Chitter < Sinatra::Base
   end
 
   post '/add_peep' do
-    Peep.create(message: params[:message],time: Time.now.strftime('%H:%M'))
+    Peep.create(message: params[:message], time: Time.now.strftime('%H:%M'))
     redirect '/main'
   end
 
   post '/sign_up' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:id] = user.id
-    if params[:password] == params[:password_confirmation]
+    @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:id] = @user.id
       redirect '/main'
     else
-      redirect '/'
+      flash[:errors] = @user.errors.full_messages
+      redirect '/sign_up_missed'
     end
   end
 end

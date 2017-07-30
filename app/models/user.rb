@@ -6,9 +6,9 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
+  property :email, String, required: true, unique: true
   property :name, String
-  property :email, String
-  property :password_digest,      Text
+  property :password_digest, Text
   validates_confirmation_of :password, :message => 'Passwords do not match'
 
   def password=(new_password)
