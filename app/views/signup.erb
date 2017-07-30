@@ -1,3 +1,7 @@
+<% if session[:signuperror] %>
+  <div class="full-width"><%= session[:signuperror] %></div>
+<% session[:signuperror] = nil %>
+<% end %>
 <div id='new_user_form'>
   <form action="/users/new" method="post">
     Name:<br>

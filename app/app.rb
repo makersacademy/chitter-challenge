@@ -27,17 +27,24 @@ class Chitter < Sinatra::Base
     if user
       session[:current_user_id] = user.id
       redirect '/peeps'
+    else
+      session[:loginerror] = "Email or password incorrect"
+      redirect '/users'
     end
-    redirect '/users'
   end
 
   post '/users/new' do
-    name = params[:name].capitalize
-    email = params[:email]
-    password_hash = BCrypt::Password.create(params[:password])
-    user = User.create(name: name, email: email, password_hash: password_hash)
-    session[:current_user_id] = user.id
-    redirect '/peeps'
+    if User.all.map(&:email).include?(params[:email])
+      session[:signuperror] = "Email address already registered"
+      redirect '/users/new'
+    else
+      name = params[:name].capitalize
+      email = params[:email]
+      password_hash = BCrypt::Password.create(params[:password])
+      user = User.create(name: name, email: email, password_hash: password_hash)
+      session[:current_user_id] = user.id
+      redirect '/peeps'
+    end
   end
 
   get '/logout' do

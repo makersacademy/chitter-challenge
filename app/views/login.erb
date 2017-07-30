@@ -1,5 +1,9 @@
 <div>
   <h4>Please login</h4>
+  <% if session[:loginerror] %>
+    <div class="full-width"><%= session[:loginerror] %></div>
+  <% session[:loginerror] = nil %>
+  <% end %>
   <form id='login_form' action="/users" method="post">
     Email:<br>
     <input type="email" name="email" placeholder="Enter email" required><br>

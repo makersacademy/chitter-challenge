@@ -8,13 +8,13 @@ gem 'dm-timestamps'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'rake'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber'
   gem 'rspec'
-  gem 'rake'
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
