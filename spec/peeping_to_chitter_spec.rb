@@ -12,7 +12,7 @@ feature 'Posting messages (peeps)' do
 
     expect(page.status_code).to eq 200
 
-    within 'peeps' do
+    within 'ul#peeps' do
       expect(page).to have_content('My first message!')
     end
   end
