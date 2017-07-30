@@ -10,6 +10,8 @@ $ rake auto_migrate
 $ rspec
 $ rackup
 
+### Visit at https://chitter-krd.herokuapp.com/peeps
+
 
 
 
