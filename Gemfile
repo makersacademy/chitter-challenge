@@ -15,4 +15,6 @@ gem 'pg'
 group :test do
   gem 'capybara'
   gem 'rspec'
+  gem 'simplecov'
+  gem 'simplecov-console'
 end

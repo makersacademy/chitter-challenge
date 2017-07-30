@@ -13,6 +13,14 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+])
+SimpleCov.start
+
 ENV['RACK_ENV'] = 'test'
 
 require_relative './features/web_helpers'

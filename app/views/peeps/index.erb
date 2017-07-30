@@ -1,9 +1,9 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep|  %>
   <% @user = User.first(id: peep.user_id) %>
-    <li>  Content: <%= peep.content %>
-    <li>  Time: <%= peep.created_at.strftime("%H:%M %d %B %Y") %>
-    <li> User: <%= @user.username %>
+    <br>  Content: <%= peep.content %><br>
+    <br>  Time: <%= peep.created_at.strftime("%H:%M %d %B %Y") %><br>
+    <br> User: <%= @user.username %><br>
       </li>
   <% end %>
 </ul>
