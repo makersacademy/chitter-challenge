@@ -1,22 +1,18 @@
 body {
-  background-image:url('/img/foggy_birds.png');
+  background-image:url('/img/tonal_rainbow.png');
   background-color: #ffb3b3;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Quicksand:300', sans-serif;
+  padding-top: 70px;
 }
 
 h1 {
-  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Quicksand:300', sans-serif;
 }
 
 h2 {
-  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Quicksand:300', sans-serif;
 }
 
 h3 {
-  font-family: 'Muli', sans-serif;
-}
-
-.jumbotron {
-  background: white;
-  text-align: center;
+  font-family: 'Quicksand:300', sans-serif;
 }
