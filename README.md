@@ -3,7 +3,7 @@ Chitter
 
 _'Chitter'_ is a little Twitter clone that will allow the users to post messages to a public stream.
 
-Usrer Stories:
+User Stories:
 -------
 
 ```
