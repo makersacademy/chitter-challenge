@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-
+require_relative 'modles/user'
 require_relative 'modles/peep'
 
 DataMapper.setup(:default, "postgres://localhost/Chitter")
