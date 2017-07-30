@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
+gem 'bcrypt'
 gem 'database_cleaner'
 gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
 gem 'dm-validations'
 gem 'sinatra'
+gem 'sinatra-flash'
 
 group :test do
   gem 'capybara'

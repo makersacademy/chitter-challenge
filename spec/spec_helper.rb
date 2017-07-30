@@ -5,6 +5,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 require './app/models/peep'
+require './app/models/user'
 
 require File.join(File.dirname(__FILE__), '../app/', 'app.rb')
 

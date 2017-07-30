@@ -1,10 +1,12 @@
+<%= @welcome_message %>
 <form action="/feed" method="post">
   <input type="text" name="message">
+  <br />
   <input type="submit" value="Send">
 </form>
 <br /><br />
 <ul id="peeps">
-  <% @peeps.each do |peep| %>
+  <% @peeps.each_with_index do |peep, i| %>
     <li>
       <%= peep.time_created %>
       <br />

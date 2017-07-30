@@ -5,6 +5,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     ast (2.3.0)
+    bcrypt (3.1.11)
     builder (3.2.3)
     capybara (2.14.4)
       addressable
@@ -13,7 +14,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chronic (0.10.2)
     cucumber (2.4.0)
       builder (>= 2.1.2)
       cucumber-core (~> 1.5.0)
@@ -137,6 +137,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     stringex (1.1.0)
     tilt (2.0.8)
     unicode-display_width (1.3.0)
@@ -148,8 +150,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
-  chronic
   cucumber
   data_mapper
   database_cleaner
@@ -162,6 +164,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.4.0p0
