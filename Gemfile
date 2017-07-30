@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
 
-group :developement do
+group :development do
+  gem 'bcrypt'
   gem 'data_mapper'
   gem 'dm-migrations'
   gem 'dm-postgres-adapter'

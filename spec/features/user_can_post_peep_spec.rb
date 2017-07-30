@@ -2,7 +2,7 @@ feature 'posting peeps' do
 
   before do
     Timecop.freeze(Time.local(1990))
-    user_sign_up("user", "user123", 'user@user.com', 'password123')
+    user_sign_up("user", "user123", 'user@user.com', 'password123', 'password123')
     visit '/peeps'
     post_peep('Peeping, peeping, 123')
   end
