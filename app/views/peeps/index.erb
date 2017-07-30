@@ -4,6 +4,9 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.message %>
+      <br><br>
+      <%= peep.user.username %> (<i><%= peep.user.name %></i>)
+      <br>
       <%= peep.time_stamp %>
     </li>
   <% end %>

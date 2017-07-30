@@ -1,8 +1,16 @@
 <h1> Do a Peep </h1>
 
-<form action='/peeps' method='POST'>
-  <label for='message'>
-    Message: <input type='text' name ='message'>
-  </label>
-  <input type='submit' value='Peep!'>
-</form>
+<% if current_user %>
+
+  <form action='/peeps' method='POST'>
+    <label for='message'>
+      Message: <input type='text' name ='message'>
+    </label>
+    <input type='submit' value='Peep!'>
+  </form>
+
+<% else %>
+
+  Sign in to peep!
+
+<% end %>

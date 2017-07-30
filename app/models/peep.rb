@@ -10,4 +10,6 @@ class Peep
     Time.new.strftime("...on %d/%m/%Y at %k:%M")
   end
 
+  belongs_to :user
+
 end
