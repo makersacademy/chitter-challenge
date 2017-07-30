@@ -6,6 +6,7 @@ Instructions:
 * bundle
 * rackup
 * visit http://localhost:9292
+* visit https://art-chitter.herokuapp.com/
 
 Features:
 -------
