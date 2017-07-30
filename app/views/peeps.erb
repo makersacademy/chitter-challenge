@@ -6,9 +6,12 @@
       <th>User</th>
     </tr>
     <% @peeps.each do |peep| %>
+    <% time = peep.created_at.strftime("%r") %>
+    <% date = "(#{peep.created_at.strftime('%x')})" %>
+    <% datenow = "(#{Time.now.strftime('%x')})" %>
     <tr>
       <td><%= peep.body %></td>
-      <td><%= peep.created_at.to_s.gsub(/[T]/,' ')[0, 19]  %></td>
+      <td><%= time %> <em><%="#{(date unless date == datenow )}" %></em></td>
       <td>(Username)</td>
     </tr>
     <% end %>
