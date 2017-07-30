@@ -1,0 +1,36 @@
+<DOCTYPE html>
+  <head>
+    <title> Chitter </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #e6ecf0;
+      color: #14171a;
+      font-size: 14px;
+      line-height: 20px;
+      overflow-y: scroll;
+      }
+
+    p {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+
+  <% if @user %>
+      <h2>Welcome <%= @user.email %></h2>
+    <% end %>
+
+    <% if flash[:errors] %>
+        Please refer to the follow errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <%= yield %>
+
+  </body>
+</html>
