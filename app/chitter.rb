@@ -10,6 +10,7 @@ class CHITTER < Sinatra::Base
   register Sinatra::Flash
   set :session_secret, 'super secret'
   set :public_folder, Proc.new { File.join(root, 'static') }
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -66,9 +67,15 @@ class CHITTER < Sinatra::Base
       session[:user_id] = user.id
       redirect '/posts'
     else
-      flash.now[errors] = ['The email or password is incorrect']
+      flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'So long'
+    redirect to '/posts'
   end
 
   get '/stylesheets/style.css' do

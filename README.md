@@ -13,28 +13,24 @@ Completed
 - [x] I want to see the time at which it was made
 - [x] I want to sign up for Chitter
 - [x] I want to log in to Chitter
+- [x] I want to log out of Chitter
 - [x] Heroku hosted
 - [x] Testing: 95%
 
 Doing
 -------
-- [ ] I want to log out of Chitter
+- [ ] I want to receive an email if I am tagged in a Peep
 
 Incomplete
 -------
-- [ ] I want to receive an email if I am tagged in a Peep
 - [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
 - [ ] Styling / CSS
 
-Screenshots
+Installation
 -------
-
-$ git clone git@github.com:langphil/chitter-challenge.git
-$ bundle install
-
-* Create two psql databases
- - chitter_test
- - chitter_development
+ - git clone git@github.com:langphil/chitter-challenge.git
+ - bundle install
+ - Create two psql databases > 'chitter_test', 'chitter_development'
 
 Screenshots
 -------
