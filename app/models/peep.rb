@@ -8,12 +8,10 @@ class Peep
   property :id, Serial
   property :name, String
   property :copy, String
-
+  property :created_at, DateTime
 
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
-
-#time.strftime("%a %d/%m %H:%M")
