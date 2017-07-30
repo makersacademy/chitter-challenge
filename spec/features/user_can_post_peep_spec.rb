@@ -5,17 +5,16 @@ feature 'posting peeps' do
   end
 
   scenario 'user can post a peep' do
-    visit '/peeps/new'
-    fill_in :content, with: 'Peeping, peeping, 123'
-    click_button 'Peep this'
+    user_sign_up("user", "user123", 'user@user.com', 'password123')
+    post_peep('Peeping, peeping, 123')
     visit '/peeps'
     expect(page).to have_content 'Peeping, peeping, 123'
   end
 
   scenario 'peep features the date and time' do
     visit '/peeps/new'
-    fill_in :content, with: 'Peeping, peeping, 123'
-    click_button 'Peep this'
+    user_sign_up("user", "user123", 'user@user.com', 'password123')
+    post_peep('Peeping, peeping, 123')
     visit '/peeps'
     expect(page).to have_content Time.now.strftime("%c")
   end
