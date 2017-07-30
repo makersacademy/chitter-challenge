@@ -12,3 +12,7 @@ end
 def test_peep_two
   "No need to seize the last word, Lord Baelish. I'll assume it was something clever"
 end
+
+def sign_up
+
+end
