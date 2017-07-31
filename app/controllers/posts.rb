@@ -9,9 +9,8 @@ class CHITTER < Sinatra::Base
   post '/posts' do
     time = Time.now
     post = Post.new(text: params[:text],
+                    user_id: session[:user_id],
                     time: time.strftime("Posted on %d/%m/%Y at %H:%M%p"))
-    user = User.first(:username => current_user.username)
-    post.user << user
     post.save
     # Call 'email' method here
     redirect '/posts'

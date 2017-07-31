@@ -5,5 +5,5 @@ class Post
   property :text,    Text, :length => 140
   property :time,    String
 
-  has n, :user, through: Resource
+  belongs_to :user
 end

@@ -2,7 +2,7 @@ feature 'Create post' do
 
   let!(:post) do
     time = Time.now
-    Post.create(text: 'Hello World!', time: time)
+    Post.create(text: 'Hello World!',  time: time.strftime("Posted on %d/%m/%Y at %H:%M%p"))
   end
 
   let!(:user) do
