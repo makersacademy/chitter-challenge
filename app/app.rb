@@ -18,7 +18,10 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.new(name: params[:name],
+                    email: params[:email],
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation])
     if @user.save
       session[:id] = @user.id
       redirect '/main'
@@ -30,7 +33,7 @@ class Chitter < Sinatra::Base
 
   get '/main' do
     @peeps = current_user.peeps
-     erb :main
+    erb :main
   end
 
   get '/sessions/new' do

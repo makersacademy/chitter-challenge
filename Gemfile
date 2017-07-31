@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.4.0'
-gem "data_mapper"
-gem "sinatra"
-gem "dm-postgres-adapter"
 gem 'bcrypt'
-gem 'pg'
+gem "data_mapper"
 gem 'dm-core'
+gem "dm-postgres-adapter"
 gem 'dm-timestamps'
-gem 'timecop'
+gem 'pg'
+gem 'rake'
+gem "sinatra"
 gem 'sinatra-flash'
+gem 'timecop'
 
 group :test do
-  gem 'rake'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pry'

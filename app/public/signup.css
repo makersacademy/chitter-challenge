@@ -35,6 +35,11 @@ div.signin {
   width: 50%
 }
 
+div.errors {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 input.loggin {
   color: #0097ff;
   font-size: 100%;

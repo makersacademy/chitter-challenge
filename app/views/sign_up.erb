@@ -8,12 +8,6 @@
   </h1>
 
   <body>
-    <%= flash[:no_user] %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-      <% end %>
-    <% end %>
     <div class='loggin'>
       <form action ="/session" method="post" align= 'center'>
         <input class='loggin' type="submit" value="Loggin">
@@ -39,5 +33,13 @@
       </div>
       <input class= 'submit' type="submit" value="Submit">
     </form>
+    <div class= 'errors'
+      <%= flash[:no_user] %>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+      <% end %>
+    </div>
   </body>
 </html>

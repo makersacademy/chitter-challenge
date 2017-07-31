@@ -10,7 +10,6 @@ require_relative '../app/data_mapper_setup.rb'
 require_relative '../app/app.rb'
 require_relative 'features/web_helper'
 
-
 Capybara.app = Chitter
 
 RSpec.configure do |config|
@@ -36,7 +35,6 @@ end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
   SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
