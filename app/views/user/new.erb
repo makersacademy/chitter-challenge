@@ -54,8 +54,7 @@
 
           <!-- CODE ERRORS -->
           <% if flash[:errors] && !flash[:errors].empty? %>
-            <p class="caption service">Please refer to the following errors below:</p>
-            <p class="caption service">Please refer to the following errors below:</p>
+            <!-- <p class="caption service">Please refer to the following errors below:</p> -->
             <div id='errors'>
               <% flash[:errors].each do |error| %>
                 <p class="caption service"><%= error %></p>
