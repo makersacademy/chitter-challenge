@@ -2,7 +2,7 @@ feature 'User sign up' do
 
   scenario 'new user can sign up' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome, barney@barney.com')
+    expect(page).to have_content('Welcome, Barney')
     expect(User.first.email).to eq 'barney@barney.com'
   end
 
@@ -36,14 +36,15 @@ end
 feature 'User sign in' do
 
   let!(:user) do
-    User.create(email: 'lucia@lucia.com',
+    User.create(username: 'Lucia',
+                email: 'lucia@lucia.com',
                 password: 'pass1234',
                 password_confirmation: 'pass1234')
   end
 
   scenario 'I can sign in' do
     sign_in(email: user.email, password: user.password)
-    expect(page).to have_content "Welcome, #{user.email}"
+    expect(page).to have_content "Welcome, #{user.username}"
   end
 
   scenario 'I cant sign in with incorrect password' do

@@ -12,6 +12,7 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
+  property :username, String
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 
