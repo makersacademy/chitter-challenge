@@ -1,3 +1,5 @@
+require 'dm-timestamps'
+
 class Peep
   include DataMapper::Resource
 
@@ -5,4 +7,5 @@ class Peep
   property :name,    String
   property :handle,  String
   property :post,    String
+  property :created_at, DateTime
 end
