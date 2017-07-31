@@ -5,5 +5,6 @@ class Peep
   property :created_at, DateTime
   property :content, Text, length: 1..140
 
-  belongs_to :user
+  has n, :tags
+  belongs_to :user, required: false
 end

@@ -15,7 +15,7 @@
     <ul>
         <% @peeps.each do |peep| %>
           <li>
-          <%= User.get(peep.user_id).name %> (@<%= User.get(peep.user_id).username %>)</br>
+          <%= peep.user.name %> (@<%= peep.user.username %>)</br>
           <%= peep.content %></br>
           Posted at <%= peep.created_at.strftime('%F %H:%M') %></li>
           </br>
