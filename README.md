@@ -6,6 +6,8 @@ About:
 -------
 
 Chitter — a simple twitter-like web app.
+You can enjoy it online: https://chitter-play.herokuapp.com/
+Or alternatively you can install it on your own machine as described below.
 
 
 How to install:
@@ -18,6 +20,7 @@ git clone git@github.com:oleglukyanov/chitter-challenge.git
 cd chitter-challenge
 bundle install
 ```
+
 
 How to run:
 -------
