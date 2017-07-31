@@ -25,8 +25,8 @@ For Testing:
 
 *Step 1 - Clone the Repo*
 Open Terminal
-Navigate to a directory where you would like this repo to be stored
-enter the following:
+Navigate to a directory where you would like this repo to be stored and
+paste the following:
 ```
 git clone git@github.com:annalaise/chitter-challenge.git
 ```
@@ -70,7 +70,7 @@ From now on you will be able to log in to postgresql without having to specify t
 ```
 psql
 CREATE DATABASE chitter_development;
-CREATE DATABASE chiter_test;
+CREATE DATABASE chitter_test;
 ```
 Check both databases have been setup by entering `\l` while still in psql - this will list the databases on your local host. Enter `\q` to exit psql once done.
 
@@ -78,4 +78,4 @@ Check both databases have been setup by entering `\l` while still in psql - this
 
 Run `rspec` for checking tests pass
 
-Run `rackup`, navigate to your chosen client browser and visit `localhost:9292` (or the PORT number specified in rackup logs) to see the app working locally. 
+Run `rackup`, navigate to your chosen client browser and visit `localhost:9292` (or the PORT number specified in rackup logs) to see the app working locally.
