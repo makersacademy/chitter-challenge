@@ -11,6 +11,7 @@ For the fifth weekend challenge at Maker's Academy, we have been asked to build 
 Technologies:
 -------
 * Ruby Sinatra
+* HTML5, CSS & Bootstrap
 * DataMapper & Postgres
 * BCrypt - password encryption
 * Heroku - production
@@ -79,3 +80,19 @@ Check both databases have been setup by entering `\l` while still in psql - this
 Run `rspec` for checking tests pass
 
 Run `rackup`, navigate to your chosen client browser and visit `localhost:9292` (or the PORT number specified in rackup logs) to see the app working locally.
+
+User Interface:
+-------
+Chitter is responsive across all  breakpoints:
+
+**Mobile**
+![Image of Chitter Mobile View]
+(https://www.dropbox.com/s/7329r87rmqji5q0/chitter-iphone6.png?dl=0)
+
+**Tablet**
+![Image of Chitter Tablet View]
+(https://www.dropbox.com/s/h4sognd48g96kpx/chitter-ipad.png?dl=0)
+
+**Desktop**
+![Image of Chitter Desktop View]
+(https://www.dropbox.com/s/919ptnnww3xhlor/chitter-desktop.png?dl=0)
