@@ -100,15 +100,14 @@ And/Or:
 
 * Work on the css to make it look good (we all like beautiful things).
 
-Good luck and let the chitter begin!
+ ## Screenshots
 
-Code Review
------------
+ ![Imgur](http://i.imgur.com/kOKqlFo.png)
 
-In code review we'll be hoping to see:
+ ![Imgur](http://i.imgur.com/93onmWT.png)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+ ![Imgur](http://i.imgur.com/WLS5IcS.png)
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
+ ![Imgur](http://i.imgur.com/b18fqkH.png)
+ 
+ ![Imgur](http://i.imgur.com/jnoYJzj.png)
