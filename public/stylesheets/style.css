@@ -1,0 +1,144 @@
+/* Variables */
+/* 1. Main */
+body {
+  background: #FFFFFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #000000;
+  margin: 0; }
+
+ul {
+  -webkit-padding-start: 0px; }
+
+/* 2. Nav */
+.bar {
+  background: #00b7fe;
+  display: flex;
+  width: 100%;
+  padding: 1em; }
+  .bar .title {
+    font-size: 2em;
+    color: #FFFFFF; }
+    .bar .title a {
+      color: #FFFFFF;
+      text-decoration: none; }
+  .bar .sign_out {
+    margin-left: auto;
+    padding-right: 1em; }
+    .bar .sign_out input {
+      background-color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      color: #000000;
+      padding: 10px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px; }
+  .bar .post {
+    margin-right: 2em; }
+
+/* 3. Buttons */
+button {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  color: #000000;
+  padding: 10px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; }
+  button a {
+    color: #000000;
+    text-decoration: none; }
+
+/* 4. Body */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .container .box {
+    padding: 1em;
+    width: 55%;
+    align-self: center;
+    align-content: center;
+    text-align: right; }
+  .container .flash {
+    color: #D60539;
+    align-self: center;
+    align-content: center;
+    text-align: center; }
+    .container .flash p {
+      text-align: center; }
+  .container h2 {
+    text-align: left; }
+  .container .welcome {
+    text-align: center; }
+  .container .new_post {
+    background: #ededed;
+    border-radius: 5px;
+    padding: 1em 4em;
+    box-shadow: 2px 2px 2px #E1E1E1;
+    margin-bottom: 2em; }
+    .container .new_post li {
+      list-style-type: none; }
+    .container .new_post .text {
+      font-size: 1.4em;
+      text-align: left; }
+    .container .new_post .meta {
+      font-size: 1em;
+      font-style: italic;
+      text-align: left; }
+    .container .new_post .username {
+      color: #00b7fe; }
+
+/* 5. Peep Buttons */
+.peeping {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .peeping .peep_form {
+    width: 100%;
+    height: 75px;
+    font-size: 1.6em;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none; }
+  .peeping .peep_button {
+    background-color: #00b7fe;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    padding: 10px 28px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: auto; }
+
+/* 6. Forms */
+.signin_form {
+  align-self: center;
+  margin: auto;
+  align-content: center;
+  text-align: center; }
+  .signin_form input {
+    font-size: 1em;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box; }
+  .signin_form .button {
+    background-color: #00b7fe;
+    border: none;
+    width: 20%;
+    border-radius: 10px;
+    color: #FFFFFF;
+    padding: 10px 28px;
+    margin-left: auto;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; }

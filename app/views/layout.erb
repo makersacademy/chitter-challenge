@@ -1,0 +1,40 @@
+<!-- layout.erb -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chitter</title>
+        <link href="<%= url('stylesheets/style.css') %>" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/jamestheidge/poopbot/master/favicon.ico" />
+    </head>
+    <body>
+        <div class="bar">
+          <div class="title">
+            <a href="/posts">Chitter</a>
+          </div>
+          <div class="sign_out">
+              <%= partial :welcome %>
+          </div>
+          <% if current_user %>
+            <div class="post">
+              <button type="button" name="button"><a href="/posts/new">New Peep</a></button>
+            </div>
+          <% else %>
+             <div class="post">
+               <button type="button" name="button"><a href="/sessions/new">Log in</a></button>
+             </div>
+             <div class="post">
+               <button type="button" name="button"><a href="/users/new">Register</a></button>
+             </div>
+          <% end %>
+        </div>
+        <div class="container">
+            <div class="box">
+                <div class="flash">
+                    <%= partial :flash %>
+                </div>
+                <%= yield %>
+            </div>
+        </div>
+    </body>
+</html>

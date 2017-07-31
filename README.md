@@ -1,14 +1,51 @@
 Chitter Challenge
 =================
 
+A Twitter knockoff called Chitter.
+Weekend four Makers Academy Challenge.
+
+Completed
+-------
+- [x] Dev environment setup (getting a Capybara 200)
+- [x] postsql / database setup
+- [x] I want to post a message to chitter
+- [x] I want to see all peeps in reverse chronological order
+- [x] I want to see the time at which it was made
+- [x] I want to sign up for Chitter
+- [x] I want to log in to Chitter
+- [x] I want to log out of Chitter
+- [x] Heroku hosted
+- [x] Testing: 100%
+- [x] Styling / CSS
+
+Doing
+-------
+- [ ] I want to receive an email if I am tagged in a Peep
+
+Incomplete
+-------
+- [ ] In order to start a conversation as a maker I want to reply to a peep from another maker.
+
+
+Installation
+-------
+ - git clone git@github.com:langphil/chitter-challenge.git
+ - bundle install
+ - Create two psql databases > 'chitter_test', 'chitter_development'
+
+Screenshots
+-------
+![Alt text](http://i.imgur.com/TulGyBj.png "Screenshot")
+
+Challenge:
+-------
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
 * If you have a partial solution, **still check in a partial solution**
 * You must submit a pull request to this repo with your code by 9am Monday morning
 
-Challenge:
--------
 
 As usual please start by forking this repo.
 
