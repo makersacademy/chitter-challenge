@@ -102,12 +102,12 @@ And/Or:
 
  ## Screenshots
 
- ![Imgur](http://i.imgur.com/kOKqlFo.png)
+![Imgur](http://i.imgur.com/kOKqlFo.png)
 
- ![Imgur](http://i.imgur.com/93onmWT.png)
+![Imgur](http://i.imgur.com/93onmWT.png)
 
- ![Imgur](http://i.imgur.com/WLS5IcS.png)
+![Imgur](http://i.imgur.com/WLS5IcS.png)
 
- ![Imgur](http://i.imgur.com/b18fqkH.png)
+![Imgur](http://i.imgur.com/b18fqkH.png)
  
- ![Imgur](http://i.imgur.com/jnoYJzj.png)
+![Imgur](http://i.imgur.com/jnoYJzj.png)
