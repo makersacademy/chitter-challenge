@@ -1,0 +1,15 @@
+<h1> Peeps </h1>
+
+<% if @user %>
+  <h2> Hey there, <%=@user.name%> </h2>
+<% end %>
+
+<ul>
+  <% @peeps.each do |peep| %>
+    <li>
+      <%= peep.user.name %> (<%= peep.user.user_name %>)<br>
+      <%= peep.content %> <br>
+      <%= peep.created_at.strftime("%c") %>
+    </li>
+  <% end %>
+</ul>
