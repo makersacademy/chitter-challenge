@@ -47,6 +47,7 @@ $ rackup
 
 ```
 Then visit: http://localhost:9292/
+```
 
 Challenge:
 -------
