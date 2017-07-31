@@ -17,6 +17,7 @@ $ gem install bundler
 $ bundle
 $ bundle update
 ```
+
 - Ruby version 2.4.0
 ```
 $ rvm install ruby 2.4.0
@@ -24,6 +25,7 @@ $ rvm use 2.4.0
 ```
 
 The app uses a postgreSQL database, install it first; https://www.postgresql.org/download/
+
 ## Create the databases:
 ```
 $ psql
@@ -41,6 +43,8 @@ $ rspec
 To view in browser:
 ```
 $ rackup
+```
+
 ```
 Then visit: http://localhost:9292/
 ```
