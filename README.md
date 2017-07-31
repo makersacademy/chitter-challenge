@@ -46,11 +46,13 @@ For testing:
 ```
 clone from github
 bundle install
-create a Postgres database called 'chitter-test'
+psql
+CREATE DATABASE chitter-test;
 rake migrate database=test
 rspec
 
-create a Postgres database called 'chitter-development'
+psql
+CREATE DATABASE chitter-development;
 rake migrate database=development
 rackup
 //localhost:9292 (port may differ depending on config)

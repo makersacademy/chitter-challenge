@@ -11,6 +11,11 @@ a {
     color: #31DAFD;
 }
 
+.full-width a {
+    color:#000000;
+    font-size: 16px;
+}
+
 span {
     display: block;
     overflow: hidden;
