@@ -1,5 +1,3 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
 require 'bcrypt'
 
 class User
@@ -12,7 +10,7 @@ class User
   validates_confirmation_of :password
 
   property :id, Serial
-  property :username, String
+  property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true
   property :password_digest, Text
 

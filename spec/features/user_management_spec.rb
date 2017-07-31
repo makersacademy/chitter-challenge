@@ -56,15 +56,16 @@ end
 feature 'User sign out' do
 
   before(:each) do
-    User.create(email: 'barney@barney.com',
+    User.create(username: 'Lucia4',
+                email: 'lucia@labrador.com',
                 password: 'pass1234',
                 password_confirmation: 'pass1234')
   end
 
   scenario 'successful sign-out' do
-    sign_in(email: 'barney@barney.com', password: 'pass1234')
+    sign_in(email: 'lucia@labrador.com', password: 'pass1234')
     click_button 'Sign out'
     expect(page).to have_content('Goodbye, see you soon!')
-    expect(page).not_to have_content('Welcome, barney@barney.com')
+    expect(page).not_to have_content('Welcome, Lucia4')
   end
 end
