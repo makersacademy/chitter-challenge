@@ -3,6 +3,10 @@ Chitter Challenge
 
 By James Ransome
 
+Navigate to: https://rocky-temple-36764.herokuapp.com/peeps
+
+Or alternatively...
+
 Installation Instructions
 -------
 
