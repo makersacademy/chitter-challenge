@@ -9,7 +9,7 @@
 * rake auto_migrate
 * rspec
 * rackup
-* Type localhost:9292 into your browser
+* Type localhost:9292/peeps into your browser
 
 ### Visit the website at https://chitter-krd.herokuapp.com/peeps
 
