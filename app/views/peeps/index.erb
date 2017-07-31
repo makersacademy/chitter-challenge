@@ -1,10 +1,6 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
-</head>
-
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep|  %>
-  <% @user = User.first(id: peep.user_id) %>
+  <% @user = peep.user %>
     Content: <%= peep.content %><br>
     Time: <%= peep.created_at.strftime("%H:%M %d %B %Y") %><br>
     User: <%= @user.username %><br><br>
@@ -13,14 +9,14 @@
 </ul>
 
 <%if current_user%>
-<form action='/peeps/new' method='get'>
-  Click here to make a peep: <input type='submit' value='Peep!'>
-</form>
+  <form action='/peeps/new' method='get'>
+    Click here to make a peep: <input type='submit' value='Peep!'>
+  </form>
 <%else%>
-<form action='/users/new' method='get'>
-  New to Chitter? Sign up here: <input type='submit' value='Sign up'>
-</form>
-<form action='/sessions/new' method='get'>
-  Have an account? Sign in to peep: <input type='submit' value='Sign in'>
-</form>
+  <form action='/users/new' method='get'>
+    New to Chitter? Sign up here: <input type='submit' value='Sign up'>
+  </form>
+  <form action='/sessions/new' method='get'>
+    Have an account? Sign in to peep: <input type='submit' value='Sign in'>
+  </form>
 <%end%>

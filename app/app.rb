@@ -15,8 +15,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    @peeps = Peep.all
-    erb :'peeps/index'
+    redirect '/peeps'
   end
 
   get '/peeps/new' do
@@ -70,6 +69,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = 'Bye!'
+    redirect '/peeps'
   end
 
   helpers do
