@@ -16,13 +16,13 @@ class CHITTER < Sinatra::Base
 
     def email
       post = Post.first
-      user = User.all
+      # user = User.all
       post.text.split(' ').each do |word|
-        if word == user
+        # if word == user
           # Email notification goes here
-        else
-          break
-        end
+        # else
+          # break
+        # end
       end
     end
   end
