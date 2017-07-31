@@ -8,7 +8,9 @@ require 'pry'
 class Chitter < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def current_user
@@ -21,8 +23,8 @@ class Chitter < Sinatra::Base
   end
 
   get '/peeps' do
-    @peeps = Peep.all.sort_by{ |peep| peep.created_at }.reverse
     @user = current_user
+    @peeps = Peep.all.sort_by{ |peep| peep.created_at }.reverse
     erb :'peeps/index'
   end
 
@@ -51,6 +53,27 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = @user.errors.full_messages
       erb :'users/new'
     end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email_address], params[:password])
+    if user
+      session[:id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Laters!'
+    redirect to '/peeps'
   end
 
 end

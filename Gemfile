@@ -8,6 +8,7 @@ group :development do
   gem 'dm-postgres-adapter'
   gem 'dm-timestamps'
   gem 'pg'
+  gem 'rake'
   gem 'sinatra'
   gem 'sinatra-flash'
 end

@@ -13,3 +13,10 @@ def post_peep(content)
   fill_in :content, with: content
   click_button 'Peep this'
 end
+
+def log_in(email_address: , password: )
+  visit '/sessions/new'
+  fill_in :email_address, with: email_address
+  fill_in :password, with: password
+  click_button 'Log in'
+end
