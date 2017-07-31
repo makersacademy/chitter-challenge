@@ -87,13 +87,13 @@ Chitter is responsive across all  breakpoints:
 
 **Mobile**
 
-![Image of Chitter Mobile View](https://www.dropbox.com/s/7329r87rmqji5q0/chitter-iphone6.png?dl=0)
+![Image of Chitter Mobile View](https://github.com/annalaise/chitter-challenge/blob/master/app/public/img/chitter-iphone6.png)
 
 
 **Tablet**
 
-![Image of Chitter Tablet View](https://www.dropbox.com/s/h4sognd48g96kpx/chitter-ipad.png?dl=0)
+![Image of Chitter Tablet View](https://github.com/annalaise/chitter-challenge/blob/master/app/public/img/chitter-ipad.png)
 
 **Desktop**
 
-![Image of Chitter Desktop View](https://www.dropbox.com/s/919ptnnww3xhlor/chitter-desktop.png?dl=0)
+![Image of Chitter Desktop View](https://github.com/annalaise/chitter-challenge/blob/master/app/public/img/chitter-desktop.png)
