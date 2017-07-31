@@ -43,7 +43,6 @@ To view in browser:
 $ rackup
 ```
 Then visit: http://localhost:9292/
-```
 
 Challenge:
 -------
@@ -109,5 +108,5 @@ And/Or:
  ![Imgur](http://i.imgur.com/WLS5IcS.png)
 
  ![Imgur](http://i.imgur.com/b18fqkH.png)
- 
+
  ![Imgur](http://i.imgur.com/jnoYJzj.png)
