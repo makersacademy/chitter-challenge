@@ -4,4 +4,12 @@
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Sign out">
   </form>
+  <% else %>
+  <a href="/sessions/new">
+    <input type="button" value="Already a memeber?" />
+  </a>
+  <br>
+  <a href="/users/new">
+    <input type="button" value="Register as a member" />
+  </a>
 <% end %>

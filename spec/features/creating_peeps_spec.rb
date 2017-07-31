@@ -13,5 +13,4 @@ feature 'Creating peeps' do
       expect(peep.name).not_to include 'Barney'
     end
   end
-
 end
