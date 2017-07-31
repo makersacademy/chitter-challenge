@@ -14,12 +14,16 @@ end
 
 def sign_up(email: 'sully@example.com',
             password: 'oranges!',
-            password_confirmation: 'oranges!')
+            password_confirmation: 'oranges!',
+            name: "Eoin",
+            user_name: "billy bob")
   visit '/users/new'
   expect(page.status_code).to eq(200)
   fill_in :email, with: email
   fill_in :password, with: password
-  fill_in :password_confirmation, with: 'oranges!'
+  fill_in :password_confirmation, with: password_confirmation
+  fill_in :name, with: name
+  fill_in :user_name, with: user_name
   click_button 'Sign up'
 end
 

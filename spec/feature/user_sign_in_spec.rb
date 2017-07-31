@@ -19,7 +19,9 @@ feature 'User sign in' do
   end
 
   scenario 'does not authenticate when given an incorrect password' do
-  expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
+    expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
   end
+
+  
 
 end
