@@ -25,11 +25,11 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             <li role="presentation" class="active">
-            <a href="/"><span class="glyphicon glyphicon-home" aria-label="Home"></span><span class="sr-only">(current)</span></a></li>
-            <li role="presentation"><a href="/peeps/view-all"><span class="glyphicon glyphicon-th-list" aria-label="View"></span></a></li>
+            <a href="/"><span class="glyphicon glyphicon-home" aria-label="Home"></span><span class="sr-only">(current)</span> Home</a></li>
+            <li role="presentation"><a href="/peeps/view-all"><span class="glyphicon glyphicon-th-list" aria-label="View"></span> Peeps</a></li>
             <% if @user %>
             <% if @user.id %>
-            <li role="presentation"><a href="/peeps/new"><span class="glyphicon glyphicon-edit" aria-label="Post"></span></a></li>
+            <li role="presentation"><a href="/peeps/new"><span class="glyphicon glyphicon-edit" aria-label="Post"></span> Post</a></li>
             <% end %>
             <% end %>
         </ul>
