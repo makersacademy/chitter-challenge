@@ -2,7 +2,7 @@ feature 'Viewing peeps' do
   before(:each) do
     sign_up(email: 'pug@gmail.com', name: 'Pug', username: '@puggy',
      password: 'password', password_confirmation: 'password')
-     
+
     log_in(email: 'pug@email.com', password: 'password')
     post_a_peep("Today is a great day!")
   end
@@ -11,7 +11,7 @@ feature 'Viewing peeps' do
     expect(page.current_path).to eq '/peeps'
     within 'ul#peeps' do
       expect(page).to have_content "Today is a great day!"
-      expect(page).to have_content "Posted at: #{Peep.first.created_at}"
+      expect(page).to have_content "Posted at: #{Peep.first.created_at.strftime('%x')}"
     end
   end
 

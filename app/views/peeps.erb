@@ -33,7 +33,7 @@
             <span style="color:blue;font-weight:bold"><%= peep.username %></span>
           </p>
           <p>Peep: <%= peep.message %></p>
-          <p>Posted at: <%= peep.created_at %></p>
+          <p>Posted at: <%= "#{peep.created_at.strftime('%x')}" %></p>
         </li>
       <% end %>
     </ul>
