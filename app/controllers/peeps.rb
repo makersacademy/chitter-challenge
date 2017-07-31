@@ -9,7 +9,7 @@ class Chitter < Sinatra::Base
     peep = current_user.peeps.create(created_at: Time.now, content: params[:content])
     possible_tags = params[:content].scan(/@\w+/)
     possible_tags.each do |tagged_user|
-      user = User.first(username: tagged_user.gsub('@', ''))
+      user = User.first(username: tagged_user.delete('@'))
       if user
         peep.tags.create
         user.tags.create

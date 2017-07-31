@@ -1,7 +1,7 @@
 require_relative '../../app/lib/mailer'
 
 feature 'user notified when tagged in a post' do
-  let(:peep_1) { 'Hello @AlexB'}
+  let(:peep_1) { 'Hello @AlexB' }
   let(:peep_2) { 'Hello @AlexB and @Jonno' }
   before do
     sign_up
