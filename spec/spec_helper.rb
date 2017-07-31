@@ -11,8 +11,6 @@ require 'simplecov'
 require 'simplecov-console'
 Capybara.app = Chitter
 
-
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -21,22 +19,23 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
-
-  DataMapper.setup(:default,'postgres://localhost/chitter_test')
-  DataMapper.finalize
-
-  # config.before(:suite) do
-  #     DatabaseCleaner.clean_with(:truncation)
-  #     DatabaseCleaner.strategy = :transaction
-  #   end
   #
-  #   config.before(:each) do
-  #     DatabaseCleaner.start
-  #   end
-  #
-  #   config.after(:each) do
-  #     DatabaseCleaner.clean
-  #   end
+  # DataMapper.setup(:default,'postgres://localhost/chitter_test')
+  # DataMapper.finalize
+
+
+  config.before(:suite) do
+      DatabaseCleaner.clean_with(:truncation)
+      DatabaseCleaner.strategy = :transaction
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
 
   config.after(:suite) do
     puts

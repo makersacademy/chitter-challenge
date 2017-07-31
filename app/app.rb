@@ -3,25 +3,44 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
-
 require_relative 'models/peep'
 require_relative 'models/user'
 
 
 class Chitter < Sinatra::Base
+register Sinatra::Flash
 enable :sessions
 set :session_secret, 'super secret'
-
 
   get '/sign_up' do
     erb :sign_up
   end
 
   post '/sign_up' do
-   user = User.create(email: params[:email],password: params[:password])
-   @email = params[:email]
-    session[:user_id] = user.id
+   @user = User.create(email: params[:email],password: params[:password])
+    session[:user_id] = @user.id
     redirect'/peeps'
+  end
+
+  get '/sign_out' do
+    session[:user_id] = nil
+    redirect '/peeps'
+  end
+
+
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/log_in' do
+    user = User.authenticate(params[:email],params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash.now[:error] = "The email or password is incorrect"
+      redirect '/log_in'
+    end
   end
 
   get '/peeps/new' do
@@ -29,7 +48,8 @@ set :session_secret, 'super secret'
   end
 
   post '/peeps' do
-    Peep.create(peep: params[:peep], created_at: Time.now)
+      @new_peep = Peep.create(peep: params[:peep], created_at: Time.now, user_id: current_user.id)
+      p @new_peep
     redirect '/peeps'
   end
 
