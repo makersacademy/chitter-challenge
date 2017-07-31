@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link href='/style.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <% if current_user %>
+      <form id='signout' action='/sessions' method='post'>
+        Welcome to Chitter, <%= current_user.name %>
+        <input type='hidden' name='_method' value='delete'>
+        <input class='top_right_buttons' type='submit' value='Sign Out' />
+      </form>
+    <% end %>
+
+    <%= yield %>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please correct the following errors:
+      <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </body>
+</html>
