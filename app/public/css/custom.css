@@ -1,6 +1,7 @@
 body {
   background-image: url('/img/tonal_rainbow.png');
   background-color: #e6fff3;
+  background-size: cover;
   font-family: 'Quicksand:300', sans-serif;
 }
 
