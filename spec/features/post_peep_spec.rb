@@ -7,8 +7,9 @@ feature 'Posting peeps' do
   scenario 'user can post peeps' do
     visit '/'
     expect(page.status_code).to eq 200
-    click_button 'View Peep'
-    expect(current_path).to eq '/peeps'
+    sign_up
+    #click_button 'View Peep'
+    #expect(current_path).to eq '/peeps'
     fill_in 'peeps', with: 'Hello World!'
     click_button 'Peep'
     expect(current_path).to eq '/peeps'
@@ -23,8 +24,9 @@ feature 'Posting peeps' do
   scenario 'peeps appear in reverse chronological order' do
     visit '/'
     expect(page.status_code).to eq 200
-    click_button 'View Peep'
-    expect(current_path).to eq '/peeps'
+    sign_up
+    #click_button 'View Peep'
+    #expect(current_path).to eq '/peeps'
     fill_in 'peeps', with: 'Hello World!'
     click_button 'Peep'
     fill_in 'peeps', with: 'Beautiful day!'
@@ -42,8 +44,9 @@ feature 'Posting peeps' do
   scenario 'peeps appear with time at which posted' do
     visit '/'
     expect(page.status_code).to eq 200
-    click_button 'View Peep'
-    expect(current_path).to eq '/peeps'
+    sign_up
+    #click_button 'View Peep'
+    #expect(current_path).to eq '/peeps'
     fill_in 'peeps', with: 'Hello World!'
     click_button 'Peep'
     fill_in 'peeps', with: 'Beautiful day!'

@@ -6,7 +6,9 @@
     </head>
     <body background=https://vignette1.wikia.nocookie.net/clubpenguinfanon/images/1/17/Chitter_logo.png/revision/latest?cb=20100722020455>
       <center>
+      <% if current_user != nil %>
     <form action='/peeps' method='POST'>
+      <% end %>
       <label for='peeps'>
       <h1>What's on your mind?</h1><br>
       <input type='text' name='peeps' />
@@ -18,7 +20,8 @@
   <ul id='peeps' style="list-style-type: none;">
     <% @peeps.reverse_each do |peep| %>
     <li style="list-style-type: none;">
-      <b><%= peep.peeps %></b> (Time: <%= peep.time %>)<br>
+      (<%= current_user.name %> <%= current_user.surname %> "<%= current_user.username %>" Time: <%= peep.time %>)<br>
+      <b><%= peep.peeps %></b>
     </li>
     <% end %>
   </ul>
