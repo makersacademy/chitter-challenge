@@ -5,6 +5,10 @@
 <h2> Peeps </h2>
 
 <ul id='peeps'>
+  <% if current_user %>
+  <%= current_user.name %>
+  <%= current_user.handle %><br />
+  <% end %>
   <% @peeps.each do |peep| %>
       <%= peep.name %>
       <%= peep.handle   %></br>
