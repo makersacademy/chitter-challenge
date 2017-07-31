@@ -1,0 +1,19 @@
+
+<form action='/messages' method='post'>
+  <lable for='peep'>
+    Peep:<input type='text' name='peep' value='peep'>
+    <input type='submit' value='Peep'>
+  </lable>
+</form>
+
+<h1> Peeps </h1>
+<ul id='peeps'>
+  <% @peeps.reverse.each do |pe| %>
+  <li>
+    Peep: <%= pe.peep %>
+  </li>
+  <li>
+    Time: <%= pe.time %>
+  </li>
+  <% end %>
+</ul>
