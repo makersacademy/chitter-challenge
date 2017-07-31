@@ -151,22 +151,25 @@ Design of Program
 ```tree
 ├── app
 │   ├── app.rb
+│   ├── data_mapper_setup.rb
+│   ├── mail_setup.rb
+│   ├── server.rb
 │   ├── controllers
 │   │   ├── peeps.rb
 │   │   ├── sessions.rb
 │   │   └── users.rb
-│   ├── data_mapper_setup.rb
 │   ├── helpers
 │   │   └── chitter_helpers.rb
-│   ├── mail_setup.rb
 │   ├── models
 │   │   ├── peep.rb
 │   │   ├── reply.rb
 │   │   ├── tag.rb
 │   │   └── user.rb
 │   ├── public
-│   │   └── style.css
-│   ├── server.rb
+│   │   ├── css
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── js
 │   └── views
 │       ├── index.erb
 │       ├── layout.erb
@@ -180,7 +183,7 @@ Design of Program
 │       └── users
 │           ├── new.erb
 │           └── profile.erb
-spec
+└── spec
     ├── features
     │   ├── helpers.rb
     │   ├── peep_spec.rb
