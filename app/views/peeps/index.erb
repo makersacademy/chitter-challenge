@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<center>
+<body>
 
 <h2> Peeps </h2>
 
@@ -8,9 +8,13 @@
   <% @peeps.each do |peep| %>
       <%= peep.name %>
       <%= peep.handle   %></br>
-      <%= peep.post   %></br>
+      <%= peep.post  %></br>
+      <%= peep.created_at %></br>
   <% end %>
-</ul>
+</ul><br />
 
-</center>
+<form action='/peeps/new' >
+  <input type='submit' value='Peep'>
+
+</body>
 </html>

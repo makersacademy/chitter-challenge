@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<center>
+
+<head>
+
+<h2> Peeps </h2></head>
+
+<ul id='peeps'>
+  <% if current_user %>
+  <% @peeps.each do |peep| %>
+  <%= current_user.name %>
+  <%= current_user.handle %><br />
+  <% end %>
+      <%= peep.post %><br />
+      <%= peep.created_at   %><br /><br />
+  <% end %>
+</ul>
+
+</center>
+</html>

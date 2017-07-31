@@ -7,7 +7,7 @@ feature 'Posting peeps' do
     fill_in 'post', with: 'Phoebe Buffay says I am broken'
     click_button 'Peep'
 
-    expect(current_path).to eq '/peeps'
+    expect(current_path).to eq '/chitter'
 
     within 'ul#peeps' do
       expect(page).to have_content('Phoebe Buffay says I am broken')
