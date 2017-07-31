@@ -1,0 +1,13 @@
+<h1> Peep feed! </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      <%= peep.name %>: <%= peep.copy %> (<%= peep.created_at.strftime("%a %d/%m %H:%M") %>)
+    </li>
+  <%end%>
+</ul>
+
+<a href="/peeps/new">
+  <input type="button" value="New Peep!" />
+</a>
