@@ -48,17 +48,17 @@ Deployed app can be found at https://chitter-boom.herokuapp.com/peeps
 
 * It allows to view already posted peeps
 
-![Peeps_page]([Imgur](http://i.imgur.com/xuMLVPl.png))
+![Peeps_page](http://i.imgur.com/xuMLVPl.png)
 
 * It allows to create new peeps
 
-![Create_peep]([Imgur](http://i.imgur.com/UFAf9iF.png))
-![Show_new_peep]([Imgur](http://i.imgur.com/2jGYIgo.png))
+![Create_peep](http://i.imgur.com/UFAf9iF.png)
+![Show_new_peep](http://i.imgur.com/2jGYIgo.png)
 
 * It allows users to register
-![Register_new]([Imgur](http://i.imgur.com/dm7aL99.png))
-![Confirmation]([Imgur](http://i.imgur.com/879Jtob.png))
+![Register_new](http://i.imgur.com/dm7aL99.png)
+![Confirmation](http://i.imgur.com/879Jtob.png)
 
 * It allows users to sign in and out
-![Sign_out]([Imgur](http://i.imgur.com/Ul08Kz6.png))
-![Sign_in]([Imgur](http://i.imgur.com/qPrQYiE.png))
+![Sign_out](http://i.imgur.com/Ul08Kz6.png)
+![Sign_in](http://i.imgur.com/qPrQYiE.png)
