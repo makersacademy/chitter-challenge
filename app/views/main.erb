@@ -6,26 +6,26 @@
     <h1>
     <% if current_user %>
       Welcome, <%= current_user.name %>
-      <form class='signout' action='/sessions' method= 'post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value='Sign out'>
-      </form>
+      <div class= 'signout'>
+        <form class='signout' action='/sessions' method= 'post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class='signout' type='submit' value='Sign out'>
+        </form>
+      </div>
     <% end %>
   </h1>
   <form class='newpeep' action ="/add_peep" method="post">
     <input class='peep' type="text" name="message" Placeholder="Peep here">
     <input type="submit" value="Peep">
   </form>
-    <div class= 'peeps'>
       <table>
         <% @peeps.reverse.each do |peep| %>
-        <tr>
+        <tr height = '100'>
           <td> <%= peep.message %></td>
           <th> at <%= peep.time %> </th>
         </tr>
         <% end %>
         <% @peeps.all %>
       </table>
-    </div>
   </body>
 </html>
