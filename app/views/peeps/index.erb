@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Chitter</title>
+    <!-- <link rel='stylesheet' href='styles.css'/> -->
+  </head>
+  <body>
+    <h1>Chitter Feed</h1>
+    <% if current_user %>
+      <form action='/peeps/new' method='get'>
+        <button type='submit'>Compose Peep</button>
+      </form>
+    <% end %>
+    <ul>
+        <% @peeps.each do |peep| %>
+          <li>
+          <%= peep.user.name %> (@<%= peep.user.username %>)</br>
+          <%= peep.content %></br>
+          Posted at <%= peep.created_at.strftime('%F %H:%M') %></li>
+          </br>
+        <% end %>
+    </ul>
+  </body>
+</html>
