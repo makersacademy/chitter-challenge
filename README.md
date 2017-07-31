@@ -1,6 +1,32 @@
 Chitter Challenge
 =================
 
+By James Ransome
+
+Installation Instructions
+-------
+
+1. Clone this repository into a directory of your choice
+2. Change into the directory from the terminal
+3. Run Bundle
+4. Create a database named 'chitter_development'
+5. Auto migrate this database using rake
+6. Run Rackup
+7. Paste `http://localhost:9292/` in your browser's address bar to navigate to your local host and run Chitter!
+
+Example terminal input for above steps:
+
+```
+$ git clone git@github.com:jransome/chitter-challenge.git
+$ cd chitter-challenge
+$ bundle
+$ createdb chitter_development
+$ rake db:migrate
+$ rackup
+```
+
+This web application was built independently over the weekend after week 4 of the Makers Academy onsite course according to the below user stories (excepting the last two):
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
