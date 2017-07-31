@@ -1,0 +1,16 @@
+<% if session[:signuperror] %>
+  <div class="full-width"><%= session[:signuperror] %></div>
+<% session[:signuperror] = nil %>
+<% end %>
+<div id='new_user_form'>
+  <form action="/users/new" method="post">
+    Name:<br>
+    <input type="text" name="name" placeholder="Enter name"><br>
+    Email:<br>
+    <input type="email" name="email" placeholder="Enter email"><br>
+    Password:<br>
+    <input type="password" name="password" placeholder="Enter password"><br>
+    <br>
+    <input type="submit" name="submit" value="submit">
+  </form>
+</div>

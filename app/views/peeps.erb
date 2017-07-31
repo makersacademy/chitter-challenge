@@ -1,0 +1,44 @@
+<% if @user %>
+<div id='loggedin'>
+  <div class="full-width">
+    <%= "Hello #{@user.name}! Welcome to Chitter"%>
+  </div>
+  <br>
+  <form action="/peeps/new" method="get">
+    <button type="submit" class="button" value="new">Make a new peep!</button>
+  </form>
+</div>
+<br>
+<% end %>
+
+<% unless @user %>
+<div id='loggedout'>
+  Please login or sign up to post a new peep.
+</div>
+<br>
+<% end %>
+
+<div>
+  <% if @id %>
+  <div class="full-width">
+    <a href="/peeps">Click to unfilter</a>
+  </div>
+  <% end %>
+  <table width="50%">
+    <tr>
+      <th width="70%">Peep</th>
+      <th>Time created</th>
+      <th>User</th>
+    </tr>
+    <% @peeps.each do |peep| %>
+    <% time = peep.created_at.strftime("%r") %>
+    <% date = "(#{peep.created_at.strftime('%x')})" %>
+    <% datenow = "(#{Time.now.strftime('%x')})" %>
+    <tr>
+      <td><%= peep.body %></td>
+      <td><%= time %> <em style="font-size: 12"><%="#{(date unless date == datenow )}" %></em>
+      <td><a href="/peeps/filter/<%= peep.user.id %>"><%= peep.user.name %></a></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

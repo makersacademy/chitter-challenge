@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link rel="stylesheet" href="/assets/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
+  </head>
+  <body>
+    <div id='headline'>
+      <table width="50%" height="200">
+        <tr class="nohover">
+          <td width="70%">
+            <img src="/assets/logo.png" width="50%">
+          </td>
+          <td>
+            <% if @user %>
+              <div id='loggedin'>
+                <%= "Logged in as #{@user.email}"%>
+                <br>
+                <form action="/logout" method="get">
+                  <input type="submit" class="button" value="logout"/>
+                </form>
+              </div>
+            <% end %>
+
+            <% unless @user %>
+              <div id='loggedout'>
+                <form action="/users" method="get">
+                  <input type="submit" class="button" value="login"/>
+                </form>
+                <form action="/users/new" method="get">
+                  <input type="submit" class="button" value="sign up"/>
+                </form>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id='main'>
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

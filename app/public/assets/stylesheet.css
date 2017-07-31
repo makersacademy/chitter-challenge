@@ -1,0 +1,90 @@
+body {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #1E261F;
+  background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #31DAFD;
+}
+
+.full-width a {
+    color:#000000;
+    font-size: 16px;
+}
+
+span {
+    display: block;
+    overflow: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+}
+
+tr:nth-child(even){background-color: #E4ECEE}
+tr:not(.nohover):hover {background-color: #DAEEF2}
+
+th {
+    background-color: #31DAFD;
+    color: white;
+}
+
+input, select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 50%;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    padding: 12px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.full-width {
+  border-collapse: collapse;
+  width: 100%;
+  background: #C8CDC8;
+  padding: 12px 0px;
+  text-align: center;
+}
+
+.wrap {
+  width: 80%;
+  max-width: 24em;
+  margin: 0 auto;
+  padding: 0.25em 0.625em;
+}
+
+.button {
+    background-color: #31DAFD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
