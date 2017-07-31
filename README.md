@@ -12,7 +12,7 @@ Installation Instructions
 4. Create a database named 'chitter_development'
 5. Auto migrate this database using rake
 6. Run Rackup
-7. Paste `http://localhost:9292/` in your browser's address bar to navigate to your local host and run Chitter!
+7. Paste `http://localhost:9292/peeps` in your browser's address bar to navigate to your local host and run Chitter!
 
 Example terminal input for above steps:
 
