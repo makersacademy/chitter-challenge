@@ -46,7 +46,7 @@ I want to receive an email if I am tagged in a Peep
 
 ```shell
 # Clone this repository
-$ git clone path https://github.com/SaphMB/rps-challenge
+$ git clone https://github.com/SaphMB/chitter-challenge
 
 # Create the databases
 $ createdb chitter_development
