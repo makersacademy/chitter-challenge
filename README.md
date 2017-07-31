@@ -48,17 +48,17 @@ Deployed app can be found at https://chitter-boom.herokuapp.com/peeps
 
 * It allows to view already posted peeps
 
-![Peeps_page](https://www.dropbox.com/s/qy446c9vfdyatc8/Screen%20Shot%202017-07-31%20at%2009.24.52.png?dl=0)
+![Peeps_page]([Imgur](http://i.imgur.com/xuMLVPl.png))
 
 * It allows to create new peeps
 
-![Create_peep](https://www.dropbox.com/s/82kq0an0ldza7fa/Screen%20Shot%202017-07-31%20at%2009.26.45.png?dl=0)
-![Show_new_peep](https://www.dropbox.com/s/6fq3a5lh9nei7ox/Screen%20Shot%202017-07-31%20at%2009.26.55.png?dl=0)
+![Create_peep]([Imgur](http://i.imgur.com/UFAf9iF.png))
+![Show_new_peep]([Imgur](http://i.imgur.com/2jGYIgo.png))
 
 * It allows users to register
-![Register_new](https://www.dropbox.com/s/aaq3x012jo8qx8z/Screen%20Shot%202017-07-31%20at%2009.29.24.png?dl=0)
-![Confirmation](https://www.dropbox.com/s/qy95m6qu86w5ei1/Screen%20Shot%202017-07-31%20at%2009.29.55.png?dl=0)
+![Register_new]([Imgur](http://i.imgur.com/dm7aL99.png))
+![Confirmation]([Imgur](http://i.imgur.com/879Jtob.png))
 
 * It allows users to sign in and out
-![Sign_out](https://www.dropbox.com/s/s1ymwsefc2fegrf/Screen%20Shot%202017-07-31%20at%2009.32.41.png?dl=0)
-![Sign_in](https://www.dropbox.com/s/j4dmfqcrpv3dzti/Screen%20Shot%202017-07-31%20at%2009.33.00.png?dl=0)
+![Sign_out]([Imgur](http://i.imgur.com/Ul08Kz6.png))
+![Sign_in]([Imgur](http://i.imgur.com/qPrQYiE.png))
