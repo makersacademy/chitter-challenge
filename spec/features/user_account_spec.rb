@@ -8,14 +8,24 @@ feature 'user accounts' do
   scenario 'user cannot sign up with an incorrect password' do
     expect { sign_up(password_confirmation: 'exanple') }.not_to change(User, :count)
     expect(current_path).to eq('/users')
-    expect(page).to have_content "Your password and confirmation password do not match"
+    expect(page).to have_content "Password does not match the confirmation"
   end
 
   scenario 'user needs an email address to sign up' do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email must not be blank')
   end
 
   scenario 'user needs a valid email address to sign up' do
     expect {sign_up(email: "rubbish@email") }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario "user can't reuse an email to sign up" do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content "Email is already taken"
   end
 end
