@@ -17,7 +17,7 @@
     <% end %>
     <% if current_user %>
       <ul id='welcome'>
-        <li>Welcome, <%= current_user.username %></li>
+        <p>Welcome, <%= current_user.username %></p>
       <form action='/sessions' method='post'>
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value='Sign out'>

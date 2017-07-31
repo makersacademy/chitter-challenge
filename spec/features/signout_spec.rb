@@ -7,7 +7,7 @@ feature 'FEATURE: signing out' do
   end
 
   scenario 'with correct credentials' do
-    sign_in(email: user.email,  password: user.password)
+    sign_in(email: user.email, password: user.password)
     sign_out
     expect(page).not_to have_content "Welcome, #{user.username}"
     expect(page).to have_content 'Bye!'

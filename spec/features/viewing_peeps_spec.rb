@@ -1,6 +1,6 @@
 require 'orderly'
 
-feature 'Feature: viewing peeps' do
+feature 'FEATURE: viewing peeps' do
 
   scenario 'peeps appear reverse chronological order' do
     sign_up

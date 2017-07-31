@@ -1,3 +1,29 @@
+What is this?
+-------
+
+The challenge was to make a simple social network Sinatra web app
+
+To install:
+-------
+
+```
+$ git clone git@github.com:AlisonWoodman/chitter-challenge.git
+$ bundle
+$ rackup
+```
+
+Navigate to 'localhost9292/' in your browser
+
+A few notes:
+-------
+
+* All user stories implemented and tested with high test coverage using rspec (99%), expect the final one
+* Some limited css applied
+* Works on Heroku. Visit 'lets-chitter.herokuapp.com'
+
+
+
+
 Chitter Challenge
 =================
 

@@ -1,5 +1,10 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+
 <h1>Create a peep</h1>
 
+<% if current_user %>
 <form action='/peeps' method="post">
   <label for='title'>
     Content:
@@ -7,3 +12,6 @@
   </label>
     <input type='submit' value='Submit'>
 </form>
+<%else%>
+You must log in to peep!
+<%end%>

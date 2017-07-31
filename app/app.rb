@@ -7,8 +7,6 @@ require_relative 'models/user'
 require 'database_cleaner'
 require_relative 'data_mapper_setup'
 
-
-
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -17,7 +15,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    'Hello world!'
+    erb :'peeps/index'
   end
 
   get '/peeps/new' do

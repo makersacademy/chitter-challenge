@@ -1,1 +1,13 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url("/style.css")%>">
+</head>
+
 <p>Welcome! A new user account has been created for <%= @user.username %></p>
+
+<form action='/peeps' method='get'>
+  Click here to view peeps: <input type='submit' value='View peeps'>
+</form>
+
+<form action='/peeps/new' method='get'>
+  Click here to make a peep: <input type='submit' value='Peep!'>
+</form>
