@@ -4,9 +4,14 @@ Instructions:
 
 * git clone https://github.com/artemisxen/chitter-challenge.git
 * bundle
+* createdb chitter_development
+* createdb chitter_test
+* rake db:migrate
 * rackup
-* visit http://localhost:9292
-* visit https://art-chitter.herokuapp.com/
+* http://localhost:9292
+
+
+or visit https://art-chitter.herokuapp.com/
 
 Features:
 -------
@@ -39,9 +44,4 @@ As a Maker
 So that I can avoid others posting messages on Chitter as me
 I want to log out of Chitter
 
-ADVANCED
-
-As a Maker
-So that I can stay constantly tapped in to the shouty box of Chitter
-I want to receive an email if I am tagged in a Peep
 ```

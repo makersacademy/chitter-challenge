@@ -11,14 +11,14 @@ class User
   attr_reader :password
 
   property :id, Serial
-  property :name, String
-  property :username, String, unique: true
+  property :name, String, required: true
+  property :username, String, unique: true, required: true
   property :email, String, format: :email_address, unique: true, required: true
-  property :password_digest, Text
+  property :password_digest, Text, required: true
 
-  validates_uniqueness_of :email, :message
-  validates_uniqueness_of :username, :message
-  validates_confirmation_of :password, :message
+  validates_uniqueness_of :email
+  validates_uniqueness_of :username
+  validates_confirmation_of :password
   validates_presence_of :email
   validates_format_of :email, as: :email_address
 

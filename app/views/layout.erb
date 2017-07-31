@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chitter</title>
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -10,24 +11,22 @@
 
     <nav class="navbar bg-primary">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" style="padding-top: 0px" href="/">
-            <img alt="Brand" src="/images/chitter_logo_no_bg.png" width="50" height="50"/>
-          </a>
-          <ul class="nav navbar-nav navbar-left" style="padding-top: 15px" >
-            <li>Chitter &nbsp &nbsp</li>
+        <a class="navbar-brand" style="padding-top: 0px" href="/">
+          <img alt="Brand" src="/images/chitter_logo_no_bg.png" width="50" height="50"/>
+        </a>
+        <ul class="nav navbar-nav navbar-left" style="padding-top: 15px" >
+          <li>Chitter &nbsp &nbsp</li>
+        </ul>
+        <% if current_user %>
+          <ul class="nav navbar-nav navbar-left" style="padding-top: 15px">
+            Welcome, <%= current_user.name %>
           </ul>
-        </div>
-          <% if current_user %>
-            <ul class="nav navbar-nav navbar-left" style="padding-top: 15px">
-              Welcome, <%= current_user.name %>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <form method='post' class="navbar-brand bg-primary" action='/sessions'>
-                <input type='hidden' name='_method' value='delete'>
-                <input type='submit' class="btn-sm bg-primary" value='Log out'
-                style="border-width: 0px; padding: 0px">
-              </form>
+          <ul class="nav navbar-nav navbar-right">
+            <form method='post' class="navbar-brand bg-primary" action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input type='submit' class="btn-sm bg-primary" value='Log out'
+              style="border-width: 0px; padding: 0px">
+            </form>
             </ul>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
@@ -48,13 +47,16 @@
       </div>
     <% end %>
 
+    <div class="col-md-4 col-md-offset-4 panel">
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul id='errors' class="text-center">
+      <div id='errors' class="alert-warning">
         <% flash[:errors].each do |error| %>
           <%= error %>
+        </br>
         <% end %>
-      </ul>
+      </div>
     <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
