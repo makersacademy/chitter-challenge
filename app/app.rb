@@ -15,6 +15,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all
     erb :'peeps/index'
   end
 
