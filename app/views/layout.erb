@@ -15,6 +15,7 @@
 
       <% if current_user %>
       <h3>welcome <%= current_user.username %></h3>
+      <br>
       <div class="row">
         <form method='post' action='/sessions'>
           <input type='hidden' name='_method' value='delete'>
