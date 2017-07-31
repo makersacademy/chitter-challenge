@@ -14,6 +14,9 @@
           <a class="navbar-brand" style="padding-top: 0px" href="/">
             <img alt="Brand" src="/images/chitter_logo_no_bg.png" width="50" height="50"/>
           </a>
+          <ul class="nav navbar-nav navbar-left" style="padding-top: 15px" >
+            <li>Chitter &nbsp &nbsp</li>
+          </ul>
         </div>
           <% if current_user %>
             <ul class="nav navbar-nav navbar-left" style="padding-top: 15px">
@@ -39,18 +42,16 @@
       </div>
     </nav>
 
-
-
     <% if flash[:notice] %>
-      <div id='notice'>
+      <div id='notice' class="text-center">
         <%= flash[:notice] %>
       </div>
     <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
-      <ul id='errors'>
+      <ul id='errors' class="text-center">
         <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
+          <%= error %>
         <% end %>
       </ul>
     <% end %>

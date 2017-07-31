@@ -17,18 +17,18 @@ class Chitter < Sinatra::Base
   end
 
   get '/' do
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :index
   end
 
   get '/peeps' do
-    @peeps = Peep.all(:order => [ :created_at.desc ])
+    @peeps = Peep.all(:order => [:created_at.desc])
     erb :peeps
   end
 
   post '/peep' do
-    peep = Peep.create(message: params[:peep], user_id: current_user.id)
-    redirect ('/peeps')
+    Peep.create(message: params[:peep], user_id: current_user.id)
+    redirect to '/peeps'
   end
 
   get '/sign_up' do
@@ -43,7 +43,7 @@ class Chitter < Sinatra::Base
                       password_confirmation: params[:password_confirmation])
     if @user.save
       session[:current_user_id] = @user.id
-      redirect to ('/peeps')
+      redirect to '/peeps'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :sign_up
@@ -58,7 +58,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:current_user_id] = user.id
-      redirect to('/peeps')
+      redirect to '/peeps'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :login
@@ -68,7 +68,7 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:current_user_id] = nil
     flash.keep[:notice] = 'goodbye!'
-    redirect to ('/')
+    redirect to '/'
   end
 
   run! if app_file == $0
