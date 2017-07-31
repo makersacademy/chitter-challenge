@@ -1,6 +1,8 @@
 require './app/app.rb'
 require 'data_mapper'
 
+task default: %w[upgrade]
+
 namespace :db do
 
   desc 'non-destructive upgrade'
