@@ -11,7 +11,7 @@
 </div>
 
 <ul id='Peeps' style="list-style: none;">
-  <% @peeps.reverse.each do |peep| %>
+  <% @peeps.each do |peep| %>
   <li>
     <div class="well peep">
     <p><%= User.get(peep.user_id).full_name %> @<%= User.get(peep.user_id).username %> - <%= peep.created_at.strftime("%c") %></p>
@@ -22,7 +22,8 @@
         </div>
         <div class="col-xs-2">
         <% if current_user and peep.user_id == current_user.id %>
-          <form stlye="float: right;" method='post' action='/peeps/delete'>
+          <form stlye="float: right;" method='post' action='/peep'>
+             <input type='hidden' name='_method' value='delete'>
              <input type='hidden' name='peep_id' value='<%= peep.id %>'>
              <input type="submit" value="Delete" class="btn-danger">
           </form>

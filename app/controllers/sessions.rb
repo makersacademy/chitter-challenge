@@ -1,3 +1,10 @@
+require 'sinatra/base'
+require 'sinatra/flash'
+require_relative '../models/peep'
+require_relative '../models/user'
+require_relative '../models/tag'
+require_relative '../models/reply'
+
 class Chitter < Sinatra::Base
 
   get '/sessions/new' do
@@ -6,18 +13,18 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(params[:email], params[:password])
-    if user.nil?
-      flash.now[:notice] = ['incorrect username or password']
-      erb :'sessions/new'
-    else
+    if user
       session[:user_id] = user.id
       redirect '/peeps'
+    else
+      flash.next[:notice] = 'incorrect username or password'
+      redirect'sessions/new'
     end
   end
 
-  get '/sessions/end' do
-    session[:user_id] = nil
-    flash.now[:notice] = 'You have signed-out.'
+  delete '/sessions' do
+    session.delete(:user_id)
+    flash.next[:notice] = 'You have signed-out.'
     redirect '/'
   end
 

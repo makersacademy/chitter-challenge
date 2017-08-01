@@ -1,5 +1,12 @@
+require 'sinatra/base'
+require 'sinatra/flash'
+require_relative '../models/peep'
+require_relative '../models/user'
+require_relative '../models/tag'
+require_relative '../models/reply'
+
 class Chitter < Sinatra::Base
-  
+
   get '/users/new' do
     erb :'users/new'
   end

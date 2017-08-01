@@ -1,9 +1,11 @@
 describe Tag do
-  subject(:tag) { described_class }
-  name = "computing"
-  let(:test_tag) { described_class.create(name: name) }
+  subject(:tag)   { described_class                     }
+  let(:name)      { "computing"                         }
+  let(:test_tag)  { described_class.create(name: name)  }
 
-  it 'should have a name' do
-    expect(test_tag.name).to eq name
+  context '#name' do
+    it 'returns string set' do
+      expect(test_tag.name).to eq name
+    end
   end
 end

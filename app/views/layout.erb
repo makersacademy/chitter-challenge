@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript">
+
+    </script>
     <link rel="stylesheet" type="text/css" href="/css/custom-style.css">
   </head>
 
@@ -38,12 +41,23 @@
             <% if current_user %>
             <li><a href="/users/profile">
               Welcome, <%= current_user.username %></a></li>
+            <li>
             <% end %>
             <% if current_user %>
-            <li><a href="/sessions/end">Log out</a></li>
+              <form method='post' action='/sessions'>
+                <div class="form-group">
+                <input type='hidden' name='_method' value='delete'>
+                <input type='submit' value='Sign Out' class="btn btn-default">
+              </div>
+              </form>
             <% else %>
-            <li><a href="/sessions/new">Log in</a></li>
+              <form method='get' action='/sessions/new'>
+                <div class="form-group">
+                <input type='submit' value='Sign In' class="btn btn-default">
+              </div>
+              </form>
             <% end %>
+          </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
