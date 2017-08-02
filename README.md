@@ -1,19 +1,13 @@
 Chitter Challenge
 =================
+![Chitter homepage](app/public/img/chitter-home.png)
+View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
-* Challenge time: rest of the day and weekend, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Full instructions can be seen in [INSTRUCTIONS.md](INSTRUCTIONS.md)
 
-Challenge:
--------
+A Twitter clone that will allow the users to post messages to a public stream.
 
-As usual please start by forking this repo.
-
-We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
-
+---
 Features:
 -------
 
@@ -51,62 +45,191 @@ ADVANCED
 As a Maker
 So that I can stay constantly tapped in to the shouty box of Chitter
 I want to receive an email if I am tagged in a Peep
+
+As a Maker
+So that I can contribute to a conversation
+I want to reply to a peep from another maker.
+
+As a Maker
+So that I can appreciate the look of Chitter
+I want Chitter to have nice CSS and style
 ```
 
-Notes on functionality:
-------
+---
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
-* Use data mapper and postgres to save the data.
+Technologies
+----
+
+* Programming language: Ruby
+* Sinatra web app
+* Front end: HTML, CSS, Bootstrap
+* Bcrypt for password security
+* Used postgreSQL and Data Mapper (ORM) to save the data in databases.
+* Test frameworks: Rspec, Capybara
+* Hosted on Heroku at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
+
+-----
+
+Functionality
+------
 * You don't have to be logged in to see the peeps.
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
 * Use bcrypt to secure the passwords.
 * You only can peep if you are logged in.
-* Please ensure that you update your README to indicate the technologies used, and give instructions on how to install and run the tests
-* Finally submit a pull request before Monday at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday at 9am
 
-Bonus:
------
+---
 
-If you have time you can implement the following:
+Instructions
+---
 
-* In order to start a conversation as a maker I want to reply to a peep from another maker.
+View app online at: [chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
 
-And/Or:
+Set up the database (if you haven't installed PostgreSQL already). In your terminal run `brew install postgresq`. After homebrew has downloaded the software it will show you some installation instructions, follow them! Make sure you run these commands after installing:
+```terminal
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
 
-* Work on the css to make it look good (we all like beautiful things).
+You can check your installation by running `psql`
+Set up a database with your username if it doesn't already exist. (see [here](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/03_mac.md) for more instructions) if you need them.
 
-Good luck and let the chitter begin!
+In your terminal enter:
+
+```
+$ git clone https://github.com/ryandav/chitter_challenge
+$ cd chitter_challenge
+$ bundle install
+$ createdb chitter_development
+$ createdb chitter_test
+$ rackup
+```
+In your browser visit: [http://localhost:9292/](http://localhost:9292/)
+
+To run the tests:
+```tests
+rspec
+```
+
+If you want to use the send email when tagged in a peep functionality you need to create a `.env` file in the project folder that contains:
+```
+CHITTER_GMAIL_USERNAME="your gmail email address"
+CHITTER_GMAIL_PASSWORD="your gmail password"
+```
+
+---
+
+How to use Chitter
+---
+[chitter-not-twitter-app.herokuapp.com](https://chitter-not-twitter-app.herokuapp.com)
+![Chitter homepage](app/public/img/chitter-home.png)
+*Homepage*
+- You can view the peeps, login or signup.
+
+*Peeps (messages)*
+- You can see all peeps in reverse chronological order
+- you can search the peeps for key words
+- You cannot post a peep unless you are logged in
+![Chitter peeps](app/public/img/peeps.png)
+
+*Sign up*
+- Enter email, username, full name, password, and password confirmation
+
+*Log in / Log out*
+- Click on the log out button in the nav bar at the top right of the screen
+
+*Once logged in*
+- You can then post peeps
+- You can delete peeps you posted if logged in
+- Reply to peeps
+- View your profile by clicking on "Welcome, Your Username"
+![Chitter peeps](app/public/img/new-peep.png)
+---
+Design of Program
+----
+```tree
+├── app
+│   ├── app.rb
+│   ├── data_mapper_setup.rb
+│   ├── mail_setup.rb
+│   ├── server.rb
+│   ├── controllers
+│   │   ├── peeps.rb
+│   │   ├── sessions.rb
+│   │   └── users.rb
+│   ├── helpers
+│   │   └── chitter_helpers.rb
+│   ├── models
+│   │   ├── peep.rb
+│   │   ├── reply.rb
+│   │   ├── tag.rb
+│   │   └── user.rb
+│   ├── public
+│   │   ├── css
+│   │   ├── fonts
+│   │   ├── img
+│   │   └── js
+│   └── views
+│       ├── index.erb
+│       ├── layout.erb
+│       ├── peeps
+│       │   ├── index.erb
+│       │   ├── new.erb
+│       │   ├── peep.erb
+│       │   └── reply.erb
+│       ├── sessions
+│       │   └── new.erb
+│       └── users
+│           ├── new.erb
+│           └── profile.erb
+└── spec
+    ├── features
+    │   ├── helpers.rb
+    │   ├── peep_spec.rb
+    │   ├── tags_spec.rb
+    │   └── user_management_spec.rb
+    ├── models
+    │   ├── peep_spec.rb
+    │   ├── reply_spec.rb
+    │   ├── tag_spec.rb
+    │   └── user_spec.rb
+    └── spec_helper.rb
+```
+
+### Models
+##### User
+- properties: id, email, username, full_name, password_digest
+- All fields required, checks unique email and username, validates password
+- has: peeps, replys
+- Method: `authenticate(email, password)` checks whether a valid user exists and if it does return this user
+
+##### Peep
+- properties: id, content, created_at (DateTime)
+- belongs to a user
+- has: tags, replys
+
+
+##### Reply
+
+- properties: id, content, created_at (DateTime)
+- belongs to a peep and a user
+
+##### Tag
+- properties: id, name
+- has: peeps
+
+
+----
 
 Code Review
 -----------
 
-In code review we'll be hoping to see:
+[code review rubric](docs/review.md)
 
-* All tests passing
-* High [Test coverage](https://github.com/makersacademy/course/blob/master/pills/test_coverage.md) (>95% is good)
-* The code is elegant: every class has a clear responsibility, methods are short etc.
+----
 
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
-
-Notes on test coverage
-----------------------
-
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
-
-```ruby
-require 'simplecov'
-require 'simplecov-console'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
-
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+References:
+- [Refactoring step of Makers Academy bookmark challenge](https://github.com/ryandav/course/blob/master/bookmark_manager/walkthroughs/25.md)
+- [github.com/makersacademy/chitter_exemplar](https://github.com/makersacademy/chitter_exemplar)
+- [github.com/joemaidman](https://github.com/joemaidman/chitter-challenge)

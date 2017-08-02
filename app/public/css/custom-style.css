@@ -1,0 +1,101 @@
+@media (min-width: 1200px) {
+    .container{
+        max-width: 500px;
+    }
+}
+
+body {
+  background: url("http://www.pptback.com/uploads/blue-sky-clouds-vector-backgrounds-powerpoint.jpg")  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Play', sans-serif;
+}
+
+.welcome {
+  background-color: white;
+  max-width: 400px;
+}
+
+.btn-primary, .btn-default, .btn-danger, .btn-success {
+  -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.peep {
+  background-color: #006dcc;
+  border-color: lightblue;
+  color: white;
+}
+
+.peep-content {
+  background-color: white;
+  color: black;
+}
+
+.navbar-default {
+  background-color: #006dcc;
+  border-color: #182a85;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  background-color: #182a85
+  color: white;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: white;
+  background-color: #182a85;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ececec;
+  background-color: #182a85
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ececec;
+  background-color: #182a85;
+}
+.navbar-default .navbar-toggle {
+  border-color: #182a85;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #182a85;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #182a85;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ececec;
+  background-color: #182a85;
+}
+
+.peep > a {
+  color: white; !important!
+}
+
+a {
+  color: white; !important!
+}

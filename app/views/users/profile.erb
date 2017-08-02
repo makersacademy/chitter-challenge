@@ -1,0 +1,9 @@
+<div class="container well welcome" align="center">
+  <h1>Profile</h1>
+  <h2><% if current_user %>
+<p>Username: <%= current_user.username %><p>
+<p>Email: <%= current_user.email %><p>
+<% else %>
+  Please login or sign up to create a profile
+  <% end %></h2>
+</div>
