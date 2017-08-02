@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
             created_at: Time.now,
             user: current_user,
             peep: @peep)
-    erb :'/peeps/peep'
+    redirect '/peeps/peep'
   end
 
 end

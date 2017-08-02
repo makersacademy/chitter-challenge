@@ -38,17 +38,22 @@ class Chitter < Sinatra::Base
 
   delete '/peep' do
     if Peep.get(params[:peep_id]).destroy
-      flash.now[:notice] = "Peep deleted."
+      flash.next[:notice] = "Peep deleted."
     else
-      flash.now[:notice] = "Peep not deleted."
+      flash.next[:notice] = "Peep not deleted."
     end
     redirect '/peeps'
   end
 
   get '/peeps/:peep_id' do
     @peep = Peep.get(params[:peep_id])
-    @replys = Reply.peep_replys_in_reverse(peep_id: @peep.id)
-    erb :'/peeps/peep'
+    if @peep
+      @replys = Reply.peep_replys_in_reverse(peep_id: @peep.id)
+      erb :'/peeps/peep'
+    else
+      flash.next[:notice] = "Peep not found"
+      redirect '/peeps'
+    end
   end
 
 end

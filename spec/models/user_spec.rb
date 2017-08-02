@@ -19,13 +19,10 @@ describe User do
   end
 
 describe '#authenticate' do
-#authenticate
-  #return a user
-  #return nil
+
   context 'a user with a valid email and password' do
     it "returns a user" do
-      authenticated_user = User.authenticate(email, password)
-      expect(authenticated_user).to eq User.get(email: email)
+      expect(User.authenticate(email, password)).to be_a user
     end
   end
 
@@ -43,25 +40,22 @@ end
 
 describe 'creating a user' do
   context 'scenarios' do
-    let(:capitalise_case) { 'Ryan' }
-    let(:capitalise_case) { 'Ryan' }
-    let(:capitalise_case) { 'Ryan' }
 
     it 'should initialise with a full name' do
-      expect(test_user.full_name).to eq 'capitalise_case'
+      expect(test_user.full_name).to eq full_name
     end
 
   end
     it 'should initialise with a full name' do
-      expect(test_user.full_name).to eq 'Ryan'
+      expect(test_user.full_name).to eq full_name
     end
 
     it 'should initialise with a username' do
-      expect(test_user.username).to eq 'ryan'
+      expect(test_user.username).to eq username
     end
 
     it 'should initialise with a email' do
-      expect(test_user.email).to eq 'ryan@ryan.com'
+      expect(test_user.email).to eq email
     end
 
     context 'validations' do

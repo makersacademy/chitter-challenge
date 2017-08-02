@@ -3,27 +3,42 @@ require_relative 'helpers'
 feature 'User management' do
   include Helpers
 
+  subject(:user)    { described_class }
+  let(:full_name)   { "Ryan"          }
+  let(:email)       { 'ryan@ryan.com' }
+  let(:username)    { 'ryan'          }
+  let(:password)    { 'password'      }
+  let(:password2)   { 'password2'     }
+  let(:full_name2)  { "Ryan2"         }
+  let(:email2)      { 'ryan@ryan.com' }
+  let(:username2)   { 'ryan'          }
+
+  let(:expected_date) { DateTime.now  }
+
+  before  { Timecop.freeze }
+  after   { Timecop.return }
+
   before do
-    sign_up(username: 'Ryan', email: 'ryan@ryan.com')
+    sign_up(username: username, email: email)
   end
 
   scenario 'I can sign up as a new user' do
-    expect(page).to have_content('Welcome, Ryan')
+    expect(page).to have_content('Welcome, ' + username)
   end
 
   scenario 'A user cannot create a profile with an exiting username' do
-    sign_up(username: 'Ryan', email: 'ryan2@ryan.com')
+    sign_up(username: username, email: email)
     expect(page).to have_content "Invalid login"
   end
 
-  scenario 'A user cannot create a profile with an exiting email' do
-    sign_up(username: 'Ryan2', email: 'ryan@ryan.com')
+  scenario 'A user cannot create a profile with an existing email' do
+    sign_up(username: username2, email: email)
     expect(page).to have_content "Invalid login"
   end
 
   scenario 'I can log out once signed up' do
     click_on 'Log out'
-    expect(page).not_to have_content('Welcome, Ryan')
+    expect(page).not_to have_content('Welcome, ' + username)
   end
 
   scenario 'I see peeps if not logged in' do
@@ -38,17 +53,17 @@ feature 'User management' do
     within ".welcome" do
       click_on 'Log in'
     end
-    fill_in 'email', with: 'ryan@ryan.com'
-    fill_in 'password', with: 'password'
+    fill_in 'email', with: email
+    fill_in 'password', with: password
     within '.log-in-form' do
       click_on 'Log in'
     end
-    expect(page).to have_content('Welcome, Ryan')
+    expect(page).to have_content('Welcome, ' + username)
   end
 
   scenario 'As a loggin in user I can visit my profile page' do
-    click_on 'Welcome, Ryan'
-    expect(page).to have_content 'Profile' and have_content 'Username: Ryan'
+    click_on 'Welcome, ' + username
+    expect(page).to have_content 'Profile' and have_content 'Username: ' + username
   end
 
 end
