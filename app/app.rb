@@ -32,7 +32,7 @@ class Chitter < Sinatra::Base
   end
 
   get '/main' do
-    @peeps = current_user.peeps
+    @peeps = Peep.all
     erb :main
   end
 
