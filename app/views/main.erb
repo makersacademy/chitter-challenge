@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link href="<%= url("main.css")%>" rel="stylesheet">
+  </head>
+  <body>
+    <h1>
+    <% if current_user %>
+      Welcome, <%= current_user.name %>
+      <div class= 'signout'>
+        <form class='signout' action='/sessions' method= 'post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input class='signout' type='submit' value='Sign out'>
+        </form>
+      </div>
+    <% end %>
+  </h1>
+  <form class='newpeep' action ="/add_peep" method="post">
+    <input class='peep' type="text" name="message" Placeholder="Peep here">
+    <input type="submit" value="Peep">
+  </form>
+      <table>
+        <% @peeps.reverse.each do |peep| %>
+        <tr height = '100'>
+          <td> <%= peep.message %></td>
+          <th> at <%= peep.time %> </th>
+        </tr>
+        <% end %>
+        <% @peeps.all %>
+      </table>
+  </body>
+</html>

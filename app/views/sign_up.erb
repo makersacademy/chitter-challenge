@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link href="<%= url("signup.css")%>" rel="stylesheet">
+  </head>
+
+  <h1>
+
+  </h1>
+
+  <body>
+    <div class='loggin'>
+      <form action ="/session" method="post" align= 'center'>
+        <input class='loggin' type="submit" value="Loggin">
+      </form>
+    </div>
+    <div class= 'space'>
+    </div>
+    <form class= 'signup' action ="/sign_up" method="post">
+      <div class='topform'>
+        Join Pipper today.
+      </div>
+      <div>
+        <input type="text" name="name" placeholder="Full name">
+      </div>
+      <div>
+        <input type="email" name="email" placeholder="email">
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="password">
+      </div>
+      <div>
+        <input type="password" name="password_confirmation" placeholder="confirm password">
+      </div>
+      <input class= 'submit' type="submit" value="Submit">
+    </form>
+    <div class= 'errors'
+      <%= flash[:no_user] %>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>
