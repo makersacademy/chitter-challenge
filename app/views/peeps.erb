@@ -1,0 +1,7 @@
+
+<% @peeps.each do |peep| %>
+<p>
+  <%= peep.peep %>
+  <%= peep.created_at.strftime('%b %e %T') %>
+</p>
+<% end %>
