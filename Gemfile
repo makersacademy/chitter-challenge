@@ -8,7 +8,9 @@ gem 'rack'
 gem 'sinatra'
 gem 'sinatra-flash'
 
+
 group :test do
+  gem 'pry'
   gem 'cucumber'
   gem 'capybara'
   gem 'database_cleaner'

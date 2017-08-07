@@ -9,6 +9,7 @@ require 'dm-postgres-adapter'
 require_relative '../app/app.rb'
 require 'simplecov'
 require 'simplecov-console'
+require 'pry'
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

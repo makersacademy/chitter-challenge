@@ -8,10 +8,13 @@ require_relative 'models/user'
 
 
 class Chitter < Sinatra::Base
+
   use Rack::MethodOverride
   register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
+
+
 
   get '/index' do
     erb :index
@@ -22,9 +25,16 @@ class Chitter < Sinatra::Base
   end
 
   post '/sign_up' do
-   @user = User.create(email: params[:email],password: params[:password])
-    session[:user_id] = @user.id
-    redirect'/peeps'
+    user = User.new(email: params[:email],password: params[:password])
+    if user.valid?
+      user.save
+      flash[:notice] = 'HI created a user'
+      session[:user_id] = user.id
+      redirect '/peeps'
+    else
+      flash[:notice] = user.errors
+      redirect'/peeps'
+    end
   end
 
   get '/log_in' do
@@ -33,7 +43,7 @@ class Chitter < Sinatra::Base
 
 
   delete '/sessions' do
-    session[:user_id] = nil
+    session.delete(:user_id)
     flash.keep[:notice] = 'goodbye!'
     redirect '/index'
   end
@@ -42,6 +52,7 @@ class Chitter < Sinatra::Base
     user = User.authenticate(params[:email],params[:password])
     if user
       session[:user_id] = user.id
+      flash.now[:notice] = "logged in!!!!!"
       redirect '/peeps'
     else
       flash.now[:error] = "The email or password is incorrect"
@@ -54,8 +65,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-      @new_peep = Peep.create(peep: params[:peep], created_at: Time.now, user_id: current_user.id)
-      p @new_peep
+      @new_peep = Peep.create(peep: params[:peep], created_at: Time.now, user:current_user)
     redirect '/peeps'
   end
 
