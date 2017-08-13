@@ -16,16 +16,30 @@
       </div>
 
       <div class="col-sm-10">
-        <% @peeps.reverse.each do |peep| %>
-          <article class = "comment">
-            <div class="panel panel-default">
-              <div class="panel-heading">posted by @<%= User.get(peep.user_id).username %> at <%= peep.created_at.strftime("%H:%M") %> <%= peep.created_at.strftime("%g %h") %></div>
-              <div class="panel-body">
-              <%= peep.message %></br>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <% if @user %>
+            <% if @user.id %>
+              <form action="/peeps" method="post">
+                <div class="input-group">
+                <textarea class="form-control" rows="3" name='message' maxlength="160" placeholder="What's happening?" required></textarea>
+                <span class="input-group-addon"><button type='submit' formaction="/peeps" formmethod="post" class="btn btn-primary" name="post">Post</button></span>
+                </div>
+              </form>
               </div>
+            <% end %>
+            <% else %>
+              <div class="panel-heading">Sign in to post a peep</div>
+          <% end %>
+            <div class="panel-body">
+              <% @peeps.reverse.each do |peep| %>
+              <%= peep.message %></br>
+              posted by @<%= User.get(peep.user_id).username %> at
+              <%= peep.created_at.strftime("%H:%M") %> <%= peep.created_at.strftime("%g %h") %>
+              <hr>
+              <% end %>
             </div>
-          </article>
-        <% end %>
+            </div>
       </div>
 
       <div class="col-sm-1 sidenav">
