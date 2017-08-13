@@ -60,3 +60,11 @@ text-align: center;
   top: 50%;
   transform: translateY(-50%);
 }
+
+.peep-body {
+  text-align: left;
+}
+
+.peep-details {
+  text-align: right;
+}

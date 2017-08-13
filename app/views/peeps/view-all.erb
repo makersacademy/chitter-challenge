@@ -1,15 +1,5 @@
 <div class="body-elements">
 
-  <% if @user %>
-    <% if @user.id %>
-      <article class="status">
-        <div class="welcome">
-        <p>Welcome, <%= @user.name %></p>
-        </div>
-      </article>
-    <% end %>
-  <% end %>
-
   <div class="container-fluid">
     <div class="row content">
       <div class="col-sm-1 sidenav">
@@ -32,10 +22,11 @@
               <div class="panel-heading">Sign in to post a peep</div>
           <% end %>
             <div class="panel-body">
-              <% @peeps.reverse.each do |peep| %>
-              <%= peep.message %></br>
-              posted by @<%= User.get(peep.user_id).username %> at
-              <%= peep.created_at.strftime("%H:%M") %> <%= peep.created_at.strftime("%g %h") %>
+                <% @peeps.reverse.each do |peep| %>
+                <%= peep.message %></br>
+              <p class="peep-details">
+                @<%= User.get(peep.user_id).username %>
+                <%= peep.created_at.strftime("%H:%M") %> <%= peep.created_at.strftime("%g %h") %></p>
               <hr>
               <% end %>
             </div>

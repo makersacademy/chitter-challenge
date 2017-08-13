@@ -46,6 +46,7 @@
         <ul class="nav navbar-nav navbar-right">
         <% if @user %>
         <% if @user.id %>
+          <li role=presentation><a href="#">Welcome @<%= @user.name %></a></li>
           <li role="presentation"><a href="/sessions/end"><span class="glyphicon glyphicon-log-out"aria-label="Log out"></span> Log out</a></li>
         <% end %>
         <% else %>
