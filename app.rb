@@ -1,5 +1,6 @@
 ENV["RACK_ENV"] ||= "development"
 
+require 'sinatra'
 require 'sinatra/base'
 require './models/user.rb'
 require './models/peeps.rb'
