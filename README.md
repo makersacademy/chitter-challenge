@@ -6,11 +6,11 @@ Twitter Clone built using Ruby Sinatra
 
 ## Setup ##
 
-- $ git clone https://github.com/schlattk/chitter_challenge
+- $ git clone https://github.com/schlattk/chitter-challenge
 - $ bundle
 - $ createdb chitter_development
 - $ createdb chitter_test
-- $ rspec - Test should all password
+- $ rspec - Test should all pass
 
 ## to run ##
 
