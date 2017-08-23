@@ -5,7 +5,7 @@ require_relative './models/peep'
 
 class ChitterWebsite < Sinatra::Base
   get '/peeps' do
-    @peeps = Peep.all(:order => [ :id.desc ])
+    @peeps = Peep.all(:order => [:id.desc])
     erb :'peeps/index'
   end
 
@@ -15,8 +15,8 @@ class ChitterWebsite < Sinatra::Base
 
   post '/peeps' do
     Peep.create(
-      :message => params[:message]
-      # :created_at => Time.new
+      :message => params[:message],
+      :created_at => Time.new
     )
     redirect '/peeps'
   end

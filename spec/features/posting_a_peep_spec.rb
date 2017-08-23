@@ -20,6 +20,7 @@ feature "peep page" do
   end
 
   scenario "User adds 3 peeps and sees them in reverse chronological order" do
+    t = Time.new.strftime("%H:%M")
     visit "/peeps"
     click_button("Add peep")
     fill_in :message, with: "First"
@@ -31,6 +32,16 @@ feature "peep page" do
     fill_in :message, with: "Third"
     click_button "Submit"
     save_and_open_page
-    expect(page).to have_content("Third\nSecond\nFirst")
+    expect(page).to have_content("Third #{t}\nSecond #{t}\nFirst #{t}")
+  end
+
+  scenario "User posts a peep and sees the time it was posted" do
+    # allow_any_instance_of(Peep).to receive_message_chain(:created_at, :strftime).with("%H:%M") {"23:44"}
+    t = Time.new.strftime("%H:%M")
+    visit "/peeps"
+    click_button("Add peep")
+    fill_in :message, with: "Time test"
+    click_button "Submit"
+    expect(page).to have_content("Time test #{t}")
   end
 end
