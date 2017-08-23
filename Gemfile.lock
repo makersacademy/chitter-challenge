@@ -83,6 +83,8 @@ GEM
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     mini_mime (0.1.4)
     mini_portile2 (2.2.0)
     multi_json (1.12.1)
@@ -154,6 +156,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  launchy
   rake
   rspec
   rubocop
