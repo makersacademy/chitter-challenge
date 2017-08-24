@@ -151,6 +151,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   cucumber
   data_mapper
@@ -168,4 +169,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
