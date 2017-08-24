@@ -1,4 +1,9 @@
+require 'sinatra/base'
+require 'database_cleaner'
 
-get '/chitter' do
+class Chitter < Sinatra::Base
 
-end 
+  get '/' do
+    'Chitting'
+  end
+end
