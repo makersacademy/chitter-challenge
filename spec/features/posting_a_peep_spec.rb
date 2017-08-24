@@ -31,12 +31,11 @@ feature "peep page" do
     click_button("Add peep")
     fill_in :message, with: "Third"
     click_button "Submit"
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content("Third #{t}\nSecond #{t}\nFirst #{t}")
   end
 
   scenario "User posts a peep and sees the time it was posted" do
-    # allow_any_instance_of(Peep).to receive_message_chain(:created_at, :strftime).with("%H:%M") {"23:44"}
     t = Time.new.strftime("%H:%M")
     visit "/peeps"
     click_button("Add peep")
