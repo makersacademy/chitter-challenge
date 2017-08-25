@@ -4,6 +4,7 @@ require 'simplecov-console'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+
 Capybara.app = ChitterWebsite
 Capybara.save_and_open_page_path = "../debugging_chitter"
 

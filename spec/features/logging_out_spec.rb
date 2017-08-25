@@ -1,4 +1,4 @@
-feature 'User login' do
+feature 'User logout' do
 
   let!(:user) do
     User.create(name: 'Jennifer Bacon',
@@ -23,15 +23,14 @@ feature 'User login' do
   #   click_button 'Log in'
   # end
 
-  scenario 'with correct credentials' do
-    sign_in(email: user.email,   password: 'secret1234')
-    expect(page).to have_content "Welcome to Chitter, #{user.username}"
-    expect(page).to have_button "Go to peeps page"
-  end
-
-  scenario 'with incorrect credentials' do
-    sign_in(email: user.email,   password: 'secret1235')
-    expect(page).to have_content "The email or password is incorrect"
+  scenario 'User logs out and sees goodbye message' do
+    sign_in(email: user.email, password: 'secret1234')
+    click_button 'Go to peeps page'
+    # save_and_open_page
+    click_button 'Log out'
+    click_button 'Go to peeps page'
+    expect(page).to have_no_button "Add peep"
+    expect(page).to have_no_button "Log out"
   end
 
 end

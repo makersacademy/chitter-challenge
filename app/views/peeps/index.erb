@@ -7,7 +7,12 @@
   <% end %>
 </ul>
 
-
+<% if current_user %>
 <form action='/peeps/new' method='get'>
   <input type='submit' value='Add peep'/>
 </form>
+<form action='/sessions' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Log out'/>
+</form>
+<% end %>

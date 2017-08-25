@@ -11,8 +11,18 @@ feature "peep page" do
   after do
     DatabaseCleaner.clean
   end
+
+  let!(:user) do
+    User.create(name: 'Jennifer Bacon',
+                username: 'jennyb',
+                email: 'user@example.com',
+                password: 'secret1234')
+  end
+
   scenario "User posts a peep" do
-    visit "/peeps"
+    visit "/sessions/new"
+    sign_in(email: user.email, password: 'secret1234')
+    click_button "Go to peeps page"
     click_button("Add peep")
     fill_in :message, with: "Hey everyone"
     click_button "Submit"
@@ -21,7 +31,9 @@ feature "peep page" do
 
   scenario "User adds 3 peeps and sees them in reverse chronological order" do
     t = Time.new.strftime("%H:%M")
-    visit "/peeps"
+    visit "/sessions/new"
+    sign_in(email: user.email, password: 'secret1234')
+    click_button "Go to peeps page"
     click_button("Add peep")
     fill_in :message, with: "First"
     click_button "Submit"
@@ -37,7 +49,9 @@ feature "peep page" do
 
   scenario "User posts a peep and sees the time it was posted" do
     t = Time.new.strftime("%H:%M")
-    visit "/peeps"
+    visit "/sessions/new"
+    sign_in(email: user.email, password: 'secret1234')
+    click_button "Go to peeps page"
     click_button("Add peep")
     fill_in :message, with: "Time test"
     click_button "Submit"
