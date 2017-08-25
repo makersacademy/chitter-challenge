@@ -44,17 +44,17 @@ feature "peep page" do
     fill_in :message, with: "Third"
     click_button "Submit"
     # save_and_open_page
-    expect(page).to have_content("Third #{t}\nSecond #{t}\nFirst #{t}")
+    expect(page).to have_content("Third #{t}\n(posted by #{user.username})\nSecond #{t}\n(posted by #{user.username})\nFirst #{t}\n(posted by #{user.username})")
   end
 
-  scenario "User posts a peep and sees the time it was posted" do
+  scenario "User posts a peep and sees their username and the time it was posted" do
     t = Time.new.strftime("%H:%M")
     visit "/sessions/new"
     sign_in(email: user.email, password: 'secret1234')
     click_button "Go to peeps page"
     click_button("Add peep")
-    fill_in :message, with: "Time test"
+    fill_in :message, with: "Testing peep"
     click_button "Submit"
-    expect(page).to have_content("Time test #{t}")
+    expect(page).to have_content("Testing peep #{t}\n(posted by #{user.username})")
   end
 end

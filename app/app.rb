@@ -21,10 +21,13 @@ class ChitterWebsite < Sinatra::Base
   end
 
   post '/peeps' do
+    # peep =
     Peep.create(
       :message => params[:message],
       :created_at => Time.new
     )
+    # peep.user = current_user
+    # peep.save
     redirect '/peeps'
   end
 
