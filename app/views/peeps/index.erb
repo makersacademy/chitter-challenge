@@ -4,7 +4,6 @@
   <% @peeps.each do |peep| %>
     <li>
       <%= peep.message %> <%= peep.created_at.strftime("%H:%M") %>
-    </li>
   <% end %>
 </ul>
 
