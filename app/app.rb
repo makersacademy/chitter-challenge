@@ -2,8 +2,10 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra'
 require_relative 'data_mapper_setup'
+require 'sinatra/flash'
 
 class ChitterWebsite < Sinatra::Base
+  register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -41,7 +43,7 @@ class ChitterWebsite < Sinatra::Base
   end
 
   get '/welcome' do
-    @user = User.first
+    @user = current_user
     erb :'users/welcome'
   end
 
@@ -50,20 +52,19 @@ class ChitterWebsite < Sinatra::Base
   end
 
   post '/sessions' do
-    redirect '/welcome'
-    # user = User.authenticate(params[:email], params[:password])
-    # if user
-    #   session[:username] = user.username
-    #   redirect to '/welcome'
-    # else
-    #   flash.now[:errors] = ['The email or password is incorrect']
-    #   erb :'sessions/new'
-    # end
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/welcome'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'users/log_in'
+    end
   end
 
   helpers do
-   def current_user
-     @current_user ||= User.get(session[:user_id])
-   end
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 end

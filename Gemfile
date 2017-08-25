@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 # group :test do
+gem 'bcrypt'
 gem 'capybara'
 gem 'cucumber'
 gem 'data_mapper'
@@ -14,5 +15,5 @@ gem 'rubocop'
 gem 'simplecov', require: false, group: :test
 gem 'simplecov-console', require: false, group: :test
 gem 'sinatra'
-gem 'bcrypt'
+gem 'sinatra-flash'
 # end

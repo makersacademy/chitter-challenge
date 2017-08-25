@@ -18,7 +18,7 @@ feature 'User login' do
   end
 
   scenario 'with correct credentials' do
-    sign_in(email: user.email,   password: 'secret1234')#user.password
+    sign_in(email: user.email,   password: 'secret1234') # user.password
     expect(page).to have_content "Welcome to Chitter, #{user.username}"
   end
 

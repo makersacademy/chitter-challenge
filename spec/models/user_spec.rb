@@ -17,5 +17,4 @@ describe User do
   #   expect(User.authenticate(user.email, 'wrong_stupid_password')).to be_nil
   # end
 
-
 end

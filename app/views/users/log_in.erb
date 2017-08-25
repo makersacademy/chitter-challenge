@@ -1,3 +1,7 @@
+<% if flash[:errors] %>
+  <div id='errors'><%= flash[:errors] %></div>
+<% end %>
+
 <form action="/sessions" method="post">
   <label for="email">Email<label/>
   <input type="text" name="email"/>
