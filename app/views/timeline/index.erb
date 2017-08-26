@@ -9,6 +9,9 @@
 
 <ul id='peeps'
   <% @peeps.reverse_each do |peep| %>
-  <li> <%= peep.body %> <li>
+  <li>
+  <%= peep.body %>
+  <%= peep.time %>
+  <li>
   <% end %>
 </ul>

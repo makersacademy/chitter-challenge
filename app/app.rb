@@ -12,7 +12,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/' do
-    peep = Peep.new(body: params[:peep_body])
+    peep = Peep.new(body: params[:peep_body], time: '2017-08-26 10:28:19 +010')
     peep.save
     redirect '/'
   end
