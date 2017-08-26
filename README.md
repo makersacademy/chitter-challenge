@@ -117,3 +117,5 @@ My approach
 I found the first User Story pretty hard to complete, it took me quite a lot to setup the app and the database. Eventually I managed to setup different environments - one for testing, one for development - so the posts created through the app would be separated from the ones created through launching rspec.
 
 So the first page is a form page, with a User field and a Post field so that a user can insert a nickname and post a peep. Once the user submits the form we get redirected into the following page which is the list of the posts submitted so far.
+
+The second User Story was pretty straightforward. The Ruby method used to loop through the peeps was a simple "each", so to have a reversed chronological order I used the "reverse_each" method for the loop, so I could get the view of my posts from the last one to the first.
