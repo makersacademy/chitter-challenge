@@ -6,13 +6,13 @@ require 'database_cleaner'
 require 'data_mapper'
 require 'capybara/rspec'
 
-#SimpleCov enable report
+# SimpleCov enable report
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
 ])
 SimpleCov.start
 
-#DataMapper print report
+# DataMapper print report
 DataMapper::Logger.new(STDOUT, :debug, '[DataMapper] ')
 DataMapper::Model.raise_on_save_failure = true
 
