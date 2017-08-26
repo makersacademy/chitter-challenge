@@ -4,6 +4,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require 'data_mapper'
+require 'capybara/rspec'
 
 #SimpleCov enable report
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
@@ -17,7 +18,7 @@ DataMapper::Model.raise_on_save_failure = true
 
 # Capybara init
 require File.join(File.dirname(__FILE__), '../app/app.rb')
-Capybara.app = BookmarkManager
+Capybara.app = Chitter
 
 # Rspec config
 RSpec.configure do |config|
