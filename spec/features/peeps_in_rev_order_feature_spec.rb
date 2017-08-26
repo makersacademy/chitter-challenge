@@ -9,10 +9,13 @@ RSpec.feature 'peeps are in reverse order' do
     click_button 'Peep'
     fill_in 'peep_body', with: '2'
     click_button 'Peep'
+    fill_in 'peep_body', with: '3'
+    click_button 'Peep'
+
     save_and_open_page
 
     within 'ul#peeps' do
-    expect('2').to appear_before('1')
+    expect('3').to appear_before('2')
     end
   end
 end
