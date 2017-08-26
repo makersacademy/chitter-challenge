@@ -1,0 +1,11 @@
+<h1>Chitter posts</h1>
+
+<ul id='peeps'>
+	<% @peeps.each do |peep| %>
+	<div class="post_container">
+		<div class="user_container"><li>User: <%=peep.user%></li></div>
+		<div class="peep_container"><li>Peep: <%=peep.text%></li></div>
+	</div>
+	<br>
+	<%end%>
+</ul>

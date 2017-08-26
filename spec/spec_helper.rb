@@ -1,5 +1,16 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara/rspec'
+require 'data_mapper'
+require 'dm-postgres-adapter'
+require './app/models/peep'
+require 'database_cleaner'
+
+require_relative '../app/app'
+
+ENV['RACK_ENV'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -7,6 +18,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   # SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
+
+Capybara.app = Chitter
 
 RSpec.configure do |config|
   config.after(:suite) do
