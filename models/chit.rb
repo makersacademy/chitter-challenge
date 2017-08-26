@@ -1,5 +1,7 @@
+require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+
 
 class Chit
   include DataMapper::Resource
@@ -9,6 +11,6 @@ class Chit
 end
 
 DataMapper::Logger.new($stdout, :debug)
-DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+DataMapper.setup(:default, 'postgres://localhost/chitter_database_test')
 DataMapper.finalize
 DataMapper.auto_upgrade!

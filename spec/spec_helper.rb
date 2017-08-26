@@ -1,3 +1,13 @@
+require 'simplecov'
+require 'simplecov-console'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start
+
+
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../app/app'
@@ -5,18 +15,11 @@ require 'sinatra'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require 'database_cleaner'
-require 'simplecov'
-require 'simplecov-console'
-require 'data_mapper'
+# require 'database_cleaner'
+# require 'data_mapper'
 
 Capybara.app = Chitter
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
 
 module RSpecMixin
   include Rack::Test::Methods
@@ -27,18 +30,18 @@ end
 
 RSpec.configure do |config|
 
-  config.before(:suite) do
-   DatabaseCleaner.strategy = :transaction
-   DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # config.before(:suite) do
+  #  DatabaseCleaner.strategy = :transaction
+  #  DatabaseCleaner.clean_with(:truncation)
+  # end
+  #
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  #
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 
   config.after(:suite) do
     puts
