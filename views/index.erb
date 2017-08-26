@@ -1,0 +1,17 @@
+<h1> Chitter Feed </h1>
+
+<form action="/feed" method="post">
+    <input type="text" name="tweet">
+  <input type="submit" value="Tweet!">
+</form>
+
+<ul id='feed'>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.tweet %>
+      <%= post.time %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- Time.new.strftime("%A, %d %b %Y %l:%M %p")   -->
