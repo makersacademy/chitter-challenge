@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'rack'
 gem 'pg'
+gem 'capybara'
 
 group :test do
   gem 'cucumber'

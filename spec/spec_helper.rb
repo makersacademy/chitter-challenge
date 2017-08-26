@@ -5,7 +5,7 @@ require './app.rb'
 require 'database_cleaner'
 require './data_mapper_setup.rb'
 
-capybara.app = Chitter
+Capybara.app = Chitter
 
 RSpec.configure do |config|
  config.before(:suite) do
