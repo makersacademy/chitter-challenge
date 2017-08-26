@@ -6,6 +6,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra-flash'
 gem 'bcrypt'
+gem 'rake'
 
 group :test do
   gem 'cucumber'
