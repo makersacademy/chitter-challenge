@@ -1,0 +1,2 @@
+class Chitter do
+end
