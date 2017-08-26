@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
+require './../../app'
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
