@@ -2,7 +2,7 @@ require_relative "../../app/app"
 require 'spec_helper'
 
 RSpec.feature "Index page" do
-  scenario "Check if you have fields into chitter" do
+  scenario "Check if there are fields to fill" do
     visit "/"
     fill_in("user", with: "Panda")
     fill_in("text", with: "This is the first post ever on Chitter.")
