@@ -1,7 +1,7 @@
 feature 'posting messages' do
 
   scenario 'it posts a message' do
-    visit ('/homepage')
+    visit '/homepage'
     expect(page.status_code).to eq(200)
 
     fill_in 'body', with: 'Hello World'

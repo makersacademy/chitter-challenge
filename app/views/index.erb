@@ -1,7 +1,18 @@
 <h1> Chitter Feed </h1>
 
+
 <form action = '/new' method = 'post'>
   Message: <input type = 'text' name = 'body'>
   Username: <input type = 'text' name = 'name'>
   <input type = 'submit' value = 'Post!'>
 </form>
+
+
+<ul id='messages'>
+  <% Message.all.reverse.each do |message| %>
+  <li>
+      Chitter: <%= message.body %>
+      Username: <%= message.name %>
+  </li>
+  <% end %>
+</ul>
