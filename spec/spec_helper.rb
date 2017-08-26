@@ -1,3 +1,4 @@
+require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require './models/post'
