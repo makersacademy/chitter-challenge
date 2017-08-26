@@ -11,5 +11,13 @@ feature 'view all messages' do
     expect(page.status_code).to eq(200)
     within 'ul#messages'
     expect(page).to have_content('Trolling')
+
+  end
+
+  scenario 'it posts a timestamp with message' do
+    message = Message.create(name: 'person1', body: 'Why did the chicken?')
+    visit '/homepage'
+    within 'ul#messages'
+    expect(page).to have_content(message.created_at)
   end
 end
