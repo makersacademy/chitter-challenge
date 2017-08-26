@@ -8,9 +8,7 @@
 </form>
 
 <ul id='peeps'
-  <% @peeps.each do |peep| %>
-    <li>
-    <%= peep.body %>
-    <li>
+  <% @peeps.reverse_each do |peep| %>
+  <li> <%= peep.body %> <li>
   <% end %>
 </ul>

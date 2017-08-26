@@ -1,4 +1,5 @@
 require './app/models/peep.rb'
+require 'orderly'
 
 RSpec.feature 'peeps are in reverse order' do
 
