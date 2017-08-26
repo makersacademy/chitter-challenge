@@ -85,22 +85,15 @@ In code review we'll be hoping to see:
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want this weekend.
 
-Notes on test coverage
-----------------------
+## Built With
 
-Please ensure you have the following **AT THE TOP** of your spec_helper.rb in order to have test coverage stats generated
-on your pull request:
+* [Rubocop](https://github.com/bbatsov/rubocop)
+* [SimpleCov](https://github.com/colszowka/simplecov)
 
-```ruby
-require 'simplecov'
-require 'simplecov-console'
+## Authors
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
-SimpleCov.start
-```
+* [Nick Otter](nickotter.personal@gmail.com)
 
-You can see your test coverage when you run your tests. If you want this in a graphical form, uncomment the `HTMLFormatter` line and see what happens!
+## Acknowledgments
+
+* [Makers Academy](http://www.makersacademy.com/), [Kay Lovelace](https://github.com/neoeno)

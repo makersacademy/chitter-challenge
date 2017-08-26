@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-require 'data_mapper'
-require 'dm-postgres-adapter'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 gem 'rake'
 gem 'sinatra'
 

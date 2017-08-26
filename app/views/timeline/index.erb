@@ -1,0 +1,16 @@
+<h1> Chitter </h1>
+
+<form action='/' method ='POST'>
+  <label for='Peep'>
+    <input type='text' name='peep_body' />
+  </label>
+  <input type='submit' value='Peep'>
+</form>
+
+<ul id='peeps'
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= peep.body %>
+    <li>
+  <% end %>
+</ul>
