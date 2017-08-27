@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
+gem 'dm-timestamps'
 
 group :test do
   gem 'cucumber'
