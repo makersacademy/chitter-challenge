@@ -13,13 +13,15 @@ class Peep
   # property :user_handle, String
   # property :name, String
   property :created_at, DateTime
-  property :user_id, Integer
+  # property :user_id, Integer
 
-  belongs_to :user, :key => true
+  belongs_to :user
+  
 
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.finalize
   DataMapper.auto_upgrade!
+  # DataMapper::Model.raise_on_save_failure = true
 
 end
 
