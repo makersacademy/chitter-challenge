@@ -1,5 +1,3 @@
-ENV['RACK_ENV'] ||= 'development'
-
 require_relative 'setup'
 
 # in app.rb
