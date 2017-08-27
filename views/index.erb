@@ -1,0 +1,15 @@
+<h1> Chitter Feed </h1>
+
+<form action="/feed" method="post">
+    <input type="text" name="tweet">
+  <input type="submit" value="Tweet!">
+</form>
+
+<ul id='feed'>
+  <% @posts.reverse.each do |post| %>
+
+      <h2><%= post.tweet %></h2>
+      <h4><%= post.created_at.strftime("%d %b %Y %l:%M %p") %></h4>
+
+  <% end %>
+</ul>
