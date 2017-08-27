@@ -4,7 +4,6 @@ require 'dm-postgres-adapter'
 require 'dm-timestamps'
 require_relative './user.rb'
 
-
 class Peep
 
   include DataMapper::Resource
@@ -18,10 +17,9 @@ class Peep
 
   belongs_to :user, :key => true
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
-
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+  DataMapper.finalize
+  DataMapper.auto_upgrade!
 
 end
 

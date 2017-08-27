@@ -5,8 +5,6 @@ require 'sinatra/base'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
 
-
-
 class Chitter < Sinatra::Base
 
   get '/peeps' do
@@ -19,7 +17,7 @@ class Chitter < Sinatra::Base
   end
   
   post '/signup_complete' do
-    User.create(:name=>params[:name], :email=>params[:email], :username=>params[:username], :password=>params[:password])
+    User.create(:name => params[:name], :email => params[:email], :username => params[:username], :password => params[:password])
     redirect '/peep/new'
   end
   
@@ -28,7 +26,7 @@ class Chitter < Sinatra::Base
   end
   
   post '/peeps' do
-    Peep.create(:content=>params[:my_peep])
+    Peep.create(:content => params[:my_peep])
     redirect '/peeps'
   end
 

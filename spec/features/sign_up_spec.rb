@@ -16,5 +16,4 @@ feature 'user sign up' do
     click_button("Complete Signup")
   end
 
-
 end

@@ -5,7 +5,7 @@ Metrics/LineLength:
   #    AIRPORT_REFUSED_MESSAGE = "Airport has refused our landing! Probably bad weather"
   # ```
   # Would get extracted to locales, but that's out of the fence here so.
-  Max: 100
+  Max: 150
 
   # While test refactoring is good, I suspect it's out of scope for week 1
   Exclude:
