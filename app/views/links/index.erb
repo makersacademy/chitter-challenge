@@ -1,0 +1,23 @@
+<h1> Peeps </h1>
+
+<ul id='peeps'>
+<%= p @peeps %>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+      Content: <%= peep.content %>
+ 
+      Username: <%= peep.user%>
+      Name: <%= peep.user %> 
+      Time: <%= peep.created_at %>
+
+    </li>
+  <% end %>
+</ul>
+
+<form action="/signup" method='get'>
+  <input type="submit" value="Write peep">
+</form>
+
+<form action="/signup" method='get'>
+  <input type="submit" value="Sign up">
+</form>
