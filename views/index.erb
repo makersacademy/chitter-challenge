@@ -9,7 +9,7 @@
   <% @posts.reverse.each do |post| %>
 
       <h2><%= post.tweet %></h2>
-      <h4><%= post.created_at %></h4>
+      <h4><%= post.created_at.strftime("%d %b %Y %l:%M %p") %></h4>
 
   <% end %>
 </ul>

@@ -13,7 +13,6 @@ class Chitter < Sinatra::Base
       :tweet => params[:tweet],
       :created_at => params[:created_at]
     )
-    # strftime("%A, %d %b %Y %l:%M %p")
     redirect '/feed'
   end
 end

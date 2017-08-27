@@ -13,10 +13,8 @@ feature "Feed Page" do
 
   scenario "Posts shows the date of creation" do
     post_tweet
-    time = Time.now
-    time = time.strftime("%H:%M")
-    within 'ul#feed' do
-      expect(page).to have_content time
-    end
+    # within 'ul#feed' do
+    expect(page).to have_content {"#{DateTime.now.strftime("%d %b %Y %l:%M %p")}"}
+    # end
   end
 end

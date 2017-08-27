@@ -5,10 +5,10 @@ gem 'data_mapper'
 gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
+gem 'launchy'
 gem 'rerun'
 gem 'selenium-webdriver'
 gem 'sinatra'
-gem 'launchy'
 
 group :test do
   gem 'capybara'
