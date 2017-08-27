@@ -11,11 +11,13 @@
   <%= erb(:log_out) unless @username.nil? %>
 </center>
 
-<div id='message_holder'>
+<div id='message_holder' class='box'>
   <% @messages.each do |message| %>
-    <p>
+  <center>
+    <p id="message">
       <%= message %>
     </p>
+  </center>
   <% end %>
 </div>
 
