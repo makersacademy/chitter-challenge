@@ -10,7 +10,7 @@ a     {color: white; font-size: 150%;}
 <body>
 <h1> WELCOME TO CHITTER </h1>
 
-<a href="/timeline">View Peeps</a>
+<a href="/peeps/new">Post Peep</a>
 <br>
 <h1> Timeline </h1>
 
@@ -21,13 +21,3 @@ a     {color: white; font-size: 150%;}
     </li>
   <% end %>
 </ul>
-
-<div>
-
-  <form action="/timeline" method="post">
-    <label for="msg">Message:</label>
-    <input type="text" name="msg" size="140" maxlength="140">
-  <input type="submit" value="Add">
-  </form>
-
-</div>
