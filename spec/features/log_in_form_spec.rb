@@ -1,7 +1,7 @@
 require './app/models/user'
 require_relative 'web_helper'
 
-feature 'home page login form' do
+feature 'login form' do
 
   before do
     go_to_login

@@ -1,5 +1,5 @@
 def current_posts
-  Post.all.sort_by { |obj| obj.time }
+  Post.all.sort_by { |obj| obj.time }.reverse!
 end
 
 def try_new_post(params)

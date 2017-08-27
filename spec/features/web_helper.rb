@@ -17,6 +17,10 @@ def log_in(name = 'test')
   click_button('Submit')
 end
 
+def log_out()
+  click_button('log out')
+end
+
 def create_account(name = 'test')
   go_to_register
   fill_in :name, with: 'bot botterson'

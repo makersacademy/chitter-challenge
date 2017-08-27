@@ -1,7 +1,7 @@
 require './app/models/user'
 require_relative 'web_helper'
 
-feature 'home page register form' do
+feature 'register form' do
 
   before do
     go_to_register
