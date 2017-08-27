@@ -1,0 +1,24 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/samellenrieder/ma_week_four/chitter-challenge/spec/display_links_spec.rb": [
+
+      ],
+      "/Users/samellenrieder/ma_week_four/chitter-challenge/spec/log_in_spec.rb": [
+
+      ],
+      "/Users/samellenrieder/ma_week_four/chitter-challenge/spec/peep_text_spec.rb": [
+        null,
+        1,
+        1,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1503840852
+  }
+}

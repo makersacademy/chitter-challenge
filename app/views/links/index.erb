@@ -1,0 +1,11 @@
+<h1> It's peeping! </h1>
+
+<a href = "/peeps"> Let's peep </a>
+
+<ul id = "user">
+  <% @peeps.each do |peep| %>
+  <li>
+    Peep: <%= peep.text %>
+  </li>
+  <% end %>
+</ul>
