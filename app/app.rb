@@ -1,15 +1,10 @@
-ENV['RACK_ENV'] ||= 'development'
-
-
 require 'sinatra/base'
+require './models/chit.rb'
 require 'database_cleaner'
-# require'data_mapper_setup'
 
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Chitting'
-    Chit.create
-
+    'Playing with bookmarks'
   end
 end
