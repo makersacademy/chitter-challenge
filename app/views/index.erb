@@ -1,11 +1,6 @@
 <div id='dynamic_form_holder'>
   <%= erb(@form) unless @form.nil? %>
 </div>
-<% if @logged_in %>
-  <div id='new_post_form_holder'>
-    <%= erb(:new_post) %>
-  </div>
-<% end %>
 <br />
 <div id='post_holder'>
   <%= erb(:posts) %>

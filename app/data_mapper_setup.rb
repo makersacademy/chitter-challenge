@@ -1,4 +1,4 @@
-require_relative './models/user'
+require_all 'models'
 
 DataMapper.setup(
   :default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}"
