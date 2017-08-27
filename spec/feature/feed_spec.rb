@@ -5,11 +5,17 @@ feature "Feed Page" do
   end
 
   scenario "Posts are shown on the feed page" do
-    visit '/feed'
-    fill_in :tweet, with: 'Hello World'
-    click_button 'Tweet!'
+    post_tweet
     within 'ul#feed' do
       expect(page).to have_content "Hello World"
+    end
+
+    scenario "Posts shows the date of creation" do
+      within 'ul#peeps' do
+        time = Time.now
+        time = time.strftime("%H:%M")
+        expect(page).to have_content time
+      end
     end
   end
 end

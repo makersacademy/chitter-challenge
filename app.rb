@@ -1,20 +1,21 @@
 require 'sinatra/base'
-require './models/post'
+require './data_mapper_setup'
 require 'sinatra'
 
 class Chitter < Sinatra::Base
   get '/feed' do
     @posts = Post.all
-    erb :'index'
+    erb :index
   end
 
-  post'/feed' do
+  post '/feed' do
     Post.create(
       :tweet => params[:tweet],
-      :time => params[:time]
+      :created_at => params[:created_at]
     )
+    # strftime("%A, %d %b %Y %l:%M %p")
     redirect '/feed'
   end
 end
 
-#run! if app_file == $0
+# run! if app_file == $0

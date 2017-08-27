@@ -1,17 +1,13 @@
-require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'dm-timestamps'
 
 class Post
 
   include DataMapper::Resource
 
-  property :id,     Serial
-  property :username,  String
-  property :tweet,    String
-  property :time, DateTime
-
+  property :id, Serial
+  property :username, String
+  property :tweet, String
+  property :created_at, DateTime
+  # .strftime("%A, %d %b %Y %l:%M %p")
 end
-
-DataMapper.setup(:default, "postgres://localhost/twitter")
-DataMapper.finalize
-DataMapper.auto_upgrade!

@@ -6,12 +6,10 @@
 </form>
 
 <ul id='feed'>
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
     <li>
-      <%= post.tweet %>
-      <%= post.time %>
+      <h2><%= post.tweet %></h2>
+      <h4><%= post.created_at %></h4>
     </li>
   <% end %>
 </ul>
-
-<!-- Time.new.strftime("%A, %d %b %Y %l:%M %p")   -->
