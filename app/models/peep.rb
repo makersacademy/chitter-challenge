@@ -1,7 +1,9 @@
+
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-timestamps'
-# require_relative './user.rb'??
+require_relative './user.rb'
+
 
 class Peep
 
@@ -9,14 +11,20 @@ class Peep
 
   property :id, Serial
   property :content, String
-  property :user_handle, String
-  property :name, String
-  # property :user, User.Object ?? 
+  # property :user_handle, String
+  # property :name, String
   property :created_at, DateTime
+  property :user_id, Integer
+
+  belongs_to :user, :key => true
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+
 end
 
+# Username: <%= peep.user_id.username %>
+#       Name: <%= peep.user_id.name %> 
+#       Time: <%= peep.created_at %>

@@ -13,9 +13,7 @@ feature 'Create a peep' do
     expect(User).to receive(:create).with(name: 'Olivia', username: 'frosty', email: 'o@makers.com', password: 'olivia')
     click_button("Complete Signup")
     fill_in('my_peep', with: 'Hello World')
-    fill_in('username', with: 'frosty')
-    fill_in('name', with: 'Olivia')
-    expect(Peep).to receive(:create).with(content: 'Hello World', user_handle: 'frosty', name: 'Olivia')
+    expect(Peep).to receive(:create).with(content: 'Hello World')
     click_button("Peep")
   end
   

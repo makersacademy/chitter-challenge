@@ -1,11 +1,13 @@
-<h1> Links </h1>
+<h1> Peeps </h1>
 
 <ul id='peeps'>
+<%= p @peeps %>
   <% @peeps.reverse.each do |peep| %>
     <li>
       Content: <%= peep.content %>
-      Username: <%= peep.user_handle %>
-      Name: <%= peep.name %> 
+      <%= p user %>
+      Username: <%= peep.user%>
+      Name: <%= peep.user %> 
       Time: <%= peep.created_at %>
 
     </li>
