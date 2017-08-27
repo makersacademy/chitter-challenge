@@ -5,6 +5,7 @@
     <li>
       Content: <%= peep.content %>
       Username: <%= peep.user_handle %>
+      Name: <%= peep.name %> 
       Time: <%= peep.created_at %>
 
     </li>
@@ -12,5 +13,5 @@
 </ul>
 
 <form action="/peep/new" method='get'>
-  <input type="submit" value="Make a new peep"
+  <input type="submit" value="Write peep"
 </form>
