@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do # <-- before entire test run
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    # DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do # <-- create a "save point" before each test

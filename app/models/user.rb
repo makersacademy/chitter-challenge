@@ -1,22 +1,21 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
-require 'dm-timestamps'
-# require_relative './user.rb'??
 
-class Peep
+class User
 
   include DataMapper::Resource
 
   property :id, Serial
-  property :content, String
-  property :user_handle, String
   property :name, String
-  # property :user, User.Object ?? 
-  property :created_at, DateTime
+  property :email, String
+  property :username, String
+  property :password, String
 
+# DataMapper.setup(:default, "postgres://localhost/chitter_development")
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
 
 end
 
