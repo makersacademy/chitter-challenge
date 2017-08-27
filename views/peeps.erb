@@ -1,27 +1,26 @@
-<h2> <%= "Logged in as: #{@username}" unless (@username.nil? || @username.empty?) %></h2>
+<h2 style="text-align:center; font-family:verdana"> <%= "Logged in as: #{@username}" unless (@username.nil? || @username.empty?) %></h2>
 
-<ul id ='peeplist'>
+<ul id ='peeplist' style="text-align:center; font-family:verdana">
   <% @peeps.each do |peep| %>
       <li>
         <%= peep.name %> (<%= peep.user %>): <%= peep.content %> [<%= peep.created_at %>]
+      <br>
       </li>
+      <br>
   <% end %>
 </ul>
 
 <% if @username.nil? %>
-    <form action="/signin" method="post">
-      <input type="submit" value="Sign in">
-    </form>
-
-    <form action="/signup" method="post">
+    <form action="/signup" method="post" style="text-align:center; font-family:verdana">
       <input type="submit" value="Sign up">
     </form>
 <% else %>
-    <form action="/new">
+    <form action="/new" style="text-align:center; font-family:verdana">
       <input type="submit" value="Write a new peep!">
     </form>
     <br>
-<form action="/signout" method="post">
+
+<form action="/signout" method="post" style="text-align:center; font-family:verdana">
   <input type="submit" value="Sign out">
 </form>
 

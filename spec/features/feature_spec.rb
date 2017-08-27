@@ -7,11 +7,6 @@ feature Chitter do
       expect(page).to have_text('Logged in as: jellybean454')
     end
 
-    scenario 'signing into Chitter' do
-      sign_up
-      sign_in
-      expect(page).to have_text('Logged in as: jellybean454')
-    end
   end
 
   context '/new' do

@@ -14,11 +14,6 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
-  post '/signin' do
-    puts 'signin'
-    erb :signin
-  end
-
   post '/signup' do
     erb :signup
   end
