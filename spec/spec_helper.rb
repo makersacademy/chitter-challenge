@@ -1,16 +1,40 @@
+ENV['RACK_ENV'] = 'test'
+
+require_relative './../models/peep'
 require 'simplecov'
 require 'simplecov-console'
-require './../../app'
+require_relative './../app'
+require 'database_cleaner'
+require 'capybara'
+require 'capybara/rspec'
+require 'launchy'
+require_relative './features/web_helpers'
+
+Capybara.save_path = '/Users/stephengeller/Desktop/Projects/makers-academy/week-4/weekend-challenge/chitter-challenge/logs'
+Capybara.app = Chitter
 
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-])
+  SimpleCov::Formatter::Console,])
 SimpleCov.start
 
 RSpec.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  # Everything in this block runs once before each individual test
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  # Everything in this block runs once after each individual test
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.after(:suite) do
     puts
     puts "\e[33mHave you considered running rubocop? It will help you improve your code!\e[0m"

@@ -1,45 +1,53 @@
-require './../spec_helper'
+require_relative './../../models/peep'
 
-feature RPS do
+feature Chitter do
+
   context '/' do
-    before do
+    scenario 'sign into Chitter' do
       visit '/'
-    end
-    scenario 'sending a peep' do
-      fill_in('peep', with: 'First tweet!')
+      fill_in('user', with: 'jellybean454')
+      fill_in('name', with: 'Stephen Geller')
       find_button('Submit').click
+      save_and_open_page
+      #expect(page).to have_text('Logged in as: jellybean454')
+    end
+
+  end
+
+
+  context '/new' do
+    before do
+      visit '/new'
+    end
+    scenario 'it can send a peep' do
+      fill_in('new_peep', with: 'First peep!')
+      find_button('Submit').click
+    end
+  end
+
+  context '/peeps' do
+    scenario 'I can see peeps in reverse chronological order' do
+      new_peep
+      other_peep
+      expect(page).to have_text('First peep!')
+      expect(page).to have_text('Second peep!')
+    end
+
+    it 'shows the tweet time' do
+      peep1 = Peep.new(content: 'Testing time')
+      peep2 = Peep.new(content: 'Testing time 2')
+      peep1.save
+      peep2.save
+      visit '/peeps'
+      within  'ul#peeplist' do
+        expect(page).to have_text(peep1.created_at)
+        expect(page).to have_text(peep2.created_at)
+      end
+    end
   end
 
   #   it 'can submit the player name' do
   #     find_button('Submit').click
-  #   end
-  # end
-  #
-  # context '/play' do
-  #   before do
-  #     sign_in_and_play
-  #   end
-  #
-  #   it 'says "PLAY"!' do
-  #     expect(page).to have_text('PLAY!')
-  #   end
-  #
-  #   it 'can click on rock' do
-  #     find_button('Rock').click
-  #   end
-  #   it 'can click on paper' do
-  #     find_button('Paper').click
-  #   end
-  #   it 'can click on scissors' do
-  #     find_button('Scissors').click
-  #   end
-  #
-  #   it 'can click on Spock' do
-  #     find_button('Spock').click
-  #   end
-  #
-  #   it 'can click on Lizard' do
-  #     find_button('Lizard').click
   #   end
   # end
   #
@@ -93,34 +101,12 @@ feature RPS do
   #       expect(page).to_not have_content 'Score: 1'
   #     end
   #   end
-  #
-  #   describe 'when I lose' do
-  #     before do
-  #       allow_any_instance_of(Array).to receive(:sample).and_return('paper')
-  #       click_button 'Rock'
-  #     end
-  #     it 'tells me' do
-  #       expect(page).to have_content 'You lose!'
-  #     end
-  #
-  #     it 'reduces my score by 1' do
-  #       expect(page).to have_content 'Score: -1'
-  #     end
-  #   end
+
   #
   #   describe 'when I tie' do
   #     before do
   #       allow_any_instance_of(Array).to receive(:sample).and_return('rock')
   #       click_button 'Rock'
   #     end
-  #
-  #     it 'tells me' do
-  #       expect(page).to have_content 'You tied!'
-  #     end
-  #
-  #     it 'keeps my score the same' do
-  #       expect(page).to have_content 'Score: 0'
-  #     end
-  #   end
-  end
+
 end
