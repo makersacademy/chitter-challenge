@@ -14,6 +14,15 @@ class Chitter < Sinatra::Base
     erb :'links/index'
   end
 
+  get '/signup' do 
+    erb :'links/signup'
+  end
+  
+  post '/signup_complete' do
+    User.create(:name=>params[:name], :email=>params[:email], :username=>params[:username], :password=>params[:password])
+    redirect '/peep/new'
+  end
+  
   get '/peep/new' do
     erb :'links/peep_new'
   end
@@ -22,20 +31,5 @@ class Chitter < Sinatra::Base
     Peep.create(:content=>params[:my_peep], :user_handle=>params[:username], :name=>params[:name])
     redirect '/peeps'
   end
-
-  # post '/signup_complete'
-  #   # User.create...
-  #   redirect '/peeps'
-  # end
-
-  get '/signup' do 
-    erb :'links/signup'
-  end
-  
-  post '/signup_complete' do
-    User.create(:name=>params[:name], :email=>params[:email], :username=>params[:username], :password=>params[:password])
-    redirect '/peeps'
-  end
-  
 
 end
