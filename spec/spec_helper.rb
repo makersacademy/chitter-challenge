@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'test'
 require 'capybara/rspec'
 require 'database_cleaner'
 require_relative '../app/app'
+require 'web_helper'
 
 Capybara.app = ChitterChallenge
 
