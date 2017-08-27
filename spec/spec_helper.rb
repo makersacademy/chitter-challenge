@@ -12,7 +12,6 @@ require 'database_cleaner'
 require 'simplecov'
 require 'simplecov-console'
 
-
 Capybara.app = App
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
