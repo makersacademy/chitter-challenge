@@ -1,12 +1,11 @@
 require 'dm-postgres-adapter'
-require 'dm-timestamps'
 
-class Post
+class User
 
   include DataMapper::Resource
 
   property :id, Serial
   property :username, String
-  property :tweet, String
-  property :created_at, DateTime
+  property :email, String
+  property :password, String
 end

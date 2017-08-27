@@ -15,6 +15,10 @@ class Chitter < Sinatra::Base
     )
     redirect '/feed'
   end
+
+  post '/login' do
+    redirect '/feed'
+  end
 end
 
 # run! if app_file == $0
