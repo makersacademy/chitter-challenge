@@ -5,6 +5,7 @@ require 'database_cleaner'
 require 'launchy'
 
 require './models/post'
+require './models/user'
 require './app'
 require_relative './feature/web_helpers'
 

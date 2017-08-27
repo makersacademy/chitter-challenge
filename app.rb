@@ -16,8 +16,18 @@ class Chitter < Sinatra::Base
     redirect '/feed'
   end
 
-  post '/login' do
-    redirect '/feed'
+  get '/sign-up' do
+  @user = User.new
+  erb :'/sign-up'
+end
+
+  post '/sign-up' do
+    User.create(
+      :username => params[:username],
+      :password => params[:password],
+      :email => params[:email]
+    )
+  redirect '/sign-up'
   end
 end
 

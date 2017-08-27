@@ -4,8 +4,8 @@ class User
 
   include DataMapper::Resource
 
-  property :id, Serial :accessor => :private
-  property :username, String :accessor => :private
-  property :email, String :accessor => :private
-  property :password, String :accessor => :private
+  property :id, Serial
+  property :username, String
+  property :email, String, required: true, unique: true
+  property :password, String
 end

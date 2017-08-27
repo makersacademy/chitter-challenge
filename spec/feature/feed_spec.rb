@@ -1,5 +1,5 @@
 feature "Feed Page" do
-  scenario "Page loads" do
+  scenario "Loads correctly" do
     visit '/feed'
     expect(page.status_code).to eq 200
   end
