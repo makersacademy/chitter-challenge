@@ -25,10 +25,7 @@ feature 'home page when logged in' do
 
   before do
     create_account
-  end
-
-  scenario 'has user table entry' do
-    expect(User.first(username: 'test')).to_not eq(nil)
+    log_in
   end
 
   scenario 'can create account and log in' do

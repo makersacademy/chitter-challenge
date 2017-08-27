@@ -1,10 +1,11 @@
 require './app/models/user'
 require_relative 'web_helper'
 
-feature 'home page new post form' do
+feature 'post form' do
 
   before do
     create_account
+    log_in
   end
 
   scenario 'displays form title' do
@@ -15,8 +16,15 @@ feature 'home page new post form' do
     expect(page).to have_content('posting as: test')
   end
 
-  scenario 'displays text input' do
-    expect(page).to have_content('say something...')
+  scenario 'displays post title input' do
+    expect(page).to have_content('post title')
   end
 
+  scenario 'displays post text input' do
+    expect(page).to have_content('post body')
+  end
+
+  scenario 'can create form' do
+    expect(page).to have_content('post body')
+  end
 end

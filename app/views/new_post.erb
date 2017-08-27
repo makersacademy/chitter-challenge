@@ -1,8 +1,11 @@
 <h3>Create New Post</h3>
 <p>posting as: <%= @username %></p>
 <form action="/new_post" method="post">
-  <label for="post">say something...</label>
-  <input type="text" name="post">
+  <label for="title">post title</label>
+  <input type="text" name="title">
+  <br />
+  <label for="body">post body</label>
+  <input type="text" name="body">
   <br />
   <input type="submit" value="Submit">
   <br />

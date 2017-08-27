@@ -24,5 +24,4 @@ def create_account
   fill_in :username, with: 'test'
   fill_in :password, with: 'password1'
   click_button('Submit')
-  log_in
 end
