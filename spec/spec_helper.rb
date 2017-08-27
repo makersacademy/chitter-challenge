@@ -6,11 +6,10 @@ require 'capybara/rspec'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require './app/models/peep'
+require './app/models/user'
 require 'database_cleaner'
 
 require_relative '../app/app'
-
-ENV['RACK_ENV'] = 'test'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

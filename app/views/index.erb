@@ -1,17 +1,32 @@
-<form action="/posts" method="post">
-  <h1>Submit your peep</h1>
+<h1>Welcome to Chitter!</h1>
+<h3>Please sign up so you can send peeps to all your friends!</h3>
 
+<form action="/" method="post">
   <div>
-    <label for="user">User</label>
-    <input type="text" id="user" name="user">
+    <label for="email">Email</label>
+    <br>
+    <input type="email" id="email" name="email">
   </div>
   <br>
   <div>
-    <label for="peep">Peep</label>
-    <textarea id="peep" name="text"></textarea>
+    <label for="password">Password</label>
+    <br>
+    <input type="password" id="password" name="password">
+  </div>
+  <br>
+  <div>
+    <label for="name">Name</label>
+    <br>
+    <input type="name" id="name" name="name">
+  </div>
+  <br>
+  <div>
+    <label for="user">Username</label>
+    <br>
+    <input type="user" id="user" name="user">
   </div>
   <br>
   <div class="button">
-    <button type="submit" value="submit">Peep!</button>
+    <button type="submit" value="submit">Sign up</button>
   </div>
 </form>

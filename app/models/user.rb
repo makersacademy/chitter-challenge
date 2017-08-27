@@ -1,15 +1,16 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Peep
+class User
 
 	include DataMapper::Resource
 
-	has n, :users, :through => Resource
+	has n, :peeps, :through => Resource
 
 	property :id, Serial
+	property :email, String
+	property :password, String
+	property :name, String
 	property :user, String
-	property :text, String
-	property :created_at, DateTime
 
 end

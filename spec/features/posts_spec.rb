@@ -1,25 +1,29 @@
 require_relative "../../app/app"
 require_relative "../../app/models/peep"
+require_relative "../../app/models/user"
 require 'spec_helper'
 
 RSpec.feature "Posts page" do
-	scenario "Check if the field 'User' is displayed in the page" do
-		Peep.create(user: "Panda")
+
+	scenario "Check if the user is displayed in the page" do
+		User.create(user: "Panda")
 		visit "/posts"
 		expect(page.status_code).to eq 200
 		within "ul#peeps" do
-			expect(page).to have_content("User: Panda")
+			expect(page).to have_content("#")
 		end
 	end
-	scenario "Check if the field 'Peep' is displayed in the page" do
-		Peep.create(text: "This is the first post ever on Chitter.")
+
+	scenario "Check if the peep is displayed in the page" do
+		Peep.create(text: "This is the body of the peep.")
 		visit "/posts"
 		expect(page.status_code).to eq 200
 		within "ul#peeps" do
-			expect(page).to have_content("Peep: This is the first post ever on Chitter.")
+			expect(page).to have_content("This is the body of the peep.")
 		end
 	end
-	scenario "Check if the field 'Posted at' is displayed in the page" do
+
+	scenario "Check if the time is displayed in the page" do
 		Peep.create(created_at: "12:30")
 		visit "/posts"
 		expect(page.status_code).to eq 200

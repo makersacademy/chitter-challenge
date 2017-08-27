@@ -1,9 +1,16 @@
 <h1>Chitter posts</h1>
 
+<!-- <ul id='users'>
+	<% @users.reverse_each do |user| %>
+	<div class="post_container">
+		<div class="user_container"><li>User: <%=user.user%></li></div>
+	</div>
+	<%end%>
+</ul> -->
 <ul id='peeps'>
 	<% @peeps.reverse_each do |peep| %>
 	<div class="post_container">
-		<div class="user_container"><li>User: <%=peep.user%></li></div>
+		<div class="user_container"><li>User: <%=peep.users%></li></div>
 		<div class="peep_container"><li>Peep: <%=peep.text%></li></div>
 		<div class="time_container"><li>Posted at: <%=peep.created_at.to_s.gsub(/[T]/,' ')[10, 6]%></li></div>
 	</div>
