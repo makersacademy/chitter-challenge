@@ -14,6 +14,14 @@ end
 
 def credentials?(form_hash)
 
+  if empty?(form_hash)
+    session[:messages] << 'all fields must be filled out'
+  end
+
+  unique?(form_hash)
+end
+
+def unique?(form_hash)
   r = true
   unless User.first(username: form_hash[:username]).nil?
     session[:messages] << 'username exists already'
@@ -24,4 +32,11 @@ def credentials?(form_hash)
     r = false
   end
   r
+end
+
+def empty?(form_hash)
+  form_hash[:name].delete(' ').empty? ||
+  form_hash[:email].delete(' ').empty? ||
+  form_hash[:username].delete(' ').empty? ||
+  form_hash[:password].delete(' ').empty?
 end

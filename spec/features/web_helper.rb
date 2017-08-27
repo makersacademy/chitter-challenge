@@ -21,18 +21,23 @@ def log_out()
   click_button('log out')
 end
 
-def create_account(name = 'test')
+def create_account(
+  username = 'test',
+  password = 'password1',
+  email = 'bot@bot.com',
+  name = 'bot botterson'
+)
   go_to_register
-  fill_in :name, with: 'bot botterson'
-  fill_in :email, with: 'bot@bot.com'
-  fill_in :username, with: name
-  fill_in :password, with: 'password1'
+  fill_in :name, with: name
+  fill_in :email, with: email
+  fill_in :username, with: username
+  fill_in :password, with: password
   click_button('Submit')
 end
 
-def new_post(title = '1337 test post')
+def new_post(title = '1337 test post', body = 'this is a 1337 test')
   go_to_home_page
   fill_in :title, with: title
-  fill_in :body, with: 'this is a 1337 test'
+  fill_in :body, with: body
   click_button('Submit')
 end

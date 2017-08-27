@@ -28,4 +28,14 @@ feature 'new post action' do
   scenario 'displays time of post' do
     expect(page).to have_content('at:')
   end
+
+  scenario 'can not post with empty title' do
+    new_post('', 'title')
+    expect(page).to have_content('post needs body and title')
+  end
+
+  scenario 'can not post with empty body' do
+    new_post('title', '')
+    expect(page).to have_content('post needs body and title')
+  end
 end
