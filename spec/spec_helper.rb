@@ -2,6 +2,7 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
+require 'launchy'
 
 require './models/post'
 require './app'

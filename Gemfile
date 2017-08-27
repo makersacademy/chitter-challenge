@@ -8,6 +8,7 @@ gem 'dm-timestamps'
 gem 'rerun'
 gem 'selenium-webdriver'
 gem 'sinatra'
+gem 'launchy'
 
 group :test do
   gem 'capybara'

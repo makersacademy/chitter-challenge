@@ -73,6 +73,8 @@ GEM
     hirb (0.7.3)
     json (1.8.6)
     json_pure (1.8.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -157,6 +159,7 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   dm-timestamps
+  launchy
   rake
   rerun
   rspec

@@ -7,9 +7,9 @@
 
 <ul id='feed'>
   <% @posts.reverse.each do |post| %>
-    <li>
+
       <h2><%= post.tweet %></h2>
       <h4><%= post.created_at %></h4>
-    </li>
+
   <% end %>
 </ul>

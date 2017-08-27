@@ -6,9 +6,9 @@ feature "Feed Page" do
 
   scenario "Posts are shown on the feed page" do
     post_tweet
-    within 'ul#feed' do
+    # within 'ul#feed' do
       expect(page).to have_content "Hello World"
-    end
+    # end
   end
 
   scenario "Posts shows the date of creation" do
