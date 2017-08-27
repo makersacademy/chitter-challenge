@@ -2,7 +2,7 @@ feature 'Make peeps (messages)' do
 
   scenario 'user can post messages' do
     Peep.create(message: 'My First Peep')
-
+    Peep.create(message: 'My Second Peep')
     visit('/peeps')
 
     within "ul#peeps" do
@@ -24,6 +24,13 @@ feature 'Make peeps (messages)' do
     	 expect(page).to have_content("Hello World")
     end
   end
+
+  # scenario 'See peeps in reverse chronological order' do
+  #   Peep.create(message: 'My First Peep')
+  #   Peep.create(message: 'My Second Peep')
+  #   visit('/peeps')
+  #   expect(page).to have_content
+  # end
 end
 
 
