@@ -1,12 +1,17 @@
-<h3>Create New Post</h3>
-<p>posting as: <%= @username %></p>
-<form action="/new_post" method="post">
-  <label for="title">post title</label>
-  <input type="text" name="title">
-  <br />
-  <label for="body">post body</label>
-  <input type="text" name="body">
-  <br />
-  <input type="submit" value="Submit">
-  <br />
-</form>
+
+<div id="new_post_form" class="form">
+  <center>
+    <h3 id="new_post_title" class="heading">Create New Post</h3>
+    <p>posting as: <%= @username %></p>
+    <form action="/new_post" method="post">
+      <label for="title" class="form_label">post title</label>
+      <input type="text" name="title">
+      <br />
+      <label for="body" class="form_label">post body</label>
+      <input type="text" name="body">
+      <br />
+      <input type="submit" value="Submit">
+      <br />
+    </form>
+  </center>
+</div>

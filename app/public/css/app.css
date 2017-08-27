@@ -1,0 +1,33 @@
+
+.box {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
+.post {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: dashed;
+  border-width: thin;
+  padding: 5px;
+}
+
+.heading {
+
+}
+
+.form_label {
+  width:100px;
+  display: inline-block;
+}

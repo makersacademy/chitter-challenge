@@ -1,4 +1,16 @@
-<%= erb(:log_out) unless @username.nil? %>
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+
+<div id='title_holder' class='box' >
+  <center>
+    <h1 id="main_title" class="heading">Chitter</h1>
+  </center>
+</div>
+<br />
+
+<center>
+  <%= erb(:log_out) unless @username.nil? %>
+</center>
+
 <div id='message_holder'>
   <% @messages.each do |message| %>
     <p>
@@ -6,10 +18,13 @@
     </p>
   <% end %>
 </div>
-<div id='dynamic_form_holder'>
+
+<div id='form_holder' class='box' >
   <%= erb(@form) unless @form.nil? %>
 </div>
+
 <br />
-<div id='post_holder'>
+
+<div id='post_holder' class='box' >
   <%= erb(:posts) %>
 </div>
