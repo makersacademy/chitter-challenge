@@ -4,7 +4,9 @@
   <% @peeps.each do |peep| %>
     <li>
       Content: <%= peep.content %>
-      User: <%= peep.user_handle %>
+      Username: <%= peep.user_handle %>
+      Time: <%= peep.created_at %>
+
     </li>
   <% end %>
 </ul>
