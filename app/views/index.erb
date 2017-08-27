@@ -1,3 +1,4 @@
+<%= erb(:log_out) unless @username.nil? %>
 <div id='message_holder'>
   <% @messages.each do |message| %>
     <p>

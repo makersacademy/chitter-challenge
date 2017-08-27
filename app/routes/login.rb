@@ -12,3 +12,8 @@ App.post '/login' do
     redirect '/login'
   end
 end
+
+App.post '/logout' do
+  session[:username] = nil
+  redirect '/'
+end

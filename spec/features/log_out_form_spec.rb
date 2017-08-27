@@ -13,9 +13,7 @@ feature 'log out form' do
   end
 
   scenario 'does not display log out button when not logged in' do
-    before do
-      visit '/'
-    end
+    log_out
     expect(page).to_not have_button('log out')
   end
 end
