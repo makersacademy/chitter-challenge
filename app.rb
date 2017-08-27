@@ -7,7 +7,7 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/home' do
-    "Welcome to Chitter the home of insightful quips on quantum physics"
+    erb :home
   end
 
 end
