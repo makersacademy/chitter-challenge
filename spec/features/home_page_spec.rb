@@ -7,6 +7,14 @@ feature 'home page when not logged in' do
     go_to_home_page
   end
 
+  scenario 'does not display form for new posts' do
+    expect(page).to_not have_content('Create New Post')
+  end
+
+  scenario 'displays latest posts' do
+    expect(page).to have_content('Lastest Posts')
+  end
+
   scenario 'redirects to login form' do
     expect(current_path).to eq '/login'
   end
