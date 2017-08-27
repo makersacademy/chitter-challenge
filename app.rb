@@ -10,4 +10,8 @@ class Chitter < Sinatra::Base
     erb :home
   end
 
+  post '/home' do
+    redirect to ('/new_post')
+  end
+
 end
