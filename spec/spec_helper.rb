@@ -13,7 +13,6 @@ require_relative './features/web_helpers'
 Capybara.save_path = '/Users/stephengeller/Desktop/Projects/makers-academy/week-4/weekend-challenge/chitter-challenge/logs'
 Capybara.app = Chitter
 
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,])
 SimpleCov.start
@@ -25,12 +24,10 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  # Everything in this block runs once before each individual test
   config.before(:each) do
     DatabaseCleaner.start
   end
 
-  # Everything in this block runs once after each individual test
   config.after(:each) do
     DatabaseCleaner.clean
   end

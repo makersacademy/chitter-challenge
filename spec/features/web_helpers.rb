@@ -10,9 +10,20 @@ def other_peep
   find_button('Submit').click
 end
 
-def login_user
+def sign_in
   visit '/'
+  find_button('Sign in').click
+  fill_in('user', with: 'jellybean454')
+  fill_in('password', with: 'password123')
+  find_button('Sign up').click
+end
+
+def sign_up
+  visit '/'
+  find_button('Sign up').click
   fill_in('user', with: 'jellybean454')
   fill_in('name', with: 'Stephen Geller')
+  fill_in('email', with: 'stephen.geller@hotmail.com')
+  fill_in('password', with: 'password123')
   find_button('Sign up').click
 end

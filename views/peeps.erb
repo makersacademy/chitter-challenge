@@ -3,16 +3,18 @@
 <ul id ='peeplist'>
   <% @peeps.each do |peep| %>
       <li>
-        <%= peep.user %>: <%= peep.content %> at <%= peep.created_at %>
+        <%= peep.name %> (<%= peep.user %>): <%= peep.content %> [<%= peep.created_at %>]
       </li>
   <% end %>
 </ul>
 
-
-
 <% if @username.nil? %>
-    <form action="/" method="post">
+    <form action="/signin" method="post">
       <input type="submit" value="Sign in">
+    </form>
+
+    <form action="/signup" method="post">
+      <input type="submit" value="Sign up">
     </form>
 <% else %>
     <form action="/new">
@@ -22,4 +24,6 @@
 <form action="/signout" method="post">
   <input type="submit" value="Sign out">
 </form>
+
+
 <% end %>
