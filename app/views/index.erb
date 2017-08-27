@@ -1,21 +1,31 @@
-<h1> Chitter Feed </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+  </head>
 
-<h3> Welcome </h3>
+  <body>
+    <h1> Chitter Feed </h1>
+
+    <h3> Welcome </h3>
 
 
-<form action = '/new' method = 'post'>
-  Message: <input type = 'text' name = 'body'>
-  Username: <input type = 'text' name = 'name'>
-  <input type = 'submit' value = 'Post!'>
-</form>
+    <form action = '/new' method = 'post'>
+      Message: <input type = 'text' name = 'body'>
+      Username: <input type = 'text' name = 'name'>
+      <input type = 'submit' value = 'Post!'>
+    </form>
 
 
-<ul id='messages'>
-  <% Message.all.reverse.each do |message| %>
-  <li>
-      Chitter: <%= message.body %>
-      Username: <%= message.name %>
-      TimeStamp: <%= message.created_at %>
-  </li>
-  <% end %>
-</ul>
+    <ul id='messages'>
+      <% Message.all.reverse.each do |message| %>
+      <li>
+        Chitter: <%= message.body %>
+        Username: <%= message.name %>
+        TimeStamp: <%= message.created_at %>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
