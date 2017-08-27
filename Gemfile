@@ -11,7 +11,6 @@ group :test do
   gem 'cucumber'
   gem 'rspec'
   gem 'database_cleaner'
-  gem 'rake'
   gem 'capybara'
   gem 'rubocop'
   gem 'simplecov', require: false

@@ -5,6 +5,6 @@ require 'database_cleaner'
 class Chitter < Sinatra::Base
 
   get '/' do
-    'Playing with bookmarks'
+    'Playing with chitter'
   end
 end
