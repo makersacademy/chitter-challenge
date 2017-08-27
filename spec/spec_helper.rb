@@ -1,11 +1,13 @@
 ENV["RACK_ENV"] = "test"
 
+# require File.expand_path("../../config/environment", __FILE__)
 require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require './app.rb'
 # require './database_cleaner.rb'
 require './models/data_mapper_setup.rb'
+# require 'config.ru'
 
 Capybara.app = Chitter
 
