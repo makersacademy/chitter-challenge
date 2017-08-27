@@ -16,11 +16,11 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-  Peep.create(message: params[:msg])
-  redirect '/peeps'
-end
+    Peep.create(message: params[:msg], created_at: Time.now)
+    redirect '/peeps'
+  end
 
-
+ # .strftime("Printed on %m/%d/%Y") to format time (Nilclass error)
   #
   # get '/peeps' do
   #   erb(:index)

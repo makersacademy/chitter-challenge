@@ -4,12 +4,18 @@
 <style>
 body  {background-color: #000000; color: white;}
 a     {color: white; font-size: 150%;}
+ul    {list-style-type: none;}
+#time {font-size: 50%;}
+
+#peeps {font-size: 125%; color: gold;}
+
 </style>
 </head>
 
 <body>
+<div align="center">
 <h1> WELCOME TO CHITTER </h1>
-
+<div align="left">
 <a href="/peeps/new">Post Peep</a>
 <br>
 <h1> Timeline </h1>
@@ -18,6 +24,11 @@ a     {color: white; font-size: 150%;}
   <% @peeps.reverse.each do |peep| %>
     <li>
     <%= peep.message %>
+    <div id="time">
+    <%= peep.created_at %>
+    </div>
     </li>
   <% end %>
 </ul>
+</div>
+</div>
