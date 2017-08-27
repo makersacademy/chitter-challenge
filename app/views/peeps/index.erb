@@ -9,10 +9,18 @@ a     {color: white; font-size: 150%;}
 
 <body>
 <h1> WELCOME TO CHITTER </h1>
-<br>
-<a href="/send">Post peep</a>
-<br>
+
 <a href="/timeline">View Peeps</a>
+<br>
+<h1> Timeline </h1>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+    <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
 
 <div>
 
@@ -23,7 +31,3 @@ a     {color: white; font-size: 150%;}
   </form>
 
 </div>
-
-<u>Timeline</u>
-<%= $peep %>
-</body>
