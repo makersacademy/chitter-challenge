@@ -6,9 +6,9 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 
-# require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', 'app', 'app.rb')
 
-# Capybara.app = Chitter
+Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
