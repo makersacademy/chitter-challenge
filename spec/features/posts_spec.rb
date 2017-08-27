@@ -6,11 +6,11 @@ require 'spec_helper'
 RSpec.feature "Posts page" do
 
 	scenario "Check if the user is displayed in the page" do
-		User.create(user: "Panda")
+		User.create(username: "Panda")
 		visit "/posts"
 		expect(page.status_code).to eq 200
 		within "ul#peeps" do
-			expect(page).to have_content("#")
+			expect(page).to have_content("Panda")
 		end
 	end
 

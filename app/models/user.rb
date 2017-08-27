@@ -5,12 +5,12 @@ class User
 
 	include DataMapper::Resource
 
-	has n, :peeps, :through => Resource
+	has n, :peeps, through: Resource
 
 	property :id, Serial
 	property :email, String
 	property :password, String
 	property :name, String
-	property :user, String
+	property :username, String
 
 end

@@ -25,8 +25,8 @@ RSpec.feature "Index page" do
 
 	scenario "Check if there is a 'user' field to fill" do
 		visit "/"
-		fill_in("user", with: "Panda")
+		fill_in("username", with: "Panda")
 		expect(page.status_code).to eq 200
-		expect(page).to have_field("user")
+		expect(page).to have_field("username")
 	end
 end
