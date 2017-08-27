@@ -6,8 +6,7 @@ def try_register(form_hash)
     name: form_hash[:name],
     email: form_hash[:email],
     username: form_hash[:username],
-    pass_hash: form_hash[:password],
-    salt: '',
+    pass_hash: hash
   )
   usr.save
   true

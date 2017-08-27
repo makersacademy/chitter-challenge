@@ -7,7 +7,6 @@ class User
   property :email, String
   property :username, String
   property :pass_hash, String
-  property :salt, String
 
   has n, :posts, through: Resource
 end
