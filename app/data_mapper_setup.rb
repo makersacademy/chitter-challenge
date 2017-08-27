@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 require_relative '../models/message'
+require_relative '../models/user'
 
 # mighty-lake-47923
 ENV['RACK_ENV'] || 'development'

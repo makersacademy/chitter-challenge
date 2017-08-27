@@ -7,7 +7,7 @@ feature 'view all messages' do
   end
 
   scenario 'view messages on homepage' do
-    visit '/homepage'
+    visit '/feed'
     expect(page.status_code).to eq(200)
     within 'ul#messages'
     expect(page).to have_content('Trolling')
@@ -16,7 +16,7 @@ feature 'view all messages' do
 
   scenario 'it posts a timestamp with message' do
     message = Message.create(name: 'person1', body: 'Why did the chicken?')
-    visit '/homepage'
+    visit '/feed'
     within 'ul#messages'
     expect(page).to have_content(message.created_at)
   end
