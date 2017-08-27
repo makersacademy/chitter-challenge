@@ -9,13 +9,14 @@ feature "Feed Page" do
     within 'ul#feed' do
       expect(page).to have_content "Hello World"
     end
+  end
 
-    scenario "Posts shows the date of creation" do
-      within 'ul#peeps' do
-        time = Time.now
-        time = time.strftime("%H:%M")
-        expect(page).to have_content time
-      end
+  scenario "Posts shows the date of creation" do
+    post_tweet
+    time = Time.now
+    time = time.strftime("%H:%M")
+    within 'ul#feed' do
+      expect(page).to have_content time
     end
   end
 end
