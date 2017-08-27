@@ -1,19 +1,29 @@
 ENV["RACK_ENV"] ||= "development"
-require_relative './models/data_mapper_setup.rb'
+
+require_relative 'models/data_mapper_setup.rb'
 require 'sinatra/base'
-require './models/post.rb'
+require_relative 'models/post.rb'
 
 class Chitter < Sinatra::Base
 
-  enable :sessions
+  # enable :sessions
 
   get '/home' do
     @posts = Post.all
     erb :home
   end
 
+  # post '/home' do
+  #   redirect to ('/new_post')
+  # end
+
+  get '/new_post' do
+    erb :new_post
+  end
+  
   post '/home' do
-    redirect to ('/new_post')
+     Post.create(title: params[:title], chit: params[:chit])
+     redirect to ('/home')
   end
 
 end

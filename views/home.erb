@@ -48,6 +48,18 @@
   <br>
   <h3> Would You Like to Add a Post?</h3>
 
-<form action = '/home' method = "POST" >
+<form action = '/new_post' method = "GET" >
   <input type='submit' value = "Yes I like my own opinions and know others will too">
 </form>
+
+
+<h3> Other people's boring crap:</h3>
+
+<ul >
+  <% @posts.each do |stuff| %>
+  <li>
+    Title: <%= stuff.title %>
+    Text: <%= stuff.chit %>
+  </li>
+  <% end %>
+</ul>

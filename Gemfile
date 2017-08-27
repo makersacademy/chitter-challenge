@@ -8,7 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'rack'
 gem 'pg'
-gem 'database_cleaner'
+
 
 
 group :test do
