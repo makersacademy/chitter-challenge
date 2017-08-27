@@ -6,9 +6,10 @@ require 'dm-timestamps'
 class Peep
   include DataMapper::Resource
 
-  #has n, :tags, through: Resource
+  has n, :peeps, through: Resource
 
   property :id,    Serial
   property :content, String
   property :created_at, DateTime
+  property :user, String
 end

@@ -4,12 +4,8 @@ feature Chitter do
 
   context '/' do
     scenario 'sign into Chitter' do
-      visit '/'
-      fill_in('user', with: 'jellybean454')
-      fill_in('name', with: 'Stephen Geller')
-      find_button('Submit').click
-      save_and_open_page
-      #expect(page).to have_text('Logged in as: jellybean454')
+      login_user
+      expect(page).to have_text('Logged in as: jellybean454')
     end
 
   end
@@ -26,23 +22,39 @@ feature Chitter do
   end
 
   context '/peeps' do
-    scenario 'I can see peeps in reverse chronological order' do
+    scenario 'show peeps in reverse chronological order' do
       new_peep
       other_peep
-      expect(page).to have_text('First peep!')
-      expect(page).to have_text('Second peep!')
+      within 'ul#peeplist' do
+        expect(page).to have_text('First peep!')
+        expect(page).to have_text('Second peep!')
+      end
     end
 
     it 'shows the tweet time' do
-      peep1 = Peep.new(content: 'Testing time')
-      peep2 = Peep.new(content: 'Testing time 2')
-      peep1.save
-      peep2.save
+      peep1 = Peep.create(content: 'Testing time')
+      peep2 = Peep.create(content: 'Testing time 2')
       visit '/peeps'
       within  'ul#peeplist' do
         expect(page).to have_text(peep1.created_at)
         expect(page).to have_text(peep2.created_at)
       end
+    end
+
+    scenario 'peeps posted by users' do
+      login_user
+      new_peep
+      expect(page).to have_text('jellybean454: First peep!')
+    end
+
+    it 'shows current user when logged in' do
+      login_user
+      expect(page).to have_text('Logged in as: jellybean454')
+    end
+
+    it 'does not show current user when not logged in' do
+      visit '/peeps'
+      expect(page).to_not have_text('Logged in as: jellybean454')
     end
   end
 

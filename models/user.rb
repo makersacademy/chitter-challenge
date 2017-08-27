@@ -9,6 +9,6 @@ class User
   has n, :peeps, through: Resource
 
   property :id,    Serial
-  property :user, String
+  property :username, String
   property :name, String
 end

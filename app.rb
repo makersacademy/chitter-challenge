@@ -12,11 +12,9 @@ class Chitter < Sinatra::Base
   end
 
   post '/signin' do
-    user = User.new(name: params[:name], user: params[:user])
-    user.save
-    p user.user
-    session[:user] = user.user
-    "#{session[:user]}"
+    user = User.first_or_create(name: params[:name], username: params[:user])
+    session[:current_user] = user.username
+    puts "Session currect user is #{session[:current_user]}"
     redirect '/peeps'
   end
 
@@ -24,16 +22,20 @@ class Chitter < Sinatra::Base
     erb :new
   end
 
+  post '/signout' do
+    session[:current_user] = nil
+    redirect '/peeps'
+  end
+
   get '/peeps' do
-    @user = session[:user]
+    @username = session[:current_user]
     @peeps = Peep.all.sort_by{|peep|peep.id}.reverse!
     erb :peeps
   end
 
   post '/peeps' do
-    @user = session[:user]
-    peep = Peep.new(content: params[:new_peep])
-    peep.save
+    @username = session[:current_user]
+    Peep.create(content: params[:new_peep], user: @username)
     @peeps = Peep.all.sort_by{|peep|peep.id}.reverse!
     erb :peeps
   end

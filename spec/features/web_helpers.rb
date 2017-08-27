@@ -9,3 +9,10 @@ def other_peep
   fill_in('new_peep', with: 'Second peep!')
   find_button('Submit').click
 end
+
+def login_user
+  visit '/'
+  fill_in('user', with: 'jellybean454')
+  fill_in('name', with: 'Stephen Geller')
+  find_button('Sign up').click
+end

@@ -1,14 +1,25 @@
-<h2>Logged in as: <%= @userg %></h2>
+<h2> <%= "Logged in as: #{@username}" unless (@username.nil? || @username.empty?) %></h2>
 
 <ul id ='peeplist'>
   <% @peeps.each do |peep| %>
       <li>
-        <%= peep.content %>
-        <%= peep.created_at %>
+        <%= peep.user %>: <%= peep.content %> at <%= peep.created_at %>
       </li>
   <% end %>
 </ul>
 
-<form action="/new">
-  <input type="submit" value="Create new link">
+
+
+<% if @username.nil? %>
+    <form action="/" method="post">
+      <input type="submit" value="Sign in">
+    </form>
+<% else %>
+    <form action="/new">
+      <input type="submit" value="Write a new peep!">
+    </form>
+    <br>
+<form action="/signout" method="post">
+  <input type="submit" value="Sign out">
 </form>
+<% end %>
