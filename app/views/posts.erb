@@ -1,1 +1,9 @@
 <h3>Lastest Posts</h3>
+
+<% @posts.each do |post| %>
+
+  <% @post = post %>
+  <div id='post_holder'>
+    <%= erb :post %>
+  </div>
+<% end %>
