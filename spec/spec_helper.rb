@@ -7,8 +7,6 @@ require 'web_helper'
 
 Capybara.app = ChitterChallenge
 
-DataMapper.auto_migrate!
-
 RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
