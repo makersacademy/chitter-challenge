@@ -3,16 +3,23 @@ ENV["RACK_ENV"] ||= "development"
 require_relative 'models/data_mapper_setup.rb'
 require 'sinatra/base'
 require_relative 'models/post.rb'
+require_relative 'models/user.rb'
 
 class Chitter < Sinatra::Base
 
-  # enable :sessions
+  enable :sessions
+
   get '/sign_up' do
+    @user = user.new
     erb :sign_up
-    # redirect to ('/home')
+  end
+
+  post '/sign_up' do
+    @user = User.create(username: params[:username], password: params[:password])
   end
 
   get '/home' do
+    @user = User.all
     @posts = Post.all
     erb :home
   end
