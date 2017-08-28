@@ -7,6 +7,8 @@ require './app/app'
 require 'database_cleaner'
 require './app/models/peep'
 
+require 'features/web_helper'
+
 Capybara.app = Chitter
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([

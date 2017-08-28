@@ -32,15 +32,3 @@ feature 'Make peeps (messages)' do
   #   expect(page).to have_content
   # end
 end
-
-
-  #
-  # scenario 'Tags work' do
-  # 	visit '/links/new'
-  # 	fill_in("url", with: "http://www.google.co.uk")
-  # 	fill_in("title", with: "Google")
-  #   fill_in("tag", with: "Sports")
-  # 	click_button("Add")
-  #   link = Link.first
-  #   expect(link.tags.map(&:name)).to include('Sports')
-  #   end

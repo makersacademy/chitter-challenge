@@ -7,6 +7,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'sinatra'
 gem 'selenium-webdriver'
+gem 'bcrypt'
 
 # group :test do
 #   gem 'capybara'
