@@ -30,12 +30,14 @@
 
     input[type=submit] {
       padding: 10px 20px;
-      margin: 20px 325px;
+      margin: auto;
       background:#0B2;
       border:3
       -webkit-border-radius: 12px;
       border-radius: 5px;
       font-size: 20px;
+      font-family:  Georgia;
+      display: block;
     }
 
   </style>
@@ -61,6 +63,7 @@
     Title: <%= stuff.title %>
     Text: <%= stuff.chit %>
     Time: <%= stuff.posted_time %>
+    ID: <%= stuff.id %>
   </li>
   <% end %>
 </ul>

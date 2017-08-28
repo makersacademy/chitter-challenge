@@ -6,5 +6,5 @@ class Post
      property :id,   Serial
      property :title,   String
      property :chit,   String
-     property :posted_time,  DateTime
+     property :posted_time, DateTime
 end
