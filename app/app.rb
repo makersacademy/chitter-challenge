@@ -21,13 +21,21 @@ class ChitterWebsite < Sinatra::Base
   end
 
   post '/peeps' do
-    # peep =
-    Peep.create(
+    peep = Peep.create(
       :message => params[:message],
-      :created_at => Time.new
+      :created_at => Time.new,
+      #here
+      :tag => params[:tag]
     )
-    # peep.user = current_user
-    # peep.save
+
+    # params[:tags].split(", ").each do |tag|
+    #   tag_to_add = Tag.first(:tagname => tag) ||
+    #             Tag.create(:tagname => tag)
+    #   peep.tags << tag_to_add
+    # end
+
+    peep.user = current_user
+    peep.save
     redirect '/peeps'
   end
 

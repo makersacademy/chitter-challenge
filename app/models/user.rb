@@ -9,8 +9,7 @@ class User
   property :username, String
   property :email, String
   property :password_digest, Text
-  #here
-  # has n, :peeps
+  has n, :peeps
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
