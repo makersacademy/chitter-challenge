@@ -50,9 +50,11 @@
   <h2>The Home of Insightful Quips on Quantum Physics</h2>
 
   <br>
-  <h3> <%= @user.each do |name| %>
+  <h3>
+  <!-- <%= @user.each do |name| %>
     <%= name.username %>
-    <%= end %> Would You Like to Add a Post?</h3>
+    <%= end %>  -->
+    Would You Like to Add a Post?</h3>
 
 <form action = '/new_post' method = "GET" >
   <input type='submit' value = "Yes I like my own opinions and know others will too">
