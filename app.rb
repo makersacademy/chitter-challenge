@@ -9,6 +9,7 @@ class Chitter < Sinatra::Base
   # enable :sessions
   get '/sign_up' do
     erb :sign_up
+    redirect to ('/home')
   end
 
   get '/home' do

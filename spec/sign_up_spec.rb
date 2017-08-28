@@ -1,3 +1,6 @@
+require './app.rb'
+require './database_cleaner.rb'
+
 feature 'Sign up for Chitter' do
   scenario "Before the home page there is a sign up page" do
      visit '/sign_up'
@@ -12,3 +15,7 @@ feature 'Sign up for Chitter' do
     expect(current_path).to eq '/home'
   end
 end
+
+# feature "Error is raised if sign up is not done"
+
+#feature "Home page contains correct username"
