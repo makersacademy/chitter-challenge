@@ -4,7 +4,7 @@ feature 'Submit a new post' do
 
     fill_in "title", :with => "Best Idea Created by MEE"
     fill_in "chit", :with => "Electrons can be in many places at the same time"
-
+    
     click_button "Everyone will be so pleased to hear about me!"
 
     expect(current_path).to eq '/home'

@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/home' do
-     post = Post.create(title: params[:title], chit: params[:chit])
+     post = Post.create(title: params[:title], chit: params[:chit] )
      post.save
      redirect to ('/home')
   end

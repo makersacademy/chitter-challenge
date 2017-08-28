@@ -56,10 +56,11 @@
 <h3> Other people's boring crap:</h3>
 
 <ul id='posts'>
-  <% @posts.each do |stuff| %>
+  <% @posts.reverse.each do |stuff| %>
   <li>
     Title: <%= stuff.title %>
     Text: <%= stuff.chit %>
+    Time: <%= stuff.posted_time %>
   </li>
   <% end %>
 </ul>
