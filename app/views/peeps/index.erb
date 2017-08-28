@@ -4,7 +4,11 @@
   <% @peeps.each do |peep| %>
     <li>
       <h3><%= peep.message %></h3>
-      <%= "##{peep.tag} " if peep.tag != ""%>
+      <% peep.tags.each do |tag| %>
+        <%= "##{tag.tagname}" %>
+      <% end %>
+
+
       <%= "(posted by #{peep.user.username} at #{peep.created_at.strftime("%H:%M")})" %>
   <% end %>
 </ul>

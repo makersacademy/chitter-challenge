@@ -13,6 +13,7 @@ class ChitterWebsite < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all(:order => [:id.desc])
+    @tags = Tag.all
     erb :'peeps/index'
   end
 
@@ -24,15 +25,13 @@ class ChitterWebsite < Sinatra::Base
     peep = Peep.create(
       :message => params[:message],
       :created_at => Time.new,
-      #here
-      :tag => params[:tag]
     )
-
-    # params[:tags].split(", ").each do |tag|
-    #   tag_to_add = Tag.first(:tagname => tag) ||
-    #             Tag.create(:tagname => tag)
-    #   peep.tags << tag_to_add
-    # end
+    params[:tags].split(", ").each do |tag|
+      tag_to_add = Tag.first(:tagname => tag)
+      tag_to_add = Tag.create(:tagname => tag) if tag_to_add == nil
+      peep.tags << tag_to_add
+      peep.save
+    end
 
     peep.user = current_user
     peep.save

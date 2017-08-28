@@ -6,7 +6,6 @@ class Peep
   property :id, Serial
   property :message, String
   property :created_at, DateTime
-  # has n, :tags
-  property :tag, String
+  has n, :tags, :through => Resource
   belongs_to :user, :required => false
 end

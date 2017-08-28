@@ -23,7 +23,7 @@ feature "tags on peep page" do
     click_button "Go to peeps page"
     click_button("Add peep")
     fill_in :message, with: "I am in France"
-    fill_in :tag, with: "holidays"
+    fill_in :tags, with: "holidays"
     click_button "Submit"
     expect(page).to have_content("#holidays")
   end
@@ -34,7 +34,7 @@ feature "tags on peep page" do
     click_button "Go to peeps page"
     click_button("Add peep")
     fill_in :message, with: "I am in France"
-    fill_in :tag, with: "holidays, oohlala"
+    fill_in :tags, with: "holidays, oohlala"
     click_button "Submit"
     expect(page).to have_content("#holidays #oohlala")
   end
