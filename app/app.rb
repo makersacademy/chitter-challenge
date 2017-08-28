@@ -2,12 +2,10 @@ ENV['RACK_ENV'] ||= 'test'
 require_relative 'data_mapper_setup'
 require 'sinatra/base'
 
-# require './models/peep'
-# require './models/user'
-
+# this class represents a part of our program
 class Chitter < Sinatra::Base
   get('/') do
-    $peeps = Peep.all
+    $peeps = Peep.all.reverse
     erb(:'links/index')
   end
 

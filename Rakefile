@@ -1,4 +1,4 @@
-if ENV['RACK_ENV'] = 'test'
+if ENV['RACK_ENV'] == 'test'
   require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new :spec

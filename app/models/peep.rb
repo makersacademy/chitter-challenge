@@ -1,6 +1,7 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
+# this class defines our peep table
 class Peep
   include DataMapper::Resource
 

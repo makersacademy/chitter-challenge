@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative './peep'
 
+# this class defines our user table
 class User
   include DataMapper::Resource
 
@@ -10,5 +11,3 @@ class User
 
   has n, :peeps, through: Resource
 end
-
-# DataMapper.auto_upgrade!
