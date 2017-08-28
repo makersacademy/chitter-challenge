@@ -3,10 +3,12 @@ feature 'Sign up for Chitter' do
      visit '/sign_up'
     expect(page.status_code).to eq 200
   end
-end
+  scenario "A user can sign up" do
+    visit '/sign_up'
 
-  # scenario 'Homepage has welcome text' do
-  #   visit '/home'
-  #   expect(page).to have_content "Welcome to Chitter"
-  # end
-  # end
+     fill_in "username", :with => "Poopie"
+     fill_in "password", :with => "demandingcat"
+
+    expect(current_path).to eq '/home'
+  end
+end

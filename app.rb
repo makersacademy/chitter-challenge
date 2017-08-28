@@ -8,8 +8,8 @@ class Chitter < Sinatra::Base
 
   # enable :sessions
   get '/sign_up' do
-
-  end 
+    erb :sign_up
+  end
 
   get '/home' do
     @posts = Post.all
