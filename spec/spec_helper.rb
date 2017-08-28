@@ -26,7 +26,7 @@ RSpec.configure do |config|
   end
   # Everything in this block runs once before each individual test
   config.before(:each) do
-      DatabaseCleaner.start
+    DatabaseCleaner.start
   end
 
     # Everything in this block runs once after each individual test

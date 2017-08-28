@@ -6,7 +6,7 @@ feature 'Make peeps (messages)' do
     visit('/peeps')
 
     within "ul#peeps" do
-    expect(page).to have_content 'My First Peep'
+      expect(page).to have_content 'My First Peep'
     end
   end
 

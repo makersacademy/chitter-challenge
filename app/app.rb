@@ -3,7 +3,6 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 
-
 class Chitter < Sinatra::Base
 
   enable :sessions
@@ -50,5 +49,5 @@ class Chitter < Sinatra::Base
  # .strftime("Printed on %m/%d/%Y") to format time (Nilclass error)
 # <!-- <%= peep.user.username %> -->
 # start the server if ruby file executed directly
-run! if app_file == $0
+  run! if app_file == $0
 end

@@ -7,7 +7,6 @@ feature 'You can create users' do
     expect(page).to have_field("email")
   end
 
-
   # scenario 'user added' do
   #   User.create(username: 'FreddieCodes', name: 'Freddie', email: "Freddie@MakersAcademy.com")
   #   visit('/user/new')
@@ -23,6 +22,5 @@ feature 'You can create users' do
   #   link = Link.first
   #   expect(link.tags.map(&:name)).to include('Sports')
   #   end
-
 
 end
