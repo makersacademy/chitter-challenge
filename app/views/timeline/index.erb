@@ -1,0 +1,26 @@
+<h1> Chitter </h1>
+
+<ul id='username'
+  <% @user.each do |x| %>
+  <li>
+  <%= x.username %>
+  <li>
+  <% end %>
+</ul>
+
+
+<form action='/' method ='POST'>
+  <label for='Peep'>
+    <input type='text' name='peep_body' />
+  </label>
+  <input type='submit' value='Peep'>
+</form>
+
+<ul id='peeps'
+  <% @peeps.reverse_each do |peep| %>
+  <li>
+  <%= peep.body %>
+  <%= peep.time %>
+  <li>
+  <% end %>
+</ul>
