@@ -20,9 +20,10 @@ class Chitter < Sinatra::Base
   get '/new_post' do
     erb :new_post
   end
-  
+
   post '/home' do
-     Post.create(title: params[:title], chit: params[:chit])
+     post = Post.create(title: params[:title], chit: params[:chit])
+     post.save
      redirect to ('/home')
   end
 
