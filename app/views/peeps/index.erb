@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<style>
+body  {background-color: #000000; color: white;}
+a     {color: white; font-size: 150%;}
+ul    {list-style-type: none;}
+li {
+  background-color: grey;
+  border-radius: 5px;
+  padding-bottom: 5px;
+  padding-left:   5px;
+  margin-bottom: 20px;
+}
+
+#time {font-size: 60%;}
+
+#peeps {font-size: 150%; color: white;}
+
+</style>
+</head>
+
+<body>
+<div align="center">
+<h1> WELCOME TO CHITTER </h1>
+<div align="left">
+<a href="/peeps/new">Post Peep</a>
+<br>
+<h1> Timeline </h1>
+
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep| %>
+    <li>
+    <%= peep.message %>
+    <div id="time">
+    <%= peep.created_at %>
+    </div>
+    </li>
+  <% end %>
+</ul>
+</div>
+</div>
