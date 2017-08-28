@@ -7,6 +7,9 @@ require_relative 'models/post.rb'
 class Chitter < Sinatra::Base
 
   # enable :sessions
+  get '/sign_up' do
+
+  end 
 
   get '/home' do
     @posts = Post.all

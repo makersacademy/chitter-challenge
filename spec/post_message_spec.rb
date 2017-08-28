@@ -1,4 +1,5 @@
 require './app.rb'
+require './database_cleaner.rb'
 
 feature 'There is a homepage' do
   scenario 'Homepage exists' do
@@ -27,4 +28,12 @@ feature 'Home page has to view posts' do
         expect(page).to have_content("Electrons can be in many places at the same time")
       end
   end
+   scenario 'Posts are in reverse cronological order' do
+     post1= Post.create(title: "Best Idea Created by ME", chit: "Electrons can be in many places at the same time")
+     post2= Post.create(title: "MY OPINION MATTERS MORE", chit: "What about the double slit experiement")
+     visit '/home'
+     within 'ul#posts' do
+       expect(post1.id).to eq 1
+     end
+   end
 end

@@ -5,7 +5,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara/rspec'
 require './app.rb'
-# require './database_cleaner.rb'
+require './database_cleaner.rb'
 require './models/data_mapper_setup.rb'
 # require 'config.ru'
 
