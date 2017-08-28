@@ -38,9 +38,9 @@ There were many successes in this project, such as:
   - Only being able to peep if you are logged in
 
 
-Still to implemented
+Still to be implemented
 -------------------
-  - Integrating sign-ins instead of sign-ups
+  - Integrating sign-ins as well as sign-ups
   - Using CSS instead of the more basic HTML
   - Using BCrypt to protect passwords
   - Better formatting of the DateTime per peep
