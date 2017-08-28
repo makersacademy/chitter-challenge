@@ -9,8 +9,8 @@ feature 'Submit a new post' do
 
     expect(current_path).to eq '/home'
 
-    # within 'ul#posts' do
+    within 'ul#posts' do
        expect(page).to have_content("Best Idea Created by MEE")
-    # end
+    end
   end
 end
