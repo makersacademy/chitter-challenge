@@ -1,0 +1,13 @@
+
+<center>
+  <h3 id="latest_posts_title" class="heading">Lastest Posts</h3>
+</center>
+
+<% @posts.each do |post| %>
+
+  <% @post = post %>
+  <div id='post_holder' class="post" >
+    <%= erb :post %>
+  </div>
+  <br />
+<% end %>
