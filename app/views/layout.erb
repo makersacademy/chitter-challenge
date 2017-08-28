@@ -1,0 +1,51 @@
+<DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #e6ecf0;
+      color: #14171a;
+      font-size: 14px;
+      line-height: 20px;
+      overflow-y: scroll;
+      }
+
+    p {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+
+  <% if current_user %>
+      <h2>Welcome <%= current_user.email %></h2>
+
+      <form method='post' action='users/logout'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Log out'>
+      </form>
+
+      <form action='/peeps/new' method='get'>
+        <button class='button' type='submit' value='Peep'>New Peep</button>
+      </form>
+
+    <% end %>
+
+    <% if flash[:errors] %>
+        Please refer to the follow errors below:
+        <ul id='errors'>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% if flash[:notice] %>
+       <div id='notice'>
+         <%= flash[:notice] %>
+       </div>
+      <% end %>
+
+    <%= yield %>
+  </body>
+</html>

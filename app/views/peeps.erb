@@ -1,0 +1,42 @@
+<DOCTYPE html>
+  <head>
+    <title> Peeps </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #e6ecf0;
+      color: #14171a;
+      font-size: 14px;
+      line-height: 20px;
+      overflow-y: scroll;
+      }
+
+    p {
+      font-family: "Raleway", sans-serif
+    }
+    #peeps {
+      border-bottom: 1px solid #e6ecf0;
+      cursor: pointer;
+      position: relative;
+      min-height: 51px;
+      padding: 9px 12px;
+      display: block;
+    }
+  </style>
+
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+        <li>
+          <p> <%= peep.name %>
+            <span style="color:blue;font-weight:bold"><%= peep.username %></span>
+          </p>
+          <p>Peep: <%= peep.message %></p>
+          <p>Posted at: <%= "#{peep.created_at.strftime('%x')}" %></p>
+        </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>

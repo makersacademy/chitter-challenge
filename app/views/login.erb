@@ -1,0 +1,46 @@
+<DOCTYPE html>
+  <head>
+    <title>Log in</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  </head>
+  <body>
+  <style>
+    body {
+      background: #e8f4fc;
+      }
+
+    p {
+      font-family: "Raleway", sans-serif
+    }
+
+    .log_in form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .log_in input{
+      margin: 8px;
+      width: 250px
+      }
+  </style>
+
+  <div class="log_in">
+
+    <form action='/users/login' method='post'>
+      <h2>Log in to start peeping!</h2>
+
+      <label for='email'>
+        Email: <input type='text' name='email'>
+      </label>
+
+      <label for='password'>
+        Password: <input name='password' type='password'>
+      </label>
+
+      <input type='submit' value='Log in'>
+    </form>
+  </div>
+  </body>
+</html>
