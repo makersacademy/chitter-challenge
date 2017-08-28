@@ -13,7 +13,7 @@ class ChitterWebsite < Sinatra::Base
 
   get '/peeps' do
     @peeps = Peep.all(:order => [:id.desc])
-    @tags = Tag.all
+    # @tags = Tag.all
     erb :'peeps/index'
   end
 
@@ -80,6 +80,23 @@ class ChitterWebsite < Sinatra::Base
 
   get '/goodbye' do
     erb :'users/goodbye'
+  end
+
+  get '/filter_by_tag' do
+    erb :'tags/filter'
+  end
+
+  post '/filtered' do
+    session[:searchtag] = params[:searchtag]
+    redirect '/filtered'
+  end
+
+  get '/filtered' do
+    tag = Tag.first(:tagname => session[:searchtag])
+    @searchtag = session[:searchtag]
+    @peeps = tag.peeps
+    p @peeps
+    erb :'tags/filtered'
   end
 
   helpers do
