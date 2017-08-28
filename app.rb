@@ -10,16 +10,16 @@ class Chitter < Sinatra::Base
   enable :sessions
 
   get '/sign_up' do
-    @user = user.new
+    # @user = user.all
     erb :sign_up
   end
 
   post '/sign_up' do
-    @user = User.create(username: params[:username], password: params[:password])
+    user = User.create(username: params[:username], password: params[:password])
+    user.save
   end
 
   get '/home' do
-    @user = User.all
     @posts = Post.all
     erb :home
   end
