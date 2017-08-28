@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter Posts on QP insights</title>
+   <style>
+   h1 {
+      text-align: center;
+      color: #0B234F;
+      font-size: 40px;
+     }
+    h2 {
+       text-align: center;
+       color: #0B222F;
+       font-size: 20px;
+      }
+
+      h3 {
+         text-align: center;
+         color: #0B222F;
+         font-size: 25px;
+        }
+   label {
+    width: 250px;
+    float: left;
+    margin: 0 30px 0 30px;
+  }
+  span {
+      display: block;
+    }
+
+    input[type=submit] {
+      padding: 10px 20px;
+      width: auto;
+      size: auto;
+      margin: auto;
+      background:#0B2;
+      border: auto;
+      -webkit-border-radius: 12px;
+      border-radius: 5px;
+      font-size: 20px;
+      font-family:  Georgia;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Chitter</h1>
+  <h2>The Home of Insightful Quips on Quantum Physics</h2>
+
+  <br>
+  <h3>    Would You Like to Add a Post?</h3>
+
+<form action = '/new_post' method = "GET" >
+  <input type='submit' value = "Yes I like my own opinions and know others will too">
+</form>
+
+
+<h3> Other people's boring crap:</h3>
+
+<ul id='posts'>
+  <% @posts.reverse.each do |stuff| %>
+  <li>
+    <br>
+    Title: <%= stuff.title %>
+    Text: <%= stuff.chit %>
+    Time: <%= stuff.created_at %>
+    ID: <%= stuff.id %>
+ </li>
+  <% end %>
+</ul>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter Posts on QP insights</title>
+   <style>
+   h1 {
+      text-align: center;
+      color: #0B234F;
+      font-size: 40px;
+     }
+    h2 {
+       text-align: center;
+       color: #0B222F;
+       font-size: 25px;
+      }
+
+      h3 {
+         text-align: center;
+         color: #0B222F;
+         font-size: 25px;
+        }
+        h4 {
+           text-align: center;
+           color: #0B222F;
+           font-size: 15px;
+          }
+   label {
+    width: 250px;
+    float: left;
+    margin: 0 30px 0 30px;
+  }
+  span {
+      display: block;
+      margin: 20px 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family:  Georgia;
+    }
+    input {
+    width: 250px;
+    border: 1px solid #000;
+    padding: 5px;
+  }
+
+    input[type=submit] {
+      padding: 10px 20px;
+      width: auto;
+      size: auto;
+      margin: auto;
+      background:#0B2;
+      border: auto;
+      -webkit-border-radius: 12px;
+      border-radius: 5px;
+      font-size: 20px;
+      font-family:  Georgia;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1> Sign Up To Chitter </h1>
+  <h2>Quickly now, everyone is dieing to know your opinion </h2>
+  <h4>Seriously....No one is here to talk about themselves, just to listen to you .. </h4>
+
+  <form action = '/home' method = "POST" >
+     <label for="username"> Username:
+        <input type ="text" id = "username" name="username" value= "SnakeBite">
+     </label>
+     <label for="password"> Top Secrete Word:
+         <input type ="text" id = "password" name="password" value= "buried@34slonestreet">
+      </label>
+      <span>
+        <br>
+        <br>
+        <br>
+    <input type="submit" value = "Everyone will be so pleased YOUR here!">
+  </span>
+  </form>
+
+</body>
+</html>
