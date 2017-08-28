@@ -1,11 +1,15 @@
 <h1> It's peeping! </h1>
 
-<a href = "/peeps"> Let's peep </a>
+<form action = "/all" method = "gets">
+  <input type = "submit" value = "Latest peeps">
+</form>
 
-<ul id = "user">
-  <% @peeps.each do |peep| %>
+<%= $peeps %>
+
+<!-- <ul id = "user">
+  <% $peeps.each do |peep| %>
   <li>
     Peep: <%= peep.text %>
   </li>
   <% end %>
-</ul>
+</ul> !-->

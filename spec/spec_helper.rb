@@ -7,8 +7,7 @@ require 'simplecov-console'
 require 'database_cleaner'
 require 'data_mapper'
 
- require_relative '../app/data_mapper_setup'
-
+require_relative '../app/data_mapper_setup'
 
 require './app/app.rb'
 require './app/models/user'
@@ -22,7 +21,7 @@ Capybara.app = Chitter
 # # SimpleCov::Formatter::HTMLFormatter
 # ])
 
-#SimpleCov.start
+# SimpleCov.start
 
 RSpec.configure do |config|
   config.before(:suite) do

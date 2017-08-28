@@ -1,11 +1,15 @@
+feature 'Viewing first page' do
 
-
-feature 'Viewing peeps' do
-  scenario 'I see existing peeps on the first page' do
-
-    #Peep.create(:id 1, :text 'Hello world!')
-
+  scenario 'I see the first page' do
     visit('/')
-    expect(page).to have_content('Hello world!')
+    expect(page).to have_content()
   end
+
+  scenario 'I see a latest peeps button' do
+    visit('/')
+    click_button("Latest peeps")
+    #expect(page).to have_content($peeps)
+  end
+
+  
 end

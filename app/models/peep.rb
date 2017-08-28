@@ -6,10 +6,6 @@ class Peep
 
   property :id, Serial
   property :text, String
+  property :time, DateTime
 
-  has n, :users, through: Resource
 end
-
-# DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
-# DataMapper.finalize
-# DataMapper.auto_upgrade!
