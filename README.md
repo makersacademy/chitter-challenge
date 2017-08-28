@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/funmia/chitter-challenge.svg?branch=master)
+
 Chitter Challenge
 =================
 
