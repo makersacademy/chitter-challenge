@@ -17,7 +17,7 @@ $ rackup
 Examples:
 ![Image 1](http://i.imgur.com/vcNtByr.png)
 ![Image 2](http://i.imgur.com/bZwD7zj.png)
-![Image 3](http://i.imgur.com/iRoUz8o.png)
+![Image 3](http://imgur.com/lR7YkjW.png)
 
 
 Technologies used
