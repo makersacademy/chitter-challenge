@@ -22,7 +22,7 @@ class Chitter < Sinatra::Base
   get '/users/new' do
     erb :'users/new'
   end
-  
+
   post '/users' do
     user = User.create(email: params[:email],
             username: params[:username],
@@ -41,12 +41,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peeps' do
-    Peep.create(message: params[:msg], created_at: Time.now)
+    peep = Peep.create(message: params[:msg], created_at: Time.now)
+    p @current_user
+    peep.save
     redirect '/peeps'
   end
 
  # .strftime("Printed on %m/%d/%Y") to format time (Nilclass error)
-
+# <!-- <%= peep.user.username %> -->
 # start the server if ruby file executed directly
 run! if app_file == $0
 end

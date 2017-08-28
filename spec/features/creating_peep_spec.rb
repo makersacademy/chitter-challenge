@@ -16,6 +16,7 @@ feature 'Make peeps (messages)' do
   end
 
   scenario 'I can see my peeps' do
+    sign_up
     visit '/peeps/new'
     fill_in("msg", with: "Hello World")
     click_button("Post")
@@ -25,10 +26,10 @@ feature 'Make peeps (messages)' do
     end
   end
 
-  # scenario 'See peeps in reverse chronological order' do
-  #   Peep.create(message: 'My First Peep')
-  #   Peep.create(message: 'My Second Peep')
-  #   visit('/peeps')
-  #   expect(page).to have_content
-  # end
+  # scenario 'You can only post a peep if logged in' do
+  #   visit '/peeps/new'
+  #   fill_in("msg", with: "Hello World")
+  #   click_button("Post")
+  #   expect(current_path).to eq '/users/new'
+  #   end
 end
