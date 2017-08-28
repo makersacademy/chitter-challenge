@@ -12,13 +12,13 @@ class Chitter < Sinatra::Base
 	end
 
 	post "/" do
-		@peep = Peep.new(text: params[:text])
-		username = User.first_or_create(name: params[:username],
+		# @peep = Peep.new(text: params[:text])
+		$username = User.new(name: params[:username],
 			email: params[:email],
 			password: params[:password],
 			username: params[:users])
-		@peep.users << username
-		@peep.save
+		# @peep.users << username
+		# @peep.save
 		redirect "/new"
 	end
 
@@ -27,10 +27,17 @@ class Chitter < Sinatra::Base
 	end
 
 	post "/new" do
-		redirect "/posts"
+		@peep = Peep.new(text: params[:text])
+		username = User.first_or_create(name: params[:username],
+			email: params[:email],
+			password: params[:password],
+			username: params[:users])
+		@peep.users << username
+		@peep.save
+		redirect "/feed"
 	end
 
-	get "/posts" do
+	get "/feed" do
 		@peeps = Peep.all
 		@users = User.all
 		erb :"/posts"

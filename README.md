@@ -121,3 +121,5 @@ So the first page is a form page, with a User field and a Post field so that a u
 The second User Story was pretty straightforward. The Ruby method used to loop through the peeps was a simple "each", so to have a reversed chronological order I used the "reverse_each" method for the loop, so I could get the view of my posts from the last one to the first.
 
 The third user Story was quite interesting. At first I thought it was pretty easy but then I realised it was harder than I thought. I looked for plugins of DataMapper that would allow me to add a time stamp. I found DM-Timestamps that adds the time into your database but it uses a long format, including the date and the time zone, values that I didn't need. So eventually I completed this step using the ".gsub" method to remove the extra elements in the view of the time.
+
+The fourth Story is not completed. I spent hours on trying to pass the "username" from my new User class to the other class, Peep. When it comes to display the peep I get a nil username. Unfortunately the time was over so I had to submit it without finishing it.
