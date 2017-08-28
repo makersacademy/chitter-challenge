@@ -15,7 +15,9 @@ $ rackup
 ````
 
 Examples:
-![Here are some example images of the app](http://imgur.com/a/Jcu2c)
+![Image 1](http://i.imgur.com/vcNtByr.png)
+![Image 2](http://i.imgur.com/bZwD7zj.png)
+![Image 3](http://i.imgur.com/iRoUz8o.png)
 
 
 Technologies used
