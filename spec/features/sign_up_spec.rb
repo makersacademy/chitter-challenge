@@ -1,7 +1,7 @@
 feature 'Signing up' do
   scenario 'User can sign up to chitter' do
     expect { sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content('Welcome Chris')
+    expect(page).to have_content('Signed in as Chris')
   end
 
   scenario "User can't sign up without entering email address" do

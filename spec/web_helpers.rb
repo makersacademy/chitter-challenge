@@ -2,7 +2,7 @@ def create_peep
   visit '/peeps/new'
   fill_in 'name', with: 'Jack'
   fill_in 'message', with: 'Another peep!'
-  click_button 'Send peep!'
+  click_button 'Submit'
 end
 
 def sign_up(name:'Christopher Robin', user_name: 'Chris', email: 'chris@mail.com', password: 'poohbear123', password_confirmation: 'poohbear123')
@@ -19,5 +19,5 @@ def log_in(email: 'mail@mail.com', password: 'password')
   visit '/sessions/new'
   fill_in 'email', with: email
   fill_in 'password', with: password
-  click_button 'Log in'
+  click_button 'Submit'
 end

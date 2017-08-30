@@ -1,12 +1,15 @@
 <h1> Log in </h1>
 <form action='/sessions/new' method='POST'>
   <label for='email'>
-   Email:
-  <input type ='email' name='email' required value='<%= @email %>'/>
-  </label><div>
-  <label for='password'>
-   Password:
-  <input type ='password' name='password' />
-  </label><div>
-  <input type='submit' value='Log in' />
-</form>
+    <div class="form-group">
+      <p><b> Email: </b><p>
+        <input class='input' type ='email' name='email' required value='<%= @email %>'/>
+      </div>
+
+      <div class="form-group">
+        <p><b> Password: </b><p>
+          <input class='input' type ='password' name='password' />
+        </div>
+        
+        <button type="submit" class="btn btn-info" name="Log in">Submit</button>
+      </form>

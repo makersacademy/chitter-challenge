@@ -8,6 +8,7 @@ gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'rake'
 gem 'database_cleaner'
+gem 'dm-timestamps'
 
 group :test do
   gem 'cucumber'

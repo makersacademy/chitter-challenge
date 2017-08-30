@@ -1,0 +1,26 @@
+.navbar-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.peep {
+  background-color: #dfebf4;
+  border-radius: 3pt;
+  margin: 3pt;
+}
+
+.author {
+  background-color: #c5d9e7;
+  padding: 3pt;
+  border-radius: 3pt;
+  text-align: center;
+}
+
+.input {
+  width: 400px;
+}

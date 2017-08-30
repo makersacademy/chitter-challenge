@@ -1,11 +1,18 @@
-<h1> Peeps </h1>
-<ul id='peeps'>
-  <% @peeps.each do |peep| %>
-  <li>
-    <%= peep.name %><br>
-    <%= peep.message %><br><br>
-    <%= peep.created_at %><br>
-    <div></div>
-  </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center">Recent peeps:</h1>
+    <ul id='peeps'>
+      <% @peeps.each do |peep| %>
+      <div class="row">
+        <div class="col-md-6 col-centered">
+          <div class="peep">
+              <h4 class="author"><%= peep.name %></h4><br>
+              <p class="text-center"><%= peep.message %></p><br>
+              <p class="text-center">Peeped at: <%= peep.time %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

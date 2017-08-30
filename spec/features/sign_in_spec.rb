@@ -9,7 +9,7 @@ feature 'Signing in' do
 
   scenario 'User can sign in' do
     log_in(email: 'bart@mail.com', password: 'password123')
-    expect(page).to have_content "Welcome Bart"
+    expect(page).to have_content "Signed in as Bart"
   end
 
 end
