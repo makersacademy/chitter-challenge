@@ -1,0 +1,70 @@
+body {
+  background: url('/img/tonal_rainbow.png') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Quicksand:300', sans-serif;
+}
+
+h1 {
+  font-family: 'Quicksand:300', sans-serif;
+}
+
+h2 {
+  font-family: 'Quicksand:300', sans-serif;
+}
+
+h3 {
+  font-family: 'Quicksand:300', sans-serif;
+}
+
+.welcome {
+text-align: center;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-brand {
+  font-family: 'Fredoka One', cursive;
+}
+
+.body-elements {
+  padding-top: 70px;
+}
+
+.panel {
+font-family: 'Quicksand:300', sans-serif;
+color: black
+}
+
+.panel-heading {
+font-family: 'Quicksand:300', sans-serif;
+text-align: center;
+}
+
+.jumbotron {
+  background-image: url('/img/tonal_rainbow.png');
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-family: 'Fredoka One', cursive;
+}
+
+.centerme {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.peep-body {
+  text-align: left;
+}
+
+.peep-details {
+  text-align: right;
+}

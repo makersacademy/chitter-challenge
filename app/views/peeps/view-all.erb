@@ -1,0 +1,40 @@
+<div class="body-elements">
+
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-1 sidenav">
+      </div>
+
+      <div class="col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <% if @user %>
+            <% if @user.id %>
+              <form action="/peeps" method="post">
+                <div class="input-group">
+                <textarea class="form-control" rows="3" name='message' maxlength="160" placeholder="What's happening?" required></textarea>
+                <span class="input-group-addon"><button type='submit' formaction="/peeps" formmethod="post" class="btn btn-primary" name="post">Post</button></span>
+                </div>
+              </form>
+              </div>
+            <% end %>
+            <% else %>
+              <div class="panel-heading">Sign in to post a peep</div>
+          <% end %>
+            <div class="panel-body">
+                <% @peeps.reverse.each do |peep| %>
+                <%= peep.message %></br>
+              <p class="peep-details">
+                @<%= User.get(peep.user_id).username %>
+                <%= peep.created_at.strftime("%H:%M") %> <%= peep.created_at.strftime("%g %h") %></p>
+              <hr>
+              <% end %>
+            </div>
+            </div>
+      </div>
+
+      <div class="col-sm-1 sidenav">
+      </div>
+    </div>
+  </div>
+</div>

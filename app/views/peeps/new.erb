@@ -1,0 +1,37 @@
+<div class="body-elements">
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-1 sidenav">
+      </div>
+
+
+    <% if @user %>
+      <% if @user.id %>
+      <div class="col-sm-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Post a peep <span class="glyphicon glyphicon-pencil"></span></h3>
+          </div>
+          <div class="panel-body">
+            <form action="/peeps" method="post">
+              <div class="input-group">
+                <textarea class="form-control" rows="3" name='message' maxlength="160" placeholder="Enter message here" required></textarea>
+                <span class="input-group-addon"><button type='submit' formaction="/peeps" formmethod="post" class="btn btn-primary" name="post">Post</button></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="panel panel-danger">
+        <div class="panel-heading">Sorry</div>
+        <div class="panel-body">You need to be signed in to post a peep</div>
+      </div>
+    <% end %>
+
+      <div class="col-sm-1 sidenav">
+      </div>
+    </div>
+  </div>
+</div>
