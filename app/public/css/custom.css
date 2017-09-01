@@ -1,7 +1,11 @@
 body {
-  background-image: url('/img/tonal_rainbow.png');
-  background-color: #e6fff3;
+  background-image: #e6fff3 url('/img/tonal_rainbow.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-position: center;
   font-family: 'Quicksand:300', sans-serif;
 }
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="<%= url("/css/bootstrap.min.css")%>" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="<%= url("/css/custom.css")%>" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300|Fredoka+One" rel="stylesheet">
   <title>Chitter</title>
@@ -38,31 +38,29 @@
             <a href="/"><span class="glyphicon glyphicon-home" aria-label="Home"></span><span class="sr-only">(current)</span> Home</a></li>
             <li role="presentation"><a href="/peeps/view-all"><span class="glyphicon glyphicon-th-list" aria-label="View"></span> Peeps</a></li>
             <% if @user %>
-            <% if @user.id %>
-            <li role="presentation"><a href="/peeps/new"><span class="glyphicon glyphicon-edit" aria-label="Post"></span> Post</a></li>
-            <% end %>
+              <% if @user.id %>
+              <li role="presentation"><a href="/peeps/new"><span class="glyphicon glyphicon-edit" aria-label="Post"></span> Post</a></li>
+              <% end %>
             <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <% if @user %>
         <% if @user.id %>
-          <li role=presentation><a href="#">Welcome @<%= @user.name %></a></li>
+          <li role=presentation><a href="#">Welcome @<%= @user.username %></a></li>
           <li role="presentation"><a href="/sessions/end"><span class="glyphicon glyphicon-log-out"aria-label="Log out"></span> Log out</a></li>
         <% end %>
         <% else %>
           <li role="presentation"><a href="/users/new"><span class="glyphicon glyphicon-heart-empty" aria-label="Register"></span> Register</a></li>
           <li role="presentation"><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"aria-label="Log in"></span> Log in</a></li>
+          </ul>
         <% end %>
-        </ul>
-
       </div>
     </div>
   </nav>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
   <%= yield %>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
