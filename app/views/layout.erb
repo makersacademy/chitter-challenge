@@ -8,37 +8,35 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type='text/css' href="/master.css">
     <title>chitter</title>
-    <div class='container'>
-      <div class="page-header jumbotron text-center">
-        <a href='/peeps'>
-          <h1> chitter </h1>
-        </a>
-        <% if current_user %>
-        <h3>welcome <%= current_user.username %></h3>
-        <br>
-        <div class="row">
-          <form method='post' action='/sessions'>
-            <input type='hidden' name='_method' value='delete'>
-            <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
-          </form>
+      <div class="jumbotron text-center">
+          <a class='' href='/peeps'>
+            <h1>chitter</h1>
+          </a><br>
+          <% if current_user %>
+          <h3>welcome <%= current_user.username %></h3>
           <br>
-          <form method='get' action='/peeps/new'>
-            <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
-          </form>
-        </div>
-        <br><br>
-        <% if flash[:notice] %>
-          <div id='notice'>
-            <%= flash[:notice] %>
+          <div class="row">
+            <form method='post' action='/sessions'>
+              <input type='hidden' name='_method' value='delete'>
+              <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
+            </form>
+            <br>
+            <form method='get' action='/peeps/new'>
+              <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+            </form>
           </div>
-        <% end %>
-        <% else %>
-          <form method='get' action='/sessions/new'>
-            <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
-          </form>
-        <% end %>
+          <br><br>
+          <% if flash[:notice] %>
+            <div id='notice'>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <% else %>
+            <form method='get' action='/sessions/new'>
+              <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+            </form>
+          <% end %>
         </div>
-      </div>
 
       <div class='container'>
         <div class="col-sm-10 text-left">
