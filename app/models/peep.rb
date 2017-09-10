@@ -3,7 +3,7 @@ class Peep
   include DataMapper::Resource
 
   property :id,           Serial
-  property :message,      String, required: true
+  property :message,      Text, required: true
   property :time_stamp,   String
 
   validates_presence_of :message

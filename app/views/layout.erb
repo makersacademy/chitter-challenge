@@ -11,21 +11,19 @@
       <div class="jumbotron text-center">
           <a class='' href='/peeps'>
             <h1>chitter</h1>
-          </a><br>
+          </a>
           <% if current_user %>
-          <h3>welcome <%= current_user.username %></h3>
-          <br>
-          <div class="row">
+          <h6>welcome <%= current_user.username %></h6>
+          <div class="d-flex flex-column justify-content-center">
+            <form method='get' action='/peeps/new'>
+              <input class='btn btn-primary btn-md' type='submit' value='Peep!'>
+            </form>
             <form method='post' action='/sessions'>
               <input type='hidden' name='_method' value='delete'>
-              <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
-            </form>
-            <br>
-            <form method='get' action='/peeps/new'>
-              <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+              <input class='btn btn-danger btn-sm mt-1' type='submit' value='Log out'>
             </form>
           </div>
-          <br><br>
+          <br>
           <% if flash[:notice] %>
             <div id='notice'>
               <%= flash[:notice] %>
@@ -33,7 +31,7 @@
           <% end %>
           <% else %>
             <form method='get' action='/sessions/new'>
-              <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+              <input class='btn btn-primary btn-md' type='submit' value='Peep!'>
             </form>
           <% end %>
         </div>
@@ -56,7 +54,6 @@
         </div>
   </head>
 
-  <br><br>
   <body>
     <div class="container">
       <%= yield %>

@@ -1,7 +1,7 @@
 <div class='row justify-content-center'>
-  <div class='text-center'>
+  <div class='text-center col-md-8'>
     <h2> latest peeps </h2><br>
-      <ul class='blockquote-reverse' id='peeps'>
+      <ul class='col-auto'>
         <% @peeps.each do |peep| %>
           <li>
             <p class="lead bg-info"><%= peep.message %></p>
