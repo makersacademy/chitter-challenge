@@ -24,12 +24,14 @@ Navigate to http://localhost:9292/ in your browser
 
 or
 
-```visit lets-chitter.herokuapp.com
+```
+visit lets-chitter.herokuapp.com
 ```
 
 To run tests:
 
-```$ rspec
+```
+$ rspec
 ```
 
 
