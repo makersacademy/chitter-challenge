@@ -4,63 +4,67 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type='text/css' href="/master.css">
     <title>chitter</title>
-
-    <div class="jumbotron text-center">
-      <a href='/peeps' class="disabled">
-        <h1> chitter </h1>
-      </a>
-
-      <% if current_user %>
-      <h3>welcome <%= current_user.username %></h3>
-      <br>
-      <div class="row">
-        <form method='post' action='/sessions'>
-          <input type='hidden' name='_method' value='delete'>
-          <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
-        </form>
+    <div class='container'>
+      <div class="page-header jumbotron text-center">
+        <a href='/peeps'>
+          <h1> chitter </h1>
+        </a>
+        <% if current_user %>
+        <h3>welcome <%= current_user.username %></h3>
         <br>
-        <form method='get' action='/peeps/new'>
-          <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
-        </form>
-      </div>
-      <br><br>
-      <% if flash[:notice] %>
-        <div id='notice'>
-          <%= flash[:notice] %>
+        <div class="row">
+          <form method='post' action='/sessions'>
+            <input type='hidden' name='_method' value='delete'>
+            <input class='btn btn-danger btn-lg' type='submit' value='Log out'>
+          </form>
+          <br>
+          <form method='get' action='/peeps/new'>
+            <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+          </form>
         </div>
-      <% end %>
-      <% else %>
-        <form method='get' action='/sessions/new'>
-          <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
-        </form>
-      <% end %>
+        <br><br>
+        <% if flash[:notice] %>
+          <div id='notice'>
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% else %>
+          <form method='get' action='/sessions/new'>
+            <input class='btn btn-primary btn-lg' type='submit' value='Peep!'>
+          </form>
+        <% end %>
+        </div>
       </div>
 
-      <div class="col-sm-10 text-left">
-        <% if flash[:notice] %>
-        <br>
-        <div id='notice'><%= flash[:notice] %></div>
-        <% end %>
-        <% if flash[:errors] && !flash[:errors].empty? %>
-          Uh oh!
-        <ul id='errors'>
-          <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
+      <div class='container'>
+        <div class="col-sm-10 text-left">
+          <% if flash[:notice] %>
+          <br>
+          <div id='notice'><%= flash[:notice] %></div>
           <% end %>
-        </ul>
-        <% end %>
+          <% if flash[:errors] && !flash[:errors].empty? %>
+            Uh oh!
+          <ul id='errors'>
+            <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+          </ul>
+          <% end %>
+          </div>
         </div>
   </head>
 
   <br><br>
   <body>
-    <div class="text-center">
+    <div class="container">
       <%= yield %>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     </div>
   </body>
 </html>
