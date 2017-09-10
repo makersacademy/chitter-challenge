@@ -1,0 +1,22 @@
+<ul id='peeps'>
+  <% @peeps.reverse.each do |peep|  %>
+  <% @user = peep.user %>
+    Content: <%= peep.content %><br>
+    Time: <%= peep.created_at.strftime("%H:%M %d %B %Y") %><br>
+    User: <%= @user.username %><br><br>
+      </li>
+  <% end %>
+</ul>
+
+<%if current_user%>
+  <form action='/peeps/new' method='get'>
+    Click here to make a peep: <input type='submit' value='Peep!'>
+  </form>
+<%else%>
+  <form action='/users/new' method='get'>
+    New to Chitter? Sign up here: <input type='submit' value='Sign up'>
+  </form>
+  <form action='/sessions/new' method='get'>
+    Have an account? Sign in to peep: <input type='submit' value='Sign in'>
+  </form>
+<%end%>

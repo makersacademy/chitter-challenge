@@ -1,0 +1,20 @@
+<h1>Please sign up</h1>
+
+<form action='/users' method='post'>
+  <label for='email'>
+    Email: <input name='email' type='text' required pattern = "[^@\s]+@[^@\s]+\.[^@\s]+">
+  </label>
+  <label for='name'>
+    Name: <input name='name' type='text'>
+  </label>
+  <label for='username'>
+    Username: <input name='username' type='text'>
+  </label>
+  <label for='password'>
+    Password: <input name='password' type='password' required>
+  </label>
+  <label for='password'>
+    Confirm Password: <input name='password_confirmation' type='password' required>
+  </label>
+  <input type='submit' value='Sign up'>
+</form>
