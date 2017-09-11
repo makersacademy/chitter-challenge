@@ -1,7 +1,7 @@
 Chitter Challenge
 =================
 
-A twitter-like web app made in (just over) one weekend in Ruby, Sinatra and Bootstrap to satisfy the following user stories:
+A twitter-like web app made in (just over) one weekend in Ruby, Sinatra and Bootstrap, using a postgres database to satisfy the following user stories:
 
 Features:
 -------
