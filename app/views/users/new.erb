@@ -1,0 +1,27 @@
+<div class='container d-flex flex-column align-items-center'>
+  <h1> sign up </h1><br>
+    <form class="form-column text-center" action='/users' method='POST'>
+      <div class="form-group text-left">
+        <label for='name'>Name:</label>
+        <input type='text' class="form-control" name ='name' value='<%= @user.name %>' placeholder="your name" required>
+      </div>
+      <div class="form-group text-left">
+        <label for='username'>Username: </label>
+        <input type='text' class="form-control" name ='username' value='<%= @user.username %>' placeholder="user_name"required>
+      </div>
+      <div class="form-group text-left">
+        <label for='email'>Email:</label>
+        <input type='text' class="form-control" name ='email' value='<%= @user.email %>' placeholder="name@email.com" required>
+      </div>
+      <div class="form-group text-left">
+        <label for='password'>Password:</label>
+        <input type='text' class="form-control" name ='password' placeholder="password" required>
+      </div>
+      <div class="form-group text-left">
+        <label for='password_confirmation'>Confirm Password:</label>
+        <input type='text' class="form-control" name ='password_confirmation' placeholder="confirm password" required>
+      </div>
+      <input class="btn btn-primary" type='submit' value='Sign Up!'>
+    </form>
+    <br><br>
+</div>

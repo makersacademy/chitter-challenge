@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h2 class='mb-4'> log in </h2>
+</div>
+<form class="form-horizontal text-center" action='/sessions' method='post'>
+  <div class="form-group">
+    <label for='email' class="control-label">Email:</label>
+    <div class="">
+        <input name='email' type='email' required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for='password' class="control-label">Password:</label>
+    <div class="">
+      <input name='password' type='password' required>
+    </div>
+  </div>
+  <input class="btn btn-primary mb-2" type='submit' value='Log in'>
+  <br>
+  <a href='/users/new'>or sign up</a>
+</form>
+<br>

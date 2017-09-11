@@ -1,0 +1,22 @@
+<div class='row justify-content-center'>
+  <div class='text-center col-md-8'>
+    <h2> latest peeps </h2><br>
+      <ul class='col-auto'>
+        <% @peeps.each do |peep| %>
+          <li>
+            <p class="lead bg-info"><%= peep.message %></p>
+            <br><br>
+            <div class=row>
+              <div class='col-auto ml-auto'>
+                <%= peep.user.username %> (<i><%= peep.user.name %></i>)
+                <br>
+                <%= peep.time_stamp %>
+              </div>
+            </div>
+          </li>
+          <br><br>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
