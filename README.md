@@ -35,4 +35,4 @@ I want to log out of Chitter
 Instructions:
 ------
 
-Click [here](www.chitter-challenge-pwm.herokuapp.com/peeps) to view in your browser.
+Click [here](https://chitter-challenge-pwm.herokuapp.com/peeps) to view in your browser.
