@@ -16,6 +16,8 @@ class Chitter < Sinatra::Base
     end
   end
 
+  # how can we set a specific index in sinatra?
+
   get '/' do
     @peeps = Peep.all(:order => [:created_at.desc])
     erb :index
@@ -27,7 +29,14 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep' do
-    Peep.create(message: params[:peep], user_id: current_user.id)
+
+    peep = Peep.new(message: params[:peep], user_id: current_user.id)
+    if peep.valid?
+      flash  something
+      peep.save
+    else
+      flash a notice
+    end
     redirect to '/peeps'
   end
 
@@ -41,7 +50,8 @@ class Chitter < Sinatra::Base
                       email: params[:email],
                       password: params[:password],
                       password_confirmation: params[:password_confirmation])
-    if @user.save
+    if @user.valid?
+      user.save
       session[:current_user_id] = @user.id
       redirect to '/peeps'
     else

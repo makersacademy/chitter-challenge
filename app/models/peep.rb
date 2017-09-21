@@ -9,4 +9,6 @@ class Peep
   property :user_id, Integer
 
   belongs_to :user, required: true
+
+  validates_presence_of :message
 end

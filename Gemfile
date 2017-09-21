@@ -6,12 +6,13 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'rake'
+
 
 group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
-  gem 'rake'
   gem 'rspec'
   gem 'rubocop'
   gem 'simplecov', require: false
