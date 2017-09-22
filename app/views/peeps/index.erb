@@ -14,13 +14,18 @@
 </ul>
 
 <% if current_user %>
-<form action='/peeps/new' method='get'>
-  <input type='submit' value='Add peep'/>
-</form>
-<form action='/sessions' method='post'>
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' value='Log out'/>
-</form>
+  <form action='/peeps/new' method='get'>
+    <input type='submit' value='Add peep'/>
+  </form>
+  <form action='/sessions' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log out'/>
+  </form>
+<% else %>
+  <a href='/sessions/new'>Log In</a>
+  <br>
+  Don't have an account?
+  <a href='/sign_up'>Sign Up</a>
 <% end %>
 
 <form action='/filter_by_tag' method='get'>
