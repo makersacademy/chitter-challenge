@@ -2,9 +2,13 @@
 This web application allows users to post 'peeps' to a public stream.
 ### Features
 -Once signed up, users can log in with the correct username and password.
+
 -Any logged in user can post a peep.
+
 -The peep will appear on the peep page with the time and the user that posted it.
+
 -Users can tag peeps with subjects when they post them.
+
 -Users can view all peeps in chronological order or filter by tag.
 
 How to Install
