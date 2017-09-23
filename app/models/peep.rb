@@ -8,6 +8,6 @@ class Peep
   property :message,  String
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
