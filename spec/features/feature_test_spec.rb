@@ -64,7 +64,39 @@ feature 'I can sign up for Chitter' do
 
   scenario 'requires a matching confirmation password' do
     expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content 'Password does not match the confirmation'
   end
+
+  scenario "I can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario "I can't sign up with an invalid email address" do
+    expect { sign_up(email: "invalid@email") }.not_to change(User, :count)
+  end
+
+  scenario 'I can\'t sign up with an existing email' do
+    sign_up
+    expect { sign_up }.to_not change(User, :count)
+    expect(page).to have_content('Email is already taken')
+  end
+
+end
+
+feature 'A user can sign in on Chitter' do
+  let!(:user) do
+    User.create(email:                 'james@example.com',
+                name:                  'James',
+                password:              'password!',
+                password_confirmation: 'password!')
+  end
+
+  scenario 'with correct credentials' do
+    sign_in(email: user.email,   password: user.password)
+    expect(page).to have_content "Welcome #{user.name}"
+  end
+
 end
 
 
@@ -78,4 +110,11 @@ def sign_up(email: 'james@example.com',
    fill_in :password, with: password
    fill_in :password_confirmation, with: password_confirmation
    click_button 'Create account'
+end
+
+def sign_in(email:, password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
 end

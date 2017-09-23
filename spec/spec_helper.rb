@@ -6,6 +6,7 @@ require './app/data_mapper_setup'
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+require 'sinatra/flash'
 
 Capybara.app = Chitter
 

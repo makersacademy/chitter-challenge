@@ -1,16 +1,25 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
+
 require_relative 'data_mapper_setup'
 
+
 class Chitter < Sinatra::Base
+
+  register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'super secret'
 
+  # => Root
+
   get '/' do
-    redirect '/peeps'
+    redirect '/sessions/new'
   end
+
+  # => Peeps
 
   get '/peeps' do
     @peeps = Peep.all
@@ -26,18 +35,45 @@ class Chitter < Sinatra::Base
     redirect '/peeps'
   end
 
+  # =>  Users
+
   get '/users/new' do
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-    user = User.create(name: params[:name],
+    @user = User.create(name: params[:name],
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/peeps')
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'users/new'
+    end
   end
+
+  # =>  Sessions
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
+    end
+  end
+
+  # =>  Helpers
 
   helpers do
     def current_user

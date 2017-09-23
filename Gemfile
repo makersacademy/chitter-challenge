@@ -5,6 +5,7 @@ ruby '2.4.0'
   gem 'dm-postgres-adapter'
   gem 'sinatra'
   gem 'pg'
+  gem 'sinatra-flash'
 
 group :test do
   gem 'database_cleaner'
