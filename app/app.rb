@@ -7,7 +7,7 @@ require_relative 'data_mapper_setup'
 
 
 class Chitter < Sinatra::Base
-
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -71,6 +71,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You have been logged out'
+    redirect to '/peeps'
   end
 
   # =>  Helpers
