@@ -6,6 +6,8 @@ Approach
 
 - Not enough stubbing
 
+- Username sent to index, but would like it to be a monad, where the Post form assigns it, but that doesn't seem to do anything
+
 
 Chitter Challenge
 =================
