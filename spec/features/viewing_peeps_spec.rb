@@ -1,7 +1,7 @@
 feature 'Viewing peeps' do
 
   scenario 'I can see existing peeps on the peeps page' do
-    Peep.create(title: 'Test Title', text: 'Test text')
+    Peep.create(title: 'Test Title', message: 'Test message')
     visit '/peeps'
     expect(page.status_code).to eq 200
 

@@ -8,7 +8,7 @@ class Peep
   # these property declarations set the column headers in the 'peeps' table
   property :id,     Serial # Serial means that it will be auto-incremented for every record
   property :title,  String
-  property :text,    String
+  property :message,    String
 
   # Now let's set up a connection with a database
   DataMapper.setup(:default, "postgres://localhost/chitter_challenge_test")
