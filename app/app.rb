@@ -6,15 +6,14 @@ require_relative 'models/name_getter'
 # require 'sinatra/flash'
 
 class ChitterClone < Sinatra::Base
-  # enable :sessions
+  enable :sessions
   # set :session_secret, 'super secret'
   # register Sinatra::Flash
 
-  name_getter = NameGetter.new
 
   get '/peeps' do
     @peeps ||= Peep.all.reverse
-    @current_user = User.last.real_name if User.last != nil
+    @current_user = User.last.real_name if session[:new_user] == 'new_user'
     @current_user ||= 'Stranger'
     erb :'peeps/index'
   end
@@ -34,8 +33,8 @@ class ChitterClone < Sinatra::Base
                 username: params[:username],
                 email_address: params[:email_address],
                 password: params[:password])
-
     user.save #what does this line do?
+    session[:new_user] = 'new_user'
     redirect to('/peeps')
   end
 
