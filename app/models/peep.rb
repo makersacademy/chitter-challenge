@@ -7,7 +7,7 @@ class Peep
   property :id,     Serial
   property :message,  String
 
-  DataMapper.setup(:default, "postgres://localhost/chitter_test")
+  DataMapper.setup(:default, "postgres://localhost/chitter_#{ENV['RACK_ENV']}")
   DataMapper.finalize
   DataMapper.auto_upgrade!
 

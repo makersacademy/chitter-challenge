@@ -30,6 +30,6 @@ feature 'Can view all peeps in reverse chronological order' do
       Peep.create(message: 'Hello world!')
       Peep.create(message: 'Just chillin with the bae')
       visit '/peeps'
-      expect(page).to have_content 'Just chillin with the bae Hello World'
+      expect(page).to have_content 'Peep: Just chillin with the bae Peep: Hello world!'
     end
   end
