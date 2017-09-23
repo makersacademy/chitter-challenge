@@ -8,4 +8,12 @@ class Blabber < Sinatra::Base
     erb(:'posts/index')
   end
 
+  get '/posts/new' do
+    erb(:'posts/new')
+  end
+
+  post '/posts' do
+    Post.create(body: params[:body])
+    redirect '/posts'
+  end
 end

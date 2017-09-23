@@ -152,6 +152,7 @@ DEPENDENCIES
   cucumber
   data_mapper
   dm-postgres-adapter
+  dm-timestamps
   rake
   rspec
   rubocop
