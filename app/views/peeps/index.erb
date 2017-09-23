@@ -5,6 +5,7 @@
 <ul id='peeps'>
   <% @peeps.reverse.each do |peep| %>
       <p>Message: <%= peep.message %></p>
+      <p>Tags: <%= peep.tags.map(&:name).join(", ") %></p>
       <p><span> Posted <%= peep_length_of_time(peep.created_at) %> ago </span</p>
       <br>
       <br>
