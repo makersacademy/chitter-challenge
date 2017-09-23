@@ -6,10 +6,13 @@ def create_peep
   click_button 'submit'
 end
 
-def sign_up
+def sign_up(email: 'hungryhippo@gmail.com',
+            password: 'password',
+            password_confirmation: 'password')
   visit('/users/new')
   expect(page.status_code).to eq(200)
-  fill_in :email, with: 'ben@sunderland.eu.com'
-  fill_in :password, with: 'password'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end
