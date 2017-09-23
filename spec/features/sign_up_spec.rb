@@ -10,7 +10,7 @@ feature 'When visiting the signup page' do
     expect(User.first.email_address).to eq('HarryBCDresden@aol.com')
     expect(User.first.real_name).to include('Harry Blackstone Copperfield Dresden')
     expect(User.first.username).to include ('Hoss')
-    expect(page).to have_content("Hey Harry, let's peep together!")
+    expect(page).to have_content("Hey Harry Blackstone Copperfield Dresden, let's peep together!")
 
   end
 

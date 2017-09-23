@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
 require_relative 'database_setup'
+require_relative 'models/name_getter'
 # require 'sinatra/flash'
 
 class ChitterClone < Sinatra::Base
@@ -9,8 +10,12 @@ class ChitterClone < Sinatra::Base
   # set :session_secret, 'super secret'
   # register Sinatra::Flash
 
+  name_getter = NameGetter.new
+
   get '/peeps' do
     @peeps ||= Peep.all.reverse
+    @current_user = User.last.real_name if User.last != nil
+    @current_user ||= 'Stranger'
     erb :'peeps/index'
   end
 
@@ -30,7 +35,7 @@ class ChitterClone < Sinatra::Base
                 email_address: params[:email_address],
                 password: params[:password])
 
-    user.save
+    user.save #what does this line do?
     redirect to('/peeps')
   end
 

@@ -7,4 +7,5 @@ class User
   property(:email_address, String)
   property(:password, Text)
 
+
 end
