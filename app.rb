@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'sinatra/base'
@@ -18,7 +20,7 @@ class Chitter < Sinatra::Base
 
   get '/view' do
     @peeps = Peep.get(1)
-    p @peeps.peep
+    # p @peeps.peep
     erb(:view)
   end
 
