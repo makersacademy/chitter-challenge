@@ -1,0 +1,6 @@
+<div id='peepfeed'>
+  <% @peeps.each do |peep| %>
+    <p> <%= peep.body %> </p><br>
+    <p> <%= peep.created_at %>
+  <% end %>
+</div>
