@@ -1,4 +1,7 @@
+require 'data_mapper'
 require 'sinatra/base'
+require_relative './models/peep.rb'
+
 
 class Chitter < Sinatra::Base
 

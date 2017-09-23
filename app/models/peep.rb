@@ -11,6 +11,6 @@ class Peep
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/chitter")
+DataMapper.setup(:default, "postgres://localhost/chitter1")
 DataMapper.finalize
 DataMapper.auto_upgrade!
