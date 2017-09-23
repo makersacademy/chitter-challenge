@@ -9,10 +9,13 @@ class User
   property(:id, Serial)
   property(:real_name, String)
   property(:username, String)
-  property(:email_address, String)
+  property(:email_address, String, required: true)
   property(:password_digest, Text)
 
+  validates_format_of :email_address, as: :email_address
+
   validates_confirmation_of :password
+
 
   def password=(password)
     @password = password

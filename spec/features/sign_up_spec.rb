@@ -20,4 +20,12 @@ feature 'When visiting the signup page' do
     expect(User.first.username).to include 'Hoss'
     expect(page).to have_content("Hey Harry Blackstone Copperfield Dresden, let's peep together!")
   end
+
+  scenario "I can't sign up without an email address" do
+    expect { sign_up(email: nil) }.not_to change(User, :count)
+  end
+
+  scenario "I can't sign up with an invalid email address" do
+    expect { sign_up(email: 'baaaad@blob') }.not_to change(User, :count)
+  end
 end

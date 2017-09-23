@@ -27,7 +27,7 @@ class ChitterClone < Sinatra::Base
   get '/signup_to_peep' do
     @user_email = session[:email_address]
     @user_real_name = session[:real_name]
-    flash.now[:notice] = 'Password and confirmation password do not match' if session[:mismatch_password] == 'true'
+    flash.now[:notice] = 'Password and confirmation password do not match' if session[:mismatch_password] == 'true' 
     erb :'sign_up/signup_to_peep'
   end
 
