@@ -1,0 +1,11 @@
+<h1>Welcome to Chitter</h1>
+
+<h2> Peeps </h2>
+
+<ul id='peeps'>
+  <% @peeps.each do |peep| %>
+    <li>
+      Message: <%= peep.message %>
+    </li>
+  <% end %>
+</ul>
