@@ -14,6 +14,9 @@ class ChitterClone < Sinatra::Base
     @peeps ||= Peep.all.reverse
     @current_user = session[:current_user]
     @current_user ||= 'Stranger'
+    @welcome = 'Welcome back' if session[:welcome_back] == 'true'
+    @welcome ||= 'Welcome to the peepline, '
+    session[:welcome_back] = 'false'
     # refactor above three lines to two separate helpers
     erb :'peeps/index'
   end
@@ -27,7 +30,7 @@ class ChitterClone < Sinatra::Base
   get '/signup_to_peep' do
     @user_email = session[:email_address]
     @user_real_name = session[:real_name]
-    flash.now[:notice] = 'Password and confirmation password do not match' if session[:mismatch_password] == 'true' 
+    flash.now[:notice] = 'Password and confirmation password do not match' if session[:mismatch_password] == 'true'
     erb :'sign_up/signup_to_peep'
   end
 
@@ -45,6 +48,23 @@ class ChitterClone < Sinatra::Base
       session[:email_address] = params[:email_address]
       session[:real_name] = params[:real_name]
       redirect to('/signup_to_peep')
+    end
+  end
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+  user = User.authenticate(params[:email_address], params[:password])
+    if user
+      session[:user_id] = user.id
+      session[:current_user] = user.real_name
+      session[:welcome_back] = 'true'
+      redirect to('/peeps')
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'sessions/new'
     end
   end
 

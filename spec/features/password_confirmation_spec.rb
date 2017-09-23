@@ -1,4 +1,3 @@
-require_relative 'web_helper'
 
 feature 'When visiting the signup page' do
   scenario 'I can  see a signup form, enters the wrong password and no user is created' do

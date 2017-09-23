@@ -1,4 +1,3 @@
-require_relative 'web_helper'
 
 feature 'When visiting the signup page' do
   scenario 'Not signed up, get called stranger' do
@@ -7,7 +6,7 @@ feature 'When visiting the signup page' do
     # I want to see all peeps in reverse chronological order
     default_peepline
     visit '/peeps'
-    expect(page).to have_content('Hey Stranger')
+    expect(page).to have_content('Welcome to the peepline, Stranger')
   end
 
   scenario 'I can  see a signup form, enter an email and password and submits the form' do
@@ -18,7 +17,7 @@ feature 'When visiting the signup page' do
     expect(User.first.email_address).to eq('HarryBCDresden@aol.com')
     expect(User.first.real_name).to include('Harry Blackstone Copperfield Dresden')
     expect(User.first.username).to include 'Hoss'
-    expect(page).to have_content("Hey Harry Blackstone Copperfield Dresden, let's peep together!")
+    expect(page).to have_content("Welcome to the peepline, Harry Blackstone Copperfield Dresden, let's peep together!")
   end
 
   scenario "I can't sign up without an email address" do

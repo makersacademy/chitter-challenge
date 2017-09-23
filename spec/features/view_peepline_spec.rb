@@ -1,4 +1,4 @@
-require_relative 'web_helper'
+
 
 feature 'When reading the peepline' do
   let(:peep1) { 'And those who are first will be last' }
