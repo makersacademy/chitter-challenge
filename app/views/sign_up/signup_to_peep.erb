@@ -2,6 +2,11 @@
 
 <form action="/signup_new" method="post" >
 
+    <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+
 
   <h2>Please input your personal data insecurely below</h2>
 
@@ -12,7 +17,7 @@
     <input type="text" name="username" placeholder = "e.g. birdwatcher4life" style="width:200px" >
 
     <h3>Email address</h3>
-    <input type="text" name="email_address" placeholder = "e.g. birdperson@rnpb.com" style="width:200px" >
+    <input type="text" name="email_address" placeholder = "e.g. birdperson@rnpb.com" style="width:200px" value="<%#{@user_email}%>" >
 
 
     <h3>The same password you use everywhere else</h3>

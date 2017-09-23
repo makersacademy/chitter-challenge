@@ -7,15 +7,6 @@ feature 'When reading the peepline' do
   let(:test_time_return) {" (on 2017-09-22 at 09:00)"}
   let(:test_time_return_plus_1hr) {" (on 2017-09-22 at 10:00)"}
 
-  scenario 'Not logged in, get called stranger' do
-    # As a maker
-    # So that I can see what others are saying
-    # I want to see all peeps in reverse chronological order
-    default_peepline
-    visit '/peeps'
-    expect(page).to have_content('Hey Stranger')
-  end
-
   scenario 'I can see them in reverse chronological order' do
     # As a maker
     # So that I can see what others are saying
