@@ -20,5 +20,19 @@ class ChitterClone < Sinatra::Base
     redirect to('/peeps')
   end
 
+  get '/signup_to_peep' do
+    erb :'sign_up/signup_to_peep'
+  end
+
+  post '/signup_new' do
+    user = User.create(real_name: params[:real_name],
+                username: params[:username],
+                email_address: params[:email_address],
+                password: params[:password])
+
+    user.save
+    redirect to('/peeps')
+  end
+
   run! if app_file == $PROGRAM_NAME
 end

@@ -4,6 +4,7 @@ require 'dm-migrations'
 require 'pg'
 
 require_relative 'models/peep'
+require_relative 'models/user'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_database_#{ENV['RACK_ENV']}")
 
