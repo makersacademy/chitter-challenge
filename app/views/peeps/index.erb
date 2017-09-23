@@ -1,9 +1,64 @@
-<h1> Peeps </h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="a simple twitter clone">
+    <meta name="author" content="James Stubbs">
+    <title>Chitter</title>
 
-<ul id='peeps'>
-  <% @peeps.reverse.each do |peep| %>
-    <li>
-      Peep: <%= peep.message %> (<%= peep.created_at %>)
-    </li>
-  <% end %>
-</ul>
+    <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+            body              {
+                                padding-top: 5rem;
+                              }
+            .starter-template {
+                                padding: 3rem 1.5rem;
+                                text-align: center;
+                              }
+  </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Chitter</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://chitter-jstubbs.herokuapp.com/peeps">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://chitter-jstubbs.herokuapp.com/peeps/new">Post Peep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  <div class="container">
+
+    <h1> Peeps </h1>
+
+    <ul id='peeps'>
+      <% @peeps.reverse.each do |peep| %>
+      <li>
+        Peep: <%= peep.message %> (<%= peep.created_at %>)
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
