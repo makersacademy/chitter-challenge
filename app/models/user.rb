@@ -16,20 +16,17 @@ class User
 
   validates_confirmation_of :password
 
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.authenticate(email_address,password)
+  def self.authenticate(email_address, password)
     user = first(email_address: email_address)
 
     if user && BCrypt::Password.new(user.password_digest) == password
-    # return this user
-    user
-  else
-    nil
-  end
+      # return this user
+      user
+    end
   end
 end
