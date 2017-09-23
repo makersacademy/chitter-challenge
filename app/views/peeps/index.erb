@@ -17,7 +17,7 @@
   <ol id='peeps_list'>
     <% @peeps.each do |peep| %>
       <li>
-        Peep: <%= peep.body %>
+        Peep: <%= peep.body %> <%= peep.time_stamp %>
       </li>
     <% end %>
   </ol>

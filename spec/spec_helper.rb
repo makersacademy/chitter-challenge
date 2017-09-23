@@ -5,6 +5,7 @@ require 'simplecov'
 require 'simplecov-console'
 require 'database_cleaner'
 require 'orderly'
+require 'timecop'
 
 require File.join(File.dirname(__FILE__), '../app/', 'app.rb')
 Capybara.app = ChitterClone

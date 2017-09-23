@@ -4,6 +4,10 @@ class Peep
 
   property(:id, Serial)
   property(:body, String)
-  property(:time, Integer)
+  property(:created_at, DateTime)
+
+  def time_stamp
+    self.created_at.strftime("on %F at %H:%M")
+  end
 
 end

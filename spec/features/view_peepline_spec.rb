@@ -18,9 +18,12 @@ feature 'When reading the peepline' do
     # As a Maker
     # So that I can better appreciate the context of a peep
     # I want to see the time at which it was made
-    default_peepline
-    visit '/peeps'
-    expect(find_by_id('peeps_list')).to have_content("Monday 09:00: " + peep2)
+    new_time = Time.new(2017, 9, 22, 9, 0, 0)
+    Timecop.freeze(new_time) do
+      default_peepline
+      visit '/peeps'
+      expect(find_by_id('peeps_list')).to have_content(peep2 + " on 2017-09-22 at 09:00")
+    end
   end
 
 end
