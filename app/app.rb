@@ -13,7 +13,7 @@ class ChitterClone < Sinatra::Base
 
   get '/peeps' do
     @peeps ||= Peep.all.reverse
-    @current_user = User.last.real_name if session[:new_user] == 'new_user'
+    @current_user = session[:current_user] if session[:new_user] == 'new_user'
     @current_user ||= 'Stranger'
     erb :'peeps/index'
   end
@@ -35,6 +35,7 @@ class ChitterClone < Sinatra::Base
                 password: params[:password])
     user.save #what does this line do?
     session[:new_user] = 'new_user'
+    session[:current_user] = user.real_name
     redirect to('/peeps')
   end
 
