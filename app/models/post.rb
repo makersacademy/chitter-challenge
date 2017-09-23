@@ -11,7 +11,7 @@ class Post
 
 end
 
-DataMapper.setup(:default, "postgres://localhost/blabber_test")
+DataMapper.setup(:default, "postgres://localhost/blabber_#{ENV['RACK_ENV']}")
 
 DataMapper.finalize
 

@@ -1,9 +1,9 @@
-<h1> POSTS </h1>
+<h1> BLABS </h1>
 
 <ul id='posts'>
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
   <li>
-    Post: <%= post.body %>
+    Blab: <%= post.body %>
     Date: <%= post.created_at %>
   </li>
  <% end %>

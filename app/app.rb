@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
 require_relative 'models/post'
 
@@ -16,4 +18,6 @@ class Blabber < Sinatra::Base
     Post.create(body: params[:body])
     redirect '/posts'
   end
+
+    run! if app_file == $0
 end
