@@ -61,13 +61,21 @@ feature 'I can sign up for Chitter' do
     expect(page).to have_content('Welcome James')
     expect(User.first.email).to eq('james@example.com')
   end
+
+  scenario 'requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
 end
 
-def sign_up
-  visit '/users/new'
-  expect(page.status_code).to eq(200)
-  fill_in :email,    with: 'james@example.com'
-  fill_in :name,     with: 'James'
-  fill_in :password, with: 'password!'
-  click_button 'Create account'
+
+def sign_up(email: 'james@example.com',
+            name:  'James',
+            password: 'password!',
+            password_confirmation: 'password!')
+   visit '/users/new'
+   fill_in :email, with: email
+   fill_in :name,  with: name
+   fill_in :password, with: password
+   fill_in :password_confirmation, with: password_confirmation
+   click_button 'Create account'
 end
