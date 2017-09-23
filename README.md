@@ -4,6 +4,8 @@ Approach
 - In order to check the order of items, I originally used a trick specified in here: launchware.com/articles/acceptance-testing-asserting-sort-order to check the index of items within the page. The same people point out they built a Gem to do this, so I installed that after trying their approach, and used that to test order
     - However, I'd have preferred a way that let me count the numbers inputted by the ordered list, which capybara seems to drop when examining item order
 
+- Not enough stubbing
+
 
 Chitter Challenge
 =================
