@@ -10,7 +10,7 @@ class ChitterClone < Sinatra::Base
   # register Sinatra::Flash
 
   get '/peeps' do
-    @peeps = Peep.all
+    @peeps = Peep.all.reverse
     erb :'peeps/index'
   end
 
