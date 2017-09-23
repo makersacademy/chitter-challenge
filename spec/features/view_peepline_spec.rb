@@ -1,11 +1,10 @@
 require_relative 'web_helper'
 
 feature 'When reading the peepline' do
-
-  let(:peep1) { 'And those who are first will be last'}
-  let(:peep2) {'So those who are last now will be first'}
-  let(:test_time_return) {" (on 2017-09-22 at 09:00)"}
-  let(:test_time_return_plus_1hr) {" (on 2017-09-22 at 10:00)"}
+  let(:peep1) { 'And those who are first will be last' }
+  let(:peep2) { 'So those who are last now will be first' }
+  let(:test_time_return) { ' (on 2017-09-22 at 09:00)' }
+  let(:test_time_return_plus_1hr) { ' (on 2017-09-22 at 10:00)' }
 
   scenario 'I can see them in reverse chronological order' do
     # As a maker
@@ -34,14 +33,12 @@ feature 'When reading the peepline' do
     # I want to see the time at which it was made
     new_time = Time.new(2017, 9, 22, 9, 0, 0)
     Timecop.freeze(new_time)
-      default_peepline
-      visit '/peeps'
-      expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return)
-    Timecop.travel(new_time +3600)
-      default_peepline
-      visit '/peeps'
-      expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return_plus_1hr)
-
+    default_peepline
+    visit '/peeps'
+    expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return)
+    Timecop.travel(new_time + 3600)
+    default_peepline
+    visit '/peeps'
+    expect(find_by_id('peeps_list')).to have_content(peep2 + test_time_return_plus_1hr)
   end
-
 end

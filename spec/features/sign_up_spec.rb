@@ -1,7 +1,6 @@
 require_relative 'web_helper'
 
 feature 'When visiting the signup page' do
-
   scenario 'Not signed up, get called stranger' do
     # As a maker
     # So that I can see what others are saying
@@ -18,9 +17,7 @@ feature 'When visiting the signup page' do
     sign_up
     expect(User.first.email_address).to eq('HarryBCDresden@aol.com')
     expect(User.first.real_name).to include('Harry Blackstone Copperfield Dresden')
-    expect(User.first.username).to include ('Hoss')
+    expect(User.first.username).to include 'Hoss'
     expect(page).to have_content("Hey Harry Blackstone Copperfield Dresden, let's peep together!")
-
   end
-
 end

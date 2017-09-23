@@ -1,7 +1,6 @@
 require 'bcrypt'
 
 class User
-
   attr_reader :password
   attr_accessor :password_confirmation
 
@@ -19,6 +18,4 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-
-
 end
