@@ -7,6 +7,6 @@ feature 'When creating peeps' do
     visit '/peeps'
     fill_in :peep_body, with: "I'm creeping and I'm peeping"
     click_button 'Peep'
-    expect(page).to have_content("I'm creeping and I'm peeping")
+    expect(find_by_id('peeps_list')).to have_content("I'm creeping and I'm peeping")
   end
 end

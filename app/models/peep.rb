@@ -4,11 +4,6 @@ class Peep
 
   property(:id, Serial)
   property(:body, String)
-
-
-
-  def reverse_peep_order
-    Peeps.all.reverse
-  end
+  property(:time, Integer)
 
 end
