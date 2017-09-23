@@ -1,14 +1,14 @@
 require 'data_mapper'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
-require 'sinatra/flash'
 ENV["RACK_ENV"] ||= "development"
 
 class Chitter < Sinatra::Base
 
-  register Sinatra::Flash
   enable :sessions
+  register Sinatra::Flash
   set :session_secret, 'super secret'
 
   get '/' do
@@ -37,7 +37,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/peeps')
     else
-      flash.now[:notice] = "Password and confirmation password do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb(:'users/new')
     end
 
