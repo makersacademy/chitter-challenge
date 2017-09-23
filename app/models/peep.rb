@@ -8,6 +8,7 @@ class Peep
   property :id, Serial
   property :title, String
   property :text, String
+  property :created_at, DateTime
 
 end
 
