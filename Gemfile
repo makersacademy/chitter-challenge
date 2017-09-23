@@ -10,8 +10,10 @@ gem 'rake'
 gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'orderly'
 
 group :test do
+
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'
