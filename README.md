@@ -1,6 +1,13 @@
 Chitter Challenge
 =================
 
+This is a lightweight chat application where users can post messages onto a webpage. The functionality is
+as simple as possible at present with a form for posting messages and a page to display the timestamped messages.
+It's built using postgre to store the data, DataMapper for ORM functionality and Sinatra as the rack application.
+
+You can view the live demo on heroku at https://www.chitter-jstubbs.herokuapp.com.
+
+
 * Challenge time: rest of the day and weekend, until Monday 9am
 * Feel free to use google, your notes, books, etc. but work on your own
 * If you refer to the solution of another coach or student, please put a link to that in your README
