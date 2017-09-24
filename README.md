@@ -26,6 +26,18 @@ How to use
 - To create a peep:       https://chitterz.herokuapp.com/peeps/new
 - To filter peeps by tag: https://chitterz.herokuapp.com/tags/(tag_name)
 
+How to set up the application
+----
+```
+$ git clone https://github.com/diaryofdiscoveries/chitter-challenge.git
+$ bundle
+$ createdb chitterz_development
+$ rake db:auto_migrate
+$ rspec
+$ rackup
+
+```
+
 Tested using:
 ----
 - Capybara
