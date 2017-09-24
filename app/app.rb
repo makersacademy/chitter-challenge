@@ -13,10 +13,6 @@ class Blabber < Sinatra::Base
     erb(:'posts/index')
   end
 
-  # get '/posts/new' do
-  #   erb(:'posts/new')
-  # end
-
   post '/posts' do
     Post.create(body: params[:body])
     redirect '/posts'
@@ -27,7 +23,7 @@ class Blabber < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to '/posts'
   end

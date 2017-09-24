@@ -3,11 +3,18 @@
   <head>
     <title>BLABBER</title>
   </head>
+<style>
+h4{font-family: helvetica;
+  font-weight: bold;
+  color: white;}
+
+</style>
+
 
   <body>
     <% if current_user %>
 
-      WELCOME, <%= current_user.email %>
+    <h4><center>  welcome, <%= current_user.email %></center></h4>
 
     <% end %>
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
