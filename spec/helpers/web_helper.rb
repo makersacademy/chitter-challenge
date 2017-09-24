@@ -11,6 +11,7 @@ def sign_up(email: 'hungryhippo@gmail.com',
             password_confirmation: 'password')
   visit('/users/new')
   expect(page.status_code).to eq(200)
+  expect(page).to have_content("Please sign up to Chitter")
   fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation

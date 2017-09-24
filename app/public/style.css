@@ -1,0 +1,33 @@
+h1 {
+
+  color: black;
+}
+
+#user-form {
+
+  position: absolute;
+  top: 200px;
+  left: 250px;
+}
+
+#title {
+
+  position: absolute;
+  top: 100px;
+  right: 425px;
+
+}
+
+#log-in {
+
+  position: absolute;
+  top: 200px;
+  left: 350px;
+
+}
+
+#log-in-title {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+}

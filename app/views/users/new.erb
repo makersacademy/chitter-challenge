@@ -1,6 +1,12 @@
-<h1>Please sign up to Chitter</h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
 
-<form action="/users" method="post">
+<div id="title">
+  <h1>Please sign up to Chitter</h1>
+</div>
+<div id="user-form">
+ <form action="/users" method="post">
   <label for="email">
     Email: <input name="email" type="text" value='<%= @user.email %>'
   </label>
@@ -11,4 +17,5 @@
     Password: <input name="password_confirmation" type="password">
   </label>
   <input type="submit" value="Sign up">
-</form>
+ </form>
+</div>

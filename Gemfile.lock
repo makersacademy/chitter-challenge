@@ -141,6 +141,7 @@ GEM
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
+    sinatra-twitter-bootstrap (2.3.4)
     stringex (1.5.1)
     tilt (2.0.8)
     timecop (0.9.1)
@@ -167,6 +168,7 @@ DEPENDENCIES
   simplecov-console
   sinatra
   sinatra-flash
+  sinatra-twitter-bootstrap
   timecop
 
 RUBY VERSION

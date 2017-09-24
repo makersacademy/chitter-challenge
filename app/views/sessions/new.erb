@@ -1,6 +1,13 @@
-<h1>Please sign in</h1>
 
-<form action='/sessions' method='post'>
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<div id='log-in-title'>
+    <h1>Please sign in</h1>
+</div>
+<div id='log-in'>
+ <form action='/sessions' method='post'>
   <label for='email'>
     Email: <input name='email' type='email'>
   </label>
@@ -8,4 +15,5 @@
     Password: <input name='password' type='password'>
   </label>
   <input type='submit' value='Sign in'>
-</form>
+ </form>
+</div>

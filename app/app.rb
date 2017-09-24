@@ -3,16 +3,18 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './models/peep.rb'
 require_relative './models/user.rb'
+require 'sinatra/twitter-bootstrap'
 ENV['RACK_ENV'] ||= 'development'
 
 class Chitter < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  register Sinatra::Twitter::Bootstrap::Assets
   set :session_secret, 'super secret'
   use Rack::MethodOverride
 
   get '/' do
-    'You arrived at the homepage'
+    redirect to('/users/new')
   end
 
   get '/peeps' do

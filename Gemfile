@@ -17,5 +17,6 @@ gem 'simplecov-console', require: false
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'timecop'
+gem 'sinatra-twitter-bootstrap', :require => 'sinatra/twitter-bootstrap'
 
 # ruby --> datamapper --> adapter --> database
