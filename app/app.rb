@@ -10,6 +10,8 @@ class Chitter < Sinatra::Base
 
   register Sinatra::Flash
 
+  use Rack::MethodOverride
+
   get '/peeps' do
     @peeps = Peep.all
     erb :'peeps/index'
@@ -68,6 +70,12 @@ class Chitter < Sinatra::Base
       flash.now[:errors] = ['The user name or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye!'
+    redirect to '/peeps'
   end
 
 
