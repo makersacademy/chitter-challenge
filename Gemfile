@@ -7,6 +7,7 @@ gem 'sinatra-flash'
 gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'capybara'
 
 group :test do
   gem 'cucumber'
