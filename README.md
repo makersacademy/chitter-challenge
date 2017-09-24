@@ -35,7 +35,6 @@ $ createdb chitterz_development
 $ rake db:auto_migrate
 $ rspec
 $ rackup
-
 ```
 
 Tested using:
