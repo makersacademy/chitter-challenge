@@ -6,6 +6,7 @@ require 'capybara/rspec'
 require './app/models/peep'
 require './app/app'
 require 'database_cleaner'
+require_relative 'helpers/session'
 
 Capybara.app = Chitter
 
@@ -17,6 +18,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.include SessionHelpers
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
