@@ -1,7 +1,8 @@
 require 'data_mapper'
+require 'dm-timestamps'
 require 'dm-postgres-adapter'
 
-# require_relative 'models/tag'
+require_relative 'models/peep'
 # require_relative 'models/link'
 # require_relative 'models/user'
 
