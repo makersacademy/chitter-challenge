@@ -3,7 +3,8 @@
 Chitterz
 ========
 
-A little Twitter clone that will allow the users to post messages to a public stream
+A little Twitter clone that allows users to post messages to a public stream
+
 (Week 4 weekend project at Makers Academy)
 
 Sign up online at https://chitterz.herokuapp.com/users/new
