@@ -5,7 +5,7 @@
   </head>
 <style>
 h4{font-family: helvetica;
-  font-weight: bold;
+  font-weight: bolder;
   color: white;}
 
   #notice{font-family: helvetica;
@@ -13,9 +13,9 @@ h4{font-family: helvetica;
     color: red;
     position: absolute;
     margin-top: 400px;
-    z-index: 999;
+    z-index: 999;}
 
-  }
+span{color: green;}
 
 </style>
 
@@ -26,7 +26,8 @@ h4{font-family: helvetica;
 
     <% if current_user %>
 
-    <h4><center>  welcome, <%= current_user.email %></center></h4>
+    <!-- <h4><center>  welcome, <%= current_user.email %></center></h4> -->
+    <h4><center>  SIGNED IN AS: <span><%= current_user.name %></span></center></h4>
 
     <% end %>
 

@@ -42,16 +42,16 @@ div {           border: solid 1px black;
                 background-color: lightgrey;
                 text-align: center;}
 
-h2 {
-                font-family: helvetica;
+h2 {            font-family: helvetica;
                 font-weight: lighter;
                 color:       black;}
-#welcome{font-family: helvetica;
-font-weight: bold;
-color:       yellow;}
+
+#welcome{       font-family: helvetica;
+                font-weight: bold;
+                color:       yellow;}
 </style>
 
-<center><h2 id='welcome'>SIGN UP TO A NEW ACCOUNT BELOW!</h2></center>
+<center><h2 id='welcome'>SIGN UP AND START BLABBING!</h2></center>
 
 
 <img id="logo" src="https://www.shareicon.net/data/2016/07/19/798503_chat_512x512.png">
@@ -61,19 +61,24 @@ color:       yellow;}
 <body>
     <div id='newpost'>
     <center><h2> SIGN UP! </h2><form action='/users' method='post'>
+
       <label for='email'>
         EMAIL: <input name='email' type='text'>
       </label>
+
       <label for='name'>
         USERNAME: <input name='name' type='text'>
       </label>
+
       <label for='password'>
         PASSWORD: <input name='password' type='password'>
       </label>
+
       <label for='password_confirmation'>
         CONFIRM PASSWORD: <input name='password_confirmation' type='password'>
       </label>
+
       <input type='submit' value='SIGN UP'>
-    </form></center>
+      </form></center>
     </div>
 </body>
