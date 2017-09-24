@@ -1,0 +1,15 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<div class="container-fluid">
+ <ul id='peeps'>
+  <h1> Peeps </h1>
+  <% @peeps.reverse.each do |peep| %>
+   <li id="peepscontent">
+    Title: <%= peep.title %>
+    Text:  <%= peep.text %>
+    created_at: <%= peep.created_at.to_time %>
+  </li>
+  <% end %>
+ </ul>
+</div>
